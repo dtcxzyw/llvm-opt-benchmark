@@ -17932,12 +17932,12 @@ define noundef nonnull ptr @_ZN9uv_python14python_version13PythonVersion7markers
   %55 = load ptr, ptr %13, align 8, !alias.scope !5237, !noalias !5218, !nonnull !3, !noundef !3
   %56 = atomicrmw sub ptr %55, i64 1 release, align 8, !noalias !5238
   %57 = icmp eq i64 %56, 1
-  br i1 %57, label %58, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54"
+  br i1 %57, label %58, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47"
 
 58:                                               ; preds = %54
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h02af7400ae8250deE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
-          to label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54" unwind label %65, !noalias !5218
+          to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47" unwind label %65, !noalias !5218
 
 59:                                               ; preds = %61
   %60 = landingpad { ptr, i32 }
@@ -18043,12 +18043,12 @@ define noundef nonnull ptr @_ZN9uv_python14python_version13PythonVersion7markers
   %83 = load ptr, ptr %9, align 8, !alias.scope !5263, !noalias !5244, !nonnull !3, !noundef !3
   %84 = atomicrmw sub ptr %83, i64 1 release, align 8, !noalias !5264
   %85 = icmp eq i64 %84, 1
-  br i1 %85, label %86, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54"
+  br i1 %85, label %86, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47"
 
 86:                                               ; preds = %82
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h02af7400ae8250deE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54" unwind label %93, !noalias !5244
+          to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47" unwind label %93, !noalias !5244
 
 87:                                               ; preds = %89
   %88 = landingpad { ptr, i32 }
@@ -18155,12 +18155,12 @@ define noundef nonnull ptr @_ZN9uv_python14python_version13PythonVersion7markers
   %111 = load ptr, ptr %5, align 8, !alias.scope !5289, !noalias !5270, !nonnull !3, !noundef !3
   %112 = atomicrmw sub ptr %111, i64 1 release, align 8, !noalias !5290
   %113 = icmp eq i64 %112, 1
-  br i1 %113, label %114, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54"
+  br i1 %113, label %114, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47"
 
 114:                                              ; preds = %110
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h02af7400ae8250deE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54" unwind label %121, !noalias !5270
+          to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47" unwind label %121, !noalias !5270
 
 115:                                              ; preds = %117
   %116 = landingpad { ptr, i32 }
@@ -18219,7 +18219,7 @@ define noundef nonnull ptr @_ZN9uv_python14python_version13PythonVersion7markers
   %130 = getelementptr inbounds nuw i8, ptr %18, i64 9
   %131 = load i8, ptr %130, align 1, !alias.scope !5304, !noundef !3
   %.not.i.i = icmp eq i8 %131, 0
-  br i1 %.not.i.i, label %132, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54"
+  br i1 %.not.i.i, label %132, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47"
 
 132:                                              ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !5305)
@@ -18227,12 +18227,12 @@ define noundef nonnull ptr @_ZN9uv_python14python_version13PythonVersion7markers
   %133 = load ptr, ptr %18, align 8, !alias.scope !5311, !nonnull !3, !noundef !3
   %134 = atomicrmw sub ptr %133, i64 1 release, align 8, !noalias !5311
   %135 = icmp eq i64 %134, 1
-  br i1 %135, label %136, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54"
+  br i1 %135, label %136, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47"
 
 136:                                              ; preds = %132
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf40a3331c4649117E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18)
-          to label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54" unwind label %128
+          to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47" unwind label %128
 
 .body22:                                          ; preds = %73
   %137 = atomicrmw sub ptr %39, i64 1 release, align 8, !noalias !5312
@@ -18250,7 +18250,7 @@ define noundef nonnull ptr @_ZN9uv_python14python_version13PythonVersion7markers
   %140 = getelementptr inbounds nuw i8, ptr %21, i64 9
   %141 = load i8, ptr %140, align 1, !alias.scope !5325, !noundef !3
   %.not.i.i45 = icmp eq i8 %141, 0
-  br i1 %.not.i.i45, label %142, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54"
+  br i1 %.not.i.i45, label %142, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47"
 
 142:                                              ; preds = %.critedge
   call void @llvm.experimental.noalias.scope.decl(metadata !5326)
@@ -18258,12 +18258,12 @@ define noundef nonnull ptr @_ZN9uv_python14python_version13PythonVersion7markers
   %143 = load ptr, ptr %21, align 8, !alias.scope !5332, !nonnull !3, !noundef !3
   %144 = atomicrmw sub ptr %143, i64 1 release, align 8, !noalias !5332
   %145 = icmp eq i64 %144, 1
-  br i1 %145, label %146, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54"
+  br i1 %145, label %146, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47"
 
 146:                                              ; preds = %142
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf40a3331c4649117E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
-          to label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54" unwind label %128
+          to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47" unwind label %128
 
 .body:                                            ; preds = %45
   %147 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !5333
@@ -18281,7 +18281,7 @@ define noundef nonnull ptr @_ZN9uv_python14python_version13PythonVersion7markers
   %150 = getelementptr inbounds nuw i8, ptr %24, i64 9
   %151 = load i8, ptr %150, align 1, !alias.scope !5346, !noundef !3
   %.not.i.i50 = icmp eq i8 %151, 0
-  br i1 %.not.i.i50, label %152, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54"
+  br i1 %.not.i.i50, label %152, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47"
 
 152:                                              ; preds = %.noexc48
   call void @llvm.experimental.noalias.scope.decl(metadata !5347)
@@ -18289,15 +18289,15 @@ define noundef nonnull ptr @_ZN9uv_python14python_version13PythonVersion7markers
   %153 = load ptr, ptr %24, align 8, !alias.scope !5353, !nonnull !3, !noundef !3
   %154 = atomicrmw sub ptr %153, i64 1 release, align 8, !noalias !5353
   %155 = icmp eq i64 %154, 1
-  br i1 %155, label %156, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54"
+  br i1 %155, label %156, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47"
 
 156:                                              ; preds = %152
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf40a3331c4649117E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
-          to label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54" unwind label %128
+          to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47" unwind label %128
 
-"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54": ; preds = %110, %114, %82, %86, %132, %.noexc, %136, %142, %.critedge, %146, %54, %58, %152, %.noexc48, %156, %157, %161
-  %.pn.pn57 = phi { ptr, i32 } [ %.pn.pn61, %161 ], [ %.pn.pn61, %157 ], [ %46, %156 ], [ %46, %.noexc48 ], [ %46, %152 ], [ %.pn.pn.i, %58 ], [ %.pn.pn.i, %54 ], [ %74, %146 ], [ %74, %.critedge ], [ %74, %142 ], [ %102, %132 ], [ %102, %.noexc ], [ %102, %136 ], [ %.pn.pn.i25, %86 ], [ %.pn.pn.i25, %82 ], [ %.pn.pn.i38, %114 ], [ %.pn.pn.i38, %110 ]
+"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47": ; preds = %110, %114, %82, %86, %132, %.noexc, %136, %54, %58, %152, %.noexc48, %156, %157, %161, %142, %.critedge, %146
+  %.pn.pn57 = phi { ptr, i32 } [ %74, %146 ], [ %74, %.critedge ], [ %74, %142 ], [ %.pn.pn61, %161 ], [ %.pn.pn61, %157 ], [ %46, %156 ], [ %46, %.noexc48 ], [ %46, %152 ], [ %.pn.pn.i, %58 ], [ %.pn.pn.i, %54 ], [ %102, %132 ], [ %102, %.noexc ], [ %102, %136 ], [ %.pn.pn.i25, %86 ], [ %.pn.pn.i25, %82 ], [ %.pn.pn.i38, %114 ], [ %.pn.pn.i38, %110 ]
   resume { ptr, i32 } %.pn.pn57
 
 157:                                              ; preds = %.critedge12, %.critedge12.thread58
@@ -18305,12 +18305,12 @@ define noundef nonnull ptr @_ZN9uv_python14python_version13PythonVersion7markers
   %.pn.pn61 = phi { ptr, i32 } [ %35, %.critedge12.thread58 ], [ %33, %.critedge12 ]
   %159 = atomicrmw sub ptr %158, i64 1 release, align 8, !noalias !5354
   %160 = icmp eq i64 %159, 1
-  br i1 %160, label %161, label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54"
+  br i1 %160, label %161, label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47"
 
 161:                                              ; preds = %157
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h02af7400ae8250deE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %25)
-          to label %"_ZN4core3ptr70drop_in_place$LT$uv_pep508..marker..environment..MarkerEnvironment$GT$17h2460433c955456e4E.exit54" unwind label %128
+          to label %"_ZN4core3ptr48drop_in_place$LT$uv_pep440..version..Version$GT$17hd19c60b83b032f30E.exit47" unwind label %128
 }
 
 ; Function Attrs: nonlazybind uwtable

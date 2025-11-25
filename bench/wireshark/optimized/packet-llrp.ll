@@ -1330,7 +1330,7 @@ define internal i32 @get_llrp_message_len(ptr readnone captures(none) %0, ptr no
 define internal i32 @dissect_llrp_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 10
-  br i1 %6, label %86, label %7
+  br i1 %6, label %88, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1372,34 +1372,34 @@ define internal i32 @dissect_llrp_packet(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not42, label %dissect_llrp_message.exit, label %35
 
 35:                                               ; preds = %31
-  switch i16 %12, label %78 [
-    i16 4, label %.thread.i
-    i16 11, label %.thread.i
-    i16 20, label %.thread.i
-    i16 30, label %.thread.i
-    i16 31, label %.thread.i
-    i16 32, label %.thread.i
-    i16 33, label %.thread.i
-    i16 34, label %.thread.i
-    i16 35, label %.thread.i
-    i16 36, label %.thread.i
-    i16 40, label %.thread.i
-    i16 50, label %.thread.i
-    i16 51, label %.thread.i
-    i16 52, label %.thread.i
-    i16 53, label %.thread.i
-    i16 44, label %.thread.i
-    i16 45, label %.thread.i
-    i16 55, label %.thread.i
-    i16 61, label %.thread.i
-    i16 63, label %.thread.i
-    i16 100, label %.thread.i
-    i16 12, label %.thread.i
-    i16 13, label %.thread.i
-    i16 57, label %.thread.i
-    i16 54, label %.thread.i
-    i16 60, label %.thread.i
-    i16 64, label %.thread.i
+  switch i16 %12, label %79 [
+    i16 4, label %80
+    i16 11, label %80
+    i16 20, label %80
+    i16 30, label %80
+    i16 31, label %80
+    i16 32, label %80
+    i16 33, label %80
+    i16 34, label %80
+    i16 35, label %80
+    i16 36, label %80
+    i16 40, label %80
+    i16 50, label %80
+    i16 51, label %80
+    i16 52, label %80
+    i16 53, label %80
+    i16 44, label %80
+    i16 45, label %80
+    i16 55, label %80
+    i16 61, label %80
+    i16 63, label %80
+    i16 100, label %80
+    i16 12, label %80
+    i16 13, label %80
+    i16 57, label %80
+    i16 54, label %80
+    i16 60, label %80
+    i16 64, label %80
     i16 22, label %36
     i16 23, label %36
     i16 24, label %36
@@ -1414,27 +1414,27 @@ define internal i32 @dissect_llrp_packet(ptr noundef %0, ptr noundef %1, ptr nou
     i16 47, label %65
     i16 56, label %68
     i16 1023, label %73
-    i16 62, label %.thread95.i
-    i16 72, label %.thread95.i
-    i16 14, label %.thread95.i
-    i16 26, label %.thread95.i
-    i16 46, label %.thread95.i
+    i16 62, label %.thread94.i
+    i16 72, label %.thread94.i
+    i16 14, label %.thread94.i
+    i16 26, label %.thread94.i
+    i16 46, label %.thread94.i
   ]
 
 36:                                               ; preds = %35, %35, %35, %35, %35
   %37 = load i32, ptr @hf_llrp_rospec, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %37, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef 0)
-  br label %.thread95.i
+  br label %.thread94.i
 
 39:                                               ; preds = %35, %35, %35
   %40 = load i32, ptr @hf_llrp_accessspec, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %40, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef 0)
-  br label %.thread95.i
+  br label %.thread94.i
 
 42:                                               ; preds = %35
   %43 = load i32, ptr @hf_llrp_req_cap, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %43, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
-  br label %.thread.i
+  br label %80
 
 45:                                               ; preds = %35
   %46 = load i32, ptr @hf_llrp_antenna_id, align 4
@@ -1447,7 +1447,7 @@ define internal i32 @dissect_llrp_packet(ptr noundef %0, ptr noundef %1, ptr nou
   %53 = load i32, ptr @hf_llrp_gpo_port, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %53, ptr noundef %0, i32 noundef 15, i32 noundef 2, i32 noundef 0)
   switch i8 %48, label %59 [
-    i8 0, label %.thread.i
+    i8 0, label %80
     i8 2, label %55
     i8 3, label %55
     i8 1, label %56
@@ -1464,23 +1464,23 @@ define internal i32 @dissect_llrp_packet(ptr noundef %0, ptr noundef %1, ptr nou
 55:                                               ; preds = %45, %45
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.945)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef nonnull @.str.945)
-  br label %.thread.i
+  br label %80
 
 56:                                               ; preds = %45, %45, %45, %45, %45, %45, %45
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.945)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.945)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef nonnull @.str.945)
-  br label %.thread.i
+  br label %80
 
 57:                                               ; preds = %45
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.945)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef nonnull @.str.945)
-  br label %.thread.i
+  br label %80
 
 58:                                               ; preds = %45
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.945)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.945)
-  br label %.thread.i
+  br label %80
 
 59:                                               ; preds = %45
   %60 = zext i8 %48 to i32
@@ -1488,63 +1488,63 @@ define internal i32 @dissect_llrp_packet(ptr noundef %0, ptr noundef %1, ptr nou
   %61 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_llrp_req_conf, ptr noundef nonnull @.str.946, i32 noundef %60)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.945)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef nonnull @.str.945)
-  br label %.thread.i
+  br label %80
 
 62:                                               ; preds = %35
   %63 = load i32, ptr @hf_llrp_rest_fact, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %63, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
-  br label %.thread.i
+  br label %80
 
 65:                                               ; preds = %35
   %66 = load i32, ptr @hf_llrp_version, align 4
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %66, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
-  br label %.thread95.i
+  br label %.thread94.i
 
 68:                                               ; preds = %35
   %69 = load i32, ptr @hf_llrp_cur_ver, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %69, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
   %71 = load i32, ptr @hf_llrp_sup_ver, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %71, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0)
-  br label %.thread.i
+  br label %80
 
 73:                                               ; preds = %35
   %74 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 10)
   %75 = load i32, ptr @hf_llrp_vendor, align 4
   %76 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %75, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef 0)
   %cond.not.i = icmp eq i32 %74, 25882
-  br i1 %cond.not.i, label %.thread98.i, label %.thread95.i
+  br i1 %cond.not.i, label %77, label %.thread94.i
 
-.thread98.i:                                      ; preds = %73
-  %77 = tail call fastcc i32 @dissect_llrp_impinj_message(ptr noundef %0, ptr noundef %1, ptr noundef %19, i32 noundef 14), !callees !6
-  br label %.thread.i
+77:                                               ; preds = %73
+  %78 = tail call fastcc i32 @dissect_llrp_impinj_message(ptr noundef %0, ptr noundef %1, ptr noundef %19, i32 noundef 14), !callees !6
+  br label %80
 
-78:                                               ; preds = %35
+79:                                               ; preds = %35
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.947, ptr noundef nonnull @.str.948, i32 noundef 2855) #4
   unreachable
 
-.thread.i:                                        ; preds = %.thread98.i, %68, %62, %59, %58, %57, %56, %55, %45, %42, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35
-  %.08692.i = phi i32 [ 17, %45 ], [ 17, %55 ], [ 17, %56 ], [ 17, %57 ], [ 17, %58 ], [ 17, %59 ], [ 12, %68 ], [ 11, %62 ], [ 11, %42 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ %77, %.thread98.i ]
-  %79 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %80 = tail call fastcc i32 @dissect_llrp_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %19, i32 noundef %.08692.i, i32 noundef %79, i32 noundef 0)
-  br label %.thread95.i
+80:                                               ; preds = %77, %68, %62, %59, %58, %57, %56, %55, %45, %42, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35, %35
+  %.086.ph.i = phi i32 [ 17, %45 ], [ 17, %55 ], [ 17, %56 ], [ 17, %57 ], [ 17, %58 ], [ 17, %59 ], [ %78, %77 ], [ 12, %68 ], [ 11, %62 ], [ 11, %42 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ]
+  %81 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %82 = tail call fastcc i32 @dissect_llrp_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %19, i32 noundef %.086.ph.i, i32 noundef %81, i32 noundef 0)
+  br label %.thread94.i
 
-.thread95.i:                                      ; preds = %.thread.i, %73, %65, %39, %36, %35, %35, %35, %35, %35
-  %.1.i = phi i32 [ %80, %.thread.i ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %65 ], [ 14, %39 ], [ 14, %36 ], [ 14, %73 ]
-  %81 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i)
-  %.not.i = icmp eq i32 %81, 0
-  br i1 %.not.i, label %dissect_llrp_message.exit, label %82
+.thread94.i:                                      ; preds = %80, %73, %65, %39, %36, %35, %35, %35, %35, %35
+  %.1.i = phi i32 [ %82, %80 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 10, %35 ], [ 14, %73 ], [ 10, %65 ], [ 14, %39 ], [ 14, %36 ]
+  %83 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i)
+  %.not.i = icmp eq i32 %83, 0
+  br i1 %.not.i, label %dissect_llrp_message.exit, label %84
 
-82:                                               ; preds = %.thread95.i
-  %83 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %84 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %19, ptr noundef nonnull @ei_llrp_invalid_length, ptr noundef nonnull @.str.949, i32 noundef %.1.i, i32 noundef %83)
+84:                                               ; preds = %.thread94.i
+  %85 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %86 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %19, ptr noundef nonnull @ei_llrp_invalid_length, ptr noundef nonnull @.str.949, i32 noundef %.1.i, i32 noundef %85)
   br label %dissect_llrp_message.exit
 
-dissect_llrp_message.exit:                        ; preds = %82, %.thread95.i, %31
-  %85 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %86
+dissect_llrp_message.exit:                        ; preds = %84, %.thread94.i, %31
+  %87 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %88
 
-86:                                               ; preds = %4, %dissect_llrp_message.exit
-  %.0 = phi i32 [ %85, %dissect_llrp_message.exit ], [ 0, %4 ]
+88:                                               ; preds = %4, %dissect_llrp_message.exit
+  %.0 = phi i32 [ %87, %dissect_llrp_message.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

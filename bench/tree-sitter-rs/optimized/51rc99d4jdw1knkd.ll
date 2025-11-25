@@ -519,15 +519,15 @@ define hidden void @_ZN4core4iter8adapters11try_process17h90e7e617b10070cfE(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !197
   %10 = load i64, ptr %5, align 8, !range !107, !noundef !16
   %.not.not = icmp eq i64 %10, -9223372036854775804
-  br i1 %.not.not, label %.thread14, label %13
+  br i1 %.not.not, label %.thread, label %13
 
-.thread14:                                        ; preds = %9
+.thread:                                          ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !209, !noalias !212
   br label %12
 
-12:                                               ; preds = %13, %.thread14
+12:                                               ; preds = %13, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

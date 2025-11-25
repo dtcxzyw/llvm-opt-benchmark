@@ -23863,7 +23863,7 @@ define hidden void @"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$G
   %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$RF$$u5b$u8$u5d$$GT$$GT$17hfb4ab41688c5d946E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #52
-          to label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52.thread" unwind label %101
+          to label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" unwind label %101
 
 25:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 128, i64 noundef %20) #54
@@ -23874,9 +23874,6 @@ define hidden void @"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$G
 
 26:                                               ; preds = %49
   unreachable
-
-"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit": ; preds = %142
-  br i1 %.117.ph, label %143, label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52.thread"
 
 27:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -24127,7 +24124,7 @@ define hidden void @"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$G
 
 103:                                              ; preds = %.body43
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..offset..OffsetBuffer$LT$i32$GT$$GT$17hc30223ff2eb434f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #52
-          to label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52.thread" unwind label %101
+          to label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" unwind label %101
 
 104:                                              ; preds = %129, %.noexc
   %105 = landingpad { ptr, i32 }
@@ -24207,12 +24204,15 @@ define hidden void @"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$G
   invoke void @"_ZN86_$LT$arrow_buffer..buffer..mutable..MutableBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h47fe387639924742E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
           to label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit" unwind label %101
 
+"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit": ; preds = %142
+  br i1 %.117.ph, label %143, label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52"
+
 143:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit"
   invoke void @"_ZN86_$LT$arrow_buffer..buffer..mutable..MutableBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h47fe387639924742E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
-          to label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52.thread" unwind label %101
+          to label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" unwind label %101
 
-"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52.thread": ; preds = %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit", %143, %103, %.thread
-  %.pn2378 = phi { ptr, i32 } [ %24, %.thread ], [ %94, %103 ], [ %.pn20.ph, %143 ], [ %.pn20.ph, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit" ]
+"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52": ; preds = %143, %103, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit", %.thread
+  %.pn2378 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn20.ph, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit" ], [ %94, %103 ], [ %.pn20.ph, %143 ]
   resume { ptr, i32 } %.pn2378
 }
 
@@ -24282,9 +24282,6 @@ define hidden void @"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$G
 
 27:                                               ; preds = %54
   unreachable
-
-"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h4a24b50a532285b4E.exit": ; preds = %150
-  br i1 %.115.ph, label %151, label %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h4a24b50a532285b4E.exit52"
 
 28:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -24646,14 +24643,17 @@ define hidden void @"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$G
   %.115.ph = phi i1 [ true, %43 ], [ true, %49 ], [ false, %66 ], [ false, %78 ]
   %.pn18.ph = phi { ptr, i32 } [ %.pn, %43 ], [ %50, %49 ], [ %67, %66 ], [ %79, %78 ]
   invoke void @"_ZN86_$LT$arrow_buffer..buffer..mutable..MutableBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h47fe387639924742E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
-          to label %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h4a24b50a532285b4E.exit" unwind label %106
+          to label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit" unwind label %106
 
-151:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h4a24b50a532285b4E.exit"
+"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit": ; preds = %150
+  br i1 %.115.ph, label %151, label %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h4a24b50a532285b4E.exit52"
+
+151:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit"
   invoke void @"_ZN86_$LT$arrow_buffer..buffer..mutable..MutableBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h47fe387639924742E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
           to label %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h4a24b50a532285b4E.exit52" unwind label %106
 
-"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h4a24b50a532285b4E.exit52": ; preds = %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h4a24b50a532285b4E.exit", %151, %108, %.thread
-  %.pn2179 = phi { ptr, i32 } [ %25, %.thread ], [ %99, %108 ], [ %.pn18.ph, %151 ], [ %.pn18.ph, %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h4a24b50a532285b4E.exit" ]
+"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..string..String$GT$$GT$17h4a24b50a532285b4E.exit52": ; preds = %151, %108, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit", %.thread
+  %.pn2179 = phi { ptr, i32 } [ %25, %.thread ], [ %.pn18.ph, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit" ], [ %99, %108 ], [ %.pn18.ph, %151 ]
   resume { ptr, i32 } %.pn2179
 }
 
@@ -25942,12 +25942,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -25982,21 +25982,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i128$GT$$GT$17h0c1216972ef06f79E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26037,12 +26037,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -26077,21 +26077,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i64$GT$$GT$17hb73625e75b0de4ccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26131,12 +26131,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %13 unwind label %.thread29
+          to label %13 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %12 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -26171,21 +26171,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %23
+          to label %.thread25 unwind label %23
 
-23:                                               ; preds = %.thread21, %21
+23:                                               ; preds = %.thread25, %21
   %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %21
-  %.pn25 = phi { ptr, i32 } [ %22, %21 ], [ %12, %.thread29 ]
+.thread25:                                        ; preds = %21, %.thread
+  %.pn19 = phi { ptr, i32 } [ %12, %.thread ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i8$GT$$GT$17hdbfb65d73ef56c49E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %25 unwind label %23
 
-25:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+25:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26226,12 +26226,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -26266,21 +26266,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$u16$GT$$GT$17ha6dd5cad8e1474caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26321,12 +26321,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -26361,21 +26361,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i64$GT$$GT$17hb73625e75b0de4ccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26416,12 +26416,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -26456,21 +26456,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i32$GT$$GT$17h286b7bbf140a19b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26511,12 +26511,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -26551,21 +26551,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$arrow_buffer..bigint..i256$GT$$GT$17h65bcf0656cd91d9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26606,12 +26606,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -26646,21 +26646,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i64$GT$$GT$17hb73625e75b0de4ccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26700,12 +26700,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %13 unwind label %.thread29
+          to label %13 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %12 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -26740,21 +26740,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %22 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %23
+          to label %.thread25 unwind label %23
 
-23:                                               ; preds = %.thread21, %21
+23:                                               ; preds = %.thread25, %21
   %24 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %21
-  %.pn25 = phi { ptr, i32 } [ %22, %21 ], [ %12, %.thread29 ]
+.thread25:                                        ; preds = %21, %.thread
+  %.pn19 = phi { ptr, i32 } [ %12, %.thread ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$u8$GT$$GT$17hf6206350626937fdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %25 unwind label %23
 
-25:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+25:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26795,12 +26795,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -26835,21 +26835,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i64$GT$$GT$17hb73625e75b0de4ccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26890,12 +26890,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -26930,21 +26930,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$f32$GT$$GT$17h36d19f94341b5cd6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26985,12 +26985,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27025,21 +27025,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$u64$GT$$GT$17h815e861bda52d9f4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27080,12 +27080,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27120,21 +27120,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i64$GT$$GT$17hb73625e75b0de4ccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27175,12 +27175,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27215,21 +27215,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$f64$GT$$GT$17ha28284d8bf663eaaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27270,12 +27270,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27310,21 +27310,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i64$GT$$GT$17hb73625e75b0de4ccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27365,12 +27365,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27405,21 +27405,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i64$GT$$GT$17hb73625e75b0de4ccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27460,12 +27460,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27500,21 +27500,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i16$GT$$GT$17hb71c527021d937e3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27555,12 +27555,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27595,21 +27595,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i128$GT$$GT$17h0c1216972ef06f79E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27650,12 +27650,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27690,21 +27690,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i64$GT$$GT$17hb73625e75b0de4ccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27745,12 +27745,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27785,21 +27785,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i32$GT$$GT$17h286b7bbf140a19b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27840,12 +27840,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27880,21 +27880,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i32$GT$$GT$17h286b7bbf140a19b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27935,12 +27935,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27975,21 +27975,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i32$GT$$GT$17h286b7bbf140a19b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -28030,12 +28030,12 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -28070,21 +28070,21 @@ define internal fastcc void @"_ZN11arrow_array5array15primitive_array145_$LT$imp
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i64$GT$$GT$17hb73625e75b0de4ccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -28125,12 +28125,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -28165,21 +28165,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$i32$GT$$GT$17h286b7bbf140a19b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -28220,12 +28220,12 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %12, i64 48, i1 false)
   invoke void @_ZN10arrow_data4data16ArrayDataBuilder5nulls17h61bd5a3ca50d76d0E(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i8, [23 x i8] }, i64, { ptr, [2 x i64] }, { ptr, [5 x i64] }, i64 }) align 8 captures(none) dereferenceable(176) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %14 unwind label %.thread29
+          to label %14 unwind label %.thread
 
-.thread29:                                        ; preds = %2
+.thread:                                          ; preds = %2
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread21
+  br label %.thread25
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -28260,21 +28260,21 @@ define hidden void @"_ZN11arrow_array5array15primitive_array145_$LT$impl$u20$cor
   %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$arrow_data..data..ArrayDataBuilder$GT$17hb9735fe638d73f4fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #52
-          to label %.thread21 unwind label %24
+          to label %.thread25 unwind label %24
 
-24:                                               ; preds = %.thread21, %22
+24:                                               ; preds = %.thread25, %22
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-.thread21:                                        ; preds = %.thread29, %22
-  %.pn25 = phi { ptr, i32 } [ %23, %22 ], [ %13, %.thread29 ]
+.thread25:                                        ; preds = %22, %.thread
+  %.pn19 = phi { ptr, i32 } [ %13, %.thread ], [ %23, %22 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$arrow_buffer..buffer..scalar..ScalarBuffer$LT$u32$GT$$GT$17hecb4ee5033414057E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %26 unwind label %24
 
-26:                                               ; preds = %.thread21
-  resume { ptr, i32 } %.pn25
+26:                                               ; preds = %.thread25
+  resume { ptr, i32 } %.pn19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -44868,9 +44868,6 @@ define hidden void @"_ZN120_$LT$arrow_array..array..boolean_array..BooleanArray$
   invoke void @"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5f295d473fa7fe1fE.llvm.8022584466853825857"(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 16 dereferenceable(128) %16)
           to label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3298b641c23015f7E.exit" unwind label %.thread
 
-"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52": ; preds = %101
-  br i1 %.186, label %102, label %"_ZN4core3ptr480drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$datafusion_common..scalar..ScalarValue$GT$$GT$$C$datafusion_common..scalar..ScalarValue..iter_to_array$LT$alloc..vec..Vec$LT$datafusion_common..scalar..ScalarValue$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$datafusion_common..error..DataFusionError$GT$$GT$$GT$17h68a9337c557e6ef6E.exit"
-
 .thread:                                          ; preds = %26, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3298b641c23015f7E.exit.thread", %20
   %21 = landingpad { ptr, i32 }
           cleanup
@@ -45166,11 +45163,14 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.18016462908235130027.e
   invoke void @"_ZN86_$LT$arrow_buffer..buffer..mutable..MutableBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h47fe387639924742E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15)
           to label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" unwind label %97
 
+"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52": ; preds = %101
+  br i1 %.186, label %102, label %"_ZN4core3ptr480drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$datafusion_common..scalar..ScalarValue$GT$$GT$$C$datafusion_common..scalar..ScalarValue..iter_to_array$LT$alloc..vec..Vec$LT$datafusion_common..scalar..ScalarValue$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$datafusion_common..error..DataFusionError$GT$$GT$$GT$17h68a9337c557e6ef6E.exit"
+
 "_ZN4core3ptr480drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$datafusion_common..scalar..ScalarValue$GT$$GT$$C$datafusion_common..scalar..ScalarValue..iter_to_array$LT$alloc..vec..Vec$LT$datafusion_common..scalar..ScalarValue$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$datafusion_common..error..DataFusionError$GT$$GT$$GT$17h68a9337c557e6ef6E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit", %102, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52"
   %.pn4076 = phi { ptr, i32 } [ %.pn37.pn87, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" ], [ %.pn4077, %102 ], [ %.pn37.pn, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit" ]
   resume { ptr, i32 } %.pn4076
 
-102:                                              ; preds = %.thread, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52"
+102:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52", %.thread
   %.pn4077 = phi { ptr, i32 } [ %21, %.thread ], [ %.pn37.pn87, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" ]
   invoke void @"_ZN4core3ptr146drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$datafusion_common..scalar..ScalarValue$GT$$GT$$GT$17h427d0f12929a744eE"(ptr noalias noundef nonnull align 16 dereferenceable(128) %16)
           to label %"_ZN4core3ptr480drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..peekable..Peekable$LT$alloc..vec..into_iter..IntoIter$LT$datafusion_common..scalar..ScalarValue$GT$$GT$$C$datafusion_common..scalar..ScalarValue..iter_to_array$LT$alloc..vec..Vec$LT$datafusion_common..scalar..ScalarValue$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$datafusion_common..error..DataFusionError$GT$$GT$$GT$17h68a9337c557e6ef6E.exit" unwind label %97
@@ -45205,9 +45205,6 @@ define hidden void @"_ZN120_$LT$arrow_array..array..boolean_array..BooleanArray$
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7577
   invoke void @"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5aa2a0578fe44a8dE.llvm.8022584466853825857"(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 16 dereferenceable(144) %16)
           to label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2d8b50fb206b2478E.exit" unwind label %.thread
-
-"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52": ; preds = %107
-  br i1 %.186, label %108, label %"_ZN4core3ptr786drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..operations..transaction..state..AddContainer..get_prune_stats..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$datafusion_common..scalar..ScalarValue..iter_to_array$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..operations..transaction..state..AddContainer..get_prune_stats..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$datafusion_common..error..DataFusionError$GT$$GT$$GT$17h9a1404e1691295b7E.exit"
 
 .thread:                                          ; preds = %26, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2d8b50fb206b2478E.exit.thread", %20
   %21 = landingpad { ptr, i32 }
@@ -45514,11 +45511,14 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.18016462908235130027.e
   invoke void @"_ZN86_$LT$arrow_buffer..buffer..mutable..MutableBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h47fe387639924742E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15)
           to label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" unwind label %103
 
+"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52": ; preds = %107
+  br i1 %.186, label %108, label %"_ZN4core3ptr786drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..operations..transaction..state..AddContainer..get_prune_stats..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$datafusion_common..scalar..ScalarValue..iter_to_array$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..operations..transaction..state..AddContainer..get_prune_stats..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$datafusion_common..error..DataFusionError$GT$$GT$$GT$17h9a1404e1691295b7E.exit"
+
 "_ZN4core3ptr786drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..operations..transaction..state..AddContainer..get_prune_stats..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$datafusion_common..scalar..ScalarValue..iter_to_array$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$deltalake_core..operations..transaction..state..AddContainer..get_prune_stats..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$datafusion_common..error..DataFusionError$GT$$GT$$GT$17h9a1404e1691295b7E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit", %108, %111, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52"
   %.pn4076 = phi { ptr, i32 } [ %.pn37.pn87, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" ], [ %.pn4077, %111 ], [ %.pn4077, %108 ], [ %.pn37.pn, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit" ]
   resume { ptr, i32 } %.pn4076
 
-108:                                              ; preds = %.thread, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52"
+108:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52", %.thread
   %.pn4077 = phi { ptr, i32 } [ %21, %.thread ], [ %.pn37.pn87, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" ]
   %109 = load i128, ptr %16, align 16, !range !7595, !alias.scope !7635, !noundef !12
   %110 = icmp samesign ugt i128 %109, 42
@@ -45558,9 +45558,6 @@ define hidden void @"_ZN120_$LT$arrow_array..array..boolean_array..BooleanArray$
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7653
   invoke void @"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7ecd98e37a6f01e1E.llvm.8022584466853825857"(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 16 dereferenceable(128) %16)
           to label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he8d0ebce9252df90E.exit" unwind label %.thread
-
-"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52": ; preds = %107
-  br i1 %.186, label %108, label %"_ZN4core3ptr934drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$$LT$deltalake_core..operations..transaction..state..AddContainer$u20$as$u20$datafusion..physical_optimizer..pruning..PruningStatistics$GT$..null_counts..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$datafusion_common..scalar..ScalarValue..iter_to_array$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$$LT$deltalake_core..operations..transaction..state..AddContainer$u20$as$u20$datafusion..physical_optimizer..pruning..PruningStatistics$GT$..null_counts..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$datafusion_common..error..DataFusionError$GT$$GT$$GT$17h62c165f516dbe3a9E.exit"
 
 .thread:                                          ; preds = %26, %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he8d0ebce9252df90E.exit.thread", %20
   %21 = landingpad { ptr, i32 }
@@ -45867,11 +45864,14 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.18016462908235130027.e
   invoke void @"_ZN86_$LT$arrow_buffer..buffer..mutable..MutableBuffer$u20$as$u20$core..ops..drop..Drop$GT$4drop17h47fe387639924742E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15)
           to label %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" unwind label %103
 
+"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52": ; preds = %107
+  br i1 %.186, label %108, label %"_ZN4core3ptr934drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$$LT$deltalake_core..operations..transaction..state..AddContainer$u20$as$u20$datafusion..physical_optimizer..pruning..PruningStatistics$GT$..null_counts..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$datafusion_common..scalar..ScalarValue..iter_to_array$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$$LT$deltalake_core..operations..transaction..state..AddContainer$u20$as$u20$datafusion..physical_optimizer..pruning..PruningStatistics$GT$..null_counts..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$datafusion_common..error..DataFusionError$GT$$GT$$GT$17h62c165f516dbe3a9E.exit"
+
 "_ZN4core3ptr934drop_in_place$LT$core..iter..adapters..GenericShunt$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$$LT$deltalake_core..operations..transaction..state..AddContainer$u20$as$u20$datafusion..physical_optimizer..pruning..PruningStatistics$GT$..null_counts..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$datafusion_common..scalar..ScalarValue..iter_to_array$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$deltalake_core..kernel..models..actions..Add$GT$$C$$LT$deltalake_core..operations..transaction..state..AddContainer$u20$as$u20$datafusion..physical_optimizer..pruning..PruningStatistics$GT$..null_counts..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..result..Result$LT$core..convert..Infallible$C$datafusion_common..error..DataFusionError$GT$$GT$$GT$17h62c165f516dbe3a9E.exit": ; preds = %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit", %108, %111, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52"
   %.pn4076 = phi { ptr, i32 } [ %.pn37.pn87, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" ], [ %.pn4077, %111 ], [ %.pn4077, %108 ], [ %.pn37.pn, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit" ]
   resume { ptr, i32 } %.pn4076
 
-108:                                              ; preds = %.thread, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52"
+108:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52", %.thread
   %.pn4077 = phi { ptr, i32 } [ %21, %.thread ], [ %.pn37.pn87, %"_ZN4core3ptr65drop_in_place$LT$arrow_buffer..buffer..mutable..MutableBuffer$GT$17h3960fb853678e5c0E.exit52" ]
   %109 = load i128, ptr %16, align 16, !range !7595, !alias.scope !7710, !noundef !12
   %110 = icmp samesign ugt i128 %109, 42
@@ -139213,8 +139213,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$9gro
 .noexc:                                           ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr %15, ptr %12, align 8, !alias.scope !24807, !noalias !24810
-  %.sroa.056.0.copyload57 = load i64, ptr %13, align 8, !noalias !24807
-  %16 = icmp eq i64 %.sroa.056.0.copyload57, -9223372036854775808
+  %.sroa.057.0.copyload58 = load i64, ptr %13, align 8, !noalias !24807
+  %16 = icmp eq i64 %.sroa.057.0.copyload58, -9223372036854775808
   br i1 %16, label %.thread28, label %19
 
 .thread28:                                        ; preds = %9, %.noexc
@@ -139222,16 +139222,16 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$9gro
   store i8 1, ptr %17, align 8, !alias.scope !24812, !noalias !24815
   br label %59
 
-18:                                               ; preds = %.thread35.thread41, %57
-  %.pn12 = phi { ptr, i32 } [ %58, %57 ], [ %54, %.thread35.thread41 ]
+18:                                               ; preds = %32, %.thread39
+  %.pn12 = phi { ptr, i32 } [ %58, %.thread39 ], [ %33, %32 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17heff91ebafd2baa57E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #52
-          to label %60 unwind label %55
+          to label %60 unwind label %56
 
 19:                                               ; preds = %.noexc
-  %.sroa.7.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.7.0..sroa_idx58, i64 64, i1 false)
+  %.sroa.7.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.7.0..sroa_idx59, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %.sroa.056.0.copyload57, ptr %4, align 8
+  store i64 %.sroa.057.0.copyload58, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4, i64 64, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -139253,7 +139253,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$9gro
 
 29:                                               ; preds = %26
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %27, i64 noundef %.val16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.37284d5d2778cc877585700d9b10b6b0.575) #54
-          to label %.noexc22 unwind label %57
+          to label %.noexc22 unwind label %.thread39
 
 .noexc22:                                         ; preds = %29
   unreachable
@@ -139265,97 +139265,97 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$9gro
 "_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i": ; preds = %30, %26
   %.16.val.sink9.i.i = phi i64 [ %.val16, %30 ], [ %27, %26 ]
   %31 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h42d04186632281f7E"(i64 noundef %.16.val.sink9.i.i, i1 noundef zeroext false)
-          to label %32 unwind label %57
+          to label %34 unwind label %.thread39
 
-32:                                               ; preds = %"_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i"
-  %33 = extractvalue { i64, ptr } %31, 0
-  %34 = extractvalue { i64, ptr } %31, 1
-  %35 = icmp ne ptr %34, null
-  tail call void @llvm.assume(i1 %35)
-  %36 = shl i64 %.16.val.sink9.i.i, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull readonly align 8 %.val15, i64 %36, i1 false), !noalias !24817
+32:                                               ; preds = %55
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  store i64 %.sroa.057.0.copyload58, ptr %53, align 8
+  %.sroa.4.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx69, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4, i64 64, i1 false)
+  br label %18
+
+34:                                               ; preds = %"_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i"
+  %35 = extractvalue { i64, ptr } %31, 0
+  %36 = extractvalue { i64, ptr } %31, 1
+  %37 = icmp ne ptr %36, null
+  tail call void @llvm.assume(i1 %37)
+  %38 = shl i64 %.16.val.sink9.i.i, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr nonnull readonly align 8 %.val15, i64 %38, i1 false), !noalias !24817
   %.val17 = load ptr, ptr %.sroa.5.0..sroa_idx3, align 8, !nonnull !12, !noundef !12
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val18 = load i64, ptr %37, align 8, !noundef !12
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.val18 = load i64, ptr %39, align 8, !noundef !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24822)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24825)
   %.not.i.i = icmp eq i64 %.val18, %.16.val.sink9.i.i
   br i1 %.not.i.i, label %.preheader.split.i.i, label %.loopexit
 
-.preheader.split.i.i:                             ; preds = %32, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i"
-  %.sroa.01.0.i.i = phi i64 [ %45, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i" ], [ 0, %32 ]
+.preheader.split.i.i:                             ; preds = %34, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i"
+  %.sroa.01.0.i.i = phi i64 [ %47, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i" ], [ 0, %34 ]
   %exitcond.not.i.not.i = icmp eq i64 %.sroa.01.0.i.i, %.16.val.sink9.i.i
-  br i1 %exitcond.not.i.not.i, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$$GT$17hf3e4df96afdf8d1fE.exit", label %38
+  br i1 %exitcond.not.i.not.i, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$$GT$17hf3e4df96afdf8d1fE.exit", label %40
 
-38:                                               ; preds = %.preheader.split.i.i
-  %39 = getelementptr inbounds { ptr, i64 }, ptr %.val17, i64 %.sroa.01.0.i.i
-  %40 = getelementptr inbounds { ptr, i64 }, ptr %34, i64 %.sroa.01.0.i.i
+40:                                               ; preds = %.preheader.split.i.i
+  %41 = getelementptr inbounds { ptr, i64 }, ptr %.val17, i64 %.sroa.01.0.i.i
+  %42 = getelementptr inbounds { ptr, i64 }, ptr %36, i64 %.sroa.01.0.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24827)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24830)
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %42 = load i64, ptr %41, align 8, !alias.scope !24832, !noalias !24833, !noundef !12
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load i64, ptr %43, align 8, !alias.scope !24833, !noalias !24832, !noundef !12
-  %.not.i.i.i.i.i.i = icmp eq i64 %42, %44
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load i64, ptr %43, align 8, !alias.scope !24832, !noalias !24833, !noundef !12
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %46 = load i64, ptr %45, align 8, !alias.scope !24833, !noalias !24832, !noundef !12
+  %.not.i.i.i.i.i.i = icmp eq i64 %44, %46
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i", label %.loopexit
 
-"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i": ; preds = %38
-  %45 = add i64 %.sroa.01.0.i.i, 1
-  %46 = load ptr, ptr %40, align 8, !alias.scope !24833, !noalias !24832, !nonnull !12, !align !58, !noundef !12
-  %47 = load ptr, ptr %39, align 8, !alias.scope !24832, !noalias !24833, !nonnull !12, !align !58, !noundef !12
-  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %47, ptr nonnull readonly align 1 %46, i64 %42), !alias.scope !24834, !noalias !24844
+"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i": ; preds = %40
+  %47 = add i64 %.sroa.01.0.i.i, 1
+  %48 = load ptr, ptr %42, align 8, !alias.scope !24833, !noalias !24832, !nonnull !12, !align !58, !noundef !12
+  %49 = load ptr, ptr %41, align 8, !alias.scope !24832, !noalias !24833, !nonnull !12, !align !58, !noundef !12
+  %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %49, ptr nonnull readonly align 1 %48, i64 %44), !alias.scope !24834, !noalias !24844
   %.not9.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not9.i.i, label %.preheader.split.i.i, label %.loopexit
 
-.loopexit:                                        ; preds = %38, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i", %32
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %49 = load i64, ptr %48, align 8, !noundef !12
-  %50 = add i64 %49, 1
-  store i64 %50, ptr %48, align 8
+.loopexit:                                        ; preds = %40, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i", %34
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %51 = load i64, ptr %50, align 8, !noundef !12
+  %52 = add i64 %51, 1
+  store i64 %52, ptr %50, align 8
   br label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$$GT$17hf3e4df96afdf8d1fE.exit"
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$$GT$17hf3e4df96afdf8d1fE.exit": ; preds = %.preheader.split.i.i, %.loopexit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !range !24, !alias.scope !24845
-  store i64 %33, ptr %6, align 8
-  %.sroa.551.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %34, ptr %.sroa.551.0..sroa_idx52, align 8
-  %.sroa.6.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 %.16.val.sink9.i.i, ptr %.sroa.6.0..sroa_idx54, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %52 = icmp eq i64 %.pre, -9223372036854775808
-  br i1 %52, label %"_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state_arrow..$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$..stats_as_batch..ColStats$GT$$GT$17hc70114c5bd68c326E.exit26", label %53
+  store i64 %35, ptr %6, align 8
+  %.sroa.552.0..sroa_idx53 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %36, ptr %.sroa.552.0..sroa_idx53, align 8
+  %.sroa.6.0..sroa_idx55 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i64 %.16.val.sink9.i.i, ptr %.sroa.6.0..sroa_idx55, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %54 = icmp eq i64 %.pre, -9223372036854775808
+  br i1 %54, label %"_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state_arrow..$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$..stats_as_batch..ColStats$GT$$GT$17hc70114c5bd68c326E.exit26", label %55
 
-53:                                               ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$$GT$17hf3e4df96afdf8d1fE.exit"
-  invoke void @"_ZN4core3ptr145drop_in_place$LT$deltalake_core..table..state_arrow..$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$..stats_as_batch..ColStats$GT$17h2c59601f8c5440f5E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %51)
-          to label %"_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state_arrow..$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$..stats_as_batch..ColStats$GT$$GT$17hc70114c5bd68c326E.exit26" unwind label %.thread35.thread41
+55:                                               ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$$GT$17hf3e4df96afdf8d1fE.exit"
+  invoke void @"_ZN4core3ptr145drop_in_place$LT$deltalake_core..table..state_arrow..$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$..stats_as_batch..ColStats$GT$17h2c59601f8c5440f5E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %53)
+          to label %"_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state_arrow..$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$..stats_as_batch..ColStats$GT$$GT$17hc70114c5bd68c326E.exit26" unwind label %32
 
-.thread35.thread41:                               ; preds = %53
-  %54 = landingpad { ptr, i32 }
-          cleanup
-  store i64 %.sroa.056.0.copyload57, ptr %51, align 8
-  %.sroa.4.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx67, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4, i64 64, i1 false)
-  br label %18
-
-"_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state_arrow..$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$..stats_as_batch..ColStats$GT$$GT$17hc70114c5bd68c326E.exit26": ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$$GT$17hf3e4df96afdf8d1fE.exit", %53
-  store i64 %.sroa.056.0.copyload57, ptr %51, align 8
+"_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state_arrow..$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$..stats_as_batch..ColStats$GT$$GT$17hc70114c5bd68c326E.exit26": ; preds = %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$$GT$17hf3e4df96afdf8d1fE.exit", %55
+  store i64 %.sroa.057.0.copyload58, ptr %53, align 8
   %.sroa.4.0..sroa_idx68 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx68, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %59
 
-55:                                               ; preds = %57, %18
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %.thread39, %18
+  %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable
 
-57:                                               ; preds = %"_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i", %29
+.thread39:                                        ; preds = %"_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i", %29
   %58 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr145drop_in_place$LT$deltalake_core..table..state_arrow..$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$..stats_as_batch..ColStats$GT$17h2c59601f8c5440f5E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4) #52
-          to label %18 unwind label %55
+          to label %18 unwind label %56
 
 59:                                               ; preds = %"_ZN4core3ptr173drop_in_place$LT$core..option..Option$LT$deltalake_core..table..state_arrow..$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$..stats_as_batch..ColStats$GT$$GT$17hc70114c5bd68c326E.exit26", %.thread28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)

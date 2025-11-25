@@ -25728,99 +25728,97 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser25parseD
   store i8 3, ptr %10, align 8, !tbaa !457
   %12 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr null, ptr null) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %47
+  br label %50
 
 13:                                               ; preds = %1
   %.sroa.05.0.copyload = load ptr, ptr %2, align 8, !tbaa !302
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !308
-  switch i64 %.sroa.26.0.copyload, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread [
+  switch i64 %.sroa.26.0.copyload, label %_ZN4llvmeqENS_9StringRefES0_.exit16 [
     i64 9, label %_ZN4llvmeqENS_9StringRefES0_.exit
-    i64 12, label %_ZN4llvmeqENS_9StringRefES0_.exit16
+    i64 12, label %15
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %13
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %.sroa.05.0.copyload, ptr noundef nonnull dereferenceable(9) @.str.305, i64 9)
   %14 = icmp eq i32 %bcmp.i, 0
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit16
 
-_ZN4llvmeqENS_9StringRefES0_.exit16:              ; preds = %13
+15:                                               ; preds = %13
   %bcmp.i15 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %.sroa.05.0.copyload, ptr noundef nonnull dereferenceable(12) @.str.306, i64 12)
-  %bcmp.i15.fr = freeze i32 %bcmp.i15
-  %15 = icmp eq i32 %bcmp.i15.fr, 0
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
+  %16 = icmp eq i32 %bcmp.i15, 0
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit16
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit16, %13
-  %.010 = phi i1 [ false, %13 ], [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit16 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %.09 = phi i1 [ false, %13 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit16 ], [ %14, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %16 = load ptr, ptr %0, align 8, !tbaa !3
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %18 = load ptr, ptr %17, align 8
-  %19 = call noundef nonnull align 8 dereferenceable(144) ptr %18(ptr noundef nonnull align 8 dereferenceable(1144) %0) #27
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !96
-  %22 = load i32, ptr %21, align 8, !tbaa !435
-  %23 = icmp eq i32 %22, 26
-  br i1 %23, label %24, label %_ZN4llvmeqENS_9StringRefES0_.exit20.thread
+_ZN4llvmeqENS_9StringRefES0_.exit16:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %13, %15
+  %.0.i36 = phi i1 [ false, %15 ], [ false, %13 ], [ %14, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.010 = phi i1 [ %16, %15 ], [ false, %13 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %17 = load ptr, ptr %0, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %19 = load ptr, ptr %18, align 8
+  %20 = call noundef nonnull align 8 dereferenceable(144) ptr %19(ptr noundef nonnull align 8 dereferenceable(1144) %0) #27
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !96
+  %23 = load i32, ptr %22, align 8, !tbaa !435
+  %24 = icmp eq i32 %23, 26
+  br i1 %24, label %25, label %_ZN4llvmeqENS_9StringRefES0_.exit20.thread
 
-24:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %25 = load ptr, ptr %0, align 8, !tbaa !3
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 184
-  %27 = load ptr, ptr %26, align 8
-  %28 = call noundef nonnull align 8 dereferenceable(40) ptr %27(ptr noundef nonnull align 8 dereferenceable(1144) %0) #27
-  %29 = load ptr, ptr %0, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 192
-  %31 = load ptr, ptr %30, align 8
-  %32 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull align 8 dereferenceable(16) %2) #27
-  br i1 %32, label %33, label %37
+25:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit16
+  %26 = load ptr, ptr %0, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 184
+  %28 = load ptr, ptr %27, align 8
+  %29 = call noundef nonnull align 8 dereferenceable(40) ptr %28(ptr noundef nonnull align 8 dereferenceable(1144) %0) #27
+  %30 = load ptr, ptr %0, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 192
+  %32 = load ptr, ptr %31, align 8
+  %33 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull align 8 dereferenceable(16) %2) #27
+  br i1 %33, label %34, label %38
 
-33:                                               ; preds = %24
+34:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 1, ptr %35, align 1, !tbaa !460
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 1, ptr %36, align 1, !tbaa !460
   store ptr @.str.304, ptr %4, align 8, !tbaa !287
-  store i8 3, ptr %34, align 8, !tbaa !457
-  %36 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr null, ptr null) #27
+  store i8 3, ptr %35, align 8, !tbaa !457
+  %37 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr null, ptr null) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %47
+  br label %50
 
-37:                                               ; preds = %24
+38:                                               ; preds = %25
   %.sroa.01.0.copyload = load ptr, ptr %2, align 8, !tbaa !302
   %.sroa.22.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !308
   switch i64 %.sroa.22.0.copyload, label %_ZN4llvmeqENS_9StringRefES0_.exit20.thread [
     i64 9, label %_ZN4llvmeqENS_9StringRefES0_.exit20
-    i64 12, label %_ZN4llvmeqENS_9StringRefES0_.exit24
+    i64 12, label %40
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit20:              ; preds = %37
+_ZN4llvmeqENS_9StringRefES0_.exit20:              ; preds = %38
   %bcmp.i19 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %.sroa.01.0.copyload, ptr noundef nonnull dereferenceable(9) @.str.305, i64 9)
-  %38 = icmp eq i32 %bcmp.i19, 0
-  %spec.select54 = select i1 %38, i1 true, i1 %.09
+  %39 = icmp eq i32 %bcmp.i19, 0
+  %spec.select43 = select i1 %39, i1 true, i1 %.0.i36
   br label %_ZN4llvmeqENS_9StringRefES0_.exit20.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit24:              ; preds = %37
+40:                                               ; preds = %38
   %bcmp.i23 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %.sroa.01.0.copyload, ptr noundef nonnull dereferenceable(12) @.str.306, i64 12)
-  %bcmp.i23.fr = freeze i32 %bcmp.i23
-  %39 = icmp eq i32 %bcmp.i23.fr, 0
-  %spec.select52 = or i1 %39, %.010
+  %41 = icmp eq i32 %bcmp.i23, 0
+  %42 = select i1 %41, i1 true, i1 %.010
   br label %_ZN4llvmeqENS_9StringRefES0_.exit20.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit20.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit20, %_ZN4llvmeqENS_9StringRefES0_.exit24, %37, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %.111 = phi i1 [ %.010, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.010, %37 ], [ %spec.select52, %_ZN4llvmeqENS_9StringRefES0_.exit24 ], [ %.010, %_ZN4llvmeqENS_9StringRefES0_.exit20 ]
-  %.1 = phi i1 [ %.09, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.09, %37 ], [ %.09, %_ZN4llvmeqENS_9StringRefES0_.exit24 ], [ %spec.select54, %_ZN4llvmeqENS_9StringRefES0_.exit20 ]
-  %40 = load ptr, ptr %0, align 8, !tbaa !3
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  %42 = load ptr, ptr %41, align 8
-  %43 = call noundef nonnull align 8 dereferenceable(296) ptr %42(ptr noundef nonnull align 8 dereferenceable(1144) %0) #27
-  %44 = load ptr, ptr %43, align 8, !tbaa !3
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 904
-  %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull align 8 dereferenceable(296) %43, i1 noundef zeroext %.1, i1 noundef zeroext %.111) #27
-  br label %47
+_ZN4llvmeqENS_9StringRefES0_.exit20.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit20, %40, %38, %_ZN4llvmeqENS_9StringRefES0_.exit16
+  %.111 = phi i1 [ %.010, %_ZN4llvmeqENS_9StringRefES0_.exit16 ], [ %42, %40 ], [ %.010, %38 ], [ %.010, %_ZN4llvmeqENS_9StringRefES0_.exit20 ]
+  %.1 = phi i1 [ %.0.i36, %_ZN4llvmeqENS_9StringRefES0_.exit16 ], [ %.0.i36, %40 ], [ %.0.i36, %38 ], [ %spec.select43, %_ZN4llvmeqENS_9StringRefES0_.exit20 ]
+  %43 = load ptr, ptr %0, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
+  %45 = load ptr, ptr %44, align 8
+  %46 = call noundef nonnull align 8 dereferenceable(296) ptr %45(ptr noundef nonnull align 8 dereferenceable(1144) %0) #27
+  %47 = load ptr, ptr %46, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 904
+  %49 = load ptr, ptr %48, align 8
+  call void %49(ptr noundef nonnull align 8 dereferenceable(296) %46, i1 noundef zeroext %.1, i1 noundef zeroext %.111) #27
+  br label %50
 
-47:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit20.thread, %33, %9
-  %.0 = phi i1 [ %12, %9 ], [ %36, %33 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit20.thread ]
+50:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit20.thread, %34, %9
+  %.0 = phi i1 [ %12, %9 ], [ %37, %34 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit20.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }

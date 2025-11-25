@@ -9955,7 +9955,6 @@ _ZN4date14year_month_dayC2ERKNS_19year_month_day_lastE.exit: ; preds = %land.rhs
   %mul129.i = mul nsw i32 %sub.i, 12
   %add.i = sub nsw i32 %conv.i141, %conv.i135
   %sub132.i = add nsw i32 %add.i, %mul129.i
-  %conv133.i = sext i32 %sub132.i to i64
   %cmp136.i.not = icmp ne i32 %conv.i138, %retval.sroa.0.0.i.i
   %cmp139.i = icmp samesign ugt i32 %conv.i133, %conv.i138
   %or.cond = select i1 %cmp136.i.not, i1 %cmp139.i, i1 false
@@ -9968,24 +9967,23 @@ lor.lhs.false140.i:                               ; preds = %_ZN4date14year_mont
   br i1 %or.cond40, label %if.then146.i, label %cond.end.i
 
 if.then146.i:                                     ; preds = %lor.lhs.false140.i, %_ZN4date14year_month_dayC2ERKNS_19year_month_day_lastE.exit
-  %dec.i = add nsw i64 %conv133.i, -1
+  %dec.i = add i32 %sub132.i, -1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then146.i, %lor.lhs.false140.i
-  %diff.i.0 = phi i64 [ %dec.i, %if.then146.i ], [ %conv133.i, %lor.lhs.false140.i ]
-  %12 = sub nsw i64 0, %diff.i.0
-  %mul151.i = select i1 %cmp.i44, i64 %diff.i.0, i64 %12
-  %13 = trunc i64 %mul151.i to i32
+  %diff.i.0 = phi i32 [ %dec.i, %if.then146.i ], [ %sub132.i, %lor.lhs.false140.i ]
+  %12 = sub i32 0, %diff.i.0
+  %mul151.i = select i1 %cmp.i44, i32 %diff.i.0, i32 %12
   br label %_ZN8facebook5velox9functions8diffDateENS1_12_GLOBAL__N_112DateTimeUnitEii.exit
 
 _ZN8facebook5velox9functions8diffDateENS1_12_GLOBAL__N_112DateTimeUnitEii.exit: ; preds = %cond.end.i, %entry
-  %retval.i.0 = phi i32 [ 0, %entry ], [ %13, %cond.end.i ]
+  %retval.i.0 = phi i32 [ 0, %entry ], [ %mul151.i, %cond.end.i ]
   %div207 = sdiv i32 %retval.i.0, %step
   %div.sext = sext i32 %div207 to i64
   %add = add nsw i64 %div.sext, 1
-  %14 = ashr i64 %add, 63
+  %13 = ashr i64 %add, 63
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %add, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %14, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %13, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -21159,7 +21157,6 @@ _ZN4date14year_month_dayC2ERKNS_19year_month_day_lastE.exit: ; preds = %land.rhs
   %mul129.i = mul nsw i32 %sub.i, 12
   %add.i = sub nsw i32 %conv.i133, %conv.i127
   %sub132.i = add nsw i32 %add.i, %mul129.i
-  %conv133.i = sext i32 %sub132.i to i64
   %cmp136.i.not = icmp ne i32 %conv.i130, %retval.sroa.0.0.i.i
   %cmp139.i = icmp samesign ugt i32 %conv.i125, %conv.i130
   %or.cond = select i1 %cmp136.i.not, i1 %cmp139.i, i1 false
@@ -21172,24 +21169,23 @@ lor.lhs.false140.i:                               ; preds = %_ZN4date14year_mont
   br i1 %or.cond38, label %if.then146.i, label %cond.end.i
 
 if.then146.i:                                     ; preds = %lor.lhs.false140.i, %_ZN4date14year_month_dayC2ERKNS_19year_month_day_lastE.exit
-  %dec.i = add nsw i64 %conv133.i, -1
+  %dec.i = add i32 %sub132.i, -1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then146.i, %lor.lhs.false140.i
-  %diff.i.0 = phi i64 [ %dec.i, %if.then146.i ], [ %conv133.i, %lor.lhs.false140.i ]
-  %17 = sub nsw i64 0, %diff.i.0
-  %mul151.i = select i1 %2, i64 %diff.i.0, i64 %17
-  %18 = trunc i64 %mul151.i to i32
+  %diff.i.0 = phi i32 [ %dec.i, %if.then146.i ], [ %sub132.i, %lor.lhs.false140.i ]
+  %17 = sub i32 0, %diff.i.0
+  %mul151.i = select i1 %2, i32 %diff.i.0, i32 %17
   br label %_ZN8facebook5velox9functions13diffTimestampENS1_12_GLOBAL__N_112DateTimeUnitERKNS0_9TimestampES6_.exit
 
 _ZN8facebook5velox9functions13diffTimestampENS1_12_GLOBAL__N_112DateTimeUnitERKNS0_9TimestampES6_.exit: ; preds = %entry, %cond.end.i
-  %retval.i.0 = phi i32 [ %18, %cond.end.i ], [ 0, %entry ]
+  %retval.i.0 = phi i32 [ %mul151.i, %cond.end.i ], [ 0, %entry ]
   %div205 = sdiv i32 %retval.i.0, %step
   %div.sext = sext i32 %div205 to i64
   %add = add nsw i64 %div.sext, 1
-  %19 = ashr i64 %add, 63
+  %18 = ashr i64 %add, 63
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %add, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %19, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %18, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

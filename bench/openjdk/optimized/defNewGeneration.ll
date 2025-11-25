@@ -977,9 +977,9 @@ _ZN16DefNewGeneration6expandEm.exit:              ; preds = %49, %47, %42, %_ZNK
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %54
-  br i1 %57, label %.thread, label %59
+  br i1 %57, label %.critedge, label %59
 
-.thread:                                          ; preds = %51
+.critedge:                                        ; preds = %51
   %58 = sub i64 %22, %40
   tail call void @_ZN12VirtualSpace9shrink_byEm(ptr noundef nonnull align 8 dereferenceable(112) %21, i64 noundef %58) #19
   br label %60
@@ -987,7 +987,7 @@ _ZN16DefNewGeneration6expandEm.exit:              ; preds = %49, %47, %42, %_ZNK
 59:                                               ; preds = %51, %_ZN16DefNewGeneration6expandEm.exit
   br i1 %.0, label %60, label %104
 
-60:                                               ; preds = %.thread, %59
+60:                                               ; preds = %.critedge, %59
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %62, align 8
@@ -1037,8 +1037,8 @@ _ZN16DefNewGeneration6expandEm.exit:              ; preds = %49, %47, %42, %_ZNK
 
 100:                                              ; preds = %60, %80
   %101 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not33 = icmp eq ptr %101, null
-  br i1 %.not33, label %104, label %102
+  %.not32 = icmp eq ptr %101, null
+  br i1 %.not32, label %104, label %102
 
 102:                                              ; preds = %100
   %103 = lshr i64 %.0.i, 10

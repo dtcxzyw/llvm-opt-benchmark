@@ -18098,7 +18098,7 @@ define hidden void @_ZN6yara_x2re8thompson8compiler8Compiler13patch_split_n17ha6
           to label %.noexc unwind label %.thread
 
 17:                                               ; preds = %102
-  br i1 %.sroa.02.137, label %103, label %.thread61
+  br i1 %.sroa.02.137, label %103, label %.thread53
 
 .thread:                                          ; preds = %3, %24
   %18 = landingpad { ptr, i32 }
@@ -18122,7 +18122,7 @@ define hidden void @_ZN6yara_x2re8thompson8compiler8Compiler13patch_split_n17ha6
   unreachable
 
 26:                                               ; preds = %.thread43
-  br i1 %.sroa.01.148, label %102, label %.thread61
+  br i1 %.sroa.01.148, label %102, label %.thread53
 
 .thread32:                                        ; preds = %28, %38
   %27 = landingpad { ptr, i32 }
@@ -18313,14 +18313,14 @@ define hidden void @_ZN6yara_x2re8thompson8compiler8Compiler13patch_split_n17ha6
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$yara_x..re..thompson..instr..Offset$GT$$GT$17h704ad925174d6600E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #36
           to label %17 unwind label %100
 
-.thread61:                                        ; preds = %26, %103, %17
+.thread53:                                        ; preds = %26, %103, %17
   %.pn.pn.pn30 = phi { ptr, i32 } [ %.pn.pn.pn31, %103 ], [ %.pn.pn36, %17 ], [ %.pn47, %26 ]
   resume { ptr, i32 } %.pn.pn.pn30
 
 103:                                              ; preds = %.thread, %17
   %.pn.pn.pn31 = phi { ptr, i32 } [ %18, %.thread ], [ %.pn.pn36, %17 ]
   invoke void @"_ZN4core3ptr105drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$yara_x..re..thompson..compiler..CodeLocOffset$GT$$GT$17h5827378825e6e6daE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #36
-          to label %.thread61 unwind label %100
+          to label %.thread53 unwind label %100
 }
 
 ; Function Attrs: nonlazybind uwtable

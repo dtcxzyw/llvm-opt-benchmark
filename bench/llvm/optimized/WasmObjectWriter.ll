@@ -1462,8 +1462,8 @@ define internal void @_ZN12_GLOBAL__N_116WasmObjectWriter16recordRelocationERN4l
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %31 = load i8, ptr %30, align 8
   %32 = and i8 %31, 16
-  %.not341 = icmp eq i8 %32, 0
-  br i1 %.not341, label %49, label %33
+  %.not340 = icmp eq i8 %32, 0
+  br i1 %.not340, label %49, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1530,11 +1530,11 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit:           ; preds = %51
   br i1 %59, label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit._ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread_crit_edge, label %_ZNK4llvm8MCSymbol10getSectionEv.exit
 
 _ZNK4llvm8MCSymbol11isUndefinedEb.exit._ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread_crit_edge: ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit
-  %.pre392 = load i64, ptr %52, align 8
+  %.pre391 = load i64, ptr %52, align 8
   br label %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread
 
 _ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread:    ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit._ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread_crit_edge, %51
-  %60 = phi i64 [ %.pre392, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit._ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread_crit_edge ], [ %53, %51 ]
+  %60 = phi i64 [ %.pre391, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit._ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread_crit_edge ], [ %53, %51 ]
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.0.0.copyload.i130 = load ptr, ptr %61, align 8, !tbaa !196
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1637,33 +1637,33 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit:            ; preds = %49, %_ZNK4llvm8MCSy
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 136
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !197
   %.not.i210 = icmp ult i64 %.sroa.2.0.copyload.i, 11
-  br i1 %.not.i210, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread333, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+  br i1 %.not.i210, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread332, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %.sroa.0.0.copyload.i207 = load ptr, ptr %100, align 8, !tbaa !196
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %.sroa.0.0.copyload.i207, ptr noundef nonnull dereferenceable(11) @.str.6, i64 11)
   %101 = icmp eq i32 %bcmp.i, 0
-  br i1 %101, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread333
+  br i1 %101, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread332
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 44
   store i8 1, ptr %102, align 4, !tbaa !249
   br label %.critedge
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread333: ; preds = %96, %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread332: ; preds = %96, %_ZNK4llvm9StringRef11starts_withES0_.exit
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %104 = load i64, ptr %103, align 8
   %105 = and i64 %104, 28672
   %106 = icmp eq i64 %105, 8192
   br i1 %106, label %107, label %109
 
-107:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread333
+107:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread332
   %108 = or i64 %104, 8
   store i64 %108, ptr %103, align 8
   br label %109
 
-109:                                              ; preds = %107, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread333
+109:                                              ; preds = %107, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread332
   store i64 0, ptr %5, align 8, !tbaa !197
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %111 = load ptr, ptr %110, align 8, !tbaa !6
@@ -1671,7 +1671,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread333: ; preds = %96, %_ZNK4llvm9S
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
   %115 = call noundef i32 %114(ptr noundef nonnull align 8 dereferenceable(9) %111, ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(184) %16, i1 noundef zeroext %.not) #23
-  switch i32 %115, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335 [
+  switch i32 %115, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334 [
     i32 22, label %116
     i32 9, label %116
     i32 8, label %116
@@ -1686,7 +1686,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread333: ; preds = %96, %_ZNK4llvm9S
   %119 = load i64, ptr %103, align 8
   %120 = and i64 %119, 28800
   %or.cond.not.i.i.i = icmp eq i64 %120, 8192
-  br i1 %or.cond.not.i.i.i, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335
+  br i1 %or.cond.not.i.i.i, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334
 
 _ZNK4llvm8MCSymbol9isDefinedEv.exit:              ; preds = %118
   %121 = or i64 %119, 8
@@ -1695,8 +1695,8 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit:              ; preds = %118
   %123 = load ptr, ptr %122, align 8, !tbaa !22
   %124 = call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %123) #23
   store ptr %124, ptr %99, align 8, !tbaa !180
-  %.not344 = icmp eq ptr %124, null
-  br i1 %.not344, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread
+  %.not343 = icmp eq ptr %124, null
+  br i1 %.not343, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334, label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread
 
 _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread:       ; preds = %116, %_ZNK4llvm8MCSymbol9isDefinedEv.exit
   %125 = phi ptr [ %117, %116 ], [ %124, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ]
@@ -1712,11 +1712,11 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread:       ; preds = %116, %_ZNK4llvm8MCS
 _ZNK4llvm8MCSymbol10getSectionEv.exit214:         ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %125, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !187
-  %.phi.trans.insert390 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
-  %.pre391 = load i8, ptr %.phi.trans.insert390, align 8
-  %130 = and i8 %.pre391, 16
-  %.not345 = icmp eq i8 %130, 0
-  br i1 %.not345, label %165, label %131
+  %.phi.trans.insert389 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
+  %.pre390 = load i8, ptr %.phi.trans.insert389, align 8
+  %130 = and i8 %.pre390, 16
+  %.not344 = icmp eq i8 %130, 0
+  br i1 %.not344, label %165, label %131
 
 131:                                              ; preds = %_ZNK4llvm8MCSymbol10getSectionEv.exit214
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -1794,9 +1794,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEPKNS_8MCSymbolENS_12DenseMap
 169:                                              ; preds = %167
   %170 = call noundef i64 @_ZNK4llvm11MCAssembler15getSymbolOffsetERKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(364) %1, ptr noundef nonnull align 8 dereferenceable(32) %99) #23
   %171 = add i64 %170, %.3
-  br label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335
+  br label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334
 
-_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335:    ; preds = %118, %109, %169, %_ZNK4llvm8MCSymbol9isDefinedEv.exit
+_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334:    ; preds = %118, %109, %169, %_ZNK4llvm8MCSymbol9isDefinedEv.exit
   %.0104 = phi ptr [ %.0103, %169 ], [ %99, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ %99, %109 ], [ %99, %118 ]
   %.4 = phi i64 [ %171, %169 ], [ %.3, %_ZNK4llvm8MCSymbol9isDefinedEv.exit ], [ %.3, %109 ], [ %.3, %118 ]
   switch i32 %115, label %196 [
@@ -1809,7 +1809,7 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335:    ; preds = %118, %109, %169, %_
     i32 6, label %206
   ]
 
-172:                                              ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335
+172:                                              ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334, %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %173 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %174 = getelementptr inbounds nuw i8, ptr %14, i64 33
@@ -1858,7 +1858,7 @@ _ZNK4llvm12MCSymbolWasm15isFunctionTableEv.exit.thread: ; preds = %177, %_ZNK4ll
   %.not112 = icmp eq i32 %115, 6
   br i1 %.not112, label %206, label %196
 
-196:                                              ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335, %191
+196:                                              ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334, %191
   %197 = getelementptr inbounds nuw i8, ptr %.0104, i64 8
   %198 = load i64, ptr %197, align 8
   %199 = and i64 %198, 1
@@ -1881,7 +1881,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit222.thread:      ; preds = %196, %_ZNK4llvm8MCS
   store i64 %205, ptr %197, align 8
   br label %206
 
-206:                                              ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread335, %204, %191
+206:                                              ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread334, %204, %191
   %207 = getelementptr inbounds nuw i8, ptr %97, i64 1
   %208 = load i32, ptr %207, align 1
   %209 = trunc i32 %208 to i16
@@ -1990,8 +1990,8 @@ _ZNSt6vectorIN12_GLOBAL__N_119WasmRelocationEntryESaIS1_EE17_M_realloc_insertIJR
   %245 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %246 = load i8, ptr %245, align 8
   %247 = and i8 %246, 16
-  %.not346 = icmp eq i8 %247, 0
-  br i1 %.not346, label %276, label %248
+  %.not345 = icmp eq i8 %247, 0
+  br i1 %.not345, label %276, label %248
 
 248:                                              ; preds = %244
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 120

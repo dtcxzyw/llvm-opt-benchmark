@@ -899,8 +899,8 @@ define hidden void @_ZN16uv_install_wheel5wheel16read_record_file17he717f36e8ae2
   %21 = landingpad { ptr, i32 }
           cleanup
   %22 = load i64, ptr %5, align 8, !range !112, !noalias !106, !noundef !3
-  %.not14.i = icmp eq i64 %22, 18
-  br i1 %.not14.i, label %.body, label %30
+  %.not7.i = icmp eq i64 %22, 18
+  br i1 %.not7.i, label %.body, label %30
 
 23:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !94

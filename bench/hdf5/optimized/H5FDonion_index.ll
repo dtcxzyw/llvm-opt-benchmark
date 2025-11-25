@@ -1725,8 +1725,8 @@ define noundef zeroext i1 @H5FD__onion_archival_index_is_valid(ptr noundef reado
   %.not15 = icmp ugt i64 %23, %25
   br i1 %.not15, label %19, label %.loopexit, !llvm.loop !56
 
-.loopexit:                                        ; preds = %19, %20, %10, %8, %14, %1
-  %.013 = phi i1 [ true, %14 ], [ true, %1 ], [ false, %8 ], [ false, %10 ], [ %exitcond.not, %20 ], [ %exitcond.not, %19 ]
+.loopexit:                                        ; preds = %20, %19, %1, %14, %8, %10
+  %.013 = phi i1 [ true, %14 ], [ true, %1 ], [ false, %8 ], [ false, %10 ], [ %exitcond.not, %19 ], [ %exitcond.not, %20 ]
   ret i1 %.013
 }
 

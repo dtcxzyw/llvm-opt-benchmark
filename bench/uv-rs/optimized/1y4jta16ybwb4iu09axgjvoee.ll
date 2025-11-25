@@ -14233,8 +14233,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hdd26effd51f4b62dE(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load ptr, ptr %5, align 8, !noundef !8
-  %.not14 = icmp eq ptr %8, null
-  br i1 %.not14, label %.thread, label %17
+  %.not9 = icmp eq ptr %8, null
+  br i1 %.not9, label %17, label %18
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3882
@@ -14258,18 +14258,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17hdd26effd51f4b62dE(ptr 
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17hc017735af54666beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %12
 
-15:                                               ; preds = %17
+15:                                               ; preds = %18
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #34
   unreachable
 
-.thread:                                          ; preds = %17, %6
+17:                                               ; preds = %18, %6
   resume { ptr, i32 } %7
 
-17:                                               ; preds = %6
+18:                                               ; preds = %6
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17hf39132d825214074E.llvm.7725695193857395179"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #33
-          to label %.thread unwind label %15
+          to label %17 unwind label %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

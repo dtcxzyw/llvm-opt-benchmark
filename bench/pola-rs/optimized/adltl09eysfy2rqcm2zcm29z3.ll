@@ -86846,9 +86846,6 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   %17 = invoke noundef zeroext i1 @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$8is_empty17hb733d76638dfaef6E"(ptr noundef nonnull align 8 %16)
           to label %19 unwind label %.thread
 
-.noexc55:                                         ; preds = %.loopexit.split-lp, %106
-  br i1 %.sroa.021.1, label %108, label %.noexc55.thread
-
 .thread:                                          ; preds = %3, %19, %55, %20, %.sink.split.i
   %18 = landingpad { ptr, i32 }
           cleanup
@@ -86960,7 +86957,7 @@ _ZN10rayon_core5sleep5Sleep8new_jobs17h38f8451edb6088d3E.exit: ; preds = %28, %.
 59:                                               ; preds = %51, %86
   %60 = load atomic i64, ptr %.sroa.4.0..sroa_idx acquire, align 8
   %61 = icmp eq i64 %60, 3
-  br i1 %61, label %.loopexit89, label %62
+  br i1 %61, label %.loopexit87, label %62
 
 62:                                               ; preds = %59
   %63 = invoke { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hafc72e6c7f42ee2bE"(ptr noundef nonnull align 8 %16)
@@ -87004,7 +87001,7 @@ default.unreachable:                              ; preds = %.noexc52
   %71 = insertvalue { ptr, ptr } %70, ptr %.sroa.5.1.i, 1
   br label %_ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit
 
-.loopexit89:                                      ; preds = %59, %91, %94
+.loopexit87:                                      ; preds = %59, %91, %94
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
   %.sroa.065.0.copyload = load i64, ptr %10, align 8
@@ -87023,17 +87020,17 @@ default.unreachable:                              ; preds = %.noexc52
     i64 2, label %78
   ], !prof !1380
 
-76:                                               ; preds = %.loopexit89
+76:                                               ; preds = %.loopexit87
   unreachable
 
-77:                                               ; preds = %.loopexit89
+77:                                               ; preds = %.loopexit87
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.a170a8b7ecd99b8c4e1a3db419f55da5.19, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a170a8b7ecd99b8c4e1a3db419f55da5.21) #19
           to label %.noexc53 unwind label %95
 
 .noexc53:                                         ; preds = %77
   unreachable
 
-78:                                               ; preds = %.loopexit89
+78:                                               ; preds = %.loopexit87
   %79 = icmp ne ptr %.sroa.466.0.copyload, null
   call void @llvm.assume(i1 %79)
   %80 = icmp ne ptr %.sroa.567.0.copyload, null
@@ -87082,24 +87079,24 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
 91:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit
   %92 = load atomic i64, ptr %.sroa.4.0..sroa_idx acquire, align 8
   %93 = icmp eq i64 %92, 3
-  br i1 %93, label %.loopexit89, label %94, !prof !4240
+  br i1 %93, label %.loopexit87, label %94, !prof !4240
 
 94:                                               ; preds = %91
   invoke void @_ZN10rayon_core8registry12WorkerThread15wait_until_cold17hc51e3b405524e162E(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %.sroa.4.0..sroa_idx)
-          to label %.loopexit89 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.loopexit87 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 95:                                               ; preds = %78, %77
   %96 = landingpad { ptr, i32 }
           cleanup
   %97 = load i64, ptr %6, align 8, !range !6956, !alias.scope !6957, !noundef !9
   %98 = icmp eq i64 %97, 17
-  br i1 %98, label %.noexc55.thread, label %99
+  br i1 %98, label %.noexc55, label %99
 
 99:                                               ; preds = %95
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17h579ac14c865032a6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
-          to label %.noexc55.thread unwind label %102
+          to label %.noexc55 unwind label %102
 
-100:                                              ; preds = %.loopexit89
+100:                                              ; preds = %.loopexit87
   %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.6.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %0, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx64, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.668.0..sroa_idx, i64 40, i1 false)
@@ -87125,36 +87122,39 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %62, %86
-  %lpad.loopexit90 = landingpad { ptr, i32 }
+  %lpad.loopexit88 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %94, %87
-  %lpad.loopexit.split-lp91 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp89 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %.sroa.021.1 = phi i1 [ true, %.loopexit ], [ true, %.loopexit.split-lp.loopexit ], [ %.not, %.loopexit.split-lp.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit90, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp91, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit88, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp89, %.loopexit.split-lp.loopexit.split-lp ]
   %104 = load i64, ptr %9, align 8, !range !6956, !alias.scope !6960, !noundef !9
   %105 = icmp eq i64 %104, 17
-  br i1 %105, label %.noexc55, label %106
+  br i1 %105, label %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit57", label %106
 
 106:                                              ; preds = %.loopexit.split-lp
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17h579ac14c865032a6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %9)
-          to label %.noexc55 unwind label %102
+          to label %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit57" unwind label %102
+
+"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit57": ; preds = %106, %.loopexit.split-lp
+  br i1 %.sroa.021.1, label %108, label %.noexc55
 
 107:                                              ; preds = %55
   unreachable
 
-108:                                              ; preds = %.thread, %.noexc55
-  %.pn.pn73 = phi { ptr, i32 } [ %18, %.thread ], [ %lpad.phi, %.noexc55 ]
+108:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit57", %.thread
+  %.pn.pn73 = phi { ptr, i32 } [ %18, %.thread ], [ %lpad.phi, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit57" ]
   invoke void @"_ZN4core3ptr703drop_in_place$LT$rayon_core..job..StackJob$LT$rayon_core..latch..SpinLatch$C$rayon_core..join..join_context..call_b$LT$core..result..Result$LT$polars_core..frame..group_by..position..GroupsType$C$polars_error..PolarsError$GT$$C$rayon_core..join..join..call$LT$core..result..Result$LT$polars_core..frame..group_by..position..GroupsType$C$polars_error..PolarsError$GT$$C$$LT$polars_expr..expressions..sortby..SortByExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate_on_groups..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$polars_core..frame..group_by..position..GroupsType$C$polars_error..PolarsError$GT$$GT$$GT$17hacd2aa9c13d152f5E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %10) #20
-          to label %.noexc55.thread unwind label %102
+          to label %.noexc55 unwind label %102
 
-.noexc55.thread:                                  ; preds = %99, %95, %.noexc55, %108
-  %.pn.pn72 = phi { ptr, i32 } [ %lpad.phi, %.noexc55 ], [ %.pn.pn73, %108 ], [ %96, %95 ], [ %96, %99 ]
+.noexc55:                                         ; preds = %95, %99, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit57", %108
+  %.pn.pn72 = phi { ptr, i32 } [ %.pn.pn73, %108 ], [ %lpad.phi, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit57" ], [ %96, %95 ], [ %96, %99 ]
   resume { ptr, i32 } %.pn.pn72
 }
 

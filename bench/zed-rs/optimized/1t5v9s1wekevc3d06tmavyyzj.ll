@@ -96272,7 +96272,7 @@ define hidden void @_ZN7tendril6stream11TendrilSink9read_from17hae26187667236025
   br label %.thread66.thread
 
 59:                                               ; preds = %69, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hc0b98156a7b3cf46E.exit.i.i.i._crit_edge"
-  %.val9193 = phi i32 [ 4096, %69 ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hc0b98156a7b3cf46E.exit.i.i.i._crit_edge" ]
+  %.val9210 = phi i32 [ 4096, %69 ], [ 0, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17hc0b98156a7b3cf46E.exit.i.i.i._crit_edge" ]
   %60 = landingpad { ptr, i32 }
           cleanup
   br label %.thread66.thread
@@ -96318,14 +96318,14 @@ define hidden void @_ZN7tendril6stream11TendrilSink9read_from17hae26187667236025
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h1f15456fc37b0c6cE.exit.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h1f15456fc37b0c6cE.exit.i": ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10owned_copy17h569ea50adc15ab37E.exit.i.i", %64
-  %.val10188 = phi i64 [ %62, %64 ], [ %72, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10owned_copy17h569ea50adc15ab37E.exit.i.i" ]
+  %.val10205 = phi i64 [ %62, %64 ], [ %72, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10owned_copy17h569ea50adc15ab37E.exit.i.i" ]
   %75 = phi ptr [ %54, %64 ], [ %67, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10owned_copy17h569ea50adc15ab37E.exit.i.i" ]
   %.sroa.04.0.i = phi i64 [ 4096, %64 ], [ %spec.select, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10owned_copy17h569ea50adc15ab37E.exit.i.i" ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   br label %77
 
 77:                                               ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h1f15456fc37b0c6cE.exit.i", %61
-  %78 = phi i64 [ %.val10188, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h1f15456fc37b0c6cE.exit.i" ], [ %62, %61 ]
+  %78 = phi i64 [ %.val10205, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h1f15456fc37b0c6cE.exit.i" ], [ %62, %61 ]
   %.sroa.4.0.i = phi i64 [ %.sroa.04.0.i, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h1f15456fc37b0c6cE.exit.i" ], [ %62, %61 ]
   %.sroa.0.0.i = phi ptr [ %76, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$10assume_buf17h1f15456fc37b0c6cE.exit.i" ], [ %.sroa.4.0..sroa_idx.i, %61 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !16139)
@@ -96334,9 +96334,9 @@ define hidden void @_ZN7tendril6stream11TendrilSink9read_from17hae26187667236025
   %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %.sroa.4.0.i, i64 %79)
   %80 = load ptr, ptr %2, align 8, !alias.scope !16139, !noalias !16142, !nonnull !4, !align !205, !noundef !4
   %81 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i, 1
-  br i1 %81, label %.thread226, label %85
+  br i1 %81, label %.thread243, label %85
 
-.thread226:                                       ; preds = %77
+.thread243:                                       ; preds = %77
   %82 = load i8, ptr %80, align 1, !noalias !16144, !noundef !4
   store i8 %82, ptr %.sroa.0.0.i, align 1, !alias.scope !16142, !noalias !16139
   %83 = sub nuw i64 %79, %.sroa.0.0.sroa.speculated.i.i
@@ -96351,8 +96351,8 @@ define hidden void @_ZN7tendril6stream11TendrilSink9read_from17hae26187667236025
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 %.sroa.0.0.sroa.speculated.i.i
   store ptr %87, ptr %2, align 8, !alias.scope !16139, !noalias !16142
   store i64 %86, ptr %35, align 8, !alias.scope !16139, !noalias !16142
-  %.not.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i, 0
-  br i1 %.not.not, label %88, label %116
+  %.not158.not.not = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i, 0
+  br i1 %.not158.not.not, label %88, label %116
 
 88:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -96460,12 +96460,12 @@ define hidden void @_ZN7tendril6stream11TendrilSink9read_from17hae26187667236025
 113:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$html5ever..driver..Parser$LT$markup5ever_rcdom..RcDom$GT$$GT$17hf41f39595ba6ad8fE"(ptr noalias noundef nonnull align 8 dereferenceable(520) %28) #45
-          to label %.thread66.thread233 unwind label %114, !noalias !16154
+          to label %.thread66.thread250 unwind label %114, !noalias !16154
 
-.thread66.thread233:                              ; preds = %113
-  %.val9.pre236 = load i32, ptr %34, align 4
-  %.val237 = load i64, ptr %30, align 8, !range !1399, !alias.scope !9772, !noundef !4
-  call fastcc void @"_ZN4core3ptr73drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..Bytes$GT$$GT$17h5038a710303b9ac8E"(i64 %.val237, i32 %.val9.pre236) #45
+.thread66.thread250:                              ; preds = %113
+  %.val9.pre253 = load i32, ptr %34, align 4
+  %.val254 = load i64, ptr %30, align 8, !range !1399, !alias.scope !9772, !noundef !4
+  call fastcc void @"_ZN4core3ptr73drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..Bytes$GT$$GT$17h5038a710303b9ac8E"(i64 %.val254, i32 %.val9.pre253) #45
   br label %.thread
 
 114:                                              ; preds = %113
@@ -96481,8 +96481,8 @@ define hidden void @_ZN7tendril6stream11TendrilSink9read_from17hae26187667236025
   %119 = icmp eq i32 %117, 4096
   br i1 %119, label %178, label %120
 
-120:                                              ; preds = %116, %.thread226
-  %121 = phi i32 [ 4095, %.thread226 ], [ %118, %116 ]
+120:                                              ; preds = %116, %.thread243
+  %121 = phi i32 [ 4095, %.thread243 ], [ %118, %116 ]
   %122 = icmp ult i64 %78, 9
   %123 = trunc nuw nsw i64 %78 to i32
   %124 = load i32, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !16183
@@ -97629,27 +97629,27 @@ split:                                            ; preds = %120
   unreachable
 
 .thread66.thread:                                 ; preds = %59, %57
-  %.val9.ph = phi i32 [ 16, %57 ], [ %.val9193, %59 ]
+  %.val9.ph = phi i32 [ 16, %57 ], [ %.val9210, %59 ]
   %.pn71.ph = phi { ptr, i32 } [ %58, %57 ], [ %60, %59 ]
-  %.val232 = load i64, ptr %30, align 8, !range !1399, !alias.scope !9772, !noundef !4
-  call fastcc void @"_ZN4core3ptr73drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..Bytes$GT$$GT$17h5038a710303b9ac8E"(i64 %.val232, i32 %.val9.ph) #45
+  %.val249 = load i64, ptr %30, align 8, !range !1399, !alias.scope !9772, !noundef !4
+  call fastcc void @"_ZN4core3ptr73drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..Bytes$GT$$GT$17h5038a710303b9ac8E"(i64 %.val249, i32 %.val9.ph) #45
   br label %512
 
 .thread66:                                        ; preds = %split, %112
-  %.not224 = phi i1 [ false, %112 ], [ true, %split ]
+  %.not158.not241 = phi i1 [ false, %112 ], [ true, %split ]
   %lpad.loopexit.split-lp78 = landingpad { ptr, i32 }
           cleanup
   %.val9.pre = load i32, ptr %34, align 4
   %.val = load i64, ptr %30, align 8, !range !1399, !alias.scope !9772, !noundef !4
   call fastcc void @"_ZN4core3ptr73drop_in_place$LT$tendril..tendril..Tendril$LT$tendril..fmt..Bytes$GT$$GT$17h5038a710303b9ac8E"(i64 %.val, i32 %.val9.pre) #45
-  br i1 %.not224, label %512, label %.thread
+  br i1 %.not158.not241, label %512, label %.thread
 
-.thread:                                          ; preds = %.thread66.thread233, %.thread66, %512
-  %.pn7216 = phi { ptr, i32 } [ %lpad.loopexit.split-lp78, %.thread66 ], [ %.pn7217, %512 ], [ %lpad.phi.i, %.thread66.thread233 ]
-  resume { ptr, i32 } %.pn7216
+.thread:                                          ; preds = %.thread66.thread250, %.thread66, %512
+  %.pn7233 = phi { ptr, i32 } [ %lpad.loopexit.split-lp78, %.thread66 ], [ %.pn7234, %512 ], [ %lpad.phi.i, %.thread66.thread250 ]
+  resume { ptr, i32 } %.pn7233
 
 512:                                              ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %.loopexit.split-lp.i28, %.thread66.thread, %.thread66
-  %.pn7217 = phi { ptr, i32 } [ %lpad.loopexit.split-lp78, %.thread66 ], [ %.pn71.ph, %.thread66.thread ], [ %lpad.loopexit77, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.phi.i29, %.loopexit.split-lp.i28 ]
+  %.pn7234 = phi { ptr, i32 } [ %lpad.loopexit.split-lp78, %.thread66 ], [ %.pn71.ph, %.thread66.thread ], [ %lpad.loopexit77, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.phi.i29, %.loopexit.split-lp.i28 ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$html5ever..driver..Parser$LT$markup5ever_rcdom..RcDom$GT$$GT$17hf41f39595ba6ad8fE"(ptr noalias noundef nonnull align 8 dereferenceable(520) %1)
           to label %.thread unwind label %510
 }

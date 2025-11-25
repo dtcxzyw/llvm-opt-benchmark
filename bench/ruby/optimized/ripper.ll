@@ -41152,7 +41152,7 @@ pushback.exit:                                    ; preds = %parser_is_identchar
   br label %.critedge93
 
 parser_is_identchar.exit.thread:                  ; preds = %128, %138
-  %172 = or i8 %.077159, 2
+  %172 = or disjoint i8 %.077159, 2
   %173 = load ptr, ptr %3, align 8, !tbaa !48
   %174 = getelementptr inbounds i8, ptr %173, i64 -1
   %175 = load ptr, ptr %10, align 8, !tbaa !402

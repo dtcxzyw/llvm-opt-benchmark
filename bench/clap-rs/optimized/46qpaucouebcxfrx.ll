@@ -9946,7 +9946,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %235 = load i64, ptr %234, align 8, !range !118, !noundef !7
   %236 = icmp ne i64 %235, -9223372036854775808
-  %or.cond5 = and i1 %236, %.1146
+  %or.cond5 = and i1 %.1146, %236
   br i1 %or.cond5, label %238, label %232
 
 237:                                              ; preds = %231

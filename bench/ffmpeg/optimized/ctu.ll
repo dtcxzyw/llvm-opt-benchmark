@@ -8224,7 +8224,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @set_qp_y(ptr noundef %0, i
 92:                                               ; preds = %88, %.thread.i
   %.in.in.i = phi ptr [ %91, %88 ], [ %10, %.thread.i ]
   %.in.i = load i8, ptr %.in.in.i, align 2, !tbaa !93
-  %93 = sext i8 %.in.i to i32
+  %93 = sext i8 %.in.i to i16
   %94 = icmp ne i32 %66, 0
   %95 = select i1 %94, i1 %60, i1 false
   %or.cond.i = select i1 %95, i1 %63, i1 false
@@ -8239,11 +8239,11 @@ define internal fastcc range(i32 -1094995529, 1) i32 @set_qp_y(ptr noundef %0, i
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %98, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !93
-  %105 = sext i8 %104 to i32
+  %105 = sext i8 %104 to i16
   br label %106
 
 106:                                              ; preds = %96, %92
-  %.070.i = phi i32 [ %105, %96 ], [ %93, %92 ]
+  %.070.i = phi i16 [ %105, %96 ], [ %93, %92 ]
   %107 = load i32, ptr %64, align 8, !tbaa !180
   %108 = icmp ne i32 %107, 0
   %109 = select i1 %108, i1 %56, i1 false
@@ -8259,15 +8259,15 @@ define internal fastcc range(i32 -1094995529, 1) i32 @set_qp_y(ptr noundef %0, i
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds i8, ptr %112, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !93
-  %119 = sext i8 %118 to i32
+  %119 = sext i8 %118 to i16
   br label %120
 
 120:                                              ; preds = %110, %106
-  %.069.i = phi i32 [ %119, %110 ], [ %93, %106 ]
-  %121 = add nsw i32 %.070.i, 1
-  %122 = add nsw i32 %121, %.069.i
-  %123 = lshr i32 %122, 1
-  %124 = trunc i32 %123 to i8
+  %.069.i = phi i16 [ %119, %110 ], [ %93, %106 ]
+  %121 = add nsw i16 %.070.i, 1
+  %122 = add nsw i16 %121, %.069.i
+  %123 = lshr i16 %122, 1
+  %124 = trunc i16 %123 to i8
   br label %get_qp_y_pred.exit
 
 get_qp_y_pred.exit:                               ; preds = %72, %120

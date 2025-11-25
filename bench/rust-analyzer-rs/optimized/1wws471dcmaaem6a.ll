@@ -36955,7 +36955,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2856947585988979465.ex
   br label %.body.i508
 
 .body.i508:                                       ; preds = %1185, %1181, %1178, %1173, %1162, %1157, %1127
-  %eh.lpad-body.i509 = phi { ptr, i32 } [ %1128, %1127 ], [ %lpad.phi.i, %1181 ], [ %lpad.phi.i, %1185 ], [ %lpad.thr_comm.split-lp.i.i.i, %1173 ], [ %lpad.thr_comm.split-lp.i.i.i, %1178 ], [ %lpad.thr_comm.i.i.i.i, %1162 ], [ %lpad.thr_comm.i.i.i.i, %1157 ]
+  %eh.lpad-body.i509 = phi { ptr, i32 } [ %1128, %1127 ], [ %lpad.thr_comm.split-lp31.i.i.i, %1178 ], [ %lpad.thr_comm.split-lp31.i.i.i, %1173 ], [ %lpad.phi.i, %1185 ], [ %lpad.phi.i, %1181 ], [ %lpad.thr_comm.i.i.i.i, %1157 ], [ %lpad.thr_comm.i.i.i.i, %1162 ]
   invoke fastcc void @"_ZN4core3ptr128drop_in_place$LT$rowan..utility_types..TokenAtOffset$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hf47c612f26c6e128E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %97) #43
           to label %.body518 unwind label %1215, !noalias !5941
 
@@ -37104,7 +37104,7 @@ _ZN6ide_db6search10FindUsages21found_format_args_ref17he7c405bfba185d8dE.exit.i.
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h00e37cbab17ca4f3E.exit.i"
 
 1173:                                             ; preds = %1140
-  %lpad.thr_comm.split-lp.i.i.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp31.i.i.i = landingpad { ptr, i32 }
           cleanup
   %1174 = getelementptr inbounds nuw i8, ptr %1138, i64 48
   %1175 = load i32, ptr %1174, align 4, !noalias !5998, !noundef !11

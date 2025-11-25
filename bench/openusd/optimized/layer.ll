@@ -16168,7 +16168,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28SdfFieldKeys_StaticTok
   br label %.critedge
 
 .critedge:                                        ; preds = %330, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, %295, %348, %371
-  %.064.shrunk = phi i1 [ %372, %371 ], [ false, %348 ], [ false, %295 ], [ %320, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ], [ %320, %330 ]
+  %.064 = phi i1 [ %372, %371 ], [ false, %348 ], [ false, %295 ], [ %320, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit ], [ %320, %330 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %373 = load ptr, ptr %52, align 8
   %.not.i.i.i.i.i191 = icmp eq ptr %373, null
@@ -16236,7 +16236,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit: ; preds = %_ZN32pxrI
   br label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3setINS_7SdfPathESt4lessIS2_ESaIS2_EELb0EEppEv.exit
 
 410:                                              ; preds = %384, %383
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer15_PrimCreateSpecERKNS_7SdfPathENS_11SdfSpecTypeEbb(ptr noundef nonnull align 8 dereferenceable(557) %0, ptr noundef nonnull align 4 dereferenceable(8) %270, i32 noundef %382, i1 noundef zeroext %.064.shrunk, i1 noundef zeroext true)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer15_PrimCreateSpecERKNS_7SdfPathENS_11SdfSpecTypeEbb(ptr noundef nonnull align 8 dereferenceable(557) %0, ptr noundef nonnull align 4 dereferenceable(8) %270, i32 noundef %382, i1 noundef zeroext %.064, i1 noundef zeroext true)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3setINS_7SdfPathESt4lessIS2_ESaIS2_EELb0EEppEv.exit unwind label %.loopexit273
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3setINS_7SdfPathESt4lessIS2_ESaIS2_EELb0EEppEv.exit: ; preds = %410, %391, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSERKS0_.exit

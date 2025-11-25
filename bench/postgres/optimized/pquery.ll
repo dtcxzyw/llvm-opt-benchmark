@@ -1377,445 +1377,434 @@ define dso_local i64 @PortalRunFetch(ptr noundef %0, i32 noundef %1, i64 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @DoPortalRunFetch(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
-  switch i32 %1, label %166 [
+  switch i32 %1, label %167 [
     i32 0, label %5
     i32 1, label %7
-    i32 2, label %8
-    i32 3, label %120
+    i32 2, label %9
+    i32 3, label %121
   ]
 
 5:                                                ; preds = %4
   %6 = icmp sgt i64 %2, -1
-  %spec.select = tail call i64 @llvm.abs.i64(i64 %2, i1 false)
-  %spec.select99 = zext i1 %6 to i8
-  br label %169
+  br label %170
 
 7:                                                ; preds = %4
-  %spec.select100 = tail call i64 @llvm.abs.i64(i64 %2, i1 false)
-  %.lobit = lshr i64 %2, 63
-  %spec.select101 = trunc nuw nsw i64 %.lobit to i8
-  br label %169
+  %8 = icmp slt i64 %2, 0
+  br label %170
 
-8:                                                ; preds = %4
-  %9 = icmp sgt i64 %2, 0
-  br i1 %9, label %10, label %65
+9:                                                ; preds = %4
+  %10 = icmp sgt i64 %2, 0
+  br i1 %10, label %11, label %66
 
-10:                                               ; preds = %8
-  %11 = add nsw i64 %2, -1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %13 = load i64, ptr %12, align 8
-  %14 = lshr i64 %13, 1
-  %.not94 = icmp samesign ule i64 %11, %14
-  %15 = icmp ugt i64 %13, 9223372036854775806
-  %or.cond = or i1 %15, %.not94
-  br i1 %or.cond, label %16, label %20
+11:                                               ; preds = %9
+  %12 = add nsw i64 %2, -1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %14 = load i64, ptr %13, align 8
+  %15 = lshr i64 %14, 1
+  %.not94 = icmp samesign ule i64 %12, %15
+  %16 = icmp ugt i64 %14, 9223372036854775806
+  %or.cond = or i1 %16, %.not94
+  br i1 %or.cond, label %17, label %21
 
-16:                                               ; preds = %10
+17:                                               ; preds = %11
   tail call fastcc void @DoPortalRewind(ptr noundef nonnull %0)
   %.not96 = icmp eq i64 %2, 1
-  br i1 %.not96, label %36, label %17
+  br i1 %.not96, label %37, label %18
 
-17:                                               ; preds = %16
-  %18 = load ptr, ptr @None_Receiver, align 8
-  %19 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %11, ptr noundef %18)
-  br label %36
+18:                                               ; preds = %17
+  %19 = load ptr, ptr @None_Receiver, align 8
+  %20 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %12, ptr noundef %19)
+  br label %37
 
-20:                                               ; preds = %10
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  %22 = load i8, ptr %21, align 1, !range !4, !noundef !5
-  %23 = zext nneg i8 %22 to i64
-  %spec.select102 = add nuw nsw i64 %13, %23
+21:                                               ; preds = %11
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
+  %24 = zext nneg i8 %23 to i64
+  %spec.select102 = add nuw nsw i64 %14, %24
   %.not95 = icmp samesign ugt i64 %2, %spec.select102
-  br i1 %.not95, label %28, label %24
+  br i1 %.not95, label %29, label %25
 
-24:                                               ; preds = %20
+25:                                               ; preds = %21
   %reass.sub = sub nuw nsw i64 %spec.select102, %2
-  %25 = add nuw nsw i64 %reass.sub, 1
-  %26 = load ptr, ptr @None_Receiver, align 8
-  %27 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext false, i64 noundef %25, ptr noundef %26)
-  br label %36
+  %26 = add nuw nsw i64 %reass.sub, 1
+  %27 = load ptr, ptr @None_Receiver, align 8
+  %28 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext false, i64 noundef %26, ptr noundef %27)
+  br label %37
 
-28:                                               ; preds = %20
-  %29 = add nuw nsw i64 %spec.select102, 1
-  %30 = icmp samesign ugt i64 %2, %29
-  br i1 %30, label %31, label %36
+29:                                               ; preds = %21
+  %30 = add nuw nsw i64 %spec.select102, 1
+  %31 = icmp samesign ugt i64 %2, %30
+  br i1 %31, label %32, label %37
 
-31:                                               ; preds = %28
-  %32 = xor i64 %spec.select102, -1
-  %33 = add nsw i64 %2, %32
-  %34 = load ptr, ptr @None_Receiver, align 8
-  %35 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %33, ptr noundef %34)
-  br label %36
+32:                                               ; preds = %29
+  %33 = xor i64 %spec.select102, -1
+  %34 = add nsw i64 %2, %33
+  %35 = load ptr, ptr @None_Receiver, align 8
+  %36 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext true, i64 noundef %34, ptr noundef %35)
+  br label %37
 
-36:                                               ; preds = %24, %31, %28, %16, %17
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %38 = load ptr, ptr %37, align 8
-  %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %41, label %39
+37:                                               ; preds = %25, %32, %29, %17, %18
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %39 = load ptr, ptr %38, align 8
+  %.not.i = icmp eq ptr %39, null
+  br i1 %.not.i, label %42, label %40
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  store ptr %3, ptr %40, align 8
-  br label %41
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  store ptr %3, ptr %41, align 8
+  br label %42
 
-41:                                               ; preds = %39, %36
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  %43 = load i8, ptr %42, align 1, !range !4, !noundef !5
-  %44 = trunc nuw i8 %43 to i1
-  %not.152 = xor i1 %44, true
-  %..i = zext i1 %not.152 to i64
-  %.69.i = zext i1 %not.152 to i32
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %46 = load ptr, ptr %45, align 8
-  %.not67.i = icmp eq ptr %46, null
-  br i1 %.not67.i, label %49, label %47
+42:                                               ; preds = %40, %37
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  %44 = load i8, ptr %43, align 1, !range !4, !noundef !5
+  %45 = trunc nuw i8 %44 to i1
+  %not.153 = xor i1 %45, true
+  %..i = zext i1 %not.153 to i64
+  %.69.i = zext i1 %not.153 to i32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %47 = load ptr, ptr %46, align 8
+  %.not67.i = icmp eq ptr %47, null
+  br i1 %.not67.i, label %50, label %48
 
-47:                                               ; preds = %41
-  %48 = tail call fastcc i64 @RunFromStore(ptr noundef nonnull %0, i32 noundef %.69.i, i64 noundef %..i, ptr noundef %3)
-  br label %56
+48:                                               ; preds = %42
+  %49 = tail call fastcc i64 @RunFromStore(ptr noundef nonnull %0, i32 noundef %.69.i, i64 noundef %..i, ptr noundef %3)
+  br label %57
 
-49:                                               ; preds = %41
-  %50 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %51 = load ptr, ptr %50, align 8
-  tail call void @PushActiveSnapshot(ptr noundef %51) #10
-  tail call void @ExecutorRun(ptr noundef %38, i32 noundef %.69.i, i64 noundef %..i) #10
-  %52 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 208
-  %55 = load i64, ptr %54, align 8
+50:                                               ; preds = %42
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %52 = load ptr, ptr %51, align 8
+  tail call void @PushActiveSnapshot(ptr noundef %52) #10
+  tail call void @ExecutorRun(ptr noundef %39, i32 noundef %.69.i, i64 noundef %..i) #10
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 80
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 208
+  %56 = load i64, ptr %55, align 8
   tail call void @PopActiveSnapshot() #10
-  br label %56
+  br label %57
 
-56:                                               ; preds = %49, %47
-  %.0.i = phi i64 [ %48, %47 ], [ %55, %49 ]
-  %57 = freeze i64 %.0.i
-  br i1 %44, label %PortalRunSelect.exit, label %58
+57:                                               ; preds = %50, %48
+  %.0.i = phi i64 [ %49, %48 ], [ %56, %50 ]
+  %58 = freeze i64 %.0.i
+  br i1 %45, label %PortalRunSelect.exit, label %59
 
-58:                                               ; preds = %56
-  %cond = icmp eq i64 %57, 0
-  br i1 %cond, label %61, label %59
+59:                                               ; preds = %57
+  %cond = icmp eq i64 %58, 0
+  br i1 %cond, label %62, label %60
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i8 0, ptr %60, align 8
-  br label %62
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i8 0, ptr %61, align 8
+  br label %63
 
-61:                                               ; preds = %58
-  store i8 1, ptr %42, align 1
-  br label %62
+62:                                               ; preds = %59
+  store i8 1, ptr %43, align 1
+  br label %63
 
-62:                                               ; preds = %59, %61
-  %63 = load i64, ptr %12, align 8
-  %64 = add i64 %63, %57
-  store i64 %64, ptr %12, align 8
+63:                                               ; preds = %60, %62
+  %64 = load i64, ptr %13, align 8
+  %65 = add i64 %64, %58
+  store i64 %65, ptr %13, align 8
   br label %PortalRunSelect.exit
 
-65:                                               ; preds = %8
-  %66 = icmp slt i64 %2, 0
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  br i1 %66, label %68, label %103
+66:                                               ; preds = %9
+  %67 = icmp slt i64 %2, 0
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  br i1 %67, label %69, label %104
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr @None_Receiver, align 8
-  %70 = load ptr, ptr %67, align 8
-  %.not.i104 = icmp eq ptr %70, null
-  br i1 %.not.i104, label %73, label %71
+69:                                               ; preds = %66
+  %70 = load ptr, ptr @None_Receiver, align 8
+  %71 = load ptr, ptr %68, align 8
+  %.not.i104 = icmp eq ptr %71, null
+  br i1 %.not.i104, label %74, label %72
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  store ptr %69, ptr %72, align 8
-  br label %73
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  store ptr %70, ptr %73, align 8
+  br label %74
 
-73:                                               ; preds = %71, %68
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  %75 = load i8, ptr %74, align 1, !range !4, !noundef !5
-  %76 = trunc nuw i8 %75 to i1
-  %not.or.cond.i106 = xor i1 %76, true
+74:                                               ; preds = %72, %69
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  %76 = load i8, ptr %75, align 1, !range !4, !noundef !5
+  %77 = trunc nuw i8 %76 to i1
+  %not.or.cond.i106 = xor i1 %77, true
   %.69.i107 = zext i1 %not.or.cond.i106 to i32
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %78 = load ptr, ptr %77, align 8
-  %.not67.i108 = icmp eq ptr %78, null
-  br i1 %.not67.i108, label %81, label %79
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %79 = load ptr, ptr %78, align 8
+  %.not67.i108 = icmp eq ptr %79, null
+  br i1 %.not67.i108, label %82, label %80
 
-79:                                               ; preds = %73
-  %80 = tail call fastcc i64 @RunFromStore(ptr noundef nonnull %0, i32 noundef %.69.i107, i64 noundef 0, ptr noundef %69)
-  br label %88
+80:                                               ; preds = %74
+  %81 = tail call fastcc i64 @RunFromStore(ptr noundef nonnull %0, i32 noundef %.69.i107, i64 noundef 0, ptr noundef %70)
+  br label %89
 
-81:                                               ; preds = %73
-  %82 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %83 = load ptr, ptr %82, align 8
-  tail call void @PushActiveSnapshot(ptr noundef %83) #10
-  tail call void @ExecutorRun(ptr noundef %70, i32 noundef %.69.i107, i64 noundef 0) #10
-  %84 = getelementptr inbounds nuw i8, ptr %70, i64 80
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 208
-  %87 = load i64, ptr %86, align 8
+82:                                               ; preds = %74
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %84 = load ptr, ptr %83, align 8
+  tail call void @PushActiveSnapshot(ptr noundef %84) #10
+  tail call void @ExecutorRun(ptr noundef %71, i32 noundef %.69.i107, i64 noundef 0) #10
+  %85 = getelementptr inbounds nuw i8, ptr %71, i64 80
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 208
+  %88 = load i64, ptr %87, align 8
   tail call void @PopActiveSnapshot() #10
-  br label %88
+  br label %89
 
-88:                                               ; preds = %81, %79
-  %.0.i109 = phi i64 [ %80, %79 ], [ %87, %81 ]
-  %89 = freeze i64 %.0.i109
-  br i1 %76, label %PortalRunSelect.exit112, label %90
+89:                                               ; preds = %82, %80
+  %.0.i109 = phi i64 [ %81, %80 ], [ %88, %82 ]
+  %90 = freeze i64 %.0.i109
+  br i1 %77, label %PortalRunSelect.exit112, label %91
 
-90:                                               ; preds = %88
-  %.not68.i110 = icmp eq i64 %89, 0
-  br i1 %.not68.i110, label %93, label %91
+91:                                               ; preds = %89
+  %.not68.i110 = icmp eq i64 %90, 0
+  br i1 %.not68.i110, label %94, label %92
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i8 0, ptr %92, align 8
-  br label %93
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i8 0, ptr %93, align 8
+  br label %94
 
-93:                                               ; preds = %90, %91
-  store i8 1, ptr %74, align 1
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %95 = load i64, ptr %94, align 8
-  %96 = add i64 %95, %89
-  store i64 %96, ptr %94, align 8
+94:                                               ; preds = %91, %92
+  store i8 1, ptr %75, align 1
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %96 = load i64, ptr %95, align 8
+  %97 = add i64 %96, %90
+  store i64 %97, ptr %95, align 8
   br label %PortalRunSelect.exit112
 
-PortalRunSelect.exit112:                          ; preds = %88, %93
+PortalRunSelect.exit112:                          ; preds = %89, %94
   %.not93 = icmp eq i64 %2, -1
-  br i1 %.not93, label %101, label %97
+  br i1 %.not93, label %102, label %98
 
-97:                                               ; preds = %PortalRunSelect.exit112
-  %98 = xor i64 %2, -1
-  %99 = load ptr, ptr @None_Receiver, align 8
-  %100 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext false, i64 noundef %98, ptr noundef %99)
-  br label %101
+98:                                               ; preds = %PortalRunSelect.exit112
+  %99 = xor i64 %2, -1
+  %100 = load ptr, ptr @None_Receiver, align 8
+  %101 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext false, i64 noundef %99, ptr noundef %100)
+  br label %102
 
-101:                                              ; preds = %97, %PortalRunSelect.exit112
-  %102 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext false, i64 noundef 1, ptr noundef %3)
+102:                                              ; preds = %98, %PortalRunSelect.exit112
+  %103 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext false, i64 noundef 1, ptr noundef %3)
   br label %PortalRunSelect.exit
 
-103:                                              ; preds = %65
+104:                                              ; preds = %66
   tail call fastcc void @DoPortalRewind(ptr noundef %0)
-  %104 = load ptr, ptr %67, align 8
-  %.not.i113 = icmp eq ptr %104, null
-  br i1 %.not.i113, label %107, label %105
+  %105 = load ptr, ptr %68, align 8
+  %.not.i113 = icmp eq ptr %105, null
+  br i1 %.not.i113, label %108, label %106
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 40
-  store ptr %3, ptr %106, align 8
-  br label %107
+106:                                              ; preds = %104
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 40
+  store ptr %3, ptr %107, align 8
+  br label %108
 
-107:                                              ; preds = %105, %103
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %109 = load ptr, ptr %108, align 8
-  %.not67.i118 = icmp eq ptr %109, null
-  br i1 %.not67.i118, label %112, label %110
+108:                                              ; preds = %106, %104
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %110 = load ptr, ptr %109, align 8
+  %.not67.i118 = icmp eq ptr %110, null
+  br i1 %.not67.i118, label %113, label %111
 
-110:                                              ; preds = %107
-  %111 = tail call fastcc i64 @RunFromStore(ptr noundef nonnull %0, i32 noundef 0, i64 noundef 0, ptr noundef %3)
+111:                                              ; preds = %108
+  %112 = tail call fastcc i64 @RunFromStore(ptr noundef nonnull %0, i32 noundef 0, i64 noundef 0, ptr noundef %3)
   br label %PortalRunSelect.exit122
 
-112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %114 = load ptr, ptr %113, align 8
-  tail call void @PushActiveSnapshot(ptr noundef %114) #10
-  tail call void @ExecutorRun(ptr noundef %104, i32 noundef 0, i64 noundef 0) #10
-  %115 = getelementptr inbounds nuw i8, ptr %104, i64 80
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 208
-  %118 = load i64, ptr %117, align 8
+113:                                              ; preds = %108
+  %114 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  %115 = load ptr, ptr %114, align 8
+  tail call void @PushActiveSnapshot(ptr noundef %115) #10
+  tail call void @ExecutorRun(ptr noundef %105, i32 noundef 0, i64 noundef 0) #10
+  %116 = getelementptr inbounds nuw i8, ptr %105, i64 80
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 208
+  %119 = load i64, ptr %118, align 8
   tail call void @PopActiveSnapshot() #10
   br label %PortalRunSelect.exit122
 
-PortalRunSelect.exit122:                          ; preds = %110, %112
-  %.0.i119 = phi i64 [ %111, %110 ], [ %118, %112 ]
-  %119 = freeze i64 %.0.i119
+PortalRunSelect.exit122:                          ; preds = %111, %113
+  %.0.i119 = phi i64 [ %112, %111 ], [ %119, %113 ]
+  %120 = freeze i64 %.0.i119
   br label %PortalRunSelect.exit
 
-120:                                              ; preds = %4
-  %121 = icmp sgt i64 %2, 0
-  br i1 %121, label %122, label %157
+121:                                              ; preds = %4
+  %122 = icmp sgt i64 %2, 0
+  br i1 %122, label %123, label %158
 
-122:                                              ; preds = %120
+123:                                              ; preds = %121
   %.not92 = icmp eq i64 %2, 1
-  br i1 %.not92, label %127, label %123
+  br i1 %.not92, label %128, label %124
 
-123:                                              ; preds = %122
-  %124 = add nsw i64 %2, -1
-  %125 = load ptr, ptr @None_Receiver, align 8
-  %126 = tail call fastcc i64 @PortalRunSelect(ptr noundef %0, i1 noundef zeroext true, i64 noundef %124, ptr noundef %125)
-  br label %127
+124:                                              ; preds = %123
+  %125 = add nsw i64 %2, -1
+  %126 = load ptr, ptr @None_Receiver, align 8
+  %127 = tail call fastcc i64 @PortalRunSelect(ptr noundef %0, i1 noundef zeroext true, i64 noundef %125, ptr noundef %126)
+  br label %128
 
-127:                                              ; preds = %123, %122
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %129 = load ptr, ptr %128, align 8
-  %.not.i123 = icmp eq ptr %129, null
-  br i1 %.not.i123, label %132, label %130
+128:                                              ; preds = %124, %123
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %130 = load ptr, ptr %129, align 8
+  %.not.i123 = icmp eq ptr %130, null
+  br i1 %.not.i123, label %133, label %131
 
-130:                                              ; preds = %127
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 40
-  store ptr %3, ptr %131, align 8
-  br label %132
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 40
+  store ptr %3, ptr %132, align 8
+  br label %133
 
-132:                                              ; preds = %130, %127
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  %134 = load i8, ptr %133, align 1, !range !4, !noundef !5
-  %135 = trunc nuw i8 %134 to i1
-  %not. = xor i1 %135, true
+133:                                              ; preds = %131, %128
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  %135 = load i8, ptr %134, align 1, !range !4, !noundef !5
+  %136 = trunc nuw i8 %135 to i1
+  %not. = xor i1 %136, true
   %..i124 = zext i1 %not. to i64
   %.69.i126 = zext i1 %not. to i32
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %137 = load ptr, ptr %136, align 8
-  %.not67.i128 = icmp eq ptr %137, null
-  br i1 %.not67.i128, label %140, label %138
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %138 = load ptr, ptr %137, align 8
+  %.not67.i128 = icmp eq ptr %138, null
+  br i1 %.not67.i128, label %141, label %139
 
-138:                                              ; preds = %132
-  %139 = tail call fastcc i64 @RunFromStore(ptr noundef nonnull %0, i32 noundef %.69.i126, i64 noundef %..i124, ptr noundef %3)
-  br label %147
+139:                                              ; preds = %133
+  %140 = tail call fastcc i64 @RunFromStore(ptr noundef nonnull %0, i32 noundef %.69.i126, i64 noundef %..i124, ptr noundef %3)
+  br label %148
 
-140:                                              ; preds = %132
-  %141 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  %142 = load ptr, ptr %141, align 8
-  tail call void @PushActiveSnapshot(ptr noundef %142) #10
-  tail call void @ExecutorRun(ptr noundef %129, i32 noundef %.69.i126, i64 noundef %..i124) #10
-  %143 = getelementptr inbounds nuw i8, ptr %129, i64 80
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 208
-  %146 = load i64, ptr %145, align 8
+141:                                              ; preds = %133
+  %142 = getelementptr inbounds nuw i8, ptr %130, i64 24
+  %143 = load ptr, ptr %142, align 8
+  tail call void @PushActiveSnapshot(ptr noundef %143) #10
+  tail call void @ExecutorRun(ptr noundef %130, i32 noundef %.69.i126, i64 noundef %..i124) #10
+  %144 = getelementptr inbounds nuw i8, ptr %130, i64 80
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 208
+  %147 = load i64, ptr %146, align 8
   tail call void @PopActiveSnapshot() #10
-  br label %147
+  br label %148
 
-147:                                              ; preds = %140, %138
-  %.0.i129 = phi i64 [ %139, %138 ], [ %146, %140 ]
-  %148 = freeze i64 %.0.i129
-  br i1 %135, label %PortalRunSelect.exit, label %149
+148:                                              ; preds = %141, %139
+  %.0.i129 = phi i64 [ %140, %139 ], [ %147, %141 ]
+  %149 = freeze i64 %.0.i129
+  br i1 %136, label %PortalRunSelect.exit, label %150
 
-149:                                              ; preds = %147
-  %cond155 = icmp eq i64 %148, 0
-  br i1 %cond155, label %152, label %150
+150:                                              ; preds = %148
+  %cond156 = icmp eq i64 %149, 0
+  br i1 %cond156, label %153, label %151
 
-150:                                              ; preds = %149
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i8 0, ptr %151, align 8
-  br label %153
+151:                                              ; preds = %150
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i8 0, ptr %152, align 8
+  br label %154
 
-152:                                              ; preds = %149
-  store i8 1, ptr %133, align 1
-  br label %153
+153:                                              ; preds = %150
+  store i8 1, ptr %134, align 1
+  br label %154
 
-153:                                              ; preds = %150, %152
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %155 = load i64, ptr %154, align 8
-  %156 = add i64 %155, %148
-  store i64 %156, ptr %154, align 8
+154:                                              ; preds = %151, %153
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %156 = load i64, ptr %155, align 8
+  %157 = add i64 %156, %149
+  store i64 %157, ptr %155, align 8
   br label %PortalRunSelect.exit
 
-157:                                              ; preds = %120
-  %158 = icmp slt i64 %2, 0
-  br i1 %158, label %159, label %.thread
+158:                                              ; preds = %121
+  %159 = icmp slt i64 %2, 0
+  br i1 %159, label %160, label %.thread
 
-159:                                              ; preds = %157
+160:                                              ; preds = %158
   %.not91 = icmp eq i64 %2, -1
-  br i1 %.not91, label %164, label %160
+  br i1 %.not91, label %165, label %161
 
-160:                                              ; preds = %159
-  %161 = xor i64 %2, -1
-  %162 = load ptr, ptr @None_Receiver, align 8
-  %163 = tail call fastcc i64 @PortalRunSelect(ptr noundef %0, i1 noundef zeroext false, i64 noundef %161, ptr noundef %162)
-  br label %164
+161:                                              ; preds = %160
+  %162 = xor i64 %2, -1
+  %163 = load ptr, ptr @None_Receiver, align 8
+  %164 = tail call fastcc i64 @PortalRunSelect(ptr noundef %0, i1 noundef zeroext false, i64 noundef %162, ptr noundef %163)
+  br label %165
 
-164:                                              ; preds = %160, %159
-  %165 = tail call fastcc i64 @PortalRunSelect(ptr noundef %0, i1 noundef zeroext false, i64 noundef 1, ptr noundef %3)
+165:                                              ; preds = %161, %160
+  %166 = tail call fastcc i64 @PortalRunSelect(ptr noundef %0, i1 noundef zeroext false, i64 noundef 1, ptr noundef %3)
   br label %PortalRunSelect.exit
 
-166:                                              ; preds = %4
-  %167 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %168 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #10
+167:                                              ; preds = %4
+  %168 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %169 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1613, ptr noundef nonnull @__func__.DoPortalRunFetch) #10
   unreachable
 
-169:                                              ; preds = %7, %5
-  %.079 = phi i64 [ %spec.select, %5 ], [ %spec.select100, %7 ]
-  %170 = phi i8 [ %spec.select99, %5 ], [ %spec.select101, %7 ]
-  %171 = icmp eq i64 %.079, 0
-  br i1 %171, label %.thread, label %193
+170:                                              ; preds = %7, %5
+  %171 = phi i1 [ %6, %5 ], [ %8, %7 ]
+  %172 = icmp eq i64 %2, 0
+  br i1 %172, label %.thread, label %193
 
-.thread:                                          ; preds = %157, %169
-  %172 = phi i8 [ %170, %169 ], [ 1, %157 ]
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %174 = load i8, ptr %173, align 8, !range !4, !noundef !5
-  %175 = trunc nuw i8 %174 to i1
-  br i1 %175, label %.thread134, label %176
+.thread:                                          ; preds = %158, %170
+  %173 = phi i1 [ %171, %170 ], [ true, %158 ]
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %175 = load i8, ptr %174, align 8, !range !4, !noundef !5
+  %176 = trunc nuw i8 %175 to i1
+  br i1 %176, label %.thread134, label %177
 
-176:                                              ; preds = %.thread
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  %178 = load i8, ptr %177, align 1, !range !4, !noundef !5
-  %179 = trunc nuw i8 %178 to i1
-  %180 = xor i1 %179, true
-  %181 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %182 = load i32, ptr %181, align 8
-  %.not97 = icmp eq i32 %182, 0
-  br i1 %.not97, label %190, label %185
+177:                                              ; preds = %.thread
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  %179 = load i8, ptr %178, align 1, !range !4, !noundef !5
+  %180 = trunc nuw i8 %179 to i1
+  %181 = xor i1 %180, true
+  %182 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %183 = load i32, ptr %182, align 8
+  %.not97 = icmp eq i32 %183, 0
+  br i1 %.not97, label %190, label %186
 
 .thread134:                                       ; preds = %.thread
-  %183 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %184 = load i32, ptr %183, align 8
-  %.not97135 = icmp eq i32 %184, 0
+  %184 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %185 = load i32, ptr %184, align 8
+  %.not97135 = icmp eq i32 %185, 0
   br i1 %.not97135, label %190, label %.thread146
 
-185:                                              ; preds = %176
-  br i1 %179, label %.thread146, label %186
+186:                                              ; preds = %177
+  br i1 %180, label %.thread146, label %187
 
-186:                                              ; preds = %185
-  %187 = load ptr, ptr @None_Receiver, align 8
-  %188 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext false, i64 noundef 1, ptr noundef %187)
+187:                                              ; preds = %186
+  %188 = load ptr, ptr @None_Receiver, align 8
+  %189 = tail call fastcc i64 @PortalRunSelect(ptr noundef nonnull %0, i1 noundef zeroext false, i64 noundef 1, ptr noundef %188)
   br label %.thread146
 
-.thread146:                                       ; preds = %.thread134, %185, %186
-  %.281.ph = phi i64 [ 0, %185 ], [ 1, %186 ], [ 0, %.thread134 ]
-  %.177.ph = phi i8 [ %172, %185 ], [ 1, %186 ], [ %172, %.thread134 ]
-  %189 = trunc nuw i8 %.177.ph to i1
-  br label %209
-
-190:                                              ; preds = %176, %.thread134
-  %191 = phi i1 [ false, %.thread134 ], [ %180, %176 ]
+190:                                              ; preds = %177, %.thread134
+  %191 = phi i1 [ false, %.thread134 ], [ %181, %177 ]
   %192 = zext i1 %191 to i64
   br label %PortalRunSelect.exit
 
-193:                                              ; preds = %169
-  %194 = trunc nuw i8 %170 to i1
-  %195 = icmp ne i64 %.079, 9223372036854775807
-  %or.cond.not = or i1 %195, %194
-  br i1 %or.cond.not, label %209, label %196
+193:                                              ; preds = %170
+  %spec.select100 = tail call i64 @llvm.abs.i64(i64 %2, i1 false)
+  %194 = icmp ne i64 %spec.select100, 9223372036854775807
+  %or.cond.not = or i1 %194, %171
+  br i1 %or.cond.not, label %.thread146, label %195
 
-196:                                              ; preds = %193
-  %197 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %198 = load i32, ptr %197, align 8
-  %199 = icmp eq i32 %198, 0
-  br i1 %199, label %200, label %209
+195:                                              ; preds = %193
+  %196 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %197 = load i32, ptr %196, align 8
+  %198 = icmp eq i32 %197, 0
+  br i1 %198, label %199, label %.thread146
 
-200:                                              ; preds = %196
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %202 = load i64, ptr %201, align 8
-  %.not = icmp eq i64 %202, 0
-  br i1 %.not, label %208, label %203
+199:                                              ; preds = %195
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %201 = load i64, ptr %200, align 8
+  %.not = icmp eq i64 %201, 0
+  br i1 %.not, label %207, label %202
 
-203:                                              ; preds = %200
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  %205 = load i8, ptr %204, align 1, !range !4, !noundef !5
-  %206 = xor i8 %205, 1
-  %207 = zext nneg i8 %206 to i64
-  %spec.select103 = sub nuw i64 %202, %207
-  br label %208
+202:                                              ; preds = %199
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  %204 = load i8, ptr %203, align 1, !range !4, !noundef !5
+  %205 = xor i8 %204, 1
+  %206 = zext nneg i8 %205 to i64
+  %spec.select103 = sub nuw i64 %201, %206
+  br label %207
 
-208:                                              ; preds = %203, %200
-  %.0 = phi i64 [ 0, %200 ], [ %spec.select103, %203 ]
+207:                                              ; preds = %202, %199
+  %.0 = phi i64 [ 0, %199 ], [ %spec.select103, %202 ]
   tail call fastcc void @DoPortalRewind(ptr noundef nonnull %0)
   br label %PortalRunSelect.exit
 
-209:                                              ; preds = %.thread146, %196, %193
-  %210 = phi i1 [ %189, %.thread146 ], [ false, %196 ], [ %194, %193 ]
-  %.180150 = phi i64 [ %.281.ph, %.thread146 ], [ 9223372036854775807, %196 ], [ %.079, %193 ]
-  %211 = tail call fastcc i64 @PortalRunSelect(ptr noundef %0, i1 noundef zeroext %210, i64 noundef %.180150, ptr noundef %3)
+.thread146:                                       ; preds = %187, %186, %.thread134, %195, %193
+  %.076151 = phi i1 [ false, %195 ], [ %171, %193 ], [ %173, %186 ], [ true, %187 ], [ %173, %.thread134 ]
+  %.180150 = phi i64 [ 9223372036854775807, %195 ], [ %spec.select100, %193 ], [ 0, %186 ], [ 1, %187 ], [ 0, %.thread134 ]
+  %208 = tail call fastcc i64 @PortalRunSelect(ptr noundef %0, i1 noundef zeroext %.076151, i64 noundef %.180150, ptr noundef %3)
   br label %PortalRunSelect.exit
 
-PortalRunSelect.exit:                             ; preds = %190, %153, %147, %62, %56, %209, %208, %164, %PortalRunSelect.exit122, %101
-  %.073 = phi i64 [ %.0, %208 ], [ %211, %209 ], [ %192, %190 ], [ %102, %101 ], [ %119, %PortalRunSelect.exit122 ], [ %165, %164 ], [ %57, %56 ], [ %57, %62 ], [ %148, %147 ], [ %148, %153 ]
+PortalRunSelect.exit:                             ; preds = %190, %154, %148, %63, %57, %.thread146, %207, %165, %PortalRunSelect.exit122, %102
+  %.073 = phi i64 [ %.0, %207 ], [ %208, %.thread146 ], [ %192, %190 ], [ %103, %102 ], [ %120, %PortalRunSelect.exit122 ], [ %166, %165 ], [ %58, %57 ], [ %58, %63 ], [ %149, %148 ], [ %149, %154 ]
   ret i64 %.073
 }
 

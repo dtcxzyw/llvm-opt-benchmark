@@ -3618,12 +3618,12 @@ define internal fastcc void @_ZN7uu_test6parser6Parser3uop17h7942a12e3298e0feE(p
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i": ; preds = %19, %18, %16
   invoke void @_ZN7uu_test6parser6Symbol3new17h4242973ec35c028bE(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
-          to label %21 unwind label %.body.thread.thread53
+          to label %21 unwind label %.thread
 
-.body.thread.thread53:                            ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i"
+.thread:                                          ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i"
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.thread.thread
+  br label %.thread50
 
 21:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3652,7 +3652,7 @@ default.unreachable1.i:                           ; preds = %24
 .invoke:                                          ; preds = %24, %26
   %25 = phi ptr [ @anon.b5f9344751b5c36d9ac52f2ad04ab0ce.26, %26 ], [ @anon.b5f9344751b5c36d9ac52f2ad04ab0ce.25, %24 ]
   invoke void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef 1)
-          to label %39 unwind label %.body.thread37
+          to label %39 unwind label %.body.thread40
 
 26:                                               ; preds = %24
   br label %.invoke
@@ -3667,7 +3667,7 @@ default.unreachable1.i:                           ; preds = %24
 
 31:                                               ; preds = %24
   invoke fastcc void @_ZN7uu_test6parser6Symbol12into_literal19panic_cold_explicit17hccd1b8744eea9b41E() #14
-          to label %.noexc7 unwind label %.body.thread37
+          to label %.noexc7 unwind label %.body.thread40
 
 .noexc7:                                          ; preds = %31
   unreachable
@@ -3677,10 +3677,10 @@ default.unreachable1.i:                           ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i8)
   switch i64 %22, label %default.unreachable [
-    i64 0, label %.invoke61
+    i64 0, label %.invoke59
     i64 1, label %33
-    i64 2, label %.sink.split62
-    i64 3, label %.sink.split62
+    i64 2, label %.sink.split60
+    i64 3, label %.sink.split60
     i64 4, label %35
     i64 5, label %37
   ]
@@ -3689,30 +3689,30 @@ default.unreachable:                              ; preds = %32
   unreachable
 
 33:                                               ; preds = %32
-  br label %.invoke61
+  br label %.invoke59
 
-.invoke61:                                        ; preds = %32, %33
+.invoke59:                                        ; preds = %32, %33
   %34 = phi ptr [ @anon.b5f9344751b5c36d9ac52f2ad04ab0ce.26, %33 ], [ @anon.b5f9344751b5c36d9ac52f2ad04ab0ce.25, %32 ]
   invoke void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i8, ptr noalias noundef nonnull readonly align 1 %34, i64 noundef 1)
-          to label %56 unwind label %.thread40
+          to label %56 unwind label %.thread44
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br label %.sink.split62
+  br label %.sink.split60
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br label %.sink.split62
+  br label %.sink.split60
 
-.body.thread37:                                   ; preds = %.invoke, %31
+.body.thread40:                                   ; preds = %.invoke, %31
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.body.thread31
+  br label %.body.thread34
 
-.thread40:                                        ; preds = %.invoke61
+.thread44:                                        ; preds = %.invoke59
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.body.thread.thread
+  br label %.thread50
 
 .sink.split:                                      ; preds = %24, %24, %27, %29
   %.sink = phi ptr [ %30, %29 ], [ %28, %27 ], [ %.sroa.4.0..sroa_idx, %24 ], [ %.sroa.4.0..sroa_idx, %24 ]
@@ -3742,7 +3742,7 @@ default.unreachable:                              ; preds = %32
   %47 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_test..parser..Symbol$GT$17h8d94e6a132b6c7edE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6) #12
-          to label %.body.thread31 unwind label %48
+          to label %.body.thread34 unwind label %48
 
 48:                                               ; preds = %46
   %49 = landingpad { ptr, i32 }
@@ -3761,12 +3761,12 @@ default.unreachable:                              ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %81
 
-.sink.split62:                                    ; preds = %32, %32, %35, %37
-  %.sink63 = phi ptr [ %38, %37 ], [ %36, %35 ], [ %.sroa.2.0..sroa_idx, %32 ], [ %.sroa.2.0..sroa_idx, %32 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i8, ptr noundef nonnull align 8 dereferenceable(24) %.sink63, i64 24, i1 false)
+.sink.split60:                                    ; preds = %32, %32, %35, %37
+  %.sink61 = phi ptr [ %38, %37 ], [ %36, %35 ], [ %.sroa.2.0..sroa_idx, %32 ], [ %.sroa.2.0..sroa_idx, %32 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i8, ptr noundef nonnull align 8 dereferenceable(24) %.sink61, i64 24, i1 false)
   br label %56
 
-56:                                               ; preds = %.sink.split62, %.invoke61
+56:                                               ; preds = %.sink.split60, %.invoke59
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i8, i64 24, i1 false), !noalias !917
   store i64 3, ptr %5, align 8, !alias.scope !920, !noalias !917
@@ -3789,7 +3789,7 @@ default.unreachable:                              ; preds = %32
   %64 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_test..parser..Symbol$GT$17h8d94e6a132b6c7edE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #12
-          to label %.body.thread.thread unwind label %65
+          to label %.thread50 unwind label %65
 
 65:                                               ; preds = %63
   %66 = landingpad { ptr, i32 }
@@ -3825,7 +3825,7 @@ default.unreachable:                              ; preds = %32
   %78 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_test..parser..Symbol$GT$17h8d94e6a132b6c7edE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #12
-          to label %.thread45 unwind label %79
+          to label %.thread47 unwind label %79
 
 79:                                               ; preds = %77
   %80 = landingpad { ptr, i32 }
@@ -3850,25 +3850,25 @@ default.unreachable:                              ; preds = %32
   call fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_test..parser..Symbol$GT$17h8d94e6a132b6c7edE"(ptr noalias noundef align 8 dereferenceable(40) %7)
   br label %81
 
-.body.thread31:                                   ; preds = %46, %.body.thread37
-  %eh.lpad-body35 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread37 ], [ %47, %46 ]
+.body.thread34:                                   ; preds = %46, %.body.thread40
+  %eh.lpad-body38 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread40 ], [ %47, %46 ]
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_test..parser..Symbol$GT$17h8d94e6a132b6c7edE"(ptr noalias noundef align 8 dereferenceable(40) %7) #12
-          to label %.thread45 unwind label %89
+          to label %.thread47 unwind label %89
 
-89:                                               ; preds = %.body.thread.thread, %.body.thread31
+89:                                               ; preds = %.thread50, %.body.thread34
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #13
   unreachable
 
-.thread45:                                        ; preds = %77, %.body.thread31, %.body.thread.thread
-  %.pn43 = phi { ptr, i32 } [ %.pn44, %.body.thread.thread ], [ %eh.lpad-body35, %.body.thread31 ], [ %78, %77 ]
-  resume { ptr, i32 } %.pn43
+.thread47:                                        ; preds = %.body.thread34, %77, %.thread50
+  %.pn29 = phi { ptr, i32 } [ %.pn30, %.thread50 ], [ %78, %77 ], [ %eh.lpad-body38, %.body.thread34 ]
+  resume { ptr, i32 } %.pn29
 
-.body.thread.thread:                              ; preds = %63, %.body.thread.thread53, %.thread40
-  %.pn44 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.thread40 ], [ %20, %.body.thread.thread53 ], [ %64, %63 ]
+.thread50:                                        ; preds = %63, %.thread44, %.thread
+  %.pn30 = phi { ptr, i32 } [ %20, %.thread ], [ %lpad.thr_comm.split-lp, %.thread44 ], [ %64, %63 ]
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$uu_test..parser..Symbol$GT$17h8d94e6a132b6c7edE"(ptr noalias noundef align 8 dereferenceable(40) %1) #12
-          to label %.thread45 unwind label %89
+          to label %.thread47 unwind label %89
 }
 
 ; Function Attrs: nonlazybind uwtable

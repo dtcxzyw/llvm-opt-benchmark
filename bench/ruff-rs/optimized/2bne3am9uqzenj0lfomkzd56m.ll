@@ -3860,9 +3860,6 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h40b5
   %22 = extractvalue { i8, i1 } %21, 1
   br i1 %22, label %26, label %24, !prof !11
 
-.thread89:                                        ; preds = %.thread83, %152
-  br i1 %.sroa.023.287, label %153, label %.thread89.thread
-
 .thread:                                          ; preds = %24, %48
   %23 = landingpad { ptr, i32 }
           cleanup
@@ -3972,8 +3969,8 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h40b5
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   br label %62
 
-61:                                               ; preds = %.loopexit111, %.loopexit.split-lp112, %149
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %149 ], [ %lpad.loopexit113, %.loopexit111 ], [ %lpad.loopexit.split-lp114, %.loopexit.split-lp112 ]
+61:                                               ; preds = %.loopexit109, %.loopexit.split-lp110, %149
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %149 ], [ %lpad.loopexit111, %.loopexit109 ], [ %lpad.loopexit.split-lp112, %.loopexit.split-lp110 ]
   invoke void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0d84f3047e0722d2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #27
           to label %.thread83 unwind label %94
 
@@ -4025,11 +4022,11 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h40b5
           cleanup
   %85 = cmpxchg ptr %76, i64 8, i64 0 release monotonic, align 8
   %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %85, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread89.thread, label %86, !prof !11
+  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread89, label %86, !prof !11
 
 86:                                               ; preds = %83
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h30d0659a2194a50bE(ptr noundef nonnull align 8 %76, i1 noundef zeroext false)
-          to label %.thread89.thread unwind label %94
+          to label %.thread89 unwind label %94
 
 87:                                               ; preds = %81
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -4057,13 +4054,13 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h40b5
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28
   unreachable
 
-.loopexit111:                                     ; preds = %133
-  %lpad.loopexit113 = landingpad { ptr, i32 }
+.loopexit109:                                     ; preds = %133
+  %lpad.loopexit111 = landingpad { ptr, i32 }
           cleanup
   br label %61
 
-.loopexit.split-lp112:                            ; preds = %145, %139
-  %lpad.loopexit.split-lp114 = landingpad { ptr, i32 }
+.loopexit.split-lp110:                            ; preds = %145, %139
+  %lpad.loopexit.split-lp112 = landingpad { ptr, i32 }
           cleanup
   br label %61
 
@@ -4143,7 +4140,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h40b5
 133:                                              ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$4push17h93f55bf2920397deE.exit", %100
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %134 = invoke fastcc noundef i64 @"_ZN6boxcar3raw12Vec$LT$T$GT$4push17h3f40347ddc930cd8E"(ptr noundef nonnull align 8 %27, ptr noundef nonnull align 1 %65, ptr noalias noundef readonly align 8 dereferenceable(160) %67)
-          to label %135 unwind label %.loopexit111
+          to label %135 unwind label %.loopexit109
 
 135:                                              ; preds = %133
   store i64 %134, ptr %11, align 8
@@ -4158,7 +4155,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h40b5
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %140 = invoke fastcc noundef align 8 dereferenceable(16) ptr @"_ZN82_$LT$boxcar..raw..Vec$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17hadfc257703108a70E"(ptr noundef nonnull align 8 %27, i64 noundef %134)
-          to label %145 unwind label %.loopexit.split-lp112
+          to label %145 unwind label %.loopexit.split-lp110
 
 141:                                              ; preds = %135
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4191,7 +4188,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h40b5
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8
   invoke void @_ZN4core9panicking13assert_failed17h339f742946b17157E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5054d54eab0ad000d2a72385b6b3ed3.86) #26
-          to label %148 unwind label %.loopexit.split-lp112
+          to label %148 unwind label %.loopexit.split-lp110
 
 148:                                              ; preds = %145
   unreachable
@@ -4216,20 +4213,23 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h40b5
   %.sroa.023.287 = phi i1 [ %.sroa.023.1.ph, %.thread93 ], [ false, %61 ]
   %150 = cmpxchg ptr %20, i8 1, i8 0 release monotonic, align 1
   %151 = extractvalue { i8, i1 } %150, 1
-  br i1 %151, label %.thread89, label %152, !prof !11
+  br i1 %151, label %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69", label %152, !prof !11
 
 152:                                              ; preds = %.thread83
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h0f87e55a4b88cb96E(ptr noundef nonnull align 1 %20, i1 noundef zeroext false)
-          to label %.thread89 unwind label %94
+          to label %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69" unwind label %94
 
-.thread89.thread:                                 ; preds = %86, %83, %153, %.thread89
-  %.pn.pn.pn81 = phi { ptr, i32 } [ %.pn.pn.pn82, %153 ], [ %.pn.pn88, %.thread89 ], [ %84, %86 ], [ %84, %83 ]
+"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69": ; preds = %152, %.thread83
+  br i1 %.sroa.023.287, label %153, label %.thread89
+
+.thread89:                                        ; preds = %83, %86, %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69", %153
+  %.pn.pn.pn81 = phi { ptr, i32 } [ %.pn.pn.pn82, %153 ], [ %.pn.pn88, %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69" ], [ %84, %83 ], [ %84, %86 ]
   resume { ptr, i32 } %.pn.pn.pn81
 
-153:                                              ; preds = %.thread, %.thread89
-  %.pn.pn.pn82 = phi { ptr, i32 } [ %23, %.thread ], [ %.pn.pn88, %.thread89 ]
+153:                                              ; preds = %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69", %.thread
+  %.pn.pn.pn82 = phi { ptr, i32 } [ %23, %.thread ], [ %.pn.pn88, %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69" ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$salsa..memo_ingredient_indices..IngredientIndices$GT$17h4fd94ac77ab0c5d4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15) #27
-          to label %.thread89.thread unwind label %94
+          to label %.thread89 unwind label %94
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4254,9 +4254,6 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h672f
   %18 = cmpxchg weak ptr %17, i8 0, i8 1 acquire monotonic, align 1
   %19 = extractvalue { i8, i1 } %18, 1
   br i1 %19, label %23, label %21, !prof !11
-
-.thread89:                                        ; preds = %.thread83, %149
-  br i1 %.sroa.023.287, label %150, label %.thread89.thread
 
 .thread:                                          ; preds = %21, %45
   %20 = landingpad { ptr, i32 }
@@ -4367,8 +4364,8 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h672f
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   br label %59
 
-58:                                               ; preds = %.loopexit111, %.loopexit.split-lp112, %146
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %146 ], [ %lpad.loopexit113, %.loopexit111 ], [ %lpad.loopexit.split-lp114, %.loopexit.split-lp112 ]
+58:                                               ; preds = %.loopexit109, %.loopexit.split-lp110, %146
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %146 ], [ %lpad.loopexit111, %.loopexit109 ], [ %lpad.loopexit.split-lp112, %.loopexit.split-lp110 ]
   invoke void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0d84f3047e0722d2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #27
           to label %.thread83 unwind label %91
 
@@ -4420,11 +4417,11 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h672f
           cleanup
   %82 = cmpxchg ptr %73, i64 8, i64 0 release monotonic, align 8
   %.sroa.18.0.in.i.i.i.i = extractvalue { i64, i1 } %82, 1
-  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread89.thread, label %83, !prof !11
+  br i1 %.sroa.18.0.in.i.i.i.i, label %.thread89, label %83, !prof !11
 
 83:                                               ; preds = %80
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h30d0659a2194a50bE(ptr noundef nonnull align 8 %73, i1 noundef zeroext false)
-          to label %.thread89.thread unwind label %91
+          to label %.thread89 unwind label %91
 
 84:                                               ; preds = %78
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -4452,13 +4449,13 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h672f
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28
   unreachable
 
-.loopexit111:                                     ; preds = %130
-  %lpad.loopexit113 = landingpad { ptr, i32 }
+.loopexit109:                                     ; preds = %130
+  %lpad.loopexit111 = landingpad { ptr, i32 }
           cleanup
   br label %58
 
-.loopexit.split-lp112:                            ; preds = %142, %136
-  %lpad.loopexit.split-lp114 = landingpad { ptr, i32 }
+.loopexit.split-lp110:                            ; preds = %142, %136
+  %lpad.loopexit.split-lp112 = landingpad { ptr, i32 }
           cleanup
   br label %58
 
@@ -4538,7 +4535,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h672f
 130:                                              ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$4push17h93f55bf2920397deE.exit", %97
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %131 = invoke fastcc noundef i64 @"_ZN6boxcar3raw12Vec$LT$T$GT$4push17h3f40347ddc930cd8E"(ptr noundef nonnull align 8 %24, ptr noundef nonnull align 1 %62, ptr noalias noundef readonly align 8 dereferenceable(160) %64)
-          to label %132 unwind label %.loopexit111
+          to label %132 unwind label %.loopexit109
 
 132:                                              ; preds = %130
   store i64 %131, ptr %11, align 8
@@ -4553,7 +4550,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h672f
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %137 = invoke fastcc noundef align 8 dereferenceable(16) ptr @"_ZN82_$LT$boxcar..raw..Vec$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17hadfc257703108a70E"(ptr noundef nonnull align 8 %24, i64 noundef %131)
-          to label %142 unwind label %.loopexit.split-lp112
+          to label %142 unwind label %.loopexit.split-lp110
 
 138:                                              ; preds = %132
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4586,7 +4583,7 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h672f
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8
   invoke void @_ZN4core9panicking13assert_failed17h339f742946b17157E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e5054d54eab0ad000d2a72385b6b3ed3.86) #26
-          to label %145 unwind label %.loopexit.split-lp112
+          to label %145 unwind label %.loopexit.split-lp110
 
 145:                                              ; preds = %142
   unreachable
@@ -4611,20 +4608,23 @@ define noundef i32 @_ZN5salsa5zalsa5Zalsa30add_or_lookup_jar_by_type_slow17h672f
   %.sroa.023.287 = phi i1 [ %.sroa.023.1.ph, %.thread93 ], [ false, %58 ]
   %147 = cmpxchg ptr %17, i8 1, i8 0 release monotonic, align 1
   %148 = extractvalue { i8, i1 } %147, 1
-  br i1 %148, label %.thread89, label %149, !prof !11
+  br i1 %148, label %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69", label %149, !prof !11
 
 149:                                              ; preds = %.thread83
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h0f87e55a4b88cb96E(ptr noundef nonnull align 1 %17, i1 noundef zeroext false)
-          to label %.thread89 unwind label %91
+          to label %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69" unwind label %91
 
-.thread89.thread:                                 ; preds = %83, %80, %150, %.thread89
-  %.pn.pn.pn81 = phi { ptr, i32 } [ %.pn.pn.pn82, %150 ], [ %.pn.pn88, %.thread89 ], [ %81, %83 ], [ %81, %80 ]
+"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69": ; preds = %149, %.thread83
+  br i1 %.sroa.023.287, label %150, label %.thread89
+
+.thread89:                                        ; preds = %80, %83, %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69", %150
+  %.pn.pn.pn81 = phi { ptr, i32 } [ %.pn.pn.pn82, %150 ], [ %.pn.pn88, %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69" ], [ %81, %80 ], [ %81, %83 ]
   resume { ptr, i32 } %.pn.pn.pn81
 
-150:                                              ; preds = %.thread, %.thread89
-  %.pn.pn.pn82 = phi { ptr, i32 } [ %20, %.thread ], [ %.pn.pn88, %.thread89 ]
+150:                                              ; preds = %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69", %.thread
+  %.pn.pn.pn82 = phi { ptr, i32 } [ %20, %.thread ], [ %.pn.pn88, %"_ZN4core3ptr212drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h7a80692a230c3315E.exit69" ]
   invoke void @"_ZN4core3ptr70drop_in_place$LT$salsa..memo_ingredient_indices..IngredientIndices$GT$17h4fd94ac77ab0c5d4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15) #27
-          to label %.thread89.thread unwind label %91
+          to label %.thread89 unwind label %91
 }
 
 ; Function Attrs: nonlazybind uwtable

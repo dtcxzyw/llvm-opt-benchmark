@@ -4340,21 +4340,21 @@ define hidden void @_ZN4core4iter8adapters11try_process17hcd361aeb165e14acE(ptr 
           cleanup
   %8 = load i64, ptr %5, align 8, !range !43, !noundef !14
   %.not = icmp eq i64 %8, -9223372036854775808
-  br i1 %.not, label %.thread, label %16
+  br i1 %.not, label %16, label %17
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !817
   %10 = load i64, ptr %5, align 8, !range !43, !noundef !14
   %.not.not = icmp eq i64 %10, -9223372036854775808
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.not, label %.thread13, label %13
+  br i1 %.not.not, label %.thread, label %13
 
-.thread13:                                        ; preds = %9
+.thread:                                          ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 0, ptr %0, align 8, !alias.scope !829, !noalias !832
   br label %12
 
-12:                                               ; preds = %13, %.thread13
+12:                                               ; preds = %13, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -4365,18 +4365,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17hcd361aeb165e14acE(ptr 
   call void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$project_model..cfg..CfgFlag$GT$$GT$17hcff5b926f6f90fefE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %12
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #39
   unreachable
 
-.thread:                                          ; preds = %16, %6
+16:                                               ; preds = %17, %6
   resume { ptr, i32 } %7
 
-16:                                               ; preds = %6
+17:                                               ; preds = %6
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..string..String$GT$$GT$17hba14019caefaef15E.llvm.8935166204745160323"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #38
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

@@ -11668,13 +11668,13 @@ define hidden void @_ZN18VM_RedefineClasses10CheckClass8do_klassEP5Klass(ptr nou
 
 26:                                               ; preds = %23
   %27 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_99ELS1_83ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not27 = icmp eq ptr %27, null
-  br i1 %.not27, label %.critedge, label %28
+  %.not28 = icmp eq ptr %27, null
+  br i1 %.not28, label %.critedge, label %28
 
 28:                                               ; preds = %26
   %29 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_99ELS1_83ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not28 = icmp eq ptr %29, null
-  br i1 %.not28, label %35, label %30
+  %.not29 = icmp eq ptr %29, null
+  br i1 %.not29, label %35, label %30
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %1, align 8
@@ -11717,13 +11717,13 @@ define hidden void @_ZN18VM_RedefineClasses10CheckClass8do_klassEP5Klass(ptr nou
 
 48:                                               ; preds = %46
   %49 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_99ELS1_83ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not29 = icmp eq ptr %49, null
-  br i1 %.not29, label %.critedge2, label %50
+  %.not30 = icmp eq ptr %49, null
+  br i1 %.not30, label %.critedge2, label %50
 
 50:                                               ; preds = %48
   %51 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_99ELS1_83ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not30 = icmp eq ptr %51, null
-  br i1 %.not30, label %57, label %52
+  %.not31 = icmp eq ptr %51, null
+  br i1 %.not31, label %57, label %52
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %1, align 8
@@ -11757,13 +11757,13 @@ define hidden void @_ZN18VM_RedefineClasses10CheckClass8do_klassEP5Klass(ptr nou
 
 65:                                               ; preds = %63
   %66 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_99ELS1_83ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not31 = icmp eq ptr %66, null
-  br i1 %.not31, label %.thread, label %67
+  %.not32 = icmp eq ptr %66, null
+  br i1 %.not32, label %.thread, label %67
 
 67:                                               ; preds = %65
   %68 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_99ELS1_83ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not32 = icmp eq ptr %68, null
-  br i1 %.not32, label %74, label %69
+  %.not33 = icmp eq ptr %68, null
+  br i1 %.not33, label %74, label %69
 
 69:                                               ; preds = %67
   %70 = load ptr, ptr %1, align 8
@@ -11793,8 +11793,8 @@ define hidden void @_ZN18VM_RedefineClasses10CheckClass8do_klassEP5Klass(ptr nou
 
 80:                                               ; preds = %.thread, %78, %79
   %81 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_99ELS1_83ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not33 = icmp eq ptr %81, null
-  br i1 %.not33, label %83, label %82
+  %.not34 = icmp eq ptr %81, null
+  br i1 %.not34, label %83, label %82
 
 82:                                               ; preds = %80
   call void @_ZN18VM_RedefineClasses12dump_methodsEv()
@@ -11802,8 +11802,8 @@ define hidden void @_ZN18VM_RedefineClasses10CheckClass8do_klassEP5Klass(ptr nou
 
 83:                                               ; preds = %80
   %84 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not34 = icmp eq ptr %84, null
-  br i1 %.not34, label %86, label %85
+  %.not35 = icmp eq ptr %84, null
+  br i1 %.not35, label %86, label %85
 
 85:                                               ; preds = %83
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.179)

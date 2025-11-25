@@ -9838,7 +9838,7 @@ _ZNK9fp_params19xform_inline_linearEv.exit:       ; preds = %_ZN10scoped_ptrIN7d
           to label %115 unwind label %80
 
 115:                                              ; preds = %113
-  %spec.select43 = or i1 %114, %.02361
+  %spec.select43 = or i1 %.02361, %114
   br i1 %spec.select43, label %120, label %117
 
 116:                                              ; preds = %_ZNK9fp_params19xform_inline_linearEv.exit

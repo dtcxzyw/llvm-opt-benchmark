@@ -18492,7 +18492,7 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hc6ae4da4227
   br i1 %49, label %56, label %50
 
 .thread277:                                       ; preds = %.thread269
-  br i1 %.sroa.025.2276, label %.thread277.thread, label %1071
+  br i1 %.sroa.025.2276, label %.thread277.thread, label %.thread261
 
 50:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -18550,13 +18550,13 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hc6ae4da4227
           cleanup
   br label %.thread269
 
-.thread.thread:                                   ; preds = %.invoke, %724, %.loopexit361, %704, %736, %_ZN6brotli3enc7cluster20BrotliHistogramRemap17hba71dce90fa1d898E.exit.i, %.noexc248, %._crit_edge128.i.i219
-  %lpad.thr_comm966 = landingpad { ptr, i32 }
+.thread316.thread:                                ; preds = %.invoke, %724, %.loopexit361, %704, %736, %_ZN6brotli3enc7cluster20BrotliHistogramRemap17hba71dce90fa1d898E.exit.i, %.noexc248, %._crit_edge128.i.i219
+  %lpad.thr_comm325 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread310
+  br label %.thread261.thread321
 
 65:                                               ; preds = %_ZN6brotli3enc9histogram32BrotliBuildHistogramsWithContext17he2660ea2f0307c44E.exit, %361, %373, %385, %_ZN6brotli3enc7cluster20BrotliHistogramRemap17h891eead57b2db863E.exit.i, %.noexc84, %._crit_edge128.i.i
-  %lpad.thr_comm.split-lp962 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp315 = landingpad { ptr, i32 }
           cleanup
   br label %.thread277.thread
 
@@ -20141,7 +20141,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17h891eead57b2db863E.exit.i: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !964
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !964
   invoke void @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17ha3ed489b8392a3eaE"(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull align 8 %112, i64 noundef %113)
-          to label %705 unwind label %.thread.thread
+          to label %705 unwind label %.thread316.thread
 
 705:                                              ; preds = %704
   %706 = load i32, ptr %92, align 4, !noundef !3
@@ -20157,7 +20157,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17h891eead57b2db863E.exit.i: ; preds
   %712 = shl i64 %710, 2
   store i64 %712, ptr %711, align 8
   %713 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h4202d9e018a04d55E"(ptr noalias noundef nonnull align 1 %0, i64 noundef %712)
-          to label %717 unwind label %.thread.thread
+          to label %717 unwind label %.thread316.thread
 
 .loopexit:                                        ; preds = %1062
   %714 = icmp eq i64 %715, 0
@@ -20182,7 +20182,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17h891eead57b2db863E.exit.i: ; preds
   store ptr %718, ptr %720, align 8
   %723 = getelementptr inbounds nuw i8, ptr %15, i64 168
   store i64 %719, ptr %723, align 8
-  br label %.thread310
+  br label %.thread261.thread321
 
 724:                                              ; preds = %717
   store ptr %718, ptr %720, align 8
@@ -20192,7 +20192,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17h891eead57b2db863E.exit.i: ; preds
   %727 = getelementptr inbounds nuw i8, ptr %15, i64 256
   store i64 %726, ptr %727, align 8
   %728 = invoke { ptr, i64 } @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17h26c0e97c670b3230E"(ptr noalias noundef nonnull align 1 %0, i64 noundef %726)
-          to label %729 unwind label %.thread.thread
+          to label %729 unwind label %.thread316.thread
 
 729:                                              ; preds = %724
   %730 = extractvalue { ptr, i64 } %728, 0
@@ -20207,7 +20207,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17h891eead57b2db863E.exit.i: ; preds
   store ptr %730, ptr %732, align 8
   %735 = getelementptr inbounds nuw i8, ptr %15, i64 216
   store i64 %731, ptr %735, align 8
-  br label %.thread310
+  br label %.thread261.thread321
 
 736:                                              ; preds = %729
   store ptr %730, ptr %732, align 8
@@ -20225,7 +20225,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17h891eead57b2db863E.exit.i: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !1091
   %739 = icmp ne i64 %738, 0
   %740 = invoke { ptr, i64 } @_ZN6brotli3enc14combined_alloc8alloc_if17he657f3f8682d0b29E(i1 noundef zeroext %739, ptr noalias noundef nonnull align 1 %0, i64 noundef %738)
-          to label %.noexc247 unwind label %.thread.thread
+          to label %.noexc247 unwind label %.thread316.thread
 
 .noexc247:                                        ; preds = %736
   %741 = extractvalue { ptr, i64 } %740, 0
@@ -20238,7 +20238,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17h891eead57b2db863E.exit.i: ; preds
           to label %747 unwind label %.thread.i87, !noalias !1094
 
 745:                                              ; preds = %.thread117.thread139.i92
-  br i1 %.sroa.032.1108.i93, label %1055, label %.thread310
+  br i1 %.sroa.032.1108.i93, label %1055, label %.thread261.thread321
 
 .thread.i87:                                      ; preds = %.noexc247
   %746 = landingpad { ptr, i32 }
@@ -20735,13 +20735,13 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17he69cc7e364323581E.exit.
 
 _ZN6brotli3enc7cluster20BrotliHistogramRemap17hba71dce90fa1d898E.exit.i: ; preds = %_ZN6brotli3enc9histogram21HistogramAddHistogram17h204b348a31d72629E.exit44.loopexit.i.i, %_ZN6brotli3enc9histogram21HistogramAddHistogram17h204b348a31d72629E.exit44.preheader.i.i
   invoke void @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17he63f5645901d7f28E"(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull align 4 %748, i64 noundef %749)
-          to label %.noexc248 unwind label %.thread.thread
+          to label %.noexc248 unwind label %.thread316.thread
 
 .noexc248:                                        ; preds = %_ZN6brotli3enc7cluster20BrotliHistogramRemap17hba71dce90fa1d898E.exit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1190)
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !1193
   %926 = invoke { ptr, i64 } @_ZN6brotli3enc14combined_alloc8alloc_if17he657f3f8682d0b29E(i1 noundef zeroext %739, ptr noalias noundef nonnull align 1 %0, i64 noundef %738)
-          to label %.noexc249 unwind label %.thread.thread
+          to label %.noexc249 unwind label %.thread316.thread
 
 .noexc249:                                        ; preds = %.noexc248
   %927 = extractvalue { ptr, i64 } %926, 0
@@ -20807,7 +20807,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17hba71dce90fa1d898E.exit.i: ; preds
 
 ._crit_edge128.i.i219:                            ; preds = %953, %941
   invoke void @"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$9free_cell17h92d8905954d2364cE"(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull align 8 %937, i64 noundef %938)
-          to label %1056 unwind label %.thread.thread
+          to label %1056 unwind label %.thread316.thread
 
 945:                                              ; preds = %953, %.lr.ph127.i.i214
   %946 = phi i64 [ 1, %.lr.ph127.i.i214 ], [ %956, %953 ]
@@ -20962,7 +20962,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17hba71dce90fa1d898E.exit.i: ; preds
   br i1 %exitcond.not.i95.i183, label %.preheader.i96.i184, label %.lr.ph.i94.i180
 
 1007:                                             ; preds = %.thread.i.i205
-  br i1 %.sroa.018.167.i.i207, label %1010, label %.thread310
+  br i1 %.sroa.018.167.i.i207, label %1010, label %.thread261.thread321
 
 .thread.i.i205:                                   ; preds = %973, %951, %.thread72.i.i203
   %.pn69.i.i206 = phi { ptr, i32 } [ %lpad.thr_comm.i.i204, %.thread72.i.i203 ], [ %952, %951 ], [ %974, %973 ]
@@ -20979,7 +20979,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17hba71dce90fa1d898E.exit.i: ; preds
 1010:                                             ; preds = %1007, %.thread82.i.i190
   %.pn6877.i.i192 = phi { ptr, i32 } [ %.pn69.i.i206, %1007 ], [ %lpad.thr_comm80.i.i191, %.thread82.i.i190 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17h1715ae154c3afb24E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18) #19
-          to label %.thread310 unwind label %1008, !noalias !1196
+          to label %.thread261.thread321 unwind label %1008, !noalias !1196
 
 1011:                                             ; preds = %.invoke416.i242
   %lpad.thr_comm130.i243 = landingpad { ptr, i32 }
@@ -21109,7 +21109,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17hba71dce90fa1d898E.exit.i: ; preds
 1055:                                             ; preds = %.thread.i87, %745
   %.pn.pn.pn102.i88 = phi { ptr, i32 } [ %746, %.thread.i87 ], [ %.pn.pn107.i94, %745 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u32$GT$$GT$17h1715ae154c3afb24E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #19
-          to label %.thread310 unwind label %1012, !noalias !1094
+          to label %.thread261.thread321 unwind label %1012, !noalias !1094
 
 1056:                                             ; preds = %._crit_edge128.i.i219
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1193
@@ -21149,7 +21149,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17hba71dce90fa1d898E.exit.i: ; preds
   %1067 = phi i64 [ %715, %1057 ], [ %1060, %1059 ]
   %1068 = phi ptr [ @anon.22ef77861fc54221f1ddbf39bed58d11.333, %1057 ], [ @anon.22ef77861fc54221f1ddbf39bed58d11.334, %1059 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %1067, i64 noundef %.val40, ptr noalias noundef readonly align 8 dereferenceable(24) %1068) #21
-          to label %.cont unwind label %.thread.thread
+          to label %.cont unwind label %.thread316.thread
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -21161,31 +21161,31 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17hba71dce90fa1d898E.exit.i: ; preds
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli..enc..histogram..ContextType$GT$$GT$17he12bcb4ffb481351E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %38) #19
           to label %.thread277 unwind label %1069
 
-1069:                                             ; preds = %.thread310, %.thread277.thread, %.thread269
+1069:                                             ; preds = %.thread261.thread321, %.thread277.thread, %.thread269
   %1070 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #20
   unreachable
 
-1071:                                             ; preds = %.thread277.thread, %.thread277
+.thread261:                                       ; preds = %.thread277.thread, %.thread277
   %.sroa.026.0260 = phi i1 [ %.sroa.026.0303, %.thread277.thread ], [ %.sroa.026.2275, %.thread277 ]
   %.pn.pn259 = phi { ptr, i32 } [ %.pn.pn302, %.thread277.thread ], [ %.pn274, %.thread277 ]
-  br i1 %.sroa.026.0260, label %.thread310, label %1072
+  br i1 %.sroa.026.0260, label %.thread261.thread321, label %1071
 
-.thread277.thread:                                ; preds = %65, %382, %370, %703, %658, %655, %393, %.thread277
-  %.sroa.026.0303 = phi i1 [ %.sroa.026.2275, %.thread277 ], [ true, %393 ], [ true, %655 ], [ true, %658 ], [ true, %703 ], [ true, %370 ], [ true, %382 ], [ true, %65 ]
-  %.pn.pn302 = phi { ptr, i32 } [ %.pn274, %.thread277 ], [ %.pn.pn107.i, %393 ], [ %.pn69.i.i, %655 ], [ %.pn6877.i.i, %658 ], [ %.pn.pn.pn102.i, %703 ], [ %371, %370 ], [ %383, %382 ], [ %lpad.thr_comm.split-lp962, %65 ]
+.thread277.thread:                                ; preds = %382, %370, %703, %658, %655, %393, %65, %.thread277
+  %.sroa.026.0303 = phi i1 [ %.sroa.026.2275, %.thread277 ], [ true, %65 ], [ true, %393 ], [ true, %655 ], [ true, %658 ], [ true, %703 ], [ true, %370 ], [ true, %382 ]
+  %.pn.pn302 = phi { ptr, i32 } [ %.pn274, %.thread277 ], [ %lpad.thr_comm.split-lp315, %65 ], [ %.pn.pn107.i, %393 ], [ %.pn69.i.i, %655 ], [ %.pn6877.i.i, %658 ], [ %.pn.pn.pn102.i, %703 ], [ %371, %370 ], [ %383, %382 ]
   invoke void @"_ZN4core3ptr102drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli..enc..histogram..HistogramLiteral$GT$$GT$17hc9489677f2272503E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %39) #19
-          to label %1071 unwind label %1069
+          to label %.thread261 unwind label %1069
 
-1072:                                             ; preds = %.thread310, %1071
-  %.pn.pn259298 = phi { ptr, i32 } [ %.pn.pn259313, %.thread310 ], [ %.pn.pn259, %1071 ]
+1071:                                             ; preds = %.thread261.thread321, %.thread261
+  %.pn.pn259298 = phi { ptr, i32 } [ %.pn.pn259324, %.thread261.thread321 ], [ %.pn.pn259, %.thread261 ]
   resume { ptr, i32 } %.pn.pn259298
 
-.thread310:                                       ; preds = %.thread.thread, %721, %733, %745, %1007, %1010, %1055, %1071
-  %.pn.pn259313 = phi { ptr, i32 } [ %.pn.pn259, %1071 ], [ %.pn6877.i.i192, %1010 ], [ %.pn69.i.i206, %1007 ], [ %.pn.pn107.i94, %745 ], [ %.pn.pn.pn102.i88, %1055 ], [ %734, %733 ], [ %722, %721 ], [ %lpad.thr_comm966, %.thread.thread ]
+.thread261.thread321:                             ; preds = %1055, %1010, %1007, %745, %721, %733, %.thread316.thread, %.thread261
+  %.pn.pn259324 = phi { ptr, i32 } [ %.pn.pn259, %.thread261 ], [ %lpad.thr_comm325, %.thread316.thread ], [ %734, %733 ], [ %722, %721 ], [ %.pn6877.i.i192, %1010 ], [ %.pn69.i.i206, %1007 ], [ %.pn.pn107.i94, %745 ], [ %.pn.pn.pn102.i88, %1055 ]
   invoke void @"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli..enc..histogram..HistogramDistance$GT$$GT$17hc3d39925a1d3d02bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %40) #19
-          to label %1072 unwind label %1069
+          to label %1071 unwind label %1069
 }
 
 ; Function Attrs: nonlazybind uwtable

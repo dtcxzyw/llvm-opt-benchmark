@@ -5476,20 +5476,20 @@ define hidden void @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParallelProduce
   %5 = alloca [32 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = invoke noundef ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h1a7af3aa6d24dce3E"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.b5d3158c6b90a5cab6b3af5f9a9153dd.980)
-          to label %9 unwind label %.loopexit.split-lp.thread
+          to label %9 unwind label %.thread.loopexit.split-lp
 
 8:                                                ; preds = %92, %82
-  br i1 %.sroa.08.5, label %95, label %94
+  br i1 %.sroa.08.5, label %.thread, label %94
 
-.thread:                                          ; preds = %66, %30
+.thread.loopexit:                                 ; preds = %66, %30
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %.thread
 
-.loopexit.split-lp.thread:                        ; preds = %3, %19
-  %lpad.thr_comm = landingpad { ptr, i32 }
+.thread.loopexit.split-lp:                        ; preds = %3, %19
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %.thread
 
 9:                                                ; preds = %3
   %10 = icmp eq ptr %7, null
@@ -5509,7 +5509,7 @@ define hidden void @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParallelProduce
 
 19:                                               ; preds = %11
   invoke void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h3b559ab991796bccE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d3158c6b90a5cab6b3af5f9a9153dd.982) #31
-          to label %20 unwind label %.loopexit.split-lp.thread
+          to label %20 unwind label %.thread.loopexit.split-lp
 
 20:                                               ; preds = %19
   unreachable
@@ -5531,7 +5531,7 @@ define hidden void @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParallelProduce
 30:                                               ; preds = %"_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit", %15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$4lock17hecdb6a780e98ff83E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 8 %16)
-          to label %31 unwind label %.thread
+          to label %31 unwind label %.thread.loopexit
 
 31:                                               ; preds = %30
   %32 = load i64, ptr %6, align 8, !range !49, !noundef !25
@@ -5548,7 +5548,7 @@ define hidden void @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParallelProduce
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8, !alias.scope !671, !noundef !25
   %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %.thread54, label %40
+  br i1 %.not.i, label %.thread59, label %40
 
 40:                                               ; preds = %35
   %41 = invoke { ptr, i64 } @"_ZN98_$LT$itertools..unique_impl..Unique$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdee7b207732ed307E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %38)
@@ -5564,7 +5564,7 @@ define hidden void @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParallelProduce
   %45 = extractvalue { ptr, i64 } %41, 0
   %46 = extractvalue { ptr, i64 } %41, 1
   %.not = icmp eq ptr %45, null
-  br i1 %.not, label %.thread54, label %47
+  br i1 %.not, label %.thread59, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -5621,7 +5621,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %56, %.noe
 
 66:                                               ; preds = %63
   invoke void @"_ZN4core3ptr409drop_in_place$LT$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$17ha0afdcbd122ee6a4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
-          to label %"_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit" unwind label %.thread
+          to label %"_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit" unwind label %.thread.loopexit
 
 "_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit": ; preds = %66, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5636,13 +5636,13 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %56, %.noe
   %69 = trunc nuw i64 %68 to i1
   br i1 %69, label %87, label %"_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit41"
 
-.thread54:                                        ; preds = %35, %44
+.thread59:                                        ; preds = %35, %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %71 = trunc nuw i8 %37 to i1
   br i1 %71, label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31, label %72
 
-72:                                               ; preds = %.thread54
+72:                                               ; preds = %.thread59
   %73 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h9539389daf418384E monotonic, align 8
   %74 = and i64 %73, 9223372036854775807
   %75 = icmp eq i64 %74, 0
@@ -5659,7 +5659,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %56, %.noe
   store atomic i8 1, ptr %70 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31
 
-_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31: ; preds = %78, %.noexc32, %72, %.thread54
+_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31: ; preds = %78, %.noexc32, %72, %.thread59
   %79 = atomicrmw xchg ptr %36, i32 0 release, align 4
   %80 = icmp eq i32 %79, 2
   br i1 %80, label %81, label %"_ZN4core3ptr371drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17he3481b8ee3f6542bE.exit34", !prof !51
@@ -5694,7 +5694,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31: ; preds = %78, %.n
   invoke fastcc void @"_ZN4core3ptr371drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17he3481b8ee3f6542bE"(ptr nonnull %36, i8 %37) #32
           to label %82 unwind label %90
 
-90:                                               ; preds = %88, %95, %92
+90:                                               ; preds = %88, %.thread, %92
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #33
@@ -5707,12 +5707,12 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31: ; preds = %78, %.n
 93:                                               ; preds = %"_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit41", %29
   ret void
 
-94:                                               ; preds = %95, %8
-  %.pn1780 = phi { ptr, i32 } [ %.pn1781, %95 ], [ %.pn15, %8 ]
-  resume { ptr, i32 } %.pn1780
+94:                                               ; preds = %.thread, %8
+  %.pn1749 = phi { ptr, i32 } [ %.pn1750, %.thread ], [ %.pn15, %8 ]
+  resume { ptr, i32 } %.pn1749
 
-95:                                               ; preds = %.loopexit.split-lp.thread, %.thread, %8
-  %.pn1781 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %.pn15, %8 ], [ %lpad.thr_comm, %.loopexit.split-lp.thread ]
+.thread:                                          ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %8
+  %.pn1750 = phi { ptr, i32 } [ %.pn15, %8 ], [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr223drop_in_place$LT$rayon..iter..map..MapFolder$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RF$std..path..Path$C$ruff..cache..Cache$RP$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9339e8231a0eace4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #32
           to label %94 unwind label %90
 }
@@ -5723,20 +5723,20 @@ define hidden void @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParallelProduce
   %5 = alloca [32 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = invoke noundef ptr @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h1a7af3aa6d24dce3E"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.b5d3158c6b90a5cab6b3af5f9a9153dd.980)
-          to label %9 unwind label %.loopexit.split-lp.thread
+          to label %9 unwind label %.thread.loopexit.split-lp
 
 8:                                                ; preds = %92, %82
-  br i1 %.sroa.08.5, label %95, label %94
+  br i1 %.sroa.08.5, label %.thread, label %94
 
-.thread:                                          ; preds = %66, %30
+.thread.loopexit:                                 ; preds = %66, %30
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %.thread
 
-.loopexit.split-lp.thread:                        ; preds = %3, %19
-  %lpad.thr_comm = landingpad { ptr, i32 }
+.thread.loopexit.split-lp:                        ; preds = %3, %19
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %.thread
 
 9:                                                ; preds = %3
   %10 = icmp eq ptr %7, null
@@ -5756,7 +5756,7 @@ define hidden void @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParallelProduce
 
 19:                                               ; preds = %11
   invoke void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h3b559ab991796bccE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b5d3158c6b90a5cab6b3af5f9a9153dd.982) #31
-          to label %20 unwind label %.loopexit.split-lp.thread
+          to label %20 unwind label %.thread.loopexit.split-lp
 
 20:                                               ; preds = %19
   unreachable
@@ -5778,7 +5778,7 @@ define hidden void @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParallelProduce
 30:                                               ; preds = %"_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit", %15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$4lock17hecdb6a780e98ff83E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 8 %16)
-          to label %31 unwind label %.thread
+          to label %31 unwind label %.thread.loopexit
 
 31:                                               ; preds = %30
   %32 = load i64, ptr %6, align 8, !range !49, !noundef !25
@@ -5795,7 +5795,7 @@ define hidden void @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParallelProduce
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8, !alias.scope !675, !noundef !25
   %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %.thread54, label %40
+  br i1 %.not.i, label %.thread59, label %40
 
 40:                                               ; preds = %35
   %41 = invoke { ptr, i64 } @"_ZN98_$LT$itertools..unique_impl..Unique$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdee7b207732ed307E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %38)
@@ -5811,7 +5811,7 @@ define hidden void @"_ZN122_$LT$$RF$rayon..iter..par_bridge..IterParallelProduce
   %45 = extractvalue { ptr, i64 } %41, 0
   %46 = extractvalue { ptr, i64 } %41, 1
   %.not = icmp eq ptr %45, null
-  br i1 %.not, label %.thread54, label %47
+  br i1 %.not, label %.thread59, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -5868,7 +5868,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %56, %.noe
 
 66:                                               ; preds = %63
   invoke void @"_ZN4core3ptr409drop_in_place$LT$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$17ha0afdcbd122ee6a4E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
-          to label %"_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit" unwind label %.thread
+          to label %"_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit" unwind label %.thread.loopexit
 
 "_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit": ; preds = %66, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -5883,13 +5883,13 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %56, %.noe
   %69 = trunc nuw i64 %68 to i1
   br i1 %69, label %87, label %"_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit41"
 
-.thread54:                                        ; preds = %35, %44
+.thread59:                                        ; preds = %35, %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %71 = trunc nuw i8 %37 to i1
   br i1 %71, label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31, label %72
 
-72:                                               ; preds = %.thread54
+72:                                               ; preds = %.thread59
   %73 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h9539389daf418384E monotonic, align 8
   %74 = and i64 %73, 9223372036854775807
   %75 = icmp eq i64 %74, 0
@@ -5906,7 +5906,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %56, %.noe
   store atomic i8 1, ptr %70 monotonic, align 4
   br label %_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31
 
-_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31: ; preds = %78, %.noexc32, %72, %.thread54
+_ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31: ; preds = %78, %.noexc32, %72, %.thread59
   %79 = atomicrmw xchg ptr %36, i32 0 release, align 4
   %80 = icmp eq i32 %79, 2
   br i1 %80, label %81, label %"_ZN4core3ptr371drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17he3481b8ee3f6542bE.exit34", !prof !51
@@ -5941,7 +5941,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31: ; preds = %78, %.n
   invoke fastcc void @"_ZN4core3ptr371drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17he3481b8ee3f6542bE"(ptr nonnull %36, i8 %37) #32
           to label %82 unwind label %90
 
-90:                                               ; preds = %88, %95, %92
+90:                                               ; preds = %88, %.thread, %92
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #33
@@ -5954,12 +5954,12 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i31: ; preds = %78, %.n
 93:                                               ; preds = %"_ZN4core3ptr790drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$core..iter..adapters..fuse..Fuse$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..Iter$LT$$RF$std..path..Path$C$core..option..Option$LT$ruff_linter..package..PackageRoot$GT$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h81c46e7a872323c0E.exit41", %29
   ret void
 
-94:                                               ; preds = %95, %8
-  %.pn1780 = phi { ptr, i32 } [ %.pn1781, %95 ], [ %.pn15, %8 ]
-  resume { ptr, i32 } %.pn1780
+94:                                               ; preds = %.thread, %8
+  %.pn1749 = phi { ptr, i32 } [ %.pn1750, %.thread ], [ %.pn15, %8 ]
+  resume { ptr, i32 } %.pn1749
 
-95:                                               ; preds = %.loopexit.split-lp.thread, %.thread, %8
-  %.pn1781 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %.pn15, %8 ], [ %lpad.thr_comm, %.loopexit.split-lp.thread ]
+.thread:                                          ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %8
+  %.pn1750 = phi { ptr, i32 } [ %.pn15, %8 ], [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr212drop_in_place$LT$rayon..iter..map..MapFolder$LT$rayon..iter..extend..ListVecFolder$LT$$LP$$RF$std..path..Path$C$ruff..cache..Cache$RP$$GT$$C$ruff..cache..PackageCacheMap..init..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcbfce27d63df8c65E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #32
           to label %94 unwind label %90
 }
@@ -16250,8 +16250,8 @@ define internal fastcc void @_ZN4ruff8commands4rule11Explanation9from_rule17h3a8
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #33, !noalias !2558
   unreachable
 
-common.resume:                                    ; preds = %49, %95, %.thread, %19
-  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %.pn.pn.pn15, %.thread ], [ %.pn, %95 ], [ %.pn, %49 ]
+common.resume:                                    ; preds = %.thread, %49, %95, %19
+  %common.resume.op = phi { ptr, i32 } [ %20, %19 ], [ %.pn.pn.pn15, %.thread ], [ %.pn, %49 ], [ %.pn, %95 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h69d3143c0d16decbE.exit": ; preds = %21

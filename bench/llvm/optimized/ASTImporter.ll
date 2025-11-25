@@ -22907,9 +22907,9 @@ _ZN5clang4Decl21getLexicalDeclContextEv.exit38:   ; preds = %_ZN5clang4Decl21get
 
 45:                                               ; preds = %44
   %46 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext19containsDeclAndLoadEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(32) %.0.i31, ptr noundef nonnull %1) #25
-  br i1 %46, label %.thread, label %47
+  br i1 %46, label %.critedge, label %47
 
-.thread:                                          ; preds = %45
+.critedge:                                        ; preds = %45
   tail call void @_ZN5clang11DeclContext15addDeclInternalEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(32) %.0.i37, ptr noundef nonnull %2) #25
   br label %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread
 
@@ -22944,7 +22944,7 @@ _ZN5clang4Decl21getLexicalDeclContextEv.exit38:   ; preds = %_ZN5clang4Decl21get
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN5clang9NamedDeclEEclINS2_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %60 = load ptr, ptr %59, align 8, !tbaa !2435
   %61 = icmp eq ptr %60, %1
-  br i1 %61, label %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread46, label %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i
+  br i1 %61, label %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread45, label %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i
 
 _ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN5clang9NamedDeclEEclINS2_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -22954,13 +22954,13 @@ _ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__op
 
 _ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i
   %64 = icmp eq ptr %1, %59
-  br i1 %64, label %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread46, label %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread
+  br i1 %64, label %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread45, label %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread
 
-_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread46: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN5clang9NamedDeclEEclINS2_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i, %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit
+_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread45: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN5clang9NamedDeclEEclINS2_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i, %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit
   tail call void @_ZN5clang11DeclContext24makeDeclVisibleInContextEPNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(32) %.0.i3443, ptr noundef %2) #25
   br label %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread
 
-_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread: ; preds = %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i, %54, %48, %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread46, %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit, %.thread, %47, %8, %10, %_ZN5clang4Decl21getLexicalDeclContextEv.exit
+_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread: ; preds = %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i, %54, %48, %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit.thread45, %_ZN4llvm12is_containedIRN5clang23DeclContextLookupResultEPNS1_9NamedDeclEEEbOT_RKT0_.exit, %47, %.critedge, %8, %10, %_ZN5clang4Decl21getLexicalDeclContextEv.exit
   ret void
 }
 

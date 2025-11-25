@@ -110,30 +110,15 @@ _ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if1
   %44 = icmp eq i64 %43, %38
   br i1 %44, label %.sink.split.i.i, label %_ZN10rayon_core8registry12WorkerThread4push17hc3b5b91e42609c5eE.exit
 
-.thread95.thread104.loopexit:                     ; preds = %.preheader.i
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %.thread95.thread104
-
-.thread95.thread104.loopexit.split-lp.loopexit:   ; preds = %.critedge, %68
-  %lpad.loopexit107 = landingpad { ptr, i32 }
-          cleanup
-  br label %.thread95.thread104
-
-.thread95.thread104.loopexit.split-lp.loopexit.split-lp: ; preds = %86
-  %lpad.loopexit.split-lp108 = landingpad { ptr, i32 }
-          cleanup
-  br label %.thread95.thread104
-
 .thread.loopexit:                                 ; preds = %33
   %lpad.loopexit110 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread95.thread104
+  br label %.thread
 
 .thread.loopexit.split-lp:                        ; preds = %.sink.split.i.i, %4, %60
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread95.thread104
+  br label %.thread
 
 _ZN10rayon_core8registry12WorkerThread4push17hc3b5b91e42609c5eE.exit: ; preds = %41, %_ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if17h528318ad49446e01E.exit.i.i, %.sink.split.i.i
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -410,22 +395,37 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   store i64 %.sroa.671.0.copyload, ptr %.sroa.567.0..sroa_idx, align 8
   br label %118
 
-122:                                              ; preds = %.thread95.thread104
+122:                                              ; preds = %.thread
   %123 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #20
   unreachable
 
+.thread95.thread104.loopexit:                     ; preds = %.preheader.i
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread
+
+.thread95.thread104.loopexit.split-lp.loopexit:   ; preds = %.critedge, %68
+  %lpad.loopexit107 = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread
+
+.thread95.thread104.loopexit.split-lp.loopexit.split-lp: ; preds = %86
+  %lpad.loopexit.split-lp108 = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread
+
 124:                                              ; preds = %60
   unreachable
 
-.thread95.thread104:                              ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %.thread95.thread104.loopexit, %.thread95.thread104.loopexit.split-lp.loopexit.split-lp, %.thread95.thread104.loopexit.split-lp.loopexit
-  %.pn.pn86 = phi { ptr, i32 } [ %lpad.loopexit, %.thread95.thread104.loopexit ], [ %lpad.loopexit107, %.thread95.thread104.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp108, %.thread95.thread104.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit110, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
+.thread:                                          ; preds = %.thread95.thread104.loopexit, %.thread95.thread104.loopexit.split-lp.loopexit.split-lp, %.thread95.thread104.loopexit.split-lp.loopexit, %.thread.loopexit, %.thread.loopexit.split-lp
+  %.pn.pn86 = phi { ptr, i32 } [ %lpad.loopexit110, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ], [ %lpad.loopexit, %.thread95.thread104.loopexit ], [ %lpad.loopexit107, %.thread95.thread104.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp108, %.thread95.thread104.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr1083drop_in_place$LT$rayon_core..job..StackJob$LT$rayon_core..latch..SpinLatch$C$rayon_core..join..join_context..call_b$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..iter..len..MaxLenProducer$LT$rayon..slice..chunks..ChunksMutProducer$LT$uu_sort..Line$GT$$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$C$rayon..slice..mergesort..par_mergesort$LT$uu_sort..Line$C$$LT$$u5b$uu_sort..Line$u5d$$u20$as$u20$rayon..slice..ParallelSliceMut$LT$uu_sort..Line$GT$$GT$..par_sort_by$LT$uu_sort..sort_by..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17hdd08b9970c634607E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %12) #22
           to label %.thread95.thread unwind label %122
 
-.thread95.thread:                                 ; preds = %100, %111, %.thread95.thread104
-  %.pn.pn85 = phi { ptr, i32 } [ %.pn.pn86, %.thread95.thread104 ], [ %101, %100 ], [ %112, %111 ]
+.thread95.thread:                                 ; preds = %100, %111, %.thread
+  %.pn.pn85 = phi { ptr, i32 } [ %.pn.pn86, %.thread ], [ %101, %100 ], [ %112, %111 ]
   resume { ptr, i32 } %.pn.pn85
 }
 
@@ -507,11 +507,8 @@ _ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if1
   %44 = icmp eq i64 %43, %38
   br i1 %44, label %.sink.split.i.i, label %_ZN10rayon_core8registry12WorkerThread4push17hc3b5b91e42609c5eE.exit
 
-"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48": ; preds = %.thread86
-  br i1 %.1.lpad-body, label %.thread, label %"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48.thread"
-
 .thread.loopexit:                                 ; preds = %33
-  %lpad.loopexit97 = landingpad { ptr, i32 }
+  %lpad.loopexit95 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -592,12 +589,12 @@ _ZN10rayon_core8registry12WorkerThread4push17hc3b5b91e42609c5eE.exit: ; preds = 
   br label %.thread86
 
 .loopexit.split-lp.loopexit:                      ; preds = %68, %.critedge
-  %lpad.loopexit94 = landingpad { ptr, i32 }
+  %lpad.loopexit92 = landingpad { ptr, i32 }
           cleanup
   br label %.thread86
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %114, %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hc79c9485099f6a6dE.llvm.3531809010164697281.exit.i.i.i", %86
-  %lpad.loopexit.split-lp95 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp93 = landingpad { ptr, i32 }
           cleanup
   br label %.thread86
 
@@ -813,7 +810,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   %125 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN98_$LT$alloc..collections..linked_list..LinkedList$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdffabed5f71901a7E.llvm.3531809010164697281"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-          to label %"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48.thread" unwind label %127
+          to label %130 unwind label %127
 
 "_ZN10rayon_core3job25StackJob$LT$L$C$F$C$R$GT$11into_result17hbbe728646d7ef451E.exit": ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17hf9239a9bf11fcad9E.exit
   %.sroa.6.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -836,20 +833,23 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 
 .thread86:                                        ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %99, %110
   %.1.lpad-body = phi i1 [ false, %110 ], [ false, %99 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp.loopexit ], [ %.not, %.loopexit.split-lp.loopexit.split-lp ]
-  %eh.lpad-body = phi { ptr, i32 } [ %111, %110 ], [ %100, %99 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit94, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp95, %.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %111, %110 ], [ %100, %99 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit92, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp93, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN98_$LT$alloc..collections..linked_list..LinkedList$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdffabed5f71901a7E.llvm.3531809010164697281"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48" unwind label %127
+
+"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48": ; preds = %.thread86
+  br i1 %.1.lpad-body, label %.thread, label %130
 
 129:                                              ; preds = %60
   unreachable
 
 .thread:                                          ; preds = %.thread.loopexit, %.thread.loopexit.split-lp, %"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48"
-  %.pn.pn77 = phi { ptr, i32 } [ %eh.lpad-body, %"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48" ], [ %lpad.loopexit97, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
+  %.pn.pn77 = phi { ptr, i32 } [ %eh.lpad-body, %"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48" ], [ %lpad.loopexit95, %.thread.loopexit ], [ %lpad.loopexit.split-lp, %.thread.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr1042drop_in_place$LT$rayon_core..job..StackJob$LT$rayon_core..latch..SpinLatch$C$rayon_core..join..join_context..call_b$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..iter..enumerate..EnumerateProducer$LT$rayon..iter..len..MaxLenProducer$LT$rayon..slice..chunks..ChunksMutProducer$LT$uu_sort..Line$GT$$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..extend..ListVecConsumer$C$rayon..slice..mergesort..par_mergesort$LT$uu_sort..Line$C$$LT$$u5b$uu_sort..Line$u5d$$u20$as$u20$rayon..slice..ParallelSliceMut$LT$uu_sort..Line$GT$$GT$..par_sort_by$LT$uu_sort..sort_by..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$$GT$17hefb1aa32631da93fE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %12) #22
-          to label %"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48.thread" unwind label %127
+          to label %130 unwind label %127
 
-"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48.thread": ; preds = %124, %"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48", %.thread
-  %.pn.pn76 = phi { ptr, i32 } [ %eh.lpad-body, %"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48" ], [ %.pn.pn77, %.thread ], [ %125, %124 ]
+130:                                              ; preds = %124, %"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48", %.thread
+  %.pn.pn76 = phi { ptr, i32 } [ %.pn.pn77, %.thread ], [ %eh.lpad-body, %"_ZN4core3ptr159drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$usize$C$usize$C$rayon..slice..mergesort..MergesortResult$RP$$GT$$GT$$GT$17h38b7e0c254f40655E.exit48" ], [ %125, %124 ]
   resume { ptr, i32 } %.pn.pn76
 }
 

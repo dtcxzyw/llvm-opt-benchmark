@@ -575,7 +575,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .fold.split:                                      ; preds = %._crit_edge
   br label %72
 
-72:                                               ; preds = %.fold.split, %._crit_edge, %45, %51, %60, %4
+72:                                               ; preds = %60, %51, %45, %.fold.split, %._crit_edge, %4
   %.029 = phi i1 [ true, %4 ], [ false, %._crit_edge ], [ false, %.fold.split ], [ false, %45 ], [ false, %51 ], [ %65, %60 ]
   %.025 = phi i1 [ true, %4 ], [ false, %._crit_edge ], [ false, %.fold.split ], [ false, %45 ], [ %53, %51 ], [ %62, %60 ]
   %.023 = phi i1 [ true, %4 ], [ false, %._crit_edge ], [ false, %.fold.split ], [ %47, %45 ], [ %56, %51 ], [ %68, %60 ]

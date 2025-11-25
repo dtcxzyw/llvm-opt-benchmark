@@ -31898,8 +31898,8 @@ _ZN3std4path8absolute17h669f884d0ed1bd39E.exit:   ; preds = %40
   %127 = landingpad { ptr, i32 }
           cleanup
   %128 = load i8, ptr %18, align 8, !range !1091, !noalias !6201, !noundef !6
-  %.not14.i = icmp eq i8 %128, 18
-  br i1 %.not14.i, label %.body, label %134
+  %.not9.i = icmp eq i8 %128, 18
+  br i1 %.not9.i, label %.body, label %134
 
 129:                                              ; preds = %120
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !6205
@@ -31990,8 +31990,8 @@ _ZN3std4path8absolute17h669f884d0ed1bd39E.exit:   ; preds = %40
   %144 = landingpad { ptr, i32 }
           cleanup
   %145 = load i8, ptr %15, align 8, !range !1091, !noalias !6220, !noundef !6
-  %.not14.i321 = icmp eq i8 %145, 18
-  br i1 %.not14.i321, label %189, label %151
+  %.not9.i321 = icmp eq i8 %145, 18
+  br i1 %.not9.i321, label %189, label %151
 
 146:                                              ; preds = %.thread446
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !6224
@@ -32086,8 +32086,8 @@ _ZN3std4path8absolute17h669f884d0ed1bd39E.exit:   ; preds = %40
   %159 = landingpad { ptr, i32 }
           cleanup
   %160 = load i8, ptr %12, align 8, !range !1091, !noalias !6239, !noundef !6
-  %.not14.i328 = icmp eq i8 %160, 18
-  br i1 %.not14.i328, label %.body332.thread, label %166
+  %.not9.i328 = icmp eq i8 %160, 18
+  br i1 %.not9.i328, label %.body332.thread, label %166
 
 161:                                              ; preds = %.thread460
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !6243

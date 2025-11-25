@@ -2665,7 +2665,7 @@ _ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.177949417
   %65 = tail call fastcc noundef i8 @_ZN12typst_syntax6parser10math_class17h53013a9c2193a392E(ptr noalias noundef nonnull readonly align 1 %63, i64 noundef %64), !range !505
   %66 = icmp eq i8 %65, 15
   %67 = icmp eq i8 %65, 1
-  %narrow = or i1 %66, %67
+  %.146 = or i1 %66, %67
   tail call void @llvm.experimental.noalias.scope.decl(metadata !506)
   %68 = load ptr, ptr %39, align 8, !alias.scope !506, !nonnull !4, !align !329, !noundef !4
   %69 = load i64, ptr %41, align 8, !alias.scope !506, !noundef !4
@@ -2860,9 +2860,9 @@ _ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit: ; preds = %_
   br label %.preheader.i.i68
 
 _ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit: ; preds = %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit130, %.preheader.i.i62, %.preheader.i.i68, %_ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.17794941744620341598.exit107, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit, %97, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit.thread, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit111", %325
-  %.045.shrunk = phi i1 [ true, %325 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit111" ], [ %narrow, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit.thread ], [ true, %97 ], [ %narrow, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit ], [ true, %_ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.17794941744620341598.exit107 ], [ %narrow, %.preheader.i.i68 ], [ true, %.preheader.i.i62 ], [ true, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit130 ]
+  %.045 = phi i1 [ true, %325 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit111" ], [ %.146, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit.thread ], [ true, %97 ], [ %.146, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit ], [ true, %_ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.17794941744620341598.exit107 ], [ %.146, %.preheader.i.i68 ], [ true, %.preheader.i.i62 ], [ true, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit130 ]
   %136 = icmp ult i64 %1, 3
-  %or.cond = and i1 %136, %.045.shrunk
+  %or.cond = and i1 %136, %.045
   br i1 %or.cond, label %435, label %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit148
 
 137:                                              ; preds = %.lr.ph493, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit
@@ -3655,7 +3655,7 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit146: ; preds = %413
   tail call void @_ZN12typst_syntax6parser6Parser11wrap_within17hd2ead4882fe35fa8E.llvm.17794941744620341598(ptr noalias noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %7, i64 noundef %.0.i.i137, i8 noundef 34)
   br label %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit148
 
-_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit148: ; preds = %.preheader.i.i60, %92, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit.i, %14, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit146, %129, %357, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit.thread", %130, %_ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.17794941744620341598.exit299, %435, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit161, %_ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit
+_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit148: ; preds = %.preheader.i.i60, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit.thread", %92, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit.i, %14, %130, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit146, %129, %357, %_ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.17794941744620341598.exit299, %435, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit161, %_ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit
   %422 = load i8, ptr %8, align 1, !range !72, !alias.scope !757, !noundef !4
   %423 = icmp eq i8 %422, -127
   %424 = icmp eq i8 %422, %2

@@ -618,7 +618,7 @@ define hidden void @_ZN18vframeArrayElement15unpack_on_stackEiiiP5framebbi(ptr n
   br label %34
 
 34:                                               ; preds = %17, %32, %30
-  %.096 = phi i8 [ 0, %17 ], [ 0, %30 ], [ 1, %32 ]
+  %.096 = phi i1 [ false, %17 ], [ false, %30 ], [ true, %32 ]
   %.095 = phi ptr [ %21, %17 ], [ %31, %30 ], [ %33, %32 ]
   %.094 = phi ptr [ %20, %17 ], [ %28, %30 ], [ %28, %32 ]
   br i1 %13, label %47, label %35
@@ -743,7 +743,7 @@ define hidden void @_ZN18vframeArrayElement15unpack_on_stackEiiiP5framebbi(ptr n
 94:                                               ; preds = %61, %59, %88, %90, %87, %75, %47
   %.099 = phi i32 [ 0, %59 ], [ %64, %61 ], [ %7, %87 ], [ 0, %88 ], [ 0, %90 ], [ 0, %75 ], [ 0, %47 ]
   %.098 = phi i64 [ 0, %59 ], [ %65, %61 ], [ 0, %87 ], [ 0, %88 ], [ 0, %90 ], [ 0, %75 ], [ 0, %47 ]
-  %.197 = phi i8 [ %.096, %59 ], [ 0, %61 ], [ %.096, %87 ], [ %.096, %88 ], [ 0, %90 ], [ %.096, %75 ], [ %.096, %47 ]
+  %.197 = phi i1 [ %.096, %59 ], [ false, %61 ], [ %.096, %87 ], [ %.096, %88 ], [ false, %90 ], [ %.096, %75 ], [ %.096, %47 ]
   %.1 = phi ptr [ %60, %59 ], [ %62, %61 ], [ %.095, %87 ], [ %89, %88 ], [ %91, %90 ], [ %78, %75 ], [ %.095, %47 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %96 = load ptr, ptr %95, align 8
@@ -814,7 +814,7 @@ define hidden void @_ZN18vframeArrayElement15unpack_on_stackEiiiP5framebbi(ptr n
 
 129:                                              ; preds = %125
   %130 = tail call noundef i32 @_ZNK5frame21interpreter_frame_bciEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
-  %131 = zext nneg i8 %.197 to i32
+  %131 = zext i1 %.197 to i32
   %spec.select = add nsw i32 %130, %131
   %132 = tail call noundef ptr @_ZN10MethodData9bci_to_dpEi(ptr noundef nonnull align 8 dereferenceable(312) %128, i32 noundef %spec.select) #13
   tail call void @_ZN5frame25interpreter_frame_set_mdpEPh(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %132) #13

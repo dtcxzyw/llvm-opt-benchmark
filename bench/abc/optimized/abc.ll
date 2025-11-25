@@ -94715,13 +94715,13 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @Abc_TtReadHex(pt
   %45 = xor i64 %indvars.iv62, -1
   %46 = getelementptr i8, ptr %44, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !101
-  %48 = sext i8 %47 to i32
+  %48 = sext i8 %47 to i64
   %49 = add i8 %47, -48
   %or.cond.i42 = icmp ult i8 %49, 10
   br i1 %or.cond.i42, label %50, label %52
 
 50:                                               ; preds = %.lr.ph53
-  %51 = add nsw i32 %48, -48
+  %51 = add nsw i64 %48, -48
   br label %Abc_TtReadHexDigit.exit
 
 52:                                               ; preds = %.lr.ph53
@@ -94730,67 +94730,66 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @Abc_TtReadHex(pt
   br i1 %or.cond5.i, label %54, label %56
 
 54:                                               ; preds = %52
-  %55 = add nsw i32 %48, -55
+  %55 = add nsw i64 %48, -55
   br label %Abc_TtReadHexDigit.exit
 
 56:                                               ; preds = %52
   %57 = add i8 %47, -97
   %or.cond8.i = icmp ult i8 %57, 6
-  %58 = add nsw i32 %48, -87
-  %spec.select.i = select i1 %or.cond8.i, i32 %58, i32 -1
+  %58 = add nsw i64 %48, -87
+  %spec.select.i = select i1 %or.cond8.i, i64 %58, i64 -1
   br label %Abc_TtReadHexDigit.exit
 
 Abc_TtReadHexDigit.exit:                          ; preds = %50, %54, %56
-  %.0.i = phi i32 [ %51, %50 ], [ %55, %54 ], [ %spec.select.i, %56 ]
-  %59 = sext i32 %.0.i to i64
-  %60 = shl i64 %indvars.iv62, 2
-  %61 = and i64 %60, 60
-  %62 = shl i64 %59, %61
-  %63 = lshr i64 %indvars.iv62, 4
-  %64 = and i64 %63, 268435455
-  %65 = getelementptr inbounds nuw i64, ptr %0, i64 %64
-  %66 = load i64, ptr %65, align 8, !tbaa !112
-  %67 = or i64 %62, %66
-  store i64 %67, ptr %65, align 8, !tbaa !112
+  %.0.i = phi i64 [ %51, %50 ], [ %55, %54 ], [ %spec.select.i, %56 ]
+  %59 = shl i64 %indvars.iv62, 2
+  %60 = and i64 %59, 60
+  %61 = shl i64 %.0.i, %60
+  %62 = lshr i64 %indvars.iv62, 4
+  %63 = and i64 %62, 268435455
+  %64 = getelementptr inbounds nuw i64, ptr %0, i64 %63
+  %65 = load i64, ptr %64, align 8, !tbaa !112
+  %66 = or i64 %65, %61
+  store i64 %66, ptr %64, align 8, !tbaa !112
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !1421
 
 ._crit_edge54:                                    ; preds = %Abc_TtReadHexDigit.exit, %.preheader
-  %68 = icmp slt i32 %42, 6
-  br i1 %68, label %69, label %86
+  %67 = icmp slt i32 %42, 6
+  br i1 %67, label %68, label %85
 
-69:                                               ; preds = %._crit_edge54
-  %70 = load i64, ptr %0, align 8, !tbaa !112
-  %71 = icmp ult i32 %42, 2
-  %72 = and i64 %70, 3
-  %73 = mul nuw nsw i64 %72, 5
-  %.126.i = select i1 %71, i64 %73, i64 %70
-  %74 = icmp ult i32 %42, 3
-  %75 = and i64 %.126.i, 15
-  %76 = mul nuw nsw i64 %75, 17
-  %.227.i = select i1 %74, i64 %76, i64 %70
-  %77 = icmp ult i32 %42, 4
-  %78 = and i64 %.227.i, 255
-  %79 = mul nuw nsw i64 %78, 257
-  %.328.i = select i1 %77, i64 %79, i64 %70
-  %80 = icmp ult i32 %42, 5
-  %81 = and i64 %.328.i, 65535
-  %82 = mul nuw nsw i64 %81, 65537
-  %.429.i = select i1 %80, i64 %82, i64 %70
-  %83 = icmp ult i32 %42, 6
-  %84 = and i64 %.429.i, 4294967295
-  %85 = mul nuw i64 %84, 4294967297
-  %.5.i = select i1 %83, i64 %85, i64 %70
+68:                                               ; preds = %._crit_edge54
+  %69 = load i64, ptr %0, align 8, !tbaa !112
+  %70 = icmp ult i32 %42, 2
+  %71 = and i64 %69, 3
+  %72 = mul nuw nsw i64 %71, 5
+  %.126.i = select i1 %70, i64 %72, i64 %69
+  %73 = icmp ult i32 %42, 3
+  %74 = and i64 %.126.i, 15
+  %75 = mul nuw nsw i64 %74, 17
+  %.227.i = select i1 %73, i64 %75, i64 %69
+  %76 = icmp ult i32 %42, 4
+  %77 = and i64 %.227.i, 255
+  %78 = mul nuw nsw i64 %77, 257
+  %.328.i = select i1 %76, i64 %78, i64 %69
+  %79 = icmp ult i32 %42, 5
+  %80 = and i64 %.328.i, 65535
+  %81 = mul nuw nsw i64 %80, 65537
+  %.429.i = select i1 %79, i64 %81, i64 %69
+  %82 = icmp ult i32 %42, 6
+  %83 = and i64 %.429.i, 4294967295
+  %84 = mul nuw i64 %83, 4294967297
+  %.5.i = select i1 %82, i64 %84, i64 %69
   br label %.sink.split
 
-.sink.split:                                      ; preds = %23, %26, %69
-  %.5.i.sink = phi i64 [ %.5.i, %69 ], [ %28, %26 ], [ %25, %23 ]
-  %.037.ph = phi i32 [ %42, %69 ], [ 1, %26 ], [ 0, %23 ]
+.sink.split:                                      ; preds = %23, %26, %68
+  %.5.i.sink = phi i64 [ %.5.i, %68 ], [ %28, %26 ], [ %25, %23 ]
+  %.037.ph = phi i32 [ %42, %68 ], [ 1, %26 ], [ 0, %23 ]
   store i64 %.5.i.sink, ptr %0, align 8, !tbaa !112
-  br label %86
+  br label %85
 
-86:                                               ; preds = %.sink.split, %._crit_edge54
+85:                                               ; preds = %.sink.split, %._crit_edge54
   %.037 = phi i32 [ %42, %._crit_edge54 ], [ %.037.ph, %.sink.split ]
   ret i32 %.037
 }

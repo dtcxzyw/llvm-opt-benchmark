@@ -14748,7 +14748,7 @@ define hidden void @"_ZN13project_model12project_json11ProjectJson3new28_$u7b$$u
           to label %34 unwind label %.thread
 
 32:                                               ; preds = %.thread109
-  br i1 %.135116, label %178, label %.thread126
+  br i1 %.135116, label %178, label %.thread123
 
 .thread:                                          ; preds = %3
   %33 = landingpad { ptr, i32 }
@@ -14774,7 +14774,7 @@ define hidden void @"_ZN13project_model12project_json11ProjectJson3new28_$u7b$$u
   br label %53
 
 46:                                               ; preds = %173
-  br i1 %.138, label %.thread109, label %.thread126
+  br i1 %.138, label %.thread109, label %.thread123
 
 47:                                               ; preds = %61, %49, %42
   %48 = landingpad { ptr, i32 }
@@ -14869,7 +14869,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %57
   %81 = icmp eq i64 %.sroa.04.0.copyload, -9223372036854775808
   br i1 %81, label %98, label %99
 
-82:                                               ; preds = %172, %197, %195, %193, %187, %185, %183, %181, %178, %.thread126, %.thread109, %174, %173, %168, %167, %166, %165, %162, %.body, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$base_db..input..CrateDisplayName$GT$$GT$17h77ee7edab5b963e2E.exit", %90
+82:                                               ; preds = %172, %197, %195, %193, %187, %185, %183, %181, %178, %.thread123, %.thread109, %174, %173, %168, %167, %166, %165, %162, %.body, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$base_db..input..CrateDisplayName$GT$$GT$17h77ee7edab5b963e2E.exit", %90
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
@@ -15216,7 +15216,7 @@ common.resume:                                    ; preds = %195, %156
   invoke void @"_ZN4core3ptr38drop_in_place$LT$paths..AbsPathBuf$GT$17hbfcec4398d81407aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #36
           to label %32 unwind label %82
 
-.thread126:                                       ; preds = %46, %178, %32
+.thread123:                                       ; preds = %46, %178, %32
   %.pn63.pn107 = phi { ptr, i32 } [ %.pn63.pn108, %178 ], [ %.pn63118, %32 ], [ %.pn60.pn, %46 ]
   %.032105 = phi i1 [ %.032106, %178 ], [ %.1117, %32 ], [ %56, %46 ]
   %.039103 = phi i8 [ %.039104, %178 ], [ %.140115, %32 ], [ %.241, %46 ]
@@ -15230,9 +15230,9 @@ common.resume:                                    ; preds = %195, %156
   %.039104 = phi i8 [ 1, %.thread ], [ %.140115, %32 ]
   %179 = getelementptr inbounds nuw i8, ptr %2, i64 72
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2325f36a1e2c909aE.llvm.17083817809266843159"(ptr noalias noundef nonnull align 8 dereferenceable(24) %179) #36
-          to label %.thread126 unwind label %82
+          to label %.thread123 unwind label %82
 
-180:                                              ; preds = %.thread126
+180:                                              ; preds = %.thread123
   %cond = icmp eq i8 %.039103, 0
   br i1 %cond, label %189, label %181
 
@@ -15260,7 +15260,7 @@ common.resume:                                    ; preds = %195, %156
   %190 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %191 = load i64, ptr %190, align 8, !range !536, !noundef !9
   %192 = icmp ne i64 %191, -9223372036854775808
-  %or.cond = and i1 %192, %.032105
+  %or.cond = and i1 %.032105, %192
   br i1 %or.cond, label %197, label %195
 
 193:                                              ; preds = %187

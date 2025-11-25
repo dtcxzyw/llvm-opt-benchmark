@@ -30139,13 +30139,13 @@ default.unreachable:                              ; preds = %52
   %cond.i = icmp ne i8 %.sroa.9.0, 1
   %145 = icmp eq i64 %.sroa.17.0, 0
   %or.cond = select i1 %cond.i, i1 true, i1 %145
-  br i1 %or.cond, label %.body.thread.thread, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i"
+  br i1 %or.cond, label %"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..extname..ExternalName$GT$17h579b588df5c3f4a0E.exit34", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i": ; preds = %143
   %146 = icmp ne ptr %.sroa.15.0, null
   call void @llvm.assume(i1 %146)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.15.0, i64 noundef %.sroa.17.0, i64 noundef 1) #77, !noalias !8162
-  br label %.body.thread.thread
+  br label %"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..extname..ExternalName$GT$17h579b588df5c3f4a0E.exit34"
 
 147:                                              ; preds = %138
   store i8 %.sroa.9.0, ptr %140, align 8
@@ -30172,7 +30172,7 @@ default.unreachable:                              ; preds = %52
 .body.thread.thread88:                            ; preds = %147
   %lpad.thr_comm90 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.thread.thread
+  br label %"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..extname..ExternalName$GT$17h579b588df5c3f4a0E.exit34"
 
 152:                                              ; preds = %147
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -30192,15 +30192,15 @@ default.unreachable:                              ; preds = %52
   %cond.i32 = icmp ne i8 %.sroa.9.0, 1
   %156 = icmp eq i64 %.sroa.17.0, 0
   %or.cond91 = select i1 %cond.i32, i1 true, i1 %156
-  br i1 %or.cond91, label %.body.thread.thread, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i33"
+  br i1 %or.cond91, label %"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..extname..ExternalName$GT$17h579b588df5c3f4a0E.exit34", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i33"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i33": ; preds = %155
   %157 = icmp ne ptr %.sroa.15.0, null
   call void @llvm.assume(i1 %157)
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.15.0, i64 noundef %.sroa.17.0, i64 noundef 1) #77, !noalias !8171
-  br label %.body.thread.thread
+  br label %"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..extname..ExternalName$GT$17h579b588df5c3f4a0E.exit34"
 
-158:                                              ; preds = %.body.thread.thread, %162, %112
+158:                                              ; preds = %"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..extname..ExternalName$GT$17h579b588df5c3f4a0E.exit34", %162, %112
   %159 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #75
@@ -30210,8 +30210,8 @@ default.unreachable:                              ; preds = %52
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %137
 
-.body.thread.thread:                              ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i33", %155, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i", %143, %.body.thread.thread88
-  %.pn87 = phi { ptr, i32 } [ %lpad.thr_comm90, %.body.thread.thread88 ], [ %lpad.thr_comm.split-lp, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i33" ], [ %lpad.thr_comm.split-lp, %155 ], [ %144, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i" ], [ %144, %143 ]
+"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..extname..ExternalName$GT$17h579b588df5c3f4a0E.exit34": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i", %143, %.body.thread.thread88, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i33", %155
+  %.pn74 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %155 ], [ %lpad.thr_comm.split-lp, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i33" ], [ %lpad.thr_comm90, %.body.thread.thread88 ], [ %144, %143 ], [ %144, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i" ]
   invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..boxed..Box$LT$cranelift_codegen..isa..x64..inst..ReturnCallInfo$GT$$GT$17hf99dcd10055060e7E"(ptr nonnull %118) #78
           to label %.thread unwind label %158
 
@@ -30221,8 +30221,8 @@ default.unreachable:                              ; preds = %52
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.15.0, i64 noundef %.sroa.17.0, i64 noundef 1) #77, !noalias !8180
   br label %.thread
 
-.thread:                                          ; preds = %.body.thread.thread, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i36", %.body19, %162
-  %.pn.pn.pn69 = phi { ptr, i32 } [ %163, %162 ], [ %.pn.pn, %.body19 ], [ %.pn.pn, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i36" ], [ %.pn87, %.body.thread.thread ]
+.thread:                                          ; preds = %"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..extname..ExternalName$GT$17h579b588df5c3f4a0E.exit34", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i36", %.body19, %162
+  %.pn.pn.pn69 = phi { ptr, i32 } [ %163, %162 ], [ %.pn.pn, %.body19 ], [ %.pn.pn, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i36" ], [ %.pn74, %"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..extname..ExternalName$GT$17h579b588df5c3f4a0E.exit34" ]
   resume { ptr, i32 } %.pn.pn.pn69
 
 162:                                              ; preds = %.invoke, %.noexc25, %58, %47, %46, %29

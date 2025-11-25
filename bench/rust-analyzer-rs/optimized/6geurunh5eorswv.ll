@@ -1713,21 +1713,21 @@ define hidden void @_ZN4core4iter8adapters11try_process17h00da2273a6b2a187E(ptr 
           cleanup
   %8 = load i64, ptr %5, align 8, !range !22, !noundef !9
   %.not = icmp eq i64 %8, -9223372036854775808
-  br i1 %.not, label %.thread, label %16
+  br i1 %.not, label %16, label %17
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !521
   %10 = load i64, ptr %5, align 8, !range !22, !noundef !9
   %.not.not = icmp eq i64 %10, -9223372036854775808
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.not, label %.thread14, label %13
+  br i1 %.not.not, label %.thread, label %13
 
-.thread14:                                        ; preds = %9
+.thread:                                          ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 0, ptr %0, align 8, !alias.scope !533, !noalias !536
   br label %12
 
-12:                                               ; preds = %13, %.thread14
+12:                                               ; preds = %13, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -1738,18 +1738,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h00da2273a6b2a187E(ptr 
   call void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$ide_db..source_change..SourceChange$GT$$GT$17h435f5b9611bbaa11E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %12
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-.thread:                                          ; preds = %16, %6
+16:                                               ; preds = %17, %6
   resume { ptr, i32 } %7
 
-16:                                               ; preds = %6
+17:                                               ; preds = %6
   invoke void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$ide_db..rename..RenameError$GT$$GT$17ha31684e307bd59c0E.llvm.12365927602548799003"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #30
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1773,21 +1773,21 @@ define hidden void @_ZN4core4iter8adapters11try_process17h018320848294282eE(ptr 
           cleanup
   %9 = load i64, ptr %6, align 8, !range !22, !noundef !9
   %.not = icmp eq i64 %9, -9223372036854775808
-  br i1 %.not, label %.thread, label %24
+  br i1 %.not, label %24, label %25
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !543
   %11 = load i64, ptr %6, align 8, !range !22, !noundef !9
   %.not.not = icmp eq i64 %11, -9223372036854775808
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.not, label %.thread14, label %.noexc
+  br i1 %.not.not, label %.thread, label %.noexc
 
-.thread14:                                        ; preds = %10
+.thread:                                          ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i64 0, ptr %0, align 8, !alias.scope !555, !noalias !558
   br label %13
 
-13:                                               ; preds = %.thread14, %"_ZN4core3ptr139drop_in_place$LT$alloc..vec..Vec$LT$$LP$span..FileRange$C$parser..syntax_kind..generated..SyntaxKind$C$ide_db..defs..Definition$RP$$GT$$GT$17h4e8cb5b9749eb092E.exit"
+13:                                               ; preds = %.thread, %"_ZN4core3ptr139drop_in_place$LT$alloc..vec..Vec$LT$$LP$span..FileRange$C$parser..syntax_kind..generated..SyntaxKind$C$ide_db..defs..Definition$RP$$GT$$GT$17h4e8cb5b9749eb092E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -1817,18 +1817,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h018320848294282eE(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !565
   br label %13
 
-22:                                               ; preds = %24
+22:                                               ; preds = %25
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-.thread:                                          ; preds = %24, %7
+24:                                               ; preds = %25, %7
   resume { ptr, i32 } %8
 
-24:                                               ; preds = %7
+25:                                               ; preds = %7
   invoke void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$ide_db..rename..RenameError$GT$$GT$17ha31684e307bd59c0E.llvm.12365927602548799003"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #30
-          to label %.thread unwind label %22
+          to label %24 unwind label %22
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1969,21 +1969,21 @@ define hidden void @_ZN4core4iter8adapters11try_process17h877e4dead912cf7dE(ptr 
           cleanup
   %8 = load i64, ptr %5, align 8, !range !22, !noundef !9
   %.not = icmp eq i64 %8, -9223372036854775808
-  br i1 %.not, label %.thread, label %16
+  br i1 %.not, label %16, label %17
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !599
   %10 = load i64, ptr %5, align 8, !range !22, !noundef !9
   %.not.not = icmp eq i64 %10, -9223372036854775808
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.not, label %.thread14, label %13
+  br i1 %.not.not, label %.thread, label %13
 
-.thread14:                                        ; preds = %9
+.thread:                                          ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 0, ptr %0, align 8, !alias.scope !611, !noalias !614
   br label %12
 
-12:                                               ; preds = %13, %.thread14
+12:                                               ; preds = %13, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -1994,18 +1994,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h877e4dead912cf7dE(ptr 
   call void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$ide_db..source_change..SourceChange$GT$$GT$17h435f5b9611bbaa11E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %12
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-.thread:                                          ; preds = %16, %6
+16:                                               ; preds = %17, %6
   resume { ptr, i32 } %7
 
-16:                                               ; preds = %6
+17:                                               ; preds = %6
   invoke void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$ide_db..rename..RenameError$GT$$GT$17ha31684e307bd59c0E.llvm.12365927602548799003"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #30
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

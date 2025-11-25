@@ -14111,9 +14111,9 @@ common.ret:                                       ; preds = %42, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2098
   %59 = load ptr, ptr %6, align 8, !noalias !2088, !noundef !13
   %.not.not.i.i.i = icmp eq ptr %59, null
-  br i1 %.not.not.i.i.i, label %.thread13.i.i.i, label %60
+  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %60
 
-.thread13.i.i.i:                                  ; preds = %58
+.thread.i.i.i:                                    ; preds = %58
   %.sroa.060.0.copyload61 = load ptr, ptr %5, align 8, !noalias !2111
   %.sroa.462.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.462.0.copyload64 = load ptr, ptr %.sroa.462.0..sroa_idx63, align 8, !noalias !2111
@@ -14140,10 +14140,10 @@ common.ret:                                       ; preds = %42, %17
           cleanup
   br label %.body34
 
-66:                                               ; preds = %.thread13.i.i.i, %60
-  %.sroa.060.1 = phi ptr [ %.sroa.060.0.copyload61, %.thread13.i.i.i ], [ null, %60 ]
-  %.sroa.462.1 = phi ptr [ %.sroa.462.0.copyload64, %.thread13.i.i.i ], [ %59, %60 ]
-  %.sroa.665.1 = phi i64 [ %.sroa.665.0.copyload67, %.thread13.i.i.i ], [ undef, %60 ]
+66:                                               ; preds = %.thread.i.i.i, %60
+  %.sroa.060.1 = phi ptr [ %.sroa.060.0.copyload61, %.thread.i.i.i ], [ null, %60 ]
+  %.sroa.462.1 = phi ptr [ %.sroa.462.0.copyload64, %.thread.i.i.i ], [ %59, %60 ]
+  %.sroa.665.1 = phi i64 [ %.sroa.665.0.copyload67, %.thread.i.i.i ], [ undef, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2088
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2088
   br label %17
@@ -14457,9 +14457,9 @@ common.ret:                                       ; preds = %55, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2153
   %72 = load ptr, ptr %6, align 8, !noalias !2143, !noundef !13
   %.not.not.i.i.i = icmp eq ptr %72, null
-  br i1 %.not.not.i.i.i, label %.thread13.i.i.i, label %73
+  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %73
 
-.thread13.i.i.i:                                  ; preds = %71
+.thread.i.i.i:                                    ; preds = %71
   %.sroa.067.0.copyload68 = load ptr, ptr %5, align 8, !noalias !2166
   %.sroa.469.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.469.0.copyload71 = load ptr, ptr %.sroa.469.0..sroa_idx70, align 8, !noalias !2166
@@ -14486,10 +14486,10 @@ common.ret:                                       ; preds = %55, %21
           cleanup
   br label %.body41
 
-79:                                               ; preds = %.thread13.i.i.i, %73
-  %.sroa.067.1 = phi ptr [ %.sroa.067.0.copyload68, %.thread13.i.i.i ], [ null, %73 ]
-  %.sroa.469.1 = phi ptr [ %.sroa.469.0.copyload71, %.thread13.i.i.i ], [ %72, %73 ]
-  %.sroa.672.1 = phi i64 [ %.sroa.672.0.copyload74, %.thread13.i.i.i ], [ undef, %73 ]
+79:                                               ; preds = %.thread.i.i.i, %73
+  %.sroa.067.1 = phi ptr [ %.sroa.067.0.copyload68, %.thread.i.i.i ], [ null, %73 ]
+  %.sroa.469.1 = phi ptr [ %.sroa.469.0.copyload71, %.thread.i.i.i ], [ %72, %73 ]
+  %.sroa.672.1 = phi i64 [ %.sroa.672.0.copyload74, %.thread.i.i.i ], [ undef, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2143
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2143
   br label %21

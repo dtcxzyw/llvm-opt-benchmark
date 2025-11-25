@@ -56085,8 +56085,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119SCEVDbgValueBuilde
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i16, ptr %3, align 8, !tbaa !539
   %5 = icmp ne i16 %4, 0
-  %.not89 = icmp eq ptr %1, null
-  %.not = or i1 %.not89, %5
+  %.not85 = icmp eq ptr %1, null
+  %.not = or i1 %.not85, %5
   br i1 %.not, label %88, label %6
 
 6:                                                ; preds = %2
@@ -56150,7 +56150,7 @@ _ZNK4llvm5APInt18getSignificantBitsEv.exit.i:     ; preds = %41, %37, %34, %27, 
   %44 = add i32 %11, 1
   %45 = sub i32 %44, %43
   %46 = icmp ult i32 %45, 65
-  br i1 %46, label %47, label %.critedge
+  br i1 %46, label %47, label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit
 
 47:                                               ; preds = %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -56222,25 +56222,25 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i: ; preds = %78, %_Z
   %86 = load i32, ptr %48, align 8, !tbaa !26
   %87 = add i32 %86, 1
   store i32 %87, ptr %48, align 8, !tbaa !26
-  br label %.critedge
+  br label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit
 
 88:                                               ; preds = %2
-  %.not90 = icmp eq i16 %4, 15
-  br i1 %.not90, label %89, label %93
+  %.not86 = icmp eq i16 %4, 15
+  br i1 %.not86, label %89, label %93
 
 89:                                               ; preds = %88
   %90 = getelementptr inbounds i8, ptr %1, i64 -8
   %91 = load ptr, ptr %90, align 8, !tbaa !251
   %.not58 = icmp eq ptr %91, null
-  br i1 %.not58, label %.critedge, label %92
+  br i1 %.not58, label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit, label %92
 
 92:                                               ; preds = %89
   tail call fastcc void @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushLocationEPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %91)
-  br label %.critedge
+  br label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit
 
 93:                                               ; preds = %88
   %94 = icmp ne i16 %4, 6
-  %.not54 = or i1 %.not89, %94
+  %.not54 = or i1 %.not85, %94
   br i1 %.not54, label %123, label %95
 
 95:                                               ; preds = %93
@@ -56250,8 +56250,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i: ; preds = %78, %_Z
   %99 = load i64, ptr %98, align 8, !tbaa !544
   %.idx = shl nuw nsw i64 %99, 3
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 %.idx
-  %.not.i94 = icmp eq i64 %99, 0
-  br i1 %.not.i94, label %.critedge, label %.lr.ph
+  %.not.i91 = icmp eq i64 %99, 0
+  br i1 %.not.i91, label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %95
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -56260,30 +56260,30 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i: ; preds = %78, %_Z
   br label %104
 
 104:                                              ; preds = %.lr.ph, %120
-  %.0.i97 = phi i1 [ true, %.lr.ph ], [ %107, %120 ]
-  %.013.i96 = phi i32 [ 0, %.lr.ph ], [ %121, %120 ]
-  %.014.i95 = phi ptr [ %97, %.lr.ph ], [ %122, %120 ]
-  %105 = load ptr, ptr %.014.i95, align 8, !tbaa !549
+  %.0.i94 = phi i1 [ true, %.lr.ph ], [ %107, %120 ]
+  %.013.i93 = phi i32 [ 0, %.lr.ph ], [ %121, %120 ]
+  %.014.i92 = phi ptr [ %97, %.lr.ph ], [ %122, %120 ]
+  %105 = load ptr, ptr %.014.i92, align 8, !tbaa !549
   %106 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder8pushSCEVEPKN4llvm4SCEVE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %105)
-  %107 = and i1 %.0.i97, %106
-  %.not15.i = icmp eq i32 %.013.i96, 0
+  %107 = and i1 %.0.i94, %106
+  %.not15.i = icmp eq i32 %.013.i93, 0
   br i1 %.not15.i, label %120, label %108
 
 108:                                              ; preds = %104
   %109 = load i32, ptr %101, align 8, !tbaa !26
   %110 = load i32, ptr %102, align 4, !tbaa !27
-  %.not.i.i.not.i.i71 = icmp ult i32 %109, %110
-  br i1 %.not.i.i.not.i.i71, label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit74, label %111, !prof !33
+  %.not.i.i.not.i.i72 = icmp ult i32 %109, %110
+  br i1 %.not.i.i.not.i.i72, label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit75, label %111, !prof !33
 
 111:                                              ; preds = %108
   %112 = zext i32 %109 to i64
   %113 = add nuw nsw i64 %112, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %103, i64 noundef %113, i64 noundef 8) #25
-  %.pre.i.i72 = load i32, ptr %101, align 8, !tbaa !26
-  br label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit74
+  %.pre.i.i73 = load i32, ptr %101, align 8, !tbaa !26
+  br label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit75
 
-_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit74: ; preds = %108, %111
-  %114 = phi i32 [ %109, %108 ], [ %.pre.i.i72, %111 ]
+_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit75: ; preds = %108, %111
+  %114 = phi i32 [ %109, %108 ], [ %.pre.i.i73, %111 ]
   %115 = load ptr, ptr %0, align 8, !tbaa !25
   %116 = zext i32 %114 to i64
   %117 = getelementptr inbounds nuw i64, ptr %115, i64 %116
@@ -56293,15 +56293,15 @@ _ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit74: ; preds = %108, %
   store i32 %119, ptr %101, align 8, !tbaa !26
   br label %120
 
-120:                                              ; preds = %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit74, %104
-  %121 = add i32 %.013.i96, 1
-  %122 = getelementptr inbounds nuw i8, ptr %.014.i95, i64 8
+120:                                              ; preds = %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit75, %104
+  %121 = add i32 %.013.i93, 1
+  %122 = getelementptr inbounds nuw i8, ptr %.014.i92, i64 8
   %.not.i = icmp eq ptr %122, %100
-  br i1 %.not.i, label %.critedge, label %104
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit, label %104
 
 123:                                              ; preds = %93
   %124 = icmp ne i16 %4, 7
-  %.not55 = or i1 %.not89, %124
+  %.not55 = or i1 %.not85, %124
   br i1 %.not55, label %147, label %125
 
 125:                                              ; preds = %123
@@ -56316,19 +56316,19 @@ _ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit74: ; preds = %108, %
   %134 = load i32, ptr %133, align 8, !tbaa !26
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %136 = load i32, ptr %135, align 4, !tbaa !27
-  %.not.i.i.not.i.i66 = icmp ult i32 %134, %136
-  br i1 %.not.i.i.not.i.i66, label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit, label %137, !prof !33
+  %.not.i.i.not.i.i67 = icmp ult i32 %134, %136
+  br i1 %.not.i.i.not.i.i67, label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit, label %137, !prof !33
 
 137:                                              ; preds = %125
   %138 = zext i32 %134 to i64
   %139 = add nuw nsw i64 %138, 1
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %140, i64 noundef %139, i64 noundef 8) #25
-  %.pre.i.i67 = load i32, ptr %133, align 8, !tbaa !26
+  %.pre.i.i68 = load i32, ptr %133, align 8, !tbaa !26
   br label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit
 
 _ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit: ; preds = %125, %137
-  %141 = phi i32 [ %134, %125 ], [ %.pre.i.i67, %137 ]
+  %141 = phi i32 [ %134, %125 ], [ %.pre.i.i68, %137 ]
   %142 = load ptr, ptr %0, align 8, !tbaa !25
   %143 = zext i32 %141 to i64
   %144 = getelementptr inbounds nuw i64, ptr %142, i64 %143
@@ -56336,7 +56336,7 @@ _ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit: ; preds = %125, %13
   %145 = load i32, ptr %133, align 8, !tbaa !26
   %146 = add i32 %145, 1
   store i32 %146, ptr %133, align 8, !tbaa !26
-  br label %.critedge
+  br label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit
 
 147:                                              ; preds = %123
   switch i16 %4, label %150 [
@@ -56349,20 +56349,24 @@ _ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit: ; preds = %125, %13
 _ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit: ; preds = %147, %147, %147, %147
   %148 = icmp eq i16 %4, 4
   %149 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder8pushCastEPKN4llvm12SCEVCastExprEb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i1 noundef zeroext %148)
-  br label %.critedge
+  br label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit
 
 150:                                              ; preds = %147
-  %151 = icmp ne i16 %4, 5
-  %.not57.not = or i1 %.not89, %151
-  br i1 %.not57.not, label %.critedge, label %.thread86
+  %151 = icmp eq i16 %4, 5
+  br i1 %151, label %152, label %154
 
-.thread86:                                        ; preds = %150
-  %152 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder18pushArithmeticExprEPKN4llvm19SCEVCommutativeExprEm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 noundef 34)
-  br label %.critedge
+152:                                              ; preds = %150
+  %153 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119SCEVDbgValueBuilder18pushArithmeticExprEPKN4llvm19SCEVCommutativeExprEm(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 noundef 34)
+  br label %154
 
-.critedge:                                        ; preds = %120, %95, %.thread86, %92, %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit, %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i, %150, %89
-  %.11 = phi i1 [ false, %89 ], [ false, %150 ], [ %152, %.thread86 ], [ %149, %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit ], [ %132, %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit ], [ true, %92 ], [ false, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i ], [ true, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i ], [ true, %95 ], [ %107, %120 ]
-  ret i1 %.11
+154:                                              ; preds = %150, %152
+  %.637 = phi i1 [ %153, %152 ], [ true, %150 ]
+  %155 = and i1 %151, %.637
+  br label %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit
+
+_ZN12_GLOBAL__N_119SCEVDbgValueBuilder9pushConstEPKN4llvm12SCEVConstantE.exit: ; preds = %120, %95, %89, %92, %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit, %154, %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i
+  %cond5 = phi i1 [ false, %_ZNK4llvm5APInt18getSignificantBitsEv.exit.i ], [ true, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i ], [ false, %89 ], [ true, %92 ], [ %132, %_ZN12_GLOBAL__N_119SCEVDbgValueBuilder12pushOperatorEm.exit ], [ %149, %_ZN4llvm8dyn_castINS_12SCEVCastExprEKNS_4SCEVEEEDcPT0_.exit ], [ %155, %154 ], [ true, %95 ], [ %107, %120 ]
+  ret i1 %cond5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

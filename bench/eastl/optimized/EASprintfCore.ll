@@ -4918,10 +4918,10 @@ do.body.us:                                       ; preds = %do.body.us.preheade
   %rem.us = urem i64 %ulValue.1.us, 10
   %div.us = udiv i64 %ulValue.1.us, 10
   %nDigit.071.us = trunc nuw nsw i64 %rem.us to i8
-  %add86.us = or disjoint i8 %nDigit.071.us, 48
-  %incdec.ptr3088.us = getelementptr inbounds i8, ptr %pCurrent.1.us, i64 -1
-  store i8 %add86.us, ptr %incdec.ptr3088.us, align 1
-  %inc89.us = add nsw i32 %nDigitCount.0.us, 1
+  %add84.us = or disjoint i8 %nDigit.071.us, 48
+  %incdec.ptr3085.us = getelementptr inbounds i8, ptr %pCurrent.1.us, i64 -1
+  store i8 %add84.us, ptr %incdec.ptr3085.us, align 1
+  %inc86.us = add nsw i32 %nDigitCount.0.us, 1
   %6 = load i8, ptr %mbDisplayThousands, align 4
   %tobool32.us = trunc i8 %6 to i1
   %cmp34.us = icmp ugt i64 %ulValue.1.us, 9
@@ -4942,9 +4942,9 @@ if.then39.us:                                     ; preds = %land.lhs.true35.us
   br label %do.cond.us
 
 do.cond.us:                                       ; preds = %if.then39.us, %land.lhs.true35.us, %do.body.us
-  %9 = phi i8 [ %conv40.us, %if.then39.us ], [ %add86.us, %land.lhs.true35.us ], [ %add86.us, %do.body.us ]
-  %pCurrent.2.us = phi ptr [ %incdec.ptr41.us, %if.then39.us ], [ %incdec.ptr3088.us, %land.lhs.true35.us ], [ %incdec.ptr3088.us, %do.body.us ]
-  %nDigitCount.1.us = phi i32 [ %add36.us, %if.then39.us ], [ %inc89.us, %land.lhs.true35.us ], [ %inc89.us, %do.body.us ]
+  %9 = phi i8 [ %conv40.us, %if.then39.us ], [ %add84.us, %land.lhs.true35.us ], [ %add84.us, %do.body.us ]
+  %pCurrent.2.us = phi ptr [ %incdec.ptr41.us, %if.then39.us ], [ %incdec.ptr3085.us, %land.lhs.true35.us ], [ %incdec.ptr3085.us, %do.body.us ]
+  %nDigitCount.1.us = phi i32 [ %add36.us, %if.then39.us ], [ %inc86.us, %land.lhs.true35.us ], [ %inc86.us, %do.body.us ]
   %cmp44.not.us = icmp ult i64 %ulValue.1.us, 10
   br i1 %cmp44.not.us, label %do.end, label %do.body.us, !llvm.loop !88
 
@@ -4954,100 +4954,100 @@ do.body:                                          ; preds = %do.body.preheader, 
   %nDigitCount.0 = phi i32 [ %nDigitCount.1, %do.body ], [ 0, %do.body.preheader ]
   %and = and i64 %ulValue.1, %nAnd.0.ph
   %shr = lshr i64 %ulValue.1, %nShift.0.ph
+  %nDigit.0 = trunc nuw nsw i64 %and to i8
   %cmp17 = icmp samesign ult i64 %and, 10
-  %10 = trunc nuw nsw i64 %and to i8
-  %conv29 = or disjoint i8 %10, 48
-  %nDigit.1.ph = add nuw nsw i8 %nDigit.1.ph.v, %10
-  %conv29.sink = select i1 %cmp17, i8 %conv29, i8 %nDigit.1.ph
+  %add = or disjoint i8 %nDigit.0, 48
+  %nDigit.1.ph = add nuw nsw i8 %nDigit.1.ph.v, %nDigit.0
+  %add.sink = select i1 %cmp17, i8 %add, i8 %nDigit.1.ph
   %incdec.ptr30 = getelementptr inbounds i8, ptr %pCurrent.1, i64 -1
-  store i8 %conv29.sink, ptr %incdec.ptr30, align 1
+  store i8 %add.sink, ptr %incdec.ptr30, align 1
   %nDigitCount.1 = add nuw nsw i32 %nDigitCount.0, 1
   %cmp44.not = icmp eq i64 %shr, 0
   br i1 %cmp44.not, label %do.end, label %do.body, !llvm.loop !88
 
 do.end:                                           ; preds = %do.body, %do.cond.us
-  %bNegative.0120 = phi i1 [ %bNegative.0, %do.cond.us ], [ false, %do.body ]
-  %sign.0118 = phi i1 [ %sign.0, %do.cond.us ], [ false, %do.body ]
-  %cmp67114 = phi i1 [ true, %do.cond.us ], [ %cmp45.ph, %do.body ]
-  %cmp45112 = phi i1 [ false, %do.cond.us ], [ %cmp45.ph, %do.body ]
-  %cmp10110 = phi i1 [ true, %do.cond.us ], [ false, %do.body ]
-  %11 = phi i8 [ %9, %do.cond.us ], [ %conv29.sink, %do.body ]
+  %bNegative.0117 = phi i1 [ %bNegative.0, %do.cond.us ], [ false, %do.body ]
+  %sign.0115 = phi i1 [ %sign.0, %do.cond.us ], [ false, %do.body ]
+  %cmp67111 = phi i1 [ true, %do.cond.us ], [ %cmp45.ph, %do.body ]
+  %cmp45109 = phi i1 [ false, %do.cond.us ], [ %cmp45.ph, %do.body ]
+  %cmp10107 = phi i1 [ true, %do.cond.us ], [ false, %do.body ]
+  %10 = phi i8 [ %9, %do.cond.us ], [ %add.sink, %do.body ]
   %.us-phi = phi ptr [ %pCurrent.2.us, %do.cond.us ], [ %incdec.ptr30, %do.body ]
-  %.us-phi93 = phi i32 [ %nDigitCount.1.us, %do.cond.us ], [ %nDigitCount.1, %do.body ]
-  %12 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool48 = trunc i8 %12 to i1
-  %or.cond66 = select i1 %cmp45112, i1 %tobool48, i1 false
-  %cmp51.not = icmp ne i8 %11, 48
+  %.us-phi90 = phi i32 [ %nDigitCount.1.us, %do.cond.us ], [ %nDigitCount.1, %do.body ]
+  %11 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool48 = trunc i8 %11 to i1
+  %or.cond66 = select i1 %cmp45109, i1 %tobool48, i1 false
+  %cmp51.not = icmp ne i8 %10, 48
   %or.cond.not = select i1 %or.cond66, i1 %cmp51.not, i1 false
   br i1 %or.cond.not, label %if.then52, label %if.end55
 
 if.then52:                                        ; preds = %do.end
   %incdec.ptr53 = getelementptr inbounds i8, ptr %.us-phi, i64 -1
   store i8 48, ptr %incdec.ptr53, align 1
-  %inc54 = add nsw i32 %.us-phi93, 1
+  %inc54 = add nsw i32 %.us-phi90, 1
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then52, %do.end
   %pCurrent.3 = phi ptr [ %incdec.ptr53, %if.then52 ], [ %.us-phi, %do.end ]
-  %nDigitCount.2 = phi i32 [ %inc54, %if.then52 ], [ %.us-phi93, %do.end ]
-  %13 = load i32, ptr %fd, align 4
-  %cmp56 = icmp eq i32 %13, 2
+  %nDigitCount.2 = phi i32 [ %inc54, %if.then52 ], [ %.us-phi90, %do.end ]
+  %12 = load i32, ptr %fd, align 4
+  %cmp56 = icmp eq i32 %12, 2
   br i1 %cmp56, label %if.then57, label %if.end77
 
 if.then57:                                        ; preds = %if.end55
-  %or.cond1 = select i1 %bNegative.0120, i1 true, i1 %sign.0118
+  %or.cond1 = select i1 %bNegative.0117, i1 true, i1 %sign.0115
   br i1 %or.cond1, label %if.then61, label %if.else63
 
 if.then61:                                        ; preds = %if.then57
   %mnWidth = getelementptr inbounds nuw i8, ptr %fd, i64 12
-  %14 = load i32, ptr %mnWidth, align 4
-  %sub62 = add nsw i32 %14, -1
+  %13 = load i32, ptr %mnWidth, align 4
+  %sub62 = add nsw i32 %13, -1
   br label %if.end77
 
 if.else63:                                        ; preds = %if.then57
-  %15 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool65 = trunc i8 %15 to i1
+  %14 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool65 = trunc i8 %14 to i1
   %tobool65.not = xor i1 %tobool65, true
-  %brmerge = or i1 %cmp67114, %tobool65.not
+  %brmerge = or i1 %cmp67111, %tobool65.not
   %mnWidth74 = getelementptr inbounds nuw i8, ptr %fd, i64 12
-  %16 = load i32, ptr %mnWidth74, align 4
-  %sub72 = add nsw i32 %16, -2
-  %spec.select125 = select i1 %brmerge, i32 %16, i32 %sub72
+  %15 = load i32, ptr %mnWidth74, align 4
+  %sub72 = add nsw i32 %15, -2
+  %spec.select122 = select i1 %brmerge, i32 %15, i32 %sub72
   br label %if.end77
 
 if.end77:                                         ; preds = %if.else63, %if.then61, %if.end55
-  %nDigitCountSum.0 = phi i32 [ %sub62, %if.then61 ], [ %0, %if.end55 ], [ %spec.select125, %if.else63 ]
-  %cmp7894 = icmp slt i32 %nDigitCount.2, %nDigitCountSum.0
-  br i1 %cmp7894, label %while.body.preheader, label %while.end
+  %nDigitCountSum.0 = phi i32 [ %sub62, %if.then61 ], [ %0, %if.end55 ], [ %spec.select122, %if.else63 ]
+  %cmp7891 = icmp slt i32 %nDigitCount.2, %nDigitCountSum.0
+  br i1 %cmp7891, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end77
-  %17 = xor i32 %nDigitCount.2, -1
-  %18 = add i32 %nDigitCountSum.0, %17
-  %19 = zext i32 %18 to i64
-  %20 = xor i64 %19, -1
-  %scevgep = getelementptr i8, ptr %pCurrent.3, i64 %20
-  %21 = add nuw nsw i64 %19, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %21, i1 false)
+  %16 = xor i32 %nDigitCount.2, -1
+  %17 = add i32 %nDigitCountSum.0, %16
+  %18 = zext i32 %17 to i64
+  %19 = xor i64 %18, -1
+  %scevgep = getelementptr i8, ptr %pCurrent.3, i64 %19
+  %20 = add nuw nsw i64 %18, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %20, i1 false)
   br label %while.end
 
 while.end:                                        ; preds = %while.body.preheader, %if.end77
   %pCurrent.4.lcssa = phi ptr [ %pCurrent.3, %if.end77 ], [ %scevgep, %while.body.preheader ]
-  br i1 %cmp10110, label %if.then82, label %if.else106
+  br i1 %cmp10107, label %if.then82, label %if.else106
 
 if.then82:                                        ; preds = %while.end
-  %22 = load i32, ptr %mnType, align 4
-  switch i32 %22, label %if.end120 [
+  %21 = load i32, ptr %mnType, align 4
+  switch i32 %21, label %if.end120 [
     i32 100, label %if.then88
     i32 105, label %if.then88
   ]
 
 if.then88:                                        ; preds = %if.then82, %if.then82
-  br i1 %bNegative.0120, label %if.end120.sink.split, label %if.else92
+  br i1 %bNegative.0117, label %if.end120.sink.split, label %if.else92
 
 if.else92:                                        ; preds = %if.then88
   %mSign93 = getelementptr inbounds nuw i8, ptr %fd, i64 4
-  %23 = load i32, ptr %mSign93, align 4
-  switch i32 %23, label %if.end120 [
+  %22 = load i32, ptr %mSign93, align 4
+  switch i32 %22, label %if.end120 [
     i32 2, label %if.end120.sink.split
     i32 3, label %if.then100
   ]
@@ -5056,23 +5056,23 @@ if.then100:                                       ; preds = %if.else92
   br label %if.end120.sink.split
 
 if.else106:                                       ; preds = %while.end
-  %24 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool108 = trunc i8 %24 to i1
+  %23 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool108 = trunc i8 %23 to i1
   %tobool108.not = xor i1 %tobool108, true
-  %brmerge68 = or i1 %cmp67114, %tobool108.not
+  %brmerge68 = or i1 %cmp67111, %tobool108.not
   br i1 %brmerge68, label %if.end120, label %if.then113
 
 if.then113:                                       ; preds = %if.else106
-  %25 = load i32, ptr %mnType, align 4
-  %conv115 = trunc i32 %25 to i8
+  %24 = load i32, ptr %mnType, align 4
+  %conv115 = trunc i32 %24 to i8
   %incdec.ptr116 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 -1
   store i8 %conv115, ptr %incdec.ptr116, align 1
   br label %if.end120.sink.split
 
 if.end120.sink.split:                             ; preds = %if.else92, %if.then88, %if.then113, %if.then100
-  %.sink124 = phi i64 [ -1, %if.then100 ], [ -2, %if.then113 ], [ -1, %if.then88 ], [ -1, %if.else92 ]
+  %.sink121 = phi i64 [ -1, %if.then100 ], [ -2, %if.then113 ], [ -1, %if.then88 ], [ -1, %if.else92 ]
   %.sink = phi i8 [ 32, %if.then100 ], [ 48, %if.then113 ], [ 45, %if.then88 ], [ 43, %if.else92 ]
-  %incdec.ptr91 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 %.sink124
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 %.sink121
   store i8 %.sink, ptr %incdec.ptr91, align 1
   br label %if.end120
 
@@ -5146,10 +5146,10 @@ do.body.us:                                       ; preds = %do.body.us.preheade
   %rem.us = urem i64 %ulValue.1.us, 10
   %div.us = udiv i64 %ulValue.1.us, 10
   %nDigit.071.us = trunc nuw nsw i64 %rem.us to i8
-  %add86.us = or disjoint i8 %nDigit.071.us, 48
-  %incdec.ptr3088.us = getelementptr inbounds i8, ptr %pCurrent.1.us, i64 -1
-  store i8 %add86.us, ptr %incdec.ptr3088.us, align 1
-  %inc89.us = add nsw i32 %nDigitCount.0.us, 1
+  %add84.us = or disjoint i8 %nDigit.071.us, 48
+  %incdec.ptr3085.us = getelementptr inbounds i8, ptr %pCurrent.1.us, i64 -1
+  store i8 %add84.us, ptr %incdec.ptr3085.us, align 1
+  %inc86.us = add nsw i32 %nDigitCount.0.us, 1
   %6 = load i8, ptr %mbDisplayThousands, align 4
   %tobool32.us = trunc i8 %6 to i1
   %cmp34.us = icmp ugt i64 %ulValue.1.us, 9
@@ -5170,9 +5170,9 @@ if.then39.us:                                     ; preds = %land.lhs.true35.us
   br label %do.cond.us
 
 do.cond.us:                                       ; preds = %if.then39.us, %land.lhs.true35.us, %do.body.us
-  %9 = phi i8 [ %conv40.us, %if.then39.us ], [ %add86.us, %land.lhs.true35.us ], [ %add86.us, %do.body.us ]
-  %pCurrent.2.us = phi ptr [ %incdec.ptr41.us, %if.then39.us ], [ %incdec.ptr3088.us, %land.lhs.true35.us ], [ %incdec.ptr3088.us, %do.body.us ]
-  %nDigitCount.1.us = phi i32 [ %add36.us, %if.then39.us ], [ %inc89.us, %land.lhs.true35.us ], [ %inc89.us, %do.body.us ]
+  %9 = phi i8 [ %conv40.us, %if.then39.us ], [ %add84.us, %land.lhs.true35.us ], [ %add84.us, %do.body.us ]
+  %pCurrent.2.us = phi ptr [ %incdec.ptr41.us, %if.then39.us ], [ %incdec.ptr3085.us, %land.lhs.true35.us ], [ %incdec.ptr3085.us, %do.body.us ]
+  %nDigitCount.1.us = phi i32 [ %add36.us, %if.then39.us ], [ %inc86.us, %land.lhs.true35.us ], [ %inc86.us, %do.body.us ]
   %cmp44.not.us = icmp ult i64 %ulValue.1.us, 10
   br i1 %cmp44.not.us, label %do.end, label %do.body.us, !llvm.loop !89
 
@@ -5182,100 +5182,100 @@ do.body:                                          ; preds = %do.body.preheader, 
   %nDigitCount.0 = phi i32 [ %nDigitCount.1, %do.body ], [ 0, %do.body.preheader ]
   %and = and i64 %ulValue.1, %nAnd.0.ph
   %shr = lshr i64 %ulValue.1, %nShift.0.ph
+  %nDigit.0 = trunc nuw nsw i64 %and to i8
   %cmp17 = icmp samesign ult i64 %and, 10
-  %10 = trunc nuw nsw i64 %and to i8
-  %conv29 = or disjoint i8 %10, 48
-  %nDigit.1.ph = add nuw nsw i8 %nDigit.1.ph.v, %10
-  %conv29.sink = select i1 %cmp17, i8 %conv29, i8 %nDigit.1.ph
+  %add = or disjoint i8 %nDigit.0, 48
+  %nDigit.1.ph = add nuw nsw i8 %nDigit.1.ph.v, %nDigit.0
+  %add.sink = select i1 %cmp17, i8 %add, i8 %nDigit.1.ph
   %incdec.ptr30 = getelementptr inbounds i8, ptr %pCurrent.1, i64 -1
-  store i8 %conv29.sink, ptr %incdec.ptr30, align 1
+  store i8 %add.sink, ptr %incdec.ptr30, align 1
   %nDigitCount.1 = add nuw nsw i32 %nDigitCount.0, 1
   %cmp44.not = icmp eq i64 %shr, 0
   br i1 %cmp44.not, label %do.end, label %do.body, !llvm.loop !89
 
 do.end:                                           ; preds = %do.body, %do.cond.us
-  %bNegative.0120 = phi i1 [ %bNegative.0, %do.cond.us ], [ false, %do.body ]
-  %sign.0118 = phi i1 [ %sign.0, %do.cond.us ], [ false, %do.body ]
-  %cmp67114 = phi i1 [ true, %do.cond.us ], [ %cmp45.ph, %do.body ]
-  %cmp45112 = phi i1 [ false, %do.cond.us ], [ %cmp45.ph, %do.body ]
-  %cmp10110 = phi i1 [ true, %do.cond.us ], [ false, %do.body ]
-  %11 = phi i8 [ %9, %do.cond.us ], [ %conv29.sink, %do.body ]
+  %bNegative.0117 = phi i1 [ %bNegative.0, %do.cond.us ], [ false, %do.body ]
+  %sign.0115 = phi i1 [ %sign.0, %do.cond.us ], [ false, %do.body ]
+  %cmp67111 = phi i1 [ true, %do.cond.us ], [ %cmp45.ph, %do.body ]
+  %cmp45109 = phi i1 [ false, %do.cond.us ], [ %cmp45.ph, %do.body ]
+  %cmp10107 = phi i1 [ true, %do.cond.us ], [ false, %do.body ]
+  %10 = phi i8 [ %9, %do.cond.us ], [ %add.sink, %do.body ]
   %.us-phi = phi ptr [ %pCurrent.2.us, %do.cond.us ], [ %incdec.ptr30, %do.body ]
-  %.us-phi93 = phi i32 [ %nDigitCount.1.us, %do.cond.us ], [ %nDigitCount.1, %do.body ]
-  %12 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool48 = trunc i8 %12 to i1
-  %or.cond66 = select i1 %cmp45112, i1 %tobool48, i1 false
-  %cmp51.not = icmp ne i8 %11, 48
+  %.us-phi90 = phi i32 [ %nDigitCount.1.us, %do.cond.us ], [ %nDigitCount.1, %do.body ]
+  %11 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool48 = trunc i8 %11 to i1
+  %or.cond66 = select i1 %cmp45109, i1 %tobool48, i1 false
+  %cmp51.not = icmp ne i8 %10, 48
   %or.cond.not = select i1 %or.cond66, i1 %cmp51.not, i1 false
   br i1 %or.cond.not, label %if.then52, label %if.end55
 
 if.then52:                                        ; preds = %do.end
   %incdec.ptr53 = getelementptr inbounds i8, ptr %.us-phi, i64 -1
   store i8 48, ptr %incdec.ptr53, align 1
-  %inc54 = add nsw i32 %.us-phi93, 1
+  %inc54 = add nsw i32 %.us-phi90, 1
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then52, %do.end
   %pCurrent.3 = phi ptr [ %incdec.ptr53, %if.then52 ], [ %.us-phi, %do.end ]
-  %nDigitCount.2 = phi i32 [ %inc54, %if.then52 ], [ %.us-phi93, %do.end ]
-  %13 = load i32, ptr %fd, align 4
-  %cmp56 = icmp eq i32 %13, 2
+  %nDigitCount.2 = phi i32 [ %inc54, %if.then52 ], [ %.us-phi90, %do.end ]
+  %12 = load i32, ptr %fd, align 4
+  %cmp56 = icmp eq i32 %12, 2
   br i1 %cmp56, label %if.then57, label %if.end77
 
 if.then57:                                        ; preds = %if.end55
-  %or.cond1 = select i1 %bNegative.0120, i1 true, i1 %sign.0118
+  %or.cond1 = select i1 %bNegative.0117, i1 true, i1 %sign.0115
   br i1 %or.cond1, label %if.then61, label %if.else63
 
 if.then61:                                        ; preds = %if.then57
   %mnWidth = getelementptr inbounds nuw i8, ptr %fd, i64 12
-  %14 = load i32, ptr %mnWidth, align 4
-  %sub62 = add nsw i32 %14, -1
+  %13 = load i32, ptr %mnWidth, align 4
+  %sub62 = add nsw i32 %13, -1
   br label %if.end77
 
 if.else63:                                        ; preds = %if.then57
-  %15 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool65 = trunc i8 %15 to i1
+  %14 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool65 = trunc i8 %14 to i1
   %tobool65.not = xor i1 %tobool65, true
-  %brmerge = or i1 %cmp67114, %tobool65.not
+  %brmerge = or i1 %cmp67111, %tobool65.not
   %mnWidth74 = getelementptr inbounds nuw i8, ptr %fd, i64 12
-  %16 = load i32, ptr %mnWidth74, align 4
-  %sub72 = add nsw i32 %16, -2
-  %spec.select125 = select i1 %brmerge, i32 %16, i32 %sub72
+  %15 = load i32, ptr %mnWidth74, align 4
+  %sub72 = add nsw i32 %15, -2
+  %spec.select122 = select i1 %brmerge, i32 %15, i32 %sub72
   br label %if.end77
 
 if.end77:                                         ; preds = %if.else63, %if.then61, %if.end55
-  %nDigitCountSum.0 = phi i32 [ %sub62, %if.then61 ], [ %0, %if.end55 ], [ %spec.select125, %if.else63 ]
-  %cmp7894 = icmp slt i32 %nDigitCount.2, %nDigitCountSum.0
-  br i1 %cmp7894, label %while.body.preheader, label %while.end
+  %nDigitCountSum.0 = phi i32 [ %sub62, %if.then61 ], [ %0, %if.end55 ], [ %spec.select122, %if.else63 ]
+  %cmp7891 = icmp slt i32 %nDigitCount.2, %nDigitCountSum.0
+  br i1 %cmp7891, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %if.end77
-  %17 = xor i32 %nDigitCount.2, -1
-  %18 = add i32 %nDigitCountSum.0, %17
-  %19 = zext i32 %18 to i64
-  %20 = xor i64 %19, -1
-  %scevgep = getelementptr i8, ptr %pCurrent.3, i64 %20
-  %21 = add nuw nsw i64 %19, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %21, i1 false)
+  %16 = xor i32 %nDigitCount.2, -1
+  %17 = add i32 %nDigitCountSum.0, %16
+  %18 = zext i32 %17 to i64
+  %19 = xor i64 %18, -1
+  %scevgep = getelementptr i8, ptr %pCurrent.3, i64 %19
+  %20 = add nuw nsw i64 %18, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %20, i1 false)
   br label %while.end
 
 while.end:                                        ; preds = %while.body.preheader, %if.end77
   %pCurrent.4.lcssa = phi ptr [ %pCurrent.3, %if.end77 ], [ %scevgep, %while.body.preheader ]
-  br i1 %cmp10110, label %if.then82, label %if.else106
+  br i1 %cmp10107, label %if.then82, label %if.else106
 
 if.then82:                                        ; preds = %while.end
-  %22 = load i32, ptr %mnType, align 4
-  switch i32 %22, label %if.end120 [
+  %21 = load i32, ptr %mnType, align 4
+  switch i32 %21, label %if.end120 [
     i32 100, label %if.then88
     i32 105, label %if.then88
   ]
 
 if.then88:                                        ; preds = %if.then82, %if.then82
-  br i1 %bNegative.0120, label %if.end120.sink.split, label %if.else92
+  br i1 %bNegative.0117, label %if.end120.sink.split, label %if.else92
 
 if.else92:                                        ; preds = %if.then88
   %mSign93 = getelementptr inbounds nuw i8, ptr %fd, i64 4
-  %23 = load i32, ptr %mSign93, align 4
-  switch i32 %23, label %if.end120 [
+  %22 = load i32, ptr %mSign93, align 4
+  switch i32 %22, label %if.end120 [
     i32 2, label %if.end120.sink.split
     i32 3, label %if.then100
   ]
@@ -5284,23 +5284,23 @@ if.then100:                                       ; preds = %if.else92
   br label %if.end120.sink.split
 
 if.else106:                                       ; preds = %while.end
-  %24 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool108 = trunc i8 %24 to i1
+  %23 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool108 = trunc i8 %23 to i1
   %tobool108.not = xor i1 %tobool108, true
-  %brmerge68 = or i1 %cmp67114, %tobool108.not
+  %brmerge68 = or i1 %cmp67111, %tobool108.not
   br i1 %brmerge68, label %if.end120, label %if.then113
 
 if.then113:                                       ; preds = %if.else106
-  %25 = load i32, ptr %mnType, align 4
-  %conv115 = trunc i32 %25 to i8
+  %24 = load i32, ptr %mnType, align 4
+  %conv115 = trunc i32 %24 to i8
   %incdec.ptr116 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 -1
   store i8 %conv115, ptr %incdec.ptr116, align 1
   br label %if.end120.sink.split
 
 if.end120.sink.split:                             ; preds = %if.else92, %if.then88, %if.then113, %if.then100
-  %.sink124 = phi i64 [ -1, %if.then100 ], [ -2, %if.then113 ], [ -1, %if.then88 ], [ -1, %if.else92 ]
+  %.sink121 = phi i64 [ -1, %if.then100 ], [ -2, %if.then113 ], [ -1, %if.then88 ], [ -1, %if.else92 ]
   %.sink = phi i8 [ 32, %if.then100 ], [ 48, %if.then113 ], [ 45, %if.then88 ], [ 43, %if.else92 ]
-  %incdec.ptr91 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 %.sink124
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 %.sink121
   store i8 %.sink, ptr %incdec.ptr91, align 1
   br label %if.end120
 
@@ -6922,10 +6922,10 @@ do.body.us:                                       ; preds = %do.body.us.preheade
   %rem.us = urem i64 %ulValue.1.us, 10
   %div.us = udiv i64 %ulValue.1.us, 10
   %nDigit.071.us = trunc nuw nsw i64 %rem.us to i16
-  %add86.us = or disjoint i16 %nDigit.071.us, 48
-  %incdec.ptr3088.us = getelementptr inbounds i8, ptr %pCurrent.1.us, i64 -2
-  store i16 %add86.us, ptr %incdec.ptr3088.us, align 2
-  %inc89.us = add nsw i32 %nDigitCount.0.us, 1
+  %add84.us = or disjoint i16 %nDigit.071.us, 48
+  %incdec.ptr3085.us = getelementptr inbounds i8, ptr %pCurrent.1.us, i64 -2
+  store i16 %add84.us, ptr %incdec.ptr3085.us, align 2
+  %inc86.us = add nsw i32 %nDigitCount.0.us, 1
   %6 = load i8, ptr %mbDisplayThousands, align 4
   %tobool32.us = trunc i8 %6 to i1
   %cmp34.us = icmp ugt i64 %ulValue.1.us, 9
@@ -6946,9 +6946,9 @@ if.then39.us:                                     ; preds = %land.lhs.true35.us
   br label %do.cond.us
 
 do.cond.us:                                       ; preds = %if.then39.us, %land.lhs.true35.us, %do.body.us
-  %9 = phi i16 [ %conv40.us, %if.then39.us ], [ %add86.us, %land.lhs.true35.us ], [ %add86.us, %do.body.us ]
-  %pCurrent.2.us = phi ptr [ %incdec.ptr41.us, %if.then39.us ], [ %incdec.ptr3088.us, %land.lhs.true35.us ], [ %incdec.ptr3088.us, %do.body.us ]
-  %nDigitCount.1.us = phi i32 [ %add36.us, %if.then39.us ], [ %inc89.us, %land.lhs.true35.us ], [ %inc89.us, %do.body.us ]
+  %9 = phi i16 [ %conv40.us, %if.then39.us ], [ %add84.us, %land.lhs.true35.us ], [ %add84.us, %do.body.us ]
+  %pCurrent.2.us = phi ptr [ %incdec.ptr41.us, %if.then39.us ], [ %incdec.ptr3085.us, %land.lhs.true35.us ], [ %incdec.ptr3085.us, %do.body.us ]
+  %nDigitCount.1.us = phi i32 [ %add36.us, %if.then39.us ], [ %inc86.us, %land.lhs.true35.us ], [ %inc86.us, %do.body.us ]
   %cmp44.not.us = icmp ult i64 %ulValue.1.us, 10
   br i1 %cmp44.not.us, label %do.end, label %do.body.us, !llvm.loop !121
 
@@ -6958,99 +6958,99 @@ do.body:                                          ; preds = %do.body.preheader, 
   %nDigitCount.0 = phi i32 [ %nDigitCount.1, %do.body ], [ 0, %do.body.preheader ]
   %and = and i64 %ulValue.1, %nAnd.0.ph
   %shr = lshr i64 %ulValue.1, %nShift.0.ph
+  %nDigit.0 = trunc nuw nsw i64 %and to i16
   %cmp17 = icmp samesign ult i64 %and, 10
-  %10 = trunc nuw nsw i64 %and to i16
-  %conv29 = or disjoint i16 %10, 48
-  %nDigit.1.ph = add nuw nsw i16 %nDigit.1.ph.v, %10
-  %conv29.sink = select i1 %cmp17, i16 %conv29, i16 %nDigit.1.ph
+  %add = or disjoint i16 %nDigit.0, 48
+  %nDigit.1.ph = add nuw nsw i16 %nDigit.1.ph.v, %nDigit.0
+  %add.sink = select i1 %cmp17, i16 %add, i16 %nDigit.1.ph
   %incdec.ptr30 = getelementptr inbounds i8, ptr %pCurrent.1, i64 -2
-  store i16 %conv29.sink, ptr %incdec.ptr30, align 2
+  store i16 %add.sink, ptr %incdec.ptr30, align 2
   %nDigitCount.1 = add nuw nsw i32 %nDigitCount.0, 1
   %cmp44.not = icmp eq i64 %shr, 0
   br i1 %cmp44.not, label %do.end, label %do.body, !llvm.loop !121
 
 do.end:                                           ; preds = %do.body, %do.cond.us
-  %bNegative.0119 = phi i1 [ %bNegative.0, %do.cond.us ], [ false, %do.body ]
-  %sign.0117 = phi i1 [ %sign.0, %do.cond.us ], [ false, %do.body ]
-  %cmp67113 = phi i1 [ true, %do.cond.us ], [ %cmp45.ph, %do.body ]
-  %cmp45111 = phi i1 [ false, %do.cond.us ], [ %cmp45.ph, %do.body ]
-  %cmp10109 = phi i1 [ true, %do.cond.us ], [ false, %do.body ]
-  %11 = phi i16 [ %9, %do.cond.us ], [ %conv29.sink, %do.body ]
+  %bNegative.0116 = phi i1 [ %bNegative.0, %do.cond.us ], [ false, %do.body ]
+  %sign.0114 = phi i1 [ %sign.0, %do.cond.us ], [ false, %do.body ]
+  %cmp67110 = phi i1 [ true, %do.cond.us ], [ %cmp45.ph, %do.body ]
+  %cmp45108 = phi i1 [ false, %do.cond.us ], [ %cmp45.ph, %do.body ]
+  %cmp10106 = phi i1 [ true, %do.cond.us ], [ false, %do.body ]
+  %10 = phi i16 [ %9, %do.cond.us ], [ %add.sink, %do.body ]
   %.us-phi = phi ptr [ %pCurrent.2.us, %do.cond.us ], [ %incdec.ptr30, %do.body ]
-  %.us-phi93 = phi i32 [ %nDigitCount.1.us, %do.cond.us ], [ %nDigitCount.1, %do.body ]
-  %12 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool48 = trunc i8 %12 to i1
-  %or.cond66 = select i1 %cmp45111, i1 %tobool48, i1 false
-  %cmp51.not = icmp ne i16 %11, 48
+  %.us-phi90 = phi i32 [ %nDigitCount.1.us, %do.cond.us ], [ %nDigitCount.1, %do.body ]
+  %11 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool48 = trunc i8 %11 to i1
+  %or.cond66 = select i1 %cmp45108, i1 %tobool48, i1 false
+  %cmp51.not = icmp ne i16 %10, 48
   %or.cond.not = select i1 %or.cond66, i1 %cmp51.not, i1 false
   br i1 %or.cond.not, label %if.then52, label %if.end55
 
 if.then52:                                        ; preds = %do.end
   %incdec.ptr53 = getelementptr inbounds i8, ptr %.us-phi, i64 -2
   store i16 48, ptr %incdec.ptr53, align 2
-  %inc54 = add nsw i32 %.us-phi93, 1
+  %inc54 = add nsw i32 %.us-phi90, 1
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then52, %do.end
   %pCurrent.3 = phi ptr [ %incdec.ptr53, %if.then52 ], [ %.us-phi, %do.end ]
-  %nDigitCount.2 = phi i32 [ %inc54, %if.then52 ], [ %.us-phi93, %do.end ]
-  %13 = load i32, ptr %fd, align 4
-  %cmp56 = icmp eq i32 %13, 2
+  %nDigitCount.2 = phi i32 [ %inc54, %if.then52 ], [ %.us-phi90, %do.end ]
+  %12 = load i32, ptr %fd, align 4
+  %cmp56 = icmp eq i32 %12, 2
   br i1 %cmp56, label %if.then57, label %if.end77
 
 if.then57:                                        ; preds = %if.end55
-  %or.cond1 = select i1 %bNegative.0119, i1 true, i1 %sign.0117
+  %or.cond1 = select i1 %bNegative.0116, i1 true, i1 %sign.0114
   br i1 %or.cond1, label %if.then61, label %if.else63
 
 if.then61:                                        ; preds = %if.then57
   %mnWidth = getelementptr inbounds nuw i8, ptr %fd, i64 12
-  %14 = load i32, ptr %mnWidth, align 4
-  %sub62 = add nsw i32 %14, -1
+  %13 = load i32, ptr %mnWidth, align 4
+  %sub62 = add nsw i32 %13, -1
   br label %if.end77
 
 if.else63:                                        ; preds = %if.then57
-  %15 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool65 = trunc i8 %15 to i1
+  %14 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool65 = trunc i8 %14 to i1
   %tobool65.not = xor i1 %tobool65, true
-  %brmerge = or i1 %cmp67113, %tobool65.not
+  %brmerge = or i1 %cmp67110, %tobool65.not
   %mnWidth74 = getelementptr inbounds nuw i8, ptr %fd, i64 12
-  %16 = load i32, ptr %mnWidth74, align 4
-  %sub72 = add nsw i32 %16, -2
-  %spec.select124 = select i1 %brmerge, i32 %16, i32 %sub72
+  %15 = load i32, ptr %mnWidth74, align 4
+  %sub72 = add nsw i32 %15, -2
+  %spec.select121 = select i1 %brmerge, i32 %15, i32 %sub72
   br label %if.end77
 
 if.end77:                                         ; preds = %if.else63, %if.then61, %if.end55
-  %nDigitCountSum.0 = phi i32 [ %sub62, %if.then61 ], [ %0, %if.end55 ], [ %spec.select124, %if.else63 ]
-  %cmp7894 = icmp slt i32 %nDigitCount.2, %nDigitCountSum.0
-  br i1 %cmp7894, label %while.body, label %while.end
+  %nDigitCountSum.0 = phi i32 [ %sub62, %if.then61 ], [ %0, %if.end55 ], [ %spec.select121, %if.else63 ]
+  %cmp7891 = icmp slt i32 %nDigitCount.2, %nDigitCountSum.0
+  br i1 %cmp7891, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end77, %while.body
-  %nDigitCount.396 = phi i32 [ %inc80, %while.body ], [ %nDigitCount.2, %if.end77 ]
-  %pCurrent.495 = phi ptr [ %incdec.ptr79, %while.body ], [ %pCurrent.3, %if.end77 ]
-  %incdec.ptr79 = getelementptr inbounds i8, ptr %pCurrent.495, i64 -2
+  %nDigitCount.393 = phi i32 [ %inc80, %while.body ], [ %nDigitCount.2, %if.end77 ]
+  %pCurrent.492 = phi ptr [ %incdec.ptr79, %while.body ], [ %pCurrent.3, %if.end77 ]
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %pCurrent.492, i64 -2
   store i16 48, ptr %incdec.ptr79, align 2
-  %inc80 = add nsw i32 %nDigitCount.396, 1
+  %inc80 = add nsw i32 %nDigitCount.393, 1
   %exitcond.not = icmp eq i32 %inc80, %nDigitCountSum.0
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !122
 
 while.end:                                        ; preds = %while.body, %if.end77
   %pCurrent.4.lcssa = phi ptr [ %pCurrent.3, %if.end77 ], [ %incdec.ptr79, %while.body ]
-  br i1 %cmp10109, label %if.then82, label %if.else106
+  br i1 %cmp10106, label %if.then82, label %if.else106
 
 if.then82:                                        ; preds = %while.end
-  %17 = load i32, ptr %mnType, align 4
-  switch i32 %17, label %if.end120 [
+  %16 = load i32, ptr %mnType, align 4
+  switch i32 %16, label %if.end120 [
     i32 100, label %if.then88
     i32 105, label %if.then88
   ]
 
 if.then88:                                        ; preds = %if.then82, %if.then82
-  br i1 %bNegative.0119, label %if.end120.sink.split, label %if.else92
+  br i1 %bNegative.0116, label %if.end120.sink.split, label %if.else92
 
 if.else92:                                        ; preds = %if.then88
   %mSign93 = getelementptr inbounds nuw i8, ptr %fd, i64 4
-  %18 = load i32, ptr %mSign93, align 4
-  switch i32 %18, label %if.end120 [
+  %17 = load i32, ptr %mSign93, align 4
+  switch i32 %17, label %if.end120 [
     i32 2, label %if.end120.sink.split
     i32 3, label %if.then100
   ]
@@ -7059,23 +7059,23 @@ if.then100:                                       ; preds = %if.else92
   br label %if.end120.sink.split
 
 if.else106:                                       ; preds = %while.end
-  %19 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool108 = trunc i8 %19 to i1
+  %18 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool108 = trunc i8 %18 to i1
   %tobool108.not = xor i1 %tobool108, true
-  %brmerge68 = or i1 %cmp67113, %tobool108.not
+  %brmerge68 = or i1 %cmp67110, %tobool108.not
   br i1 %brmerge68, label %if.end120, label %if.then113
 
 if.then113:                                       ; preds = %if.else106
-  %20 = load i32, ptr %mnType, align 4
-  %conv115 = trunc i32 %20 to i16
+  %19 = load i32, ptr %mnType, align 4
+  %conv115 = trunc i32 %19 to i16
   %incdec.ptr116 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 -2
   store i16 %conv115, ptr %incdec.ptr116, align 2
   br label %if.end120.sink.split
 
 if.end120.sink.split:                             ; preds = %if.else92, %if.then88, %if.then113, %if.then100
-  %.sink123 = phi i64 [ -2, %if.then100 ], [ -4, %if.then113 ], [ -2, %if.then88 ], [ -2, %if.else92 ]
+  %.sink120 = phi i64 [ -2, %if.then100 ], [ -4, %if.then113 ], [ -2, %if.then88 ], [ -2, %if.else92 ]
   %.sink = phi i16 [ 32, %if.then100 ], [ 48, %if.then113 ], [ 45, %if.then88 ], [ 43, %if.else92 ]
-  %incdec.ptr91 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 %.sink123
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 %.sink120
   store i16 %.sink, ptr %incdec.ptr91, align 2
   br label %if.end120
 
@@ -7149,10 +7149,10 @@ do.body.us:                                       ; preds = %do.body.us.preheade
   %rem.us = urem i64 %ulValue.1.us, 10
   %div.us = udiv i64 %ulValue.1.us, 10
   %nDigit.071.us = trunc nuw nsw i64 %rem.us to i16
-  %add86.us = or disjoint i16 %nDigit.071.us, 48
-  %incdec.ptr3088.us = getelementptr inbounds i8, ptr %pCurrent.1.us, i64 -2
-  store i16 %add86.us, ptr %incdec.ptr3088.us, align 2
-  %inc89.us = add nsw i32 %nDigitCount.0.us, 1
+  %add84.us = or disjoint i16 %nDigit.071.us, 48
+  %incdec.ptr3085.us = getelementptr inbounds i8, ptr %pCurrent.1.us, i64 -2
+  store i16 %add84.us, ptr %incdec.ptr3085.us, align 2
+  %inc86.us = add nsw i32 %nDigitCount.0.us, 1
   %6 = load i8, ptr %mbDisplayThousands, align 4
   %tobool32.us = trunc i8 %6 to i1
   %cmp34.us = icmp ugt i64 %ulValue.1.us, 9
@@ -7173,9 +7173,9 @@ if.then39.us:                                     ; preds = %land.lhs.true35.us
   br label %do.cond.us
 
 do.cond.us:                                       ; preds = %if.then39.us, %land.lhs.true35.us, %do.body.us
-  %9 = phi i16 [ %conv40.us, %if.then39.us ], [ %add86.us, %land.lhs.true35.us ], [ %add86.us, %do.body.us ]
-  %pCurrent.2.us = phi ptr [ %incdec.ptr41.us, %if.then39.us ], [ %incdec.ptr3088.us, %land.lhs.true35.us ], [ %incdec.ptr3088.us, %do.body.us ]
-  %nDigitCount.1.us = phi i32 [ %add36.us, %if.then39.us ], [ %inc89.us, %land.lhs.true35.us ], [ %inc89.us, %do.body.us ]
+  %9 = phi i16 [ %conv40.us, %if.then39.us ], [ %add84.us, %land.lhs.true35.us ], [ %add84.us, %do.body.us ]
+  %pCurrent.2.us = phi ptr [ %incdec.ptr41.us, %if.then39.us ], [ %incdec.ptr3085.us, %land.lhs.true35.us ], [ %incdec.ptr3085.us, %do.body.us ]
+  %nDigitCount.1.us = phi i32 [ %add36.us, %if.then39.us ], [ %inc86.us, %land.lhs.true35.us ], [ %inc86.us, %do.body.us ]
   %cmp44.not.us = icmp ult i64 %ulValue.1.us, 10
   br i1 %cmp44.not.us, label %do.end, label %do.body.us, !llvm.loop !123
 
@@ -7185,99 +7185,99 @@ do.body:                                          ; preds = %do.body.preheader, 
   %nDigitCount.0 = phi i32 [ %nDigitCount.1, %do.body ], [ 0, %do.body.preheader ]
   %and = and i64 %ulValue.1, %nAnd.0.ph
   %shr = lshr i64 %ulValue.1, %nShift.0.ph
+  %nDigit.0 = trunc nuw nsw i64 %and to i16
   %cmp17 = icmp samesign ult i64 %and, 10
-  %10 = trunc nuw nsw i64 %and to i16
-  %conv29 = or disjoint i16 %10, 48
-  %nDigit.1.ph = add nuw nsw i16 %nDigit.1.ph.v, %10
-  %conv29.sink = select i1 %cmp17, i16 %conv29, i16 %nDigit.1.ph
+  %add = or disjoint i16 %nDigit.0, 48
+  %nDigit.1.ph = add nuw nsw i16 %nDigit.1.ph.v, %nDigit.0
+  %add.sink = select i1 %cmp17, i16 %add, i16 %nDigit.1.ph
   %incdec.ptr30 = getelementptr inbounds i8, ptr %pCurrent.1, i64 -2
-  store i16 %conv29.sink, ptr %incdec.ptr30, align 2
+  store i16 %add.sink, ptr %incdec.ptr30, align 2
   %nDigitCount.1 = add nuw nsw i32 %nDigitCount.0, 1
   %cmp44.not = icmp eq i64 %shr, 0
   br i1 %cmp44.not, label %do.end, label %do.body, !llvm.loop !123
 
 do.end:                                           ; preds = %do.body, %do.cond.us
-  %bNegative.0119 = phi i1 [ %bNegative.0, %do.cond.us ], [ false, %do.body ]
-  %sign.0117 = phi i1 [ %sign.0, %do.cond.us ], [ false, %do.body ]
-  %cmp67113 = phi i1 [ true, %do.cond.us ], [ %cmp45.ph, %do.body ]
-  %cmp45111 = phi i1 [ false, %do.cond.us ], [ %cmp45.ph, %do.body ]
-  %cmp10109 = phi i1 [ true, %do.cond.us ], [ false, %do.body ]
-  %11 = phi i16 [ %9, %do.cond.us ], [ %conv29.sink, %do.body ]
+  %bNegative.0116 = phi i1 [ %bNegative.0, %do.cond.us ], [ false, %do.body ]
+  %sign.0114 = phi i1 [ %sign.0, %do.cond.us ], [ false, %do.body ]
+  %cmp67110 = phi i1 [ true, %do.cond.us ], [ %cmp45.ph, %do.body ]
+  %cmp45108 = phi i1 [ false, %do.cond.us ], [ %cmp45.ph, %do.body ]
+  %cmp10106 = phi i1 [ true, %do.cond.us ], [ false, %do.body ]
+  %10 = phi i16 [ %9, %do.cond.us ], [ %add.sink, %do.body ]
   %.us-phi = phi ptr [ %pCurrent.2.us, %do.cond.us ], [ %incdec.ptr30, %do.body ]
-  %.us-phi93 = phi i32 [ %nDigitCount.1.us, %do.cond.us ], [ %nDigitCount.1, %do.body ]
-  %12 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool48 = trunc i8 %12 to i1
-  %or.cond66 = select i1 %cmp45111, i1 %tobool48, i1 false
-  %cmp51.not = icmp ne i16 %11, 48
+  %.us-phi90 = phi i32 [ %nDigitCount.1.us, %do.cond.us ], [ %nDigitCount.1, %do.body ]
+  %11 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool48 = trunc i8 %11 to i1
+  %or.cond66 = select i1 %cmp45108, i1 %tobool48, i1 false
+  %cmp51.not = icmp ne i16 %10, 48
   %or.cond.not = select i1 %or.cond66, i1 %cmp51.not, i1 false
   br i1 %or.cond.not, label %if.then52, label %if.end55
 
 if.then52:                                        ; preds = %do.end
   %incdec.ptr53 = getelementptr inbounds i8, ptr %.us-phi, i64 -2
   store i16 48, ptr %incdec.ptr53, align 2
-  %inc54 = add nsw i32 %.us-phi93, 1
+  %inc54 = add nsw i32 %.us-phi90, 1
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then52, %do.end
   %pCurrent.3 = phi ptr [ %incdec.ptr53, %if.then52 ], [ %.us-phi, %do.end ]
-  %nDigitCount.2 = phi i32 [ %inc54, %if.then52 ], [ %.us-phi93, %do.end ]
-  %13 = load i32, ptr %fd, align 4
-  %cmp56 = icmp eq i32 %13, 2
+  %nDigitCount.2 = phi i32 [ %inc54, %if.then52 ], [ %.us-phi90, %do.end ]
+  %12 = load i32, ptr %fd, align 4
+  %cmp56 = icmp eq i32 %12, 2
   br i1 %cmp56, label %if.then57, label %if.end77
 
 if.then57:                                        ; preds = %if.end55
-  %or.cond1 = select i1 %bNegative.0119, i1 true, i1 %sign.0117
+  %or.cond1 = select i1 %bNegative.0116, i1 true, i1 %sign.0114
   br i1 %or.cond1, label %if.then61, label %if.else63
 
 if.then61:                                        ; preds = %if.then57
   %mnWidth = getelementptr inbounds nuw i8, ptr %fd, i64 12
-  %14 = load i32, ptr %mnWidth, align 4
-  %sub62 = add nsw i32 %14, -1
+  %13 = load i32, ptr %mnWidth, align 4
+  %sub62 = add nsw i32 %13, -1
   br label %if.end77
 
 if.else63:                                        ; preds = %if.then57
-  %15 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool65 = trunc i8 %15 to i1
+  %14 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool65 = trunc i8 %14 to i1
   %tobool65.not = xor i1 %tobool65, true
-  %brmerge = or i1 %cmp67113, %tobool65.not
+  %brmerge = or i1 %cmp67110, %tobool65.not
   %mnWidth74 = getelementptr inbounds nuw i8, ptr %fd, i64 12
-  %16 = load i32, ptr %mnWidth74, align 4
-  %sub72 = add nsw i32 %16, -2
-  %spec.select124 = select i1 %brmerge, i32 %16, i32 %sub72
+  %15 = load i32, ptr %mnWidth74, align 4
+  %sub72 = add nsw i32 %15, -2
+  %spec.select121 = select i1 %brmerge, i32 %15, i32 %sub72
   br label %if.end77
 
 if.end77:                                         ; preds = %if.else63, %if.then61, %if.end55
-  %nDigitCountSum.0 = phi i32 [ %sub62, %if.then61 ], [ %0, %if.end55 ], [ %spec.select124, %if.else63 ]
-  %cmp7894 = icmp slt i32 %nDigitCount.2, %nDigitCountSum.0
-  br i1 %cmp7894, label %while.body, label %while.end
+  %nDigitCountSum.0 = phi i32 [ %sub62, %if.then61 ], [ %0, %if.end55 ], [ %spec.select121, %if.else63 ]
+  %cmp7891 = icmp slt i32 %nDigitCount.2, %nDigitCountSum.0
+  br i1 %cmp7891, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end77, %while.body
-  %nDigitCount.396 = phi i32 [ %inc80, %while.body ], [ %nDigitCount.2, %if.end77 ]
-  %pCurrent.495 = phi ptr [ %incdec.ptr79, %while.body ], [ %pCurrent.3, %if.end77 ]
-  %incdec.ptr79 = getelementptr inbounds i8, ptr %pCurrent.495, i64 -2
+  %nDigitCount.393 = phi i32 [ %inc80, %while.body ], [ %nDigitCount.2, %if.end77 ]
+  %pCurrent.492 = phi ptr [ %incdec.ptr79, %while.body ], [ %pCurrent.3, %if.end77 ]
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %pCurrent.492, i64 -2
   store i16 48, ptr %incdec.ptr79, align 2
-  %inc80 = add nsw i32 %nDigitCount.396, 1
+  %inc80 = add nsw i32 %nDigitCount.393, 1
   %exitcond.not = icmp eq i32 %inc80, %nDigitCountSum.0
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !124
 
 while.end:                                        ; preds = %while.body, %if.end77
   %pCurrent.4.lcssa = phi ptr [ %pCurrent.3, %if.end77 ], [ %incdec.ptr79, %while.body ]
-  br i1 %cmp10109, label %if.then82, label %if.else106
+  br i1 %cmp10106, label %if.then82, label %if.else106
 
 if.then82:                                        ; preds = %while.end
-  %17 = load i32, ptr %mnType, align 4
-  switch i32 %17, label %if.end120 [
+  %16 = load i32, ptr %mnType, align 4
+  switch i32 %16, label %if.end120 [
     i32 100, label %if.then88
     i32 105, label %if.then88
   ]
 
 if.then88:                                        ; preds = %if.then82, %if.then82
-  br i1 %bNegative.0119, label %if.end120.sink.split, label %if.else92
+  br i1 %bNegative.0116, label %if.end120.sink.split, label %if.else92
 
 if.else92:                                        ; preds = %if.then88
   %mSign93 = getelementptr inbounds nuw i8, ptr %fd, i64 4
-  %18 = load i32, ptr %mSign93, align 4
-  switch i32 %18, label %if.end120 [
+  %17 = load i32, ptr %mSign93, align 4
+  switch i32 %17, label %if.end120 [
     i32 2, label %if.end120.sink.split
     i32 3, label %if.then100
   ]
@@ -7286,23 +7286,23 @@ if.then100:                                       ; preds = %if.else92
   br label %if.end120.sink.split
 
 if.else106:                                       ; preds = %while.end
-  %19 = load i8, ptr %mbAlternativeForm, align 4
-  %tobool108 = trunc i8 %19 to i1
+  %18 = load i8, ptr %mbAlternativeForm, align 4
+  %tobool108 = trunc i8 %18 to i1
   %tobool108.not = xor i1 %tobool108, true
-  %brmerge68 = or i1 %cmp67113, %tobool108.not
+  %brmerge68 = or i1 %cmp67110, %tobool108.not
   br i1 %brmerge68, label %if.end120, label %if.then113
 
 if.then113:                                       ; preds = %if.else106
-  %20 = load i32, ptr %mnType, align 4
-  %conv115 = trunc i32 %20 to i16
+  %19 = load i32, ptr %mnType, align 4
+  %conv115 = trunc i32 %19 to i16
   %incdec.ptr116 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 -2
   store i16 %conv115, ptr %incdec.ptr116, align 2
   br label %if.end120.sink.split
 
 if.end120.sink.split:                             ; preds = %if.else92, %if.then88, %if.then113, %if.then100
-  %.sink123 = phi i64 [ -2, %if.then100 ], [ -4, %if.then113 ], [ -2, %if.then88 ], [ -2, %if.else92 ]
+  %.sink120 = phi i64 [ -2, %if.then100 ], [ -4, %if.then113 ], [ -2, %if.then88 ], [ -2, %if.else92 ]
   %.sink = phi i16 [ 32, %if.then100 ], [ 48, %if.then113 ], [ 45, %if.then88 ], [ 43, %if.else92 ]
-  %incdec.ptr91 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 %.sink123
+  %incdec.ptr91 = getelementptr inbounds i8, ptr %pCurrent.4.lcssa, i64 %.sink120
   store i16 %.sink, ptr %incdec.ptr91, align 2
   br label %if.end120
 

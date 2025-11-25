@@ -50145,8 +50145,8 @@ define hidden void @_ZN8schemars8_private8metadata15add_description17h37a64bd8b4
   tail call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %10, i64 noundef 1) #51, !noalias !10946
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1ec7f177f31ec068E.llvm.12597586636751361339.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1ec7f177f31ec068E.llvm.12597586636751361339.exit": ; preds = %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i.i1.i.i19", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h904f667976e8dd6aE.llvm.12597586636751361339.exit16", %.thread, %37
-  %.pn848 = phi { ptr, i32 } [ %14, %37 ], [ %14, %.thread ], [ %33, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h904f667976e8dd6aE.llvm.12597586636751361339.exit16" ], [ %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i.i1.i.i19" ], [ %20, %19 ]
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1ec7f177f31ec068E.llvm.12597586636751361339.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i.i1.i.i19", %19, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h904f667976e8dd6aE.llvm.12597586636751361339.exit16", %.thread, %37
+  %.pn848 = phi { ptr, i32 } [ %14, %37 ], [ %14, %.thread ], [ %33, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h904f667976e8dd6aE.llvm.12597586636751361339.exit16" ], [ %20, %19 ], [ %20, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8822578354236523850.exit.i.i1.i.i19" ]
   resume { ptr, i32 } %.pn848
 
 37:                                               ; preds = %.thread

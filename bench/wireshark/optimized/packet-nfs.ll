@@ -5290,7 +5290,7 @@ define internal i32 @dissect_fhandle_data_SVR4(ptr noundef %0, ptr readnone capt
 
 .thread:                                          ; preds = %10, %23, %.thread141
   %.0140 = phi i32 [ 0, %.thread141 ], [ 0, %23 ], [ -2147483648, %10 ]
-  %.2.shrunk = phi i1 [ false, %.thread141 ], [ %28, %23 ], [ %18, %10 ]
+  %.2 = phi i1 [ false, %.thread141 ], [ %28, %23 ], [ %18, %10 ]
   %29 = load i32, ptr @hf_nfs_fh_endianness, align 4
   %.0140.lobit = lshr exact i32 %.0140, 31
   %30 = zext nneg i32 %.0140.lobit to i64
@@ -5347,7 +5347,7 @@ define internal i32 @dissect_fhandle_data_SVR4(ptr noundef %0, ptr readnone capt
   br label %74
 
 74:                                               ; preds = %62, %53
-  br i1 %.2.shrunk, label %75, label %79
+  br i1 %.2, label %75, label %79
 
 75:                                               ; preds = %74
   %76 = add nuw nsw i32 %57, %56

@@ -1249,13 +1249,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17h418fac5eb1cb361fE(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = load ptr, ptr %5, align 8, !noundef !9
   %.not.not = icmp eq ptr %9, null
-  br i1 %.not.not, label %.thread13, label %10
+  br i1 %.not.not, label %.thread, label %10
 
-.thread13:                                        ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5fa9d01b7f7b2da9E.llvm.13519484168320487909.exit"
+.thread:                                          ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5fa9d01b7f7b2da9E.llvm.13519484168320487909.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   br label %"_ZN4core3ptr126drop_in_place$LT$indexmap..map..IndexMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17hea276a75b5a0acf0E.exit"
 
-"_ZN4core3ptr126drop_in_place$LT$indexmap..map..IndexMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17hea276a75b5a0acf0E.exit": ; preds = %10, %.thread13
+"_ZN4core3ptr126drop_in_place$LT$indexmap..map..IndexMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17hea276a75b5a0acf0E.exit": ; preds = %10, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -1301,7 +1301,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h6ccea708eb417fd6E(ptr 
   %6 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h50032db54f14da6dE.llvm.2944573799196634385"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
           to label %10 unwind label %7
 
-7:                                                ; preds = %2, %.noexc
+7:                                                ; preds = %.noexc, %2
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %5, align 8, !noundef !9
@@ -1314,9 +1314,9 @@ define hidden void @_ZN4core4iter8adapters11try_process17h6ccea708eb417fd6E(ptr 
   %12 = extractvalue { ptr, i64 } %6, 1
   %13 = load ptr, ptr %5, align 8, !noundef !9
   %.not.not = icmp eq ptr %13, null
-  br i1 %.not.not, label %.thread22, label %16
+  br i1 %.not.not, label %.thread, label %16
 
-.thread22:                                        ; preds = %10
+.thread:                                          ; preds = %10
   %14 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %14)
   store ptr %11, ptr %0, align 8, !alias.scope !343, !noalias !346
@@ -1324,7 +1324,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h6ccea708eb417fd6E(ptr 
   store i64 %12, ptr %15, align 8, !alias.scope !343, !noalias !346
   br label %"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_environ..component..types..InterfaceType$u5d$$GT$$GT$17h21eb2f2991cbccd8E.llvm.13519484168320487909.exit"
 
-"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_environ..component..types..InterfaceType$u5d$$GT$$GT$17h21eb2f2991cbccd8E.llvm.13519484168320487909.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13519484168320487909.exit.i.i", %16, %.thread22
+"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_environ..component..types..InterfaceType$u5d$$GT$$GT$17h21eb2f2991cbccd8E.llvm.13519484168320487909.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13519484168320487909.exit.i.i", %16, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
@@ -1382,13 +1382,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17h6d968736e5692335E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = load ptr, ptr %5, align 8, !noundef !9
   %.not.not = icmp eq ptr %9, null
-  br i1 %.not.not, label %.thread13, label %10
+  br i1 %.not.not, label %.thread, label %10
 
-.thread13:                                        ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hb73b4e7f3c99c8c2E.llvm.13519484168320487909.exit"
+.thread:                                          ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hb73b4e7f3c99c8c2E.llvm.13519484168320487909.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   br label %"_ZN4core3ptr153drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$core..option..Option$LT$wasmtime_environ..component..types..InterfaceType$GT$$GT$$GT$17hebcfb1ba9511ef23E.exit"
 
-"_ZN4core3ptr153drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$core..option..Option$LT$wasmtime_environ..component..types..InterfaceType$GT$$GT$$GT$17hebcfb1ba9511ef23E.exit": ; preds = %10, %.thread13
+"_ZN4core3ptr153drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$core..option..Option$LT$wasmtime_environ..component..types..InterfaceType$GT$$GT$$GT$17hebcfb1ba9511ef23E.exit": ; preds = %10, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -1436,7 +1436,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h73574193ff291fa2E(ptr 
   %7 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hc6ca61b2a0bcd9a3E.llvm.2944573799196634385"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
           to label %11 unwind label %8
 
-8:                                                ; preds = %2, %.noexc
+8:                                                ; preds = %.noexc, %2
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load ptr, ptr %6, align 8, !noundef !9
@@ -1452,15 +1452,15 @@ define hidden void @_ZN4core4iter8adapters11try_process17h73574193ff291fa2E(ptr 
   store i64 %13, ptr %14, align 8
   %15 = load ptr, ptr %6, align 8, !noundef !9
   %.not.not = icmp eq ptr %15, null
-  br i1 %.not.not, label %.thread15, label %18
+  br i1 %.not.not, label %.thread, label %18
 
-.thread15:                                        ; preds = %11
+.thread:                                          ; preds = %11
   store ptr %12, ptr %0, align 8, !alias.scope !371, !noalias !374
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %13, ptr %16, align 8, !alias.scope !371, !noalias !374
   br label %17
 
-17:                                               ; preds = %18, %.thread15
+17:                                               ; preds = %18, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -1512,13 +1512,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17h7fd6cf6babba4bbfE(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = load ptr, ptr %5, align 8, !noundef !9
   %.not.not = icmp eq ptr %8, null
-  br i1 %.not.not, label %.thread15, label %9
+  br i1 %.not.not, label %.thread, label %9
 
-.thread15:                                        ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h6c438a5a585b2f94E.llvm.13519484168320487909.exit"
+.thread:                                          ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h6c438a5a585b2f94E.llvm.13519484168320487909.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   br label %"_ZN4core3ptr139drop_in_place$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17h692743a91da56a60E.exit"
 
-"_ZN4core3ptr139drop_in_place$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17h692743a91da56a60E.exit": ; preds = %.noexc, %9, %.thread15
+"_ZN4core3ptr139drop_in_place$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17h692743a91da56a60E.exit": ; preds = %.noexc, %9, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -1533,8 +1533,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h7fd6cf6babba4bbfE(ptr 
   br i1 %13, label %"_ZN4core3ptr139drop_in_place$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17h692743a91da56a60E.exit", label %.noexc
 
 .noexc:                                           ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h0f3161ece006c0fcE.llvm.3742250856985121297(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @_ZN9hashbrown3raw13RawTableInner12free_buckets17h4abf36af75b9ed03E.llvm.3742250856985121297(ptr noalias noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef 160, i64 noundef 16)
   br label %"_ZN4core3ptr139drop_in_place$LT$std..collections..hash..map..HashMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17h692743a91da56a60E.exit"
 
@@ -1572,7 +1572,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hd75473c701787ed5E(ptr 
   %6 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h50032db54f14da6dE.llvm.2944573799196634385"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
           to label %10 unwind label %7
 
-7:                                                ; preds = %2, %.noexc
+7:                                                ; preds = %.noexc, %2
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %5, align 8, !noundef !9
@@ -1585,9 +1585,9 @@ define hidden void @_ZN4core4iter8adapters11try_process17hd75473c701787ed5E(ptr 
   %12 = extractvalue { ptr, i64 } %6, 1
   %13 = load ptr, ptr %5, align 8, !noundef !9
   %.not.not = icmp eq ptr %13, null
-  br i1 %.not.not, label %.thread22, label %16
+  br i1 %.not.not, label %.thread, label %16
 
-.thread22:                                        ; preds = %10
+.thread:                                          ; preds = %10
   %14 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %14)
   store ptr %11, ptr %0, align 8, !alias.scope !407, !noalias !410
@@ -1595,7 +1595,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hd75473c701787ed5E(ptr 
   store i64 %12, ptr %15, align 8, !alias.scope !407, !noalias !410
   br label %"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_environ..component..types..InterfaceType$u5d$$GT$$GT$17h21eb2f2991cbccd8E.llvm.13519484168320487909.exit"
 
-"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_environ..component..types..InterfaceType$u5d$$GT$$GT$17h21eb2f2991cbccd8E.llvm.13519484168320487909.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13519484168320487909.exit.i.i", %16, %.thread22
+"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_environ..component..types..InterfaceType$u5d$$GT$$GT$17h21eb2f2991cbccd8E.llvm.13519484168320487909.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13519484168320487909.exit.i.i", %16, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
@@ -1653,13 +1653,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17hddfbb86a041e5c6bE(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = load ptr, ptr %5, align 8, !noundef !9
   %.not.not = icmp eq ptr %9, null
-  br i1 %.not.not, label %.thread13, label %10
+  br i1 %.not.not, label %.thread, label %10
 
-.thread13:                                        ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5d5636b689a04a4fE.llvm.13519484168320487909.exit"
+.thread:                                          ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5d5636b689a04a4fE.llvm.13519484168320487909.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   br label %"_ZN4core3ptr126drop_in_place$LT$indexmap..map..IndexMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17hea276a75b5a0acf0E.exit"
 
-"_ZN4core3ptr126drop_in_place$LT$indexmap..map..IndexMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17hea276a75b5a0acf0E.exit": ; preds = %10, %.thread13
+"_ZN4core3ptr126drop_in_place$LT$indexmap..map..IndexMap$LT$$RF$str$C$wasmtime_environ..component..translate..inline..ComponentItemDef$GT$$GT$17hea276a75b5a0acf0E.exit": ; preds = %10, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -1705,7 +1705,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17he0deb6a7b187b8d3E(ptr 
   %6 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h50032db54f14da6dE.llvm.2944573799196634385"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
           to label %10 unwind label %7
 
-7:                                                ; preds = %2, %.noexc
+7:                                                ; preds = %.noexc, %2
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %5, align 8, !noundef !9
@@ -1718,9 +1718,9 @@ define hidden void @_ZN4core4iter8adapters11try_process17he0deb6a7b187b8d3E(ptr 
   %12 = extractvalue { ptr, i64 } %6, 1
   %13 = load ptr, ptr %5, align 8, !noundef !9
   %.not.not = icmp eq ptr %13, null
-  br i1 %.not.not, label %.thread22, label %16
+  br i1 %.not.not, label %.thread, label %16
 
-.thread22:                                        ; preds = %10
+.thread:                                          ; preds = %10
   %14 = icmp ne ptr %11, null
   call void @llvm.assume(i1 %14)
   store ptr %11, ptr %0, align 8, !alias.scope !435, !noalias !438
@@ -1728,7 +1728,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17he0deb6a7b187b8d3E(ptr 
   store i64 %12, ptr %15, align 8, !alias.scope !435, !noalias !438
   br label %"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_environ..component..types..InterfaceType$u5d$$GT$$GT$17h21eb2f2991cbccd8E.llvm.13519484168320487909.exit"
 
-"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_environ..component..types..InterfaceType$u5d$$GT$$GT$17h21eb2f2991cbccd8E.llvm.13519484168320487909.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13519484168320487909.exit.i.i", %16, %.thread22
+"_ZN4core3ptr105drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_environ..component..types..InterfaceType$u5d$$GT$$GT$17h21eb2f2991cbccd8E.llvm.13519484168320487909.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.13519484168320487909.exit.i.i", %16, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 

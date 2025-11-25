@@ -2542,7 +2542,7 @@ define internal fastcc ptr @extent_try_coalesce_impl(ptr noundef %0, ptr noundef
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit, %6
-  %.036.ph = phi ptr [ %.339.ph, %.loopexit ], [ %4, %6 ]
+  %.036.ph = phi ptr [ %.137.ph, %.loopexit ], [ %4, %6 ]
   br label %11
 
 11:                                               ; preds = %.outer, %extent_coalesce.exit51.thread
@@ -2597,7 +2597,7 @@ extent_coalesce.exit51.thread:                    ; preds = %26
   %.v.i.i.i50 = select i1 %.not.i.i.i49, i64 112, i64 9768
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i.i.i50
   tail call void @duckdb_je_eset_insert(ptr noundef nonnull %30, ptr noundef nonnull %25) #9
-  br i1 %.040, label %11, label %.loopexit70
+  br i1 %.040, label %11, label %.loopexit60
 
 extent_coalesce.exit51:                           ; preds = %26
   %31 = load i8, ptr %10, align 8, !tbaa !36, !range !37, !noundef !38
@@ -2605,24 +2605,24 @@ extent_coalesce.exit51:                           ; preds = %26
   br i1 %32, label %.sink.split, label %.loopexit
 
 .loopexit:                                        ; preds = %22, %extent_coalesce.exit51
-  %.343.ph = phi i1 [ true, %extent_coalesce.exit51 ], [ %.040, %22 ]
-  %.339.ph = phi ptr [ %25, %extent_coalesce.exit51 ], [ %.036.ph, %22 ]
-  br i1 %.343.ph, label %.outer, label %.loopexit70
+  %.141.ph = phi i1 [ true, %extent_coalesce.exit51 ], [ %.040, %22 ]
+  %.137.ph = phi ptr [ %25, %extent_coalesce.exit51 ], [ %.036.ph, %22 ]
+  br i1 %.141.ph, label %.outer, label %.loopexit60
 
-.loopexit70:                                      ; preds = %.loopexit, %extent_coalesce.exit51.thread
-  %.339.ph69 = phi ptr [ %.036.ph, %extent_coalesce.exit51.thread ], [ %.339.ph, %.loopexit ]
+.loopexit60:                                      ; preds = %.loopexit, %extent_coalesce.exit51.thread
+  %.137.ph59 = phi ptr [ %.036.ph, %extent_coalesce.exit51.thread ], [ %.137.ph, %.loopexit ]
   %33 = load i8, ptr %10, align 8, !tbaa !36, !range !37, !noundef !38
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %.sink.split, label %35
 
-.sink.split:                                      ; preds = %extent_coalesce.exit51, %extent_coalesce.exit, %.loopexit70
-  %.sink = phi i8 [ 0, %.loopexit70 ], [ 1, %extent_coalesce.exit ], [ 1, %extent_coalesce.exit51 ]
-  %.3.ph = phi ptr [ %.339.ph69, %.loopexit70 ], [ %.036.ph, %extent_coalesce.exit ], [ %25, %extent_coalesce.exit51 ]
+.sink.split:                                      ; preds = %extent_coalesce.exit51, %extent_coalesce.exit, %.loopexit60
+  %.sink = phi i8 [ 0, %.loopexit60 ], [ 1, %extent_coalesce.exit ], [ 1, %extent_coalesce.exit51 ]
+  %.3.ph = phi ptr [ %.137.ph59, %.loopexit60 ], [ %.036.ph, %extent_coalesce.exit ], [ %25, %extent_coalesce.exit51 ]
   store i8 %.sink, ptr %5, align 1, !tbaa !3
   br label %35
 
-35:                                               ; preds = %.sink.split, %.loopexit70
-  %.3 = phi ptr [ %.339.ph69, %.loopexit70 ], [ %.3.ph, %.sink.split ]
+35:                                               ; preds = %.sink.split, %.loopexit60
+  %.3 = phi ptr [ %.137.ph59, %.loopexit60 ], [ %.3.ph, %.sink.split ]
   ret ptr %.3
 }
 

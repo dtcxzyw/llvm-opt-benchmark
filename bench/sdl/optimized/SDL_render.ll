@@ -3243,11 +3243,10 @@ define hidden noundef ptr @SDL_CreateTextureFromSurface_REAL(ptr noundef %0, ptr
 
 .thread:                                          ; preds = %34, %29, %23, %33
   %38 = tail call zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef nonnull %1) #15
-  %spec.select306 = zext i1 %38 to i8
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %34, %29, %.thread
-  %.0197 = phi i8 [ %spec.select306, %.thread ], [ 1, %29 ], [ 1, %34 ]
+  %.0197 = phi i1 [ %38, %.thread ], [ true, %29 ], [ true, %34 ]
   %39 = tail call ptr @SDL_GetSurfacePalette_REAL(ptr noundef nonnull %1) #15
   %.not242 = icmp eq ptr %39, null
   br i1 %.not242, label %43, label %40
@@ -3258,13 +3257,14 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
   call void @SDL_DetectPalette(ptr noundef nonnull %39, ptr noundef nonnull %8, ptr noundef nonnull %9) #15
   %41 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %42 = trunc nuw i8 %41 to i1
-  %spec.select = select i1 %42, i8 %.0197, i8 1
+  %not. = xor i1 %42, true
+  %spec.select = select i1 %not., i1 true, i1 %.0197
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %43
 
 43:                                               ; preds = %40, %switch.lookup
-  %.1 = phi i8 [ %spec.select, %40 ], [ %.0197, %switch.lookup ]
+  %.1 = phi i1 [ %spec.select, %40 ], [ %.0197, %switch.lookup ]
   %44 = load i32, ptr %24, align 4
   %.not243 = icmp eq i32 %44, 0
   %.mask245 = and i32 %44, -268435456
@@ -3477,15 +3477,15 @@ switch.lookup:                                    ; preds = %34, %29, %.thread
   %wide.trip.count401 = zext nneg i32 %119 to i64
   br label %121
 
-121:                                              ; preds = %.lr.ph366, %137
-  %indvars.iv398 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next399, %137 ]
+121:                                              ; preds = %.lr.ph366, %136
+  %indvars.iv398 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next399, %136 ]
   %122 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv398
   %123 = load i32, ptr %122, align 4
   %.not264 = icmp eq i32 %123, 0
   %.mask266 = and i32 %123, -268435456
   %.not265 = icmp eq i32 %.mask266, 268435456
   %or.cond293 = or i1 %.not264, %.not265
-  br i1 %or.cond293, label %124, label %137
+  br i1 %or.cond293, label %124, label %136
 
 124:                                              ; preds = %121
   %125 = lshr i32 %123, 24
@@ -3517,300 +3517,299 @@ switch.lookup462:                                 ; preds = %131
 
 134:                                              ; preds = %switch.lookup462, %127, %131
   %.shrunk = phi i1 [ false, %131 ], [ %switch.selectcmp, %127 ], [ %switch.masked, %switch.lookup462 ]
-  %135 = zext i1 %.shrunk to i8
-  %136 = icmp eq i8 %.1, %135
-  br i1 %136, label %.thread338, label %137
+  %135 = xor i1 %.shrunk, %.1
+  br i1 %135, label %136, label %.thread338
 
-137:                                              ; preds = %121, %134
+136:                                              ; preds = %121, %134
   %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
   %exitcond402.not = icmp eq i64 %indvars.iv.next399, %wide.trip.count401
   br i1 %exitcond402.not, label %.thread338, label %121, !llvm.loop !25
 
-.thread338:                                       ; preds = %73, %68, %98, %111, %137, %134, %.thread335, %88
-  %.3204 = phi i32 [ %.pre, %88 ], [ %117, %.thread335 ], [ %117, %137 ], [ %123, %134 ], [ %113, %111 ], [ %100, %98 ], [ 372645892, %68 ], [ 376840196, %73 ]
-  %138 = call i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef %1) #15
-  %139 = icmp eq i32 %138, 301991168
-  %140 = and i32 %138, 992
-  %141 = icmp eq i32 %140, 512
-  %or.cond297 = or i1 %139, %141
-  br i1 %or.cond297, label %142, label %146
+.thread338:                                       ; preds = %73, %68, %98, %111, %136, %134, %.thread335, %88
+  %.3204 = phi i32 [ %.pre, %88 ], [ %117, %.thread335 ], [ %117, %136 ], [ %123, %134 ], [ %113, %111 ], [ %100, %98 ], [ 372645892, %68 ], [ 376840196, %73 ]
+  %137 = call i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef %1) #15
+  %138 = icmp eq i32 %137, 301991168
+  %139 = and i32 %137, 992
+  %140 = icmp eq i32 %139, 512
+  %or.cond297 = or i1 %138, %140
+  br i1 %or.cond297, label %141, label %145
 
-142:                                              ; preds = %.thread338
-  %143 = and i32 %.3204, -33554432
-  %or.cond345 = icmp eq i32 %143, 436207616
-  br i1 %or.cond345, label %146, label %144
+141:                                              ; preds = %.thread338
+  %142 = and i32 %.3204, -33554432
+  %or.cond345 = icmp eq i32 %142, 436207616
+  br i1 %or.cond345, label %145, label %143
 
-144:                                              ; preds = %142
-  %145 = and i32 %.3204, -15794176
-  %or.cond303 = icmp eq i32 %145, 369557504
+143:                                              ; preds = %141
+  %144 = and i32 %.3204, -15794176
+  %or.cond303 = icmp eq i32 %144, 369557504
   %spec.select321 = select i1 %or.cond303, i32 301999616, i32 301991328
-  br label %146
+  br label %145
 
-146:                                              ; preds = %142, %144, %.thread338
-  %.0 = phi i32 [ %138, %.thread338 ], [ %spec.select321, %144 ], [ 301991168, %142 ]
-  %147 = call i32 @SDL_CreateProperties_REAL() #15
-  %148 = zext i32 %.0 to i64
-  %149 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.40, i64 noundef %148) #15
-  %150 = icmp eq i32 %138, %.0
-  br i1 %150, label %151, label %154
+145:                                              ; preds = %141, %143, %.thread338
+  %.0 = phi i32 [ %137, %.thread338 ], [ %spec.select321, %143 ], [ 301991168, %141 ]
+  %146 = call i32 @SDL_CreateProperties_REAL() #15
+  %147 = zext i32 %.0 to i64
+  %148 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %146, ptr noundef nonnull @.str.40, i64 noundef %147) #15
+  %149 = icmp eq i32 %137, %.0
+  br i1 %149, label %150, label %153
 
-151:                                              ; preds = %146
-  %152 = call float @SDL_GetSurfaceSDRWhitePoint(ptr noundef %1, i32 noundef %138) #15
-  %153 = call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.41, float noundef %152) #15
-  br label %154
+150:                                              ; preds = %145
+  %151 = call float @SDL_GetSurfaceSDRWhitePoint(ptr noundef %1, i32 noundef %137) #15
+  %152 = call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %146, ptr noundef nonnull @.str.41, float noundef %151) #15
+  br label %153
 
-154:                                              ; preds = %151, %146
-  %155 = call float @SDL_GetSurfaceHDRHeadroom(ptr noundef %1, i32 noundef %138) #15
-  %156 = call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.42, float noundef %155) #15
-  %157 = zext i32 %.3204 to i64
-  %158 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.31, i64 noundef %157) #15
-  %159 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.32, i64 noundef 0) #15
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %161 = load i32, ptr %160, align 8
-  %162 = sext i32 %161 to i64
-  %163 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.33, i64 noundef %162) #15
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %165 = load i32, ptr %164, align 4
-  %166 = sext i32 %165 to i64
-  %167 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.34, i64 noundef %166) #15
-  %168 = call ptr @SDL_CreateTextureWithProperties_REAL(ptr noundef nonnull %0, i32 noundef %147)
-  call void @SDL_DestroyProperties_REAL(i32 noundef %147) #15
-  %.not278 = icmp eq ptr %168, null
-  br i1 %.not278, label %SDL_DestroyTexture_REAL.exit, label %169
+153:                                              ; preds = %150, %145
+  %154 = call float @SDL_GetSurfaceHDRHeadroom(ptr noundef %1, i32 noundef %137) #15
+  %155 = call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %146, ptr noundef nonnull @.str.42, float noundef %154) #15
+  %156 = zext i32 %.3204 to i64
+  %157 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %146, ptr noundef nonnull @.str.31, i64 noundef %156) #15
+  %158 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %146, ptr noundef nonnull @.str.32, i64 noundef 0) #15
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %160 = load i32, ptr %159, align 8
+  %161 = sext i32 %160 to i64
+  %162 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %146, ptr noundef nonnull @.str.33, i64 noundef %161) #15
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %164 = load i32, ptr %163, align 4
+  %165 = sext i32 %164 to i64
+  %166 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %146, ptr noundef nonnull @.str.34, i64 noundef %165) #15
+  %167 = call ptr @SDL_CreateTextureWithProperties_REAL(ptr noundef nonnull %0, i32 noundef %146)
+  call void @SDL_DestroyProperties_REAL(i32 noundef %146) #15
+  %.not278 = icmp eq ptr %167, null
+  br i1 %.not278, label %SDL_DestroyTexture_REAL.exit, label %168
 
-169:                                              ; preds = %154
-  %170 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %168, i32 noundef 3) #15
-  br i1 %170, label %172, label %SDL_GetTextureProperties_REAL.exit.thread.i
+168:                                              ; preds = %153
+  %169 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %167, i32 noundef 3) #15
+  br i1 %169, label %171, label %SDL_GetTextureProperties_REAL.exit.thread.i
 
-SDL_GetTextureProperties_REAL.exit.thread.i:      ; preds = %169
-  %171 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
-  br label %273
+SDL_GetTextureProperties_REAL.exit.thread.i:      ; preds = %168
+  %170 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
+  br label %272
 
-172:                                              ; preds = %169
-  %173 = getelementptr inbounds nuw i8, ptr %168, i64 276
-  %174 = load i32, ptr %173, align 4
-  %175 = icmp eq i32 %174, 0
-  br i1 %175, label %SDL_GetTextureProperties_REAL.exit.i, label %SDL_GetTextureProperties_REAL.exit.thread3.i
+171:                                              ; preds = %168
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 276
+  %173 = load i32, ptr %172, align 4
+  %174 = icmp eq i32 %173, 0
+  br i1 %174, label %SDL_GetTextureProperties_REAL.exit.i, label %SDL_GetTextureProperties_REAL.exit.thread3.i
 
-SDL_GetTextureProperties_REAL.exit.i:             ; preds = %172
-  %176 = call i32 @SDL_CreateProperties_REAL() #15
-  store i32 %176, ptr %173, align 4
-  %.not.i = icmp eq i32 %176, 0
-  br i1 %.not.i, label %273, label %SDL_GetTextureProperties_REAL.exit.thread3.i
+SDL_GetTextureProperties_REAL.exit.i:             ; preds = %171
+  %175 = call i32 @SDL_CreateProperties_REAL() #15
+  store i32 %175, ptr %172, align 4
+  %.not.i = icmp eq i32 %175, 0
+  br i1 %.not.i, label %272, label %SDL_GetTextureProperties_REAL.exit.thread3.i
 
-SDL_GetTextureProperties_REAL.exit.thread3.i:     ; preds = %SDL_GetTextureProperties_REAL.exit.i, %172
-  %.0.i6.i = phi i32 [ %176, %SDL_GetTextureProperties_REAL.exit.i ], [ %174, %172 ]
-  %177 = call i32 @SDL_GetSurfaceProperties_REAL(ptr noundef nonnull %1) #15
-  %.not97.i = icmp eq i32 %177, 0
-  br i1 %.not97.i, label %273, label %178
+SDL_GetTextureProperties_REAL.exit.thread3.i:     ; preds = %SDL_GetTextureProperties_REAL.exit.i, %171
+  %.0.i6.i = phi i32 [ %175, %SDL_GetTextureProperties_REAL.exit.i ], [ %173, %171 ]
+  %176 = call i32 @SDL_GetSurfaceProperties_REAL(ptr noundef nonnull %1) #15
+  %.not97.i = icmp eq i32 %176, 0
+  br i1 %.not97.i, label %272, label %177
 
-178:                                              ; preds = %SDL_GetTextureProperties_REAL.exit.thread3.i
-  %179 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %.0.i6.i, ptr noundef nonnull @.str.45, i64 noundef 0) #15
-  %180 = trunc i64 %179 to i32
-  %181 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %.0.i6.i, ptr noundef nonnull @.str.46, i64 noundef 0) #15
-  %182 = and i64 %181, 4294967294
-  %or.cond3.not.i = icmp eq i64 %182, 0
-  br i1 %or.cond3.not.i, label %183, label %273
+177:                                              ; preds = %SDL_GetTextureProperties_REAL.exit.thread3.i
+  %178 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %.0.i6.i, ptr noundef nonnull @.str.45, i64 noundef 0) #15
+  %179 = trunc i64 %178 to i32
+  %180 = call i64 @SDL_GetNumberProperty_REAL(i32 noundef %.0.i6.i, ptr noundef nonnull @.str.46, i64 noundef 0) #15
+  %181 = and i64 %180, 4294967294
+  %or.cond3.not.i = icmp eq i64 %181, 0
+  br i1 %or.cond3.not.i, label %182, label %272
 
-183:                                              ; preds = %178
-  %184 = call i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef nonnull %1) #15
-  %185 = icmp eq i32 %184, 301991168
-  %186 = and i32 %184, 992
-  %187 = icmp eq i32 %186, 512
-  %or.cond.i = or i1 %185, %187
-  br i1 %or.cond.i, label %188, label %192
+182:                                              ; preds = %177
+  %183 = call i32 @SDL_GetSurfaceColorspace_REAL(ptr noundef nonnull %1) #15
+  %184 = icmp eq i32 %183, 301991168
+  %185 = and i32 %183, 992
+  %186 = icmp eq i32 %185, 512
+  %or.cond.i = or i1 %184, %186
+  br i1 %or.cond.i, label %187, label %191
 
-188:                                              ; preds = %183
-  %189 = and i32 %180, -33554432
-  %or.cond7.i = icmp eq i32 %189, 436207616
-  br i1 %or.cond7.i, label %192, label %190
+187:                                              ; preds = %182
+  %188 = and i32 %179, -33554432
+  %or.cond7.i = icmp eq i32 %188, 436207616
+  br i1 %or.cond7.i, label %191, label %189
 
-190:                                              ; preds = %188
-  %191 = and i32 %180, -15794176
-  %or.cond116.i = icmp eq i32 %191, 369557504
+189:                                              ; preds = %187
+  %190 = and i32 %179, -15794176
+  %or.cond116.i = icmp eq i32 %190, 369557504
   %spec.select.i = select i1 %or.cond116.i, i32 301999616, i32 301991328
-  br label %192
+  br label %191
 
-192:                                              ; preds = %190, %188, %183
-  %.080.i = phi i32 [ %184, %183 ], [ %spec.select.i, %190 ], [ 301991168, %188 ]
-  %193 = load i32, ptr %24, align 4
-  %194 = icmp eq i32 %193, %180
-  %195 = icmp eq i32 %.080.i, %184
-  %or.cond117.i = and i1 %195, %194
-  br i1 %or.cond117.i, label %196, label %224
+191:                                              ; preds = %189, %187, %182
+  %.080.i = phi i32 [ %183, %182 ], [ %spec.select.i, %189 ], [ 301991168, %187 ]
+  %192 = load i32, ptr %24, align 4
+  %193 = icmp eq i32 %192, %179
+  %194 = icmp eq i32 %.080.i, %183
+  %or.cond117.i = and i1 %194, %193
+  br i1 %or.cond117.i, label %195, label %223
 
-196:                                              ; preds = %192
-  %.not102.i = icmp eq i32 %180, 0
-  %.mask104.i = and i32 %180, -268435456
+195:                                              ; preds = %191
+  %.not102.i = icmp eq i32 %179, 0
+  %.mask104.i = and i32 %179, -268435456
   %.not103.i = icmp eq i32 %.mask104.i, 268435456
   %or.cond118.i = or i1 %.not102.i, %.not103.i
-  br i1 %or.cond118.i, label %197, label %.critedge.i
+  br i1 %or.cond118.i, label %196, label %.critedge.i
 
-197:                                              ; preds = %196
-  %198 = lshr i32 %180, 24
-  %199 = and i32 %198, 15
-  %.off122.i = add nsw i32 %199, -4
+196:                                              ; preds = %195
+  %197 = lshr i32 %179, 24
+  %198 = and i32 %197, 15
+  %.off122.i = add nsw i32 %198, -4
   %switch123.i = icmp ult i32 %.off122.i, 3
-  br i1 %switch123.i, label %200, label %203
+  br i1 %switch123.i, label %199, label %202
 
-200:                                              ; preds = %197
-  %201 = lshr i32 %180, 20
-  %202 = and i32 %201, 15
-  switch i32 %202, label %.critedge.i [
-    i32 3, label %207
-    i32 4, label %207
-    i32 7, label %207
-    i32 8, label %207
+199:                                              ; preds = %196
+  %200 = lshr i32 %179, 20
+  %201 = and i32 %200, 15
+  switch i32 %201, label %.critedge.i [
+    i32 3, label %206
+    i32 4, label %206
+    i32 7, label %206
+    i32 8, label %206
   ]
 
-203:                                              ; preds = %197
-  %.off124.i = add nsw i32 %199, -7
+202:                                              ; preds = %196
+  %.off124.i = add nsw i32 %198, -7
   %switch125.i = icmp ult i32 %.off124.i, 5
-  br i1 %switch125.i, label %204, label %.critedge.i
+  br i1 %switch125.i, label %203, label %.critedge.i
 
-204:                                              ; preds = %203
-  %205 = lshr i32 %180, 20
-  %206 = and i32 %205, 15
-  switch i32 %206, label %.critedge.i [
-    i32 3, label %207
-    i32 2, label %207
-    i32 6, label %207
-    i32 5, label %207
+203:                                              ; preds = %202
+  %204 = lshr i32 %179, 20
+  %205 = and i32 %204, 15
+  switch i32 %205, label %.critedge.i [
+    i32 3, label %206
+    i32 2, label %206
+    i32 6, label %206
+    i32 5, label %206
   ]
 
-207:                                              ; preds = %204, %204, %204, %204, %200, %200, %200, %200
-  %208 = call zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef nonnull %1) #15
-  br i1 %208, label %224, label %.critedge.i
+206:                                              ; preds = %203, %203, %203, %203, %199, %199, %199, %199
+  %207 = call zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef nonnull %1) #15
+  br i1 %207, label %223, label %.critedge.i
 
-.critedge.i:                                      ; preds = %207, %204, %203, %200, %196
-  %209 = load i32, ptr %1, align 8
-  %210 = and i32 %209, 2
-  %.not109.i = icmp eq i32 %210, 0
-  br i1 %.not109.i, label %218, label %211
+.critedge.i:                                      ; preds = %206, %203, %202, %199, %195
+  %208 = load i32, ptr %1, align 8
+  %209 = and i32 %208, 2
+  %.not109.i = icmp eq i32 %209, 0
+  br i1 %.not109.i, label %217, label %210
 
-211:                                              ; preds = %.critedge.i
-  %212 = call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %1) #15
-  %213 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %216 = load i32, ptr %215, align 8
-  %217 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %168, ptr noundef null, ptr noundef %214, i32 noundef %216)
+210:                                              ; preds = %.critedge.i
+  %211 = call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %1) #15
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %215 = load i32, ptr %214, align 8
+  %216 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %167, ptr noundef null, ptr noundef %213, i32 noundef %215)
   call void @SDL_UnlockSurface_REAL(ptr noundef nonnull %1) #15
-  br label %232
+  br label %231
 
-218:                                              ; preds = %.critedge.i
-  %219 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %222 = load i32, ptr %221, align 8
-  %223 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %168, ptr noundef null, ptr noundef %220, i32 noundef %222)
-  br label %232
+217:                                              ; preds = %.critedge.i
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %221 = load i32, ptr %220, align 8
+  %222 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %167, ptr noundef null, ptr noundef %219, i32 noundef %221)
+  br label %231
 
-224:                                              ; preds = %207, %192
-  %225 = call ptr @SDL_ConvertSurfaceAndColorspace_REAL(ptr noundef nonnull %1, i32 noundef %180, ptr noundef null, i32 noundef %.080.i, i32 noundef %177) #15
-  %.not108.not.i = icmp eq ptr %225, null
-  br i1 %.not108.not.i, label %273, label %226
+223:                                              ; preds = %206, %191
+  %224 = call ptr @SDL_ConvertSurfaceAndColorspace_REAL(ptr noundef nonnull %1, i32 noundef %179, ptr noundef null, i32 noundef %.080.i, i32 noundef %176) #15
+  %.not108.not.i = icmp eq ptr %224, null
+  br i1 %.not108.not.i, label %272, label %225
 
-226:                                              ; preds = %224
-  %227 = getelementptr inbounds nuw i8, ptr %225, i64 24
-  %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  %230 = load i32, ptr %229, align 8
-  %231 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %168, ptr noundef null, ptr noundef %228, i32 noundef %230)
-  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %225) #15
-  br label %232
+225:                                              ; preds = %223
+  %226 = getelementptr inbounds nuw i8, ptr %224, i64 24
+  %227 = load ptr, ptr %226, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %224, i64 16
+  %229 = load i32, ptr %228, align 8
+  %230 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %167, ptr noundef null, ptr noundef %227, i32 noundef %229)
+  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %224) #15
+  br label %231
 
-232:                                              ; preds = %226, %218, %211
+231:                                              ; preds = %225, %217, %210
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %233 = call zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
-  %234 = load i8, ptr %3, align 1
-  %235 = load i8, ptr %4, align 1
-  %236 = load i8, ptr %5, align 1
-  %237 = uitofp i8 %234 to float
-  %238 = fdiv float %237, 2.550000e+02
-  %239 = uitofp i8 %235 to float
-  %240 = fdiv float %239, 2.550000e+02
-  %241 = uitofp i8 %236 to float
-  %242 = fdiv float %241, 2.550000e+02
+  %232 = call zeroext i1 @SDL_GetSurfaceColorMod_REAL(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
+  %233 = load i8, ptr %3, align 1
+  %234 = load i8, ptr %4, align 1
+  %235 = load i8, ptr %5, align 1
+  %236 = uitofp i8 %233 to float
+  %237 = fdiv float %236, 2.550000e+02
+  %238 = uitofp i8 %234 to float
+  %239 = fdiv float %238, 2.550000e+02
+  %240 = uitofp i8 %235 to float
+  %241 = fdiv float %240, 2.550000e+02
   br label %tailrecurse.i.i.i
 
-tailrecurse.i.i.i:                                ; preds = %246, %232
-  %.tr.i.i.i = phi ptr [ %168, %232 ], [ %251, %246 ]
-  %243 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %.tr.i.i.i, i32 noundef 3) #15
-  br i1 %243, label %246, label %244
+tailrecurse.i.i.i:                                ; preds = %245, %231
+  %.tr.i.i.i = phi ptr [ %167, %231 ], [ %250, %245 ]
+  %242 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %.tr.i.i.i, i32 noundef 3) #15
+  br i1 %242, label %245, label %243
 
-244:                                              ; preds = %tailrecurse.i.i.i
-  %245 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
+243:                                              ; preds = %tailrecurse.i.i.i
+  %244 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
   br label %SDL_SetTextureColorMod_REAL.exit.i
 
-246:                                              ; preds = %tailrecurse.i.i.i
-  %247 = getelementptr inbounds nuw i8, ptr %.tr.i.i.i, i64 40
-  store float %238, ptr %247, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %.tr.i.i.i, i64 44
-  store float %240, ptr %248, align 4
-  %249 = getelementptr inbounds nuw i8, ptr %.tr.i.i.i, i64 48
-  store float %242, ptr %249, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %.tr.i.i.i, i64 216
-  %251 = load ptr, ptr %250, align 8
-  %.not.i.i.i = icmp eq ptr %251, null
+245:                                              ; preds = %tailrecurse.i.i.i
+  %246 = getelementptr inbounds nuw i8, ptr %.tr.i.i.i, i64 40
+  store float %237, ptr %246, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %.tr.i.i.i, i64 44
+  store float %239, ptr %247, align 4
+  %248 = getelementptr inbounds nuw i8, ptr %.tr.i.i.i, i64 48
+  store float %241, ptr %248, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %.tr.i.i.i, i64 216
+  %250 = load ptr, ptr %249, align 8
+  %.not.i.i.i = icmp eq ptr %250, null
   br i1 %.not.i.i.i, label %SDL_SetTextureColorMod_REAL.exit.i, label %tailrecurse.i.i.i
 
-SDL_SetTextureColorMod_REAL.exit.i:               ; preds = %246, %244
-  %252 = call zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef nonnull %1, ptr noundef nonnull %6) #15
-  %253 = load i8, ptr %6, align 1
-  %254 = uitofp i8 %253 to float
-  %255 = fdiv float %254, 2.550000e+02
+SDL_SetTextureColorMod_REAL.exit.i:               ; preds = %245, %243
+  %251 = call zeroext i1 @SDL_GetSurfaceAlphaMod_REAL(ptr noundef nonnull %1, ptr noundef nonnull %6) #15
+  %252 = load i8, ptr %6, align 1
+  %253 = uitofp i8 %252 to float
+  %254 = fdiv float %253, 2.550000e+02
   br label %tailrecurse.i.i126.i
 
-tailrecurse.i.i126.i:                             ; preds = %259, %SDL_SetTextureColorMod_REAL.exit.i
-  %.tr.i.i127.i = phi ptr [ %168, %SDL_SetTextureColorMod_REAL.exit.i ], [ %262, %259 ]
-  %256 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %.tr.i.i127.i, i32 noundef 3) #15
-  br i1 %256, label %259, label %257
+tailrecurse.i.i126.i:                             ; preds = %258, %SDL_SetTextureColorMod_REAL.exit.i
+  %.tr.i.i127.i = phi ptr [ %167, %SDL_SetTextureColorMod_REAL.exit.i ], [ %261, %258 ]
+  %255 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %.tr.i.i127.i, i32 noundef 3) #15
+  br i1 %255, label %258, label %256
 
-257:                                              ; preds = %tailrecurse.i.i126.i
-  %258 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
+256:                                              ; preds = %tailrecurse.i.i126.i
+  %257 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
   br label %SDL_SetTextureAlphaMod_REAL.exit.i
 
-259:                                              ; preds = %tailrecurse.i.i126.i
-  %260 = getelementptr inbounds nuw i8, ptr %.tr.i.i127.i, i64 52
-  store float %255, ptr %260, align 4
-  %261 = getelementptr inbounds nuw i8, ptr %.tr.i.i127.i, i64 216
-  %262 = load ptr, ptr %261, align 8
-  %.not.i.i128.i = icmp eq ptr %262, null
+258:                                              ; preds = %tailrecurse.i.i126.i
+  %259 = getelementptr inbounds nuw i8, ptr %.tr.i.i127.i, i64 52
+  store float %254, ptr %259, align 4
+  %260 = getelementptr inbounds nuw i8, ptr %.tr.i.i127.i, i64 216
+  %261 = load ptr, ptr %260, align 8
+  %.not.i.i128.i = icmp eq ptr %261, null
   br i1 %.not.i.i128.i, label %SDL_SetTextureAlphaMod_REAL.exit.i, label %tailrecurse.i.i126.i
 
-SDL_SetTextureAlphaMod_REAL.exit.i:               ; preds = %259, %257
-  %263 = call zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef nonnull %1) #15
-  br i1 %263, label %tailrecurse.us20.i.i, label %269
+SDL_SetTextureAlphaMod_REAL.exit.i:               ; preds = %258, %256
+  %262 = call zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef nonnull %1) #15
+  br i1 %262, label %tailrecurse.us20.i.i, label %268
 
 tailrecurse.us20.i.i:                             ; preds = %SDL_SetTextureAlphaMod_REAL.exit.i, %IsSupportedBlendMode.exit.thread.us.i.i
-  %.tr.us21.i.i = phi ptr [ %267, %IsSupportedBlendMode.exit.thread.us.i.i ], [ %168, %SDL_SetTextureAlphaMod_REAL.exit.i ]
-  %264 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %.tr.us21.i.i, i32 noundef 3) #15
-  br i1 %264, label %IsSupportedBlendMode.exit.thread.us.i.i, label %.split17.us.i.i
+  %.tr.us21.i.i = phi ptr [ %266, %IsSupportedBlendMode.exit.thread.us.i.i ], [ %167, %SDL_SetTextureAlphaMod_REAL.exit.i ]
+  %263 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %.tr.us21.i.i, i32 noundef 3) #15
+  br i1 %263, label %IsSupportedBlendMode.exit.thread.us.i.i, label %.split17.us.i.i
 
 IsSupportedBlendMode.exit.thread.us.i.i:          ; preds = %tailrecurse.us20.i.i
-  %265 = getelementptr inbounds nuw i8, ptr %.tr.us21.i.i, i64 32
-  store i32 1, ptr %265, align 8
-  %266 = getelementptr inbounds nuw i8, ptr %.tr.us21.i.i, i64 216
-  %267 = load ptr, ptr %266, align 8
-  %.not.us.i.i = icmp eq ptr %267, null
+  %264 = getelementptr inbounds nuw i8, ptr %.tr.us21.i.i, i64 32
+  store i32 1, ptr %264, align 8
+  %265 = getelementptr inbounds nuw i8, ptr %.tr.us21.i.i, i64 216
+  %266 = load ptr, ptr %265, align 8
+  %.not.us.i.i = icmp eq ptr %266, null
   br i1 %.not.us.i.i, label %SDL_UpdateTextureFromSurface.exit, label %tailrecurse.us20.i.i
 
 .split17.us.i.i:                                  ; preds = %tailrecurse.us20.i.i
-  %268 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
+  %267 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
   br label %SDL_UpdateTextureFromSurface.exit
 
-269:                                              ; preds = %SDL_SetTextureAlphaMod_REAL.exit.i
-  %270 = call zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef nonnull %1, ptr noundef nonnull %7) #15
-  %271 = load i32, ptr %7, align 4
-  %272 = call zeroext i1 @SDL_SetTextureBlendMode_REAL(ptr noundef nonnull %168, i32 noundef %271)
+268:                                              ; preds = %SDL_SetTextureAlphaMod_REAL.exit.i
+  %269 = call zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef nonnull %1, ptr noundef nonnull %7) #15
+  %270 = load i32, ptr %7, align 4
+  %271 = call zeroext i1 @SDL_SetTextureBlendMode_REAL(ptr noundef nonnull %167, i32 noundef %270)
   br label %SDL_UpdateTextureFromSurface.exit
 
-SDL_UpdateTextureFromSurface.exit:                ; preds = %IsSupportedBlendMode.exit.thread.us.i.i, %.split17.us.i.i, %269
+SDL_UpdateTextureFromSurface.exit:                ; preds = %IsSupportedBlendMode.exit.thread.us.i.i, %.split17.us.i.i, %268
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3818,28 +3817,28 @@ SDL_UpdateTextureFromSurface.exit:                ; preds = %IsSupportedBlendMod
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SDL_DestroyTexture_REAL.exit
 
-273:                                              ; preds = %SDL_GetTextureProperties_REAL.exit.i, %SDL_GetTextureProperties_REAL.exit.thread3.i, %178, %224, %SDL_GetTextureProperties_REAL.exit.thread.i
-  %274 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %168, i32 noundef 3) #15
-  br i1 %274, label %277, label %275
+272:                                              ; preds = %SDL_GetTextureProperties_REAL.exit.i, %SDL_GetTextureProperties_REAL.exit.thread3.i, %177, %223, %SDL_GetTextureProperties_REAL.exit.thread.i
+  %273 = call zeroext i1 @SDL_ObjectValid(ptr noundef nonnull %167, i32 noundef 3) #15
+  br i1 %273, label %276, label %274
 
-275:                                              ; preds = %273
-  %276 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
+274:                                              ; preds = %272
+  %275 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
   br label %SDL_DestroyTexture_REAL.exit
 
-277:                                              ; preds = %273
-  %278 = getelementptr inbounds nuw i8, ptr %168, i64 12
-  %279 = load i32, ptr %278, align 4
-  %280 = add nsw i32 %279, -1
-  store i32 %280, ptr %278, align 4
-  %281 = icmp sgt i32 %279, 1
-  br i1 %281, label %SDL_DestroyTexture_REAL.exit, label %282
+276:                                              ; preds = %272
+  %277 = getelementptr inbounds nuw i8, ptr %167, i64 12
+  %278 = load i32, ptr %277, align 4
+  %279 = add nsw i32 %278, -1
+  store i32 %279, ptr %277, align 4
+  %280 = icmp sgt i32 %278, 1
+  br i1 %280, label %SDL_DestroyTexture_REAL.exit, label %281
 
-282:                                              ; preds = %277
-  call fastcc void @SDL_DestroyTextureInternal(ptr noundef nonnull %168, i1 noundef zeroext false)
+281:                                              ; preds = %276
+  call fastcc void @SDL_DestroyTextureInternal(ptr noundef nonnull %167, i1 noundef zeroext false)
   br label %SDL_DestroyTexture_REAL.exit
 
-SDL_DestroyTexture_REAL.exit:                     ; preds = %282, %277, %275, %SDL_UpdateTextureFromSurface.exit, %154, %21, %17, %11
-  %.0196 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %11 ], [ null, %154 ], [ %168, %SDL_UpdateTextureFromSurface.exit ], [ null, %275 ], [ null, %277 ], [ null, %282 ]
+SDL_DestroyTexture_REAL.exit:                     ; preds = %281, %276, %274, %SDL_UpdateTextureFromSurface.exit, %153, %21, %17, %11
+  %.0196 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %11 ], [ null, %153 ], [ %167, %SDL_UpdateTextureFromSurface.exit ], [ null, %274 ], [ null, %276 ], [ null, %281 ]
   ret ptr %.0196
 }
 

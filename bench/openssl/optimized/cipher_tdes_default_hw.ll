@@ -195,13 +195,13 @@ define internal noundef i32 @ossl_cipher_hw_tdes_cfb1(ptr noundef %0, ptr nounde
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
-  %.020 = phi i64 [ 0, %.lr.ph ], [ %41, %15 ]
+  %.020 = phi i64 [ 0, %.lr.ph ], [ %42, %15 ]
   %16 = lshr i64 %.020, 3
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !17
   %19 = zext i8 %18 to i32
-  %20 = trunc i64 %.020 to i32
-  %21 = and i32 %20, 7
+  %20 = and i64 %.020, 7
+  %21 = trunc nuw nsw i64 %20 to i32
   %22 = xor i32 %21, 7
   %23 = shl nuw nsw i32 1, %22
   %24 = and i32 %23, %19
@@ -215,18 +215,19 @@ define internal noundef i32 @ossl_cipher_hw_tdes_cfb1(ptr noundef %0, ptr nounde
   call void @DES_ede3_cfb_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, i64 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %29) #5
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 %16
   %31 = load i8, ptr %30, align 1, !tbaa !17
-  %32 = zext i8 %31 to i32
-  %33 = ashr i32 -129, %21
-  %34 = and i32 %33, %32
-  %35 = load i8, ptr %6, align 1, !tbaa !17
-  %36 = and i8 %35, -128
-  %37 = zext i8 %36 to i32
-  %38 = lshr exact i32 %37, %21
-  %39 = or i32 %38, %34
-  %40 = trunc nuw i32 %39 to i8
-  store i8 %40, ptr %30, align 1, !tbaa !17
-  %41 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %41, %spec.select
+  %32 = zext i8 %31 to i16
+  %33 = trunc nuw nsw i64 %20 to i16
+  %34 = ashr i16 -129, %33
+  %35 = and i16 %34, %32
+  %36 = load i8, ptr %6, align 1, !tbaa !17
+  %37 = and i8 %36, -128
+  %38 = zext i8 %37 to i16
+  %39 = lshr exact i16 %38, %33
+  %40 = or i16 %39, %35
+  %41 = trunc nuw i16 %40 to i8
+  store i8 %41, ptr %30, align 1, !tbaa !17
+  %42 = add nuw i64 %.020, 1
+  %exitcond.not = icmp eq i64 %42, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %15, %4

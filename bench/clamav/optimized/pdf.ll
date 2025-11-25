@@ -5864,24 +5864,24 @@ define internal fastcc void @check_user_password(ptr noundef captures(none) %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %17 = load i8, ptr @cli_debug_flag, align 1, !tbaa !30
   %.not.i = icmp eq i8 %17, 0
-  br i1 %.not.i, label %dbg_printhex.exit142, label %dbg_printhex.exit
+  br i1 %.not.i, label %dbg_printhex.exit141, label %dbg_printhex.exit
 
 dbg_printhex.exit:                                ; preds = %9
   %18 = tail call ptr @cli_str2hex(ptr noundef nonnull %3, i32 noundef 32) #23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.304, ptr noundef %18) #23
   tail call void @free(ptr noundef %18) #23
   %.pr = load i8, ptr @cli_debug_flag, align 1, !tbaa !30
-  %.not.i141 = icmp eq i8 %.pr, 0
-  br i1 %.not.i141, label %dbg_printhex.exit142, label %19
+  %.not.i140 = icmp eq i8 %.pr, 0
+  br i1 %.not.i140, label %dbg_printhex.exit141, label %19
 
 19:                                               ; preds = %dbg_printhex.exit
   %20 = tail call ptr @cli_str2hex(ptr noundef nonnull %2, i32 noundef 32) #23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.305, ptr noundef %20) #23
   tail call void @free(ptr noundef %20) #23
-  br label %dbg_printhex.exit142
+  br label %dbg_printhex.exit141
 
-dbg_printhex.exit142:                             ; preds = %9, %dbg_printhex.exit, %19
-  switch i32 %1, label %default.unreachable198 [
+dbg_printhex.exit141:                             ; preds = %9, %dbg_printhex.exit, %19
+  switch i32 %1, label %default.unreachable201 [
     i32 2, label %21
     i32 3, label %21
     i32 4, label %21
@@ -5889,7 +5889,7 @@ dbg_printhex.exit142:                             ; preds = %9, %dbg_printhex.ex
     i32 6, label %120
   ]
 
-21:                                               ; preds = %dbg_printhex.exit142, %dbg_printhex.exit142, %dbg_printhex.exit142
+21:                                               ; preds = %dbg_printhex.exit141, %dbg_printhex.exit141, %dbg_printhex.exit141
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = load i32, ptr %22, align 8, !tbaa !120
   %24 = icmp samesign ult i32 %1, 4
@@ -5900,7 +5900,7 @@ dbg_printhex.exit142:                             ; preds = %9, %dbg_printhex.ex
   %28 = zext i32 %27 to i64
   %29 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %28) #24
   %.not128 = icmp eq ptr %29, null
-  br i1 %.not128, label %.thread165, label %30
+  br i1 %.not128, label %.thread164, label %30
 
 30:                                               ; preds = %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %29, ptr noundef nonnull align 1 dereferenceable(32) @.str.336, i64 32, i1 false)
@@ -5926,16 +5926,16 @@ dbg_printhex.exit142:                             ; preds = %9, %dbg_printhex.ex
   %spec.store.select = call i32 @llvm.umin.i32(i32 %8, i32 128)
   %41 = icmp samesign ugt i32 %1, 2
   %42 = lshr i32 %spec.store.select, 3
-  br i1 %41, label %.preheader176, label %.loopexit
+  br i1 %41, label %.preheader179, label %.loopexit
 
-.preheader176:                                    ; preds = %39
+.preheader179:                                    ; preds = %39
   %43 = zext nneg i32 %42 to i64
   br label %44
 
-44:                                               ; preds = %.preheader176, %44
-  %.0105177 = phi i32 [ 0, %.preheader176 ], [ %46, %44 ]
+44:                                               ; preds = %.preheader179, %44
+  %.0105180 = phi i32 [ 0, %.preheader179 ], [ %46, %44 ]
   %45 = call ptr @cl_hash_data(ptr noundef nonnull @.str.50, ptr noundef nonnull %11, i64 noundef %43, ptr noundef nonnull %11, ptr noundef null) #23
-  %46 = add nuw nsw i32 %.0105177, 1
+  %46 = add nuw nsw i32 %.0105180, 1
   %exitcond.not = icmp eq i32 %46, 50
   br i1 %exitcond.not, label %.loopexit, label %44
 
@@ -5949,67 +5949,67 @@ dbg_printhex.exit142:                             ; preds = %9, %dbg_printhex.ex
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %51, ptr %52, align 8, !tbaa !46
   %.not129 = icmp eq ptr %51, null
-  br i1 %.not129, label %.thread165, label %53
+  br i1 %.not129, label %.thread164, label %53
 
 53:                                               ; preds = %.loopexit
   %54 = load i32, ptr %49, align 8, !tbaa !47
   %55 = zext i32 %54 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 16 %11, i64 %55, i1 false)
   %56 = load i8, ptr @cli_debug_flag, align 1, !tbaa !30
-  %.not.i143 = icmp eq i8 %56, 0
-  br i1 %.not.i143, label %dbg_printhex.exit146, label %dbg_printhex.exit144
+  %.not.i142 = icmp eq i8 %56, 0
+  br i1 %.not.i142, label %dbg_printhex.exit145, label %dbg_printhex.exit143
 
-dbg_printhex.exit144:                             ; preds = %53
+dbg_printhex.exit143:                             ; preds = %53
   %57 = call ptr @cli_str2hex(ptr noundef nonnull %11, i32 noundef 16) #23
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.50, ptr noundef %57) #23
   call void @free(ptr noundef %57) #23
-  %.pr156 = load i8, ptr @cli_debug_flag, align 1, !tbaa !30
-  %.not.i145 = icmp eq i8 %.pr156, 0
-  br i1 %.not.i145, label %dbg_printhex.exit146, label %58
+  %.pr155 = load i8, ptr @cli_debug_flag, align 1, !tbaa !30
+  %.not.i144 = icmp eq i8 %.pr155, 0
+  br i1 %.not.i144, label %dbg_printhex.exit145, label %58
 
-58:                                               ; preds = %dbg_printhex.exit144
+58:                                               ; preds = %dbg_printhex.exit143
   %59 = load i32, ptr %49, align 8, !tbaa !47
   %60 = load ptr, ptr %52, align 8, !tbaa !46
   %61 = call ptr @cli_str2hex(ptr noundef %60, i32 noundef %59) #23
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.322, ptr noundef %61) #23
   call void @free(ptr noundef %61) #23
-  br label %dbg_printhex.exit146
+  br label %dbg_printhex.exit145
 
-dbg_printhex.exit146:                             ; preds = %53, %dbg_printhex.exit144, %58
+dbg_printhex.exit145:                             ; preds = %53, %dbg_printhex.exit143, %58
   br i1 %47, label %62, label %70
 
-62:                                               ; preds = %dbg_printhex.exit146
+62:                                               ; preds = %dbg_printhex.exit145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(32) @.str.336, i64 32, i1 false)
   %63 = load ptr, ptr %52, align 8, !tbaa !46
   %64 = load i32, ptr %49, align 8, !tbaa !47
   %65 = call zeroext i1 @arc4_init(ptr noundef nonnull %13, ptr noundef %63, i32 noundef %64) #23
-  br i1 %65, label %66, label %.thread165
+  br i1 %65, label %66, label %.thread164
 
 66:                                               ; preds = %62
   call void @arc4_apply(ptr noundef nonnull %13, ptr noundef nonnull %12, i32 noundef 32) #23
   %67 = load i8, ptr @cli_debug_flag, align 1, !tbaa !30
-  %.not.i147 = icmp eq i8 %67, 0
-  br i1 %.not.i147, label %dbg_printhex.exit148, label %68
+  %.not.i146 = icmp eq i8 %67, 0
+  br i1 %.not.i146, label %dbg_printhex.exit147, label %68
 
 68:                                               ; preds = %66
   %69 = call ptr @cli_str2hex(ptr noundef nonnull %12, i32 noundef 32) #23
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.323, ptr noundef %69) #23
   call void @free(ptr noundef %69) #23
-  br label %dbg_printhex.exit148
+  br label %dbg_printhex.exit147
 
-dbg_printhex.exit148:                             ; preds = %66, %68
+dbg_printhex.exit147:                             ; preds = %66, %68
   %bcmp133 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %12, ptr noundef nonnull dereferenceable(32) %3, i64 32)
   %.not134 = icmp eq i32 %bcmp133, 0
   br i1 %.not134, label %142, label %146
 
-70:                                               ; preds = %dbg_printhex.exit146
+70:                                               ; preds = %dbg_printhex.exit145
   %71 = load i32, ptr %49, align 8, !tbaa !47
   %72 = load i32, ptr %22, align 8, !tbaa !120
   %73 = add i32 %72, 32
   %74 = zext i32 %73 to i64
   %75 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %74) #24
   %.not130 = icmp eq ptr %75, null
-  br i1 %.not130, label %.thread165, label %76
+  br i1 %.not130, label %.thread164, label %76
 
 76:                                               ; preds = %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %75, ptr noundef nonnull align 1 dereferenceable(32) @.str.336, i64 32, i1 false)
@@ -6022,24 +6022,24 @@ dbg_printhex.exit148:                             ; preds = %66, %68
   %82 = zext i32 %71 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr align 1 %81, i64 %82, i1 false)
   %83 = call zeroext i1 @arc4_init(ptr noundef nonnull %13, ptr noundef nonnull %12, i32 noundef %71) #23
-  br i1 %83, label %84, label %.thread165
+  br i1 %83, label %84, label %.thread164
 
 84:                                               ; preds = %76
   call void @arc4_apply(ptr noundef nonnull %13, ptr noundef nonnull %11, i32 noundef 16) #23
-  %.not182 = icmp eq i32 %71, 0
-  br i1 %.not182, label %.preheader, label %.preheader.us
+  %.not185 = icmp eq i32 %71, 0
+  br i1 %.not185, label %.preheader, label %.preheader.us
 
 .preheader.us:                                    ; preds = %84, %87
-  %.1106179.us = phi i32 [ %88, %87 ], [ 1, %84 ]
+  %.1106182.us = phi i32 [ %88, %87 ], [ 1, %84 ]
   %85 = load ptr, ptr %52, align 8, !tbaa !46
-  %86 = trunc nuw nsw i32 %.1106179.us to i8
+  %86 = trunc nuw nsw i32 %.1106182.us to i8
   br label %89
 
 87:                                               ; preds = %._crit_edge.us
   call void @arc4_apply(ptr noundef nonnull %13, ptr noundef nonnull %11, i32 noundef 16) #23
-  %88 = add nuw nsw i32 %.1106179.us, 1
-  %exitcond187.not = icmp eq i32 %88, 20
-  br i1 %exitcond187.not, label %.split181.us, label %.preheader.us
+  %88 = add nuw nsw i32 %.1106182.us, 1
+  %exitcond190.not = icmp eq i32 %88, 20
+  br i1 %exitcond190.not, label %.split184.us, label %.preheader.us
 
 89:                                               ; preds = %.preheader.us, %89
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %89 ]
@@ -6049,25 +6049,25 @@ dbg_printhex.exit148:                             ; preds = %66, %68
   %93 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   store i8 %92, ptr %93, align 1, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond186.not = icmp eq i64 %indvars.iv.next, %82
-  br i1 %exitcond186.not, label %._crit_edge.us, label %89
+  %exitcond189.not = icmp eq i64 %indvars.iv.next, %82
+  br i1 %exitcond189.not, label %._crit_edge.us, label %89
 
 ._crit_edge.us:                                   ; preds = %89
   %94 = call zeroext i1 @arc4_init(ptr noundef nonnull %13, ptr noundef nonnull %12, i32 noundef %71) #23
-  br i1 %94, label %87, label %.thread165
+  br i1 %94, label %87, label %.thread164
 
 .preheader:                                       ; preds = %84, %96
-  %.1106179 = phi i32 [ %97, %96 ], [ 1, %84 ]
+  %.1106182 = phi i32 [ %97, %96 ], [ 1, %84 ]
   %95 = call zeroext i1 @arc4_init(ptr noundef nonnull %13, ptr noundef nonnull %12, i32 noundef 0) #23
-  br i1 %95, label %96, label %.thread165
+  br i1 %95, label %96, label %.thread164
 
 96:                                               ; preds = %.preheader
   call void @arc4_apply(ptr noundef nonnull %13, ptr noundef nonnull %11, i32 noundef 16) #23
-  %97 = add nuw nsw i32 %.1106179, 1
-  %exitcond188.not = icmp eq i32 %97, 20
-  br i1 %exitcond188.not, label %.split181.us, label %.preheader
+  %97 = add nuw nsw i32 %.1106182, 1
+  %exitcond191.not = icmp eq i32 %97, 20
+  br i1 %exitcond191.not, label %.split184.us, label %.preheader
 
-.split181.us:                                     ; preds = %87, %96
+.split184.us:                                     ; preds = %87, %96
   %98 = load ptr, ptr %34, align 8, !tbaa !118
   %99 = load i32, ptr %22, align 8, !tbaa !120
   call fastcc void @dbg_printhex(ptr noundef nonnull @.str.324, ptr noundef %98, i32 noundef %99)
@@ -6077,26 +6077,26 @@ dbg_printhex.exit148:                             ; preds = %66, %68
   call void @free(ptr noundef %75) #23
   br i1 %.not132, label %142, label %146
 
-100:                                              ; preds = %dbg_printhex.exit142
+100:                                              ; preds = %dbg_printhex.exit141
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %102 = call ptr @cl_sha256(ptr noundef nonnull %101, i64 noundef 8, ptr noundef nonnull %14, ptr noundef null) #23
   %103 = load i8, ptr @cli_debug_flag, align 1, !tbaa !30
-  %.not.i149 = icmp eq i8 %103, 0
-  br i1 %.not.i149, label %dbg_printhex.exit150, label %104
+  %.not.i148 = icmp eq i8 %103, 0
+  br i1 %.not.i148, label %dbg_printhex.exit149, label %104
 
 104:                                              ; preds = %100
   %105 = call ptr @cli_str2hex(ptr noundef nonnull %14, i32 noundef 32) #23
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.326, ptr noundef %105) #23
   call void @free(ptr noundef %105) #23
-  br label %dbg_printhex.exit150
+  br label %dbg_printhex.exit149
 
-dbg_printhex.exit150:                             ; preds = %100, %104
+dbg_printhex.exit149:                             ; preds = %100, %104
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %14, ptr noundef nonnull dereferenceable(32) %3, i64 32)
   %.not123 = icmp eq i32 %bcmp, 0
-  br i1 %.not123, label %106, label %dbg_printhex.exit152.thread
+  br i1 %.not123, label %106, label %dbg_printhex.exit151.thread
 
-106:                                              ; preds = %dbg_printhex.exit150
+106:                                              ; preds = %dbg_printhex.exit149
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %108 = call ptr @cl_sha256(ptr noundef nonnull %107, i64 noundef 8, ptr noundef nonnull %14, ptr noundef null) #23
   %.not124 = icmp eq i64 %7, 32
@@ -6104,7 +6104,7 @@ dbg_printhex.exit150:                             ; preds = %100, %104
 
 109:                                              ; preds = %106
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.327, i64 noundef %7) #23
-  br label %dbg_printhex.exit152.thread
+  br label %dbg_printhex.exit151.thread
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -6113,13 +6113,13 @@ dbg_printhex.exit150:                             ; preds = %100, %104
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %112, ptr %113, align 8, !tbaa !46
   %.not125 = icmp eq ptr %112, null
-  br i1 %.not125, label %dbg_printhex.exit152, label %114
+  br i1 %.not125, label %dbg_printhex.exit151, label %114
 
 114:                                              ; preds = %110
   call fastcc void @aes_256cbc_decrypt(ptr noundef %6, ptr noundef %10, ptr noundef %112, ptr noundef nonnull %14, i32 noundef 32, i32 noundef 0)
   %115 = load i8, ptr @cli_debug_flag, align 1, !tbaa !30
-  %.not.i151 = icmp eq i8 %115, 0
-  br i1 %.not.i151, label %dbg_printhex.exit152.thread.thread, label %116
+  %.not.i150 = icmp eq i8 %115, 0
+  br i1 %.not.i150, label %dbg_printhex.exit151.thread.thread, label %116
 
 116:                                              ; preds = %114
   %117 = load i32, ptr %111, align 8, !tbaa !47
@@ -6127,22 +6127,22 @@ dbg_printhex.exit150:                             ; preds = %100, %104
   %119 = call ptr @cli_str2hex(ptr noundef %118, i32 noundef %117) #23
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.329, ptr noundef %119) #23
   call void @free(ptr noundef %119) #23
-  br label %dbg_printhex.exit152.thread.thread
+  br label %dbg_printhex.exit151.thread.thread
 
-dbg_printhex.exit152.thread.thread:               ; preds = %116, %114
+dbg_printhex.exit151.thread.thread:               ; preds = %116, %114
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %142
 
-dbg_printhex.exit152.thread:                      ; preds = %109, %dbg_printhex.exit150
+dbg_printhex.exit151.thread:                      ; preds = %109, %dbg_printhex.exit149
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %146
 
-dbg_printhex.exit152:                             ; preds = %110
+dbg_printhex.exit151:                             ; preds = %110
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.328) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread165
+  br label %.thread164
 
-120:                                              ; preds = %dbg_printhex.exit142
+120:                                              ; preds = %dbg_printhex.exit141
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %121 = icmp eq ptr %6, null
@@ -6154,38 +6154,38 @@ dbg_printhex.exit152:                             ; preds = %110
 
 123:                                              ; preds = %120
   %124 = load i8, ptr @cli_debug_flag, align 1, !tbaa !30
-  %.not.i153 = icmp eq i8 %124, 0
-  br i1 %.not.i153, label %dbg_printhex.exit154, label %125
+  %.not.i152 = icmp eq i8 %124, 0
+  br i1 %.not.i152, label %dbg_printhex.exit153, label %125
 
 125:                                              ; preds = %123
   %126 = trunc nuw i64 %7 to i32
   %127 = tail call ptr @cli_str2hex(ptr noundef nonnull %6, i32 noundef %126) #23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.331, ptr noundef %127) #23
   tail call void @free(ptr noundef %127) #23
-  br label %dbg_printhex.exit154
+  br label %dbg_printhex.exit153
 
-dbg_printhex.exit154:                             ; preds = %123, %125
+dbg_printhex.exit153:                             ; preds = %123, %125
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.val = load i64, ptr %128, align 1
   call fastcc void @compute_hash_r6(i64 %.val, ptr noundef %16, ptr noundef null)
-  %bcmp175 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %3, ptr noundef nonnull dereferenceable(32) %16, i64 32)
-  %.not = icmp eq i32 %bcmp175, 0
+  %bcmp178 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %3, ptr noundef nonnull dereferenceable(32) %16, i64 32)
+  %.not = icmp eq i32 %bcmp178, 0
   br i1 %.not, label %130, label %129
 
-129:                                              ; preds = %dbg_printhex.exit154
+129:                                              ; preds = %dbg_printhex.exit153
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.332) #23
-  br label %.thread
+  br label %.thread175
 
-130:                                              ; preds = %dbg_printhex.exit154
+130:                                              ; preds = %dbg_printhex.exit153
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %.val140 = load i64, ptr %131, align 1
-  call fastcc void @compute_hash_r6(i64 %.val140, ptr noundef %15, ptr noundef null)
+  %.val139 = load i64, ptr %131, align 1
+  call fastcc void @compute_hash_r6(i64 %.val139, ptr noundef %15, ptr noundef null)
   %.not121 = icmp eq i64 %7, 32
   br i1 %.not121, label %133, label %132
 
 132:                                              ; preds = %130
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.327, i64 noundef %7) #23
-  br label %.thread
+  br label %.thread175
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -6203,12 +6203,12 @@ dbg_printhex.exit154:                             ; preds = %123, %125
 138:                                              ; preds = %137, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %.thread165
+  br label %.thread164
 
-default.unreachable198:                           ; preds = %dbg_printhex.exit142
+default.unreachable201:                           ; preds = %dbg_printhex.exit141
   unreachable
 
-.thread:                                          ; preds = %132, %129
+.thread175:                                       ; preds = %132, %129
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %146
@@ -6222,19 +6222,19 @@ default.unreachable198:                           ; preds = %dbg_printhex.exit14
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %142
 
-142:                                              ; preds = %dbg_printhex.exit152.thread.thread, %139, %.split181.us, %dbg_printhex.exit148
+142:                                              ; preds = %dbg_printhex.exit151.thread.thread, %139, %.split184.us, %dbg_printhex.exit147
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.334) #23
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %144 = load i32, ptr %143, align 4, !tbaa !17
   %145 = or i32 %144, 524288
   store i32 %145, ptr %143, align 4, !tbaa !17
-  br label %.thread165
+  br label %.thread164
 
-146:                                              ; preds = %dbg_printhex.exit152.thread, %.thread, %.split181.us, %dbg_printhex.exit148
+146:                                              ; preds = %dbg_printhex.exit151.thread, %.thread175, %.split184.us, %dbg_printhex.exit147
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.335) #23
-  br label %.thread165
+  br label %.thread164
 
-.thread165:                                       ; preds = %._crit_edge.us, %.preheader, %76, %70, %62, %.loopexit, %21, %138, %dbg_printhex.exit152, %146, %142
+.thread164:                                       ; preds = %._crit_edge.us, %.preheader, %76, %70, %62, %.loopexit, %21, %138, %dbg_printhex.exit151, %146, %142
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

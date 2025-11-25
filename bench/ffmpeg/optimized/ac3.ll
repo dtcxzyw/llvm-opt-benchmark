@@ -468,7 +468,7 @@ calc_lowcomp.exit:                                ; preds = %.calc_lowcomp.exit_
   %212 = icmp ugt i8 %210, 3
   %213 = shl nuw nsw i16 %211, 7
   %214 = add nsw i16 %213, -384
-  %215 = or i16 %213, -512
+  %215 = or disjoint i16 %213, -512
   %.0 = select i1 %212, i16 %214, i16 %215
   %.not253 = icmp eq i8 %204, 0
   br i1 %.not253, label %._crit_edge243, label %.lr.ph242.preheader

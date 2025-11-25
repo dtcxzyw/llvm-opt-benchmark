@@ -30246,8 +30246,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h114cbecc62
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = load i64, ptr %6, align 8, !range !3301, !noalias !11089, !noundef !3
-  %.not14.i.i.i = icmp eq i64 %24, 5
-  br i1 %.not14.i.i.i, label %.body.i.i, label %31
+  %.not9.i.i.i = icmp eq i64 %24, 5
+  br i1 %.not9.i.i.i, label %.body.i.i, label %31
 
 25:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11093
@@ -31204,8 +31204,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5d03b14cdd
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = load i64, ptr %6, align 8, !range !3301, !noalias !11389, !noundef !3
-  %.not14.i.i.i = icmp eq i64 %24, 5
-  br i1 %.not14.i.i.i, label %.body.i.i, label %31
+  %.not9.i.i.i = icmp eq i64 %24, 5
+  br i1 %.not9.i.i.i, label %.body.i.i, label %31
 
 25:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11393
@@ -33019,8 +33019,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h88dd88022f
   %lpad.thr_comm.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   %22 = load ptr, ptr %9, align 8, !noalias !11889, !noundef !3
-  %.not16.i.i.i = icmp eq ptr %22, null
-  br i1 %.not16.i.i.i, label %.body.i.i, label %26
+  %.not11.i.i.i = icmp eq ptr %22, null
+  br i1 %.not11.i.i.i, label %.body.i.i, label %26
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h64d18dfea5d4c42bE.exit.i.i.i": ; preds = %14
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !11889
@@ -34569,8 +34569,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hbff8261370
   %lpad.thr_comm.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   %52 = load i64, ptr %8, align 8, !range !3301, !noalias !12386, !noundef !3
-  %.not16.i.i.i.i = icmp eq i64 %52, 5
-  br i1 %.not16.i.i.i.i, label %.body.i.i.i, label %56
+  %.not11.i.i.i.i = icmp eq i64 %52, 5
+  br i1 %.not11.i.i.i.i, label %.body.i.i.i, label %56
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h397d93e25bca9804E.exit.i.i.i.i": ; preds = %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.llvm.11984584770032924863.exit.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !12386
@@ -34954,8 +34954,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc41182348b
   %lpad.thr_comm.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   %35 = load i64, ptr %8, align 8, !range !3301, !noalias !12490, !noundef !3
-  %.not16.i.i.i.i = icmp eq i64 %35, 5
-  br i1 %.not16.i.i.i.i, label %.body.i.i.i, label %39
+  %.not11.i.i.i.i = icmp eq i64 %35, 5
+  br i1 %.not11.i.i.i.i, label %.body.i.i.i, label %39
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h8e67bb350a642d93E.exit.i.i.i.i": ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !12490
@@ -35389,8 +35389,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17he2ff724db6
   %lpad.thr_comm.split-lp.i.i.i = landingpad { ptr, i32 }
           cleanup
   %22 = load ptr, ptr %8, align 8, !noalias !12596, !noundef !3
-  %.not16.i.i.i = icmp eq ptr %22, null
-  br i1 %.not16.i.i.i, label %common.resume.i, label %26
+  %.not11.i.i.i = icmp eq ptr %22, null
+  br i1 %.not11.i.i.i, label %common.resume.i, label %26
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h037bfcab4bf8d816E.exit.i.i.i": ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !12596
@@ -36040,8 +36040,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h018075b65cbec655E(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !1193, !noundef !3
-  %.not14 = icmp eq i64 %8, -9223372036854775803
-  br i1 %.not14, label %.thread, label %15
+  %.not9 = icmp eq i64 %8, -9223372036854775803
+  br i1 %.not9, label %15, label %16
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !12852
@@ -36066,12 +36066,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17h018075b65cbec655E(ptr 
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..value..Value$GT$$GT$17hcbf848bc055b9ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-.thread:                                          ; preds = %15, %6
+15:                                               ; preds = %16, %6
   resume { ptr, i32 } %7
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #61
-  br label %.thread
+  br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36095,8 +36095,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h1b0f38cffd45fd19E(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %7, align 8, !range !3301, !noundef !3
-  %.not16 = icmp eq i64 %9, 5
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq i64 %9, 5
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17he65d43e3333aaf26E.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -36126,18 +36126,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h1b0f38cffd45fd19E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12880
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36161,8 +36161,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h24b3c33a33370330E(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %7, align 8, !range !3301, !noundef !3
-  %.not16 = icmp eq i64 %9, 5
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq i64 %9, 5
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h501a5c21ba3c8915E.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -36192,18 +36192,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h24b3c33a33370330E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12890
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36227,8 +36227,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h322438f017474806E(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !3321, !noundef !3
-  %.not13 = icmp eq i64 %9, -9223372036854775774
-  br i1 %.not13, label %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..export..pylock_toml..PylockTomlErrorKind$GT$$GT$17h7943048f2ba9c715E.llvm.11984584770032924863.exit", label %18
+  %.not8 = icmp eq i64 %9, -9223372036854775774
+  br i1 %.not8, label %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..export..pylock_toml..PylockTomlErrorKind$GT$$GT$17h7943048f2ba9c715E.llvm.11984584770032924863.exit", label %18
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12897
@@ -36287,8 +36287,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h36d612ef252a0480E(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !1193, !noundef !3
-  %.not13 = icmp eq i64 %9, -9223372036854775803
-  br i1 %.not13, label %.thread, label %16
+  %.not8 = icmp eq i64 %9, -9223372036854775803
+  br i1 %.not8, label %16, label %17
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12915
@@ -36313,12 +36313,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17h36d612ef252a0480E(ptr 
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..value..Value$GT$$GT$17hcbf848bc055b9ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %14
 
-.thread:                                          ; preds = %16, %7
+16:                                               ; preds = %17, %7
   resume { ptr, i32 } %8
 
-16:                                               ; preds = %7
+17:                                               ; preds = %7
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #61
-  br label %.thread
+  br label %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36340,8 +36340,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h438cea7ec3034600E(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !3301, !noundef !3
-  %.not14 = icmp eq i64 %8, 5
-  br i1 %.not14, label %.thread, label %17
+  %.not9 = icmp eq i64 %8, 5
+  br i1 %.not9, label %17, label %18
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !12938
@@ -36365,18 +36365,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h438cea7ec3034600E(ptr 
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$uv_resolver..lock..Wheel$GT$$GT$17h3c74c09bfa5280ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-15:                                               ; preds = %17
+15:                                               ; preds = %18
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %17, %6
+17:                                               ; preds = %18, %6
   resume { ptr, i32 } %7
 
-17:                                               ; preds = %6
+18:                                               ; preds = %6
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5) #61
-          to label %.thread unwind label %15
+          to label %17 unwind label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36398,8 +36398,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h5aaf185924ad53a8E(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !1193, !noundef !3
-  %.not14 = icmp eq i64 %8, -9223372036854775803
-  br i1 %.not14, label %.thread, label %15
+  %.not9 = icmp eq i64 %8, -9223372036854775803
+  br i1 %.not9, label %15, label %16
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !12956
@@ -36424,12 +36424,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17h5aaf185924ad53a8E(ptr 
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..value..Value$GT$$GT$17hcbf848bc055b9ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-.thread:                                          ; preds = %15, %6
+15:                                               ; preds = %16, %6
   resume { ptr, i32 } %7
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #61
-  br label %.thread
+  br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36453,8 +36453,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h612434202779f399E(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %7, align 8, !range !3301, !noundef !3
-  %.not16 = icmp eq i64 %9, 5
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq i64 %9, 5
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hf4edf5647f9e1767E.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -36484,18 +36484,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h612434202779f399E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12984
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36519,8 +36519,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h68a5178c926ff480E(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %7, align 8, !range !3301, !noundef !3
-  %.not16 = icmp eq i64 %9, 5
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq i64 %9, 5
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hadacda52a5ea5e02E.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -36550,18 +36550,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h68a5178c926ff480E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !12994
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36585,8 +36585,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h69bbafb4c0d40bebE(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %7, align 8, !range !3301, !noundef !3
-  %.not16 = icmp eq i64 %9, 5
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq i64 %9, 5
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h937a3c23fd393d9bE.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -36616,18 +36616,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h69bbafb4c0d40bebE(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13004
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36651,8 +36651,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h6a764a7b24b28a79E(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %7, align 8, !noundef !3
-  %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq ptr %9, null
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h9bbf238bd10aaa8eE.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -36683,18 +36683,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h6a764a7b24b28a79E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13017
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17h32946453870c617eE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36718,8 +36718,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h772318c3182cdf24E(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !1193, !noundef !3
-  %.not13 = icmp eq i64 %9, -9223372036854775803
-  br i1 %.not13, label %.thread, label %16
+  %.not8 = icmp eq i64 %9, -9223372036854775803
+  br i1 %.not8, label %16, label %17
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13024
@@ -36744,12 +36744,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17h772318c3182cdf24E(ptr 
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..value..Value$GT$$GT$17hcbf848bc055b9ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %14
 
-.thread:                                          ; preds = %16, %7
+16:                                               ; preds = %17, %7
   resume { ptr, i32 } %8
 
-16:                                               ; preds = %7
+17:                                               ; preds = %7
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #61
-  br label %.thread
+  br label %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36771,8 +36771,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h79b639bff9155541E(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i8, ptr %5, align 8, !range !3330, !noundef !3
-  %.not14 = icmp eq i8 %8, 20
-  br i1 %.not14, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..error..ResolveError$GT$$GT$17h1b98c6402da0f145E.llvm.11984584770032924863.exit", label %17
+  %.not9 = icmp eq i8 %8, 20
+  br i1 %.not9, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..error..ResolveError$GT$$GT$17h1b98c6402da0f145E.llvm.11984584770032924863.exit", label %17
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13047
@@ -36829,8 +36829,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h8cf9011955a7c3c7E(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !1193, !noundef !3
-  %.not14 = icmp eq i64 %8, -9223372036854775803
-  br i1 %.not14, label %.thread, label %15
+  %.not9 = icmp eq i64 %8, -9223372036854775803
+  br i1 %.not9, label %15, label %16
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13064
@@ -36855,12 +36855,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17h8cf9011955a7c3c7E(ptr 
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..value..Value$GT$$GT$17hcbf848bc055b9ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-.thread:                                          ; preds = %15, %6
+15:                                               ; preds = %16, %6
   resume { ptr, i32 } %7
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #61
-  br label %.thread
+  br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36882,8 +36882,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h8daa14695cf768a8E(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !3301, !noundef !3
-  %.not14 = icmp eq i64 %8, 5
-  br i1 %.not14, label %.thread, label %17
+  %.not9 = icmp eq i64 %8, 5
+  br i1 %.not9, label %17, label %18
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13087
@@ -36907,18 +36907,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h8daa14695cf768a8E(ptr 
   call void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$uv_resolver..lock..Package$GT$$GT$17h229a7bcbbbbfdb3cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-15:                                               ; preds = %17
+15:                                               ; preds = %18
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %17, %6
+17:                                               ; preds = %18, %6
   resume { ptr, i32 } %7
 
-17:                                               ; preds = %6
+18:                                               ; preds = %6
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5) #61
-          to label %.thread unwind label %15
+          to label %17 unwind label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36940,8 +36940,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h8e3511f768829e11E(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !1193, !noundef !3
-  %.not14 = icmp eq i64 %8, -9223372036854775803
-  br i1 %.not14, label %.thread, label %15
+  %.not9 = icmp eq i64 %8, -9223372036854775803
+  br i1 %.not9, label %15, label %16
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13104
@@ -36966,12 +36966,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17h8e3511f768829e11E(ptr 
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..value..Value$GT$$GT$17hcbf848bc055b9ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-.thread:                                          ; preds = %15, %6
+15:                                               ; preds = %16, %6
   resume { ptr, i32 } %7
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #61
-  br label %.thread
+  br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36995,8 +36995,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h91a10043e97c3532E(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %7, align 8, !range !3301, !noundef !3
-  %.not16 = icmp eq i64 %9, 5
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq i64 %9, 5
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17he5ac2b34c0579586E.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -37026,18 +37026,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h91a10043e97c3532E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13132
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37061,8 +37061,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17ha50ab939c76530e4E(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %7, align 8, !noundef !3
-  %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq ptr %9, null
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hfce2dfa4cb2853afE.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -37093,18 +37093,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17ha50ab939c76530e4E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13147
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17h32946453870c617eE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37126,8 +37126,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17ha9d779be3f87dc4fE(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !1193, !noundef !3
-  %.not14 = icmp eq i64 %8, -9223372036854775803
-  br i1 %.not14, label %.thread, label %15
+  %.not9 = icmp eq i64 %8, -9223372036854775803
+  br i1 %.not9, label %15, label %16
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13154
@@ -37152,12 +37152,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17ha9d779be3f87dc4fE(ptr 
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..value..Value$GT$$GT$17hcbf848bc055b9ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-.thread:                                          ; preds = %15, %6
+15:                                               ; preds = %16, %6
   resume { ptr, i32 } %7
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #61
-  br label %.thread
+  br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37181,8 +37181,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hac2a24ea9c19c15dE(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !3321, !noundef !3
-  %.not13 = icmp eq i64 %9, -9223372036854775774
-  br i1 %.not13, label %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..export..pylock_toml..PylockTomlErrorKind$GT$$GT$17h7943048f2ba9c715E.llvm.11984584770032924863.exit", label %18
+  %.not8 = icmp eq i64 %9, -9223372036854775774
+  br i1 %.not8, label %"_ZN4core3ptr136drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..export..pylock_toml..PylockTomlErrorKind$GT$$GT$17h7943048f2ba9c715E.llvm.11984584770032924863.exit", label %18
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13177
@@ -37233,93 +37233,93 @@ define hidden void @_ZN4core4iter8adapters11try_process17hb50fef79ceb75717E(ptr 
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !13200
   %6 = invoke { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17h43d61933d678b8dbE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
-          to label %10 unwind label %7
+          to label %9 unwind label %.body
 
-7:                                                ; preds = %3
-  %8 = landingpad { ptr, i32 }
+.body:                                            ; preds = %3
+  %7 = landingpad { ptr, i32 }
           cleanup
-  %9 = load i64, ptr %5, align 8, !range !534, !noundef !3
-  %.not14 = icmp eq i64 %9, 3
-  br i1 %.not14, label %.thread, label %33
+  %8 = load i64, ptr %5, align 8, !range !534, !noundef !3
+  %.not10 = icmp eq i64 %8, 3
+  br i1 %.not10, label %32, label %33
 
-10:                                               ; preds = %3
+9:                                                ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13195
-  %11 = extractvalue { ptr, i64 } %6, 0
-  %12 = extractvalue { ptr, i64 } %6, 1
-  %13 = load i64, ptr %5, align 8, !range !534, !noundef !3
-  %.not = icmp eq i64 %13, 3
-  br i1 %.not, label %14, label %17
+  %10 = extractvalue { ptr, i64 } %6, 0
+  %11 = extractvalue { ptr, i64 } %6, 1
+  %12 = load i64, ptr %5, align 8, !range !534, !noundef !3
+  %.not = icmp eq i64 %12, 3
+  br i1 %.not, label %13, label %16
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %11, ptr %15, align 8, !alias.scope !13204, !noalias !13207
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %12, ptr %16, align 8, !alias.scope !13204, !noalias !13207
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %10, ptr %14, align 8, !alias.scope !13204, !noalias !13207
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %11, ptr %15, align 8, !alias.scope !13204, !noalias !13207
   store i64 3, ptr %0, align 8, !alias.scope !13204, !noalias !13207
   br label %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hdd41c7a0cb5eef2fE.exit"
 
-"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hdd41c7a0cb5eef2fE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.14234798039696082073.exit.i1.i.i", %"_ZN4core3ptr69drop_in_place$LT$$u5b$uv_pypi_types..simple_json..HashDigest$u5d$$GT$17h5632c8151405b931E.llvm.14234798039696082073.exit.i.i", %14
+"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hdd41c7a0cb5eef2fE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.14234798039696082073.exit.i1.i.i", %"_ZN4core3ptr69drop_in_place$LT$$u5b$uv_pypi_types..simple_json..HashDigest$u5d$$GT$17h5632c8151405b931E.llvm.14234798039696082073.exit.i.i", %13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-17:                                               ; preds = %10
+16:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   br label %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit.i.i.i"
 
-"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit.i.i.i": ; preds = %19, %17
-  %.sroa.0.0.i.i.i = phi i64 [ 0, %17 ], [ %21, %19 ]
-  %18 = icmp eq i64 %.sroa.0.0.i.i.i, %12
-  br i1 %18, label %"_ZN4core3ptr69drop_in_place$LT$$u5b$uv_pypi_types..simple_json..HashDigest$u5d$$GT$17h5632c8151405b931E.llvm.14234798039696082073.exit.i.i", label %19
+"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit.i.i.i": ; preds = %18, %16
+  %.sroa.0.0.i.i.i = phi i64 [ 0, %16 ], [ %20, %18 ]
+  %17 = icmp eq i64 %.sroa.0.0.i.i.i, %11
+  br i1 %17, label %"_ZN4core3ptr69drop_in_place$LT$$u5b$uv_pypi_types..simple_json..HashDigest$u5d$$GT$17h5632c8151405b931E.llvm.14234798039696082073.exit.i.i", label %18
 
-19:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit.i.i.i"
-  %20 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %11, i64 %.sroa.0.0.i.i.i
-  %21 = add i64 %.sroa.0.0.i.i.i, 1
-  invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
-          to label %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit.i.i.i" unwind label %23, !noalias !13209
+18:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit.i.i.i"
+  %19 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %10, i64 %.sroa.0.0.i.i.i
+  %20 = add i64 %.sroa.0.0.i.i.i, 1
+  invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(16) %19)
+          to label %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit.i.i.i" unwind label %22, !noalias !13209
 
-"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit7.i.i.i": ; preds = %25, %23
-  %.sroa.0.1.i.i.i = phi i64 [ %21, %23 ], [ %27, %25 ]
-  %22 = icmp eq i64 %.sroa.0.1.i.i.i, %12
-  br i1 %22, label %.thread10, label %25
+"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit7.i.i.i": ; preds = %24, %22
+  %.sroa.0.1.i.i.i = phi i64 [ %20, %22 ], [ %26, %24 ]
+  %21 = icmp eq i64 %.sroa.0.1.i.i.i, %11
+  br i1 %21, label %.body.thread, label %24
 
-23:                                               ; preds = %19
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %18
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit7.i.i.i"
 
-25:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit7.i.i.i"
-  %26 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %11, i64 %.sroa.0.1.i.i.i
-  %27 = add i64 %.sroa.0.1.i.i.i, 1
-  invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
-          to label %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit7.i.i.i" unwind label %28, !noalias !13209
+24:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit7.i.i.i"
+  %25 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %10, i64 %.sroa.0.1.i.i.i
+  %26 = add i64 %.sroa.0.1.i.i.i, 1
+  invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
+          to label %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit7.i.i.i" unwind label %27, !noalias !13209
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62, !noalias !13209
   unreachable
 
-.thread10:                                        ; preds = %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit7.i.i.i"
-  %30 = shl nuw nsw i64 %12, 4
-  call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %30, i64 noundef 8) #54, !noalias !13214
-  br label %.thread
+.body.thread:                                     ; preds = %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit7.i.i.i"
+  %29 = shl nuw nsw i64 %11, 4
+  call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %29, i64 noundef 8) #54, !noalias !13214
+  br label %32
 
 "_ZN4core3ptr69drop_in_place$LT$$u5b$uv_pypi_types..simple_json..HashDigest$u5d$$GT$17h5632c8151405b931E.llvm.14234798039696082073.exit.i.i": ; preds = %"_ZN4core3ptr59drop_in_place$LT$uv_pypi_types..simple_json..HashDigest$GT$17h7635667946b5fdcaE.exit.i.i.i"
-  %31 = icmp eq i64 %12, 0
-  br i1 %31, label %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hdd41c7a0cb5eef2fE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.14234798039696082073.exit.i1.i.i"
+  %30 = icmp eq i64 %11, 0
+  br i1 %30, label %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hdd41c7a0cb5eef2fE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.14234798039696082073.exit.i1.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.14234798039696082073.exit.i1.i.i": ; preds = %"_ZN4core3ptr69drop_in_place$LT$$u5b$uv_pypi_types..simple_json..HashDigest$u5d$$GT$17h5632c8151405b931E.llvm.14234798039696082073.exit.i.i"
-  %32 = shl nuw nsw i64 %12, 4
-  call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %32, i64 noundef 8) #54, !noalias !13217
+  %31 = shl nuw nsw i64 %11, 4
+  call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %31, i64 noundef 8) #54, !noalias !13217
   br label %"_ZN4core3ptr60drop_in_place$LT$uv_pypi_types..simple_json..HashDigests$GT$17hdd41c7a0cb5eef2fE.exit"
 
-.thread:                                          ; preds = %.thread10, %33, %7
-  %.pn9 = phi { ptr, i32 } [ %8, %33 ], [ %8, %7 ], [ %24, %.thread10 ]
+32:                                               ; preds = %.body.thread, %33, %.body
+  %.pn9 = phi { ptr, i32 } [ %23, %.body.thread ], [ %7, %33 ], [ %7, %.body ]
   resume { ptr, i32 } %.pn9
 
-33:                                               ; preds = %7
+33:                                               ; preds = %.body
   call void @"_ZN4core3ptr58drop_in_place$LT$uv_pypi_types..simple_json..HashError$GT$17h5fe3bd7c9dfa860aE.llvm.11984584770032924863"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
-  br label %.thread
+  br label %32
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37343,8 +37343,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hb8f5311f610b83d0E(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %7, align 8, !range !3301, !noundef !3
-  %.not16 = icmp eq i64 %9, 5
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq i64 %9, 5
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h67d6f925a13b6c15E.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -37374,18 +37374,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17hb8f5311f610b83d0E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13225
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37409,8 +37409,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hb97fab6003b2baa3E(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %7, align 8, !noundef !3
-  %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq ptr %9, null
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hb578114bd5397fcfE.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -37441,18 +37441,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17hb97fab6003b2baa3E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13238
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17h32946453870c617eE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37476,8 +37476,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hd1dd540a4666f252E(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !1193, !noundef !3
-  %.not13 = icmp eq i64 %9, -9223372036854775803
-  br i1 %.not13, label %.thread, label %16
+  %.not8 = icmp eq i64 %9, -9223372036854775803
+  br i1 %.not8, label %16, label %17
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13243
@@ -37502,12 +37502,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17hd1dd540a4666f252E(ptr 
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..value..Value$GT$$GT$17hcbf848bc055b9ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %14
 
-.thread:                                          ; preds = %16, %7
+16:                                               ; preds = %17, %7
   resume { ptr, i32 } %8
 
-16:                                               ; preds = %7
+17:                                               ; preds = %7
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #61
-  br label %.thread
+  br label %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37529,8 +37529,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hda0a46b983cbda1dE(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !3301, !noundef !3
-  %.not14 = icmp eq i64 %8, 5
-  br i1 %.not14, label %.thread, label %17
+  %.not9 = icmp eq i64 %8, 5
+  br i1 %.not9, label %17, label %18
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13266
@@ -37554,18 +37554,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17hda0a46b983cbda1dE(ptr 
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$uv_resolver..lock..Wheel$GT$$GT$17h3c74c09bfa5280ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-15:                                               ; preds = %17
+15:                                               ; preds = %18
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %17, %6
+17:                                               ; preds = %18, %6
   resume { ptr, i32 } %7
 
-17:                                               ; preds = %6
+18:                                               ; preds = %6
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5) #61
-          to label %.thread unwind label %15
+          to label %17 unwind label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37587,8 +37587,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hdb4b8069031de51bE(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !1193, !noundef !3
-  %.not14 = icmp eq i64 %8, -9223372036854775803
-  br i1 %.not14, label %.thread, label %15
+  %.not9 = icmp eq i64 %8, -9223372036854775803
+  br i1 %.not9, label %15, label %16
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13284
@@ -37613,12 +37613,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17hdb4b8069031de51bE(ptr 
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..value..Value$GT$$GT$17hcbf848bc055b9ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-.thread:                                          ; preds = %15, %6
+15:                                               ; preds = %16, %6
   resume { ptr, i32 } %7
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #61
-  br label %.thread
+  br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37642,8 +37642,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hde4f88984493db38E(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %7, align 8, !range !3301, !noundef !3
-  %.not16 = icmp eq i64 %9, 5
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq i64 %9, 5
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h05298593657c82ecE.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -37673,18 +37673,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17hde4f88984493db38E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13312
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37706,8 +37706,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hdece0f729cf408acE(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !3301, !noundef !3
-  %.not14 = icmp eq i64 %8, 5
-  br i1 %.not14, label %.thread, label %17
+  %.not9 = icmp eq i64 %8, 5
+  br i1 %.not9, label %17, label %18
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13319
@@ -37731,18 +37731,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17hdece0f729cf408acE(ptr 
   call void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..RegistryBuiltWheel$GT$$GT$17h4326dbdb65b925e4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-15:                                               ; preds = %17
+15:                                               ; preds = %18
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %17, %6
+17:                                               ; preds = %18, %6
   resume { ptr, i32 } %7
 
-17:                                               ; preds = %6
+18:                                               ; preds = %6
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5) #61
-          to label %.thread unwind label %15
+          to label %17 unwind label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37764,8 +37764,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hdf9c146dc80faa4dE(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i8, ptr %5, align 8, !range !3330, !noundef !3
-  %.not14 = icmp eq i8 %8, 20
-  br i1 %.not14, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..error..ResolveError$GT$$GT$17h1b98c6402da0f145E.llvm.11984584770032924863.exit", label %17
+  %.not9 = icmp eq i8 %8, 20
+  br i1 %.not9, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..error..ResolveError$GT$$GT$17h1b98c6402da0f145E.llvm.11984584770032924863.exit", label %17
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13337
@@ -37824,8 +37824,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17he08d980255d8cdf3E(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !1193, !noundef !3
-  %.not13 = icmp eq i64 %9, -9223372036854775803
-  br i1 %.not13, label %.thread, label %16
+  %.not8 = icmp eq i64 %9, -9223372036854775803
+  br i1 %.not8, label %16, label %17
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13354
@@ -37850,12 +37850,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17he08d980255d8cdf3E(ptr 
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..value..Value$GT$$GT$17hcbf848bc055b9ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %14
 
-.thread:                                          ; preds = %16, %7
+16:                                               ; preds = %17, %7
   resume { ptr, i32 } %8
 
-16:                                               ; preds = %7
+17:                                               ; preds = %7
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #61
-  br label %.thread
+  br label %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37879,8 +37879,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17he418cacc84639a9fE(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %7, align 8, !noundef !3
-  %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq ptr %9, null
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hcaa3f723967826d9E.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -37911,18 +37911,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17he418cacc84639a9fE(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13385
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17h32946453870c617eE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37946,8 +37946,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17he58a134f3c9cbdb1E(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !1193, !noundef !3
-  %.not13 = icmp eq i64 %9, -9223372036854775803
-  br i1 %.not13, label %.thread, label %16
+  %.not8 = icmp eq i64 %9, -9223372036854775803
+  br i1 %.not8, label %16, label %17
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13392
@@ -37972,12 +37972,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17he58a134f3c9cbdb1E(ptr 
   call void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..inline_table..InlineTable$GT$$GT$17hcf0a210103956111E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %14
 
-.thread:                                          ; preds = %16, %7
+16:                                               ; preds = %17, %7
   resume { ptr, i32 } %8
 
-16:                                               ; preds = %7
+17:                                               ; preds = %7
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #61
-  br label %.thread
+  br label %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -38001,8 +38001,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17he804173a5af9b62dE(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %7, align 8, !noundef !3
-  %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq ptr %9, null
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hf5e91ecb45fcbfb5E.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -38033,18 +38033,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17he804173a5af9b62dE(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13423
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17h32946453870c617eE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -38068,8 +38068,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17heba61c91e40dc627E(ptr 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %7, align 8, !noundef !3
-  %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %.thread, label %16
+  %.not11 = icmp eq ptr %9, null
+  br i1 %.not11, label %16, label %17
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h40527c2ac30aca35E.llvm.11984584770032924863.exit": ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -38100,18 +38100,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17heba61c91e40dc627E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13438
   br label %13
 
-14:                                               ; preds = %16
+14:                                               ; preds = %17
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %16, %8
+16:                                               ; preds = %17, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-16:                                               ; preds = %8
+17:                                               ; preds = %8
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17h32946453870c617eE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #61
-          to label %.thread unwind label %14
+          to label %16 unwind label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -38133,8 +38133,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hf872dd60838ec4c8E(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i8, ptr %5, align 8, !range !3330, !noundef !3
-  %.not14 = icmp eq i8 %8, 20
-  br i1 %.not14, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..error..ResolveError$GT$$GT$17h1b98c6402da0f145E.llvm.11984584770032924863.exit", label %17
+  %.not9 = icmp eq i8 %8, 20
+  br i1 %.not9, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..error..ResolveError$GT$$GT$17h1b98c6402da0f145E.llvm.11984584770032924863.exit", label %17
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13445
@@ -38191,8 +38191,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hffac286a507e8c66E(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !1193, !noundef !3
-  %.not14 = icmp eq i64 %8, -9223372036854775803
-  br i1 %.not14, label %.thread, label %15
+  %.not9 = icmp eq i64 %8, -9223372036854775803
+  br i1 %.not9, label %15, label %16
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13463
@@ -38217,12 +38217,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17hffac286a507e8c66E(ptr 
   call void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$toml_edit..value..Value$GT$$GT$17hcbf848bc055b9ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-.thread:                                          ; preds = %15, %6
+15:                                               ; preds = %16, %6
   resume { ptr, i32 } %7
 
-15:                                               ; preds = %6
+16:                                               ; preds = %6
   call void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$toml_edit..ser..Error$GT$$GT$17h8b2f728fbc4808dcE.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #61
-  br label %.thread
+  br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -38244,8 +38244,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hffc1fbcdec21a0cdE(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !3301, !noundef !3
-  %.not14 = icmp eq i64 %8, 5
-  br i1 %.not14, label %.thread, label %17
+  %.not9 = icmp eq i64 %8, 5
+  br i1 %.not9, label %17, label %18
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13486
@@ -38269,18 +38269,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17hffc1fbcdec21a0cdE(ptr 
   call void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$uv_resolver..lock..Dependency$GT$$GT$17h6f14fe9c5b759848E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   br label %13
 
-15:                                               ; preds = %17
+15:                                               ; preds = %18
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #62
   unreachable
 
-.thread:                                          ; preds = %17, %6
+17:                                               ; preds = %18, %6
   resume { ptr, i32 } %7
 
-17:                                               ; preds = %6
+18:                                               ; preds = %6
   invoke void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_resolver..lock..LockError$GT$$GT$17hf6d6f49a346feaf6E.llvm.11984584770032924863"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5) #61
-          to label %.thread unwind label %15
+          to label %17 unwind label %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

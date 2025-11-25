@@ -2343,14 +2343,14 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
   %39 = icmp eq i8 %17, 0
   br i1 %39, label %dis_field_vp.exit, label %.preheader
 
-.preheader:                                       ; preds = %5, %184
-  %.0143.i = phi i32 [ %185, %184 ], [ %38, %5 ]
-  %.0141.i = phi ptr [ %47, %184 ], [ %2, %5 ]
-  %.0139.i = phi i8 [ 2, %184 ], [ %17, %5 ]
+.preheader:                                       ; preds = %5, %187
+  %.0143.i = phi i32 [ %188, %187 ], [ %38, %5 ]
+  %.0141.i = phi ptr [ %47, %187 ], [ %2, %5 ]
+  %.0139.i = phi i8 [ 2, %187 ], [ %17, %5 ]
   switch i8 %.0139.i, label %default.unreachable [
     i8 1, label %40
-    i8 2, label %97
-    i8 3, label %132
+    i8 2, label %100
+    i8 3, label %135
   ]
 
 40:                                               ; preds = %.preheader
@@ -2387,7 +2387,7 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
   %62 = and i8 %48, 7
   switch i8 %62, label %.sink.split.i [
     i8 3, label %69
-    i8 1, label %184
+    i8 1, label %187
     i8 2, label %63
   ]
 
@@ -2402,153 +2402,156 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
 69:                                               ; preds = %55
   %70 = add i32 %.0143.i, 1
   %71 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %70)
-  %72 = zext i8 %71 to i32
-  %73 = and i32 %72, 15
-  %74 = mul nuw nsw i32 %73, 10
-  %75 = lshr i32 %72, 4
-  %76 = add nuw nsw i32 %74, %75
+  %72 = zext i8 %71 to i16
+  %73 = and i16 %72, 15
+  %74 = mul nuw nsw i16 %73, 10
+  %75 = lshr i16 %72, 4
+  %76 = add nuw nsw i16 %74, %75
   %77 = load i32, ptr @hf_gsm_sms_vp_validity_period_hour, align 4
-  %78 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %77, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef %76)
-  %79 = add i32 %.0143.i, 2
-  %80 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %79)
-  %81 = zext i8 %80 to i32
-  %82 = and i32 %81, 15
-  %83 = mul nuw nsw i32 %82, 10
-  %84 = lshr i32 %81, 4
-  %85 = add nuw nsw i32 %83, %84
-  %86 = load i32, ptr @hf_gsm_sms_vp_validity_period_minutes, align 4
-  %87 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %86, ptr noundef %0, i32 noundef %79, i32 noundef 1, i32 noundef %85)
-  %88 = add i32 %.0143.i, 3
-  %89 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %88)
-  %90 = zext i8 %89 to i32
-  %91 = and i32 %90, 15
-  %92 = mul nuw nsw i32 %91, 10
-  %93 = lshr i32 %90, 4
-  %94 = add nuw nsw i32 %92, %93
-  %95 = load i32, ptr @hf_gsm_sms_vp_validity_period_seconds, align 4
-  %96 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %95, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef %94)
+  %78 = zext nneg i16 %76 to i32
+  %79 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %77, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef %78)
+  %80 = add i32 %.0143.i, 2
+  %81 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %80)
+  %82 = zext i8 %81 to i16
+  %83 = and i16 %82, 15
+  %84 = mul nuw nsw i16 %83, 10
+  %85 = lshr i16 %82, 4
+  %86 = add nuw nsw i16 %84, %85
+  %87 = load i32, ptr @hf_gsm_sms_vp_validity_period_minutes, align 4
+  %88 = zext nneg i16 %86 to i32
+  %89 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %87, ptr noundef %0, i32 noundef %80, i32 noundef 1, i32 noundef %88)
+  %90 = add i32 %.0143.i, 3
+  %91 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %90)
+  %92 = zext i8 %91 to i16
+  %93 = and i16 %92, 15
+  %94 = mul nuw nsw i16 %93, 10
+  %95 = lshr i16 %92, 4
+  %96 = add nuw nsw i16 %94, %95
+  %97 = load i32, ptr @hf_gsm_sms_vp_validity_period_seconds, align 4
+  %98 = zext nneg i16 %96 to i32
+  %99 = tail call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %97, ptr noundef %0, i32 noundef %90, i32 noundef 1, i32 noundef %98)
   br label %.sink.split.i
 
-97:                                               ; preds = %.preheader
-  %98 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0143.i)
-  %99 = zext i8 %98 to i32
-  %100 = icmp ult i8 %98, -112
-  br i1 %100, label %101, label %113
+100:                                              ; preds = %.preheader
+  %101 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0143.i)
+  %102 = zext i8 %101 to i32
+  %103 = icmp ult i8 %101, -112
+  br i1 %103, label %104, label %116
 
-101:                                              ; preds = %97
-  %102 = mul nuw nsw i32 %99, 5
-  %103 = add nuw nsw i32 %102, 5
-  %104 = icmp ugt i8 %98, 10
-  br i1 %104, label %105, label %110
+104:                                              ; preds = %100
+  %105 = mul nuw nsw i32 %102, 5
+  %106 = add nuw nsw i32 %105, 5
+  %107 = icmp ugt i8 %101, 10
+  br i1 %107, label %108, label %113
 
-105:                                              ; preds = %101
-  %.lhs.trunc.i = trunc nuw nsw i32 %103 to i16
-  %106 = udiv i16 %.lhs.trunc.i, 60
-  %.zext.i = zext nneg i16 %106 to i32
-  %107 = urem i16 %.lhs.trunc.i, 60
-  %.zext159.i = zext nneg i16 %107 to i32
-  %108 = load i32, ptr @hf_gsm_sms_vp_validity_period, align 4
-  %109 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %108, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %99, ptr noundef nonnull @.str.644, i32 noundef %.zext.i, i32 noundef %.zext159.i)
-  br label %.sink.split.i
-
-110:                                              ; preds = %101
+108:                                              ; preds = %104
+  %.lhs.trunc.i = trunc nuw nsw i32 %106 to i16
+  %109 = udiv i16 %.lhs.trunc.i, 60
+  %.zext.i = zext nneg i16 %109 to i32
+  %110 = urem i16 %.lhs.trunc.i, 60
+  %.zext159.i = zext nneg i16 %110 to i32
   %111 = load i32, ptr @hf_gsm_sms_vp_validity_period, align 4
-  %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %111, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %99, ptr noundef nonnull @.str.645, i32 noundef %103)
+  %112 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %111, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %102, ptr noundef nonnull @.str.644, i32 noundef %.zext.i, i32 noundef %.zext159.i)
   br label %.sink.split.i
 
-113:                                              ; preds = %97
-  %114 = icmp samesign ult i8 %98, -88
-  br i1 %114, label %115, label %123
-
-115:                                              ; preds = %113
-  %116 = zext i8 %98 to i16
-  %117 = mul nuw nsw i16 %116, 30
-  %.lhs.trunc160.i = add nsw i16 %117, -4290
-  %118 = udiv i16 %.lhs.trunc160.i, 60
-  %narrow.i = add nuw nsw i16 %118, 12
-  %119 = zext nneg i16 %narrow.i to i32
-  %120 = urem i16 %.lhs.trunc160.i, 60
-  %.zext163.i = zext nneg i16 %120 to i32
-  %121 = load i32, ptr @hf_gsm_sms_vp_validity_period, align 4
-  %122 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %121, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %99, ptr noundef nonnull @.str.644, i32 noundef %119, i32 noundef %.zext163.i)
+113:                                              ; preds = %104
+  %114 = load i32, ptr @hf_gsm_sms_vp_validity_period, align 4
+  %115 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %114, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %102, ptr noundef nonnull @.str.645, i32 noundef %106)
   br label %.sink.split.i
 
-123:                                              ; preds = %113
-  %124 = icmp samesign ult i8 %98, -59
-  %125 = load i32, ptr @hf_gsm_sms_vp_validity_period, align 4
-  br i1 %124, label %126, label %129
+116:                                              ; preds = %100
+  %117 = icmp samesign ult i8 %101, -88
+  br i1 %117, label %118, label %126
 
-126:                                              ; preds = %123
-  %127 = add nsw i32 %99, -166
-  %128 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %125, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %99, ptr noundef nonnull @.str.646, i32 noundef %127)
+118:                                              ; preds = %116
+  %119 = zext i8 %101 to i16
+  %120 = mul nuw nsw i16 %119, 30
+  %.lhs.trunc160.i = add nsw i16 %120, -4290
+  %121 = udiv i16 %.lhs.trunc160.i, 60
+  %narrow.i = add nuw nsw i16 %121, 12
+  %122 = zext nneg i16 %narrow.i to i32
+  %123 = urem i16 %.lhs.trunc160.i, 60
+  %.zext163.i = zext nneg i16 %123 to i32
+  %124 = load i32, ptr @hf_gsm_sms_vp_validity_period, align 4
+  %125 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %124, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %102, ptr noundef nonnull @.str.644, i32 noundef %122, i32 noundef %.zext163.i)
   br label %.sink.split.i
 
-129:                                              ; preds = %123
-  %130 = add nsw i32 %99, -192
-  %131 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %125, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %99, ptr noundef nonnull @.str.647, i32 noundef %130)
+126:                                              ; preds = %116
+  %127 = icmp samesign ult i8 %101, -59
+  %128 = load i32, ptr @hf_gsm_sms_vp_validity_period, align 4
+  br i1 %127, label %129, label %132
+
+129:                                              ; preds = %126
+  %130 = add nsw i32 %102, -166
+  %131 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %128, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %102, ptr noundef nonnull @.str.646, i32 noundef %130)
   br label %.sink.split.i
 
-132:                                              ; preds = %.preheader
-  %133 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0143.i)
-  %134 = icmp ult i32 %133, 7
-  br i1 %134, label %135, label %137
-
-135:                                              ; preds = %132
-  %136 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gsm_sms_short_data, ptr noundef %0, i32 noundef %.0143.i, i32 noundef %133, ptr noundef nonnull @.str.642)
+132:                                              ; preds = %126
+  %133 = add nsw i32 %102, -192
+  %134 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0141.i, i32 noundef %128, ptr noundef %0, i32 noundef %.0143.i, i32 noundef 1, i32 noundef %102, ptr noundef nonnull @.str.647, i32 noundef %133)
   br label %.sink.split.i
 
-137:                                              ; preds = %132
+135:                                              ; preds = %.preheader
+  %136 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0143.i)
+  %137 = icmp ult i32 %136, 7
+  br i1 %137, label %138, label %140
+
+138:                                              ; preds = %135
+  %139 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gsm_sms_short_data, ptr noundef %0, i32 noundef %.0143.i, i32 noundef %136, ptr noundef nonnull @.str.642)
+  br label %.sink.split.i
+
+140:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %138 = call fastcc ptr @tp_scts_values(ptr noundef %0, ptr noundef readonly %1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %139 = load i32, ptr @hf_gsm_sms_vp_validity_period_absolute, align 4
-  %140 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %2, i32 noundef %139, ptr noundef %0, i32 noundef %38, i32 noundef 7, ptr noundef nonnull %8, ptr noundef nonnull @.str.624, ptr noundef %138)
-  %141 = load i32, ptr @ett_vp, align 4
-  %142 = call ptr @proto_item_add_subtree(ptr noundef %140, i32 noundef %141)
-  %143 = load i32, ptr @hf_gsm_sms_vp_validity_period_year, align 4
-  %144 = add i32 %34, 3
-  %145 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  %146 = load i32, ptr %145, align 4
-  %147 = add i32 %146, -100
-  %148 = call ptr @proto_tree_add_uint(ptr noundef %142, i32 noundef %143, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef %147)
-  %149 = load i32, ptr @hf_gsm_sms_vp_validity_period_month, align 4
-  %150 = add i32 %34, 4
-  %151 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %152 = load i32, ptr %151, align 8
-  %153 = add i32 %152, 1
-  %154 = call ptr @proto_tree_add_uint(ptr noundef %142, i32 noundef %149, ptr noundef %0, i32 noundef %144, i32 noundef 1, i32 noundef %153)
-  %155 = load i32, ptr @hf_gsm_sms_vp_validity_period_day, align 4
-  %156 = add i32 %34, 5
-  %157 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %158 = load i32, ptr %157, align 4
-  %159 = call ptr @proto_tree_add_uint(ptr noundef %142, i32 noundef %155, ptr noundef %0, i32 noundef %150, i32 noundef 1, i32 noundef %158)
-  %160 = load i32, ptr @hf_gsm_sms_vp_validity_period_hour, align 4
-  %161 = add i32 %34, 6
-  %162 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %163 = load i32, ptr %162, align 8
-  %164 = call ptr @proto_tree_add_uint(ptr noundef %142, i32 noundef %160, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef %163)
-  %165 = load i32, ptr @hf_gsm_sms_vp_validity_period_minutes, align 4
-  %166 = add i32 %34, 7
-  %167 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %168 = load i32, ptr %167, align 4
-  %169 = call ptr @proto_tree_add_uint(ptr noundef %142, i32 noundef %165, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef %168)
-  %170 = load i32, ptr @hf_gsm_sms_vp_validity_period_seconds, align 4
-  %171 = add i32 %34, 8
-  %172 = load i32, ptr %9, align 8
-  %173 = call ptr @proto_tree_add_uint(ptr noundef %142, i32 noundef %170, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef %172)
-  %174 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %171)
-  %175 = load i32, ptr @hf_gsm_sms_vp_validity_period_timezone, align 4
-  %176 = zext i8 %174 to i32
-  %177 = load i8, ptr %10, align 1
-  %178 = sext i8 %177 to i32
-  %179 = load i16, ptr %6, align 2
-  %180 = zext i16 %179 to i32
-  %181 = load i16, ptr %7, align 2
-  %182 = zext i16 %181 to i32
-  %183 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %142, i32 noundef %175, ptr noundef %0, i32 noundef %171, i32 noundef 1, i32 noundef %176, ptr noundef nonnull @.str.625, i32 noundef %178, i32 noundef %180, i32 noundef %182)
+  %141 = call fastcc ptr @tp_scts_values(ptr noundef %0, ptr noundef readonly %1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %142 = load i32, ptr @hf_gsm_sms_vp_validity_period_absolute, align 4
+  %143 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %2, i32 noundef %142, ptr noundef %0, i32 noundef %38, i32 noundef 7, ptr noundef nonnull %8, ptr noundef nonnull @.str.624, ptr noundef %141)
+  %144 = load i32, ptr @ett_vp, align 4
+  %145 = call ptr @proto_item_add_subtree(ptr noundef %143, i32 noundef %144)
+  %146 = load i32, ptr @hf_gsm_sms_vp_validity_period_year, align 4
+  %147 = add i32 %34, 3
+  %148 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %149 = load i32, ptr %148, align 4
+  %150 = add i32 %149, -100
+  %151 = call ptr @proto_tree_add_uint(ptr noundef %145, i32 noundef %146, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef %150)
+  %152 = load i32, ptr @hf_gsm_sms_vp_validity_period_month, align 4
+  %153 = add i32 %34, 4
+  %154 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %155 = load i32, ptr %154, align 8
+  %156 = add i32 %155, 1
+  %157 = call ptr @proto_tree_add_uint(ptr noundef %145, i32 noundef %152, ptr noundef %0, i32 noundef %147, i32 noundef 1, i32 noundef %156)
+  %158 = load i32, ptr @hf_gsm_sms_vp_validity_period_day, align 4
+  %159 = add i32 %34, 5
+  %160 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %161 = load i32, ptr %160, align 4
+  %162 = call ptr @proto_tree_add_uint(ptr noundef %145, i32 noundef %158, ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef %161)
+  %163 = load i32, ptr @hf_gsm_sms_vp_validity_period_hour, align 4
+  %164 = add i32 %34, 6
+  %165 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %166 = load i32, ptr %165, align 8
+  %167 = call ptr @proto_tree_add_uint(ptr noundef %145, i32 noundef %163, ptr noundef %0, i32 noundef %159, i32 noundef 1, i32 noundef %166)
+  %168 = load i32, ptr @hf_gsm_sms_vp_validity_period_minutes, align 4
+  %169 = add i32 %34, 7
+  %170 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %171 = load i32, ptr %170, align 4
+  %172 = call ptr @proto_tree_add_uint(ptr noundef %145, i32 noundef %168, ptr noundef %0, i32 noundef %164, i32 noundef 1, i32 noundef %171)
+  %173 = load i32, ptr @hf_gsm_sms_vp_validity_period_seconds, align 4
+  %174 = add i32 %34, 8
+  %175 = load i32, ptr %9, align 8
+  %176 = call ptr @proto_tree_add_uint(ptr noundef %145, i32 noundef %173, ptr noundef %0, i32 noundef %169, i32 noundef 1, i32 noundef %175)
+  %177 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %174)
+  %178 = load i32, ptr @hf_gsm_sms_vp_validity_period_timezone, align 4
+  %179 = zext i8 %177 to i32
+  %180 = load i8, ptr %10, align 1
+  %181 = sext i8 %180 to i32
+  %182 = load i16, ptr %6, align 2
+  %183 = zext i16 %182 to i32
+  %184 = load i16, ptr %7, align 2
+  %185 = zext i16 %184 to i32
+  %186 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %145, i32 noundef %178, ptr noundef %0, i32 noundef %174, i32 noundef 1, i32 noundef %179, ptr noundef nonnull @.str.625, i32 noundef %181, i32 noundef %183, i32 noundef %185)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2559,39 +2562,39 @@ define internal void @dis_msg_submit(ptr noundef %0, ptr noundef %1, ptr noundef
 default.unreachable:                              ; preds = %.preheader
   unreachable
 
-184:                                              ; preds = %55
-  %185 = add i32 %.0143.i, 1
+187:                                              ; preds = %55
+  %188 = add i32 %.0143.i, 1
   br label %.preheader
 
-.sink.split.i:                                    ; preds = %55, %137, %135, %129, %126, %115, %110, %105, %69, %63, %51, %43
-  %.sink234.sink.i = phi i32 [ %133, %135 ], [ 7, %51 ], [ %41, %43 ], [ 1, %115 ], [ 1, %129 ], [ 1, %126 ], [ 1, %105 ], [ 1, %110 ], [ 7, %137 ], [ 7, %69 ], [ 7, %63 ], [ 7, %55 ]
-  %186 = add i32 %38, %.sink234.sink.i
+.sink.split.i:                                    ; preds = %55, %140, %138, %132, %129, %118, %113, %108, %69, %63, %51, %43
+  %.sink234.sink.i = phi i32 [ %136, %138 ], [ 7, %51 ], [ %41, %43 ], [ 1, %118 ], [ 1, %132 ], [ 1, %129 ], [ 1, %108 ], [ 1, %113 ], [ 7, %140 ], [ 7, %69 ], [ 7, %63 ], [ 7, %55 ]
+  %189 = add i32 %38, %.sink234.sink.i
   br label %dis_field_vp.exit
 
 dis_field_vp.exit:                                ; preds = %5, %.sink.split.i
-  %187 = phi i32 [ %38, %5 ], [ %186, %.sink.split.i ]
-  %188 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %187)
-  %189 = load i32, ptr @hf_gsm_sms_tp_user_data_length, align 4
-  %190 = zext i8 %188 to i32
-  %.not = icmp eq i8 %188, 0
-  %191 = select i1 %.not, ptr @.str.622, ptr @.str.621
-  %192 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %189, ptr noundef %0, i32 noundef %187, i32 noundef 1, i32 noundef %190, ptr noundef nonnull @.str.620, i32 noundef %190, ptr noundef nonnull %191)
-  br i1 %.not, label %201, label %193
+  %190 = phi i32 [ %38, %5 ], [ %189, %.sink.split.i ]
+  %191 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %190)
+  %192 = load i32, ptr @hf_gsm_sms_tp_user_data_length, align 4
+  %193 = zext i8 %191 to i32
+  %.not = icmp eq i8 %191, 0
+  %194 = select i1 %.not, ptr @.str.622, ptr @.str.621
+  %195 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %192, ptr noundef %0, i32 noundef %190, i32 noundef 1, i32 noundef %193, ptr noundef nonnull @.str.620, i32 noundef %193, ptr noundef nonnull %194)
+  br i1 %.not, label %204, label %196
 
-193:                                              ; preds = %dis_field_vp.exit
-  %194 = and i8 %15, 64
-  %195 = icmp ne i8 %194, 0
-  %196 = add i32 %187, 1
-  %.neg49 = xor i32 %187, -1
+196:                                              ; preds = %dis_field_vp.exit
+  %197 = and i8 %15, 64
+  %198 = icmp ne i8 %197, 0
+  %199 = add i32 %190, 1
+  %.neg49 = xor i32 %190, -1
   %.neg = add i32 %14, %3
-  %197 = add i32 %.neg, %.neg49
-  %198 = load i32, ptr %12, align 4
-  %199 = load i8, ptr %13, align 1, !range !9, !noundef !10
-  %200 = trunc nuw i8 %199 to i1
-  call fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %196, i32 noundef %197, i1 noundef zeroext %195, i8 noundef zeroext %188, i32 noundef %198, i1 noundef zeroext %200, ptr noundef %4)
-  br label %201
+  %200 = add i32 %.neg, %.neg49
+  %201 = load i32, ptr %12, align 4
+  %202 = load i8, ptr %13, align 1, !range !9, !noundef !10
+  %203 = trunc nuw i8 %202 to i1
+  call fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %199, i32 noundef %200, i1 noundef zeroext %198, i8 noundef zeroext %191, i32 noundef %201, i1 noundef zeroext %203, ptr noundef %4)
+  br label %204
 
-201:                                              ; preds = %193, %dis_field_vp.exit
+204:                                              ; preds = %196, %dis_field_vp.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void

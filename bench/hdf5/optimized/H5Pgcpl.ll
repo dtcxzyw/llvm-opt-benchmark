@@ -309,7 +309,7 @@ define range(i32 -1, 1) i32 @H5Pget_local_heap_size_hint(i64 noundef %0, ptr nou
   %41 = load i64, ptr @H5P_CLS_GROUP_CREATE_ID_g, align 8, !tbaa !10
   %42 = call ptr @H5P_object_verify(i64 noundef %0, i64 noundef %41, i1 noundef zeroext true) #7
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %48
+  br i1 %43, label %44, label %48, !prof !14
 
 44:                                               ; preds = %40
   %45 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
@@ -320,7 +320,7 @@ define range(i32 -1, 1) i32 @H5Pget_local_heap_size_hint(i64 noundef %0, ptr nou
 48:                                               ; preds = %40
   %49 = call i32 @H5P_get(ptr noundef nonnull %42, ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #7
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %56
+  br i1 %50, label %51, label %56, !prof !14
 
 51:                                               ; preds = %48
   %52 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
@@ -574,7 +574,7 @@ define range(i32 -1, 1) i32 @H5Pget_link_phase_change(i64 noundef %0, ptr nounde
   %44 = load i64, ptr @H5P_CLS_GROUP_CREATE_ID_g, align 8, !tbaa !10
   %45 = call ptr @H5P_object_verify(i64 noundef %0, i64 noundef %44, i1 noundef zeroext true) #7
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %51
+  br i1 %46, label %47, label %51, !prof !14
 
 47:                                               ; preds = %43
   %48 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
@@ -585,7 +585,7 @@ define range(i32 -1, 1) i32 @H5Pget_link_phase_change(i64 noundef %0, ptr nounde
 51:                                               ; preds = %43
   %52 = call i32 @H5P_get(ptr noundef nonnull %45, ptr noundef nonnull @.str.6, ptr noundef nonnull %5) #7
   %53 = icmp slt i32 %52, 0
-  br i1 %53, label %54, label %58
+  br i1 %53, label %54, label %58, !prof !14
 
 54:                                               ; preds = %51
   %55 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
@@ -856,7 +856,7 @@ define range(i32 -1, 1) i32 @H5Pget_est_link_info(i64 noundef %0, ptr noundef wr
   %44 = load i64, ptr @H5P_CLS_GROUP_CREATE_ID_g, align 8, !tbaa !10
   %45 = call ptr @H5P_object_verify(i64 noundef %0, i64 noundef %44, i1 noundef zeroext true) #7
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %51
+  br i1 %46, label %47, label %51, !prof !14
 
 47:                                               ; preds = %43
   %48 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
@@ -867,7 +867,7 @@ define range(i32 -1, 1) i32 @H5Pget_est_link_info(i64 noundef %0, ptr noundef wr
 51:                                               ; preds = %43
   %52 = call i32 @H5P_get(ptr noundef nonnull %45, ptr noundef nonnull @.str.6, ptr noundef nonnull %5) #7
   %53 = icmp slt i32 %52, 0
-  br i1 %53, label %54, label %58
+  br i1 %53, label %54, label %58, !prof !14
 
 54:                                               ; preds = %51
   %55 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
@@ -1123,7 +1123,7 @@ define range(i32 -1, 1) i32 @H5Pget_link_creation_order(i64 noundef %0, ptr noun
   %41 = load i64, ptr @H5P_CLS_GROUP_CREATE_ID_g, align 8, !tbaa !10
   %42 = call ptr @H5P_object_verify(i64 noundef %0, i64 noundef %41, i1 noundef zeroext true) #7
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %48
+  br i1 %43, label %44, label %48, !prof !14
 
 44:                                               ; preds = %40
   %45 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
@@ -1134,7 +1134,7 @@ define range(i32 -1, 1) i32 @H5Pget_link_creation_order(i64 noundef %0, ptr noun
 48:                                               ; preds = %40
   %49 = call i32 @H5P_get(ptr noundef nonnull %42, ptr noundef nonnull @.str.15, ptr noundef nonnull %4) #7
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %56
+  br i1 %50, label %51, label %56, !prof !14
 
 51:                                               ; preds = %48
   %52 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10

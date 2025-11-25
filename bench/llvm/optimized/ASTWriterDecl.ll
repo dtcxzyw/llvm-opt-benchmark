@@ -1407,7 +1407,7 @@ _ZNK5clang4Decl7hasAttrINS_16AlwaysInlineAttrEEEbv.exit.thread52: ; preds = %62,
   %spec.select = icmp ugt i32 %.sroa.042.1, 1
   br label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread50
 
-_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread50: ; preds = %39, %67, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit, %41, %_ZNK5clang4Decl7hasAttrINS_16AlwaysInlineAttrEEEbv.exit, %24, %28, %2
+_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread50: ; preds = %39, %67, %28, %24, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit, %41, %_ZNK5clang4Decl7hasAttrINS_16AlwaysInlineAttrEEEbv.exit, %2
   %.0 = phi i1 [ false, %2 ], [ %.1, %_ZNK5clang4Decl7hasAttrINS_16AlwaysInlineAttrEEEbv.exit ], [ %.1, %41 ], [ %.1, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit ], [ %.1, %24 ], [ %.1, %28 ], [ %spec.select, %67 ], [ %.1, %39 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !42

@@ -16916,7 +16916,7 @@ define internal fastcc void @dissect_PE_ServiceResponse_block(ptr noundef %0, i3
   %51 = zext i8 %7 to i32
   %52 = zext i8 %6 to i32
   %53 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %4, ptr noundef nonnull @ei_pn_io_block_version, ptr noundef nonnull @.str.1402, i32 noundef %52, i32 noundef %51)
-  br label %402
+  br label %401
 
 54:                                               ; preds = %9
   %55 = load i32, ptr @hf_pn_io_pe_service_request_id, align 4
@@ -16934,82 +16934,83 @@ define internal fastcc void @dissect_PE_ServiceResponse_block(ptr noundef %0, i3
   %67 = load i8, ptr %13, align 1
   %68 = zext i8 %67 to i16
   %69 = icmp eq i8 %67, -1
-  br i1 %69, label %70, label %84
+  br i1 %69, label %82, label %70
 
 70:                                               ; preds = %54
-  %71 = load i32, ptr @hf_pn_io_pe_service_errorcode, align 4
-  %72 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %62, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %71, ptr noundef nonnull %12)
-  %73 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %72, ptr noundef %2, ptr noundef %3, i32 noundef 1)
-  %74 = load i8, ptr %10, align 1
-  %75 = zext i8 %74 to i32
-  %76 = call ptr @rval_to_str_const(i32 noundef %75, ptr noundef nonnull @pn_io_pe_services, ptr noundef nonnull @.str.1400)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1659, ptr noundef %76)
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i8, ptr %11, align 1
-  %80 = zext i8 %79 to i32
-  %81 = load i8, ptr %10, align 1
-  %82 = zext i8 %81 to i32
-  %83 = call ptr @rval_to_str_const(i32 noundef %82, ptr noundef nonnull @pn_io_pe_services, ptr noundef nonnull @.str.1400)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %78, i32 noundef 25, ptr noundef nonnull @.str.1710, i32 noundef %80, ptr noundef %83)
-  br label %100
-
-84:                                               ; preds = %54
-  switch i8 %64, label %95 [
-    i8 1, label %85
-    i8 3, label %88
-    i8 4, label %90
-    i8 16, label %93
-    i8 17, label %97
+  switch i8 %64, label %81 [
+    i8 1, label %71
+    i8 3, label %74
+    i8 4, label %76
+    i8 16, label %79
+    i8 17, label %.thread565
   ]
 
-85:                                               ; preds = %84
-  %86 = add nsw i16 %68, -1
-  %87 = or i16 %86, 256
-  br label %97
+71:                                               ; preds = %70
+  %72 = add nsw i16 %68, -1
+  %73 = or i16 %72, 256
+  br label %.thread565
 
-88:                                               ; preds = %84
-  %89 = or disjoint i16 %68, 768
-  br label %97
+74:                                               ; preds = %70
+  %75 = or disjoint i16 %68, 768
+  br label %.thread565
 
-90:                                               ; preds = %84
-  %91 = add nsw i16 %68, -1
-  %92 = or i16 %91, 1024
-  br label %97
+76:                                               ; preds = %70
+  %77 = add nsw i16 %68, -1
+  %78 = or i16 %77, 1024
+  br label %.thread565
 
-93:                                               ; preds = %84
+79:                                               ; preds = %70
   %switch.tableidx = add i8 %67, -1
-  %94 = icmp ult i8 %switch.tableidx, 4
-  br i1 %94, label %switch.lookup, label %97
+  %80 = icmp ult i8 %switch.tableidx, 4
+  br i1 %80, label %switch.lookup, label %.thread565
 
-95:                                               ; preds = %84
-  br label %97
+81:                                               ; preds = %70
+  br label %.thread565
 
-switch.lookup:                                    ; preds = %93
-  %96 = shl nuw nsw i8 %switch.tableidx, 4
-  %switch.shiftamt = zext nneg i8 %96 to i64
+82:                                               ; preds = %54
+  %83 = load i32, ptr @hf_pn_io_pe_service_errorcode, align 4
+  %84 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %62, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %83, ptr noundef nonnull %12)
+  %85 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %84, ptr noundef %2, ptr noundef %3, i32 noundef 1)
+  %86 = load i8, ptr %10, align 1
+  %87 = zext i8 %86 to i32
+  %88 = call ptr @rval_to_str_const(i32 noundef %87, ptr noundef nonnull @pn_io_pe_services, ptr noundef nonnull @.str.1400)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1659, ptr noundef %88)
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %91 = load i8, ptr %11, align 1
+  %92 = zext i8 %91 to i32
+  %93 = load i8, ptr %10, align 1
+  %94 = zext i8 %93 to i32
+  %95 = call ptr @rval_to_str_const(i32 noundef %94, ptr noundef nonnull @pn_io_pe_services, ptr noundef nonnull @.str.1400)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %90, i32 noundef 25, ptr noundef nonnull @.str.1710, i32 noundef %92, ptr noundef %95)
+  %96 = icmp ne i16 %63, 0
+  %97 = load i8, ptr %13, align 1
+  %98 = icmp ne i8 %97, -1
+  %or.cond5 = select i1 %96, i1 %98, i1 false
+  br i1 %or.cond5, label %105, label %401
+
+switch.lookup:                                    ; preds = %79
+  %99 = shl nuw nsw i8 %switch.tableidx, 4
+  %switch.shiftamt = zext nneg i8 %99 to i64
   %switch.downshift = lshr i64 1153783539171397634, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i16
-  br label %97
+  br label %.thread565
 
-97:                                               ; preds = %93, %switch.lookup, %84, %88, %95, %90, %85
-  %.1513 = phi i16 [ %87, %85 ], [ %89, %88 ], [ %92, %90 ], [ %66, %95 ], [ 4606, %84 ], [ %switch.masked, %switch.lookup ], [ %66, %93 ]
-  %98 = zext i16 %.1513 to i32
-  %99 = call ptr @val_to_str_const(i32 noundef %98, ptr noundef nonnull @pn_io_pe_services_modifier, ptr noundef nonnull @.str.1400)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1659, ptr noundef %99)
-  br label %100
-
-100:                                              ; preds = %97, %70
-  %.0512 = phi i16 [ %66, %70 ], [ %.1513, %97 ]
-  %.0511 = phi i32 [ %73, %70 ], [ %62, %97 ]
-  %101 = zext i16 %63 to i32
+.thread565:                                       ; preds = %79, %switch.lookup, %71, %76, %81, %74, %70
+  %.1513 = phi i16 [ %73, %71 ], [ %75, %74 ], [ %78, %76 ], [ %66, %81 ], [ 4606, %70 ], [ %switch.masked, %switch.lookup ], [ %66, %79 ]
+  %100 = zext i16 %.1513 to i32
+  %101 = call ptr @val_to_str_const(i32 noundef %100, ptr noundef nonnull @pn_io_pe_services_modifier, ptr noundef nonnull @.str.1400)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1659, ptr noundef %101)
   %102 = icmp ne i16 %63, 0
   %103 = load i8, ptr %13, align 1
   %104 = icmp ne i8 %103, -1
-  %or.cond5 = select i1 %102, i1 %104, i1 false
-  br i1 %or.cond5, label %105, label %394
+  %or.cond5568 = select i1 %102, i1 %104, i1 false
+  br i1 %or.cond5568, label %105, label %.thread574
 
-105:                                              ; preds = %100
+105:                                              ; preds = %.thread565, %82
+  %.0511572 = phi i32 [ %62, %.thread565 ], [ %85, %82 ]
+  %.0512571 = phi i16 [ %.1513, %.thread565 ], [ %66, %82 ]
+  %106 = zext i16 %63 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -17042,40 +17043,40 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %106 = load i32, ptr @hf_pn_io_pe_service_dataresponse, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %106, ptr noundef %0, i32 noundef %.0511, i32 noundef %101, i32 noundef 0)
-  %108 = load i32, ptr @ett_pn_io_pe_service_dataresponse, align 4
-  %109 = call ptr @proto_item_add_subtree(ptr noundef %107, i32 noundef %108)
-  %110 = load i8, ptr %10, align 1
-  switch i8 %110, label %392 [
-    i8 1, label %111
-    i8 2, label %124
-    i8 3, label %127
-    i8 4, label %173
-    i8 5, label %213
-    i8 6, label %222
-    i8 7, label %239
-    i8 16, label %264
-    i8 18, label %354
-    i8 32, label %370
-    i8 33, label %382
+  %107 = load i32, ptr @hf_pn_io_pe_service_dataresponse, align 4
+  %108 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %107, ptr noundef %0, i32 noundef %.0511572, i32 noundef %106, i32 noundef 0)
+  %109 = load i32, ptr @ett_pn_io_pe_service_dataresponse, align 4
+  %110 = call ptr @proto_item_add_subtree(ptr noundef %108, i32 noundef %109)
+  %111 = load i8, ptr %10, align 1
+  switch i8 %111, label %393 [
+    i8 1, label %112
+    i8 2, label %125
+    i8 3, label %128
+    i8 4, label %174
+    i8 5, label %214
+    i8 6, label %223
+    i8 7, label %240
+    i8 16, label %265
+    i8 18, label %355
+    i8 32, label %371
+    i8 33, label %383
   ]
 
-111:                                              ; preds = %105
-  %112 = load i32, ptr @hf_pn_io_pe_mode_id, align 4
-  %113 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %112, ptr noundef nonnull %16)
-  %114 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %109, i32 noundef 1)
-  %115 = load i8, ptr %13, align 1
-  %116 = icmp eq i8 %115, 2
-  br i1 %116, label %117, label %.loopexit
+112:                                              ; preds = %105
+  %113 = load i32, ptr @hf_pn_io_pe_mode_id, align 4
+  %114 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %113, ptr noundef nonnull %16)
+  %115 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %114, ptr noundef %2, ptr noundef %110, i32 noundef 1)
+  %116 = load i8, ptr %13, align 1
+  %117 = icmp eq i8 %116, 2
+  br i1 %117, label %118, label %.loopexit
 
-117:                                              ; preds = %111
-  %118 = load i32, ptr @hf_pn_io_pe_current_time_to_destination, align 4
-  %119 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %114, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %118, ptr noundef nonnull %20)
-  %120 = load i32, ptr @hf_pn_io_pe_regular_time_to_operate, align 4
-  %121 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %119, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %120, ptr noundef nonnull %23)
-  %122 = load i32, ptr @hf_pn_io_pe_time_min_length_of_stay, align 4
-  %123 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %121, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %122, ptr noundef nonnull %25)
+118:                                              ; preds = %112
+  %119 = load i32, ptr @hf_pn_io_pe_current_time_to_destination, align 4
+  %120 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %115, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %119, ptr noundef nonnull %20)
+  %121 = load i32, ptr @hf_pn_io_pe_regular_time_to_operate, align 4
+  %122 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %120, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %121, ptr noundef nonnull %23)
+  %123 = load i32, ptr @hf_pn_io_pe_time_min_length_of_stay, align 4
+  %124 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %122, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %123, ptr noundef nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -17108,11 +17109,11 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %69, label %402, label %395
+  br i1 %69, label %401, label %.thread574
 
-124:                                              ; preds = %105
-  %125 = load i32, ptr @hf_pn_io_pe_current_time_to_operate, align 4
-  %126 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %125, ptr noundef nonnull %21)
+125:                                              ; preds = %105
+  %126 = load i32, ptr @hf_pn_io_pe_current_time_to_operate, align 4
+  %127 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %126, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -17145,72 +17146,72 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %69, label %402, label %395
+  br i1 %69, label %401, label %.thread574
 
-127:                                              ; preds = %105
-  %128 = load i8, ptr %13, align 1
-  switch i8 %128, label %171 [
-    i8 1, label %129
-    i8 2, label %138
+128:                                              ; preds = %105
+  %129 = load i8, ptr %13, align 1
+  switch i8 %129, label %172 [
+    i8 1, label %130
+    i8 2, label %139
   ]
 
-129:                                              ; preds = %127
-  %130 = load i32, ptr @hf_pn_io_pe_data_count, align 4
-  %131 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %130, ptr noundef nonnull %14)
-  %132 = load i8, ptr %14, align 1
-  %133 = add i8 %132, -1
-  store i8 %133, ptr %14, align 1
-  %.not531550 = icmp eq i8 %132, 0
-  br i1 %.not531550, label %.loopexit, label %.lr.ph552
+130:                                              ; preds = %128
+  %131 = load i32, ptr @hf_pn_io_pe_data_count, align 4
+  %132 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %131, ptr noundef nonnull %14)
+  %133 = load i8, ptr %14, align 1
+  %134 = add i8 %133, -1
+  store i8 %134, ptr %14, align 1
+  %.not531553 = icmp eq i8 %133, 0
+  br i1 %.not531553, label %.loopexit, label %.lr.ph555
 
-.lr.ph552:                                        ; preds = %129, %.lr.ph552
-  %.3551 = phi i32 [ %135, %.lr.ph552 ], [ %131, %129 ]
-  %134 = load i32, ptr @hf_pn_io_pe_mode_id, align 4
-  %135 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.3551, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %134, ptr noundef nonnull %16)
-  %136 = load i8, ptr %14, align 1
-  %137 = add i8 %136, -1
-  store i8 %137, ptr %14, align 1
-  %.not531 = icmp eq i8 %136, 0
-  br i1 %.not531, label %.loopexit, label %.lr.ph552, !llvm.loop !86
+.lr.ph555:                                        ; preds = %130, %.lr.ph555
+  %.3554 = phi i32 [ %136, %.lr.ph555 ], [ %132, %130 ]
+  %135 = load i32, ptr @hf_pn_io_pe_mode_id, align 4
+  %136 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.3554, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %135, ptr noundef nonnull %16)
+  %137 = load i8, ptr %14, align 1
+  %138 = add i8 %137, -1
+  store i8 %138, ptr %14, align 1
+  %.not531 = icmp eq i8 %137, 0
+  br i1 %.not531, label %.loopexit, label %.lr.ph555, !llvm.loop !86
 
-138:                                              ; preds = %127
-  %139 = load i32, ptr @hf_pn_io_pe_mode_id, align 4
-  %140 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %139, ptr noundef nonnull %16)
-  %141 = load i32, ptr @hf_pn_io_pe_mode_attributes_value, align 4
-  %142 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef 1, i32 noundef 0)
-  %143 = load i32, ptr @ett_pn_io_pe_mode_attributes, align 4
-  %144 = call ptr @proto_item_add_subtree(ptr noundef %142, i32 noundef %143)
-  %145 = load i32, ptr @hf_pn_io_pe_mode_attributes_value_bit0, align 4
-  %146 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %140, ptr noundef %2, ptr noundef %144, ptr noundef %5, i32 noundef %145, ptr noundef nonnull %19)
-  %147 = load i32, ptr @hf_pn_io_pe_mode_attributes_value_otherbits, align 4
-  %148 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %140, ptr noundef %2, ptr noundef %144, ptr noundef %5, i32 noundef %147, ptr noundef nonnull %19)
-  %149 = load i32, ptr @hf_pn_io_pe_time_min_pause, align 4
-  %150 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %148, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %149, ptr noundef nonnull %24)
-  %151 = load i32, ptr @hf_pn_io_pe_time_to_pause, align 4
-  %152 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %150, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %151, ptr noundef nonnull %27)
-  %153 = load i32, ptr @hf_pn_io_pe_regular_time_to_operate, align 4
-  %154 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %152, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %153, ptr noundef nonnull %23)
-  %155 = load i32, ptr @hf_pn_io_pe_time_min_length_of_stay, align 4
-  %156 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %154, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %155, ptr noundef nonnull %25)
-  %157 = load i32, ptr @hf_pn_io_pe_time_max_length_of_stay, align 4
-  %158 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %156, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %157, ptr noundef nonnull %26)
-  %159 = load i32, ptr @hf_pn_io_pe_mode_power_consumption, align 4
-  %160 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %158, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %159, ptr noundef nonnull %28)
-  %161 = load i32, ptr @hf_pn_io_pe_energy_to_pause, align 4
-  %162 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %160, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %161, ptr noundef nonnull %29)
-  %163 = load i32, ptr @hf_pn_io_pe_energy_to_operate, align 4
-  %164 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %162, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %163, ptr noundef nonnull %29)
-  %165 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %166 = load ptr, ptr %165, align 8
-  %167 = load i8, ptr %11, align 1
-  %168 = zext i8 %167 to i32
-  %169 = load i8, ptr %16, align 1
-  %170 = zext i8 %169 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %166, i32 noundef 25, ptr noundef nonnull @.str.1711, i32 noundef %168, i32 noundef %170)
-  br label %.loopexit.thread
+139:                                              ; preds = %128
+  %140 = load i32, ptr @hf_pn_io_pe_mode_id, align 4
+  %141 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %140, ptr noundef nonnull %16)
+  %142 = load i32, ptr @hf_pn_io_pe_mode_attributes_value, align 4
+  %143 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef 1, i32 noundef 0)
+  %144 = load i32, ptr @ett_pn_io_pe_mode_attributes, align 4
+  %145 = call ptr @proto_item_add_subtree(ptr noundef %143, i32 noundef %144)
+  %146 = load i32, ptr @hf_pn_io_pe_mode_attributes_value_bit0, align 4
+  %147 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %141, ptr noundef %2, ptr noundef %145, ptr noundef %5, i32 noundef %146, ptr noundef nonnull %19)
+  %148 = load i32, ptr @hf_pn_io_pe_mode_attributes_value_otherbits, align 4
+  %149 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %141, ptr noundef %2, ptr noundef %145, ptr noundef %5, i32 noundef %148, ptr noundef nonnull %19)
+  %150 = load i32, ptr @hf_pn_io_pe_time_min_pause, align 4
+  %151 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %149, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %150, ptr noundef nonnull %24)
+  %152 = load i32, ptr @hf_pn_io_pe_time_to_pause, align 4
+  %153 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %151, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %152, ptr noundef nonnull %27)
+  %154 = load i32, ptr @hf_pn_io_pe_regular_time_to_operate, align 4
+  %155 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %153, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %154, ptr noundef nonnull %23)
+  %156 = load i32, ptr @hf_pn_io_pe_time_min_length_of_stay, align 4
+  %157 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %155, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %156, ptr noundef nonnull %25)
+  %158 = load i32, ptr @hf_pn_io_pe_time_max_length_of_stay, align 4
+  %159 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %157, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %158, ptr noundef nonnull %26)
+  %160 = load i32, ptr @hf_pn_io_pe_mode_power_consumption, align 4
+  %161 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %159, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %160, ptr noundef nonnull %28)
+  %162 = load i32, ptr @hf_pn_io_pe_energy_to_pause, align 4
+  %163 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %161, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %162, ptr noundef nonnull %29)
+  %164 = load i32, ptr @hf_pn_io_pe_energy_to_operate, align 4
+  %165 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %163, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %164, ptr noundef nonnull %29)
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = load i8, ptr %11, align 1
+  %169 = zext i8 %168 to i32
+  %170 = load i8, ptr %16, align 1
+  %171 = zext i8 %170 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %167, i32 noundef 25, ptr noundef nonnull @.str.1711, i32 noundef %169, i32 noundef %171)
+  br label %.thread
 
-171:                                              ; preds = %127
-  %172 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, i32 noundef %101, ptr noundef nonnull @.str.1712)
+172:                                              ; preds = %128
+  %173 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, i32 noundef %106, ptr noundef nonnull @.str.1712)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -17243,30 +17244,30 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %69, label %402, label %395
+  br i1 %69, label %401, label %.thread574
 
-173:                                              ; preds = %105
-  %174 = load i8, ptr %13, align 1
-  switch i8 %174, label %211 [
-    i8 1, label %175
-    i8 2, label %190
+174:                                              ; preds = %105
+  %175 = load i8, ptr %13, align 1
+  switch i8 %175, label %212 [
+    i8 1, label %176
+    i8 2, label %191
   ]
 
-175:                                              ; preds = %173
-  %176 = load i32, ptr @hf_pn_io_pe_mode_id_source, align 4
-  %177 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %176, ptr noundef nonnull %17)
-  %178 = load i32, ptr @hf_pn_io_pe_mode_id_destination, align 4
-  %179 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %177, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %178, ptr noundef nonnull %18)
-  %180 = load i32, ptr @hf_pn_io_pe_current_time_to_operate, align 4
-  %181 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %179, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %180, ptr noundef nonnull %21)
-  %182 = load i32, ptr @hf_pn_io_pe_current_time_to_destination, align 4
-  %183 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %181, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %182, ptr noundef nonnull %20)
-  %184 = load i32, ptr @hf_pn_io_pe_mode_power_consumption, align 4
-  %185 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %183, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %184, ptr noundef nonnull %28)
-  %186 = load i32, ptr @hf_pn_io_pe_energy_to_destination, align 4
-  %187 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %185, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %186, ptr noundef nonnull %29)
-  %188 = load i32, ptr @hf_pn_io_pe_energy_to_operate, align 4
-  %189 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %187, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %188, ptr noundef nonnull %29)
+176:                                              ; preds = %174
+  %177 = load i32, ptr @hf_pn_io_pe_mode_id_source, align 4
+  %178 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %177, ptr noundef nonnull %17)
+  %179 = load i32, ptr @hf_pn_io_pe_mode_id_destination, align 4
+  %180 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %178, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %179, ptr noundef nonnull %18)
+  %181 = load i32, ptr @hf_pn_io_pe_current_time_to_operate, align 4
+  %182 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %180, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %181, ptr noundef nonnull %21)
+  %183 = load i32, ptr @hf_pn_io_pe_current_time_to_destination, align 4
+  %184 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %182, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %183, ptr noundef nonnull %20)
+  %185 = load i32, ptr @hf_pn_io_pe_mode_power_consumption, align 4
+  %186 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %184, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %185, ptr noundef nonnull %28)
+  %187 = load i32, ptr @hf_pn_io_pe_energy_to_destination, align 4
+  %188 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %186, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %187, ptr noundef nonnull %29)
+  %189 = load i32, ptr @hf_pn_io_pe_energy_to_operate, align 4
+  %190 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %188, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %189, ptr noundef nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -17299,34 +17300,34 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %69, label %402, label %395
+  br i1 %69, label %401, label %.thread574
 
-190:                                              ; preds = %173
-  %191 = load i32, ptr @hf_pn_io_pe_mode_id_source, align 4
-  %192 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %191, ptr noundef nonnull %17)
-  %193 = load i32, ptr @hf_pn_io_pe_mode_id_destination, align 4
-  %194 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %192, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %193, ptr noundef nonnull %18)
-  %195 = load i32, ptr @hf_pn_io_pe_regular_time_to_operate, align 4
-  %196 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %194, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %195, ptr noundef nonnull %23)
-  %197 = load i32, ptr @hf_pn_io_pe_current_time_to_operate, align 4
-  %198 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %196, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %197, ptr noundef nonnull %21)
-  %199 = load i32, ptr @hf_pn_io_pe_current_time_to_destination, align 4
-  %200 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %198, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %199, ptr noundef nonnull %20)
-  %201 = load i32, ptr @hf_pn_io_pe_mode_power_consumption, align 4
-  %202 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %200, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %201, ptr noundef nonnull %28)
-  %203 = load i32, ptr @hf_pn_io_pe_energy_to_destination, align 4
-  %204 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %202, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %203, ptr noundef nonnull %29)
-  %205 = load i32, ptr @hf_pn_io_pe_energy_to_operate, align 4
-  %206 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %204, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %205, ptr noundef nonnull %29)
-  %207 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %208 = load ptr, ptr %207, align 8
-  %209 = load i8, ptr %11, align 1
-  %210 = zext i8 %209 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %208, i32 noundef 25, ptr noundef nonnull @.str.1713, i32 noundef %210)
-  br label %.loopexit.thread
+191:                                              ; preds = %174
+  %192 = load i32, ptr @hf_pn_io_pe_mode_id_source, align 4
+  %193 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %192, ptr noundef nonnull %17)
+  %194 = load i32, ptr @hf_pn_io_pe_mode_id_destination, align 4
+  %195 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %193, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %194, ptr noundef nonnull %18)
+  %196 = load i32, ptr @hf_pn_io_pe_regular_time_to_operate, align 4
+  %197 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %195, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %196, ptr noundef nonnull %23)
+  %198 = load i32, ptr @hf_pn_io_pe_current_time_to_operate, align 4
+  %199 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %197, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %198, ptr noundef nonnull %21)
+  %200 = load i32, ptr @hf_pn_io_pe_current_time_to_destination, align 4
+  %201 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %199, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %200, ptr noundef nonnull %20)
+  %202 = load i32, ptr @hf_pn_io_pe_mode_power_consumption, align 4
+  %203 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %201, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %202, ptr noundef nonnull %28)
+  %204 = load i32, ptr @hf_pn_io_pe_energy_to_destination, align 4
+  %205 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %203, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %204, ptr noundef nonnull %29)
+  %206 = load i32, ptr @hf_pn_io_pe_energy_to_operate, align 4
+  %207 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %205, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %206, ptr noundef nonnull %29)
+  %208 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %209 = load ptr, ptr %208, align 8
+  %210 = load i8, ptr %11, align 1
+  %211 = zext i8 %210 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %209, i32 noundef 25, ptr noundef nonnull @.str.1713, i32 noundef %211)
+  br label %.thread
 
-211:                                              ; preds = %173
-  %212 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, i32 noundef %101, ptr noundef nonnull @.str.1712)
+212:                                              ; preds = %174
+  %213 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, i32 noundef %106, ptr noundef nonnull @.str.1712)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -17359,275 +17360,275 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %69, label %402, label %395
+  br i1 %69, label %401, label %.thread574
 
-213:                                              ; preds = %105
-  %214 = load i32, ptr @hf_pn_io_pe_data_count, align 4
-  %215 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %214, ptr noundef nonnull %14)
-  %216 = load i8, ptr %14, align 1
-  %217 = add i8 %216, -1
-  store i8 %217, ptr %14, align 1
-  %.not530546 = icmp eq i8 %216, 0
-  br i1 %.not530546, label %.loopexit, label %.lr.ph548
+214:                                              ; preds = %105
+  %215 = load i32, ptr @hf_pn_io_pe_data_count, align 4
+  %216 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %215, ptr noundef nonnull %14)
+  %217 = load i8, ptr %14, align 1
+  %218 = add i8 %217, -1
+  store i8 %218, ptr %14, align 1
+  %.not530549 = icmp eq i8 %217, 0
+  br i1 %.not530549, label %.loopexit, label %.lr.ph551
 
-.lr.ph548:                                        ; preds = %213, %.lr.ph548
-  %.4547 = phi i32 [ %219, %.lr.ph548 ], [ %215, %213 ]
-  %218 = load i32, ptr @hf_pn_io_pe_service_request_id, align 4
-  %219 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.4547, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %218, ptr noundef nonnull %15)
-  %220 = load i8, ptr %14, align 1
-  %221 = add i8 %220, -1
-  store i8 %221, ptr %14, align 1
-  %.not530 = icmp eq i8 %220, 0
-  br i1 %.not530, label %.loopexit, label %.lr.ph548, !llvm.loop !87
+.lr.ph551:                                        ; preds = %214, %.lr.ph551
+  %.4550 = phi i32 [ %220, %.lr.ph551 ], [ %216, %214 ]
+  %219 = load i32, ptr @hf_pn_io_pe_service_request_id, align 4
+  %220 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.4550, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %219, ptr noundef nonnull %15)
+  %221 = load i8, ptr %14, align 1
+  %222 = add i8 %221, -1
+  store i8 %222, ptr %14, align 1
+  %.not530 = icmp eq i8 %221, 0
+  br i1 %.not530, label %.loopexit, label %.lr.ph551, !llvm.loop !87
 
-222:                                              ; preds = %105
-  %223 = load i32, ptr @hf_pn_io_pe_version_major, align 4
-  %224 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %223, ptr noundef nonnull %30)
-  %225 = load i32, ptr @hf_pn_io_pe_version_minor, align 4
-  %226 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %224, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %225, ptr noundef nonnull %31)
-  %227 = load i8, ptr %30, align 1
-  %228 = zext i8 %227 to i32
-  %229 = load i8, ptr %31, align 1
-  %230 = zext i8 %229 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1714, i32 noundef %228, i32 noundef %230)
-  %231 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %232 = load ptr, ptr %231, align 8
-  %233 = load i8, ptr %11, align 1
-  %234 = zext i8 %233 to i32
-  %235 = load i8, ptr %30, align 1
-  %236 = zext i8 %235 to i32
-  %237 = load i8, ptr %31, align 1
-  %238 = zext i8 %237 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %232, i32 noundef 25, ptr noundef nonnull @.str.1715, i32 noundef %234, i32 noundef %236, i32 noundef %238)
-  br label %.loopexit.thread
+223:                                              ; preds = %105
+  %224 = load i32, ptr @hf_pn_io_pe_version_major, align 4
+  %225 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %224, ptr noundef nonnull %30)
+  %226 = load i32, ptr @hf_pn_io_pe_version_minor, align 4
+  %227 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %225, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %226, ptr noundef nonnull %31)
+  %228 = load i8, ptr %30, align 1
+  %229 = zext i8 %228 to i32
+  %230 = load i8, ptr %31, align 1
+  %231 = zext i8 %230 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.1714, i32 noundef %229, i32 noundef %231)
+  %232 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %233 = load ptr, ptr %232, align 8
+  %234 = load i8, ptr %11, align 1
+  %235 = zext i8 %234 to i32
+  %236 = load i8, ptr %30, align 1
+  %237 = zext i8 %236 to i32
+  %238 = load i8, ptr %31, align 1
+  %239 = zext i8 %238 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %233, i32 noundef 25, ptr noundef nonnull @.str.1715, i32 noundef %235, i32 noundef %237, i32 noundef %239)
+  br label %.thread
 
-239:                                              ; preds = %105
-  %240 = load i32, ptr @hf_pn_io_pe_version_major, align 4
-  %241 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %240, ptr noundef nonnull %30)
-  %242 = load i32, ptr @hf_pn_io_pe_version_minor, align 4
-  %243 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %241, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %242, ptr noundef nonnull %31)
-  %244 = load i32, ptr @hf_pn_io_pe_entity_class, align 4
-  %245 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %243, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %244, ptr noundef nonnull %32)
-  %246 = load i32, ptr @hf_pn_io_pe_entity_subclass, align 4
-  %247 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %245, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %246, ptr noundef nonnull %33)
-  %248 = load i32, ptr @hf_pn_io_pe_entity_dyn_t_and_e, align 4
-  %249 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %247, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %248, ptr noundef nonnull %34)
-  %250 = load i32, ptr @hf_pn_io_pe_entity_pe_ase, align 4
-  %251 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %249, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %250, ptr noundef nonnull %35)
-  %252 = load i32, ptr @hf_pn_io_pe_maximum_command_respond_time, align 4
-  %253 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %251, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %252, ptr noundef nonnull %22)
-  %254 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %255 = load ptr, ptr %254, align 8
-  %256 = load i8, ptr %11, align 1
-  %257 = zext i8 %256 to i32
-  %258 = load i8, ptr %30, align 1
-  %259 = zext i8 %258 to i32
-  %260 = load i8, ptr %31, align 1
-  %261 = zext i8 %260 to i32
-  %262 = load i8, ptr %32, align 1
-  %263 = zext i8 %262 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %255, i32 noundef 25, ptr noundef nonnull @.str.1716, i32 noundef %257, i32 noundef %259, i32 noundef %261, i32 noundef %263)
-  br label %.loopexit.thread
+240:                                              ; preds = %105
+  %241 = load i32, ptr @hf_pn_io_pe_version_major, align 4
+  %242 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %241, ptr noundef nonnull %30)
+  %243 = load i32, ptr @hf_pn_io_pe_version_minor, align 4
+  %244 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %242, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %243, ptr noundef nonnull %31)
+  %245 = load i32, ptr @hf_pn_io_pe_entity_class, align 4
+  %246 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %244, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %245, ptr noundef nonnull %32)
+  %247 = load i32, ptr @hf_pn_io_pe_entity_subclass, align 4
+  %248 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %246, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %247, ptr noundef nonnull %33)
+  %249 = load i32, ptr @hf_pn_io_pe_entity_dyn_t_and_e, align 4
+  %250 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %248, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %249, ptr noundef nonnull %34)
+  %251 = load i32, ptr @hf_pn_io_pe_entity_pe_ase, align 4
+  %252 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %250, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %251, ptr noundef nonnull %35)
+  %253 = load i32, ptr @hf_pn_io_pe_maximum_command_respond_time, align 4
+  %254 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %252, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %253, ptr noundef nonnull %22)
+  %255 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %256 = load ptr, ptr %255, align 8
+  %257 = load i8, ptr %11, align 1
+  %258 = zext i8 %257 to i32
+  %259 = load i8, ptr %30, align 1
+  %260 = zext i8 %259 to i32
+  %261 = load i8, ptr %31, align 1
+  %262 = zext i8 %261 to i32
+  %263 = load i8, ptr %32, align 1
+  %264 = zext i8 %263 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %256, i32 noundef 25, ptr noundef nonnull @.str.1716, i32 noundef %258, i32 noundef %260, i32 noundef %262, i32 noundef %264)
+  br label %.thread
 
-264:                                              ; preds = %105
-  %265 = load i8, ptr %13, align 1
-  switch i8 %265, label %296 [
-    i8 4, label %266
-    i8 2, label %266
+265:                                              ; preds = %105
+  %266 = load i8, ptr %13, align 1
+  switch i8 %266, label %297 [
+    i8 4, label %267
+    i8 2, label %267
   ]
 
-266:                                              ; preds = %264, %264
-  %267 = load i32, ptr @hf_pn_io_pe_data_count, align 4
-  %268 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %267, ptr noundef nonnull %14)
-  %269 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %268, ptr noundef %2, ptr noundef %109, i32 noundef 1)
-  %270 = load i8, ptr %14, align 1
-  %271 = add i8 %270, -1
-  store i8 %271, ptr %14, align 1
-  %.not529538 = icmp eq i8 %270, 0
-  br i1 %.not529538, label %.loopexit, label %.lr.ph540
+267:                                              ; preds = %265, %265
+  %268 = load i32, ptr @hf_pn_io_pe_data_count, align 4
+  %269 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %268, ptr noundef nonnull %14)
+  %270 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %269, ptr noundef %2, ptr noundef %110, i32 noundef 1)
+  %271 = load i8, ptr %14, align 1
+  %272 = add i8 %271, -1
+  store i8 %272, ptr %14, align 1
+  %.not529541 = icmp eq i8 %271, 0
+  br i1 %.not529541, label %.loopexit, label %.lr.ph543
 
-.lr.ph540:                                        ; preds = %266, %285
-  %.5539 = phi i32 [ %293, %285 ], [ %269, %266 ]
-  %272 = load i8, ptr %13, align 1
-  %273 = icmp eq i8 %272, 4
-  %274 = load i32, ptr @hf_pn_io_pe_measurement, align 4
-  br i1 %273, label %275, label %281
+.lr.ph543:                                        ; preds = %267, %286
+  %.5542 = phi i32 [ %294, %286 ], [ %270, %267 ]
+  %273 = load i8, ptr %13, align 1
+  %274 = icmp eq i8 %273, 4
+  %275 = load i32, ptr @hf_pn_io_pe_measurement, align 4
+  br i1 %274, label %276, label %282
 
-275:                                              ; preds = %.lr.ph540
-  %276 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %274, ptr noundef %0, i32 noundef %.5539, i32 noundef 10, i32 noundef 0)
-  %277 = load i32, ptr @ett_pn_io_pe_measurement_id, align 4
-  %278 = call ptr @proto_item_add_subtree(ptr noundef %276, i32 noundef %277)
-  %279 = load i32, ptr @hf_pn_io_pe_measurement_object_number, align 4
-  %280 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.5539, ptr noundef %2, ptr noundef %278, ptr noundef %5, i32 noundef %279, ptr noundef nonnull %39)
-  br label %285
+276:                                              ; preds = %.lr.ph543
+  %277 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %275, ptr noundef %0, i32 noundef %.5542, i32 noundef 10, i32 noundef 0)
+  %278 = load i32, ptr @ett_pn_io_pe_measurement_id, align 4
+  %279 = call ptr @proto_item_add_subtree(ptr noundef %277, i32 noundef %278)
+  %280 = load i32, ptr @hf_pn_io_pe_measurement_object_number, align 4
+  %281 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.5542, ptr noundef %2, ptr noundef %279, ptr noundef %5, i32 noundef %280, ptr noundef nonnull %39)
+  br label %286
 
-281:                                              ; preds = %.lr.ph540
-  %282 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %274, ptr noundef %0, i32 noundef %.5539, i32 noundef 8, i32 noundef 0)
-  %283 = load i32, ptr @ett_pn_io_pe_measurement_id, align 4
-  %284 = call ptr @proto_item_add_subtree(ptr noundef %282, i32 noundef %283)
-  br label %285
+282:                                              ; preds = %.lr.ph543
+  %283 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %275, ptr noundef %0, i32 noundef %.5542, i32 noundef 8, i32 noundef 0)
+  %284 = load i32, ptr @ett_pn_io_pe_measurement_id, align 4
+  %285 = call ptr @proto_item_add_subtree(ptr noundef %283, i32 noundef %284)
+  br label %286
 
-285:                                              ; preds = %281, %275
-  %.0514 = phi ptr [ %278, %275 ], [ %284, %281 ]
-  %.6 = phi i32 [ %280, %275 ], [ %.5539, %281 ]
-  %286 = load i32, ptr @hf_pn_io_pe_measurement_id, align 4
-  %287 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.6, ptr noundef %2, ptr noundef %.0514, ptr noundef %5, i32 noundef %286, ptr noundef nonnull %38)
-  %288 = load i32, ptr @hf_pn_io_pe_measurement_accuracy_domain, align 4
-  %289 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %287, ptr noundef %2, ptr noundef %.0514, ptr noundef %5, i32 noundef %288, ptr noundef nonnull %40)
-  %290 = load i32, ptr @hf_pn_io_pe_measurement_accuracy_class, align 4
-  %291 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %289, ptr noundef %2, ptr noundef %.0514, ptr noundef %5, i32 noundef %290, ptr noundef nonnull %40)
-  %292 = load i32, ptr @hf_pn_io_pe_measurement_range, align 4
-  %293 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %291, ptr noundef %2, ptr noundef %.0514, ptr noundef %5, i32 noundef %292, ptr noundef nonnull %44)
-  %294 = load i8, ptr %14, align 1
-  %295 = add i8 %294, -1
-  store i8 %295, ptr %14, align 1
-  %.not529 = icmp eq i8 %294, 0
-  br i1 %.not529, label %.loopexit, label %.lr.ph540, !llvm.loop !88
+286:                                              ; preds = %282, %276
+  %.0514 = phi ptr [ %279, %276 ], [ %285, %282 ]
+  %.6 = phi i32 [ %281, %276 ], [ %.5542, %282 ]
+  %287 = load i32, ptr @hf_pn_io_pe_measurement_id, align 4
+  %288 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.6, ptr noundef %2, ptr noundef %.0514, ptr noundef %5, i32 noundef %287, ptr noundef nonnull %38)
+  %289 = load i32, ptr @hf_pn_io_pe_measurement_accuracy_domain, align 4
+  %290 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %288, ptr noundef %2, ptr noundef %.0514, ptr noundef %5, i32 noundef %289, ptr noundef nonnull %40)
+  %291 = load i32, ptr @hf_pn_io_pe_measurement_accuracy_class, align 4
+  %292 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %290, ptr noundef %2, ptr noundef %.0514, ptr noundef %5, i32 noundef %291, ptr noundef nonnull %40)
+  %293 = load i32, ptr @hf_pn_io_pe_measurement_range, align 4
+  %294 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %292, ptr noundef %2, ptr noundef %.0514, ptr noundef %5, i32 noundef %293, ptr noundef nonnull %44)
+  %295 = load i8, ptr %14, align 1
+  %296 = add i8 %295, -1
+  store i8 %296, ptr %14, align 1
+  %.not529 = icmp eq i8 %295, 0
+  br i1 %.not529, label %.loopexit, label %.lr.ph543, !llvm.loop !88
 
-296:                                              ; preds = %264
-  %297 = and i8 %265, -3
-  %or.cond11 = icmp eq i8 %297, 1
-  br i1 %or.cond11, label %298, label %.loopexit
+297:                                              ; preds = %265
+  %298 = and i8 %266, -3
+  %or.cond11 = icmp eq i8 %298, 1
+  br i1 %or.cond11, label %299, label %.loopexit
 
-298:                                              ; preds = %296
-  %299 = load i32, ptr @hf_pn_io_pe_data_count, align 4
-  %300 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %299, ptr noundef nonnull %14)
-  %301 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %300, ptr noundef %2, ptr noundef %109, i32 noundef 1)
-  %302 = load i8, ptr %14, align 1
-  %303 = add i8 %302, -1
-  store i8 %303, ptr %14, align 1
-  %.not527542 = icmp eq i8 %302, 0
-  br i1 %.not527542, label %.loopexit, label %.lr.ph544
+299:                                              ; preds = %297
+  %300 = load i32, ptr @hf_pn_io_pe_data_count, align 4
+  %301 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %300, ptr noundef nonnull %14)
+  %302 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %301, ptr noundef %2, ptr noundef %110, i32 noundef 1)
+  %303 = load i8, ptr %14, align 1
+  %304 = add i8 %303, -1
+  store i8 %304, ptr %14, align 1
+  %.not527545 = icmp eq i8 %303, 0
+  br i1 %.not527545, label %.loopexit, label %.lr.ph547
 
-.lr.ph544:                                        ; preds = %298
-  %304 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  br label %305
+.lr.ph547:                                        ; preds = %299
+  %305 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  br label %306
 
-305:                                              ; preds = %.lr.ph544, %351
-  %.7543 = phi i32 [ %301, %.lr.ph544 ], [ %.10, %351 ]
-  %306 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.7543, i32 noundef 0)
-  %307 = load i32, ptr @hf_pn_io_pe_measurement, align 4
-  %308 = zext i16 %306 to i32
-  %309 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %307, ptr noundef %0, i32 noundef %.7543, i32 noundef %308, i32 noundef 0)
-  %310 = load i32, ptr @ett_pn_io_pe_measurement_id, align 4
-  %311 = call ptr @proto_item_add_subtree(ptr noundef %309, i32 noundef %310)
-  %312 = load i32, ptr @hf_pn_io_pe_measurement_structure_length, align 4
-  %313 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.7543, ptr noundef %2, ptr noundef %311, ptr noundef %5, i32 noundef %312, ptr noundef nonnull %43)
-  %314 = load i32, ptr @hf_pn_io_pe_measurement_structure_id, align 4
-  %315 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %313, ptr noundef %2, ptr noundef %311, ptr noundef %5, i32 noundef %314, ptr noundef nonnull %41)
-  %316 = load i8, ptr %41, align 1
-  %317 = icmp eq i8 %316, 2
-  br i1 %317, label %318, label %325
+306:                                              ; preds = %.lr.ph547, %352
+  %.7546 = phi i32 [ %302, %.lr.ph547 ], [ %.10, %352 ]
+  %307 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %.7546, i32 noundef 0)
+  %308 = load i32, ptr @hf_pn_io_pe_measurement, align 4
+  %309 = zext i16 %307 to i32
+  %310 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %308, ptr noundef %0, i32 noundef %.7546, i32 noundef %309, i32 noundef 0)
+  %311 = load i32, ptr @ett_pn_io_pe_measurement_id, align 4
+  %312 = call ptr @proto_item_add_subtree(ptr noundef %310, i32 noundef %311)
+  %313 = load i32, ptr @hf_pn_io_pe_measurement_structure_length, align 4
+  %314 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.7546, ptr noundef %2, ptr noundef %312, ptr noundef %5, i32 noundef %313, ptr noundef nonnull %43)
+  %315 = load i32, ptr @hf_pn_io_pe_measurement_structure_id, align 4
+  %316 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %314, ptr noundef %2, ptr noundef %312, ptr noundef %5, i32 noundef %315, ptr noundef nonnull %41)
+  %317 = load i8, ptr %41, align 1
+  %318 = icmp eq i8 %317, 2
+  br i1 %318, label %319, label %326
 
-318:                                              ; preds = %305
-  %319 = load i32, ptr @hf_pn_io_pe_measurement_status, align 4
-  %320 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %315, ptr noundef %2, ptr noundef %311, ptr noundef %5, i32 noundef %319, ptr noundef nonnull %42)
-  %321 = load i32, ptr @hf_pn_io_pe_measurement_object_number, align 4
-  %322 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %320, ptr noundef %2, ptr noundef %311, ptr noundef %5, i32 noundef %321, ptr noundef nonnull %39)
-  %323 = load i32, ptr @hf_pn_io_pe_measurement_id, align 4
-  %324 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %322, ptr noundef %2, ptr noundef %311, ptr noundef %5, i32 noundef %323, ptr noundef nonnull %38)
-  br label %330
+319:                                              ; preds = %306
+  %320 = load i32, ptr @hf_pn_io_pe_measurement_status, align 4
+  %321 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %316, ptr noundef %2, ptr noundef %312, ptr noundef %5, i32 noundef %320, ptr noundef nonnull %42)
+  %322 = load i32, ptr @hf_pn_io_pe_measurement_object_number, align 4
+  %323 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %321, ptr noundef %2, ptr noundef %312, ptr noundef %5, i32 noundef %322, ptr noundef nonnull %39)
+  %324 = load i32, ptr @hf_pn_io_pe_measurement_id, align 4
+  %325 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %323, ptr noundef %2, ptr noundef %312, ptr noundef %5, i32 noundef %324, ptr noundef nonnull %38)
+  br label %331
 
-325:                                              ; preds = %305
-  %326 = load i32, ptr @hf_pn_io_pe_measurement_id, align 4
-  %327 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %315, ptr noundef %2, ptr noundef %311, ptr noundef %5, i32 noundef %326, ptr noundef nonnull %38)
-  %328 = load i32, ptr @hf_pn_io_pe_measurement_status, align 4
-  %329 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %327, ptr noundef %2, ptr noundef %311, ptr noundef %5, i32 noundef %328, ptr noundef nonnull %42)
-  br label %330
+326:                                              ; preds = %306
+  %327 = load i32, ptr @hf_pn_io_pe_measurement_id, align 4
+  %328 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %316, ptr noundef %2, ptr noundef %312, ptr noundef %5, i32 noundef %327, ptr noundef nonnull %38)
+  %329 = load i32, ptr @hf_pn_io_pe_measurement_status, align 4
+  %330 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %328, ptr noundef %2, ptr noundef %312, ptr noundef %5, i32 noundef %329, ptr noundef nonnull %42)
+  br label %331
 
-330:                                              ; preds = %325, %318
-  %.sink = phi i16 [ -6, %325 ], [ -8, %318 ]
-  %.8 = phi i32 [ %329, %325 ], [ %324, %318 ]
-  %331 = add i16 %306, %.sink
-  %332 = load i16, ptr %38, align 2
-  %333 = add i16 %332, -210
-  %or.cond14 = icmp ult i16 %333, 10
-  br i1 %or.cond14, label %334, label %338
+331:                                              ; preds = %326, %319
+  %.sink = phi i16 [ -6, %326 ], [ -8, %319 ]
+  %.8 = phi i32 [ %330, %326 ], [ %325, %319 ]
+  %332 = add i16 %307, %.sink
+  %333 = load i16, ptr %38, align 2
+  %334 = add i16 %333, -210
+  %or.cond14 = icmp ult i16 %334, 10
+  br i1 %or.cond14, label %335, label %339
 
-334:                                              ; preds = %330
+335:                                              ; preds = %331
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  store ptr %47, ptr %304, align 8
-  %335 = load i32, ptr @hf_pn_io_pe_measurement_value_float64, align 4
-  %336 = call i32 @dissect_dcerpc_uint64(ptr noundef %0, i32 noundef %.8, ptr noundef %2, ptr noundef %311, ptr noundef nonnull %46, ptr noundef %5, i32 noundef %335, ptr noundef nonnull %45)
-  %337 = add i16 %331, -8
+  store ptr %47, ptr %305, align 8
+  %336 = load i32, ptr @hf_pn_io_pe_measurement_value_float64, align 4
+  %337 = call i32 @dissect_dcerpc_uint64(ptr noundef %0, i32 noundef %.8, ptr noundef %2, ptr noundef %312, ptr noundef nonnull %46, ptr noundef %5, i32 noundef %336, ptr noundef nonnull %45)
+  %338 = add i16 %332, -8
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  br label %347
+  br label %348
 
-338:                                              ; preds = %330
-  %339 = add i16 %332, -220
-  %or.cond17 = icmp ult i16 %339, 10
-  %340 = add i16 %331, -4
-  br i1 %or.cond17, label %341, label %344
+339:                                              ; preds = %331
+  %340 = add i16 %333, -220
+  %or.cond17 = icmp ult i16 %340, 10
+  %341 = add i16 %332, -4
+  br i1 %or.cond17, label %342, label %345
 
-341:                                              ; preds = %338
-  %342 = load i32, ptr @hf_pn_io_pe_measurement_value_uint32, align 4
-  %343 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.8, ptr noundef %2, ptr noundef %311, ptr noundef %5, i32 noundef %342, ptr noundef nonnull %44)
-  br label %347
+342:                                              ; preds = %339
+  %343 = load i32, ptr @hf_pn_io_pe_measurement_value_uint32, align 4
+  %344 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.8, ptr noundef %2, ptr noundef %312, ptr noundef %5, i32 noundef %343, ptr noundef nonnull %44)
+  br label %348
 
-344:                                              ; preds = %338
-  %345 = load i32, ptr @hf_pn_io_pe_measurement_value_float32, align 4
-  %346 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.8, ptr noundef %2, ptr noundef %311, ptr noundef %5, i32 noundef %345, ptr noundef nonnull %44)
-  br label %347
+345:                                              ; preds = %339
+  %346 = load i32, ptr @hf_pn_io_pe_measurement_value_float32, align 4
+  %347 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.8, ptr noundef %2, ptr noundef %312, ptr noundef %5, i32 noundef %346, ptr noundef nonnull %44)
+  br label %348
 
-347:                                              ; preds = %341, %344, %334
-  %.1519 = phi i16 [ %337, %334 ], [ %340, %341 ], [ %340, %344 ]
-  %.9 = phi i32 [ %336, %334 ], [ %343, %341 ], [ %346, %344 ]
+348:                                              ; preds = %342, %345, %335
+  %.1519 = phi i16 [ %338, %335 ], [ %341, %342 ], [ %341, %345 ]
+  %.9 = phi i32 [ %337, %335 ], [ %344, %342 ], [ %347, %345 ]
   %.not528 = icmp eq i16 %.1519, 0
-  br i1 %.not528, label %351, label %348
+  br i1 %.not528, label %352, label %349
 
-348:                                              ; preds = %347
-  %349 = zext i16 %.1519 to i32
-  %350 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %.9, ptr noundef %2, ptr noundef %109, i32 noundef %349, ptr noundef nonnull @.str.1717)
-  br label %351
+349:                                              ; preds = %348
+  %350 = zext i16 %.1519 to i32
+  %351 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %.9, ptr noundef %2, ptr noundef %110, i32 noundef %350, ptr noundef nonnull @.str.1717)
+  br label %352
 
-351:                                              ; preds = %348, %347
-  %.10 = phi i32 [ %350, %348 ], [ %.9, %347 ]
-  %352 = load i8, ptr %14, align 1
-  %353 = add i8 %352, -1
-  store i8 %353, ptr %14, align 1
-  %.not527 = icmp eq i8 %352, 0
-  br i1 %.not527, label %.loopexit, label %305, !llvm.loop !89
+352:                                              ; preds = %349, %348
+  %.10 = phi i32 [ %351, %349 ], [ %.9, %348 ]
+  %353 = load i8, ptr %14, align 1
+  %354 = add i8 %353, -1
+  store i8 %354, ptr %14, align 1
+  %.not527 = icmp eq i8 %353, 0
+  br i1 %.not527, label %.loopexit, label %306, !llvm.loop !89
 
-354:                                              ; preds = %105
-  %355 = load i32, ptr @hf_pn_io_pe_data_count, align 4
-  %356 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %355, ptr noundef nonnull %14)
-  %357 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %356, ptr noundef %2, ptr noundef %109, i32 noundef 1)
-  %358 = load i8, ptr %14, align 1
-  %359 = add i8 %358, -1
-  store i8 %359, ptr %14, align 1
-  %.not536 = icmp eq i8 %358, 0
-  br i1 %.not536, label %.loopexit, label %.lr.ph
+355:                                              ; preds = %105
+  %356 = load i32, ptr @hf_pn_io_pe_data_count, align 4
+  %357 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %356, ptr noundef nonnull %14)
+  %358 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %357, ptr noundef %2, ptr noundef %110, i32 noundef 1)
+  %359 = load i8, ptr %14, align 1
+  %360 = add i8 %359, -1
+  store i8 %360, ptr %14, align 1
+  %.not539 = icmp eq i8 %359, 0
+  br i1 %.not539, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %354, %.lr.ph
-  %.11537 = phi i32 [ %367, %.lr.ph ], [ %357, %354 ]
-  %360 = load i32, ptr @hf_pn_io_pe_measurement, align 4
-  %361 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %360, ptr noundef %0, i32 noundef %.11537, i32 noundef 4, i32 noundef 0)
-  %362 = load i32, ptr @ett_pn_io_pe_measurement_id, align 4
-  %363 = call ptr @proto_item_add_subtree(ptr noundef %361, i32 noundef %362)
-  %364 = load i32, ptr @hf_pn_io_pe_measurement_object_number, align 4
-  %365 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.11537, ptr noundef %2, ptr noundef %363, ptr noundef %5, i32 noundef %364, ptr noundef nonnull %39)
-  %366 = load i32, ptr @hf_pn_io_pe_measurement_id, align 4
-  %367 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %365, ptr noundef %2, ptr noundef %363, ptr noundef %5, i32 noundef %366, ptr noundef nonnull %38)
-  %368 = load i8, ptr %14, align 1
-  %369 = add i8 %368, -1
-  store i8 %369, ptr %14, align 1
-  %.not = icmp eq i8 %368, 0
+.lr.ph:                                           ; preds = %355, %.lr.ph
+  %.11540 = phi i32 [ %368, %.lr.ph ], [ %358, %355 ]
+  %361 = load i32, ptr @hf_pn_io_pe_measurement, align 4
+  %362 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %361, ptr noundef %0, i32 noundef %.11540, i32 noundef 4, i32 noundef 0)
+  %363 = load i32, ptr @ett_pn_io_pe_measurement_id, align 4
+  %364 = call ptr @proto_item_add_subtree(ptr noundef %362, i32 noundef %363)
+  %365 = load i32, ptr @hf_pn_io_pe_measurement_object_number, align 4
+  %366 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %.11540, ptr noundef %2, ptr noundef %364, ptr noundef %5, i32 noundef %365, ptr noundef nonnull %39)
+  %367 = load i32, ptr @hf_pn_io_pe_measurement_id, align 4
+  %368 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %366, ptr noundef %2, ptr noundef %364, ptr noundef %5, i32 noundef %367, ptr noundef nonnull %38)
+  %369 = load i8, ptr %14, align 1
+  %370 = add i8 %369, -1
+  store i8 %370, ptr %14, align 1
+  %.not = icmp eq i8 %369, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !90
 
-370:                                              ; preds = %105
-  %371 = load i32, ptr @hf_pn_io_pe_regular_time_to_operate, align 4
-  %372 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %371, ptr noundef nonnull %23)
-  %373 = load i32, ptr @hf_pn_io_pe_time_min_pause, align 4
-  %374 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %372, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %373, ptr noundef nonnull %24)
-  %375 = load i32, ptr @hf_pn_io_pe_wol_wake_up_method, align 4
-  %376 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %374, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %375, ptr noundef nonnull %36)
-  %377 = load i32, ptr @hf_pn_io_pe_wol_wake_up_data_length, align 4
-  %378 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %376, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %377, ptr noundef nonnull %37)
-  %379 = load i16, ptr %37, align 2
-  %380 = zext i16 %379 to i32
-  %381 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %378, ptr noundef %2, ptr noundef %109, i32 noundef %380, ptr noundef nonnull @.str.1718)
+371:                                              ; preds = %105
+  %372 = load i32, ptr @hf_pn_io_pe_regular_time_to_operate, align 4
+  %373 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %372, ptr noundef nonnull %23)
+  %374 = load i32, ptr @hf_pn_io_pe_time_min_pause, align 4
+  %375 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %373, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %374, ptr noundef nonnull %24)
+  %376 = load i32, ptr @hf_pn_io_pe_wol_wake_up_method, align 4
+  %377 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %375, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %376, ptr noundef nonnull %36)
+  %378 = load i32, ptr @hf_pn_io_pe_wol_wake_up_data_length, align 4
+  %379 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %377, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %378, ptr noundef nonnull %37)
+  %380 = load i16, ptr %37, align 2
+  %381 = zext i16 %380 to i32
+  %382 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %379, ptr noundef %2, ptr noundef %110, i32 noundef %381, ptr noundef nonnull @.str.1718)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -17660,18 +17661,18 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %69, label %402, label %395
+  br i1 %69, label %401, label %.thread574
 
-382:                                              ; preds = %105
-  %383 = load i32, ptr @hf_pn_io_pe_mode_id, align 4
-  %384 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %383, ptr noundef nonnull %16)
-  %385 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %384, ptr noundef %2, ptr noundef %109, i32 noundef 1)
-  %386 = load i32, ptr @hf_pn_io_pe_current_time_to_destination, align 4
-  %387 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %385, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %386, ptr noundef nonnull %20)
-  %388 = load i32, ptr @hf_pn_io_pe_regular_time_to_operate, align 4
-  %389 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %387, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %388, ptr noundef nonnull %23)
-  %390 = load i32, ptr @hf_pn_io_pe_time_min_length_of_stay, align 4
-  %391 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %389, ptr noundef %2, ptr noundef %109, ptr noundef %5, i32 noundef %390, ptr noundef nonnull %25)
+383:                                              ; preds = %105
+  %384 = load i32, ptr @hf_pn_io_pe_mode_id, align 4
+  %385 = call i32 @dissect_dcerpc_uint8(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %384, ptr noundef nonnull %16)
+  %386 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %385, ptr noundef %2, ptr noundef %110, i32 noundef 1)
+  %387 = load i32, ptr @hf_pn_io_pe_current_time_to_destination, align 4
+  %388 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %386, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %387, ptr noundef nonnull %20)
+  %389 = load i32, ptr @hf_pn_io_pe_regular_time_to_operate, align 4
+  %390 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %388, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %389, ptr noundef nonnull %23)
+  %391 = load i32, ptr @hf_pn_io_pe_time_min_length_of_stay, align 4
+  %392 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %390, ptr noundef %2, ptr noundef %110, ptr noundef %5, i32 noundef %391, ptr noundef nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -17704,10 +17705,10 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %69, label %402, label %395
+  br i1 %69, label %401, label %.thread574
 
-392:                                              ; preds = %105
-  %393 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %.0511, ptr noundef %2, ptr noundef %109, i32 noundef %101, ptr noundef nonnull @.str.1719)
+393:                                              ; preds = %105
+  %394 = call i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %.0511572, ptr noundef %2, ptr noundef %110, i32 noundef %106, ptr noundef nonnull @.str.1719)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -17740,9 +17741,9 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %69, label %402, label %395
+  br i1 %69, label %401, label %.thread574
 
-.loopexit.thread:                                 ; preds = %138, %190, %222, %239
+.thread:                                          ; preds = %139, %191, %223, %240
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -17775,9 +17776,9 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %402
+  br label %401
 
-.loopexit:                                        ; preds = %.lr.ph, %285, %351, %.lr.ph548, %.lr.ph552, %354, %266, %298, %213, %129, %296, %111
+.loopexit:                                        ; preds = %.lr.ph, %286, %352, %.lr.ph551, %.lr.ph555, %355, %267, %299, %214, %130, %297, %112
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
@@ -17810,22 +17811,20 @@ switch.lookup:                                    ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br i1 %69, label %402, label %395
+  br i1 %69, label %401, label %.thread574
 
-394:                                              ; preds = %100
-  br i1 %69, label %402, label %395
+.thread574:                                       ; preds = %.thread565, %383, %371, %212, %176, %172, %125, %118, %393, %.loopexit
+  %.0512569 = phi i16 [ %.0512571, %.loopexit ], [ %.0512571, %393 ], [ %.0512571, %118 ], [ %.0512571, %125 ], [ %.0512571, %172 ], [ %.0512571, %176 ], [ %.0512571, %212 ], [ %.0512571, %371 ], [ %.0512571, %383 ], [ %.1513, %.thread565 ]
+  %395 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %396 = load ptr, ptr %395, align 8
+  %397 = load i8, ptr %11, align 1
+  %398 = zext i8 %397 to i32
+  %399 = zext i16 %.0512569 to i32
+  %400 = call ptr @val_to_str_const(i32 noundef %399, ptr noundef nonnull @pn_io_pe_services_modifier, ptr noundef nonnull @.str.1400)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %396, i32 noundef 25, ptr noundef nonnull @.str.1720, i32 noundef %398, ptr noundef %400)
+  br label %401
 
-395:                                              ; preds = %382, %370, %211, %175, %171, %124, %117, %392, %.loopexit, %394
-  %396 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %397 = load ptr, ptr %396, align 8
-  %398 = load i8, ptr %11, align 1
-  %399 = zext i8 %398 to i32
-  %400 = zext i16 %.0512 to i32
-  %401 = call ptr @val_to_str_const(i32 noundef %400, ptr noundef nonnull @pn_io_pe_services_modifier, ptr noundef nonnull @.str.1400)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %397, i32 noundef 25, ptr noundef nonnull @.str.1720, i32 noundef %399, ptr noundef %401)
-  br label %402
-
-402:                                              ; preds = %382, %370, %211, %175, %171, %124, %117, %392, %.loopexit.thread, %.loopexit, %394, %395, %50
+401:                                              ; preds = %82, %383, %371, %212, %176, %172, %125, %118, %393, %.thread, %.loopexit, %.thread574, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

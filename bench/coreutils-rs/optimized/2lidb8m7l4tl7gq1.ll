@@ -950,21 +950,21 @@ define hidden void @_ZN4core4iter8adapters11try_process17ha15868274780b986E(ptr 
           cleanup
   %9 = load i64, ptr %6, align 8, !range !46, !noundef !4
   %.not = icmp eq i64 %9, -9223372036854775802
-  br i1 %.not, label %.thread, label %24
+  br i1 %.not, label %24, label %25
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !234
   %11 = load i64, ptr %6, align 8, !range !46, !noundef !4
   %.not.not = icmp eq i64 %11, -9223372036854775802
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.not, label %.thread14, label %.noexc
+  br i1 %.not.not, label %.thread, label %.noexc
 
-.thread14:                                        ; preds = %10
+.thread:                                          ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i64 0, ptr %0, align 8, !alias.scope !246, !noalias !249
   br label %13
 
-13:                                               ; preds = %.thread14, %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$uu_tr..operation..Sequence$GT$$GT$17h52b19be259bafda3E.exit"
+13:                                               ; preds = %.thread, %"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$uu_tr..operation..Sequence$GT$$GT$17h52b19be259bafda3E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -994,18 +994,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17ha15868274780b986E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !256
   br label %13
 
-22:                                               ; preds = %24
+22:                                               ; preds = %25
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 
-.thread:                                          ; preds = %24, %7
+24:                                               ; preds = %25, %7
   resume { ptr, i32 } %8
 
-24:                                               ; preds = %7
+25:                                               ; preds = %7
   invoke void @"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uu_tr..operation..BadSequence$GT$$GT$17hf45720dc9696b2cfE.llvm.9318380955268835496"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #15
-          to label %.thread unwind label %22
+          to label %24 unwind label %22
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

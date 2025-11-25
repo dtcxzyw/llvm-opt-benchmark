@@ -7922,7 +7922,7 @@ define internal fastcc void @"_ZN3ue214replaceReportsIZNS_L26removeUnneededOffse
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.noexc38
+._crit_edge:                                      ; preds = %.noexc39
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, %32
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN3ue28flat_setIjSt4lessIjESaIjEEaSEOS4_.exit, label %37, !prof !248
 
@@ -7990,8 +7990,8 @@ _ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit: ; preds = %_ZN3ue28fl
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %143
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.noexc38
-  %.sroa.02.034 = phi ptr [ %134, %.noexc38 ], [ %35, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.noexc39
+  %.sroa.02.034 = phi ptr [ %134, %.noexc39 ], [ %35, %.lr.ph.preheader ]
   %58 = load i32, ptr %.sroa.02.034, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8
@@ -8055,39 +8055,39 @@ _ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EE2atEm.exit.i: ; preds = %.lr.ph
 _ZNK3ue25depthcvjEv.exit.i:                       ; preds = %79
   %85 = zext nneg i32 %81 to i64
   %.not.i = icmp ugt i64 %75, %85
-  br i1 %.not.i, label %86, label %.thread10.i
+  br i1 %.not.i, label %86, label %.thread.i
 
 86:                                               ; preds = %_ZNK3ue25depthcvjEv.exit.i, %.noexc33
   %87 = load i64, ptr %21, align 8
   %.not16.i = icmp eq i64 %87, -1
   %88 = icmp ugt i32 %.sroa.0.0.i.i, 2147483646
-  %or.cond3.not6.i = select i1 %.not16.i, i1 true, i1 %88
+  %or.cond2.not5.i = select i1 %.not16.i, i1 true, i1 %88
   %89 = zext nneg i32 %.sroa.0.0.i.i to i64
   %.not17.i = icmp ult i64 %87, %89
-  %or.cond4.i = select i1 %or.cond3.not6.i, i1 true, i1 %.not17.i
-  br i1 %or.cond4.i, label %94, label %.thread.i
+  %or.cond3.i = select i1 %or.cond2.not5.i, i1 true, i1 %.not17.i
+  br i1 %or.cond3.i, label %94, label %.critedge.i
 
-.thread10.i:                                      ; preds = %_ZNK3ue25depthcvjEv.exit.i
+.thread.i:                                        ; preds = %_ZNK3ue25depthcvjEv.exit.i
   store i64 0, ptr %19, align 8
   %90 = load i64, ptr %21, align 8
-  %.not1612.i = icmp eq i64 %90, -1
+  %.not1610.i = icmp eq i64 %90, -1
   %91 = icmp ugt i32 %.sroa.0.0.i.i, 2147483646
-  %or.cond3.not613.i = select i1 %.not1612.i, i1 true, i1 %91
+  %or.cond2.not511.i = select i1 %.not1610.i, i1 true, i1 %91
   %92 = zext nneg i32 %.sroa.0.0.i.i to i64
-  %.not1714.i = icmp ult i64 %90, %92
-  %or.cond415.i = select i1 %or.cond3.not613.i, i1 true, i1 %.not1714.i
-  br i1 %or.cond415.i, label %.thread17.i, label %.thread.i
+  %.not1712.i = icmp ult i64 %90, %92
+  %or.cond313.i = select i1 %or.cond2.not511.i, i1 true, i1 %.not1712.i
+  br i1 %or.cond313.i, label %.thread16.i, label %.critedge.i
 
-.thread.i:                                        ; preds = %.thread10.i, %86
+.critedge.i:                                      ; preds = %.thread.i, %86
   store i64 -1, ptr %21, align 8
-  br label %.thread17.i
+  br label %.thread16.i
 
-.thread17.i:                                      ; preds = %.thread.i, %.thread10.i
+.thread16.i:                                      ; preds = %.critedge.i, %.thread.i
   %93 = invoke noundef i32 @_ZN3ue213ReportManager13getInternalIdERKNS_6ReportE(ptr noundef nonnull align 8 dereferenceable(505) %.16.val, ptr noundef nonnull align 8 dereferenceable(72) %6)
           to label %94 unwind label %.loopexit
 
-94:                                               ; preds = %86, %.thread17.i
-  %.014.i = phi i32 [ %58, %86 ], [ %93, %.thread17.i ]
+94:                                               ; preds = %86, %.thread16.i
+  %.014.i = phi i32 [ %58, %86 ], [ %93, %.thread16.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %.014.i, ptr %10, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -8116,18 +8116,18 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i: ; pre
 _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i, %94
   %109 = phi ptr [ %95, %94 ], [ %107, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i ]
   %110 = icmp eq ptr %109, %97
-  br i1 %110, label %.critedge.i, label %111
+  br i1 %110, label %.critedge.i37, label %111
 
 111:                                              ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
   %112 = load i32, ptr %109, align 4, !noalias !642
   %113 = icmp ult i32 %.014.i, %112
-  br i1 %113, label %.critedge.thread.i, label %.noexc38
+  br i1 %113, label %.critedge.thread.i, label %.noexc39
 
-.critedge.i:                                      ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
+.critedge.i37:                                    ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
   store ptr %97, ptr %5, align 8, !noalias !642
   %114 = load i64, ptr %17, align 8, !noalias !643
-  %.not.i.i.i.i37 = icmp eq i64 %114, %96
-  br i1 %.not.i.i.i.i37, label %116, label %117
+  %.not.i.i.i.i38 = icmp eq i64 %114, %96
+  br i1 %.not.i.i.i.i38, label %116, label %117
 
 .critedge.thread.i:                               ; preds = %111
   store ptr %109, ptr %5, align 8, !noalias !642
@@ -8135,16 +8135,16 @@ _ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RK
   %.not.i.i.i14.i = icmp eq i64 %115, %96
   br i1 %.not.i.i.i14.i, label %116, label %120
 
-116:                                              ; preds = %.critedge.thread.i, %.critedge.i
+116:                                              ; preds = %.critedge.thread.i, %.critedge.i37
   invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_move_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::vec_iterator.159") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 1, ptr nonnull align 4 dereferenceable(4) %10)
-          to label %.noexc38 unwind label %135
+          to label %.noexc39 unwind label %135
 
-117:                                              ; preds = %.critedge.i
+117:                                              ; preds = %.critedge.i37
   store i32 %.014.i, ptr %97, align 4, !noalias !643
   %118 = load i64, ptr %16, align 8, !noalias !643
   %119 = add i64 %118, 1
   store i64 %119, ptr %16, align 8, !noalias !643
-  br label %.noexc38
+  br label %.noexc39
 
 120:                                              ; preds = %.critedge.thread.i
   %121 = ptrtoint ptr %109 to i64
@@ -8177,9 +8177,9 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
 _ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i: ; preds = %127, %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i.i
   %133 = load i32, ptr %10, align 4, !noalias !643
   store i32 %133, ptr %109, align 4, !noalias !643
-  br label %.noexc38
+  br label %.noexc39
 
-.noexc38:                                         ; preds = %117, %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i, %116, %111
+.noexc39:                                         ; preds = %117, %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i, %116, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -8187,7 +8187,7 @@ _ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_a
   %.not15 = icmp eq ptr %134, %36
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EE2atEm.exit.i, %.thread17.i
+.loopexit:                                        ; preds = %_ZNSt6vectorIN3ue214NFAVertexDepthESaIS1_EE2atEm.exit.i, %.thread16.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %137
@@ -8206,17 +8206,17 @@ _ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_a
   %.pn = phi { ptr, i32 } [ %136, %135 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %138 = load i64, ptr %17, align 8
-  %.not.i.i.i.i39 = icmp eq i64 %138, 0
-  br i1 %.not.i.i.i.i39, label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit40, label %139
+  %.not.i.i.i.i40 = icmp eq i64 %138, 0
+  br i1 %.not.i.i.i.i40, label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit41, label %139
 
 139:                                              ; preds = %137
   %140 = load ptr, ptr %9, align 8
   %141 = icmp eq ptr %15, %140
-  br i1 %141, label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit40, label %142
+  br i1 %141, label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit41, label %142
 
 142:                                              ; preds = %139
   call void @_ZdlPv(ptr noundef %140) #20
-  br label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit40
+  br label %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit41
 
 143:                                              ; preds = %_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit, %31, %28, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -8224,7 +8224,7 @@ _ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_a
   %.not = icmp eq ptr %.sroa.08.0, %11
   br i1 %.not, label %._crit_edge40, label %22
 
-_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit40: ; preds = %142, %139, %137
+_ZN3ue211flat_detail9flat_baseIjSt4lessIjESaIjEED2Ev.exit41: ; preds = %142, %139, %137
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn

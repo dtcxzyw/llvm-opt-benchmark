@@ -4841,7 +4841,7 @@ H5O__close_check_type.exit:                       ; preds = %50, %40
 90:                                               ; preds = %89
   %91 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.131) #6
   %92 = icmp slt i64 %91, 0
-  br i1 %92, label %.thread64, label %98
+  br i1 %92, label %.thread64, label %98, !prof !14
 
 .thread64:                                        ; preds = %90
   %93 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !11

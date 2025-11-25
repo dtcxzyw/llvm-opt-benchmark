@@ -15195,10 +15195,10 @@ define { ptr, ptr } @_ZN3hir9semantics13SemanticsImpl46speculative_expand_derive
 
 "_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Union$GT$17h5a5ddf0d4754df98E.exit.sink.split.i35": ; preds = %98
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %54)
-          to label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Adt$GT$17hc08be100daa0f8c5E.exit37" unwind label %.thread78
+          to label %"_ZN4core3ptr55drop_in_place$LT$syntax..ast..generated..nodes..Adt$GT$17hc08be100daa0f8c5E.exit37" unwind label %.thread73
 
-.thread78:                                        ; preds = %"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Union$GT$17h5a5ddf0d4754df98E.exit.sink.split.i35"
-  %lpad.thr_comm.split-lp79 = landingpad { ptr, i32 }
+.thread73:                                        ; preds = %"_ZN4core3ptr57drop_in_place$LT$syntax..ast..generated..nodes..Union$GT$17h5a5ddf0d4754df98E.exit.sink.split.i35"
+  %lpad.thr_comm.split-lp75 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -15291,8 +15291,8 @@ define { ptr, ptr } @_ZN3hir9semantics13SemanticsImpl46speculative_expand_derive
   %.pn2357 = phi { ptr, i32 } [ %eh.lpad-body33, %.thread59 ], [ %.pn2358, %140 ], [ %.pn2358, %.thread ]
   resume { ptr, i32 } %.pn2357
 
-.thread:                                          ; preds = %.thread78, %130, %135, %20, %27, %15, %.thread59
-  %.pn2358 = phi { ptr, i32 } [ %eh.lpad-body33, %.thread59 ], [ %16, %15 ], [ %21, %27 ], [ %21, %20 ], [ %lpad.thr_comm, %135 ], [ %lpad.thr_comm, %130 ], [ %lpad.thr_comm.split-lp79, %.thread78 ]
+.thread:                                          ; preds = %.thread73, %130, %135, %20, %27, %15, %.thread59
+  %.pn2358 = phi { ptr, i32 } [ %eh.lpad-body33, %.thread59 ], [ %16, %15 ], [ %21, %27 ], [ %21, %20 ], [ %lpad.thr_comm, %135 ], [ %lpad.thr_comm, %130 ], [ %lpad.thr_comm.split-lp75, %.thread73 ]
   %136 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %137 = load i32, ptr %136, align 4, !noalias !4039, !noundef !17
   %138 = add i32 %137, -1

@@ -2116,12 +2116,12 @@ define internal noundef i32 @nut_write_trailer(ptr noundef %0) #0 {
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 4312
   %16 = load i32, ptr %15, align 8, !tbaa !131
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %205, label %17
+  br i1 %.not, label %204, label %17
 
 17:                                               ; preds = %._crit_edge
   %18 = call i32 @avio_open_dyn_buf(ptr noundef nonnull %4) #13
   %19 = icmp sgt i32 %18, -1
-  br i1 %19, label %20, label %205
+  br i1 %19, label %20, label %204
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %4, align 8, !tbaa !104
@@ -2512,23 +2512,23 @@ write_index.exit:                                 ; preds = %._crit_edge.i, %.pr
   %193 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %192
   %194 = load i8, ptr %193, align 1, !tbaa !78
   %195 = zext i8 %194 to i16
-  %196 = add nuw nsw i16 %.1.i.i, %195
-  %197 = udiv i16 %196, 7
-  %198 = zext nneg i16 %197 to i64
-  %199 = icmp sgt i64 %186, 4084
-  %200 = select i1 %199, i64 4, i64 0
-  %201 = add i64 %186, 21
-  %202 = add i64 %201, %200
-  %203 = add i64 %202, %198
-  call void @avio_wb64(ptr noundef %21, i64 noundef %203) #13
+  %.lhs.trunc.i = add nuw nsw i16 %.1.i.i, %195
+  %196 = udiv i16 %.lhs.trunc.i, 7
+  %197 = zext nneg i16 %196 to i64
+  %198 = icmp sgt i64 %186, 4084
+  %199 = select i1 %198, i64 4, i64 0
+  %200 = add i64 %186, 21
+  %201 = add i64 %200, %199
+  %202 = add i64 %201, %197
+  call void @avio_wb64(ptr noundef %21, i64 noundef %202) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %204 = load ptr, ptr %4, align 8, !tbaa !104
-  call fastcc void @put_packet(ptr noundef %8, ptr noundef %204, i64 noundef 5645505568151168590)
+  %203 = load ptr, ptr %4, align 8, !tbaa !104
+  call fastcc void @put_packet(ptr noundef %8, ptr noundef %203, i64 noundef 5645505568151168590)
   call void @ffio_free_dyn_buf(ptr noundef nonnull %4) #13
-  br label %205
+  br label %204
 
-205:                                              ; preds = %17, %write_index.exit, %._crit_edge
+204:                                              ; preds = %17, %write_index.exit, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }

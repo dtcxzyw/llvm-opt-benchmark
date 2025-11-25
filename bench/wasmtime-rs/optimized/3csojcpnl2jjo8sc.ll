@@ -715,13 +715,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17h4a5fec24f7d06aafE(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !221
   %11 = load ptr, ptr %6, align 8, !noundef !9
   %.not.not = icmp eq ptr %11, null
-  br i1 %.not.not, label %.thread12, label %13
+  br i1 %.not.not, label %.thread, label %13
 
-.thread12:                                        ; preds = %10
+.thread:                                          ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %12
 
-12:                                               ; preds = %13, %.thread12
+12:                                               ; preds = %13, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -775,13 +775,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17hbcde6a699859d34bE(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !236
   %11 = load ptr, ptr %6, align 8, !noundef !9
   %.not.not = icmp eq ptr %11, null
-  br i1 %.not.not, label %.thread12, label %13
+  br i1 %.not.not, label %.thread, label %13
 
-.thread12:                                        ; preds = %10
+.thread:                                          ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %12
 
-12:                                               ; preds = %13, %.thread12
+12:                                               ; preds = %13, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

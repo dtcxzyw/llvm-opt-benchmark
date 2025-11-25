@@ -50,7 +50,7 @@ define internal noundef i32 @u16550_setup(ptr noundef readonly captures(none) %0
   %10 = load i8, ptr %9, align 4
   %11 = shl i8 %10, 2
   %12 = and i8 %11, 4
-  %spec.select = or disjoint i8 %.0, %12
+  %spec.select = or disjoint i8 %12, %.0
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %14 = load i8, ptr %13, align 2
   switch i8 %14, label %19 [

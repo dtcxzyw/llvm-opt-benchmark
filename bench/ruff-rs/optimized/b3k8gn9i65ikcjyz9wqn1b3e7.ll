@@ -6705,11 +6705,11 @@ define hidden noundef range(i32 1, 0) i32 @_ZN7ruff_db5files9file_root9FileRoots
   invoke void @"_ZN55_$LT$std..path..Path$u20$as$u20$path_slash..PathExt$GT$8to_slash17h289142527bde9d7bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %27)
           to label %28 unwind label %.thread
 
-"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he8c494b95d91ec61E.exit": ; preds = %.thread44, %39
+.noexc:                                           ; preds = %39, %.thread50
   br i1 %.sroa.07.2, label %138, label %137
 
 .thread:                                          ; preds = %35, %5, %71
-  %lpad.thr_comm67 = landingpad { ptr, i32 }
+  %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %138
 
@@ -6736,21 +6736,21 @@ define hidden noundef range(i32 1, 0) i32 @_ZN7ruff_db5files9file_root9FileRoots
 36:                                               ; preds = %35
   unreachable
 
-.thread44:                                        ; preds = %113, %117, %84, %.thread48, %81, %49, %40
-  %.pn.pn = phi { ptr, i32 } [ %.pn42, %.thread48 ], [ %lpad.thr_comm.split-lp, %84 ], [ %82, %81 ], [ %41, %40 ], [ %50, %49 ], [ %114, %117 ], [ %114, %113 ]
-  %.sroa.07.2 = phi i1 [ %.sroa.07.443, %.thread48 ], [ false, %84 ], [ true, %81 ], [ true, %40 ], [ true, %49 ], [ false, %117 ], [ false, %113 ]
+.thread50:                                        ; preds = %113, %117, %84, %.thread54, %81, %49, %40
+  %.pn.pn = phi { ptr, i32 } [ %.pn48, %.thread54 ], [ %lpad.thr_comm.split-lp61, %84 ], [ %82, %81 ], [ %41, %40 ], [ %50, %49 ], [ %114, %117 ], [ %114, %113 ]
+  %.sroa.07.2 = phi i1 [ %.sroa.07.449, %.thread54 ], [ false, %84 ], [ true, %81 ], [ true, %40 ], [ true, %49 ], [ false, %117 ], [ false, %113 ]
   %37 = load i64, ptr %23, align 8, !range !28, !alias.scope !521, !noundef !6
   %38 = icmp eq i64 %37, -9223372036854775808
-  br i1 %38, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he8c494b95d91ec61E.exit", label %39
+  br i1 %38, label %.noexc, label %39
 
-39:                                               ; preds = %.thread44
+39:                                               ; preds = %.thread50
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heedfaf213fa349dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23)
-          to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he8c494b95d91ec61E.exit" unwind label %73
+          to label %.noexc unwind label %73
 
 40:                                               ; preds = %65, %61, %60, %30
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread44
+  br label %.thread50
 
 42:                                               ; preds = %30
   %43 = load ptr, ptr %12, align 8, !noundef !6
@@ -6772,7 +6772,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN7ruff_db5files9file_root9FileRoots
   %50 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr90drop_in_place$LT$matchit..router..Match$LT$$RF$ruff_db..files..file_root..FileRoot$GT$$GT$17hd84ae4a801598d40E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %21) #29
-          to label %.thread44 unwind label %73
+          to label %.thread50 unwind label %73
 
 51:                                               ; preds = %45
   %52 = extractvalue { ptr, i64 } %48, 0
@@ -6844,7 +6844,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN7ruff_db5files9file_root9FileRoots
   %.sroa.0.0 = phi i32 [ %95, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he8c494b95d91ec61E.exit35" ], [ %63, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he8c494b95d91ec61E.exit28" ]
   ret i32 %.sroa.0.0
 
-73:                                               ; preds = %39, %138, %.thread48, %135, %81, %49
+73:                                               ; preds = %39, %138, %.thread54, %135, %81, %49
   %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #30
@@ -6866,22 +6866,22 @@ define hidden noundef range(i32 1, 0) i32 @_ZN7ruff_db5files9file_root9FileRoots
   %82 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heedfaf213fa349dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #29
-          to label %.thread44 unwind label %73
+          to label %.thread50 unwind label %73
 
 83:                                               ; preds = %76
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heedfaf213fa349dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
-          to label %85 unwind label %.thread53
+          to label %85 unwind label %.thread62
 
-.thread53:                                        ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1ba2465797f32cd5E.exit24", %97, %96, %87, %83
+.thread62:                                        ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1ba2465797f32cd5E.exit24", %97, %96, %87, %83
   %.sroa.07.3.ph = phi i1 [ true, %83 ], [ false, %87 ], [ false, %96 ], [ false, %97 ], [ false, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1ba2465797f32cd5E.exit24" ]
-  %lpad.thr_comm = landingpad { ptr, i32 }
+  %lpad.thr_comm60 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread48
+  br label %.thread54
 
 84:                                               ; preds = %109, %126
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp61 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread44
+  br label %.thread50
 
 85:                                               ; preds = %83
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -6902,27 +6902,27 @@ define hidden noundef range(i32 1, 0) i32 @_ZN7ruff_db5files9file_root9FileRoots
   %94 = zext i1 %4 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %..i = select i1 %4, i8 2, i8 0
-  %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i8 %94, ptr %.sroa.459.0..sroa_idx, align 8, !alias.scope !527
-  %.sroa.560.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store i128 %93, ptr %.sroa.560.0..sroa_idx, align 16, !alias.scope !527
-  %.sroa.661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store i16 514, ptr %.sroa.661.0..sroa_idx, align 16, !alias.scope !527
-  %.sroa.762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 50
-  store i8 %..i, ptr %.sroa.762.0..sroa_idx, align 2, !alias.scope !527
+  %.sroa.468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i8 %94, ptr %.sroa.468.0..sroa_idx, align 8, !alias.scope !527
+  %.sroa.569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store i128 %93, ptr %.sroa.569.0..sroa_idx, align 16, !alias.scope !527
+  %.sroa.670.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 48
+  store i16 514, ptr %.sroa.670.0..sroa_idx, align 16, !alias.scope !527
+  %.sroa.771.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 50
+  store i8 %..i, ptr %.sroa.771.0..sroa_idx, align 2, !alias.scope !527
   %95 = invoke noundef i32 @"_ZN7ruff_db5files9file_root1_65_$LT$impl$u20$ruff_db..files..file_root.._..builder..Builder_$GT$3new17h37a8a25620e63e72E"(ptr noalias noundef nonnull align 16 captures(none) dereferenceable(64) %18, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %2)
-          to label %96 unwind label %.thread53
+          to label %96 unwind label %.thread62
 
 96:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h0f8fab51c3d39265E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20)
-          to label %97 unwind label %.thread53
+          to label %97 unwind label %.thread62
 
 97:                                               ; preds = %96
   invoke void @"_ZN7matchit6router15Router$LT$T$GT$6insert17h7ff7356936188022E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull align 8 dereferenceable(136) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15, i32 noundef %95)
-          to label %98 unwind label %.thread53
+          to label %98 unwind label %.thread62
 
 98:                                               ; preds = %97
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -6942,11 +6942,11 @@ define hidden noundef range(i32 1, 0) i32 @_ZN7ruff_db5files9file_root9FileRoots
           cleanup
   %103 = load i64, ptr %6, align 8, !range !144, !alias.scope !538, !noalias !531, !noundef !6
   %104 = icmp sgt i64 %103, -9223372036854775806
-  br i1 %104, label %105, label %.thread48
+  br i1 %104, label %105, label %.thread54
 
 105:                                              ; preds = %101
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heedfaf213fa349dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-          to label %.thread48 unwind label %107
+          to label %.thread54 unwind label %107
 
 106:                                              ; preds = %100
   unreachable
@@ -6960,7 +6960,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN7ruff_db5files9file_root9FileRoots
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1ba2465797f32cd5E.exit24": ; preds = %98
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hf2523fcd85811ed7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull @anon.f0281aa1de3c49ec4c1c050fcf9c57f9.188, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.f0281aa1de3c49ec4c1c050fcf9c57f9.188, i64 12), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f0281aa1de3c49ec4c1c050fcf9c57f9.84)
-          to label %109 unwind label %.thread53
+          to label %109 unwind label %.thread62
 
 109:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1ba2465797f32cd5E.exit24"
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -6987,11 +6987,11 @@ define hidden noundef range(i32 1, 0) i32 @_ZN7ruff_db5files9file_root9FileRoots
           cleanup
   %115 = load i64, ptr %7, align 8, !range !144, !alias.scope !547, !noalias !541, !noundef !6
   %116 = icmp sgt i64 %115, -9223372036854775806
-  br i1 %116, label %117, label %.thread44
+  br i1 %116, label %117, label %.thread50
 
 117:                                              ; preds = %113
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heedfaf213fa349dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
-          to label %.thread44 unwind label %119
+          to label %.thread50 unwind label %119
 
 118:                                              ; preds = %112
   unreachable
@@ -7039,20 +7039,20 @@ define hidden noundef range(i32 1, 0) i32 @_ZN7ruff_db5files9file_root9FileRoots
   %136 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h8afc92ed13740d28E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #29
-          to label %.thread48 unwind label %73
+          to label %.thread54 unwind label %73
 
-.thread48:                                        ; preds = %135, %101, %105, %.thread53
-  %.sroa.07.443 = phi i1 [ %.sroa.07.3.ph, %.thread53 ], [ false, %105 ], [ false, %101 ], [ false, %135 ]
-  %.pn42 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread53 ], [ %102, %105 ], [ %102, %101 ], [ %136, %135 ]
+.thread54:                                        ; preds = %135, %101, %105, %.thread62
+  %.sroa.07.449 = phi i1 [ %.sroa.07.3.ph, %.thread62 ], [ false, %105 ], [ false, %101 ], [ false, %135 ]
+  %.pn48 = phi { ptr, i32 } [ %lpad.thr_comm60, %.thread62 ], [ %102, %105 ], [ %102, %101 ], [ %136, %135 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17heedfaf213fa349dbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #29
-          to label %.thread44 unwind label %73
+          to label %.thread50 unwind label %73
 
-137:                                              ; preds = %138, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he8c494b95d91ec61E.exit"
-  %.pn1765 = phi { ptr, i32 } [ %.pn1766, %138 ], [ %.pn.pn, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he8c494b95d91ec61E.exit" ]
-  resume { ptr, i32 } %.pn1765
+137:                                              ; preds = %138, %.noexc
+  %.pn1738 = phi { ptr, i32 } [ %.pn1739, %138 ], [ %.pn.pn, %.noexc ]
+  resume { ptr, i32 } %.pn1738
 
-138:                                              ; preds = %.thread, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he8c494b95d91ec61E.exit"
-  %.pn1766 = phi { ptr, i32 } [ %.pn.pn, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he8c494b95d91ec61E.exit" ], [ %lpad.thr_comm67, %.thread ]
+138:                                              ; preds = %.thread, %.noexc
+  %.pn1739 = phi { ptr, i32 } [ %.pn.pn, %.noexc ], [ %lpad.thr_comm, %.thread ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h8afc92ed13740d28E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #29
           to label %137 unwind label %73
 }

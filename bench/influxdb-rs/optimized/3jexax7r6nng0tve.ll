@@ -6421,7 +6421,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit122
   invoke void @"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17h521fe42f901918e1E.llvm.13054344295739906232"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16) #34
           to label %.thread194 unwind label %94
 
-.thread194:                                       ; preds = %162, %.thread180, %.thread
+.thread194:                                       ; preds = %.thread180, %162, %.thread
   %.pn.pn.pn179 = phi { ptr, i32 } [ %104, %.thread ], [ %.pn.pn185, %.thread180 ], [ %163, %162 ]
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hb946059ad9d4b3f3E"(ptr noalias noundef align 8 dereferenceable(40) %26) #34
           to label %.thread194.thread unwind label %94

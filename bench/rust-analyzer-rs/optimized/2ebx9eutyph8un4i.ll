@@ -28687,8 +28687,8 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17hf599b2ba39552fa3E(ptr
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %9, i8 0, i64 23, i1 false)
-  %.not.not.i100 = icmp eq i64 %.val66, %.val
-  br i1 %.not.not.i100, label %._crit_edge, label %.lr.ph
+  %.not.not.i106 = icmp eq i64 %.val66, %.val
+  br i1 %.not.not.i106, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -28747,7 +28747,7 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17hf599b2ba39552fa3E(ptr
   unreachable
 
 24:                                               ; preds = %.lr.ph, %39
-  %.0101 = phi i64 [ 0, %.lr.ph ], [ %37, %39 ]
+  %.0107 = phi i64 [ 0, %.lr.ph ], [ %37, %39 ]
   %25 = phi i64 [ %.val, %.lr.ph ], [ %26, %39 ]
   %26 = add nuw nsw i64 %25, 1
   store i64 %26, ptr %1, align 8, !alias.scope !6695
@@ -28780,13 +28780,13 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17hf599b2ba39552fa3E(ptr
 
 36:                                               ; preds = %32, %34, %24
   %.061 = phi i64 [ 1, %24 ], [ %., %34 ], [ 2, %32 ]
-  %37 = add nuw nsw i64 %.061, %.0101
+  %37 = add nuw nsw i64 %.061, %.0107
   %38 = icmp samesign ugt i64 %37, 23
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %36
-  %40 = sub nuw nsw i64 23, %.0101
-  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %.0101
+  %40 = sub nuw nsw i64 23, %.0107
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 %.0107
   %42 = call { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.2875332049115192089(i32 noundef %29, ptr noalias noundef nonnull align 1 %41, i64 noundef %40)
   %.not.not.i = icmp eq i64 %.val66, %26
   br i1 %.not.not.i, label %._crit_edge.loopexit, label %24
@@ -28804,7 +28804,7 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17hf599b2ba39552fa3E(ptr
   %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %.sroa.530.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  invoke void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %.0101)
+  invoke void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %.0107)
           to label %49 unwind label %.loopexit.split-lp
 
 49:                                               ; preds = %43
@@ -28866,20 +28866,20 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17hf599b2ba39552fa3E(ptr
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc14a1b1e1833777fE.exit.i": ; preds = %71, %66
   %.not.i4.i.i.i.i = icmp eq i64 %.val66, %26
-  br i1 %.not.i4.i.i.i.i, label %.loopexit97, label %.lr.ph.i.i.i.i.preheader
+  br i1 %.not.i4.i.i.i.i, label %.loopexit103, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc14a1b1e1833777fE.exit.i"
   %.sroa.2.20.extract.shift = lshr i64 %.sroa.582.0.copyload, 32
   %.sroa.2.20.extract.trunc = trunc nuw i64 %.sroa.2.20.extract.shift to i32
   %.not.i.i.i.i.i = icmp eq i64 %.val66, 2
   invoke void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.2875332049115192089(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i32 noundef range(i32 0, 1114112) %.sroa.2.20.extract.trunc)
-          to label %.noexc72 unwind label %.loopexit96
+          to label %.noexc72 unwind label %.loopexit102
 
 .noexc72:                                         ; preds = %.lr.ph.i.i.i.i.preheader
   call void @llvm.assume(i1 %.not.i.i.i.i.i)
-  br label %.loopexit97
+  br label %.loopexit103
 
-.loopexit97:                                      ; preds = %.noexc72, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc14a1b1e1833777fE.exit.i"
+.loopexit103:                                     ; preds = %.noexc72, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hc14a1b1e1833777fE.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %72 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h890071f97a488957E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
@@ -28899,11 +28899,11 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17hf599b2ba39552fa3E(ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %79
 
-79:                                               ; preds = %.loopexit97, %._crit_edge
+79:                                               ; preds = %.loopexit103, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
-.loopexit96:                                      ; preds = %.lr.ph.i.i.i.i.preheader
+.loopexit102:                                     ; preds = %.lr.ph.i.i.i.i.preheader
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %80
@@ -28913,8 +28913,8 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17hf599b2ba39552fa3E(ptr
           cleanup
   br label %80
 
-80:                                               ; preds = %.loopexit.split-lp, %.loopexit96
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit96 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+80:                                               ; preds = %.loopexit.split-lp, %.loopexit102
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit102 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdcf7b889bac065f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #52
           to label %.body.thread unwind label %81
 
@@ -28925,8 +28925,8 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17hf599b2ba39552fa3E(ptr
   unreachable
 
 .body.thread:                                     ; preds = %80, %21
-  %.pn85 = phi { ptr, i32 } [ %lpad.phi.i.i, %21 ], [ %lpad.phi, %80 ]
-  resume { ptr, i32 } %.pn85
+  %.pn83 = phi { ptr, i32 } [ %lpad.phi.i.i, %21 ], [ %lpad.phi, %80 ]
+  resume { ptr, i32 } %.pn83
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable

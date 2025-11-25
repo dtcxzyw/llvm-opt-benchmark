@@ -559,15 +559,15 @@ define hidden void @_ZN12pingora_http13RequestHeader13append_header17hed82b8fcfb
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !49
   invoke void @"_ZN78_$LT$$RF$str$u20$as$u20$pingora_http..case_header_name..IntoCaseHeaderName$GT$21into_case_header_name17h4e682ffe09531ca2E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-          to label %32 unwind label %.thread65.i, !noalias !54
+          to label %32 unwind label %.thread75.i, !noalias !54
 
 31:                                               ; preds = %.thread.i
-  br i1 %.sroa.017.251.i, label %.thread, label %94
+  br i1 %.sroa.017.251.i, label %.thread69.i, label %94
 
-.thread65.i:                                      ; preds = %91, %28
-  %lpad.thr_comm63.i = landingpad { ptr, i32 }
+.thread75.i:                                      ; preds = %91, %28
+  %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %.thread69.i
 
 32:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !49
@@ -576,7 +576,7 @@ define hidden void @_ZN12pingora_http13RequestHeader13append_header17hed82b8fcfb
           to label %37 unwind label %35, !noalias !54
 
 34:                                               ; preds = %88
-  br i1 %.sroa.014.1.ph53.i, label %.thread.i, label %.thread
+  br i1 %.sroa.014.1.ph53.i, label %.thread.i, label %.thread69.i
 
 35:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17he3ca4d29cfcbc676E.exit.i.i", %43, %37, %32
   %36 = landingpad { ptr, i32 }
@@ -690,7 +690,7 @@ define hidden void @_ZN12pingora_http13RequestHeader13append_header17hed82b8fcfb
           to label %75 unwind label %88, !noalias !72
 
 .thread54.thread.i:                               ; preds = %85, %62
-  %lpad.thr_comm68.i = landingpad { ptr, i32 }
+  %lpad.thr_comm58.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
 
@@ -770,7 +770,7 @@ define hidden void @_ZN12pingora_http13RequestHeader13append_header17hed82b8fcfb
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hc195fac22744a9feE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #24
           to label %34 unwind label %89, !noalias !72
 
-89:                                               ; preds = %.thread, %.thread.i, %88
+89:                                               ; preds = %.thread69.i, %.thread.i, %88
   %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21, !noalias !46
@@ -785,7 +785,7 @@ define hidden void @_ZN12pingora_http13RequestHeader13append_header17hed82b8fcfb
   store i8 1, ptr %0, align 8, !alias.scope !46, !noalias !74
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !49
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17h43c81ecaab1b26e5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
-          to label %93 unwind label %.thread65.i, !noalias !54
+          to label %93 unwind label %.thread75.i, !noalias !54
 
 93:                                               ; preds = %91
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !49
@@ -793,17 +793,17 @@ define hidden void @_ZN12pingora_http13RequestHeader13append_header17hed82b8fcfb
   br label %_ZN12pingora_http19append_header_value17h51b0fa0acb35b947E.exit
 
 .thread.i:                                        ; preds = %.thread54.thread.i, %57, %54, %52, %48, %35, %34
-  %.pn52.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %34 ], [ %36, %35 ], [ %49, %57 ], [ %49, %54 ], [ %49, %52 ], [ %49, %48 ], [ %lpad.thr_comm68.i, %.thread54.thread.i ]
+  %.pn52.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %34 ], [ %36, %35 ], [ %49, %57 ], [ %49, %54 ], [ %49, %52 ], [ %49, %48 ], [ %lpad.thr_comm58.i, %.thread54.thread.i ]
   %.sroa.017.251.i = phi i1 [ true, %34 ], [ true, %35 ], [ true, %57 ], [ true, %54 ], [ true, %52 ], [ true, %48 ], [ false, %.thread54.thread.i ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17h43c81ecaab1b26e5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #24
           to label %31 unwind label %89, !noalias !73
 
-94:                                               ; preds = %.thread, %31
-  %.pn4061.i = phi { ptr, i32 } [ %.pn4062.i, %.thread ], [ %.pn52.i, %31 ]
-  resume { ptr, i32 } %.pn4061.i
+94:                                               ; preds = %.thread69.i, %31
+  %.pn4072.i = phi { ptr, i32 } [ %.pn4073.i, %.thread69.i ], [ %.pn52.i, %31 ]
+  resume { ptr, i32 } %.pn4072.i
 
-.thread:                                          ; preds = %34, %.thread65.i, %31
-  %.pn4062.i = phi { ptr, i32 } [ %.pn52.i, %31 ], [ %lpad.thr_comm63.i, %.thread65.i ], [ %lpad.thr_comm.split-lp.i, %34 ]
+.thread69.i:                                      ; preds = %34, %.thread75.i, %31
+  %.pn4073.i = phi { ptr, i32 } [ %.pn52.i, %31 ], [ %lpad.thr_comm.i, %.thread75.i ], [ %lpad.thr_comm.split-lp.i, %34 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h35f2ff20ecbc77ccE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %18) #24
           to label %94 unwind label %89, !noalias !46
 
@@ -1075,15 +1075,15 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hb3cf11ae8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !104
   invoke void @"_ZN117_$LT$pingora_http..case_header_name..CaseHeaderName$u20$as$u20$pingora_http..case_header_name..IntoCaseHeaderName$GT$21into_case_header_name17h193f7c70a6ccad9dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %16)
-          to label %32 unwind label %.thread65.i, !noalias !109
+          to label %32 unwind label %.thread75.i, !noalias !109
 
 31:                                               ; preds = %.thread.i
-  br i1 %.sroa.017.251.i, label %.thread, label %.body.thread
+  br i1 %.sroa.017.251.i, label %.thread69.i, label %.body.thread
 
-.thread65.i:                                      ; preds = %90, %28
-  %lpad.thr_comm63.i = landingpad { ptr, i32 }
+.thread75.i:                                      ; preds = %90, %28
+  %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %.thread69.i
 
 32:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !104
@@ -1092,7 +1092,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hb3cf11ae8
           to label %37 unwind label %35, !noalias !104
 
 34:                                               ; preds = %87
-  br i1 %.sroa.014.1.ph53.i, label %.thread.i, label %.thread
+  br i1 %.sroa.014.1.ph53.i, label %.thread.i, label %.thread69.i
 
 35:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17he3ca4d29cfcbc676E.exit.i.i", %43, %37, %32
   %36 = landingpad { ptr, i32 }
@@ -1206,7 +1206,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hb3cf11ae8
           to label %75 unwind label %87, !noalias !123
 
 .thread54.thread.i:                               ; preds = %84, %62
-  %lpad.thr_comm68.i = landingpad { ptr, i32 }
+  %lpad.thr_comm58.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
 
@@ -1286,7 +1286,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hb3cf11ae8
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hc195fac22744a9feE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #24
           to label %34 unwind label %88, !noalias !123
 
-88:                                               ; preds = %.thread, %.thread.i, %87
+88:                                               ; preds = %.thread69.i, %.thread.i, %87
   %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21, !noalias !125
@@ -1301,7 +1301,7 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hb3cf11ae8
   store i8 1, ptr %0, align 8, !alias.scope !101, !noalias !124
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !104
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17h43c81ecaab1b26e5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15)
-          to label %92 unwind label %.thread65.i, !noalias !104
+          to label %92 unwind label %.thread75.i, !noalias !104
 
 92:                                               ; preds = %90
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !104
@@ -1309,13 +1309,13 @@ define hidden void @_ZN12pingora_http14ResponseHeader13append_header17hb3cf11ae8
   br label %_ZN12pingora_http19append_header_value17h84241da1ea5c2928E.exit
 
 .thread.i:                                        ; preds = %.thread54.thread.i, %57, %54, %52, %48, %35, %34
-  %.pn52.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %34 ], [ %36, %35 ], [ %49, %57 ], [ %49, %54 ], [ %49, %52 ], [ %49, %48 ], [ %lpad.thr_comm68.i, %.thread54.thread.i ]
+  %.pn52.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %34 ], [ %36, %35 ], [ %49, %57 ], [ %49, %54 ], [ %49, %52 ], [ %49, %48 ], [ %lpad.thr_comm58.i, %.thread54.thread.i ]
   %.sroa.017.251.i = phi i1 [ true, %34 ], [ true, %35 ], [ true, %57 ], [ true, %54 ], [ true, %52 ], [ true, %48 ], [ false, %.thread54.thread.i ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$pingora_http..case_header_name..CaseHeaderName$GT$17h43c81ecaab1b26e5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #24
           to label %31 unwind label %88, !noalias !126
 
-.thread:                                          ; preds = %34, %.thread65.i, %31
-  %.pn4062.i = phi { ptr, i32 } [ %.pn52.i, %31 ], [ %lpad.thr_comm63.i, %.thread65.i ], [ %lpad.thr_comm.split-lp.i, %34 ]
+.thread69.i:                                      ; preds = %34, %.thread75.i, %31
+  %.pn4073.i = phi { ptr, i32 } [ %.pn52.i, %31 ], [ %lpad.thr_comm.i, %.thread75.i ], [ %lpad.thr_comm.split-lp.i, %34 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h35f2ff20ecbc77ccE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %17) #24
           to label %.body.thread unwind label %88, !noalias !125
 
@@ -1326,8 +1326,8 @@ _ZN12pingora_http19append_header_value17h84241da1ea5c2928E.exit: ; preds = %92, 
 93:                                               ; preds = %_ZN12pingora_http19append_header_value17h84241da1ea5c2928E.exit, %26
   ret void
 
-.body.thread:                                     ; preds = %.thread, %31, %94
-  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %94 ], [ %.pn4062.i, %.thread ], [ %.pn52.i, %31 ]
+.body.thread:                                     ; preds = %.thread69.i, %31, %94
+  %eh.lpad-body20 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %94 ], [ %.pn4073.i, %.thread69.i ], [ %.pn52.i, %31 ]
   resume { ptr, i32 } %eh.lpad-body20
 
 94:                                               ; preds = %4
@@ -4483,6 +4483,11 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %12 = invoke noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17hc34b239fbd1942ffE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
           to label %13 unwind label %.loopexit.split-lp
 
+.body:                                            ; preds = %157
+  %lpad.thr_comm.split-lp79 = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread67
+
 13:                                               ; preds = %3
   br i1 %12, label %16, label %14
 
@@ -4504,16 +4509,16 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.outer180
+  br label %.outer178
 
-.outer180:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %17
+.outer178:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %17
   %.sroa.011.0.ph = phi i64 [ %80, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ 0, %17 ]
   %.sroa.016.0.ph = phi i64 [ %81, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ %21, %17 ]
   %27 = load i64, ptr %23, align 8, !noundef !7
   br label %28
 
-28:                                               ; preds = %.outer180, %28
-  %.sroa.016.0 = phi i64 [ 0, %28 ], [ %.sroa.016.0.ph, %.outer180 ]
+28:                                               ; preds = %.outer178, %28
+  %.sroa.016.0 = phi i64 [ 0, %28 ], [ %.sroa.016.0.ph, %.outer178 ]
   %29 = icmp ult i64 %.sroa.016.0, %27
   br i1 %29, label %30, label %28
 
@@ -4571,7 +4576,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %58 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr100drop_in_place$LT$http..header..map..Bucket$LT$pingora_http..case_header_name..CaseHeaderName$GT$$GT$17hc0f12273fd11c5c9E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %7) #24
-          to label %.body.thread.thread unwind label %59, !noalias !516
+          to label %.thread73 unwind label %59, !noalias !516
 
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
@@ -4593,7 +4598,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %63 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hc195fac22744a9feE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #24
-          to label %.body.thread.thread unwind label %64, !noalias !505
+          to label %.thread73 unwind label %64, !noalias !505
 
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
@@ -4634,7 +4639,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread": ; preds = %85, %97, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit", %78
   %80 = add nuw nsw i64 %.sroa.011.0.ph, 1
   %81 = add i64 %.sroa.016.0, 1
-  br label %.outer180
+  br label %.outer178
 
 82:                                               ; preds = %78
   %83 = load i64, ptr %25, align 8, !noundef !7
@@ -4811,7 +4816,7 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
 
 157:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc27fee1a30318274E.exit.i"
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %114, i64 noundef %132, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.af2eec3d1b03e2d0df235f2aabe870b0.46) #23
-          to label %.noexc44 unwind label %.body.thread
+          to label %.noexc44 unwind label %.body
 
 .noexc44:                                         ; preds = %157
   unreachable
@@ -4855,7 +4860,7 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
   %174 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr100drop_in_place$LT$http..header..map..Bucket$LT$pingora_http..case_header_name..CaseHeaderName$GT$$GT$17hc0f12273fd11c5c9E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %4) #24
-          to label %.body.thread.thread unwind label %175, !noalias !558
+          to label %.thread73 unwind label %175, !noalias !558
 
 175:                                              ; preds = %173
   %176 = landingpad { ptr, i32 }
@@ -4877,7 +4882,7 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
   %179 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hc195fac22744a9feE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #24
-          to label %.body.thread.thread unwind label %180, !noalias !560
+          to label %.thread73 unwind label %180, !noalias !560
 
 180:                                              ; preds = %178
   %181 = landingpad { ptr, i32 }
@@ -4951,11 +4956,6 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
   tail call void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hc195fac22744a9feE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   br label %.thread
 
-.body.thread:                                     ; preds = %157
-  %lpad.thr_comm.split-lp81 = landingpad { ptr, i32 }
-          cleanup
-  br label %.thread67
-
 206:                                              ; preds = %16
   %207 = landingpad { ptr, i32 }
           cleanup
@@ -4986,14 +4986,14 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21
   unreachable
 
-.body.thread.thread:                              ; preds = %173, %178, %57, %62, %.thread67
+.thread73:                                        ; preds = %173, %178, %57, %62, %.thread67
   %.pn70 = phi { ptr, i32 } [ %.pn71, %.thread67 ], [ %174, %173 ], [ %179, %178 ], [ %58, %57 ], [ %63, %62 ]
   resume { ptr, i32 } %.pn70
 
-.thread67:                                        ; preds = %125, %144, %.body.thread, %208, %206
-  %.pn71 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp81, %.body.thread ], [ %lpad.phi, %208 ], [ %207, %206 ], [ %145, %144 ], [ %126, %125 ]
+.thread67:                                        ; preds = %208, %206, %.body, %125, %144
+  %.pn71 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp79, %.body ], [ %126, %125 ], [ %145, %144 ], [ %lpad.phi, %208 ], [ %207, %206 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hc195fac22744a9feE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #24
-          to label %.body.thread.thread unwind label %209
+          to label %.thread73 unwind label %209
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5008,6 +5008,11 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %11 = alloca [32 x i8], align 8
   %12 = invoke noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17h273992aab27ae1adE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0)
           to label %13 unwind label %.loopexit.split-lp
+
+.body:                                            ; preds = %157
+  %lpad.thr_comm.split-lp79 = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread67
 
 13:                                               ; preds = %3
   br i1 %12, label %16, label %14
@@ -5030,16 +5035,16 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.outer180
+  br label %.outer178
 
-.outer180:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %17
+.outer178:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread", %17
   %.sroa.011.0.ph = phi i64 [ %80, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ 0, %17 ]
   %.sroa.016.0.ph = phi i64 [ %81, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread" ], [ %21, %17 ]
   %27 = load i64, ptr %23, align 8, !noundef !7
   br label %28
 
-28:                                               ; preds = %.outer180, %28
-  %.sroa.016.0 = phi i64 [ 0, %28 ], [ %.sroa.016.0.ph, %.outer180 ]
+28:                                               ; preds = %.outer178, %28
+  %.sroa.016.0 = phi i64 [ 0, %28 ], [ %.sroa.016.0.ph, %.outer178 ]
   %29 = icmp ult i64 %.sroa.016.0, %27
   br i1 %29, label %30, label %28
 
@@ -5097,7 +5102,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %58 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr86drop_in_place$LT$http..header..map..Bucket$LT$http..header..value..HeaderValue$GT$$GT$17hbc5f84b8c195d5faE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %7) #24
-          to label %.body.thread.thread unwind label %59, !noalias !572
+          to label %.thread73 unwind label %59, !noalias !572
 
 59:                                               ; preds = %57
   %60 = landingpad { ptr, i32 }
@@ -5119,7 +5124,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %63 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hc195fac22744a9feE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #24
-          to label %.body.thread.thread unwind label %64, !noalias !561
+          to label %.thread73 unwind label %64, !noalias !561
 
 64:                                               ; preds = %62
   %65 = landingpad { ptr, i32 }
@@ -5160,7 +5165,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread": ; preds = %85, %97, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit", %78
   %80 = add nuw nsw i64 %.sroa.011.0.ph, 1
   %81 = add i64 %.sroa.016.0, 1
-  br label %.outer180
+  br label %.outer178
 
 82:                                               ; preds = %78
   %83 = load i64, ptr %25, align 8, !noundef !7
@@ -5337,7 +5342,7 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
 
 157:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hfe3db6fe7fa0c330E.exit.i"
   invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %114, i64 noundef %132, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.af2eec3d1b03e2d0df235f2aabe870b0.46) #23
-          to label %.noexc44 unwind label %.body.thread
+          to label %.noexc44 unwind label %.body
 
 .noexc44:                                         ; preds = %157
   unreachable
@@ -5381,7 +5386,7 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
   %174 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr86drop_in_place$LT$http..header..map..Bucket$LT$http..header..value..HeaderValue$GT$$GT$17hbc5f84b8c195d5faE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %4) #24
-          to label %.body.thread.thread unwind label %175, !noalias !614
+          to label %.thread73 unwind label %175, !noalias !614
 
 175:                                              ; preds = %173
   %176 = landingpad { ptr, i32 }
@@ -5403,7 +5408,7 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
   %179 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hc195fac22744a9feE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #24
-          to label %.body.thread.thread unwind label %180, !noalias !616
+          to label %.thread73 unwind label %180, !noalias !616
 
 180:                                              ; preds = %178
   %181 = landingpad { ptr, i32 }
@@ -5477,11 +5482,6 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
   tail call void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hc195fac22744a9feE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   br label %.thread
 
-.body.thread:                                     ; preds = %157
-  %lpad.thr_comm.split-lp81 = landingpad { ptr, i32 }
-          cleanup
-  br label %.thread67
-
 206:                                              ; preds = %16
   %207 = landingpad { ptr, i32 }
           cleanup
@@ -5512,14 +5512,14 @@ split:                                            ; preds = %97, %"_ZN71_$LT$htt
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21
   unreachable
 
-.body.thread.thread:                              ; preds = %173, %178, %57, %62, %.thread67
+.thread73:                                        ; preds = %173, %178, %57, %62, %.thread67
   %.pn70 = phi { ptr, i32 } [ %.pn71, %.thread67 ], [ %174, %173 ], [ %179, %178 ], [ %58, %57 ], [ %63, %62 ]
   resume { ptr, i32 } %.pn70
 
-.thread67:                                        ; preds = %125, %144, %.body.thread, %208, %206
-  %.pn71 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp81, %.body.thread ], [ %lpad.phi, %208 ], [ %207, %206 ], [ %145, %144 ], [ %126, %125 ]
+.thread67:                                        ; preds = %208, %206, %.body, %125, %144
+  %.pn71 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp79, %.body ], [ %126, %125 ], [ %145, %144 ], [ %lpad.phi, %208 ], [ %207, %206 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hc195fac22744a9feE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #24
-          to label %.body.thread.thread unwind label %209
+          to label %.thread73 unwind label %209
 }
 
 ; Function Attrs: nonlazybind uwtable

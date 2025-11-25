@@ -158779,17 +158779,17 @@ define void @"_ZN116_$LT$assistant..slash_command..fetch_command..FetchSlashComm
           to label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$language..LspAdapterDelegate$GT$$GT$$GT$17h03f370eb4e26d50eE.exit30" unwind label %145
 
 55:                                               ; preds = %.noexc
-  %.sroa.7.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %.sroa.7.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.0..sroa_idx80, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.7.0..sroa_idx78, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !44203
   store i32 %37, ptr %24, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %56 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
           to label %59 unwind label %57
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$http_client..HttpClientWithUrl$GT$$GT$17hb2e1e2cccc5d7c46E.exit": ; preds = %172, %125, %177, %180, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit", %57
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %eh.lpad-body, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit" ], [ %58, %57 ], [ %.pn.pn.pn61, %180 ], [ %.pn.pn.pn61, %177 ], [ %.pn.ph, %172 ], [ %lpad.thr_comm.split-lp, %125 ]
+"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$http_client..HttpClientWithUrl$GT$$GT$17hb2e1e2cccc5d7c46E.exit": ; preds = %125, %172, %177, %180, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit", %57
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %eh.lpad-body, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit" ], [ %.pn.pn.pn61, %180 ], [ %.pn.pn.pn61, %177 ], [ %.pn.ph, %172 ], [ %lpad.thr_comm.split-lp, %125 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17h028ac997b3062516E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24) #68
           to label %.body31 unwind label %170
 
@@ -158859,9 +158859,6 @@ _ZN4gpui3app10entity_map9EntityMap4read17h9dac3bcde0cd44b9E.exit: ; preds = %.no
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
           to label %84 unwind label %.thread
-
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i", %.body41
-  br i1 %.sroa.08.1.lpad-body, label %177, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$http_client..HttpClientWithUrl$GT$$GT$17hb2e1e2cccc5d7c46E.exit"
 
 .thread:                                          ; preds = %82
   %83 = landingpad { ptr, i32 }
@@ -159170,7 +159167,10 @@ _ZN4gpui3app10entity_map9EntityMap4read17h9dac3bcde0cd44b9E.exit: ; preds = %.no
   call void @__rust_dealloc(ptr noundef nonnull %176, i64 noundef %173, i64 noundef 1) #67, !noalias !44297
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit"
 
-177:                                              ; preds = %.thread, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit"
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit": ; preds = %.body41, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i"
+  br i1 %.sroa.08.1.lpad-body, label %177, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$http_client..HttpClientWithUrl$GT$$GT$17hb2e1e2cccc5d7c46E.exit"
+
+177:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit", %.thread
   %.pn.pn.pn61 = phi { ptr, i32 } [ %83, %.thread ], [ %eh.lpad-body, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit" ]
   %178 = atomicrmw sub ptr %81, i64 1 release, align 8, !noalias !44298
   %179 = icmp eq i64 %178, 1

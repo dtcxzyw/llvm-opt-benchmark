@@ -1946,8 +1946,8 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph, %140
   %176 = call i32 @bit_set_count(ptr noundef nonnull %.pre) #14
   %177 = getelementptr inbounds nuw i8, ptr %27, i64 612
   store i32 %176, ptr %177, align 4
-  %.not390 = icmp ne ptr %175, null
-  br i1 %.not390, label %178, label %182
+  %.not390.not = icmp ne ptr %175, null
+  br i1 %.not390.not, label %178, label %182
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds nuw i8, ptr %27, i64 296
@@ -2082,7 +2082,7 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph, %140
 232:                                              ; preds = %.thread510, %231, %182
   %.0343520 = phi i32 [ %176, %231 ], [ %176, %182 ], [ %181, %.thread510 ]
   %.2519 = phi ptr [ %.2, %231 ], [ %.2, %182 ], [ null, %.thread510 ]
-  %.2351518 = phi i1 [ %.not390, %231 ], [ %.not390, %182 ], [ false, %.thread510 ]
+  %.2351518 = phi i1 [ %.not390.not, %231 ], [ %.not390.not, %182 ], [ false, %.thread510 ]
   %233 = phi ptr [ %.pre, %231 ], [ %.pre, %182 ], [ null, %.thread510 ]
   %.pre470474 = phi i32 [ %.pre470475, %231 ], [ %173, %182 ], [ %.pre470476509, %.thread510 ]
   %.not521 = xor i1 %1, true

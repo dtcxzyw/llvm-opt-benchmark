@@ -963,7 +963,7 @@ define hidden ptr @SDL_LoadBMP_REAL(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @SDL_IOFromFile_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i8], align 2
   %5 = alloca [9 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -979,11 +979,11 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 
 9:                                                ; preds = %3
   %.not249 = icmp eq ptr %1, null
-  br i1 %.not249, label %.thread313.thread, label %11
+  br i1 %.not249, label %.thread322, label %11
 
-.thread313.thread:                                ; preds = %9
+.thread322:                                       ; preds = %9
   %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14) #4
-  br label %227
+  br label %228
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -996,8 +996,8 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 
 14:                                               ; preds = %11
   %15 = and i32 %13, 63488
-  %.not322 = icmp eq i32 %15, 0
-  br i1 %.not322, label %.critedge, label %16
+  %.not326 = icmp eq i32 %15, 0
+  br i1 %.not326, label %.critedge, label %16
 
 16:                                               ; preds = %14
   %17 = lshr i32 %13, 24
@@ -1042,13 +1042,13 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.critedge.thread.thread370, label %35
+  br i1 %31, label %.critedge.thread.thread374, label %35
 
 .critedge.thread300:                              ; preds = %11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread365, label %.critedge283.thread
+  br i1 %34, label %.thread369, label %.critedge283.thread
 
 35:                                               ; preds = %.critedge
   %36 = and i32 %13, 65280
@@ -1069,27 +1069,27 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   %or.cond285 = icmp eq i32 %13, 372645892
   br i1 %or.cond285, label %51, label %42
 
-.critedge.thread.thread370:                       ; preds = %.critedge
-  %or.cond285372 = icmp eq i32 %13, 390076419
-  br i1 %or.cond285372, label %.thread306, label %42
+.critedge.thread.thread374:                       ; preds = %.critedge
+  %or.cond285376 = icmp eq i32 %13, 390076419
+  br i1 %or.cond285376, label %.thread306, label %42
 
-42:                                               ; preds = %.critedge.thread.thread370, %.critedge.thread
-  %43 = phi i32 [ 390076419, %.critedge.thread.thread370 ], [ 372645892, %.critedge.thread ]
-  %.0229299359374 = phi i1 [ false, %.critedge.thread.thread370 ], [ true, %.critedge.thread ]
+42:                                               ; preds = %.critedge.thread.thread374, %.critedge.thread
+  %43 = phi i32 [ 390076419, %.critedge.thread.thread374 ], [ 372645892, %.critedge.thread ]
+  %.0229299363378 = phi i1 [ false, %.critedge.thread.thread374 ], [ true, %.critedge.thread ]
   %44 = tail call ptr @SDL_ConvertSurface_REAL(ptr noundef nonnull %0, i32 noundef %43) #4
   %.not265 = icmp eq ptr %44, null
   br i1 %.not265, label %46, label %.thread304
 
-.thread365:                                       ; preds = %.critedge.thread300
+.thread369:                                       ; preds = %.critedge.thread300
   %45 = tail call ptr @SDL_ConvertSurface_REAL(ptr noundef nonnull %0, i32 noundef 390076419) #4
-  %.not265367 = icmp eq ptr %45, null
-  br i1 %.not265367, label %46, label %.thread306
+  %.not265371 = icmp eq ptr %45, null
+  br i1 %.not265371, label %46, label %.thread306
 
 .thread304:                                       ; preds = %42
-  br i1 %.0229299359374, label %51, label %.thread306
+  br i1 %.0229299363378, label %51, label %.thread306
 
-46:                                               ; preds = %.thread365, %42
-  %47 = phi i32 [ 390076419, %.thread365 ], [ %43, %42 ]
+46:                                               ; preds = %.thread369, %42
+  %47 = phi i32 [ 390076419, %.thread369 ], [ %43, %42 ]
   %48 = lshr i32 %47, 8
   %49 = and i32 %48, 56
   %50 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.16, i32 noundef %49) #4
@@ -1100,9 +1100,9 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   %52 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.17, i1 noundef zeroext false) #4
   br label %.thread306
 
-.thread306:                                       ; preds = %.thread365, %.critedge.thread.thread370, %35, %.thread304, %51
-  %.1210310 = phi ptr [ %.1210312, %51 ], [ %44, %.thread304 ], [ %0, %35 ], [ %0, %.critedge.thread.thread370 ], [ %45, %.thread365 ]
-  %.not = phi i1 [ %52, %51 ], [ true, %.thread304 ], [ true, %35 ], [ true, %.critedge.thread.thread370 ], [ true, %.thread365 ]
+.thread306:                                       ; preds = %.thread369, %.critedge.thread.thread374, %35, %.thread304, %51
+  %.1210310 = phi ptr [ %.1210312, %51 ], [ %44, %.thread304 ], [ %0, %35 ], [ %0, %.critedge.thread.thread374 ], [ %45, %.thread369 ]
+  %.not = phi i1 [ %52, %51 ], [ true, %.thread304 ], [ true, %35 ], [ true, %.critedge.thread.thread374 ], [ true, %.thread369 ]
   %53 = tail call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %.1210310) #4
   br i1 %53, label %54, label %.loopexit
 
@@ -1113,10 +1113,10 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 5
   %60 = load i8, ptr %59, align 1
-  %.fr333 = freeze i8 %60
-  %61 = zext i8 %.fr333 to i32
-  %.fr = freeze i32 %56
-  %62 = mul i32 %.fr, %61
+  %.fr338 = freeze i8 %60
+  %61 = zext i8 %.fr338 to i32
+  %.fr337 = freeze i32 %56
+  %62 = mul i32 %.fr337, %61
   %63 = sext i32 %62 to i64
   %64 = tail call i64 @SDL_TellIO_REAL(ptr noundef nonnull %1) #4
   %65 = icmp slt i64 %64, 0
@@ -1243,14 +1243,14 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 
 124:                                              ; preds = %122
   %125 = call zeroext i1 @SDL_WriteU32LE_REAL(ptr noundef nonnull %1, i32 noundef %.0222) #4
-  br i1 %125, label %.preheader325, label %.loopexit
+  br i1 %125, label %.preheader329, label %.loopexit
 
-126:                                              ; preds = %.preheader325
+126:                                              ; preds = %.preheader329
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %130, label %.preheader325, !llvm.loop !13
+  br i1 %exitcond.not, label %130, label %.preheader329, !llvm.loop !13
 
-.preheader325:                                    ; preds = %124, %126
+.preheader329:                                    ; preds = %124, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %124 ]
   %127 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %128 = load i32, ptr %127, align 4
@@ -1294,21 +1294,21 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %148 = load ptr, ptr %147, align 8
   %149 = load i32, ptr %145, align 8
-  %.not269328 = icmp sgt i32 %149, 0
-  br i1 %.not269328, label %.lr.ph.preheader, label %.critedge293
+  %.not269332 = icmp sgt i32 %149, 0
+  br i1 %.not269332, label %.lr.ph.preheader, label %.critedge293
 
 .lr.ph.preheader:                                 ; preds = %146
   %wide.trip.count = zext nneg i32 %149 to i64
   br label %.lr.ph
 
 150:                                              ; preds = %162
-  %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
-  %exitcond344.not = icmp eq i64 %indvars.iv.next342, %wide.trip.count
-  br i1 %exitcond344.not, label %.critedge293, label %.lr.ph, !llvm.loop !14
+  %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
+  %exitcond348.not = icmp eq i64 %indvars.iv.next346, %wide.trip.count
+  br i1 %exitcond348.not, label %.critedge293, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %150
-  %indvars.iv341 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next342, %150 ]
-  %151 = getelementptr inbounds nuw %struct.SDL_Color, ptr %148, i64 %indvars.iv341
+  %indvars.iv345 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next346, %150 ]
+  %151 = getelementptr inbounds nuw %struct.SDL_Color, ptr %148, i64 %indvars.iv345
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 2
   %153 = load i8, ptr %152, align 1
   %154 = call zeroext i1 @SDL_WriteU8_REAL(ptr noundef nonnull %1, i8 noundef zeroext %153) #4
@@ -1359,54 +1359,54 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   %184 = and i32 %62, 3
   %185 = sub nuw nsw i32 4, %184
   %186 = icmp sgt i32 %183, 0
-  br i1 %186, label %.lr.ph332, label %._crit_edge
+  br i1 %186, label %.lr.ph336, label %._crit_edge
 
-.lr.ph332:                                        ; preds = %179
+.lr.ph336:                                        ; preds = %179
   %187 = load ptr, ptr %180, align 8
   %188 = zext nneg i32 %183 to i64
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 %188
   %.not270 = icmp eq i32 %184, 0
-  br i1 %.not270, label %.lr.ph332.split.us, label %.lr.ph332.split
+  br i1 %.not270, label %.lr.ph336.split.us, label %.lr.ph336.split
 
-.lr.ph332.split.us:                               ; preds = %.lr.ph332, %.critedge295.us
-  %.0227331.us = phi ptr [ %193, %.critedge295.us ], [ %189, %.lr.ph332 ]
+.lr.ph336.split.us:                               ; preds = %.lr.ph336, %.critedge295.us
+  %.0227335.us = phi ptr [ %193, %.critedge295.us ], [ %189, %.lr.ph336 ]
   %190 = load i32, ptr %84, align 8
   %191 = sext i32 %190 to i64
   %192 = sub nsw i64 0, %191
-  %193 = getelementptr inbounds i8, ptr %.0227331.us, i64 %192
+  %193 = getelementptr inbounds i8, ptr %.0227335.us, i64 %192
   %194 = call i64 @SDL_WriteIO_REAL(ptr noundef nonnull %1, ptr noundef nonnull %193, i64 noundef %63) #4
   %.not271.us = icmp eq i64 %194, %63
   br i1 %.not271.us, label %.critedge295.us, label %.loopexit
 
-.critedge295.us:                                  ; preds = %.lr.ph332.split.us
+.critedge295.us:                                  ; preds = %.lr.ph336.split.us
   %195 = load ptr, ptr %180, align 8
   %196 = icmp ugt ptr %193, %195
-  br i1 %196, label %.lr.ph332.split.us, label %._crit_edge, !llvm.loop !15
+  br i1 %196, label %.lr.ph336.split.us, label %._crit_edge, !llvm.loop !15
 
-.lr.ph332.split:                                  ; preds = %.lr.ph332, %.critedge295.loopexit
-  %.0227331 = phi ptr [ %200, %.critedge295.loopexit ], [ %189, %.lr.ph332 ]
+.lr.ph336.split:                                  ; preds = %.lr.ph336, %.critedge295.loopexit
+  %.0227335 = phi ptr [ %200, %.critedge295.loopexit ], [ %189, %.lr.ph336 ]
   %197 = load i32, ptr %84, align 8
   %198 = sext i32 %197 to i64
   %199 = sub nsw i64 0, %198
-  %200 = getelementptr inbounds i8, ptr %.0227331, i64 %199
+  %200 = getelementptr inbounds i8, ptr %.0227335, i64 %199
   %201 = call i64 @SDL_WriteIO_REAL(ptr noundef nonnull %1, ptr noundef nonnull %200, i64 noundef %63) #4
   %.not271 = icmp eq i64 %201, %63
   br i1 %.not271, label %.preheader, label %.loopexit
 
 202:                                              ; preds = %.preheader
-  %203 = add nuw nsw i32 %.2208330, 1
-  %exitcond345.not = icmp eq i32 %203, %185
-  br i1 %exitcond345.not, label %.critedge295.loopexit, label %.preheader, !llvm.loop !16
+  %203 = add nuw nsw i32 %.2208334, 1
+  %exitcond349.not = icmp eq i32 %203, %185
+  br i1 %exitcond349.not, label %.critedge295.loopexit, label %.preheader, !llvm.loop !16
 
-.preheader:                                       ; preds = %.lr.ph332.split, %202
-  %.2208330 = phi i32 [ %203, %202 ], [ 0, %.lr.ph332.split ]
+.preheader:                                       ; preds = %.lr.ph336.split, %202
+  %.2208334 = phi i32 [ %203, %202 ], [ 0, %.lr.ph336.split ]
   %204 = call zeroext i1 @SDL_WriteU8_REAL(ptr noundef nonnull %1, i8 noundef zeroext 0) #4
   br i1 %204, label %202, label %.loopexit
 
 .critedge295.loopexit:                            ; preds = %202
   %205 = load ptr, ptr %180, align 8
   %206 = icmp ugt ptr %200, %205
-  br i1 %206, label %.lr.ph332.split, label %._crit_edge, !llvm.loop !15
+  br i1 %206, label %.lr.ph336.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.critedge295.loopexit, %.critedge295.us, %179
   %207 = call i64 @SDL_TellIO_REAL(ptr noundef nonnull %1) #4
@@ -1436,8 +1436,8 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   call void @SDL_UnlockSurface_REAL(ptr noundef nonnull %.1210310) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader325, %162, %159, %155, %.lr.ph, %.lr.ph332.split, %.preheader, %.lr.ph332.split.us, %222, %54, %74, %72, %70, %68, %66, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %124, %122, %120, %118, %116, %134, %132, %130, %142, %140, %138, %136, %.critedge293, %171, %174, %._crit_edge, %209, %214, %217, %.thread306
-  %.0205 = phi i1 [ true, %.thread306 ], [ false, %222 ], [ true, %54 ], [ true, %74 ], [ true, %72 ], [ true, %70 ], [ true, %68 ], [ true, %66 ], [ true, %113 ], [ true, %111 ], [ true, %109 ], [ true, %107 ], [ true, %105 ], [ true, %103 ], [ true, %101 ], [ true, %99 ], [ true, %97 ], [ true, %95 ], [ true, %93 ], [ true, %124 ], [ true, %122 ], [ true, %120 ], [ true, %118 ], [ true, %116 ], [ true, %134 ], [ true, %132 ], [ true, %130 ], [ true, %142 ], [ true, %140 ], [ true, %138 ], [ true, %136 ], [ true, %.critedge293 ], [ true, %171 ], [ true, %174 ], [ true, %._crit_edge ], [ true, %209 ], [ true, %214 ], [ true, %217 ], [ true, %.lr.ph332.split.us ], [ true, %.preheader ], [ true, %.lr.ph332.split ], [ true, %.lr.ph ], [ true, %155 ], [ true, %159 ], [ true, %162 ], [ true, %.preheader325 ]
+.loopexit:                                        ; preds = %.preheader329, %162, %159, %155, %.lr.ph, %.lr.ph336.split, %.preheader, %.lr.ph336.split.us, %222, %54, %74, %72, %70, %68, %66, %113, %111, %109, %107, %105, %103, %101, %99, %97, %95, %93, %124, %122, %120, %118, %116, %134, %132, %130, %142, %140, %138, %136, %.critedge293, %171, %174, %._crit_edge, %209, %214, %217, %.thread306
+  %.0205 = phi i1 [ true, %.thread306 ], [ false, %222 ], [ true, %54 ], [ true, %74 ], [ true, %72 ], [ true, %70 ], [ true, %68 ], [ true, %66 ], [ true, %113 ], [ true, %111 ], [ true, %109 ], [ true, %107 ], [ true, %105 ], [ true, %103 ], [ true, %101 ], [ true, %99 ], [ true, %97 ], [ true, %95 ], [ true, %93 ], [ true, %124 ], [ true, %122 ], [ true, %120 ], [ true, %118 ], [ true, %116 ], [ true, %134 ], [ true, %132 ], [ true, %130 ], [ true, %142 ], [ true, %140 ], [ true, %138 ], [ true, %136 ], [ true, %.critedge293 ], [ true, %171 ], [ true, %174 ], [ true, %._crit_edge ], [ true, %209 ], [ true, %214 ], [ true, %217 ], [ true, %.lr.ph336.split.us ], [ true, %.preheader ], [ true, %.lr.ph336.split ], [ true, %.lr.ph ], [ true, %155 ], [ true, %159 ], [ true, %162 ], [ true, %.preheader329 ]
   %.not277 = icmp eq ptr %.1210310, %0
   br i1 %.not277, label %.thread313, label %223
 
@@ -1453,16 +1453,22 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 
 225:                                              ; preds = %.thread313
   %226 = call zeroext i1 @SDL_CloseIO_REAL(ptr noundef nonnull %1) #4
-  %not.334 = xor i1 %226, true
-  %spec.select = or i1 %.0205319, %not.334
-  br label %227
+  %.fr = freeze i1 %226
+  %not. = xor i1 %.fr, true
+  %spec.select = or i1 %.0205319, %not.
+  br i1 %spec.select, label %228, label %229
 
-227:                                              ; preds = %.thread313.thread, %225, %.thread313
-  %.2 = phi i1 [ %.0205319, %.thread313 ], [ %spec.select, %225 ], [ true, %.thread313.thread ]
-  %not. = xor i1 %.2, true
+227:                                              ; preds = %.thread313
+  br i1 %.0205319, label %228, label %229
+
+228:                                              ; preds = %225, %.thread322, %227
+  br label %229
+
+229:                                              ; preds = %225, %227, %228
+  %230 = phi i1 [ false, %228 ], [ true, %227 ], [ true, %225 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %not.
+  ret i1 %230
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1489,7 +1495,7 @@ declare zeroext i1 @SDL_WriteU8_REAL(ptr noundef, i8 noundef zeroext) local_unna
 declare void @SDL_UnlockSurface_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @SDL_SaveBMP_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @SDL_SaveBMP_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @SDL_IOFromFile_REAL(ptr noundef %1, ptr noundef nonnull @.str.18) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4

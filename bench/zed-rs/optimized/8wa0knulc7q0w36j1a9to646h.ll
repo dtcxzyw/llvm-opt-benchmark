@@ -37392,8 +37392,8 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %63 = landingpad { ptr, i32 }
           cleanup
   %64 = load ptr, ptr %7, align 8, !noalias !8475, !noundef !5
-  %.not14.i.i = icmp eq ptr %64, null
-  br i1 %.not14.i.i, label %.body, label %72
+  %.not9.i.i = icmp eq ptr %64, null
+  br i1 %.not9.i.i, label %.body, label %72
 
 65:                                               ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8478

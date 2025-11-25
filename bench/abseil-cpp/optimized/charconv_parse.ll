@@ -771,24 +771,18 @@ define weak_odr dso_local void @_ZN4absl16strings_internal10ParseFloatILi16EEENS
   %44 = getelementptr inbounds nuw i8, ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !4
   %46 = icmp sgt i8 %45, -1
-  br i1 %46, label %47, label %.critedge4.i
+  br i1 %46, label %47, label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit
 
 47:                                               ; preds = %.lr.ph62.i
   %48 = icmp ne i8 %42, 48
   %spec.select.i = or i1 %.061.i, %48
   %49 = getelementptr inbounds nuw i8, ptr %.260.i, i64 1
   %exitcond72.not.i = icmp eq ptr %49, %scevgep71.i
-  br i1 %exitcond72.not.i, label %.critedge4.i, label %.lr.ph62.i, !llvm.loop !34
+  br i1 %exitcond72.not.i, label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit, label %.lr.ph62.i, !llvm.loop !34
 
-.critedge4.i:                                     ; preds = %47, %.lr.ph62.i
-  %.2.lcssa.i = phi ptr [ %.260.i, %.lr.ph62.i ], [ %scevgep71.i, %47 ]
-  %.0.lcssa.i = phi i1 [ %.061.i, %.lr.ph62.i ], [ %spec.select.i, %47 ]
-  %spec.select155 = zext i1 %.0.lcssa.i to i8
-  br label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit
-
-_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.critedge4.i, %.critedge2.i
-  %.1147 = phi i8 [ 0, %.critedge2.i ], [ %spec.select155, %.critedge4.i ]
-  %.2.lcssa80.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %.2.lcssa.i, %.critedge4.i ]
+_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.lr.ph62.i, %47, %.critedge2.i
+  %.1147 = phi i1 [ false, %.critedge2.i ], [ %spec.select.i, %47 ], [ %.061.i, %.lr.ph62.i ]
+  %.2.lcssa80.i = phi ptr [ %.1.lcssa.i, %.critedge2.i ], [ %scevgep71.i, %47 ], [ %.260.i, %.lr.ph62.i ]
   %50 = ptrtoint ptr %.2.lcssa80.i to i64
   %51 = sub i64 %50, %.pre-phi
   %52 = trunc i64 %51 to i32
@@ -952,11 +946,11 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit: ; preds = %.c
 .critedge4.i124:                                  ; preds = %111, %.lr.ph62.i121
   %.2.lcssa.i125 = phi ptr [ %.260.i123, %.lr.ph62.i121 ], [ %scevgep71.i120, %111 ]
   %.0.lcssa.i126 = phi i1 [ %.061.i122, %.lr.ph62.i121 ], [ %spec.select.i127, %111 ]
-  %spec.select156 = select i1 %.0.lcssa.i126, i8 1, i8 %.1147
+  %spec.select156 = select i1 %.0.lcssa.i126, i1 true, i1 %.1147
   br label %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140
 
 _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140: ; preds = %.critedge4.i124, %.critedge2.i114
-  %.2148 = phi i8 [ %.1147, %.critedge2.i114 ], [ %spec.select156, %.critedge4.i124 ]
+  %.2148 = phi i1 [ %.1147, %.critedge2.i114 ], [ %spec.select156, %.critedge4.i124 ]
   %.2.lcssa80.i118 = phi ptr [ %.1.lcssa.i117, %.critedge2.i114 ], [ %.2.lcssa.i125, %.critedge4.i124 ]
   %114 = ptrtoint ptr %.2.lcssa80.i118 to i64
   %115 = sub i64 %114, %.pre-phi175204
@@ -971,7 +965,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140: ; preds = 
 
 120:                                              ; preds = %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140, %61, %56
   %.0149 = phi i64 [ %.039.lcssa.i116, %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140 ], [ %.039.lcssa.i, %61 ], [ %.039.lcssa.i, %56 ]
-  %.0146 = phi i8 [ %.2148, %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140 ], [ %.1147, %61 ], [ %.1147, %56 ]
+  %.0146 = phi i1 [ %.2148, %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140 ], [ %.1147, %61 ], [ %.1147, %56 ]
   %.182 = phi i32 [ %.586, %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140 ], [ %.081, %61 ], [ %.081, %56 ]
   %.1 = phi ptr [ %118, %_ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140 ], [ %54, %61 ], [ %54, %56 ]
   %121 = icmp eq ptr %1, %.1
@@ -989,7 +983,7 @@ _ZN4absl12_GLOBAL__N_113ConsumeDigitsILi16EmEEiPKcS3_iPT0_Pb.exit140: ; preds = 
   br i1 %128, label %166, label %129
 
 129:                                              ; preds = %126, %122
-  %130 = zext nneg i8 %.0146 to i64
+  %130 = zext i1 %.0146 to i64
   %spec.select157 = or i64 %.0149, %130
   store i64 %spec.select157, ptr %0, align 8, !tbaa !21
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 12

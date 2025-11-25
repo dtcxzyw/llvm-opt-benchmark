@@ -3636,9 +3636,9 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   ]
 
 80:                                               ; preds = %371
-  %lpad.thr_comm.split-lp519 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread509
+  br label %.thread516
 
 81:                                               ; preds = %.backedge
   br i1 %.not297, label %.critedge336, label %82
@@ -3649,7 +3649,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %84 = icmp eq i64 %79, 0
   br i1 %84, label %88, label %.critedge336
 
-.critedge336:                                     ; preds = %88, %81, %90, %82, %101, %.thread393
+.critedge336:                                     ; preds = %88, %81, %90, %82, %101, %.thread398
   %85 = call { i64, ptr } @"_ZN100_$LT$hyper..client..service..Connect$LT$C$C$B$C$T$GT$$u20$as$u20$tower_service..Service$LT$T$GT$$GT$10poll_ready17he86a9e9e6add02f4E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %86 = extractvalue { i64, ptr } %85, 0
   %87 = trunc nuw i64 %86 to i1
@@ -3659,22 +3659,22 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %89 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h960f8a6cee982395E", i64 16) monotonic, align 8
   switch i8 %89, label %90 [
     i8 0, label %.critedge336
-    i8 1, label %.thread393
-    i8 2, label %.thread393
+    i8 1, label %.thread398
+    i8 2, label %.thread398
   ], !prof !13
 
 90:                                               ; preds = %88
   %91 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h960f8a6cee982395E")
   %92 = icmp eq i8 %91, 0
-  br i1 %92, label %.critedge336, label %.thread393
+  br i1 %92, label %.critedge336, label %.thread398
 
-.thread393:                                       ; preds = %88, %88, %90
-  %.sroa.04.0395 = phi i8 [ %91, %90 ], [ %89, %88 ], [ %89, %88 ]
+.thread398:                                       ; preds = %88, %88, %90
+  %.sroa.04.0400 = phi i8 [ %91, %90 ], [ %89, %88 ], [ %89, %88 ]
   %93 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h960f8a6cee982395E", align 8, !nonnull !4, !align !14, !noundef !4
-  %94 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %93, i8 noundef %.sroa.04.0395)
+  %94 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %93, i8 noundef %.sroa.04.0400)
   br i1 %94, label %95, label %.critedge336
 
-95:                                               ; preds = %.thread393
+95:                                               ; preds = %.thread398
   %96 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h960f8a6cee982395E", align 8, !nonnull !4, !align !14, !noundef !4
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 56
@@ -3682,12 +3682,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %.not325 = icmp eq i64 %99, 0
-  br i1 %.not325, label %.thread398, label %100
+  br i1 %.not325, label %.thread403, label %100
 
 100:                                              ; preds = %95
   %.sroa.0204.0.copyload = load ptr, ptr %97, align 8
   %.not326 = icmp eq ptr %.sroa.0204.0.copyload, null
-  br i1 %.not326, label %.thread398, label %101, !prof !22
+  br i1 %.not326, label %.thread403, label %101, !prof !22
 
 101:                                              ; preds = %100
   store ptr %.sroa.0204.0.copyload, ptr %50, align 8
@@ -3713,11 +3713,11 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %.critedge336
 
-.thread398:                                       ; preds = %95, %100
+.thread403:                                       ; preds = %95, %100
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.33) #22
   unreachable
 
-102:                                              ; preds = %.thread451, %.thread437
+102:                                              ; preds = %.thread458, %.thread444
   unreachable
 
 103:                                              ; preds = %.critedge336
@@ -3775,8 +3775,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 .backedge.backedge:                               ; preds = %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit", %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit372"
   br label %.backedge
 
-.critedge338:                                     ; preds = %126, %121, %128, %.thread402, %139, %123, %105
-  %storemerge329 = phi i64 [ 0, %105 ], [ 1, %123 ], [ 1, %139 ], [ 1, %.thread402 ], [ 1, %128 ], [ 1, %121 ], [ 1, %126 ]
+.critedge338:                                     ; preds = %126, %121, %128, %.thread407, %139, %123, %105
+  %storemerge329 = phi i64 [ 0, %105 ], [ 1, %123 ], [ 1, %139 ], [ 1, %.thread407 ], [ 1, %128 ], [ 1, %121 ], [ 1, %126 ]
   store i64 %storemerge329, ptr %0, align 8
   br label %.critedge
 
@@ -3795,22 +3795,22 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %127 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hf06b5574133d25c8E", i64 16) monotonic, align 8
   switch i8 %127, label %128 [
     i8 0, label %.critedge338
-    i8 1, label %.thread402
-    i8 2, label %.thread402
+    i8 1, label %.thread407
+    i8 2, label %.thread407
   ], !prof !13
 
 128:                                              ; preds = %126
   %129 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hf06b5574133d25c8E")
   %130 = icmp eq i8 %129, 0
-  br i1 %130, label %.critedge338, label %.thread402
+  br i1 %130, label %.critedge338, label %.thread407
 
-.thread402:                                       ; preds = %126, %126, %128
-  %.sroa.023.0404 = phi i8 [ %129, %128 ], [ %127, %126 ], [ %127, %126 ]
+.thread407:                                       ; preds = %126, %126, %128
+  %.sroa.023.0409 = phi i8 [ %129, %128 ], [ %127, %126 ], [ %127, %126 ]
   %131 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hf06b5574133d25c8E", align 8, !nonnull !4, !align !14, !noundef !4
-  %132 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %131, i8 noundef %.sroa.023.0404)
+  %132 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %131, i8 noundef %.sroa.023.0409)
   br i1 %132, label %133, label %.critedge338
 
-133:                                              ; preds = %.thread402
+133:                                              ; preds = %.thread407
   %134 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hf06b5574133d25c8E", align 8, !nonnull !4, !align !14, !noundef !4
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 48
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 56
@@ -3818,12 +3818,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %.not331 = icmp eq i64 %137, 0
-  br i1 %.not331, label %.thread407, label %138
+  br i1 %.not331, label %.thread412, label %138
 
 138:                                              ; preds = %133
   %.sroa.0214.0.copyload = load ptr, ptr %135, align 8
   %.not332 = icmp eq ptr %.sroa.0214.0.copyload, null
-  br i1 %.not332, label %.thread407, label %139, !prof !22
+  br i1 %.not332, label %.thread412, label %139, !prof !22
 
 139:                                              ; preds = %138
   store ptr %.sroa.0214.0.copyload, ptr %47, align 8
@@ -3859,7 +3859,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.critedge338
 
-.thread407:                                       ; preds = %133, %138
+.thread412:                                       ; preds = %133, %138
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.36) #22
   unreachable
 
@@ -3872,7 +3872,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %147 = icmp eq i64 %79, 0
   br i1 %147, label %149, label %.critedge340
 
-.critedge340:                                     ; preds = %149, %144, %151, %145, %162, %.thread411
+.critedge340:                                     ; preds = %149, %144, %151, %145, %162, %.thread416
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h66edf864ffa7bbfeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull align 8 dereferenceable(16) %55, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %148 = load i8, ptr %61, align 8, !range !111, !noundef !4
@@ -3885,22 +3885,22 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %150 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hffd288eb3bf98200E", i64 16) monotonic, align 8
   switch i8 %150, label %151 [
     i8 0, label %.critedge340
-    i8 1, label %.thread411
-    i8 2, label %.thread411
+    i8 1, label %.thread416
+    i8 2, label %.thread416
   ], !prof !13
 
 151:                                              ; preds = %149
   %152 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hffd288eb3bf98200E")
   %153 = icmp eq i8 %152, 0
-  br i1 %153, label %.critedge340, label %.thread411
+  br i1 %153, label %.critedge340, label %.thread416
 
-.thread411:                                       ; preds = %149, %149, %151
-  %.sroa.049.0413 = phi i8 [ %152, %151 ], [ %150, %149 ], [ %150, %149 ]
+.thread416:                                       ; preds = %149, %149, %151
+  %.sroa.049.0418 = phi i8 [ %152, %151 ], [ %150, %149 ], [ %150, %149 ]
   %154 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hffd288eb3bf98200E", align 8, !nonnull !4, !align !14, !noundef !4
-  %155 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %154, i8 noundef %.sroa.049.0413)
+  %155 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %154, i8 noundef %.sroa.049.0418)
   br i1 %155, label %156, label %.critedge340
 
-156:                                              ; preds = %.thread411
+156:                                              ; preds = %.thread416
   %157 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hffd288eb3bf98200E", align 8, !nonnull !4, !align !14, !noundef !4
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 56
@@ -3908,12 +3908,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %.not311 = icmp eq i64 %160, 0
-  br i1 %.not311, label %.thread416, label %161
+  br i1 %.not311, label %.thread421, label %161
 
 161:                                              ; preds = %156
   %.sroa.0221.0.copyload = load ptr, ptr %158, align 8
   %.not312 = icmp eq ptr %.sroa.0221.0.copyload, null
-  br i1 %.not312, label %.thread416, label %162, !prof !22
+  br i1 %.not312, label %.thread421, label %162, !prof !22
 
 162:                                              ; preds = %161
   store ptr %.sroa.0221.0.copyload, ptr %43, align 8
@@ -3939,7 +3939,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.critedge340
 
-.thread416:                                       ; preds = %156, %161
+.thread421:                                       ; preds = %156, %161
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.39) #22
   unreachable
 
@@ -3968,9 +3968,9 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
           to label %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit372" unwind label %380
 
 169:                                              ; preds = %202, %204
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp431 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread509
+  br label %.thread516
 
 170:                                              ; preds = %.critedge340
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -4000,8 +4000,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %182 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h3a892e029ec39a5fE", i64 16) monotonic, align 8
   switch i8 %182, label %183 [
     i8 0, label %.critedge342
-    i8 1, label %.thread432
-    i8 2, label %.thread432
+    i8 1, label %.thread439
+    i8 2, label %.thread439
   ], !prof !13
 
 183:                                              ; preds = %181
@@ -4010,15 +4010,15 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 
 185:                                              ; preds = %183
   %186 = icmp eq i8 %184, 0
-  br i1 %186, label %.critedge342, label %.thread432
+  br i1 %186, label %.critedge342, label %.thread439
 
-.thread432:                                       ; preds = %181, %181, %185
-  %.sroa.083.0434 = phi i8 [ %184, %185 ], [ %182, %181 ], [ %182, %181 ]
+.thread439:                                       ; preds = %181, %181, %185
+  %.sroa.083.0441 = phi i8 [ %184, %185 ], [ %182, %181 ], [ %182, %181 ]
   %187 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h3a892e029ec39a5fE", align 8, !nonnull !4, !align !14, !noundef !4
-  %188 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %187, i8 noundef %.sroa.083.0434)
+  %188 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %187, i8 noundef %.sroa.083.0441)
           to label %189 unwind label %270
 
-189:                                              ; preds = %.thread432
+189:                                              ; preds = %.thread439
   br i1 %188, label %190, label %.critedge342
 
 190:                                              ; preds = %189
@@ -4029,12 +4029,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %.not314 = icmp eq i64 %194, 0
-  br i1 %.not314, label %.thread437, label %195
+  br i1 %.not314, label %.thread444, label %195
 
 195:                                              ; preds = %190
   %.sroa.0235.0.copyload = load ptr, ptr %192, align 8
   %.not315 = icmp eq ptr %.sroa.0235.0.copyload, null
-  br i1 %.not315, label %.thread437, label %196, !prof !22
+  br i1 %.not315, label %.thread444, label %196, !prof !22
 
 196:                                              ; preds = %195
   store ptr %.sroa.0235.0.copyload, ptr %35, align 8
@@ -4066,7 +4066,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %191, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %201 unwind label %270
 
-.thread437:                                       ; preds = %190, %195
+.thread444:                                       ; preds = %190, %195
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.42) #22
           to label %102 unwind label %270
 
@@ -4089,7 +4089,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i": ; preds = %239, %247
   store ptr %224, ptr %53, align 8
   store ptr %223, ptr %225, align 8
-  br label %.thread509
+  br label %.thread516
 
 206:                                              ; preds = %202
   %207 = extractvalue { ptr, ptr } %203, 0
@@ -4111,8 +4111,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %215 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h230d344c4efc801dE", i64 16) monotonic, align 8
   switch i8 %215, label %216 [
     i8 0, label %.critedge346
-    i8 1, label %.thread446
-    i8 2, label %.thread446
+    i8 1, label %.thread453
+    i8 2, label %.thread453
   ], !prof !13
 
 216:                                              ; preds = %214
@@ -4121,19 +4121,19 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 
 218:                                              ; preds = %216
   %219 = icmp eq i8 %217, 0
-  br i1 %219, label %.critedge346, label %.thread446
+  br i1 %219, label %.critedge346, label %.thread453
 
-.thread446:                                       ; preds = %214, %214, %218
-  %.sroa.0105.0448 = phi i8 [ %217, %218 ], [ %215, %214 ], [ %215, %214 ]
+.thread453:                                       ; preds = %214, %214, %218
+  %.sroa.0105.0455 = phi i8 [ %217, %218 ], [ %215, %214 ], [ %215, %214 ]
   %220 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h230d344c4efc801dE", align 8, !nonnull !4, !align !14, !noundef !4
-  %221 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %220, i8 noundef %.sroa.0105.0448)
+  %221 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %220, i8 noundef %.sroa.0105.0455)
           to label %222 unwind label %266
 
-222:                                              ; preds = %.thread446
+222:                                              ; preds = %.thread453
   br i1 %221, label %248, label %.critedge346
 
 .critedge346:                                     ; preds = %214, %206, %211, %218, %259, %222
-  %223 = phi ptr [ %208, %214 ], [ %208, %206 ], [ %208, %211 ], [ %208, %218 ], [ %.pre563, %259 ], [ %208, %222 ]
+  %223 = phi ptr [ %208, %214 ], [ %208, %206 ], [ %208, %211 ], [ %208, %218 ], [ %.pre559, %259 ], [ %208, %222 ]
   %224 = phi ptr [ %207, %214 ], [ %207, %206 ], [ %207, %211 ], [ %207, %218 ], [ %.pre, %259 ], [ %207, %222 ]
   %.val366 = load ptr, ptr %53, align 8, !align !23, !noundef !4
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -4190,12 +4190,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %.not317 = icmp eq i64 %252, 0
-  br i1 %.not317, label %.thread451, label %253
+  br i1 %.not317, label %.thread458, label %253
 
 253:                                              ; preds = %248
   %.sroa.0242.0.copyload = load ptr, ptr %250, align 8
   %.not318 = icmp eq ptr %.sroa.0242.0.copyload, null
-  br i1 %.not318, label %.thread451, label %254, !prof !22
+  br i1 %.not318, label %.thread458, label %254, !prof !22
 
 254:                                              ; preds = %253
   store ptr %.sroa.0242.0.copyload, ptr %31, align 8
@@ -4231,7 +4231,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %249, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %259 unwind label %266
 
-.thread451:                                       ; preds = %248, %253
+.thread458:                                       ; preds = %248, %253
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.47) #22
           to label %102 unwind label %266
 
@@ -4242,7 +4242,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %.pre = load ptr, ptr %33, align 8
-  %.pre563 = load ptr, ptr %209, align 8
+  %.pre559 = load ptr, ptr %209, align 8
   br label %.critedge346
 
 "_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hd9eef43aa164d844E.exit": ; preds = %238, %231, %.critedge346
@@ -4281,26 +4281,26 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", %.critedge338, %77, %.thread458, %408, %415, %416, %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit379"
+.critedge:                                        ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", %.critedge338, %77, %.thread465, %408, %415, %416, %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit379"
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   ret void
 
-266:                                              ; preds = %.thread451, %254, %.thread446, %216
+266:                                              ; preds = %.thread458, %254, %.thread453, %216
   %267 = landingpad { ptr, i32 }
           cleanup
   %.val = load ptr, ptr %33, align 8
   %.val365 = load ptr, ptr %209, align 8, !nonnull !4, !align !14, !noundef !4
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h90f9aeff2a5aa5eaE"(ptr %.val, ptr nonnull %.val365) #23
-          to label %.thread509 unwind label %268
+          to label %.thread516 unwind label %268
 
-268:                                              ; preds = %321, %266, %.thread509, %270
+268:                                              ; preds = %321, %266, %.thread516, %270
   %269 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24
   unreachable
 
-270:                                              ; preds = %196, %.thread437, %.thread432, %183
-  %lpad.thr_comm = landingpad { ptr, i32 }
+270:                                              ; preds = %196, %.thread444, %.thread439, %183
+  %lpad.thr_comm430 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17hbeade3f06316e71fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %37) #23
           to label %.thread unwind label %268
@@ -4308,34 +4308,34 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 271:                                              ; preds = %.critedge340
   %272 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h9e420ea5df983dc6E monotonic, align 8
   %.not321 = icmp eq i64 %272, 5
-  br i1 %.not321, label %.thread458, label %273
+  br i1 %.not321, label %.thread465, label %273
 
 273:                                              ; preds = %271
   %274 = icmp ult i64 %272, 5
   call void @llvm.assume(i1 %274)
   %275 = icmp eq i64 %272, 0
-  br i1 %275, label %276, label %.thread458
+  br i1 %275, label %276, label %.thread465
 
 276:                                              ; preds = %273
   %277 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h6087842ede8e6b79E", i64 16) monotonic, align 8
   switch i8 %277, label %278 [
-    i8 0, label %.thread458
-    i8 1, label %.thread455
-    i8 2, label %.thread455
+    i8 0, label %.thread465
+    i8 1, label %.thread462
+    i8 2, label %.thread462
   ], !prof !13
 
 278:                                              ; preds = %276
   %279 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h6087842ede8e6b79E")
   %280 = icmp eq i8 %279, 0
-  br i1 %280, label %.thread458, label %.thread455
+  br i1 %280, label %.thread465, label %.thread462
 
-.thread455:                                       ; preds = %276, %276, %278
-  %.sroa.066.0457 = phi i8 [ %279, %278 ], [ %277, %276 ], [ %277, %276 ]
+.thread462:                                       ; preds = %276, %276, %278
+  %.sroa.066.0464 = phi i8 [ %279, %278 ], [ %277, %276 ], [ %277, %276 ]
   %281 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h6087842ede8e6b79E", align 8, !nonnull !4, !align !14, !noundef !4
-  %282 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %281, i8 noundef %.sroa.066.0457)
-  br i1 %282, label %283, label %.thread458
+  %282 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %281, i8 noundef %.sroa.066.0464)
+  br i1 %282, label %283, label %.thread465
 
-283:                                              ; preds = %.thread455
+283:                                              ; preds = %.thread462
   %284 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h6087842ede8e6b79E", align 8, !nonnull !4, !align !14, !noundef !4
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 48
   %286 = getelementptr inbounds nuw i8, ptr %284, i64 56
@@ -4343,12 +4343,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %.not322 = icmp eq i64 %287, 0
-  br i1 %.not322, label %.thread460, label %288
+  br i1 %.not322, label %.thread467, label %288
 
 288:                                              ; preds = %283
   %.sroa.0228.0.copyload = load ptr, ptr %285, align 8
   %.not323 = icmp eq ptr %.sroa.0228.0.copyload, null
-  br i1 %.not323, label %.thread460, label %289, !prof !22
+  br i1 %.not323, label %.thread467, label %289, !prof !22
 
 289:                                              ; preds = %288
   store ptr %.sroa.0228.0.copyload, ptr %39, align 8
@@ -4382,13 +4382,13 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  br label %.thread458
+  br label %.thread465
 
-.thread460:                                       ; preds = %283, %288
+.thread467:                                       ; preds = %283, %288
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.50) #22
   unreachable
 
-.thread458:                                       ; preds = %276, %.thread455, %289, %273, %278, %271
+.thread465:                                       ; preds = %276, %.thread462, %289, %273, %278, %271
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.critedge
@@ -4406,22 +4406,22 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %299 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h833de0982745bb4fE", i64 16) monotonic, align 8
   switch i8 %299, label %300 [
     i8 0, label %.critedge352
-    i8 1, label %.thread465
-    i8 2, label %.thread465
+    i8 1, label %.thread472
+    i8 2, label %.thread472
   ], !prof !13
 
 300:                                              ; preds = %298
   %301 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h833de0982745bb4fE")
   %302 = icmp eq i8 %301, 0
-  br i1 %302, label %.critedge352, label %.thread465
+  br i1 %302, label %.critedge352, label %.thread472
 
-.thread465:                                       ; preds = %298, %298, %300
-  %.sroa.0126.0467 = phi i8 [ %301, %300 ], [ %299, %298 ], [ %299, %298 ]
+.thread472:                                       ; preds = %298, %298, %300
+  %.sroa.0126.0474 = phi i8 [ %301, %300 ], [ %299, %298 ], [ %299, %298 ]
   %303 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h833de0982745bb4fE", align 8, !nonnull !4, !align !14, !noundef !4
-  %304 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %303, i8 noundef %.sroa.0126.0467)
+  %304 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %303, i8 noundef %.sroa.0126.0474)
   br i1 %304, label %309, label %.critedge352
 
-.critedge352:                                     ; preds = %298, %294, %295, %300, %315, %.thread465
+.critedge352:                                     ; preds = %298, %294, %295, %300, %315, %.thread472
   store i8 1, ptr %71, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %305 = call noundef i8 @_ZN4want5Giver9poll_want17ha92074276a5690b1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %55, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
@@ -4438,7 +4438,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %.not304 = icmp eq i64 %308, 5
   br i1 %.not304, label %.critedge360, label %355
 
-309:                                              ; preds = %.thread465
+309:                                              ; preds = %.thread472
   %310 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h833de0982745bb4fE", align 8, !nonnull !4, !align !14, !noundef !4
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 48
   %312 = getelementptr inbounds nuw i8, ptr %310, i64 56
@@ -4446,12 +4446,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %.not298 = icmp eq i64 %313, 0
-  br i1 %.not298, label %.thread470, label %314
+  br i1 %.not298, label %.thread477, label %314
 
 314:                                              ; preds = %309
   %.sroa.0253.0.copyload = load ptr, ptr %311, align 8
   %.not299 = icmp eq ptr %.sroa.0253.0.copyload, null
-  br i1 %.not299, label %.thread470, label %315, !prof !22
+  br i1 %.not299, label %.thread477, label %315, !prof !22
 
 315:                                              ; preds = %314
   store ptr %.sroa.0253.0.copyload, ptr %27, align 8
@@ -4477,16 +4477,16 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.critedge352
 
-.thread470:                                       ; preds = %309, %314
+.thread477:                                       ; preds = %309, %314
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.53) #22
   unreachable
 
-.loopexit:                                        ; preds = %360, %.thread491, %378
+.loopexit:                                        ; preds = %360, %.thread498, %378
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %316
 
-.loopexit.split-lp:                               ; preds = %.thread487.invoke, %329, %.thread482, %343, %389, %.thread500, %402
+.loopexit.split-lp:                               ; preds = %.thread494.invoke, %329, %.thread489, %343, %389, %.thread507, %402
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %316
@@ -4497,8 +4497,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %318 = icmp ne i64 %317, 0
   %319 = load ptr, ptr %72, align 8, !align !14
   %320 = icmp eq ptr %319, null
-  %or.cond591 = select i1 %318, i1 true, i1 %320
-  br i1 %or.cond591, label %.thread, label %321
+  %or.cond587 = select i1 %318, i1 true, i1 %320
+  br i1 %or.cond587, label %.thread, label %321
 
 321:                                              ; preds = %316
   invoke void @"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17hbeade3f06316e71fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
@@ -4520,8 +4520,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %328 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h0d88e9600496b760E", i64 16) monotonic, align 8
   switch i8 %328, label %329 [
     i8 0, label %.critedge356
-    i8 1, label %.thread482
-    i8 2, label %.thread482
+    i8 1, label %.thread489
+    i8 2, label %.thread489
   ], !prof !13
 
 329:                                              ; preds = %327
@@ -4530,15 +4530,15 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 
 331:                                              ; preds = %329
   %332 = icmp eq i8 %330, 0
-  br i1 %332, label %.critedge356, label %.thread482
+  br i1 %332, label %.critedge356, label %.thread489
 
-.thread482:                                       ; preds = %327, %327, %331
-  %.sroa.0143.0484 = phi i8 [ %330, %331 ], [ %328, %327 ], [ %328, %327 ]
+.thread489:                                       ; preds = %327, %327, %331
+  %.sroa.0143.0491 = phi i8 [ %330, %331 ], [ %328, %327 ], [ %328, %327 ]
   %333 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h0d88e9600496b760E", align 8, !nonnull !4, !align !14, !noundef !4
-  %334 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %333, i8 noundef %.sroa.0143.0484)
+  %334 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %333, i8 noundef %.sroa.0143.0491)
           to label %335 unwind label %.loopexit.split-lp
 
-335:                                              ; preds = %.thread482
+335:                                              ; preds = %.thread489
   br i1 %334, label %337, label %.critedge356
 
 .critedge356:                                     ; preds = %327, %322, %324, %331, %349, %335
@@ -4554,12 +4554,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %.not302 = icmp eq i64 %341, 0
-  br i1 %.not302, label %.thread487.invoke, label %342
+  br i1 %.not302, label %.thread494.invoke, label %342
 
 342:                                              ; preds = %337
   %.sroa.0260.0.copyload = load ptr, ptr %339, align 8
   %.not303 = icmp eq ptr %.sroa.0260.0.copyload, null
-  br i1 %.not303, label %.thread487.invoke, label %343, !prof !22
+  br i1 %.not303, label %.thread494.invoke, label %343, !prof !22
 
 343:                                              ; preds = %342
   store ptr %.sroa.0260.0.copyload, ptr %23, align 8
@@ -4591,12 +4591,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %338, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %349 unwind label %.loopexit.split-lp
 
-.thread487.invoke:                                ; preds = %377, %372, %401, %396, %342, %337
+.thread494.invoke:                                ; preds = %377, %372, %401, %396, %342, %337
   %348 = phi ptr [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.56, %337 ], [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.56, %342 ], [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.60, %396 ], [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.60, %401 ], [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.59, %372 ], [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.59, %377 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %348) #22
-          to label %.thread487.cont unwind label %.loopexit.split-lp
+          to label %.thread494.cont unwind label %.loopexit.split-lp
 
-.thread487.cont:                                  ; preds = %.thread487.invoke
+.thread494.cont:                                  ; preds = %.thread494.invoke
   unreachable
 
 349:                                              ; preds = %343
@@ -4613,8 +4613,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %351 = icmp ne i64 %350, 0
   %352 = load ptr, ptr %72, align 8, !align !14
   %353 = icmp eq ptr %352, null
-  %or.cond593 = select i1 %351, i1 true, i1 %353
-  br i1 %or.cond593, label %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", label %354
+  %or.cond589 = select i1 %351, i1 true, i1 %353
+  br i1 %or.cond589, label %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", label %354
 
 354:                                              ; preds = %.critedge364
   call void @"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17hbeade3f06316e71fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
@@ -4630,8 +4630,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %359 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h8cc46ebb135b8f3aE", i64 16) monotonic, align 8
   switch i8 %359, label %360 [
     i8 0, label %.critedge360
-    i8 1, label %.thread491
-    i8 2, label %.thread491
+    i8 1, label %.thread498
+    i8 2, label %.thread498
   ], !prof !13
 
 360:                                              ; preds = %358
@@ -4640,15 +4640,15 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 
 362:                                              ; preds = %360
   %363 = icmp eq i8 %361, 0
-  br i1 %363, label %.critedge360, label %.thread491
+  br i1 %363, label %.critedge360, label %.thread498
 
-.thread491:                                       ; preds = %358, %358, %362
-  %.sroa.0177.0493 = phi i8 [ %361, %362 ], [ %359, %358 ], [ %359, %358 ]
+.thread498:                                       ; preds = %358, %358, %362
+  %.sroa.0177.0500 = phi i8 [ %361, %362 ], [ %359, %358 ], [ %359, %358 ]
   %364 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h8cc46ebb135b8f3aE", align 8, !nonnull !4, !align !14, !noundef !4
-  %365 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %364, i8 noundef %.sroa.0177.0493)
+  %365 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %364, i8 noundef %.sroa.0177.0500)
           to label %366 unwind label %.loopexit
 
-366:                                              ; preds = %.thread491
+366:                                              ; preds = %.thread498
   br i1 %365, label %372, label %.critedge360
 
 .critedge360:                                     ; preds = %358, %306, %355, %362, %379, %366
@@ -4657,8 +4657,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %368 = icmp ne i64 %367, 0
   %369 = load ptr, ptr %72, align 8, !align !14
   %370 = icmp eq ptr %369, null
-  %or.cond524 = select i1 %368, i1 true, i1 %370
-  br i1 %or.cond524, label %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit386", label %371
+  %or.cond520 = select i1 %368, i1 true, i1 %370
+  br i1 %or.cond520, label %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit386", label %371
 
 371:                                              ; preds = %.critedge360
   invoke void @"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17hbeade3f06316e71fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
@@ -4672,12 +4672,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.not305 = icmp eq i64 %376, 0
-  br i1 %.not305, label %.thread487.invoke, label %377
+  br i1 %.not305, label %.thread494.invoke, label %377
 
 377:                                              ; preds = %372
   %.sroa.0274.0.copyload = load ptr, ptr %374, align 8
   %.not306 = icmp eq ptr %.sroa.0274.0.copyload, null
-  br i1 %.not306, label %.thread487.invoke, label %378, !prof !22
+  br i1 %.not306, label %.thread494.invoke, label %378, !prof !22
 
 378:                                              ; preds = %377
   store ptr %.sroa.0274.0.copyload, ptr %17, align 8
@@ -4737,8 +4737,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %388 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h20c00b621190e4c8E", i64 16) monotonic, align 8
   switch i8 %388, label %389 [
     i8 0, label %.critedge364
-    i8 1, label %.thread500
-    i8 2, label %.thread500
+    i8 1, label %.thread507
+    i8 2, label %.thread507
   ], !prof !13
 
 389:                                              ; preds = %387
@@ -4747,15 +4747,15 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 
 391:                                              ; preds = %389
   %392 = icmp eq i8 %390, 0
-  br i1 %392, label %.critedge364, label %.thread500
+  br i1 %392, label %.critedge364, label %.thread507
 
-.thread500:                                       ; preds = %387, %387, %391
-  %.sroa.0160.0502 = phi i8 [ %390, %391 ], [ %388, %387 ], [ %388, %387 ]
+.thread507:                                       ; preds = %387, %387, %391
+  %.sroa.0160.0509 = phi i8 [ %390, %391 ], [ %388, %387 ], [ %388, %387 ]
   %393 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h20c00b621190e4c8E", align 8, !nonnull !4, !align !14, !noundef !4
-  %394 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %393, i8 noundef %.sroa.0160.0502)
+  %394 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %393, i8 noundef %.sroa.0160.0509)
           to label %395 unwind label %.loopexit.split-lp
 
-395:                                              ; preds = %.thread500
+395:                                              ; preds = %.thread507
   br i1 %394, label %396, label %.critedge364
 
 396:                                              ; preds = %395
@@ -4766,12 +4766,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %.not308 = icmp eq i64 %400, 0
-  br i1 %.not308, label %.thread487.invoke, label %401
+  br i1 %.not308, label %.thread494.invoke, label %401
 
 401:                                              ; preds = %396
   %.sroa.0267.0.copyload = load ptr, ptr %398, align 8
   %.not309 = icmp eq ptr %.sroa.0267.0.copyload, null
-  br i1 %.not309, label %.thread487.invoke, label %402, !prof !22
+  br i1 %.not309, label %.thread494.invoke, label %402, !prof !22
 
 402:                                              ; preds = %401
   store ptr %.sroa.0267.0.copyload, ptr %20, align 8
@@ -4840,12 +4840,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @"_ZN4core3ptr341drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h60ab7ef9b53fd8abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
   br label %.critedge
 
-.thread:                                          ; preds = %270, %316, %321, %380, %264, %119, %.thread509
-  %.pn333391 = phi { ptr, i32 } [ %.pn333512, %.thread509 ], [ %381, %380 ], [ %265, %264 ], [ %120, %119 ], [ %lpad.phi, %321 ], [ %lpad.phi, %316 ], [ %lpad.thr_comm, %270 ]
+.thread:                                          ; preds = %270, %316, %321, %380, %264, %119, %.thread516
+  %.pn333391 = phi { ptr, i32 } [ %.pn333392, %.thread516 ], [ %381, %380 ], [ %265, %264 ], [ %120, %119 ], [ %lpad.phi, %321 ], [ %lpad.phi, %316 ], [ %lpad.thr_comm430, %270 ]
   resume { ptr, i32 } %.pn333391
 
-.thread509:                                       ; preds = %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i", %266, %169, %80
-  %.pn333512 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp519, %80 ], [ %lpad.thr_comm.split-lp, %169 ], [ %240, %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i" ], [ %267, %266 ]
+.thread516:                                       ; preds = %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i", %266, %169, %80
+  %.pn333392 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %80 ], [ %lpad.thr_comm.split-lp431, %169 ], [ %240, %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i" ], [ %267, %266 ]
   invoke fastcc void @"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE"(ptr noalias noundef align 8 dereferenceable(24) %52) #23
           to label %.thread unwind label %268
 }
@@ -4972,9 +4972,9 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   ]
 
 80:                                               ; preds = %371
-  %lpad.thr_comm.split-lp519 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread509
+  br label %.thread516
 
 81:                                               ; preds = %.backedge
   br i1 %.not297, label %.critedge336, label %82
@@ -4985,7 +4985,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %84 = icmp eq i64 %79, 0
   br i1 %84, label %88, label %.critedge336
 
-.critedge336:                                     ; preds = %88, %81, %90, %82, %101, %.thread393
+.critedge336:                                     ; preds = %88, %81, %90, %82, %101, %.thread398
   %85 = call { i64, ptr } @"_ZN100_$LT$hyper..client..service..Connect$LT$C$C$B$C$T$GT$$u20$as$u20$tower_service..Service$LT$T$GT$$GT$10poll_ready17h067c91ce06a3c5f4E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %86 = extractvalue { i64, ptr } %85, 0
   %87 = trunc nuw i64 %86 to i1
@@ -4995,22 +4995,22 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %89 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h960f8a6cee982395E", i64 16) monotonic, align 8
   switch i8 %89, label %90 [
     i8 0, label %.critedge336
-    i8 1, label %.thread393
-    i8 2, label %.thread393
+    i8 1, label %.thread398
+    i8 2, label %.thread398
   ], !prof !13
 
 90:                                               ; preds = %88
   %91 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h960f8a6cee982395E")
   %92 = icmp eq i8 %91, 0
-  br i1 %92, label %.critedge336, label %.thread393
+  br i1 %92, label %.critedge336, label %.thread398
 
-.thread393:                                       ; preds = %88, %88, %90
-  %.sroa.04.0395 = phi i8 [ %91, %90 ], [ %89, %88 ], [ %89, %88 ]
+.thread398:                                       ; preds = %88, %88, %90
+  %.sroa.04.0400 = phi i8 [ %91, %90 ], [ %89, %88 ], [ %89, %88 ]
   %93 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h960f8a6cee982395E", align 8, !nonnull !4, !align !14, !noundef !4
-  %94 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %93, i8 noundef %.sroa.04.0395)
+  %94 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %93, i8 noundef %.sroa.04.0400)
   br i1 %94, label %95, label %.critedge336
 
-95:                                               ; preds = %.thread393
+95:                                               ; preds = %.thread398
   %96 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h960f8a6cee982395E", align 8, !nonnull !4, !align !14, !noundef !4
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 56
@@ -5018,12 +5018,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %.not325 = icmp eq i64 %99, 0
-  br i1 %.not325, label %.thread398, label %100
+  br i1 %.not325, label %.thread403, label %100
 
 100:                                              ; preds = %95
   %.sroa.0204.0.copyload = load ptr, ptr %97, align 8
   %.not326 = icmp eq ptr %.sroa.0204.0.copyload, null
-  br i1 %.not326, label %.thread398, label %101, !prof !22
+  br i1 %.not326, label %.thread403, label %101, !prof !22
 
 101:                                              ; preds = %100
   store ptr %.sroa.0204.0.copyload, ptr %50, align 8
@@ -5049,11 +5049,11 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %.critedge336
 
-.thread398:                                       ; preds = %95, %100
+.thread403:                                       ; preds = %95, %100
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.33) #22
   unreachable
 
-102:                                              ; preds = %.thread451, %.thread437
+102:                                              ; preds = %.thread458, %.thread444
   unreachable
 
 103:                                              ; preds = %.critedge336
@@ -5111,8 +5111,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 .backedge.backedge:                               ; preds = %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit", %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit372"
   br label %.backedge
 
-.critedge338:                                     ; preds = %126, %121, %128, %.thread402, %139, %123, %105
-  %storemerge329 = phi i64 [ 0, %105 ], [ 1, %123 ], [ 1, %139 ], [ 1, %.thread402 ], [ 1, %128 ], [ 1, %121 ], [ 1, %126 ]
+.critedge338:                                     ; preds = %126, %121, %128, %.thread407, %139, %123, %105
+  %storemerge329 = phi i64 [ 0, %105 ], [ 1, %123 ], [ 1, %139 ], [ 1, %.thread407 ], [ 1, %128 ], [ 1, %121 ], [ 1, %126 ]
   store i64 %storemerge329, ptr %0, align 8
   br label %.critedge
 
@@ -5131,22 +5131,22 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %127 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hf06b5574133d25c8E", i64 16) monotonic, align 8
   switch i8 %127, label %128 [
     i8 0, label %.critedge338
-    i8 1, label %.thread402
-    i8 2, label %.thread402
+    i8 1, label %.thread407
+    i8 2, label %.thread407
   ], !prof !13
 
 128:                                              ; preds = %126
   %129 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hf06b5574133d25c8E")
   %130 = icmp eq i8 %129, 0
-  br i1 %130, label %.critedge338, label %.thread402
+  br i1 %130, label %.critedge338, label %.thread407
 
-.thread402:                                       ; preds = %126, %126, %128
-  %.sroa.023.0404 = phi i8 [ %129, %128 ], [ %127, %126 ], [ %127, %126 ]
+.thread407:                                       ; preds = %126, %126, %128
+  %.sroa.023.0409 = phi i8 [ %129, %128 ], [ %127, %126 ], [ %127, %126 ]
   %131 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hf06b5574133d25c8E", align 8, !nonnull !4, !align !14, !noundef !4
-  %132 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %131, i8 noundef %.sroa.023.0404)
+  %132 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %131, i8 noundef %.sroa.023.0409)
   br i1 %132, label %133, label %.critedge338
 
-133:                                              ; preds = %.thread402
+133:                                              ; preds = %.thread407
   %134 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hf06b5574133d25c8E", align 8, !nonnull !4, !align !14, !noundef !4
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 48
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 56
@@ -5154,12 +5154,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %.not331 = icmp eq i64 %137, 0
-  br i1 %.not331, label %.thread407, label %138
+  br i1 %.not331, label %.thread412, label %138
 
 138:                                              ; preds = %133
   %.sroa.0214.0.copyload = load ptr, ptr %135, align 8
   %.not332 = icmp eq ptr %.sroa.0214.0.copyload, null
-  br i1 %.not332, label %.thread407, label %139, !prof !22
+  br i1 %.not332, label %.thread412, label %139, !prof !22
 
 139:                                              ; preds = %138
   store ptr %.sroa.0214.0.copyload, ptr %47, align 8
@@ -5195,7 +5195,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.critedge338
 
-.thread407:                                       ; preds = %133, %138
+.thread412:                                       ; preds = %133, %138
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.36) #22
   unreachable
 
@@ -5208,7 +5208,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %147 = icmp eq i64 %79, 0
   br i1 %147, label %149, label %.critedge340
 
-.critedge340:                                     ; preds = %149, %144, %151, %145, %162, %.thread411
+.critedge340:                                     ; preds = %149, %144, %151, %145, %162, %.thread416
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h66edf864ffa7bbfeE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull align 8 dereferenceable(16) %55, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %148 = load i8, ptr %61, align 8, !range !111, !noundef !4
@@ -5221,22 +5221,22 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %150 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hffd288eb3bf98200E", i64 16) monotonic, align 8
   switch i8 %150, label %151 [
     i8 0, label %.critedge340
-    i8 1, label %.thread411
-    i8 2, label %.thread411
+    i8 1, label %.thread416
+    i8 2, label %.thread416
   ], !prof !13
 
 151:                                              ; preds = %149
   %152 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hffd288eb3bf98200E")
   %153 = icmp eq i8 %152, 0
-  br i1 %153, label %.critedge340, label %.thread411
+  br i1 %153, label %.critedge340, label %.thread416
 
-.thread411:                                       ; preds = %149, %149, %151
-  %.sroa.049.0413 = phi i8 [ %152, %151 ], [ %150, %149 ], [ %150, %149 ]
+.thread416:                                       ; preds = %149, %149, %151
+  %.sroa.049.0418 = phi i8 [ %152, %151 ], [ %150, %149 ], [ %150, %149 ]
   %154 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hffd288eb3bf98200E", align 8, !nonnull !4, !align !14, !noundef !4
-  %155 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %154, i8 noundef %.sroa.049.0413)
+  %155 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %154, i8 noundef %.sroa.049.0418)
   br i1 %155, label %156, label %.critedge340
 
-156:                                              ; preds = %.thread411
+156:                                              ; preds = %.thread416
   %157 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17hffd288eb3bf98200E", align 8, !nonnull !4, !align !14, !noundef !4
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 56
@@ -5244,12 +5244,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %.not311 = icmp eq i64 %160, 0
-  br i1 %.not311, label %.thread416, label %161
+  br i1 %.not311, label %.thread421, label %161
 
 161:                                              ; preds = %156
   %.sroa.0221.0.copyload = load ptr, ptr %158, align 8
   %.not312 = icmp eq ptr %.sroa.0221.0.copyload, null
-  br i1 %.not312, label %.thread416, label %162, !prof !22
+  br i1 %.not312, label %.thread421, label %162, !prof !22
 
 162:                                              ; preds = %161
   store ptr %.sroa.0221.0.copyload, ptr %43, align 8
@@ -5275,7 +5275,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.critedge340
 
-.thread416:                                       ; preds = %156, %161
+.thread421:                                       ; preds = %156, %161
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.39) #22
   unreachable
 
@@ -5304,9 +5304,9 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
           to label %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit372" unwind label %380
 
 169:                                              ; preds = %202, %204
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp431 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread509
+  br label %.thread516
 
 170:                                              ; preds = %.critedge340
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -5336,8 +5336,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %182 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h3a892e029ec39a5fE", i64 16) monotonic, align 8
   switch i8 %182, label %183 [
     i8 0, label %.critedge342
-    i8 1, label %.thread432
-    i8 2, label %.thread432
+    i8 1, label %.thread439
+    i8 2, label %.thread439
   ], !prof !13
 
 183:                                              ; preds = %181
@@ -5346,15 +5346,15 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 
 185:                                              ; preds = %183
   %186 = icmp eq i8 %184, 0
-  br i1 %186, label %.critedge342, label %.thread432
+  br i1 %186, label %.critedge342, label %.thread439
 
-.thread432:                                       ; preds = %181, %181, %185
-  %.sroa.083.0434 = phi i8 [ %184, %185 ], [ %182, %181 ], [ %182, %181 ]
+.thread439:                                       ; preds = %181, %181, %185
+  %.sroa.083.0441 = phi i8 [ %184, %185 ], [ %182, %181 ], [ %182, %181 ]
   %187 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h3a892e029ec39a5fE", align 8, !nonnull !4, !align !14, !noundef !4
-  %188 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %187, i8 noundef %.sroa.083.0434)
+  %188 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %187, i8 noundef %.sroa.083.0441)
           to label %189 unwind label %270
 
-189:                                              ; preds = %.thread432
+189:                                              ; preds = %.thread439
   br i1 %188, label %190, label %.critedge342
 
 190:                                              ; preds = %189
@@ -5365,12 +5365,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %.not314 = icmp eq i64 %194, 0
-  br i1 %.not314, label %.thread437, label %195
+  br i1 %.not314, label %.thread444, label %195
 
 195:                                              ; preds = %190
   %.sroa.0235.0.copyload = load ptr, ptr %192, align 8
   %.not315 = icmp eq ptr %.sroa.0235.0.copyload, null
-  br i1 %.not315, label %.thread437, label %196, !prof !22
+  br i1 %.not315, label %.thread444, label %196, !prof !22
 
 196:                                              ; preds = %195
   store ptr %.sroa.0235.0.copyload, ptr %35, align 8
@@ -5402,7 +5402,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %191, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
           to label %201 unwind label %270
 
-.thread437:                                       ; preds = %190, %195
+.thread444:                                       ; preds = %190, %195
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.42) #22
           to label %102 unwind label %270
 
@@ -5425,7 +5425,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i": ; preds = %239, %247
   store ptr %224, ptr %53, align 8
   store ptr %223, ptr %225, align 8
-  br label %.thread509
+  br label %.thread516
 
 206:                                              ; preds = %202
   %207 = extractvalue { ptr, ptr } %203, 0
@@ -5447,8 +5447,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %215 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h230d344c4efc801dE", i64 16) monotonic, align 8
   switch i8 %215, label %216 [
     i8 0, label %.critedge346
-    i8 1, label %.thread446
-    i8 2, label %.thread446
+    i8 1, label %.thread453
+    i8 2, label %.thread453
   ], !prof !13
 
 216:                                              ; preds = %214
@@ -5457,19 +5457,19 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 
 218:                                              ; preds = %216
   %219 = icmp eq i8 %217, 0
-  br i1 %219, label %.critedge346, label %.thread446
+  br i1 %219, label %.critedge346, label %.thread453
 
-.thread446:                                       ; preds = %214, %214, %218
-  %.sroa.0105.0448 = phi i8 [ %217, %218 ], [ %215, %214 ], [ %215, %214 ]
+.thread453:                                       ; preds = %214, %214, %218
+  %.sroa.0105.0455 = phi i8 [ %217, %218 ], [ %215, %214 ], [ %215, %214 ]
   %220 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h230d344c4efc801dE", align 8, !nonnull !4, !align !14, !noundef !4
-  %221 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %220, i8 noundef %.sroa.0105.0448)
+  %221 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %220, i8 noundef %.sroa.0105.0455)
           to label %222 unwind label %266
 
-222:                                              ; preds = %.thread446
+222:                                              ; preds = %.thread453
   br i1 %221, label %248, label %.critedge346
 
 .critedge346:                                     ; preds = %214, %206, %211, %218, %259, %222
-  %223 = phi ptr [ %208, %214 ], [ %208, %206 ], [ %208, %211 ], [ %208, %218 ], [ %.pre563, %259 ], [ %208, %222 ]
+  %223 = phi ptr [ %208, %214 ], [ %208, %206 ], [ %208, %211 ], [ %208, %218 ], [ %.pre559, %259 ], [ %208, %222 ]
   %224 = phi ptr [ %207, %214 ], [ %207, %206 ], [ %207, %211 ], [ %207, %218 ], [ %.pre, %259 ], [ %207, %222 ]
   %.val366 = load ptr, ptr %53, align 8, !align !23, !noundef !4
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 320
@@ -5526,12 +5526,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %.not317 = icmp eq i64 %252, 0
-  br i1 %.not317, label %.thread451, label %253
+  br i1 %.not317, label %.thread458, label %253
 
 253:                                              ; preds = %248
   %.sroa.0242.0.copyload = load ptr, ptr %250, align 8
   %.not318 = icmp eq ptr %.sroa.0242.0.copyload, null
-  br i1 %.not318, label %.thread451, label %254, !prof !22
+  br i1 %.not318, label %.thread458, label %254, !prof !22
 
 254:                                              ; preds = %253
   store ptr %.sroa.0242.0.copyload, ptr %31, align 8
@@ -5567,7 +5567,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %249, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %259 unwind label %266
 
-.thread451:                                       ; preds = %248, %253
+.thread458:                                       ; preds = %248, %253
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.47) #22
           to label %102 unwind label %266
 
@@ -5578,7 +5578,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %.pre = load ptr, ptr %33, align 8
-  %.pre563 = load ptr, ptr %209, align 8
+  %.pre559 = load ptr, ptr %209, align 8
   br label %.critedge346
 
 "_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hd9eef43aa164d844E.exit": ; preds = %238, %231, %.critedge346
@@ -5617,26 +5617,26 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", %.critedge338, %77, %.thread458, %408, %415, %416, %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit379"
+.critedge:                                        ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", %.critedge338, %77, %.thread465, %408, %415, %416, %"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE.exit379"
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   ret void
 
-266:                                              ; preds = %.thread451, %254, %.thread446, %216
+266:                                              ; preds = %.thread458, %254, %.thread453, %216
   %267 = landingpad { ptr, i32 }
           cleanup
   %.val = load ptr, ptr %33, align 8
   %.val365 = load ptr, ptr %209, align 8, !nonnull !4, !align !14, !noundef !4
   invoke fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h90f9aeff2a5aa5eaE"(ptr %.val, ptr nonnull %.val365) #23
-          to label %.thread509 unwind label %268
+          to label %.thread516 unwind label %268
 
-268:                                              ; preds = %321, %266, %.thread509, %270
+268:                                              ; preds = %321, %266, %.thread516, %270
   %269 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24
   unreachable
 
-270:                                              ; preds = %196, %.thread437, %.thread432, %183
-  %lpad.thr_comm = landingpad { ptr, i32 }
+270:                                              ; preds = %196, %.thread444, %.thread439, %183
+  %lpad.thr_comm430 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17hbeade3f06316e71fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %37) #23
           to label %.thread unwind label %268
@@ -5644,34 +5644,34 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 271:                                              ; preds = %.critedge340
   %272 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h9e420ea5df983dc6E monotonic, align 8
   %.not321 = icmp eq i64 %272, 5
-  br i1 %.not321, label %.thread458, label %273
+  br i1 %.not321, label %.thread465, label %273
 
 273:                                              ; preds = %271
   %274 = icmp ult i64 %272, 5
   call void @llvm.assume(i1 %274)
   %275 = icmp eq i64 %272, 0
-  br i1 %275, label %276, label %.thread458
+  br i1 %275, label %276, label %.thread465
 
 276:                                              ; preds = %273
   %277 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h6087842ede8e6b79E", i64 16) monotonic, align 8
   switch i8 %277, label %278 [
-    i8 0, label %.thread458
-    i8 1, label %.thread455
-    i8 2, label %.thread455
+    i8 0, label %.thread465
+    i8 1, label %.thread462
+    i8 2, label %.thread462
   ], !prof !13
 
 278:                                              ; preds = %276
   %279 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h6087842ede8e6b79E")
   %280 = icmp eq i8 %279, 0
-  br i1 %280, label %.thread458, label %.thread455
+  br i1 %280, label %.thread465, label %.thread462
 
-.thread455:                                       ; preds = %276, %276, %278
-  %.sroa.066.0457 = phi i8 [ %279, %278 ], [ %277, %276 ], [ %277, %276 ]
+.thread462:                                       ; preds = %276, %276, %278
+  %.sroa.066.0464 = phi i8 [ %279, %278 ], [ %277, %276 ], [ %277, %276 ]
   %281 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h6087842ede8e6b79E", align 8, !nonnull !4, !align !14, !noundef !4
-  %282 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %281, i8 noundef %.sroa.066.0457)
-  br i1 %282, label %283, label %.thread458
+  %282 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %281, i8 noundef %.sroa.066.0464)
+  br i1 %282, label %283, label %.thread465
 
-283:                                              ; preds = %.thread455
+283:                                              ; preds = %.thread462
   %284 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h6087842ede8e6b79E", align 8, !nonnull !4, !align !14, !noundef !4
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 48
   %286 = getelementptr inbounds nuw i8, ptr %284, i64 56
@@ -5679,12 +5679,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %.not322 = icmp eq i64 %287, 0
-  br i1 %.not322, label %.thread460, label %288
+  br i1 %.not322, label %.thread467, label %288
 
 288:                                              ; preds = %283
   %.sroa.0228.0.copyload = load ptr, ptr %285, align 8
   %.not323 = icmp eq ptr %.sroa.0228.0.copyload, null
-  br i1 %.not323, label %.thread460, label %289, !prof !22
+  br i1 %.not323, label %.thread467, label %289, !prof !22
 
 289:                                              ; preds = %288
   store ptr %.sroa.0228.0.copyload, ptr %39, align 8
@@ -5718,13 +5718,13 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  br label %.thread458
+  br label %.thread465
 
-.thread460:                                       ; preds = %283, %288
+.thread467:                                       ; preds = %283, %288
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.50) #22
   unreachable
 
-.thread458:                                       ; preds = %276, %.thread455, %289, %273, %278, %271
+.thread465:                                       ; preds = %276, %.thread462, %289, %273, %278, %271
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.critedge
@@ -5742,22 +5742,22 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %299 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h833de0982745bb4fE", i64 16) monotonic, align 8
   switch i8 %299, label %300 [
     i8 0, label %.critedge352
-    i8 1, label %.thread465
-    i8 2, label %.thread465
+    i8 1, label %.thread472
+    i8 2, label %.thread472
   ], !prof !13
 
 300:                                              ; preds = %298
   %301 = call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h833de0982745bb4fE")
   %302 = icmp eq i8 %301, 0
-  br i1 %302, label %.critedge352, label %.thread465
+  br i1 %302, label %.critedge352, label %.thread472
 
-.thread465:                                       ; preds = %298, %298, %300
-  %.sroa.0126.0467 = phi i8 [ %301, %300 ], [ %299, %298 ], [ %299, %298 ]
+.thread472:                                       ; preds = %298, %298, %300
+  %.sroa.0126.0474 = phi i8 [ %301, %300 ], [ %299, %298 ], [ %299, %298 ]
   %303 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h833de0982745bb4fE", align 8, !nonnull !4, !align !14, !noundef !4
-  %304 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %303, i8 noundef %.sroa.0126.0467)
+  %304 = call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %303, i8 noundef %.sroa.0126.0474)
   br i1 %304, label %309, label %.critedge352
 
-.critedge352:                                     ; preds = %298, %294, %295, %300, %315, %.thread465
+.critedge352:                                     ; preds = %298, %294, %295, %300, %315, %.thread472
   store i8 1, ptr %71, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %305 = call noundef i8 @_ZN4want5Giver9poll_want17ha92074276a5690b1E(ptr noalias noundef nonnull align 8 dereferenceable(24) %55, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
@@ -5774,7 +5774,7 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %.not304 = icmp eq i64 %308, 5
   br i1 %.not304, label %.critedge360, label %355
 
-309:                                              ; preds = %.thread465
+309:                                              ; preds = %.thread472
   %310 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h833de0982745bb4fE", align 8, !nonnull !4, !align !14, !noundef !4
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 48
   %312 = getelementptr inbounds nuw i8, ptr %310, i64 56
@@ -5782,12 +5782,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %.not298 = icmp eq i64 %313, 0
-  br i1 %.not298, label %.thread470, label %314
+  br i1 %.not298, label %.thread477, label %314
 
 314:                                              ; preds = %309
   %.sroa.0253.0.copyload = load ptr, ptr %311, align 8
   %.not299 = icmp eq ptr %.sroa.0253.0.copyload, null
-  br i1 %.not299, label %.thread470, label %315, !prof !22
+  br i1 %.not299, label %.thread477, label %315, !prof !22
 
 315:                                              ; preds = %314
   store ptr %.sroa.0253.0.copyload, ptr %27, align 8
@@ -5813,16 +5813,16 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.critedge352
 
-.thread470:                                       ; preds = %309, %314
+.thread477:                                       ; preds = %309, %314
   call void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.53) #22
   unreachable
 
-.loopexit:                                        ; preds = %360, %.thread491, %378
+.loopexit:                                        ; preds = %360, %.thread498, %378
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %316
 
-.loopexit.split-lp:                               ; preds = %.thread487.invoke, %329, %.thread482, %343, %389, %.thread500, %402
+.loopexit.split-lp:                               ; preds = %.thread494.invoke, %329, %.thread489, %343, %389, %.thread507, %402
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %316
@@ -5833,8 +5833,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %318 = icmp ne i64 %317, 0
   %319 = load ptr, ptr %72, align 8, !align !14
   %320 = icmp eq ptr %319, null
-  %or.cond591 = select i1 %318, i1 true, i1 %320
-  br i1 %or.cond591, label %.thread, label %321
+  %or.cond587 = select i1 %318, i1 true, i1 %320
+  br i1 %or.cond587, label %.thread, label %321
 
 321:                                              ; preds = %316
   invoke void @"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17hbeade3f06316e71fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
@@ -5856,8 +5856,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %328 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h0d88e9600496b760E", i64 16) monotonic, align 8
   switch i8 %328, label %329 [
     i8 0, label %.critedge356
-    i8 1, label %.thread482
-    i8 2, label %.thread482
+    i8 1, label %.thread489
+    i8 2, label %.thread489
   ], !prof !13
 
 329:                                              ; preds = %327
@@ -5866,15 +5866,15 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 
 331:                                              ; preds = %329
   %332 = icmp eq i8 %330, 0
-  br i1 %332, label %.critedge356, label %.thread482
+  br i1 %332, label %.critedge356, label %.thread489
 
-.thread482:                                       ; preds = %327, %327, %331
-  %.sroa.0143.0484 = phi i8 [ %330, %331 ], [ %328, %327 ], [ %328, %327 ]
+.thread489:                                       ; preds = %327, %327, %331
+  %.sroa.0143.0491 = phi i8 [ %330, %331 ], [ %328, %327 ], [ %328, %327 ]
   %333 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h0d88e9600496b760E", align 8, !nonnull !4, !align !14, !noundef !4
-  %334 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %333, i8 noundef %.sroa.0143.0484)
+  %334 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %333, i8 noundef %.sroa.0143.0491)
           to label %335 unwind label %.loopexit.split-lp
 
-335:                                              ; preds = %.thread482
+335:                                              ; preds = %.thread489
   br i1 %334, label %337, label %.critedge356
 
 .critedge356:                                     ; preds = %327, %322, %324, %331, %349, %335
@@ -5890,12 +5890,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %.not302 = icmp eq i64 %341, 0
-  br i1 %.not302, label %.thread487.invoke, label %342
+  br i1 %.not302, label %.thread494.invoke, label %342
 
 342:                                              ; preds = %337
   %.sroa.0260.0.copyload = load ptr, ptr %339, align 8
   %.not303 = icmp eq ptr %.sroa.0260.0.copyload, null
-  br i1 %.not303, label %.thread487.invoke, label %343, !prof !22
+  br i1 %.not303, label %.thread494.invoke, label %343, !prof !22
 
 343:                                              ; preds = %342
   store ptr %.sroa.0260.0.copyload, ptr %23, align 8
@@ -5927,12 +5927,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %338, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
           to label %349 unwind label %.loopexit.split-lp
 
-.thread487.invoke:                                ; preds = %377, %372, %401, %396, %342, %337
+.thread494.invoke:                                ; preds = %377, %372, %401, %396, %342, %337
   %348 = phi ptr [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.56, %337 ], [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.56, %342 ], [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.60, %396 ], [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.60, %401 ], [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.59, %372 ], [ @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.59, %377 ]
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.0, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %348) #22
-          to label %.thread487.cont unwind label %.loopexit.split-lp
+          to label %.thread494.cont unwind label %.loopexit.split-lp
 
-.thread487.cont:                                  ; preds = %.thread487.invoke
+.thread494.cont:                                  ; preds = %.thread494.invoke
   unreachable
 
 349:                                              ; preds = %343
@@ -5949,8 +5949,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %351 = icmp ne i64 %350, 0
   %352 = load ptr, ptr %72, align 8, !align !14
   %353 = icmp eq ptr %352, null
-  %or.cond593 = select i1 %351, i1 true, i1 %353
-  br i1 %or.cond593, label %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", label %354
+  %or.cond589 = select i1 %351, i1 true, i1 %353
+  br i1 %or.cond589, label %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit384", label %354
 
 354:                                              ; preds = %.critedge364
   call void @"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17hbeade3f06316e71fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
@@ -5966,8 +5966,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %359 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h8cc46ebb135b8f3aE", i64 16) monotonic, align 8
   switch i8 %359, label %360 [
     i8 0, label %.critedge360
-    i8 1, label %.thread491
-    i8 2, label %.thread491
+    i8 1, label %.thread498
+    i8 2, label %.thread498
   ], !prof !13
 
 360:                                              ; preds = %358
@@ -5976,15 +5976,15 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 
 362:                                              ; preds = %360
   %363 = icmp eq i8 %361, 0
-  br i1 %363, label %.critedge360, label %.thread491
+  br i1 %363, label %.critedge360, label %.thread498
 
-.thread491:                                       ; preds = %358, %358, %362
-  %.sroa.0177.0493 = phi i8 [ %361, %362 ], [ %359, %358 ], [ %359, %358 ]
+.thread498:                                       ; preds = %358, %358, %362
+  %.sroa.0177.0500 = phi i8 [ %361, %362 ], [ %359, %358 ], [ %359, %358 ]
   %364 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h8cc46ebb135b8f3aE", align 8, !nonnull !4, !align !14, !noundef !4
-  %365 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %364, i8 noundef %.sroa.0177.0493)
+  %365 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %364, i8 noundef %.sroa.0177.0500)
           to label %366 unwind label %.loopexit
 
-366:                                              ; preds = %.thread491
+366:                                              ; preds = %.thread498
   br i1 %365, label %372, label %.critedge360
 
 .critedge360:                                     ; preds = %358, %306, %355, %362, %379, %366
@@ -5993,8 +5993,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %368 = icmp ne i64 %367, 0
   %369 = load ptr, ptr %72, align 8, !align !14
   %370 = icmp eq ptr %369, null
-  %or.cond524 = select i1 %368, i1 true, i1 %370
-  br i1 %or.cond524, label %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit386", label %371
+  %or.cond520 = select i1 %368, i1 true, i1 %370
+  br i1 %or.cond520, label %"_ZN4core3ptr109drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$hyper..error..Error$GT$$GT$$GT$17h95dc5ad484fcef0eE.exit386", label %371
 
 371:                                              ; preds = %.critedge360
   invoke void @"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17hbeade3f06316e71fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72)
@@ -6008,12 +6008,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.not305 = icmp eq i64 %376, 0
-  br i1 %.not305, label %.thread487.invoke, label %377
+  br i1 %.not305, label %.thread494.invoke, label %377
 
 377:                                              ; preds = %372
   %.sroa.0274.0.copyload = load ptr, ptr %374, align 8
   %.not306 = icmp eq ptr %.sroa.0274.0.copyload, null
-  br i1 %.not306, label %.thread487.invoke, label %378, !prof !22
+  br i1 %.not306, label %.thread494.invoke, label %378, !prof !22
 
 378:                                              ; preds = %377
   store ptr %.sroa.0274.0.copyload, ptr %17, align 8
@@ -6073,8 +6073,8 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   %388 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h20c00b621190e4c8E", i64 16) monotonic, align 8
   switch i8 %388, label %389 [
     i8 0, label %.critedge364
-    i8 1, label %.thread500
-    i8 2, label %.thread500
+    i8 1, label %.thread507
+    i8 2, label %.thread507
   ], !prof !13
 
 389:                                              ; preds = %387
@@ -6083,15 +6083,15 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
 
 391:                                              ; preds = %389
   %392 = icmp eq i8 %390, 0
-  br i1 %392, label %.critedge364, label %.thread500
+  br i1 %392, label %.critedge364, label %.thread507
 
-.thread500:                                       ; preds = %387, %387, %391
-  %.sroa.0160.0502 = phi i8 [ %390, %391 ], [ %388, %387 ], [ %388, %387 ]
+.thread507:                                       ; preds = %387, %387, %391
+  %.sroa.0160.0509 = phi i8 [ %390, %391 ], [ %388, %387 ], [ %388, %387 ]
   %393 = load ptr, ptr @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$LT$M$C$Target$GT$$u20$as$u20$tower_service..Service$LT$Request$GT$$GT$10poll_ready10__CALLSITE17h20c00b621190e4c8E", align 8, !nonnull !4, !align !14, !noundef !4
-  %394 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %393, i8 noundef %.sroa.0160.0502)
+  %394 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %393, i8 noundef %.sroa.0160.0509)
           to label %395 unwind label %.loopexit.split-lp
 
-395:                                              ; preds = %.thread500
+395:                                              ; preds = %.thread507
   br i1 %394, label %396, label %.critedge364
 
 396:                                              ; preds = %395
@@ -6102,12 +6102,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %.not308 = icmp eq i64 %400, 0
-  br i1 %.not308, label %.thread487.invoke, label %401
+  br i1 %.not308, label %.thread494.invoke, label %401
 
 401:                                              ; preds = %396
   %.sroa.0267.0.copyload = load ptr, ptr %398, align 8
   %.not309 = icmp eq ptr %.sroa.0267.0.copyload, null
-  br i1 %.not309, label %.thread487.invoke, label %402, !prof !22
+  br i1 %.not309, label %.thread494.invoke, label %402, !prof !22
 
 402:                                              ; preds = %401
   store ptr %.sroa.0267.0.copyload, ptr %20, align 8
@@ -6176,12 +6176,12 @@ define hidden void @"_ZN123_$LT$tonic..transport..service..reconnect..Reconnect$
   call void @"_ZN4core3ptr341drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h60ab7ef9b53fd8abE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52)
   br label %.critedge
 
-.thread:                                          ; preds = %270, %316, %321, %380, %264, %119, %.thread509
-  %.pn333391 = phi { ptr, i32 } [ %.pn333512, %.thread509 ], [ %381, %380 ], [ %265, %264 ], [ %120, %119 ], [ %lpad.phi, %321 ], [ %lpad.phi, %316 ], [ %lpad.thr_comm, %270 ]
+.thread:                                          ; preds = %270, %316, %321, %380, %264, %119, %.thread516
+  %.pn333391 = phi { ptr, i32 } [ %.pn333392, %.thread516 ], [ %381, %380 ], [ %265, %264 ], [ %120, %119 ], [ %lpad.phi, %321 ], [ %lpad.phi, %316 ], [ %lpad.thr_comm430, %270 ]
   resume { ptr, i32 } %.pn333391
 
-.thread509:                                       ; preds = %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i", %266, %169, %80
-  %.pn333512 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp519, %80 ], [ %lpad.thr_comm.split-lp, %169 ], [ %240, %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i" ], [ %267, %266 ]
+.thread516:                                       ; preds = %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i", %266, %169, %80
+  %.pn333392 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %80 ], [ %lpad.thr_comm.split-lp431, %169 ], [ %240, %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he075df75b0c20a9fE.exit4.i.i" ], [ %267, %266 ]
   invoke fastcc void @"_ZN4core3ptr533drop_in_place$LT$tonic..transport..service..reconnect..State$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$hyper..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$hyper..client..conn..SendRequest$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$GT$$GT$17h9765f03b4b5f5fedE"(ptr noalias noundef align 8 dereferenceable(24) %52) #23
           to label %.thread unwind label %268
 }

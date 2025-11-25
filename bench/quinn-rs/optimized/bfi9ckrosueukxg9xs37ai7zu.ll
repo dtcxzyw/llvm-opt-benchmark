@@ -1190,7 +1190,7 @@ define noundef zeroext i1 @_ZN11quinn_proto9range_set15btree_range_set8RangeSet6
   %8 = alloca [8 x i8], align 8
   %9 = alloca [8 x i8], align 8
   %.not = icmp ult i64 %1, %2
-  br i1 %.not, label %10, label %48
+  br i1 %.not, label %10, label %47
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !108
@@ -1242,14 +1242,14 @@ _ZN11quinn_proto9range_set15btree_range_set8RangeSet4pred17h2bfdb6090eeaac87E.ex
 
 31:                                               ; preds = %32, %27
   %.not6 = icmp ult i64 %18, %2
-  br i1 %.not6, label %23, label %48
+  br i1 %.not6, label %23, label %47
 
 32:                                               ; preds = %27
   %33 = call { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hd38bff71fb722d93E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %2, i64 noundef %18)
   br label %31
 
-34:                                               ; preds = %43, %23
-  %.sroa.0.1 = phi i1 [ false, %23 ], [ true, %43 ]
+34:                                               ; preds = %42, %23
+  %.sroa.0.1 = phi i1 [ false, %23 ], [ true, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !113
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !113
   store i64 1, ptr %4, align 8, !noalias !113
@@ -1276,24 +1276,24 @@ _ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !113
   store i64 %40, ptr %8, align 8
   %.not7 = icmp ult i64 %40, %2
-  br i1 %.not7, label %43, label %.loopexit
+  br i1 %.not7, label %42, label %.loopexit
 
-.loopexit:                                        ; preds = %37, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.exit, %46
-  %.sroa.0.2 = phi i1 [ true, %46 ], [ %.sroa.0.1, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.exit ], [ %.sroa.0.1, %37 ]
-  %42 = or i1 %.sroa.01.0, %.sroa.0.2
-  br label %48
+.loopexit:                                        ; preds = %37, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.exit, %45
+  %.sroa.0.2 = phi i1 [ true, %45 ], [ %.sroa.0.1, %_ZN11quinn_proto9range_set15btree_range_set8RangeSet4succ17h5d644a7a06c96a26E.exit ], [ %.sroa.0.1, %37 ]
+  %spec.select = or i1 %.sroa.01.0, %.sroa.0.2
+  br label %47
 
-43:                                               ; preds = %37
-  %44 = call { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h455217a946282503E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
-  %45 = icmp ugt i64 %41, %2
-  br i1 %45, label %46, label %34
+42:                                               ; preds = %37
+  %43 = call { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6remove17h455217a946282503E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
+  %44 = icmp ugt i64 %41, %2
+  br i1 %44, label %45, label %34
 
-46:                                               ; preds = %43
-  %47 = call { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hd38bff71fb722d93E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %2, i64 noundef %41)
+45:                                               ; preds = %42
+  %46 = call { i64, i64 } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hd38bff71fb722d93E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %2, i64 noundef %41)
   br label %.loopexit
 
-48:                                               ; preds = %31, %.loopexit, %3
-  %.sroa.0.0 = phi i1 [ false, %3 ], [ %42, %.loopexit ], [ true, %31 ]
+47:                                               ; preds = %31, %.loopexit, %3
+  %.sroa.0.0 = phi i1 [ false, %3 ], [ %spec.select, %.loopexit ], [ true, %31 ]
   ret i1 %.sroa.0.0
 }
 

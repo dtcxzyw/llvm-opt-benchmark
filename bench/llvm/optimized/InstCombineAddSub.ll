@@ -8239,7 +8239,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit492:              ; preds = %668, %.lr.ph.i.i.i.
 808:                                              ; preds = %806
   %809 = call noundef ptr @_ZN4llvm16InstCombinerImpl41foldBinOpOfSelectAndCastOfSelectConditionERNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(1088) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) #17
   %.not389 = icmp eq ptr %809, null
-  %brmerge.not = and i1 %.not389, %.1337
+  %brmerge.not = and i1 %.1337, %.not389
   br i1 %brmerge.not, label %810, label %817
 
 810:                                              ; preds = %808
@@ -18454,7 +18454,7 @@ define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl8visitSubERNS_14
   %6 = load ptr, ptr %5, align 8, !tbaa !531
   %7 = tail call noundef ptr @_ZN4llvm16InstCombinerImpl22narrowMathIfNoOverflowERNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(1088) %4, ptr noundef nonnull align 8 dereferenceable(72) %6) #17
   %.not.not = icmp eq ptr %7, null
-  br i1 %.not.not, label %8, label %39
+  br i1 %.not.not, label %8, label %40
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %5, align 8, !tbaa !531
@@ -18476,19 +18476,19 @@ define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl8visitSubERNS_14
   %20 = call noundef i32 @_ZN4llvm27computeOverflowForSignedSubEPKNS_5ValueES2_RKNS_13SimplifyQueryE(ptr noundef %14, ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(58) %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = icmp eq i32 %20, 3
-  %.pre8 = load ptr, ptr %5, align 8, !tbaa !531
+  %.pre9 = load ptr, ptr %5, align 8, !tbaa !531
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %11
-  call void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %.pre8, i1 noundef zeroext true) #17
+  call void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %.pre9, i1 noundef zeroext true) #17
   %.pre = load ptr, ptr %5, align 8, !tbaa !531
   br label %23
 
 23:                                               ; preds = %22, %11, %8
-  %24 = phi ptr [ %9, %8 ], [ %.pre, %22 ], [ %.pre8, %11 ]
+  %24 = phi ptr [ %9, %8 ], [ %.pre, %22 ], [ %.pre9, %11 ]
   %.0 = phi i1 [ false, %8 ], [ true, %22 ], [ false, %11 ]
   %25 = call noundef zeroext i1 @_ZNK4llvm11Instruction17hasNoUnsignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72) %24) #18
-  br i1 %25, label %37, label %26
+  br i1 %25, label %38, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18506,20 +18506,20 @@ define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl8visitSubERNS_14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %36 = icmp eq i32 %35, 3
   %.pre10 = load ptr, ptr %5, align 8
-  br i1 %36, label %.thread, label %37
+  br i1 %36, label %.thread, label %38
 
 .thread:                                          ; preds = %26
   call void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr noundef nonnull align 8 dereferenceable(72) %.pre10, i1 noundef zeroext true) #17
-  %.pre9 = load ptr, ptr %5, align 8
-  br label %39
+  %37 = load ptr, ptr %5, align 8
+  br label %40
 
-37:                                               ; preds = %26, %23
-  %38 = phi ptr [ %24, %23 ], [ %.pre10, %26 ]
-  %spec.select = select i1 %.0, ptr %38, ptr null
-  br label %39
+38:                                               ; preds = %26, %23
+  %39 = phi ptr [ %.pre10, %26 ], [ %24, %23 ]
+  %spec.select = select i1 %.0, ptr %39, ptr null
+  br label %40
 
-39:                                               ; preds = %37, %.thread, %1
-  %.17 = phi ptr [ %7, %1 ], [ %.pre9, %.thread ], [ %spec.select, %37 ]
+40:                                               ; preds = %38, %.thread, %1
+  %.17 = phi ptr [ %7, %1 ], [ %37, %.thread ], [ %spec.select, %38 ]
   ret ptr %.17
 }
 

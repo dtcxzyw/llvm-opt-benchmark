@@ -5000,11 +5000,11 @@ SDL_AudioSpecsEqual.exit.thread:                  ; preds = %3, %10, %15, %SDL_A
   %51 = tail call noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %48, i64 noundef %50) #14
   store ptr %51, ptr %45, align 8
   %.not63 = icmp eq ptr %51, null
-  %spec.select70 = select i1 %.not63, i1 true, i1 %.not61
+  %spec.select = select i1 %.not63, i1 true, i1 %.not61
   br label %52
 
 52:                                               ; preds = %47, %40
-  %.254 = phi i1 [ %.not61, %40 ], [ %spec.select70, %47 ]
+  %.254 = phi i1 [ %.not61, %40 ], [ %spec.select, %47 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %54 = load ptr, ptr %53, align 8
   tail call void @SDL_aligned_free_REAL(ptr noundef %54) #14
@@ -5020,13 +5020,13 @@ SDL_AudioSpecsEqual.exit.thread:                  ; preds = %3, %10, %15, %SDL_A
   %60 = tail call noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %57, i64 noundef %59) #14
   store ptr %60, ptr %53, align 8
   %.not65 = icmp eq ptr %60, null
-  %spec.select71 = select i1 %.not65, i1 true, i1 %.254
-  br i1 %spec.select71, label %86, label %.thread
+  %spec.select70 = select i1 %.not65, i1 true, i1 %.254
+  br i1 %spec.select70, label %86, label %.thread
 
 61:                                               ; preds = %52
   br i1 %.254, label %86, label %.thread
 
-.thread:                                          ; preds = %56, %SDL_AudioSpecsEqual.exit.thread, %61
+.thread:                                          ; preds = %SDL_AudioSpecsEqual.exit.thread, %56, %61
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %62, align 8
@@ -5048,9 +5048,9 @@ SDL_AudioSpecsEqual.exit.thread:                  ; preds = %3, %10, %15, %SDL_A
 69:                                               ; preds = %64, %.thread
   %.051 = phi ptr [ %63, %64 ], [ %4, %.thread ]
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.074 = load ptr, ptr %70, align 8
-  %.not6775 = icmp eq ptr %.074, null
-  br i1 %.not6775, label %._crit_edge, label %.lr.ph
+  %.075 = load ptr, ptr %70, align 8
+  %.not6776 = icmp eq ptr %.075, null
+  br i1 %.not6776, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %78
   %.pre = load ptr, ptr %62, align 8
@@ -5063,26 +5063,26 @@ SDL_AudioSpecsEqual.exit.thread:                  ; preds = %3, %10, %15, %SDL_A
   br i1 %.not68, label %85, label %80
 
 .lr.ph:                                           ; preds = %69, %78
-  %.077 = phi ptr [ %.0, %78 ], [ %.074, %69 ]
-  %.176 = phi ptr [ %.2, %78 ], [ %.051, %69 ]
+  %.078 = phi ptr [ %.0, %78 ], [ %.075, %69 ]
+  %.177 = phi ptr [ %.2, %78 ], [ %.051, %69 ]
   %72 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 16) #14
   %.not69 = icmp eq ptr %72, null
   br i1 %.not69, label %78, label %73
 
 73:                                               ; preds = %.lr.ph
   store i32 4354, ptr %72, align 8
-  %74 = load i32, ptr %.077, align 8
+  %74 = load i32, ptr %.078, align 8
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 %74, ptr %75, align 4
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr null, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.176, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.177, i64 8
   store ptr %72, ptr %77, align 8
   br label %78
 
 78:                                               ; preds = %.lr.ph, %73
-  %.2 = phi ptr [ %72, %73 ], [ %.176, %.lr.ph ]
-  %79 = getelementptr inbounds nuw i8, ptr %.077, i64 80
+  %.2 = phi ptr [ %72, %73 ], [ %.177, %.lr.ph ]
+  %79 = getelementptr inbounds nuw i8, ptr %.078, i64 80
   %.0 = load ptr, ptr %79, align 8
   %.not67 = icmp eq ptr %.0, null
   br i1 %.not67, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
@@ -5102,7 +5102,7 @@ SDL_AudioSpecsEqual.exit.thread:                  ; preds = %3, %10, %15, %SDL_A
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %86
 
-86:                                               ; preds = %56, %85, %61, %SDL_AudioSpecsEqual.exit
+86:                                               ; preds = %85, %61, %56, %SDL_AudioSpecsEqual.exit
   %.055 = phi i1 [ true, %SDL_AudioSpecsEqual.exit ], [ false, %61 ], [ true, %85 ], [ false, %56 ]
   ret i1 %.055
 }

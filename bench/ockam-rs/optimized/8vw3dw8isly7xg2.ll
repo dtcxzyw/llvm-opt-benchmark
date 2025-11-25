@@ -9833,7 +9833,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
   store i8 0, ptr %.sroa.749.0..sroa_idx.i, align 8, !noalias !1156
   call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !1156
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
-  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep98.sroa_idx470 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
+  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep101.sroa_idx470 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
   br label %2186
 
 2147:                                             ; preds = %2125
@@ -9971,7 +9971,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
   ]
 
 ._crit_edge:                                      ; preds = %2184
-  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep98.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
+  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep101.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
   %.pre395 = load ptr, ptr %2185, align 8, !noalias !1174
   br label %2186
 
@@ -9979,7 +9979,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
   %2187 = phi ptr [ %2129, %.thread.i299 ], [ %2127, %._crit_edge ]
   %2188 = phi ptr [ %2130, %.thread.i299 ], [ %2126, %._crit_edge ]
   %2189 = phi ptr [ %2132, %.thread.i299 ], [ %.pre395, %._crit_edge ]
-  %.sroa.0.i.8.i.8.i.8.i.8.gep98.sroa_idx95.i = phi ptr [ %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep98.sroa_idx470, %.thread.i299 ], [ %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep98.sroa_idx, %._crit_edge ]
+  %.sroa.0.i.8.i.8.i.8.i.8.gep101.sroa_idx95.i = phi ptr [ %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep101.sroa_idx470, %.thread.i299 ], [ %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep101.sroa_idx, %._crit_edge ]
   %2190 = phi ptr [ %.sroa.749.0..sroa_idx.i, %.thread.i299 ], [ %.phi.trans.insert.i228, %._crit_edge ]
   %2191 = phi ptr [ %2146, %.thread.i299 ], [ %2185, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !1174
@@ -9989,7 +9989,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
           to label %2195 unwind label %2193, !noalias !1178
 
 2192:                                             ; preds = %2184
-  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep98.sroa_idx469 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
+  %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep101.sroa_idx469 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !1174
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   br label %2205
@@ -10031,7 +10031,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
 2205:                                             ; preds = %2195, %2192
   %2206 = phi ptr [ %2187, %2195 ], [ %2127, %2192 ]
   %2207 = phi ptr [ %2188, %2195 ], [ %2126, %2192 ]
-  %.sroa.0.i.8.i.8.i.8.i.8.gep98.sroa_idx94.i = phi ptr [ %.sroa.0.i.8.i.8.i.8.i.8.gep98.sroa_idx95.i, %2195 ], [ %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep98.sroa_idx469, %2192 ]
+  %.sroa.0.i.8.i.8.i.8.i.8.gep101.sroa_idx94.i = phi ptr [ %.sroa.0.i.8.i.8.i.8.i.8.gep101.sroa_idx95.i, %2195 ], [ %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8.i.8.i.8.gep101.sroa_idx469, %2192 ]
   %2208 = phi ptr [ %2190, %2195 ], [ %.phi.trans.insert.i228, %2192 ]
   %2209 = phi ptr [ %2191, %2195 ], [ %2185, %2192 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
@@ -11693,7 +11693,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.i.
   br label %.body.i.i238
 
 2756:                                             ; preds = %2752, %2749, %"_ZN4core6option15Option$LT$T$GT$3map17h163c3c039f60e7aeE.exit.thread.i.i.i", %.thread271.i.i.i
-  %.sroa.0192.1.i.sroa.phi.i.i = phi ptr [ %.sroa.0.i.i, %"_ZN4core6option15Option$LT$T$GT$3map17h163c3c039f60e7aeE.exit.thread.i.i.i" ], [ %.sroa.0.i.8.i.8.i.8.i.8.gep98.sroa_idx94.i, %2752 ], [ %.sroa.0.i.8.i.8.i.8.i.8.gep98.sroa_idx94.i, %2749 ], [ %.sroa.0.i.i, %.thread271.i.i.i ]
+  %.sroa.0192.1.i.sroa.phi.i.i = phi ptr [ %.sroa.0.i.i, %"_ZN4core6option15Option$LT$T$GT$3map17h163c3c039f60e7aeE.exit.thread.i.i.i" ], [ %.sroa.0.i.8.i.8.i.8.i.8.gep101.sroa_idx94.i, %2752 ], [ %.sroa.0.i.8.i.8.i.8.i.8.gep101.sroa_idx94.i, %2749 ], [ %.sroa.0.i.i, %.thread271.i.i.i ]
   %.sroa.0192.1.i.i.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17h163c3c039f60e7aeE.exit.thread.i.i.i" ], [ 1, %2752 ], [ 1, %2749 ], [ 0, %.thread271.i.i.i ]
   %.sroa.4193.1.i.i.i = phi ptr [ null, %"_ZN4core6option15Option$LT$T$GT$3map17h163c3c039f60e7aeE.exit.thread.i.i.i" ], [ %.sroa.4.i.sroa.4.0.copyload.i.i.i244, %2752 ], [ %.sroa.4.i.sroa.4.0.copyload.i.i.i244, %2749 ], [ %.sroa.0197.0.copyload.i.i.i, %.thread271.i.i.i ]
   %2757 = getelementptr inbounds nuw i8, ptr %1, i64 504

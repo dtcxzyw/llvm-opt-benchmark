@@ -33920,9 +33920,6 @@ define internal fastcc void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$clo
   %19 = invoke noundef zeroext i1 @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$8is_empty17hb733d76638dfaef6E"(ptr noundef nonnull align 8 %18)
           to label %21 unwind label %.thread
 
-.noexc53:                                         ; preds = %.loopexit.split-lp, %99
-  br i1 %.sroa.021.1, label %101, label %.noexc53.thread
-
 .thread:                                          ; preds = %3, %21, %57, %22, %.sink.split.i
   %20 = landingpad { ptr, i32 }
           cleanup
@@ -34034,7 +34031,7 @@ _ZN10rayon_core5sleep5Sleep8new_jobs17h38f8451edb6088d3E.exit: ; preds = %30, %.
 61:                                               ; preds = %53, %79
   %62 = load atomic i64, ptr %.sroa.4.0..sroa_idx acquire, align 8
   %63 = icmp eq i64 %62, 3
-  br i1 %63, label %.loopexit79, label %64
+  br i1 %63, label %.loopexit77, label %64
 
 64:                                               ; preds = %61
   %65 = invoke { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hafc72e6c7f42ee2bE"(ptr noundef nonnull align 8 %18)
@@ -34078,7 +34075,7 @@ default.unreachable:                              ; preds = %.noexc52
   %73 = insertvalue { ptr, ptr } %72, ptr %.sroa.5.1.i, 1
   br label %_ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit
 
-.loopexit79:                                      ; preds = %61, %84, %87
+.loopexit77:                                      ; preds = %61, %84, %87
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -34125,24 +34122,24 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
 84:                                               ; preds = %_ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit
   %85 = load atomic i64, ptr %.sroa.4.0..sroa_idx acquire, align 8
   %86 = icmp eq i64 %85, 3
-  br i1 %86, label %.loopexit79, label %87, !prof !4
+  br i1 %86, label %.loopexit77, label %87, !prof !4
 
 87:                                               ; preds = %84
   invoke void @_ZN10rayon_core8registry12WorkerThread15wait_until_cold17hc51e3b405524e162E(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %.sroa.4.0..sroa_idx)
-          to label %.loopexit79 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.loopexit77 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-88:                                               ; preds = %.loopexit79
+88:                                               ; preds = %.loopexit77
   %89 = landingpad { ptr, i32 }
           cleanup
   %90 = load i64, ptr %8, align 8, !range !1171, !alias.scope !1172, !noundef !3
   %91 = icmp eq i64 %90, 17
-  br i1 %91, label %.noexc53.thread, label %92
+  br i1 %91, label %.noexc53, label %92
 
 92:                                               ; preds = %88
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17h579ac14c865032a6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
-          to label %.noexc53.thread unwind label %95
+          to label %.noexc53 unwind label %95
 
-93:                                               ; preds = %.loopexit79
+93:                                               ; preds = %.loopexit77
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -34163,36 +34160,39 @@ _ZN10rayon_core8registry12WorkerThread14take_local_job17hc68e547d965cf0d5E.exit:
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %64, %79
-  %lpad.loopexit80 = landingpad { ptr, i32 }
+  %lpad.loopexit78 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %87, %80
-  %lpad.loopexit.split-lp81 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp79 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %.sroa.021.1 = phi i1 [ true, %.loopexit ], [ true, %.loopexit.split-lp.loopexit ], [ %.not, %.loopexit.split-lp.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit80, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp81, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit78, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp79, %.loopexit.split-lp.loopexit.split-lp ]
   %97 = load i64, ptr %11, align 8, !range !1171, !alias.scope !1175, !noundef !3
   %98 = icmp eq i64 %97, 17
-  br i1 %98, label %.noexc53, label %99
+  br i1 %98, label %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit55", label %99
 
 99:                                               ; preds = %.loopexit.split-lp
   invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17h579ac14c865032a6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
-          to label %.noexc53 unwind label %95
+          to label %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit55" unwind label %95
+
+"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit55": ; preds = %99, %.loopexit.split-lp
+  br i1 %.sroa.021.1, label %101, label %.noexc53
 
 100:                                              ; preds = %57
   unreachable
 
-101:                                              ; preds = %.thread, %.noexc53
-  %.pn.pn63 = phi { ptr, i32 } [ %20, %.thread ], [ %lpad.phi, %.noexc53 ]
+101:                                              ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit55", %.thread
+  %.pn.pn63 = phi { ptr, i32 } [ %20, %.thread ], [ %lpad.phi, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit55" ]
   invoke void @"_ZN4core3ptr703drop_in_place$LT$rayon_core..job..StackJob$LT$rayon_core..latch..SpinLatch$C$rayon_core..join..join_context..call_b$LT$core..result..Result$LT$polars_core..frame..group_by..position..GroupsType$C$polars_error..PolarsError$GT$$C$rayon_core..join..join..call$LT$core..result..Result$LT$polars_core..frame..group_by..position..GroupsType$C$polars_error..PolarsError$GT$$C$$LT$polars_expr..expressions..sortby..SortByExpr$u20$as$u20$polars_expr..expressions..PhysicalExpr$GT$..evaluate_on_groups..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$polars_core..frame..group_by..position..GroupsType$C$polars_error..PolarsError$GT$$GT$$GT$17hacd2aa9c13d152f5E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %12) #17
-          to label %.noexc53.thread unwind label %95
+          to label %.noexc53 unwind label %95
 
-.noexc53.thread:                                  ; preds = %92, %88, %.noexc53, %101
-  %.pn.pn62 = phi { ptr, i32 } [ %lpad.phi, %.noexc53 ], [ %.pn.pn63, %101 ], [ %89, %88 ], [ %89, %92 ]
+.noexc53:                                         ; preds = %88, %92, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit55", %101
+  %.pn.pn62 = phi { ptr, i32 } [ %.pn.pn63, %101 ], [ %lpad.phi, %"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$17h57066347e7cf20d4E.exit55" ], [ %89, %88 ], [ %89, %92 ]
   resume { ptr, i32 } %.pn.pn62
 }
 

@@ -135337,8 +135337,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17h55038e
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.sroa.0.0.copyload, ptr %47, align 8
-  %.sroa.6.sroa.4.0..sroa_idx198 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx198, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
+  %.sroa.6.sroa.4.0..sroa_idx196 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx196, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
   store i64 1, ptr %0, align 8
   br label %144
 
@@ -135360,8 +135360,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17h55038e
 
 55:                                               ; preds = %45
   store i64 %.sroa.6.sroa.0.0.copyload, ptr %32, align 8
-  %.sroa.6.sroa.4.0..sroa_idx199 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx199, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
+  %.sroa.6.sroa.4.0..sroa_idx197 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx197, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
   br label %140
 
 .body.thread143:                                  ; preds = %48, %56, %61, %63, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit.i.i, %79
@@ -135980,8 +135980,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17h6bfc36
   br i1 %trunc, label %38, label %37
 
 .thread:                                          ; preds = %.thread165, %110, %89, %.body.thread135
-  %.pn.pn186 = phi { ptr, i32 } [ %111, %110 ], [ %90, %89 ], [ %eh.lpad-body138, %.body.thread135 ], [ %.pn168, %.thread165 ]
-  resume { ptr, i32 } %.pn.pn186
+  %.pn.pn184 = phi { ptr, i32 } [ %111, %110 ], [ %90, %89 ], [ %eh.lpad-body138, %.body.thread135 ], [ %.pn168, %.thread165 ]
+  resume { ptr, i32 } %.pn.pn184
 
 37:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -135991,8 +135991,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17h6bfc36
 38:                                               ; preds = %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.sroa.0.0.copyload, ptr %39, align 8
-  %.sroa.6.sroa.4.0..sroa_idx192 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx192, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
+  %.sroa.6.sroa.4.0..sroa_idx190 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx190, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
   store i64 1, ptr %0, align 8
   br label %167
 
@@ -136014,8 +136014,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17h6bfc36
 
 47:                                               ; preds = %37
   store i64 %.sroa.6.sroa.0.0.copyload, ptr %30, align 8
-  %.sroa.6.sroa.4.0..sroa_idx193 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx193, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
+  %.sroa.6.sroa.4.0..sroa_idx191 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx191, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
   br label %128
 
 .body.thread140:                                  ; preds = %40, %48, %53, %55, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit.i.i, %71
@@ -136555,8 +136555,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17h9a2ad3
   br i1 %trunc, label %41, label %40
 
 .thread:                                          ; preds = %.thread165, %113, %92, %.body.thread135
-  %.pn.pn186 = phi { ptr, i32 } [ %114, %113 ], [ %93, %92 ], [ %eh.lpad-body138, %.body.thread135 ], [ %.pn168, %.thread165 ]
-  resume { ptr, i32 } %.pn.pn186
+  %.pn.pn184 = phi { ptr, i32 } [ %114, %113 ], [ %93, %92 ], [ %eh.lpad-body138, %.body.thread135 ], [ %.pn168, %.thread165 ]
+  resume { ptr, i32 } %.pn.pn184
 
 40:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -136566,8 +136566,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17h9a2ad3
 41:                                               ; preds = %2
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.sroa.0.0.copyload, ptr %42, align 8
-  %.sroa.6.sroa.4.0..sroa_idx192 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx192, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
+  %.sroa.6.sroa.4.0..sroa_idx190 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx190, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
   store i64 1, ptr %0, align 8
   br label %170
 
@@ -136589,8 +136589,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17h9a2ad3
 
 50:                                               ; preds = %40
   store i64 %.sroa.6.sroa.0.0.copyload, ptr %30, align 8
-  %.sroa.6.sroa.4.0..sroa_idx193 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx193, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
+  %.sroa.6.sroa.4.0..sroa_idx191 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx191, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
   br label %131
 
 .body.thread140:                                  ; preds = %43, %51, %56, %58, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit.i.i, %74
@@ -137131,8 +137131,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17hae4d5b
   br i1 %trunc, label %39, label %38
 
 .thread:                                          ; preds = %.thread165, %111, %90, %.body.thread135
-  %.pn.pn186 = phi { ptr, i32 } [ %112, %111 ], [ %91, %90 ], [ %eh.lpad-body138, %.body.thread135 ], [ %.pn168, %.thread165 ]
-  resume { ptr, i32 } %.pn.pn186
+  %.pn.pn184 = phi { ptr, i32 } [ %112, %111 ], [ %91, %90 ], [ %eh.lpad-body138, %.body.thread135 ], [ %.pn168, %.thread165 ]
+  resume { ptr, i32 } %.pn.pn184
 
 38:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -137142,8 +137142,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17hae4d5b
 39:                                               ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.sroa.0.0.copyload, ptr %40, align 8
-  %.sroa.6.sroa.4.0..sroa_idx192 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx192, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
+  %.sroa.6.sroa.4.0..sroa_idx190 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx190, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
   store i64 1, ptr %0, align 8
   br label %168
 
@@ -137165,8 +137165,8 @@ define hidden void @_ZN14deltalake_core5table7builder16ensure_table_uri17hae4d5b
 
 48:                                               ; preds = %38
   store i64 %.sroa.6.sroa.0.0.copyload, ptr %30, align 8
-  %.sroa.6.sroa.4.0..sroa_idx193 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx193, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
+  %.sroa.6.sroa.4.0..sroa_idx191 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4.0..sroa_idx191, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.sroa.4, i64 80, i1 false)
   br label %129
 
 .body.thread140:                                  ; preds = %41, %49, %54, %56, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5991570310944373761.exit.i.i, %72

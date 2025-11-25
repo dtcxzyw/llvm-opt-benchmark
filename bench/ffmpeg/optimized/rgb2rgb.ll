@@ -389,11 +389,11 @@ define void @rgb16tobgr32(ptr noundef readonly captures(address) %0, ptr noundef
   %20 = trunc nuw i16 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.018, i64 2
   store i8 %20, ptr %15, align 1, !tbaa !8
-  %22 = shl i16 %9, 3
-  %23 = lshr i16 %9, 2
-  %24 = and i16 %23, 7
-  %25 = or disjoint i16 %24, %22
-  %26 = trunc i16 %25 to i8
+  %22 = trunc i16 %9 to i8
+  %23 = shl i8 %22, 3
+  %24 = lshr i8 %22, 2
+  %25 = and i8 %24, 7
+  %26 = or disjoint i8 %25, %23
   %27 = getelementptr inbounds nuw i8, ptr %.018, i64 3
   store i8 %26, ptr %21, align 1, !tbaa !8
   %28 = getelementptr inbounds nuw i8, ptr %.018, i64 4
@@ -472,11 +472,11 @@ define void @rgb16to24(ptr noundef readonly captures(address) %0, ptr noundef wr
   %20 = trunc nuw i16 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.017, i64 2
   store i8 %20, ptr %15, align 1, !tbaa !8
-  %22 = shl i16 %9, 3
-  %23 = lshr i16 %9, 2
-  %24 = and i16 %23, 7
-  %25 = or disjoint i16 %24, %22
-  %26 = trunc i16 %25 to i8
+  %22 = trunc i16 %9 to i8
+  %23 = shl i8 %22, 3
+  %24 = lshr i8 %22, 2
+  %25 = and i8 %24, 7
+  %26 = or disjoint i8 %25, %23
   %27 = getelementptr inbounds nuw i8, ptr %.017, i64 3
   store i8 %26, ptr %21, align 1, !tbaa !8
   %28 = icmp ult ptr %8, %6
@@ -574,11 +574,11 @@ define void @rgb15tobgr32(ptr noundef readonly captures(address) %0, ptr noundef
   %20 = trunc nuw i16 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.018, i64 2
   store i8 %20, ptr %15, align 1, !tbaa !8
-  %22 = shl i16 %9, 3
-  %23 = lshr i16 %9, 2
-  %24 = and i16 %23, 7
-  %25 = or disjoint i16 %24, %22
-  %26 = trunc i16 %25 to i8
+  %22 = trunc i16 %9 to i8
+  %23 = shl i8 %22, 3
+  %24 = lshr i8 %22, 2
+  %25 = and i8 %24, 7
+  %26 = or disjoint i8 %25, %23
   %27 = getelementptr inbounds nuw i8, ptr %.018, i64 3
   store i8 %26, ptr %21, align 1, !tbaa !8
   %28 = getelementptr inbounds nuw i8, ptr %.018, i64 4
@@ -618,11 +618,11 @@ define void @rgb15to24(ptr noundef readonly captures(address) %0, ptr noundef wr
   %20 = trunc nuw i16 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.017, i64 2
   store i8 %20, ptr %15, align 1, !tbaa !8
-  %22 = shl i16 %9, 3
-  %23 = lshr i16 %9, 2
-  %24 = and i16 %23, 7
-  %25 = or disjoint i16 %24, %22
-  %26 = trunc i16 %25 to i8
+  %22 = trunc i16 %9 to i8
+  %23 = shl i8 %22, 3
+  %24 = lshr i8 %22, 2
+  %25 = and i8 %24, 7
+  %26 = or disjoint i8 %25, %23
   %27 = getelementptr inbounds nuw i8, ptr %.017, i64 3
   store i8 %26, ptr %21, align 1, !tbaa !8
   %28 = icmp ult ptr %8, %6
@@ -1519,11 +1519,11 @@ define internal void @rgb15tobgr24_c(ptr noundef readonly captures(address) %0, 
   %.01516 = phi ptr [ %8, %.lr.ph ], [ %0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %.01516, i64 2
   %9 = load i16, ptr %.01516, align 2, !tbaa !16
-  %10 = shl i16 %9, 3
-  %11 = lshr i16 %9, 2
-  %12 = and i16 %11, 7
-  %13 = or disjoint i16 %12, %10
-  %14 = trunc i16 %13 to i8
+  %10 = and i16 %9, 31
+  %11 = shl nuw nsw i16 %10, 3
+  %12 = lshr i16 %10, 2
+  %13 = or disjoint i16 %11, %12
+  %14 = trunc nuw i16 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %.017, i64 1
   store i8 %14, ptr %.017, align 1, !tbaa !8
   %16 = and i16 %9, 992
@@ -1561,11 +1561,11 @@ define internal void @rgb15to32_c(ptr noundef readonly captures(address) %0, ptr
   %.01617 = phi ptr [ %8, %.lr.ph ], [ %0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %.01617, i64 2
   %9 = load i16, ptr %.01617, align 2, !tbaa !16
-  %10 = shl i16 %9, 3
-  %11 = lshr i16 %9, 2
-  %12 = and i16 %11, 7
-  %13 = or disjoint i16 %12, %10
-  %14 = trunc i16 %13 to i8
+  %10 = and i16 %9, 31
+  %11 = shl nuw nsw i16 %10, 3
+  %12 = lshr i16 %10, 2
+  %13 = or disjoint i16 %11, %12
+  %14 = trunc nuw i16 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %.018, i64 1
   store i8 %14, ptr %.018, align 1, !tbaa !8
   %16 = and i16 %9, 992
@@ -1605,11 +1605,11 @@ define internal void @rgb16tobgr24_c(ptr noundef readonly captures(address) %0, 
   %.01516 = phi ptr [ %8, %.lr.ph ], [ %0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %.01516, i64 2
   %9 = load i16, ptr %.01516, align 2, !tbaa !16
-  %10 = shl i16 %9, 3
-  %11 = lshr i16 %9, 2
-  %12 = and i16 %11, 7
-  %13 = or disjoint i16 %12, %10
-  %14 = trunc i16 %13 to i8
+  %10 = and i16 %9, 31
+  %11 = shl nuw nsw i16 %10, 3
+  %12 = lshr i16 %10, 2
+  %13 = or disjoint i16 %11, %12
+  %14 = trunc nuw i16 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %.017, i64 1
   store i8 %14, ptr %.017, align 1, !tbaa !8
   %16 = and i16 %9, 2016
@@ -1647,11 +1647,11 @@ define internal void @rgb16to32_c(ptr noundef readonly captures(address) %0, ptr
   %.01617 = phi ptr [ %8, %.lr.ph ], [ %0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %.01617, i64 2
   %9 = load i16, ptr %.01617, align 2, !tbaa !16
-  %10 = shl i16 %9, 3
-  %11 = lshr i16 %9, 2
-  %12 = and i16 %11, 7
-  %13 = or disjoint i16 %12, %10
-  %14 = trunc i16 %13 to i8
+  %10 = and i16 %9, 31
+  %11 = shl nuw nsw i16 %10, 3
+  %12 = lshr i16 %10, 2
+  %13 = or disjoint i16 %11, %12
+  %14 = trunc nuw i16 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %.018, i64 1
   store i8 %14, ptr %.018, align 1, !tbaa !8
   %16 = and i16 %9, 2016

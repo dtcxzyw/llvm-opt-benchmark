@@ -2521,7 +2521,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ReadAd
 14:                                               ; preds = %13
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %173
+  br label %170
 
 .critedge:                                        ; preds = %6, %.critedge.backedge
   %.sroa.19.0 = phi ptr [ %38, %.critedge.backedge ], [ %1, %6 ]
@@ -2587,7 +2587,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.
 41:                                               ; preds = %28, %17
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %173
+  br label %170
 
 43:                                               ; preds = %34
   store i8 0, ptr %38, align 1, !tbaa !9
@@ -2600,11 +2600,11 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %49, %.lr.ph.preheader.i.i
-  %.02535.i.i = phi i64 [ %57, %49 ], [ 0, %.lr.ph.preheader.i.i ]
-  %.02634.i.i = phi ptr [ %58, %49 ], [ %.sroa.14.0, %.lr.ph.preheader.i.i ]
+  %.02535.i.i = phi i64 [ %56, %49 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.02634.i.i = phi ptr [ %57, %49 ], [ %.sroa.14.0, %.lr.ph.preheader.i.i ]
   %46 = load i8, ptr %.02634.i.i, align 1, !tbaa !9
   %.fr.i.i = freeze i8 %46
-  %47 = sext i8 %.fr.i.i to i32
+  %47 = sext i8 %.fr.i.i to i64
   %48 = add i8 %.fr.i.i, -48
   %or.cond.i.i = icmp ult i8 %48, 10
   br i1 %or.cond.i.i, label %49, label %switch.early.test.i.i
@@ -2628,388 +2628,385 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
 49:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i.i
   %50 = shl i64 %.02535.i.i, 4
   %51 = icmp samesign ult i8 %.fr.i.i, 65
-  %52 = add nsw i32 %47, -48
-  %53 = and i32 %47, 15
-  %54 = add nuw nsw i32 %53, 9
-  %55 = select i1 %51, i32 %52, i32 %54
-  %56 = zext nneg i32 %55 to i64
-  %57 = or i64 %50, %56
-  %58 = getelementptr inbounds nuw i8, ptr %.02634.i.i, i64 1
-  %exitcond.not.i.i = icmp eq ptr %58, %38
+  %52 = add nsw i64 %47, -48
+  %53 = and i64 %47, 15
+  %54 = add nuw nsw i64 %53, 9
+  %55 = select i1 %51, i64 %52, i64 %54
+  %56 = or i64 %55, %50
+  %57 = getelementptr inbounds nuw i8, ptr %.02634.i.i, i64 1
+  %exitcond.not.i.i = icmp eq ptr %57, %38
   br i1 %exitcond.not.i.i, label %switch.early.test._crit_edge.i.loopexit.i, label %.lr.ph.i.i, !llvm.loop !108
 
 switch.early.test._crit_edge.i.loopexit.i:        ; preds = %49, %switch.early.test.i.i
   %.026.lcssa.i.ph.i = phi ptr [ %.02634.i.i, %switch.early.test.i.i ], [ %scevgep.i.i, %49 ]
-  %.025.lcssa.i.ph.i = phi i64 [ %.02535.i.i, %switch.early.test.i.i ], [ %57, %49 ]
-  %59 = inttoptr i64 %.025.lcssa.i.ph.i to ptr
+  %.025.lcssa.i.ph.i = phi i64 [ %.02535.i.i, %switch.early.test.i.i ], [ %56, %49 ]
+  %58 = inttoptr i64 %.025.lcssa.i.ph.i to ptr
   br label %switch.early.test._crit_edge.i.i
 
 switch.early.test._crit_edge.i.i:                 ; preds = %switch.early.test._crit_edge.i.loopexit.i, %43
   %.026.lcssa.i.i = phi ptr [ %.sroa.14.0, %43 ], [ %.026.lcssa.i.ph.i, %switch.early.test._crit_edge.i.loopexit.i ]
-  %.025.lcssa.i.i = phi ptr [ null, %43 ], [ %59, %switch.early.test._crit_edge.i.loopexit.i ]
+  %.025.lcssa.i.i = phi ptr [ null, %43 ], [ %58, %switch.early.test._crit_edge.i.loopexit.i ]
   %.not.i.i = icmp ugt ptr %.026.lcssa.i.i, %38
-  br i1 %.not.i.i, label %60, label %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit
+  br i1 %.not.i.i, label %59, label %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit
 
-60:                                               ; preds = %switch.early.test._crit_edge.i.i
+59:                                               ; preds = %switch.early.test._crit_edge.i.i
   tail call void @abort() #29
   unreachable
 
 _ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit: ; preds = %switch.early.test._crit_edge.i.i
-  %61 = icmp eq ptr %.026.lcssa.i.i, %38
-  br i1 %61, label %64, label %62
+  %60 = icmp eq ptr %.026.lcssa.i.i, %38
+  br i1 %60, label %63, label %61
 
-62:                                               ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit
-  %63 = load i8, ptr %.026.lcssa.i.i, align 1, !tbaa !9
-  %.not = icmp eq i8 %63, 45
-  br i1 %.not, label %67, label %64
+61:                                               ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit
+  %62 = load i8, ptr %.026.lcssa.i.i, align 1, !tbaa !9
+  %.not = icmp eq i8 %62, 45
+  br i1 %.not, label %66, label %63
 
-64:                                               ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit, %62
+63:                                               ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit, %61
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1138, ptr noundef nonnull @.str.15, ptr noundef nonnull %.sroa.14.0)
-          to label %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread unwind label %65
+          to label %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread unwind label %64
 
-65:                                               ; preds = %64
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %63
+  %65 = landingpad { ptr, i32 }
           cleanup
-  br label %173
+  br label %170
 
-67:                                               ; preds = %62
-  %68 = getelementptr inbounds nuw i8, ptr %.026.lcssa.i.i, i64 1
-  %69 = icmp ult ptr %68, %38
-  br i1 %69, label %.lr.ph.preheader.i.i62, label %switch.early.test._crit_edge.i.i58
+66:                                               ; preds = %61
+  %67 = getelementptr inbounds nuw i8, ptr %.026.lcssa.i.i, i64 1
+  %68 = icmp ult ptr %67, %38
+  br i1 %68, label %.lr.ph.preheader.i.i62, label %switch.early.test._crit_edge.i.i58
 
-.lr.ph.preheader.i.i62:                           ; preds = %67
-  %70 = ptrtoint ptr %68 to i64
-  %71 = sub i64 %39, %70
-  %scevgep.i.i63 = getelementptr i8, ptr %68, i64 %71
+.lr.ph.preheader.i.i62:                           ; preds = %66
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %39, %69
+  %scevgep.i.i63 = getelementptr i8, ptr %67, i64 %70
   br label %.lr.ph.i.i64
 
-.lr.ph.i.i64:                                     ; preds = %75, %.lr.ph.preheader.i.i62
-  %.02535.i.i65 = phi i64 [ %83, %75 ], [ 0, %.lr.ph.preheader.i.i62 ]
-  %.02634.i.i66 = phi ptr [ %84, %75 ], [ %68, %.lr.ph.preheader.i.i62 ]
-  %72 = load i8, ptr %.02634.i.i66, align 1, !tbaa !9
-  %.fr.i.i67 = freeze i8 %72
-  %73 = sext i8 %.fr.i.i67 to i32
-  %74 = add i8 %.fr.i.i67, -48
-  %or.cond.i.i68 = icmp ult i8 %74, 10
-  br i1 %or.cond.i.i68, label %75, label %switch.early.test.i.i69
+.lr.ph.i.i64:                                     ; preds = %74, %.lr.ph.preheader.i.i62
+  %.02535.i.i65 = phi i64 [ %81, %74 ], [ 0, %.lr.ph.preheader.i.i62 ]
+  %.02634.i.i66 = phi ptr [ %82, %74 ], [ %67, %.lr.ph.preheader.i.i62 ]
+  %71 = load i8, ptr %.02634.i.i66, align 1, !tbaa !9
+  %.fr.i.i67 = freeze i8 %71
+  %72 = sext i8 %.fr.i.i67 to i64
+  %73 = add i8 %.fr.i.i67, -48
+  %or.cond.i.i68 = icmp ult i8 %73, 10
+  br i1 %or.cond.i.i68, label %74, label %switch.early.test.i.i69
 
 switch.early.test.i.i69:                          ; preds = %.lr.ph.i.i64
   switch i8 %.fr.i.i67, label %switch.early.test._crit_edge.i.loopexit.i71 [
-    i8 102, label %75
-    i8 101, label %75
-    i8 100, label %75
-    i8 99, label %75
-    i8 98, label %75
-    i8 97, label %75
-    i8 70, label %75
-    i8 69, label %75
-    i8 68, label %75
-    i8 67, label %75
-    i8 66, label %75
-    i8 65, label %75
+    i8 102, label %74
+    i8 101, label %74
+    i8 100, label %74
+    i8 99, label %74
+    i8 98, label %74
+    i8 97, label %74
+    i8 70, label %74
+    i8 69, label %74
+    i8 68, label %74
+    i8 67, label %74
+    i8 66, label %74
+    i8 65, label %74
   ]
 
-75:                                               ; preds = %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %.lr.ph.i.i64
-  %76 = shl i64 %.02535.i.i65, 4
-  %77 = icmp samesign ult i8 %.fr.i.i67, 65
-  %78 = add nsw i32 %73, -48
-  %79 = and i32 %73, 15
-  %80 = add nuw nsw i32 %79, 9
-  %81 = select i1 %77, i32 %78, i32 %80
-  %82 = zext nneg i32 %81 to i64
-  %83 = or i64 %76, %82
-  %84 = getelementptr inbounds nuw i8, ptr %.02634.i.i66, i64 1
-  %exitcond.not.i.i70 = icmp eq ptr %84, %38
+74:                                               ; preds = %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %switch.early.test.i.i69, %.lr.ph.i.i64
+  %75 = shl i64 %.02535.i.i65, 4
+  %76 = icmp samesign ult i8 %.fr.i.i67, 65
+  %77 = add nsw i64 %72, -48
+  %78 = and i64 %72, 15
+  %79 = add nuw nsw i64 %78, 9
+  %80 = select i1 %76, i64 %77, i64 %79
+  %81 = or i64 %80, %75
+  %82 = getelementptr inbounds nuw i8, ptr %.02634.i.i66, i64 1
+  %exitcond.not.i.i70 = icmp eq ptr %82, %38
   br i1 %exitcond.not.i.i70, label %switch.early.test._crit_edge.i.loopexit.i71, label %.lr.ph.i.i64, !llvm.loop !108
 
-switch.early.test._crit_edge.i.loopexit.i71:      ; preds = %75, %switch.early.test.i.i69
-  %.026.lcssa.i.ph.i72 = phi ptr [ %.02634.i.i66, %switch.early.test.i.i69 ], [ %scevgep.i.i63, %75 ]
-  %.025.lcssa.i.ph.i73 = phi i64 [ %.02535.i.i65, %switch.early.test.i.i69 ], [ %83, %75 ]
-  %85 = inttoptr i64 %.025.lcssa.i.ph.i73 to ptr
+switch.early.test._crit_edge.i.loopexit.i71:      ; preds = %74, %switch.early.test.i.i69
+  %.026.lcssa.i.ph.i72 = phi ptr [ %.02634.i.i66, %switch.early.test.i.i69 ], [ %scevgep.i.i63, %74 ]
+  %.025.lcssa.i.ph.i73 = phi i64 [ %.02535.i.i65, %switch.early.test.i.i69 ], [ %81, %74 ]
+  %83 = inttoptr i64 %.025.lcssa.i.ph.i73 to ptr
   br label %switch.early.test._crit_edge.i.i58
 
-switch.early.test._crit_edge.i.i58:               ; preds = %switch.early.test._crit_edge.i.loopexit.i71, %67
-  %.026.lcssa.i.i59 = phi ptr [ %68, %67 ], [ %.026.lcssa.i.ph.i72, %switch.early.test._crit_edge.i.loopexit.i71 ]
-  %.025.lcssa.i.i60 = phi ptr [ null, %67 ], [ %85, %switch.early.test._crit_edge.i.loopexit.i71 ]
+switch.early.test._crit_edge.i.i58:               ; preds = %switch.early.test._crit_edge.i.loopexit.i71, %66
+  %.026.lcssa.i.i59 = phi ptr [ %67, %66 ], [ %.026.lcssa.i.ph.i72, %switch.early.test._crit_edge.i.loopexit.i71 ]
+  %.025.lcssa.i.i60 = phi ptr [ null, %66 ], [ %83, %switch.early.test._crit_edge.i.loopexit.i71 ]
   %.026.lcssa.i.i59115 = ptrtoint ptr %.026.lcssa.i.i59 to i64
   %.not.i.i61 = icmp ugt ptr %.026.lcssa.i.i59, %38
-  br i1 %.not.i.i61, label %86, label %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit74
+  br i1 %.not.i.i61, label %84, label %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit74
 
-86:                                               ; preds = %switch.early.test._crit_edge.i.i58
+84:                                               ; preds = %switch.early.test._crit_edge.i.i58
   tail call void @abort() #29
   unreachable
 
 _ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit74: ; preds = %switch.early.test._crit_edge.i.i58
-  %87 = icmp eq ptr %.026.lcssa.i.i59, %38
-  br i1 %87, label %90, label %88
+  %85 = icmp eq ptr %.026.lcssa.i.i59, %38
+  br i1 %85, label %88, label %86
 
-88:                                               ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit74
-  %89 = load i8, ptr %.026.lcssa.i.i59, align 1, !tbaa !9
-  %.not41 = icmp eq i8 %89, 32
-  br i1 %.not41, label %93, label %90
+86:                                               ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit74
+  %87 = load i8, ptr %.026.lcssa.i.i59, align 1, !tbaa !9
+  %.not41 = icmp eq i8 %87, 32
+  br i1 %.not41, label %91, label %88
 
-90:                                               ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit74, %88
+88:                                               ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_PPKv.exit74, %86
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1147, ptr noundef nonnull @.str.15, ptr noundef nonnull %.sroa.14.0)
-          to label %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread unwind label %91
+          to label %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread unwind label %89
 
-91:                                               ; preds = %90
-  %92 = landingpad { ptr, i32 }
+89:                                               ; preds = %88
+  %90 = landingpad { ptr, i32 }
           cleanup
-  br label %173
+  br label %170
 
-93:                                               ; preds = %88
+91:                                               ; preds = %86
   %.ptr77 = getelementptr inbounds nuw i8, ptr %.026.lcssa.i.i59, i64 1
-  %94 = icmp ult ptr %.ptr77, %38
-  br i1 %94, label %.lr.ph.preheader, label %.critedge2.thread
+  %92 = icmp ult ptr %.ptr77, %38
+  br i1 %92, label %.lr.ph.preheader, label %.critedge2.thread
 
-.lr.ph.preheader:                                 ; preds = %93
-  %95 = sub i64 %39, %.026.lcssa.i.i59115
-  %scevgep = getelementptr i8, ptr %.026.lcssa.i.i59, i64 %95
+.lr.ph.preheader:                                 ; preds = %91
+  %93 = sub i64 %39, %.026.lcssa.i.i59115
+  %scevgep = getelementptr i8, ptr %.026.lcssa.i.i59, i64 %93
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %97
-  %storemerge.ptr92 = phi ptr [ %storemerge.ptr, %97 ], [ %.ptr77, %.lr.ph.preheader ]
-  %storemerge.idx91 = phi i64 [ %storemerge.add, %97 ], [ 1, %.lr.ph.preheader ]
-  %96 = load i8, ptr %storemerge.ptr92, align 1, !tbaa !9
-  %.not42 = icmp eq i8 %96, 32
-  br i1 %.not42, label %.critedge2, label %97
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %95
+  %storemerge.ptr92 = phi ptr [ %storemerge.ptr, %95 ], [ %.ptr77, %.lr.ph.preheader ]
+  %storemerge.idx91 = phi i64 [ %storemerge.add, %95 ], [ 1, %.lr.ph.preheader ]
+  %94 = load i8, ptr %storemerge.ptr92, align 1, !tbaa !9
+  %.not42 = icmp eq i8 %94, 32
+  br i1 %.not42, label %.critedge2, label %95
 
-97:                                               ; preds = %.lr.ph
+95:                                               ; preds = %.lr.ph
   %storemerge.add = add nuw i64 %storemerge.idx91, 1
   %storemerge.ptr = getelementptr inbounds nuw i8, ptr %.026.lcssa.i.i59, i64 %storemerge.add
-  %exitcond.not = icmp eq i64 %storemerge.add, %95
+  %exitcond.not = icmp eq i64 %storemerge.add, %93
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !109
 
-.critedge2:                                       ; preds = %.lr.ph, %97
-  %storemerge.idx.lcssa.ph = phi i64 [ %storemerge.idx91, %.lr.ph ], [ %95, %97 ]
-  %storemerge.ptr.lcssa.ph = phi ptr [ %storemerge.ptr92, %.lr.ph ], [ %scevgep, %97 ]
-  %98 = icmp samesign ult i64 %storemerge.idx.lcssa.ph, 5
-  %99 = icmp eq ptr %storemerge.ptr.lcssa.ph, %38
-  %or.cond = select i1 %99, i1 true, i1 %98
-  br i1 %or.cond, label %.critedge2.thread, label %102
+.critedge2:                                       ; preds = %.lr.ph, %95
+  %storemerge.idx.lcssa.ph = phi i64 [ %storemerge.idx91, %.lr.ph ], [ %93, %95 ]
+  %storemerge.ptr.lcssa.ph = phi ptr [ %storemerge.ptr92, %.lr.ph ], [ %scevgep, %95 ]
+  %96 = icmp samesign ult i64 %storemerge.idx.lcssa.ph, 5
+  %97 = icmp eq ptr %storemerge.ptr.lcssa.ph, %38
+  %or.cond = select i1 %97, i1 true, i1 %96
+  br i1 %or.cond, label %.critedge2.thread, label %100
 
-.critedge2.thread:                                ; preds = %93, %.critedge2
+.critedge2.thread:                                ; preds = %91, %.critedge2
   invoke void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 114), i32 noundef 1159, ptr noundef nonnull @.str.16, ptr noundef nonnull %.sroa.14.0)
-          to label %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread unwind label %100
+          to label %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread unwind label %98
 
-100:                                              ; preds = %.critedge2.thread
-  %101 = landingpad { ptr, i32 }
+98:                                               ; preds = %.critedge2.thread
+  %99 = landingpad { ptr, i32 }
           cleanup
-  br label %173
+  br label %170
 
-102:                                              ; preds = %.critedge2
-  %103 = load i8, ptr %.ptr77, align 1, !tbaa !9
-  %104 = icmp eq i8 %103, 114
-  br i1 %104, label %_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit, label %.critedge.backedge
+100:                                              ; preds = %.critedge2
+  %101 = load i8, ptr %.ptr77, align 1, !tbaa !9
+  %102 = icmp eq i8 %101, 114
+  br i1 %102, label %_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit, label %.critedge.backedge
 
-_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit: ; preds = %102
-  %105 = getelementptr inbounds nuw i8, ptr %.026.lcssa.i.i59, i64 3
-  %106 = load i8, ptr %105, align 1, !tbaa !9
-  %107 = icmp eq i8 %106, 120
-  br i1 %107, label %108, label %.critedge.backedge
+_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit: ; preds = %100
+  %103 = getelementptr inbounds nuw i8, ptr %.026.lcssa.i.i59, i64 3
+  %104 = load i8, ptr %103, align 1, !tbaa !9
+  %105 = icmp eq i8 %104, 120
+  br i1 %105, label %106, label %.critedge.backedge
 
-108:                                              ; preds = %_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit
-  %109 = getelementptr inbounds nuw i8, ptr %storemerge.ptr.lcssa.ph, i64 1
-  %110 = icmp ult ptr %109, %38
-  br i1 %110, label %.lr.ph.preheader.i, label %switch.early.test._crit_edge.i
+106:                                              ; preds = %_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit
+  %107 = getelementptr inbounds nuw i8, ptr %storemerge.ptr.lcssa.ph, i64 1
+  %108 = icmp ult ptr %107, %38
+  br i1 %108, label %.lr.ph.preheader.i, label %switch.early.test._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %108
-  %111 = ptrtoint ptr %109 to i64
-  %112 = sub i64 %39, %111
-  %scevgep.i = getelementptr i8, ptr %109, i64 %112
+.lr.ph.preheader.i:                               ; preds = %106
+  %109 = ptrtoint ptr %107 to i64
+  %110 = sub i64 %39, %109
+  %scevgep.i = getelementptr i8, ptr %107, i64 %110
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %116, %.lr.ph.preheader.i
-  %.02535.i = phi i64 [ %124, %116 ], [ 0, %.lr.ph.preheader.i ]
-  %.02634.i = phi ptr [ %125, %116 ], [ %109, %.lr.ph.preheader.i ]
-  %113 = load i8, ptr %.02634.i, align 1, !tbaa !9
-  %.fr.i = freeze i8 %113
-  %114 = sext i8 %.fr.i to i32
-  %115 = add i8 %.fr.i, -48
-  %or.cond.i = icmp ult i8 %115, 10
-  br i1 %or.cond.i, label %116, label %switch.early.test.i
+.lr.ph.i:                                         ; preds = %114, %.lr.ph.preheader.i
+  %.02535.i = phi i64 [ %121, %114 ], [ 0, %.lr.ph.preheader.i ]
+  %.02634.i = phi ptr [ %122, %114 ], [ %107, %.lr.ph.preheader.i ]
+  %111 = load i8, ptr %.02634.i, align 1, !tbaa !9
+  %.fr.i = freeze i8 %111
+  %112 = sext i8 %.fr.i to i64
+  %113 = add i8 %.fr.i, -48
+  %or.cond.i = icmp ult i8 %113, 10
+  br i1 %or.cond.i, label %114, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %.lr.ph.i
   switch i8 %.fr.i, label %switch.early.test._crit_edge.i [
-    i8 102, label %116
-    i8 101, label %116
-    i8 100, label %116
-    i8 99, label %116
-    i8 98, label %116
-    i8 97, label %116
-    i8 70, label %116
-    i8 69, label %116
-    i8 68, label %116
-    i8 67, label %116
-    i8 66, label %116
-    i8 65, label %116
+    i8 102, label %114
+    i8 101, label %114
+    i8 100, label %114
+    i8 99, label %114
+    i8 98, label %114
+    i8 97, label %114
+    i8 70, label %114
+    i8 69, label %114
+    i8 68, label %114
+    i8 67, label %114
+    i8 66, label %114
+    i8 65, label %114
   ]
 
-116:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
-  %117 = shl i64 %.02535.i, 4
-  %118 = icmp samesign ult i8 %.fr.i, 65
-  %119 = add nsw i32 %114, -48
-  %120 = and i32 %114, 15
-  %121 = add nuw nsw i32 %120, 9
-  %122 = select i1 %118, i32 %119, i32 %121
-  %123 = zext nneg i32 %122 to i64
-  %124 = or i64 %117, %123
-  %125 = getelementptr inbounds nuw i8, ptr %.02634.i, i64 1
-  %exitcond.not.i = icmp eq ptr %125, %38
+114:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
+  %115 = shl i64 %.02535.i, 4
+  %116 = icmp samesign ult i8 %.fr.i, 65
+  %117 = add nsw i64 %112, -48
+  %118 = and i64 %112, 15
+  %119 = add nuw nsw i64 %118, 9
+  %120 = select i1 %116, i64 %117, i64 %119
+  %121 = or i64 %120, %115
+  %122 = getelementptr inbounds nuw i8, ptr %.02634.i, i64 1
+  %exitcond.not.i = icmp eq ptr %122, %38
   br i1 %exitcond.not.i, label %switch.early.test._crit_edge.i, label %.lr.ph.i, !llvm.loop !108
 
-switch.early.test._crit_edge.i:                   ; preds = %116, %switch.early.test.i, %108
-  %.026.lcssa.i = phi ptr [ %109, %108 ], [ %scevgep.i, %116 ], [ %.02634.i, %switch.early.test.i ]
-  %.025.lcssa.i = phi i64 [ 0, %108 ], [ %124, %116 ], [ %.02535.i, %switch.early.test.i ]
+switch.early.test._crit_edge.i:                   ; preds = %114, %switch.early.test.i, %106
+  %.026.lcssa.i = phi ptr [ %107, %106 ], [ %scevgep.i, %114 ], [ %.02634.i, %switch.early.test.i ]
+  %.025.lcssa.i = phi i64 [ 0, %106 ], [ %121, %114 ], [ %.02535.i, %switch.early.test.i ]
   %.026.lcssa.i116 = ptrtoint ptr %.026.lcssa.i to i64
   %.not.i75 = icmp ugt ptr %.026.lcssa.i, %38
-  br i1 %.not.i75, label %128, label %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit.preheader
+  br i1 %.not.i75, label %125, label %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit.preheader
 
 _ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit.preheader: ; preds = %switch.early.test._crit_edge.i
   %storemerge4397 = getelementptr inbounds nuw i8, ptr %.026.lcssa.i, i64 1
-  %126 = icmp ult ptr %storemerge4397, %38
-  br i1 %126, label %.lr.ph100.preheader, label %._crit_edge
+  %123 = icmp ult ptr %storemerge4397, %38
+  br i1 %123, label %.lr.ph100.preheader, label %._crit_edge
 
 .lr.ph100.preheader:                              ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit.preheader
-  %127 = sub i64 %39, %.026.lcssa.i116
-  %scevgep117 = getelementptr i8, ptr %.026.lcssa.i, i64 %127
+  %124 = sub i64 %39, %.026.lcssa.i116
+  %scevgep117 = getelementptr i8, ptr %.026.lcssa.i, i64 %124
   br label %.lr.ph100
 
-128:                                              ; preds = %switch.early.test._crit_edge.i
+125:                                              ; preds = %switch.early.test._crit_edge.i
   tail call void @abort() #29
   unreachable
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit
   %storemerge4399 = phi ptr [ %storemerge43, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit ], [ %storemerge4397, %.lr.ph100.preheader ]
   %.01898 = phi i32 [ %.119, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit ], [ 0, %.lr.ph100.preheader ]
-  %129 = load i8, ptr %storemerge4399, align 1, !tbaa !9
-  %130 = icmp eq i8 %129, 32
-  br i1 %130, label %131, label %133
+  %126 = load i8, ptr %storemerge4399, align 1, !tbaa !9
+  %127 = icmp eq i8 %126, 32
+  br i1 %127, label %128, label %130
 
-131:                                              ; preds = %.lr.ph100
-  %132 = add nsw i32 %.01898, 1
+128:                                              ; preds = %.lr.ph100
+  %129 = add nsw i32 %.01898, 1
   br label %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit
 
-133:                                              ; preds = %.lr.ph100
-  %134 = icmp sgt i32 %.01898, 1
-  br i1 %134, label %._crit_edge, label %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit
+130:                                              ; preds = %.lr.ph100
+  %131 = icmp sgt i32 %.01898, 1
+  br i1 %131, label %._crit_edge, label %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit
 
-_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit: ; preds = %133, %131
-  %.119 = phi i32 [ %132, %131 ], [ %.01898, %133 ]
+_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit: ; preds = %130, %128
+  %.119 = phi i32 [ %129, %128 ], [ %.01898, %130 ]
   %storemerge43 = getelementptr inbounds nuw i8, ptr %storemerge4399, i64 1
   %exitcond118.not = icmp eq ptr %storemerge43, %38
   br i1 %exitcond118.not, label %._crit_edge, label %.lr.ph100, !llvm.loop !110
 
-._crit_edge:                                      ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit, %133, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit.preheader
-  %storemerge43.lcssa = phi ptr [ %storemerge4397, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit.preheader ], [ %storemerge4399, %133 ], [ %scevgep117, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit ]
-  %135 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE monotonic, align 4
-  %136 = and i32 %135, 1
-  %.not.i.i.i.i = icmp eq i32 %136, 0
+._crit_edge:                                      ; preds = %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit, %130, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit.preheader
+  %storemerge43.lcssa = phi ptr [ %storemerge4397, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit.preheader ], [ %storemerge4399, %130 ], [ %scevgep117, %_ZN4absl18debugging_internalL6GetHexEPKcS2_Pm.exit ]
+  %132 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE monotonic, align 4
+  %133 = and i32 %132, 1
+  %.not.i.i.i.i = icmp eq i32 %133, 0
   br i1 %.not.i.i.i.i, label %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i, label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread
 
 _ZN4absl13base_internal8SpinLock7TryLockEv.exit.i: ; preds = %._crit_edge
-  %137 = or disjoint i32 %135, 1
-  %138 = cmpxchg ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 %135, i32 %137 acquire monotonic, align 4
-  %139 = extractvalue { i32, i1 } %138, 0
-  %.pre.i.i.i = and i32 %139, 1
-  %140 = icmp eq i32 %.pre.i.i.i, 0
-  br i1 %140, label %.preheader.i, label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread
+  %134 = or disjoint i32 %132, 1
+  %135 = cmpxchg ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 %132, i32 %134 acquire monotonic, align 4
+  %136 = extractvalue { i32, i1 } %135, 0
+  %.pre.i.i.i = and i32 %136, 1
+  %137 = icmp eq i32 %.pre.i.i.i, 0
+  br i1 %137, label %.preheader.i, label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread
 
 .preheader.i:                                     ; preds = %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i
-  %141 = load i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124g_num_file_mapping_hintsE, align 4, !tbaa !10
-  %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph.i76, label %.loopexit.i
+  %138 = load i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124g_num_file_mapping_hintsE, align 4, !tbaa !10
+  %139 = icmp sgt i32 %138, 0
+  br i1 %139, label %.lr.ph.i76, label %.loopexit.i
 
 .lr.ph.i76:                                       ; preds = %.preheader.i
-  %wide.trip.count.i = zext nneg i32 %141 to i64
-  br label %143
+  %wide.trip.count.i = zext nneg i32 %138 to i64
+  br label %140
 
-143:                                              ; preds = %154, %.lr.ph.i76
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i76 ], [ %indvars.iv.next.i, %154 ]
-  %144 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 %indvars.iv.i
-  %145 = load ptr, ptr %144, align 16, !tbaa !36
-  %.not.i77 = icmp ugt ptr %145, %.025.lcssa.i.i
-  br i1 %.not.i77, label %154, label %146
+140:                                              ; preds = %151, %.lr.ph.i76
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i76 ], [ %indvars.iv.next.i, %151 ]
+  %141 = getelementptr inbounds nuw %"struct.absl::debugging_internal::(anonymous namespace)::FileMappingHint", ptr @_ZN4absl18debugging_internal12_GLOBAL__N_120g_file_mapping_hintsE, i64 %indvars.iv.i
+  %142 = load ptr, ptr %141, align 16, !tbaa !36
+  %.not.i77 = icmp ugt ptr %142, %.025.lcssa.i.i
+  br i1 %.not.i77, label %151, label %143
+
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %145 = load ptr, ptr %144, align 8, !tbaa !38
+  %.not18.i = icmp ugt ptr %.025.lcssa.i.i60, %145
+  br i1 %.not18.i, label %151, label %146
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %148 = load ptr, ptr %147, align 8, !tbaa !38
-  %.not18.i = icmp ugt ptr %.025.lcssa.i.i60, %148
-  br i1 %.not18.i, label %154, label %149
-
-149:                                              ; preds = %146
-  %150 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %151 = load i64, ptr %150, align 16, !tbaa !39
-  %152 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  %153 = load ptr, ptr %152, align 8, !tbaa !40
+  %147 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %148 = load i64, ptr %147, align 16, !tbaa !39
+  %149 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  %150 = load ptr, ptr %149, align 8, !tbaa !40
   br label %.loopexit.i
 
-154:                                              ; preds = %146, %143
+151:                                              ; preds = %143, %140
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i78, label %.loopexit.i, label %143, !llvm.loop !42
+  br i1 %exitcond.not.i78, label %.loopexit.i, label %140, !llvm.loop !42
 
-.loopexit.i:                                      ; preds = %154, %149, %.preheader.i
-  %.2 = phi ptr [ %153, %149 ], [ %storemerge43.lcssa, %.preheader.i ], [ %storemerge43.lcssa, %154 ]
-  %.033 = phi ptr [ %145, %149 ], [ %.025.lcssa.i.i, %.preheader.i ], [ %.025.lcssa.i.i, %154 ]
-  %.031 = phi ptr [ %148, %149 ], [ %.025.lcssa.i.i60, %.preheader.i ], [ %.025.lcssa.i.i60, %154 ]
-  %.029 = phi i64 [ %151, %149 ], [ %.025.lcssa.i, %.preheader.i ], [ %.025.lcssa.i, %154 ]
-  %155 = phi i1 [ true, %149 ], [ false, %.preheader.i ], [ false, %154 ]
-  %156 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE monotonic, align 4
-  %157 = and i32 %156, 2
-  %158 = atomicrmw xchg ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 %157 release, align 4
-  %.not4.i.i = icmp ult i32 %158, 8
-  br i1 %.not4.i.i, label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit, label %159
+.loopexit.i:                                      ; preds = %151, %146, %.preheader.i
+  %.2 = phi ptr [ %150, %146 ], [ %storemerge43.lcssa, %.preheader.i ], [ %storemerge43.lcssa, %151 ]
+  %.033 = phi ptr [ %142, %146 ], [ %.025.lcssa.i.i, %.preheader.i ], [ %.025.lcssa.i.i, %151 ]
+  %.031 = phi ptr [ %145, %146 ], [ %.025.lcssa.i.i60, %.preheader.i ], [ %.025.lcssa.i.i60, %151 ]
+  %.029 = phi i64 [ %148, %146 ], [ %.025.lcssa.i, %.preheader.i ], [ %.025.lcssa.i, %151 ]
+  %152 = phi i1 [ true, %146 ], [ false, %.preheader.i ], [ false, %151 ]
+  %153 = load atomic i32, ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE monotonic, align 4
+  %154 = and i32 %153, 2
+  %155 = atomicrmw xchg ptr @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 %154 release, align 4
+  %.not4.i.i = icmp ult i32 %155, 8
+  br i1 %.not4.i.i, label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit, label %156
 
-159:                                              ; preds = %.loopexit.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 noundef %158) #28
-          to label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit unwind label %164
+156:                                              ; preds = %.loopexit.i
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4absl18debugging_internal12_GLOBAL__N_117g_file_mapping_muE, i32 noundef %155) #28
+          to label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit unwind label %161
 
-_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit: ; preds = %.loopexit.i, %159
-  br i1 %155, label %166, label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread
+_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit: ; preds = %.loopexit.i, %156
+  br i1 %152, label %163, label %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread
 
 _ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread: ; preds = %._crit_edge, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit
   %.160 = phi i64 [ %.029, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %.025.lcssa.i, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ], [ %.025.lcssa.i, %._crit_edge ]
   %.13258 = phi ptr [ %.031, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %.025.lcssa.i.i60, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ], [ %.025.lcssa.i.i60, %._crit_edge ]
   %.13456 = phi ptr [ %.033, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %.025.lcssa.i.i, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ], [ %.025.lcssa.i.i, %._crit_edge ]
   %.353 = phi ptr [ %.2, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ], [ %storemerge43.lcssa, %_ZN4absl13base_internal8SpinLock7TryLockEv.exit.i ], [ %storemerge43.lcssa, %._crit_edge ]
-  %160 = icmp eq ptr %.353, %38
-  br i1 %160, label %.critedge.backedge, label %161
+  %157 = icmp eq ptr %.353, %38
+  br i1 %157, label %.critedge.backedge, label %158
 
-161:                                              ; preds = %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread
-  %162 = load i8, ptr %.353, align 1, !tbaa !9
-  %163 = icmp eq i8 %162, 91
-  br i1 %163, label %.critedge.backedge, label %166
+158:                                              ; preds = %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread
+  %159 = load i8, ptr %.353, align 1, !tbaa !9
+  %160 = icmp eq i8 %159, 91
+  br i1 %160, label %.critedge.backedge, label %163
 
-164:                                              ; preds = %159, %166
-  %165 = landingpad { ptr, i32 }
+161:                                              ; preds = %156, %163
+  %162 = landingpad { ptr, i32 }
           cleanup
-  br label %173
+  br label %170
 
-166:                                              ; preds = %161, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit
-  %.161 = phi i64 [ %.160, %161 ], [ %.029, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ]
-  %.13259 = phi ptr [ %.13258, %161 ], [ %.031, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ]
-  %.13457 = phi ptr [ %.13456, %161 ], [ %.033, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ]
-  %.354 = phi ptr [ %.353, %161 ], [ %.2, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ]
-  %167 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer15RegisterObjFileEPKcPKvS6_mPv(ptr noundef %.354, ptr noundef %.13457, ptr noundef %.13259, i64 noundef %.161, ptr noundef nonnull %0)
-          to label %168 unwind label %164
+163:                                              ; preds = %158, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit
+  %.161 = phi i64 [ %.160, %158 ], [ %.029, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ]
+  %.13259 = phi ptr [ %.13258, %158 ], [ %.031, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ]
+  %.13457 = phi ptr [ %.13456, %158 ], [ %.033, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ]
+  %.354 = phi ptr [ %.353, %158 ], [ %.2, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit ]
+  %164 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer15RegisterObjFileEPKcPKvS6_mPv(ptr noundef %.354, ptr noundef %.13457, ptr noundef %.13259, i64 noundef %.161, ptr noundef nonnull %0)
+          to label %165 unwind label %161
 
-168:                                              ; preds = %166
-  br i1 %167, label %.critedge.backedge, label %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread
+165:                                              ; preds = %163
+  br i1 %164, label %.critedge.backedge, label %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread
 
-.critedge.backedge:                               ; preds = %168, %102, %161, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread, %_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit
+.critedge.backedge:                               ; preds = %165, %100, %158, %_ZN4absl18debugging_internal18GetFileMappingHintEPPKvS3_PmPPKc.exit.thread, %_ZN4absl18debugging_internalL16ShouldUseMappingEPKc.exit
   br label %.critedge, !llvm.loop !111
 
-_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread: ; preds = %168, %34, %.noexc, %.noexc57, %64, %90, %.critedge2.thread
-  %.0 = phi i1 [ false, %64 ], [ false, %90 ], [ false, %.critedge2.thread ], [ true, %.noexc57 ], [ true, %.noexc ], [ true, %34 ], [ true, %168 ]
-  %169 = invoke i32 @close(i32 noundef %7)
-          to label %_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit unwind label %170
+_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread: ; preds = %165, %34, %.noexc, %.noexc57, %63, %88, %.critedge2.thread
+  %.0 = phi i1 [ false, %63 ], [ false, %88 ], [ false, %.critedge2.thread ], [ true, %.noexc57 ], [ true, %.noexc ], [ true, %34 ], [ true, %165 ]
+  %166 = invoke i32 @close(i32 noundef %7)
+          to label %_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit unwind label %167
 
-170:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread
-  %171 = landingpad { ptr, i32 }
+167:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread
+  %168 = landingpad { ptr, i32 }
           catch ptr null
-  %172 = extractvalue { ptr, i32 } %171, 0
-  tail call void @__clang_call_terminate(ptr %172) #29
+  %169 = extractvalue { ptr, i32 } %168, 0
+  tail call void @__clang_call_terminate(ptr %169) #29
   unreachable
 
 _ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit: ; preds = %13, %_ZN4absl18debugging_internal12_GLOBAL__N_110LineReader8ReadLineEPPKcS5_.exit.thread
@@ -3017,8 +3014,8 @@ _ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.076
 
-173:                                              ; preds = %41, %91, %164, %100, %65, %14
-  %.pn51 = phi { ptr, i32 } [ %15, %14 ], [ %42, %41 ], [ %66, %65 ], [ %92, %91 ], [ %101, %100 ], [ %165, %164 ]
+170:                                              ; preds = %41, %89, %161, %98, %64, %14
+  %.pn51 = phi { ptr, i32 } [ %15, %14 ], [ %42, %41 ], [ %65, %64 ], [ %90, %89 ], [ %99, %98 ], [ %162, %161 ]
   call fastcc void @_ZN4absl18debugging_internal12_GLOBAL__N_114FileDescriptorD2Ev(i32 %7) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn51

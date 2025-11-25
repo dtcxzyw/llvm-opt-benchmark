@@ -119654,9 +119654,9 @@ common.ret:                                       ; preds = %51, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !18670
   %66 = load ptr, ptr %6, align 8, !noalias !18660, !noundef !4
   %.not.not.i.i.i = icmp eq ptr %66, null
-  br i1 %.not.not.i.i.i, label %.thread13.i.i.i, label %67
+  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %67
 
-.thread13.i.i.i:                                  ; preds = %65
+.thread.i.i.i:                                    ; preds = %65
   %.sroa.082.0.copyload83 = load ptr, ptr %5, align 8, !noalias !18683
   %.sroa.484.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.484.0.copyload86 = load ptr, ptr %.sroa.484.0..sroa_idx85, align 8, !noalias !18683
@@ -119683,10 +119683,10 @@ common.ret:                                       ; preds = %51, %15
           cleanup
   br label %.body38
 
-73:                                               ; preds = %.thread13.i.i.i, %67
-  %.sroa.082.1 = phi ptr [ %.sroa.082.0.copyload83, %.thread13.i.i.i ], [ null, %67 ]
-  %.sroa.484.1 = phi ptr [ %.sroa.484.0.copyload86, %.thread13.i.i.i ], [ %66, %67 ]
-  %.sroa.687.1 = phi i64 [ %.sroa.687.0.copyload89, %.thread13.i.i.i ], [ undef, %67 ]
+73:                                               ; preds = %.thread.i.i.i, %67
+  %.sroa.082.1 = phi ptr [ %.sroa.082.0.copyload83, %.thread.i.i.i ], [ null, %67 ]
+  %.sroa.484.1 = phi ptr [ %.sroa.484.0.copyload86, %.thread.i.i.i ], [ %66, %67 ]
+  %.sroa.687.1 = phi i64 [ %.sroa.687.0.copyload89, %.thread.i.i.i ], [ undef, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !18660
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !18660
   br label %15
@@ -119940,9 +119940,9 @@ common.ret:                                       ; preds = %42, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !18711
   %57 = load ptr, ptr %6, align 8, !noalias !18701, !noundef !4
   %.not.not.i.i.i = icmp eq ptr %57, null
-  br i1 %.not.not.i.i.i, label %.thread13.i.i.i, label %58
+  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %58
 
-.thread13.i.i.i:                                  ; preds = %56
+.thread.i.i.i:                                    ; preds = %56
   %.sroa.063.0.copyload64 = load ptr, ptr %5, align 8, !noalias !18724
   %.sroa.465.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.465.0.copyload67 = load ptr, ptr %.sroa.465.0..sroa_idx66, align 8, !noalias !18724
@@ -119969,10 +119969,10 @@ common.ret:                                       ; preds = %42, %13
           cleanup
   br label %.body32
 
-64:                                               ; preds = %.thread13.i.i.i, %58
-  %.sroa.063.1 = phi ptr [ %.sroa.063.0.copyload64, %.thread13.i.i.i ], [ null, %58 ]
-  %.sroa.465.1 = phi ptr [ %.sroa.465.0.copyload67, %.thread13.i.i.i ], [ %57, %58 ]
-  %.sroa.668.1 = phi i64 [ %.sroa.668.0.copyload70, %.thread13.i.i.i ], [ undef, %58 ]
+64:                                               ; preds = %.thread.i.i.i, %58
+  %.sroa.063.1 = phi ptr [ %.sroa.063.0.copyload64, %.thread.i.i.i ], [ null, %58 ]
+  %.sroa.465.1 = phi ptr [ %.sroa.465.0.copyload67, %.thread.i.i.i ], [ %57, %58 ]
+  %.sroa.668.1 = phi i64 [ %.sroa.668.0.copyload70, %.thread.i.i.i ], [ undef, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !18701
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !18701
   br label %13
@@ -121571,9 +121571,9 @@ common.ret:                                       ; preds = %32, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !18911
   %48 = load ptr, ptr %6, align 8, !noalias !18904, !noundef !4
   %.not.not.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.not.i.i.i, label %.thread12.i.i.i, label %49
+  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %49
 
-.thread12.i.i.i:                                  ; preds = %47
+.thread.i.i.i:                                    ; preds = %47
   %.sroa.047.0.copyload48 = load ptr, ptr %5, align 8
   %.sroa.449.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.449.0.copyload51 = load ptr, ptr %.sroa.449.0..sroa_idx50, align 8
@@ -121605,10 +121605,10 @@ common.ret:                                       ; preds = %32, %14
           cleanup
   br label %.body28
 
-55:                                               ; preds = %.thread12.i.i.i, %49
-  %.sroa.047.1 = phi ptr [ %.sroa.047.0.copyload48, %.thread12.i.i.i ], [ null, %49 ]
-  %.sroa.449.1 = phi ptr [ %.sroa.449.0.copyload51, %.thread12.i.i.i ], [ %48, %49 ]
-  %.sroa.652.1 = phi i64 [ %.sroa.652.0.copyload54, %.thread12.i.i.i ], [ undef, %49 ]
+55:                                               ; preds = %.thread.i.i.i, %49
+  %.sroa.047.1 = phi ptr [ %.sroa.047.0.copyload48, %.thread.i.i.i ], [ null, %49 ]
+  %.sroa.449.1 = phi ptr [ %.sroa.449.0.copyload51, %.thread.i.i.i ], [ %48, %49 ]
+  %.sroa.652.1 = phi i64 [ %.sroa.652.0.copyload54, %.thread.i.i.i ], [ undef, %49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !18904
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !18904
   invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..vec..Vec$LT$ockam_api..cli_state..storage..nodes_repository_sql..NodeRow$GT$$GT$17h12107bc25f8fc7ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
@@ -122212,9 +122212,9 @@ common.ret:                                       ; preds = %45, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !18984
   %61 = load ptr, ptr %6, align 8, !noalias !18977, !noundef !4
   %.not.not.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.not.i.i.i, label %.thread12.i.i.i, label %62
+  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %62
 
-.thread12.i.i.i:                                  ; preds = %60
+.thread.i.i.i:                                    ; preds = %60
   %.sroa.049.0.copyload50 = load ptr, ptr %5, align 8
   %.sroa.451.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.451.0.copyload53 = load ptr, ptr %.sroa.451.0..sroa_idx52, align 8
@@ -122246,10 +122246,10 @@ common.ret:                                       ; preds = %45, %18
           cleanup
   br label %.body34
 
-68:                                               ; preds = %.thread12.i.i.i, %62
-  %.sroa.049.1 = phi ptr [ %.sroa.049.0.copyload50, %.thread12.i.i.i ], [ null, %62 ]
-  %.sroa.451.1 = phi ptr [ %.sroa.451.0.copyload53, %.thread12.i.i.i ], [ %61, %62 ]
-  %.sroa.654.1 = phi i64 [ %.sroa.654.0.copyload56, %.thread12.i.i.i ], [ undef, %62 ]
+68:                                               ; preds = %.thread.i.i.i, %62
+  %.sroa.049.1 = phi ptr [ %.sroa.049.0.copyload50, %.thread.i.i.i ], [ null, %62 ]
+  %.sroa.451.1 = phi ptr [ %.sroa.451.0.copyload53, %.thread.i.i.i ], [ %61, %62 ]
+  %.sroa.654.1 = phi i64 [ %.sroa.654.0.copyload56, %.thread.i.i.i ], [ undef, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !18977
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !18977
   invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..vec..Vec$LT$ockam_api..cli_state..storage..nodes_repository_sql..NodeRow$GT$$GT$17h12107bc25f8fc7ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
@@ -129309,9 +129309,9 @@ common.ret:                                       ; preds = %82, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !19722
   %98 = load ptr, ptr %6, align 8, !noalias !19715, !noundef !4
   %.not.not.i.i.i = icmp eq ptr %98, null
-  br i1 %.not.not.i.i.i, label %.thread12.i.i.i, label %99
+  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %99
 
-.thread12.i.i.i:                                  ; preds = %97
+.thread.i.i.i:                                    ; preds = %97
   %.sroa.054.0.copyload55 = load ptr, ptr %5, align 8
   %.sroa.456.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.456.0.copyload58 = load ptr, ptr %.sroa.456.0..sroa_idx57, align 8
@@ -129343,10 +129343,10 @@ common.ret:                                       ; preds = %82, %15
           cleanup
   br label %.body32
 
-105:                                              ; preds = %.thread12.i.i.i, %99
-  %.sroa.054.1 = phi ptr [ %.sroa.054.0.copyload55, %.thread12.i.i.i ], [ null, %99 ]
-  %.sroa.456.1 = phi ptr [ %.sroa.456.0.copyload58, %.thread12.i.i.i ], [ %98, %99 ]
-  %.sroa.659.1 = phi i64 [ %.sroa.659.0.copyload61, %.thread12.i.i.i ], [ undef, %99 ]
+105:                                              ; preds = %.thread.i.i.i, %99
+  %.sroa.054.1 = phi ptr [ %.sroa.054.0.copyload55, %.thread.i.i.i ], [ null, %99 ]
+  %.sroa.456.1 = phi ptr [ %.sroa.456.0.copyload58, %.thread.i.i.i ], [ %98, %99 ]
+  %.sroa.659.1 = phi i64 [ %.sroa.659.0.copyload61, %.thread.i.i.i ], [ undef, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !19715
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !19715
   invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..vec..Vec$LT$ockam_api..cli_state..storage..users_repository_sql..UserRow$GT$$GT$17h3b7a2f31b6f33dc8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)

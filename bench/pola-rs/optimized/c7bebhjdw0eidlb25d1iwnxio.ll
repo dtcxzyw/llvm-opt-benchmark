@@ -68,13 +68,13 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
   store ptr %24, ptr %16, align 8, !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !8
   invoke void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$5write17h1dc26e8e720b1bf3E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %15, ptr noundef nonnull align 8 %22)
-          to label %28 unwind label %.thread79.i, !noalias !8
+          to label %28 unwind label %.thread.i, !noalias !8
 
 27:                                               ; preds = %31
   br i1 %.sroa.023.2.i, label %115, label %"_ZN4core3ptr203drop_in_place$LT$alloc..sync..Arc$LT$signal_hook_registry..register$LT$polars_error..signals..register_polars_keyboard_interrupt_hook..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h793bfe3b158aa02cE.exit53.i"
 
-.thread79.i:                                      ; preds = %109, %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i
-  %lpad.thr_comm77.i = landingpad { ptr, i32 }
+.thread.i:                                        ; preds = %109, %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i
+  %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %115
 
@@ -86,9 +86,9 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
   invoke void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4cf5c641d720a9f8E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %30)
           to label %34 unwind label %32, !noalias !8
 
-31:                                               ; preds = %.thread.i, %39, %32
-  %.sroa.023.2.i = phi i1 [ true, %32 ], [ %.sroa.023.457.i, %.thread.i ], [ false, %39 ]
-  %.pn42.i = phi { ptr, i32 } [ %33, %32 ], [ %.pn58.i, %.thread.i ], [ %lpad.thr_comm.split-lp.i, %39 ]
+31:                                               ; preds = %.thread59.i, %39, %32
+  %.sroa.023.2.i = phi i1 [ true, %32 ], [ %.sroa.023.463.i, %.thread59.i ], [ false, %39 ]
+  %.pn42.i = phi { ptr, i32 } [ %33, %32 ], [ %.pn64.i, %.thread59.i ], [ %lpad.thr_comm.split-lp68.i, %39 ]
   invoke void @"_ZN4core3ptr104drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$signal_hook_registry..SignalData$GT$$GT$17h603d98c065e465fcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #12
           to label %27 unwind label %105, !noalias !8
 
@@ -107,16 +107,16 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
   store i128 %38, ptr %37, align 16, !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !8
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h9caedc494965c105E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %14, i32 noundef %1)
-          to label %40 unwind label %.thread60.i, !noalias !8
+          to label %40 unwind label %.thread69.i, !noalias !8
 
-.thread60.i:                                      ; preds = %75, %74, %70, %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc0b7a6e579cd099aE.exit.i", %58, %47, %44, %34
+.thread69.i:                                      ; preds = %75, %74, %70, %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc0b7a6e579cd099aE.exit.i", %58, %47, %44, %34
   %.sroa.023.3.ph.i = phi i1 [ false, %58 ], [ true, %34 ], [ false, %47 ], [ false, %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc0b7a6e579cd099aE.exit.i" ], [ true, %44 ], [ true, %74 ], [ true, %75 ], [ true, %70 ]
-  %lpad.thr_comm.i = landingpad { ptr, i32 }
+  %lpad.thr_comm67.i = landingpad { ptr, i32 }
           cleanup
-  br label %.thread.i
+  br label %.thread59.i
 
 39:                                               ; preds = %61
-  %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp68.i = landingpad { ptr, i32 }
           cleanup
   br label %31
 
@@ -135,7 +135,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8
   %46 = getelementptr inbounds nuw i8, ptr %22, i64 40
   invoke void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$5write17h5d40311be29b6065E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %12, ptr noundef nonnull align 8 %46)
-          to label %62 unwind label %.thread60.i, !noalias !8
+          to label %62 unwind label %.thread69.i, !noalias !8
 
 47:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8
@@ -143,7 +143,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
   %48 = getelementptr inbounds i8, ptr %43, i64 -24
   %49 = load ptr, ptr %16, align 8, !noalias !8, !nonnull !7, !noundef !7
   %50 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h501370b6388e2216E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %48, i128 noundef %36, ptr noundef nonnull %49, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.302c1a69cbe821b24e96a920858a2e94.6)
-          to label %51 unwind label %.thread60.i, !noalias !8
+          to label %51 unwind label %.thread69.i, !noalias !8
 
 51:                                               ; preds = %47
   %52 = extractvalue { ptr, ptr } %50, 0
@@ -162,12 +162,12 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
 58:                                               ; preds = %55
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h16617ec5ffdcf582E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
-          to label %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc0b7a6e579cd099aE.exit.i" unwind label %.thread60.i, !noalias !8
+          to label %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc0b7a6e579cd099aE.exit.i" unwind label %.thread69.i, !noalias !8
 
 "_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc0b7a6e579cd099aE.exit.i": ; preds = %58, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !8
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.302c1a69cbe821b24e96a920858a2e94.7, i64 noundef 73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.302c1a69cbe821b24e96a920858a2e94.8) #11
-          to label %59 unwind label %.thread60.i, !noalias !8
+          to label %59 unwind label %.thread69.i, !noalias !8
 
 59:                                               ; preds = %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc0b7a6e579cd099aE.exit.i"
   unreachable
@@ -192,7 +192,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
   %64 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h4c31f5addca20032E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #12
-          to label %.thread.i unwind label %105, !noalias !8
+          to label %.thread59.i unwind label %105, !noalias !8
 
 65:                                               ; preds = %62
   %66 = load i64, ptr %10, align 8, !range !23, !noalias !8, !noundef !7
@@ -208,7 +208,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
   store i64 1, ptr %0, align 16, !alias.scope !8
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !8
   invoke void @"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h4c31f5addca20032E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
-          to label %108 unwind label %.thread60.i, !noalias !8
+          to label %108 unwind label %.thread69.i, !noalias !8
 
 72:                                               ; preds = %65
   %.sroa.534.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -224,14 +224,14 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
 74:                                               ; preds = %72
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !8
   invoke void @"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h4c31f5addca20032E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
-          to label %75 unwind label %.thread60.i, !noalias !8
+          to label %75 unwind label %.thread69.i, !noalias !8
 
 75:                                               ; preds = %74
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !8
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !8
   invoke void @_ZN20signal_hook_registry4Slot3new17ha92e7d59f7d4c979E(ptr noalias noundef nonnull sret([192 x i8]) align 8 captures(none) dereferenceable(192) %8, i32 noundef %1)
-          to label %76 unwind label %.thread60.i, !noalias !8
+          to label %76 unwind label %.thread69.i, !noalias !8
 
 76:                                               ; preds = %75
   %77 = load i64, ptr %8, align 8, !range !23, !noalias !8, !noundef !7
@@ -261,9 +261,9 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
           to label %88 unwind label %104, !noalias !8
 
 87:                                               ; preds = %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc0b7a6e579cd099aE.exit51.i"
-  %lpad.thr_comm.split-lp67.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp76.i = landingpad { ptr, i32 }
           cleanup
-  br label %.thread.i
+  br label %.thread59.i
 
 88:                                               ; preds = %83
   %89 = extractvalue { ptr, ptr } %86, 0
@@ -313,12 +313,12 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
   br label %_ZN20signal_hook_registry23register_unchecked_impl17hb714d807d5249600E.exit
 
 104:                                              ; preds = %96, %83
-  %lpad.thr_comm66.i = landingpad { ptr, i32 }
+  %lpad.thr_comm75.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$signal_hook_registry..Slot$GT$17he371d2c455f7bfcaE"(ptr noalias noundef nonnull align 8 dereferenceable(184) %9) #12
-          to label %.thread.i unwind label %105, !noalias !8
+          to label %.thread59.i unwind label %105, !noalias !8
 
-105:                                              ; preds = %119, %.thread.i, %104, %63, %31
+105:                                              ; preds = %119, %.thread59.i, %104, %63, %31
   %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #13, !noalias !8
@@ -335,7 +335,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
 109:                                              ; preds = %107
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !8
   invoke void @"_ZN4core3ptr104drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$signal_hook_registry..SignalData$GT$$GT$17h603d98c065e465fcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15)
-          to label %110 unwind label %.thread79.i, !noalias !8
+          to label %110 unwind label %.thread.i, !noalias !8
 
 110:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !8
@@ -351,14 +351,14 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h4355d66757c6f1edE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16), !noalias !8
   br label %_ZN20signal_hook_registry23register_unchecked_impl17hb714d807d5249600E.exit
 
-.thread.i:                                        ; preds = %104, %87, %63, %.thread60.i
-  %.pn58.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread60.i ], [ %64, %63 ], [ %lpad.thr_comm.split-lp67.i, %87 ], [ %lpad.thr_comm66.i, %104 ]
-  %.sroa.023.457.i = phi i1 [ %.sroa.023.3.ph.i, %.thread60.i ], [ true, %63 ], [ false, %87 ], [ false, %104 ]
+.thread59.i:                                      ; preds = %104, %87, %63, %.thread69.i
+  %.pn64.i = phi { ptr, i32 } [ %lpad.thr_comm67.i, %.thread69.i ], [ %64, %63 ], [ %lpad.thr_comm.split-lp76.i, %87 ], [ %lpad.thr_comm75.i, %104 ]
+  %.sroa.023.463.i = phi i1 [ %.sroa.023.3.ph.i, %.thread69.i ], [ true, %63 ], [ false, %87 ], [ false, %104 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$signal_hook_registry..SignalData$GT$17hc4c61c5e207e36daE"(ptr noalias noundef nonnull align 16 dereferenceable(64) %14) #12
           to label %31 unwind label %105, !noalias !8
 
-115:                                              ; preds = %.thread79.i, %27
-  %.pn4476.i = phi { ptr, i32 } [ %.pn42.i, %27 ], [ %lpad.thr_comm77.i, %.thread79.i ]
+115:                                              ; preds = %.thread.i, %27
+  %.pn4455.i = phi { ptr, i32 } [ %.pn42.i, %27 ], [ %lpad.thr_comm.i, %.thread.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %116 = load ptr, ptr %16, align 8, !alias.scope !45, !noalias !8, !nonnull !7, !noundef !7
@@ -372,8 +372,8 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i: ; preds = %"_ZN55_$
           to label %"_ZN4core3ptr203drop_in_place$LT$alloc..sync..Arc$LT$signal_hook_registry..register$LT$polars_error..signals..register_polars_keyboard_interrupt_hook..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h793bfe3b158aa02cE.exit53.i" unwind label %105, !noalias !8
 
 "_ZN4core3ptr203drop_in_place$LT$alloc..sync..Arc$LT$signal_hook_registry..register$LT$polars_error..signals..register_polars_keyboard_interrupt_hook..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h793bfe3b158aa02cE.exit53.i": ; preds = %119, %115, %27
-  %.pn4475.i = phi { ptr, i32 } [ %.pn4476.i, %115 ], [ %.pn4476.i, %119 ], [ %.pn42.i, %27 ]
-  resume { ptr, i32 } %.pn4475.i
+  %.pn4454.i = phi { ptr, i32 } [ %.pn42.i, %27 ], [ %.pn4455.i, %119 ], [ %.pn4455.i, %115 ]
+  resume { ptr, i32 } %.pn4454.i
 
 _ZN20signal_hook_registry23register_unchecked_impl17hb714d807d5249600E.exit: ; preds = %101, %110, %114
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !8

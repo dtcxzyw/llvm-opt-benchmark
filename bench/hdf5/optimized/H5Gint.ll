@@ -1701,7 +1701,7 @@ define internal i32 @H5G__visit_cb(ptr noundef %0, ptr noundef %1) #0 {
 .thread:                                          ; preds = %30
   store ptr %31, ptr %28, align 8, !tbaa !60
   store i64 %24, ptr %25, align 8, !tbaa !61
-  %.pre116 = load ptr, ptr %20, align 8, !tbaa !48
+  %.pre115 = load ptr, ptr %20, align 8, !tbaa !48
   br label %._crit_edge
 
 33:                                               ; preds = %30
@@ -1711,7 +1711,7 @@ define internal i32 @H5G__visit_cb(ptr noundef %0, ptr noundef %1) #0 {
   br label %.thread108
 
 ._crit_edge:                                      ; preds = %19, %.thread
-  %37 = phi ptr [ %.pre116, %.thread ], [ %21, %19 ]
+  %37 = phi ptr [ %.pre115, %.thread ], [ %21, %19 ]
   %38 = phi ptr [ %31, %.thread ], [ %29, %19 ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 %12
@@ -1779,8 +1779,8 @@ define internal i32 @H5G__visit_cb(ptr noundef %0, ptr noundef %1) #0 {
   %78 = load ptr, ptr %45, align 8, !tbaa !55
   %79 = load ptr, ptr %20, align 8, !tbaa !48
   %80 = call i32 @H5G_loc_find(ptr noundef %78, ptr noundef %79, ptr noundef nonnull %4) #11
-  %81 = icmp slt i32 %80, 0
-  br i1 %81, label %143, label %82
+  %81 = icmp sgt i32 %80, -1
+  br i1 %81, label %82, label %143
 
 82:                                               ; preds = %75
   %83 = load ptr, ptr %6, align 8, !tbaa !67

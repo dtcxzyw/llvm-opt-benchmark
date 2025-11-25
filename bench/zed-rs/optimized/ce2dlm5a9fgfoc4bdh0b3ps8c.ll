@@ -51868,9 +51868,6 @@ _ZN4gpui3app13async_context15AsyncAppContext6update17hf5cf1864b568c92cE.exit.i.i
   call void @llvm.trap()
   unreachable
 
-"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit.i.i": ; preds = %651, %648
-  br i1 %.sroa.012.1.ph.i.i, label %652, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$http_client..HttpClientWithUrl$GT$$GT$17habe8a0c26a02c1abE.exit.i.i"
-
 .thread.i.i:                                      ; preds = %597, %589
   %593 = landingpad { ptr, i32 }
           cleanup
@@ -52056,26 +52053,29 @@ _ZN4gpui3app13async_context15AsyncAppContext6update17hf5cf1864b568c92cE.exit.i.i
   invoke void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h0ed1fa0a284ab514E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %28)
           to label %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit.i.i" unwind label %645, !noalias !10653
 
-652:                                              ; preds = %.thread.i.i, %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit.i.i"
+"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit.i.i": ; preds = %651, %648
+  br i1 %.sroa.012.1.ph.i.i, label %652, label %.thread27.i.i
+
+652:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit.i.i", %.thread.i.i
   %.pn.pn.pn8.i.i = phi { ptr, i32 } [ %593, %.thread.i.i ], [ %.pn.pn.ph.i.i, %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit.i.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10670)
   call void @llvm.experimental.noalias.scope.decl(metadata !10673)
   %653 = load ptr, ptr %29, align 8, !alias.scope !10676, !noalias !10536, !nonnull !5, !noundef !5
   %654 = atomicrmw sub ptr %653, i64 1 release, align 8, !noalias !10677
   %655 = icmp eq i64 %654, 1
-  br i1 %655, label %656, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$http_client..HttpClientWithUrl$GT$$GT$17habe8a0c26a02c1abE.exit.i.i"
+  br i1 %655, label %656, label %.thread27.i.i
 
 656:                                              ; preds = %652
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hed1bcbf235ceb418E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29)
-          to label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$http_client..HttpClientWithUrl$GT$$GT$17habe8a0c26a02c1abE.exit.i.i" unwind label %645, !noalias !10653
+          to label %.thread27.i.i unwind label %645, !noalias !10653
 
-"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$http_client..HttpClientWithUrl$GT$$GT$17habe8a0c26a02c1abE.exit.i.i": ; preds = %656, %652, %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit.i.i"
-  %.pn.pn.pn7.i.i = phi { ptr, i32 } [ %.pn.pn.ph.i.i, %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit.i.i" ], [ %.pn.pn.pn8.i.i, %656 ], [ %.pn.pn.pn8.i.i, %652 ]
+.thread27.i.i:                                    ; preds = %656, %652, %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit.i.i"
+  %.pn.pn.pn731.i.i = phi { ptr, i32 } [ %.pn.pn.ph.i.i, %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit.i.i" ], [ %.pn.pn.pn8.i.i, %656 ], [ %.pn.pn.pn8.i.i, %652 ]
   %657 = icmp eq i64 %.sroa.0.0.i.i, 0
   br i1 %657, label %"_ZN4core3ptr181drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$core..result..Result$LT$rpc..conn..Connection$C$client..EstablishConnectionError$GT$$GT$$GT$$GT$17h586cb4e0f1869a3bE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i": ; preds = %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$http_client..HttpClientWithUrl$GT$$GT$17habe8a0c26a02c1abE.exit.i.i"
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i": ; preds = %.thread27.i.i
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.61.0.i.i, i64 noundef %.sroa.0.0.i.i, i64 noundef 1) #39, !noalias !10678
   br label %"_ZN4core3ptr181drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$core..result..Result$LT$rpc..conn..Connection$C$client..EstablishConnectionError$GT$$GT$$GT$$GT$17h586cb4e0f1869a3bE.exit"
 
@@ -52103,8 +52103,8 @@ _ZN4gpui3app13async_context15AsyncAppContext6update17hf5cf1864b568c92cE.exit.i.i
   store ptr %662, ptr %664, align 8
   br label %705
 
-"_ZN4core3ptr181drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$core..result..Result$LT$rpc..conn..Connection$C$client..EstablishConnectionError$GT$$GT$$GT$$GT$17h586cb4e0f1869a3bE.exit": ; preds = %.body.i.i.i, %.body14.i.i.i, %623, %639, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$http_client..HttpClientWithUrl$GT$$GT$17habe8a0c26a02c1abE.exit.i.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i", %658, %707, %931, %716, %929, %908
-  %.pn108.pn = phi { ptr, i32 } [ %.pn108, %908 ], [ %932, %931 ], [ %930, %929 ], [ %717, %716 ], [ %708, %707 ], [ %659, %658 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %.pn.i35.i.i, %.body14.i.i.i ], [ %.pn.pn.pn7.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i" ], [ %.pn.pn.pn7.i.i, %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$http_client..HttpClientWithUrl$GT$$GT$17habe8a0c26a02c1abE.exit.i.i" ], [ %624, %623 ], [ %640, %639 ]
+"_ZN4core3ptr181drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$gpui..executor..Task$LT$core..result..Result$LT$rpc..conn..Connection$C$client..EstablishConnectionError$GT$$GT$$GT$$GT$17h586cb4e0f1869a3bE.exit": ; preds = %.body.i.i.i, %.body14.i.i.i, %623, %639, %.thread27.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i", %658, %707, %931, %716, %929, %908
+  %.pn108.pn = phi { ptr, i32 } [ %.pn108, %908 ], [ %932, %931 ], [ %930, %929 ], [ %717, %716 ], [ %708, %707 ], [ %659, %658 ], [ %.pn.i.i.i, %.body.i.i.i ], [ %.pn.i35.i.i, %.body14.i.i.i ], [ %.pn.pn.pn731.i.i, %.thread27.i.i ], [ %.pn.pn.pn731.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i" ], [ %624, %623 ], [ %640, %639 ]
   %665 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %666 = load i8, ptr %665, align 8, !range !2059, !alias.scope !10691, !noundef !5
   %667 = icmp eq i8 %666, 1

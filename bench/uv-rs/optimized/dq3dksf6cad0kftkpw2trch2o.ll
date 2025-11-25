@@ -8708,8 +8708,8 @@ define hidden void @"_ZN93_$LT$toml_edit..de..table_enum..TableEnumDeserializer$
   %175 = landingpad { ptr, i32 }
           cleanup
   %176 = load i64, ptr %32, align 8, !range !210, !noalias !1345, !noundef !3
-  %.not14.i = icmp eq i64 %176, 2
-  br i1 %.not14.i, label %.body125, label %182
+  %.not9.i = icmp eq i64 %176, 2
+  br i1 %.not9.i, label %.body125, label %182
 
 177:                                              ; preds = %169
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !1349
@@ -9058,8 +9058,8 @@ define hidden void @"_ZN93_$LT$toml_edit..de..table_enum..TableEnumDeserializer$
   %275 = landingpad { ptr, i32 }
           cleanup
   %276 = load i64, ptr %21, align 8, !range !210, !noalias !1446, !noundef !3
-  %.not14.i165 = icmp eq i64 %276, 2
-  br i1 %.not14.i165, label %.body169, label %282
+  %.not9.i165 = icmp eq i64 %276, 2
+  br i1 %.not9.i165, label %.body169, label %282
 
 277:                                              ; preds = %269
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !1450

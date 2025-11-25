@@ -27365,8 +27365,8 @@ common.resume:                                    ; preds = %.body, %65, %57
   %95 = landingpad { ptr, i32 }
           cleanup
   %96 = load i64, ptr %8, align 8, !range !107, !noalias !6853, !noundef !5
-  %.not12.i = icmp eq i64 %96, -9223372036854775805
-  br i1 %.not12.i, label %.body, label %108
+  %.not8.i = icmp eq i64 %96, -9223372036854775805
+  br i1 %.not8.i, label %.body, label %108
 
 97:                                               ; preds = %92
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6857

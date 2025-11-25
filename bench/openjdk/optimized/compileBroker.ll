@@ -3251,7 +3251,7 @@ _ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread48: 
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(888) %7) #20
-  %not.55 = xor i1 %94, true
+  %not. = xor i1 %94, true
   %95 = load i8, ptr @UseJVMCINativeLibrary, align 1
   %96 = trunc i8 %95 to i1
   br i1 %96, label %136, label %97
@@ -3307,7 +3307,7 @@ _ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread48: 
   br i1 %131, label %._crit_edge, label %102, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %129, %115, %102, %97
-  %.4 = phi i1 [ %not.55, %97 ], [ false, %102 ], [ false, %115 ], [ %not.55, %129 ]
+  %.4 = phi i1 [ %not., %97 ], [ false, %102 ], [ false, %115 ], [ %not., %129 ]
   %132 = call noundef zeroext i1 @_ZN5JVMCI23is_compiler_initializedEv() #20
   br i1 %132, label %136, label %_ZN13CompileBroker8compilerEi.exit
 
@@ -3318,14 +3318,14 @@ _ZN13CompileBroker8compilerEi.exit:               ; preds = %._crit_edge
   %133 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 16
   %134 = load i8, ptr %133, align 8
   %135 = icmp ne i8 %134, 3
-  %spec.select35 = and i1 %135, %.4
+  %spec.select35 = and i1 %.4, %135
   br label %136
 
 136:                                              ; preds = %_ZN13CompileBroker8compilerEi.exit, %._crit_edge, %90
-  %.3 = phi i1 [ %not.55, %90 ], [ %.4, %._crit_edge ], [ %spec.select35, %_ZN13CompileBroker8compilerEi.exit ]
+  %.3 = phi i1 [ %not., %90 ], [ %.4, %._crit_edge ], [ %spec.select35, %_ZN13CompileBroker8compilerEi.exit ]
   %137 = call noundef zeroext i1 @_ZN5JVMCI11in_shutdownEv() #20
-  %not. = xor i1 %137, true
-  %138 = select i1 %not., i1 %.3, i1 false
+  %not.56 = xor i1 %137, true
+  %138 = select i1 %not.56, i1 %.3, i1 false
   br label %139
 
 139:                                              ; preds = %136, %87

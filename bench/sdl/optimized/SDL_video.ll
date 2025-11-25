@@ -481,8 +481,8 @@ define hidden zeroext i1 @SDL_VideoInit(ptr noundef %0) local_unnamed_addr #0 {
 
 select.unfold.preheader.preheader:                ; preds = %.thread
   %18 = load i8, ptr %.03873, align 1
-  %.not65159.not = icmp eq i8 %18, 0
-  br i1 %.not65159.not, label %.critedge, label %.lr.ph
+  %.not65154.not = icmp eq i8 %18, 0
+  br i1 %.not65154.not, label %.critedge, label %.lr.ph
 
 select.unfold.preheader:                          ; preds = %select.unfold
   %19 = getelementptr inbounds nuw i8, ptr %21, i64 1
@@ -493,19 +493,19 @@ select.unfold.preheader:                          ; preds = %select.unfold
   br i1 %or.cond, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %select.unfold.preheader.preheader, %select.unfold.preheader
-  %.039136160 = phi ptr [ %19, %select.unfold.preheader ], [ %.03873, %select.unfold.preheader.preheader ]
-  %21 = tail call ptr @SDL_strchr_REAL(ptr noundef nonnull %.039136160, i32 noundef 44) #19
+  %.039136155 = phi ptr [ %19, %select.unfold.preheader ], [ %.03873, %select.unfold.preheader.preheader ]
+  %21 = tail call ptr @SDL_strchr_REAL(ptr noundef nonnull %.039136155, i32 noundef 44) #19
   %.not68 = icmp eq ptr %21, null
   br i1 %.not68, label %26, label %22
 
 22:                                               ; preds = %.lr.ph
   %23 = ptrtoint ptr %21 to i64
-  %24 = ptrtoint ptr %.039136160 to i64
+  %24 = ptrtoint ptr %.039136155 to i64
   %25 = sub i64 %23, %24
   br label %28
 
 26:                                               ; preds = %.lr.ph
-  %27 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %.039136160) #19
+  %27 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %.039136155) #19
   br label %28
 
 28:                                               ; preds = %26, %22
@@ -528,7 +528,7 @@ select.unfold.preheader:                          ; preds = %select.unfold
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %31, align 8
-  %41 = tail call i32 @SDL_strncasecmp_REAL(ptr noundef %40, ptr noundef nonnull %.039136160, i64 noundef %29) #19
+  %41 = tail call i32 @SDL_strncasecmp_REAL(ptr noundef %40, ptr noundef nonnull %.039136155, i64 noundef %29) #19
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %47
 
@@ -546,7 +546,7 @@ select.unfold.preheader:                          ; preds = %select.unfold
   %.not69 = icmp eq i64 %indvars.iv.next, 7
   br i1 %.not69, label %select.unfold, label %30, !llvm.loop !8
 
-select.unfold:                                    ; preds = %47, %43
+select.unfold:                                    ; preds = %43, %47
   %.1.lcssa = phi i64 [ %indvars.iv, %43 ], [ 7, %47 ]
   %.248 = phi ptr [ %46, %43 ], [ null, %47 ]
   br i1 %.not68, label %.critedge, label %select.unfold.preheader
@@ -11150,7 +11150,7 @@ define hidden void @SDL_UpdateWindowGrab(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 512
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %13, label %5
+  br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @SDL_GetMouse() #19
@@ -11159,124 +11159,124 @@ define hidden void @SDL_UpdateWindowGrab(ptr noundef %0) local_unnamed_addr #0 {
   %9 = trunc nuw i8 %8 to i1
   %.pre = load i64, ptr %2, align 8
   %10 = and i64 %.pre, 256
-  %11 = icmp ne i64 %10, 0
-  %.0 = select i1 %9, i1 true, i1 %11
-  %12 = and i64 %.pre, 1048576
-  %.not22 = icmp ne i64 %12, 0
-  br label %13
+  %.not21 = icmp ne i64 %10, 0
+  %.0 = select i1 %9, i1 true, i1 %.not21
+  %11 = and i64 %.pre, 1048576
+  %.not22 = icmp ne i64 %11, 0
+  br label %12
 
-13:                                               ; preds = %1, %5
+12:                                               ; preds = %1, %5
   %.014 = phi i1 [ %.not22, %5 ], [ false, %1 ]
   %.1 = phi i1 [ %.0, %5 ], [ false, %1 ]
   %or.cond = or i1 %.014, %.1
-  %14 = load ptr, ptr @_this, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 840
-  %16 = load ptr, ptr %15, align 8
-  br i1 %or.cond, label %17, label %38
+  %13 = load ptr, ptr @_this, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 840
+  %15 = load ptr, ptr %14, align 8
+  br i1 %or.cond, label %16, label %37
 
-17:                                               ; preds = %13
-  %.not23 = icmp eq ptr %16, null
-  %.not24 = icmp eq ptr %16, %0
+16:                                               ; preds = %12
+  %.not23 = icmp eq ptr %15, null
+  %.not24 = icmp eq ptr %15, %0
   %or.cond31 = or i1 %.not23, %.not24
-  br i1 %or.cond31, label %35, label %18
+  br i1 %or.cond31, label %34, label %17
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  %20 = load i64, ptr %19, align 8
-  %21 = and i64 %20, -1048833
-  store i64 %21, ptr %19, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 288
-  %23 = load ptr, ptr %22, align 8
-  %.not25 = icmp eq ptr %23, null
-  br i1 %.not25, label %27, label %24
+17:                                               ; preds = %16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %19 = load i64, ptr %18, align 8
+  %20 = and i64 %19, -1048833
+  store i64 %20, ptr %18, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 288
+  %22 = load ptr, ptr %21, align 8
+  %.not25 = icmp eq ptr %22, null
+  br i1 %.not25, label %26, label %23
 
-24:                                               ; preds = %18
-  %25 = load ptr, ptr %15, align 8
-  %26 = tail call zeroext i1 %23(ptr noundef nonnull %14, ptr noundef %25, i1 noundef zeroext false) #19
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %14, align 8
+  %25 = tail call zeroext i1 %22(ptr noundef nonnull %13, ptr noundef %24, i1 noundef zeroext false) #19
   %.pre32 = load ptr, ptr @_this, align 8
-  br label %27
+  br label %26
 
-27:                                               ; preds = %24, %18
-  %28 = phi ptr [ %.pre32, %24 ], [ %14, %18 ]
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 296
-  %30 = load ptr, ptr %29, align 8
-  %.not26 = icmp eq ptr %30, null
-  br i1 %.not26, label %35, label %31
+26:                                               ; preds = %23, %17
+  %27 = phi ptr [ %.pre32, %23 ], [ %13, %17 ]
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 296
+  %29 = load ptr, ptr %28, align 8
+  %.not26 = icmp eq ptr %29, null
+  br i1 %.not26, label %34, label %30
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 840
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call zeroext i1 %30(ptr noundef nonnull %28, ptr noundef %33, i1 noundef zeroext false) #19
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 840
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call zeroext i1 %29(ptr noundef nonnull %27, ptr noundef %32, i1 noundef zeroext false) #19
   %.pre33 = load ptr, ptr @_this, align 8
-  br label %35
+  br label %34
 
-35:                                               ; preds = %27, %31, %17
-  %36 = phi ptr [ %28, %27 ], [ %.pre33, %31 ], [ %14, %17 ]
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 840
-  store ptr %0, ptr %37, align 8
-  br label %41
+34:                                               ; preds = %26, %30, %16
+  %35 = phi ptr [ %27, %26 ], [ %.pre33, %30 ], [ %13, %16 ]
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 840
+  store ptr %0, ptr %36, align 8
+  br label %40
 
-38:                                               ; preds = %13
-  %39 = icmp eq ptr %16, %0
-  br i1 %39, label %40, label %41
+37:                                               ; preds = %12
+  %38 = icmp eq ptr %15, %0
+  br i1 %38, label %39, label %40
 
-40:                                               ; preds = %38
-  store ptr null, ptr %15, align 8
-  br label %41
+39:                                               ; preds = %37
+  store ptr null, ptr %14, align 8
+  br label %40
 
-41:                                               ; preds = %38, %40, %35
-  %42 = phi ptr [ %14, %38 ], [ %14, %40 ], [ %36, %35 ]
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 288
-  %44 = load ptr, ptr %43, align 8
-  %.not27 = icmp eq ptr %44, null
-  br i1 %.not27, label %50, label %45
+40:                                               ; preds = %37, %39, %34
+  %41 = phi ptr [ %13, %37 ], [ %13, %39 ], [ %35, %34 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 288
+  %43 = load ptr, ptr %42, align 8
+  %.not27 = icmp eq ptr %43, null
+  br i1 %.not27, label %49, label %44
 
-45:                                               ; preds = %41
-  %46 = tail call zeroext i1 %44(ptr noundef nonnull %42, ptr noundef nonnull %0, i1 noundef zeroext %.1) #19
-  br i1 %46, label %50, label %47
+44:                                               ; preds = %40
+  %45 = tail call zeroext i1 %43(ptr noundef nonnull %41, ptr noundef nonnull %0, i1 noundef zeroext %.1) #19
+  br i1 %45, label %49, label %46
 
-47:                                               ; preds = %45
-  %48 = load i64, ptr %2, align 8
-  %49 = and i64 %48, -257
-  store i64 %49, ptr %2, align 8
-  br label %50
+46:                                               ; preds = %44
+  %47 = load i64, ptr %2, align 8
+  %48 = and i64 %47, -257
+  store i64 %48, ptr %2, align 8
+  br label %49
 
-50:                                               ; preds = %45, %47, %41
-  %51 = load ptr, ptr @_this, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 296
-  %53 = load ptr, ptr %52, align 8
-  %.not28 = icmp eq ptr %53, null
-  br i1 %.not28, label %59, label %54
+49:                                               ; preds = %44, %46, %40
+  %50 = load ptr, ptr @_this, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 296
+  %52 = load ptr, ptr %51, align 8
+  %.not28 = icmp eq ptr %52, null
+  br i1 %.not28, label %58, label %53
 
-54:                                               ; preds = %50
-  %55 = tail call zeroext i1 %53(ptr noundef nonnull %51, ptr noundef nonnull %0, i1 noundef zeroext %.014) #19
-  br i1 %55, label %59, label %56
+53:                                               ; preds = %49
+  %54 = tail call zeroext i1 %52(ptr noundef nonnull %50, ptr noundef nonnull %0, i1 noundef zeroext %.014) #19
+  br i1 %54, label %58, label %55
 
-56:                                               ; preds = %54
-  %57 = load i64, ptr %2, align 8
-  %58 = and i64 %57, -1048577
-  store i64 %58, ptr %2, align 8
-  br label %59
+55:                                               ; preds = %53
+  %56 = load i64, ptr %2, align 8
+  %57 = and i64 %56, -1048577
+  store i64 %57, ptr %2, align 8
+  br label %58
 
-59:                                               ; preds = %54, %56, %50
-  %60 = load ptr, ptr @_this, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 840
-  %62 = load ptr, ptr %61, align 8
-  %.not29 = icmp eq ptr %62, null
-  br i1 %.not29, label %68, label %63
+58:                                               ; preds = %53, %55, %49
+  %59 = load ptr, ptr @_this, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 840
+  %61 = load ptr, ptr %60, align 8
+  %.not29 = icmp eq ptr %61, null
+  br i1 %.not29, label %67, label %62
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 72
-  %65 = load i64, ptr %64, align 8
-  %66 = and i64 %65, 1048832
-  %.not30 = icmp eq i64 %66, 0
-  br i1 %.not30, label %67, label %68
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 72
+  %64 = load i64, ptr %63, align 8
+  %65 = and i64 %64, 1048832
+  %.not30 = icmp eq i64 %65, 0
+  br i1 %.not30, label %66, label %67
 
-67:                                               ; preds = %63
-  store ptr null, ptr %61, align 8
-  br label %68
+66:                                               ; preds = %62
+  store ptr null, ptr %60, align 8
+  br label %67
 
-68:                                               ; preds = %67, %63, %59
+67:                                               ; preds = %66, %62, %58
   ret void
 }
 

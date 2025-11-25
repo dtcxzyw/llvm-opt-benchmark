@@ -13815,7 +13815,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %call3.i13 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i, ptr noundef %agg.tmp7.sroa.0.0.copyload, i64 noundef %agg.tmp7.sroa.2.0.copyload) #29
   %OutBufCur.i6.i16.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call3.i13, i64 24
-  %.pre73 = load ptr, ptr %OutBufCur.i6.i16.phi.trans.insert, align 8
+  %.pre74 = load ptr, ptr %OutBufCur.i6.i16.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 if.end.i:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -13830,7 +13830,7 @@ if.then4.i:                                       ; preds = %if.end.i
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i, %if.end.i, %if.then4.i
-  %8 = phi ptr [ %.pre73, %if.then.i ], [ %add.ptr.i, %if.then4.i ], [ %5, %if.end.i ]
+  %8 = phi ptr [ %.pre74, %if.then.i ], [ %add.ptr.i, %if.then4.i ], [ %5, %if.end.i ]
   %retval.0.i = phi ptr [ %call3.i13, %if.then.i ], [ %phi.call.i, %if.then4.i ], [ %phi.call.i, %if.end.i ]
   %OutBufEnd.i5.i15 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
   %9 = load ptr, ptr %OutBufEnd.i5.i15, align 8
@@ -13998,12 +13998,12 @@ while.body.i6.i.i15.i16.i:                        ; preds = %land.rhs.i4.i.i12.i
 _ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit: ; preds = %land.rhs.i4.i.i12.i10.i, %while.body.i6.i.i15.i16.i, %if.then37
   %retval.sroa.0.4.i13.i = phi ptr [ %28, %if.then37 ], [ %retval.sroa.0.3.i11.i, %land.rhs.i4.i.i12.i10.i ], [ %cond.i9.i8.i, %while.body.i6.i.i15.i16.i ]
   %cond.i.i = getelementptr inbounds nuw ptr, ptr %28, i64 %cond.v.i8.i7.i
-  %cmp.i56.not71 = icmp eq ptr %retval.sroa.0.4.i13.i, %cond.i.i
-  br i1 %cmp.i56.not71, label %if.end48, label %for.body
+  %cmp.i56.not72 = icmp eq ptr %retval.sroa.0.4.i13.i, %cond.i.i
+  br i1 %cmp.i56.not72, label %if.end48, label %for.body
 
 for.body:                                         ; preds = %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit
-  %__begin3.sroa.0.072 = phi ptr [ %__begin3.sroa.0.2, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit ], [ %retval.sroa.0.4.i13.i, %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit ]
-  %33 = load ptr, ptr %__begin3.sroa.0.072, align 8
+  %__begin3.sroa.0.073 = phi ptr [ %__begin3.sroa.0.2, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit ], [ %retval.sroa.0.4.i13.i, %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit ]
+  %33 = load ptr, ptr %__begin3.sroa.0.073, align 8
   %cmp44 = icmp eq ptr %SC, %33
   br i1 %cmp44, label %for.inc, label %if.end46
 
@@ -14012,7 +14012,7 @@ if.end46:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end46
-  %incdec.ptr3.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.072, i64 8
+  %incdec.ptr3.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.073, i64 8
   %cmp.not2.i3.i = icmp eq ptr %incdec.ptr3.i, %cond.i9.i8.i
   br i1 %cmp.not2.i3.i, label %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit, label %land.rhs.i4.i
 

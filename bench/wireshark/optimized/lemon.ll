@@ -14344,94 +14344,92 @@ define hidden nonnull ptr @file_makename(ptr noundef readonly captures(none) %0,
 9:                                                ; preds = %6, %2
   %.021 = phi ptr [ %4, %2 ], [ %spec.select, %6 ]
   %10 = tail call i64 @strlen(ptr noundef %.021) #46
-  %11 = trunc i64 %10 to i32
-  %12 = tail call i64 @strlen(ptr noundef %1) #46
-  %13 = trunc i64 %12 to i32
-  %14 = add i32 %13, %11
-  br i1 %.not, label %20, label %15
+  %11 = tail call i64 @strlen(ptr noundef %1) #46
+  %12 = add i64 %11, %10
+  br i1 %.not, label %17, label %13
 
-15:                                               ; preds = %9
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #46
-  %17 = trunc i64 %16 to i32
-  %18 = add i32 %14, 1
-  %19 = add i32 %18, %17
-  br label %20
+13:                                               ; preds = %9
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #46
+  %15 = add i64 %12, 1
+  %16 = add i64 %15, %14
+  br label %17
 
-20:                                               ; preds = %15, %9
-  %.0 = phi i32 [ %19, %15 ], [ %14, %9 ]
-  %21 = add i32 %.0, 5
-  %22 = sext i32 %21 to i64
-  %23 = tail call noalias ptr @malloc(i64 noundef %22) #45
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %28
+17:                                               ; preds = %13, %9
+  %.0 = phi i64 [ %16, %13 ], [ %12, %9 ]
+  %18 = shl i64 %.0, 32
+  %sext = add i64 %18, 21474836480
+  %19 = ashr exact i64 %sext, 32
+  %20 = tail call noalias ptr @malloc(i64 noundef %19) #45
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %25
 
-25:                                               ; preds = %20
-  %26 = load ptr, ptr @stderr, align 8
-  %27 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %26, i32 noundef 2, ptr noundef nonnull @.str.81)
+22:                                               ; preds = %17
+  %23 = load ptr, ptr @stderr, align 8
+  %24 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %23, i32 noundef 2, ptr noundef nonnull @.str.81)
   tail call void @exit(i32 noundef 1) #42
   unreachable
 
-28:                                               ; preds = %20
-  store i8 0, ptr %23, align 1
+25:                                               ; preds = %17
+  store i8 0, ptr %20, align 1
   br i1 %.not, label %lemon_strcat.exit, label %.preheader
 
-.preheader:                                       ; preds = %28, %.preheader
-  %.02.i = phi ptr [ %31, %.preheader ], [ %23, %28 ]
-  %.0.i = phi ptr [ %29, %.preheader ], [ %5, %28 ]
-  %29 = getelementptr i8, ptr %.0.i, i64 1
-  %30 = load i8, ptr %.0.i, align 1
-  %31 = getelementptr i8, ptr %.02.i, i64 1
-  store i8 %30, ptr %.02.i, align 1
-  %.not.i = icmp eq i8 %30, 0
+.preheader:                                       ; preds = %25, %.preheader
+  %.02.i = phi ptr [ %28, %.preheader ], [ %20, %25 ]
+  %.0.i = phi ptr [ %26, %.preheader ], [ %5, %25 ]
+  %26 = getelementptr i8, ptr %.0.i, i64 1
+  %27 = load i8, ptr %.0.i, align 1
+  %28 = getelementptr i8, ptr %.02.i, i64 1
+  store i8 %27, ptr %.02.i, align 1
+  %.not.i = icmp eq i8 %27, 0
   br i1 %.not.i, label %lemon_strcpy.exit, label %.preheader, !llvm.loop !104
 
 lemon_strcpy.exit:                                ; preds = %.preheader
-  %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %23)
-  %scevgep.i = getelementptr i8, ptr %23, i64 %strlen.i
+  %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %20)
+  %scevgep.i = getelementptr i8, ptr %20, i64 %strlen.i
   store i16 47, ptr %scevgep.i, align 1
   br label %lemon_strcat.exit
 
-lemon_strcat.exit:                                ; preds = %lemon_strcpy.exit, %28
-  %strlen.i31 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %23)
-  %scevgep.i32 = getelementptr i8, ptr %23, i64 %strlen.i31
+lemon_strcat.exit:                                ; preds = %lemon_strcpy.exit, %25
+  %strlen.i31 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %20)
+  %scevgep.i32 = getelementptr i8, ptr %20, i64 %strlen.i31
   br label %.preheader.i33
 
 .preheader.i33:                                   ; preds = %.preheader.i33, %lemon_strcat.exit
-  %.02.i.i34 = phi ptr [ %34, %.preheader.i33 ], [ %scevgep.i32, %lemon_strcat.exit ]
-  %.0.i.i35 = phi ptr [ %32, %.preheader.i33 ], [ %.021, %lemon_strcat.exit ]
-  %32 = getelementptr i8, ptr %.0.i.i35, i64 1
-  %33 = load i8, ptr %.0.i.i35, align 1
-  %34 = getelementptr i8, ptr %.02.i.i34, i64 1
-  store i8 %33, ptr %.02.i.i34, align 1
-  %.not.i.i36 = icmp eq i8 %33, 0
+  %.02.i.i34 = phi ptr [ %31, %.preheader.i33 ], [ %scevgep.i32, %lemon_strcat.exit ]
+  %.0.i.i35 = phi ptr [ %29, %.preheader.i33 ], [ %.021, %lemon_strcat.exit ]
+  %29 = getelementptr i8, ptr %.0.i.i35, i64 1
+  %30 = load i8, ptr %.0.i.i35, align 1
+  %31 = getelementptr i8, ptr %.02.i.i34, i64 1
+  store i8 %30, ptr %.02.i.i34, align 1
+  %.not.i.i36 = icmp eq i8 %30, 0
   br i1 %.not.i.i36, label %lemon_strcat.exit37, label %.preheader.i33, !llvm.loop !104
 
 lemon_strcat.exit37:                              ; preds = %.preheader.i33
-  %35 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %23, i32 noundef 46) #46
-  %.not30 = icmp eq ptr %35, null
-  br i1 %.not30, label %37, label %36
+  %32 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 46) #46
+  %.not30 = icmp eq ptr %32, null
+  br i1 %.not30, label %34, label %33
 
-36:                                               ; preds = %lemon_strcat.exit37
-  store i8 0, ptr %35, align 1
-  br label %37
+33:                                               ; preds = %lemon_strcat.exit37
+  store i8 0, ptr %32, align 1
+  br label %34
 
-37:                                               ; preds = %36, %lemon_strcat.exit37
-  %strlen.i38 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %23)
-  %scevgep.i39 = getelementptr i8, ptr %23, i64 %strlen.i38
+34:                                               ; preds = %33, %lemon_strcat.exit37
+  %strlen.i38 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %20)
+  %scevgep.i39 = getelementptr i8, ptr %20, i64 %strlen.i38
   br label %.preheader.i40
 
-.preheader.i40:                                   ; preds = %.preheader.i40, %37
-  %.02.i.i41 = phi ptr [ %40, %.preheader.i40 ], [ %scevgep.i39, %37 ]
-  %.0.i.i42 = phi ptr [ %38, %.preheader.i40 ], [ %1, %37 ]
-  %38 = getelementptr i8, ptr %.0.i.i42, i64 1
-  %39 = load i8, ptr %.0.i.i42, align 1
-  %40 = getelementptr i8, ptr %.02.i.i41, i64 1
-  store i8 %39, ptr %.02.i.i41, align 1
-  %.not.i.i43 = icmp eq i8 %39, 0
+.preheader.i40:                                   ; preds = %.preheader.i40, %34
+  %.02.i.i41 = phi ptr [ %37, %.preheader.i40 ], [ %scevgep.i39, %34 ]
+  %.0.i.i42 = phi ptr [ %35, %.preheader.i40 ], [ %1, %34 ]
+  %35 = getelementptr i8, ptr %.0.i.i42, i64 1
+  %36 = load i8, ptr %.0.i.i42, align 1
+  %37 = getelementptr i8, ptr %.02.i.i41, i64 1
+  store i8 %36, ptr %.02.i.i41, align 1
+  %.not.i.i43 = icmp eq i8 %36, 0
   br i1 %.not.i.i43, label %lemon_strcat.exit44, label %.preheader.i40, !llvm.loop !104
 
 lemon_strcat.exit44:                              ; preds = %.preheader.i40
-  ret ptr %23
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)

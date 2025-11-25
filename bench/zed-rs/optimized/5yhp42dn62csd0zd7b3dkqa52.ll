@@ -703,10 +703,10 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   br i1 %47, label %55, label %49
 
 48:                                               ; preds = %.critedge.thread.i.i.i
-  br i1 %.sroa.044.385.i.i.i, label %181, label %common.resume.i.i
+  br i1 %.sroa.044.391.i.i.i, label %181, label %common.resume.i.i
 
 .thread.i.i.i:                                    ; preds = %58, %49, %2
-  %lpad.thr_comm119.i.i.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %181
 
@@ -766,7 +766,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %65 = getelementptr inbounds nuw i8, ptr %21, i64 1376
   %66 = load i64, ptr %65, align 8, !range !48, !noalias !197, !noundef !4
   %67 = icmp eq i64 %66, 3
-  br i1 %67, label %.thread80.i.i.i, label %69
+  br i1 %67, label %.thread86.i.i.i, label %69
 
 68:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !197
@@ -783,19 +783,19 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %.sroa.629.i.i.i, ptr noundef nonnull align 8 dereferenceable(600) %.sroa.629.0..sroa_idx.i.i.i, i64 600, i1 false), !noalias !197
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !197
   %71 = icmp eq i64 %.sroa.027.0.copyload.i.i.i, 3
-  br i1 %71, label %.thread80.i.i.i, label %74
+  br i1 %71, label %.thread86.i.i.i, label %74
 
-.critedge.thread88.i.i.i:                         ; preds = %174, %.noexc69.i.i.i, %145, %133, %130, %113
-  %lpad.thr_comm.i.i.i = landingpad { ptr, i32 }
+.critedge.thread96.i.i.i:                         ; preds = %174, %.noexc69.i.i.i, %145, %133, %130, %113
+  %lpad.thr_comm94.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.critedge.thread.i.i.i
 
-72:                                               ; preds = %.thread80.i.i.i, %69
+72:                                               ; preds = %.thread86.i.i.i, %69
   %73 = landingpad { ptr, i32 }
           cleanup
   br label %.critedge.thread.i.i.i
 
-.thread80.i.i.i:                                  ; preds = %70, %64
+.thread86.i.i.i:                                  ; preds = %70, %64
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c300ec150c14f7c12c1b8afe5bf6291f.32) #40
           to label %76 unwind label %72, !noalias !203
 
@@ -812,7 +812,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %75 = invoke { ptr, ptr } @_ZN4gpui6window13WindowContext3new17h8380c92dfb0b5e46E(ptr noalias noundef nonnull align 8 dereferenceable(1176) %1, ptr noalias noundef nonnull align 8 dereferenceable(3920) %21)
           to label %78 unwind label %175, !noalias !203
 
-76:                                               ; preds = %.thread80.i.i.i
+76:                                               ; preds = %.thread86.i.i.i
   unreachable
 
 .body.i.i.i:                                      ; preds = %"_ZN4gpui6window20ViewContext$LT$V$GT$5defer28_$u7b$$u7b$closure$u7d$$u7d$17h7624cbb251ed70deE.exit.i.i.i.i"
@@ -935,7 +935,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %117, ptr %118, align 4, !noalias !267
   %119 = invoke { i32, i32 } @"_ZN55_$LT$gpui..window..WindowId$u20$as$u20$slotmap..Key$GT$4data17hf40da87cab223b19E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5)
-          to label %.noexc66.i.i.i unwind label %.critedge.thread88.i.i.i, !noalias !203
+          to label %.noexc66.i.i.i unwind label %.critedge.thread96.i.i.i, !noalias !203
 
 .noexc66.i.i.i:                                   ; preds = %113
   %120 = extractvalue { i32, i32 } %119, 1
@@ -958,7 +958,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %131 = load ptr, ptr %23, align 8, !alias.scope !262, !noalias !212, !nonnull !4, !align !263, !noundef !4
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 976
   invoke fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h3064c38b61b48730E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef align 8 dereferenceable(32) %132, ptr noalias noundef readonly align 4 dereferenceable(8) %131)
-          to label %145 unwind label %.critedge.thread88.i.i.i, !noalias !203
+          to label %145 unwind label %.critedge.thread96.i.i.i, !noalias !203
 
 133:                                              ; preds = %123, %.noexc66.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !197
@@ -973,7 +973,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %137, align 8, !noalias !197
   %138 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %10)
-          to label %143 unwind label %.critedge.thread88.i.i.i, !noalias !203
+          to label %143 unwind label %.critedge.thread96.i.i.i, !noalias !203
 
 139:                                              ; preds = %123
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !197
@@ -1014,7 +1014,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %148, ptr %149, align 4, !noalias !284
   %150 = invoke { i32, i32 } @"_ZN55_$LT$gpui..window..WindowId$u20$as$u20$slotmap..Key$GT$4data17hf40da87cab223b19E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4)
-          to label %.noexc69.i.i.i unwind label %.critedge.thread88.i.i.i, !noalias !203
+          to label %.noexc69.i.i.i unwind label %.critedge.thread96.i.i.i, !noalias !203
 
 .noexc69.i.i.i:                                   ; preds = %145
   call void @llvm.experimental.noalias.scope.decl(metadata !286)
@@ -1023,7 +1023,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %151 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %148, ptr %151, align 4, !noalias !289
   %152 = invoke { i32, i32 } @"_ZN55_$LT$gpui..window..WindowId$u20$as$u20$slotmap..Key$GT$4data17hf40da87cab223b19E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %3)
-          to label %.noexc70.i.i.i unwind label %.critedge.thread88.i.i.i, !noalias !203
+          to label %.noexc70.i.i.i unwind label %.critedge.thread96.i.i.i, !noalias !203
 
 .noexc70.i.i.i:                                   ; preds = %.noexc69.i.i.i
   %153 = extractvalue { i32, i32 } %152, 1
@@ -1034,7 +1034,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
 
 "_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h9bbc113e99a73593E.llvm.1953522245310718965.exit.thread.i.i.i.i": ; preds = %.noexc70.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !284
-  br label %.thread107.i.i.i
+  br label %.thread115.i.i.i
 
 "_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h9bbc113e99a73593E.llvm.1953522245310718965.exit.i.i.i.i": ; preds = %.noexc70.i.i.i
   %156 = load ptr, ptr %41, align 8, !alias.scope !290, !noalias !291, !nonnull !4
@@ -1044,9 +1044,9 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %160 = load i32, ptr %159, align 8, !alias.scope !292, !noalias !297, !noundef !4
   %161 = icmp eq i32 %160, %158
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !284
-  br i1 %161, label %162, label %.thread107.i.i.i
+  br i1 %161, label %162, label %.thread115.i.i.i
 
-.thread107.i.i.i:                                 ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h9bbc113e99a73593E.llvm.1953522245310718965.exit.i.i.i.i", %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h9bbc113e99a73593E.llvm.1953522245310718965.exit.thread.i.i.i.i"
+.thread115.i.i.i:                                 ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h9bbc113e99a73593E.llvm.1953522245310718965.exit.i.i.i.i", %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17h9bbc113e99a73593E.llvm.1953522245310718965.exit.thread.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !197
   br label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h5313aba30f578fa1E.exit.i.i.i"
 
@@ -1074,9 +1074,9 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
 
 174:                                              ; preds = %162
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..window..Window$GT$17ha920947ee5b84df3E"(ptr noalias noundef nonnull align 8 dereferenceable(3920) %15)
-          to label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h5313aba30f578fa1E.exit.i.i.i" unwind label %.critedge.thread88.i.i.i, !noalias !203
+          to label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h5313aba30f578fa1E.exit.i.i.i" unwind label %.critedge.thread96.i.i.i, !noalias !203
 
-"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h5313aba30f578fa1E.exit.i.i.i": ; preds = %174, %162, %.thread107.i.i.i
+"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$gpui..window..Window$GT$$GT$$GT$17h5313aba30f578fa1E.exit.i.i.i": ; preds = %174, %162, %.thread115.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !197
   call void @"_ZN4core3ptr41drop_in_place$LT$gpui..window..Window$GT$17ha920947ee5b84df3E"(ptr noalias noundef nonnull align 8 dereferenceable(3920) %21), !noalias !203
   br label %144
@@ -1097,9 +1097,9 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   invoke void @"_ZN4core3ptr235drop_in_place$LT$gpui..window..ViewContext$LT$workspace..modal_layer..ModalLayer$GT$..defer$LT$workspace..modal_layer..ModalLayer..show_modal$LT$outline..OutlineView$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2b7906ad22734068E.llvm.307468510663036300"(ptr noalias noundef nonnull align 8 dereferenceable(64) %20)
           to label %.critedge.thread.i.i.i unwind label %177, !noalias !203
 
-.critedge.thread.i.i.i:                           ; preds = %179, %.body.i.i.i.i, %.body.i.i.i, %72, %.critedge.thread88.i.i.i
-  %.pn86.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i.i, %.critedge.thread88.i.i.i ], [ %77, %.body.i.i.i ], [ %73, %72 ], [ %86, %.body.i.i.i.i ], [ %176, %179 ]
-  %.sroa.044.385.i.i.i = phi i1 [ false, %.critedge.thread88.i.i.i ], [ false, %.body.i.i.i ], [ true, %72 ], [ false, %.body.i.i.i.i ], [ false, %179 ]
+.critedge.thread.i.i.i:                           ; preds = %179, %.body.i.i.i.i, %.body.i.i.i, %72, %.critedge.thread96.i.i.i
+  %.pn92.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm94.i.i.i, %.critedge.thread96.i.i.i ], [ %77, %.body.i.i.i ], [ %73, %72 ], [ %86, %.body.i.i.i.i ], [ %176, %179 ]
+  %.sroa.044.391.i.i.i = phi i1 [ false, %.critedge.thread96.i.i.i ], [ false, %.body.i.i.i ], [ true, %72 ], [ false, %.body.i.i.i.i ], [ false, %179 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$gpui..window..Window$GT$17ha920947ee5b84df3E"(ptr noalias noundef nonnull align 8 dereferenceable(3920) %21) #41
           to label %48 unwind label %177, !noalias !203
 
@@ -1110,11 +1110,11 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   br label %"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT$13update_window28_$u7b$$u7b$closure$u7d$$u7d$17h90c193266add422aE.exit.i.i"
 
 common.resume.i.i:                                ; preds = %192, %189, %181, %48
-  %common.resume.op.i.i = phi { ptr, i32 } [ %.pn60118.i.i.i, %181 ], [ %.pn86.i.i.i, %48 ], [ %190, %189 ], [ %190, %192 ]
+  %common.resume.op.i.i = phi { ptr, i32 } [ %.pn92.i.i.i, %48 ], [ %.pn6076.i.i.i, %181 ], [ %190, %189 ], [ %190, %192 ]
   resume { ptr, i32 } %common.resume.op.i.i
 
 181:                                              ; preds = %.thread.i.i.i, %48
-  %.pn60118.i.i.i = phi { ptr, i32 } [ %.pn86.i.i.i, %48 ], [ %lpad.thr_comm119.i.i.i, %.thread.i.i.i ]
+  %.pn6076.i.i.i = phi { ptr, i32 } [ %.pn92.i.i.i, %48 ], [ %lpad.thr_comm.i.i.i, %.thread.i.i.i ]
   invoke void @"_ZN4core3ptr235drop_in_place$LT$gpui..window..ViewContext$LT$workspace..modal_layer..ModalLayer$GT$..defer$LT$workspace..modal_layer..ModalLayer..show_modal$LT$outline..OutlineView$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2b7906ad22734068E.llvm.307468510663036300"(ptr noalias noundef nonnull align 8 dereferenceable(64) %27)
           to label %common.resume.i.i unwind label %177, !noalias !306
 

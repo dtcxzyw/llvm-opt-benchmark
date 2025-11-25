@@ -864,15 +864,15 @@ bytestream2_get_le16.exit164:                     ; preds = %35, %36
   %92 = lshr i16 %91, 3
   %93 = and i16 %92, 248
   %94 = lshr i16 %91, 8
-  %95 = and i16 %94, 248
-  %96 = lshr i16 %93, 5
-  %97 = or disjoint i16 %96, %93
-  %98 = trunc nuw i16 %97 to i8
-  %99 = getelementptr inbounds nuw i8, ptr %.0135188, i64 %indvars.iv
-  store i8 %98, ptr %99, align 1, !tbaa !46
-  %100 = lshr i16 %91, 13
-  %101 = or disjoint i16 %95, %100
-  %102 = trunc nuw i16 %101 to i8
+  %95 = trunc nuw i16 %94 to i8
+  %96 = and i8 %95, -8
+  %97 = lshr i16 %93, 5
+  %98 = or disjoint i16 %97, %93
+  %99 = trunc nuw i16 %98 to i8
+  %100 = getelementptr inbounds nuw i8, ptr %.0135188, i64 %indvars.iv
+  store i8 %99, ptr %100, align 1, !tbaa !46
+  %101 = lshr i8 %95, 5
+  %102 = or disjoint i8 %101, %96
   %103 = getelementptr inbounds nuw i8, ptr %.0137187, i64 %indvars.iv
   store i8 %102, ptr %103, align 1, !tbaa !46
   %.pre225 = load i32, ptr %71, align 8, !tbaa !34
@@ -1003,27 +1003,27 @@ bytestream2_get_le16.exit164:                     ; preds = %35, %36
   %176 = lshr i16 %175, 3
   %177 = and i16 %176, 248
   %178 = lshr i16 %175, 8
-  %179 = and i16 %178, 248
-  %180 = lshr i16 %177, 5
-  %181 = or disjoint i16 %180, %177
-  %182 = trunc nuw i16 %181 to i8
-  %183 = or disjoint i64 %indvars.iv222, 1
-  %184 = getelementptr inbounds nuw i8, ptr %.0133203, i64 %183
-  store i8 %182, ptr %184, align 1, !tbaa !46
-  %185 = getelementptr inbounds nuw i8, ptr %.0133203, i64 %indvars.iv222
-  store i8 %182, ptr %185, align 1, !tbaa !46
-  %186 = getelementptr inbounds nuw i8, ptr %.1136202, i64 %183
-  store i8 %182, ptr %186, align 1, !tbaa !46
-  %187 = getelementptr inbounds nuw i8, ptr %.1136202, i64 %indvars.iv222
-  store i8 %182, ptr %187, align 1, !tbaa !46
-  %188 = lshr i16 %175, 13
-  %189 = or disjoint i16 %179, %188
-  %190 = trunc nuw i16 %189 to i8
-  %191 = getelementptr inbounds nuw i8, ptr %.0132204, i64 %183
+  %179 = trunc nuw i16 %178 to i8
+  %180 = and i8 %179, -8
+  %181 = lshr i16 %177, 5
+  %182 = or disjoint i16 %181, %177
+  %183 = trunc nuw i16 %182 to i8
+  %184 = or disjoint i64 %indvars.iv222, 1
+  %185 = getelementptr inbounds nuw i8, ptr %.0133203, i64 %184
+  store i8 %183, ptr %185, align 1, !tbaa !46
+  %186 = getelementptr inbounds nuw i8, ptr %.0133203, i64 %indvars.iv222
+  store i8 %183, ptr %186, align 1, !tbaa !46
+  %187 = getelementptr inbounds nuw i8, ptr %.1136202, i64 %184
+  store i8 %183, ptr %187, align 1, !tbaa !46
+  %188 = getelementptr inbounds nuw i8, ptr %.1136202, i64 %indvars.iv222
+  store i8 %183, ptr %188, align 1, !tbaa !46
+  %189 = lshr i8 %179, 5
+  %190 = or disjoint i8 %189, %180
+  %191 = getelementptr inbounds nuw i8, ptr %.0132204, i64 %184
   store i8 %190, ptr %191, align 1, !tbaa !46
   %192 = getelementptr inbounds nuw i8, ptr %.0132204, i64 %indvars.iv222
   store i8 %190, ptr %192, align 1, !tbaa !46
-  %193 = getelementptr inbounds nuw i8, ptr %.1138201, i64 %183
+  %193 = getelementptr inbounds nuw i8, ptr %.1138201, i64 %184
   store i8 %190, ptr %193, align 1, !tbaa !46
   %194 = getelementptr inbounds nuw i8, ptr %.1138201, i64 %indvars.iv222
   store i8 %190, ptr %194, align 1, !tbaa !46

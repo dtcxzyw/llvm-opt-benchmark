@@ -12644,8 +12644,8 @@ define internal fastcc void @_ZN8schemars8_private8metadata15add_description17hf
   tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %10, i64 noundef 1) #39, !noalias !2666
   br label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h776c3ea917a40ad3E.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h776c3ea917a40ad3E.exit": ; preds = %17, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i1.i.i22", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0bb3691b40c6e6bfE.exit19", %.thread, %37
-  %.pn849 = phi { ptr, i32 } [ %14, %37 ], [ %14, %.thread ], [ %34, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0bb3691b40c6e6bfE.exit19" ], [ %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i1.i.i22" ], [ %18, %17 ]
+"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h776c3ea917a40ad3E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i1.i.i22", %17, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0bb3691b40c6e6bfE.exit19", %.thread, %37
+  %.pn849 = phi { ptr, i32 } [ %14, %37 ], [ %14, %.thread ], [ %34, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0bb3691b40c6e6bfE.exit19" ], [ %18, %17 ], [ %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.14582701375544310392.exit.i.i1.i.i22" ]
   resume { ptr, i32 } %.pn849
 
 37:                                               ; preds = %.thread
@@ -13580,7 +13580,7 @@ define void @"_ZN8worktree17worktree_settings1_103_$LT$impl$u20$schemars..JsonSc
   unreachable
 
 .body:                                            ; preds = %58, %62, %51, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h53f4c882397a3759E.exit15.i", %19
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %.pn33.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h53f4c882397a3759E.exit15.i" ], [ %52, %51 ], [ %59, %62 ], [ %59, %58 ]
+  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %52, %51 ], [ %.pn34.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h53f4c882397a3759E.exit15.i" ], [ %59, %62 ], [ %59, %58 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17he9012cf5814bd283E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %14) #37
           to label %65 unwind label %63
 
@@ -13695,7 +13695,7 @@ define void @"_ZN8worktree17worktree_settings1_103_$LT$impl$u20$schemars..JsonSc
   br label %53
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h53f4c882397a3759E.exit15.i": ; preds = %46, %39
-  %.pn33.i = phi { ptr, i32 } [ %40, %39 ], [ %47, %46 ]
+  %.pn34.i = phi { ptr, i32 } [ %40, %39 ], [ %47, %46 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17he9012cf5814bd283E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %5) #37
           to label %.body unwind label %48, !noalias !3020
 

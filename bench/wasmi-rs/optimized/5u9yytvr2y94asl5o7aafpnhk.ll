@@ -3639,7 +3639,7 @@ define void @_ZN5wasmi6engine8code_map20UncompiledFuncEntity7compile17h154a3cb90
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %42 = load ptr, ptr %41, align 8, !noundef !8
-  %.not202 = icmp eq ptr %42, null
+  %.not210 = icmp eq ptr %42, null
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %65, label %43
 
@@ -3688,7 +3688,7 @@ define void @_ZN5wasmi6engine8code_map20UncompiledFuncEntity7compile17h154a3cb90
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8c5abbf9cc50e69cE.exit.i.i.i": ; preds = %55, %52
   %.sroa.2.0.i.i.i = phi i64 [ %54, %52 ], [ %58, %55 ]
-  %..i.i.i = select i1 %.not202, i64 7, i64 9
+  %..i.i.i = select i1 %.not210, i64 7, i64 9
   %61 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.2.0.i.i.i, i64 %..i.i.i)
   %62 = extractvalue { i64, i1 } %61, 0
   %63 = extractvalue { i64, i1 } %61, 1
@@ -3715,7 +3715,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbf46c58aac3bc1faE.exit.i._ZN10wasmi_cor
   br i1 %69, label %99, label %97
 
 70:                                               ; preds = %101, %247, %100, %78
-  %.pn126 = phi { ptr, i32 } [ %79, %78 ], [ %.pn124212, %247 ], [ %.pn122, %100 ], [ %lpad.thr_comm.split-lp214, %101 ]
+  %.pn126 = phi { ptr, i32 } [ %79, %78 ], [ %.pn124144, %247 ], [ %.pn122, %100 ], [ %lpad.thr_comm.split-lp, %101 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !460)
   %71 = load i8, ptr %37, align 8, !range !78, !alias.scope !460, !noundef !8
   %72 = icmp eq i8 %71, 0
@@ -3789,16 +3789,16 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   tail call void @llvm.trap()
   unreachable
 
-100:                                              ; preds = %.thread193
+100:                                              ; preds = %.thread201
   br i1 %.sroa.079.4, label %247, label %70
 
 .thread:                                          ; preds = %241, %239, %102, %97
-  %lpad.thr_comm213 = landingpad { ptr, i32 }
+  %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %247
 
 101:                                              ; preds = %234, %222
-  %lpad.thr_comm.split-lp214 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %70
 
@@ -3815,22 +3815,22 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %106 = load i32, ptr %40, align 8
   store ptr null, ptr %41, align 8
-  br i1 %.not202, label %108, label %107
+  br i1 %.not210, label %108, label %107
 
 107:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %42, ptr %29, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   invoke void @_ZN5wasmi6engine6Engine10get_allocs17h77074bfbb298f5b9E(ptr noalias noundef nonnull sret([656 x i8]) align 8 captures(none) dereferenceable(656) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %31)
-          to label %159 unwind label %.thread158
+          to label %159 unwind label %.thread166
 
 108:                                              ; preds = %105
   invoke void @_ZN5wasmi6engine6Engine22get_translation_allocs17ha465bc3628186392E(ptr noalias noundef nonnull sret([480 x i8]) align 8 captures(none) dereferenceable(480) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %31)
           to label %111 unwind label %109
 
-.thread193:                                       ; preds = %.thread181, %229, %161, %.thread147, %238, %157, %154, %109
-  %.sroa.079.4 = phi i1 [ %.sroa.079.3, %109 ], [ %.sroa.079.7162, %238 ], [ false, %157 ], [ false, %154 ], [ false, %.thread147 ], [ false, %161 ], [ false, %229 ], [ false, %.thread181 ]
-  %.pn122 = phi { ptr, i32 } [ %110, %109 ], [ %.pn120163, %238 ], [ %.pn.pn169, %157 ], [ %lpad.thr_comm.split-lp, %154 ], [ %lpad.thr_comm, %.thread147 ], [ %.pn.ph, %161 ], [ %lpad.thr_comm.split-lp180, %229 ], [ %lpad.thr_comm179, %.thread181 ]
+.thread201:                                       ; preds = %.thread189, %229, %161, %.thread155, %238, %157, %154, %109
+  %.sroa.079.4 = phi i1 [ %.sroa.079.3, %109 ], [ %.sroa.079.7170, %238 ], [ false, %157 ], [ false, %154 ], [ false, %.thread155 ], [ false, %161 ], [ false, %229 ], [ false, %.thread189 ]
+  %.pn122 = phi { ptr, i32 } [ %110, %109 ], [ %.pn120171, %238 ], [ %.pn.pn177, %157 ], [ %lpad.thr_comm.split-lp154, %154 ], [ %lpad.thr_comm153, %.thread155 ], [ %.pn.ph, %161 ], [ %lpad.thr_comm.split-lp188, %229 ], [ %lpad.thr_comm187, %.thread189 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$wasmi..engine..Engine$GT$17h573f030729ecf630E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %31) #31
           to label %100 unwind label %155
 
@@ -3838,7 +3838,7 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   %.sroa.079.3 = phi i1 [ false, %233 ], [ false, %111 ], [ true, %108 ]
   %110 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread193
+  br label %.thread201
 
 111:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -3900,10 +3900,10 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   %134 = getelementptr inbounds nuw i8, ptr %37, i64 2
   br label %135
 
-.thread147:                                       ; preds = %151, %143, %135
-  %lpad.thr_comm = landingpad { ptr, i32 }
+.thread155:                                       ; preds = %151, %143, %135
+  %lpad.thr_comm153 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread193
+  br label %.thread201
 
 135:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8c5abbf9cc50e69cE.exit.i", %123
   %.sroa.3.0.i = phi i64 [ %127, %123 ], [ %131, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8c5abbf9cc50e69cE.exit.i" ]
@@ -3911,7 +3911,7 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %8, ptr noundef nonnull align 8 dereferenceable(528) %12, i64 528, i1 false)
   invoke void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$LT$T$GT$3new17h7a4e3df007b3860aE"(ptr noalias noundef nonnull sret([584 x i8]) align 8 captures(none) dereferenceable(584) %9, i64 noundef 0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.3.0.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(528) %8)
-          to label %136 unwind label %.thread147
+          to label %136 unwind label %.thread155
 
 136:                                              ; preds = %135
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -3938,7 +3938,7 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   %.sroa.765.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %140, ptr %.sroa.765.0..sroa_idx66, align 8
   invoke void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$LT$T$GT$9translate17h374f93c53874c870E"(ptr noalias noundef nonnull sret([480 x i8]) align 8 captures(none) dereferenceable(480) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(584) %7, ptr noalias noundef nonnull align 8 dereferenceable(40) %30)
-          to label %144 unwind label %.thread147
+          to label %144 unwind label %.thread155
 
 144:                                              ; preds = %143
   %145 = load i64, ptr %10, align 8, !range !199, !noundef !8
@@ -3963,7 +3963,7 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   %.sroa.758.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %148, ptr %.sroa.758.0..sroa_idx59, align 8
   invoke void @_ZN5wasmi6engine6Engine26recycle_translation_allocs17hbf1cbf9e96e49f7eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %31, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(480) %6)
-          to label %152 unwind label %.thread147
+          to label %152 unwind label %.thread155
 
 152:                                              ; preds = %151
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -3974,21 +3974,21 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   br label %234
 
 154:                                              ; preds = %133
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp154 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr62drop_in_place$LT$wasmi..engine..translator..FuncTranslator$GT$17h5543515d69bbde77E"(ptr noalias noundef nonnull align 8 dereferenceable(528) %12) #31
-          to label %.thread193 unwind label %155
+          to label %.thread201 unwind label %155
 
-155:                                              ; preds = %247, %238, %236, %231, %229, %174, %154, %.thread193
+155:                                              ; preds = %247, %238, %236, %231, %229, %174, %154, %.thread201
   %156 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #30
   unreachable
 
 157:                                              ; preds = %236
-  br i1 %.sroa.074.2168, label %238, label %.thread193
+  br i1 %.sroa.074.2176, label %238, label %.thread201
 
-.thread158:                                       ; preds = %107, %168
+.thread166:                                       ; preds = %107, %168
   %.sroa.079.2 = phi i1 [ false, %168 ], [ true, %107 ]
   %158 = landingpad { ptr, i32 }
           cleanup
@@ -4001,12 +4001,12 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %25, ptr noundef nonnull align 8 dereferenceable(480) %28, i64 480, i1 false)
   invoke void @_ZN5wasmi6engine10translator14FuncTranslator3new17hadc0eab105a687ccE(ptr noalias noundef nonnull sret([528 x i8]) align 8 captures(none) dereferenceable(528) %26, i32 noundef %39, ptr noundef nonnull %160, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(480) %25)
-          to label %163 unwind label %.thread164
+          to label %163 unwind label %.thread172
 
 161:                                              ; preds = %231
-  br i1 %.sroa.072.1.ph, label %236, label %.thread193
+  br i1 %.sroa.072.1.ph, label %236, label %.thread201
 
-.thread164:                                       ; preds = %159
+.thread172:                                       ; preds = %159
   %162 = landingpad { ptr, i32 }
           cleanup
   br label %236
@@ -4027,7 +4027,7 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %170 = getelementptr inbounds nuw i8, ptr %28, i64 480
   invoke void @"_ZN4core3ptr74drop_in_place$LT$wasmparser..validator..func..FuncValidatorAllocations$GT$17h29262aa854670889E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %170)
-          to label %233 unwind label %.thread158
+          to label %233 unwind label %.thread166
 
 171:                                              ; preds = %163
   %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -4130,10 +4130,10 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   %203 = getelementptr inbounds nuw i8, ptr %37, i64 2
   br label %204
 
-.thread181:                                       ; preds = %220, %212, %204
-  %lpad.thr_comm179 = landingpad { ptr, i32 }
+.thread189:                                       ; preds = %220, %212, %204
+  %lpad.thr_comm187 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread193
+  br label %.thread201
 
 204:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8c5abbf9cc50e69cE.exit.i136", %192
   %.sroa.3.0.i137 = phi i64 [ %196, %192 ], [ %200, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8c5abbf9cc50e69cE.exit.i136" ]
@@ -4141,7 +4141,7 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(760) %17, ptr noundef nonnull align 8 dereferenceable(760) %20, i64 760, i1 false)
   invoke void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$LT$T$GT$3new17hb7c3acbe605a7323E"(ptr noalias noundef nonnull sret([816 x i8]) align 8 captures(none) dereferenceable(816) %18, i64 noundef 0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i138, i64 noundef %.sroa.3.0.i137, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(760) %17)
-          to label %205 unwind label %.thread181
+          to label %205 unwind label %.thread189
 
 205:                                              ; preds = %204
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -4168,7 +4168,7 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   %.sroa.737.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %209, ptr %.sroa.737.0..sroa_idx38, align 8
   invoke void @"_ZN5wasmi6engine10translator6driver30FuncTranslationDriver$LT$T$GT$9translate17h545521eba705e19cE"(ptr noalias noundef nonnull sret([656 x i8]) align 8 captures(none) dereferenceable(656) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(816) %16, ptr noalias noundef nonnull align 8 dereferenceable(40) %30)
-          to label %213 unwind label %.thread181
+          to label %213 unwind label %.thread189
 
 213:                                              ; preds = %212
   %214 = load i64, ptr %19, align 8, !range !199, !noundef !8
@@ -4198,7 +4198,7 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   %.sroa.3.480..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.3, i64 464
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %14, ptr noundef nonnull align 8 dereferenceable(176) %.sroa.3.480..sroa_idx, i64 176, i1 false)
   invoke void @_ZN5wasmi6engine6Engine14recycle_allocs17h310907b9c348a6c1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %31, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(480) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %14)
-          to label %221 unwind label %.thread181
+          to label %221 unwind label %.thread189
 
 221:                                              ; preds = %220
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -4223,8 +4223,8 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   %226 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %.val1.i141 = load i64, ptr %226, align 8
   %227 = icmp eq i64 %.val1.i141, 0
-  %or.cond219 = select i1 %225, i1 true, i1 %227
-  br i1 %or.cond219, label %"_ZN4core3ptr60drop_in_place$LT$wasmi..engine..code_map..SmallByteSlice$GT$17h592b2c03ef400416E.exit133", label %"_ZN4core3ptr60drop_in_place$LT$wasmi..engine..code_map..SmallByteSlice$GT$17h592b2c03ef400416E.exit133.sink.split"
+  %or.cond222 = select i1 %225, i1 true, i1 %227
+  br i1 %or.cond222, label %"_ZN4core3ptr60drop_in_place$LT$wasmi..engine..code_map..SmallByteSlice$GT$17h592b2c03ef400416E.exit133", label %"_ZN4core3ptr60drop_in_place$LT$wasmi..engine..code_map..SmallByteSlice$GT$17h592b2c03ef400416E.exit133.sink.split"
 
 "_ZN4core3ptr60drop_in_place$LT$wasmi..engine..code_map..SmallByteSlice$GT$17h592b2c03ef400416E.exit133.sink.split": ; preds = %223, %92
   %.val1.i141.sink = phi i64 [ %.val1.i131, %92 ], [ %.val1.i141, %223 ]
@@ -4238,10 +4238,10 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   ret void
 
 229:                                              ; preds = %202
-  %lpad.thr_comm.split-lp180 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp188 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr121drop_in_place$LT$wasmi..engine..translator..ValidatingFuncTranslator$LT$wasmi..engine..translator..FuncTranslator$GT$$GT$17h4bedd5bd01f43f0eE"(ptr noalias noundef nonnull align 8 dereferenceable(760) %20) #31
-          to label %.thread193 unwind label %155
+          to label %.thread201 unwind label %155
 
 230:                                              ; preds = %210, %218, %186
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -4274,18 +4274,18 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %92
 
-236:                                              ; preds = %.thread164, %161
-  %.pn.pn169 = phi { ptr, i32 } [ %162, %.thread164 ], [ %.pn.ph, %161 ]
-  %.sroa.074.2168 = phi i1 [ true, %.thread164 ], [ false, %161 ]
+236:                                              ; preds = %.thread172, %161
+  %.pn.pn177 = phi { ptr, i32 } [ %162, %.thread172 ], [ %.pn.ph, %161 ]
+  %.sroa.074.2176 = phi i1 [ true, %.thread172 ], [ false, %161 ]
   %237 = getelementptr inbounds nuw i8, ptr %28, i64 480
   invoke void @"_ZN4core3ptr74drop_in_place$LT$wasmparser..validator..func..FuncValidatorAllocations$GT$17h29262aa854670889E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %237) #31
           to label %157 unwind label %155
 
-238:                                              ; preds = %.thread158, %157
-  %.pn120163 = phi { ptr, i32 } [ %158, %.thread158 ], [ %.pn.pn169, %157 ]
-  %.sroa.079.7162 = phi i1 [ %.sroa.079.2, %.thread158 ], [ false, %157 ]
+238:                                              ; preds = %.thread166, %157
+  %.pn120171 = phi { ptr, i32 } [ %158, %.thread166 ], [ %.pn.pn177, %157 ]
+  %.sroa.079.7170 = phi i1 [ %.sroa.079.2, %.thread166 ], [ false, %157 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$wasmparser..validator..core..ValidatorResources$GT$17hae94659209d663b2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29) #31
-          to label %.thread193 unwind label %155
+          to label %.thread201 unwind label %155
 
 239:                                              ; preds = %104
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
@@ -4316,7 +4316,7 @@ _ZN10wasmi_core4fuel4Fuel12consume_fuel17h66a4241b695416e7E.exit: ; preds = %_ZN
   unreachable
 
 247:                                              ; preds = %.thread, %100
-  %.pn124212 = phi { ptr, i32 } [ %.pn122, %100 ], [ %lpad.thr_comm213, %.thread ]
+  %.pn124144 = phi { ptr, i32 } [ %.pn122, %100 ], [ %lpad.thr_comm, %.thread ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$wasmi..module..ModuleHeader$GT$17h0b6ceb6aed50088dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %35) #31
           to label %70 unwind label %155
 

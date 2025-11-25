@@ -2621,9 +2621,9 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
   %.0102 = phi ptr [ %162, %161 ], [ %157, %156 ]
   %164 = call i32 @lv_chart_get_type(ptr noundef %18) #5
   %165 = icmp eq i32 %164, 2
-  br i1 %165, label %.thread, label %176
+  br i1 %165, label %.critedge, label %176
 
-.thread:                                          ; preds = %163
+.critedge:                                        ; preds = %163
   %166 = call ptr @lv_draw_task_get_draw_dsc(ptr noundef %21) #5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %8) #5
@@ -2650,7 +2650,7 @@ define internal void @chart_event_cb(ptr noundef %0) #0 {
 176:                                              ; preds = %163, %151, %148
   br i1 %.0100, label %177, label %278
 
-177:                                              ; preds = %.thread, %176
+177:                                              ; preds = %.critedge, %176
   %178 = call ptr @lv_chart_get_series_next(ptr noundef %18, ptr noundef null) #5
   %179 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %180 = load i32, ptr %179, align 4, !tbaa !46

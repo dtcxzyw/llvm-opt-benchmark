@@ -18666,15 +18666,15 @@ define hidden void @_ZN4core4iter8adapters11try_process17h858e89e5e5bf4330E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2994
   %11 = load i64, ptr %6, align 8, !range !70, !noundef !5
   %.not.not = icmp eq i64 %11, 8
-  br i1 %.not.not, label %.thread13, label %14
+  br i1 %.not.not, label %.thread, label %14
 
-.thread13:                                        ; preds = %10
+.thread:                                          ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i64 8, ptr %0, align 8, !alias.scope !3006, !noalias !3009
   br label %13
 
-13:                                               ; preds = %14, %.thread13
+13:                                               ; preds = %14, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -26292,8 +26292,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.11792392190407745568.e
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34
   unreachable
 
-common.resume:                                    ; preds = %99, %.thread80, %.thread35.i, %52
-  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %44, %.thread35.i ], [ %.pn.pn.pn3183, %.thread80 ], [ %.pn.pn.pn3183, %99 ]
+common.resume:                                    ; preds = %100, %97, %.thread35.i, %52
+  %common.resume.op = phi { ptr, i32 } [ %53, %52 ], [ %44, %.thread35.i ], [ %.pn.pn.pn3180, %97 ], [ %.pn.pn.pn3180, %100 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h047765e420b149c7E.exit.i": ; preds = %45
@@ -26325,7 +26325,7 @@ _ZN13deltalake_aws11credentials25ConfiguredCredentialChain19build_imds_provider1
 61:                                               ; preds = %96, %77
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn40, %96 ], [ %.pn.pn, %77 ]
   %.018 = phi i1 [ %.11942, %96 ], [ %.119, %77 ]
-  br i1 %.018, label %.thread, label %.thread80
+  br i1 %.018, label %.thread, label %97
 
 62:                                               ; preds = %72, %64, %_ZN13deltalake_aws11credentials25ConfiguredCredentialChain19build_imds_provider17h4964de89fff905f7E.exit
   %63 = landingpad { ptr, i32 }
@@ -26448,12 +26448,12 @@ _ZN13deltalake_aws11credentials25ConfiguredCredentialChain19build_imds_provider1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %11, ptr noundef nonnull align 8 dereferenceable(360) %21, i64 360, i1 false)
   invoke void @_ZN10aws_config4meta11credentials5chain24CredentialsProviderChain7or_else17h617da4a1b0c11f77E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 @anon.ef876e9a40f6761df4fa1e2b544b5407.515, i64 noundef 12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(360) %11)
-          to label %91 unwind label %.thread84
+          to label %91 unwind label %.thread75.thread
 
-.thread84:                                        ; preds = %90
-  %lpad.thr_comm.split-lp86 = landingpad { ptr, i32 }
+.thread75.thread:                                 ; preds = %90
+  %lpad.thr_comm.split-lp82 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread80
+  br label %97
 
 91:                                               ; preds = %90
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -26476,7 +26476,7 @@ _ZN13deltalake_aws11credentials25ConfiguredCredentialChain19build_imds_provider1
   invoke void @"_ZN4core3ptr60drop_in_place$LT$aws_config..ecs..EcsCredentialsProvider$GT$17he3c2da0b1a97c4edE"(ptr noalias noundef nonnull align 8 dereferenceable(360) %21) #33
           to label %84 unwind label %93
 
-93:                                               ; preds = %99, %.thread, %96, %95, %92
+93:                                               ; preds = %100, %.thread, %96, %95, %92
   %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34
@@ -26498,15 +26498,15 @@ _ZN13deltalake_aws11credentials25ConfiguredCredentialChain19build_imds_provider1
 .thread:                                          ; preds = %69, %62, %61
   %.pn.pn.pn32 = phi { ptr, i32 } [ %.pn.pn.pn, %61 ], [ %70, %69 ], [ %63, %62 ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$aws_config..environment..credentials..EnvironmentVariableCredentialsProvider$GT$17h272e260196b70133E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29) #33
-          to label %.thread80 unwind label %93
+          to label %97 unwind label %93
 
-.thread80:                                        ; preds = %61, %.thread, %.thread84
-  %.pn.pn.pn3183 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp86, %.thread84 ], [ %.pn.pn.pn, %61 ], [ %.pn.pn.pn32, %.thread ]
-  %97 = atomicrmw sub ptr %59, i64 1 release, align 8, !noalias !3769
-  %98 = icmp eq i64 %97, 1
-  br i1 %98, label %99, label %common.resume
+97:                                               ; preds = %61, %.thread, %.thread75.thread
+  %.pn.pn.pn3180 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp82, %.thread75.thread ], [ %.pn.pn.pn32, %.thread ], [ %.pn.pn.pn, %61 ]
+  %98 = atomicrmw sub ptr %59, i64 1 release, align 8, !noalias !3769
+  %99 = icmp eq i64 %98, 1
+  br i1 %99, label %100, label %common.resume
 
-99:                                               ; preds = %.thread80
+100:                                              ; preds = %97
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h33a411cf0ce75ea0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30)
           to label %common.resume unwind label %93

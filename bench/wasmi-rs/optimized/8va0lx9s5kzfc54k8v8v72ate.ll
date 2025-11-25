@@ -32,9 +32,9 @@ define hidden void @_ZN10wasmi_core9func_type8FuncType3new17h19ada5e0a030dc72E(p
           cleanup
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u3b$$u20$N$u5d$$u20$as$u20$core..array..iter..iter_inner..PartialDrop$GT$12partial_drop17hdd0e589de7a4daffE"(ptr noalias noundef nonnull align 1 %9, i64 noundef 0, i64 noundef 0)
-          to label %.thread35.i unwind label %5, !noalias !3
+          to label %"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$wasmi_core..value..ValType$C$0_usize$GT$$GT$17hd9afd33b8d8c60e5E.exit24.i" unwind label %5, !noalias !3
 
-.thread35.i:                                      ; preds = %7
+"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$wasmi_core..value..ValType$C$0_usize$GT$$GT$17hd9afd33b8d8c60e5E.exit24.i": ; preds = %7
   resume { ptr, i32 } %8
 
 10:                                               ; preds = %1
@@ -76,9 +76,9 @@ define hidden void @_ZN10wasmi_core9func_type8FuncType3new17h2d52d6321b98bb82E(p
   %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u3b$$u20$N$u5d$$u20$as$u20$core..array..iter..iter_inner..PartialDrop$GT$12partial_drop17h3bd9ea2977438f04E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %.sroa.3.0..sroa_idx.i.i, i64 noundef 2, i64 noundef 2)
-          to label %.thread38.i unwind label %6, !noalias !6
+          to label %"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$wasmi_core..value..ValType$C$2_usize$GT$$GT$17he014a53cc2632a69E.exit.i" unwind label %6, !noalias !6
 
-.thread38.i:                                      ; preds = %8
+"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$wasmi_core..value..ValType$C$2_usize$GT$$GT$17he014a53cc2632a69E.exit.i": ; preds = %8
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2
@@ -123,9 +123,9 @@ define hidden void @_ZN10wasmi_core9func_type8FuncType3new17ha223f186c33947e5E(p
   %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u3b$$u20$N$u5d$$u20$as$u20$core..array..iter..iter_inner..PartialDrop$GT$12partial_drop17h1d6761437090f5b6E"(ptr noalias noundef nonnull align 1 dereferenceable(1) %.sroa.3.0..sroa_idx.i.i, i64 noundef 1, i64 noundef 1)
-          to label %.thread38.i unwind label %6, !noalias !12
+          to label %"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$wasmi_core..value..ValType$C$1_usize$GT$$GT$17h482dd743baa92ca2E.exit.i" unwind label %6, !noalias !12
 
-.thread38.i:                                      ; preds = %8
+"_ZN4core3ptr92drop_in_place$LT$core..array..iter..IntoIter$LT$wasmi_core..value..ValType$C$1_usize$GT$$GT$17h482dd743baa92ca2E.exit.i": ; preds = %8
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %2

@@ -10348,7 +10348,7 @@ define void @"_ZN87_$LT$title_bar..window_controls..WindowControl$u20$as$u20$gpu
           to label %32 unwind label %30
 
 .body12.thread65:                                 ; preds = %.body12.thread
-  br i1 %.sroa.03.1.lpad-body62, label %.thread, label %.body12.thread65.thread.thread
+  br i1 %.sroa.03.1.lpad-body62, label %.thread, label %.thread79
 
 30:                                               ; preds = %101, %3
   %31 = landingpad { ptr, i32 }
@@ -10770,12 +10770,12 @@ switch.lookup:                                    ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %7, ptr noundef nonnull align 8 dereferenceable(712) %29, i64 712, i1 false)
   invoke void @_ZN4gpui7element13ParentElement5child17h45554535827ef08dE(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(712) %7)
-          to label %168 unwind label %.body12.thread65.thread.thread89
+          to label %168 unwind label %.body12.thread65.thread.thread86
 
-.body12.thread65.thread.thread89:                 ; preds = %167
-  %lpad.thr_comm.split-lp91 = landingpad { ptr, i32 }
+.body12.thread65.thread.thread86:                 ; preds = %167
+  %lpad.thr_comm.split-lp88 = landingpad { ptr, i32 }
           cleanup
-  br label %.body12.thread65.thread.thread
+  br label %.thread79
 
 168:                                              ; preds = %167
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -10788,7 +10788,7 @@ switch.lookup:                                    ; preds = %52
   %171 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17hab703825f34f11a2E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %20)
-          to label %.body12.thread65.thread.thread unwind label %177, !noalias !2012
+          to label %.thread79 unwind label %177, !noalias !2012
 
 "_ZN98_$LT$gpui..elements..div..Stateful$LT$E$GT$$u20$as$u20$gpui..elements..div..InteractiveElement$GT$13interactivity17hb2abebae5c0078fbE.llvm.3741760397517672727.exit.i": ; preds = %168
   %172 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hca4f2c3ea5fa8ec1E.llvm.3741760397517672727(ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 1, i64 noundef 0, i1 noundef zeroext false)
@@ -10843,7 +10843,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..svg..Svg$GT$17h04eb41bdff963793E"(ptr noalias noundef nonnull align 8 dereferenceable(712) %29) #34
           to label %.body12.thread65 unwind label %187
 
-187:                                              ; preds = %.body12.thread65.thread.thread, %189, %.body12.thread
+187:                                              ; preds = %.thread79, %189, %.body12.thread
   %188 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #33
@@ -10858,13 +10858,13 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.3741760397517672727.ex
 .thread:                                          ; preds = %93, %50, %34, %30, %189, %.body12.thread65
   %.pn55 = phi { ptr, i32 } [ %eh.lpad-body1364, %.body12.thread65 ], [ %190, %189 ], [ %31, %30 ], [ %35, %34 ], [ %51, %50 ], [ %94, %93 ]
   call fastcc void @"_ZN4core3ptr44drop_in_place$LT$gpui..window..ElementId$GT$17he859e55992c7d080E"(ptr noalias noundef align 8 dereferenceable(32) %1) #34
-  br label %.body12.thread65.thread.thread
+  br label %.thread79
 
-191:                                              ; preds = %.body12.thread65.thread.thread
-  resume { ptr, i32 } %.pn5482
+191:                                              ; preds = %.thread79
+  resume { ptr, i32 } %.pn5483
 
-.body12.thread65.thread.thread:                   ; preds = %.body12.thread65, %.thread, %.body12.thread65.thread.thread89, %170
-  %.pn5482 = phi { ptr, i32 } [ %171, %170 ], [ %lpad.thr_comm.split-lp91, %.body12.thread65.thread.thread89 ], [ %eh.lpad-body1364, %.body12.thread65 ], [ %.pn55, %.thread ]
+.thread79:                                        ; preds = %.thread, %170, %.body12.thread65, %.body12.thread65.thread.thread86
+  %.pn5483 = phi { ptr, i32 } [ %.pn55, %.thread ], [ %lpad.thr_comm.split-lp88, %.body12.thread65.thread.thread86 ], [ %eh.lpad-body1364, %.body12.thread65 ], [ %171, %170 ]
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.val6 = load ptr, ptr %192, align 8, !noundef !7
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 104

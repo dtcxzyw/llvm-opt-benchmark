@@ -705,7 +705,7 @@ mi_outc.exit.i:                                   ; preds = %207, %206
 216:                                              ; preds = %.split.i
   %217 = icmp samesign ult i64 %215, 10
   %218 = trunc nuw nsw i64 %215 to i8
-  %219 = or i8 %218, 48
+  %219 = or disjoint i8 %218, 48
   %220 = add nuw nsw i8 %218, 55
   %221 = select i1 %217, i8 %219, i8 %220
   store i8 %221, ptr %213, align 1, !tbaa !3

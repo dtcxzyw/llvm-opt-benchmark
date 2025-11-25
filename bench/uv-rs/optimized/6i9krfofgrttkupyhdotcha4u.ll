@@ -4518,7 +4518,7 @@ default.unreachable220:                           ; preds = %336, %320
   %.pn110 = phi { ptr, i32 } [ %.pn, %461 ], [ %.pn, %356 ], [ %298, %.body43.i ], [ %248, %.body.i ], [ %.pn.i.i, %199 ], [ %349, %348 ], [ %392, %391 ], [ %422, %421 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit200, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp201, %.loopexit.split-lp.loopexit.split-lp ]
   %65 = load i8, ptr %59, align 8, !range !95, !noundef !8
   %66 = icmp eq i8 %65, 3
-  %or.cond9 = and i1 %66, %.sroa.053.1
+  %or.cond9 = and i1 %.sroa.053.1, %66
   br i1 %or.cond9, label %482, label %481
 
 .loopexit:                                        ; preds = %88, %95

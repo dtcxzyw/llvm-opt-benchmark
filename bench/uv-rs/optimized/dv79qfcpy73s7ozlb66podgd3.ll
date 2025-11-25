@@ -24604,8 +24604,8 @@ define hidden noalias noundef nonnull ptr @_ZN11uv_resolver7pubgrub7package14Pub
   %.sroa.034.0.lpad-body = phi i1 [ true, %14 ], [ false, %26 ], [ false, %62 ], [ false, %74 ]
   %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %27, %26 ], [ %63, %62 ], [ %75, %74 ]
   %16 = load ptr, ptr %10, align 8, !noundef !3
-  %.not112 = icmp eq ptr %16, null
-  br i1 %.not112, label %.body.thread, label %86
+  %.not113 = icmp eq ptr %16, null
+  br i1 %.not113, label %.body.thread, label %87
 
 _ZN9uv_pep5086marker4tree10MarkerTree20simplify_extras_with17h53f6c480bb2f28daE.exit: ; preds = %4
   %17 = load ptr, ptr %11, align 8, !noundef !3
@@ -24813,21 +24813,21 @@ _ZN9uv_pep5086marker4tree10MarkerTree20simplify_extras_with17h53f6c480bb2f28daE.
   %.sroa.032.4 = phi i8 [ 0, %81 ], [ 1, %78 ]
   %.sroa.0.2 = phi ptr [ %71, %81 ], [ %59, %78 ]
   %80 = load ptr, ptr %10, align 8, !noundef !3
-  %.not111 = icmp eq ptr %80, null
-  br i1 %.not111, label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..group_name..GroupName$GT$17ha76e70feaf361cc8E.exit", label %35
+  %.not112 = icmp eq ptr %80, null
+  br i1 %.not112, label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..group_name..GroupName$GT$17ha76e70feaf361cc8E.exit", label %35
 
 81:                                               ; preds = %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %71, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %79
 
-.body.thread:                                     ; preds = %86, %83, %.body
-  %.sroa.030.1 = phi i8 [ %.sroa.030.2, %83 ], [ %.sroa.030.0.lpad-body, %.body ], [ %.sroa.030.0.lpad-body, %86 ]
-  %.sroa.032.1 = phi i8 [ %.sroa.032.2, %83 ], [ %.sroa.032.0.lpad-body, %.body ], [ %.sroa.032.0.lpad-body, %86 ]
-  %.sroa.034.1 = phi i1 [ false, %83 ], [ %.sroa.034.0.lpad-body, %.body ], [ %.sroa.034.0.lpad-body, %86 ]
-  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %86 ]
+.body.thread:                                     ; preds = %87, %83, %.body
+  %.sroa.030.1 = phi i8 [ %.sroa.030.2, %83 ], [ %.sroa.030.0.lpad-body, %.body ], [ %.sroa.030.0.lpad-body, %87 ]
+  %.sroa.032.1 = phi i8 [ %.sroa.032.2, %83 ], [ %.sroa.032.0.lpad-body, %.body ], [ %.sroa.032.0.lpad-body, %87 ]
+  %.sroa.034.1 = phi i1 [ false, %83 ], [ %.sroa.034.0.lpad-body, %.body ], [ %.sroa.034.0.lpad-body, %87 ]
+  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %87 ]
   %82 = trunc nuw i8 %.sroa.030.1 to i1
-  br i1 %82, label %.body.thread.thread, label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87"
+  br i1 %82, label %.body.thread.thread, label %86
 
 83:                                               ; preds = %35
   %84 = landingpad { ptr, i32 }
@@ -24842,17 +24842,17 @@ _ZN9uv_pep5086marker4tree10MarkerTree20simplify_extras_with17h53f6c480bb2f28daE.
   call void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
   br label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit"
 
-"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87": ; preds = %92, %.body.thread.thread, %.body.thread
-  %.sroa.034.5 = phi i1 [ %.sroa.034.1106, %.body.thread.thread ], [ %.sroa.034.1, %.body.thread ], [ %.sroa.034.1106, %92 ]
-  %.pn49 = phi { ptr, i32 } [ %.pn107, %.body.thread.thread ], [ %.pn, %.body.thread ], [ %.pn107, %92 ]
-  br i1 %.sroa.034.5, label %93, label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h615841448838b63aE.exit"
+86:                                               ; preds = %.body.thread.thread, %.body.thread
+  %.sroa.034.5 = phi i1 [ %.sroa.034.1106, %.body.thread.thread ], [ %.sroa.034.1, %.body.thread ]
+  %.pn49 = phi { ptr, i32 } [ %.pn107, %.body.thread.thread ], [ %.pn, %.body.thread ]
+  br i1 %.sroa.034.5, label %94, label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h615841448838b63aE.exit"
 
-86:                                               ; preds = %.body
+87:                                               ; preds = %.body
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %.body.thread unwind label %87
+          to label %.body.thread unwind label %88
 
-87:                                               ; preds = %93, %92, %86
-  %88 = landingpad { ptr, i32 }
+88:                                               ; preds = %94, %93, %87
+  %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #50
   unreachable
@@ -24861,22 +24861,27 @@ _ZN9uv_pep5086marker4tree10MarkerTree20simplify_extras_with17h53f6c480bb2f28daE.
   %.pn107 = phi { ptr, i32 } [ %.pn, %.body.thread ], [ %48, %47 ]
   %.sroa.034.1106 = phi i1 [ %.sroa.034.1, %.body.thread ], [ false, %47 ]
   %.sroa.032.1105 = phi i8 [ %.sroa.032.1, %.body.thread ], [ 1, %47 ]
-  %89 = load ptr, ptr %11, align 8, !noundef !3
-  %90 = icmp ne ptr %89, null
-  %91 = trunc nuw i8 %.sroa.032.1105 to i1
-  %or.cond8 = select i1 %90, i1 %91, i1 false
-  br i1 %or.cond8, label %92, label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87"
+  %90 = load ptr, ptr %11, align 8, !noundef !3
+  %91 = icmp ne ptr %90, null
+  %92 = trunc nuw i8 %.sroa.032.1105 to i1
+  %or.cond8 = select i1 %91, i1 %92, i1 false
+  br i1 %or.cond8, label %93, label %86
 
-92:                                               ; preds = %.body.thread.thread
+93:                                               ; preds = %.body.thread.thread
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
-          to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87" unwind label %87
+          to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87" unwind label %88
 
-"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h615841448838b63aE.exit": ; preds = %93, %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87"
-  resume { ptr, i32 } %.pn49
+"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87": ; preds = %93
+  br i1 %.sroa.034.1106, label %94, label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h615841448838b63aE.exit"
 
-93:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87"
+"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h615841448838b63aE.exit": ; preds = %94, %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87", %86
+  %.pn49110 = phi { ptr, i32 } [ %.pn49, %86 ], [ %.pn107, %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87" ], [ %.pn49111, %94 ]
+  resume { ptr, i32 } %.pn49110
+
+94:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87", %86
+  %.pn49111 = phi { ptr, i32 } [ %.pn107, %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit87" ], [ %.pn49, %86 ]
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
-          to label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h615841448838b63aE.exit" unwind label %87
+          to label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17h615841448838b63aE.exit" unwind label %88
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

@@ -1847,8 +1847,8 @@ _ZNK4llvm4User10getOperandEj.exit67.i:            ; preds = %598, %595
   %606 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %605) #19
   %607 = load i8, ptr %588, align 1
   %608 = and i8 %607, 2
-  %.not76.i = icmp eq i8 %608, 0
-  br i1 %.not76.i, label %609, label %613
+  %.not74.i = icmp eq i8 %608, 0
+  br i1 %.not74.i, label %609, label %613
 
 609:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit67.i
   %610 = call noundef i32 @_ZNK4llvm13ConstantRange13getActiveBitsEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #18
@@ -1865,8 +1865,8 @@ _ZNK4llvm4User10getOperandEj.exit67.i:            ; preds = %598, %595
   %614 = phi i8 [ %607, %_ZNK4llvm4User10getOperandEj.exit67.i ], [ %612, %611 ], [ %.pre.i22, %609 ]
   %.7.i = phi i1 [ false, %_ZNK4llvm4User10getOperandEj.exit67.i ], [ true, %611 ], [ false, %609 ]
   %615 = and i8 %614, 4
-  %.not77.i = icmp eq i8 %615, 0
-  br i1 %.not77.i, label %616, label %621
+  %.not75.i = icmp eq i8 %615, 0
+  br i1 %.not75.i, label %616, label %621
 
 616:                                              ; preds = %613
   %617 = call noundef i32 @_ZNK4llvm13ConstantRange16getMinSignedBitsEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #18
@@ -2235,7 +2235,7 @@ _ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueE
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %751
 
-_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread: ; preds = %586, %459, %634, %636, %587, %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZNS_L17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEE3$_0EEbOT_T0_.exit.i"
+_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread: ; preds = %586, %459, %587, %636, %634, %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZNS_L17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEE3$_0EEbOT_T0_.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %752
 

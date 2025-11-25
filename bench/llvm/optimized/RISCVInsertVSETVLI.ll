@@ -3957,11 +3957,11 @@ _ZN12_GLOBAL__N_120hasUndefinedPassthruERKN4llvm12MachineInstrE.exit.i: ; preds 
   %.138.i = phi i1 [ %76, %66 ], [ false, %64 ]
   %.1.i = phi i8 [ %77, %66 ], [ 0, %64 ]
   %80 = and i64 %46, 2048
-  %.not51.not.i = icmp eq i64 %80, 0
+  %.not54.i = icmp eq i64 %80, 0
   %81 = and i64 %46, 131072
-  %.not52.i = icmp eq i64 %81, 0
-  %82 = select i1 %.not52.i, i1 true, i1 %.138.i
-  %83 = select i1 %.not51.not.i, i8 %.1.i, i8 1
+  %.not51.i = icmp eq i64 %81, 0
+  %82 = select i1 %.not51.i, i1 true, i1 %.138.i
+  %83 = select i1 %.not54.i, i8 %.1.i, i8 1
   %84 = select i1 %82, i8 2, i8 0
   %85 = or disjoint i8 %84, %83
   br label %_ZN12_GLOBAL__N_120hasUndefinedPassthruERKN4llvm12MachineInstrE.exit.thread.i
@@ -3989,8 +3989,8 @@ _ZN12_GLOBAL__N_120hasUndefinedPassthruERKN4llvm12MachineInstrE.exit.thread.i: ;
   %99 = trunc i64 %98 to i32
   %.not.i = icmp eq i32 %99, 0
   %100 = and i64 %46, 16384
-  %.not53.i = icmp eq i64 %100, 0
-  br i1 %.not53.i, label %151, label %101
+  %.not52.i = icmp eq i64 %100, 0
+  br i1 %.not52.i, label %151, label %101
 
 101:                                              ; preds = %_ZN12_GLOBAL__N_120hasUndefinedPassthruERKN4llvm12MachineInstrE.exit.thread.i
   %spec.select.i.i46.i = select i1 %.not.i.i.i, i32 -2, i32 -3
@@ -4057,8 +4057,8 @@ _ZL12computeVLMAXjjN4llvm7RISCVII5VLMULE.exit.i:  ; preds = %121, %119
 
 140:                                              ; preds = %101
   %141 = and i32 %105, 268435456
-  %.not54.i = icmp eq i32 %141, 0
-  br i1 %.not54.i, label %143, label %142
+  %.not53.i = icmp eq i32 %141, 0
+  br i1 %.not53.i, label %143, label %142
 
 142:                                              ; preds = %140
   store i32 1, ptr %5, align 8, !tbaa !349, !alias.scope !575

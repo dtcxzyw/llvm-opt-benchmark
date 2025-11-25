@@ -20242,89 +20242,89 @@ define hidden void @_ZN4core4iter8adapters11try_process17h90efb47532b61f62E(ptr 
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !4176, !noalias !4180
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf2525a13e946ac1aE.llvm.7022646624147239703"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
-          to label %11 unwind label %8
+          to label %10 unwind label %.body
 
-8:                                                ; preds = %3
-  %9 = landingpad { ptr, i32 }
+.body:                                            ; preds = %3
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %10 = load ptr, ptr %7, align 8, !noundef !4
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.thread, label %33
+  %9 = load ptr, ptr %7, align 8, !noundef !4
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %.body.thread, label %32
 
-11:                                               ; preds = %3
+10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4169
-  %12 = load ptr, ptr %7, align 8, !noundef !4
-  %.not.not = icmp eq ptr %12, null
-  br i1 %.not.not, label %.thread12, label %14
+  %11 = load ptr, ptr %7, align 8, !noundef !4
+  %.not.not = icmp eq ptr %11, null
+  br i1 %.not.not, label %.thread, label %13
 
-.thread12:                                        ; preds = %11
+.thread:                                          ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  br label %13
+  br label %12
 
-13:                                               ; preds = %.thread12, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_identity..models..change_history..ChangeHistory$GT$$GT$17h2add93d47f70bda0E.exit"
+12:                                               ; preds = %.thread, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_identity..models..change_history..ChangeHistory$GT$$GT$17h2add93d47f70bda0E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %15, align 8, !alias.scope !4181, !noalias !4184
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %11, ptr %14, align 8, !alias.scope !4181, !noalias !4184
   store ptr null, ptr %0, align 8, !alias.scope !4181, !noalias !4184
   call void @llvm.experimental.noalias.scope.decl(metadata !4186)
-  %16 = load ptr, ptr %6, align 8, !alias.scope !4189, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %18 = load i64, ptr %17, align 8, !alias.scope !4189, !noundef !4
-  invoke void @"_ZN4core3ptr84drop_in_place$LT$$u5b$ockam_identity..models..change_history..ChangeHistory$u5d$$GT$17h44a93ccb6c601594E.llvm.13826239688354340414"(ptr noalias noundef nonnull align 8 %16, i64 noundef %18)
-          to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3eedd0c2722942fE.llvm.13826239688354340414.exit.i" unwind label %19, !noalias !4186
+  %15 = load ptr, ptr %6, align 8, !alias.scope !4189, !nonnull !4, !noundef !4
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %17 = load i64, ptr %16, align 8, !alias.scope !4189, !noundef !4
+  invoke void @"_ZN4core3ptr84drop_in_place$LT$$u5b$ockam_identity..models..change_history..ChangeHistory$u5d$$GT$17h44a93ccb6c601594E.llvm.13826239688354340414"(ptr noalias noundef nonnull align 8 %15, i64 noundef %17)
+          to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3eedd0c2722942fE.llvm.13826239688354340414.exit.i" unwind label %18, !noalias !4186
 
-19:                                               ; preds = %14
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %13
+  %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr104drop_in_place$LT$alloc..raw_vec..RawVec$LT$ockam_identity..models..change_history..ChangeHistory$GT$$GT$17hd50162d21c494075E.llvm.13826239688354340414"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #37
-          to label %.thread unwind label %29
+          to label %.body.thread unwind label %28
 
-"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3eedd0c2722942fE.llvm.13826239688354340414.exit.i": ; preds = %14
+"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3eedd0c2722942fE.llvm.13826239688354340414.exit.i": ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4192
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf228f4113122ccc0E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6)
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = load i64, ptr %21, align 8, !range !1427, !noalias !4192, !noundef !4
-  %.not.i.i.i = icmp eq i64 %22, 0
-  br i1 %.not.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_identity..models..change_history..ChangeHistory$GT$$GT$17h2add93d47f70bda0E.exit", label %23
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = load i64, ptr %20, align 8, !range !1427, !noalias !4192, !noundef !4
+  %.not.i.i.i = icmp eq i64 %21, 0
+  br i1 %.not.i.i.i, label %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_identity..models..change_history..ChangeHistory$GT$$GT$17h2add93d47f70bda0E.exit", label %22
 
-23:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3eedd0c2722942fE.llvm.13826239688354340414.exit.i"
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %25 = load i64, ptr %24, align 8, !noalias !4192, !noundef !4
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_identity..models..change_history..ChangeHistory$GT$$GT$17h2add93d47f70bda0E.exit", label %27
+22:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3eedd0c2722942fE.llvm.13826239688354340414.exit.i"
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %24 = load i64, ptr %23, align 8, !noalias !4192, !noundef !4
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_identity..models..change_history..ChangeHistory$GT$$GT$17h2add93d47f70bda0E.exit", label %26
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %4, align 8, !noalias !4192, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %25, i64 noundef %22) #39
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %4, align 8, !noalias !4192, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %24, i64 noundef %21) #39
   br label %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_identity..models..change_history..ChangeHistory$GT$$GT$17h2add93d47f70bda0E.exit"
 
-29:                                               ; preds = %19
-  %30 = landingpad { ptr, i32 }
+28:                                               ; preds = %18
+  %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #38
   unreachable
 
-"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_identity..models..change_history..ChangeHistory$GT$$GT$17h2add93d47f70bda0E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3eedd0c2722942fE.llvm.13826239688354340414.exit.i", %23, %27
+"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ockam_identity..models..change_history..ChangeHistory$GT$$GT$17h2add93d47f70bda0E.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf3eedd0c2722942fE.llvm.13826239688354340414.exit.i", %22, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4192
-  br label %13
+  br label %12
 
-31:                                               ; preds = %33
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %32
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #38
   unreachable
 
-.thread:                                          ; preds = %19, %33, %8
-  %.pn11 = phi { ptr, i32 } [ %9, %33 ], [ %9, %8 ], [ %20, %19 ]
+.body.thread:                                     ; preds = %18, %32, %.body
+  %.pn11 = phi { ptr, i32 } [ %8, %32 ], [ %8, %.body ], [ %19, %18 ]
   resume { ptr, i32 } %.pn11
 
-33:                                               ; preds = %8
+32:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr101drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$ockam_core..error..Error$GT$$GT$17h416282f240a394f5E.llvm.13455287501529294234"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #37
-          to label %.thread unwind label %31
+          to label %.body.thread unwind label %30
 }
 
 ; Function Attrs: nonlazybind uwtable

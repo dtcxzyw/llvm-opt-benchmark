@@ -70943,12 +70943,12 @@ define hidden { ptr, ptr } @_ZN11polars_expr6reduce10first_last25new_reduction_w
 
 39:                                               ; preds = %1
   %40 = invoke noundef zeroext i1 @_ZN11polars_core9datatypes5dtype8DataType20is_primitive_numeric17hf4ff5b9e7f8bc799E(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %0)
-          to label %50 unwind label %.body25.thread88
+          to label %50 unwind label %.body25.thread80
 
-.body25.thread88:                                 ; preds = %77, %51, %39
+.body25.thread80:                                 ; preds = %77, %51, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.body25.thread83
+  br label %.thread88
 
 41:                                               ; preds = %35
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 16, i64 noundef 96) #25
@@ -70986,7 +70986,7 @@ define hidden { ptr, ptr } @_ZN11polars_expr6reduce10first_last25new_reduction_w
 
 51:                                               ; preds = %50
   %52 = invoke noundef zeroext i1 @_ZN11polars_core9datatypes5dtype8DataType11is_temporal17hed417984d9219b54E(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %0)
-          to label %53 unwind label %.body25.thread88
+          to label %53 unwind label %.body25.thread80
 
 53:                                               ; preds = %51
   br i1 %52, label %77, label %54
@@ -71085,7 +71085,7 @@ define hidden { ptr, ptr } @_ZN11polars_expr6reduce10first_last25new_reduction_w
 77:                                               ; preds = %53, %50
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   invoke void @_ZN11polars_core9datatypes5dtype8DataType11to_physical17h0cdda09962ceb56aE(ptr noalias noundef nonnull sret([48 x i8]) align 16 captures(none) dereferenceable(48) %30, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %0)
-          to label %78 unwind label %.body25.thread88
+          to label %78 unwind label %.body25.thread80
 
 78:                                               ; preds = %77
   %79 = load i8, ptr %30, align 16, !range !4, !noundef !3
@@ -71557,12 +71557,12 @@ define hidden { ptr, ptr } @_ZN11polars_expr6reduce10first_last25new_reduction_w
   %210 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hb674af43b06de5bcE"(ptr noalias noundef align 16 dereferenceable(48) %7) #26
-          to label %.body25.thread83 unwind label %212
+          to label %.thread88 unwind label %212
 
 211:                                              ; preds = %80
   unreachable
 
-212:                                              ; preds = %.body25.thread83, %.thread, %209
+212:                                              ; preds = %.thread88, %.thread, %209
   %213 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #27
@@ -71573,12 +71573,12 @@ define hidden { ptr, ptr } @_ZN11polars_expr6reduce10first_last25new_reduction_w
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hb674af43b06de5bcE"(ptr noalias noundef align 16 dereferenceable(48) %30) #26
           to label %.body25.thread unwind label %212
 
-.body25.thread:                                   ; preds = %71, %62, %42, %.thread, %.body25.thread83
-  %.pn1982 = phi { ptr, i32 } [ %.pn1986, %.body25.thread83 ], [ %72, %71 ], [ %63, %62 ], [ %43, %42 ], [ %eh.lpad-body, %.thread ]
-  resume { ptr, i32 } %.pn1982
+.body25.thread:                                   ; preds = %71, %62, %42, %.thread, %.thread88
+  %.pn1975 = phi { ptr, i32 } [ %.pn1976, %.thread88 ], [ %eh.lpad-body, %.thread ], [ %43, %42 ], [ %63, %62 ], [ %72, %71 ]
+  resume { ptr, i32 } %.pn1975
 
-.body25.thread83:                                 ; preds = %209, %.body25.thread88
-  %.pn1986 = phi { ptr, i32 } [ %lpad.thr_comm, %.body25.thread88 ], [ %210, %209 ]
+.thread88:                                        ; preds = %209, %.body25.thread80
+  %.pn1976 = phi { ptr, i32 } [ %lpad.thr_comm, %.body25.thread80 ], [ %210, %209 ]
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hb674af43b06de5bcE"(ptr noalias noundef align 16 dereferenceable(48) %0) #26
           to label %.body25.thread unwind label %212
 }
@@ -71633,12 +71633,12 @@ define hidden { ptr, ptr } @_ZN11polars_expr6reduce10first_last25new_reduction_w
 
 39:                                               ; preds = %1
   %40 = invoke noundef zeroext i1 @_ZN11polars_core9datatypes5dtype8DataType20is_primitive_numeric17hf4ff5b9e7f8bc799E(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %0)
-          to label %50 unwind label %.body.thread88
+          to label %50 unwind label %.body.thread80
 
-.body.thread88:                                   ; preds = %77, %51, %39
+.body.thread80:                                   ; preds = %77, %51, %39
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.body.thread83
+  br label %.thread88
 
 41:                                               ; preds = %35
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 16, i64 noundef 96) #25
@@ -71676,7 +71676,7 @@ define hidden { ptr, ptr } @_ZN11polars_expr6reduce10first_last25new_reduction_w
 
 51:                                               ; preds = %50
   %52 = invoke noundef zeroext i1 @_ZN11polars_core9datatypes5dtype8DataType11is_temporal17hed417984d9219b54E(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %0)
-          to label %53 unwind label %.body.thread88
+          to label %53 unwind label %.body.thread80
 
 53:                                               ; preds = %51
   br i1 %52, label %77, label %54
@@ -71775,7 +71775,7 @@ define hidden { ptr, ptr } @_ZN11polars_expr6reduce10first_last25new_reduction_w
 77:                                               ; preds = %53, %50
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   invoke void @_ZN11polars_core9datatypes5dtype8DataType11to_physical17h0cdda09962ceb56aE(ptr noalias noundef nonnull sret([48 x i8]) align 16 captures(none) dereferenceable(48) %30, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %0)
-          to label %78 unwind label %.body.thread88
+          to label %78 unwind label %.body.thread80
 
 78:                                               ; preds = %77
   %79 = load i8, ptr %30, align 16, !range !4, !noundef !3
@@ -72247,12 +72247,12 @@ define hidden { ptr, ptr } @_ZN11polars_expr6reduce10first_last25new_reduction_w
   %210 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hb674af43b06de5bcE"(ptr noalias noundef align 16 dereferenceable(48) %7) #26
-          to label %.body.thread83 unwind label %212
+          to label %.thread88 unwind label %212
 
 211:                                              ; preds = %80
   unreachable
 
-212:                                              ; preds = %.body.thread83, %.thread, %209
+212:                                              ; preds = %.thread88, %.thread, %209
   %213 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #27
@@ -72263,12 +72263,12 @@ define hidden { ptr, ptr } @_ZN11polars_expr6reduce10first_last25new_reduction_w
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hb674af43b06de5bcE"(ptr noalias noundef align 16 dereferenceable(48) %30) #26
           to label %.body.thread unwind label %212
 
-.body.thread:                                     ; preds = %71, %62, %42, %.thread, %.body.thread83
-  %.pn1982 = phi { ptr, i32 } [ %.pn1986, %.body.thread83 ], [ %72, %71 ], [ %63, %62 ], [ %43, %42 ], [ %eh.lpad-body22, %.thread ]
-  resume { ptr, i32 } %.pn1982
+.body.thread:                                     ; preds = %71, %62, %42, %.thread, %.thread88
+  %.pn1975 = phi { ptr, i32 } [ %.pn1976, %.thread88 ], [ %eh.lpad-body22, %.thread ], [ %43, %42 ], [ %63, %62 ], [ %72, %71 ]
+  resume { ptr, i32 } %.pn1975
 
-.body.thread83:                                   ; preds = %209, %.body.thread88
-  %.pn1986 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread88 ], [ %210, %209 ]
+.thread88:                                        ; preds = %209, %.body.thread80
+  %.pn1976 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread80 ], [ %210, %209 ]
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$polars_core..datatypes..dtype..DataType$GT$17hb674af43b06de5bcE"(ptr noalias noundef align 16 dereferenceable(48) %0) #26
           to label %.body.thread unwind label %212
 }

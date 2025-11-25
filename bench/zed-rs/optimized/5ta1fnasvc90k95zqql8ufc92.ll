@@ -11729,8 +11729,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hc69aceb0a24d6796E.exit: ; preds
   %171 = landingpad { ptr, i32 }
           cleanup
   %172 = load ptr, ptr %8, align 8, !noalias !2223, !noundef !5
-  %.not14.i.i.i = icmp eq ptr %172, null
-  br i1 %.not14.i.i.i, label %"_ZN4core3ptr252drop_in_place$LT$futures_util..future..try_future..MapOk$LT$client..Client..request_envelope$LT$proto..GetCachedEmbeddings$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$client..Client..request$LT$proto..GetCachedEmbeddings$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h97e74775b0625d0fE.exit90", label %178
+  %.not9.i.i.i = icmp eq ptr %172, null
+  br i1 %.not9.i.i.i, label %"_ZN4core3ptr252drop_in_place$LT$futures_util..future..try_future..MapOk$LT$client..Client..request_envelope$LT$proto..GetCachedEmbeddings$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$client..Client..request$LT$proto..GetCachedEmbeddings$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h97e74775b0625d0fE.exit90", label %178
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h1c370a659133cdb6E.llvm.8254616640591518752.exit.i.i.i": ; preds = %168
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2223
@@ -19343,8 +19343,8 @@ default.unreachable79:                            ; preds = %3
   %57 = landingpad { ptr, i32 }
           cleanup
   %58 = load ptr, ptr %6, align 8, !noalias !3764, !noundef !5
-  %.not13.i.i.i = icmp eq ptr %58, null
-  br i1 %.not13.i.i.i, label %130, label %66
+  %.not8.i.i.i = icmp eq ptr %58, null
+  br i1 %.not8.i.i.i, label %130, label %66
 
 59:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3765

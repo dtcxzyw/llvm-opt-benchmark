@@ -5036,11 +5036,11 @@ _ZN6casadi15casadi_norm_infIdEET_xPKS1_.exit250:  ; preds = %.lr.ph.i245, %_ZN6c
 
 178:                                              ; preds = %174
   call void (ptr, ptr, ...) @_ZNK6casadi13ProtoFunction5printEPKcz(ptr noundef nonnull align 8 dereferenceable(2097) %0, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83)
-  %.pre610 = load i32, ptr %8, align 8, !tbaa !191
+  %.pre613 = load i32, ptr %8, align 8, !tbaa !191
   br label %179
 
 179:                                              ; preds = %178, %174
-  %180 = phi i32 [ %.pre610, %178 ], [ %175, %174 ]
+  %180 = phi i32 [ %.pre613, %178 ], [ %175, %174 ]
   %181 = sext i32 %180 to i64
   %182 = load double, ptr %15, align 8, !tbaa !208
   %183 = load double, ptr %11, align 8, !tbaa !209
@@ -5830,26 +5830,26 @@ _ZN6casadi10casadi_dotIdEET_xPKS1_S3_.exit:       ; preds = %.lr.ph.i396, %_ZN6c
   br label %516
 
 516:                                              ; preds = %.lr.ph, %519
-  %.0586 = phi i64 [ 1, %.lr.ph ], [ %523, %519 ]
-  %.0184585 = phi double [ %512, %.lr.ph ], [ %.1, %519 ]
-  %exitcond.not = icmp eq i64 %.0586, %umax
+  %.0589 = phi i64 [ 1, %.lr.ph ], [ %523, %519 ]
+  %.0184588 = phi double [ %512, %.lr.ph ], [ %.1, %519 ]
+  %exitcond.not = icmp eq i64 %.0589, %umax
   br i1 %exitcond.not, label %.critedge, label %519
 
 .critedge:                                        ; preds = %516, %519, %_ZN6casadi10casadi_dotIdEET_xPKS1_S3_.exit
-  %.0184.lcssa = phi double [ %512, %_ZN6casadi10casadi_dotIdEET_xPKS1_S3_.exit ], [ %.1, %519 ], [ %.0184585, %516 ]
+  %.0184.lcssa = phi double [ %512, %_ZN6casadi10casadi_dotIdEET_xPKS1_S3_.exit ], [ %.1, %519 ], [ %.0184588, %516 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %517 = load i8, ptr %49, align 8, !tbaa !226, !range !141, !noundef !142
   %518 = trunc nuw i8 %517 to i1
   br i1 %518, label %524, label %525
 
 519:                                              ; preds = %516
-  %520 = getelementptr inbounds nuw double, ptr %506, i64 %.0586
+  %520 = getelementptr inbounds nuw double, ptr %506, i64 %.0589
   %521 = load double, ptr %520, align 8, !tbaa !193
-  %522 = fcmp olt double %.0184585, %521
-  %.1 = select i1 %522, double %521, double %.0184585
-  %523 = add nuw i64 %.0586, 1
-  %exitcond609.not = icmp eq i64 %523, %509
-  br i1 %exitcond609.not, label %.critedge, label %516, !llvm.loop !227
+  %522 = fcmp olt double %.0184588, %521
+  %.1 = select i1 %522, double %521, double %.0184588
+  %523 = add nuw i64 %.0589, 1
+  %exitcond612.not = icmp eq i64 %523, %509
+  br i1 %exitcond612.not, label %.critedge, label %516, !llvm.loop !227
 
 524:                                              ; preds = %.critedge
   call void (ptr, ptr, ...) @_ZNK6casadi13ProtoFunction5printEPKcz(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull @.str.75)
@@ -6049,8 +6049,8 @@ _ZN6casadi15casadi_max_violIdEET_xPKS1_S3_S3_.exit444: ; preds = %586, %565
   %601 = fcmp ole double %597, %600
   %602 = load i64, ptr %50, align 8
   %603 = icmp eq i64 %528, %602
-  %or.cond740 = select i1 %601, i1 true, i1 %603
-  br i1 %or.cond740, label %604, label %.backedge
+  %or.cond545 = select i1 %601, i1 true, i1 %603
+  br i1 %or.cond545, label %604, label %.backedge
 
 604:                                              ; preds = %_ZN6casadi15casadi_max_violIdEET_xPKS1_S3_S3_.exit444
   %605 = fsub double 1.000000e+00, %.0194

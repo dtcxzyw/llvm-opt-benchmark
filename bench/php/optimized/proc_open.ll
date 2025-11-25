@@ -414,11 +414,11 @@ define hidden void @zif_proc_get_status(ptr noundef %0, ptr noundef %1) local_un
   br i1 %10, label %.critedge, label %11, !prof !44
 
 11:                                               ; preds = %.thread, %6
-  %.06087 = phi i32 [ 1, %.thread ], [ 9, %6 ]
-  %.06686 = phi i32 [ 0, %.thread ], [ 14, %6 ]
-  %.06785 = phi ptr [ null, %.thread ], [ %7, %6 ]
-  %.06884 = phi i32 [ 0, %.thread ], [ 1, %6 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.06087, i32 noundef %.06884, ptr noundef null, i32 noundef %.06686, ptr noundef %.06785) #13
+  %.06086 = phi i32 [ 1, %.thread ], [ 9, %6 ]
+  %.06685 = phi i32 [ 0, %.thread ], [ 14, %6 ]
+  %.06784 = phi ptr [ null, %.thread ], [ %7, %6 ]
+  %.06883 = phi i32 [ 0, %.thread ], [ 1, %6 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.06086, i32 noundef %.06883, ptr noundef null, i32 noundef %.06685, ptr noundef %.06784) #13
   br label %65
 
 .critedge:                                        ; preds = %6
@@ -500,11 +500,11 @@ waitpid_cached.exit:                              ; preds = %32, %36, %40, %44
   %55 = icmp sgt i32 %sext, 33554431
   %.064 = select i1 %55, i32 %50, i32 0
   %not. = xor i1 %55, true
-  %narrow = select i1 %not., i1 %51, i1 false
+  %.1 = select i1 %not., i1 %51, i1 false
   %56 = and i32 %49, 255
   %57 = icmp eq i32 %56, 127
-  %narrow90 = select i1 %57, i32 %53, i32 0
-  %spec.select88 = zext nneg i32 %narrow90 to i64
+  %narrow = select i1 %57, i32 %53, i32 0
+  %spec.select87 = zext nneg i32 %narrow to i64
   %58 = sext i32 %.062 to i64
   %59 = zext nneg i32 %.064 to i64
   br label %62
@@ -514,16 +514,16 @@ waitpid_cached.exit:                              ; preds = %32, %36, %40, %44
   br label %62
 
 62:                                               ; preds = %48, %60
-  %.069 = phi i64 [ 0, %60 ], [ %spec.select88, %48 ]
+  %.069 = phi i64 [ 0, %60 ], [ %spec.select87, %48 ]
   %.165 = phi i64 [ 0, %60 ], [ %59, %48 ]
   %.163 = phi i64 [ -1, %60 ], [ %58, %48 ]
   %.061 = phi i1 [ false, %60 ], [ %57, %48 ]
   %.158 = phi i1 [ false, %60 ], [ %55, %48 ]
-  %.2.in = phi i1 [ %61, %60 ], [ %narrow, %48 ]
+  %.2 = phi i1 [ %61, %60 ], [ %.1, %48 ]
   %63 = load i8, ptr %29, align 4, !tbaa !27, !range !28, !noundef !29
   %64 = trunc nuw i8 %63 to i1
   call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.3, i64 noundef 6, i1 noundef zeroext %64) #13
-  call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, i64 noundef 7, i1 noundef zeroext %.2.in) #13
+  call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, i64 noundef 7, i1 noundef zeroext %.2) #13
   call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 8, i1 noundef zeroext %.158) #13
   call void @add_assoc_bool_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.6, i64 noundef 7, i1 noundef zeroext %.061) #13
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %.163) #13

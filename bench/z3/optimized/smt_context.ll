@@ -35017,7 +35017,7 @@ _ZN3smt7context19set_true_first_flagEj.exit39:    ; preds = %151, %.noexc5.i35
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 %172
   %174 = load i8, ptr %173, align 1, !tbaa !701
   %175 = icmp eq i8 %174, 0
-  %spec.select = or i1 %175, %.131
+  %spec.select = or i1 %.131, %175
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %178 = load ptr, ptr %177, align 8, !tbaa !12
@@ -35050,7 +35050,7 @@ _ZNK3smt7context11is_relevantEP4expr.exit:        ; preds = %168
   tail call void %197(ptr noundef nonnull align 8 dereferenceable(16) %194)
   br label %198
 
-198:                                              ; preds = %168, %_ZNK3smt7context11is_relevantEP4expr.exit, %189, %_ZN3smt7context10mk_eq_atomEP4exprS2_.exit, %3
+198:                                              ; preds = %_ZN3smt7context10mk_eq_atomEP4exprS2_.exit, %189, %_ZNK3smt7context11is_relevantEP4expr.exit, %168, %3
   %.0 = phi i1 [ false, %3 ], [ false, %_ZN3smt7context10mk_eq_atomEP4exprS2_.exit ], [ %spec.select, %_ZNK3smt7context11is_relevantEP4expr.exit ], [ true, %189 ], [ %spec.select, %168 ]
   ret i1 %.0
 }

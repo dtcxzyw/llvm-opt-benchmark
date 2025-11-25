@@ -2709,11 +2709,7 @@ _ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqED2Ev.exit.i73: ; preds =
   store ptr null, ptr %141, align 8, !tbaa !210
   %197 = load ptr, ptr %8, align 8, !tbaa !202
   %.not.i.i.i74 = icmp eq ptr %197, null
-  br i1 %.not.i.i.i74, label %_ZN2lp11explanationD2Ev.exit86.thread, label %_ZNK6vectorISt4pairIj8rationalELb1EjE4sizeEv.exit.i.i.i.i75
-
-_ZN2lp11explanationD2Ev.exit86.thread:            ; preds = %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqED2Ev.exit.i73
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %272
+  br i1 %.not.i.i.i74, label %_ZN2lp11explanationD2Ev.exit86, label %_ZNK6vectorISt4pairIj8rationalELb1EjE4sizeEv.exit.i.i.i.i75
 
 _ZNK6vectorISt4pairIj8rationalELb1EjE4sizeEv.exit.i.i.i.i75: ; preds = %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqED2Ev.exit.i73
   %198 = getelementptr inbounds i8, ptr %197, i64 -4
@@ -2764,7 +2760,7 @@ _ZN6vectorISt4pairIj8rationalELb1EjE16destroy_elementsEv.exit.i.i.i85: ; preds =
   call void @__clang_call_terminate(ptr %212) #20
   unreachable
 
-_ZN2lp11explanationD2Ev.exit86:                   ; preds = %_ZN6vectorISt4pairIj8rationalELb1EjE16destroy_elementsEv.exit.i.i.i85
+_ZN2lp11explanationD2Ev.exit86:                   ; preds = %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqED2Ev.exit.i73, %_ZN6vectorISt4pairIj8rationalELb1EjE16destroy_elementsEv.exit.i.i.i85
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %272
 
@@ -2971,8 +2967,8 @@ _ZN2lp11explanationD2Ev.exit114:                  ; preds = %_ZN14core_hashtable
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %272
 
-272:                                              ; preds = %120, %_ZN2lp11explanationD2Ev.exit86.thread, %_ZN2lp11explanationD2Ev.exit86, %_ZN2lp11explanationD2Ev.exit114, %_ZN2lp11explanationD2Ev.exit100
-  %.2 = phi i1 [ false, %_ZN2lp11explanationD2Ev.exit100 ], [ false, %_ZN2lp11explanationD2Ev.exit114 ], [ true, %_ZN2lp11explanationD2Ev.exit86 ], [ %12, %120 ], [ true, %_ZN2lp11explanationD2Ev.exit86.thread ]
+272:                                              ; preds = %_ZN2lp11explanationD2Ev.exit86, %120, %_ZN2lp11explanationD2Ev.exit114, %_ZN2lp11explanationD2Ev.exit100
+  %.2 = phi i1 [ false, %_ZN2lp11explanationD2Ev.exit100 ], [ false, %_ZN2lp11explanationD2Ev.exit114 ], [ %12, %120 ], [ true, %_ZN2lp11explanationD2Ev.exit86 ]
   ret i1 %.2
 }
 

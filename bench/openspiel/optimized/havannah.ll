@@ -1810,16 +1810,16 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EEaSEOS6_.exit.i: ;
 
 213:                                              ; preds = %212
   %or.cond32.i = and i1 %199, %209
-  %spec.select.i = select i1 %or.cond32.i, i32 32, i32 0
+  %spec.select.i = select i1 %or.cond32.i, i8 32, i8 0
   br label %214
 
 214:                                              ; preds = %213, %212, %210, %206
-  %.0.i.ph = phi i32 [ %spec.select.i, %213 ], [ 16, %212 ], [ 8, %210 ], [ 4, %206 ]
+  %.0.i.ph = phi i8 [ %spec.select.i, %213 ], [ 16, %212 ], [ 8, %210 ], [ 4, %206 ]
   br i1 %203, label %.thread, label %thread-pre-split.i
 
 .thread:                                          ; preds = %..thread_crit_edge, %202, %214
   %.pre-phi = phi i32 [ %.pre, %..thread_crit_edge ], [ %204, %202 ], [ %204, %214 ]
-  %.0.i.ph43 = phi i32 [ 1, %..thread_crit_edge ], [ 2, %202 ], [ %.0.i.ph, %214 ]
+  %.0.i.ph43 = phi i8 [ 1, %..thread_crit_edge ], [ 2, %202 ], [ %.0.i.ph, %214 ]
   %.not25.i = icmp eq i32 %66, %.pre-phi
   %or.cond.i30 = select i1 %199, i1 true, i1 %.not25.i
   br i1 %or.cond.i30, label %.thread._crit_edge, label %_ZNK10open_spiel8havannah4Move4EdgeEi.exit
@@ -1831,7 +1831,7 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EEaSEOS6_.exit.i: ;
 thread-pre-split.i:                               ; preds = %214, %.thread._crit_edge
   %.pre-phi50 = phi i32 [ %.pre49, %.thread._crit_edge ], [ %208, %214 ]
   %.not = phi i1 [ false, %.thread._crit_edge ], [ true, %214 ]
-  %.0.i.ph44 = phi i32 [ %.0.i.ph43, %.thread._crit_edge ], [ %.0.i.ph, %214 ]
+  %.0.i.ph44 = phi i8 [ %.0.i.ph43, %.thread._crit_edge ], [ %.0.i.ph, %214 ]
   %.pre-phi.i = phi i32 [ %.pre-phi, %.thread._crit_edge ], [ %204, %214 ]
   %215 = sub nsw i32 %.pre-phi.i, %.pre-phi50
   %216 = icmp ne i32 %215, %66
@@ -1871,10 +1871,10 @@ thread-pre-split.i:                               ; preds = %214, %.thread._crit
 
 _ZNK10open_spiel8havannah4Move4EdgeEi.exit:       ; preds = %224, %.thread.i, %219, %218, %thread-pre-split.i, %.thread, %175
   %.sroa.0.0.insert.ext = phi i64 [ 2, %.thread ], [ 2, %thread-pre-split.i ], [ 2, %218 ], [ 2, %.thread.i ], [ 2, %219 ], [ 2, %224 ], [ 4, %175 ]
-  %.0.i40 = phi i32 [ %.0.i.ph43, %.thread ], [ %.0.i.ph44, %thread-pre-split.i ], [ %.0.i.ph44, %218 ], [ %.0.i.ph44, %.thread.i ], [ %.0.i.ph44, %219 ], [ %.0.i.ph44, %224 ], [ 0, %175 ]
+  %.0.i40 = phi i8 [ %.0.i.ph43, %.thread ], [ %.0.i.ph44, %thread-pre-split.i ], [ %.0.i.ph44, %218 ], [ %.0.i.ph44, %.thread.i ], [ %.0.i.ph44, %219 ], [ %.0.i.ph44, %224 ], [ 0, %175 ]
   %.0.i27 = phi i64 [ 72057594037927936, %.thread ], [ 144115188075855872, %thread-pre-split.i ], [ 288230376151711744, %218 ], [ 1152921504606846976, %.thread.i ], [ 576460752303423488, %219 ], [ %225, %224 ], [ 0, %175 ]
   %226 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %176, i64 %indvars.iv
-  %.sroa.5.0.insert.ext = zext nneg i32 %.0.i40 to i64
+  %.sroa.5.0.insert.ext = zext nneg i8 %.0.i40 to i64
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %.sroa.5.0.insert.ext, 48
   %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.0.i27
   %227 = shl i64 %indvars.iv, 16

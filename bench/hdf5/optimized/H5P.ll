@@ -186,7 +186,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pcopy(i64 noundef %0) local_un
 40:                                               ; preds = %38
   %41 = call i32 @H5I_get_type(i64 noundef %0) #4
   %.not31 = icmp eq i32 %41, 10
-  br i1 %.not31, label %46, label %42
+  br i1 %.not31, label %46, label %42, !prof !14
 
 42:                                               ; preds = %40
   %43 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -197,7 +197,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pcopy(i64 noundef %0) local_un
 46:                                               ; preds = %40, %38
   %47 = call ptr @H5I_object(i64 noundef %0) #4
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %53
+  br i1 %48, label %49, label %53, !prof !15
 
 49:                                               ; preds = %46
   %50 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -213,7 +213,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pcopy(i64 noundef %0) local_un
 56:                                               ; preds = %53
   %57 = call i64 @H5P_copy_plist(ptr noundef nonnull %47, i1 noundef zeroext true) #4
   %58 = icmp slt i64 %57, 0
-  br i1 %58, label %59, label %79
+  br i1 %58, label %59, label %79, !prof !15
 
 59:                                               ; preds = %56
   %60 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -224,7 +224,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pcopy(i64 noundef %0) local_un
 63:                                               ; preds = %53
   %64 = call ptr @H5P__copy_pclass(ptr noundef nonnull %47) #4
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %70
+  br i1 %65, label %66, label %70, !prof !15
 
 66:                                               ; preds = %63
   %67 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -235,7 +235,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pcopy(i64 noundef %0) local_un
 70:                                               ; preds = %63
   %71 = call i64 @H5I_register(i32 noundef 10, ptr noundef nonnull %64, i1 noundef zeroext true) #4
   %72 = icmp slt i64 %71, 0
-  br i1 %72, label %73, label %79
+  br i1 %72, label %73, label %79, !prof !15
 
 73:                                               ; preds = %70
   %74 = call i32 @H5P__close_class(ptr noundef nonnull %64) #4
@@ -372,7 +372,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pcreate_class(i64 noundef %0, 
   br i1 %.not53, label %53, label %51
 
 51:                                               ; preds = %50
-  %52 = load i8, ptr %1, align 1, !tbaa !15
+  %52 = load i8, ptr %1, align 1, !tbaa !16
   %.not54 = icmp eq i8 %52, 0
   br i1 %.not54, label %53, label %57
 
@@ -528,7 +528,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pcreate(i64 noundef %0) local_
   %36 = call i32 @H5E_clear_stack() #4
   %37 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 10) #4
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %43, !prof !16
+  br i1 %38, label %39, label %43, !prof !15
 
 39:                                               ; preds = %35
   %40 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -539,7 +539,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pcreate(i64 noundef %0) local_
 43:                                               ; preds = %35
   %44 = call i64 @H5P_create_id(ptr noundef nonnull %37, i1 noundef zeroext true) #4
   %45 = icmp slt i64 %44, 0
-  br i1 %45, label %46, label %51, !prof !16
+  br i1 %45, label %46, label %51, !prof !15
 
 46:                                               ; preds = %43
   %47 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -648,7 +648,7 @@ define range(i32 -1, -2147483648) i32 @H5Pregister2(i64 noundef %0, ptr noundef 
   br i1 %.not, label %57, label %55
 
 55:                                               ; preds = %54
-  %56 = load i8, ptr %1, align 1, !tbaa !15
+  %56 = load i8, ptr %1, align 1, !tbaa !16
   %.not42 = icmp eq i8 %56, 0
   br i1 %.not42, label %57, label %61
 
@@ -689,7 +689,7 @@ define range(i32 -1, -2147483648) i32 @H5Pregister2(i64 noundef %0, ptr noundef 
 77:                                               ; preds = %75
   %78 = call ptr @H5I_subst(i64 noundef %0, ptr noundef %76) #4
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %80, label %84
+  br i1 %79, label %80, label %84, !prof !15
 
 80:                                               ; preds = %77
   %81 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -700,7 +700,7 @@ define range(i32 -1, -2147483648) i32 @H5Pregister2(i64 noundef %0, ptr noundef 
 84:                                               ; preds = %77
   %85 = call i32 @H5P__close_class(ptr noundef nonnull %78) #4
   %86 = icmp slt i32 %85, 0
-  br i1 %86, label %87, label %92
+  br i1 %86, label %87, label %92, !prof !15
 
 87:                                               ; preds = %84
   %88 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -807,7 +807,7 @@ define range(i32 -1, -2147483648) i32 @H5Pinsert2(i64 noundef %0, ptr noundef %1
   br i1 %.not, label %55, label %53
 
 53:                                               ; preds = %52
-  %54 = load i8, ptr %1, align 1, !tbaa !15
+  %54 = load i8, ptr %1, align 1, !tbaa !16
   %.not30 = icmp eq i8 %54, 0
   br i1 %.not30, label %55, label %59
 
@@ -936,7 +936,7 @@ define range(i32 -1, 1) i32 @H5Pset(i64 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %48, label %46
 
 46:                                               ; preds = %45
-  %47 = load i8, ptr %1, align 1, !tbaa !15
+  %47 = load i8, ptr %1, align 1, !tbaa !16
   %.not21 = icmp eq i8 %47, 0
   br i1 %.not21, label %48, label %52
 
@@ -1068,7 +1068,7 @@ define range(i32 -1, -2147483648) i32 @H5Pexist(i64 noundef %0, ptr noundef %1) 
   br i1 %.not32, label %48, label %46
 
 46:                                               ; preds = %45
-  %47 = load i8, ptr %1, align 1, !tbaa !15
+  %47 = load i8, ptr %1, align 1, !tbaa !16
   %.not33 = icmp eq i8 %47, 0
   br i1 %.not33, label %48, label %52
 
@@ -1242,7 +1242,7 @@ define range(i32 -1, -2147483648) i32 @H5Pget_size(i64 noundef %0, ptr noundef %
   br i1 %.not37, label %49, label %47
 
 47:                                               ; preds = %46
-  %48 = load i8, ptr %1, align 1, !tbaa !15
+  %48 = load i8, ptr %1, align 1, !tbaa !16
   %.not38 = icmp eq i8 %48, 0
   br i1 %.not38, label %49, label %53
 
@@ -1410,7 +1410,7 @@ define range(i32 -1, -2147483648) i32 @H5Pencode2(i64 noundef %0, ptr noundef %1
   %40 = call i32 @H5E_clear_stack() #4
   %41 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 11) #4
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %47, !prof !16
+  br i1 %42, label %43, label %47, !prof !15
 
 43:                                               ; preds = %39
   %44 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1421,7 +1421,7 @@ define range(i32 -1, -2147483648) i32 @H5Pencode2(i64 noundef %0, ptr noundef %1
 47:                                               ; preds = %39
   %48 = call i32 @H5CX_set_apl(ptr noundef nonnull %5, ptr noundef nonnull @H5P_CLS_FACC, i64 noundef -1, i1 noundef zeroext true) #4
   %49 = icmp slt i32 %48, 0
-  br i1 %49, label %50, label %54, !prof !16
+  br i1 %49, label %50, label %54, !prof !15
 
 50:                                               ; preds = %47
   %51 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !11
@@ -1432,7 +1432,7 @@ define range(i32 -1, -2147483648) i32 @H5Pencode2(i64 noundef %0, ptr noundef %1
 54:                                               ; preds = %47
   %55 = call i32 @H5P__encode(ptr noundef nonnull %41, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2) #4
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %57, label %62, !prof !16
+  br i1 %56, label %57, label %62, !prof !15
 
 57:                                               ; preds = %54
   %58 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -1525,7 +1525,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pdecode(ptr noundef %0) local_
   %36 = call i32 @H5E_clear_stack() #4
   %37 = call i64 @H5P__decode(ptr noundef %0) #4
   %38 = icmp slt i64 %37, 0
-  br i1 %38, label %.thread20, label %43, !prof !16
+  br i1 %38, label %.thread20, label %43, !prof !15
 
 .thread20:                                        ; preds = %35
   %39 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -1613,7 +1613,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_class(i64 noundef %0) loc
   %36 = call i32 @H5E_clear_stack() #4
   %37 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 11) #4
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %43, !prof !16
+  br i1 %38, label %39, label %43, !prof !15
 
 39:                                               ; preds = %35
   %40 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1624,7 +1624,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_class(i64 noundef %0) loc
 43:                                               ; preds = %35
   %44 = call ptr @H5P_get_class(ptr noundef nonnull %37) #4
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %50, !prof !16
+  br i1 %45, label %46, label %50, !prof !15
 
 46:                                               ; preds = %43
   %47 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -1759,7 +1759,7 @@ define range(i32 -1, 1) i32 @H5Pget_nprops(i64 noundef %0, ptr noundef %1) local
 
 45:                                               ; preds = %39, %36
   %46 = icmp eq ptr %1, null
-  br i1 %46, label %47, label %51, !prof !16
+  br i1 %46, label %47, label %51, !prof !15
 
 47:                                               ; preds = %45
   %48 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1775,7 +1775,7 @@ define range(i32 -1, 1) i32 @H5Pget_nprops(i64 noundef %0, ptr noundef %1) local
 54:                                               ; preds = %51
   %55 = call ptr @H5I_object(i64 noundef %0) #4
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %61, !prof !16
+  br i1 %56, label %57, label %61, !prof !15
 
 57:                                               ; preds = %54
   %58 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1786,7 +1786,7 @@ define range(i32 -1, 1) i32 @H5Pget_nprops(i64 noundef %0, ptr noundef %1) local
 61:                                               ; preds = %54
   %62 = call i32 @H5P__get_nprops_plist(ptr noundef nonnull %55, ptr noundef nonnull %1) #4
   %63 = icmp slt i32 %62, 0
-  br i1 %63, label %64, label %90, !prof !16
+  br i1 %63, label %64, label %90, !prof !15
 
 64:                                               ; preds = %61
   %65 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -1802,7 +1802,7 @@ define range(i32 -1, 1) i32 @H5Pget_nprops(i64 noundef %0, ptr noundef %1) local
 71:                                               ; preds = %68
   %72 = call ptr @H5I_object(i64 noundef %0) #4
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %78, !prof !16
+  br i1 %73, label %74, label %78, !prof !15
 
 74:                                               ; preds = %71
   %75 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1813,7 +1813,7 @@ define range(i32 -1, 1) i32 @H5Pget_nprops(i64 noundef %0, ptr noundef %1) local
 78:                                               ; preds = %71
   %79 = call i32 @H5P_get_nprops_pclass(ptr noundef nonnull %72, ptr noundef nonnull %1, i1 noundef zeroext false) #4
   %80 = icmp slt i32 %79, 0
-  br i1 %80, label %81, label %90, !prof !16
+  br i1 %80, label %81, label %90, !prof !15
 
 81:                                               ; preds = %78
   %82 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -2102,7 +2102,7 @@ define range(i32 -1, -2147483648) i32 @H5Pisa_class(i64 noundef %0, i64 noundef 
 49:                                               ; preds = %43
   %50 = call i32 @H5P_isa_class(i64 noundef %0, i64 noundef %1) #4
   %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %57, !prof !16
+  br i1 %51, label %52, label %57, !prof !15
 
 52:                                               ; preds = %49
   %53 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -2214,7 +2214,7 @@ define range(i32 -1, -2147483648) i32 @H5Piterate(i64 noundef %0, ptr noundef %1
 49:                                               ; preds = %43, %40
   %50 = call ptr @H5I_object(i64 noundef %0) #4
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %56, !prof !16
+  br i1 %51, label %52, label %56, !prof !15
 
 52:                                               ; preds = %49
   %53 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -2224,7 +2224,7 @@ define range(i32 -1, -2147483648) i32 @H5Piterate(i64 noundef %0, ptr noundef %1
 
 56:                                               ; preds = %49
   %57 = icmp eq ptr %2, null
-  br i1 %57, label %58, label %62, !prof !16
+  br i1 %57, label %58, label %62, !prof !15
 
 58:                                               ; preds = %56
   %59 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -2247,7 +2247,7 @@ define range(i32 -1, -2147483648) i32 @H5Piterate(i64 noundef %0, ptr noundef %1
   %68 = select i1 %.not34, ptr %6, ptr %1
   %69 = call i32 @H5P__iterate_plist(ptr noundef nonnull %50, i1 noundef zeroext true, ptr noundef nonnull %68, ptr noundef nonnull @H5P__iterate_cb, ptr noundef nonnull %5) #4
   %70 = icmp slt i32 %69, 0
-  br i1 %70, label %71, label %91, !prof !16
+  br i1 %70, label %71, label %91, !prof !15
 
 71:                                               ; preds = %67
   %72 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -2265,7 +2265,7 @@ define range(i32 -1, -2147483648) i32 @H5Piterate(i64 noundef %0, ptr noundef %1
   %79 = select i1 %.not33, ptr %6, ptr %1
   %80 = call i32 @H5P__iterate_pclass(ptr noundef nonnull %50, ptr noundef nonnull %79, ptr noundef nonnull @H5P__iterate_cb, ptr noundef nonnull %5) #4
   %81 = icmp slt i32 %80, 0
-  br i1 %81, label %82, label %91, !prof !16
+  br i1 %81, label %82, label %91, !prof !15
 
 82:                                               ; preds = %78
   %83 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -2405,7 +2405,7 @@ define range(i32 -1, 1) i32 @H5Pget(i64 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %48, label %46
 
 46:                                               ; preds = %45
-  %47 = load i8, ptr %1, align 1, !tbaa !15
+  %47 = load i8, ptr %1, align 1, !tbaa !16
   %.not21 = icmp eq i8 %47, 0
   br i1 %.not21, label %48, label %52
 
@@ -2532,7 +2532,7 @@ define range(i32 -1, -2147483648) i32 @H5Premove(i64 noundef %0, ptr noundef %1)
   br i1 %.not, label %47, label %45
 
 45:                                               ; preds = %44
-  %46 = load i8, ptr %1, align 1, !tbaa !15
+  %46 = load i8, ptr %1, align 1, !tbaa !16
   %.not18 = icmp eq i8 %46, 0
   br i1 %.not18, label %47, label %51
 
@@ -2684,7 +2684,7 @@ define range(i32 -1, 1) i32 @H5Pcopy_prop(i64 noundef %0, i64 noundef %1, ptr no
   br i1 %.not37, label %67, label %65
 
 65:                                               ; preds = %64
-  %66 = load i8, ptr %2, align 1, !tbaa !15
+  %66 = load i8, ptr %2, align 1, !tbaa !16
   %.not38 = icmp eq i8 %66, 0
   br i1 %.not38, label %67, label %71
 
@@ -2818,7 +2818,7 @@ define range(i32 -1, -2147483648) i32 @H5Punregister(i64 noundef %0, ptr noundef
   br i1 %.not, label %47, label %45
 
 45:                                               ; preds = %44
-  %46 = load i8, ptr %1, align 1, !tbaa !15
+  %46 = load i8, ptr %1, align 1, !tbaa !16
   %.not18 = icmp eq i8 %46, 0
   br i1 %.not18, label %47, label %51
 
@@ -2937,7 +2937,7 @@ define range(i32 -1, 1) i32 @H5Pclose(i64 noundef %0) local_unnamed_addr #0 {
 43:                                               ; preds = %37
   %44 = call i32 @H5I_dec_app_ref(i64 noundef %0) #4
   %45 = icmp slt i32 %44, 0
-  br i1 %45, label %46, label %51, !prof !16
+  br i1 %45, label %46, label %51, !prof !15
 
 46:                                               ; preds = %43
   %47 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -3028,7 +3028,7 @@ define noalias ptr @H5Pget_class_name(i64 noundef %0) local_unnamed_addr #0 {
   %36 = call i32 @H5E_clear_stack() #4
   %37 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 10) #4
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %43, !prof !16
+  br i1 %38, label %39, label %43, !prof !15
 
 39:                                               ; preds = %35
   %40 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -3039,7 +3039,7 @@ define noalias ptr @H5Pget_class_name(i64 noundef %0) local_unnamed_addr #0 {
 43:                                               ; preds = %35
   %44 = call noalias ptr @H5P_get_class_name(ptr noundef nonnull %37) #4
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %51, !prof !16
+  br i1 %45, label %46, label %51, !prof !15
 
 46:                                               ; preds = %43
   %47 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -3130,7 +3130,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_class_parent(i64 noundef 
   %36 = call i32 @H5E_clear_stack() #4
   %37 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 10) #4
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %43, !prof !16
+  br i1 %38, label %39, label %43, !prof !15
 
 39:                                               ; preds = %35
   %40 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -3141,7 +3141,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_class_parent(i64 noundef 
 43:                                               ; preds = %35
   %44 = call ptr @H5P__get_class_parent(ptr noundef nonnull %37) #4
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %50, !prof !16
+  br i1 %45, label %46, label %50, !prof !15
 
 46:                                               ; preds = %43
   %47 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -3270,7 +3270,7 @@ define range(i32 -1, 1) i32 @H5Pclose_class(i64 noundef %0) local_unnamed_addr #
 42:                                               ; preds = %35
   %43 = call i32 @H5I_dec_app_ref(i64 noundef %0) #4
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %45, label %50, !prof !16
+  br i1 %44, label %45, label %50, !prof !15
 
 45:                                               ; preds = %42
   %46 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -3325,8 +3325,8 @@ attributes #4 = { nounwind }
 !12 = !{!"long", !5, i64 0}
 !13 = !{!"branch_weights", i32 1073205, i32 2146410443}
 !14 = !{!"branch_weights", i32 -2147483648, i32 0}
-!15 = !{!5, !5, i64 0}
-!16 = !{!"branch_weights", i32 0, i32 -2147483648}
+!15 = !{!"branch_weights", i32 0, i32 -2147483648}
+!16 = !{!5, !5, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"p1 _ZTS14H5P_genclass_t", !19, i64 0}
 !19 = !{!"any pointer", !5, i64 0}

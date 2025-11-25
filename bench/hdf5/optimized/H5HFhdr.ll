@@ -1791,7 +1791,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   %9 = trunc nuw i8 %8 to i1
   %10 = xor i1 %9, true
   %11 = select i1 %7, i1 true, i1 %10
-  br i1 %11, label %12, label %.thread90, !prof !9
+  br i1 %11, label %12, label %.thread88, !prof !9
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -1809,7 +1809,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   %21 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
   %22 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
   %23 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__hdr_reverse_iter, i32 noundef 1133, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.33) #7
-  br label %.thread90
+  br label %.thread88
 
 24:                                               ; preds = %15, %12
   %25 = call i32 @H5HF__man_iter_curr(ptr noundef nonnull %13, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
@@ -1820,7 +1820,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   %28 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
   %29 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__hdr_reverse_iter, i32 noundef 1139, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.42) #7
-  br label %.thread90
+  br label %.thread88
 
 31:                                               ; preds = %24
   %32 = load i32, ptr %4, align 4, !tbaa !78
@@ -1845,18 +1845,18 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   br label %44
 
 44:                                               ; preds = %.lr.ph, %.critedge3
-  %.06898 = phi i32 [ %40, %.lr.ph ], [ %49, %.critedge3 ]
-  %45 = zext nneg i32 %.06898 to i64
+  %.068100 = phi i32 [ %40, %.lr.ph ], [ %49, %.critedge3 ]
+  %45 = zext nneg i32 %.068100 to i64
   %46 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !91
   %48 = icmp eq i64 %47, %1
   %.not77 = icmp eq i64 %47, -1
-  %or.cond96 = or i1 %48, %.not77
-  br i1 %or.cond96, label %.critedge3, label %.critedge
+  %or.cond95 = or i1 %48, %.not77
+  br i1 %or.cond95, label %.critedge3, label %.critedge
 
 .critedge3:                                       ; preds = %44
-  %49 = add nsw i32 %.06898, -1
-  %50 = icmp sgt i32 %.06898, 0
+  %49 = add nsw i32 %.068100, -1
+  %50 = icmp sgt i32 %.068100, 0
   br i1 %50, label %44, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.critedge3, %39
@@ -1874,7 +1874,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   %57 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
   %58 = load i64, ptr @H5E_CANTNEXT_g, align 8, !tbaa !10
   %59 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__hdr_reverse_iter, i32 noundef 1165, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.43) #7
-  br label %.thread90
+  br label %.thread88
 
 60:                                               ; preds = %53
   %61 = call i32 @H5HF__man_iter_curr(ptr noundef nonnull %13, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
@@ -1885,7 +1885,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   %64 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
   %65 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %66 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__hdr_reverse_iter, i32 noundef 1170, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.42) #7
-  br label %.thread90
+  br label %.thread88
 
 67:                                               ; preds = %60
   %68 = load i32, ptr %4, align 4, !tbaa !78
@@ -1897,24 +1897,24 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   store i64 0, ptr %37, align 8, !tbaa !75
   %71 = call i32 @H5HF__man_iter_reset(ptr noundef nonnull %13) #7
   %72 = icmp slt i32 %71, 0
-  br i1 %72, label %73, label %.thread90
+  br i1 %72, label %73, label %.thread88
 
 73:                                               ; preds = %70
   %74 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
   %75 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
   %76 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__hdr_reverse_iter, i32 noundef 1184, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.29) #7
-  br label %.thread90
+  br label %.thread88
 
 .critedge:                                        ; preds = %44
-  store i32 %.06898, ptr %4, align 4, !tbaa !78
+  store i32 %.068100, ptr %4, align 4, !tbaa !78
   %77 = load i32, ptr %34, align 8, !tbaa !48
-  %78 = udiv i32 %.06898, %77
+  %78 = udiv i32 %.068100, %77
   %79 = load i32, ptr %35, align 8, !tbaa !43
   %80 = icmp ult i32 %78, %79
   br i1 %80, label %81, label %108
 
 81:                                               ; preds = %.critedge
-  %82 = add nuw i32 %.06898, 1
+  %82 = add nuw i32 %.068100, 1
   store i32 %82, ptr %4, align 4, !tbaa !78
   %83 = call i32 @H5HF__man_iter_set_entry(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef %82) #7
   %84 = icmp slt i32 %83, 0
@@ -1924,7 +1924,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   %86 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !10
   %87 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !10
   %88 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__hdr_reverse_iter, i32 noundef 1200, i64 noundef %86, i64 noundef %87, ptr noundef nonnull @.str.44) #7
-  br label %.thread90
+  br label %.thread88
 
 89:                                               ; preds = %81
   %90 = load ptr, ptr %3, align 8, !tbaa !79
@@ -1948,7 +1948,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
   %106 = mul i64 %103, %105
   %107 = add i64 %106, %100
   store i64 %107, ptr %37, align 8, !tbaa !75
-  br label %.thread90
+  br label %.thread88
 
 108:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2019,17 +2019,17 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
 
 .thread:                                          ; preds = %123, %131, %138, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread90
+  br label %.thread88
 
 156:                                              ; preds = %142
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge
 
 .backedge:                                        ; preds = %156, %67
-  br label %39, !llvm.loop !96
+  br label %39
 
-.thread90:                                        ; preds = %.thread, %89, %85, %70, %73, %63, %56, %2, %27, %20
-  %.069 = phi i32 [ -1, %27 ], [ -1, %20 ], [ 0, %2 ], [ -1, %56 ], [ -1, %63 ], [ -1, %73 ], [ -1, %.thread ], [ 0, %89 ], [ -1, %85 ], [ 0, %70 ]
+.thread88:                                        ; preds = %.thread, %89, %85, %70, %73, %63, %56, %2, %27, %20
+  %.069 = phi i32 [ -1, %27 ], [ -1, %20 ], [ 0, %2 ], [ 0, %70 ], [ -1, %73 ], [ -1, %63 ], [ -1, %56 ], [ -1, %.thread ], [ 0, %89 ], [ -1, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.069
@@ -2176,10 +2176,10 @@ define range(i32 -1, 1) i32 @H5HF__hdr_delete(ptr noundef %0) local_unnamed_addr
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %30 = load i64, ptr %29, align 8, !tbaa !97
-  store i64 0, ptr %29, align 8, !tbaa !97
+  %30 = load i64, ptr %29, align 8, !tbaa !96
+  store i64 0, ptr %29, align 8, !tbaa !96
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store i32 0, ptr %31, align 8, !tbaa !98
+  store i32 0, ptr %31, align 8, !tbaa !97
   br label %35
 
 32:                                               ; preds = %25
@@ -2383,6 +2383,5 @@ attributes #7 = { nounwind }
 !93 = distinct !{!93, !50}
 !94 = !{!81, !11, i64 336}
 !95 = !{!13, !21, i64 352}
-!96 = distinct !{!96, !50}
-!97 = !{!13, !11, i64 488}
-!98 = !{!13, !18, i64 496}
+!96 = !{!13, !11, i64 488}
+!97 = !{!13, !18, i64 496}

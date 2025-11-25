@@ -19142,8 +19142,8 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %16
   %28 = zext i8 %27 to i32
   %29 = shl nuw nsw i32 1, %22
   %30 = and i32 %29, %28
-  %.not258 = icmp eq i32 %30, 0
-  br i1 %.not258, label %.thread194, label %51
+  %.not257 = icmp eq i32 %30, 0
+  br i1 %.not257, label %.thread194, label %51
 
 31:                                               ; preds = %7
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -19166,13 +19166,13 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %16
   %48 = and i32 %42, 31
   %49 = shl nuw i32 1, %48
   %50 = and i32 %49, %47
-  %.not259 = icmp eq i32 %50, 0
-  br i1 %.not259, label %.thread194, label %51
+  %.not258 = icmp eq i32 %50, 0
+  br i1 %.not258, label %.thread194, label %51
 
 51:                                               ; preds = %31, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit
   %52 = add i64 %4, 2147483648
   %53 = icmp ult i64 %52, 4294967296
-  br i1 %53, label %.thread194, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %53, label %.thread194, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 .thread194:                                       ; preds = %16, %13, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, %51, %31
   %54 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %3, ptr noundef null, i1 noundef zeroext false) #33
@@ -19183,7 +19183,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %16
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1048320
   %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %61, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %.not, label %61, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 61:                                               ; preds = %.thread194
   %62 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #33
@@ -19193,15 +19193,15 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %16
 
 _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %61
   %65 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %63, i32 noundef 18) #33
-  %brmerge254.not = and i1 %12, %65
-  br i1 %brmerge254.not, label %66, label %68
+  %brmerge253.not = and i1 %12, %65
+  br i1 %brmerge253.not, label %66, label %68
 
 _ZNK4llvm8Function10hasOptSizeEv.exit.thread:     ; preds = %61
   br i1 %12, label %66, label %68
 
 66:                                               ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit, %_ZNK4llvm8Function10hasOptSizeEv.exit.thread
   %67 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %5, i32 %3) #33
-  br i1 %67, label %68, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %67, label %68, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 68:                                               ; preds = %_ZNK4llvm8Function10hasOptSizeEv.exit, %66, %_ZNK4llvm8Function10hasOptSizeEv.exit.thread
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -19254,7 +19254,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit151: ; preds = %73
 108:                                              ; preds = %73
   %109 = add nsw i32 %76, -1
   %110 = icmp ult i32 %109, 1073741823
-  br i1 %110, label %111, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %110, label %111, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 111:                                              ; preds = %108
   %112 = load ptr, ptr @_ZN4llvm3X8612GR32RegClassE, align 8, !tbaa !217
@@ -19328,14 +19328,14 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit157: ; preds = %_ZNK4l
   %160 = phi i1 [ false, %.thread217 ], [ %157, %147 ], [ %107, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit151 ]
   %161 = icmp ne i64 %4, 0
   %or.cond22 = or i1 %161, %159
-  br i1 %or.cond22, label %162, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %or.cond22, label %162, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 162:                                              ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit157
   br i1 %158, label %163, label %165
 
 163:                                              ; preds = %162
   %164 = icmp ult i64 %4, 4294967296
-  %spec.select256 = select i1 %164, i32 353, i32 2566
+  %spec.select255 = select i1 %164, i32 353, i32 2566
   br label %_ZL18convertALUrr2ALUrij.exit
 
 165:                                              ; preds = %162
@@ -19352,7 +19352,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit157: ; preds = %_ZNK4l
   %172 = tail call noundef i32 @_ZNK4llvm17MachineBasicBlock23computeRegisterLivenessEPKNS_18TargetRegisterInfoENS_10MCRegisterENS_26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEEj(ptr noundef nonnull align 8 dereferenceable(288) %171, ptr noundef nonnull %169, i32 28, ptr nonnull %1, i32 noundef 10) #33
   %.not139 = icmp eq i32 %172, 1
   %brmerge.not = and i1 %6, %.not139
-  br i1 %brmerge.not, label %.thread222, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %brmerge.not, label %.thread222, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 .thread222:                                       ; preds = %168
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19374,10 +19374,10 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit157: ; preds = %_ZNK4l
   br label %_ZL18convertALUrr2ALUrij.exit
 
 180:                                              ; preds = %165
-  br i1 %160, label %_ZL18convertALUrr2ALUrij.exit, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %160, label %_ZL18convertALUrr2ALUrij.exit, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 181:                                              ; preds = %68
-  switch i16 %70, label %_ZL18convertALUrr2ALUrij.exit.thread249 [
+  switch i16 %70, label %_ZL18convertALUrr2ALUrij.exit.thread248 [
     i16 652, label %_ZL18convertALUrr2ALUrij.exit
     i16 655, label %182
     i16 500, label %183
@@ -19436,7 +19436,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit157: ; preds = %_ZNK4l
     i16 3655, label %235
     i16 5016, label %236
     i16 1396, label %237
-    i16 1303, label %_ZL18convertALUrr2ALUrij.exit.thread246
+    i16 1303, label %_ZL18convertALUrr2ALUrij.exit.thread245
     i16 1161, label %238
     i16 5011, label %239
     i16 1392, label %240
@@ -19613,7 +19613,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit157: ; preds = %_ZNK4l
   br label %_ZL18convertALUrr2ALUrij.exit
 
 238:                                              ; preds = %181
-  br label %_ZL18convertALUrr2ALUrij.exit.thread246
+  br label %_ZL18convertALUrr2ALUrij.exit.thread245
 
 239:                                              ; preds = %181
   br label %_ZL18convertALUrr2ALUrij.exit
@@ -19622,26 +19622,26 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit157: ; preds = %_ZNK4l
   br label %_ZL18convertALUrr2ALUrij.exit
 
 241:                                              ; preds = %181
-  br label %_ZL18convertALUrr2ALUrij.exit.thread246
+  br label %_ZL18convertALUrr2ALUrij.exit.thread245
 
 242:                                              ; preds = %181
-  br label %_ZL18convertALUrr2ALUrij.exit.thread246
+  br label %_ZL18convertALUrr2ALUrij.exit.thread245
 
 243:                                              ; preds = %181, %185, %186, %187, %212, %213, %214, %215
-  %.2135.ph236 = phi i32 [ 4186, %215 ], [ 4181, %214 ], [ 4789, %213 ], [ 4782, %212 ], [ 4208, %187 ], [ 4206, %186 ], [ 4825, %185 ], [ 4823, %181 ]
+  %.2135.ph235 = phi i32 [ 4186, %215 ], [ 4181, %214 ], [ 4789, %213 ], [ 4782, %212 ], [ 4208, %187 ], [ 4206, %186 ], [ 4825, %185 ], [ 4823, %181 ]
   %244 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %3, ptr noundef null, i1 noundef zeroext false) #33
   %.not141 = icmp eq i32 %244, 2
-  br i1 %.not141, label %_ZL18convertALUrr2ALUrij.exit, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %.not141, label %_ZL18convertALUrr2ALUrij.exit, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
-_ZL18convertALUrr2ALUrij.exit.thread246:          ; preds = %181, %242, %241, %238
-  %.2135241 = phi i32 [ 1150, %242 ], [ 1291, %241 ], [ 1158, %238 ], [ 1300, %181 ]
+_ZL18convertALUrr2ALUrij.exit.thread245:          ; preds = %181, %242, %241, %238
+  %.2135240 = phi i32 [ 1150, %242 ], [ 1291, %241 ], [ 1158, %238 ], [ 1300, %181 ]
   %245 = tail call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %3, ptr noundef null, i1 noundef zeroext false) #33
   %.not142 = icmp eq i32 %245, 1
-  br i1 %.not142, label %_ZL18convertALUrr2ALUrij.exit, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %.not142, label %_ZL18convertALUrr2ALUrij.exit, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
-_ZL18convertALUrr2ALUrij.exit:                    ; preds = %163, %243, %181, %240, %239, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %184, %183, %182, %180, %166, %.thread222, %_ZL18convertALUrr2ALUrij.exit.thread246
-  %.3129234 = phi i1 [ false, %_ZL18convertALUrr2ALUrij.exit.thread246 ], [ true, %.thread222 ], [ false, %166 ], [ false, %180 ], [ false, %182 ], [ false, %183 ], [ false, %184 ], [ false, %188 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ false, %197 ], [ false, %198 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ false, %205 ], [ false, %206 ], [ false, %207 ], [ false, %208 ], [ false, %209 ], [ false, %210 ], [ false, %211 ], [ false, %216 ], [ false, %217 ], [ false, %218 ], [ false, %219 ], [ false, %220 ], [ false, %221 ], [ false, %222 ], [ false, %223 ], [ false, %224 ], [ false, %225 ], [ false, %226 ], [ false, %227 ], [ false, %228 ], [ false, %229 ], [ false, %230 ], [ false, %231 ], [ false, %232 ], [ false, %233 ], [ false, %234 ], [ false, %235 ], [ false, %236 ], [ false, %237 ], [ false, %239 ], [ false, %240 ], [ false, %181 ], [ false, %163 ], [ false, %243 ]
-  %.2135233 = phi i32 [ %.2135241, %_ZL18convertALUrr2ALUrij.exit.thread246 ], [ 2549, %.thread222 ], [ 2549, %166 ], [ 2585, %180 ], [ 639, %182 ], [ 491, %183 ], [ 493, %184 ], [ 868, %188 ], [ 870, %189 ], [ 2982, %190 ], [ 2984, %191 ], [ 22721, %192 ], [ 22723, %193 ], [ 4551, %194 ], [ 4553, %195 ], [ 4363, %196 ], [ 4365, %197 ], [ 4102, %198 ], [ 4104, %199 ], [ 3832, %200 ], [ 3834, %201 ], [ 3952, %202 ], [ 3954, %203 ], [ 3596, %204 ], [ 3598, %205 ], [ 3674, %206 ], [ 3676, %207 ], [ 596, %208 ], [ 603, %209 ], [ 466, %210 ], [ 471, %211 ], [ 827, %216 ], [ 834, %217 ], [ 2941, %218 ], [ 2948, %219 ], [ 22680, %220 ], [ 22687, %221 ], [ 4521, %222 ], [ 4523, %223 ], [ 4333, %224 ], [ 4335, %225 ], [ 4072, %226 ], [ 4074, %227 ], [ 3802, %228 ], [ 3804, %229 ], [ 3922, %230 ], [ 3924, %231 ], [ 3578, %232 ], [ 3580, %233 ], [ 3656, %234 ], [ 3658, %235 ], [ 5015, %236 ], [ 1395, %237 ], [ 5010, %239 ], [ 1391, %240 ], [ 637, %181 ], [ %spec.select256, %163 ], [ %.2135.ph236, %243 ]
+_ZL18convertALUrr2ALUrij.exit:                    ; preds = %163, %243, %181, %240, %239, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %184, %183, %182, %180, %166, %.thread222, %_ZL18convertALUrr2ALUrij.exit.thread245
+  %.3129233 = phi i1 [ false, %_ZL18convertALUrr2ALUrij.exit.thread245 ], [ true, %.thread222 ], [ false, %166 ], [ false, %180 ], [ false, %182 ], [ false, %183 ], [ false, %184 ], [ false, %188 ], [ false, %189 ], [ false, %190 ], [ false, %191 ], [ false, %192 ], [ false, %193 ], [ false, %194 ], [ false, %195 ], [ false, %196 ], [ false, %197 ], [ false, %198 ], [ false, %199 ], [ false, %200 ], [ false, %201 ], [ false, %202 ], [ false, %203 ], [ false, %204 ], [ false, %205 ], [ false, %206 ], [ false, %207 ], [ false, %208 ], [ false, %209 ], [ false, %210 ], [ false, %211 ], [ false, %216 ], [ false, %217 ], [ false, %218 ], [ false, %219 ], [ false, %220 ], [ false, %221 ], [ false, %222 ], [ false, %223 ], [ false, %224 ], [ false, %225 ], [ false, %226 ], [ false, %227 ], [ false, %228 ], [ false, %229 ], [ false, %230 ], [ false, %231 ], [ false, %232 ], [ false, %233 ], [ false, %234 ], [ false, %235 ], [ false, %236 ], [ false, %237 ], [ false, %239 ], [ false, %240 ], [ false, %181 ], [ false, %163 ], [ false, %243 ]
+  %.2135232 = phi i32 [ %.2135240, %_ZL18convertALUrr2ALUrij.exit.thread245 ], [ 2549, %.thread222 ], [ 2549, %166 ], [ 2585, %180 ], [ 639, %182 ], [ 491, %183 ], [ 493, %184 ], [ 868, %188 ], [ 870, %189 ], [ 2982, %190 ], [ 2984, %191 ], [ 22721, %192 ], [ 22723, %193 ], [ 4551, %194 ], [ 4553, %195 ], [ 4363, %196 ], [ 4365, %197 ], [ 4102, %198 ], [ 4104, %199 ], [ 3832, %200 ], [ 3834, %201 ], [ 3952, %202 ], [ 3954, %203 ], [ 3596, %204 ], [ 3598, %205 ], [ 3674, %206 ], [ 3676, %207 ], [ 596, %208 ], [ 603, %209 ], [ 466, %210 ], [ 471, %211 ], [ 827, %216 ], [ 834, %217 ], [ 2941, %218 ], [ 2948, %219 ], [ 22680, %220 ], [ 22687, %221 ], [ 4521, %222 ], [ 4523, %223 ], [ 4333, %224 ], [ 4335, %225 ], [ 4072, %226 ], [ 4074, %227 ], [ 3802, %228 ], [ 3804, %229 ], [ 3922, %230 ], [ 3924, %231 ], [ 3578, %232 ], [ 3580, %233 ], [ 3656, %234 ], [ 3658, %235 ], [ 5015, %236 ], [ 1395, %237 ], [ 5010, %239 ], [ 1391, %240 ], [ 637, %181 ], [ %spec.select255, %163 ], [ %.2135.ph235, %243 ]
   %246 = call noundef zeroext i1 @_ZN4llvm3X865isSHLEj(i32 noundef %71) #33
   br i1 %246, label %259, label %247
 
@@ -19672,18 +19672,18 @@ _ZL18convertALUrr2ALUrij.exit:                    ; preds = %163, %243, %181, %2
 259:                                              ; preds = %257, %255, %253, %251, %249, %247, %_ZL18convertALUrr2ALUrij.exit
   %260 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %1, i32 %3, ptr noundef null, i1 noundef zeroext false) #33
   %261 = icmp ult i32 %260, 2
-  br i1 %261, label %_ZL18convertALUrr2ALUrij.exit.thread249, label %262
+  br i1 %261, label %_ZL18convertALUrr2ALUrij.exit.thread248, label %262
 
 262:                                              ; preds = %259
   %263 = add i64 %4, 128
   %264 = icmp ult i64 %263, 256
   %brmerge146.not = and i1 %264, %6
-  br i1 %brmerge146.not, label %265, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %brmerge146.not, label %265, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 265:                                              ; preds = %262
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %267 = load ptr, ptr %266, align 8, !tbaa !26
-  %268 = zext nneg i32 %.2135233 to i64
+  %268 = zext nneg i32 %.2135232 to i64
   %269 = sub nsw i64 0, %268
   %270 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %267, i64 %269
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %270) #33
@@ -19696,26 +19696,26 @@ _ZL18convertALUrr2ALUrij.exit:                    ; preds = %163, %243, %181, %2
   store i64 %4, ptr %272, align 8, !tbaa !240, !alias.scope !1104
   call void @_ZN4llvm12MachineInstr10addOperandERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %9) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 273:                                              ; preds = %257
-  br i1 %6, label %274, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %6, label %274, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 274:                                              ; preds = %273
-  br i1 %.3129234, label %315, label %275
+  br i1 %.3129233, label %315, label %275
 
 275:                                              ; preds = %274
   %276 = icmp eq i64 %4, 0
   br i1 %276, label %277, label %290
 
 277:                                              ; preds = %275
-  %278 = call fastcc noundef zeroext i1 @_ZL15canConvert2Copyj(i32 noundef %.2135233)
+  %278 = call fastcc noundef zeroext i1 @_ZL15canConvert2Copyj(i32 noundef %.2135232)
   br i1 %278, label %279, label %290
 
 279:                                              ; preds = %277
   %280 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %1, i32 28, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false) #33
-  %.not261 = icmp eq i32 %280, -1
-  br i1 %.not261, label %290, label %281
+  %.not260 = icmp eq i32 %280, -1
+  br i1 %.not260, label %290, label %281
 
 281:                                              ; preds = %279
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19741,8 +19741,8 @@ _ZL18convertALUrr2ALUrij.exit:                    ; preds = %163, %243, %181, %2
   %291 = load ptr, ptr %55, align 8, !tbaa !239
   %292 = load i32, ptr %291, align 8
   %293 = and i32 %292, 16777216
-  %.not262 = icmp eq i32 %293, 0
-  br i1 %.not262, label %294, label %295
+  %.not261 = icmp eq i32 %293, 0
+  br i1 %.not261, label %294, label %295
 
 294:                                              ; preds = %290
   store i32 0, ptr %10, align 4, !tbaa !85
@@ -19770,7 +19770,7 @@ _ZL18convertALUrr2ALUrij.exit:                    ; preds = %163, %243, %181, %2
 .critedge:                                        ; preds = %295, %305, %297
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %308 = load ptr, ptr %307, align 8, !tbaa !26
-  %309 = zext nneg i32 %.2135233 to i64
+  %309 = zext nneg i32 %.2135232 to i64
   %310 = sub nsw i64 0, %309
   %311 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %308, i64 %310
   call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %1, ptr noundef nonnull align 8 dereferenceable(32) %311) #33
@@ -19783,18 +19783,18 @@ _ZL18convertALUrr2ALUrij.exit:                    ; preds = %163, %243, %181, %2
   br label %315
 
 315:                                              ; preds = %281, %.critedge, %274
-  br i1 %12, label %316, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %12, label %316, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 316:                                              ; preds = %315
   %317 = call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %5, i32 %3)
-  br i1 %317, label %318, label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br i1 %317, label %318, label %_ZL18convertALUrr2ALUrij.exit.thread248
 
 318:                                              ; preds = %316
   call void @_ZN4llvm12MachineInstr15eraseFromBundleEv(ptr noundef nonnull align 8 dereferenceable(70) %2) #33
-  br label %_ZL18convertALUrr2ALUrij.exit.thread249
+  br label %_ZL18convertALUrr2ALUrij.exit.thread248
 
-_ZL18convertALUrr2ALUrij.exit.thread249:          ; preds = %108, %181, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit157, %180, %168, %262, %243, %_ZL18convertALUrr2ALUrij.exit.thread246, %259, %265, %273, %318, %316, %315, %66, %.thread194, %51
-  %.0 = phi i1 [ false, %51 ], [ false, %.thread194 ], [ false, %66 ], [ false, %243 ], [ false, %_ZL18convertALUrr2ALUrij.exit.thread246 ], [ true, %265 ], [ false, %259 ], [ %264, %262 ], [ true, %273 ], [ true, %318 ], [ true, %316 ], [ true, %315 ], [ false, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit157 ], [ false, %180 ], [ %.not139, %168 ], [ false, %181 ], [ false, %108 ]
+_ZL18convertALUrr2ALUrij.exit.thread248:          ; preds = %108, %181, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit157, %180, %168, %262, %243, %_ZL18convertALUrr2ALUrij.exit.thread245, %259, %265, %273, %318, %316, %315, %66, %.thread194, %51
+  %.0 = phi i1 [ false, %51 ], [ false, %.thread194 ], [ false, %66 ], [ false, %243 ], [ false, %_ZL18convertALUrr2ALUrij.exit.thread245 ], [ true, %265 ], [ false, %259 ], [ %264, %262 ], [ true, %273 ], [ true, %318 ], [ true, %316 ], [ true, %315 ], [ false, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit157 ], [ false, %180 ], [ %.not139, %168 ], [ false, %181 ], [ false, %108 ]
   ret i1 %.0
 }
 

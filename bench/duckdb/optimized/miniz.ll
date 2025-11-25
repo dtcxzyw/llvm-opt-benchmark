@@ -13911,7 +13911,7 @@ define internal fastcc noundef i32 @_ZN12duckdb_minizL37mz_zip_writer_create_zip
 
 12:                                               ; preds = %9, %4
   %.022 = phi ptr [ %11, %9 ], [ %8, %4 ]
-  %.0 = phi i32 [ 8, %9 ], [ 0, %4 ]
+  %.0 = phi i16 [ 8, %9 ], [ 0, %4 ]
   %.not28 = icmp eq ptr %2, null
   br i1 %.not28, label %16, label %13
 
@@ -13919,12 +13919,12 @@ define internal fastcc noundef i32 @_ZN12duckdb_minizL37mz_zip_writer_create_zip
   %14 = load i64, ptr %2, align 8, !tbaa !53
   store i64 %14, ptr %.022, align 1
   %15 = getelementptr inbounds nuw i8, ptr %.022, i64 8
-  %narrow = add nuw nsw i32 %.0, 8
+  %narrow = add nuw nsw i16 %.0, 8
   br label %16
 
 16:                                               ; preds = %13, %12
   %.123 = phi ptr [ %15, %13 ], [ %.022, %12 ]
-  %.1 = phi i32 [ %narrow, %13 ], [ %.0, %12 ]
+  %.1 = phi i16 [ %narrow, %13 ], [ %.0, %12 ]
   %.not29 = icmp eq ptr %3, null
   br i1 %.not29, label %21, label %17
 
@@ -13932,19 +13932,18 @@ define internal fastcc noundef i32 @_ZN12duckdb_minizL37mz_zip_writer_create_zip
   %18 = load i64, ptr %3, align 8, !tbaa !53
   store i64 %18, ptr %.123, align 1
   %19 = getelementptr inbounds nuw i8, ptr %.123, i64 8
-  %20 = add nuw nsw i32 %.1, 8
+  %20 = add nuw nsw i16 %.1, 8
   br label %21
 
 21:                                               ; preds = %17, %16
   %.224 = phi ptr [ %19, %17 ], [ %.123, %16 ]
-  %.2 = phi i32 [ %20, %17 ], [ %.1, %16 ]
-  %22 = trunc nuw nsw i32 %.2 to i16
-  store i16 %22, ptr %6, align 1
-  %23 = ptrtoint ptr %.224 to i64
-  %24 = ptrtoint ptr %0 to i64
-  %25 = sub i64 %23, %24
-  %26 = trunc i64 %25 to i32
-  ret i32 %26
+  %.2 = phi i16 [ %20, %17 ], [ %.1, %16 ]
+  store i16 %.2, ptr %6, align 1
+  %22 = ptrtoint ptr %.224 to i64
+  %23 = ptrtoint ptr %0 to i64
+  %24 = sub i64 %22, %23
+  %25 = trunc i64 %24 to i32
+  ret i32 %25
 }
 
 ; Function Attrs: mustprogress uwtable

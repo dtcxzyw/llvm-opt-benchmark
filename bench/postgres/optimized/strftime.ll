@@ -1325,24 +1325,24 @@ _yconv.exit466:                                   ; preds = %.lr.ph.i.i42.i461, 
 
 462:                                              ; preds = %459
   %463 = load i64, ptr %28, align 8
-  %464 = icmp slt i64 %463, 0
-  %465 = icmp eq i64 %463, 0
-  br i1 %465, label %466, label %471
+  %464 = icmp eq i64 %463, 0
+  br i1 %464, label %465, label %470
 
-466:                                              ; preds = %462
-  %467 = load ptr, ptr %29, align 8
-  %.not240 = icmp eq ptr %467, null
-  br i1 %.not240, label %471, label %468
+465:                                              ; preds = %462
+  %466 = load ptr, ptr %29, align 8
+  %.not240 = icmp eq ptr %466, null
+  br i1 %.not240, label %.split, label %467
 
-468:                                              ; preds = %466
-  %469 = load i8, ptr %467, align 1
-  %470 = icmp eq i8 %469, 45
-  br i1 %470, label %.split222, label %.split
+467:                                              ; preds = %465
+  %468 = load i8, ptr %466, align 1
+  %469 = icmp eq i8 %468, 45
+  br i1 %469, label %.split222, label %.split
 
-471:                                              ; preds = %466, %462
-  br i1 %464, label %.split222, label %.split
+470:                                              ; preds = %462
+  %471 = icmp slt i64 %463, 0
+  br i1 %471, label %.split222, label %.split
 
-.split222:                                        ; preds = %468, %471
+.split222:                                        ; preds = %467, %470
   %472 = sub i64 0, %463
   %473 = icmp ult ptr %.0209, %3
   br i1 %473, label %.lr.ph.preheader.i477, label %_add.exit484
@@ -1368,7 +1368,7 @@ _yconv.exit466:                                   ; preds = %.lr.ph.i.i42.i461, 
   %exitcond.not.i483 = icmp eq ptr %478, %3
   br i1 %exitcond.not.i483, label %_add.exit484, label %.lr.ph.i479, !llvm.loop !4
 
-.split:                                           ; preds = %468, %471
+.split:                                           ; preds = %465, %467, %470
   %479 = icmp ult ptr %.0209, %3
   br i1 %479, label %.lr.ph.preheader.i486, label %_add.exit484
 
@@ -1393,9 +1393,9 @@ _yconv.exit466:                                   ; preds = %.lr.ph.i.i42.i461, 
   %exitcond.not.i492 = icmp eq ptr %484, %3
   br i1 %exitcond.not.i492, label %_add.exit484, label %.lr.ph.i488, !llvm.loop !4
 
-_add.exit484:                                     ; preds = %483, %.lr.ph.i488, %477, %.lr.ph.i479, %.split, %.split222
-  %phi.call = phi ptr [ %.0209, %.split222 ], [ %.0209, %.split ], [ %.067.i481, %.lr.ph.i479 ], [ %scevgep.i478, %477 ], [ %.067.i490, %.lr.ph.i488 ], [ %scevgep.i487, %483 ]
-  %.0205 = phi i64 [ %472, %.split222 ], [ %463, %.split ], [ %472, %.lr.ph.i479 ], [ %472, %477 ], [ %463, %.lr.ph.i488 ], [ %463, %483 ]
+_add.exit484:                                     ; preds = %477, %.lr.ph.i479, %483, %.lr.ph.i488, %.split, %.split222
+  %phi.call = phi ptr [ %.0209, %.split222 ], [ %.0209, %.split ], [ %.067.i490, %.lr.ph.i488 ], [ %scevgep.i487, %483 ], [ %.067.i481, %.lr.ph.i479 ], [ %scevgep.i478, %477 ]
+  %.0205 = phi i64 [ %472, %.split222 ], [ %463, %.split ], [ %463, %.lr.ph.i488 ], [ %463, %483 ], [ %472, %.lr.ph.i479 ], [ %472, %477 ]
   %485 = sdiv i64 %.0205, 60
   %486 = sdiv i64 %.0205, 3600
   %487 = mul nsw i64 %486, 100

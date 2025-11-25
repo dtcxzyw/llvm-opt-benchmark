@@ -65352,8 +65352,8 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules6pep69524non_pep695_ge
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #29, !noalias !7608
   unreachable
 
-common.resume:                                    ; preds = %.thread20, %.thread, %67, %41
-  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %.pn1419, %.thread ], [ %lpad.thr_comm.split-lp33, %.thread20 ], [ %lpad.thr_comm.split-lp, %67 ]
+common.resume:                                    ; preds = %.thread23, %.thread, %67, %41
+  %common.resume.op = phi { ptr, i32 } [ %42, %41 ], [ %.pn1419, %.thread ], [ %lpad.thr_comm.split-lp3040, %.thread23 ], [ %lpad.thr_comm.split-lp30, %67 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17ha4643a15a7bd36b7E.exit": ; preds = %43
@@ -65369,11 +65369,11 @@ common.resume:                                    ; preds = %.thread20, %.thread
   %51 = invoke noundef i64 @_ZN15ruff_python_ast5nodes9Arguments3len17ha175d3f34e042be0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %31)
           to label %53 unwind label %52
 
-.thread20:                                        ; preds = %102
-  br i1 %.sroa.05.2.ph32, label %.thread, label %common.resume
+.thread23:                                        ; preds = %102
+  br i1 %.sroa.05.2.ph39, label %.thread, label %common.resume
 
 52:                                               ; preds = %"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17ha4643a15a7bd36b7E.exit"
-  %lpad.thr_comm.split-lp41 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -65416,20 +65416,20 @@ common.resume:                                    ; preds = %.thread20, %.thread
   %65 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %66 = load ptr, ptr %65, align 8, !nonnull !3, !align !20, !noundef !3
   invoke void @"_ZN123_$LT$ruff_linter..rules..pyupgrade..rules..pep695..TypeVarReferenceVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h52f926d71ffc13e5E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 %66)
-          to label %68 unwind label %.thread28
+          to label %68 unwind label %.thread35
 
-.thread28:                                        ; preds = %62
-  %lpad.thr_comm.split-lp31 = landingpad { ptr, i32 }
+.thread35:                                        ; preds = %62
+  %lpad.thr_comm.split-lp3038 = landingpad { ptr, i32 }
           cleanup
   br label %102
 
-.thread24:                                        ; preds = %93, %71
-  %lpad.thr_comm = landingpad { ptr, i32 }
+.thread31:                                        ; preds = %93, %71
+  %lpad.thr_comm29 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 67:                                               ; preds = %72
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp30 = landingpad { ptr, i32 }
           cleanup
   br i1 %70, label %102, label %common.resume
 
@@ -65444,7 +65444,7 @@ common.resume:                                    ; preds = %.thread20, %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   invoke void @_ZN11ruff_linter5rules9pyupgrade5rules6pep69515check_type_vars17he2d8a3801b896ed2E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-          to label %73 unwind label %.thread24
+          to label %73 unwind label %.thread31
 
 72:                                               ; preds = %94, %68
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -65502,7 +65502,7 @@ common.resume:                                    ; preds = %.thread20, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ruff_linter..rules..pyupgrade..rules..pep695..TypeVar$GT$$GT$17h801a27a5ecbfded0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
-          to label %94 unwind label %.thread24
+          to label %94 unwind label %.thread31
 
 94:                                               ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -65540,14 +65540,14 @@ common.resume:                                    ; preds = %.thread20, %.thread
 101:                                              ; preds = %.sink.split, %32, %29, %25, %23, %2
   ret void
 
-102:                                              ; preds = %.thread28, %67
-  %lpad.thr_comm.split-lp33 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp31, %.thread28 ], [ %lpad.thr_comm.split-lp, %67 ]
-  %.sroa.05.2.ph32 = phi i1 [ true, %.thread28 ], [ false, %67 ]
+102:                                              ; preds = %.thread35, %67
+  %lpad.thr_comm.split-lp3040 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp3038, %.thread35 ], [ %lpad.thr_comm.split-lp30, %67 ]
+  %.sroa.05.2.ph39 = phi i1 [ true, %.thread35 ], [ false, %67 ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$ruff_linter..rules..pyupgrade..rules..pep695..TypeVar$GT$$GT$17h801a27a5ecbfded0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #28
-          to label %.thread20 unwind label %95
+          to label %.thread23 unwind label %95
 
-.thread:                                          ; preds = %52, %81, %.thread24, %60, %.thread20
-  %.pn1419 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp33, %.thread20 ], [ %61, %60 ], [ %82, %81 ], [ %lpad.thr_comm, %.thread24 ], [ %lpad.thr_comm.split-lp41, %52 ]
+.thread:                                          ; preds = %81, %.thread31, %60, %52, %.thread23
+  %.pn1419 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp3040, %.thread23 ], [ %lpad.thr_comm.split-lp, %52 ], [ %61, %60 ], [ %82, %81 ], [ %lpad.thr_comm29, %.thread31 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_diagnostics..diagnostic..Diagnostic$GT$17h5e3a7e2da4203097E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %16) #28
           to label %common.resume unwind label %95
 }

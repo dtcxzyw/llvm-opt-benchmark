@@ -6,45 +6,45 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i64 7, 1) i64 @libdeflate_zlib_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp ult i64 %4, 7
-  br i1 %6, label %29, label %7
+  br i1 %6, label %28, label %7
 
 7:                                                ; preds = %5
   %8 = tail call i32 @libdeflate_get_compression_level(ptr noundef %0) #3
   %9 = icmp ult i32 %8, 2
-  br i1 %9, label %15, label %10
+  br i1 %9, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = icmp ult i32 %8, 6
-  br i1 %11, label %15, label %12
+  br i1 %11, label %14, label %12
 
 12:                                               ; preds = %10
   %13 = icmp ult i32 %8, 8
-  %14 = select i1 %13, i16 30848, i16 30912
-  br label %15
+  %. = select i1 %13, i16 30848, i16 30912
+  br label %14
 
-15:                                               ; preds = %12, %10, %7
-  %.027 = phi i16 [ 30720, %7 ], [ 30784, %10 ], [ %14, %12 ]
-  %16 = urem i16 %.027, 31
-  %17 = or disjoint i16 %16, %.027
-  %18 = xor i16 %17, 31
-  %19 = tail call i16 @llvm.bswap.i16(i16 range(i16 30720, 30976) %18)
-  store i16 %19, ptr %3, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %21 = add i64 %4, -6
-  %22 = tail call i64 @libdeflate_deflate_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %20, i64 noundef %21) #3
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %29, label %24
+14:                                               ; preds = %12, %10, %7
+  %.027 = phi i16 [ 30720, %7 ], [ 30784, %10 ], [ %., %12 ]
+  %15 = urem i16 %.027, 31
+  %16 = or disjoint i16 %15, %.027
+  %17 = xor i16 %16, 31
+  %18 = tail call i16 @llvm.bswap.i16(i16 range(i16 30720, 30976) %17)
+  store i16 %18, ptr %3, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %20 = add i64 %4, -6
+  %21 = tail call i64 @libdeflate_deflate_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %19, i64 noundef %20) #3
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %28, label %23
 
-24:                                               ; preds = %15
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %22
-  %26 = tail call i32 @libdeflate_adler32(i32 noundef 1, ptr noundef %1, i64 noundef %2) #3
-  %27 = tail call i32 @llvm.bswap.i32(i32 %26)
-  store i32 %27, ptr %25, align 1
-  %28 = add nuw nsw i64 %22, 6
-  br label %29
+23:                                               ; preds = %14
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 %21
+  %25 = tail call i32 @libdeflate_adler32(i32 noundef 1, ptr noundef %1, i64 noundef %2) #3
+  %26 = tail call i32 @llvm.bswap.i32(i32 %25)
+  store i32 %26, ptr %24, align 1
+  %27 = add nuw nsw i64 %21, 6
+  br label %28
 
-29:                                               ; preds = %15, %5, %24
-  %.0 = phi i64 [ %28, %24 ], [ 0, %5 ], [ 0, %15 ]
+28:                                               ; preds = %14, %5, %23
+  %.0 = phi i64 [ %27, %23 ], [ 0, %5 ], [ 0, %14 ]
   ret i64 %.0
 }
 

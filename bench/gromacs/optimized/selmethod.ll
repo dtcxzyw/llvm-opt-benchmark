@@ -115,7 +115,7 @@ define noundef range(i32 -1, 1) i32 @_Z26gmx_ana_selmethod_registerPN3gmx26Selec
   %7 = load ptr, ptr @stderr, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !18
-  br i1 %.not, label %40, label %10
+  br i1 %.not, label %39, label %10
 
 10:                                               ; preds = %3
   switch i32 %9, label %11 [
@@ -151,164 +151,164 @@ define noundef range(i32 -1, 1) i32 @_Z26gmx_ana_selmethod_registerPN3gmx26Selec
   %24 = load ptr, ptr %23, align 8, !tbaa !21
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = tail call fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx_ana_selparam_tRKN3gmx26SelectionParserSymbolTableE(ptr noundef %7, ptr noundef %19, i32 noundef %22, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %spec.select.i = and i1 %.1.i, %26
   %27 = tail call fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_ana_selmethod_t(ptr noundef %7, ptr noundef nonnull %2)
-  %28 = and i1 %26, %27
-  %.3.i = and i1 %.1.i, %28
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %30 = load ptr, ptr %29, align 8, !tbaa !22
-  %.not24.i = icmp eq ptr %30, null
-  br i1 %.not24.i, label %33, label %31
+  %spec.select26.i = and i1 %27, %spec.select.i
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
+  %.not24.i = icmp eq ptr %29, null
+  br i1 %.not24.i, label %32, label %30
 
-31:                                               ; preds = %18
-  %32 = load ptr, ptr %2, align 8, !tbaa !19
-  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %32, ptr noundef nonnull @.str.4)
-  br label %33
+30:                                               ; preds = %18
+  %31 = load ptr, ptr %2, align 8, !tbaa !19
+  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %31, ptr noundef nonnull @.str.4)
+  br label %32
 
-33:                                               ; preds = %31, %18
-  %.4.i = phi i1 [ false, %31 ], [ %.3.i, %18 ]
-  %34 = load i32, ptr %8, align 8, !tbaa !18
-  %35 = icmp eq i32 %34, 4
-  br i1 %35, label %36, label %_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit
+32:                                               ; preds = %30, %18
+  %.4.i = phi i1 [ false, %30 ], [ %spec.select26.i, %18 ]
+  %33 = load i32, ptr %8, align 8, !tbaa !18
+  %34 = icmp eq i32 %33, 4
+  br i1 %34, label %35, label %_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %38 = load ptr, ptr %37, align 8, !tbaa !23
-  %.not25.i = icmp eq ptr %38, null
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %37 = load ptr, ptr %36, align 8, !tbaa !23
+  %.not25.i = icmp eq ptr %37, null
   br i1 %.not25.i, label %_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit.thread, label %_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit
 
-_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit.thread: ; preds = %36
-  %39 = load ptr, ptr %2, align 8, !tbaa !19
-  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %39, ptr noundef nonnull @.str.5)
+_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit.thread: ; preds = %35
+  %38 = load ptr, ptr %2, align 8, !tbaa !19
+  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %38, ptr noundef nonnull @.str.5)
   br label %.critedge19
 
-40:                                               ; preds = %3
-  %41 = icmp ne i32 %9, 0
-  br i1 %41, label %44, label %42
+39:                                               ; preds = %3
+  %40 = icmp ne i32 %9, 0
+  br i1 %40, label %43, label %41
 
-42:                                               ; preds = %40
-  %43 = load ptr, ptr %2, align 8, !tbaa !19
-  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %43, ptr noundef nonnull @.str.37)
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %2, align 8, !tbaa !19
+  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %42, ptr noundef nonnull @.str.37)
   %.pr.i = load i32, ptr %8, align 8, !tbaa !18
-  br label %44
+  br label %43
 
-44:                                               ; preds = %42, %40
-  %45 = phi i32 [ %.pr.i, %42 ], [ %9, %40 ]
-  %46 = icmp eq i32 %45, 3
-  br i1 %46, label %47, label %53
+43:                                               ; preds = %41, %39
+  %44 = phi i32 [ %.pr.i, %41 ], [ %9, %39 ]
+  %45 = icmp eq i32 %44, 3
+  br i1 %45, label %46, label %52
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %49 = load i32, ptr %48, align 8, !tbaa !20
-  %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %51, label %..thread.i_crit_edge
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %48 = load i32, ptr %47, align 8, !tbaa !20
+  %49 = icmp sgt i32 %48, 0
+  br i1 %49, label %50, label %..thread.i_crit_edge
 
-..thread.i_crit_edge:                             ; preds = %47
+..thread.i_crit_edge:                             ; preds = %46
   %.pre24 = load i32, ptr %4, align 4, !tbaa !4
   br label %.thread.i
 
-51:                                               ; preds = %47
-  %52 = load ptr, ptr %2, align 8, !tbaa !19
-  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %52, ptr noundef nonnull @.str.38)
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %2, align 8, !tbaa !19
+  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %51, ptr noundef nonnull @.str.38)
   %.pre.i = load i32, ptr %8, align 8, !tbaa !18
-  br label %53
+  br label %52
 
-53:                                               ; preds = %51, %44
-  %54 = phi i32 [ %.pre.i, %51 ], [ %45, %44 ]
-  %.1.i20 = phi i1 [ false, %51 ], [ %41, %44 ]
-  %55 = icmp eq i32 %54, 5
+52:                                               ; preds = %50, %43
+  %53 = phi i32 [ %.pre.i, %50 ], [ %44, %43 ]
+  %.1.i20 = phi i1 [ false, %50 ], [ %40, %43 ]
+  %54 = icmp eq i32 %53, 5
   %.pre25 = load i32, ptr %4, align 4, !tbaa !4
-  br i1 %55, label %56, label %.thread.i
+  br i1 %54, label %55, label %.thread.i
 
-56:                                               ; preds = %53
-  %57 = or i32 %.pre25, 8
-  store i32 %57, ptr %4, align 4, !tbaa !4
-  %58 = and i32 %.pre25, 16
-  %.not28.i = icmp eq i32 %58, 0
-  br i1 %.not28.i, label %62, label %.sink.split.i
+55:                                               ; preds = %52
+  %56 = or i32 %.pre25, 8
+  store i32 %56, ptr %4, align 4, !tbaa !4
+  %57 = and i32 %.pre25, 16
+  %.not28.i = icmp eq i32 %57, 0
+  br i1 %.not28.i, label %61, label %.sink.split.i
 
-.thread.i:                                        ; preds = %..thread.i_crit_edge, %53
-  %59 = phi i32 [ %.pre25, %53 ], [ %.pre24, %..thread.i_crit_edge ]
-  %.133.i = phi i1 [ %.1.i20, %53 ], [ %41, %..thread.i_crit_edge ]
-  %60 = and i32 %59, 24
-  %or.cond.not.i = icmp eq i32 %60, 24
-  br i1 %or.cond.not.i, label %.sink.split.i, label %62
+.thread.i:                                        ; preds = %..thread.i_crit_edge, %52
+  %58 = phi i32 [ %.pre25, %52 ], [ %.pre24, %..thread.i_crit_edge ]
+  %.134.i = phi i1 [ %.1.i20, %52 ], [ %40, %..thread.i_crit_edge ]
+  %59 = and i32 %58, 24
+  %or.cond.not.i = icmp eq i32 %59, 24
+  br i1 %or.cond.not.i, label %.sink.split.i, label %61
 
-.sink.split.i:                                    ; preds = %.thread.i, %56
-  %.str.40.sink.i = phi ptr [ @.str.39, %56 ], [ @.str.40, %.thread.i ]
-  %61 = load ptr, ptr %2, align 8, !tbaa !19
-  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %61, ptr noundef nonnull %.str.40.sink.i)
+.sink.split.i:                                    ; preds = %.thread.i, %55
+  %.str.40.sink.i = phi ptr [ @.str.39, %55 ], [ @.str.40, %.thread.i ]
+  %60 = load ptr, ptr %2, align 8, !tbaa !19
+  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %60, ptr noundef nonnull %.str.40.sink.i)
   %.pre26 = load i32, ptr %4, align 4, !tbaa !4
-  br label %62
+  br label %61
 
-62:                                               ; preds = %.sink.split.i, %.thread.i, %56
-  %63 = phi i32 [ %57, %56 ], [ %59, %.thread.i ], [ %.pre26, %.sink.split.i ]
-  %.2.i = phi i1 [ %.1.i20, %56 ], [ %.133.i, %.thread.i ], [ false, %.sink.split.i ]
-  %64 = and i32 %63, 64
-  %.not29.i = icmp eq i32 %64, 0
-  br i1 %.not29.i, label %_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit, label %65
+61:                                               ; preds = %.sink.split.i, %.thread.i, %55
+  %62 = phi i32 [ %56, %55 ], [ %58, %.thread.i ], [ %.pre26, %.sink.split.i ]
+  %.2.i = phi i1 [ %.1.i20, %55 ], [ %.134.i, %.thread.i ], [ false, %.sink.split.i ]
+  %63 = and i32 %62, 64
+  %.not29.i = icmp eq i32 %63, 0
+  br i1 %.not29.i, label %_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit, label %64
 
-65:                                               ; preds = %62
-  %66 = load i32, ptr %8, align 8, !tbaa !18
-  %.not30.i = icmp eq i32 %66, 3
-  br i1 %.not30.i, label %_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit, label %67
+64:                                               ; preds = %61
+  %65 = load i32, ptr %8, align 8, !tbaa !18
+  %.not30.i = icmp eq i32 %65, 3
+  br i1 %.not30.i, label %_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit, label %66
 
-67:                                               ; preds = %65
-  %68 = load ptr, ptr %2, align 8, !tbaa !19
-  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %68, ptr noundef nonnull @.str.41)
+66:                                               ; preds = %64
+  %67 = load ptr, ptr %2, align 8, !tbaa !19
+  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %7, ptr noundef %67, ptr noundef nonnull @.str.41)
   br label %_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit
 
-_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit: ; preds = %62, %65, %67
-  %.3.i21 = phi i1 [ false, %67 ], [ %.2.i, %65 ], [ %.2.i, %62 ]
-  %69 = load ptr, ptr %2, align 8, !tbaa !19
-  %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %71 = load i32, ptr %70, align 8, !tbaa !20
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !21
-  %74 = tail call fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx_ana_selparam_tRKN3gmx26SelectionParserSymbolTableE(ptr noundef %7, ptr noundef %69, i32 noundef %71, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %75 = tail call fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_ana_selmethod_t(ptr noundef %7, ptr noundef nonnull %2)
-  %76 = and i1 %74, %75
-  %77 = and i1 %.3.i21, %76
-  br i1 %77, label %78, label %.critedge19
+_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit: ; preds = %61, %64, %66
+  %.3.i = phi i1 [ false, %66 ], [ %.2.i, %64 ], [ %.2.i, %61 ]
+  %68 = load ptr, ptr %2, align 8, !tbaa !19
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %70 = load i32, ptr %69, align 8, !tbaa !20
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %72 = load ptr, ptr %71, align 8, !tbaa !21
+  %73 = tail call fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx_ana_selparam_tRKN3gmx26SelectionParserSymbolTableE(ptr noundef %7, ptr noundef %68, i32 noundef %70, ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %spec.select.i21 = and i1 %.3.i, %73
+  %74 = tail call fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_ana_selmethod_t(ptr noundef %7, ptr noundef nonnull %2)
+  %spec.select31.i = and i1 %74, %spec.select.i21
+  br i1 %spec.select31.i, label %75, label %.critedge19
 
-_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit: ; preds = %36, %33
-  br i1 %.4.i, label %78, label %.critedge19
+_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit: ; preds = %35, %32
+  br i1 %.4.i, label %75, label %.critedge19
 
-78:                                               ; preds = %_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit, %_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit
+75:                                               ; preds = %_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit, %_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit
   invoke void @_ZN3gmx26SelectionParserSymbolTable9addMethodEPKcP19gmx_ana_selmethod_t(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull %2)
-          to label %92 unwind label %79
+          to label %89 unwind label %76
 
-79:                                               ; preds = %78
-  %80 = landingpad { ptr, i32 }
+76:                                               ; preds = %75
+  %77 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN3gmx8APIErrorE
-  %81 = extractvalue { ptr, i32 } %80, 1
-  %82 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3gmx8APIErrorE) #13
-  %83 = icmp eq i32 %81, %82
-  br i1 %83, label %.critedge, label %93
+  %78 = extractvalue { ptr, i32 } %77, 1
+  %79 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3gmx8APIErrorE) #13
+  %80 = icmp eq i32 %78, %79
+  br i1 %80, label %.critedge, label %90
 
-.critedge:                                        ; preds = %79
-  %84 = extractvalue { ptr, i32 } %80, 0
-  %85 = tail call ptr @__cxa_begin_catch(ptr %84) #13
-  %86 = load ptr, ptr @stderr, align 8, !tbaa !16
-  %87 = load ptr, ptr %85, align 8, !tbaa !24
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(24) %85) #13
-  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %86, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %90)
+.critedge:                                        ; preds = %76
+  %81 = extractvalue { ptr, i32 } %77, 0
+  %82 = tail call ptr @__cxa_begin_catch(ptr %81) #13
+  %83 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %84 = load ptr, ptr %82, align 8, !tbaa !24
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = tail call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(24) %82) #13
+  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %83, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %87)
   tail call void @__cxa_end_catch()
   br label %.critedge19
 
 .critedge19:                                      ; preds = %_ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit, %_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit.thread, %_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit, %.critedge
-  %91 = load ptr, ptr @stderr, align 8, !tbaa !16
-  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %91, ptr noundef %1, ptr noundef nonnull @.str.1)
-  br label %92
+  %88 = load ptr, ptr @stderr, align 8, !tbaa !16
+  tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %88, ptr noundef %1, ptr noundef nonnull @.str.1)
+  br label %89
 
-92:                                               ; preds = %78, %.critedge19
-  %.0 = phi i32 [ -1, %.critedge19 ], [ 0, %78 ]
+89:                                               ; preds = %75, %.critedge19
+  %.0 = phi i32 [ -1, %.critedge19 ], [ 0, %75 ]
   ret i32 %.0
 
-93:                                               ; preds = %79
-  resume { ptr, i32 } %80
+90:                                               ; preds = %76
+  resume { ptr, i32 } %77
 }
 
 declare void @_ZN3gmx26SelectionParserSymbolTable9addMethodEPKcP19gmx_ana_selmethod_t(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef) local_unnamed_addr #1

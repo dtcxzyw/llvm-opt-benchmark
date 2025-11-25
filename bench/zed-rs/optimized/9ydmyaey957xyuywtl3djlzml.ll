@@ -285,7 +285,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %63 = invoke { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17hcdb479dff14bfcc7E.llvm.17373186565492141581(ptr noundef nonnull align 4 %62, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0)
-          to label %.noexc63.i.i unwind label %.thread.i.i, !noalias !24
+          to label %.noexc63.i.i unwind label %.thread134.i.i, !noalias !24
 
 .noexc63.i.i:                                     ; preds = %61
   %64 = extractvalue { i32, i32 } %63, 0
@@ -294,11 +294,11 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
 
 66:                                               ; preds = %.noexc63.i.i
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 4 %62)
-          to label %.noexc64.i.i unwind label %.thread.i.i, !noalias !24
+          to label %.noexc64.i.i unwind label %.thread134.i.i, !noalias !24
 
 .noexc64.i.i:                                     ; preds = %66, %.noexc63.i.i
   %67 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h36b026f1e2c3438eE.llvm.17373186565492141581(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE, i8 noundef 0)
-          to label %.noexc65.i.i unwind label %.thread.i.i, !noalias !24
+          to label %.noexc65.i.i unwind label %.thread134.i.i, !noalias !24
 
 .noexc65.i.i:                                     ; preds = %.noexc64.i.i
   %68 = and i64 %67, 9223372036854775807
@@ -307,7 +307,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
 
 70:                                               ; preds = %.noexc65.i.i
   %71 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc66.i.i unwind label %.thread.i.i, !noalias !24
+          to label %.noexc66.i.i unwind label %.thread134.i.i, !noalias !24
 
 .noexc66.i.i:                                     ; preds = %70
   %72 = xor i1 %71, true
@@ -318,13 +318,13 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   %.sroa.01.0.i.i.i.i.i = phi i8 [ %73, %.noexc66.i.i ], [ 0, %.noexc65.i.i ]
   %74 = getelementptr inbounds nuw i8, ptr %49, i64 36
   %75 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17hbd6c037a0c11409cE.llvm.17373186565492141581(ptr noundef nonnull align 1 %74, i8 noundef 0)
-          to label %77 unwind label %.thread.i.i, !noalias !24
+          to label %77 unwind label %.thread134.i.i, !noalias !24
 
 76:                                               ; preds = %.body69.i.i
   br i1 %.sroa.030.2.i.i, label %281, label %.critedge
 
-.thread.i.i:                                      ; preds = %278, %275, %273, %269, %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17hb77508a30b6183d6E.exit.i.i.i", %70, %.noexc64.i.i, %66, %61
-  %lpad.thr_comm150.i.i = landingpad { ptr, i32 }
+.thread134.i.i:                                   ; preds = %278, %275, %273, %269, %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17hb77508a30b6183d6E.exit.i.i.i", %70, %.noexc64.i.i, %66, %61
+  %lpad.thr_comm.i.i = landingpad { ptr, i32 }
           cleanup
   br label %281
 
@@ -383,9 +383,9 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37, !noalias !47
   unreachable
 
-.body69.i.i:                                      ; preds = %.thread132.i.i, %105, %98, %93
-  %.sroa.030.2.i.i = phi i1 [ false, %105 ], [ true, %93 ], [ true, %98 ], [ %.sroa.030.4136.i.i, %.thread132.i.i ]
-  %.pn.pn.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i, %105 ], [ %94, %93 ], [ %99, %98 ], [ %.pn137.i.i, %.thread132.i.i ]
+.body69.i.i:                                      ; preds = %.thread138.i.i, %105, %98, %93
+  %.sroa.030.2.i.i = phi i1 [ false, %105 ], [ true, %93 ], [ true, %98 ], [ %.sroa.030.4142.i.i, %.thread138.i.i ]
+  %.pn.pn.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp147.i.i, %105 ], [ %94, %93 ], [ %99, %98 ], [ %.pn143.i.i, %.thread138.i.i ]
   invoke void @"_ZN4core3ptr104drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$signal_hook_registry..SignalData$GT$$GT$17h60fe132ce41252dfE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20) #36
           to label %76 unwind label %262, !noalias !24
 
@@ -408,16 +408,16 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   store i128 %104, ptr %103, align 16, !noalias !24
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !24
   invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h77696f02923c3de0E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %19, i32 noundef %4)
-          to label %106 unwind label %.thread139.i.i, !noalias !24
+          to label %106 unwind label %.thread148.i.i, !noalias !24
 
-.thread139.i.i:                                   ; preds = %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit92.i.i", %186, %183, %181, %177, %170, %167, %165, %161, %136, %135, %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17hb77508a30b6183d6E.exit.i71.i.i", %123, %.noexc74.i.i, %119, %111, %108, %100
+.thread148.i.i:                                   ; preds = %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit92.i.i", %186, %183, %181, %177, %170, %167, %165, %161, %136, %135, %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17hb77508a30b6183d6E.exit.i71.i.i", %123, %.noexc74.i.i, %119, %111, %108, %100
   %.sroa.030.3.ph.i.i = phi i1 [ true, %186 ], [ true, %183 ], [ true, %181 ], [ true, %177 ], [ true, %170 ], [ true, %167 ], [ true, %165 ], [ true, %161 ], [ true, %"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17hb77508a30b6183d6E.exit.i71.i.i" ], [ true, %123 ], [ true, %.noexc74.i.i ], [ true, %119 ], [ true, %111 ], [ true, %100 ], [ true, %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit92.i.i" ], [ false, %108 ], [ false, %135 ], [ false, %136 ]
-  %lpad.thr_comm.i.i = landingpad { ptr, i32 }
+  %lpad.thr_comm146.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %.thread132.i.i
+  br label %.thread138.i.i
 
 105:                                              ; preds = %139
-  %lpad.thr_comm.split-lp.i.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp147.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.body69.i.i
 
@@ -433,7 +433,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !24
   %109 = getelementptr inbounds i8, ptr %.sroa.538.0.copyload.i.i, i64 -24
   %110 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h7a3ff572500bfbb7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %109, i128 noundef %102, ptr noundef nonnull %54, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.e586bbf90682662054eb74e31dabca60.24)
-          to label %130 unwind label %.thread139.i.i, !noalias !24
+          to label %130 unwind label %.thread148.i.i, !noalias !24
 
 111:                                              ; preds = %106
   %112 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -450,7 +450,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %115 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %116 = invoke { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17hcdb479dff14bfcc7E.llvm.17373186565492141581(ptr noundef nonnull align 4 %115, i32 noundef 0, i32 noundef 1, i8 noundef 2, i8 noundef 0)
-          to label %.noexc73.i.i unwind label %.thread139.i.i, !noalias !24
+          to label %.noexc73.i.i unwind label %.thread148.i.i, !noalias !24
 
 .noexc73.i.i:                                     ; preds = %111
   %117 = extractvalue { i32, i32 } %116, 0
@@ -459,11 +459,11 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
 
 119:                                              ; preds = %.noexc73.i.i
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex14lock_contended17h6389e2305b0b005cE(ptr noundef nonnull align 4 %115)
-          to label %.noexc74.i.i unwind label %.thread139.i.i, !noalias !24
+          to label %.noexc74.i.i unwind label %.thread148.i.i, !noalias !24
 
 .noexc74.i.i:                                     ; preds = %119, %.noexc73.i.i
   %120 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h36b026f1e2c3438eE.llvm.17373186565492141581(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE, i8 noundef 0)
-          to label %.noexc75.i.i unwind label %.thread139.i.i, !noalias !24
+          to label %.noexc75.i.i unwind label %.thread148.i.i, !noalias !24
 
 .noexc75.i.i:                                     ; preds = %.noexc74.i.i
   %121 = and i64 %120, 9223372036854775807
@@ -472,7 +472,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
 
 123:                                              ; preds = %.noexc75.i.i
   %124 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc76.i.i unwind label %.thread139.i.i, !noalias !24
+          to label %.noexc76.i.i unwind label %.thread148.i.i, !noalias !24
 
 .noexc76.i.i:                                     ; preds = %123
   %125 = xor i1 %124, true
@@ -483,7 +483,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   %127 = phi i8 [ %126, %.noexc76.i.i ], [ 0, %.noexc75.i.i ]
   %128 = getelementptr inbounds nuw i8, ptr %49, i64 76
   %129 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17hbd6c037a0c11409cE.llvm.17373186565492141581(ptr noundef nonnull align 1 %128, i8 noundef 0)
-          to label %140 unwind label %.thread139.i.i, !noalias !24
+          to label %140 unwind label %.thread148.i.i, !noalias !24
 
 130:                                              ; preds = %108
   %131 = extractvalue { ptr, ptr } %110, 0
@@ -496,12 +496,12 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
 
 135:                                              ; preds = %130
   invoke fastcc void @"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17hf6cb80c915e6a79fE"(ptr noalias noundef align 8 dereferenceable(16) %18)
-          to label %136 unwind label %.thread139.i.i, !noalias !24
+          to label %136 unwind label %.thread148.i.i, !noalias !24
 
 136:                                              ; preds = %135
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !24
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.e586bbf90682662054eb74e31dabca60.25, i64 noundef 73, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e586bbf90682662054eb74e31dabca60.26) #35
-          to label %137 unwind label %.thread139.i.i, !noalias !24
+          to label %137 unwind label %.thread148.i.i, !noalias !24
 
 137:                                              ; preds = %136
   unreachable
@@ -535,7 +535,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   %147 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #36
-          to label %.thread132.i.i unwind label %262, !noalias !24
+          to label %.thread138.i.i unwind label %262, !noalias !24
 
 148:                                              ; preds = %140
   %149 = load i64, ptr %16, align 8, !range !51, !noalias !24, !noundef !4
@@ -584,7 +584,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.8057950957586141309.ex
 
 161:                                              ; preds = %159
   %162 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h36b026f1e2c3438eE.llvm.11880408977092959598(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE, i8 noundef 0)
-          to label %.noexc83.i.i unwind label %.thread139.i.i, !noalias !24
+          to label %.noexc83.i.i unwind label %.thread148.i.i, !noalias !24
 
 .noexc83.i.i:                                     ; preds = %161
   %163 = and i64 %162, 9223372036854775807
@@ -593,14 +593,14 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.8057950957586141309.ex
 
 165:                                              ; preds = %.noexc83.i.i
   %166 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc84.i.i unwind label %.thread139.i.i, !noalias !24
+          to label %.noexc84.i.i unwind label %.thread148.i.i, !noalias !24
 
 .noexc84.i.i:                                     ; preds = %165
   br i1 %166, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i.i.i, label %167
 
 167:                                              ; preds = %.noexc84.i.i
   invoke void @_ZN4core4sync6atomic12atomic_store17ha048907d5d3eee41E.llvm.11880408977092959598(ptr noundef nonnull align 1 %128, i8 noundef 1, i8 noundef 0)
-          to label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i.i.i unwind label %.thread139.i.i, !noalias !24
+          to label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i.i.i unwind label %.thread148.i.i, !noalias !24
 
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i.i.i: ; preds = %167, %.noexc84.i.i, %.noexc83.i.i, %159
   %168 = atomicrmw xchg ptr %115, i32 0 release, align 4, !noalias !64
@@ -609,7 +609,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
 
 170:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i.i.i
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h441c2e235bf44cf8E(ptr noundef nonnull align 4 %115)
-          to label %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit.i.i" unwind label %.thread139.i.i, !noalias !24
+          to label %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit.i.i" unwind label %.thread148.i.i, !noalias !24
 
 171:                                              ; preds = %_ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.8057950957586141309.exit.i.i.i
   %172 = icmp ne ptr %157, null
@@ -627,7 +627,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
 
 177:                                              ; preds = %171
   %178 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h36b026f1e2c3438eE.llvm.11880408977092959598(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE, i8 noundef 0)
-          to label %.noexc88.i.i unwind label %.thread139.i.i, !noalias !24
+          to label %.noexc88.i.i unwind label %.thread148.i.i, !noalias !24
 
 .noexc88.i.i:                                     ; preds = %177
   %179 = and i64 %178, 9223372036854775807
@@ -636,14 +636,14 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
 
 181:                                              ; preds = %.noexc88.i.i
   %182 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc89.i.i unwind label %.thread139.i.i, !noalias !24
+          to label %.noexc89.i.i unwind label %.thread148.i.i, !noalias !24
 
 .noexc89.i.i:                                     ; preds = %181
   br i1 %182, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i87.i.i, label %183
 
 183:                                              ; preds = %.noexc89.i.i
   invoke void @_ZN4core4sync6atomic12atomic_store17ha048907d5d3eee41E.llvm.11880408977092959598(ptr noundef nonnull align 1 %174, i8 noundef 1, i8 noundef 0)
-          to label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i87.i.i unwind label %.thread139.i.i, !noalias !24
+          to label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i87.i.i unwind label %.thread148.i.i, !noalias !24
 
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i87.i.i: ; preds = %183, %.noexc89.i.i, %.noexc88.i.i, %171
   %184 = atomicrmw xchg ptr %173, i32 0 release, align 4, !noalias !91
@@ -652,14 +652,14 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
 
 186:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i87.i.i
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h441c2e235bf44cf8E(ptr noundef nonnull align 4 %173)
-          to label %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit92.i.i" unwind label %.thread139.i.i, !noalias !24
+          to label %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit92.i.i" unwind label %.thread148.i.i, !noalias !24
 
 "_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit92.i.i": ; preds = %186, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i87.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !24
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !24
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !24
   invoke void @_ZN20signal_hook_registry4Slot3new17h2c8b77d52068dea6E(ptr noalias noundef nonnull sret([192 x i8]) align 8 captures(none) dereferenceable(192) %14, i32 noundef %4)
-          to label %187 unwind label %.thread139.i.i, !noalias !24
+          to label %187 unwind label %.thread148.i.i, !noalias !24
 
 187:                                              ; preds = %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17h24339a339403bb5aE.exit92.i.i"
   %188 = load i64, ptr %14, align 8, !range !51, !noalias !24, !noundef !4
@@ -749,7 +749,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
   %219 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$$LP$i32$C$signal_hook_registry..Slot$RP$$GT$17hc48b8e3bce27b700E.llvm.11224219074190157621"(ptr noalias noundef nonnull align 8 dereferenceable(192) %9) #36
-          to label %.thread132.i.i unwind label %220, !noalias !24
+          to label %.thread138.i.i unwind label %220, !noalias !24
 
 220:                                              ; preds = %218
   %221 = landingpad { ptr, i32 }
@@ -830,9 +830,9 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
   %261 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$signal_hook_registry..Slot$GT$17h6874e4231e24192bE"(ptr noalias noundef nonnull align 8 dereferenceable(184) %15) #36
-          to label %.thread132.i.i unwind label %262, !noalias !24
+          to label %.thread138.i.i unwind label %262, !noalias !24
 
-262:                                              ; preds = %282, %281, %.thread132.i.i, %260, %146, %.body69.i.i
+262:                                              ; preds = %282, %281, %.thread138.i.i, %260, %146, %.body69.i.i
   %263 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37, !noalias !127
@@ -860,7 +860,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
 
 269:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$signal_hook_registry..SignalData$GT$17h4e7652a61edc992cE.exit.i.i"
   %270 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h36b026f1e2c3438eE.llvm.11880408977092959598(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc59b464574bd419cE, i8 noundef 0)
-          to label %.noexc109.i.i unwind label %.thread.i.i, !noalias !24
+          to label %.noexc109.i.i unwind label %.thread134.i.i, !noalias !24
 
 .noexc109.i.i:                                    ; preds = %269
   %271 = and i64 %270, 9223372036854775807
@@ -869,14 +869,14 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
 
 273:                                              ; preds = %.noexc109.i.i
   %274 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc110.i.i unwind label %.thread.i.i, !noalias !24
+          to label %.noexc110.i.i unwind label %.thread134.i.i, !noalias !24
 
 .noexc110.i.i:                                    ; preds = %273
   br i1 %274, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i108.i.i, label %275
 
 275:                                              ; preds = %.noexc110.i.i
   invoke void @_ZN4core4sync6atomic12atomic_store17ha048907d5d3eee41E.llvm.11880408977092959598(ptr noundef nonnull align 1 %266, i8 noundef 1, i8 noundef 0)
-          to label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i108.i.i unwind label %.thread.i.i, !noalias !24
+          to label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i108.i.i unwind label %.thread134.i.i, !noalias !24
 
 _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i108.i.i: ; preds = %275, %.noexc110.i.i, %.noexc109.i.i, %"_ZN4core3ptr53drop_in_place$LT$signal_hook_registry..SignalData$GT$17h4e7652a61edc992cE.exit.i.i"
   %276 = atomicrmw xchg ptr %265, i32 0 release, align 4, !noalias !141
@@ -885,7 +885,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
 
 278:                                              ; preds = %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i108.i.i
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h441c2e235bf44cf8E(ptr noundef nonnull align 4 %265)
-          to label %"_ZN4core3ptr104drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$signal_hook_registry..SignalData$GT$$GT$17h60fe132ce41252dfE.exit113.i.i" unwind label %.thread.i.i, !noalias !24
+          to label %"_ZN4core3ptr104drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$signal_hook_registry..SignalData$GT$$GT$17h60fe132ce41252dfE.exit113.i.i" unwind label %.thread134.i.i, !noalias !24
 
 "_ZN4core3ptr104drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$signal_hook_registry..SignalData$GT$$GT$17h60fe132ce41252dfE.exit113.i.i": ; preds = %278, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit.i.i.i108.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !24
@@ -898,14 +898,14 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
   store ptr %.sroa.7.0, ptr %280, align 8
   br label %296
 
-.thread132.i.i:                                   ; preds = %260, %218, %146, %.thread139.i.i
-  %.pn137.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %.thread139.i.i ], [ %147, %146 ], [ %261, %260 ], [ %219, %218 ]
-  %.sroa.030.4136.i.i = phi i1 [ %.sroa.030.3.ph.i.i, %.thread139.i.i ], [ true, %146 ], [ false, %260 ], [ false, %218 ]
+.thread138.i.i:                                   ; preds = %260, %218, %146, %.thread148.i.i
+  %.pn143.i.i = phi { ptr, i32 } [ %lpad.thr_comm146.i.i, %.thread148.i.i ], [ %147, %146 ], [ %261, %260 ], [ %219, %218 ]
+  %.sroa.030.4142.i.i = phi i1 [ %.sroa.030.3.ph.i.i, %.thread148.i.i ], [ true, %146 ], [ false, %260 ], [ false, %218 ]
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hde34569c17005b03E(ptr noalias noundef nonnull align 16 dereferenceable(64) %19, ptr noalias noundef nonnull readonly align 1 %.sroa.4121.0..sroa_idx.i.i, i64 noundef 192, i64 noundef 16)
           to label %.body69.i.i unwind label %262, !noalias !24
 
-281:                                              ; preds = %.thread.i.i, %76
-  %.pn57149.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %76 ], [ %lpad.thr_comm150.i.i, %.thread.i.i ]
+281:                                              ; preds = %.thread134.i.i, %76
+  %.pn57132.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %76 ], [ %lpad.thr_comm.i.i, %.thread134.i.i ]
   invoke fastcc void @"_ZN4core3ptr247drop_in_place$LT$alloc..sync..Arc$LT$$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$u20$as$u20$signal_hook..iterator..backend..AddSignal$GT$..add_signal..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17ha5dab49b8af92dafE"(ptr nonnull %54) #36
           to label %.critedge unwind label %262, !noalias !24
 
@@ -976,7 +976,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.11880408977092959598.exit
   unreachable
 
 .critedge:                                        ; preds = %300, %290, %282, %281, %76, %57
-  %eh.lpad-body26 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %300 ], [ %lpad.thr_comm.split-lp.i, %290 ], [ %283, %282 ], [ %58, %57 ], [ %.pn57149.i.i, %281 ], [ %.pn.pn.i.i, %76 ]
+  %eh.lpad-body26 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %300 ], [ %lpad.thr_comm.split-lp.i, %290 ], [ %283, %282 ], [ %58, %57 ], [ %.pn.pn.i.i, %76 ], [ %.pn57132.i.i, %281 ]
   resume { ptr, i32 } %eh.lpad-body26
 
 300:                                              ; preds = %297

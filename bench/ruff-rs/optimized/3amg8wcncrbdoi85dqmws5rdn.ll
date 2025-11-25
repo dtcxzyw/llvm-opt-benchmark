@@ -2680,7 +2680,7 @@ _ZN20ruff_python_semantic5model13SemanticModel20in_forward_reference17h94f674b9a
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.sroa.022.0.ph330 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.sroa.022.1, %.outer ]
   %.sroa.05.0.ph329 = phi i1 [ false, %.lr.ph.lr.ph ], [ %360, %.outer ]
-  %.sroa.011.0.ph328 = phi i1 [ true, %.lr.ph.lr.ph ], [ %narrow, %.outer ]
+  %.sroa.011.0.ph328 = phi i1 [ true, %.lr.ph.lr.ph ], [ %.sroa.011.2, %.outer ]
   %.sroa.976.0.ph327 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %113, %.outer ]
   %.sroa.5.0.ph326 = phi i32 [ %18, %.lr.ph.lr.ph ], [ %112, %.outer ]
   br label %101
@@ -2912,7 +2912,7 @@ _ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.e
   %158 = phi i8 [ %.pre, %._crit_edge ], [ %153, %149 ]
   %159 = icmp eq i8 %158, 4
   %160 = icmp eq i64 %.sroa.976.0322, 0
-  %narrow = select i1 %159, i1 %160, i1 false
+  %.sroa.011.2 = select i1 %159, i1 %160, i1 false
   %161 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %162 = extractvalue { ptr, i64 } %161, 0
   %163 = extractvalue { ptr, i64 } %161, 1
@@ -2935,7 +2935,7 @@ _ZN20ruff_python_semantic5model13SemanticModel10exceptions17h138822813766b114E.e
   br i1 %170, label %.critedge, label %165
 
 171:                                              ; preds = %238, %165
-  %.sroa.011.1 = phi i1 [ false, %165 ], [ %narrow, %238 ]
+  %.sroa.011.1 = phi i1 [ false, %165 ], [ %.sroa.011.2, %238 ]
   %.not.i.i = icmp eq i32 %112, 0
   br i1 %.not.i.i, label %.outer._crit_edge, label %101
 
@@ -3417,7 +3417,7 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel22lookup_symbo
   %54 = phi i8 [ %.pre, %._crit_edge ], [ %49, %45 ]
   %55 = icmp eq i8 %54, 4
   %56 = icmp eq i64 %.sroa.922.061, 0
-  %narrow = select i1 %55, i1 %56, i1 false
+  %.sroa.09.2 = select i1 %55, i1 %56, i1 false
   %57 = icmp eq i8 %54, 1
   %58 = or i1 %57, %51
   %59 = zext i1 %58 to i8
@@ -3438,7 +3438,7 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel22lookup_symbo
 
 .backedge:                                        ; preds = %70, %83, %88, %61, %71
   %.sroa.03.0.be = phi i8 [ %.sroa.03.062, %61 ], [ %59, %71 ], [ %59, %88 ], [ %59, %83 ], [ %59, %70 ]
-  %.sroa.09.0.be = phi i1 [ false, %61 ], [ %narrow, %71 ], [ %narrow, %88 ], [ %narrow, %83 ], [ %narrow, %70 ]
+  %.sroa.09.0.be = phi i1 [ false, %61 ], [ %.sroa.09.2, %71 ], [ %.sroa.09.2, %88 ], [ %.sroa.09.2, %83 ], [ %.sroa.09.2, %70 ]
   %.not.i.i = icmp eq i32 %40, 0
   br i1 %.not.i.i, label %.loopexit, label %29
 
@@ -3584,7 +3584,7 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel42simulate_run
   %.sroa.04.147 = phi i1 [ %.sroa.04.0100, %.thread ], [ %.sroa.04.14852, %.thread50._crit_edge ], [ %spec.select, %37 ]
   %43 = icmp eq i8 %42, 4
   %44 = icmp eq i64 %.sroa.939.097, 0
-  %narrow = select i1 %43, i1 %44, i1 false
+  %.sroa.09.2 = select i1 %43, i1 %44, i1 false
   %45 = icmp eq i8 %42, 1
   %46 = or i1 %.sroa.01.0101, %45
   %47 = call noundef i32 @_ZN20ruff_python_semantic5scope5Scope3get17hdc6daa926d0186f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %33, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -3604,7 +3604,7 @@ define noundef i32 @_ZN20ruff_python_semantic5model13SemanticModel42simulate_run
   br i1 %49, label %.loopexit56, label %.thread50
 
 .backedge58:                                      ; preds = %130, %165, %170, %.thread50, %85, %66
-  %.sroa.09.0.be = phi i1 [ false, %.thread50 ], [ %narrow, %85 ], [ %narrow, %66 ], [ %narrow, %170 ], [ %narrow, %165 ], [ %narrow, %130 ]
+  %.sroa.09.0.be = phi i1 [ false, %.thread50 ], [ %.sroa.09.2, %85 ], [ %.sroa.09.2, %66 ], [ %.sroa.09.2, %170 ], [ %.sroa.09.2, %165 ], [ %.sroa.09.2, %130 ]
   %.sroa.04.0.be = phi i1 [ %.sroa.04.14852, %.thread50 ], [ false, %85 ], [ false, %66 ], [ %.sroa.04.147, %170 ], [ %.sroa.04.147, %165 ], [ %.sroa.04.147, %130 ]
   %.sroa.01.0.be = phi i1 [ %.sroa.01.0101, %.thread50 ], [ %46, %85 ], [ %46, %66 ], [ %46, %170 ], [ %46, %165 ], [ %46, %130 ]
   %.not.i.i = icmp eq i32 %26, 0

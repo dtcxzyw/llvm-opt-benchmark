@@ -302,9 +302,9 @@ define internal noundef i32 @des_cfb1_cipher(ptr noundef %0, ptr noundef capture
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %.140 = phi i64 [ %spec.select, %.preheader.lr.ph ], [ %spec.select35, %._crit_edge ]
-  %.03039 = phi i64 [ %3, %.preheader.lr.ph ], [ %33, %._crit_edge ]
-  %.03138 = phi ptr [ %2, %.preheader.lr.ph ], [ %34, %._crit_edge ]
-  %.03237 = phi ptr [ %1, %.preheader.lr.ph ], [ %35, %._crit_edge ]
+  %.03039 = phi i64 [ %3, %.preheader.lr.ph ], [ %34, %._crit_edge ]
+  %.03138 = phi ptr [ %2, %.preheader.lr.ph ], [ %35, %._crit_edge ]
+  %.03237 = phi ptr [ %1, %.preheader.lr.ph ], [ %36, %._crit_edge ]
   %.not43 = icmp eq i64 %.140, 0
   br i1 %.not43, label %._crit_edge, label %.lr.ph.preheader
 
@@ -313,13 +313,13 @@ define internal noundef i32 @des_cfb1_cipher(ptr noundef %0, ptr noundef capture
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02936 = phi i64 [ %32, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02936 = phi i64 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %9 = lshr i64 %.02936, 3
   %10 = getelementptr inbounds nuw i8, ptr %.03138, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !3
   %12 = zext i8 %11 to i32
-  %13 = trunc i64 %.02936 to i32
-  %14 = and i32 %13, 7
+  %13 = and i64 %.02936, 7
+  %14 = trunc nuw nsw i64 %13 to i32
   %15 = xor i32 %14, 7
   %16 = shl nuw nsw i32 1, %15
   %17 = and i32 %16, %12
@@ -331,26 +331,27 @@ define internal noundef i32 @des_cfb1_cipher(ptr noundef %0, ptr noundef capture
   call void @DES_cfb_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, i64 noundef 1, ptr noundef %19, ptr noundef nonnull %7, i32 noundef %20) #5
   %21 = getelementptr inbounds nuw i8, ptr %.03237, i64 %9
   %22 = load i8, ptr %21, align 1, !tbaa !3
-  %23 = zext i8 %22 to i32
-  %24 = ashr i32 -129, %14
-  %25 = and i32 %24, %23
-  %26 = load i8, ptr %6, align 1, !tbaa !3
-  %27 = and i8 %26, -128
-  %28 = zext i8 %27 to i32
-  %29 = lshr exact i32 %28, %14
-  %30 = or i32 %29, %25
-  %31 = trunc nuw i32 %30 to i8
-  store i8 %31, ptr %21, align 1, !tbaa !3
-  %32 = add nuw i64 %.02936, 1
-  %exitcond.not = icmp eq i64 %32, %8
+  %23 = zext i8 %22 to i16
+  %24 = trunc nuw nsw i64 %13 to i16
+  %25 = ashr i16 -129, %24
+  %26 = and i16 %25, %23
+  %27 = load i8, ptr %6, align 1, !tbaa !3
+  %28 = and i8 %27, -128
+  %29 = zext i8 %28 to i16
+  %30 = lshr exact i16 %29, %24
+  %31 = or i16 %30, %26
+  %32 = trunc nuw i16 %31 to i8
+  store i8 %32, ptr %21, align 1, !tbaa !3
+  %33 = add nuw i64 %.02936, 1
+  %exitcond.not = icmp eq i64 %33, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %33 = sub i64 %.03039, %.140
-  %34 = getelementptr inbounds nuw i8, ptr %.03138, i64 %.140
-  %35 = getelementptr inbounds nuw i8, ptr %.03237, i64 %.140
-  %spec.select35 = call i64 @llvm.umin.i64(i64 %33, i64 %.140)
-  %.not44 = icmp eq i64 %33, 0
+  %34 = sub i64 %.03039, %.140
+  %35 = getelementptr inbounds nuw i8, ptr %.03138, i64 %.140
+  %36 = getelementptr inbounds nuw i8, ptr %.03237, i64 %.140
+  %spec.select35 = call i64 @llvm.umin.i64(i64 %34, i64 %.140)
+  %.not44 = icmp eq i64 %34, 0
   br i1 %.not44, label %._crit_edge41, label %.preheader, !llvm.loop !21
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %4

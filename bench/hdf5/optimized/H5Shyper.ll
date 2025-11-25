@@ -8780,7 +8780,7 @@ define range(i32 -1, 1) i32 @H5Sselect_hyperslab(i64 noundef %0, i32 noundef %1,
   %17 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %18 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
   %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10301, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.1) #14
-  br label %.thread65
+  br label %.thread63
 
 20:                                               ; preds = %._crit_edge, %6
   %21 = phi i8 [ %.pre, %._crit_edge ], [ %10, %6 ]
@@ -8801,7 +8801,7 @@ define range(i32 -1, 1) i32 @H5Sselect_hyperslab(i64 noundef %0, i32 noundef %1,
   %30 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %31 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10301, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #14
-  br label %.thread65
+  br label %.thread63
 
 33:                                               ; preds = %20, %26
   %34 = call i32 @H5CX_push(ptr noundef nonnull %7) #14
@@ -8812,19 +8812,19 @@ define range(i32 -1, 1) i32 @H5Sselect_hyperslab(i64 noundef %0, i32 noundef %1,
   %37 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !11
   %38 = load i64, ptr @H5E_CANTSET_g, align 8, !tbaa !11
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10301, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.3) #14
-  br label %.thread65
+  br label %.thread63
 
 40:                                               ; preds = %33
   %41 = call i32 @H5E_clear_stack() #14
   %42 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 4) #14
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %48
+  br i1 %43, label %44, label %48, !prof !139
 
 44:                                               ; preds = %40
   %45 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %46 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
   %47 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10305, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.4) #14
-  br label %.thread71
+  br label %.thread69
 
 48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 40
@@ -8838,35 +8838,35 @@ define range(i32 -1, 1) i32 @H5Sselect_hyperslab(i64 noundef %0, i32 noundef %1,
   %52 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %53 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
   %54 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10307, i64 noundef %52, i64 noundef %53, ptr noundef nonnull @.str.29) #14
-  br label %.thread71
+  br label %.thread69
 
 55:                                               ; preds = %48
   %56 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %57 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !11
   %58 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10309, i64 noundef %56, i64 noundef %57, ptr noundef nonnull @.str.30) #14
-  br label %.thread71
+  br label %.thread69
 
 59:                                               ; preds = %48
   %60 = icmp eq ptr %2, null
   %61 = icmp eq ptr %4, null
   %or.cond = or i1 %60, %61
-  br i1 %or.cond, label %62, label %66
+  br i1 %or.cond, label %62, label %66, !prof !138
 
 62:                                               ; preds = %59
   %63 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %64 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !11
   %65 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10311, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.31) #14
-  br label %.thread71
+  br label %.thread69
 
 66:                                               ; preds = %59
   %or.cond3 = icmp ult i32 %1, 8
-  br i1 %or.cond3, label %71, label %67
+  br i1 %or.cond3, label %71, label %67, !prof !139
 
 67:                                               ; preds = %66
   %68 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %69 = load i64, ptr @H5E_UNSUPPORTED_g, align 8, !tbaa !11
   %70 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10313, i64 noundef %68, i64 noundef %69, ptr noundef nonnull @.str.17) #14
-  br label %.thread71
+  br label %.thread69
 
 71:                                               ; preds = %66
   %.not = icmp eq ptr %3, null
@@ -8875,8 +8875,8 @@ define range(i32 -1, 1) i32 @H5Sselect_hyperslab(i64 noundef %0, i32 noundef %1,
 .preheader:                                       ; preds = %71
   %72 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %73 = load i32, ptr %72, align 8, !tbaa !21
-  %.not75 = icmp eq i32 %73, 0
-  br i1 %.not75, label %.split, label %.lr.ph.preheader
+  %.not73 = icmp eq i32 %73, 0
+  br i1 %.not73, label %.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %73 to i64
@@ -8898,36 +8898,36 @@ define range(i32 -1, 1) i32 @H5Sselect_hyperslab(i64 noundef %0, i32 noundef %1,
   %79 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
   %80 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !11
   %81 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10320, i64 noundef %79, i64 noundef %80, ptr noundef nonnull @.str.32) #14
-  br label %.thread71
+  br label %.thread69
 
 .split:                                           ; preds = %74, %.preheader, %71
   %.sink = phi ptr [ null, %71 ], [ %3, %.preheader ], [ %3, %74 ]
   %82 = call i32 @H5S_select_hyperslab(ptr noundef nonnull %42, i32 noundef %1, ptr noundef %2, ptr noundef %.sink, ptr noundef %4, ptr noundef %5)
   %83 = icmp slt i32 %82, 0
-  br i1 %83, label %84, label %89
+  br i1 %83, label %84, label %89, !prof !138
 
 84:                                               ; preds = %.split
   %85 = load i64, ptr @H5E_DATASPACE_g, align 8, !tbaa !11
   %86 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
   %87 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Sselect_hyperslab, i32 noundef 10324, i64 noundef %85, i64 noundef %86, ptr noundef nonnull @.str.33) #14
-  br label %.thread71
+  br label %.thread69
 
-.thread71:                                        ; preds = %67, %78, %84, %62, %55, %51, %44
+.thread69:                                        ; preds = %67, %78, %84, %62, %55, %51, %44
   %88 = call i32 @H5CX_pop(i1 noundef zeroext true) #14
-  br label %.thread65
+  br label %.thread63
 
 89:                                               ; preds = %.split
   %90 = call i32 @H5CX_pop(i1 noundef zeroext true) #14
   br label %92
 
-.thread65:                                        ; preds = %36, %29, %16, %.thread71
+.thread63:                                        ; preds = %36, %29, %16, %.thread69
   %91 = call i32 @H5E_dump_api_stack() #14
   br label %92
 
-92:                                               ; preds = %89, %.thread65
-  %.0396068 = phi i32 [ 0, %89 ], [ -1, %.thread65 ]
+92:                                               ; preds = %89, %.thread63
+  %.0395866 = phi i32 [ 0, %89 ], [ -1, %.thread63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.0396068
+  ret i32 %.0395866
 }
 
 ; Function Attrs: nounwind uwtable
@@ -16793,8 +16793,8 @@ define internal fastcc noundef zeroext i1 @H5S__hyper_intersect_block_helper(ptr
   store i64 %4, ptr %13, align 8, !tbaa !146
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %25, %41, %44, %48, %._crit_edge50, %12, %5
-  %.036 = phi i1 [ false, %12 ], [ false, %5 ], [ false, %._crit_edge50 ], [ %.not59.not, %48 ], [ %.not59.not, %44 ], [ %.not59.not, %41 ], [ false, %25 ], [ false, %19 ]
+.loopexit:                                        ; preds = %25, %19, %48, %44, %41, %5, %12, %._crit_edge50
+  %.036 = phi i1 [ false, %12 ], [ false, %5 ], [ false, %._crit_edge50 ], [ %.not59.not, %41 ], [ %.not59.not, %44 ], [ %.not59.not, %48 ], [ false, %19 ], [ false, %25 ]
   ret i1 %.036
 }
 
@@ -17688,8 +17688,8 @@ define internal fastcc noundef zeroext i1 @H5S__check_spans_overlap(ptr noundef 
   %70 = and i1 %68, %69
   br i1 %70, label %.lr.ph, label %.loopexit, !llvm.loop !276
 
-.loopexit:                                        ; preds = %67, %42, %45, %25, %17, %9, %2
-  %.030 = phi i1 [ false, %9 ], [ false, %17 ], [ false, %2 ], [ false, %25 ], [ false, %67 ], [ true, %42 ], [ true, %45 ]
+.loopexit:                                        ; preds = %45, %42, %67, %25, %2, %9, %17
+  %.030 = phi i1 [ false, %9 ], [ false, %17 ], [ false, %2 ], [ false, %25 ], [ true, %45 ], [ true, %42 ], [ false, %67 ]
   ret i1 %.030
 }
 

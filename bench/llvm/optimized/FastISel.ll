@@ -13925,65 +13925,65 @@ _ZNK4llvm11Instruction11hasMetadataEj.exit54.thread: ; preds = %10, %_ZNK4llvm11
   store i8 %29, ptr %.sroa.2.0..sroa_idx, align 8
   %31 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %32 = shl i16 %.sroa.066.0.in.in.in, 2
-  %33 = and i16 %32, 4
-  %spec.select = or disjoint i16 %33, %.0
-  %34 = or disjoint i16 %spec.select, 8
-  %spec.select104 = select i1 %.0.i.i9195102, i16 %spec.select, i16 %34
-  %35 = or disjoint i16 %spec.select104, 16
-  %36 = select i1 %.0.i.i53103, i16 %spec.select104, i16 %35
-  %37 = or i16 %36, 32
-  %.4 = select i1 %.0.i.i5096101, i16 %36, i16 %37
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !372
-  %42 = ptrtoint ptr %.236 to i64
-  %43 = and i64 %42, -5
+  %.242.in = shl i16 %.sroa.066.0.in.in.in, 2
+  %32 = and i16 %.242.in, 4
+  %spec.select = or disjoint i16 %32, %.0
+  %33 = or disjoint i16 %spec.select, 8
+  %spec.select104 = select i1 %.0.i.i9195102, i16 %spec.select, i16 %33
+  %34 = or disjoint i16 %spec.select104, 16
+  %35 = select i1 %.0.i.i53103, i16 %spec.select104, i16 %34
+  %36 = or i16 %35, 32
+  %.4 = select i1 %.0.i.i5096101, i16 %35, i16 %36
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %38 = load ptr, ptr %37, align 8, !tbaa !33
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !372
+  %41 = ptrtoint ptr %.236 to i64
+  %42 = and i64 %41, -5
   %.not.i = icmp eq ptr %.236, null
-  br i1 %.not.i, label %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit, label %44
+  br i1 %.not.i, label %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit, label %43
 
-44:                                               ; preds = %_ZNK4llvm11Instruction11hasMetadataEj.exit54.thread
-  %45 = getelementptr inbounds nuw i8, ptr %.236, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !196
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load i32, ptr %47, align 8
-  %49 = and i32 %48, 255
-  %50 = add nsw i32 %49, -17
-  %spec.select.i.i.i.i = icmp ult i32 %50, 2
-  br i1 %spec.select.i.i.i.i, label %51, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i
+43:                                               ; preds = %_ZNK4llvm11Instruction11hasMetadataEj.exit54.thread
+  %44 = getelementptr inbounds nuw i8, ptr %.236, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !196
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i32, ptr %46, align 8
+  %48 = and i32 %47, 255
+  %49 = add nsw i32 %48, -17
+  %spec.select.i.i.i.i = icmp ult i32 %49, 2
+  br i1 %spec.select.i.i.i.i, label %50, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i
 
-51:                                               ; preds = %44
-  %52 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !1035
-  %54 = load ptr, ptr %53, align 8, !tbaa !549
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %54, i64 8
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !1035
+  %53 = load ptr, ptr %52, align 8, !tbaa !549
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8
   br label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i
 
-_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i:  ; preds = %51, %44
-  %55 = phi i32 [ %.pre.i.i, %51 ], [ %48, %44 ]
-  %56 = lshr i32 %55, 8
+_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i:  ; preds = %50, %43
+  %54 = phi i32 [ %.pre.i.i, %50 ], [ %47, %43 ]
+  %55 = lshr i32 %54, 8
   br label %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit
 
 _ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit: ; preds = %_ZNK4llvm11Instruction11hasMetadataEj.exit54.thread, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i
-  %57 = phi i32 [ %56, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i ], [ 0, %_ZNK4llvm11Instruction11hasMetadataEj.exit54.thread ]
-  %58 = and i64 %31, 4294967295
+  %56 = phi i32 [ %55, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i ], [ 0, %_ZNK4llvm11Instruction11hasMetadataEj.exit54.thread ]
+  %57 = and i64 %31, 4294967295
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %43, ptr %3, align 8
+  store i64 %42, ptr %3, align 8
   %.sroa.2.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx56, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %57, ptr %.sroa.3.0..sroa_idx, align 8
+  store i32 %56, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 4
-  %59 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %41, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %3, i16 noundef zeroext %.4, i64 %58, i8 %.sroa.066.0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.0.i, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #22
+  %58 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1065) %40, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %3, i16 noundef zeroext %.4, i64 %57, i8 %.sroa.066.0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.0.i, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit
-  %.3 = phi ptr [ %59, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit ], [ null, %2 ]
+  %.3 = phi ptr [ %58, %_ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit ], [ null, %2 ]
   ret ptr %.3
 }
 

@@ -73859,8 +73859,8 @@ _ZN4gpui7element7Element8into_any17h97dcf580692a3db4E.exit.i: ; preds = %174
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h9299368ed349a16bE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %32) #36
           to label %.thread102 unwind label %181
 
-.thread102:                                       ; preds = %243, %.body41, %234, %218, %208, %284, %199, %214
-  %.pn20105 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body41 ], [ %215, %214 ], [ %200, %199 ], [ %235, %234 ], [ %219, %218 ], [ %209, %208 ], [ %285, %284 ], [ %244, %243 ]
+.thread102:                                       ; preds = %284, %234, %218, %208, %243, %199, %214, %.body41
+  %.pn20105 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body41 ], [ %215, %214 ], [ %200, %199 ], [ %244, %243 ], [ %209, %208 ], [ %219, %218 ], [ %235, %234 ], [ %285, %284 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$gpui..element..AnyElement$GT$17h5ae211783292d045E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %78) #36
           to label %common.resume unwind label %181
 }

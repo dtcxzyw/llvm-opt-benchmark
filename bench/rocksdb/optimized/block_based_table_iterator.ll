@@ -5855,7 +5855,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZNK7rocksdb9BlockI
   call void @_ZN7rocksdb23BlockBasedTableIterator13ResetDataIterEv(ptr noundef nonnull align 8 dereferenceable(1016) %0)
   %37 = load ptr, ptr %11, align 8, !tbaa !170
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit
+  br i1 %.not.i, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit16.thread, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit
 
 _ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit: ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
@@ -5863,24 +5863,24 @@ _ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit: ; preds = 
   %40 = load ptr, ptr %38, align 8, !tbaa !171
   %41 = load ptr, ptr %39, align 8, !tbaa !171
   %.not23 = icmp eq ptr %40, %41
-  br i1 %.not23, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14, label %42
+  br i1 %.not23, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit16, label %42
 
 42:                                               ; preds = %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit
   call void @_ZNSt5dequeIN7rocksdb23BlockBasedTableIterator15BlockHandleInfoESaIS2_EE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(80) %37) #27
   %.pr.pre = load ptr, ptr %11, align 8, !tbaa !170
-  %.not.i13 = icmp eq ptr %.pr.pre, null
-  br i1 %.not.i13, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14
+  %.not.i15 = icmp eq ptr %.pr.pre, null
+  br i1 %.not.i15, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit16.thread, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit16
 
-_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14: ; preds = %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit, %42
+_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit16: ; preds = %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit, %42
   %.pr31 = phi ptr [ %.pr.pre, %42 ], [ %37, %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %.pr31, i64 48
   %44 = getelementptr inbounds nuw i8, ptr %.pr31, i64 16
   %45 = load ptr, ptr %43, align 8, !tbaa !171
   %46 = load ptr, ptr %44, align 8, !tbaa !171
   %.not24 = icmp eq ptr %45, %46
-  br i1 %.not24, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread, label %84
+  br i1 %.not24, label %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit16.thread, label %84
 
-_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread: ; preds = %35, %42, %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14
+_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit16.thread: ; preds = %35, %42, %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit16
   %47 = load i8, ptr %7, align 8, !tbaa !133, !range !101, !noundef !102
   %48 = trunc nuw i8 %47 to i1
   %49 = load i8, ptr %12, align 1, !range !101
@@ -5888,7 +5888,7 @@ _ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread: ;
   %or.cond8 = select i1 %48, i1 true, i1 %50
   br i1 %or.cond8, label %51, label %58
 
-51:                                               ; preds = %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread
+51:                                               ; preds = %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit16.thread
   %52 = load ptr, ptr %13, align 8, !tbaa !136
   %53 = load ptr, ptr %52, align 8, !tbaa !105
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
@@ -5896,20 +5896,20 @@ _ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread: ;
   call void %55(ptr noundef nonnull align 8 dereferenceable(40) %52)
   %56 = load i8, ptr %12, align 1, !tbaa !195, !range !101, !noundef !102
   %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %.thread19, label %59
+  br i1 %57, label %.critedge, label %59
 
-.thread19:                                        ; preds = %51
+.critedge:                                        ; preds = %51
   store i8 0, ptr %12, align 1, !tbaa !195
   br label %.loopexit
 
-58:                                               ; preds = %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread
+58:                                               ; preds = %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit16.thread
   store i8 1, ptr %7, align 8, !tbaa !133
   br label %59
 
 59:                                               ; preds = %51, %58
   br i1 %36, label %.loopexit, label %67
 
-.loopexit:                                        ; preds = %59, %.thread19
+.loopexit:                                        ; preds = %59, %.critedge
   %60 = load ptr, ptr %13, align 8, !tbaa !136
   %61 = load ptr, ptr %60, align 8, !tbaa !105
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -5942,9 +5942,9 @@ _ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread: ;
   %80 = load i8, ptr %15, align 8, !range !101
   %81 = trunc nuw i8 %80 to i1
   %or.cond12 = select i1 %79, i1 %81, i1 false
-  br i1 %or.cond12, label %.critedge, label %83
+  br i1 %or.cond12, label %.critedge14, label %83
 
-.critedge:                                        ; preds = %73
+.critedge14:                                      ; preds = %73
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 956
   store i8 1, ptr %82, align 4, !tbaa !128
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5954,7 +5954,7 @@ _ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %84
 
-84:                                               ; preds = %83, %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14
+84:                                               ; preds = %83, %_ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit16
   call void @_ZN7rocksdb23BlockBasedTableIterator13InitDataBlockEv(ptr noundef nonnull align 8 dereferenceable(1016) %0)
   %85 = load ptr, ptr %4, align 8, !tbaa !105
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 216
@@ -5966,7 +5966,7 @@ _ZN7rocksdb23BlockBasedTableIterator23DoesContainBlockHandlesEv.exit14.thread: ;
   %90 = icmp ult i32 %88, %89
   br i1 %90, label %.thread21, label %18, !llvm.loop !413
 
-.thread21:                                        ; preds = %67, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZNK7rocksdb9BlockIterINS_5SliceEE6statusEv.exit.thread, %_ZN7rocksdb6StatusD2Ev.exit, %84, %.critedge, %.loopexit, %65
+.thread21:                                        ; preds = %67, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZNK7rocksdb9BlockIterINS_5SliceEE6statusEv.exit.thread, %_ZN7rocksdb6StatusD2Ev.exit, %84, %.critedge14, %.loopexit, %65
   ret void
 }
 

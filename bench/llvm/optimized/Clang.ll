@@ -66522,7 +66522,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i6961: ; preds = %
   br label %17912
 
 17912:                                            ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i6961, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.i6958, %17891
-  %.039.shrunk.i = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i6961 ], [ %17892, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.i6958 ], [ %17892, %17891 ]
+  %.039.i = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit.i6961 ], [ %17892, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.i6958 ], [ %17892, %17891 ]
   %17913 = call noundef zeroext i1 @_ZN5clang6driver5types6isObjCENS1_2IDE(i32 noundef %6439) #22
   br i1 %17913, label %17914, label %17938
 
@@ -66585,11 +66585,11 @@ _ZNK5clang11ObjCRuntime12isNonFragileEv.exit.i.i6956: ; preds = %_ZN4llvm23Small
 
 _ZL41shouldUseExceptionTablesForObjCExceptionsRKN5clang11ObjCRuntimeERKN4llvm6TripleE.exit.i: ; preds = %17933, %17931, %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit.i.i6956, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit44.i6953, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit44.i6953, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit44.i6953, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit44.i6953, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit44.i6953
   %.0.i.i6955 = phi i1 [ false, %_ZNK5clang11ObjCRuntime12isNonFragileEv.exit.i.i6956 ], [ false, %17931 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit44.i6953 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit44.i6953 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit44.i6953 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit44.i6953 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit44.i6953 ], [ %spec.select.i45.i, %17933 ]
-  %17937 = or i1 %.039.shrunk.i, %.0.i.i6955
+  %17937 = or i1 %.039.i, %.0.i.i6955
   br label %17938
 
 17938:                                            ; preds = %_ZL41shouldUseExceptionTablesForObjCExceptionsRKN5clang11ObjCRuntimeERKN4llvm6TripleE.exit.i, %17914, %17912
-  %.2.i = phi i1 [ %17937, %_ZL41shouldUseExceptionTablesForObjCExceptionsRKN5clang11ObjCRuntimeERKN4llvm6TripleE.exit.i ], [ %.039.shrunk.i, %17914 ], [ %.039.shrunk.i, %17912 ]
+  %.2.i = phi i1 [ %17937, %_ZL41shouldUseExceptionTablesForObjCExceptionsRKN5clang11ObjCRuntimeERKN4llvm6TripleE.exit.i ], [ %.039.i, %17914 ], [ %.039.i, %17912 ]
   %17939 = call noundef zeroext i1 @_ZN5clang6driver5types5isCXXENS1_2IDE(i32 noundef %6439) #22
   br i1 %17939, label %17940, label %.thread13983
 

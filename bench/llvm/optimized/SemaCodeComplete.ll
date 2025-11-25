@@ -22614,7 +22614,7 @@ _ZN12_GLOBAL__N_118CoveredEnumeratorsD2Ev.exit:   ; preds = %204, %218
   br label %.thread
 
 .thread:                                          ; preds = %191, %191, %191, %201, %_ZN12_GLOBAL__N_118CoveredEnumeratorsD2Ev.exit, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit
-  %.046.shrunk = phi i1 [ false, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit ], [ false, %_ZN12_GLOBAL__N_118CoveredEnumeratorsD2Ev.exit ], [ %202, %201 ], [ true, %191 ], [ true, %191 ], [ true, %191 ]
+  %.046 = phi i1 [ false, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit ], [ false, %_ZN12_GLOBAL__N_118CoveredEnumeratorsD2Ev.exit ], [ %202, %201 ], [ true, %191 ], [ true, %191 ], [ true, %191 ]
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %220 = load ptr, ptr %219, align 8, !tbaa !1581
   %.not51 = icmp eq ptr %220, null
@@ -22646,7 +22646,7 @@ _ZN12_GLOBAL__N_118CoveredEnumeratorsD2Ev.exit:   ; preds = %204, %218
   %236 = load ptr, ptr %235, align 8, !tbaa !721
   %237 = and i8 %231, 32
   %238 = icmp ne i8 %237, 0
-  call fastcc void @_ZL15AddMacroResultsRN5clang12PreprocessorERN12_GLOBAL__N_113ResultBuilderEbbb(ptr noundef nonnull align 8 dereferenceable(3288) %236, ptr noundef nonnull align 8 dereferenceable(496) %15, i1 noundef zeroext %238, i1 noundef zeroext false, i1 noundef zeroext %.046.shrunk)
+  call fastcc void @_ZL15AddMacroResultsRN5clang12PreprocessorERN12_GLOBAL__N_113ResultBuilderEbbb(ptr noundef nonnull align 8 dereferenceable(3288) %236, ptr noundef nonnull align 8 dereferenceable(496) %15, i1 noundef zeroext %238, i1 noundef zeroext false, i1 noundef zeroext %.046)
   br label %239
 
 239:                                              ; preds = %233, %228

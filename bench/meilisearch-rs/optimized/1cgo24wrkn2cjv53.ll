@@ -33268,8 +33268,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h068fdda7f77e2ca5E(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !640, !noundef !4
-  %.not13 = icmp eq i64 %9, -9223372036854775719
-  br i1 %.not13, label %"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$index_scheduler..error..Error$GT$$GT$17h317aa6960d058636E.llvm.5336188084572713014.exit", label %18
+  %.not8 = icmp eq i64 %9, -9223372036854775719
+  br i1 %.not8, label %"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$index_scheduler..error..Error$GT$$GT$17h317aa6960d058636E.llvm.5336188084572713014.exit", label %18
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !11476
@@ -33328,8 +33328,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h319131fca642b750E(ptr 
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load i64, ptr %7, align 8, !range !615, !noundef !4
-  %.not14 = icmp eq i64 %10, -9223372036854775752
-  br i1 %.not14, label %.thread, label %27
+  %.not10 = icmp eq i64 %10, -9223372036854775752
+  br i1 %.not10, label %27, label %28
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11493
@@ -33372,18 +33372,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h319131fca642b750E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !11510
   br label %15
 
-25:                                               ; preds = %27
+25:                                               ; preds = %28
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #47
   unreachable
 
-.thread:                                          ; preds = %27, %8
+27:                                               ; preds = %28, %8
   resume { ptr, i32 } %9
 
-27:                                               ; preds = %8
+28:                                               ; preds = %8
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$milli..error..Error$GT$$GT$17ha780294ce073f7f7E.llvm.5336188084572713014"(ptr noalias noundef nonnull align 8 dereferenceable(216) %6) #46
-          to label %.thread unwind label %25
+          to label %27 unwind label %25
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -33406,8 +33406,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h34c40c89ff176e0aE(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !624, !noundef !4
-  %.not14 = icmp eq i64 %9, -9223372036854775748
-  br i1 %.not14, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grenad..error..Error$LT$milli..error..Error$GT$$GT$$GT$17hfc513380cb773c3fE.llvm.5336188084572713014.exit", label %18
+  %.not9 = icmp eq i64 %9, -9223372036854775748
+  br i1 %.not9, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grenad..error..Error$LT$milli..error..Error$GT$$GT$$GT$17hfc513380cb773c3fE.llvm.5336188084572713014.exit", label %18
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !11517
@@ -33466,8 +33466,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h50aed587541b8ea1E(ptr 
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load i64, ptr %7, align 8, !range !615, !noundef !4
-  %.not14 = icmp eq i64 %10, -9223372036854775752
-  br i1 %.not14, label %.thread, label %27
+  %.not10 = icmp eq i64 %10, -9223372036854775752
+  br i1 %.not10, label %27, label %28
 
 11:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11534
@@ -33510,18 +33510,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17h50aed587541b8ea1E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !11551
   br label %15
 
-25:                                               ; preds = %27
+25:                                               ; preds = %28
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #47
   unreachable
 
-.thread:                                          ; preds = %27, %8
+27:                                               ; preds = %28, %8
   resume { ptr, i32 } %9
 
-27:                                               ; preds = %8
+28:                                               ; preds = %8
   invoke void @"_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$milli..error..Error$GT$$GT$17ha780294ce073f7f7E.llvm.5336188084572713014"(ptr noalias noundef nonnull align 8 dereferenceable(216) %6) #46
-          to label %.thread unwind label %25
+          to label %27 unwind label %25
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -33598,8 +33598,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h8ab6b1843732d6d5E(ptr 
   %7 = landingpad { ptr, i32 }
           cleanup
   %8 = load i64, ptr %5, align 8, !range !625, !noundef !4
-  %.not14 = icmp eq i64 %8, -9223372036854775808
-  br i1 %.not14, label %"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$meilisearch_types..error..ResponseError$GT$$GT$17ha4d0b3741f809707E.llvm.5336188084572713014.exit", label %17
+  %.not9 = icmp eq i64 %8, -9223372036854775808
+  br i1 %.not9, label %"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$meilisearch_types..error..ResponseError$GT$$GT$17ha4d0b3741f809707E.llvm.5336188084572713014.exit", label %17
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !11581
@@ -33658,8 +33658,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17ha343ce4110f6635eE(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !269, !noundef !4
-  %.not13 = icmp eq i64 %9, 3
-  br i1 %.not13, label %.thread, label %18
+  %.not8 = icmp eq i64 %9, 3
+  br i1 %.not8, label %18, label %19
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11598
@@ -33683,18 +33683,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17ha343ce4110f6635eE(ptr 
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$milli..asc_desc..AscDesc$GT$$GT$17h325c713bd6a0f130E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %14
 
-16:                                               ; preds = %18
+16:                                               ; preds = %19
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #47
   unreachable
 
-.thread:                                          ; preds = %18, %7
+18:                                               ; preds = %19, %7
   resume { ptr, i32 } %8
 
-18:                                               ; preds = %7
+19:                                               ; preds = %7
   invoke void @"_ZN4core3ptr106drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$milli..asc_desc..AscDescError$GT$$GT$17hb6acf4447ad7cd02E.llvm.5336188084572713014"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #46
-          to label %.thread unwind label %16
+          to label %18 unwind label %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -33730,8 +33730,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17hd3af43530d8c63f2E(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !624, !noundef !4
-  %.not14 = icmp eq i64 %9, -9223372036854775748
-  br i1 %.not14, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grenad..error..Error$LT$milli..error..Error$GT$$GT$$GT$17hfc513380cb773c3fE.llvm.5336188084572713014.exit", label %18
+  %.not9 = icmp eq i64 %9, -9223372036854775748
+  br i1 %.not9, label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$grenad..error..Error$LT$milli..error..Error$GT$$GT$$GT$17hfc513380cb773c3fE.llvm.5336188084572713014.exit", label %18
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !11627

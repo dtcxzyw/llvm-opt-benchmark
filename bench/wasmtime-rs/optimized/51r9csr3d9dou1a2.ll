@@ -7483,9 +7483,9 @@ define internal fastcc void @_ZN4core4iter6traits8iterator8Iterator7collect17h3f
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1662
   %10 = load ptr, ptr %5, align 8, !noalias !1659, !noundef !5
   %.not.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.not.i.i, label %.thread13.i.i, label %11
+  br i1 %.not.not.i.i, label %.thread.i.i, label %11
 
-.thread13.i.i:                                    ; preds = %9
+.thread.i.i:                                      ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !1675
   br label %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter17h9094c21ac3256440E.exit"
 
@@ -7509,7 +7509,7 @@ define internal fastcc void @_ZN4core4iter6traits8iterator8Iterator7collect17h3f
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17h46ef38ad7866ea91E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
           to label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$17h20aa4c36439865b3E.llvm.17575819821291883266.exit.i.i" unwind label %13, !noalias !1659
 
-"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter17h9094c21ac3256440E.exit": ; preds = %.thread13.i.i, %11
+"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter17h9094c21ac3256440E.exit": ; preds = %.thread.i.i, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1659
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1659
   ret void
@@ -7543,9 +7543,9 @@ define internal fastcc void @_ZN4core4iter6traits8iterator8Iterator7collect17hbd
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1688
   %10 = load ptr, ptr %5, align 8, !noalias !1685, !noundef !5
   %.not.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.not.i.i, label %.thread13.i.i, label %11
+  br i1 %.not.not.i.i, label %.thread.i.i, label %11
 
-.thread13.i.i:                                    ; preds = %9
+.thread.i.i:                                      ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !1701
   br label %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter17h63f44ea82bf8e0c1E.exit"
 
@@ -7569,7 +7569,7 @@ define internal fastcc void @_ZN4core4iter6traits8iterator8Iterator7collect17hbd
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17h46ef38ad7866ea91E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
           to label %"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$17h20aa4c36439865b3E.llvm.17575819821291883266.exit.i.i" unwind label %13, !noalias !1685
 
-"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter17h63f44ea82bf8e0c1E.exit": ; preds = %.thread13.i.i, %11
+"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter17h63f44ea82bf8e0c1E.exit": ; preds = %.thread.i.i, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1685
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1685
   ret void

@@ -20803,15 +20803,15 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4l
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !60
-  %.not35 = icmp eq i64 %7, 0
-  br i1 %.not35, label %_ZN4llvm11raw_ostreamlsEPKc.exit15, label %8
+  %.not36 = icmp eq i64 %7, 0
+  br i1 %.not36, label %_ZN4llvm11raw_ostreamlsEPKc.exit15, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 8192
-  %.not36 = icmp eq i16 %11, 0
-  br i1 %.not36, label %24, label %12
+  %.not37 = icmp eq i16 %11, 0
+  br i1 %.not37, label %24, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -20890,8 +20890,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %44, %46
 
 57:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %58 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.2.0.copyload) #26
-  %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %.pre38 = load ptr, ptr %.phi.trans.insert37, align 8, !tbaa !68
+  %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %.pre39 = load ptr, ptr %.phi.trans.insert38, align 8, !tbaa !68
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 59:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -20906,7 +20906,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %44, %46
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %57, %59, %60
-  %63 = phi ptr [ %.pre38, %57 ], [ %62, %60 ], [ %49, %59 ]
+  %63 = phi ptr [ %.pre39, %57 ], [ %62, %60 ], [ %49, %59 ]
   %.0.i = phi ptr [ %58, %57 ], [ %.0.i.i, %60 ], [ %.0.i.i, %59 ]
   %64 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %65 = load ptr, ptr %64, align 8, !tbaa !64

@@ -6193,8 +6193,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit117: ; pr
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit117, %130
-  %.not.i.i.i121 = icmp ugt i64 %.fca.0.extract, 15
-  br i1 %.not.i.i.i121, label %131, label %.thread
+  %.not.i.i.i121 = icmp ult i64 %.fca.0.extract, 16
+  br i1 %.not.i.i.i121, label %.thread, label %131
 
 131:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119
   %132 = and i64 %.fca.0.extract, -16
@@ -6207,14 +6207,14 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119: ; preds 
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119, %131, %122
-  %.471.ph = phi i8 [ 1, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119 ], [ 0, %131 ], [ 1, %122 ]
-  %.462.ph = phi i8 [ %.fca.1.extract30, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119 ], [ %.fca.1.extract, %131 ], [ %.fca.1.extract30, %122 ]
-  %.4.ph = phi ptr [ %.1.i.i113, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119 ], [ %138, %131 ], [ %.1.i.i113, %122 ]
+  %.471.ph = phi i1 [ true, %122 ], [ false, %131 ], [ true, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119 ]
+  %.462.ph = phi i8 [ %.fca.1.extract30, %122 ], [ %.fca.1.extract, %131 ], [ %.fca.1.extract30, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119 ]
+  %.4.ph = phi ptr [ %.1.i.i113, %122 ], [ %138, %131 ], [ %.1.i.i113, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread
 
 _ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit114, %.thread, %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit
-  %.370 = phi i8 [ 1, %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit ], [ %.471.ph, %.thread ], [ 1, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit114 ]
+  %.370 = phi i1 [ true, %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit ], [ %.471.ph, %.thread ], [ true, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit114 ]
   %.361 = phi i8 [ %.fca.1.extract30, %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit ], [ %.462.ph, %.thread ], [ %.fca.1.extract30, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit114 ]
   %.3 = phi ptr [ %.1.i.i113, %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit ], [ %.4.ph, %.thread ], [ %.1.i.i113, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit114 ]
   %139 = trunc i8 %.361 to i1
@@ -6235,7 +6235,7 @@ _ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread: ; preds = %_ZNK5clang21Ob
 
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit: ; preds = %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread, %36
   %.075 = phi ptr [ null, %36 ], [ %72, %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread ]
-  %.067 = phi i8 [ 1, %36 ], [ %.370, %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread ]
+  %.067 = phi i1 [ true, %36 ], [ %.370, %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread ]
   %.0 = phi ptr [ %37, %36 ], [ %.3, %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread ]
   %.not96 = icmp eq ptr %.0, null
   br i1 %.not96, label %.critedge104, label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.thread
@@ -6243,7 +6243,7 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit: ; preds = %_ZNK5clang14
 _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.thread: ; preds = %140, %142, %24, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit
   %.0155 = phi ptr [ %.0, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ %.3, %140 ], [ %.3, %142 ], [ %32, %24 ]
   %.058154 = phi i1 [ false, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ true, %140 ], [ %146, %142 ], [ false, %24 ]
-  %.067153 = phi i8 [ %.067, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ %.370, %140 ], [ %.370, %142 ], [ 1, %24 ]
+  %.067153 = phi i1 [ %.067, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ %.370, %140 ], [ %.370, %142 ], [ true, %24 ]
   %.075152 = phi ptr [ %.075, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit ], [ %72, %140 ], [ %72, %142 ], [ null, %24 ]
   br label %147
 
@@ -6295,9 +6295,9 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit:  ; preds = %_ZNK5clang4Type5get
 
 165:                                              ; preds = %_ZNK5clang14ObjCObjectType12getInterfaceEv.exit
   %.sroa.0.0.copyload = load i64, ptr %6, align 8, !tbaa !73
-  %166 = trunc nuw i8 %.067153 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.0.0.copyload, ptr %3, align 8
+  %166 = zext i1 %.067153 to i8
   %167 = load atomic i8, ptr @_ZGVZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC acquire, align 8
   %168 = icmp eq i8 %167, 0
   br i1 %168, label %169, label %173, !prof !896
@@ -6320,7 +6320,7 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit:  ; preds = %_ZNK5clang4Type5get
   %175 = load i64, ptr %3, align 8, !tbaa !73
   store i64 %175, ptr %174, align 8, !tbaa !73
   %176 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 %.067153, ptr %176, align 8, !tbaa !899
+  store i8 %166, ptr %176, align 8, !tbaa !899
   %177 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapI16PrivateMethodKeySt8optionalIPKN5clang14ObjCMethodDeclEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S8_EEEES2_S8_SA_SD_EixEOS2_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEbE3PMC, ptr noundef nonnull align 8 dereferenceable(17) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
@@ -6333,7 +6333,7 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit:  ; preds = %_ZNK5clang4Type5get
   br label %_ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit
 
 181:                                              ; preds = %173
-  %182 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl19lookupPrivateMethodERKNS_8SelectorEb(ptr noundef nonnull align 8 dereferenceable(128) %164, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %166) #20
+  %182 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl19lookupPrivateMethodERKNS_8SelectorEb(ptr noundef nonnull align 8 dereferenceable(128) %164, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %.067153) #20
   %183 = load i8, ptr %178, align 8, !tbaa !900, !range !195, !noundef !196
   %184 = trunc nuw i8 %183 to i1
   br i1 %184, label %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit.i, label %185
@@ -6353,7 +6353,7 @@ _ZL23lookupRuntimeDefinitionPKN5clang17ObjCInterfaceDeclENS_8SelectorEb.exit.thr
 
 186:                                              ; preds = %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit.i
   %.sroa.0.0.copyload.i128 = load i64, ptr %3, align 8, !tbaa !73
-  %187 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl12lookupMethodENS_8SelectorEbbbPKNS_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(128) %164, i64 %.sroa.0.0.copyload.i128, i1 noundef zeroext %166, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null) #20
+  %187 = call noundef ptr @_ZNK5clang17ObjCInterfaceDecl12lookupMethodENS_8SelectorEbbbPKNS_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(128) %164, i64 %.sroa.0.0.copyload.i128, i1 noundef zeroext %.067153, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null) #20
   %188 = load i8, ptr %178, align 8, !tbaa !900, !range !195, !noundef !196
   %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %_ZNSt8optionalIPKN5clang14ObjCMethodDeclEEaSIPS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES8_ISt6__and_IJSt9is_scalarIS3_ES9_IS3_NSt5decayISC_E4typeEEEEESt16is_constructibleIS3_JSC_EESt13is_assignableIRS3_SC_EEERS4_E4typeEOSC_.exit11.i, label %190

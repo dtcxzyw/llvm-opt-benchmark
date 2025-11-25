@@ -637,8 +637,8 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %.014 = phi i1 [ false, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE11lower_boundERKS5_.exit ], [ %54, %51 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %60 = load ptr, ptr %59, align 8, !tbaa !29
-  %.not59 = icmp eq ptr %.08.lcssa.i.i.i58, %60
-  br i1 %.not59, label %69, label %61
+  %.not60 = icmp eq ptr %.08.lcssa.i.i.i58, %60
+  br i1 %.not60, label %69, label %61
 
 61:                                               ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE11lower_boundERKS5_.exit.thread
   %62 = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %.08.lcssa.i.i.i58) #25
@@ -648,14 +648,14 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %66 = load i64, ptr %65, align 8, !tbaa !19
   %67 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %64, i64 noundef 0, i64 noundef %66) #27
   %68 = icmp eq i64 %67, 0
-  %spec.select25 = or i1 %68, %.014
+  %spec.select25 = or i1 %.014, %68
   br i1 %spec.select25, label %70, label %119
 
 69:                                               ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE11lower_boundERKS5_.exit.thread
   br i1 %.014, label %70, label %119
 
 70:                                               ; preds = %61, %69
-  %.sroa.049.075 = phi ptr [ %62, %61 ], [ %.08.lcssa.i.i.i58, %69 ]
+  %.sroa.049.059 = phi ptr [ %62, %61 ], [ %.08.lcssa.i.i.i58, %69 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -675,7 +675,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
           to label %73 unwind label %83
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.049.075, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.049.059, i64 32
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %74)
           to label %75 unwind label %85
 

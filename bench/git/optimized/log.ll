@@ -7595,54 +7595,51 @@ define internal fastcc void @add_header(ptr noundef %0, ptr noundef %1) unnamed_
   %7 = getelementptr i8, ptr %6, i64 -1
   %8 = load i8, ptr %7, align 1, !tbaa !77
   %9 = icmp eq i8 %8, 10
-  br i1 %9, label %10, label %.critedge.loopexit.split.loop.exit24
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !325
 
-.critedge.loopexit.split.loop.exit24:             ; preds = %.lr.ph
-  %11 = trunc nsw i64 %indvars.iv to i32
-  br label %.critedge
+.critedge:                                        ; preds = %.lr.ph, %10, %2
+  %.0.lcssa = phi i64 [ 0, %2 ], [ 0, %10 ], [ %indvars.iv, %.lr.ph ]
+  %11 = tail call i32 @strncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.201, i64 noundef 4) #24
+  %.not17 = icmp eq i32 %11, 0
+  br i1 %.not17, label %12, label %17
 
-.critedge:                                        ; preds = %10, %.critedge.loopexit.split.loop.exit24, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %11, %.critedge.loopexit.split.loop.exit24 ], [ 0, %10 ]
-  %12 = tail call i32 @strncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.201, i64 noundef 4) #24
-  %.not17 = icmp eq i32 %12, 0
-  br i1 %.not17, label %13, label %18
+12:                                               ; preds = %.critedge
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %15 = tail call ptr @string_list_append(ptr noundef nonnull %13, ptr noundef nonnull %14) #23
+  %16 = add i64 %.0.lcssa, -4
+  br label %27
 
-13:                                               ; preds = %.critedge
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %16 = tail call ptr @string_list_append(ptr noundef nonnull %14, ptr noundef nonnull %15) #23
-  %17 = add nsw i32 %.0.lcssa, -4
-  br label %28
+17:                                               ; preds = %.critedge
+  %18 = tail call i32 @strncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.202, i64 noundef 4) #24
+  %.not18 = icmp eq i32 %18, 0
+  br i1 %.not18, label %19, label %24
 
-18:                                               ; preds = %.critedge
-  %19 = tail call i32 @strncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.202, i64 noundef 4) #24
-  %.not18 = icmp eq i32 %19, 0
-  br i1 %.not18, label %20, label %25
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %22 = tail call ptr @string_list_append(ptr noundef nonnull %20, ptr noundef nonnull %21) #23
+  %23 = add i64 %.0.lcssa, -4
+  br label %27
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = tail call ptr @string_list_append(ptr noundef nonnull %21, ptr noundef nonnull %22) #23
-  %24 = add nsw i32 %.0.lcssa, -4
-  br label %28
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %26 = tail call ptr @string_list_append(ptr noundef nonnull %25, ptr noundef nonnull %1) #23
+  br label %27
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %27 = tail call ptr @string_list_append(ptr noundef nonnull %26, ptr noundef nonnull %1) #23
-  br label %28
-
-28:                                               ; preds = %20, %25, %13
-  %.016 = phi ptr [ %27, %25 ], [ %23, %20 ], [ %16, %13 ]
-  %.1 = phi i32 [ %.0.lcssa, %25 ], [ %24, %20 ], [ %17, %13 ]
-  %29 = load ptr, ptr %.016, align 8, !tbaa !191
-  %30 = sext i32 %.1 to i64
-  %31 = getelementptr inbounds i8, ptr %29, i64 %30
-  store i8 0, ptr %31, align 1, !tbaa !77
+27:                                               ; preds = %19, %24, %12
+  %.016 = phi ptr [ %26, %24 ], [ %22, %19 ], [ %15, %12 ]
+  %.1 = phi i64 [ %.0.lcssa, %24 ], [ %23, %19 ], [ %16, %12 ]
+  %28 = load ptr, ptr %.016, align 8, !tbaa !191
+  %sext24 = shl i64 %.1, 32
+  %29 = ashr exact i64 %sext24, 32
+  %30 = getelementptr inbounds i8, ptr %28, i64 %29
+  store i8 0, ptr %30, align 1, !tbaa !77
   ret void
 }
 

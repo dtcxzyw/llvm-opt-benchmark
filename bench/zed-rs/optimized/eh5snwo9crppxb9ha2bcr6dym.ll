@@ -23380,8 +23380,8 @@ define internal fastcc void @"_ZN4tiff7decoder10tag_reader18TagReader$LT$R$GT$17
   %24 = landingpad { ptr, i32 }
           cleanup
   %25 = load i16, ptr %5, align 8, !range !4253, !noalias !4254, !noundef !4
-  %.not13.i = icmp eq i16 %25, 26
-  br i1 %.not13.i, label %"_ZN4core3ptr99drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$tiff..error..TiffError$GT$$GT$17h5dce0f757f36cac5E.llvm.4353189056609371792.exit.i", label %35
+  %.not9.i = icmp eq i16 %25, 26
+  br i1 %.not9.i, label %"_ZN4core3ptr99drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$tiff..error..TiffError$GT$$GT$17h5dce0f757f36cac5E.llvm.4353189056609371792.exit.i", label %35
 
 26:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4258

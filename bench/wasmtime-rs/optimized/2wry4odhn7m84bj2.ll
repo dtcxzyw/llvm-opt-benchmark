@@ -927,21 +927,11 @@ _ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if1
   %59 = icmp eq i64 %58, %53
   br i1 %59, label %.sink.split.i.i, label %_ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit
 
-common.resume.i41.thread112.loopexit:             ; preds = %82, %.critedge
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume.i41.thread112
-
-common.resume.i41.thread112.loopexit.split-lp:    ; preds = %93
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %common.resume.i41.thread112
-
 .thread:                                          ; preds = %74, %32, %.sink.split.i.i
   %.0 = phi i1 [ false, %74 ], [ true, %32 ], [ true, %.sink.split.i.i ]
   %60 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.i41.thread112
+  br label %.thread97.thread106
 
 _ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit: ; preds = %56, %_ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if17hb5535ee80139f58dE.exit.i.i, %.sink.split.i.i
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -1007,7 +997,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit: ; preds = 
 
 82:                                               ; preds = %79
   %83 = invoke fastcc { ptr, ptr } @_ZN10rayon_core8registry12WorkerThread14take_local_job17hfa8f0f335f05cde8E(ptr noundef nonnull align 128 %2)
-          to label %84 unwind label %common.resume.i41.thread112.loopexit
+          to label %84 unwind label %.thread97.thread106.loopexit
 
 84:                                               ; preds = %82
   %85 = extractvalue { ptr, ptr } %83, 0
@@ -1028,11 +1018,11 @@ _ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit: ; preds = 
 
 93:                                               ; preds = %90
   invoke void @_ZN10rayon_core8registry12WorkerThread15wait_until_cold17hfc2a235598fb8b62E(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %.sroa.4.0..sroa_idx)
-          to label %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit unwind label %common.resume.i41.thread112.loopexit.split-lp
+          to label %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit unwind label %.thread97.thread106.loopexit.split-lp
 
 .critedge:                                        ; preds = %87
   invoke void %85(ptr noundef %86)
-          to label %79 unwind label %common.resume.i41.thread112.loopexit
+          to label %79 unwind label %.thread97.thread106.loopexit
 
 94:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1072,7 +1062,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit: ; preds = 
   %107 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr146drop_in_place$LT$core..cell..UnsafeCell$LT$rayon_core..job..JobResult$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hca8f5064588e043cE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %8) #56
-          to label %.thread103 unwind label %121, !noalias !84
+          to label %.thread109 unwind label %121, !noalias !84
 
 108:                                              ; preds = %97
   unreachable
@@ -1099,7 +1089,7 @@ _ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit: ; preds = 
   %118 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b21777bd45783aeE.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(16) %112) #56
-          to label %.thread103 unwind label %119, !noalias !84
+          to label %.thread109 unwind label %119, !noalias !84
 
 119:                                              ; preds = %117
   %120 = landingpad { ptr, i32 }
@@ -1173,7 +1163,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
           cleanup
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 32
   invoke void @"_ZN4core3ptr1324drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$rayon_core..join..join_context..call_b$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7a2e573722bf5e1eE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %131) #56
-          to label %.thread103 unwind label %153, !noalias !110
+          to label %.thread109 unwind label %153, !noalias !110
 
 132:                                              ; preds = %_ZN10rayon_core8registry12WorkerThread10wait_until17h95dabfeacc5d1e58E.exit
   %.sroa.0.sroa.6.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1210,7 +1200,7 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
 "_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i.i.i.i.i": ; preds = %148, %146
   %.1.i.i.i.i.i.i.i.i = phi i64 [ %144, %146 ], [ %150, %148 ]
   %145 = icmp eq i64 %.1.i.i.i.i.i.i.i.i, %140
-  br i1 %145, label %.thread103, label %148
+  br i1 %145, label %.thread109, label %148
 
 146:                                              ; preds = %142
   %147 = landingpad { ptr, i32 }
@@ -1250,32 +1240,42 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   store i64 %.sroa.0.sroa.6.0.copyload.i44, ptr %.sroa.572.0..sroa_idx, align 8
   br label %124
 
-156:                                              ; preds = %160, %common.resume.i41.thread112
+156:                                              ; preds = %160, %.thread97.thread106
   %157 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54
   unreachable
 
+.thread97.thread106.loopexit:                     ; preds = %82, %.critedge
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread97.thread106
+
+.thread97.thread106.loopexit.split-lp:            ; preds = %93
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread97.thread106
+
 158:                                              ; preds = %74
   unreachable
 
-159:                                              ; preds = %common.resume.i41.thread112
-  br i1 %.187, label %160, label %.thread103
+159:                                              ; preds = %.thread97.thread106
+  br i1 %.187, label %160, label %.thread109
 
-common.resume.i41.thread112:                      ; preds = %common.resume.i41.thread112.loopexit, %common.resume.i41.thread112.loopexit.split-lp, %.thread
-  %.pn.pn89 = phi { ptr, i32 } [ %60, %.thread ], [ %lpad.loopexit, %common.resume.i41.thread112.loopexit ], [ %lpad.loopexit.split-lp, %common.resume.i41.thread112.loopexit.split-lp ]
-  %.187 = phi i1 [ %.0, %.thread ], [ false, %common.resume.i41.thread112.loopexit ], [ false, %common.resume.i41.thread112.loopexit.split-lp ]
+.thread97.thread106:                              ; preds = %.thread97.thread106.loopexit, %.thread97.thread106.loopexit.split-lp, %.thread
+  %.pn.pn89 = phi { ptr, i32 } [ %60, %.thread ], [ %lpad.loopexit, %.thread97.thread106.loopexit ], [ %lpad.loopexit.split-lp, %.thread97.thread106.loopexit.split-lp ]
+  %.187 = phi i1 [ %.0, %.thread ], [ false, %.thread97.thread106.loopexit ], [ false, %.thread97.thread106.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr1394drop_in_place$LT$rayon_core..job..StackJob$LT$rayon_core..latch..SpinLatch$C$rayon_core..join..join_context..call_b$LT$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$rayon..iter..collect..consumer..CollectResult$LT$$LP$$RP$$GT$$GT$$GT$17hd014f6280bf5dfb9E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %10) #56
           to label %159 unwind label %156
 
-.thread103:                                       ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i.i.i.i.i", %106, %117, %129, %160, %159
-  %.pn.pn88106 = phi { ptr, i32 } [ %.pn.pn89, %160 ], [ %.pn.pn89, %159 ], [ %107, %106 ], [ %118, %117 ], [ %130, %129 ], [ %147, %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i.i.i.i.i" ]
-  resume { ptr, i32 } %.pn.pn88106
+.thread109:                                       ; preds = %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i.i.i.i.i", %106, %117, %129, %160, %159
+  %.pn.pn88112 = phi { ptr, i32 } [ %.pn.pn89, %160 ], [ %.pn.pn89, %159 ], [ %130, %129 ], [ %107, %106 ], [ %118, %117 ], [ %147, %"_ZN4core3ptr175drop_in_place$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$17hb21c4f81a38ac0b8E.llvm.5456684732158232753.exit7.i.i.i.i.i.i.i.i" ]
+  resume { ptr, i32 } %.pn.pn88112
 
 160:                                              ; preds = %159
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 80
   invoke void @"_ZN4core3ptr1127drop_in_place$LT$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..collect..consumer..CollectConsumer$LT$$LP$$RP$$GT$$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcbad98e44c27abdfE.llvm.17514045976136648023"(ptr noalias noundef nonnull align 8 dereferenceable(72) %161) #56
-          to label %.thread103 unwind label %156
+          to label %.thread109 unwind label %156
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1382,9 +1382,6 @@ _ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if1
   %60 = and i64 %59, 65535
   %61 = icmp eq i64 %60, %55
   br i1 %61, label %.sink.split.i.i, label %_ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit
-
-"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50": ; preds = %.thread86
-  br i1 %.127.lpad-body, label %174, label %.thread92
 
 .thread:                                          ; preds = %76, %34, %.sink.split.i.i
   %.0 = phi i1 [ false, %76 ], [ true, %34 ], [ true, %.sink.split.i.i ]
@@ -1761,13 +1758,16 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   invoke void @"_ZN98_$LT$alloc..collections..linked_list..LinkedList$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3616301421c3d571E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50" unwind label %170
 
+"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50": ; preds = %.thread86
+  br i1 %.127.lpad-body, label %174, label %.thread92
+
 172:                                              ; preds = %76
   unreachable
 
 173:                                              ; preds = %174
   br i1 %.176, label %175, label %.thread92
 
-174:                                              ; preds = %.thread, %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50"
+174:                                              ; preds = %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50", %.thread
   %.pn.pn78 = phi { ptr, i32 } [ %62, %.thread ], [ %eh.lpad-body, %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50" ]
   %.176 = phi i1 [ %.0, %.thread ], [ false, %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50" ]
   invoke void @"_ZN4core3ptr1635drop_in_place$LT$rayon_core..job..StackJob$LT$rayon_core..latch..SpinLatch$C$rayon_core..join..join_context..call_b$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..CompileInputs..compile..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$$GT$17hc732b95c6a814aa5E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %12) #56
@@ -1887,9 +1887,6 @@ _ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if1
   %60 = and i64 %59, 65535
   %61 = icmp eq i64 %60, %55
   br i1 %61, label %.sink.split.i.i, label %_ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit
-
-"_ZN4core3ptr103drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$17h4323447e8a9bcb9dE.exit50": ; preds = %.thread86
-  br i1 %.127.lpad-body, label %164, label %.thread92
 
 .thread:                                          ; preds = %76, %34, %.sink.split.i.i
   %.0 = phi i1 [ false, %76 ], [ true, %34 ], [ true, %.sink.split.i.i ]
@@ -2241,13 +2238,16 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   invoke void @"_ZN98_$LT$alloc..collections..linked_list..LinkedList$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2f71faee4b75d4f0E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %"_ZN4core3ptr103drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$17h4323447e8a9bcb9dE.exit50" unwind label %160
 
+"_ZN4core3ptr103drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$17h4323447e8a9bcb9dE.exit50": ; preds = %.thread86
+  br i1 %.127.lpad-body, label %164, label %.thread92
+
 162:                                              ; preds = %76
   unreachable
 
 163:                                              ; preds = %164
   br i1 %.176, label %165, label %.thread92
 
-164:                                              ; preds = %.thread, %"_ZN4core3ptr103drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$17h4323447e8a9bcb9dE.exit50"
+164:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$17h4323447e8a9bcb9dE.exit50", %.thread
   %.pn.pn78 = phi { ptr, i32 } [ %62, %.thread ], [ %eh.lpad-body, %"_ZN4core3ptr103drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$17h4323447e8a9bcb9dE.exit50" ]
   %.176 = phi i1 [ %.0, %.thread ], [ false, %"_ZN4core3ptr103drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$17h4323447e8a9bcb9dE.exit50" ]
   invoke void @"_ZN4core3ptr1409drop_in_place$LT$rayon_core..job..StackJob$LT$rayon_core..latch..SpinLatch$C$rayon_core..join..join_context..call_b$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$$LP$wasmparser..validator..func..FuncToValidate$LT$wasmparser..validator..core..ValidatorResources$GT$$C$wasmparser..readers..core..code..FunctionBody$RP$$C$$LP$$RP$$C$wasmparser..binary_reader..BinaryReaderError$C$wasmtime..runtime..module..Module..validate..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hb3bf02e01149793eE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %12) #56
@@ -2367,9 +2367,6 @@ _ZN10rayon_core5sleep8counters14AtomicCounters31increment_jobs_event_counter_if1
   %60 = and i64 %59, 65535
   %61 = icmp eq i64 %60, %55
   br i1 %61, label %.sink.split.i.i, label %_ZN10rayon_core8registry12WorkerThread4push17h15e304acf4e9bb69E.exit
-
-"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50": ; preds = %.thread86
-  br i1 %.127.lpad-body, label %174, label %.thread92
 
 .thread:                                          ; preds = %76, %34, %.sink.split.i.i
   %.0 = phi i1 [ false, %76 ], [ true, %34 ], [ true, %.sink.split.i.i ]
@@ -2746,13 +2743,16 @@ default.unreachable1.i.i:                         ; preds = %_ZN10rayon_core8reg
   invoke void @"_ZN98_$LT$alloc..collections..linked_list..LinkedList$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3616301421c3d571E.llvm.5456684732158232753"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50" unwind label %170
 
+"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50": ; preds = %.thread86
+  br i1 %.127.lpad-body, label %174, label %.thread92
+
 172:                                              ; preds = %76
   unreachable
 
 173:                                              ; preds = %174
   br i1 %.176, label %175, label %.thread92
 
-174:                                              ; preds = %.thread, %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50"
+174:                                              ; preds = %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50", %.thread
   %.pn.pn78 = phi { ptr, i32 } [ %62, %.thread ], [ %eh.lpad-body, %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50" ]
   %.176 = phi i1 [ %.0, %.thread ], [ false, %"_ZN4core3ptr127drop_in_place$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h33c1f4e177424e94E.exit50" ]
   invoke void @"_ZN4core3ptr1638drop_in_place$LT$rayon_core..job..StackJob$LT$rayon_core..latch..SpinLatch$C$rayon_core..join..join_context..call_b$LT$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$C$rayon..iter..plumbing..bridge_producer_consumer..helper$LT$rayon..vec..DrainProducer$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$C$rayon..iter..map..MapConsumer$LT$rayon..iter..map..MapConsumer$LT$rayon..iter..while_some..WhileSomeConsumer$LT$rayon..iter..extend..ListVecConsumer$GT$$C$rayon..result..$LT$impl$u20$rayon..iter..FromParallelIterator$LT$core..result..Result$LT$T$C$E$GT$$GT$$u20$for$u20$core..result..Result$LT$C$C$E$GT$$GT$..from_par_iter..ok$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$wasmtime..engine..Engine..run_maybe_parallel$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$$RF$dyn$u20$wasmtime_environ..compile..Compiler$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime..compile..CompileOutput$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$C$wasmtime..compile..CompileOutput$C$anyhow..Error$C$wasmtime..compile..compile_required_builtins..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..collections..linked_list..LinkedList$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$$GT$17h84ccff47a29de89aE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %12) #56
@@ -7156,8 +7156,8 @@ define hidden void @_ZN14wasmtime_cache6worker6Worker16send_cache_event17h4ae8aa
   %28 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17he77e955bf4231067E"(i64 noundef %27, i1 noundef zeroext false)
           to label %31 unwind label %29
 
-.body:                                            ; preds = %104, %.body.thread.i.i, %.body.i.i, %279, %310, %.thread.i.i, %29, %314
-  %.pn = phi { ptr, i32 } [ %315, %314 ], [ %30, %29 ], [ %105, %104 ], [ %eh.lpad-body24.i.i, %.body.thread.i.i ], [ %.pn.pn.pn62.i.i, %.thread.i.i ], [ %231, %.body.i.i ], [ %280, %310 ], [ %280, %279 ]
+.body:                                            ; preds = %104, %.body.thread.i.i, %189, %279, %310, %.body.thread.i14.i, %29, %314
+  %.pn = phi { ptr, i32 } [ %315, %314 ], [ %30, %29 ], [ %105, %104 ], [ %eh.lpad-body24.i.i, %.body.thread.i.i ], [ %.pn.pn.pn62.i.i, %.body.thread.i14.i ], [ %231, %189 ], [ %280, %310 ], [ %280, %279 ]
   invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17haeee4e45bab1850eE"(ptr noalias noundef align 8 dereferenceable(32) %1) #56
           to label %353 unwind label %329
 
@@ -7704,15 +7704,15 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.i.i: ; 
 
 188:                                              ; preds = %186
   invoke void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex14lock_contended17hf70df39e402d52e1E(ptr noundef nonnull align 8 %.val11)
-          to label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit.i.i unwind label %189, !noalias !1173
+          to label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit.i.i unwind label %.body.i.i, !noalias !1173
 
-.body.i.i:                                        ; preds = %230
-  br i1 %.2.i.i, label %.thread.i.i, label %.body
+189:                                              ; preds = %230
+  br i1 %.2.i.i, label %.body.thread.i14.i, label %.body
 
-189:                                              ; preds = %193, %188
+.body.i.i:                                        ; preds = %193, %188
   %lpad.thr_comm.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %.thread.i.i
+  br label %.body.thread.i14.i
 
 _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit.i.i: ; preds = %188, %186
   %190 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E monotonic, align 8, !noalias !1174
@@ -7722,7 +7722,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
 
 193:                                              ; preds = %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit.i.i
   %194 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
-          to label %.noexc28.i.i unwind label %189, !noalias !1173
+          to label %.noexc28.i.i unwind label %.body.i.i, !noalias !1173
 
 .noexc28.i.i:                                     ; preds = %193
   %195 = xor i1 %194, true
@@ -7733,8 +7733,8 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
   %.0.i.i.i.i.i = phi i8 [ %196, %.noexc28.i.i ], [ 0, %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17514045976136648023.exit.i.i ]
   %198 = getelementptr inbounds nuw i8, ptr %.val11, i64 4
   %199 = load atomic i8, ptr %198 monotonic, align 1, !noalias !1174
-  %.not82.i.i = icmp eq i8 %199, 0
-  br i1 %.not82.i.i, label %207, label %200
+  %.not86.i.i = icmp eq i8 %199, 0
+  br i1 %.not86.i.i, label %207, label %200
 
 200:                                              ; preds = %197
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1177
@@ -7748,7 +7748,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
   %203 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr123drop_in_place$LT$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$$GT$17h1fb402aba6a5709cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11) #56
-          to label %.thread.i.i unwind label %205, !noalias !1181
+          to label %.body.thread.i14.i unwind label %205, !noalias !1181
 
 204:                                              ; preds = %200
   unreachable
@@ -7773,7 +7773,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.1751
   %212 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17h31674b45c73d45fbE.llvm.17514045976136648023"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15) #56
-          to label %.thread.i.i unwind label %277, !noalias !1173
+          to label %.body.thread.i14.i unwind label %277, !noalias !1173
 
 213:                                              ; preds = %207
   %214 = load ptr, ptr %14, align 8, !noalias !1173, !noundef !4
@@ -7827,7 +7827,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
   %231 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h80647374004a6892E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #56
-          to label %.body.i.i unwind label %277, !noalias !1173
+          to label %189 unwind label %277, !noalias !1173
 
 "_ZN4core3ptr85drop_in_place$LT$std..sync..mutex..MutexGuard$LT$std..sync..mpmc..zero..Inner$GT$$GT$17h31674b45c73d45fbE.llvm.17514045976136648023.exit.i.i": ; preds = %226, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1173
@@ -7918,7 +7918,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
   %258 = load ptr, ptr %13, align 8, !alias.scope !1241, !noalias !1173, !nonnull !4, !noundef !4
   %259 = atomicrmw sub ptr %258, i64 1 release, align 8, !noalias !1242
   %260 = icmp eq i64 %259, 1
-  br i1 %260, label %.noexc33.i.i, label %.thread72.i.i
+  br i1 %260, label %.noexc33.i.i, label %.thread77.i.i
 
 .noexc33.i.i:                                     ; preds = %257
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.5456684732158232753(i8 noundef 2)
@@ -7982,17 +7982,17 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
 
 .noexc17:                                         ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc74768a29dd68188E.exit.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1263
-  br label %.thread72.i.i
+  br label %.thread77.i.i
 
 276:                                              ; preds = %256
   unreachable
 
-.thread72.i.i:                                    ; preds = %.noexc17, %257
+.thread77.i.i:                                    ; preds = %.noexc17, %257
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1173
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1173
   br label %"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$8try_send17ha0472cb61c105cf0E.exit.i"
 
-277:                                              ; preds = %.thread.i.i, %310, %230, %211
+277:                                              ; preds = %.body.thread.i14.i, %310, %230, %211
   %278 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #54, !noalias !1193
@@ -8002,14 +8002,14 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
   %280 = landingpad { ptr, i32 }
           cleanup
   %281 = load ptr, ptr %14, align 8, !noalias !1173, !noundef !4
-  %.not83.i.i = icmp eq ptr %281, null
-  br i1 %.not83.i.i, label %.body, label %310
+  %.not87.i.i = icmp eq ptr %281, null
+  br i1 %.not87.i.i, label %.body, label %310
 
 .noexc41.i.i:                                     ; preds = %291, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit.i.i39.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1173
   %282 = load ptr, ptr %14, align 8, !noalias !1173, !noundef !4
-  %.not84.i.i = icmp eq ptr %282, null
-  br i1 %.not84.i.i, label %"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$8try_send17ha0472cb61c105cf0E.exit.i", label %292
+  %.not88.i.i = icmp eq ptr %282, null
+  br i1 %.not88.i.i, label %"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$8try_send17ha0472cb61c105cf0E.exit.i", label %292
 
 283:                                              ; preds = %227
   %284 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E monotonic, align 8, !noalias !1282
@@ -8114,12 +8114,12 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17514045976136648023.exit
   invoke void @"_ZN4core3ptr50drop_in_place$LT$std..sync..mpmc..waker..Entry$GT$17h80647374004a6892E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #56
           to label %.body unwind label %277, !noalias !1173
 
-.thread.i.i:                                      ; preds = %211, %202, %189, %.body.i.i
-  %.pn.pn.pn62.i.i = phi { ptr, i32 } [ %231, %.body.i.i ], [ %212, %211 ], [ %203, %202 ], [ %lpad.thr_comm.split-lp.i.i, %189 ]
+.body.thread.i14.i:                               ; preds = %211, %202, %.body.i.i, %189
+  %.pn.pn.pn62.i.i = phi { ptr, i32 } [ %231, %189 ], [ %lpad.thr_comm.split-lp.i.i, %.body.i.i ], [ %203, %202 ], [ %212, %211 ]
   invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$wasmtime_cache..worker..CacheEvent$GT$17haeee4e45bab1850eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #56
           to label %.body unwind label %277, !noalias !1193
 
-"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$8try_send17ha0472cb61c105cf0E.exit.i": ; preds = %.noexc22, %292, %.noexc41.i.i, %.thread72.i.i
+"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$8try_send17ha0472cb61c105cf0E.exit.i": ; preds = %.noexc22, %292, %.noexc41.i.i, %.thread77.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1173
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !1116
   %.pre = load i64, ptr %22, align 8, !range !100

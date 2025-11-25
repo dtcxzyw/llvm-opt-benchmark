@@ -1364,10 +1364,10 @@ dissect_aeron_reassembled_data.exit.i:            ; preds = %470, %467, %._crit_
 
 483:                                              ; preds = %480, %477, %dissect_aeron_reassembled_data.exit.i
   %.0126.i = phi ptr [ %476, %dissect_aeron_reassembled_data.exit.i ], [ %479, %477 ], [ %482, %480 ]
-  %.1.shrunk.i = phi i1 [ true, %dissect_aeron_reassembled_data.exit.i ], [ %420, %477 ], [ %420, %480 ]
+  %.1.i = phi i1 [ true, %dissect_aeron_reassembled_data.exit.i ], [ %420, %477 ], [ %420, %480 ]
   %484 = load i8, ptr @aeron_use_heuristic_subdissectors, align 1, !range !6
   %485 = trunc nuw i8 %484 to i1
-  %or.cond.i130 = select i1 %.1.shrunk.i, i1 %485, i1 false
+  %or.cond.i130 = select i1 %.1.i, i1 %485, i1 false
   br i1 %or.cond.i130, label %486, label %.critedge.i
 
 486:                                              ; preds = %483

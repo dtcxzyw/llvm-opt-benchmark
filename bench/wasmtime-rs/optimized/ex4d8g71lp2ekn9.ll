@@ -1844,10 +1844,10 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   %13 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %14 = icmp ne i64 %13, -9223372036854775807
   %or.cond = and i1 %.111, %14
-  br i1 %or.cond, label %53, label %.thread41
+  br i1 %or.cond, label %53, label %.thread39
 
-15:                                               ; preds = %.thread40, %20, %2
-  %.010 = phi i1 [ true, %20 ], [ false, %.thread40 ], [ true, %2 ]
+15:                                               ; preds = %.thread38, %20, %2
+  %.010 = phi i1 [ true, %20 ], [ false, %.thread38 ], [ true, %2 ]
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %12
@@ -1882,17 +1882,17 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 28:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %29 = invoke zeroext i1 @_ZN11proc_macro211TokenStream8is_empty17hb0de67b7ba72fc6eE(ptr nonnull align 8 %10)
-          to label %33 unwind label %.thread37
+          to label %33 unwind label %.thread35
 
 30:                                               ; preds = %26
   %31 = landingpad { ptr, i32 }
           cleanup
   br label %12
 
-.thread37:                                        ; preds = %47, %35, %28
+.thread35:                                        ; preds = %47, %35, %28
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.thread31
+  br label %.thread29
 
 32:                                               ; preds = %36
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -1905,12 +1905,12 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 35:                                               ; preds = %33
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %5)
-          to label %37 unwind label %.thread37
+          to label %37 unwind label %.thread35
 
 36:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr nonnull align 8 %34, ptr nonnull align 8 %7)
-          to label %.thread40 unwind label %32
+          to label %.thread38 unwind label %32
 
 37:                                               ; preds = %35
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %3)
@@ -1919,7 +1919,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 38:                                               ; preds = %42, %39
   %.pn = phi { ptr, i32 } [ %40, %39 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %5) #7
-          to label %.thread31 unwind label %48
+          to label %.thread29 unwind label %48
 
 39:                                               ; preds = %46, %37
   %40 = landingpad { ptr, i32 }
@@ -1952,9 +1952,9 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 47:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr nonnull align 8 %34, ptr nonnull align 8 %6)
-          to label %50 unwind label %.thread37
+          to label %50 unwind label %.thread35
 
-48:                                               ; preds = %53, %.thread, %.thread31, %42, %38
+48:                                               ; preds = %53, %.thread, %.thread29, %42, %38
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
@@ -1962,37 +1962,37 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 50:                                               ; preds = %47
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %8)
-          to label %.thread40 unwind label %.thread25
+          to label %.thread38 unwind label %.thread25
 
 .thread25:                                        ; preds = %50
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
-52:                                               ; preds = %26, %.thread40
+52:                                               ; preds = %26, %.thread38
   ret void
 
-.thread40:                                        ; preds = %36, %50
+.thread38:                                        ; preds = %36, %50
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %10)
           to label %52 unwind label %15
 
-.thread31:                                        ; preds = %38, %.thread37
-  %.pn1435 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread37 ], [ %.pn, %38 ]
+.thread29:                                        ; preds = %38, %.thread35
+  %.pn1433 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread35 ], [ %.pn, %38 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %8) #7
           to label %.thread unwind label %48
 
-.thread:                                          ; preds = %32, %.thread31, %.thread25
-  %.pn1623 = phi { ptr, i32 } [ %51, %.thread25 ], [ %lpad.thr_comm.split-lp, %32 ], [ %.pn1435, %.thread31 ]
+.thread:                                          ; preds = %32, %.thread29, %.thread25
+  %.pn1623 = phi { ptr, i32 } [ %51, %.thread25 ], [ %lpad.thr_comm.split-lp, %32 ], [ %.pn1433, %.thread29 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %10) #7
-          to label %.thread41 unwind label %48
+          to label %.thread39 unwind label %48
 
-.thread41:                                        ; preds = %.thread, %53, %12
-  %.pn1845 = phi { ptr, i32 } [ %.pn18, %53 ], [ %.pn18, %12 ], [ %.pn1623, %.thread ]
-  resume { ptr, i32 } %.pn1845
+.thread39:                                        ; preds = %.thread, %53, %12
+  %.pn1843 = phi { ptr, i32 } [ %.pn18, %53 ], [ %.pn18, %12 ], [ %.pn1623, %.thread ]
+  resume { ptr, i32 } %.pn1843
 
 53:                                               ; preds = %12
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %1) #7
-          to label %.thread41 unwind label %48
+          to label %.thread39 unwind label %48
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

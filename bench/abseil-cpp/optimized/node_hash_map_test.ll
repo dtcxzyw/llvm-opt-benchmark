@@ -18270,7 +18270,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br label %3007
+  br label %3006
 
 322:                                              ; preds = %165
   %323 = landingpad { ptr, i32 }
@@ -18278,7 +18278,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br label %3007
+  br label %3006
 
 324:                                              ; preds = %166
   %325 = landingpad { ptr, i32 }
@@ -18286,7 +18286,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  br label %3007
+  br label %3006
 
 326:                                              ; preds = %167
   %327 = landingpad { ptr, i32 }
@@ -18294,7 +18294,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  br label %3007
+  br label %3006
 
 328:                                              ; preds = %168
   %329 = landingpad { ptr, i32 }
@@ -18775,7 +18775,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
 526:                                              ; preds = %_ZN7testing7MessageD2Ev.exit299, %341
   %.pn129.pn.pn = phi { ptr, i32 } [ %.pn129.pn, %_ZN7testing7MessageD2Ev.exit299 ], [ %.pn.pn.pn.pn, %341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  br label %3007
+  br label %3006
 
 527:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   %528 = landingpad { ptr, i32 }
@@ -20867,17 +20867,17 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
 1357:                                             ; preds = %_ZN7testing7MessageD2Ev.exit324, %540
   %.pn138.pn.pn = phi { ptr, i32 } [ %.pn138.pn, %_ZN7testing7MessageD2Ev.exit324 ], [ %.pn133.pn.pn.pn, %540 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  br label %3007
+  br label %3006
 
 .loopexit:                                        ; preds = %_ZSt4nextIN4absl18container_internal12raw_hash_setINS1_17NodeHashMapPolicyINS1_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorEET_SF_NSt15iterator_traitsISF_E15difference_typeE.exit.i, %628
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %3007
+  br label %3006
 
 .loopexit.split-lp:                               ; preds = %577
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %3007
+  br label %3006
 
 1358:                                             ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS3_17NonMovableKeyHashENS3_15NonMovableKeyEqESaISt4pairIKS4_iEEE5mergeIS6_S7_EEvRNS1_IS5_T_T0_SB_EE.exit
   %1359 = landingpad { ptr, i32 }
@@ -21210,7 +21210,7 @@ _ZN7testing8internal11PairMatcherINS_18PolymorphicMatcherINS0_12FieldMatcherIN4a
 1480:                                             ; preds = %_ZN7testing7MessageD2Ev.exit401, %1368
   %.pn148.pn.pn = phi { ptr, i32 } [ %.pn148.pn, %_ZN7testing7MessageD2Ev.exit401 ], [ %.pn142.pn.pn.pn.pn, %1368 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
-  br label %3007
+  br label %3006
 
 1481:                                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit406
   %1482 = landingpad { ptr, i32 }
@@ -21369,7 +21369,7 @@ _ZN7testing15AssertionResultD2Ev.exit435:         ; preds = %1516, %_ZNKSt14defa
 1529:                                             ; preds = %_ZN7testing7MessageD2Ev.exit430, %1491
   %.pn156.pn.pn = phi { ptr, i32 } [ %.pn156.pn, %_ZN7testing7MessageD2Ev.exit430 ], [ %.pn152.pn.pn, %1491 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  br label %3007
+  br label %3006
 
 1530:                                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit435
   %1531 = landingpad { ptr, i32 }
@@ -22592,7 +22592,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %1957 = phi i1 [ false, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i558 ], [ false, %1950 ], [ true, %_ZN7testing15AssertionResultD2Ev.exit543.thread1520 ]
   %1958 = phi ptr [ %1917, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i558 ], [ %1917, %1950 ], [ %1871, %_ZN7testing15AssertionResultD2Ev.exit543.thread1520 ]
   %.sroa.71035.114551519 = phi ptr [ %.sroa.71035.114551518, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i558 ], [ %.sroa.71035.114551518, %1950 ], [ %.sroa.71035.0.copyload, %_ZN7testing15AssertionResultD2Ev.exit543.thread1520 ]
-  %.sroa.161040.214561517 = phi i8 [ 0, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i558 ], [ 0, %1950 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit543.thread1520 ]
   %.sroa.321048.214801515 = phi i64 [ 0, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i558 ], [ 0, %1950 ], [ %1870, %_ZN7testing15AssertionResultD2Ev.exit543.thread1520 ]
   store ptr null, ptr %1958, align 8, !tbaa !136
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
@@ -24264,7 +24263,6 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL
   br i1 %1957, label %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i, label %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i.thread
 
 _ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i.thread: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS3_17NonMovableKeyHashENS3_15NonMovableKeyEqESaISt4pairIKS4_iEEE6insertEONS0_11node_handleIS5_NS0_18hash_policy_traitsIS5_vEESB_vEE.exit748
-  %spec.select1525 = zext i1 %.sroa.101025.1 to i8
   %spec.select10921526 = select i1 %.sroa.101025.1, i64 %.sroa.201029.1, i64 %.sroa.321048.214801515
   call void @llvm.lifetime.start.p0(ptr nonnull %141)
   %2542 = getelementptr inbounds nuw i8, ptr %141, i64 8
@@ -24273,7 +24271,6 @@ _ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17No
 _ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i: ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS3_17NonMovableKeyHashENS3_15NonMovableKeyEqESaISt4pairIKS4_iEEE6insertEONS0_11node_handleIS5_NS0_18hash_policy_traitsIS5_vEESB_vEE.exit748
   call void @_ZdlPvm(ptr noundef nonnull %1959, i64 noundef 8) #40
   %.val276.pre = load i8, ptr %1526, align 1, !tbaa !671, !range !23
-  %spec.select = zext i1 %.sroa.101025.1 to i8
   %spec.select1092 = select i1 %.sroa.101025.1, i64 %.sroa.201029.1, i64 %.sroa.321048.214801515
   call void @llvm.lifetime.start.p0(ptr nonnull %141)
   %2543 = trunc nuw i8 %.val276.pre to i1
@@ -24421,7 +24418,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit769:         ; preds = %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i.thread, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i, %2582, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i767
   %2589 = phi ptr [ %2542, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i.thread ], [ %2545, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i ], [ %2545, %2582 ], [ %2545, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i767 ]
   %spec.select10921535 = phi i64 [ %spec.select10921526, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i.thread ], [ %spec.select1092, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i ], [ %spec.select1092, %2582 ], [ %spec.select1092, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i767 ]
-  %spec.select1527 = phi i8 [ %spec.select1525, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i.thread ], [ %spec.select, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEE7destroyEv.exit.i.i.i ], [ %spec.select, %2582 ], [ %spec.select, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i767 ]
   store ptr null, ptr %2589, align 8, !tbaa !136
   call void @llvm.lifetime.end.p0(ptr nonnull %141)
   call void @llvm.lifetime.start.p0(ptr nonnull %145)
@@ -25548,37 +25544,36 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL
   br label %3001
 
 3001:                                             ; preds = %3000, %2920, %_ZN7testing7MessageD2Ev.exit781, %_ZN7testing7MessageD2Ev.exit764, %2547, %2546, %2481, %2367, %_ZN7testing7MessageD2Ev.exit665, %2274, %2273, %2218, %2098, %2009
-  %.sroa.161040.0 = phi i8 [ %spec.select1527, %3000 ], [ %spec.select1527, %2920 ], [ %spec.select1527, %_ZN7testing7MessageD2Ev.exit781 ], [ %spec.select, %_ZN7testing7MessageD2Ev.exit764 ], [ %.sroa.161040.214561517, %2547 ], [ %.sroa.161040.214561517, %2546 ], [ %.sroa.161040.214561517, %2481 ], [ %.sroa.161040.214561517, %2367 ], [ %.sroa.161040.214561517, %_ZN7testing7MessageD2Ev.exit665 ], [ %.sroa.161040.214561517, %2274 ], [ %.sroa.161040.214561517, %2273 ], [ %.sroa.161040.214561517, %2218 ], [ %.sroa.161040.214561517, %2098 ], [ %.sroa.161040.214561517, %2009 ]
+  %.sroa.161040.0 = phi i1 [ %.sroa.101025.1, %3000 ], [ %.sroa.101025.1, %2920 ], [ %.sroa.101025.1, %_ZN7testing7MessageD2Ev.exit781 ], [ %.sroa.101025.1, %_ZN7testing7MessageD2Ev.exit764 ], [ %1957, %2547 ], [ %1957, %2546 ], [ %1957, %2481 ], [ %1957, %2367 ], [ %1957, %_ZN7testing7MessageD2Ev.exit665 ], [ %1957, %2274 ], [ %1957, %2273 ], [ %1957, %2218 ], [ %1957, %2098 ], [ %1957, %2009 ]
   %.sroa.321048.0 = phi i64 [ %spec.select10921535, %3000 ], [ %spec.select10921535, %2920 ], [ %spec.select10921535, %_ZN7testing7MessageD2Ev.exit781 ], [ %spec.select1092, %_ZN7testing7MessageD2Ev.exit764 ], [ %.sroa.321048.214801515, %2547 ], [ %.sroa.321048.214801515, %2546 ], [ %.sroa.321048.214801515, %2481 ], [ %.sroa.321048.214801515, %2367 ], [ %.sroa.321048.214801515, %_ZN7testing7MessageD2Ev.exit665 ], [ %.sroa.321048.214801515, %2274 ], [ %.sroa.321048.214801515, %2273 ], [ %.sroa.321048.214801515, %2218 ], [ %.sroa.321048.214801515, %2098 ], [ %.sroa.321048.214801515, %2009 ]
   %.pn260.pn.pn.pn = phi { ptr, i32 } [ %.pn260.pn.pn, %3000 ], [ %.pn251.pn.pn, %2920 ], [ %.pn240.pn.pn, %_ZN7testing7MessageD2Ev.exit781 ], [ %.pn236.pn.pn, %_ZN7testing7MessageD2Ev.exit764 ], [ %2548, %2547 ], [ %.pn232.pn.pn, %2546 ], [ %.pn224.pn.pn, %2481 ], [ %.pn220.pn.pn, %2367 ], [ %.pn216.pn.pn, %_ZN7testing7MessageD2Ev.exit665 ], [ %2275, %2274 ], [ %.pn212.pn.pn, %2273 ], [ %.pn204.pn.pn, %2218 ], [ %.pn197.pn.pn, %2098 ], [ %.pn193.pn.pn, %2009 ]
-  %3002 = trunc nuw i8 %.sroa.161040.0 to i1
-  br i1 %3002, label %.thread1088, label %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879
+  br i1 %.sroa.161040.0, label %.thread1088, label %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879
 
 .thread1088:                                      ; preds = %3001, %.thread1081
   %.pn260.pn.pn.pn1087 = phi { ptr, i32 } [ %.pn244.pn.pn, %.thread1081 ], [ %.pn260.pn.pn.pn, %3001 ]
   %.sroa.321048.01085 = phi i64 [ %spec.select10921535, %.thread1081 ], [ %.sroa.321048.0, %3001 ]
-  %3003 = inttoptr i64 %.sroa.321048.01085 to ptr
-  call void @_ZdlPvm(ptr noundef %3003, i64 noundef 8) #40
+  %3002 = inttoptr i64 %.sroa.321048.01085 to ptr
+  call void @_ZdlPvm(ptr noundef %3002, i64 noundef 8) #40
   br label %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879
 
 _ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879: ; preds = %_ZN7testing7MessageD2Ev.exit538, %_ZN7testing7MessageD2Ev.exit555, %1873, %3001, %.thread1088, %1872, %1809, %1622, %_ZN7testing7MessageD2Ev.exit444
   %.pn260.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn177.pn.pn, %1872 ], [ %.pn168.pn.pn, %1809 ], [ %.pn164.pn.pn, %1622 ], [ %.pn160.pn.pn, %_ZN7testing7MessageD2Ev.exit444 ], [ %1874, %1873 ], [ %.pn260.pn.pn.pn, %3001 ], [ %.pn260.pn.pn.pn1087, %.thread1088 ], [ %.pn185.pn.pn, %_ZN7testing7MessageD2Ev.exit538 ], [ %.pn189.pn.pn, %_ZN7testing7MessageD2Ev.exit555 ]
   %.val.i.i880 = load i8, ptr %1526, align 1, !tbaa !671, !range !23, !noundef !24
-  %3004 = trunc nuw i8 %.val.i.i880 to i1
-  br i1 %3004, label %3005, label %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882
+  %3003 = trunc nuw i8 %.val.i.i880 to i1
+  br i1 %3003, label %3004, label %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882
 
-3005:                                             ; preds = %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879
-  %3006 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %.val1.i.i881 = load ptr, ptr %3006, align 8, !tbaa !583
+3004:                                             ; preds = %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879
+  %3005 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %.val1.i.i881 = load ptr, ptr %3005, align 8, !tbaa !583
   call void @_ZdlPvm(ptr noundef %.val1.i.i881, i64 noundef 8) #40
   br label %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882
 
-_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882: ; preds = %3005, %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879, %1530
-  %.pn260.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1531, %1530 ], [ %.pn260.pn.pn.pn.pn.pn, %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879 ], [ %.pn260.pn.pn.pn.pn.pn, %3005 ]
+_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882: ; preds = %3004, %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879, %1530
+  %.pn260.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1531, %1530 ], [ %.pn260.pn.pn.pn.pn.pn, %_ZN4absl18container_internal16InsertReturnTypeINS0_12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS4_17NonMovableKeyHashENS4_15NonMovableKeyEqESaISt4pairIKS5_iEEE8iteratorENS0_11node_handleIS6_NS0_18hash_policy_traitsIS6_vEESC_vEEED2Ev.exit879 ], [ %.pn260.pn.pn.pn.pn.pn, %3004 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
-  br label %3007
+  br label %3006
 
-3007:                                             ; preds = %.loopexit, %.loopexit.split-lp, %526, %1357, %1480, %1529, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882, %326, %324, %322, %320
+3006:                                             ; preds = %.loopexit, %.loopexit.split-lp, %526, %1357, %1480, %1529, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882, %326, %324, %322, %320
   %.pn260.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %327, %326 ], [ %325, %324 ], [ %323, %322 ], [ %321, %320 ], [ %.pn260.pn.pn.pn.pn.pn.pn, %_ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEEvEESaISt4pairIKS5_iEEED2Ev.exit882 ], [ %.pn156.pn.pn, %1529 ], [ %.pn148.pn.pn, %1480 ], [ %.pn138.pn.pn, %1357 ], [ %.pn129.pn.pn, %526 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINS0_12_GLOBAL__N_113NonMovableKeyEiEENS3_17NonMovableKeyHashENS3_15NonMovableKeyEqESaISt4pairIKS4_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %34)

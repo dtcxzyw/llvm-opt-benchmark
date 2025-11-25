@@ -1585,7 +1585,7 @@ WaveAdjustToFactValue.exit.thread:                ; preds = %17
   %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.55) #8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 -1, ptr %26, align 8
-  br label %98
+  br label %101
 
 ._crit_edge.i:                                    ; preds = %17
   %27 = icmp sgt i64 %13, %23
@@ -1600,7 +1600,7 @@ WaveAdjustToFactValue.exit:                       ; preds = %9, %._crit_edge.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %13, ptr %29, align 8
   %30 = icmp slt i64 %13, 0
-  br i1 %30, label %98, label %31
+  br i1 %30, label %101, label %31
 
 31:                                               ; preds = %._crit_edge, %WaveAdjustToFactValue.exit.thread88, %WaveAdjustToFactValue.exit
   %32 = phi i64 [ %.pre, %._crit_edge ], [ %23, %WaveAdjustToFactValue.exit.thread88 ], [ %13, %WaveAdjustToFactValue.exit ]
@@ -1610,7 +1610,7 @@ WaveAdjustToFactValue.exit:                       ; preds = %9, %._crit_edge.i
 34:                                               ; preds = %31
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
-  br label %98
+  br label %101
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1622,7 +1622,7 @@ WaveAdjustToFactValue.exit:                       ; preds = %9, %._crit_edge.i
 
 SafeMult.exit:                                    ; preds = %35
   %40 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.72) #8
-  br label %98
+  br label %101
 
 41:                                               ; preds = %35
   %42 = mul i64 %32, %38
@@ -1635,7 +1635,7 @@ SafeMult.exit:                                    ; preds = %35
 
 SafeMult.exit79:                                  ; preds = %43
   %44 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.72) #8
-  br label %98
+  br label %101
 
 45:                                               ; preds = %43
   %46 = shl nuw nsw i64 %42, 1
@@ -1644,7 +1644,7 @@ SafeMult.exit79:                                  ; preds = %43
 
 48:                                               ; preds = %45
   %49 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.72) #8
-  br label %98
+  br label %101
 
 .thread:                                          ; preds = %41, %45
   %50 = phi i64 [ %46, %45 ], [ 0, %41 ]
@@ -1653,13 +1653,13 @@ SafeMult.exit79:                                  ; preds = %43
   %53 = tail call i64 @llvm.umax.i64(i64 %50, i64 1)
   %54 = tail call ptr @SDL_realloc_REAL(ptr noundef %52, i64 noundef %53) #9
   %.not68 = icmp eq ptr %54, null
-  br i1 %.not68, label %98, label %55
+  br i1 %.not68, label %101, label %55
 
 55:                                               ; preds = %.thread
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   %57 = load i16, ptr %56, align 2
-  switch i16 %57, label %95 [
+  switch i16 %57, label %98 [
     i16 6, label %.preheader
     i16 7, label %.preheader98
   ]
@@ -1710,33 +1710,36 @@ SafeMult.exit79:                                  ; preds = %43
   %83 = lshr i8 %81, 4
   %84 = and i8 %83, 7
   %85 = zext nneg i8 %84 to i16
-  %86 = zext nneg i8 %82 to i16
-  %87 = add nuw nsw i16 %85, 3
-  %88 = shl nuw nsw i16 %86, %87
-  %89 = shl nuw nsw i16 132, %85
-  %90 = add nuw nsw i16 %88, %89
-  %91 = add nsw i16 %90, -132
+  %86 = shl nuw nsw i16 8, %85
+  %87 = shl nuw nsw i16 128, %85
+  %88 = zext nneg i8 %82 to i16
+  %89 = add nuw nsw i16 %85, 3
+  %90 = shl nuw nsw i16 %88, %89
+  %91 = add nuw nsw i16 %90, %87
+  %92 = lshr exact i16 %86, 1
+  %93 = add nuw nsw i16 %91, %92
+  %94 = add nsw i16 %93, -132
   %.not70 = icmp slt i8 %80, 0
-  %92 = sub nsw i16 132, %90
-  %93 = select i1 %.not70, i16 %91, i16 %92
-  %94 = getelementptr inbounds nuw i16, ptr %54, i64 %78
-  store i16 %93, ptr %94, align 2
+  %95 = sub nsw i16 132, %93
+  %96 = select i1 %.not70, i16 %94, i16 %95
+  %97 = getelementptr inbounds nuw i16, ptr %54, i64 %78
+  store i16 %96, ptr %97, align 2
   %.not69 = icmp eq i64 %78, 0
   br i1 %.not69, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
-95:                                               ; preds = %55
+98:                                               ; preds = %55
   tail call void @SDL_free_REAL(ptr noundef nonnull %54) #8
-  %96 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.73) #8
-  br label %98
+  %99 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.73) #8
+  br label %101
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph104, %.preheader98, %.preheader
   store ptr %54, ptr %1, align 8
-  %97 = trunc i64 %50 to i32
-  store i32 %97, ptr %2, align 4
-  br label %98
+  %100 = trunc i64 %50 to i32
+  store i32 %100, ptr %2, align 4
+  br label %101
 
-98:                                               ; preds = %WaveAdjustToFactValue.exit.thread, %.thread, %WaveAdjustToFactValue.exit, %.loopexit, %95, %48, %SafeMult.exit79, %SafeMult.exit, %34
-  %.0 = phi i1 [ true, %34 ], [ %40, %SafeMult.exit ], [ %44, %SafeMult.exit79 ], [ %49, %48 ], [ %96, %95 ], [ true, %.loopexit ], [ false, %WaveAdjustToFactValue.exit ], [ false, %.thread ], [ false, %WaveAdjustToFactValue.exit.thread ]
+101:                                              ; preds = %WaveAdjustToFactValue.exit.thread, %.thread, %WaveAdjustToFactValue.exit, %.loopexit, %98, %48, %SafeMult.exit79, %SafeMult.exit, %34
+  %.0 = phi i1 [ true, %34 ], [ %40, %SafeMult.exit ], [ %44, %SafeMult.exit79 ], [ %49, %48 ], [ %99, %98 ], [ true, %.loopexit ], [ false, %WaveAdjustToFactValue.exit ], [ false, %.thread ], [ false, %WaveAdjustToFactValue.exit.thread ]
   ret i1 %.0
 }
 

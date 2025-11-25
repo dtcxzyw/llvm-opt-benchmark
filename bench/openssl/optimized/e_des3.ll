@@ -405,13 +405,13 @@ define internal noundef i32 @des_ede3_cfb1_cipher(ptr noundef %0, ptr noundef ca
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
-  %.020 = phi i64 [ 0, %.lr.ph ], [ %38, %10 ]
+  %.020 = phi i64 [ 0, %.lr.ph ], [ %39, %10 ]
   %11 = lshr i64 %.020, 3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !3
   %14 = zext i8 %13 to i32
-  %15 = trunc i64 %.020 to i32
-  %16 = and i32 %15, 7
+  %15 = and i64 %.020, 7
+  %16 = trunc nuw nsw i64 %15 to i32
   %17 = xor i32 %16, 7
   %18 = shl nuw nsw i32 1, %17
   %19 = and i32 %18, %14
@@ -427,18 +427,19 @@ define internal noundef i32 @des_ede3_cfb1_cipher(ptr noundef %0, ptr noundef ca
   call void @DES_ede3_cfb_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1, i64 noundef 1, ptr noundef %21, ptr noundef nonnull %23, ptr noundef nonnull %25, ptr noundef nonnull %9, i32 noundef %26) #5
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   %28 = load i8, ptr %27, align 1, !tbaa !3
-  %29 = zext i8 %28 to i32
-  %30 = ashr i32 -129, %16
-  %31 = and i32 %30, %29
-  %32 = load i8, ptr %6, align 1, !tbaa !3
-  %33 = and i8 %32, -128
-  %34 = zext i8 %33 to i32
-  %35 = lshr exact i32 %34, %16
-  %36 = or i32 %35, %31
-  %37 = trunc nuw i32 %36 to i8
-  store i8 %37, ptr %27, align 1, !tbaa !3
-  %38 = add nuw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %38, %spec.select
+  %29 = zext i8 %28 to i16
+  %30 = trunc nuw nsw i64 %15 to i16
+  %31 = ashr i16 -129, %30
+  %32 = and i16 %31, %29
+  %33 = load i8, ptr %6, align 1, !tbaa !3
+  %34 = and i8 %33, -128
+  %35 = zext i8 %34 to i16
+  %36 = lshr exact i16 %35, %30
+  %37 = or i16 %36, %32
+  %38 = trunc nuw i16 %37 to i8
+  store i8 %38, ptr %27, align 1, !tbaa !3
+  %39 = add nuw i64 %.020, 1
+  %exitcond.not = icmp eq i64 %39, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %10, %4

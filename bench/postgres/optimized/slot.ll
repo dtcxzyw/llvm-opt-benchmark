@@ -1548,12 +1548,12 @@ define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly
 
 .thread:                                          ; preds = %32
   %.pre = load i8, ptr %1, align 1, !range !4
-  %.pre24.pre = load ptr, ptr @MyReplicationSlot, align 8
+  %.pre22.pre = load ptr, ptr @MyReplicationSlot, align 8
   %33 = trunc nuw i8 %.pre to i1
   br i1 %33, label %34, label %.thread.thread
 
 34:                                               ; preds = %.thread
-  %35 = getelementptr inbounds nuw i8, ptr %.pre24.pre, i64 92
+  %35 = getelementptr inbounds nuw i8, ptr %.pre22.pre, i64 92
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 2
   br i1 %37, label %38, label %.thread.thread
@@ -1567,14 +1567,14 @@ define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly
 
 .thread.thread:                                   ; preds = %25, %34, %.thread
   %42 = phi i8 [ 1, %34 ], [ 0, %.thread ], [ 0, %25 ]
-  %.pre2429 = phi ptr [ %.pre24.pre, %34 ], [ %.pre24.pre, %.thread ], [ %16, %25 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.pre2429, i64 202
+  %.pre2227 = phi ptr [ %.pre22.pre, %34 ], [ %.pre22.pre, %.thread ], [ %16, %25 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.pre2227, i64 202
   %44 = load i8, ptr %43, align 2, !range !4, !noundef !5
   %.not16 = icmp eq i8 %44, %42
   br i1 %.not16, label %55, label %45
 
 45:                                               ; preds = %.thread.thread
-  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %.pre2429, i8 1, ptr nonnull elementtype(i8) %.pre2429) #16, !srcloc !11
+  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %.pre2227, i8 1, ptr nonnull elementtype(i8) %.pre2227) #16, !srcloc !11
   %.not17 = icmp eq i8 %46, 0
   br i1 %.not17, label %50, label %47
 
@@ -1609,14 +1609,14 @@ define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly
 61:                                               ; preds = %56
   %62 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %57, i8 1, ptr nonnull elementtype(i8) %57) #16, !srcloc !11
   %.not20 = icmp eq i8 %62, 0
-  br i1 %.not20, label %.thread22, label %63
+  br i1 %.not20, label %.critedge, label %63
 
 63:                                               ; preds = %61
   %64 = load ptr, ptr @MyReplicationSlot, align 8
   %65 = tail call i32 @s_lock(ptr noundef %64, ptr noundef nonnull @.str.6, i32 noundef 880, ptr noundef nonnull @__func__.ReplicationSlotAlter) #16
-  br label %.thread22
+  br label %.critedge
 
-.thread22:                                        ; preds = %63, %61
+.critedge:                                        ; preds = %61, %63
   %66 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %67 = load ptr, ptr @MyReplicationSlot, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 136
@@ -1629,7 +1629,7 @@ define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly
 70:                                               ; preds = %56, %55
   br i1 %.0, label %71, label %83
 
-71:                                               ; preds = %.thread22, %70
+71:                                               ; preds = %.critedge, %70
   %72 = load ptr, ptr @MyReplicationSlot, align 8
   %73 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %72, i8 1, ptr elementtype(i8) %72) #16, !srcloc !11
   %.not.i = icmp eq i8 %73, 0

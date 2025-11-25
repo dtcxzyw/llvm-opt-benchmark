@@ -28238,8 +28238,8 @@ define void @"_ZN92_$LT$tokenizers..normalizers..replace..Replace$u20$as$u20$tok
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = load ptr, ptr %6, align 8, !noalias !7198, !noundef !4
-  %.not14.i = icmp eq ptr %11, null
-  br i1 %.not14.i, label %.thread.i, label %22
+  %.not9.i = icmp eq ptr %11, null
+  br i1 %.not9.i, label %22, label %23
 
 12:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7200
@@ -28262,18 +28262,18 @@ define void @"_ZN92_$LT$tokenizers..normalizers..replace..Replace$u20$as$u20$tok
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hbb79748cb45ddee7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5), !noalias !7198
   br label %_ZN4core4iter8adapters11try_process17hd422b31c24c0549dE.exit
 
-20:                                               ; preds = %22
+20:                                               ; preds = %23
   %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #42, !noalias !7198
   unreachable
 
-.thread.i:                                        ; preds = %22, %9
+22:                                               ; preds = %23, %9
   resume { ptr, i32 } %10
 
-22:                                               ; preds = %9
+23:                                               ; preds = %9
   invoke void @"_ZN4core3ptr174drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h96707b86ec2f5a3dE.llvm.14140520316429159617"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #41
-          to label %.thread.i unwind label %20, !noalias !7198
+          to label %22 unwind label %20, !noalias !7198
 
 _ZN4core4iter8adapters11try_process17hd422b31c24c0549dE.exit: ; preds = %14, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !7198

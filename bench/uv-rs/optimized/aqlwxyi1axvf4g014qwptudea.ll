@@ -37505,8 +37505,8 @@ define void @_ZN2uv8commands3pip6freeze10pip_freeze17h8e61f456ee8bf9d3E(ptr dead
   %133 = landingpad { ptr, i32 }
           cleanup
   %134 = load ptr, ptr %24, align 8, !noalias !7978, !noundef !8
-  %.not14.i = icmp eq ptr %134, null
-  br i1 %.not14.i, label %.body142, label %140
+  %.not9.i = icmp eq ptr %134, null
+  br i1 %.not9.i, label %.body142, label %140
 
 135:                                              ; preds = %129
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !7982

@@ -2980,8 +2980,8 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %51 = call noundef i32 @_ZN2os6randomEv() #15
   %52 = load ptr, ptr @tty, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr noundef nonnull @.str.74, i32 noundef %51) #15
-  %.not.i21 = icmp eq i64 %4, 0
-  br i1 %.not.i21, label %_ZL30wb_stress_virtual_space_resizemmm.exit, label %.lr.ph.i
+  %.not17.i = icmp eq i64 %4, 0
+  br i1 %.not17.i, label %_ZL30wb_stress_virtual_space_resizemmm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %50, %64
   %.01516.i = phi i64 [ %65, %64 ], [ 0, %50 ]
@@ -2995,14 +2995,14 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
 
 59:                                               ; preds = %.lr.ph.i
   %60 = call noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %7) #15
-  %.not19.i = icmp ult i64 %60, %58
-  br i1 %.not19.i, label %62, label %61
+  %.not.i21 = icmp ult i64 %60, %58
+  br i1 %.not.i21, label %62, label %61
 
 61:                                               ; preds = %59
   call void @_ZN12VirtualSpace9shrink_byEm(ptr noundef nonnull align 8 dereferenceable(112) %7, i64 noundef %58) #15
   br label %64
 
-62:                                               ; preds = %.lr.ph.i, %59
+62:                                               ; preds = %59, %.lr.ph.i
   %63 = call noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr noundef nonnull align 8 dereferenceable(112) %7, i64 noundef %58, i1 noundef zeroext true) #15
   br label %64
 

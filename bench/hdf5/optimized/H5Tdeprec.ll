@@ -301,7 +301,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Topen1(i64 noundef %0, ptr nou
   store i8 1, ptr @H5T_init_g, align 1, !tbaa !3
   %24 = tail call i32 @H5T__init_package() #4
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %30
+  br i1 %25, label %26, label %30, !prof !13
 
 26:                                               ; preds = %23
   store i8 0, ptr @H5T_init_g, align 1, !tbaa !3
@@ -344,7 +344,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Topen1(i64 noundef %0, ptr nou
   store i32 %47, ptr %3, align 8, !tbaa !18
   %48 = call ptr @H5VL_vol_object(i64 noundef %0) #4
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %54
+  br i1 %49, label %50, label %54, !prof !29
 
 50:                                               ; preds = %45
   %51 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -357,7 +357,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Topen1(i64 noundef %0, ptr nou
   %56 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
   %57 = call ptr @H5VL_datatype_open(ptr noundef nonnull %48, ptr noundef nonnull %3, ptr noundef nonnull %1, i64 noundef %55, i64 noundef %56, ptr noundef null) #4
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %63
+  br i1 %58, label %59, label %63, !prof !29
 
 59:                                               ; preds = %54
   %60 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11

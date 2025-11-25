@@ -105617,9 +105617,9 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16365
   %114 = load i64, ptr %6, align 8, !range !3694, !noalias !16365, !noundef !5
   %.not.not.i = icmp eq i64 %114, 45
-  br i1 %.not.not.i, label %.thread14.i, label %116
+  br i1 %.not.not.i, label %.thread.i, label %116
 
-.thread14.i:                                      ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h58646045c34edb08E.llvm.8022584466853825857.exit.i"
+.thread.i:                                        ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h58646045c34edb08E.llvm.8022584466853825857.exit.i"
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %115, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false), !noalias !16367
   store i64 45, ptr %0, align 8, !alias.scope !16368, !noalias !16371
@@ -105640,7 +105640,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   invoke void @"_ZN4core3ptr60drop_in_place$LT$deltalake_core..errors..DeltaTableError$GT$17hb6fa9b72dafb274dE.llvm.8022584466853825857"(ptr noalias noundef nonnull align 8 dereferenceable(88) %6)
           to label %.body unwind label %117, !noalias !16365
 
-120:                                              ; preds = %.thread14.i, %116
+120:                                              ; preds = %.thread.i, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !16365
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !16365
   %121 = getelementptr inbounds nuw i8, ptr %12, i64 8

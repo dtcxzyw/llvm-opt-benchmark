@@ -40961,9 +40961,9 @@ define void @_ZN17cranelift_codegen2ir8constant12ConstantPool3set17ha498de487c0c
   %20 = load ptr, ptr %19, align 8, !alias.scope !7742, !noalias !7745, !nonnull !4, !noundef !4
   %21 = load i64, ptr %18, align 8, !alias.scope !7742, !noalias !7745, !noundef !4
   %22 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h55522572e04ddb6bE"(i64 noundef %21, i1 noundef zeroext false)
-          to label %23 unwind label %.body.thread37
+          to label %23 unwind label %.body.thread24
 
-.body.thread37:                                   ; preds = %3, %30
+.body.thread24:                                   ; preds = %3, %30
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -40995,7 +40995,7 @@ define void @_ZN17cranelift_codegen2ir8constant12ConstantPool3set17ha498de487c0c
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7753
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !7757
   %31 = invoke noundef align 8 dereferenceable(24) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17hc4f302b616ce9864E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
-          to label %.thread unwind label %.body.thread37
+          to label %.thread unwind label %.body.thread24
 
 .thread:                                          ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !7753
@@ -41150,16 +41150,16 @@ define void @_ZN17cranelift_codegen2ir8constant12ConstantPool3set17ha498de487c0c
   %77 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$cranelift_codegen..ir..constant..ConstantData$GT$$GT$17h7254baab9c87a2acE"(ptr noalias noundef align 8 dereferenceable(24) %16) #66
-          to label %.body.thread33 unwind label %63
+          to label %78 unwind label %63
 
-.body.thread33:                                   ; preds = %76, %.body.thread
-  %.pn1331 = phi { ptr, i32 } [ %.pn1332, %.body.thread ], [ %77, %76 ]
-  resume { ptr, i32 } %.pn1331
+78:                                               ; preds = %76, %.body.thread
+  %.pn1320 = phi { ptr, i32 } [ %.pn1321, %.body.thread ], [ %77, %76 ]
+  resume { ptr, i32 } %.pn1320
 
-.body.thread:                                     ; preds = %51, %32, %.body.thread37
-  %.pn1332 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread37 ], [ %52, %51 ], [ %33, %32 ]
+.body.thread:                                     ; preds = %51, %32, %.body.thread24
+  %.pn1321 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread24 ], [ %33, %32 ], [ %52, %51 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$cranelift_codegen..ir..constant..ConstantData$GT$17h9c267228870c31e7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #66
-          to label %.body.thread33 unwind label %63
+          to label %78 unwind label %63
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

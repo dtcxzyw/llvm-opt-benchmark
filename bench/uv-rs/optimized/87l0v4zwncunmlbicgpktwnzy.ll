@@ -16274,8 +16274,8 @@ define void @_ZN15uv_distribution8metadata14build_requires13BuildRequires22from_
   %64 = landingpad { ptr, i32 }
           cleanup
   %65 = load i64, ptr %12, align 8, !range !3159, !noalias !3141, !noundef !3
-  %.not14.i = icmp eq i64 %65, 20
-  br i1 %.not14.i, label %.body, label %71
+  %.not9.i = icmp eq i64 %65, 20
+  br i1 %.not9.i, label %.body, label %71
 
 66:                                               ; preds = %.thread137
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3145
@@ -16602,8 +16602,8 @@ define void @_ZN15uv_distribution8metadata14build_requires13BuildRequires14from_
   %59 = landingpad { ptr, i32 }
           cleanup
   %60 = load i64, ptr %12, align 8, !range !3159, !noalias !3177, !noundef !3
-  %.not14.i = icmp eq i64 %60, 20
-  br i1 %.not14.i, label %.body, label %66
+  %.not9.i = icmp eq i64 %60, 20
+  br i1 %.not9.i, label %.body, label %66
 
 61:                                               ; preds = %.thread132
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3181

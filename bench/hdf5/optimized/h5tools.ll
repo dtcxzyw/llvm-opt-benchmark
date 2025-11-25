@@ -5119,7 +5119,7 @@ define noundef zeroext i1 @render_bin_output_region_points(i64 noundef %0, i64 n
   %fputc50 = tail call i32 @fputc(i32 10, ptr %119)
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %101, %.thread, %112, %116, %104, %53, %57, %45, %34, %38, %26, %15, %19, %7
+.thread.thread:                                   ; preds = %45, %57, %53, %101, %.thread, %112, %116, %104, %34, %38, %26, %15, %19, %7
   %.1 = phi i1 [ false, %7 ], [ false, %19 ], [ false, %15 ], [ false, %26 ], [ false, %38 ], [ false, %34 ], [ %.4, %101 ], [ %.4, %.thread ], [ false, %112 ], [ false, %116 ], [ false, %104 ], [ false, %53 ], [ false, %57 ], [ false, %45 ]
   ret i1 %.1
 }

@@ -12563,9 +12563,9 @@ define hidden void @_ZN8schemars8_private8metadata11add_default17h9b4d144a90c3bc
   ret void
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h655f857ea56c2e03E.exit19": ; preds = %21, %25, %14
-  %.pn35 = phi { ptr, i32 } [ %15, %14 ], [ %22, %25 ], [ %22, %21 ]
+  %.pn36 = phi { ptr, i32 } [ %15, %14 ], [ %22, %25 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h7c008e88cb83d678E"(ptr noalias noundef nonnull align 8 dereferenceable(200) %6) #30
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hca35b789b6b4ecb1E.llvm.13079985338326358297.exit" unwind label %26
+          to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h655f857ea56c2e03E.exit21" unwind label %26
 
 21:                                               ; preds = %12
   %22 = landingpad { ptr, i32 }
@@ -12589,14 +12589,14 @@ define hidden void @_ZN8schemars8_private8metadata11add_default17h9b4d144a90c3bc
           cleanup
   %30 = load i8, ptr %7, align 8, !range !249, !alias.scope !3093, !noundef !4
   %31 = icmp eq i8 %30, 6
-  br i1 %31, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hca35b789b6b4ecb1E.llvm.13079985338326358297.exit", label %32
+  br i1 %31, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h655f857ea56c2e03E.exit21", label %32
 
 32:                                               ; preds = %28
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0c20ab8ce1f1de8cE.llvm.13079985338326358297"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hca35b789b6b4ecb1E.llvm.13079985338326358297.exit" unwind label %26
+          to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h655f857ea56c2e03E.exit21" unwind label %26
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17hca35b789b6b4ecb1E.llvm.13079985338326358297.exit": ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h655f857ea56c2e03E.exit19", %32, %28
-  %.pn1025 = phi { ptr, i32 } [ %.pn35, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h655f857ea56c2e03E.exit19" ], [ %29, %32 ], [ %29, %28 ]
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h655f857ea56c2e03E.exit21": ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h655f857ea56c2e03E.exit19", %28, %32
+  %.pn1025 = phi { ptr, i32 } [ %29, %32 ], [ %29, %28 ], [ %.pn36, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h655f857ea56c2e03E.exit19" ]
   resume { ptr, i32 } %.pn1025
 }
 

@@ -3288,7 +3288,7 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   %12 = select i1 %8, i1 true, i1 %11
-  br i1 %12, label %13, label %.thread151, !prof !9
+  br i1 %12, label %13, label %.thread155, !prof !9
 
 13:                                               ; preds = %6
   %14 = icmp ne i16 %1, 0
@@ -3303,7 +3303,7 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %19 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
   %20 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !17
   %21 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__iterate_node, i32 noundef 1621, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.3) #4
-  br label %.thread151
+  br label %.thread155
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 256
@@ -3322,7 +3322,7 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %34 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !17
   %35 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !17
   %36 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__iterate_node, i32 noundef 1631, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.19) #4
-  br label %.thread151
+  br label %.thread155
 
 37:                                               ; preds = %22
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 264
@@ -3349,7 +3349,7 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %51 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
   %52 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !17
   %53 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__iterate_node, i32 noundef 1643, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.5) #4
-  br label %.thread151
+  br label %.thread155
 
 54:                                               ; preds = %.thread124, %37
   %.pre-phi = phi i64 [ 0, %.thread124 ], [ %27, %37 ]
@@ -3404,8 +3404,8 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %90 = trunc nuw i8 %89 to i1
   %.295. = select i1 %90, ptr %.295, ptr null
   %91 = load i16, ptr %71, align 8, !tbaa !41
-  %.not161 = icmp eq i16 %91, 0
-  br i1 %.not161, label %._crit_edge, label %.lr.ph
+  %.not165 = icmp eq i16 %91, 0
+  br i1 %.not165, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %88
   %92 = add i16 %1, -1
@@ -3413,8 +3413,8 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   br i1 %14, label %.lr.ph.split.us, label %.thread130
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %111
-  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %111 ], [ 0, %.lr.ph ]
-  %94 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %.288, i64 %indvars.iv167
+  %indvars.iv171 = phi i64 [ %indvars.iv.next172, %111 ], [ 0, %.lr.ph ]
+  %94 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %.288, i64 %indvars.iv171
   %95 = tail call i32 @H5B2__iterate_node(ptr noundef nonnull %0, i16 noundef zeroext %92, ptr noundef %94, ptr noundef %.295., ptr noundef %4, ptr noundef %5)
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %.thread133.us, label %97
@@ -3425,7 +3425,7 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
 
 .thread130.us:                                    ; preds = %97
   %98 = load ptr, ptr %93, align 8, !tbaa !33
-  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv167
+  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv171
   %100 = load i64, ptr %99, align 8, !tbaa !17
   %101 = getelementptr inbounds nuw i8, ptr %60, i64 %100
   %102 = tail call i32 %4(ptr noundef nonnull %101, ptr noundef %5) #4
@@ -3446,14 +3446,14 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
 
 .thread:                                          ; preds = %97, %104, %.thread133.us
   %.7.us.ph = phi i32 [ %95, %.thread133.us ], [ %102, %104 ], [ %95, %97 ]
-  %indvars.iv.next168181 = add nuw nsw i64 %indvars.iv167, 1
+  %indvars.iv.next172185 = add nuw nsw i64 %indvars.iv171, 1
   br label %._crit_edge
 
 111:                                              ; preds = %.thread130.us
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %112 = load i16, ptr %71, align 8, !tbaa !41
   %113 = zext i16 %112 to i64
-  %114 = icmp samesign ult i64 %indvars.iv.next168, %113
+  %114 = icmp samesign ult i64 %indvars.iv.next172, %113
   %.not.us = icmp eq i32 %102, 0
   %115 = and i1 %.not.us, %114
   br i1 %115, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !82
@@ -3466,13 +3466,13 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %119 = getelementptr inbounds nuw i8, ptr %60, i64 %118
   %120 = tail call i32 %4(ptr noundef nonnull %119, ptr noundef %5) #4
   %121 = icmp slt i32 %120, 0
-  br i1 %121, label %.thread186, label %125
+  br i1 %121, label %.thread190, label %125
 
-.thread186:                                       ; preds = %.thread130
+.thread190:                                       ; preds = %.thread130
   %122 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
   %123 = load i64, ptr @H5E_CANTLIST_g, align 8, !tbaa !17
   %124 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__iterate_node, i32 noundef 1679, i64 noundef %122, i64 noundef %123, ptr noundef nonnull @.str.23) #4
-  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv, 1
   br label %._crit_edge
 
 125:                                              ; preds = %.thread130
@@ -3484,10 +3484,10 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %129 = and i1 %.not, %128
   br i1 %129, label %.thread130, label %._crit_edge, !llvm.loop !82
 
-._crit_edge:                                      ; preds = %125, %111, %.thread186, %.thread, %88
-  %.083.lcssa = phi i64 [ 0, %88 ], [ %indvars.iv.next168181, %.thread ], [ %indvars.iv.next187, %.thread186 ], [ %indvars.iv.next168, %111 ], [ %indvars.iv.next, %125 ]
-  %.5.lcssa = phi i32 [ 0, %88 ], [ %.7.us.ph, %.thread ], [ %120, %.thread186 ], [ %102, %111 ], [ %120, %125 ]
-  %.not.lcssa = phi i1 [ true, %88 ], [ false, %.thread ], [ false, %.thread186 ], [ %.not.us, %111 ], [ %.not, %125 ]
+._crit_edge:                                      ; preds = %125, %111, %.thread190, %.thread, %88
+  %.083.lcssa = phi i64 [ 0, %88 ], [ %indvars.iv.next172185, %.thread ], [ %indvars.iv.next191, %.thread190 ], [ %indvars.iv.next172, %111 ], [ %indvars.iv.next, %125 ]
+  %.5.lcssa = phi i32 [ 0, %88 ], [ %.7.us.ph, %.thread ], [ %120, %.thread190 ], [ %102, %111 ], [ %120, %125 ]
+  %.not.lcssa = phi i1 [ true, %88 ], [ false, %.thread ], [ false, %.thread190 ], [ %.not.us, %111 ], [ %.not, %125 ]
   %or.cond = and i1 %14, %.not.lcssa
   br i1 %or.cond, label %130, label %140
 
@@ -3503,13 +3503,14 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %137 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
   %138 = load i64, ptr @H5E_CANTLIST_g, align 8, !tbaa !17
   %139 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__iterate_node, i32 noundef 1686, i64 noundef %137, i64 noundef %138, ptr noundef nonnull @.str.22) #4
-  br label %140
-
-140:                                              ; preds = %._crit_edge, %136, %130
-  %.282 = phi i32 [ %134, %136 ], [ %134, %130 ], [ %.5.lcssa, %._crit_edge ]
   br i1 %90, label %141, label %.thread137
 
-141:                                              ; preds = %140
+140:                                              ; preds = %._crit_edge, %130
+  %.282 = phi i32 [ %134, %130 ], [ %.5.lcssa, %._crit_edge ]
+  br i1 %90, label %141, label %.thread137
+
+141:                                              ; preds = %136, %140
+  %.282148 = phi i32 [ %134, %136 ], [ %.282, %140 ]
   %142 = tail call i32 @H5AC_unpin_entry(ptr noundef nonnull %.295) #4
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %144, label %.thread137
@@ -3520,8 +3521,8 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %147 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__iterate_node, i32 noundef 1691, i64 noundef %145, i64 noundef %146, ptr noundef nonnull @.str.24) #4
   br label %.thread137
 
-.thread137:                                       ; preds = %84, %62, %144, %141, %140
-  %.8 = phi i32 [ -1, %144 ], [ %.282, %141 ], [ %.282, %140 ], [ -1, %84 ], [ -1, %62 ]
+.thread137:                                       ; preds = %84, %62, %136, %144, %141, %140
+  %.8 = phi i32 [ -1, %144 ], [ %.282148, %141 ], [ %.282, %140 ], [ %134, %136 ], [ -1, %84 ], [ -1, %62 ]
   %.not113 = icmp eq ptr %.288, null
   br i1 %.not113, label %154, label %148
 
@@ -3535,7 +3536,7 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
 
 154:                                              ; preds = %148, %.thread137
   %.not114 = icmp eq ptr %60, null
-  br i1 %.not114, label %.thread151, label %155
+  br i1 %.not114, label %.thread155, label %155
 
 155:                                              ; preds = %154
   %156 = load ptr, ptr %55, align 8, !tbaa !53
@@ -3543,9 +3544,9 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
   %159 = load ptr, ptr %158, align 8, !tbaa !68
   %160 = tail call ptr @H5FL_fac_free(ptr noundef %159, ptr noundef nonnull %60) #4
-  br label %.thread151
+  br label %.thread155
 
-.thread151:                                       ; preds = %50, %18, %33, %6, %155, %154
+.thread155:                                       ; preds = %50, %18, %33, %6, %155, %154
   %.080 = phi i32 [ %.8, %155 ], [ %.8, %154 ], [ 0, %6 ], [ -1, %33 ], [ -1, %18 ], [ -1, %50 ]
   ret i32 %.080
 }

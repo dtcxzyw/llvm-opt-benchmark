@@ -3878,8 +3878,8 @@ default.unreachable209:                           ; preds = %121, %2
   %262 = landingpad { ptr, i32 }
           cleanup
   %263 = load ptr, ptr %6, align 8, !noalias !677, !noundef !4
-  %.not14.i.i.i.i = icmp eq ptr %263, null
-  br i1 %.not14.i.i.i.i, label %.body52.i, label %269
+  %.not9.i.i.i.i = icmp eq ptr %263, null
+  br i1 %.not9.i.i.i.i, label %.body52.i, label %269
 
 264:                                              ; preds = %258
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !687

@@ -1560,17 +1560,17 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN12clap_builder6derive12fo
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !noalias !125
   invoke void @_ZN12clap_builder7builder7command7Command11_build_self17hde5ef911580649b3E(ptr noalias noundef nonnull align 8 dereferenceable(776) %5, i1 noundef zeroext false)
-          to label %8 unwind label %.thread24.i
+          to label %8 unwind label %.thread.i
 
-.thread24.i:                                      ; preds = %8, %7
-  %lpad.thr_comm22.i = landingpad { ptr, i32 }
+.thread.i:                                        ; preds = %8, %7
+  %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %26
 
 8:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !125
   invoke void @_ZN12clap_builder7builder7command7Command13render_usage_17h6bdcf702afd89d13E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(776) %5)
-          to label %9 unwind label %.thread24.i
+          to label %9 unwind label %.thread.i
 
 9:                                                ; preds = %8
   %10 = load i64, ptr %0, align 8, !range !13, !alias.scope !122, !noalias !127, !noundef !11
@@ -1581,10 +1581,10 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN12clap_builder6derive12fo
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !125
   invoke void @_ZN12clap_builder5error7Message6format17h5347f39e625d6d13E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(776) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
-          to label %18 unwind label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$17h5edd0ff4f5e7fdfaE.exit12.thread19.i"
+          to label %18 unwind label %.thread24.i
 
-"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$17h5edd0ff4f5e7fdfaE.exit12.thread19.i": ; preds = %11
-  %lpad.thr_comm21.i = landingpad { ptr, i32 }
+.thread24.i:                                      ; preds = %11
+  %lpad.thr_comm1926.i = landingpad { ptr, i32 }
           cleanup
   br label %26
 
@@ -1607,7 +1607,7 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN12clap_builder6derive12fo
           to label %29 unwind label %27
 
 20:                                               ; preds = %12
-  %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp20.i = landingpad { ptr, i32 }
           cleanup
   %21 = load i64, ptr %3, align 8, !range !53, !alias.scope !131, !noalias !125, !noundef !11
   %22 = icmp eq i64 %21, -9223372036854775808
@@ -1623,8 +1623,8 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN12clap_builder6derive12fo
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #30
   unreachable
 
-26:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$17h5edd0ff4f5e7fdfaE.exit12.thread19.i", %.thread24.i
-  %.pn18.i = phi { ptr, i32 } [ %lpad.thr_comm21.i, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$17h5edd0ff4f5e7fdfaE.exit12.thread19.i" ], [ %lpad.thr_comm22.i, %.thread24.i ]
+26:                                               ; preds = %.thread24.i, %.thread.i
+  %.pn14.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.thread.i ], [ %lpad.thr_comm1926.i, %.thread24.i ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$clap_builder..error..Error$GT$17hf61711b97ed80167E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #29
           to label %.body unwind label %24
 
@@ -1634,7 +1634,7 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN12clap_builder6derive12fo
   br label %.body
 
 .body:                                            ; preds = %20, %23, %26, %27
-  %eh.lpad-body = phi { ptr, i32 } [ %28, %27 ], [ %.pn18.i, %26 ], [ %lpad.thr_comm.split-lp.i, %23 ], [ %lpad.thr_comm.split-lp.i, %20 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %28, %27 ], [ %.pn14.i, %26 ], [ %lpad.thr_comm.split-lp20.i, %23 ], [ %lpad.thr_comm.split-lp20.i, %20 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$clap_builder..builder..command..Command$GT$17h2010970aaff6d3d8E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %5) #29
           to label %.thread unwind label %30
 

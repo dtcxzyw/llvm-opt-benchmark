@@ -1199,7 +1199,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %116, %119, %106
   %.0248466.in = and i32 %.0246467.in.in, 2097152
   %.0248466.not.not = icmp eq i32 %.0248466.in, 0
   %.0246467.in = and i32 %.0246467.in.in, 262144
-  %.0246467.not.not = icmp eq i32 %.0246467.in, 0
+  %.0246467.not.not.not = icmp eq i32 %.0246467.in, 0
   %183 = add nuw nsw i64 %.1255465, 7
   %184 = and i64 %183, -8
   %185 = invoke noundef ptr @PyUnicode_AsUTF8AndSize(ptr noundef %.sroa.0417.1, ptr noundef null)
@@ -1334,7 +1334,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread453
   %.0275477 = phi i8 [ 0, %203 ], [ 0, %.preheader ], [ %215, %._crit_edge524.loopexit ]
   %.0281475 = phi i1 [ false, %203 ], [ false, %.preheader ], [ %217, %._crit_edge524.loopexit ]
   %235 = phi ptr [ @_ZN8nanobind6detailL18nb_type_vectorcallEP7_objectPKS2_mS2_, %203 ], [ @_ZN8nanobind6detailL18nb_type_vectorcallEP7_objectPKS2_mS2_, %.preheader ], [ %234, %._crit_edge524.loopexit ]
-  br i1 %.0246467.not.not, label %.thread, label %236
+  br i1 %.0246467.not.not.not, label %.thread, label %236
 
 236:                                              ; preds = %.thread468
   %237 = add nuw nsw i64 %184, 8

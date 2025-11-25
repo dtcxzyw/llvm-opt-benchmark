@@ -1863,8 +1863,8 @@ define range(i32 -1, 2) i32 @H5FS_sect_try_extend(ptr noundef %0, ptr noundef %1
 22:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %23 = tail call fastcc i32 @H5FS__sinfo_lock(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %85, label %25
+  %24 = icmp sgt i32 %23, -1
+  br i1 %24, label %25, label %85
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 360
@@ -1920,7 +1920,7 @@ define range(i32 -1, 2) i32 @H5FS_sect_try_extend(ptr noundef %0, ptr noundef %1
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %60 = load ptr, ptr %59, align 8, !tbaa !88
   %.not44 = icmp eq ptr %60, null
-  br i1 %.not44, label %.thread60, label %61
+  br i1 %.not44, label %.thread59, label %61
 
 61:                                               ; preds = %55
   %62 = call i32 %60(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %6) #5
@@ -1936,15 +1936,15 @@ define range(i32 -1, 2) i32 @H5FS_sect_try_extend(ptr noundef %0, ptr noundef %1
 68:                                               ; preds = %61
   %.pre = load ptr, ptr %10, align 8, !tbaa !84
   %.not45 = icmp eq ptr %.pre, null
-  br i1 %.not45, label %89, label %.thread60
+  br i1 %.not45, label %89, label %.thread59
 
-.thread60:                                        ; preds = %55, %68
+.thread59:                                        ; preds = %55, %68
   %69 = phi ptr [ %.pre, %68 ], [ %30, %55 ]
   %70 = call fastcc i32 @H5FS__sect_link(ptr noundef nonnull %1, ptr noundef nonnull %69, i32 noundef 0)
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %72, label %89
 
-72:                                               ; preds = %.thread60
+72:                                               ; preds = %.thread59
   %73 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !10
   %74 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %75 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5FS_sect_try_extend, i32 noundef 1472, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.12) #5
@@ -1970,9 +1970,9 @@ define range(i32 -1, 2) i32 @H5FS_sect_try_extend(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread46
 
-89:                                               ; preds = %.thread60, %68, %76, %81, %72, %64, %42, %31, %34, %25
-  %.032.ph = phi i1 [ false, %25 ], [ false, %34 ], [ false, %31 ], [ true, %.thread60 ], [ true, %68 ], [ true, %76 ], [ false, %81 ], [ false, %72 ], [ false, %64 ], [ false, %42 ]
-  %.131.ph = phi i32 [ 0, %25 ], [ 0, %34 ], [ 0, %31 ], [ 1, %.thread60 ], [ 1, %68 ], [ 1, %76 ], [ -1, %81 ], [ -1, %72 ], [ -1, %64 ], [ -1, %42 ]
+89:                                               ; preds = %.thread59, %68, %76, %81, %72, %64, %42, %31, %34, %25
+  %.032.ph = phi i1 [ false, %25 ], [ false, %34 ], [ false, %31 ], [ true, %.thread59 ], [ true, %68 ], [ true, %76 ], [ false, %81 ], [ false, %72 ], [ false, %64 ], [ false, %42 ]
+  %.131.ph = phi i32 [ 0, %25 ], [ 0, %34 ], [ 0, %31 ], [ 1, %.thread59 ], [ 1, %68 ], [ 1, %76 ], [ -1, %81 ], [ -1, %72 ], [ -1, %64 ], [ -1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %90 = call fastcc i32 @H5FS__sinfo_unlock(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %.032.ph)
   %91 = icmp slt i32 %90, 0
@@ -2571,7 +2571,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_iterate(ptr noundef %0, ptr noundef %1, p
   %9 = trunc nuw i8 %8 to i1
   %10 = xor i1 %9, true
   %11 = select i1 %7, i1 true, i1 %10
-  br i1 %11, label %12, label %53, !prof !9
+  br i1 %11, label %12, label %.thread, !prof !9
 
 12:                                               ; preds = %4
   store ptr %1, ptr %5, align 8, !tbaa !120
@@ -2582,12 +2582,12 @@ define range(i32 -1, 1) i32 @H5FS_sect_iterate(ptr noundef %0, ptr noundef %1, p
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %16 = load i64, ptr %15, align 8, !tbaa !106
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %53, label %17
+  br i1 %.not, label %.thread, label %17
 
 17:                                               ; preds = %12
   %18 = tail call fastcc i32 @H5FS__sinfo_lock(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 128)
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %24, label %.preheader
+  %19 = icmp sgt i32 %18, -1
+  br i1 %19, label %.preheader, label %24
 
 .preheader:                                       ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 360
@@ -2601,7 +2601,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_iterate(ptr noundef %0, ptr noundef %1, p
   %25 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !10
   %26 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5FS_sect_iterate, i32 noundef 1865, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.7) #5
-  br label %53
+  br label %.thread
 
 .lr.ph:                                           ; preds = %.preheader, %41
   %28 = phi ptr [ %42, %41 ], [ %21, %.preheader ]
@@ -2639,19 +2639,19 @@ define range(i32 -1, 1) i32 @H5FS_sect_iterate(ptr noundef %0, ptr noundef %1, p
   br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !124
 
 .loopexit:                                        ; preds = %41, %.preheader, %37
-  %.2.ph = phi i32 [ -1, %37 ], [ 0, %.preheader ], [ 0, %41 ]
+  %.230 = phi i32 [ -1, %37 ], [ 0, %.preheader ], [ 0, %41 ]
   %47 = call fastcc i32 @H5FS__sinfo_unlock(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext false)
   %48 = icmp slt i32 %47, 0
-  br i1 %48, label %49, label %53
+  br i1 %48, label %49, label %.thread
 
 49:                                               ; preds = %.loopexit
   %50 = load i64, ptr @H5E_FSPACE_g, align 8, !tbaa !10
   %51 = load i64, ptr @H5E_CANTRELEASE_g, align 8, !tbaa !10
   %52 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5FS_sect_iterate, i32 noundef 1882, i64 noundef %50, i64 noundef %51, ptr noundef nonnull @.str.9) #5
-  br label %53
+  br label %.thread
 
-53:                                               ; preds = %12, %24, %4, %49, %.loopexit
-  %.022 = phi i32 [ -1, %49 ], [ %.2.ph, %.loopexit ], [ 0, %4 ], [ 0, %12 ], [ -1, %24 ]
+.thread:                                          ; preds = %24, %12, %4, %49, %.loopexit
+  %.022 = phi i32 [ -1, %49 ], [ %.230, %.loopexit ], [ 0, %4 ], [ -1, %24 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.022
 }

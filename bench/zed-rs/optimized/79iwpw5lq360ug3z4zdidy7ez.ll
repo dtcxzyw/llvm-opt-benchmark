@@ -31367,9 +31367,6 @@ define hidden void @_ZN9workspace9Workspace18split_path_preview17hc896381c3cfb96
   tail call void @llvm.trap()
   unreachable
 
-.body.thread:                                     ; preds = %110, %106, %102
-  br i1 %.sroa.01.1.ph, label %114, label %"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17hed19a7ebeeb2013cE.exit"
-
 .thread:                                          ; preds = %23, %24
   %41 = landingpad { ptr, i32 }
           cleanup
@@ -31554,19 +31551,22 @@ _ZN4gpui3app10entity_map9EntityMap4read17hf713b041e0dbafb9E.exit: ; preds = %.no
   %103 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %104 = load ptr, ptr %103, align 8, !nonnull !4, !noundef !4
   %105 = icmp eq ptr %104, inttoptr (i64 -1 to ptr)
-  br i1 %105, label %.body.thread, label %106
+  br i1 %105, label %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17h15ae30dc21a51235E.exit", label %106
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %108 = atomicrmw sub ptr %107, i64 1 release, align 8, !noalias !7219
   %109 = icmp eq i64 %108, 1
-  br i1 %109, label %110, label %.body.thread
+  br i1 %109, label %110, label %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17h15ae30dc21a51235E.exit"
 
 110:                                              ; preds = %106
   fence acquire
   %111 = load ptr, ptr %103, align 8, !nonnull !4, !noundef !4
   call void @__rust_dealloc(ptr noundef nonnull %111, i64 noundef 80, i64 noundef 8) #42, !noalias !7219
-  br label %.body.thread
+  br label %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17h15ae30dc21a51235E.exit"
+
+"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17h15ae30dc21a51235E.exit": ; preds = %102, %106, %110
+  br i1 %.sroa.01.1.ph, label %114, label %"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17hed19a7ebeeb2013cE.exit"
 
 112:                                              ; preds = %118
   %113 = landingpad { ptr, i32 }
@@ -31574,12 +31574,12 @@ _ZN4gpui3app10entity_map9EntityMap4read17hf713b041e0dbafb9E.exit: ; preds = %.no
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51
   unreachable
 
-"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17hed19a7ebeeb2013cE.exit": ; preds = %98, %114, %118, %.body.thread
-  %.pn38 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread ], [ %.pn39, %118 ], [ %.pn39, %114 ], [ %99, %98 ]
+"_ZN4core3ptr41drop_in_place$LT$project..ProjectPath$GT$17hed19a7ebeeb2013cE.exit": ; preds = %98, %114, %118, %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17h15ae30dc21a51235E.exit"
+  %.pn38 = phi { ptr, i32 } [ %lpad.thr_comm, %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17h15ae30dc21a51235E.exit" ], [ %.pn39, %118 ], [ %.pn39, %114 ], [ %99, %98 ]
   resume { ptr, i32 } %.pn38
 
-114:                                              ; preds = %.thread, %.body.thread
-  %.pn39 = phi { ptr, i32 } [ %41, %.thread ], [ %lpad.thr_comm, %.body.thread ]
+114:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17h15ae30dc21a51235E.exit", %.thread
+  %.pn39 = phi { ptr, i32 } [ %41, %.thread ], [ %lpad.thr_comm, %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17h15ae30dc21a51235E.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7230)
   call void @llvm.experimental.noalias.scope.decl(metadata !7233)
   call void @llvm.experimental.noalias.scope.decl(metadata !7236)

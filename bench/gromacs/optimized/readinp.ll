@@ -6096,7 +6096,7 @@ define noundef i32 @_Z8get_einpPSt6vectorI9t_inpfileSaIS0_EEPKc(ptr noundef %0, 
 _Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit: ; preds = %.lr.ph.i
   %25 = trunc i64 %.0611.i to i32
   %26 = icmp eq i32 %25, -1
-  br i1 %26, label %_Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit.thread, label %45
+  br i1 %26, label %_Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit.thread, label %44
 
 _Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit.thread: ; preds = %23, %2, %_Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -6139,40 +6139,40 @@ _ZNSt6vectorI9t_inpfileSaIS0_EE12emplace_backIJiibbbRPKcRA1_S4_EEERS0_DpOT_.exit
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = sdiv exact i64 %38, 80
-  %40 = trunc i64 %39 to i32
-  %41 = add i32 %40, -1
-  %42 = icmp eq i64 %38, 80
-  br i1 %42, label %43, label %45
+  %40 = add nsw i64 %39, -1
+  %41 = icmp eq i64 %38, 80
+  br i1 %41, label %42, label %44
 
-43:                                               ; preds = %_ZNSt6vectorI9t_inpfileSaIS0_EE12emplace_backIJiibbbRPKcRA1_S4_EEERS0_DpOT_.exit
-  %44 = getelementptr inbounds nuw i8, ptr %35, i64 72
-  store i32 1, ptr %44, align 8, !tbaa !66
-  br label %45
+42:                                               ; preds = %_ZNSt6vectorI9t_inpfileSaIS0_EE12emplace_backIJiibbbRPKcRA1_S4_EEERS0_DpOT_.exit
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 72
+  store i32 1, ptr %43, align 8, !tbaa !66
+  br label %44
 
-45:                                               ; preds = %_ZNSt6vectorI9t_inpfileSaIS0_EE12emplace_backIJiibbbRPKcRA1_S4_EEERS0_DpOT_.exit, %43, %_Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit
-  %..0 = phi i32 [ -1, %43 ], [ -1, %_ZNSt6vectorI9t_inpfileSaIS0_EE12emplace_backIJiibbbRPKcRA1_S4_EEERS0_DpOT_.exit ], [ %25, %_Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit ]
-  %.0 = phi i32 [ %41, %43 ], [ %41, %_ZNSt6vectorI9t_inpfileSaIS0_EE12emplace_backIJiibbbRPKcRA1_S4_EEERS0_DpOT_.exit ], [ %25, %_Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit ]
-  %46 = load ptr, ptr %0, align 8, !tbaa !143
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
-  %48 = load i32, ptr %47, align 8, !tbaa !66
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %47, align 8, !tbaa !66
-  %50 = sext i32 %.0 to i64
-  %51 = getelementptr inbounds nuw %struct.t_inpfile, ptr %46, i64 %50
-  store i32 %48, ptr %51, align 8, !tbaa !77
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 5
-  store i8 1, ptr %52, align 1, !tbaa !79
-  %53 = load ptr, ptr @debug, align 8, !tbaa !4
-  %.not = icmp eq ptr %53, null
-  br i1 %.not, label %58, label %54
+44:                                               ; preds = %_ZNSt6vectorI9t_inpfileSaIS0_EE12emplace_backIJiibbbRPKcRA1_S4_EEERS0_DpOT_.exit, %42, %_Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit
+  %..0 = phi i32 [ -1, %42 ], [ -1, %_ZNSt6vectorI9t_inpfileSaIS0_EE12emplace_backIJiibbbRPKcRA1_S4_EEERS0_DpOT_.exit ], [ %25, %_Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit ]
+  %.0 = phi i64 [ %40, %42 ], [ %40, %_ZNSt6vectorI9t_inpfileSaIS0_EE12emplace_backIJiibbbRPKcRA1_S4_EEERS0_DpOT_.exit ], [ %.0611.i, %_Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit ]
+  %45 = load ptr, ptr %0, align 8, !tbaa !143
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 72
+  %47 = load i32, ptr %46, align 8, !tbaa !66
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %46, align 8, !tbaa !66
+  %sext = shl i64 %.0, 32
+  %49 = ashr exact i64 %sext, 32
+  %50 = getelementptr inbounds nuw %struct.t_inpfile, ptr %45, i64 %49
+  store i32 %47, ptr %50, align 8, !tbaa !77
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 5
+  store i8 1, ptr %51, align 1, !tbaa !79
+  %52 = load ptr, ptr @debug, align 8, !tbaa !4
+  %.not = icmp eq ptr %52, null
+  br i1 %.not, label %57, label %53
 
-54:                                               ; preds = %45
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !15
-  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %53, ptr noundef nonnull @.str.27, i32 noundef %48, ptr noundef %56) #24
-  br label %58
+53:                                               ; preds = %44
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !15
+  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %52, ptr noundef nonnull @.str.27, i32 noundef %47, ptr noundef %55) #24
+  br label %57
 
-58:                                               ; preds = %54, %45
+57:                                               ; preds = %53, %44
   ret i32 %..0
 }
 

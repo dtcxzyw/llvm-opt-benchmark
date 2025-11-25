@@ -77304,8 +77304,8 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines16LinePreprocessor3new17h8
   %98 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %100 = load i64, ptr %99, align 8
-  %.sroa.067.0265.i = call i64 @llvm.umin.i64(i64 %100, i64 4294967295)
-  %.sroa.067.0.i = trunc nuw i64 %.sroa.067.0265.i to i32
+  %.sroa.067.0273.i = call i64 @llvm.umin.i64(i64 %100, i64 4294967295)
+  %.sroa.067.0.i = trunc nuw i64 %.sroa.067.0273.i to i32
   %101 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %103 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -77438,9 +77438,9 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines6Status6update17hc5da92f59
   %..i29 = select i1 %132, i32 2, i32 1
   %.sroa.042.0.i = select i1 %131, i32 1, i32 %..i29
   %switch.i130.i = icmp eq i8 %.pre-phi, 4
-  %or.cond282.i = select i1 %132, i1 %switch.i130.i, i1 false
+  %or.cond285.i = select i1 %132, i1 %switch.i130.i, i1 false
   %storemerge.i = select i1 %or.cond.i, i32 %.sroa.042.0.i, i32 %97
-  %.sroa.0.0.i = select i1 %or.cond282.i, i32 %storemerge.i, i32 %.sroa.042.0.i
+  %.sroa.0.0.i = select i1 %or.cond285.i, i32 %storemerge.i, i32 %.sroa.042.0.i
   %133 = icmp uge i32 %.sroa.34.0.copyload, %.sroa.0.0.i
   %134 = icmp eq i8 %spec.select, 1
   %or.cond4.i = select i1 %133, i1 true, i1 %134
@@ -77588,8 +77588,8 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines6Status6update17hc5da92f59
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #42, !noalias !6711
   unreachable
 
-common.resume:                                    ; preds = %483, %415, %220, %.thread.i, %.thread196.i, %291, %305, %.thread276.i, %.thread228.i, %.thread247.i, %.thread215.i, %175
-  %common.resume.op = phi { ptr, i32 } [ %176, %175 ], [ %.pn106250.i, %.thread247.i ], [ %.pn99231.i, %.thread228.i ], [ %.pn95274.i, %.thread276.i ], [ %.pn93.i, %305 ], [ %.pn89218.i, %.thread215.i ], [ %.pn85199.i, %.thread196.i ], [ %.pn188.i, %.thread.i ], [ %292, %291 ], [ %221, %220 ], [ %416, %415 ], [ %484, %483 ]
+common.resume:                                    ; preds = %483, %415, %220, %.thread.i, %.thread196.i, %291, %305, %.thread232.i, %.thread236.i, %.thread255.i, %.thread215.i, %175
+  %common.resume.op = phi { ptr, i32 } [ %176, %175 ], [ %.pn106258.i, %.thread255.i ], [ %.pn99239.i, %.thread236.i ], [ %.pn95227.i, %.thread232.i ], [ %.pn93.i, %305 ], [ %.pn89218.i, %.thread215.i ], [ %.pn85199.i, %.thread196.i ], [ %.pn188.i, %.thread.i ], [ %292, %291 ], [ %221, %220 ], [ %416, %415 ], [ %484, %483 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbab81d4323d360d4E.exit34": ; preds = %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$ruff_diagnostics..fix..Fix$GT$$GT$17h57712ce1f8bde5f4E.exit.i", %174
@@ -77608,7 +77608,7 @@ common.resume:                                    ; preds = %483, %415, %220, %.
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %61) #40
           to label %.thread.i unwind label %184, !noalias !6711
 
-184:                                              ; preds = %.thread215.i, %.thread247.i, %490, %.thread228.i, %443, %.thread276.i, %385, %.thread196.i, %248, %.thread.i, %182
+184:                                              ; preds = %.thread215.i, %.thread255.i, %490, %.thread236.i, %443, %.thread232.i, %385, %.thread196.i, %248, %.thread.i, %182
   %185 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #42, !noalias !6711
@@ -77854,8 +77854,8 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   %260 = icmp ne i8 %spec.select, 1
   %261 = trunc nuw i8 %.sroa.4487.0.copyload to i1
   %or.cond10.i = select i1 %260, i1 true, i1 %261
-  %or.cond268.i = or i1 %129, %or.cond10.i
-  br i1 %or.cond268.i, label %299, label %301
+  %or.cond276.i = or i1 %129, %or.cond10.i
+  br i1 %or.cond276.i, label %299, label %301
 
 .thread219.i:                                     ; preds = %280, %279, %275, %273, %266, %264, %263
   %262 = landingpad { ptr, i32 }
@@ -77987,20 +77987,20 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   %302 = load ptr, ptr %69, align 8, !noalias !6711, !nonnull !8, !align !138, !noundef !8
   %303 = load i64, ptr %92, align 8, !noalias !6711, !noundef !8
   %304 = invoke noundef i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$GT$10line_start17had3148cc460398f9E"(ptr noalias noundef nonnull readonly align 1 %302, i64 noundef %303, i32 noundef %.sroa.056.0.copyload)
-          to label %306 unwind label %.thread276.i.loopexit, !noalias !6711
+          to label %306 unwind label %.thread232.i.loopexit, !noalias !6711
 
 305:                                              ; preds = %385, %.body154.i
-  br i1 %.sroa.059.3.i, label %.thread276.i, label %common.resume
+  br i1 %.sroa.059.3.i, label %.thread232.i, label %common.resume
 
-.thread276.i.loopexit:                            ; preds = %301, %308, %.noexc148.i, %.noexc149.i, %333, %336, %338, %340
+.thread232.i.loopexit:                            ; preds = %301, %308, %.noexc148.i, %.noexc149.i, %333, %336, %338, %340
   %lpad.loopexit110 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread276.i
+  br label %.thread232.i
 
-.thread276.i.loopexit.split-lp:                   ; preds = %307, %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread.i.i"
+.thread232.i.loopexit.split-lp:                   ; preds = %307, %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread.i.i"
   %lpad.loopexit.split-lp111 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread276.i
+  br label %.thread232.i
 
 306:                                              ; preds = %301
   %.not92.i = icmp ugt i32 %.sroa.20.1, %304
@@ -78008,7 +78008,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
 
 307:                                              ; preds = %306
   invoke void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.9a3c7070530f84c5ad699604f23a6f35.40, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a3c7070530f84c5ad699604f23a6f35.643) #41
-          to label %332 unwind label %.thread276.i.loopexit.split-lp, !noalias !6711
+          to label %332 unwind label %.thread232.i.loopexit.split-lp, !noalias !6711
 
 308:                                              ; preds = %306
   %.val.i = load ptr, ptr %69, align 8, !noalias !6711, !nonnull !8, !align !138, !noundef !8
@@ -78017,14 +78017,14 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   store i32 %.sroa.20.1, ptr %8, align 4, !noalias !6715
   store i32 %304, ptr %102, align 4, !noalias !6715
   %309 = invoke { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8)
-          to label %.noexc148.i unwind label %.thread276.i.loopexit, !noalias !6711
+          to label %.noexc148.i unwind label %.thread232.i.loopexit, !noalias !6711
 
 .noexc148.i:                                      ; preds = %308
   %310 = extractvalue { i32, i32 } %309, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6715
   store i32 %310, ptr %7, align 4, !noalias !6715
   %311 = invoke noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
-          to label %.noexc149.i unwind label %.thread276.i.loopexit, !noalias !6711
+          to label %.noexc149.i unwind label %.thread232.i.loopexit, !noalias !6711
 
 .noexc149.i:                                      ; preds = %.noexc148.i
   %312 = extractvalue { i32, i32 } %309, 1
@@ -78032,7 +78032,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6715
   store i32 %312, ptr %6, align 4, !noalias !6715
   %313 = invoke noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
-          to label %.noexc150.i unwind label %.thread276.i.loopexit, !noalias !6711
+          to label %.noexc150.i unwind label %.thread232.i.loopexit, !noalias !6711
 
 .noexc150.i:                                      ; preds = %.noexc149.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6715
@@ -78077,7 +78077,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread.i.i": ; preds = %328, %326, %321, %319, %.noexc150.i
   invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val123.i, i64 noundef %311, i64 noundef %313, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a3c7070530f84c5ad699604f23a6f35.277) #41
-          to label %.noexc151.i unwind label %.thread276.i.loopexit.split-lp, !noalias !6711
+          to label %.noexc151.i unwind label %.thread232.i.loopexit.split-lp, !noalias !6711
 
 .noexc151.i:                                      ; preds = %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread.i.i"
   unreachable
@@ -78093,25 +78093,25 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !6715
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !6715
   invoke void @"_ZN69_$LT$str$u20$as$u20$ruff_source_file..newlines..UniversalNewlines$GT$18universal_newlines17he54d8483dcfddcb7E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 1 %334, i64 noundef %335)
-          to label %336 unwind label %.thread276.i.loopexit, !noalias !6711
+          to label %336 unwind label %.thread232.i.loopexit, !noalias !6711
 
 336:                                              ; preds = %333
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false), !noalias !6715
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !6715
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !6715
   %337 = invoke noundef i8 @_ZN19ruff_python_codegen7stylist7Stylist11line_ending17h247963aae77bc4ceE(ptr noundef nonnull align 8 %89)
-          to label %338 unwind label %.thread276.i.loopexit, !noalias !6711
+          to label %338 unwind label %.thread232.i.loopexit, !noalias !6711
 
 338:                                              ; preds = %336
   store i8 %337, ptr %36, align 1, !noalias !6715
   %339 = invoke { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %36)
-          to label %340 unwind label %.thread276.i.loopexit, !noalias !6711
+          to label %340 unwind label %.thread232.i.loopexit, !noalias !6711
 
 340:                                              ; preds = %338
   %341 = extractvalue { ptr, i64 } %339, 0
   %342 = extractvalue { ptr, i64 } %339, 1
   invoke void @_ZN9itertools9Itertools4join17hdd2edc9588710a5fE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %39, ptr noalias noundef nonnull align 8 dereferenceable(24) %38, ptr noalias noundef nonnull readonly align 1 %341, i64 noundef %342)
-          to label %343 unwind label %.thread276.i.loopexit, !noalias !6711
+          to label %343 unwind label %.thread232.i.loopexit, !noalias !6711
 
 343:                                              ; preds = %340
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !6715
@@ -78246,8 +78246,8 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %39) #40
           to label %305 unwind label %184, !noalias !6711
 
-.thread276.i:                                     ; preds = %.thread276.i.loopexit, %.thread276.i.loopexit.split-lp, %305
-  %.pn95274.i = phi { ptr, i32 } [ %.pn93.i, %305 ], [ %lpad.loopexit110, %.thread276.i.loopexit ], [ %lpad.loopexit.split-lp111, %.thread276.i.loopexit.split-lp ]
+.thread232.i:                                     ; preds = %.thread232.i.loopexit, %.thread232.i.loopexit.split-lp, %305
+  %.pn95227.i = phi { ptr, i32 } [ %.pn93.i, %305 ], [ %lpad.loopexit110, %.thread232.i.loopexit ], [ %lpad.loopexit.split-lp111, %.thread232.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_diagnostics..diagnostic..Diagnostic$GT$17h5e3a7e2da4203097E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %40) #40
           to label %common.resume unwind label %184, !noalias !6711
 
@@ -78255,16 +78255,16 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   %switch.i158.i = icmp samesign ugt i8 %.sroa.41.0163, 2
   %387 = icmp ne i64 %.sroa.13.0.copyload, 0
   %388 = or i1 %switch.i158.i, %387
-  %or.cond261.i = select i1 %388, i1 true, i1 %261
+  %or.cond269.i = select i1 %388, i1 true, i1 %261
   %switch.i159.i = icmp samesign ult i8 %.sroa.39.0.copyload, 3
-  %or.cond262.i = select i1 %or.cond261.i, i1 true, i1 %switch.i159.i
-  br i1 %or.cond262.i, label %.critedge.i, label %390
+  %or.cond270.i = select i1 %or.cond269.i, i1 true, i1 %switch.i159.i
+  br i1 %or.cond270.i, label %.critedge.i, label %390
 
 .critedge.i:                                      ; preds = %386
   %389 = icmp eq i64 %.sroa.0.3, 0
   %or.cond12.i = select i1 %129, i1 %389, i1 false
-  %or.cond263.i = select i1 %or.cond12.i, i1 %switch.i159.i, i1 false
-  br i1 %or.cond263.i, label %switch.early.test.i, label %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit
+  %or.cond271.i = select i1 %or.cond12.i, i1 %switch.i159.i, i1 false
+  br i1 %or.cond271.i, label %switch.early.test.i, label %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit
 
 390:                                              ; preds = %386
   %391 = call noundef zeroext i1 @_ZN15ruff_python_ast12PySourceType7is_stub17h167126a06925999aE(i8 noundef %87), !noalias !6711
@@ -78278,47 +78278,47 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   %.not.i160.i = icmp eq i32 %.sroa.26.0.copyload, 0
   br i1 %.not.i160.i, label %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847921ca973802E.exit162.i, label %394
 
-.thread236.i:                                     ; preds = %436, %424, %422, %403, %402, %399, %397, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847921ca973802E.exit162.i, %394
-  %lpad.thr_comm234.i = landingpad { ptr, i32 }
+.thread244.i:                                     ; preds = %436, %424, %422, %403, %402, %399, %397, %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847921ca973802E.exit162.i, %394
+  %lpad.thr_comm242.i = landingpad { ptr, i32 }
           cleanup
-  br label %.thread228.i
+  br label %.thread236.i
 
 394:                                              ; preds = %393
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !6715
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !6715
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !6715
   %395 = invoke noundef i8 @_ZN19ruff_python_codegen7stylist7Stylist11line_ending17h247963aae77bc4ceE(ptr noundef nonnull align 8 %89)
-          to label %397 unwind label %.thread236.i, !noalias !6711
+          to label %397 unwind label %.thread244.i, !noalias !6711
 
 _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847921ca973802E.exit162.i: ; preds = %393
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !6715
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !6715
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !6715
   %396 = invoke noundef i8 @_ZN19ruff_python_codegen7stylist7Stylist11line_ending17h247963aae77bc4ceE(ptr noundef nonnull align 8 %89)
-          to label %422 unwind label %.thread236.i, !noalias !6711
+          to label %422 unwind label %.thread244.i, !noalias !6711
 
 397:                                              ; preds = %394
   store i8 %395, ptr %25, align 1, !noalias !6715
   %398 = invoke { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %25)
-          to label %399 unwind label %.thread236.i, !noalias !6711
+          to label %399 unwind label %.thread244.i, !noalias !6711
 
 399:                                              ; preds = %397
   %400 = extractvalue { ptr, i64 } %398, 0
   %401 = extractvalue { ptr, i64 } %398, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !6715
   invoke void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17he69ed5f32353bb31E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 %400, i64 noundef %401, i64 noundef 2)
-          to label %402 unwind label %.thread236.i, !noalias !6711
+          to label %402 unwind label %.thread244.i, !noalias !6711
 
 402:                                              ; preds = %399
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !6715
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !6715
   invoke void @_ZN16ruff_diagnostics4edit4Edit17range_replacement17hc1e95a40f4618f57E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %26, i32 noundef %.sroa.28.0.copyload, i32 noundef %.sroa.31.0.copyload)
-          to label %403 unwind label %.thread236.i, !noalias !6711
+          to label %403 unwind label %.thread244.i, !noalias !6711
 
 403:                                              ; preds = %402
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !6715
   invoke void @_ZN16ruff_diagnostics3fix3Fix9safe_edit17h94622dd0bb33453aE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %28, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %27)
-          to label %404 unwind label %.thread236.i, !noalias !6711
+          to label %404 unwind label %.thread244.i, !noalias !6711
 
 404:                                              ; preds = %403
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !6715
@@ -78334,7 +78334,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   %409 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false), !noalias !6715
-  br label %.thread228.i
+  br label %.thread236.i
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$ruff_diagnostics..fix..Fix$GT$$GT$17h57712ce1f8bde5f4E.exit164.i": ; preds = %407, %404
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false), !noalias !6715
@@ -78378,7 +78378,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
 422:                                              ; preds = %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847921ca973802E.exit162.i
   store i8 %396, ptr %21, align 1, !noalias !6715
   %423 = invoke { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %21)
-          to label %424 unwind label %.thread236.i, !noalias !6711
+          to label %424 unwind label %.thread244.i, !noalias !6711
 
 424:                                              ; preds = %422
   %425 = extractvalue { ptr, i64 } %423, 1
@@ -78387,7 +78387,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   %428 = zext nneg i32 %427 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !6715
   invoke void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17he69ed5f32353bb31E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %426, i64 noundef %425, i64 noundef %428)
-          to label %429 unwind label %.thread236.i, !noalias !6711
+          to label %429 unwind label %.thread244.i, !noalias !6711
 
 429:                                              ; preds = %424
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !6715
@@ -78400,7 +78400,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
 433:                                              ; preds = %435
   %434 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread228.i
+  br label %.thread236.i
 
 435:                                              ; preds = %429
   invoke void @_ZN16ruff_diagnostics4edit4Edit9insertion17h1e10ed5a77aac3e9E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %22, i32 noundef %432)
@@ -78409,7 +78409,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
 436:                                              ; preds = %435
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !6715
   invoke void @_ZN16ruff_diagnostics3fix3Fix9safe_edit17h94622dd0bb33453aE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %24, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %23)
-          to label %437 unwind label %.thread236.i, !noalias !6711
+          to label %437 unwind label %.thread244.i, !noalias !6711
 
 437:                                              ; preds = %436
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !6715
@@ -78425,7 +78425,7 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   %442 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef nonnull align 8 dereferenceable(40) %24, i64 40, i1 false), !noalias !6715
-  br label %.thread228.i
+  br label %.thread236.i
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$ruff_diagnostics..fix..Fix$GT$$GT$17h57712ce1f8bde5f4E.exit166.i": ; preds = %440, %437
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef nonnull align 8 dereferenceable(40) %24, i64 40, i1 false), !noalias !6715
@@ -78436,10 +78436,10 @@ _ZN11ruff_linter5rules11pycodestyle5rules11blank_lines10BlankLines5range17hb8847
   %444 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #40
-          to label %.thread228.i unwind label %184, !noalias !6711
+          to label %.thread236.i unwind label %184, !noalias !6711
 
-.thread228.i:                                     ; preds = %443, %441, %433, %408, %.thread236.i
-  %.pn99231.i = phi { ptr, i32 } [ %lpad.thr_comm234.i, %.thread236.i ], [ %434, %433 ], [ %444, %443 ], [ %442, %441 ], [ %409, %408 ]
+.thread236.i:                                     ; preds = %443, %441, %433, %408, %.thread244.i
+  %.pn99239.i = phi { ptr, i32 } [ %lpad.thr_comm242.i, %.thread244.i ], [ %434, %433 ], [ %444, %443 ], [ %442, %441 ], [ %409, %408 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_diagnostics..diagnostic..Diagnostic$GT$17h5e3a7e2da4203097E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %29) #40
           to label %common.resume unwind label %184, !noalias !6711
 
@@ -78457,10 +78457,10 @@ switch.early.test.i:                              ; preds = %.critedge.i
 447:                                              ; preds = %445
   %switch.i168.i = icmp eq i8 %.pre-phi, 2
   %.not105.i = icmp ne i8 %.sroa.3579.0.copyload, 21
-  %or.cond120.not267.i = select i1 %switch.i168.i, i1 %.not105.i, i1 false
+  %or.cond120.not275.i = select i1 %switch.i168.i, i1 %.not105.i, i1 false
   %448 = icmp eq i8 %spec.select, 3
-  %or.cond264.i = or i1 %448, %or.cond120.not267.i
-  br i1 %or.cond264.i, label %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit, label %449
+  %or.cond272.i = or i1 %448, %or.cond120.not275.i
+  br i1 %or.cond272.i, label %_ZN11ruff_linter5rules11pycodestyle5rules11blank_lines17BlankLinesChecker10check_line17h6712555322958601E.exit, label %449
 
 449:                                              ; preds = %447
   %450 = call noundef zeroext i1 @_ZN15ruff_python_ast12PySourceType7is_stub17h167126a06925999aE(i8 noundef %87), !noalias !6711
@@ -78473,29 +78473,29 @@ switch.early.test.i:                              ; preds = %.critedge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !6715
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !6715
   %452 = invoke noundef i8 @_ZN19ruff_python_codegen7stylist7Stylist11line_ending17h247963aae77bc4ceE(ptr noundef nonnull align 8 %89)
-          to label %453 unwind label %.thread255.i.loopexit, !noalias !6711
+          to label %453 unwind label %.thread263.i.loopexit, !noalias !6711
 
-.thread255.i.loopexit:                            ; preds = %451, %453, %472, %455
+.thread263.i.loopexit:                            ; preds = %451, %453, %472, %455
   %lpad.loopexit113 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread247.i
+  br label %.thread255.i
 
-.thread255.i.loopexit.split-lp:                   ; preds = %461
+.thread263.i.loopexit.split-lp:                   ; preds = %461
   %lpad.loopexit.split-lp114 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread247.i
+  br label %.thread255.i
 
 453:                                              ; preds = %451
   store i8 %452, ptr %15, align 1, !noalias !6715
   %454 = invoke { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %15)
-          to label %455 unwind label %.thread255.i.loopexit, !noalias !6711
+          to label %455 unwind label %.thread263.i.loopexit, !noalias !6711
 
 455:                                              ; preds = %453
   %456 = extractvalue { ptr, i64 } %454, 0
   %457 = extractvalue { ptr, i64 } %454, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6785
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hb6fd55eaaf790d22E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %457, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc unwind label %.thread255.i.loopexit
+          to label %.noexc unwind label %.thread263.i.loopexit
 
 .noexc:                                           ; preds = %455
   %458 = load i64, ptr %5, align 8, !range !26, !noalias !6785, !noundef !8
@@ -78506,7 +78506,7 @@ switch.early.test.i:                              ; preds = %.critedge.i
 461:                                              ; preds = %.noexc
   %462 = load i64, ptr %107, align 8, !noalias !6785
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %460, i64 %462, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a3c7070530f84c5ad699604f23a6f35.159) #41
-          to label %.noexc31 unwind label %.thread255.i.loopexit.split-lp
+          to label %.noexc31 unwind label %.thread263.i.loopexit.split-lp
 
 .noexc31:                                         ; preds = %461
   unreachable
@@ -78528,7 +78528,7 @@ switch.early.test.i:                              ; preds = %.critedge.i
 469:                                              ; preds = %471
   %470 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread247.i
+  br label %.thread255.i
 
 471:                                              ; preds = %463
   invoke void @_ZN16ruff_diagnostics4edit4Edit9insertion17h1e10ed5a77aac3e9E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16, i32 noundef %468)
@@ -78537,7 +78537,7 @@ switch.early.test.i:                              ; preds = %.critedge.i
 472:                                              ; preds = %471
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !6715
   invoke void @_ZN16ruff_diagnostics3fix3Fix9safe_edit17h94622dd0bb33453aE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %17)
-          to label %473 unwind label %.thread255.i.loopexit, !noalias !6711
+          to label %473 unwind label %.thread263.i.loopexit, !noalias !6711
 
 473:                                              ; preds = %472
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !6715
@@ -78553,7 +78553,7 @@ switch.early.test.i:                              ; preds = %.critedge.i
   %478 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false), !noalias !6715
-  br label %.thread247.i
+  br label %.thread255.i
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$ruff_diagnostics..fix..Fix$GT$$GT$17h57712ce1f8bde5f4E.exit170.i": ; preds = %476, %473
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false), !noalias !6715
@@ -78595,10 +78595,10 @@ switch.early.test.i:                              ; preds = %.critedge.i
   %491 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #40
-          to label %.thread247.i unwind label %184, !noalias !6711
+          to label %.thread255.i unwind label %184, !noalias !6711
 
-.thread247.i:                                     ; preds = %.thread255.i.loopexit, %.thread255.i.loopexit.split-lp, %490, %477, %469
-  %.pn106250.i = phi { ptr, i32 } [ %470, %469 ], [ %491, %490 ], [ %478, %477 ], [ %lpad.loopexit113, %.thread255.i.loopexit ], [ %lpad.loopexit.split-lp114, %.thread255.i.loopexit.split-lp ]
+.thread255.i:                                     ; preds = %.thread263.i.loopexit, %.thread263.i.loopexit.split-lp, %490, %477, %469
+  %.pn106258.i = phi { ptr, i32 } [ %470, %469 ], [ %491, %490 ], [ %478, %477 ], [ %lpad.loopexit113, %.thread263.i.loopexit ], [ %lpad.loopexit.split-lp114, %.thread263.i.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_diagnostics..diagnostic..Diagnostic$GT$17h5e3a7e2da4203097E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %19) #40
           to label %common.resume unwind label %184, !noalias !6711
 
@@ -84868,7 +84868,7 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop17y
   %.val38 = load ptr, ptr %18, align 8
   %.val39 = load ptr, ptr %51, align 8, !nonnull !8, !align !87, !noundef !8
   invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$RF$ruff_python_ast..generated..ExprName$GT$$GT$17h785d17046c964ab4E"(ptr %.val38, ptr nonnull %.val39) #40
-          to label %.thread74 unwind label %138
+          to label %.thread81 unwind label %138
 
 55:                                               ; preds = %47
   %.val34 = load ptr, ptr %18, align 8
@@ -84887,13 +84887,13 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop17y
   %60 = invoke noundef nonnull align 8 ptr @_ZN11ruff_linter8checkers3ast7Checker7locator17he38338e7ddae9f3bE(ptr noundef nonnull align 8 %0)
           to label %62 unwind label %.thread
 
-61:                                               ; preds = %.thread52
-  br i1 %.sroa.05.357, label %.thread70, label %.thread74
+61:                                               ; preds = %.thread57
+  br i1 %.sroa.05.362, label %.thread78, label %.thread81
 
 .thread:                                          ; preds = %83, %81, %78, %76, %74, %70, %66, %62, %56, %103, %104
-  %lpad.thr_comm78 = landingpad { ptr, i32 }
+  %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %.thread70
+  br label %.thread78
 
 62:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -84958,8 +84958,8 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop17y
   store i64 %96, ptr %97, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %98 = load i32, ptr %64, align 8, !range !371, !noundef !8
-  %.not77 = icmp eq i32 %98, 29
-  br i1 %.not77, label %99, label %103
+  %.not84 = icmp eq i32 %98, 29
+  br i1 %.not84, label %99, label %103
 
 99:                                               ; preds = %94
   %100 = getelementptr inbounds nuw i8, ptr %64, i64 40
@@ -85014,22 +85014,22 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop17y
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %107 = load ptr, ptr %41, align 8, !nonnull !8, !align !87, !noundef !8
   %108 = invoke { ptr, ptr } @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop13collect_names17h75419f2c2019fdc1E(ptr noundef nonnull align 8 %107)
-          to label %111 unwind label %.thread59
+          to label %111 unwind label %.thread67
 
 109:                                              ; preds = %104
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !7347
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %106
 
-.thread59:                                        ; preds = %119, %118, %106
-  %lpad.thr_comm = landingpad { ptr, i32 }
+.thread67:                                        ; preds = %119, %118, %106
+  %lpad.thr_comm65 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread52
+  br label %.thread57
 
 110:                                              ; preds = %135
-  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp66 = landingpad { ptr, i32 }
           cleanup
-  br i1 %114, label %.thread52, label %.thread74
+  br i1 %114, label %.thread57, label %.thread81
 
 111:                                              ; preds = %106
   %112 = extractvalue { ptr, ptr } %108, 0
@@ -85045,7 +85045,7 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop17y
   %.val32 = load ptr, ptr %9, align 8
   %.val33 = load ptr, ptr %113, align 8, !nonnull !8, !align !87, !noundef !8
   invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$RF$ruff_python_ast..generated..ExprName$GT$$GT$17h785d17046c964ab4E"(ptr %.val32, ptr nonnull %.val33) #40
-          to label %.thread52 unwind label %138
+          to label %.thread57 unwind label %138
 
 117:                                              ; preds = %111
   %.val28 = load ptr, ptr %9, align 8
@@ -85054,11 +85054,11 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop17y
 
 118:                                              ; preds = %117
   invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$RF$ruff_python_ast..generated..ExprName$GT$$GT$17h785d17046c964ab4E"(ptr %.val28, ptr nonnull %.val29)
-          to label %120 unwind label %.thread59
+          to label %120 unwind label %.thread67
 
 119:                                              ; preds = %117
   invoke fastcc void @"_ZN4core3ptr156drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$$RF$ruff_python_ast..generated..ExprName$GT$$GT$17h785d17046c964ab4E"(ptr %.val28, ptr nonnull %.val29)
-          to label %140 unwind label %.thread59
+          to label %140 unwind label %.thread67
 
 120:                                              ; preds = %118
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -85071,7 +85071,7 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop17y
 122:                                              ; preds = %124
   %123 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread70
+  br label %.thread78
 
 124:                                              ; preds = %120
   %125 = extractvalue { i32, i32 } %121, 0
@@ -85082,12 +85082,12 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop17y
 127:                                              ; preds = %124
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @_ZN16ruff_diagnostics3fix3Fix11unsafe_edit17h68b27c78b1ba28f8E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
-          to label %128 unwind label %.thread63
+          to label %128 unwind label %.thread71
 
-.thread63:                                        ; preds = %127
-  %lpad.thr_comm.split-lp66 = landingpad { ptr, i32 }
+.thread71:                                        ; preds = %127
+  %lpad.thr_comm.split-lp6674 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread70
+  br label %.thread78
 
 128:                                              ; preds = %127
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -85104,7 +85104,7 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop17y
   %134 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
-  br label %.thread70
+  br label %.thread78
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$ruff_diagnostics..fix..Fix$GT$$GT$17h57712ce1f8bde5f4E.exit": ; preds = %128, %132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
@@ -85120,9 +85120,9 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop17y
   %137 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #40
-          to label %.thread70 unwind label %138
+          to label %.thread78 unwind label %138
 
-138:                                              ; preds = %53, %115, %.thread70, %.thread52, %136
+138:                                              ; preds = %53, %115, %.thread78, %.thread57, %136
   %139 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #42
@@ -85149,20 +85149,20 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules17yield_in_for_loop17y
 144:                                              ; preds = %55, %21, %26, %40, %35, %43, %32, %2, %142
   ret void
 
-.thread52:                                        ; preds = %115, %.thread59, %110
-  %.sroa.05.357 = phi i1 [ false, %110 ], [ true, %.thread59 ], [ true, %115 ]
-  %.pn56 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %110 ], [ %lpad.thr_comm, %.thread59 ], [ %116, %115 ]
+.thread57:                                        ; preds = %115, %.thread67, %110
+  %.sroa.05.362 = phi i1 [ false, %110 ], [ true, %.thread67 ], [ true, %115 ]
+  %.pn61 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp66, %110 ], [ %lpad.thr_comm65, %.thread67 ], [ %116, %115 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #40
           to label %61 unwind label %138
 
-.thread74:                                        ; preds = %110, %53, %.thread70, %61
-  %.pn21.pn = phi { ptr, i32 } [ %.pn2173, %.thread70 ], [ %.pn56, %61 ], [ %54, %53 ], [ %lpad.thr_comm.split-lp, %110 ]
+.thread81:                                        ; preds = %110, %53, %.thread78, %61
+  %.pn21.pn = phi { ptr, i32 } [ %.pn2149, %.thread78 ], [ %.pn61, %61 ], [ %54, %53 ], [ %lpad.thr_comm.split-lp66, %110 ]
   resume { ptr, i32 } %.pn21.pn
 
-.thread70:                                        ; preds = %.thread, %122, %136, %133, %.thread63, %61
-  %.pn2173 = phi { ptr, i32 } [ %.pn56, %61 ], [ %lpad.thr_comm.split-lp66, %.thread63 ], [ %123, %122 ], [ %137, %136 ], [ %134, %133 ], [ %lpad.thr_comm78, %.thread ]
+.thread78:                                        ; preds = %122, %136, %133, %.thread71, %.thread, %61
+  %.pn2149 = phi { ptr, i32 } [ %.pn61, %61 ], [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp6674, %.thread71 ], [ %123, %122 ], [ %137, %136 ], [ %134, %133 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_diagnostics..diagnostic..Diagnostic$GT$17h5e3a7e2da4203097E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %17) #40
-          to label %.thread74 unwind label %138
+          to label %.thread81 unwind label %138
 }
 
 ; Function Attrs: nonlazybind uwtable

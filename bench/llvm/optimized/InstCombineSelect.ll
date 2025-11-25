@@ -15300,8 +15300,8 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit:        ; preds = %27, %35
   br i1 %39, label %40, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CmpClass_matchINS0_7bind_tyIS2_EES5_NS_8ICmpInstELb0EEEEEbPT_RKT0_.exit.thread
 
 40:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit
-  %.sroa.0137.0.extract.trunc = trunc i64 %28 to i32
-  %41 = and i32 %.sroa.0137.0.extract.trunc, -5
+  %.sroa.0138.0.extract.trunc = trunc i64 %28 to i32
+  %41 = and i32 %.sroa.0138.0.extract.trunc, -5
   %42 = icmp eq i32 %41, 34
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -15323,7 +15323,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_11is_all_onesENS
   br i1 %44, label %.critedge, label %47
 
 47:                                               ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb1EEEEEbPT_RKT0_.exit, %40
-  switch i32 %.sroa.0137.0.extract.trunc, label %.critedge2 [
+  switch i32 %.sroa.0138.0.extract.trunc, label %.critedge2 [
     i32 40, label %48
     i32 36, label %48
   ]
@@ -15352,7 +15352,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11Con
   br label %52
 
 52:                                               ; preds = %.critedge, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11ConstantIntELb1EEEEEbPT_RKT0_.exit
-  %53 = call noundef i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %.sroa.0137.0.extract.trunc) #20
+  %53 = call noundef i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %.sroa.0138.0.extract.trunc) #20
   br label %54
 
 .critedge2:                                       ; preds = %47
@@ -15363,11 +15363,11 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11Con
 
 54:                                               ; preds = %.critedge2, %52, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11ConstantIntELb1EEEEEbPT_RKT0_.exit
   %.0149 = phi ptr [ %26, %52 ], [ %23, %.critedge2 ], [ %23, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11ConstantIntELb1EEEEEbPT_RKT0_.exit ]
-  %.0146 = phi ptr [ %23, %52 ], [ %26, %.critedge2 ], [ %26, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11ConstantIntELb1EEEEEbPT_RKT0_.exit ]
-  %.sroa.0137.0.off0 = phi i32 [ %53, %52 ], [ %extract.t165, %.critedge2 ], [ %extract.t166, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11ConstantIntELb1EEEEEbPT_RKT0_.exit ]
-  %55 = call noundef zeroext i1 @_ZN4llvm7CmpInst8isSignedENS0_9PredicateE(i32 noundef %.sroa.0137.0.off0) #20
+  %.0147 = phi ptr [ %23, %52 ], [ %26, %.critedge2 ], [ %26, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11ConstantIntELb1EEEEEbPT_RKT0_.exit ]
+  %.sroa.0138.0.off0 = phi i32 [ %53, %52 ], [ %extract.t165, %.critedge2 ], [ %extract.t166, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11ConstantIntELb1EEEEEbPT_RKT0_.exit ]
+  %55 = call noundef zeroext i1 @_ZN4llvm7CmpInst8isSignedENS0_9PredicateE(i32 noundef %.sroa.0138.0.off0) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  switch i32 %.sroa.0137.0.off0, label %.critedge4 [
+  switch i32 %.sroa.0138.0.off0, label %.critedge4 [
     i32 40, label %56
     i32 36, label %56
   ]
@@ -15405,7 +15405,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_11is_all_onesENS
   %69 = icmp eq ptr %68, %.0149
   %70 = getelementptr inbounds i8, ptr %64, i64 -32
   %71 = load ptr, ptr %70, align 8, !tbaa !14
-  %72 = icmp eq ptr %71, %.0146
+  %72 = icmp eq ptr %71, %.0147
   %or.cond = select i1 %69, i1 %72, i1 false
   br i1 %or.cond, label %73, label %._crit_edge.i.i.i
 
@@ -15415,7 +15415,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_11is_all_onesENS
 
 ._crit_edge.i.i.i:                                ; preds = %66
   %75 = icmp eq ptr %71, %.0149
-  %76 = icmp eq ptr %68, %.0146
+  %76 = icmp eq ptr %68, %.0147
   %or.cond.i.i.i = and i1 %75, %76
   br i1 %or.cond.i.i.i, label %77, label %.critedge4
 
@@ -15431,7 +15431,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14CmpClass_match
 
 80:                                               ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14CmpClass_matchINS0_14specificval_tyES5_NS_8ICmpInstELb1EEENS_8ZExtInstEEEEEbPT_RKT0_.exit
   %81 = call noundef i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %.sroa.0.0.extract.trunc) #20
-  %82 = icmp eq i32 %81, %.sroa.0137.0.off0
+  %82 = icmp eq i32 %81, %.sroa.0138.0.off0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %82, label %83, label %84
 
@@ -15448,7 +15448,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14CmpClass_match
 
 84:                                               ; preds = %.critedge4, %83, %80
   %.036 = phi i1 [ true, %83 ], [ false, %80 ], [ false, %.critedge4 ]
-  %85 = and i32 %.sroa.0137.0.off0, -5
+  %85 = and i32 %.sroa.0138.0.off0, -5
   %86 = icmp eq i32 %85, 34
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %86, label %87, label %117
@@ -15486,9 +15486,9 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11Con
   %100 = icmp eq ptr %99, %.0149
   %101 = getelementptr inbounds i8, ptr %95, i64 -32
   %102 = load ptr, ptr %101, align 8, !tbaa !14
-  %103 = icmp eq ptr %102, %.0146
-  %or.cond168 = select i1 %100, i1 %103, i1 false
-  br i1 %or.cond168, label %104, label %._crit_edge.i.i.i52
+  %103 = icmp eq ptr %102, %.0147
+  %or.cond167 = select i1 %100, i1 %103, i1 false
+  br i1 %or.cond167, label %104, label %._crit_edge.i.i.i52
 
 104:                                              ; preds = %97
   %105 = call i64 @_ZN4llvm12CmpPredicate3getEPKNS_7CmpInstE(ptr noundef nonnull %95) #20
@@ -15496,7 +15496,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11Con
 
 ._crit_edge.i.i.i52:                              ; preds = %97
   %106 = icmp eq ptr %102, %.0149
-  %107 = icmp eq ptr %99, %.0146
+  %107 = icmp eq ptr %99, %.0147
   %or.cond.i.i.i57 = and i1 %106, %107
   br i1 %or.cond.i.i.i57, label %108, label %.thread115
 
@@ -15506,13 +15506,13 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14cstval_pred_tyINS0_6is_oneENS_11Con
 
 _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14CmpClass_matchINS0_14specificval_tyES5_NS_8ICmpInstELb1EEENS_8SExtInstEEEEEbPT_RKT0_.exit: ; preds = %104, %108
   %.sink22.i.i.i60 = phi i64 [ %109, %108 ], [ %105, %104 ]
-  %.sroa.0.0.extract.trunc122 = trunc i64 %.sink22.i.i.i60 to i32
-  %110 = icmp eq i32 %.sroa.0.0.extract.trunc122, 33
+  %.sroa.0.0.extract.trunc123 = trunc i64 %.sink22.i.i.i60 to i32
+  %110 = icmp eq i32 %.sroa.0.0.extract.trunc123, 33
   br i1 %110, label %.critedge10, label %111
 
 111:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14CmpClass_matchINS0_14specificval_tyES5_NS_8ICmpInstELb1EEENS_8SExtInstEEEEEbPT_RKT0_.exit
-  %112 = call noundef i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %.sroa.0.0.extract.trunc122) #20
-  %113 = icmp eq i32 %112, %.sroa.0137.0.off0
+  %112 = call noundef i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %.sroa.0.0.extract.trunc123) #20
+  %113 = icmp eq i32 %112, %.sroa.0138.0.off0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %113, label %.thread.thread, label %.thread
 
@@ -15556,7 +15556,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14CmpClass_match
   store i8 0, ptr %118, align 4, !tbaa !239
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %119 = icmp eq i32 %.sroa.0137.0.off0, 32
+  %119 = icmp eq i32 %.sroa.0138.0.off0, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %119, label %120, label %.critedge12
 
@@ -15597,7 +15597,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit: ; preds = 
 
 129:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit.thread, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit
   %130 = ptrtoint ptr %.0149 to i64
-  %131 = ptrtoint ptr %.0146 to i64
+  %131 = ptrtoint ptr %.0147 to i64
   store ptr %8, ptr %11, align 8, !tbaa !380
   %.sroa.578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %130, ptr %.sroa.578.0..sroa_idx, align 8, !tbaa !45
@@ -15629,8 +15629,8 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit: ; preds = 
 
 141:                                              ; preds = %139, %135
   %142 = phi i32 [ %136, %135 ], [ %140, %139 ]
-  %.2151 = phi ptr [ %.0149, %135 ], [ %.0146, %139 ]
-  %.2148 = phi ptr [ %.0146, %135 ], [ %.0149, %139 ]
+  %.2151 = phi ptr [ %.0149, %135 ], [ %.0147, %139 ]
+  %.2 = phi ptr [ %.0147, %135 ], [ %.0149, %139 ]
   %143 = load ptr, ptr %9, align 8, !tbaa !275
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load i32, ptr %144, align 8, !tbaa !197
@@ -15656,8 +15656,8 @@ _ZNK4llvm5APInt5isOneEv.exit:                     ; preds = %141
 
 155:                                              ; preds = %147, %153, %_ZNK4llvm5APInt5isOneEv.exit
   %156 = phi ptr [ %143, %147 ], [ %154, %153 ], [ %143, %_ZNK4llvm5APInt5isOneEv.exit ]
-  %.3152 = phi ptr [ %.2151, %147 ], [ %.2148, %153 ], [ %.2151, %_ZNK4llvm5APInt5isOneEv.exit ]
-  %.3 = phi ptr [ %.2148, %147 ], [ %.2151, %153 ], [ %.2148, %_ZNK4llvm5APInt5isOneEv.exit ]
+  %.3152 = phi ptr [ %.2151, %147 ], [ %.2, %153 ], [ %.2151, %_ZNK4llvm5APInt5isOneEv.exit ]
+  %.3 = phi ptr [ %.2, %147 ], [ %.2151, %153 ], [ %.2, %_ZNK4llvm5APInt5isOneEv.exit ]
   %157 = and i32 %142, -5
   %158 = icmp eq i32 %157, 34
   br i1 %158, label %159, label %174
@@ -15695,13 +15695,13 @@ _ZNK4llvm5APInt5isOneEv.exit66:                   ; preds = %159
 
 174:                                              ; preds = %163, %155, %_ZNK4llvm5APInt5isOneEv.exit66, %169, %129
   %.1150 = phi ptr [ %.3152, %169 ], [ %.3152, %163 ], [ %.3152, %_ZNK4llvm5APInt5isOneEv.exit66 ], [ %.3152, %155 ], [ %.0149, %129 ]
-  %.1147 = phi ptr [ %.3, %169 ], [ %.3, %163 ], [ %.3, %_ZNK4llvm5APInt5isOneEv.exit66 ], [ %.3, %155 ], [ %.0146, %129 ]
+  %.1148 = phi ptr [ %.3, %169 ], [ %.3, %163 ], [ %.3, %_ZNK4llvm5APInt5isOneEv.exit66 ], [ %.3, %155 ], [ %.0147, %129 ]
   br i1 %.036, label %175, label %185
 
 175:                                              ; preds = %.thread.thread, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit.thread116, %.thread115, %.thread, %.critedge12, %.thread117, %174
-  %.4153 = phi ptr [ %.1150, %174 ], [ %.3152, %.thread117 ], [ %.0149, %.critedge12 ], [ %.0149, %.thread ], [ %.0149, %.thread115 ], [ %.0149, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit.thread116 ], [ %.0149, %.thread.thread ]
-  %.4 = phi ptr [ %.1147, %174 ], [ %.3, %.thread117 ], [ %.0146, %.critedge12 ], [ %.0146, %.thread ], [ %.0146, %.thread115 ], [ %.0146, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit.thread116 ], [ %.0146, %.thread.thread ]
-  %.035.in120 = phi i1 [ %55, %174 ], [ %173, %.thread117 ], [ %55, %.critedge12 ], [ %55, %.thread ], [ %55, %.thread115 ], [ %55, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit.thread116 ], [ %55, %.thread.thread ]
+  %.4153 = phi ptr [ %.0149, %.thread.thread ], [ %.0149, %.thread ], [ %.0149, %.thread115 ], [ %.0149, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit.thread116 ], [ %.3152, %.thread117 ], [ %.1150, %174 ], [ %.0149, %.critedge12 ]
+  %.4 = phi ptr [ %.0147, %.thread.thread ], [ %.0147, %.thread ], [ %.0147, %.thread115 ], [ %.0147, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit.thread116 ], [ %.3, %.thread117 ], [ %.1148, %174 ], [ %.0147, %.critedge12 ]
+  %.035.in120 = phi i1 [ %55, %.thread.thread ], [ %55, %.thread ], [ %55, %.thread115 ], [ %55, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7is_zeroEEEbPT_RKT0_.exit.thread116 ], [ %173, %.thread117 ], [ %55, %174 ], [ %55, %.critedge12 ]
   %176 = select i1 %.035.in120, i32 312, i32 360
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %178 = load ptr, ptr %177, align 8, !tbaa !56

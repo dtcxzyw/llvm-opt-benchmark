@@ -3188,24 +3188,24 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %.preheader336, label %24
+  br i1 %23, label %.preheader334, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.preheader336, label %28
+  br i1 %27, label %.preheader334, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.preheader336, label %.thread229
+  br i1 %31, label %.preheader334, label %.thread229
 
-.preheader336:                                    ; preds = %20, %24, %28
+.preheader334:                                    ; preds = %20, %24, %28
   br label %32
 
-32:                                               ; preds = %.preheader336, %32
+32:                                               ; preds = %.preheader334, %32
   %33 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.103, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1103) #6
   switch i32 %33, label %.thread229 [
     i32 0, label %32
@@ -3221,40 +3221,40 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.preheader312, label %.thread231
+  br i1 %37, label %.preheader310, label %.thread231
 
-.preheader312:                                    ; preds = %.thread229, %.preheader312
+.preheader310:                                    ; preds = %.thread229, %.preheader310
   %38 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.106, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1107) #6
   switch i32 %38, label %.thread231 [
-    i32 0, label %.preheader312
+    i32 0, label %.preheader310
     i32 1, label %39
   ]
 
-39:                                               ; preds = %.preheader312
+39:                                               ; preds = %.preheader310
   tail call void @llvm.debugtrap()
   br label %.thread231
 
-.thread231:                                       ; preds = %.preheader312, %39, %.thread229
-  %.1135 = phi i1 [ %.0134, %.thread229 ], [ true, %39 ], [ true, %.preheader312 ]
+.thread231:                                       ; preds = %.preheader310, %39, %.thread229
+  %.1135 = phi i1 [ %.0134, %.thread229 ], [ true, %39 ], [ true, %.preheader310 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 9
   %or.cond204.not = icmp eq i32 %42, 9
-  br i1 %or.cond204.not, label %.preheader311, label %.thread233
+  br i1 %or.cond204.not, label %.preheader309, label %.thread233
 
-.preheader311:                                    ; preds = %.thread231, %.preheader311
+.preheader309:                                    ; preds = %.thread231, %.preheader309
   %43 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.109, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1111) #6
   switch i32 %43, label %.thread233 [
-    i32 0, label %.preheader311
+    i32 0, label %.preheader309
     i32 1, label %44
   ]
 
-44:                                               ; preds = %.preheader311
+44:                                               ; preds = %.preheader309
   tail call void @llvm.debugtrap()
   br label %.thread233
 
-.thread233:                                       ; preds = %.preheader311, %44, %.thread231
-  %.2 = phi i1 [ %.1135, %.thread231 ], [ true, %44 ], [ true, %.preheader311 ]
+.thread233:                                       ; preds = %.preheader309, %44, %.thread231
+  %.2 = phi i1 [ %.1135, %.thread231 ], [ true, %44 ], [ true, %.preheader309 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %46 = load i32, ptr %45, align 4
   %.not187 = icmp eq i32 %46, 0
@@ -3264,21 +3264,21 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   %48 = load i32, ptr %40, align 4
   %49 = and i32 %48, 57
   %.not188 = icmp eq i32 %49, 0
-  br i1 %.not188, label %.thread235, label %.preheader310
+  br i1 %.not188, label %.thread235, label %.preheader308
 
-.preheader310:                                    ; preds = %47, %.preheader310
+.preheader308:                                    ; preds = %47, %.preheader308
   %50 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.112, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1119) #6
   switch i32 %50, label %.thread235 [
-    i32 0, label %.preheader310
+    i32 0, label %.preheader308
     i32 1, label %51
   ]
 
-51:                                               ; preds = %.preheader310
+51:                                               ; preds = %.preheader308
   tail call void @llvm.debugtrap()
   br label %.thread235
 
-.thread235:                                       ; preds = %.preheader310, %51, %47, %.thread233
-  %.3 = phi i1 [ %.2, %47 ], [ %.2, %.thread233 ], [ true, %51 ], [ true, %.preheader310 ]
+.thread235:                                       ; preds = %.preheader308, %51, %47, %.thread233
+  %.3 = phi i1 [ %.2, %47 ], [ %.2, %.thread233 ], [ true, %51 ], [ true, %.preheader308 ]
   %52 = load i32, ptr %15, align 4
   %.off.i = add i32 %52, -58
   %switch.i = icmp ult i32 %.off.i, 5
@@ -3288,21 +3288,21 @@ define hidden ptr @SDL_CreateGPUTexture_REAL(ptr noundef readonly captures(addre
   %54 = load i32, ptr %40, align 4
   %55 = and i32 %54, -6
   %.not189 = icmp eq i32 %55, 0
-  br i1 %.not189, label %thread-pre-split, label %.preheader309
+  br i1 %.not189, label %thread-pre-split, label %.preheader307
 
-.preheader309:                                    ; preds = %53, %.preheader309
+.preheader307:                                    ; preds = %53, %.preheader307
   %56 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.115, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1123) #6
   switch i32 %56, label %thread-pre-split [
-    i32 0, label %.preheader309
+    i32 0, label %.preheader307
     i32 1, label %57
   ]
 
-57:                                               ; preds = %.preheader309
+57:                                               ; preds = %.preheader307
   tail call void @llvm.debugtrap()
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %.preheader309, %57, %53
-  %.4.ph = phi i1 [ %.3, %53 ], [ true, %57 ], [ true, %.preheader309 ]
+thread-pre-split:                                 ; preds = %.preheader307, %57, %53
+  %.4.ph = phi i1 [ %.3, %53 ], [ true, %57 ], [ true, %.preheader307 ]
   %.pr = load i32, ptr %15, align 4
   br label %58
 
@@ -3328,21 +3328,21 @@ thread-pre-split:                                 ; preds = %.preheader309, %57,
   %61 = load i32, ptr %40, align 4
   %62 = and i32 %61, 1
   %.not190 = icmp eq i32 %62, 0
-  br i1 %.not190, label %IsIntegerFormat.exit, label %.preheader308
+  br i1 %.not190, label %IsIntegerFormat.exit, label %.preheader306
 
-.preheader308:                                    ; preds = %60, %.preheader308
+.preheader306:                                    ; preds = %60, %.preheader306
   %63 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.118, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1127) #6
   switch i32 %63, label %IsIntegerFormat.exit [
-    i32 0, label %.preheader308
+    i32 0, label %.preheader306
     i32 1, label %64
   ]
 
-64:                                               ; preds = %.preheader308
+64:                                               ; preds = %.preheader306
   tail call void @llvm.debugtrap()
   br label %IsIntegerFormat.exit
 
-IsIntegerFormat.exit:                             ; preds = %.preheader308, %64, %58, %60
-  %.5 = phi i1 [ %.4, %60 ], [ %.4, %58 ], [ true, %64 ], [ true, %.preheader308 ]
+IsIntegerFormat.exit:                             ; preds = %.preheader306, %64, %58, %60
+  %.5 = phi i1 [ %.4, %60 ], [ %.4, %58 ], [ true, %64 ], [ true, %.preheader306 ]
   %65 = load i32, ptr %1, align 4
   switch i32 %65, label %.thread274 [
     i32 3, label %66
@@ -3356,20 +3356,20 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = load i32, ptr %68, align 4
   %.not199 = icmp eq i32 %67, %69
-  br i1 %.not199, label %72, label %.preheader296
+  br i1 %.not199, label %72, label %.preheader294
 
-.preheader296:                                    ; preds = %66, %.preheader296
+.preheader294:                                    ; preds = %66, %.preheader294
   %70 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.121, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1134) #6
   switch i32 %70, label %.thread242 [
-    i32 0, label %.preheader296
+    i32 0, label %.preheader294
     i32 1, label %71
   ]
 
-71:                                               ; preds = %.preheader296
+71:                                               ; preds = %.preheader294
   tail call void @llvm.debugtrap()
   br label %.thread242
 
-.thread242:                                       ; preds = %.preheader296, %71
+.thread242:                                       ; preds = %.preheader294, %71
   %.pr244 = load i32, ptr %21, align 4
   br label %72
 
@@ -3377,17 +3377,17 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
   %73 = phi i32 [ %.pr244, %.thread242 ], [ %67, %66 ]
   %.6 = phi i1 [ true, %.thread242 ], [ %.5, %66 ]
   %74 = icmp ugt i32 %73, 16384
-  br i1 %74, label %.preheader331, label %75
+  br i1 %74, label %.preheader329, label %75
 
 75:                                               ; preds = %72
   %76 = load i32, ptr %68, align 4
   %77 = icmp ugt i32 %76, 16384
-  br i1 %77, label %.preheader331, label %.thread245
+  br i1 %77, label %.preheader329, label %.thread245
 
-.preheader331:                                    ; preds = %72, %75
+.preheader329:                                    ; preds = %72, %75
   br label %78
 
-78:                                               ; preds = %.preheader331, %78
+78:                                               ; preds = %.preheader329, %78
   %79 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.124, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1138) #6
   switch i32 %79, label %.thread245 [
     i32 0, label %78
@@ -3403,51 +3403,51 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %82 = load i32, ptr %81, align 4
   %.not200 = icmp eq i32 %82, 6
-  br i1 %.not200, label %.thread247, label %.preheader295
+  br i1 %.not200, label %.thread247, label %.preheader293
 
-.preheader295:                                    ; preds = %.thread245, %.preheader295
+.preheader293:                                    ; preds = %.thread245, %.preheader293
   %83 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.127, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1142) #6
   switch i32 %83, label %.thread247 [
-    i32 0, label %.preheader295
+    i32 0, label %.preheader293
     i32 1, label %84
   ]
 
-84:                                               ; preds = %.preheader295
+84:                                               ; preds = %.preheader293
   tail call void @llvm.debugtrap()
   br label %.thread247
 
-.thread247:                                       ; preds = %.preheader295, %84, %.thread245
-  %.8 = phi i1 [ %.7, %.thread245 ], [ true, %84 ], [ true, %.preheader295 ]
+.thread247:                                       ; preds = %.preheader293, %84, %.thread245
+  %.8 = phi i1 [ %.7, %.thread245 ], [ true, %84 ], [ true, %.preheader293 ]
   %85 = load i32, ptr %45, align 4
   %.not201 = icmp eq i32 %85, 0
-  br i1 %.not201, label %.thread249, label %.preheader294
+  br i1 %.not201, label %.thread249, label %.preheader292
 
-.preheader294:                                    ; preds = %.thread247, %.preheader294
+.preheader292:                                    ; preds = %.thread247, %.preheader292
   %86 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.130, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1146) #6
   switch i32 %86, label %.thread249 [
-    i32 0, label %.preheader294
+    i32 0, label %.preheader292
     i32 1, label %87
   ]
 
-87:                                               ; preds = %.preheader294
+87:                                               ; preds = %.preheader292
   tail call void @llvm.debugtrap()
   br label %.thread249
 
-.thread249:                                       ; preds = %.preheader294, %87, %.thread247
-  %.9 = phi i1 [ %.8, %.thread247 ], [ true, %87 ], [ true, %.preheader294 ]
+.thread249:                                       ; preds = %.preheader292, %87, %.thread247
+  %.9 = phi i1 [ %.8, %.thread247 ], [ true, %87 ], [ true, %.preheader292 ]
   %88 = load i32, ptr %15, align 4
   %89 = load i32, ptr %40, align 4
   %90 = tail call zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef nonnull %0, i32 noundef %88, i32 noundef 3, i32 noundef %89)
-  br i1 %90, label %182, label %.preheader292
+  br i1 %90, label %182, label %.preheader290
 
-.preheader292:                                    ; preds = %.thread249, %.preheader292
+.preheader290:                                    ; preds = %.thread249, %.preheader290
   %91 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.133, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1150) #6
   switch i32 %91, label %.thread285 [
-    i32 0, label %.preheader292
+    i32 0, label %.preheader290
     i32 1, label %92
   ]
 
-92:                                               ; preds = %.preheader292
+92:                                               ; preds = %.preheader290
   tail call void @llvm.debugtrap()
   br label %.thread285
 
@@ -3456,20 +3456,20 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %96 = load i32, ptr %95, align 4
   %.not196 = icmp eq i32 %94, %96
-  br i1 %.not196, label %99, label %.preheader301
+  br i1 %.not196, label %99, label %.preheader299
 
-.preheader301:                                    ; preds = %93, %.preheader301
+.preheader299:                                    ; preds = %93, %.preheader299
   %97 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.136, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1156) #6
   switch i32 %97, label %.thread253 [
-    i32 0, label %.preheader301
+    i32 0, label %.preheader299
     i32 1, label %98
   ]
 
-98:                                               ; preds = %.preheader301
+98:                                               ; preds = %.preheader299
   tail call void @llvm.debugtrap()
   br label %.thread253
 
-.thread253:                                       ; preds = %.preheader301, %98
+.thread253:                                       ; preds = %.preheader299, %98
   %.pr255 = load i32, ptr %21, align 4
   br label %99
 
@@ -3477,17 +3477,17 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
   %100 = phi i32 [ %.pr255, %.thread253 ], [ %94, %93 ]
   %.11 = phi i1 [ true, %.thread253 ], [ %.5, %93 ]
   %101 = icmp ugt i32 %100, 16384
-  br i1 %101, label %.preheader333, label %102
+  br i1 %101, label %.preheader331, label %102
 
 102:                                              ; preds = %99
   %103 = load i32, ptr %95, align 4
   %104 = icmp ugt i32 %103, 16384
-  br i1 %104, label %.preheader333, label %.thread256
+  br i1 %104, label %.preheader331, label %.thread256
 
-.preheader333:                                    ; preds = %99, %102
+.preheader331:                                    ; preds = %99, %102
   br label %105
 
-105:                                              ; preds = %.preheader333, %105
+105:                                              ; preds = %.preheader331, %105
   %106 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.139, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1160) #6
   switch i32 %106, label %.thread256 [
     i32 0, label %105
@@ -3504,75 +3504,75 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
   %109 = load i32, ptr %108, align 4
   %110 = urem i32 %109, 6
   %.not197 = icmp eq i32 %110, 0
-  br i1 %.not197, label %.thread258, label %.preheader300
+  br i1 %.not197, label %.thread258, label %.preheader298
 
-.preheader300:                                    ; preds = %.thread256, %.preheader300
+.preheader298:                                    ; preds = %.thread256, %.preheader298
   %111 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.142, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1164) #6
   switch i32 %111, label %.thread258 [
-    i32 0, label %.preheader300
+    i32 0, label %.preheader298
     i32 1, label %112
   ]
 
-112:                                              ; preds = %.preheader300
+112:                                              ; preds = %.preheader298
   tail call void @llvm.debugtrap()
   br label %.thread258
 
-.thread258:                                       ; preds = %.preheader300, %112, %.thread256
-  %.13 = phi i1 [ %.12, %.thread256 ], [ true, %112 ], [ true, %.preheader300 ]
+.thread258:                                       ; preds = %.preheader298, %112, %.thread256
+  %.13 = phi i1 [ %.12, %.thread256 ], [ true, %112 ], [ true, %.preheader298 ]
   %113 = load i32, ptr %45, align 4
   %.not198 = icmp eq i32 %113, 0
-  br i1 %.not198, label %.thread260, label %.preheader299
+  br i1 %.not198, label %.thread260, label %.preheader297
 
-.preheader299:                                    ; preds = %.thread258, %.preheader299
+.preheader297:                                    ; preds = %.thread258, %.preheader297
   %114 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.145, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1168) #6
   switch i32 %114, label %.thread260 [
-    i32 0, label %.preheader299
+    i32 0, label %.preheader297
     i32 1, label %115
   ]
 
-115:                                              ; preds = %.preheader299
+115:                                              ; preds = %.preheader297
   tail call void @llvm.debugtrap()
   br label %.thread260
 
-.thread260:                                       ; preds = %.preheader299, %115, %.thread258
-  %.14 = phi i1 [ %.13, %.thread258 ], [ true, %115 ], [ true, %.preheader299 ]
+.thread260:                                       ; preds = %.preheader297, %115, %.thread258
+  %.14 = phi i1 [ %.13, %.thread258 ], [ true, %115 ], [ true, %.preheader297 ]
   %116 = load i32, ptr %15, align 4
   %117 = load i32, ptr %40, align 4
   %118 = tail call zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef nonnull %0, i32 noundef %116, i32 noundef 4, i32 noundef %117)
-  br i1 %118, label %182, label %.preheader297
+  br i1 %118, label %182, label %.preheader295
 
-.preheader297:                                    ; preds = %.thread260, %.preheader297
+.preheader295:                                    ; preds = %.thread260, %.preheader295
   %119 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.148, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1172) #6
   switch i32 %119, label %.thread285 [
-    i32 0, label %.preheader297
+    i32 0, label %.preheader295
     i32 1, label %120
   ]
 
-120:                                              ; preds = %.preheader297
+120:                                              ; preds = %.preheader295
   tail call void @llvm.debugtrap()
   br label %.thread285
 
 121:                                              ; preds = %IsIntegerFormat.exit
   %122 = load i32, ptr %21, align 4
   %123 = icmp ugt i32 %122, 2048
-  br i1 %123, label %.preheader335, label %124
+  br i1 %123, label %.preheader333, label %124
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %126 = load i32, ptr %125, align 4
   %127 = icmp ugt i32 %126, 2048
-  br i1 %127, label %.preheader335, label %128
+  br i1 %127, label %.preheader333, label %128
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %130 = load i32, ptr %129, align 4
   %131 = icmp ugt i32 %130, 2048
-  br i1 %131, label %.preheader335, label %.thread264
+  br i1 %131, label %.preheader333, label %.thread264
 
-.preheader335:                                    ; preds = %121, %124, %128
+.preheader333:                                    ; preds = %121, %124, %128
   br label %132
 
-132:                                              ; preds = %.preheader335, %132
+132:                                              ; preds = %.preheader333, %132
   %133 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.151, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1178) #6
   switch i32 %133, label %.thread264 [
     i32 0, label %132
@@ -3588,51 +3588,51 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
   %135 = load i32, ptr %40, align 4
   %136 = and i32 %135, 4
   %.not194 = icmp eq i32 %136, 0
-  br i1 %.not194, label %.thread266, label %.preheader305
+  br i1 %.not194, label %.thread266, label %.preheader303
 
-.preheader305:                                    ; preds = %.thread264, %.preheader305
+.preheader303:                                    ; preds = %.thread264, %.preheader303
   %137 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.154, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1182) #6
   switch i32 %137, label %.thread266 [
-    i32 0, label %.preheader305
+    i32 0, label %.preheader303
     i32 1, label %138
   ]
 
-138:                                              ; preds = %.preheader305
+138:                                              ; preds = %.preheader303
   tail call void @llvm.debugtrap()
   br label %.thread266
 
-.thread266:                                       ; preds = %.preheader305, %138, %.thread264
-  %.16 = phi i1 [ %.15, %.thread264 ], [ true, %138 ], [ true, %.preheader305 ]
+.thread266:                                       ; preds = %.preheader303, %138, %.thread264
+  %.16 = phi i1 [ %.15, %.thread264 ], [ true, %138 ], [ true, %.preheader303 ]
   %139 = load i32, ptr %45, align 4
   %.not195 = icmp eq i32 %139, 0
-  br i1 %.not195, label %.thread268, label %.preheader304
+  br i1 %.not195, label %.thread268, label %.preheader302
 
-.preheader304:                                    ; preds = %.thread266, %.preheader304
+.preheader302:                                    ; preds = %.thread266, %.preheader302
   %140 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.157, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1186) #6
   switch i32 %140, label %.thread268 [
-    i32 0, label %.preheader304
+    i32 0, label %.preheader302
     i32 1, label %141
   ]
 
-141:                                              ; preds = %.preheader304
+141:                                              ; preds = %.preheader302
   tail call void @llvm.debugtrap()
   br label %.thread268
 
-.thread268:                                       ; preds = %.preheader304, %141, %.thread266
-  %.17 = phi i1 [ %.16, %.thread266 ], [ true, %141 ], [ true, %.preheader304 ]
+.thread268:                                       ; preds = %.preheader302, %141, %.thread266
+  %.17 = phi i1 [ %.16, %.thread266 ], [ true, %141 ], [ true, %.preheader302 ]
   %142 = load i32, ptr %15, align 4
   %143 = load i32, ptr %40, align 4
   %144 = tail call zeroext i1 @SDL_GPUTextureSupportsFormat_REAL(ptr noundef nonnull %0, i32 noundef %142, i32 noundef 2, i32 noundef %143)
-  br i1 %144, label %182, label %.preheader302
+  br i1 %144, label %182, label %.preheader300
 
-.preheader302:                                    ; preds = %.thread268, %.preheader302
+.preheader300:                                    ; preds = %.thread268, %.preheader300
   %145 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.160, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1190) #6
   switch i32 %145, label %.thread285 [
-    i32 0, label %.preheader302
+    i32 0, label %.preheader300
     i32 1, label %146
   ]
 
-146:                                              ; preds = %.preheader302
+146:                                              ; preds = %.preheader300
   tail call void @llvm.debugtrap()
   br label %.thread285
 
@@ -3640,38 +3640,38 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
   %148 = load i32, ptr %40, align 4
   %149 = and i32 %148, 4
   %.not191 = icmp eq i32 %149, 0
-  br i1 %.not191, label %.thread272, label %.preheader307
+  br i1 %.not191, label %.thread272, label %.preheader305
 
-.preheader307:                                    ; preds = %147, %.preheader307
+.preheader305:                                    ; preds = %147, %.preheader305
   %150 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.163, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1197) #6
   switch i32 %150, label %.thread272 [
-    i32 0, label %.preheader307
+    i32 0, label %.preheader305
     i32 1, label %151
   ]
 
-151:                                              ; preds = %.preheader307
+151:                                              ; preds = %.preheader305
   tail call void @llvm.debugtrap()
   br label %.thread272
 
-.thread272:                                       ; preds = %.preheader307, %151, %147
-  %.19 = phi i1 [ %.5, %147 ], [ true, %151 ], [ true, %.preheader307 ]
+.thread272:                                       ; preds = %.preheader305, %151, %147
+  %.19 = phi i1 [ %.5, %147 ], [ true, %151 ], [ true, %.preheader305 ]
   %152 = load i32, ptr %45, align 4
   %.not192 = icmp eq i32 %152, 0
-  br i1 %.not192, label %.thread278, label %.preheader306
+  br i1 %.not192, label %.thread278, label %.preheader304
 
-.preheader306:                                    ; preds = %.thread272, %.preheader306
+.preheader304:                                    ; preds = %.thread272, %.preheader304
   %153 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.166, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1201) #6
   switch i32 %153, label %.thread274 [
-    i32 0, label %.preheader306
+    i32 0, label %.preheader304
     i32 1, label %154
   ]
 
-154:                                              ; preds = %.preheader306
+154:                                              ; preds = %.preheader304
   tail call void @llvm.debugtrap()
   br label %.thread274
 
-.thread274:                                       ; preds = %.preheader306, %154, %IsIntegerFormat.exit
-  %.18.ph = phi i1 [ %.5, %IsIntegerFormat.exit ], [ true, %154 ], [ true, %.preheader306 ]
+.thread274:                                       ; preds = %.preheader304, %154, %IsIntegerFormat.exit
+  %.18.ph = phi i1 [ %.5, %IsIntegerFormat.exit ], [ true, %154 ], [ true, %.preheader304 ]
   %.pr277 = load i32, ptr %45, align 4
   %.not193 = icmp eq i32 %.pr277, 0
   br i1 %.not193, label %.thread278, label %155
@@ -3679,21 +3679,21 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
 155:                                              ; preds = %.thread274
   %156 = load i32, ptr %35, align 4
   %157 = icmp ugt i32 %156, 1
-  br i1 %157, label %.preheader291, label %.thread278
+  br i1 %157, label %.preheader289, label %.thread278
 
-.preheader291:                                    ; preds = %155, %.preheader291
+.preheader289:                                    ; preds = %155, %.preheader289
   %158 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.169, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1206) #6
   switch i32 %158, label %.thread278 [
-    i32 0, label %.preheader291
+    i32 0, label %.preheader289
     i32 1, label %159
   ]
 
-159:                                              ; preds = %.preheader291
+159:                                              ; preds = %.preheader289
   tail call void @llvm.debugtrap()
   br label %.thread278
 
-.thread278:                                       ; preds = %.preheader291, %159, %.thread272, %.thread274, %155
-  %.20 = phi i1 [ %.18.ph, %155 ], [ %.18.ph, %.thread274 ], [ %.19, %.thread272 ], [ true, %159 ], [ true, %.preheader291 ]
+.thread278:                                       ; preds = %.preheader289, %159, %.thread272, %.thread274, %155
+  %.20 = phi i1 [ %.18.ph, %155 ], [ %.18.ph, %.thread274 ], [ %.19, %.thread272 ], [ true, %159 ], [ true, %.preheader289 ]
   %160 = load i32, ptr %15, align 4
   %161 = load i32, ptr %40, align 4
   %162 = load i8, ptr %11, align 4, !range !5, !noundef !6
@@ -3705,14 +3705,14 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
 
 .preheader.i:                                     ; preds = %.thread278, %.preheader.i
   %165 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_GPUTextureSupportsFormat_REAL.sdl_assert_data, ptr noundef nonnull @__func__.SDL_GPUTextureSupportsFormat_REAL, ptr noundef nonnull @.str.8, i32 noundef 839) #6
-  switch i32 %165, label %.preheader289.preheader [
+  switch i32 %165, label %.preheader287.preheader [
     i32 0, label %.preheader.i
     i32 1, label %166
   ]
 
 166:                                              ; preds = %.preheader.i
   tail call void @llvm.debugtrap()
-  br label %.preheader289.preheader
+  br label %.preheader287.preheader
 
 167:                                              ; preds = %.thread278
   %168 = and i32 %161, 96
@@ -3724,7 +3724,7 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
   %171 = getelementptr inbounds nuw i8, ptr @TextureFormatIsComputeWritable, i64 %170
   %172 = load i8, ptr %171, align 1, !range !5, !noundef !6
   %173 = trunc nuw i8 %172 to i1
-  br i1 %173, label %174, label %.preheader289.preheader
+  br i1 %173, label %174, label %.preheader287.preheader
 
 174:                                              ; preds = %169, %167
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -3732,25 +3732,25 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %178 = load ptr, ptr %177, align 8
   %179 = tail call zeroext i1 %176(ptr noundef %178, i32 noundef %160, i32 noundef 0, i32 noundef %161) #6
-  br i1 %179, label %182, label %.preheader289.preheader
+  br i1 %179, label %182, label %.preheader287.preheader
 
-.preheader289.preheader:                          ; preds = %.preheader.i, %169, %166, %174
-  br label %.preheader289
+.preheader287.preheader:                          ; preds = %.preheader.i, %169, %166, %174
+  br label %.preheader287
 
-.preheader289:                                    ; preds = %.preheader289.preheader, %.preheader289
+.preheader287:                                    ; preds = %.preheader287.preheader, %.preheader287
   %180 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SDL_CreateGPUTexture_REAL.sdl_assert_data.172, ptr noundef nonnull @__func__.SDL_CreateGPUTexture_REAL, ptr noundef nonnull @.str.8, i32 noundef 1210) #6
   switch i32 %180, label %.thread285 [
-    i32 0, label %.preheader289
+    i32 0, label %.preheader287
     i32 1, label %181
   ]
 
-181:                                              ; preds = %.preheader289
+181:                                              ; preds = %.preheader287
   tail call void @llvm.debugtrap()
   br label %.thread285
 
 182:                                              ; preds = %.thread249, %.thread268, %.thread260, %174
-  %.10 = phi i1 [ %.9, %.thread249 ], [ %.14, %.thread260 ], [ %.17, %.thread268 ], [ %.20, %174 ]
-  br i1 %.10, label %.thread285, label %183
+  %.1137 = phi i1 [ %.9, %.thread249 ], [ %.14, %.thread260 ], [ %.17, %.thread268 ], [ %.20, %174 ]
+  br i1 %.1137, label %.thread285, label %183
 
 183:                                              ; preds = %182, %10
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3760,8 +3760,8 @@ IsIntegerFormat.exit:                             ; preds = %.preheader308, %64,
   %188 = tail call ptr %185(ptr noundef %187, ptr noundef nonnull %1) #6
   br label %.thread285
 
-.thread285:                                       ; preds = %.preheader302, %.preheader297, %.preheader292, %.preheader289, %.preheader, %181, %146, %120, %92, %19, %182, %183, %8, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %188, %183 ], [ null, %182 ], [ null, %19 ], [ null, %92 ], [ null, %120 ], [ null, %146 ], [ null, %181 ], [ null, %.preheader ], [ null, %.preheader289 ], [ null, %.preheader292 ], [ null, %.preheader297 ], [ null, %.preheader302 ]
+.thread285:                                       ; preds = %.preheader300, %.preheader295, %.preheader290, %.preheader287, %.preheader, %181, %146, %120, %92, %19, %182, %183, %8, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %8 ], [ %188, %183 ], [ null, %182 ], [ null, %19 ], [ null, %92 ], [ null, %120 ], [ null, %146 ], [ null, %181 ], [ null, %.preheader ], [ null, %.preheader287 ], [ null, %.preheader290 ], [ null, %.preheader295 ], [ null, %.preheader300 ]
   ret ptr %.0
 }
 

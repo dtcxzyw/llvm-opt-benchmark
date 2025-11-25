@@ -5276,7 +5276,7 @@ define range(i32 -1, 1) i32 @H5Aclose_async(ptr noundef %0, ptr noundef %1, i32 
   %41 = call i32 @H5E_clear_stack() #5
   %42 = call i32 @H5I_get_type(i64 noundef %3) #5
   %.not = icmp eq i32 %42, 7
-  br i1 %.not, label %47, label %43
+  br i1 %.not, label %47, label %43, !prof !28
 
 43:                                               ; preds = %40
   %44 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -5291,7 +5291,7 @@ define range(i32 -1, 1) i32 @H5Aclose_async(ptr noundef %0, ptr noundef %1, i32 
 48:                                               ; preds = %47
   %49 = call ptr @H5VL_vol_object(i64 noundef %3) #5
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %55
+  br i1 %50, label %51, label %55, !prof !14
 
 51:                                               ; preds = %48
   %52 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !11
@@ -5345,7 +5345,7 @@ define range(i32 -1, 1) i32 @H5Aclose_async(ptr noundef %0, ptr noundef %1, i32 
 77:                                               ; preds = %76
   %78 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.131) #5
   %79 = icmp slt i64 %78, 0
-  br i1 %79, label %.thread64, label %85
+  br i1 %79, label %.thread64, label %85, !prof !14
 
 .thread64:                                        ; preds = %77
   %80 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !11

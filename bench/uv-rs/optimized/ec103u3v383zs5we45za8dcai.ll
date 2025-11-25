@@ -2287,9 +2287,9 @@ _ZN7uv_auth11credentials11Credentials8is_empty17hc845bdf077f46d8dE.exit: ; preds
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %41 = load i64, ptr %40, align 8, !range !18, !alias.scope !359, !noundef !8
   %.not.i = icmp eq i64 %41, -9223372036854775808
-  br i1 %.not.i, label %45, label %.thread30
+  br i1 %.not.i, label %45, label %.thread36
 
-.thread30:                                        ; preds = %_ZN7uv_auth11credentials11Credentials8is_empty17hc845bdf077f46d8dE.exit
+.thread36:                                        ; preds = %_ZN7uv_auth11credentials11Credentials8is_empty17hc845bdf077f46d8dE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
   br label %44
@@ -2321,8 +2321,8 @@ _ZN7uv_auth11credentials11Credentials8is_empty17hc845bdf077f46d8dE.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !372
   br label %44
 
-44:                                               ; preds = %.thread30, %.noexc7
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %.noexc7 ], [ -9223372036854775808, %.thread30 ]
+44:                                               ; preds = %.thread36, %.noexc7
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %.noexc7 ], [ -9223372036854775808, %.thread36 ]
   store i64 %.sroa.0.0.i, ptr %30, align 8, !alias.scope !362, !noalias !373
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx2.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, i64 16, i1 false), !noalias !373
@@ -2469,8 +2469,8 @@ _ZN7uv_auth11credentials11Credentials8is_empty17hc845bdf077f46d8dE.exit: ; preds
   %.sroa.01.0.i.i = phi i8 [ %87, %.noexc13 ], [ 0, %.noexc12 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %90 = load atomic i8, ptr %89 monotonic, align 8, !noalias !396
-  %.not31 = icmp eq i8 %90, 0
-  br i1 %.not31, label %98, label %91
+  %.not37 = icmp eq i8 %90, 0
+  br i1 %.not37, label %98, label %91
 
 91:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !399
@@ -3142,11 +3142,11 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.llvm.853492669094159605.exit.i
           to label %39 unwind label %311
 
 "_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17hc8e58505f8a40c0bE.exit26": ; preds = %314, %318, %39
-  %.pn598 = phi { ptr, i32 } [ %.pn599, %314 ], [ %.pn599, %318 ], [ %.pn, %39 ]
-  resume { ptr, i32 } %.pn598
+  %.pn529 = phi { ptr, i32 } [ %.pn, %39 ], [ %.pn530, %318 ], [ %.pn530, %314 ]
+  resume { ptr, i32 } %.pn529
 
 314:                                              ; preds = %.thread, %39
-  %.pn599 = phi { ptr, i32 } [ %.pn, %39 ], [ %lpad.thr_comm, %.thread ]
+  %.pn530 = phi { ptr, i32 } [ %.pn, %39 ], [ %lpad.thr_comm, %.thread ]
   call void @llvm.experimental.noalias.scope.decl(metadata !537)
   call void @llvm.experimental.noalias.scope.decl(metadata !540)
   %315 = load ptr, ptr %31, align 8, !alias.scope !543, !nonnull !8, !noundef !8

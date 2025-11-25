@@ -2633,7 +2633,7 @@ _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.thread: ; preds = %.noexc1
 
 43:                                               ; preds = %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.thread
   %44 = icmp ne i32 %.1, 1
-  %or.cond = or i1 %44, %.17
+  %or.cond = or i1 %.17, %44
   %. = select i1 %or.cond, i16 150, i16 149
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)

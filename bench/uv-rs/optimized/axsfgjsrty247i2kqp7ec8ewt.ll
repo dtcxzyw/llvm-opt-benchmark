@@ -2082,8 +2082,8 @@ define void @_ZN6uv_git6source9GitSource5fetch17he3f12e8da30b1c13E(ptr dead_on_u
   store ptr %120, ptr %78, align 8
   store ptr %78, ptr %79, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
-  %.not422 = icmp eq i64 %110, 1
-  br i1 %.not422, label %.invoke, label %123
+  %.not424 = icmp eq i64 %110, 1
+  br i1 %.not424, label %.invoke, label %123
 
 .invoke:                                          ; preds = %122, %106
   invoke void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.fae81e3e06e21a8d79e528273cf38a51.32, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fae81e3e06e21a8d79e528273cf38a51.34) #24
@@ -2386,9 +2386,9 @@ _ZN3std4sync6poison4once4Once9call_once17h6a908dedfc867e87E.exit: ; preds = %.no
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %.pre = load i64, ptr %69, align 8, !range !39
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %.pre434 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre436 = load ptr, ptr %.phi.trans.insert, align 8
   %224 = icmp eq i64 %.pre, -9223372036854775808
-  %225 = select i1 %224, ptr %.pre434, ptr %69
+  %225 = select i1 %224, ptr %.pre436, ptr %69
   br label %226
 
 226:                                              ; preds = %231, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17h66c8dfbdebcce7ffE.exit261"
@@ -2397,7 +2397,7 @@ _ZN3std4sync6poison4once4Once9call_once17h6a908dedfc867e87E.exit: ; preds = %.no
   invoke void @"_ZN47_$LT$url..Url$u20$as$u20$core..clone..Clone$GT$5clone17hba347e7578c8a660E.llvm.9460548185435379796"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %65, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0133.0)
           to label %_ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit unwind label %234
 
-227:                                              ; preds = %718, %705, %602, %181, %709, %.body312.thread, %.body312.thread417, %707, %704, %700, %698, %.body, %430, %420, %411, %402, %393, %380, %330, %258, %.thread409, %233, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17h66c8dfbdebcce7ffE.exit", %155, %144, %134
+227:                                              ; preds = %718, %705, %602, %181, %709, %.body312.thread, %.body312.thread411, %707, %704, %700, %698, %.body, %430, %420, %411, %402, %393, %380, %330, %258, %.thread418, %233, %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17h66c8dfbdebcce7ffE.exit", %155, %144, %134
   %228 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #26
@@ -2413,9 +2413,9 @@ _ZN3std4sync6poison4once4Once9call_once17h6a908dedfc867e87E.exit: ; preds = %.no
   store i64 -9223372036854775808, ptr %69, align 8
   br label %226
 
-233:                                              ; preds = %.thread409, %234
-  %.sroa.0101.10 = phi i1 [ %.sroa.0101.9, %234 ], [ %.sroa.0101.12, %.thread409 ]
-  %.pn225 = phi { ptr, i32 } [ %235, %234 ], [ %.pn223, %.thread409 ]
+233:                                              ; preds = %.thread418, %234
+  %.sroa.0101.10 = phi i1 [ %.sroa.0101.9, %234 ], [ %.sroa.0101.12, %.thread418 ]
+  %.pn225 = phi { ptr, i32 } [ %235, %234 ], [ %.pn223, %.thread418 ]
   invoke fastcc void @"_ZN4core3ptr55drop_in_place$LT$alloc..borrow..Cow$LT$url..Url$GT$$GT$17hd1b6986664f94ba5E"(ptr noalias noundef align 8 dereferenceable(88) %69) #25
           to label %"_ZN4core3ptr78drop_in_place$LT$alloc..sync..Arc$LT$uv_auth..credentials..Credentials$GT$$GT$17h66c8dfbdebcce7ffE.exit" unwind label %227
 
@@ -2431,7 +2431,7 @@ _ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit: ; preds = %226
   invoke void @_ZN12uv_git_types6GitUrl7precise17h401529f0891ff2a7E(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %1)
           to label %238 unwind label %236
 
-.thread409:                                       ; preds = %258, %362, %698, %700, %704, %701, %380, %236
+.thread418:                                       ; preds = %258, %362, %698, %700, %704, %701, %380, %236
   %.sroa.0101.12 = phi i1 [ %.sroa.0101.11, %236 ], [ %.sroa.0101.14, %380 ], [ true, %704 ], [ true, %701 ], [ true, %700 ], [ true, %698 ], [ true, %362 ], [ true, %258 ]
   %.pn223 = phi { ptr, i32 } [ %237, %236 ], [ %.pn221, %380 ], [ %702, %704 ], [ %702, %701 ], [ %.pn.ph, %700 ], [ %699, %698 ], [ %363, %362 ], [ %259, %258 ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$uv_git..git..GitRemote$GT$17h3366bf452bfce856E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %65) #25
@@ -2441,7 +2441,7 @@ _ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit: ; preds = %226
   %.sroa.0101.11 = phi i1 [ true, %_ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit ], [ true, %238 ], [ true, %252 ], [ false, %490 ], [ false, %494 ], [ true, %621 ], [ true, %625 ]
   %237 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread409
+  br label %.thread418
 
 238:                                              ; preds = %_ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.524)
@@ -2511,7 +2511,7 @@ _ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit: ; preds = %226
   %259 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$uv_git..git..GitDatabase$GT$17h66dcd861eeb840ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59) #25
-          to label %.thread409 unwind label %227
+          to label %.thread418 unwind label %227
 
 260:                                              ; preds = %257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %255, i64 48, i1 false)
@@ -2841,7 +2841,7 @@ _ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit: ; preds = %226
 362:                                              ; preds = %364
   %363 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread409
+  br label %.thread418
 
 364:                                              ; preds = %"_ZN6uv_git6source9GitSource5fetch28_$u7b$$u7b$closure$u7d$$u7d$17h285e921b12f0e662E.exit"
   %365 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -2884,7 +2884,7 @@ _ZN6uv_git3git9GitRemote3new17h7dc652cae7a04b13E.exit: ; preds = %226
   %.sroa.0101.14 = phi i1 [ %.sroa.0101.13, %381 ], [ %.sroa.0101.15, %393 ]
   %.pn221 = phi { ptr, i32 } [ %382, %381 ], [ %.pn219, %393 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$uv_git..git..GitDatabase$GT$17h66dcd861eeb840ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %64) #25
-          to label %.thread409 unwind label %227
+          to label %.thread418 unwind label %227
 
 381:                                              ; preds = %617, %613, %486, %481, %292
   %.sroa.0101.13 = phi i1 [ true, %292 ], [ false, %481 ], [ false, %486 ], [ true, %613 ], [ true, %617 ]
@@ -3302,8 +3302,8 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
   %544 = trunc nuw i8 %.sroa.092.0 to i1
   %545 = load i64, ptr %83, align 8, !range !15
   %546 = icmp ne i64 %545, 2
-  %or.cond.not432 = select i1 %544, i1 %546, i1 false
-  br i1 %or.cond.not432, label %547, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit"
+  %or.cond.not434 = select i1 %544, i1 %546, i1 false
+  br i1 %or.cond.not434, label %547, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit"
 
 547:                                              ; preds = %543
   %548 = getelementptr inbounds nuw i8, ptr %83, i64 24
@@ -3312,7 +3312,7 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
 
 "_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hdd1d654b2232127cE.exit351": ; preds = %705, %88
   %549 = trunc nuw i8 %.sroa.095.2 to i1
-  br i1 %549, label %707, label %.body312
+  br i1 %549, label %707, label %584
 
 .thread401:                                       ; preds = %547, %679
   %.sroa.0101.18 = phi i1 [ false, %547 ], [ true, %679 ]
@@ -3385,7 +3385,7 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
   %573 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$tracing..span..Inner$GT$$GT$17heac52c71c401aad7E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %83) #25
-          to label %.body312.thread417 unwind label %582
+          to label %.body312.thread411 unwind label %582
 
 574:                                              ; preds = %569
   call void @llvm.experimental.noalias.scope.decl(metadata !657)
@@ -3407,7 +3407,7 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
 581:                                              ; preds = %576
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1993dadabce9275fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %577)
-          to label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit" unwind label %584
+          to label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit" unwind label %.body312
 
 582:                                              ; preds = %572
   %583 = landingpad { ptr, i32 }
@@ -3415,15 +3415,15 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #26
   unreachable
 
-.body312:                                         ; preds = %707, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hdd1d654b2232127cE.exit351"
+584:                                              ; preds = %707, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hdd1d654b2232127cE.exit351"
   %.sroa.0101.19 = phi i1 [ %.sroa.0101.2405, %707 ], [ %.sroa.0101.1, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hdd1d654b2232127cE.exit351" ]
   %.pn233.pn.pn = phi { ptr, i32 } [ %.pn233.pn406, %707 ], [ %.pn233, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hdd1d654b2232127cE.exit351" ]
-  br i1 %.sroa.0101.19, label %.body312.thread, label %.body312.thread417
+  br i1 %.sroa.0101.19, label %.body312.thread, label %.body312.thread411
 
-584:                                              ; preds = %581
+.body312:                                         ; preds = %581
   %585 = landingpad { ptr, i32 }
           cleanup
-  br label %.body312.thread417
+  br label %.body312.thread411
 
 586:                                              ; preds = %564
   %587 = landingpad { ptr, i32 }
@@ -3498,7 +3498,7 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
   ret void
 
 "_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$uv_git..source..Reporter$GT$$GT$$GT$17ha197914cdf5e5b13E.exit": ; preds = %715, %711, %718, %599, %595, %602
-  %.pn233.pn.pn.pn = phi { ptr, i32 } [ %.pn217, %602 ], [ %.pn217, %595 ], [ %.pn217, %599 ], [ %.pn233.pn.pn415, %718 ], [ %.pn233.pn.pn415, %711 ], [ %.pn233.pn.pn415, %715 ]
+  %.pn233.pn.pn.pn = phi { ptr, i32 } [ %.pn217, %602 ], [ %.pn217, %595 ], [ %.pn217, %599 ], [ %.pn233.pn.pn407, %718 ], [ %.pn233.pn.pn407, %711 ], [ %.pn233.pn.pn407, %715 ]
   resume { ptr, i32 } %.pn233.pn.pn.pn
 
 613:                                              ; preds = %.noexc286, %456
@@ -3665,25 +3665,25 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
   %676 = trunc nuw i8 %.sroa.092.0 to i1
   %677 = load i64, ptr %83, align 8, !range !15
   %678 = icmp ne i64 %677, 2
-  %or.cond430.not = select i1 %676, i1 %678, i1 false
-  br i1 %or.cond430.not, label %679, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit349"
+  %or.cond432.not = select i1 %676, i1 %678, i1 false
+  br i1 %or.cond432.not, label %679, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit349"
 
 679:                                              ; preds = %675
   %680 = getelementptr inbounds nuw i8, ptr %83, i64 24
   invoke void @_ZN12tracing_core10dispatcher8Dispatch4exit17he1f6490ad4574e44E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %680)
-          to label %.thread407 unwind label %.thread401
+          to label %.thread416 unwind label %.thread401
 
-"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit349": ; preds = %689, %687, %.thread407, %694, %675
+"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit349": ; preds = %689, %687, %.thread416, %694, %675
   call void @llvm.lifetime.end.p0(ptr nonnull %83)
   call void @"_ZN4core3ptr46drop_in_place$LT$uv_git..source..GitSource$GT$17h0084e565fc8189b2E"(ptr noalias noundef nonnull align 8 dereferenceable(264) %1)
   br label %"_ZN4core3ptr105drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$uv_git..source..Reporter$GT$$GT$$GT$17ha197914cdf5e5b13E.exit318"
 
-.thread407:                                       ; preds = %679
-  %.pr408 = load i64, ptr %83, align 8, !alias.scope !810
-  %681 = icmp eq i64 %.pr408, 2
+.thread416:                                       ; preds = %679
+  %.pr417 = load i64, ptr %83, align 8, !alias.scope !810
+  %681 = icmp eq i64 %.pr417, 2
   br i1 %681, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit349", label %682
 
-682:                                              ; preds = %.thread407
+682:                                              ; preds = %.thread416
   %683 = load i64, ptr %680, align 8, !range !16, !alias.scope !813, !noundef !3
   %684 = invoke noundef zeroext i1 @_ZN12tracing_core10dispatcher8Dispatch9try_close17h59862b2ce969229fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %83, i64 noundef %683)
           to label %687 unwind label %685
@@ -3699,7 +3699,7 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
   call void @llvm.experimental.noalias.scope.decl(metadata !819)
   call void @llvm.experimental.noalias.scope.decl(metadata !822)
   call void @llvm.experimental.noalias.scope.decl(metadata !825)
-  %688 = icmp eq i64 %.pr408, 0
+  %688 = icmp eq i64 %.pr417, 0
   br i1 %688, label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit349", label %689
 
 689:                                              ; preds = %687
@@ -3714,9 +3714,9 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
 694:                                              ; preds = %689
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1993dadabce9275fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %690)
-          to label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit349" unwind label %.thread471
+          to label %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E.exit349" unwind label %.body312.thread414
 
-.thread471:                                       ; preds = %694
+.body312.thread414:                               ; preds = %694
   %695 = landingpad { ptr, i32 }
           cleanup
   br label %.body312.thread
@@ -3731,23 +3731,23 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
   %699 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$uv_git..git..GitDatabase$GT$$GT$17h005b11409ea4344fE"(ptr noalias noundef align 8 dereferenceable(24) %44) #25
-          to label %.thread409 unwind label %227
+          to label %.thread418 unwind label %227
 
 700:                                              ; preds = %293, %330
   %.pn.ph = phi { ptr, i32 } [ %331, %330 ], [ %294, %293 ]
   invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$uv_git..git..GitDatabase$GT$$GT$17h005b11409ea4344fE"(ptr noalias noundef align 8 dereferenceable(24) %51) #25
-          to label %.thread409 unwind label %227
+          to label %.thread418 unwind label %227
 
 701:                                              ; preds = %254
   %702 = landingpad { ptr, i32 }
           cleanup
   %703 = load i64, ptr %249, align 8, !range !39, !noundef !3
-  %.not424 = icmp eq i64 %703, -9223372036854775808
-  br i1 %.not424, label %.thread409, label %704
+  %.not426 = icmp eq i64 %703, -9223372036854775808
+  br i1 %.not426, label %.thread418, label %704
 
 704:                                              ; preds = %701
   invoke void @"_ZN4core3ptr45drop_in_place$LT$uv_git..git..GitDatabase$GT$17h66dcd861eeb840ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %249) #25
-          to label %.thread409 unwind label %227
+          to label %.thread418 unwind label %227
 
 705:                                              ; preds = %88
   %706 = getelementptr inbounds nuw i8, ptr %83, i64 24
@@ -3758,20 +3758,20 @@ _ZN3std4path4Path4join17hd7191ba3578f741cE.exit277: ; preds = %_ZN3std4path4Path
   %.pn233.pn406 = phi { ptr, i32 } [ %550, %.thread401 ], [ %.pn233, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hdd1d654b2232127cE.exit351" ]
   %.sroa.0101.2405 = phi i1 [ %.sroa.0101.18, %.thread401 ], [ %.sroa.0101.1, %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17hdd1d654b2232127cE.exit351" ]
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h7c960b9fa853eb32E"(ptr noalias noundef align 8 dereferenceable(40) %83) #25
-          to label %.body312 unwind label %227
+          to label %584 unwind label %227
 
-.body312.thread417:                               ; preds = %584, %572, %.body312.thread, %.body312
-  %.pn233.pn.pn415 = phi { ptr, i32 } [ %.pn233.pn.pn416, %.body312.thread ], [ %.pn233.pn.pn, %.body312 ], [ %573, %572 ], [ %585, %584 ]
+.body312.thread411:                               ; preds = %572, %.body312, %.body312.thread, %584
+  %.pn233.pn.pn407 = phi { ptr, i32 } [ %585, %.body312 ], [ %.pn233.pn.pn408, %.body312.thread ], [ %.pn233.pn.pn, %584 ], [ %573, %572 ]
   %708 = getelementptr inbounds nuw i8, ptr %1, i64 200
   invoke void @"_ZN4core3ptr69drop_in_place$LT$reqwest_middleware..client..ClientWithMiddleware$GT$17h22359f3c1fb49cd0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %708) #25
           to label %709 unwind label %227
 
-.body312.thread:                                  ; preds = %.thread471, %685, %.body312
-  %.pn233.pn.pn416 = phi { ptr, i32 } [ %.pn233.pn.pn, %.body312 ], [ %686, %685 ], [ %695, %.thread471 ]
+.body312.thread:                                  ; preds = %685, %.body312.thread414, %584
+  %.pn233.pn.pn408 = phi { ptr, i32 } [ %.pn233.pn.pn, %584 ], [ %695, %.body312.thread414 ], [ %686, %685 ]
   invoke void @"_ZN4core3ptr41drop_in_place$LT$uv_git_types..GitUrl$GT$17ha3e6d52ab71a1f30E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %1) #25
-          to label %.body312.thread417 unwind label %227
+          to label %.body312.thread411 unwind label %227
 
-709:                                              ; preds = %.body312.thread417
+709:                                              ; preds = %.body312.thread411
   %710 = getelementptr inbounds nuw i8, ptr %1, i64 176
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcbecd46c8bda1e3eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %710) #25
           to label %711 unwind label %227

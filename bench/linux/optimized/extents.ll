@@ -10472,7 +10472,7 @@ define dso_local i32 @ext4_ext_replay_update_ex(ptr noundef %0, i32 noundef %1, 
   %26 = icmp ult i16 %24, -32767
   %27 = add nsw i32 %25, -32768
   %28 = select i1 %26, i32 %25, i32 %27
-  %29 = icmp eq i32 %2, %28
+  %29 = icmp eq i32 %28, %2
   br i1 %29, label %83, label %30
 
 30:                                               ; preds = %22, %19
@@ -10524,7 +10524,7 @@ define dso_local i32 @ext4_ext_replay_update_ex(ptr noundef %0, i32 noundef %1, 
   %58 = icmp ult i16 %56, -32767
   %59 = add nsw i32 %57, -32768
   %60 = select i1 %58, i32 %57, i32 %59
-  %61 = icmp eq i32 %2, %60
+  %61 = icmp eq i32 %60, %2
   br i1 %61, label %83, label %62
 
 62:                                               ; preds = %54

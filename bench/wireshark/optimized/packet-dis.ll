@@ -6067,7 +6067,7 @@ define internal i32 @dissect_dis(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr null, ptr %6, align 8
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = icmp ult i32 %7, 12
-  br i1 %8, label %653, label %9
+  br i1 %8, label %654, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6743,12 +6743,12 @@ parseDISHeader.exit:                              ; preds = %56, %parsePDUStatus
   %554 = call ptr @proto_item_add_subtree(ptr noundef %552, i32 noundef %553)
   %555 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 56)
   %556 = zext i16 %555 to i32
-  %557 = lshr i32 %556, 1
-  %558 = and i32 %557, 2047
+  %557 = lshr i16 %555, 1
+  %558 = and i16 %557, 2047
   %559 = and i32 %556, 1
   %.not.i = icmp eq i32 %559, 0
-  %560 = sub nsw i32 0, %558
-  %561 = select i1 %.not.i, i32 %558, i32 %560
+  %560 = sub nsw i16 0, %558
+  %561 = select i1 %.not.i, i16 %558, i16 %560
   %562 = load i32, ptr @hf_dis_iff_mode_c_altitude_indicator, align 4
   %563 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %562, ptr noundef %0, i32 noundef 56, i32 noundef 2, i32 noundef 0)
   %564 = load i32, ptr @hf_dis_iff_mode_c_altitude, align 4
@@ -6857,72 +6857,73 @@ parseDISHeader.exit:                              ; preds = %56, %parsePDUStatus
   br label %632
 
 632:                                              ; preds = %629, %628, %623
-  %.not440.i = icmp eq i32 %558, 0
+  %.not440.i = icmp eq i16 %561, 0
   %633 = and i32 %556, 8192
   %.not441.i = icmp eq i32 %633, 0
   %or.cond.i = select i1 %.not440.i, i1 %.not441.i, i1 false
-  br i1 %or.cond.i, label %636, label %634
+  br i1 %or.cond.i, label %637, label %634
 
 634:                                              ; preds = %632
-  %635 = load ptr, ptr %10, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %635, i32 noundef 25, ptr noundef nonnull @.str.5289, i32 noundef %561)
-  br label %636
+  %635 = sext i16 %561 to i32
+  %636 = load ptr, ptr %10, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %636, i32 noundef 25, ptr noundef nonnull @.str.5289, i32 noundef %635)
+  br label %637
 
-636:                                              ; preds = %634, %632
+637:                                              ; preds = %634, %632
   %.not442.i = icmp eq i16 %572, 0
-  br i1 %.not442.i, label %parse_persistent_pdu_payload.exit.thread, label %637
+  br i1 %.not442.i, label %parse_persistent_pdu_payload.exit.thread, label %638
 
-637:                                              ; preds = %636
-  %638 = icmp eq i16 %574, 0
-  br i1 %638, label %639, label %645
+638:                                              ; preds = %637
+  %639 = icmp eq i16 %574, 0
+  br i1 %639, label %640, label %646
 
-639:                                              ; preds = %637
-  %640 = and i16 %578, 4096
-  %641 = icmp eq i16 %640, 0
-  %642 = load ptr, ptr %10, align 8
-  br i1 %641, label %643, label %644
+640:                                              ; preds = %638
+  %641 = and i16 %578, 4096
+  %642 = icmp eq i16 %641, 0
+  %643 = load ptr, ptr %10, align 8
+  br i1 %642, label %644, label %645
 
-643:                                              ; preds = %639
-  call void @col_append_str(ptr noundef %642, i32 noundef 25, ptr noundef nonnull @.str.5290)
+644:                                              ; preds = %640
+  call void @col_append_str(ptr noundef %643, i32 noundef 25, ptr noundef nonnull @.str.5290)
   br label %parse_persistent_pdu_payload.exit.thread
 
-644:                                              ; preds = %639
-  call void @col_append_str(ptr noundef %642, i32 noundef 25, ptr noundef nonnull @.str.5291)
+645:                                              ; preds = %640
+  call void @col_append_str(ptr noundef %643, i32 noundef 25, ptr noundef nonnull @.str.5291)
   br label %parse_persistent_pdu_payload.exit.thread
 
-645:                                              ; preds = %637
+646:                                              ; preds = %638
   switch i16 %577, label %parse_persistent_pdu_payload.exit.thread [
-    i16 1, label %646
-    i16 2, label %648
+    i16 1, label %647
+    i16 2, label %649
   ]
 
-646:                                              ; preds = %645
-  %647 = load ptr, ptr %10, align 8
-  call void @col_append_str(ptr noundef %647, i32 noundef 25, ptr noundef nonnull @.str.5292)
+647:                                              ; preds = %646
+  %648 = load ptr, ptr %10, align 8
+  call void @col_append_str(ptr noundef %648, i32 noundef 25, ptr noundef nonnull @.str.5292)
   br label %parse_persistent_pdu_payload.exit.thread
 
-648:                                              ; preds = %645
-  %649 = load ptr, ptr %10, align 8
-  call void @col_append_str(ptr noundef %649, i32 noundef 25, ptr noundef nonnull @.str.5293)
+649:                                              ; preds = %646
+  %650 = load ptr, ptr %10, align 8
+  call void @col_append_str(ptr noundef %650, i32 noundef 25, ptr noundef nonnull @.str.5293)
   br label %parse_persistent_pdu_payload.exit.thread
 
 parse_persistent_pdu_payload.exit:                ; preds = %293
-  %650 = call fastcc i32 @parse_pdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %296, i8 noundef zeroext %26)
-  %.not = icmp eq i32 %650, 12
+  %651 = call fastcc i32 @parse_pdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %296, i8 noundef zeroext %26)
+  %.not = icmp eq i32 %651, 12
   br i1 %.not, label %parse_persistent_pdu_payload.exit.thread63, label %parse_persistent_pdu_payload.exit.thread
 
-parse_persistent_pdu_payload.exit.thread:         ; preds = %648, %646, %645, %644, %643, %636, %274, %255, %246, %223, %206, %175, %144, %parse_persistent_pdu_payload.exit
-  %.05262 = phi i32 [ %650, %parse_persistent_pdu_payload.exit ], [ 60, %648 ], [ 60, %646 ], [ 60, %645 ], [ 60, %644 ], [ 60, %643 ], [ 60, %636 ], [ 32, %274 ], [ 38, %255 ], [ 25, %246 ], [ 35, %223 ], [ 31, %206 ], [ 44, %175 ], [ 118, %144 ]
-  %651 = load ptr, ptr %6, align 8
-  call void @proto_item_set_end(ptr noundef %651, ptr noundef %0, i32 noundef %.05262)
+parse_persistent_pdu_payload.exit.thread:         ; preds = %649, %647, %646, %645, %644, %637, %274, %255, %246, %223, %206, %175, %144, %parse_persistent_pdu_payload.exit
+  %.05262 = phi i32 [ %651, %parse_persistent_pdu_payload.exit ], [ 60, %649 ], [ 60, %647 ], [ 60, %646 ], [ 60, %645 ], [ 60, %644 ], [ 60, %637 ], [ 32, %274 ], [ 38, %255 ], [ 25, %246 ], [ 35, %223 ], [ 31, %206 ], [ 44, %175 ], [ 118, %144 ]
+  %652 = load ptr, ptr %6, align 8
+  call void @proto_item_set_end(ptr noundef %652, ptr noundef %0, i32 noundef %.05262)
   br label %parse_persistent_pdu_payload.exit.thread63
 
 parse_persistent_pdu_payload.exit.thread63:       ; preds = %123, %parse_persistent_pdu_payload.exit.thread, %parse_persistent_pdu_payload.exit
-  %652 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %653
+  %653 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %654
 
-653:                                              ; preds = %4, %parse_persistent_pdu_payload.exit.thread63
-  %.0 = phi i32 [ %652, %parse_persistent_pdu_payload.exit.thread63 ], [ 0, %4 ]
+654:                                              ; preds = %4, %parse_persistent_pdu_payload.exit.thread63
+  %.0 = phi i32 [ %653, %parse_persistent_pdu_payload.exit.thread63 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

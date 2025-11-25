@@ -3295,7 +3295,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   %.31406 = phi ptr [ %.5140818021810, %.thread1804 ], [ %.11404, %705 ], [ %.11404, %.loopexit ]
   %.31397 = phi ptr [ %.5139918031809, %.thread1804 ], [ %.11395, %705 ], [ %.11395, %.loopexit ]
   %1616 = icmp eq ptr %.31397, null
-  %or.cond81 = or i1 %1616, %.11435
+  %or.cond81 = or i1 %.11435, %1616
   br i1 %or.cond81, label %1642, label %1617
 
 1617:                                             ; preds = %1615
@@ -3724,9 +3724,9 @@ define internal fastcc noundef ptr @calc_checksum(ptr noundef readonly captures(
   %59 = uitofp i32 %54 to double
   %60 = fdiv double %58, %59
   %61 = fcmp ogt double %60, 0x3FE0000010000000
-  br i1 %61, label %.thread, label %68
+  br i1 %61, label %.critedge, label %68
 
-.thread:                                          ; preds = %55
+.critedge:                                        ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @__const.calc_checksum.str.4, i64 7, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -3752,7 +3752,7 @@ define internal fastcc noundef ptr @calc_checksum(ptr noundef readonly captures(
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %73
 
-73:                                               ; preds = %.thread, %69, %68
+73:                                               ; preds = %.critedge, %69, %68
   ret ptr %1
 }
 

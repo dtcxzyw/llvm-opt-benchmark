@@ -17035,17 +17035,17 @@ bigfixize.exit._crit_edge:                        ; preds = %bigfixize.exit
   %.phi.trans.insert = inttoptr i64 %.022.i to ptr
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !11
   %.pre66 = and i64 %.pre, 8192
-  br label %129
+  br label %128
 
 bigfixize.exit.thread:                            ; preds = %21, %BIGNUM_DIGITS.exit.i, %bigfixize.exit
   %.022.i45 = phi i64 [ %.022.i, %bigfixize.exit ], [ 1, %BIGNUM_DIGITS.exit.i ], [ 1, %21 ]
   %44 = icmp slt i64 %.022.i45, %1
-  br i1 %44, label %131, label %45
+  br i1 %44, label %130, label %45
 
 45:                                               ; preds = %bigfixize.exit.thread
   %46 = icmp sgt i64 %.022.i45, %1
   %47 = select i1 %46, i64 3, i64 1
-  br label %131
+  br label %130
 
 48:                                               ; preds = %2
   %49 = icmp eq i64 %1, 0
@@ -17071,7 +17071,7 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %48
   %61 = and i64 %54, 8192
   %62 = icmp ne i64 %61, 0
   %63 = xor i1 %60, %62
-  br i1 %63, label %129, label %64
+  br i1 %63, label %128, label %64
 
 64:                                               ; preds = %56
   %65 = and i64 %58, 16384
@@ -17195,39 +17195,38 @@ BIGNUM_LEN.exit38:                                ; preds = %76, %81
   %117 = getelementptr i32, ptr %116, i64 %112
   %118 = load i32, ptr %117, align 4, !tbaa !18
   %119 = icmp ult i32 %115, %118
-  %120 = select i1 %119, i32 -1, i32 1
+  %120 = select i1 %119, i64 -1, i64 1
   br label %bary_cmp.exit
 
 bary_cmp.exit:                                    ; preds = %108, %.critedge2.i, %98, %._crit_edge.i41, %111
-  %.032.i = phi i32 [ %120, %111 ], [ -1, %.critedge2.i ], [ 1, %98 ], [ 0, %._crit_edge.i41 ], [ 0, %108 ]
-  %121 = sub nsw i32 0, %.032.i
-  %122 = select i1 %60, i32 %.032.i, i32 %121
-  %123 = sext i32 %122 to i64
-  %124 = shl nsw i64 %123, 1
-  %125 = or disjoint i64 %124, 1
-  br label %131
+  %.032.i = phi i64 [ %120, %111 ], [ -1, %.critedge2.i ], [ 1, %98 ], [ 0, %._crit_edge.i41 ], [ 0, %108 ]
+  %121 = sub nsw i64 0, %.032.i
+  %122 = select i1 %60, i64 %.032.i, i64 %121
+  %123 = shl nsw i64 %122, 1
+  %124 = or disjoint i64 %123, 1
+  br label %130
 
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %48
-  %126 = and i64 %1, 2
-  %.not57 = icmp eq i64 %126, 0
+  %125 = and i64 %1, 2
+  %.not57 = icmp eq i64 %125, 0
   br i1 %.not57, label %RB_FLOAT_TYPE_P.exit.thread55, label %RB_FLOAT_TYPE_P.exit.thread
 
 RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %127 = tail call i64 @rb_integer_float_cmp(i64 noundef %0, i64 noundef %1)
-  br label %131
+  %126 = tail call i64 @rb_integer_float_cmp(i64 noundef %0, i64 noundef %1)
+  br label %130
 
 RB_FLOAT_TYPE_P.exit.thread55:                    ; preds = %rbimpl_RB_TYPE_P_fastpath.exit, %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %128 = tail call i64 @rb_num_coerce_cmp(i64 noundef %0, i64 noundef %1, i64 noundef 135) #28
-  br label %131
+  %127 = tail call i64 @rb_num_coerce_cmp(i64 noundef %0, i64 noundef %1, i64 noundef 135) #28
+  br label %130
 
-129:                                              ; preds = %bigfixize.exit._crit_edge, %56
+128:                                              ; preds = %bigfixize.exit._crit_edge, %56
   %.pre-phi67 = phi i64 [ %.pre66, %bigfixize.exit._crit_edge ], [ %59, %56 ]
   %.not59 = icmp eq i64 %.pre-phi67, 0
-  %130 = select i1 %.not59, i64 -1, i64 3
-  br label %131
+  %129 = select i1 %.not59, i64 -1, i64 3
+  br label %130
 
-131:                                              ; preds = %45, %bigfixize.exit.thread, %129, %RB_FLOAT_TYPE_P.exit.thread55, %RB_FLOAT_TYPE_P.exit.thread, %bary_cmp.exit
-  %.1 = phi i64 [ %130, %129 ], [ %125, %bary_cmp.exit ], [ %127, %RB_FLOAT_TYPE_P.exit.thread ], [ %128, %RB_FLOAT_TYPE_P.exit.thread55 ], [ %47, %45 ], [ -1, %bigfixize.exit.thread ]
+130:                                              ; preds = %45, %bigfixize.exit.thread, %128, %RB_FLOAT_TYPE_P.exit.thread55, %RB_FLOAT_TYPE_P.exit.thread, %bary_cmp.exit
+  %.1 = phi i64 [ %129, %128 ], [ %124, %bary_cmp.exit ], [ %126, %RB_FLOAT_TYPE_P.exit.thread ], [ %127, %RB_FLOAT_TYPE_P.exit.thread55 ], [ %47, %45 ], [ -1, %bigfixize.exit.thread ]
   ret i64 %.1
 }
 

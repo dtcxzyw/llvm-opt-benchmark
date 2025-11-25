@@ -15230,8 +15230,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit61:                ; preds = %132
   call void %189(ptr noundef nonnull align 8 dereferenceable(296) %169, i8 %173, i64 noundef %184, i32 noundef %2, i32 noundef %186) #29
   br label %"_ZZN12_GLOBAL__N_19AsmParser19parseDirectiveAlignEbjENK3$_0clEv.exit.thread"
 
-"_ZZN12_GLOBAL__N_19AsmParser19parseDirectiveAlignEbjENK3$_0clEv.exit.thread": ; preds = %174, %183, %61, %63, %52, %54, %42, %"_ZZN12_GLOBAL__N_19AsmParser19parseDirectiveAlignEbjENK3$_0clEv.exit", %3, %34
-  %.0 = phi i1 [ %41, %34 ], [ true, %3 ], [ true, %"_ZZN12_GLOBAL__N_19AsmParser19parseDirectiveAlignEbjENK3$_0clEv.exit" ], [ true, %42 ], [ true, %54 ], [ true, %52 ], [ true, %63 ], [ true, %61 ], [ %.5, %183 ], [ %.5, %174 ]
+"_ZZN12_GLOBAL__N_19AsmParser19parseDirectiveAlignEbjENK3$_0clEv.exit.thread": ; preds = %61, %63, %52, %54, %42, %174, %183, %"_ZZN12_GLOBAL__N_19AsmParser19parseDirectiveAlignEbjENK3$_0clEv.exit", %3, %34
+  %.0 = phi i1 [ %41, %34 ], [ true, %3 ], [ true, %"_ZZN12_GLOBAL__N_19AsmParser19parseDirectiveAlignEbjENK3$_0clEv.exit" ], [ %.5, %183 ], [ %.5, %174 ], [ true, %42 ], [ true, %54 ], [ true, %52 ], [ true, %63 ], [ true, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -4982,9 +4982,9 @@ _ZN4gpui6styled6Styled4py_217h0f226ccd80c7236aE.exit.i.i: ; preds = %355
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !1206
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !1226
   invoke void @"_ZN78_$LT$gpui..window..ElementId$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17hdb85de5e8abe9fccE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %35, ptr noalias noundef nonnull readonly align 1 @anon.8a6104581e0d5fbaba64bd06a4c06e91.34, i64 noundef 10)
-          to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hd58472e6c2f225c4E.exit.i.i.i" unwind label %.thread.i.i.i, !noalias !1228
+          to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hd58472e6c2f225c4E.exit.i.i.i" unwind label %.thread18.i.i.i, !noalias !1228
 
-.thread.i.i.i:                                    ; preds = %.noexc24.i
+.thread18.i.i.i:                                  ; preds = %.noexc24.i
   %363 = landingpad { ptr, i32 }
           cleanup
   br label %476
@@ -5437,8 +5437,8 @@ _ZN4gpui6styled6Styled4py_217h0f226ccd80c7236aE.exit.i.i: ; preds = %355
 475:                                              ; preds = %474
   br i1 %.sroa.04.2.ph.i.i.i, label %476, label %.body20.thread.i
 
-476:                                              ; preds = %475, %.thread.i.i.i
-  %.pn1120.i.i.i = phi { ptr, i32 } [ %.pn.pn.pn.ph.i.i.i, %475 ], [ %363, %.thread.i.i.i ]
+476:                                              ; preds = %475, %.thread18.i.i.i
+  %.pn1117.i.i.i = phi { ptr, i32 } [ %.pn.pn.pn.ph.i.i.i, %475 ], [ %363, %.thread18.i.i.i ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$vcs_menu..BranchListDelegate$GT$$GT$$GT$17h525b15e821ba726eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %42) #34
           to label %.body20.thread.i unwind label %471, !noalias !1234
 
@@ -5560,7 +5560,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h401f2058ed684fa5E.exit.i.i: ; preds = %_Z
   br i1 %505, label %510, label %588
 
 .body20.thread.i:                                 ; preds = %.body20.thread52.i, %484, %477, %476, %475, %473, %468, %346, %339
-  %eh.lpad-body2150.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body20.thread52.i ], [ %469, %468 ], [ %.pn.i.i.i, %473 ], [ %.pn.pn.pn.ph.i.i.i, %475 ], [ %.pn1120.i.i.i, %476 ], [ %485, %484 ], [ %478, %477 ], [ %347, %346 ], [ %340, %339 ]
+  %eh.lpad-body2150.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %.body20.thread52.i ], [ %469, %468 ], [ %.pn.i.i.i, %473 ], [ %.pn.pn.pn.ph.i.i.i, %475 ], [ %.pn1117.i.i.i, %476 ], [ %485, %484 ], [ %478, %477 ], [ %347, %346 ], [ %340, %339 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17he1249b670b179f69E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %54) #34
           to label %.thread34.i unwind label %506, !noalias !1189
 

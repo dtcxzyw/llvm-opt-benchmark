@@ -530,11 +530,11 @@ FindPenByInstanceId.exit:                         ; preds = %14
   %or.cond82 = select i1 %3, i1 true, i1 %26
   %32 = and i32 %.162, -1073741825
   %spec.select85 = select i1 %3, i32 %.162, i32 %32
+  %spec.select86.not = select i1 %or.cond82, i1 %.1.not, i1 false
   store i32 %spec.select85, ptr %18, align 8
-  %.not = select i1 %or.cond82, i1 %.1.not, i1 false
   %33 = load ptr, ptr @pen_device_rwlock, align 8
   tail call void @SDL_UnlockRWLock_REAL(ptr noundef %33) #8
-  br i1 %.not, label %93, label %34
+  br i1 %spec.select86.not, label %93, label %34
 
 34:                                               ; preds = %.thread, %29
   %.26391 = phi i32 [ %27, %.thread ], [ %spec.select85, %29 ]

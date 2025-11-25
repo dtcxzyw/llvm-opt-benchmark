@@ -4844,8 +4844,8 @@ define hidden void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.39253
 .noexc31.i:                                       ; preds = %36
   unreachable
 
-.body.thread67.i:                                 ; preds = %182
-  br i1 %.3.ph.i, label %183, label %.body.thread67.thread.i
+.body.thread73.i:                                 ; preds = %182
+  br i1 %.3.ph.i, label %183, label %.body.thread73.thread.i
 
 .thread.i:                                        ; preds = %36, %35
   %lpad.thr_comm.i = landingpad { ptr, i32 }
@@ -5068,9 +5068,9 @@ define hidden void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.39253
 112:                                              ; preds = %105
   %113 = load i64, ptr %7, align 8, !range !896, !noalias !892, !noundef !5
   %trunc.i.i = trunc nuw i64 %113 to i1
-  br i1 %trunc.i.i, label %117, label %.thread73.i
+  br i1 %trunc.i.i, label %117, label %.thread81.i
 
-.thread73.i:                                      ; preds = %112
+.thread81.i:                                      ; preds = %112
   %114 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !alias.scope !897, !noalias !877
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !892
@@ -5084,7 +5084,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.39253
   unreachable
 
 .body.i:                                          ; preds = %157
-  %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp77.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i
 
@@ -5102,7 +5102,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.39253
   %120 = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %120, label %121, label %157
 
-121:                                              ; preds = %117, %.thread73.i
+121:                                              ; preds = %117, %.thread81.i
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.011.sroa.0.0.copyload.i = load i64, ptr %122, align 8, !noalias !877
   %.sroa.011.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -5182,7 +5182,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.39253
 
 147:                                              ; preds = %129
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h65321bb4306ac23aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #49
-          to label %.body.thread67.thread.i unwind label %148, !noalias !922
+          to label %.body.thread73.thread.i unwind label %148, !noalias !922
 
 148:                                              ; preds = %147
   %149 = landingpad { ptr, i32 }
@@ -5195,7 +5195,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.39253
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i, i64 16, i1 false)
   br label %.critedge.i
 
-151:                                              ; preds = %.thread77.i, %121
+151:                                              ; preds = %.thread85.i, %121
   %152 = load i64, ptr %8, align 8, !range !886, !alias.scope !923, !noalias !902, !noundef !5
   %153 = icmp eq i64 %152, -9223372036854775798
   br i1 %153, label %154, label %156
@@ -5218,20 +5218,20 @@ define hidden void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.39253
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %159 = load i64, ptr %158, align 8, !range !87, !noalias !928, !noundef !5
   %.not.i.i.i.i1.i.i = icmp eq i64 %159, 0
-  br i1 %.not.i.i.i.i1.i.i, label %.thread77.i, label %160
+  br i1 %.not.i.i.i.i1.i.i, label %.thread85.i, label %160
 
 160:                                              ; preds = %.noexc43.i
   %161 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %162 = load i64, ptr %161, align 8, !noalias !928, !noundef !5
   %163 = icmp eq i64 %162, 0
-  br i1 %163, label %.thread77.i, label %164
+  br i1 %163, label %.thread85.i, label %164
 
 164:                                              ; preds = %160
   %165 = load ptr, ptr %3, align 8, !noalias !928, !nonnull !5, !noundef !5
   call void @__rust_dealloc(ptr noundef nonnull %165, i64 noundef %162, i64 noundef %159) #46, !noalias !879
-  br label %.thread77.i
+  br label %.thread85.i
 
-.thread77.i:                                      ; preds = %164, %160, %.noexc43.i
+.thread85.i:                                      ; preds = %164, %160, %.noexc43.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !928
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !877
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !877
@@ -5239,9 +5239,9 @@ define hidden void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.39253
   br label %151
 
 .body.thread.i:                                   ; preds = %.body.i, %110
-  %eh.lpad-body66.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %.body.i ], [ %111, %110 ]
+  %eh.lpad-body72.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp77.i, %.body.i ], [ %111, %110 ]
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$rustfmt_nightly..FormatReport$C$rustfmt_nightly..ErrorKind$GT$$GT$17hea115ec940bd4ec1E"(ptr noalias noundef align 8 dereferenceable(72) %17) #49
-          to label %.body.thread67.thread.i unwind label %93, !noalias !879
+          to label %.body.thread73.thread.i unwind label %93, !noalias !879
 
 166:                                              ; preds = %104
   %167 = load i64, ptr %17, align 8, !range !886, !alias.scope !939, !noalias !877, !noundef !5
@@ -5297,16 +5297,16 @@ define hidden void @_ZN3std9panicking3try7do_call17h3aad330829aeb9b5E.llvm.39253
   %.pn26.ph.i = phi { ptr, i32 } [ %66, %65 ], [ %181, %180 ], [ %38, %37 ], [ %.pn.i, %71 ]
   %.3.ph.i = phi i1 [ false, %65 ], [ false, %180 ], [ %.221.i, %37 ], [ false, %71 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h27f30dfd67318ac1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #49
-          to label %.body.thread67.i unwind label %93, !noalias !879
+          to label %.body.thread73.i unwind label %93, !noalias !879
 
-.body.thread67.thread.i:                          ; preds = %183, %.body.thread.i, %147, %.body.thread67.i
-  %.pn2882.i = phi { ptr, i32 } [ %.pn2891.i, %183 ], [ %.pn26.ph.i, %.body.thread67.i ], [ %130, %147 ], [ %eh.lpad-body66.i, %.body.thread.i ]
-  resume { ptr, i32 } %.pn2882.i
+.body.thread73.thread.i:                          ; preds = %183, %.body.thread.i, %147, %.body.thread73.i
+  %.pn2854.i = phi { ptr, i32 } [ %.pn2855.i, %183 ], [ %.pn26.ph.i, %.body.thread73.i ], [ %130, %147 ], [ %eh.lpad-body72.i, %.body.thread.i ]
+  resume { ptr, i32 } %.pn2854.i
 
-183:                                              ; preds = %.thread.i, %.body.thread67.i
-  %.pn2891.i = phi { ptr, i32 } [ %.pn26.ph.i, %.body.thread67.i ], [ %lpad.thr_comm.i, %.thread.i ]
+183:                                              ; preds = %.thread.i, %.body.thread73.i
+  %.pn2855.i = phi { ptr, i32 } [ %.pn26.ph.i, %.body.thread73.i ], [ %lpad.thr_comm.i, %.thread.i ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$rustfmt_nightly..config..Config$GT$17hdec1a3ed2649d61aE"(ptr noalias noundef nonnull align 8 dereferenceable(872) %23) #49
-          to label %.body.thread67.thread.i unwind label %93, !noalias !879
+          to label %.body.thread73.thread.i unwind label %93, !noalias !879
 
 "_ZN15rustfmt_nightly14format_snippet28_$u7b$$u7b$closure$u7d$$u7d$17ha898b5595f86278fE.exit": ; preds = %.critedge.i, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h27f30dfd67318ac1E.exit.i"
   %.sroa.01.1 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h27f30dfd67318ac1E.exit.i" ], [ %.sroa.01.0, %.critedge.i ]

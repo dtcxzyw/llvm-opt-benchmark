@@ -212,7 +212,7 @@ define noundef ptr @_Z11init_mdoutfP8_IO_FILEiPK8t_filenmRKN3gmx12MdrunOptionsEP
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %74 = load i32, ptr %73, align 8, !tbaa !159
   %75 = icmp sgt i32 %74, 1
-  br i1 %75, label %.thread, label %76
+  br i1 %75, label %.critedge, label %76
 
 76:                                               ; preds = %72, %68
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -786,9 +786,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit168:       ; preds = %_ZNSt10filesystem7_
   br i1 %271, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %261, %278
-  %.0123195 = phi i32 [ %279, %278 ], [ 0, %261 ]
+  %.0123194 = phi i32 [ %279, %278 ], [ 0, %261 ]
   %272 = load ptr, ptr %269, align 8, !tbaa !251
-  %273 = call noundef i32 @_Z12getGroupTypeRK16SimulationGroups23SimulationAtomGroupTypei(ptr noundef nonnull align 8 dereferenceable(504) %272, i32 noundef 7, i32 noundef %.0123195)
+  %273 = call noundef i32 @_Z12getGroupTypeRK16SimulationGroups23SimulationAtomGroupTypei(ptr noundef nonnull align 8 dereferenceable(504) %272, i32 noundef 7, i32 noundef %.0123194)
   %274 = icmp eq i32 %273, 0
   br i1 %274, label %275, label %278
 
@@ -799,7 +799,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit168:       ; preds = %_ZNSt10filesystem7_
   br label %278
 
 278:                                              ; preds = %.lr.ph, %275
-  %279 = add nuw nsw i32 %.0123195, 1
+  %279 = add nuw nsw i32 %.0123194, 1
   %280 = load i32, ptr %265, align 8, !tbaa !198
   %281 = icmp slt i32 %279, %280
   br i1 %281, label %.lr.ph, label %._crit_edge, !llvm.loop !253
@@ -814,8 +814,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit168:       ; preds = %_ZNSt10filesystem7_
 284:                                              ; preds = %._crit_edge
   %285 = getelementptr i8, ptr %4, i64 112
   %.val = load ptr, ptr %285, align 8, !tbaa !255
-  %.not194 = icmp eq ptr %.val, null
-  br i1 %.not194, label %289, label %286
+  %.not193 = icmp eq ptr %.val, null
+  br i1 %.not193, label %289, label %286
 
 286:                                              ; preds = %284
   %287 = sext i32 %.lcssa to i64
@@ -824,13 +824,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit168:       ; preds = %_ZNSt10filesystem7_
   br label %289
 
 289:                                              ; preds = %._crit_edge, %284, %286
-  br i1 %.3121, label %290, label %.thread
+  br i1 %.3121, label %290, label %.critedge
 
 290:                                              ; preds = %289
   call void @_Z11please_citeP8_IO_FILEPKc(ptr noundef %0, ptr noundef nonnull @.str.10)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %72, %290, %289
+.critedge:                                        ; preds = %72, %290, %289
   ret ptr %32
 
 291:                                              ; preds = %256, %221, %207, %134

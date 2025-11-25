@@ -16533,10 +16533,10 @@ define hidden void @"_ZN3vim6motion26_$LT$impl$u20$vim..Vim$GT$6motion17hf3c9179
   %.pn9 = phi { ptr, i32 } [ %54, %53 ], [ %.pn76, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50" ]
   %.sroa.03.1 = phi i8 [ %.sroa.03.0, %53 ], [ %.sroa.03.377, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50" ]
   %52 = trunc nuw i8 %.sroa.03.1 to i1
-  br i1 %52, label %.thread, label %447
+  br i1 %52, label %.thread, label %448
 
-53:                                               ; preds = %438, %.noexc16, %97, %.noexc14, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit", %63, %106, %3
-  %.sroa.03.0 = phi i8 [ 1, %106 ], [ 1, %3 ], [ 1, %63 ], [ 1, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit" ], [ 1, %.noexc14 ], [ 1, %97 ], [ 1, %.noexc16 ], [ %.sroa.03.5, %438 ]
+53:                                               ; preds = %439, %.noexc16, %97, %.noexc14, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit", %63, %106, %3
+  %.sroa.03.0 = phi i8 [ 1, %106 ], [ 1, %3 ], [ 1, %63 ], [ 1, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit" ], [ 1, %.noexc14 ], [ 1, %97 ], [ 1, %.noexc16 ], [ %.sroa.03.5, %439 ]
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %51
@@ -16593,7 +16593,7 @@ define hidden void @"_ZN3vim6motion26_$LT$impl$u20$vim..Vim$GT$6motion17hf3c9179
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit"
 
-73:                                               ; preds = %446, %.thread, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50", %412, %65
+73:                                               ; preds = %447, %.thread, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50", %413, %65
   %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48
@@ -16687,7 +16687,7 @@ define hidden void @"_ZN3vim6motion26_$LT$impl$u20$vim..Vim$GT$6motion17hf3c9179
 113:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   invoke void @"_ZN58_$LT$vim..motion..Motion$u20$as$u20$core..clone..Clone$GT$5clone17h730571ac044a9c33E.llvm.16422900337870965792"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
-          to label %415 unwind label %.body39
+          to label %416 unwind label %.body39
 
 114:                                              ; preds = %110
   %115 = invoke fastcc noundef zeroext i1 @"_ZN61_$LT$vim..state..Operator$u20$as$u20$core..cmp..PartialEq$GT$2eq17h11a2ba425c4ec581E"(ptr noalias noundef readonly align 8 dereferenceable(56) %48, ptr noalias noundef readonly align 8 dereferenceable(56) @anon.18dcd0c0d27590c9a1520cd49c7d3214.152)
@@ -16698,16 +16698,16 @@ define hidden void @"_ZN3vim6motion26_$LT$impl$u20$vim..Vim$GT$6motion17hf3c9179
   invoke void @"_ZN58_$LT$vim..motion..Motion$u20$as$u20$core..clone..Clone$GT$5clone17h730571ac044a9c33E.llvm.16422900337870965792"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
           to label %119 unwind label %.body39
 
-.body39:                                          ; preds = %113, %114, %116, %414, %420
-  %.sroa.03.2 = phi i8 [ %.sroa.03.5, %414 ], [ 1, %116 ], [ 1, %114 ], [ 1, %113 ], [ 1, %420 ]
+.body39:                                          ; preds = %113, %114, %116, %415, %421
+  %.sroa.03.2 = phi i8 [ %.sroa.03.5, %415 ], [ 1, %116 ], [ 1, %114 ], [ 1, %113 ], [ 1, %421 ]
   %117 = landingpad { ptr, i32 }
           cleanup
   %.pre = load i8, ptr %47, align 8, !range !836
   %.not = icmp eq i8 %.pre, 65
-  br i1 %.not, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50", label %442
+  br i1 %.not, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50", label %443
 
 118:                                              ; preds = %114
-  br i1 %115, label %413, label %116
+  br i1 %115, label %414, label %116
 
 119:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -16856,7 +16856,7 @@ define hidden void @"_ZN3vim6motion26_$LT$impl$u20$vim..Vim$GT$6motion17hf3c9179
 166:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !3179
   invoke void @"_ZN58_$LT$vim..motion..Motion$u20$as$u20$core..clone..Clone$GT$5clone17h730571ac044a9c33E.llvm.16422900337870965792"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %48)
-          to label %.noexc24 unwind label %412
+          to label %.noexc24 unwind label %413
 
 .noexc24:                                         ; preds = %166
   %.sroa.05.0.copyload.i = load i8, ptr %43, align 8, !noalias !3179
@@ -16932,33 +16932,33 @@ define hidden void @"_ZN3vim6motion26_$LT$impl$u20$vim..Vim$GT$6motion17hf3c9179
   %183 = add nsw i8 %.sroa.0.051, -42
   %184 = icmp ult i8 %183, 23
   %narrow.i25 = select i1 %184, i8 %183, i8 7
-  switch i8 %narrow.i25, label %383 [
-    i8 0, label %191
-    i8 1, label %205
-    i8 2, label %220
-    i8 7, label %228
-    i8 12, label %230
-    i8 13, label %247
-    i8 14, label %264
-    i8 15, label %279
-    i8 16, label %296
-    i8 17, label %313
-    i8 22, label %330
+  switch i8 %narrow.i25, label %384 [
+    i8 0, label %192
+    i8 1, label %206
+    i8 2, label %221
+    i8 7, label %229
+    i8 12, label %231
+    i8 13, label %248
+    i8 14, label %265
+    i8 15, label %280
+    i8 16, label %297
+    i8 17, label %314
+    i8 22, label %331
   ]
 
-.body44.i:                                        ; preds = %339, %322, %305, %288, %273, %256, %239, %223, %214, %199, %187
-  %185 = phi i8 [ %188, %187 ], [ %.sroa.0.051, %199 ], [ %.sroa.0.051, %214 ], [ %.sroa.0.051, %223 ], [ %.sroa.0.051, %239 ], [ %.sroa.0.051, %256 ], [ %.sroa.0.051, %273 ], [ %.sroa.0.051, %288 ], [ %.sroa.0.051, %305 ], [ %.sroa.0.051, %322 ], [ %.sroa.0.051, %339 ]
-  %.sroa.04.0.lpad-body40.i = phi i1 [ %.sroa.04.0.i, %187 ], [ false, %199 ], [ false, %214 ], [ false, %223 ], [ false, %239 ], [ false, %256 ], [ false, %273 ], [ false, %288 ], [ false, %305 ], [ false, %322 ], [ false, %339 ]
-  %.sroa.02.0.lpad-body41.i = phi i1 [ %.sroa.02.0.i, %187 ], [ true, %199 ], [ true, %214 ], [ true, %223 ], [ true, %239 ], [ true, %256 ], [ true, %273 ], [ true, %288 ], [ true, %305 ], [ true, %322 ], [ true, %339 ]
-  %eh.lpad-body42.i = phi { ptr, i32 } [ %189, %187 ], [ %200, %199 ], [ %215, %214 ], [ %224, %223 ], [ %240, %239 ], [ %257, %256 ], [ %274, %273 ], [ %289, %288 ], [ %306, %305 ], [ %323, %322 ], [ %340, %339 ]
+.body44.i:                                        ; preds = %340, %323, %306, %289, %274, %257, %240, %224, %215, %200, %187
+  %185 = phi i8 [ %188, %187 ], [ %.sroa.0.051, %200 ], [ %.sroa.0.051, %215 ], [ %.sroa.0.051, %224 ], [ %.sroa.0.051, %240 ], [ %.sroa.0.051, %257 ], [ %.sroa.0.051, %274 ], [ %.sroa.0.051, %289 ], [ %.sroa.0.051, %306 ], [ %.sroa.0.051, %323 ], [ %.sroa.0.051, %340 ]
+  %.sroa.04.0.lpad-body40.i = phi i1 [ %.sroa.04.0.i, %187 ], [ false, %200 ], [ false, %215 ], [ false, %224 ], [ false, %240 ], [ false, %257 ], [ false, %274 ], [ false, %289 ], [ false, %306 ], [ false, %323 ], [ false, %340 ]
+  %.sroa.02.0.lpad-body41.i = phi i1 [ %.sroa.02.0.i, %187 ], [ true, %200 ], [ true, %215 ], [ true, %224 ], [ true, %240 ], [ true, %257 ], [ true, %274 ], [ true, %289 ], [ true, %306 ], [ true, %323 ], [ true, %340 ]
+  %eh.lpad-body42.i = phi { ptr, i32 } [ %189, %187 ], [ %201, %200 ], [ %216, %215 ], [ %225, %224 ], [ %241, %240 ], [ %258, %257 ], [ %275, %274 ], [ %290, %289 ], [ %307, %306 ], [ %324, %323 ], [ %341, %340 ]
   %186 = icmp ne i8 %185, 65
   %or.cond.i26 = and i1 %186, %.sroa.02.0.lpad-body41.i
-  br i1 %or.cond.i26, label %407, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i"
+  br i1 %or.cond.i26, label %408, label %191
 
-187:                                              ; preds = %404, %342, %327, %310, %293, %276, %261, %244, %225, %217, %202, %179
-  %188 = phi i8 [ 65, %179 ], [ %.sroa.0.051, %202 ], [ %.sroa.0.051, %217 ], [ %.sroa.0.051, %225 ], [ %.sroa.0.051, %244 ], [ %.sroa.0.051, %261 ], [ %.sroa.0.051, %276 ], [ %.sroa.0.051, %293 ], [ %.sroa.0.051, %310 ], [ %.sroa.0.051, %327 ], [ %.sroa.0.051, %342 ], [ %.sroa.0.051, %404 ]
-  %.sroa.04.0.i = phi i1 [ false, %179 ], [ false, %202 ], [ false, %217 ], [ false, %225 ], [ false, %244 ], [ false, %261 ], [ false, %276 ], [ false, %293 ], [ false, %310 ], [ false, %327 ], [ false, %342 ], [ true, %404 ]
-  %.sroa.02.0.i = phi i1 [ true, %179 ], [ true, %202 ], [ true, %217 ], [ true, %225 ], [ true, %244 ], [ true, %261 ], [ true, %276 ], [ true, %293 ], [ true, %310 ], [ true, %327 ], [ true, %342 ], [ false, %404 ]
+187:                                              ; preds = %405, %343, %328, %311, %294, %277, %262, %245, %226, %218, %203, %179
+  %188 = phi i8 [ 65, %179 ], [ %.sroa.0.051, %203 ], [ %.sroa.0.051, %218 ], [ %.sroa.0.051, %226 ], [ %.sroa.0.051, %245 ], [ %.sroa.0.051, %262 ], [ %.sroa.0.051, %277 ], [ %.sroa.0.051, %294 ], [ %.sroa.0.051, %311 ], [ %.sroa.0.051, %328 ], [ %.sroa.0.051, %343 ], [ %.sroa.0.051, %405 ]
+  %.sroa.04.0.i = phi i1 [ false, %179 ], [ false, %203 ], [ false, %218 ], [ false, %226 ], [ false, %245 ], [ false, %262 ], [ false, %277 ], [ false, %294 ], [ false, %311 ], [ false, %328 ], [ false, %343 ], [ true, %405 ]
+  %.sroa.02.0.i = phi i1 [ true, %179 ], [ true, %203 ], [ true, %218 ], [ true, %226 ], [ true, %245 ], [ true, %262 ], [ true, %277 ], [ true, %294 ], [ true, %311 ], [ true, %328 ], [ true, %343 ], [ false, %405 ]
   %189 = landingpad { ptr, i32 }
           cleanup
   br label %.body44.i
@@ -16968,846 +16968,849 @@ define hidden void @"_ZN3vim6motion26_$LT$impl$u20$vim..Vim$GT$6motion17hf3c9179
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !3181
   br label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit"
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i": ; preds = %411, %407, %.body44.i
+191:                                              ; preds = %.body44.i
   br i1 %.sroa.04.0.lpad-body40.i, label %.thread191.i, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50"
 
-191:                                              ; preds = %182
+192:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr noundef nonnull readonly align 8 dereferenceable(56) %46, i64 56, i1 false), !noalias !3187
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3195)
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !3181
   store i64 %.sroa.0.0.i, ptr %26, align 8, !noalias !3198
-  %192 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %.sroa.5.0.i, ptr %192, align 8, !noalias !3198
+  %193 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i64 %.sroa.5.0.i, ptr %193, align 8, !noalias !3198
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !3198
-  %193 = load i8, ptr %41, align 8, !range !276, !alias.scope !3195, !noalias !3201, !noundef !5
-  switch i8 %193, label %195 [
-    i8 0, label %194
-    i8 1, label %194
-    i8 4, label %194
-    i8 16, label %194
-    i8 17, label %194
+  %194 = load i8, ptr %41, align 8, !range !276, !alias.scope !3195, !noalias !3201, !noundef !5
+  switch i8 %194, label %196 [
+    i8 0, label %195
+    i8 1, label %195
+    i8 4, label %195
+    i8 16, label %195
+    i8 17, label %195
   ]
 
-194:                                              ; preds = %191, %191, %191, %191, %191
-  br label %195
+195:                                              ; preds = %192, %192, %192, %192, %192
+  br label %196
 
-195:                                              ; preds = %194, %191
-  %storemerge.i.i = phi i8 [ 1, %194 ], [ 0, %191 ]
+196:                                              ; preds = %195, %192
+  %storemerge.i.i = phi i8 [ 1, %195 ], [ 0, %192 ]
   store i8 %storemerge.i.i, ptr %25, align 1, !noalias !3198
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !3198
   store ptr %25, ptr %24, align 8, !noalias !3198
-  %196 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %41, ptr %196, align 8, !noalias !3198
-  %197 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %26, ptr %197, align 8, !noalias !3198
-  %198 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h67b093a8e7477fc8E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %24)
-          to label %.invoke.i.i unwind label %199, !noalias !3193
+  %197 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr %41, ptr %197, align 8, !noalias !3198
+  %198 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store ptr %26, ptr %198, align 8, !noalias !3198
+  %199 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h67b093a8e7477fc8E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %24)
+          to label %.invoke.i.i unwind label %200, !noalias !3193
 
-199:                                              ; preds = %.invoke.i.i, %195
-  %200 = landingpad { ptr, i32 }
+200:                                              ; preds = %.invoke.i.i, %196
+  %201 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %41) #49
-          to label %.body44.i unwind label %203, !noalias !3193
+          to label %.body44.i unwind label %204, !noalias !3193
 
-.invoke.i.i:                                      ; preds = %195
+.invoke.i.i:                                      ; preds = %196
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !3198
-  %201 = load i8, ptr %25, align 1, !range !36, !noalias !3198, !noundef !5
-  invoke void @_ZN3vim3Vim11switch_mode17h8534c9c1cc70cf9fE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, i8 noundef %201, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %202 unwind label %199, !noalias !3193
+  %202 = load i8, ptr %25, align 1, !range !36, !noalias !3198, !noundef !5
+  invoke void @_ZN3vim3Vim11switch_mode17h8534c9c1cc70cf9fE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, i8 noundef %202, i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+          to label %203 unwind label %200, !noalias !3193
 
-202:                                              ; preds = %.invoke.i.i
+203:                                              ; preds = %.invoke.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !3198
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %41)
-          to label %345 unwind label %187, !noalias !3193
+          to label %346 unwind label %187, !noalias !3193
 
-203:                                              ; preds = %199
-  %204 = landingpad { ptr, i32 }
+204:                                              ; preds = %200
+  %205 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !3193
   unreachable
 
-205:                                              ; preds = %182
+206:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %40, ptr noundef nonnull readonly align 8 dereferenceable(56) %46, i64 56, i1 false), !noalias !3187
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !3181
   store i64 %.sroa.0.0.i, ptr %23, align 8, !noalias !3202
-  %206 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i64 %.sroa.5.0.i, ptr %206, align 8, !noalias !3202
-  %207 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc.i.i unwind label %214, !noalias !3207
+  %207 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i64 %.sroa.5.0.i, ptr %207, align 8, !noalias !3202
+  %208 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+          to label %.noexc.i.i unwind label %215, !noalias !3207
 
-.noexc.i.i:                                       ; preds = %205
-  %208 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %207, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
-          to label %.noexc1.i.i unwind label %214, !noalias !3207
+.noexc.i.i:                                       ; preds = %206
+  %209 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %208, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
+          to label %.noexc1.i.i unwind label %215, !noalias !3207
 
 .noexc1.i.i:                                      ; preds = %.noexc.i.i
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 248
-  %210 = load i8, ptr %209, align 8, !range !36, !noalias !3207, !noundef !5
-  %211 = trunc nuw i8 %210 to i1
-  br i1 %211, label %212, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i.i
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 248
+  %211 = load i8, ptr %210, align 8, !range !36, !noalias !3207, !noundef !5
+  %212 = trunc nuw i8 %211 to i1
+  br i1 %212, label %213, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i.i
 
-212:                                              ; preds = %.noexc1.i.i
-  %213 = getelementptr inbounds nuw i8, ptr %208, i64 250
-  store i8 1, ptr %213, align 2, !noalias !3207
+213:                                              ; preds = %.noexc1.i.i
+  %214 = getelementptr inbounds nuw i8, ptr %209, i64 250
+  store i8 1, ptr %214, align 2, !noalias !3207
   br label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i.i
 
-214:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i.i, %.noexc.i.i, %205
-  %215 = landingpad { ptr, i32 }
+215:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i.i, %.noexc.i.i, %206
+  %216 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %46) #49
-          to label %.body44.i unwind label %218, !noalias !3194
+          to label %.body44.i unwind label %219, !noalias !3194
 
-_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i.i: ; preds = %212, %.noexc1.i.i
-  %216 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17hb9e9f361e59f8ba3E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23)
-          to label %217 unwind label %214, !noalias !3193
+_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i.i: ; preds = %213, %.noexc1.i.i
+  %217 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17hb9e9f361e59f8ba3E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23)
+          to label %218 unwind label %215, !noalias !3193
 
-217:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i.i
+218:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i.i
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %46)
-          to label %349 unwind label %187, !noalias !3194
+          to label %350 unwind label %187, !noalias !3194
 
-218:                                              ; preds = %214
-  %219 = landingpad { ptr, i32 }
+219:                                              ; preds = %215
+  %220 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !3193
   unreachable
 
-220:                                              ; preds = %182
+221:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull readonly align 8 dereferenceable(56) %46, i64 56, i1 false), !noalias !3187
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !3181
   store i64 %.sroa.0.0.i, ptr %22, align 8, !noalias !3208
-  %221 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 %.sroa.5.0.i, ptr %221, align 8, !noalias !3208
-  %222 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h28f1d40f5f6b8569E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %22)
-          to label %225 unwind label %223, !noalias !3193
+  %222 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i64 %.sroa.5.0.i, ptr %222, align 8, !noalias !3208
+  %223 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h28f1d40f5f6b8569E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %22)
+          to label %226 unwind label %224, !noalias !3193
 
-223:                                              ; preds = %220
-  %224 = landingpad { ptr, i32 }
+224:                                              ; preds = %221
+  %225 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %46) #49
-          to label %.body44.i unwind label %226, !noalias !3194
+          to label %.body44.i unwind label %227, !noalias !3194
 
-225:                                              ; preds = %220
+226:                                              ; preds = %221
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %46)
-          to label %352 unwind label %187, !noalias !3194
+          to label %353 unwind label %187, !noalias !3194
 
-226:                                              ; preds = %223
-  %227 = landingpad { ptr, i32 }
+227:                                              ; preds = %224
+  %228 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !3193
   unreachable
 
-228:                                              ; preds = %182
-  %229 = icmp eq i8 %.sroa.0.051, 41
-  br i1 %229, label %.invoke, label %383
+229:                                              ; preds = %182
+  %230 = icmp eq i8 %.sroa.0.051, 41
+  br i1 %230, label %.invoke, label %384
 
-230:                                              ; preds = %182
+231:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull readonly align 8 dereferenceable(56) %46, i64 56, i1 false), !noalias !3187
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !3181
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !3181
   store i64 %.sroa.0.0.i, ptr %21, align 8, !noalias !3213
-  %231 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %.sroa.5.0.i, ptr %231, align 8, !noalias !3213
+  %232 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 %.sroa.5.0.i, ptr %232, align 8, !noalias !3213
   store i8 0, ptr %20, align 1, !noalias !3213
-  %232 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc.i53.i unwind label %239, !noalias !3218
+  %233 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+          to label %.noexc.i53.i unwind label %240, !noalias !3218
 
-.noexc.i53.i:                                     ; preds = %230
-  %233 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %232, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
-          to label %.noexc1.i54.i unwind label %239, !noalias !3218
+.noexc.i53.i:                                     ; preds = %231
+  %234 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %233, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
+          to label %.noexc1.i54.i unwind label %240, !noalias !3218
 
 .noexc1.i54.i:                                    ; preds = %.noexc.i53.i
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 248
-  %235 = load i8, ptr %234, align 8, !range !36, !noalias !3218, !noundef !5
-  %236 = trunc nuw i8 %235 to i1
-  br i1 %236, label %237, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i55.i
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 248
+  %236 = load i8, ptr %235, align 8, !range !36, !noalias !3218, !noundef !5
+  %237 = trunc nuw i8 %236 to i1
+  br i1 %237, label %238, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i55.i
 
-237:                                              ; preds = %.noexc1.i54.i
-  %238 = getelementptr inbounds nuw i8, ptr %233, i64 250
-  store i8 1, ptr %238, align 2, !noalias !3218
+238:                                              ; preds = %.noexc1.i54.i
+  %239 = getelementptr inbounds nuw i8, ptr %234, i64 250
+  store i8 1, ptr %239, align 2, !noalias !3218
   br label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i55.i
 
-239:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i55.i, %.noexc.i53.i, %230
-  %240 = landingpad { ptr, i32 }
+240:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i55.i, %.noexc.i53.i, %231
+  %241 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %38) #49
-          to label %.body44.i unwind label %245, !noalias !3193
+          to label %.body44.i unwind label %246, !noalias !3193
 
-_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i55.i: ; preds = %237, %.noexc1.i54.i
+_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i55.i: ; preds = %238, %.noexc1.i54.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !3213
   store ptr %38, ptr %19, align 8, !noalias !3213
-  %241 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %21, ptr %241, align 8, !noalias !3213
-  %242 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %20, ptr %242, align 8, !noalias !3213
-  %243 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17hdcf287e3305ab8b5E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %19)
-          to label %244 unwind label %239, !noalias !3193
+  %242 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %21, ptr %242, align 8, !noalias !3213
+  %243 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store ptr %20, ptr %243, align 8, !noalias !3213
+  %244 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17hdcf287e3305ab8b5E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %19)
+          to label %245 unwind label %240, !noalias !3193
 
-244:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i55.i
+245:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i55.i
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !3213
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %38)
-          to label %355 unwind label %187, !noalias !3193
+          to label %356 unwind label %187, !noalias !3193
 
-245:                                              ; preds = %239
-  %246 = landingpad { ptr, i32 }
+246:                                              ; preds = %240
+  %247 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !3193
   unreachable
 
-247:                                              ; preds = %182
+248:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull readonly align 8 dereferenceable(56) %46, i64 56, i1 false), !noalias !3187
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !3181
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !3181
   store i64 %.sroa.0.0.i, ptr %18, align 8, !noalias !3219
-  %248 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 %.sroa.5.0.i, ptr %248, align 8, !noalias !3219
+  %249 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 %.sroa.5.0.i, ptr %249, align 8, !noalias !3219
   store i8 1, ptr %17, align 1, !noalias !3219
-  %249 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc.i61.i unwind label %256, !noalias !3224
+  %250 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+          to label %.noexc.i61.i unwind label %257, !noalias !3224
 
-.noexc.i61.i:                                     ; preds = %247
-  %250 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %249, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
-          to label %.noexc1.i62.i unwind label %256, !noalias !3224
+.noexc.i61.i:                                     ; preds = %248
+  %251 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %250, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
+          to label %.noexc1.i62.i unwind label %257, !noalias !3224
 
 .noexc1.i62.i:                                    ; preds = %.noexc.i61.i
-  %251 = getelementptr inbounds nuw i8, ptr %250, i64 248
-  %252 = load i8, ptr %251, align 8, !range !36, !noalias !3224, !noundef !5
-  %253 = trunc nuw i8 %252 to i1
-  br i1 %253, label %254, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i63.i
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 248
+  %253 = load i8, ptr %252, align 8, !range !36, !noalias !3224, !noundef !5
+  %254 = trunc nuw i8 %253 to i1
+  br i1 %254, label %255, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i63.i
 
-254:                                              ; preds = %.noexc1.i62.i
-  %255 = getelementptr inbounds nuw i8, ptr %250, i64 250
-  store i8 1, ptr %255, align 2, !noalias !3224
+255:                                              ; preds = %.noexc1.i62.i
+  %256 = getelementptr inbounds nuw i8, ptr %251, i64 250
+  store i8 1, ptr %256, align 2, !noalias !3224
   br label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i63.i
 
-256:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i63.i, %.noexc.i61.i, %247
-  %257 = landingpad { ptr, i32 }
+257:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i63.i, %.noexc.i61.i, %248
+  %258 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36) #49
-          to label %.body44.i unwind label %262, !noalias !3193
+          to label %.body44.i unwind label %263, !noalias !3193
 
-_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i63.i: ; preds = %254, %.noexc1.i62.i
+_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i63.i: ; preds = %255, %.noexc1.i62.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !3219
   store ptr %36, ptr %16, align 8, !noalias !3219
-  %258 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %18, ptr %258, align 8, !noalias !3219
-  %259 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %17, ptr %259, align 8, !noalias !3219
-  %260 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17hdcf287e3305ab8b5E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16)
-          to label %261 unwind label %256, !noalias !3193
+  %259 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %18, ptr %259, align 8, !noalias !3219
+  %260 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr %17, ptr %260, align 8, !noalias !3219
+  %261 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17hdcf287e3305ab8b5E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %16)
+          to label %262 unwind label %257, !noalias !3193
 
-261:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i63.i
+262:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i63.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !3219
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36)
-          to label %358 unwind label %187, !noalias !3193
+          to label %359 unwind label %187, !noalias !3193
 
-262:                                              ; preds = %256
-  %263 = landingpad { ptr, i32 }
+263:                                              ; preds = %257
+  %264 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !3193
   unreachable
 
-264:                                              ; preds = %182
+265:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %37, ptr noundef nonnull readonly align 8 dereferenceable(56) %46, i64 56, i1 false), !noalias !3187
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !3181
   store i64 %.sroa.0.0.i, ptr %15, align 8, !noalias !3225
-  %265 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %.sroa.5.0.i, ptr %265, align 8, !noalias !3225
-  %266 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc.i70.i unwind label %273, !noalias !3230
+  %266 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i64 %.sroa.5.0.i, ptr %266, align 8, !noalias !3225
+  %267 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+          to label %.noexc.i70.i unwind label %274, !noalias !3230
 
-.noexc.i70.i:                                     ; preds = %264
-  %267 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %266, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
-          to label %.noexc1.i71.i unwind label %273, !noalias !3230
+.noexc.i70.i:                                     ; preds = %265
+  %268 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %267, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
+          to label %.noexc1.i71.i unwind label %274, !noalias !3230
 
 .noexc1.i71.i:                                    ; preds = %.noexc.i70.i
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 248
-  %269 = load i8, ptr %268, align 8, !range !36, !noalias !3230, !noundef !5
-  %270 = trunc nuw i8 %269 to i1
-  br i1 %270, label %271, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i72.i
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 248
+  %270 = load i8, ptr %269, align 8, !range !36, !noalias !3230, !noundef !5
+  %271 = trunc nuw i8 %270 to i1
+  br i1 %271, label %272, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i72.i
 
-271:                                              ; preds = %.noexc1.i71.i
-  %272 = getelementptr inbounds nuw i8, ptr %267, i64 250
-  store i8 1, ptr %272, align 2, !noalias !3230
+272:                                              ; preds = %.noexc1.i71.i
+  %273 = getelementptr inbounds nuw i8, ptr %268, i64 250
+  store i8 1, ptr %273, align 2, !noalias !3230
   br label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i72.i
 
-273:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i72.i, %.noexc.i70.i, %264
-  %274 = landingpad { ptr, i32 }
+274:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i72.i, %.noexc.i70.i, %265
+  %275 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %46) #49
-          to label %.body44.i unwind label %277, !noalias !3194
+          to label %.body44.i unwind label %278, !noalias !3194
 
-_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i72.i: ; preds = %271, %.noexc1.i71.i
-  %275 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17he4fe6864786563ffE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
-          to label %276 unwind label %273, !noalias !3193
+_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i72.i: ; preds = %272, %.noexc1.i71.i
+  %276 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17he4fe6864786563ffE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
+          to label %277 unwind label %274, !noalias !3193
 
-276:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i72.i
+277:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i72.i
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %46)
-          to label %361 unwind label %187, !noalias !3194
+          to label %362 unwind label %187, !noalias !3194
 
-277:                                              ; preds = %273
-  %278 = landingpad { ptr, i32 }
+278:                                              ; preds = %274
+  %279 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !3193
   unreachable
 
-279:                                              ; preds = %182
+280:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull readonly align 8 dereferenceable(56) %46, i64 56, i1 false), !noalias !3187
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3181
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !3181
   store i64 %.sroa.0.0.i, ptr %14, align 8, !noalias !3231
-  %280 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 %.sroa.5.0.i, ptr %280, align 8, !noalias !3231
+  %281 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i64 %.sroa.5.0.i, ptr %281, align 8, !noalias !3231
   store i8 0, ptr %13, align 1, !noalias !3231
-  %281 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc.i78.i unwind label %288, !noalias !3236
+  %282 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+          to label %.noexc.i78.i unwind label %289, !noalias !3236
 
-.noexc.i78.i:                                     ; preds = %279
-  %282 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %281, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
-          to label %.noexc1.i79.i unwind label %288, !noalias !3236
+.noexc.i78.i:                                     ; preds = %280
+  %283 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %282, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
+          to label %.noexc1.i79.i unwind label %289, !noalias !3236
 
 .noexc1.i79.i:                                    ; preds = %.noexc.i78.i
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 248
-  %284 = load i8, ptr %283, align 8, !range !36, !noalias !3236, !noundef !5
-  %285 = trunc nuw i8 %284 to i1
-  br i1 %285, label %286, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i80.i
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 248
+  %285 = load i8, ptr %284, align 8, !range !36, !noalias !3236, !noundef !5
+  %286 = trunc nuw i8 %285 to i1
+  br i1 %286, label %287, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i80.i
 
-286:                                              ; preds = %.noexc1.i79.i
-  %287 = getelementptr inbounds nuw i8, ptr %282, i64 250
-  store i8 1, ptr %287, align 2, !noalias !3236
+287:                                              ; preds = %.noexc1.i79.i
+  %288 = getelementptr inbounds nuw i8, ptr %283, i64 250
+  store i8 1, ptr %288, align 2, !noalias !3236
   br label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i80.i
 
-288:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i80.i, %.noexc.i78.i, %279
-  %289 = landingpad { ptr, i32 }
+289:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i80.i, %.noexc.i78.i, %280
+  %290 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %35) #49
-          to label %.body44.i unwind label %294, !noalias !3193
+          to label %.body44.i unwind label %295, !noalias !3193
 
-_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i80.i: ; preds = %286, %.noexc1.i79.i
+_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i80.i: ; preds = %287, %.noexc1.i79.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3231
   store ptr %35, ptr %12, align 8, !noalias !3231
-  %290 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %14, ptr %290, align 8, !noalias !3231
-  %291 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %13, ptr %291, align 8, !noalias !3231
-  %292 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h992f1e370eee6315E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %293 unwind label %288, !noalias !3193
+  %291 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %14, ptr %291, align 8, !noalias !3231
+  %292 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %13, ptr %292, align 8, !noalias !3231
+  %293 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h992f1e370eee6315E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
+          to label %294 unwind label %289, !noalias !3193
 
-293:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i80.i
+294:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i80.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !3231
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %35)
-          to label %364 unwind label %187, !noalias !3193
+          to label %365 unwind label %187, !noalias !3193
 
-294:                                              ; preds = %288
-  %295 = landingpad { ptr, i32 }
+295:                                              ; preds = %289
+  %296 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !3193
   unreachable
 
-296:                                              ; preds = %182
+297:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef nonnull readonly align 8 dereferenceable(56) %46, i64 56, i1 false), !noalias !3187
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !3181
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !3181
   store i64 %.sroa.0.0.i, ptr %11, align 8, !noalias !3237
-  %297 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.sroa.5.0.i, ptr %297, align 8, !noalias !3237
+  %298 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %.sroa.5.0.i, ptr %298, align 8, !noalias !3237
   store i8 1, ptr %10, align 1, !noalias !3237
-  %298 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc.i86.i unwind label %305, !noalias !3242
+  %299 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+          to label %.noexc.i86.i unwind label %306, !noalias !3242
 
-.noexc.i86.i:                                     ; preds = %296
-  %299 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %298, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
-          to label %.noexc1.i87.i unwind label %305, !noalias !3242
+.noexc.i86.i:                                     ; preds = %297
+  %300 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %299, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
+          to label %.noexc1.i87.i unwind label %306, !noalias !3242
 
 .noexc1.i87.i:                                    ; preds = %.noexc.i86.i
-  %300 = getelementptr inbounds nuw i8, ptr %299, i64 248
-  %301 = load i8, ptr %300, align 8, !range !36, !noalias !3242, !noundef !5
-  %302 = trunc nuw i8 %301 to i1
-  br i1 %302, label %303, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i88.i
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 248
+  %302 = load i8, ptr %301, align 8, !range !36, !noalias !3242, !noundef !5
+  %303 = trunc nuw i8 %302 to i1
+  br i1 %303, label %304, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i88.i
 
-303:                                              ; preds = %.noexc1.i87.i
-  %304 = getelementptr inbounds nuw i8, ptr %299, i64 250
-  store i8 1, ptr %304, align 2, !noalias !3242
+304:                                              ; preds = %.noexc1.i87.i
+  %305 = getelementptr inbounds nuw i8, ptr %300, i64 250
+  store i8 1, ptr %305, align 2, !noalias !3242
   br label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i88.i
 
-305:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i88.i, %.noexc.i86.i, %296
-  %306 = landingpad { ptr, i32 }
+306:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i88.i, %.noexc.i86.i, %297
+  %307 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %34) #49
-          to label %.body44.i unwind label %311, !noalias !3193
+          to label %.body44.i unwind label %312, !noalias !3193
 
-_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i88.i: ; preds = %303, %.noexc1.i87.i
+_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i88.i: ; preds = %304, %.noexc1.i87.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3237
   store ptr %34, ptr %9, align 8, !noalias !3237
-  %307 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %11, ptr %307, align 8, !noalias !3237
-  %308 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %10, ptr %308, align 8, !noalias !3237
-  %309 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h992f1e370eee6315E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-          to label %310 unwind label %305, !noalias !3193
+  %308 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %11, ptr %308, align 8, !noalias !3237
+  %309 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %10, ptr %309, align 8, !noalias !3237
+  %310 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h992f1e370eee6315E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
+          to label %311 unwind label %306, !noalias !3193
 
-310:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i88.i
+311:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i88.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3237
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %34)
-          to label %367 unwind label %187, !noalias !3193
+          to label %368 unwind label %187, !noalias !3193
 
-311:                                              ; preds = %305
-  %312 = landingpad { ptr, i32 }
+312:                                              ; preds = %306
+  %313 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !3193
   unreachable
 
-313:                                              ; preds = %182
+314:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %33, ptr noundef nonnull readonly align 8 dereferenceable(56) %46, i64 56, i1 false), !noalias !3187
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3181
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !3181
   store i64 %.sroa.0.0.i, ptr %8, align 8, !noalias !3243
-  %314 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.sroa.5.0.i, ptr %314, align 8, !noalias !3243
+  %315 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %.sroa.5.0.i, ptr %315, align 8, !noalias !3243
   store i8 2, ptr %7, align 1, !noalias !3243
-  %315 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc.i95.i unwind label %322, !noalias !3248
+  %316 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+          to label %.noexc.i95.i unwind label %323, !noalias !3248
 
-.noexc.i95.i:                                     ; preds = %313
-  %316 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %315, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
-          to label %.noexc1.i96.i unwind label %322, !noalias !3248
+.noexc.i95.i:                                     ; preds = %314
+  %317 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %316, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
+          to label %.noexc1.i96.i unwind label %323, !noalias !3248
 
 .noexc1.i96.i:                                    ; preds = %.noexc.i95.i
-  %317 = getelementptr inbounds nuw i8, ptr %316, i64 248
-  %318 = load i8, ptr %317, align 8, !range !36, !noalias !3248, !noundef !5
-  %319 = trunc nuw i8 %318 to i1
-  br i1 %319, label %320, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i97.i
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 248
+  %319 = load i8, ptr %318, align 8, !range !36, !noalias !3248, !noundef !5
+  %320 = trunc nuw i8 %319 to i1
+  br i1 %320, label %321, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i97.i
 
-320:                                              ; preds = %.noexc1.i96.i
-  %321 = getelementptr inbounds nuw i8, ptr %316, i64 250
-  store i8 1, ptr %321, align 2, !noalias !3248
+321:                                              ; preds = %.noexc1.i96.i
+  %322 = getelementptr inbounds nuw i8, ptr %317, i64 250
+  store i8 1, ptr %322, align 2, !noalias !3248
   br label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i97.i
 
-322:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i97.i, %.noexc.i95.i, %313
-  %323 = landingpad { ptr, i32 }
+323:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i97.i, %.noexc.i95.i, %314
+  %324 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %33) #49
-          to label %.body44.i unwind label %328, !noalias !3193
+          to label %.body44.i unwind label %329, !noalias !3193
 
-_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i97.i: ; preds = %320, %.noexc1.i96.i
+_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i97.i: ; preds = %321, %.noexc1.i96.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3243
   store ptr %33, ptr %6, align 8, !noalias !3243
-  %324 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %8, ptr %324, align 8, !noalias !3243
-  %325 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %7, ptr %325, align 8, !noalias !3243
-  %326 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h992f1e370eee6315E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
-          to label %327 unwind label %322, !noalias !3193
+  %325 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %8, ptr %325, align 8, !noalias !3243
+  %326 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %7, ptr %326, align 8, !noalias !3243
+  %327 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h992f1e370eee6315E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
+          to label %328 unwind label %323, !noalias !3193
 
-327:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i97.i
+328:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i97.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3243
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %33)
-          to label %370 unwind label %187, !noalias !3193
+          to label %371 unwind label %187, !noalias !3193
 
-328:                                              ; preds = %322
-  %329 = landingpad { ptr, i32 }
+329:                                              ; preds = %323
+  %330 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !3193
   unreachable
 
-330:                                              ; preds = %182
+331:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull readonly align 8 dereferenceable(56) %46, i64 56, i1 false), !noalias !3187
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3181
   store i64 %.sroa.0.0.i, ptr %5, align 8, !noalias !3249
-  %331 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sroa.5.0.i, ptr %331, align 8, !noalias !3249
-  %332 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %.noexc.i104.i unwind label %339, !noalias !3254
+  %332 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.sroa.5.0.i, ptr %332, align 8, !noalias !3249
+  %333 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+          to label %.noexc.i104.i unwind label %340, !noalias !3254
 
-.noexc.i104.i:                                    ; preds = %330
-  %333 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %332, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
-          to label %.noexc1.i105.i unwind label %339, !noalias !3254
+.noexc.i104.i:                                    ; preds = %331
+  %334 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN4gpui3app10AppContext10global_mut17hf919bb4e5e63ecbfE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %333, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.198.llvm.16422900337870965792)
+          to label %.noexc1.i105.i unwind label %340, !noalias !3254
 
 .noexc1.i105.i:                                   ; preds = %.noexc.i104.i
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 248
-  %335 = load i8, ptr %334, align 8, !range !36, !noalias !3254, !noundef !5
-  %336 = trunc nuw i8 %335 to i1
-  br i1 %336, label %337, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i106.i
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 248
+  %336 = load i8, ptr %335, align 8, !range !36, !noalias !3254, !noundef !5
+  %337 = trunc nuw i8 %336 to i1
+  br i1 %337, label %338, label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i106.i
 
-337:                                              ; preds = %.noexc1.i105.i
-  %338 = getelementptr inbounds nuw i8, ptr %333, i64 250
-  store i8 1, ptr %338, align 2, !noalias !3254
+338:                                              ; preds = %.noexc1.i105.i
+  %339 = getelementptr inbounds nuw i8, ptr %334, i64 250
+  store i8 1, ptr %339, align 2, !noalias !3254
   br label %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i106.i
 
-339:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i106.i, %.noexc.i104.i, %330
-  %340 = landingpad { ptr, i32 }
+340:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i106.i, %.noexc.i104.i, %331
+  %341 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %46) #49
-          to label %.body44.i unwind label %343, !noalias !3194
+          to label %.body44.i unwind label %344, !noalias !3194
 
-_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i106.i: ; preds = %337, %.noexc1.i105.i
-  %341 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h7ce1f37c0b618b67E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
-          to label %342 unwind label %339, !noalias !3193
+_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i106.i: ; preds = %338, %.noexc1.i105.i
+  %342 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17h7ce1f37c0b618b67E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+          to label %343 unwind label %340, !noalias !3193
 
-342:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i106.i
+343:                                              ; preds = %_ZN3vim3Vim14stop_recording17h78bf2f113d0ad31cE.llvm.16422900337870965792.exit.i106.i
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %46)
-          to label %373 unwind label %187, !noalias !3194
+          to label %374 unwind label %187, !noalias !3194
 
-343:                                              ; preds = %339
-  %344 = landingpad { ptr, i32 }
+344:                                              ; preds = %340
+  %345 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !3193
   unreachable
 
-345:                                              ; preds = %202
+346:                                              ; preds = %203
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !3181
-  %346 = icmp ugt i8 %183, 22
+  %347 = icmp ugt i8 %183, 22
   %cond1.i112.i = icmp eq i8 %183, 7
-  %cond.i113.i = or i1 %346, %cond1.i112.i
-  %347 = icmp samesign ult i8 %.sroa.0.051, 39
-  %or.cond.i114.i = select i1 %cond.i113.i, i1 %347, i1 false
+  %cond.i113.i = or i1 %347, %cond1.i112.i
+  %348 = icmp samesign ult i8 %.sroa.0.051, 39
+  %or.cond.i114.i = select i1 %cond.i113.i, i1 %348, i1 false
   br i1 %or.cond.i114.i, label %.invoke, label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit"
 
-.invoke:                                          ; preds = %228, %.thread199.i, %373, %370, %367, %364, %361, %358, %355, %352, %349, %345
-  %348 = phi ptr [ %45, %345 ], [ %45, %349 ], [ %45, %352 ], [ %45, %355 ], [ %45, %358 ], [ %45, %361 ], [ %45, %364 ], [ %45, %367 ], [ %45, %370 ], [ %45, %373 ], [ %46, %.thread199.i ], [ %46, %228 ]
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %348)
+.invoke:                                          ; preds = %229, %.thread202.i, %374, %371, %368, %365, %362, %359, %356, %353, %350, %346
+  %349 = phi ptr [ %45, %346 ], [ %45, %350 ], [ %45, %353 ], [ %45, %356 ], [ %45, %359 ], [ %45, %362 ], [ %45, %365 ], [ %45, %368 ], [ %45, %371 ], [ %45, %374 ], [ %46, %.thread202.i ], [ %46, %229 ]
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %349)
           to label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit" unwind label %.body.thread65
 
-349:                                              ; preds = %217
+350:                                              ; preds = %218
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !3181
-  %350 = icmp ugt i8 %183, 22
+  %351 = icmp ugt i8 %183, 22
   %cond1.i117.i = icmp eq i8 %183, 7
-  %cond.i118.i = or i1 %350, %cond1.i117.i
-  %351 = icmp samesign ult i8 %.sroa.0.051, 39
-  %or.cond.i119.i = select i1 %cond.i118.i, i1 %351, i1 false
+  %cond.i118.i = or i1 %351, %cond1.i117.i
+  %352 = icmp samesign ult i8 %.sroa.0.051, 39
+  %or.cond.i119.i = select i1 %cond.i118.i, i1 %352, i1 false
   br i1 %or.cond.i119.i, label %.invoke, label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit"
 
-352:                                              ; preds = %225
+353:                                              ; preds = %226
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !3181
-  %353 = icmp ugt i8 %183, 22
+  %354 = icmp ugt i8 %183, 22
   %cond1.i122.i = icmp eq i8 %183, 7
-  %cond.i123.i = or i1 %353, %cond1.i122.i
-  %354 = icmp samesign ult i8 %.sroa.0.051, 39
-  %or.cond.i124.i = select i1 %cond.i123.i, i1 %354, i1 false
+  %cond.i123.i = or i1 %354, %cond1.i122.i
+  %355 = icmp samesign ult i8 %.sroa.0.051, 39
+  %or.cond.i124.i = select i1 %cond.i123.i, i1 %355, i1 false
   br i1 %or.cond.i124.i, label %.invoke, label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit"
 
-355:                                              ; preds = %244
+356:                                              ; preds = %245
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !3181
-  %356 = icmp ugt i8 %183, 22
+  %357 = icmp ugt i8 %183, 22
   %cond1.i127.i = icmp eq i8 %183, 7
-  %cond.i128.i = or i1 %356, %cond1.i127.i
-  %357 = icmp samesign ult i8 %.sroa.0.051, 39
-  %or.cond.i129.i = select i1 %cond.i128.i, i1 %357, i1 false
+  %cond.i128.i = or i1 %357, %cond1.i127.i
+  %358 = icmp samesign ult i8 %.sroa.0.051, 39
+  %or.cond.i129.i = select i1 %cond.i128.i, i1 %358, i1 false
   br i1 %or.cond.i129.i, label %.invoke, label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit"
 
-358:                                              ; preds = %261
+359:                                              ; preds = %262
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !3181
-  %359 = icmp ugt i8 %183, 22
+  %360 = icmp ugt i8 %183, 22
   %cond1.i132.i = icmp eq i8 %183, 7
-  %cond.i133.i = or i1 %359, %cond1.i132.i
-  %360 = icmp samesign ult i8 %.sroa.0.051, 39
-  %or.cond.i134.i = select i1 %cond.i133.i, i1 %360, i1 false
+  %cond.i133.i = or i1 %360, %cond1.i132.i
+  %361 = icmp samesign ult i8 %.sroa.0.051, 39
+  %or.cond.i134.i = select i1 %cond.i133.i, i1 %361, i1 false
   br i1 %or.cond.i134.i, label %.invoke, label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit"
 
-361:                                              ; preds = %276
+362:                                              ; preds = %277
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !3181
-  %362 = icmp ugt i8 %183, 22
+  %363 = icmp ugt i8 %183, 22
   %cond1.i137.i = icmp eq i8 %183, 7
-  %cond.i138.i = or i1 %362, %cond1.i137.i
-  %363 = icmp samesign ult i8 %.sroa.0.051, 39
-  %or.cond.i139.i = select i1 %cond.i138.i, i1 %363, i1 false
+  %cond.i138.i = or i1 %363, %cond1.i137.i
+  %364 = icmp samesign ult i8 %.sroa.0.051, 39
+  %or.cond.i139.i = select i1 %cond.i138.i, i1 %364, i1 false
   br i1 %or.cond.i139.i, label %.invoke, label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit"
 
-364:                                              ; preds = %293
+365:                                              ; preds = %294
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !3181
-  %365 = icmp ugt i8 %183, 22
+  %366 = icmp ugt i8 %183, 22
   %cond1.i142.i = icmp eq i8 %183, 7
-  %cond.i143.i = or i1 %365, %cond1.i142.i
-  %366 = icmp samesign ult i8 %.sroa.0.051, 39
-  %or.cond.i144.i = select i1 %cond.i143.i, i1 %366, i1 false
+  %cond.i143.i = or i1 %366, %cond1.i142.i
+  %367 = icmp samesign ult i8 %.sroa.0.051, 39
+  %or.cond.i144.i = select i1 %cond.i143.i, i1 %367, i1 false
   br i1 %or.cond.i144.i, label %.invoke, label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit"
 
-367:                                              ; preds = %310
+368:                                              ; preds = %311
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !3181
-  %368 = icmp ugt i8 %183, 22
+  %369 = icmp ugt i8 %183, 22
   %cond1.i147.i = icmp eq i8 %183, 7
-  %cond.i148.i = or i1 %368, %cond1.i147.i
-  %369 = icmp samesign ult i8 %.sroa.0.051, 39
-  %or.cond.i149.i = select i1 %cond.i148.i, i1 %369, i1 false
+  %cond.i148.i = or i1 %369, %cond1.i147.i
+  %370 = icmp samesign ult i8 %.sroa.0.051, 39
+  %or.cond.i149.i = select i1 %cond.i148.i, i1 %370, i1 false
   br i1 %or.cond.i149.i, label %.invoke, label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit"
 
-370:                                              ; preds = %327
+371:                                              ; preds = %328
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !3181
-  %371 = icmp ugt i8 %183, 22
+  %372 = icmp ugt i8 %183, 22
   %cond1.i152.i = icmp eq i8 %183, 7
-  %cond.i153.i = or i1 %371, %cond1.i152.i
-  %372 = icmp samesign ult i8 %.sroa.0.051, 39
-  %or.cond.i154.i = select i1 %cond.i153.i, i1 %372, i1 false
+  %cond.i153.i = or i1 %372, %cond1.i152.i
+  %373 = icmp samesign ult i8 %.sroa.0.051, 39
+  %or.cond.i154.i = select i1 %cond.i153.i, i1 %373, i1 false
   br i1 %or.cond.i154.i, label %.invoke, label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit"
 
-373:                                              ; preds = %342
+374:                                              ; preds = %343
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !3181
-  %374 = icmp ugt i8 %183, 22
+  %375 = icmp ugt i8 %183, 22
   %cond1.i157.i = icmp eq i8 %183, 7
-  %cond.i158.i = or i1 %374, %cond1.i157.i
-  %375 = icmp samesign ult i8 %.sroa.0.051, 39
-  %or.cond.i159.i = select i1 %cond.i158.i, i1 %375, i1 false
+  %cond.i158.i = or i1 %375, %cond1.i157.i
+  %376 = icmp samesign ult i8 %.sroa.0.051, 39
+  %or.cond.i159.i = select i1 %cond.i158.i, i1 %376, i1 false
   br i1 %or.cond.i159.i, label %.invoke, label %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit"
 
-376:                                              ; preds = %393, %387
-  %377 = landingpad { ptr, i32 }
+377:                                              ; preds = %394, %388
+  %378 = landingpad { ptr, i32 }
           cleanup
-  %378 = load i8, ptr %31, align 8, !range !712, !alias.scope !3255, !noalias !3181, !noundef !5
-  %379 = add nsw i8 %378, -42
-  %380 = icmp ugt i8 %379, 22
-  %cond1.i162.i = icmp eq i8 %379, 7
-  %cond.i163.i = or i1 %380, %cond1.i162.i
-  %381 = icmp samesign ult i8 %378, 39
-  %or.cond.i164.i = select i1 %cond.i163.i, i1 %381, i1 false
-  br i1 %or.cond.i164.i, label %382, label %.thread191.i
+  %379 = load i8, ptr %31, align 8, !range !712, !alias.scope !3255, !noalias !3181, !noundef !5
+  %380 = add nsw i8 %379, -42
+  %381 = icmp ugt i8 %380, 22
+  %cond1.i162.i = icmp eq i8 %380, 7
+  %cond.i163.i = or i1 %381, %cond1.i162.i
+  %382 = icmp samesign ult i8 %379, 39
+  %or.cond.i164.i = select i1 %cond.i163.i, i1 %382, i1 false
+  br i1 %or.cond.i164.i, label %383, label %.thread191.i
 
-382:                                              ; preds = %376
+383:                                              ; preds = %377
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %31)
-          to label %.thread191.i unwind label %405, !noalias !3181
+          to label %.thread191.i unwind label %406, !noalias !3181
 
-383:                                              ; preds = %228, %182
+384:                                              ; preds = %229, %182
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !3181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull readonly align 8 dereferenceable(56) %45, i64 56, i1 false), !noalias !3258
-  %384 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !3181
-  %385 = icmp ult i64 %384, 6
-  tail call void @llvm.assume(i1 %385)
-  %386 = icmp eq i64 %384, 0
-  br i1 %386, label %399, label %387
+  %385 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E monotonic, align 8, !noalias !3181
+  %386 = icmp ult i64 %385, 6
+  tail call void @llvm.assume(i1 %386)
+  %387 = icmp eq i64 %385, 0
+  br i1 %387, label %400, label %388
 
-387:                                              ; preds = %383
+388:                                              ; preds = %384
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !3181
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !3181
   store ptr %31, ptr %29, align 8, !noalias !3181
   %.sroa.421.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @"_ZN57_$LT$vim..state..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17he9dcedd02a02084bE", ptr %.sroa.421.0..sroa_idx.i, align 8, !noalias !3181
   store ptr @anon.18dcd0c0d27590c9a1520cd49c7d3214.175, ptr %30, align 8, !noalias !3181
-  %388 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 1, ptr %388, align 8, !noalias !3181
-  %389 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store ptr null, ptr %389, align 8, !noalias !3181
-  %390 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %29, ptr %390, align 8, !noalias !3181
-  %391 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store i64 1, ptr %391, align 8, !noalias !3181
+  %389 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i64 1, ptr %389, align 8, !noalias !3181
+  %390 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store ptr null, ptr %390, align 8, !noalias !3181
+  %391 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store ptr %29, ptr %391, align 8, !noalias !3181
+  %392 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store i64 1, ptr %392, align 8, !noalias !3181
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !3181
-  %392 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.177)
-          to label %393 unwind label %376, !noalias !3181
+  %393 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18dcd0c0d27590c9a1520cd49c7d3214.177)
+          to label %394 unwind label %377, !noalias !3181
 
-393:                                              ; preds = %387
+394:                                              ; preds = %388
   store ptr @anon.18dcd0c0d27590c9a1520cd49c7d3214.178, ptr %28, align 8, !noalias !3181
-  %394 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 11, ptr %394, align 8, !noalias !3181
-  %395 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr @anon.18dcd0c0d27590c9a1520cd49c7d3214.178, ptr %395, align 8, !noalias !3181
-  %396 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store i64 11, ptr %396, align 8, !noalias !3181
-  %397 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr %392, ptr %397, align 8, !noalias !3181
+  %395 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i64 11, ptr %395, align 8, !noalias !3181
+  %396 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store ptr @anon.18dcd0c0d27590c9a1520cd49c7d3214.178, ptr %396, align 8, !noalias !3181
+  %397 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  store i64 11, ptr %397, align 8, !noalias !3181
+  %398 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store ptr %393, ptr %398, align 8, !noalias !3181
   invoke void @_ZN3log13__private_api8log_impl17hdf09b6c8ef83a2f8E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %30, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %28, ptr noalias noundef readonly align 16 null, i64 undef)
-          to label %398 unwind label %376, !noalias !3181
+          to label %399 unwind label %377, !noalias !3181
 
-398:                                              ; preds = %393
+399:                                              ; preds = %394
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !3181
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !3181
-  br label %399
+  br label %400
 
-399:                                              ; preds = %398, %383
-  %400 = load i8, ptr %31, align 8, !range !712, !alias.scope !3259, !noalias !3181, !noundef !5
-  %401 = add nsw i8 %400, -42
-  %402 = icmp ugt i8 %401, 22
-  %cond1.i167.i = icmp eq i8 %401, 7
-  %cond.i168.i = or i1 %402, %cond1.i167.i
-  %403 = icmp samesign ult i8 %400, 39
-  %or.cond.i169.i = select i1 %cond.i168.i, i1 %403, i1 false
-  br i1 %or.cond.i169.i, label %404, label %.thread199.i
+400:                                              ; preds = %399, %384
+  %401 = load i8, ptr %31, align 8, !range !712, !alias.scope !3259, !noalias !3181, !noundef !5
+  %402 = add nsw i8 %401, -42
+  %403 = icmp ugt i8 %402, 22
+  %cond1.i167.i = icmp eq i8 %402, 7
+  %cond.i168.i = or i1 %403, %cond1.i167.i
+  %404 = icmp samesign ult i8 %401, 39
+  %or.cond.i169.i = select i1 %cond.i168.i, i1 %404, i1 false
+  br i1 %or.cond.i169.i, label %405, label %.thread202.i
 
-404:                                              ; preds = %399
+405:                                              ; preds = %400
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %31)
-          to label %.thread199.i unwind label %187, !noalias !3181
+          to label %.thread202.i unwind label %187, !noalias !3181
 
-.thread199.i:                                     ; preds = %404, %399
+.thread202.i:                                     ; preds = %405, %400
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !3181
   br label %.invoke
 
-405:                                              ; preds = %.thread191.i, %411, %382
-  %406 = landingpad { ptr, i32 }
+406:                                              ; preds = %.thread191.i, %412, %383
+  %407 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !3193
   unreachable
 
-407:                                              ; preds = %.body44.i
-  %408 = add nsw i8 %185, -42
-  %409 = icmp ugt i8 %408, 22
-  %cond1.i177.i = icmp eq i8 %408, 7
-  %cond.i178.i = or i1 %409, %cond1.i177.i
-  %410 = icmp samesign ult i8 %185, 39
-  %or.cond.i179.i = select i1 %cond.i178.i, i1 %410, i1 false
-  br i1 %or.cond.i179.i, label %411, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i"
+408:                                              ; preds = %.body44.i
+  %409 = add nsw i8 %185, -42
+  %410 = icmp ugt i8 %409, 22
+  %cond1.i177.i = icmp eq i8 %409, 7
+  %cond.i178.i = or i1 %410, %cond1.i177.i
+  %411 = icmp samesign ult i8 %185, 39
+  %or.cond.i179.i = select i1 %cond.i178.i, i1 %411, i1 false
+  br i1 %or.cond.i179.i, label %412, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i"
 
-411:                                              ; preds = %407
+412:                                              ; preds = %408
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %45)
-          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i" unwind label %405, !noalias !3262
+          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i" unwind label %406, !noalias !3262
 
-.thread191.i:                                     ; preds = %382, %376, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i"
-  %.pn24195.i = phi { ptr, i32 } [ %eh.lpad-body42.i, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i" ], [ %377, %382 ], [ %377, %376 ]
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i": ; preds = %412, %408
+  br i1 %.sroa.04.0.lpad-body40.i, label %.thread191.i, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50"
+
+.thread191.i:                                     ; preds = %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i", %383, %377, %191
+  %.pn24195.i = phi { ptr, i32 } [ %eh.lpad-body42.i, %191 ], [ %eh.lpad-body42.i, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i" ], [ %378, %383 ], [ %378, %377 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %46) #49
-          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50" unwind label %405, !noalias !3194
+          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50" unwind label %406, !noalias !3194
 
 .body.thread65:                                   ; preds = %.invoke
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50"
 
-"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit": ; preds = %.invoke, %373, %370, %367, %364, %361, %358, %355, %352, %349, %345, %190
+"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit": ; preds = %.invoke, %374, %371, %368, %365, %362, %359, %356, %353, %350, %346, %190
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  br label %414
+  br label %415
 
-412:                                              ; preds = %166
+413:                                              ; preds = %166
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %46) #49
           to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50" unwind label %73
 
-413:                                              ; preds = %118
+414:                                              ; preds = %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
-  br label %414
+  br label %415
 
-414:                                              ; preds = %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit", %413, %423
-  %.sroa.03.5 = phi i8 [ 1, %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit" ], [ 0, %413 ], [ 1, %423 ]
+415:                                              ; preds = %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit", %414, %424
+  %.sroa.03.5 = phi i8 [ 1, %"_ZN3vim6normal26_$LT$impl$u20$vim..Vim$GT$13normal_motion17ha93d4693ad7a205aE.exit" ], [ 0, %414 ], [ 1, %424 ]
   invoke void @_ZN3vim3Vim14clear_operator17hba1ad319f81c7089E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %424 unwind label %.body39
+          to label %425 unwind label %.body39
 
-415:                                              ; preds = %113
+416:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.i, ptr %4, align 8, !noalias !3263
-  %416 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.5.0.i, ptr %416, align 8, !noalias !3263
-  %417 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17hf5ecc4a2855d4575E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
-          to label %420 unwind label %418
+  %417 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %.sroa.5.0.i, ptr %417, align 8, !noalias !3263
+  %418 = invoke noundef zeroext i1 @_ZN3vim3Vim13update_editor17hf5ecc4a2855d4575E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %44, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
+          to label %421 unwind label %419
 
-418:                                              ; preds = %415
-  %419 = landingpad { ptr, i32 }
+419:                                              ; preds = %416
+  %420 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %44) #49
-          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50" unwind label %421
+          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50" unwind label %422
 
-420:                                              ; preds = %415
+421:                                              ; preds = %416
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %44)
-          to label %423 unwind label %.body39
+          to label %424 unwind label %.body39
 
-421:                                              ; preds = %418
-  %422 = landingpad { ptr, i32 }
+422:                                              ; preds = %419
+  %423 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48
   unreachable
 
-423:                                              ; preds = %420
+424:                                              ; preds = %421
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  br label %414
+  br label %415
 
-424:                                              ; preds = %414
-  %425 = load i8, ptr %47, align 8, !range !836, !noundef !5
-  %426 = icmp eq i8 %425, 65
-  br i1 %426, label %431, label %427
+425:                                              ; preds = %415
+  %426 = load i8, ptr %47, align 8, !range !836, !noundef !5
+  %427 = icmp eq i8 %426, 65
+  br i1 %427, label %432, label %428
 
-427:                                              ; preds = %424
+428:                                              ; preds = %425
   invoke void @_ZN3vim3Vim13push_operator17hf1e5e8ca9194c705E(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %47, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %429 unwind label %.body39.thread78
+          to label %430 unwind label %.body39.thread78
 
-.body39.thread78:                                 ; preds = %427
-  %428 = landingpad { ptr, i32 }
+.body39.thread78:                                 ; preds = %428
+  %429 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50"
 
-429:                                              ; preds = %427
+430:                                              ; preds = %428
   store i64 %.sroa.0.0.i, ptr %0, align 8
-  %430 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.0.i, ptr %430, align 8
-  br label %431
+  %431 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.5.0.i, ptr %431, align 8
+  br label %432
 
-431:                                              ; preds = %424, %429
-  %432 = load i8, ptr %48, align 8, !range !836, !alias.scope !3268, !noundef !5
-  %433 = icmp eq i8 %432, 65
-  br i1 %433, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit45", label %434
+432:                                              ; preds = %425, %430
+  %433 = load i8, ptr %48, align 8, !range !836, !alias.scope !3268, !noundef !5
+  %434 = icmp eq i8 %433, 65
+  br i1 %434, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit45", label %435
 
-434:                                              ; preds = %431
-  %435 = add nsw i8 %432, -42
-  %436 = icmp ugt i8 %435, 22
-  %cond1.i.i41 = icmp eq i8 %435, 7
-  %cond.i.i42 = or i1 %436, %cond1.i.i41
-  %437 = icmp samesign ult i8 %432, 39
-  %or.cond.i.i43 = select i1 %cond.i.i42, i1 %437, i1 false
-  br i1 %or.cond.i.i43, label %438, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit45"
+435:                                              ; preds = %432
+  %436 = add nsw i8 %433, -42
+  %437 = icmp ugt i8 %436, 22
+  %cond1.i.i41 = icmp eq i8 %436, 7
+  %cond.i.i42 = or i1 %437, %cond1.i.i41
+  %438 = icmp samesign ult i8 %433, 39
+  %or.cond.i.i43 = select i1 %cond.i.i42, i1 %438, i1 false
+  br i1 %or.cond.i.i43, label %439, label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit45"
 
-438:                                              ; preds = %434
+439:                                              ; preds = %435
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %48)
           to label %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit45" unwind label %53
 
-"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50": ; preds = %.thread191.i, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i", %177, %418, %.body.thread65, %412, %.body39.thread78, %442, %446, %.body39
-  %.sroa.03.377 = phi i8 [ %.sroa.03.2, %442 ], [ %.sroa.03.2, %446 ], [ %.sroa.03.2, %.body39 ], [ %.sroa.03.5, %.body39.thread78 ], [ 1, %412 ], [ 1, %.body.thread65 ], [ 1, %418 ], [ 1, %177 ], [ 1, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i" ], [ 1, %.thread191.i ]
-  %.pn76 = phi { ptr, i32 } [ %117, %442 ], [ %117, %446 ], [ %117, %.body39 ], [ %428, %.body39.thread78 ], [ %lpad.thr_comm.split-lp, %412 ], [ %lpad.thr_comm, %.body.thread65 ], [ %419, %418 ], [ %178, %177 ], [ %eh.lpad-body42.i, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i" ], [ %.pn24195.i, %.thread191.i ]
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50": ; preds = %.thread191.i, %191, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i", %177, %419, %.body.thread65, %413, %.body39.thread78, %443, %447, %.body39
+  %.sroa.03.377 = phi i8 [ %.sroa.03.2, %443 ], [ %.sroa.03.2, %447 ], [ %.sroa.03.2, %.body39 ], [ %.sroa.03.5, %.body39.thread78 ], [ 1, %413 ], [ 1, %.body.thread65 ], [ 1, %419 ], [ 1, %177 ], [ 1, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i" ], [ 1, %191 ], [ 1, %.thread191.i ]
+  %.pn76 = phi { ptr, i32 } [ %117, %443 ], [ %117, %447 ], [ %117, %.body39 ], [ %429, %.body39.thread78 ], [ %lpad.thr_comm.split-lp, %413 ], [ %lpad.thr_comm, %.body.thread65 ], [ %420, %419 ], [ %178, %177 ], [ %eh.lpad-body42.i, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit181.i" ], [ %eh.lpad-body42.i, %191 ], [ %.pn24195.i, %.thread191.i ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %48) #49
           to label %51 unwind label %73
 
-"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit45": ; preds = %434, %431, %438
+"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit45": ; preds = %435, %432, %439
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  %439 = trunc nuw i8 %.sroa.03.5 to i1
-  br i1 %439, label %441, label %440
+  %440 = trunc nuw i8 %.sroa.03.5 to i1
+  br i1 %440, label %442, label %441
 
-440:                                              ; preds = %441, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit45"
+441:                                              ; preds = %442, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit45"
   ret void
 
-441:                                              ; preds = %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit45"
+442:                                              ; preds = %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit45"
   call void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
-  br label %440
+  br label %441
 
-442:                                              ; preds = %.body39
-  %443 = add nsw i8 %.pre, -42
-  %444 = icmp ugt i8 %443, 22
-  %cond1.i46 = icmp eq i8 %443, 7
-  %cond.i47 = or i1 %444, %cond1.i46
-  %445 = icmp samesign ult i8 %.pre, 39
-  %or.cond.i48 = select i1 %cond.i47, i1 %445, i1 false
-  br i1 %or.cond.i48, label %446, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50"
+443:                                              ; preds = %.body39
+  %444 = add nsw i8 %.pre, -42
+  %445 = icmp ugt i8 %444, 22
+  %cond1.i46 = icmp eq i8 %444, 7
+  %cond.i47 = or i1 %445, %cond1.i46
+  %446 = icmp samesign ult i8 %.pre, 39
+  %or.cond.i48 = select i1 %cond.i47, i1 %446, i1 false
+  br i1 %or.cond.i48, label %447, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50"
 
-446:                                              ; preds = %442
+447:                                              ; preds = %443
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %47)
           to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit50" unwind label %73
 
-447:                                              ; preds = %.thread, %51
+448:                                              ; preds = %.thread, %51
   %.pn954 = phi { ptr, i32 } [ %.pn955, %.thread ], [ %.pn9, %51 ]
   resume { ptr, i32 } %.pn954
 
 .thread:                                          ; preds = %65, %51
   %.pn955 = phi { ptr, i32 } [ %.pn9, %51 ], [ %66, %65 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #49
-          to label %447 unwind label %73
+          to label %448 unwind label %73
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -21737,7 +21740,7 @@ _ZN3vim3Vim4pane17h31c6b08b966f8554E.llvm.16422900337870965792.exit: ; preds = %
   %.sroa.06.0.not = phi i1 [ true, %54 ], [ false, %47 ], [ false, %71 ], [ false, %73 ]
   %.sroa.03.0 = phi i1 [ %57, %54 ], [ true, %47 ], [ %.sroa.03.1.ph, %71 ], [ %.sroa.03.1.ph, %73 ]
   %46 = icmp ne i8 %.sroa.0.0.copyload, 65
-  %or.cond = and i1 %46, %.sroa.03.0
+  %or.cond = and i1 %.sroa.03.0, %46
   br i1 %or.cond, label %77, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit21"
 
 47:                                               ; preds = %38
@@ -32568,15 +32571,15 @@ _ZN4gpui3app10entity_map9EntityMap4read17h3fe753bc0d6f670dE.exit: ; preds = %"_Z
   store i64 %switch.load, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !6536
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !6536
   invoke void @_ZN3vim3Vim15active_operator17hf03cc95387d9469aE.llvm.16422900337870965792(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(536) %19)
-          to label %42 unwind label %.thread119.i
+          to label %42 unwind label %.thread.i
 
-.thread119.i:                                     ; preds = %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4f8ce83d2511a3c2E.llvm.16422900337870965792.exit.i"
+.thread.i:                                        ; preds = %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4f8ce83d2511a3c2E.llvm.16422900337870965792.exit.i"
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread.thread.i
+  br label %.thread93.thread.i
 
-.thread.i:                                        ; preds = %159, %155, %51
-  br i1 %.sroa.07.2.i, label %.thread.thread.i, label %160
+.thread93.i:                                      ; preds = %51
+  br i1 %.sroa.07.2.i, label %.thread93.thread.i, label %160
 
 42:                                               ; preds = %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4f8ce83d2511a3c2E.llvm.16422900337870965792.exit.i"
   %43 = load i8, ptr %10, align 8, !range !836, !noalias !6536, !noundef !5
@@ -32606,7 +32609,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h3fe753bc0d6f670dE.exit: ; preds = %"_Z
   %53 = trunc nuw i8 %.sroa.05.0.i to i1
   %54 = icmp ne i8 %43, 65
   %or.cond3.i = select i1 %54, i1 %53, i1 false
-  br i1 %or.cond3.i, label %155, label %.thread.i
+  br i1 %or.cond3.i, label %155, label %.thread93.i
 
 55:                                               ; preds = %50, %46
   br i1 %44, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit48.i", label %56
@@ -32621,25 +32624,25 @@ _ZN4gpui3app10entity_map9EntityMap4read17h3fe753bc0d6f670dE.exit: ; preds = %"_Z
     i8 0, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
     i8 1, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
     i8 2, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
-    i8 3, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
+    i8 3, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
     i8 4, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
-    i8 5, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
-    i8 6, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
+    i8 5, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
+    i8 6, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
     i8 7, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.i
     i8 8, label %60
-    i8 9, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
-    i8 10, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
-    i8 11, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
+    i8 9, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
+    i8 10, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
+    i8 11, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
     i8 12, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
     i8 13, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
     i8 14, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
     i8 15, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
     i8 16, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
     i8 17, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
-    i8 18, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
-    i8 19, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
-    i8 20, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
-    i8 21, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
+    i8 18, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
+    i8 19, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
+    i8 20, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
+    i8 21, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
     i8 22, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
   ]
 
@@ -32648,7 +32651,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h3fe753bc0d6f670dE.exit: ; preds = %"_Z
 
 60:                                               ; preds = %56
   %61 = icmp eq i8 %.sroa.4.0.copyload, 14
-  br i1 %61, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
+  br i1 %61, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
 
 "_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit48.i": ; preds = %124, %127, %55
   %.sroa.05.2.i = phi i8 [ 1, %55 ], [ 0, %127 ], [ 0, %124 ]
@@ -32668,13 +32671,13 @@ _ZN4gpui3app10entity_map9EntityMap4read17h3fe753bc0d6f670dE.exit: ; preds = %"_Z
   %cond.i.i = or i1 %63, %cond1.i.i
   %64 = icmp samesign ult i8 %43, 39
   %or.cond.i.i = select i1 %cond.i.i, i1 %64, i1 false
-  br i1 %or.cond.i.i, label %65, label %.thread.thread.i
+  br i1 %or.cond.i.i, label %65, label %.thread93.thread.i
 
 65:                                               ; preds = %62
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10)
-          to label %.thread.thread.i unwind label %143, !noalias !6533
+          to label %.thread93.thread.i unwind label %143, !noalias !6533
 
-66:                                               ; preds = %.invoke.i, %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i, %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
+66:                                               ; preds = %.invoke.i, %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i, %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
   %67 = landingpad { ptr, i32 }
           cleanup
   br label %62
@@ -32683,7 +32686,7 @@ _ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.i: ; preds = %56
   %68 = icmp ne i8 %43, 41
   %switch.i.i.i = icmp samesign ugt i8 %31, 2
   %spec.select.i.i = select i1 %68, i1 true, i1 %switch.i.i.i
-  br i1 %spec.select.i.i, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
+  br i1 %spec.select.i.i, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i, label %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i
 
 _ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i: ; preds = %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.i, %60, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6545
@@ -32702,12 +32705,12 @@ _ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread.i: ; preds = 
   %74 = load i64, ptr %72, align 8, !noalias !6545
   br label %.invoke.i
 
-_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i: ; preds = %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.i, %60, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56
+_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i: ; preds = %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.i, %60, %56, %56, %56, %56, %56, %56, %56, %56, %56, %56
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6549
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h7e0668b72f426aefE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef 7, i1 noundef zeroext false)
           to label %.noexc38.i unwind label %66, !noalias !6533
 
-.noexc38.i:                                       ; preds = %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i
+.noexc38.i:                                       ; preds = %_ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread103.i
   %75 = load i64, ptr %6, align 8, !range !226, !noalias !6549, !noundef !5
   %trunc.i35.i = trunc nuw i64 %75 to i1
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -32881,12 +32884,12 @@ _ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i: ; preds 
 
 127:                                              ; preds = %124
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10)
-          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit48.i" unwind label %.thread94.i, !noalias !6533
+          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit48.i" unwind label %.thread98.i, !noalias !6533
 
-.thread94.i:                                      ; preds = %127
+.thread98.i:                                      ; preds = %127
   %128 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread.thread.i
+  br label %.thread93.thread.i
 
 129:                                              ; preds = %.noexc38.i
   %130 = load ptr, ptr %78, align 8, !noalias !6549, !nonnull !5, !noundef !5
@@ -32928,7 +32931,7 @@ _ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i: ; preds 
   store i64 7, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !6536
   br label %124
 
-143:                                              ; preds = %.thread.thread.i, %159, %65
+143:                                              ; preds = %.thread93.thread.i, %159, %65
   %144 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48, !noalias !6533
@@ -32936,8 +32939,8 @@ _ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i: ; preds 
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit.i": ; preds = %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit48.i"
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(7) %.val26.i, ptr noundef nonnull readonly align 1 dereferenceable(7) @anon.18dcd0c0d27590c9a1520cd49c7d3214.239, i64 7), !alias.scope !6573, !noalias !6533
-  %.not112.i = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %.not112.i, label %145, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit58.i"
+  %.not114.i = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %.not114.i, label %145, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit58.i"
 
 145:                                              ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit58.thread.i", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit58.i", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit54.i", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !6536
@@ -32952,8 +32955,8 @@ _ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i: ; preds 
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit58.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit.i"
   %bcmp.i.i57.i = call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(7) %.val26.i, ptr noundef nonnull readonly align 1 dereferenceable(7) @anon.18dcd0c0d27590c9a1520cd49c7d3214.234, i64 7), !alias.scope !6581, !noalias !6533
-  %.not113.i = icmp eq i32 %bcmp.i.i57.i, 0
-  br i1 %.not113.i, label %145, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit58.thread.i"
+  %.not115.i = icmp eq i32 %bcmp.i.i57.i, 0
+  br i1 %.not115.i, label %145, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit58.thread.i"
 
 "_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit58.thread.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit58.i", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.exit54.i", %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit48.i"
   invoke void @_ZN4gpui6keymap7context10KeyContext3add17h0929531cf69e8f85E(ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 @anon.18dcd0c0d27590c9a1520cd49c7d3214.243, i64 noundef 10)
@@ -32990,18 +32993,21 @@ _ZN3vim5state8Operator10is_waiting17h370698bb526fbe5dE.exit.thread99.i: ; preds 
   %cond.i65.i = or i1 %157, %cond1.i64.i
   %158 = icmp samesign ult i8 %43, 39
   %or.cond.i66.i = select i1 %cond.i65.i, i1 %158, i1 false
-  br i1 %or.cond.i66.i, label %159, label %.thread.i
+  br i1 %or.cond.i66.i, label %159, label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit68.i"
 
 159:                                              ; preds = %155
   invoke void @"_ZN4core3ptr40drop_in_place$LT$vim..motion..Motion$GT$17hdfc3244d343b26e3E.llvm.16422900337870965792"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %10)
-          to label %.thread.i unwind label %143, !noalias !6533
+          to label %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit68.i" unwind label %143, !noalias !6533
 
-160:                                              ; preds = %.thread.thread.i, %.thread.i
-  %.pn13110.i = phi { ptr, i32 } [ %.pn13111.i, %.thread.thread.i ], [ %52, %.thread.i ]
-  resume { ptr, i32 } %.pn13110.i
+"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit68.i": ; preds = %159, %155
+  br i1 %.sroa.07.2.i, label %.thread93.thread.i, label %160
 
-.thread.thread.i:                                 ; preds = %.thread94.i, %65, %62, %.thread.i, %.thread119.i
-  %.pn13111.i = phi { ptr, i32 } [ %52, %.thread.i ], [ %.pn.i, %65 ], [ %.pn.i, %62 ], [ %128, %.thread94.i ], [ %41, %.thread119.i ]
+160:                                              ; preds = %.thread93.thread.i, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit68.i", %.thread93.i
+  %.pn1390.i = phi { ptr, i32 } [ %.pn1391.i, %.thread93.thread.i ], [ %52, %.thread93.i ], [ %52, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit68.i" ]
+  resume { ptr, i32 } %.pn1390.i
+
+.thread93.thread.i:                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit68.i", %.thread98.i, %65, %62, %.thread93.i, %.thread.i
+  %.pn1391.i = phi { ptr, i32 } [ %52, %.thread93.i ], [ %52, %"_ZN4core3ptr41drop_in_place$LT$vim..state..Operator$GT$17h2c249530d99df2b4E.llvm.16422900337870965792.exit68.i" ], [ %41, %.thread.i ], [ %.pn.i, %65 ], [ %.pn.i, %62 ], [ %128, %.thread98.i ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h72b36b59dff56c04E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #49
           to label %160 unwind label %143, !noalias !6533
 

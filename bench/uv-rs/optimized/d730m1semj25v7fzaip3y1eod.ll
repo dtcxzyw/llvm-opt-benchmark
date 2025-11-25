@@ -4797,8 +4797,8 @@ define void @_ZN9uv_client4html10SimpleHtml5parse17h7e6cda729b6336feE(ptr dead_o
   %178 = landingpad { ptr, i32 }
           cleanup
   %179 = load i64, ptr %10, align 8, !range !517, !noalias !501, !noundef !4
-  %.not13.i = icmp eq i64 %179, -9223372036854775798
-  br i1 %.not13.i, label %.body, label %185
+  %.not8.i = icmp eq i64 %179, -9223372036854775798
+  br i1 %.not8.i, label %.body, label %185
 
 180:                                              ; preds = %173
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !504

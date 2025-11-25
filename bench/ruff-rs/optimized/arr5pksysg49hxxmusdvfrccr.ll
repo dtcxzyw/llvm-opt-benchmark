@@ -37643,6 +37643,11 @@ define hidden void @_ZN18ty_python_semantic5types7builder24InnerIntersectionBuil
           cleanup
   br label %.thread180.i
 
+.thread241.i:                                     ; preds = %.critedge.i, %._crit_edge329.i
+  %lpad.thr_comm239.i = landingpad { ptr, i32 }
+          cleanup
+  br label %.thread227.i
+
 47:                                               ; preds = %.backedge.i, %.lr.ph328.i
   %.sroa.0.0326.i = phi ptr [ %31, %.lr.ph328.i ], [ %48, %.backedge.i ]
   %.sroa.8.0325.i = phi i64 [ 0, %.lr.ph328.i ], [ %49, %.backedge.i ]
@@ -37657,7 +37662,7 @@ define hidden void @_ZN18ty_python_semantic5types7builder24InnerIntersectionBuil
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !4510
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false), !noalias !4510
   invoke void @"_ZN89_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h3b32f2a607bc4fffE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %17)
-          to label %52 unwind label %.thread.thread241.i, !noalias !4507
+          to label %52 unwind label %.thread241.i, !noalias !4507
 
 52:                                               ; preds = %._crit_edge329.i
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !4510
@@ -37683,7 +37688,7 @@ define hidden void @_ZN18ty_python_semantic5types7builder24InnerIntersectionBuil
   %63 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr111drop_in_place$LT$core..iter..adapters..rev..Rev$LT$smallvec..IntoIter$LT$$u5b$usize$u3b$$u20$1$u5d$$GT$$GT$$GT$17hfd17ea48ccd807b8E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16) #28
-          to label %.thread222.i unwind label %147, !noalias !4507
+          to label %.thread227.i unwind label %147, !noalias !4507
 
 64:                                               ; preds = %"_ZN8indexmap3map4core19RefMut$LT$K$C$V$GT$17swap_remove_index17h86ac5b51b13147b1E.exit.i", %.lr.ph332.i
   %65 = phi i64 [ %55, %.lr.ph332.i ], [ %150, %"_ZN8indexmap3map4core19RefMut$LT$K$C$V$GT$17swap_remove_index17h86ac5b51b13147b1E.exit.i" ]
@@ -37806,7 +37811,7 @@ _ZN8indexmap3map4core11erase_index17h0cf2ec5ffd9af3dbE.exit.i.i: ; preds = %100,
 
 .critedge.i:                                      ; preds = %"_ZN8indexmap3map4core19RefMut$LT$K$C$V$GT$17swap_remove_index17h86ac5b51b13147b1E.exit.i", %52
   invoke void @"_ZN4core3ptr111drop_in_place$LT$core..iter..adapters..rev..Rev$LT$smallvec..IntoIter$LT$$u5b$usize$u3b$$u20$1$u5d$$GT$$GT$$GT$17hfd17ea48ccd807b8E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16)
-          to label %126 unwind label %.thread.thread241.i, !noalias !4507
+          to label %126 unwind label %.thread241.i, !noalias !4507
 
 126:                                              ; preds = %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !4510
@@ -37871,7 +37876,7 @@ _ZN8indexmap3map4core11erase_index17h0cf2ec5ffd9af3dbE.exit.i.i: ; preds = %100,
   %146 = icmp eq i64 %144, %145
   br i1 %146, label %.thread197.i, label %135
 
-147:                                              ; preds = %.thread222.i, %.thread180.i, %.loopexit.split-lp.i, %210, %.thread200.i, %133, %62
+147:                                              ; preds = %.thread227.i, %.thread180.i, %.loopexit.split-lp.i, %210, %.thread200.i, %133, %62
   %148 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #29
@@ -38275,15 +38280,10 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h2668feeaa4640619E.exit.i: ; pre
   invoke void @"_ZN4core3ptr73drop_in_place$LT$smallvec..SmallVec$LT$$u5b$usize$u3b$$u20$1$u5d$$GT$$GT$17hbea340d9a65aa187E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
           to label %256 unwind label %254
 
-.thread.thread241.i:                              ; preds = %.critedge.i, %._crit_edge329.i
-  %lpad.thr_comm239.i = landingpad { ptr, i32 }
-          cleanup
-  br label %.thread222.i
-
 254:                                              ; preds = %253
   %255 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread222.i
+  br label %.thread227.i
 
 256:                                              ; preds = %253
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !4510
@@ -38377,10 +38377,10 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h2668feeaa4640619E.exit.i: ; pre
 .thread180.i:                                     ; preds = %.thread200.i, %.thread187.loopexit.split-lp.loopexit.split-lp.i, %.thread187.loopexit.split-lp.loopexit.i, %.thread187.loopexit.i
   %.pn74185.i = phi { ptr, i32 } [ %.pn71.pn.i, %.thread200.i ], [ %lpad.loopexit249.i, %.thread187.loopexit.i ], [ %lpad.loopexit251.i, %.thread187.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp252.i, %.thread187.loopexit.split-lp.loopexit.split-lp.i ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$smallvec..SmallVec$LT$$u5b$usize$u3b$$u20$1$u5d$$GT$$GT$17hbea340d9a65aa187E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #28
-          to label %.thread222.i unwind label %147
+          to label %.thread227.i unwind label %147
 
-.thread222.i:                                     ; preds = %.thread180.i, %254, %.thread.thread241.i, %62
-  %.pn74.pn226.i = phi { ptr, i32 } [ %255, %254 ], [ %.pn74185.i, %.thread180.i ], [ %lpad.thr_comm239.i, %.thread.thread241.i ], [ %63, %62 ]
+.thread227.i:                                     ; preds = %.thread180.i, %254, %62, %.thread241.i
+  %.pn74.pn226.i = phi { ptr, i32 } [ %lpad.thr_comm239.i, %.thread241.i ], [ %63, %62 ], [ %255, %254 ], [ %.pn74185.i, %.thread180.i ]
   invoke void @"_ZN4core3ptr99drop_in_place$LT$smallvec..SmallVec$LT$$u5b$ty_python_semantic..types..Type$u3b$$u20$1$u5d$$GT$$GT$17h8ca654dee1e44e80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #28
           to label %.body.thread unwind label %147
 
@@ -38596,8 +38596,8 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h2668feeaa4640619E.exit.i: ; pre
   call void @"_ZN4core3ptr144drop_in_place$LT$ordermap..set..OrderSet$LT$ty_python_semantic..types..Type$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd86c700031182493E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %286)
   br label %369
 
-.body.thread:                                     ; preds = %133, %.thread222.i, %.body.thread26
-  %eh.lpad-body24 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread26 ], [ %134, %133 ], [ %.pn74.pn226.i, %.thread222.i ]
+.body.thread:                                     ; preds = %133, %.thread227.i, %.body.thread26
+  %eh.lpad-body24 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread26 ], [ %134, %133 ], [ %.pn74.pn226.i, %.thread227.i ]
   invoke void @"_ZN4core3ptr144drop_in_place$LT$ordermap..set..OrderSet$LT$ty_python_semantic..types..Type$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd86c700031182493E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #28
           to label %371 unwind label %335
 

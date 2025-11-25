@@ -385,7 +385,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tget_member_type(i64 noundef %
   store i8 1, ptr @H5T_init_g, align 1, !tbaa !3
   %23 = tail call i32 @H5T__init_package() #8
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %29
+  br i1 %24, label %25, label %29, !prof !13
 
 25:                                               ; preds = %22
   store i8 0, ptr @H5T_init_g, align 1, !tbaa !3

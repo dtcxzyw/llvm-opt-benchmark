@@ -27842,7 +27842,7 @@ _ZN4llvm13IRBuilderBase12CreateFreezeEPNS_5ValueERKNS_5TwineE.exit: ; preds = %.
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br label %.critedge527
 
-.critedge527.thread:                              ; preds = %738, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %755, %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit, %784
+.critedge527.thread:                              ; preds = %738, %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit, %784, %755, %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.04302558, i64 144
   %.sroa.0216.0.copyload.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !37

@@ -351,8 +351,8 @@ define hidden void @_ZN12pingora_core10connectors4http2v29Connector20release_htt
   %22 = invoke noundef i32 @_ZN12pingora_core10connectors4http2v213ConnectionRef2id17hd5a3c7adfb750c80E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21)
           to label %24 unwind label %.thread
 
-.body47.thread108:                                ; preds = %196, %.body47
-  br i1 %.sroa.014.2, label %197, label %.thread105
+.body47.thread:                                   ; preds = %196, %.body47
+  br i1 %.sroa.014.2, label %197, label %.thread112
 
 .thread:                                          ; preds = %5, %24, %26
   %23 = landingpad { ptr, i32 }
@@ -373,7 +373,7 @@ define hidden void @_ZN12pingora_core10connectors4http2v29Connector20release_htt
   %.sroa.014.2 = phi i1 [ false, %195 ], [ %31, %29 ]
   %.pn27 = phi { ptr, i32 } [ %.pn2559, %195 ], [ %30, %29 ]
   %28 = trunc nuw i8 %.sroa.013.1 to i1
-  br i1 %28, label %196, label %.body47.thread108
+  br i1 %28, label %196, label %.body47.thread
 
 29:                                               ; preds = %192, %38
   %.sroa.014.1 = phi i8 [ 1, %38 ], [ 0, %192 ]
@@ -415,7 +415,7 @@ define hidden void @_ZN12pingora_core10connectors4http2v29Connector20release_htt
   unreachable
 
 .thread70:                                        ; preds = %.thread64
-  br i1 %.sroa.012.1.lpad-body68, label %195, label %.thread105
+  br i1 %.sroa.012.1.lpad-body68, label %195, label %.thread112
 
 .thread54:                                        ; preds = %44, %48, %53, %177
   %.sroa.013.2 = phi i8 [ 0, %177 ], [ 0, %53 ], [ 1, %48 ], [ 1, %44 ]
@@ -458,7 +458,7 @@ define hidden void @_ZN12pingora_core10connectors4http2v29Connector20release_htt
   br label %.thread64
 
 57:                                               ; preds = %65
-  %lpad.thr_comm.split-lp122 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp108 = landingpad { ptr, i32 }
           cleanup
   br label %195
 
@@ -554,12 +554,12 @@ define hidden void @_ZN12pingora_core10connectors4http2v29Connector20release_htt
   %93 = load ptr, ptr %6, align 8, !alias.scope !36, !nonnull !8, !noundef !8
   %94 = atomicrmw sub ptr %93, i64 1 release, align 8, !noalias !36
   %95 = icmp eq i64 %94, 1
-  br i1 %95, label %96, label %.thread105
+  br i1 %95, label %96, label %.thread112
 
 96:                                               ; preds = %91
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9e4d007c83f57761E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.thread105 unwind label %101
+          to label %.thread112 unwind label %101
 
 "_ZN85_$LT$lock_api..mutex..ArcMutexGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfef88e2e718d069E.exit.i32": ; preds = %90, %85
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
@@ -686,7 +686,7 @@ define hidden void @_ZN12pingora_core10connectors4http2v29Connector20release_htt
   %151 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..handle..Handle$GT$17he84429fc895b7e97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #23
-          to label %.thread105 unwind label %154
+          to label %.thread112 unwind label %154
 
 152:                                              ; preds = %130
   store ptr %149, ptr %8, align 8
@@ -780,7 +780,7 @@ define hidden void @_ZN12pingora_core10connectors4http2v29Connector20release_htt
 176:                                              ; preds = %117, %175, %171
   %.pn21.ph = phi { ptr, i32 } [ %118, %117 ], [ %.pn.pn.ph, %175 ], [ %.pn.pn.ph, %171 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$tokio..sync..watch..Receiver$LT$bool$GT$$GT$17h2d12b97823411774E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13) #23
-          to label %.thread105 unwind label %154
+          to label %.thread112 unwind label %154
 
 177:                                              ; preds = %61, %58
   invoke void @"_ZN4core3ptr70drop_in_place$LT$pingora_core..connectors..http..v2..ConnectionRef$GT$17h9455973f3a7b2c01E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
@@ -807,12 +807,12 @@ define hidden void @_ZN12pingora_core10connectors4http2v29Connector20release_htt
   %185 = load ptr, ptr %19, align 8, !alias.scope !72, !nonnull !8, !noundef !8
   %186 = atomicrmw sub ptr %185, i64 1 release, align 8, !noalias !72
   %187 = icmp eq i64 %186, 1
-  br i1 %187, label %188, label %.thread105
+  br i1 %187, label %188, label %.thread112
 
 188:                                              ; preds = %183
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h9e4d007c83f57761E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19)
-          to label %.thread105 unwind label %193
+          to label %.thread112 unwind label %193
 
 "_ZN85_$LT$lock_api..mutex..ArcMutexGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbfef88e2e718d069E.exit.i45": ; preds = %182, %178
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
@@ -840,23 +840,23 @@ define hidden void @_ZN12pingora_core10connectors4http2v29Connector20release_htt
           to label %.thread70 unwind label %154
 
 195:                                              ; preds = %57, %.thread54, %.thread70
-  %.pn2559 = phi { ptr, i32 } [ %47, %.thread54 ], [ %eh.lpad-body69, %.thread70 ], [ %lpad.thr_comm.split-lp122, %57 ]
+  %.pn2559 = phi { ptr, i32 } [ %47, %.thread54 ], [ %eh.lpad-body69, %.thread70 ], [ %lpad.thr_comm.split-lp108, %57 ]
   %.sroa.013.358 = phi i8 [ %.sroa.013.2, %.thread54 ], [ 0, %.thread70 ], [ 0, %57 ]
   invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$lock_api..mutex..ArcMutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$17hcbb5d409e0200e92E"(ptr noalias noundef align 8 dereferenceable(8) %19) #23
           to label %.body47 unwind label %154
 
 196:                                              ; preds = %.body47
   invoke void @"_ZN4core3ptr70drop_in_place$LT$pingora_core..connectors..http..v2..ConnectionRef$GT$17h9455973f3a7b2c01E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20) #23
-          to label %.body47.thread108 unwind label %154
+          to label %.body47.thread unwind label %154
 
-.thread105:                                       ; preds = %.thread70, %91, %96, %176, %150, %188, %183, %197, %.body47.thread108
-  %.pn27.pn52 = phi { ptr, i32 } [ %.pn27.pn53, %197 ], [ %.pn27, %.body47.thread108 ], [ %184, %183 ], [ %184, %188 ], [ %151, %150 ], [ %.pn21.ph, %176 ], [ %92, %91 ], [ %92, %96 ], [ %eh.lpad-body69, %.thread70 ]
+.thread112:                                       ; preds = %.thread70, %91, %96, %176, %150, %188, %183, %197, %.body47.thread
+  %.pn27.pn52 = phi { ptr, i32 } [ %.pn27.pn53, %197 ], [ %.pn27, %.body47.thread ], [ %184, %183 ], [ %184, %188 ], [ %92, %96 ], [ %92, %91 ], [ %.pn21.ph, %176 ], [ %151, %150 ], [ %eh.lpad-body69, %.thread70 ]
   resume { ptr, i32 } %.pn27.pn52
 
-197:                                              ; preds = %.thread, %.body47.thread108
-  %.pn27.pn53 = phi { ptr, i32 } [ %23, %.thread ], [ %.pn27, %.body47.thread108 ]
+197:                                              ; preds = %.thread, %.body47.thread
+  %.pn27.pn53 = phi { ptr, i32 } [ %23, %.thread ], [ %.pn27, %.body47.thread ]
   invoke void @"_ZN4core3ptr76drop_in_place$LT$pingora_core..protocols..http..v2..client..Http2Session$GT$17hdaca929242c5ea8bE"(ptr noalias noundef nonnull align 8 dereferenceable(368) %1) #23
-          to label %.thread105 unwind label %154
+          to label %.thread112 unwind label %154
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

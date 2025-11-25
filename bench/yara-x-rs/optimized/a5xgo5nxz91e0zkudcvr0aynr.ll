@@ -42816,7 +42816,7 @@ define hidden void @"_ZN8wasmtime7runtime8instance20InstancePre$LT$T$GT$3new17ha
   br i1 %exitcond.not.i, label %._crit_edge.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h63741496268cc884E.exit.i"
 
 117:                                              ; preds = %197
-  br i1 %198, label %.thread, label %.thread84
+  br i1 %.not72, label %.thread65, label %.thread
 
 .thread.loopexit:                                 ; preds = %.noexc28, %"_ZN8wasmtime7runtime8instance20InstancePre$LT$T$GT$3new28_$u7b$$u7b$closure$u7d$$u7d$17h667b28fb83a0aad4E.exit.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h63741496268cc884E.exit.i"
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -42824,12 +42824,12 @@ define hidden void @"_ZN8wasmtime7runtime8instance20InstancePre$LT$T$GT$3new17ha
   br label %.thread
 
 .thread.loopexit.split-lp.loopexit:               ; preds = %40
-  %lpad.loopexit67 = landingpad { ptr, i32 }
+  %lpad.loopexit68 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 .thread.loopexit.split-lp.loopexit.split-lp:      ; preds = %48, %69, %77
-  %lpad.loopexit.split-lp68 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp69 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -42860,14 +42860,14 @@ define hidden void @"_ZN8wasmtime7runtime8instance20InstancePre$LT$T$GT$3new17ha
   %123 = load i64, ptr %28, align 8, !noundef !4
   %.idx = mul nuw nsw i64 %123, 88
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx
-  %.not = icmp eq i64 %123, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not75 = icmp eq i64 %123, 0
+  br i1 %.not75, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit, %138
-  %.sroa.016.075 = phi ptr [ %125, %138 ], [ %122, %.loopexit ]
-  %.sroa.09.074 = phi i64 [ %.sroa.09.1, %138 ], [ 0, %.loopexit ]
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.016.075, i64 88
-  %126 = load i64, ptr %.sroa.016.075, align 8, !range !1079, !noundef !4
+  %.sroa.016.077 = phi ptr [ %125, %138 ], [ %122, %.loopexit ]
+  %.sroa.09.076 = phi i64 [ %.sroa.09.1, %138 ], [ 0, %.loopexit ]
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.016.077, i64 88
+  %126 = load i64, ptr %.sroa.016.077, align 8, !range !1079, !noundef !4
   %127 = icmp eq i64 %126, 6
   br i1 %127, label %130, label %138
 
@@ -42879,8 +42879,8 @@ define hidden void @"_ZN8wasmtime7runtime8instance20InstancePre$LT$T$GT$3new17ha
   br i1 %129, label %172, label %164
 
 130:                                              ; preds = %.lr.ph
-  %131 = add i64 %.sroa.09.074, 1
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.016.075, i64 8
+  %131 = add i64 %.sroa.09.076, 1
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.016.077, i64 8
   %133 = load ptr, ptr %132, align 8, !nonnull !4, !noundef !4
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = load ptr, ptr %134, align 8, !nonnull !4, !noundef !4
@@ -42890,9 +42890,9 @@ define hidden void @"_ZN8wasmtime7runtime8instance20InstancePre$LT$T$GT$3new17ha
   br i1 %.not19, label %139, label %138
 
 138:                                              ; preds = %130, %160, %.lr.ph
-  %.sroa.09.1 = phi i64 [ %131, %160 ], [ %131, %130 ], [ %.sroa.09.074, %.lr.ph ]
-  %.not77 = icmp eq ptr %125, %124
-  br i1 %.not77, label %._crit_edge, label %.lr.ph
+  %.sroa.09.1 = phi i64 [ %131, %160 ], [ %131, %130 ], [ %.sroa.09.076, %.lr.ph ]
+  %.not = icmp eq ptr %125, %124
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 139:                                              ; preds = %130
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 24
@@ -42901,7 +42901,7 @@ define hidden void @"_ZN8wasmtime7runtime8instance20InstancePre$LT$T$GT$3new17ha
           to label %145 unwind label %.thread61
 
 143:                                              ; preds = %"_ZN4core3ptr92drop_in_place$LT$alloc..sync..Arc$LT$$u5b$wasmtime..runtime..linker..Definition$u5d$$GT$$GT$17h99f0c4f642e819f6E.exit"
-  br i1 %.sroa.011.1, label %197, label %.thread84
+  br i1 %.sroa.011.1, label %197, label %.thread65
 
 .thread61:                                        ; preds = %139, %159
   %144 = landingpad { ptr, i32 }
@@ -43069,19 +43069,19 @@ define hidden void @"_ZN8wasmtime7runtime8instance20InstancePre$LT$T$GT$3new17ha
   unreachable
 
 197:                                              ; preds = %.thread61, %143
-  %198 = phi i1 [ true, %.thread61 ], [ false, %143 ]
-  %.pn.pn66 = phi { ptr, i32 } [ %144, %.thread61 ], [ %.pn, %143 ]
+  %.not72 = phi i1 [ false, %.thread61 ], [ true, %143 ]
+  %.pn.pn64 = phi { ptr, i32 } [ %144, %.thread61 ], [ %.pn, %143 ]
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$wasmtime..runtime..vm..vmcontext..VMFuncRef$GT$$GT$17h6f71036d651bdac4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #30
           to label %117 unwind label %195
 
-.thread84:                                        ; preds = %143, %.thread, %117
-  %.pn.pn.pn55 = phi { ptr, i32 } [ %.pn.pn.pn56, %.thread ], [ %.pn.pn66, %117 ], [ %.pn, %143 ]
+.thread65:                                        ; preds = %143, %.thread, %117
+  %.pn.pn.pn55 = phi { ptr, i32 } [ %.pn.pn.pn56, %.thread ], [ %.pn.pn64, %117 ], [ %.pn, %143 ]
   resume { ptr, i32 } %.pn.pn.pn55
 
 .thread:                                          ; preds = %.thread.loopexit, %.thread.loopexit.split-lp.loopexit.split-lp, %.thread.loopexit.split-lp.loopexit, %117
-  %.pn.pn.pn56 = phi { ptr, i32 } [ %.pn.pn66, %117 ], [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit67, %.thread.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp68, %.thread.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn.pn56 = phi { ptr, i32 } [ %.pn.pn64, %117 ], [ %lpad.loopexit, %.thread.loopexit ], [ %lpad.loopexit68, %.thread.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp69, %.thread.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$wasmtime..runtime..linker..Definition$GT$$GT$17hacc9ba84ff2644a2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #30
-          to label %.thread84 unwind label %195
+          to label %.thread65 unwind label %195
 }
 
 ; Function Attrs: nonlazybind uwtable

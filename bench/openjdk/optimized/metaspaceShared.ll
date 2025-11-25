@@ -3328,7 +3328,7 @@ _ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38: ; preds = %86, %88
 
 94:                                               ; preds = %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit, %93, %.thread57, %89
   %.0305462 = phi ptr [ %.0305461, %.thread57 ], [ %.0305461, %93 ], [ %.03055, %89 ], [ %.03055, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ %.03055, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38 ]
-  %.0 = phi i8 [ 0, %.thread57 ], [ 1, %93 ], [ 0, %89 ], [ 0, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ 0, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38 ]
+  %.0 = phi i1 [ false, %.thread57 ], [ true, %93 ], [ false, %89 ], [ false, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit ], [ false, %_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38 ]
   %.not35 = icmp eq ptr %.0305462, null
   br i1 %.not35, label %100, label %95
 
@@ -3344,11 +3344,11 @@ _ZN15MetaspaceShared27unrecoverable_loading_errorEPKc.exit38: ; preds = %86, %88
   br label %100
 
 100:                                              ; preds = %99, %95, %94
-  %.1 = phi i8 [ %.0, %95 ], [ 1, %99 ], [ %.0, %94 ]
+  %.1 = phi i1 [ %.0, %95 ], [ true, %99 ], [ %.0, %94 ]
   %101 = load i8, ptr @RequireSharedSpaces, align 1
-  %102 = and i8 %101, %.1
-  %or.cond.not = icmp eq i8 %102, 0
-  br i1 %or.cond.not, label %109, label %103
+  %102 = trunc i8 %101 to i1
+  %or.cond = and i1 %.1, %102
+  br i1 %or.cond, label %103, label %109
 
 103:                                              ; preds = %100
   %104 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8

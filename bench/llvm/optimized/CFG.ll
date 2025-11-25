@@ -9795,63 +9795,63 @@ _ZN12_GLOBAL__N_110CFGBuilder27VisitOMPExecutableDirectiveEPN5clang22OMPExecutab
     i16 93, label %182
     i16 94, label %182
     i16 92, label %182
-    i16 135, label %397
-    i16 79, label %399
-    i16 249, label %401
-    i16 130, label %403
-    i16 248, label %405
-    i16 253, label %407
-    i16 62, label %409
-    i16 114, label %411
-    i16 113, label %411
-    i16 118, label %413
-    i16 115, label %415
-    i16 108, label %417
-    i16 112, label %419
-    i16 88, label %421
-    i16 116, label %423
-    i16 99, label %425
-    i16 251, label %427
-    i16 98, label %429
-    i16 252, label %431
-    i16 245, label %433
-    i16 134, label %435
-    i16 244, label %437
-    i16 243, label %439
-    i16 242, label %441
-    i16 256, label %443
-    i16 241, label %445
-    i16 81, label %447
+    i16 135, label %395
+    i16 79, label %397
+    i16 249, label %399
+    i16 130, label %401
+    i16 248, label %403
+    i16 253, label %405
+    i16 62, label %407
+    i16 114, label %409
+    i16 113, label %409
+    i16 118, label %411
+    i16 115, label %413
+    i16 108, label %415
+    i16 112, label %417
+    i16 88, label %419
+    i16 116, label %421
+    i16 99, label %423
+    i16 251, label %425
+    i16 98, label %427
+    i16 252, label %429
+    i16 245, label %431
+    i16 134, label %433
+    i16 244, label %435
+    i16 243, label %437
+    i16 242, label %439
+    i16 256, label %441
+    i16 241, label %443
+    i16 81, label %445
     i16 63, label %tailrecurse.backedge
-    i16 240, label %449
-    i16 2, label %451
-    i16 53, label %453
-    i16 50, label %455
-    i16 48, label %457
-    i16 238, label %459
-    i16 161, label %461
-    i16 156, label %463
-    i16 159, label %464
-    i16 158, label %466
-    i16 157, label %468
-    i16 155, label %470
-    i16 35, label %472
-    i16 28, label %474
-    i16 19, label %476
-    i16 141, label %478
-    i16 247, label %478
-    i16 74, label %480
-    i16 75, label %480
-    i16 140, label %482
-    i16 139, label %484
-    i16 138, label %488
-    i16 137, label %490
-    i16 5, label %492
-    i16 11, label %494
-    i16 133, label %496
-    i16 4, label %498
-    i16 1, label %500
-    i16 127, label %502
+    i16 240, label %447
+    i16 2, label %449
+    i16 53, label %451
+    i16 50, label %453
+    i16 48, label %455
+    i16 238, label %457
+    i16 161, label %459
+    i16 156, label %461
+    i16 159, label %462
+    i16 158, label %464
+    i16 157, label %466
+    i16 155, label %468
+    i16 35, label %470
+    i16 28, label %472
+    i16 19, label %474
+    i16 141, label %476
+    i16 247, label %476
+    i16 74, label %478
+    i16 75, label %478
+    i16 140, label %480
+    i16 139, label %482
+    i16 138, label %486
+    i16 137, label %488
+    i16 5, label %490
+    i16 11, label %492
+    i16 133, label %494
+    i16 4, label %496
+    i16 1, label %498
+    i16 127, label %500
   ]
 
 157:                                              ; preds = %.thread
@@ -10006,30 +10006,30 @@ _ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit24.i: ; preds = %226
   %.1.i1837.sink.i = phi ptr [ %223, %_ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit.i ], [ %211, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread28.i ], [ %233, %_ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit24.i ], [ %196, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i ]
   %234 = getelementptr inbounds nuw i8, ptr %.1.i1837.sink.i, i64 16
   %235 = load i64, ptr %234, align 16
-  %236 = lshr i64 %235, 24
-  %237 = trunc i64 %236 to i8
-  %238 = and i8 %237, 1
+  %236 = and i64 %235, 16777216
+  %237 = icmp ne i64 %236, 0
   br label %_ZN5clang18getFunctionExtInfoERKNS_4TypeE.exit
 
 _ZN5clang18getFunctionExtInfoERKNS_4TypeE.exit:   ; preds = %215, %_ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit.i, %226, %_ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit24.i, %.critedge.sink.split.i
-  %.sroa.025.1.i = phi i8 [ 0, %_ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit24.i ], [ 0, %_ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit.i ], [ 0, %215 ], [ 0, %226 ], [ %238, %.critedge.sink.split.i ]
-  %239 = load ptr, ptr %0, align 8, !tbaa !70
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 2160
-  %241 = load ptr, ptr %240, align 8, !tbaa !531
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
-  %243 = load i64, ptr %242, align 8
-  %244 = and i64 %243, 8796093022208
-  %.not.i149 = icmp eq i64 %244, 0
-  br i1 %.not.i149, label %249, label %245
+  %.sroa.025.1.i = phi i1 [ false, %_ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit24.i ], [ false, %_ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit.i ], [ false, %215 ], [ false, %226 ], [ %237, %.critedge.sink.split.i ]
+  %238 = load ptr, ptr %0, align 8, !tbaa !70
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 2160
+  %240 = load ptr, ptr %239, align 8, !tbaa !531
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  %242 = load i64, ptr %241, align 8
+  %243 = and i64 %242, 8796093022208
+  %.not.i149 = icmp eq i64 %243, 0
+  br i1 %.not.i149, label %249, label %244
 
-245:                                              ; preds = %_ZN5clang18getFunctionExtInfoERKNS_4TypeE.exit
-  %246 = load ptr, ptr %13, align 8, !tbaa !122
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 57
-  %248 = load i8, ptr %247, align 1, !tbaa !903, !range !129, !noundef !130
+244:                                              ; preds = %_ZN5clang18getFunctionExtInfoERKNS_4TypeE.exit
+  %245 = load ptr, ptr %13, align 8, !tbaa !122
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 57
+  %247 = load i8, ptr %246, align 1, !tbaa !903, !range !129, !noundef !130
+  %248 = trunc nuw i8 %247 to i1
   br label %249
 
-249:                                              ; preds = %245, %_ZN5clang18getFunctionExtInfoERKNS_4TypeE.exit
-  %.026.i = phi i8 [ 0, %_ZN5clang18getFunctionExtInfoERKNS_4TypeE.exit ], [ %248, %245 ]
+249:                                              ; preds = %244, %_ZN5clang18getFunctionExtInfoERKNS_4TypeE.exit
+  %.026.i = phi i1 [ false, %_ZN5clang18getFunctionExtInfoERKNS_4TypeE.exit ], [ %248, %244 ]
   %250 = load i32, ptr %.0139, align 8
   %251 = lshr i32 %250, 24
   %252 = zext nneg i32 %251 to i64
@@ -10120,7 +10120,7 @@ _ZN12_GLOBAL__N_110CFGBuilder36findConstructionContextsForArgumentsIN5clang8Call
   br label %297
 
 297:                                              ; preds = %296, %293
-  %.128.i = phi i8 [ 1, %296 ], [ %.sroa.025.1.i, %293 ]
+  %.128.i = phi i1 [ true, %296 ], [ %.sroa.025.1.i, %293 ]
   %298 = load i32, ptr %257, align 4
   %299 = and i32 %298, 256
   %.not.i1040 = icmp eq i32 %299, 0
@@ -10152,404 +10152,401 @@ _ZN12_GLOBAL__N_110CFGBuilder36findConstructionContextsForArgumentsIN5clang8Call
 
 _ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %311, %.lr.ph.i.i.i.i.i
   %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %306, %311 ]
-  %.not1050 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %306
-  %313 = select i1 %.not1050, i8 %.026.i, i8 0
+  %313 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %306
+  %314 = select i1 %313, i1 %.026.i, i1 false
   br label %_ZNK5clang4Decl7hasAttrINS_11NoThrowAttrEEEbv.exit
 
 _ZNK5clang4Decl7hasAttrINS_11NoThrowAttrEEEbv.exit: ; preds = %297, %300, %_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i
-  %spec.select35.i.le = phi i8 [ %.026.i, %297 ], [ %.026.i, %300 ], [ %313, %_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ]
-  %314 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getBuiltinIDEb(ptr noundef nonnull align 8 dereferenceable(168) %255, i1 noundef zeroext false) #27
-  %315 = icmp eq i32 %314, 1004
-  br i1 %315, label %.critedge.i, label %316
+  %not..le = phi i1 [ %.026.i, %297 ], [ %.026.i, %300 ], [ %314, %_ZN5clangneENS_22specific_attr_iteratorINS_11NoThrowAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ]
+  %315 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getBuiltinIDEb(ptr noundef nonnull align 8 dereferenceable(168) %255, i1 noundef zeroext false) #27
+  %316 = icmp eq i32 %315, 1004
+  br i1 %316, label %.critedge.i, label %317
 
-316:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_11NoThrowAttrEEEbv.exit
-  %317 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getBuiltinIDEb(ptr noundef nonnull align 8 dereferenceable(168) %255, i1 noundef zeroext false) #27
-  %318 = icmp eq i32 %317, 453
-  br i1 %318, label %.critedge.i, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread
+317:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_11NoThrowAttrEEEbv.exit
+  %318 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getBuiltinIDEb(ptr noundef nonnull align 8 dereferenceable(168) %255, i1 noundef zeroext false) #27
+  %319 = icmp eq i32 %318, 453
+  br i1 %319, label %.critedge.i, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread
 
-.critedge.i:                                      ; preds = %316, %_ZNK5clang4Decl7hasAttrINS_11NoThrowAttrEEEbv.exit
-  %319 = load i32, ptr %.0139, align 8
-  %320 = lshr i32 %319, 24
-  %321 = zext nneg i32 %320 to i64
-  %322 = getelementptr inbounds nuw i8, ptr %.0139, i64 %321
-  %323 = load ptr, ptr %322, align 8, !tbaa !3
-  %324 = getelementptr i8, ptr %323, i64 8
-  %.val.i = load i64, ptr %324, align 8, !tbaa !51
-  %325 = tail call fastcc noundef zeroext i1 @_ZL8CanThrowPN5clang4ExprERNS_10ASTContextE(i64 %.val.i)
-  %326 = load ptr, ptr %14, align 8, !tbaa !121
-  %.not.i1042 = icmp eq ptr %326, null
-  br i1 %.not.i1042, label %327, label %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1045
+.critedge.i:                                      ; preds = %317, %_ZNK5clang4Decl7hasAttrINS_11NoThrowAttrEEEbv.exit
+  %320 = load i32, ptr %.0139, align 8
+  %321 = lshr i32 %320, 24
+  %322 = zext nneg i32 %321 to i64
+  %323 = getelementptr inbounds nuw i8, ptr %.0139, i64 %322
+  %324 = load ptr, ptr %323, align 8, !tbaa !3
+  %325 = getelementptr i8, ptr %324, i64 8
+  %.val.i = load i64, ptr %325, align 8, !tbaa !51
+  %326 = tail call fastcc noundef zeroext i1 @_ZL8CanThrowPN5clang4ExprERNS_10ASTContextE(i64 %.val.i)
+  %327 = load ptr, ptr %14, align 8, !tbaa !121
+  %.not.i1042 = icmp eq ptr %327, null
+  br i1 %.not.i1042, label %328, label %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1045
 
-327:                                              ; preds = %.critedge.i
-  %328 = load ptr, ptr %15, align 8, !tbaa !111
-  %329 = tail call noundef ptr @_ZN5clang3CFG11createBlockEv(ptr noundef nonnull align 8 dereferenceable(112) %328)
-  %330 = load ptr, ptr %18, align 8, !tbaa !120
-  %.not.i.i1043 = icmp eq ptr %330, null
-  br i1 %.not.i.i1043, label %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1044, label %331
+328:                                              ; preds = %.critedge.i
+  %329 = load ptr, ptr %15, align 8, !tbaa !111
+  %330 = tail call noundef ptr @_ZN5clang3CFG11createBlockEv(ptr noundef nonnull align 8 dereferenceable(112) %329)
+  %331 = load ptr, ptr %18, align 8, !tbaa !120
+  %.not.i.i1043 = icmp eq ptr %331, null
+  br i1 %.not.i.i1043, label %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1044, label %332
 
-331:                                              ; preds = %327
+332:                                              ; preds = %328
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN5clang8CFGBlock13AdjacentBlockC1EPS0_b(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %330, i1 noundef zeroext true) #27
-  %332 = load ptr, ptr %15, align 8, !tbaa !111
-  %333 = getelementptr inbounds nuw i8, ptr %332, i64 32
-  %334 = load ptr, ptr %6, align 8
-  %335 = load i64, ptr %19, align 8
-  call void @_ZN5clang8CFGBlock12addSuccessorENS0_13AdjacentBlockERNS_17BumpVectorContextE(ptr noundef nonnull align 8 dereferenceable(120) %329, ptr %334, i64 %335, ptr noundef nonnull align 8 dereferenceable(8) %333)
+  call void @_ZN5clang8CFGBlock13AdjacentBlockC1EPS0_b(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %331, i1 noundef zeroext true) #27
+  %333 = load ptr, ptr %15, align 8, !tbaa !111
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 32
+  %335 = load ptr, ptr %6, align 8
+  %336 = load i64, ptr %19, align 8
+  call void @_ZN5clang8CFGBlock12addSuccessorENS0_13AdjacentBlockERNS_17BumpVectorContextE(ptr noundef nonnull align 8 dereferenceable(120) %330, ptr %335, i64 %336, ptr noundef nonnull align 8 dereferenceable(8) %334)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1044
 
-_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1044: ; preds = %331, %327
-  store ptr %329, ptr %14, align 8, !tbaa !121
+_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1044: ; preds = %332, %328
+  store ptr %330, ptr %14, align 8, !tbaa !121
   br label %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1045
 
 _ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1045: ; preds = %.critedge.i, %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1044
-  %336 = phi ptr [ %326, %.critedge.i ], [ %329, %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1044 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder10appendStmtEPN5clang8CFGBlockEPKNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %336, ptr noundef nonnull %.0139)
-  %337 = load i32, ptr %.0139, align 8
-  %338 = lshr i32 %337, 24
-  %339 = zext nneg i32 %338 to i64
+  %337 = phi ptr [ %327, %.critedge.i ], [ %330, %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1044 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder10appendStmtEPN5clang8CFGBlockEPKNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %337, ptr noundef nonnull %.0139)
+  %338 = load i32, ptr %.0139, align 8
+  %339 = lshr i32 %338, 24
+  %340 = zext nneg i32 %339 to i64
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %.thread, %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1045, %463
-  %.sink = phi i64 [ %339, %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1045 ], [ 16, %463 ], [ 16, %.thread ]
-  %.tr216.be = phi i32 [ 0, %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1045 ], [ 1, %463 ], [ 0, %.thread ]
-  %340 = getelementptr inbounds nuw i8, ptr %.0139, i64 %.sink
-  %.tr215.be = load ptr, ptr %340, align 8, !tbaa !3
+tailrecurse.backedge:                             ; preds = %.thread, %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1045, %461
+  %.sink = phi i64 [ %340, %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1045 ], [ 16, %461 ], [ 16, %.thread ]
+  %.tr216.be = phi i32 [ 0, %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1045 ], [ 1, %461 ], [ 0, %.thread ]
+  %341 = getelementptr inbounds nuw i8, ptr %.0139, i64 %.sink
+  %.tr215.be = load ptr, ptr %341, align 8, !tbaa !3
   %.not = icmp eq ptr %.tr215.be, null
   br i1 %.not, label %tailrecurse._crit_edge, label %21
 
-_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %316, %256, %249
-  %.027.i = phi i8 [ %.sroa.025.1.i, %249 ], [ %.sroa.025.1.i, %256 ], [ %.128.i, %316 ]
-  %.1.i = phi i8 [ %.026.i, %249 ], [ %.026.i, %256 ], [ %spec.select35.i.le, %316 ]
-  %341 = load i32, ptr %.0139, align 8
-  %342 = lshr i32 %341, 24
-  %343 = zext nneg i32 %342 to i64
-  %344 = getelementptr inbounds nuw i8, ptr %.0139, i64 %343
-  %345 = load ptr, ptr %344, align 8, !tbaa !3
-  %346 = getelementptr i8, ptr %345, i64 8
-  %.val37.i = load i64, ptr %346, align 8, !tbaa !51
-  %347 = tail call fastcc noundef zeroext i1 @_ZL8CanThrowPN5clang4ExprERNS_10ASTContextE(i64 %.val37.i)
-  %spec.select36.i = select i1 %347, i8 %.1.i, i8 0
-  %348 = trunc nuw i8 %.027.i to i1
-  %349 = trunc nuw i8 %spec.select36.i to i1
-  %350 = or i8 %spec.select36.i, %.027.i
-  %or.cond.not.i = icmp eq i8 %350, 0
-  %351 = load ptr, ptr %14, align 8, !tbaa !121
-  %.not.i1046 = icmp eq ptr %351, null
-  br i1 %or.cond.not.i, label %352, label %365
+_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %317, %256, %249
+  %.027.i = phi i1 [ %.sroa.025.1.i, %249 ], [ %.sroa.025.1.i, %256 ], [ %.128.i, %317 ]
+  %.1.i = phi i1 [ %.026.i, %249 ], [ %.026.i, %256 ], [ %not..le, %317 ]
+  %342 = load i32, ptr %.0139, align 8
+  %343 = lshr i32 %342, 24
+  %344 = zext nneg i32 %343 to i64
+  %345 = getelementptr inbounds nuw i8, ptr %.0139, i64 %344
+  %346 = load ptr, ptr %345, align 8, !tbaa !3
+  %347 = getelementptr i8, ptr %346, i64 8
+  %.val37.i = load i64, ptr %347, align 8, !tbaa !51
+  %348 = tail call fastcc noundef zeroext i1 @_ZL8CanThrowPN5clang4ExprERNS_10ASTContextE(i64 %.val37.i)
+  %spec.select36.i = select i1 %348, i1 %.1.i, i1 false
+  %or.cond.i = or i1 %.027.i, %spec.select36.i
+  %349 = load ptr, ptr %14, align 8, !tbaa !121
+  %.not33.i = icmp eq ptr %349, null
+  br i1 %or.cond.i, label %363, label %350
 
-352:                                              ; preds = %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread
-  br i1 %.not.i1046, label %353, label %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1049
+350:                                              ; preds = %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread
+  br i1 %.not33.i, label %351, label %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1049
 
-353:                                              ; preds = %352
-  %354 = load ptr, ptr %15, align 8, !tbaa !111
-  %355 = tail call noundef ptr @_ZN5clang3CFG11createBlockEv(ptr noundef nonnull align 8 dereferenceable(112) %354)
-  %356 = load ptr, ptr %18, align 8, !tbaa !120
-  %.not.i.i1047 = icmp eq ptr %356, null
-  br i1 %.not.i.i1047, label %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1048, label %357
+351:                                              ; preds = %350
+  %352 = load ptr, ptr %15, align 8, !tbaa !111
+  %353 = tail call noundef ptr @_ZN5clang3CFG11createBlockEv(ptr noundef nonnull align 8 dereferenceable(112) %352)
+  %354 = load ptr, ptr %18, align 8, !tbaa !120
+  %.not.i.i1047 = icmp eq ptr %354, null
+  br i1 %.not.i.i1047, label %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1048, label %355
 
-357:                                              ; preds = %353
+355:                                              ; preds = %351
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZN5clang8CFGBlock13AdjacentBlockC1EPS0_b(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %356, i1 noundef zeroext true) #27
-  %358 = load ptr, ptr %15, align 8, !tbaa !111
-  %359 = getelementptr inbounds nuw i8, ptr %358, i64 32
-  %360 = load ptr, ptr %5, align 8
-  %361 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %362 = load i64, ptr %361, align 8
-  call void @_ZN5clang8CFGBlock12addSuccessorENS0_13AdjacentBlockERNS_17BumpVectorContextE(ptr noundef nonnull align 8 dereferenceable(120) %355, ptr %360, i64 %362, ptr noundef nonnull align 8 dereferenceable(8) %359)
+  call void @_ZN5clang8CFGBlock13AdjacentBlockC1EPS0_b(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %354, i1 noundef zeroext true) #27
+  %356 = load ptr, ptr %15, align 8, !tbaa !111
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 32
+  %358 = load ptr, ptr %5, align 8
+  %359 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %360 = load i64, ptr %359, align 8
+  call void @_ZN5clang8CFGBlock12addSuccessorENS0_13AdjacentBlockERNS_17BumpVectorContextE(ptr noundef nonnull align 8 dereferenceable(120) %353, ptr %358, i64 %360, ptr noundef nonnull align 8 dereferenceable(8) %357)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1048
 
-_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1048: ; preds = %357, %353
-  store ptr %355, ptr %14, align 8, !tbaa !121
+_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1048: ; preds = %355, %351
+  store ptr %353, ptr %14, align 8, !tbaa !121
   br label %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1049
 
-_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1049: ; preds = %352, %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1048
-  %363 = phi ptr [ %351, %352 ], [ %355, %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1048 ]
-  tail call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder10appendCallEPN5clang8CFGBlockEPNS1_8CallExprE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %363, ptr noundef nonnull %.0139)
-  %364 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitChildrenEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1049: ; preds = %350, %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1048
+  %361 = phi ptr [ %349, %350 ], [ %353, %_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb.exit.i1048 ]
+  tail call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder10appendCallEPN5clang8CFGBlockEPNS1_8CallExprE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %361, ptr noundef nonnull %.0139)
+  %362 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitChildrenEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
-365:                                              ; preds = %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread
-  br i1 %.not.i1046, label %370, label %366
+363:                                              ; preds = %_ZN5clang8CallExpr15getDirectCalleeEv.exit.thread
+  br i1 %.not33.i, label %368, label %364
 
-366:                                              ; preds = %365
-  store ptr %351, ptr %18, align 8, !tbaa !120
-  %367 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %368 = load i8, ptr %367, align 8, !tbaa !113, !range !129, !noundef !130
-  %369 = trunc nuw i8 %368 to i1
-  br i1 %369, label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit, label %370
+364:                                              ; preds = %363
+  store ptr %349, ptr %18, align 8, !tbaa !120
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %366 = load i8, ptr %365, align 8, !tbaa !113, !range !129, !noundef !130
+  %367 = trunc nuw i8 %366 to i1
+  br i1 %367, label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit, label %368
 
-370:                                              ; preds = %366, %365
-  br i1 %348, label %371, label %373
+368:                                              ; preds = %364, %363
+  br i1 %.027.i, label %369, label %371
 
-371:                                              ; preds = %370
-  %372 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder19createNoReturnBlockEv(ptr noundef nonnull align 8 dereferenceable(392) %0)
-  br label %375
+369:                                              ; preds = %368
+  %370 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder19createNoReturnBlockEv(ptr noundef nonnull align 8 dereferenceable(392) %0)
+  br label %373
 
-373:                                              ; preds = %370
-  %374 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb(ptr noundef nonnull align 8 dereferenceable(392) %0, i1 noundef zeroext true)
-  br label %375
+371:                                              ; preds = %368
+  %372 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder11createBlockEb(ptr noundef nonnull align 8 dereferenceable(392) %0, i1 noundef zeroext true)
+  br label %373
 
-375:                                              ; preds = %373, %371
-  %storemerge.i = phi ptr [ %374, %373 ], [ %372, %371 ]
+373:                                              ; preds = %371, %369
+  %storemerge.i = phi ptr [ %372, %371 ], [ %370, %369 ]
   store ptr %storemerge.i, ptr %14, align 8, !tbaa !121
   tail call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder10appendCallEPN5clang8CFGBlockEPNS1_8CallExprE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %storemerge.i, ptr noundef nonnull %.0139)
-  br i1 %349, label %376, label %395
+  br i1 %spec.select36.i, label %374, label %393
 
-376:                                              ; preds = %375
-  %377 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %378 = load ptr, ptr %377, align 8, !tbaa !910
-  %.not34.i = icmp eq ptr %378, null
-  %379 = load ptr, ptr %14, align 8, !tbaa !121
-  br i1 %.not34.i, label %386, label %380
+374:                                              ; preds = %373
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %376 = load ptr, ptr %375, align 8, !tbaa !910
+  %.not34.i = icmp eq ptr %376, null
+  %377 = load ptr, ptr %14, align 8, !tbaa !121
+  br i1 %.not34.i, label %384, label %378
 
-380:                                              ; preds = %376
+378:                                              ; preds = %374
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @_ZN5clang8CFGBlock13AdjacentBlockC1EPS0_b(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %378, i1 noundef zeroext true) #27
-  %381 = load ptr, ptr %15, align 8, !tbaa !111
-  %382 = getelementptr inbounds nuw i8, ptr %381, i64 32
-  %383 = load ptr, ptr %8, align 8
-  %384 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %385 = load i64, ptr %384, align 8
-  call void @_ZN5clang8CFGBlock12addSuccessorENS0_13AdjacentBlockERNS_17BumpVectorContextE(ptr noundef nonnull align 8 dereferenceable(120) %379, ptr %383, i64 %385, ptr noundef nonnull align 8 dereferenceable(8) %382)
+  call void @_ZN5clang8CFGBlock13AdjacentBlockC1EPS0_b(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %376, i1 noundef zeroext true) #27
+  %379 = load ptr, ptr %15, align 8, !tbaa !111
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 32
+  %381 = load ptr, ptr %8, align 8
+  %382 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %383 = load i64, ptr %382, align 8
+  call void @_ZN5clang8CFGBlock12addSuccessorENS0_13AdjacentBlockERNS_17BumpVectorContextE(ptr noundef nonnull align 8 dereferenceable(120) %377, ptr %381, i64 %383, ptr noundef nonnull align 8 dereferenceable(8) %380)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %395
+  br label %393
 
-386:                                              ; preds = %376
-  %387 = load ptr, ptr %15, align 8, !tbaa !111
-  %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
-  %389 = load ptr, ptr %388, align 8, !tbaa !44
+384:                                              ; preds = %374
+  %385 = load ptr, ptr %15, align 8, !tbaa !111
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
+  %387 = load ptr, ptr %386, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZN5clang8CFGBlock13AdjacentBlockC1EPS0_b(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %389, i1 noundef zeroext true) #27
-  %390 = load ptr, ptr %15, align 8, !tbaa !111
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 32
-  %392 = load ptr, ptr %9, align 8
-  %393 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %394 = load i64, ptr %393, align 8
-  call void @_ZN5clang8CFGBlock12addSuccessorENS0_13AdjacentBlockERNS_17BumpVectorContextE(ptr noundef nonnull align 8 dereferenceable(120) %379, ptr %392, i64 %394, ptr noundef nonnull align 8 dereferenceable(8) %391)
+  call void @_ZN5clang8CFGBlock13AdjacentBlockC1EPS0_b(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %387, i1 noundef zeroext true) #27
+  %388 = load ptr, ptr %15, align 8, !tbaa !111
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 32
+  %390 = load ptr, ptr %9, align 8
+  %391 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %392 = load i64, ptr %391, align 8
+  call void @_ZN5clang8CFGBlock12addSuccessorENS0_13AdjacentBlockERNS_17BumpVectorContextE(ptr noundef nonnull align 8 dereferenceable(120) %377, ptr %390, i64 %392, ptr noundef nonnull align 8 dereferenceable(8) %389)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %395
+  br label %393
 
-395:                                              ; preds = %386, %380, %375
-  %396 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitChildrenEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+393:                                              ; preds = %384, %378, %373
+  %394 = call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitChildrenEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
+
+395:                                              ; preds = %.thread
+  %396 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitCaseStmtEPN5clang8CaseStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 397:                                              ; preds = %.thread
-  %398 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitCaseStmtEPN5clang8CaseStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %398 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitChooseExprEPN5clang10ChooseExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 399:                                              ; preds = %.thread
-  %400 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitChooseExprEPN5clang10ChooseExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %400 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitCompoundStmtEPN5clang12CompoundStmtEb(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i1 noundef zeroext %.tr217486)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 401:                                              ; preds = %.thread
-  %402 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitCompoundStmtEPN5clang12CompoundStmtEb(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i1 noundef zeroext %.tr217486)
+  %402 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder24VisitConditionalOperatorEPN5clang27AbstractConditionalOperatorENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 403:                                              ; preds = %.thread
-  %404 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder24VisitConditionalOperatorEPN5clang27AbstractConditionalOperatorENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %404 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitContinueStmtEPN5clang12ContinueStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 405:                                              ; preds = %.thread
-  %406 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitContinueStmtEPN5clang12ContinueStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %406 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitCXXCatchStmtEPN5clang12CXXCatchStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 407:                                              ; preds = %.thread
-  %408 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitCXXCatchStmtEPN5clang12CXXCatchStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %408 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder21VisitExprWithCleanupsEPN5clang16ExprWithCleanupsENS_13AddStmtChoiceEb(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485, i1 noundef zeroext %.tr217486)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
-409:                                              ; preds = %.thread
-  %410 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder21VisitExprWithCleanupsEPN5clang16ExprWithCleanupsENS_13AddStmtChoiceEb(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485, i1 noundef zeroext %.tr217486)
+409:                                              ; preds = %.thread, %.thread
+  %410 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder9VisitStmtEPN5clang4StmtENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
-411:                                              ; preds = %.thread, %.thread
-  %412 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder9VisitStmtEPN5clang4StmtENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+411:                                              ; preds = %.thread
+  %412 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder25VisitCXXBindTemporaryExprEPN5clang20CXXBindTemporaryExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 413:                                              ; preds = %.thread
-  %414 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder25VisitCXXBindTemporaryExprEPN5clang20CXXBindTemporaryExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+  %414 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder21VisitCXXConstructExprEPN5clang16CXXConstructExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 415:                                              ; preds = %.thread
-  %416 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder21VisitCXXConstructExprEPN5clang16CXXConstructExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %416 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitCXXNewExprEPN5clang10CXXNewExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 417:                                              ; preds = %.thread
-  %418 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitCXXNewExprEPN5clang10CXXNewExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %418 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitCXXDeleteExprEPN5clang13CXXDeleteExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 419:                                              ; preds = %.thread
-  %420 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitCXXDeleteExprEPN5clang13CXXDeleteExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %420 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder26VisitCXXFunctionalCastExprEPN5clang21CXXFunctionalCastExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 421:                                              ; preds = %.thread
-  %422 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder26VisitCXXFunctionalCastExprEPN5clang21CXXFunctionalCastExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+  %422 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder27VisitCXXTemporaryObjectExprEPN5clang22CXXTemporaryObjectExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 423:                                              ; preds = %.thread
-  %424 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder27VisitCXXTemporaryObjectExprEPN5clang22CXXTemporaryObjectExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %424 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitCXXThrowExprEPN5clang12CXXThrowExprE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 425:                                              ; preds = %.thread
-  %426 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitCXXThrowExprEPN5clang12CXXThrowExprE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %426 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitCXXTryStmtEPN5clang10CXXTryStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 427:                                              ; preds = %.thread
-  %428 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitCXXTryStmtEPN5clang10CXXTryStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %428 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitCXXTypeidExprEPN5clang13CXXTypeidExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 429:                                              ; preds = %.thread
-  %430 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitCXXTypeidExprEPN5clang13CXXTypeidExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+  %430 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder20VisitCXXForRangeStmtEPN5clang15CXXForRangeStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 431:                                              ; preds = %.thread
-  %432 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder20VisitCXXForRangeStmtEPN5clang15CXXForRangeStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %432 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitDeclStmtEPN5clang8DeclStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 433:                                              ; preds = %.thread
-  %434 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitDeclStmtEPN5clang8DeclStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %434 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder16VisitDefaultStmtEPN5clang11DefaultStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 435:                                              ; preds = %.thread
-  %436 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder16VisitDefaultStmtEPN5clang11DefaultStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %436 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder11VisitDoStmtEPN5clang6DoStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 437:                                              ; preds = %.thread
-  %438 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder11VisitDoStmtEPN5clang6DoStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %438 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder12VisitForStmtEPN5clang7ForStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 439:                                              ; preds = %.thread
-  %440 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder12VisitForStmtEPN5clang7ForStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %440 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitGotoStmtEPN5clang8GotoStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 441:                                              ; preds = %.thread
-  %442 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitGotoStmtEPN5clang8GotoStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %442 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitGCCAsmStmtEPN5clang10GCCAsmStmtENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 443:                                              ; preds = %.thread
-  %444 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitGCCAsmStmtEPN5clang10GCCAsmStmtENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+  %444 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder11VisitIfStmtEPN5clang6IfStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 445:                                              ; preds = %.thread
-  %446 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder11VisitIfStmtEPN5clang6IfStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %446 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder21VisitImplicitCastExprEPN5clang16ImplicitCastExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 447:                                              ; preds = %.thread
-  %448 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder21VisitImplicitCastExprEPN5clang16ImplicitCastExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+  %448 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder21VisitIndirectGotoStmtEPN5clang16IndirectGotoStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 449:                                              ; preds = %.thread
-  %450 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder21VisitIndirectGotoStmtEPN5clang16IndirectGotoStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %450 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder14VisitLabelStmtEPN5clang9LabelStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 451:                                              ; preds = %.thread
-  %452 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder14VisitLabelStmtEPN5clang9LabelStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %452 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitLambdaExprEPN5clang10LambdaExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 453:                                              ; preds = %.thread
-  %454 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitLambdaExprEPN5clang10LambdaExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+  %454 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder29VisitMaterializeTemporaryExprEPN5clang24MaterializeTemporaryExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 455:                                              ; preds = %.thread
-  %456 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder29VisitMaterializeTemporaryExprEPN5clang24MaterializeTemporaryExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+  %456 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitMemberExprEPN5clang10MemberExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 457:                                              ; preds = %.thread
-  %458 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitMemberExprEPN5clang10MemberExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+  %458 = load ptr, ptr %14, align 8, !tbaa !121
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 459:                                              ; preds = %.thread
-  %460 = load ptr, ptr %14, align 8, !tbaa !121
+  %460 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder20VisitObjCAtCatchStmtEPN5clang15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 461:                                              ; preds = %.thread
-  %462 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder20VisitObjCAtCatchStmtEPN5clang15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
-  br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
-
-463:                                              ; preds = %.thread
   br label %tailrecurse.backedge
 
+462:                                              ; preds = %.thread
+  %463 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder27VisitObjCAtSynchronizedStmtEPN5clang22ObjCAtSynchronizedStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
+
 464:                                              ; preds = %.thread
-  %465 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder27VisitObjCAtSynchronizedStmtEPN5clang22ObjCAtSynchronizedStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %465 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder20VisitObjCAtThrowStmtEPN5clang15ObjCAtThrowStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 466:                                              ; preds = %.thread
-  %467 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder20VisitObjCAtThrowStmtEPN5clang15ObjCAtThrowStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %467 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitObjCAtTryStmtEPN5clang13ObjCAtTryStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 468:                                              ; preds = %.thread
-  %469 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitObjCAtTryStmtEPN5clang13ObjCAtTryStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %469 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder26VisitObjCForCollectionStmtEPN5clang21ObjCForCollectionStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 470:                                              ; preds = %.thread
-  %471 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder26VisitObjCForCollectionStmtEPN5clang21ObjCForCollectionStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %471 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder20VisitObjCMessageExprEPN5clang15ObjCMessageExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 472:                                              ; preds = %.thread
-  %473 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder20VisitObjCMessageExprEPN5clang15ObjCMessageExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %473 = load ptr, ptr %14, align 8, !tbaa !121
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 474:                                              ; preds = %.thread
-  %475 = load ptr, ptr %14, align 8, !tbaa !121
+  %475 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
-476:                                              ; preds = %.thread
-  %477 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+476:                                              ; preds = %.thread, %.thread
+  %477 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitReturnStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 478:                                              ; preds = %.thread, %.thread
-  %479 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitReturnStmtEPN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %479 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder25VisitCoroutineSuspendExprEPN5clang20CoroutineSuspendExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
-480:                                              ; preds = %.thread, %.thread
-  %481 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder25VisitCoroutineSuspendExprEPN5clang20CoroutineSuspendExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+480:                                              ; preds = %.thread
+  %481 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitSEHExceptStmtEPN5clang13SEHExceptStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 482:                                              ; preds = %.thread
-  %483 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitSEHExceptStmtEPN5clang13SEHExceptStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %483 = getelementptr inbounds nuw i8, ptr %.0139, i64 16
+  %484 = load ptr, ptr %483, align 8, !tbaa !911
+  %485 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitCompoundStmtEPN5clang12CompoundStmtEb(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %484, i1 noundef zeroext false)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
-484:                                              ; preds = %.thread
-  %485 = getelementptr inbounds nuw i8, ptr %.0139, i64 16
-  %486 = load ptr, ptr %485, align 8, !tbaa !911
-  %487 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitCompoundStmtEPN5clang12CompoundStmtEb(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %486, i1 noundef zeroext false)
+486:                                              ; preds = %.thread
+  %487 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitSEHLeaveStmtEPN5clang12SEHLeaveStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 488:                                              ; preds = %.thread
-  %489 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder17VisitSEHLeaveStmtEPN5clang12SEHLeaveStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %489 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitSEHTryStmtEPN5clang10SEHTryStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 490:                                              ; preds = %.thread
-  %491 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitSEHTryStmtEPN5clang10SEHTryStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %491 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder29VisitUnaryExprOrTypeTraitExprEPN5clang24UnaryExprOrTypeTraitExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 492:                                              ; preds = %.thread
-  %493 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder29VisitUnaryExprOrTypeTraitExprEPN5clang24UnaryExprOrTypeTraitExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+  %493 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitStmtExprEPN5clang8StmtExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 494:                                              ; preds = %.thread
-  %495 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder13VisitStmtExprEPN5clang8StmtExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+  %495 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitSwitchStmtEPN5clang10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 496:                                              ; preds = %.thread
-  %497 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder15VisitSwitchStmtEPN5clang10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139)
+  %497 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitUnaryOperatorEPN5clang13UnaryOperatorENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 498:                                              ; preds = %.thread
-  %499 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder18VisitUnaryOperatorEPN5clang13UnaryOperatorENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
+  %499 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder14VisitWhileStmtEPN5clang9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %.0139)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
 500:                                              ; preds = %.thread
-  %501 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder14VisitWhileStmtEPN5clang9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %.0139)
+  %501 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder22VisitArrayInitLoopExprEPN5clang17ArrayInitLoopExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
   br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
 
-502:                                              ; preds = %.thread
-  %503 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_110CFGBuilder22VisitArrayInitLoopExprEPN5clang17ArrayInitLoopExprENS_13AddStmtChoiceE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %.0139, i32 %.tr216485)
-  br label %_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit
-
-_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit: ; preds = %156, %395, %366, %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1049, %502, %500, %498, %496, %494, %492, %490, %488, %484, %482, %480, %478, %476, %474, %472, %470, %468, %466, %464, %461, %459, %457, %455, %453, %451, %449, %447, %445, %443, %441, %439, %437, %435, %433, %431, %429, %427, %425, %423, %421, %419, %417, %415, %413, %411, %409, %407, %405, %403, %401, %399, %397, %180, %178, %176, %174, %172, %170, %168, %166, %164, %157, %tailrecurse._crit_edge
-  %.0 = phi ptr [ %158, %157 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %398, %397 ], [ %400, %399 ], [ %402, %401 ], [ %404, %403 ], [ %406, %405 ], [ %408, %407 ], [ %410, %409 ], [ %412, %411 ], [ %414, %413 ], [ %416, %415 ], [ %418, %417 ], [ %420, %419 ], [ %422, %421 ], [ %424, %423 ], [ %426, %425 ], [ %428, %427 ], [ %430, %429 ], [ %432, %431 ], [ %434, %433 ], [ %436, %435 ], [ %438, %437 ], [ %440, %439 ], [ %442, %441 ], [ %444, %443 ], [ %446, %445 ], [ %448, %447 ], [ %450, %449 ], [ %452, %451 ], [ %454, %453 ], [ %456, %455 ], [ %458, %457 ], [ %460, %459 ], [ %462, %461 ], [ %465, %464 ], [ %467, %466 ], [ %469, %468 ], [ %471, %470 ], [ %473, %472 ], [ %475, %474 ], [ %477, %476 ], [ %479, %478 ], [ %481, %480 ], [ %483, %482 ], [ %487, %484 ], [ %489, %488 ], [ %491, %490 ], [ %493, %492 ], [ %495, %494 ], [ %497, %496 ], [ %499, %498 ], [ %501, %500 ], [ %503, %502 ], [ %.2.i, %156 ], [ null, %tailrecurse._crit_edge ], [ %396, %395 ], [ %364, %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1049 ], [ null, %366 ]
+_ZN12_GLOBAL__N_110CFGBuilder13VisitCallExprEPN5clang8CallExprENS_13AddStmtChoiceE.exit: ; preds = %156, %393, %364, %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1049, %500, %498, %496, %494, %492, %490, %488, %486, %482, %480, %478, %476, %474, %472, %470, %468, %466, %464, %462, %459, %457, %455, %453, %451, %449, %447, %445, %443, %441, %439, %437, %435, %433, %431, %429, %427, %425, %423, %421, %419, %417, %415, %413, %411, %409, %407, %405, %403, %401, %399, %397, %395, %180, %178, %176, %174, %172, %170, %168, %166, %164, %157, %tailrecurse._crit_edge
+  %.0 = phi ptr [ %158, %157 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %179, %178 ], [ %181, %180 ], [ %396, %395 ], [ %398, %397 ], [ %400, %399 ], [ %402, %401 ], [ %404, %403 ], [ %406, %405 ], [ %408, %407 ], [ %410, %409 ], [ %412, %411 ], [ %414, %413 ], [ %416, %415 ], [ %418, %417 ], [ %420, %419 ], [ %422, %421 ], [ %424, %423 ], [ %426, %425 ], [ %428, %427 ], [ %430, %429 ], [ %432, %431 ], [ %434, %433 ], [ %436, %435 ], [ %438, %437 ], [ %440, %439 ], [ %442, %441 ], [ %444, %443 ], [ %446, %445 ], [ %448, %447 ], [ %450, %449 ], [ %452, %451 ], [ %454, %453 ], [ %456, %455 ], [ %458, %457 ], [ %460, %459 ], [ %463, %462 ], [ %465, %464 ], [ %467, %466 ], [ %469, %468 ], [ %471, %470 ], [ %473, %472 ], [ %475, %474 ], [ %477, %476 ], [ %479, %478 ], [ %481, %480 ], [ %485, %482 ], [ %487, %486 ], [ %489, %488 ], [ %491, %490 ], [ %493, %492 ], [ %495, %494 ], [ %497, %496 ], [ %499, %498 ], [ %501, %500 ], [ %.2.i, %156 ], [ null, %tailrecurse._crit_edge ], [ %394, %393 ], [ %362, %_ZN12_GLOBAL__N_110CFGBuilder15autoCreateBlockEv.exit1049 ], [ null, %364 ]
   ret ptr %.0
 }
 

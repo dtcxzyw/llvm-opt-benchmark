@@ -101,14 +101,14 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
 
 10:                                               ; preds = %6
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str) #13
-  br label %.thread184
+  br label %.thread182
 
 11:                                               ; preds = %6
   store ptr null, ptr %4, align 8, !tbaa !7
   store i64 0, ptr %5, align 8, !tbaa !10
   %calloc = tail call dereferenceable_or_null(3200) ptr @calloc(i64 1, i64 3200)
   %12 = icmp eq ptr %calloc, null
-  br i1 %12, label %.thread184, label %13
+  br i1 %12, label %.thread182, label %13
 
 13:                                               ; preds = %11
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #13
@@ -134,9 +134,9 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   %.not = icmp ne i32 %19, 27
   %20 = zext i1 %.not to i64
   %spec.select = add i64 %.1115, %20
-  %.not262.not.not.not = icmp ne i32 %18, 0
+  %.not230.not.not.not.not = icmp ne i32 %18, 0
   %21 = icmp eq i32 %19, 1
-  br i1 %.not262.not.not.not, label %22, label %50
+  br i1 %.not230.not.not.not.not, label %22, label %50
 
 22:                                               ; preds = %15
   br i1 %21, label %.preheader, label %23
@@ -209,14 +209,14 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br label %56
 
 54:                                               ; preds = %99
-  %55 = add nuw i64 %.1122221, 1
+  %55 = add nuw i64 %.1122227, 1
   %exitcond.not = icmp eq i64 %55, %spec.select
   br i1 %exitcond.not, label %.loopexit, label %56
 
 56:                                               ; preds = %53, %54
-  %.0111222 = phi i32 [ 0, %53 ], [ %.2113, %54 ]
-  %.1122221 = phi i64 [ 1, %53 ], [ %55, %54 ]
-  %57 = getelementptr %struct.zip_record, ptr %.1118.ph, i64 %.1122221
+  %.0111228 = phi i32 [ 0, %53 ], [ %.2113, %54 ]
+  %.1122227 = phi i64 [ 1, %53 ], [ %55, %54 ]
+  %57 = getelementptr %struct.zip_record, ptr %.1118.ph, i64 %.1122227
   %58 = getelementptr i8, ptr %57, i64 -32
   %59 = getelementptr i8, ptr %57, i64 -28
   %60 = load i32, ptr %59, align 4, !tbaa !47
@@ -260,13 +260,13 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %or.cond153, label %85, label %99
 
 85:                                               ; preds = %81, %77
-  %86 = add i32 %.0111222, 1
+  %86 = add i32 %.0111228, 1
   %87 = icmp eq i32 %74, %70
   %88 = icmp eq i32 %65, %60
-  %or.cond201 = select i1 %87, i1 %88, i1 false
+  %or.cond202 = select i1 %87, i1 %88, i1 false
   %89 = icmp eq i32 %67, %62
-  %or.cond202 = select i1 %or.cond201, i1 %89, i1 false
-  br i1 %or.cond202, label %90, label %91
+  %or.cond203 = select i1 %or.cond202, i1 %89, i1 false
+  br i1 %or.cond203, label %90, label %91
 
 90:                                               ; preds = %85
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8, i32 noundef %70) #13
@@ -289,7 +289,7 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not143, label %.preheader, label %105
 
 99:                                               ; preds = %90, %91, %81
-  %.2113 = phi i32 [ %86, %90 ], [ %86, %91 ], [ %.0111222, %81 ]
+  %.2113 = phi i32 [ %86, %90 ], [ %86, %91 ], [ %.0111228, %81 ]
   %100 = tail call i32 @cli_checktimelimit(ptr noundef %0) #13
   %.not144 = icmp eq i32 %100, 0
   br i1 %.not144, label %54, label %101
@@ -304,22 +304,22 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
 .loopexit:                                        ; preds = %54, %51
   store ptr %.1118.ph, ptr %4, align 8, !tbaa !7
   store i64 %spec.select, ptr %5, align 8, !tbaa !10
-  br label %.thread184
+  br label %.thread182
 
 105:                                              ; preds = %94
   %106 = tail call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #13
   %.not145 = icmp eq i32 %106, 0
-  br i1 %.not145, label %.thread184, label %.preheader
+  br i1 %.not145, label %.thread182, label %.preheader
 
 .preheader:                                       ; preds = %22, %42, %105, %26, %50, %41, %94, %101, %76
-  %.0103179 = phi i32 [ %106, %105 ], [ 1, %50 ], [ 21, %26 ], [ 26, %41 ], [ 26, %76 ], [ 21, %101 ], [ 26, %94 ], [ 1, %22 ], [ 20, %42 ]
-  %.0109178 = phi i1 [ %.not262.not.not.not, %105 ], [ false, %50 ], [ false, %26 ], [ false, %41 ], [ %.not262.not.not.not, %76 ], [ %.not262.not.not.not, %101 ], [ %.not262.not.not.not, %94 ], [ false, %42 ], [ false, %22 ]
-  %.not224 = icmp eq i64 %spec.select, 0
-  br i1 %.not224, label %._crit_edge, label %.lr.ph
+  %.0103177 = phi i32 [ %106, %105 ], [ 1, %50 ], [ 21, %26 ], [ 26, %41 ], [ 26, %76 ], [ 21, %101 ], [ 26, %94 ], [ 1, %22 ], [ 20, %42 ]
+  %.0109176 = phi i1 [ %.not230.not.not.not.not, %105 ], [ false, %50 ], [ false, %26 ], [ false, %41 ], [ %.not230.not.not.not.not, %76 ], [ %.not230.not.not.not.not, %101 ], [ %.not230.not.not.not.not, %94 ], [ false, %42 ], [ false, %22 ]
+  %.not231 = icmp eq i64 %spec.select, 0
+  br i1 %.not231, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %111
-  %.0223 = phi i64 [ %112, %111 ], [ 0, %.preheader ]
-  %107 = getelementptr inbounds nuw %struct.zip_record, ptr %.1118.ph, i64 %.0223
+  %.0229 = phi i64 [ %112, %111 ], [ 0, %.preheader ]
+  %107 = getelementptr inbounds nuw %struct.zip_record, ptr %.1118.ph, i64 %.0229
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load ptr, ptr %108, align 8, !tbaa !55
   %.not147 = icmp eq ptr %109, null
@@ -331,17 +331,17 @@ define i32 @index_the_central_directory(ptr noundef %0, ptr noundef %1, i32 noun
   br label %111
 
 111:                                              ; preds = %.lr.ph, %110
-  %112 = add nuw i64 %.0223, 1
-  %exitcond248.not = icmp eq i64 %112, %spec.select
-  br i1 %exitcond248.not, label %._crit_edge, label %.lr.ph
+  %112 = add nuw i64 %.0229, 1
+  %exitcond255.not = icmp eq i64 %112, %spec.select
+  br i1 %exitcond255.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %111, %.preheader
   tail call void @free(ptr noundef %.1118.ph) #13
-  %113 = select i1 %.0109178, i32 25, i32 %.0103179
-  br label %.thread184
+  %spec.select292 = select i1 %.0109176, i32 25, i32 %.0103177
+  br label %.thread182
 
-.thread184:                                       ; preds = %._crit_edge, %11, %.loopexit, %10, %105
-  %.7 = phi i32 [ 0, %105 ], [ 0, %10 ], [ 0, %.loopexit ], [ %113, %._crit_edge ], [ 20, %11 ]
+.thread182:                                       ; preds = %._crit_edge, %11, %.loopexit, %10, %105
+  %.7 = phi i32 [ 0, %105 ], [ 0, %10 ], [ 0, %.loopexit ], [ 20, %11 ], [ %spec.select292, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.7
 }

@@ -1819,18 +1819,18 @@ define hidden range(i32 -1, 1) i32 @zend_accel_invalidate(ptr noundef %0, i1 nou
   %4 = alloca %struct._zend_file_handle, align 8
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 3), align 1, !tbaa !147, !range !37, !noundef !38
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %107
+  br i1 %6, label %7, label %105
 
 7:                                                ; preds = %2
   %8 = tail call i32 @accelerator_shm_read_lock()
   %.not19 = icmp eq i32 %8, 0
-  br i1 %.not19, label %9, label %107
+  br i1 %.not19, label %9, label %105
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr @accelerator_orig_zend_resolve_path, align 8, !tbaa !39
   %11 = tail call ptr %10(ptr noundef %0) #26
-  %.not20 = icmp eq ptr %11, null
-  br i1 %.not20, label %12, label %zend_string_copy.exit
+  %.not20 = icmp ne ptr %11, null
+  br i1 %.not20, label %zend_string_copy.exit, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1847,7 +1847,6 @@ define hidden range(i32 -1, 1) i32 @zend_accel_invalidate(ptr noundef %0, i1 nou
 
 zend_string_copy.exit:                            ; preds = %16, %12, %9
   %.016 = phi ptr [ %11, %9 ], [ %0, %12 ], [ %0, %16 ]
-  %.0 = phi i8 [ 1, %9 ], [ 0, %12 ], [ 0, %16 ]
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 152), align 8, !tbaa !154
   %.not21 = icmp eq ptr %19, null
   br i1 %.not21, label %21, label %20
@@ -1969,7 +1968,7 @@ zend_accel_lock_discard_script.exit:              ; preds = %42, %45, %57, %64
   br label %80
 
 80:                                               ; preds = %79, %25, %21
-  %.1 = phi i8 [ %.0, %25 ], [ 1, %79 ], [ %.0, %21 ]
+  %.1 = phi i1 [ %.not20, %25 ], [ true, %79 ], [ %.not20, %21 ]
   %81 = load i8, ptr @accel_globals, align 8, !tbaa !148, !range !37, !noundef !38
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %accelerator_shm_read_unlock.exit, label %83
@@ -2021,13 +2020,12 @@ accelerator_shm_read_unlock.exit:                 ; preds = %80, %accel_deactiva
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %accelerator_shm_read_unlock.exit, %98, %103
-  %104 = xor i8 %.1, 1
-  %105 = zext nneg i8 %104 to i32
-  %106 = sub nsw i32 0, %105
-  br label %107
+  %not..1 = xor i1 %.1, true
+  %104 = sext i1 %not..1 to i32
+  br label %105
 
-107:                                              ; preds = %2, %7, %zend_string_release_ex.exit
-  %.015 = phi i32 [ %106, %zend_string_release_ex.exit ], [ -1, %7 ], [ -1, %2 ]
+105:                                              ; preds = %2, %7, %zend_string_release_ex.exit
+  %.015 = phi i32 [ %104, %zend_string_release_ex.exit ], [ -1, %7 ], [ -1, %2 ]
   ret i32 %.015
 }
 

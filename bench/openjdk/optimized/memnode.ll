@@ -17477,7 +17477,7 @@ declare noundef ptr @_ZNK9MultiNode8proj_outEj(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10MemBarNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN4Node18remove_dead_regionEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) #14
-  br i1 %4, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread, label %5
+  br i1 %4, label %.thread72, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17489,262 +17489,265 @@ define hidden noundef ptr @_ZN10MemBarNode5IdealEP8PhaseGVNb(ptr noundef nonnull
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread, label %13
+  %12 = icmp ne ptr %11, null
+  %brmerge.not = and i1 %2, %12
+  br i1 %brmerge.not, label %14, label %.thread72
 
-13:                                               ; preds = %9, %5
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, 6
-  %or.cond = select i1 %2, i1 %16, i1 false
-  br i1 %or.cond, label %17, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread
+13:                                               ; preds = %5
+  br i1 %2, label %14, label %.thread72
 
-17:                                               ; preds = %13
-  %18 = load ptr, ptr %0, align 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(68) %0) #14
-  switch i32 %20, label %75 [
-    i32 221, label %21
-    i32 213, label %21
-    i32 217, label %79
+14:                                               ; preds = %9, %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %16, 6
+  br i1 %17, label %18, label %.thread72
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %0, align 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(68) %0) #14
+  switch i32 %21, label %76 [
+    i32 221, label %22
+    i32 213, label %22
+    i32 217, label %80
   ]
 
-21:                                               ; preds = %17, %17
-  %22 = icmp eq i32 %20, 213
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp ne ptr %25, null
-  %or.cond3 = and i1 %22, %26
-  br i1 %or.cond3, label %27, label %49
+22:                                               ; preds = %18, %18
+  %23 = icmp eq i32 %21, 213
+  %24 = load ptr, ptr %6, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr %26, null
+  %or.cond3 = and i1 %23, %27
+  br i1 %or.cond3, label %28, label %50
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp eq i32 %29, 1
-  br i1 %30, label %31, label %.thread
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %32, label %.thread
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %25, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(52) %25) #14
-  %35 = icmp eq i32 %34, 154
-  br i1 %35, label %36, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread84
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %26, align 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(52) %26) #14
+  %36 = icmp eq i32 %35, 154
+  br i1 %36, label %37, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread75
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load i32, ptr %41, align 8
-  %43 = icmp ugt i32 %42, 1
-  br i1 %43, label %44, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread84
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp ugt i32 %43, 1
+  br i1 %44, label %45, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread75
 
-44:                                               ; preds = %36
-  tail call void @_ZN4Node7set_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 5, ptr noundef nonnull %40)
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 2408
-  %46 = load ptr, ptr %45, align 8
-  tail call void @_ZN16Unique_Node_List4pushEP4Node(ptr noundef nonnull align 8 dereferenceable(68) %46, ptr noundef nonnull %25)
+45:                                               ; preds = %37
+  tail call void @_ZN4Node7set_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 5, ptr noundef nonnull %41)
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 2408
+  %47 = load ptr, ptr %46, align 8
+  tail call void @_ZN16Unique_Node_List4pushEP4Node(ptr noundef nonnull align 8 dereferenceable(68) %47, ptr noundef nonnull %26)
   br label %.thread
 
-_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread84: ; preds = %36, %31
+_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread75: ; preds = %37, %32
   tail call void @_ZN4Node7del_reqEj(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef 5) #14
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 2408
-  %48 = load ptr, ptr %47, align 8
-  tail call void @_ZN16Unique_Node_List4pushEP4Node(ptr noundef nonnull align 8 dereferenceable(68) %48, ptr noundef nonnull %25)
-  br label %158
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 2408
+  %49 = load ptr, ptr %48, align 8
+  tail call void @_ZN16Unique_Node_List4pushEP4Node(ptr noundef nonnull align 8 dereferenceable(68) %49, ptr noundef nonnull %26)
+  br label %159
 
-49:                                               ; preds = %21
-  %.not49 = icmp eq ptr %25, null
-  br i1 %.not49, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread, label %.thread
+50:                                               ; preds = %22
+  %.not49 = icmp eq ptr %26, null
+  br i1 %.not49, label %.thread72, label %.thread
 
-.thread:                                          ; preds = %44, %27, %49
-  %.161 = phi i1 [ false, %49 ], [ true, %44 ], [ false, %27 ]
-  %.04160 = phi ptr [ %25, %49 ], [ %40, %44 ], [ %25, %27 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.04160, i64 44
-  %51 = load i32, ptr %50, align 4
-  %52 = and i32 %51, 31
-  %53 = icmp eq i32 %52, 16
-  br i1 %53, label %54, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread
+.thread:                                          ; preds = %45, %28, %50
+  %.161 = phi i1 [ false, %50 ], [ true, %45 ], [ false, %28 ]
+  %.04160 = phi ptr [ %26, %50 ], [ %41, %45 ], [ %26, %28 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.04160, i64 44
+  %52 = load i32, ptr %51, align 4
+  %53 = and i32 %52, 31
+  %54 = icmp eq i32 %53, 16
+  br i1 %54, label %55, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread
 
-54:                                               ; preds = %.thread
-  %55 = getelementptr inbounds nuw i8, ptr %.04160, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load ptr, ptr %57, align 8
+55:                                               ; preds = %.thread
+  %56 = getelementptr inbounds nuw i8, ptr %.04160, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef ptr %61(ptr noundef nonnull align 8 dereferenceable(52) %58) #14
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %64 = load i32, ptr %63, align 8
-  %65 = add i32 %64, -23
-  %or.cond.i = icmp ult i32 %65, -3
-  %.not5073 = icmp eq ptr %62, null
-  %.not50 = or i1 %.not5073, %or.cond.i
-  br i1 %.not50, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread, label %66
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(52) %59) #14
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load i32, ptr %64, align 8
+  %66 = add i32 %65, -23
+  %or.cond.i = icmp ult i32 %66, -3
+  %.not5079 = icmp eq ptr %63, null
+  %.not50 = or i1 %.not5079, %or.cond.i
+  br i1 %.not50, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread, label %67
 
-66:                                               ; preds = %54
-  %67 = load ptr, ptr %62, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 168
-  %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(80) %62) #14
-  %71 = getelementptr inbounds nuw i8, ptr %62, i64 36
-  %72 = load i32, ptr %71, align 4
-  %73 = icmp sgt i32 %72, -1
-  %74 = select i1 %70, i1 %73, i1 false
-  br i1 %74, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread
+67:                                               ; preds = %55
+  %68 = load ptr, ptr %63, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 168
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(80) %63) #14
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 36
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp sgt i32 %73, -1
+  %75 = select i1 %71, i1 %74, i1 false
+  br i1 %75, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread
 
-75:                                               ; preds = %17
-  %76 = load i8, ptr @UseStoreStoreForCtor, align 1
-  %77 = trunc i8 %76 to i1
-  %78 = icmp eq i32 %20, 222
-  %or.cond5 = and i1 %78, %77
-  br i1 %or.cond5, label %79, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread
+76:                                               ; preds = %18
+  %77 = load i8, ptr @UseStoreStoreForCtor, align 1
+  %78 = trunc i8 %77 to i1
+  %79 = icmp eq i32 %21, 222
+  %or.cond5 = and i1 %79, %78
+  br i1 %or.cond5, label %80, label %.thread72
 
-79:                                               ; preds = %17, %75
-  %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call noundef ptr @_ZN12AllocateNode16Ideal_allocationEP4Node(ptr noundef %82) #14
-  %.not48 = icmp eq ptr %83, null
-  br i1 %.not48, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread, label %84
+80:                                               ; preds = %18, %76
+  %81 = load ptr, ptr %6, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  %83 = load ptr, ptr %82, align 8
+  %84 = tail call noundef ptr @_ZN12AllocateNode16Ideal_allocationEP4Node(ptr noundef %83) #14
+  %.not48 = icmp eq ptr %84, null
+  br i1 %.not48, label %.thread72, label %85
 
-84:                                               ; preds = %79
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 44
-  %86 = load i32, ptr %85, align 4
-  %87 = and i32 %86, 63
-  %88 = icmp eq i32 %87, 39
-  br i1 %88, label %89, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread
+85:                                               ; preds = %80
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 44
+  %87 = load i32, ptr %86, align 4
+  %88 = and i32 %87, 63
+  %89 = icmp eq i32 %88, 39
+  br i1 %89, label %90, label %.thread72
 
-89:                                               ; preds = %84
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 129
-  %91 = load i8, ptr %90, align 1
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68, label %93
+90:                                               ; preds = %85
+  %91 = getelementptr inbounds nuw i8, ptr %84, i64 129
+  %92 = load i8, ptr %91, align 1
+  %93 = trunc i8 %92 to i1
+  br i1 %93, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68, label %94
 
-93:                                               ; preds = %89
-  %94 = tail call noundef ptr @_ZN12AllocateNode14initializationEv(ptr noundef nonnull align 8 dereferenceable(131) %83) #14
-  %.not.i = icmp eq ptr %94, null
-  br i1 %.not.i, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread, label %_ZN12AllocateNode22does_not_escape_threadEv.exit
+94:                                               ; preds = %90
+  %95 = tail call noundef ptr @_ZN12AllocateNode14initializationEv(ptr noundef nonnull align 8 dereferenceable(131) %84) #14
+  %.not.i = icmp eq ptr %95, null
+  br i1 %.not.i, label %.thread72, label %_ZN12AllocateNode22does_not_escape_threadEv.exit
 
-_ZN12AllocateNode22does_not_escape_threadEv.exit: ; preds = %93
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 72
-  %96 = load i8, ptr %95, align 8
-  %97 = trunc i8 %96 to i1
-  br i1 %97, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread
+_ZN12AllocateNode22does_not_escape_threadEv.exit.thread: ; preds = %67, %55, %.thread
+  br i1 %.161, label %159, label %.thread72
 
-_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68: ; preds = %66, %89, %_ZN12AllocateNode22does_not_escape_threadEv.exit
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %99 = load i8, ptr %98, align 8
-  %100 = trunc i8 %99 to i1
-  %..i55 = select i1 %100, ptr %1, ptr null
+_ZN12AllocateNode22does_not_escape_threadEv.exit: ; preds = %94
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 72
+  %97 = load i8, ptr %96, align 8
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68, label %.thread72
+
+_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68: ; preds = %67, %90, %_ZN12AllocateNode22does_not_escape_threadEv.exit
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %100 = load i8, ptr %99, align 8
+  %101 = trunc i8 %100 to i1
+  %..i55 = select i1 %101, ptr %1, ptr null
   tail call void @_ZN10MemBarNode6removeEP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %..i55)
-  %101 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1808
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 128
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 728
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %112 = load ptr, ptr %111, align 8
-  %113 = ptrtoint ptr %110 to i64
-  %114 = ptrtoint ptr %112 to i64
-  %115 = sub i64 %113, %114
-  %.not.i.i.i = icmp ult i64 %115, 64
-  br i1 %.not.i.i.i, label %118, label %116
+  %102 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 1808
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 128
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 728
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 32
+  %113 = load ptr, ptr %112, align 8
+  %114 = ptrtoint ptr %111 to i64
+  %115 = ptrtoint ptr %113 to i64
+  %116 = sub i64 %114, %115
+  %.not.i.i.i = icmp ult i64 %116, 64
+  br i1 %.not.i.i.i, label %119, label %117
 
-116:                                              ; preds = %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68
-  %117 = getelementptr inbounds nuw i8, ptr %112, i64 64
-  store ptr %117, ptr %111, align 8
+117:                                              ; preds = %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 64
+  store ptr %118, ptr %112, align 8
   br label %_ZN4NodenwEm.exit
 
-118:                                              ; preds = %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68
-  %119 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %108, i64 noundef 64, i32 noundef 0) #14
+119:                                              ; preds = %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread68
+  %120 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %109, i64 noundef 64, i32 noundef 0) #14
   br label %_ZN4NodenwEm.exit
 
-_ZN4NodenwEm.exit:                                ; preds = %116, %118
-  %.0.i.i.i = phi ptr [ %112, %116 ], [ %119, %118 ]
-  %120 = icmp eq ptr %.0.i.i.i, null
-  br i1 %120, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread, label %121
+_ZN4NodenwEm.exit:                                ; preds = %117, %119
+  %.0.i.i.i = phi ptr [ %113, %117 ], [ %120, %119 ]
+  %121 = icmp eq ptr %.0.i.i.i, null
+  br i1 %121, label %.thread72, label %122
 
-121:                                              ; preds = %_ZN4NodenwEm.exit
-  %122 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 128
-  %125 = load ptr, ptr %124, align 8
-  %126 = tail call noundef ptr %125(ptr noundef nonnull align 8 dereferenceable(20) %122) #14
+122:                                              ; preds = %_ZN4NodenwEm.exit
+  %123 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 128
+  %126 = load ptr, ptr %125, align 8
+  %127 = tail call noundef ptr %126(ptr noundef nonnull align 8 dereferenceable(20) %123) #14
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %.0.i.i.i, i32 noundef 1) #14
-  %127 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  store ptr %126, ptr %127, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store i32 4, ptr %128, align 4
+  %128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  store ptr %127, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
+  store i32 4, ptr %129, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV7ConNode, i64 16), ptr %.0.i.i.i, align 8
-  %129 = load ptr, ptr %101, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 1808
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 128
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 736
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %137 = load ptr, ptr %136, align 8
-  store ptr %135, ptr %137, align 8
-  %.not.i.i.i56 = icmp eq ptr %135, null
-  br i1 %.not.i.i.i56, label %_ZN8ConINodeC2EPK7TypeInt.exit, label %138
+  %130 = load ptr, ptr %102, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 1808
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 128
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 736
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %138 = load ptr, ptr %137, align 8
+  store ptr %136, ptr %138, align 8
+  %.not.i.i.i56 = icmp eq ptr %136, null
+  br i1 %.not.i.i.i56, label %_ZN8ConINodeC2EPK7TypeInt.exit, label %139
 
-138:                                              ; preds = %121
-  %139 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  %140 = load ptr, ptr %139, align 8
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %_ZN8ConINodeC2EPK7TypeInt.exit, label %142
+139:                                              ; preds = %122
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %141 = load ptr, ptr %140, align 8
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %_ZN8ConINodeC2EPK7TypeInt.exit, label %143
 
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw i8, ptr %135, i64 32
-  %144 = load i32, ptr %143, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %135, i64 36
-  %146 = load i32, ptr %145, align 4
-  %147 = icmp eq i32 %144, %146
-  br i1 %147, label %148, label %149
+143:                                              ; preds = %139
+  %144 = getelementptr inbounds nuw i8, ptr %136, i64 32
+  %145 = load i32, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %136, i64 36
+  %147 = load i32, ptr %146, align 4
+  %148 = icmp eq i32 %145, %147
+  br i1 %148, label %149, label %150
 
-148:                                              ; preds = %142
-  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %135, i32 noundef %144) #14
-  %.pre.i.i.i.i = load ptr, ptr %139, align 8
-  %.pre2.i.i.i.i = load i32, ptr %143, align 8
-  br label %149
+149:                                              ; preds = %143
+  tail call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %136, i32 noundef %145) #14
+  %.pre.i.i.i.i = load ptr, ptr %140, align 8
+  %.pre2.i.i.i.i = load i32, ptr %144, align 8
+  br label %150
 
-149:                                              ; preds = %148, %142
-  %150 = phi i32 [ %.pre2.i.i.i.i, %148 ], [ %144, %142 ]
-  %151 = phi ptr [ %.pre.i.i.i.i, %148 ], [ %140, %142 ]
-  %152 = add i32 %150, 1
-  store i32 %152, ptr %143, align 8
-  %153 = zext i32 %150 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr %151, i64 %153
-  store ptr %.0.i.i.i, ptr %154, align 8
+150:                                              ; preds = %149, %143
+  %151 = phi i32 [ %.pre2.i.i.i.i, %149 ], [ %145, %143 ]
+  %152 = phi ptr [ %.pre.i.i.i.i, %149 ], [ %141, %143 ]
+  %153 = add i32 %151, 1
+  store i32 %153, ptr %144, align 8
+  %154 = zext i32 %151 to i64
+  %155 = getelementptr inbounds nuw ptr, ptr %152, i64 %154
+  store ptr %.0.i.i.i, ptr %155, align 8
   br label %_ZN8ConINodeC2EPK7TypeInt.exit
 
-_ZN8ConINodeC2EPK7TypeInt.exit:                   ; preds = %121, %138, %149
-  %155 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
-  %156 = load i32, ptr %155, align 8
-  %157 = or i32 %156, 16
-  store i32 %157, ptr %155, align 8
+_ZN8ConINodeC2EPK7TypeInt.exit:                   ; preds = %122, %139, %150
+  %156 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
+  %157 = load i32, ptr %156, align 8
+  %158 = or i32 %157, 16
+  store i32 %158, ptr %156, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ConINode, i64 16), ptr %.0.i.i.i, align 8
-  store i32 6148, ptr %128, align 4
-  br label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread
+  store i32 6148, ptr %129, align 4
+  br label %.thread72
 
-_ZN12AllocateNode22does_not_escape_threadEv.exit.thread: ; preds = %.thread, %54, %66
-  br i1 %.161, label %158, label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread
+159:                                              ; preds = %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread75, %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread
+  br label %.thread72
 
-158:                                              ; preds = %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread84, %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread
-  br label %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread
-
-_ZN12AllocateNode22does_not_escape_threadEv.exit.thread.thread: ; preds = %49, %84, %79, %75, %93, %13, %_ZN12AllocateNode22does_not_escape_threadEv.exit, %158, %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread, %_ZN4NodenwEm.exit, %_ZN8ConINodeC2EPK7TypeInt.exit, %9, %3
-  %.0 = phi ptr [ %0, %3 ], [ null, %9 ], [ %.0.i.i.i, %_ZN8ConINodeC2EPK7TypeInt.exit ], [ null, %_ZN4NodenwEm.exit ], [ %0, %158 ], [ null, %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread ], [ null, %_ZN12AllocateNode22does_not_escape_threadEv.exit ], [ null, %13 ], [ null, %93 ], [ null, %75 ], [ null, %79 ], [ null, %84 ], [ null, %49 ]
+.thread72:                                        ; preds = %9, %50, %85, %80, %76, %94, %13, %14, %_ZN12AllocateNode22does_not_escape_threadEv.exit, %159, %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread, %_ZN4NodenwEm.exit, %_ZN8ConINodeC2EPK7TypeInt.exit, %3
+  %.0 = phi ptr [ %0, %3 ], [ null, %9 ], [ %.0.i.i.i, %_ZN8ConINodeC2EPK7TypeInt.exit ], [ null, %_ZN4NodenwEm.exit ], [ %0, %159 ], [ null, %_ZN12AllocateNode22does_not_escape_threadEv.exit.thread ], [ null, %_ZN12AllocateNode22does_not_escape_threadEv.exit ], [ null, %14 ], [ null, %13 ], [ null, %94 ], [ null, %76 ], [ null, %80 ], [ null, %85 ], [ null, %50 ]
   ret ptr %.0
 }
 

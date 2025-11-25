@@ -1736,8 +1736,8 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang7CodeGen13CodeGenModule3
   %11 = tail call noundef ptr @_ZN5clang10ASTContext27baseForVTableAuthenticationEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %10, ptr noundef %1) #11
   %12 = lshr i32 %6, 9
   %13 = and i32 %12, 3
-  %14 = trunc i32 %6 to i8
-  %15 = lshr i8 %14, 2
+  %14 = and i32 %6, 4
+  %15 = icmp ne i32 %14, 0
   %16 = lshr i32 %6, 7
   %17 = and i32 %16, 3
   %18 = load ptr, ptr %9, align 8, !tbaa !6
@@ -1831,41 +1831,39 @@ _ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit: ; pred
   %.2 = phi i32 [ 2, %59 ], [ 3, %60 ], [ %13, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit ]
   %.not42 = icmp eq i32 %54, 0
   %62 = icmp eq i32 %54, 2
-  %63 = zext i1 %62 to i8
-  %.230 = select i1 %.not42, i8 %15, i8 %63
+  %spec.select = select i1 %.not42, i1 %15, i1 %62
   switch i32 %56, label %.fold.split [
     i32 2, label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
-    i32 3, label %64
-    i32 1, label %67
+    i32 3, label %63
+    i32 1, label %66
   ]
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  %66 = load i32, ptr %65, align 8, !tbaa !710
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 48
+  %65 = load i32, ptr %64, align 8, !tbaa !710
   br label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
 
-67:                                               ; preds = %61
+66:                                               ; preds = %61
   br label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
 
 .fold.split:                                      ; preds = %61
   br label %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
 
-_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread: ; preds = %39, %61, %.fold.split, %64, %67, %28, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %24
-  %.4 = phi i32 [ %.032, %24 ], [ %.032, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.032, %28 ], [ %.032, %.fold.split ], [ %20, %61 ], [ 0, %67 ], [ %66, %64 ], [ %.032, %39 ]
-  %.331 = phi i8 [ %15, %24 ], [ %15, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %15, %28 ], [ %.230, %.fold.split ], [ %.230, %61 ], [ %.230, %67 ], [ %.230, %64 ], [ %15, %39 ]
-  %.3 = phi i32 [ %13, %24 ], [ %13, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %13, %28 ], [ %.2, %.fold.split ], [ %.2, %61 ], [ %.2, %67 ], [ %.2, %64 ], [ %13, %39 ]
-  %68 = trunc i8 %.331 to i1
-  %69 = select i1 %68, i32 3, i32 1
-  %70 = shl nuw nsw i32 %.3, 6
-  %71 = or disjoint i32 %69, %70
-  %72 = shl i32 %.4, 16
-  %73 = or i32 %71, %72
-  %74 = zext i32 %73 to i64
-  %75 = or disjoint i64 %74, 4294967308
+_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread: ; preds = %39, %61, %.fold.split, %63, %66, %28, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %24
+  %.4 = phi i32 [ %.032, %24 ], [ %.032, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %.032, %28 ], [ %.032, %.fold.split ], [ %20, %61 ], [ 0, %66 ], [ %65, %63 ], [ %.032, %39 ]
+  %.331 = phi i1 [ %15, %24 ], [ %15, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %15, %28 ], [ %spec.select, %.fold.split ], [ %spec.select, %61 ], [ %spec.select, %66 ], [ %spec.select, %63 ], [ %15, %39 ]
+  %.3 = phi i32 [ %13, %24 ], [ %13, %_ZN5clangneENS_22specific_attr_iteratorINS_31VTablePointerAuthenticationAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %13, %28 ], [ %.2, %.fold.split ], [ %.2, %61 ], [ %.2, %66 ], [ %.2, %63 ], [ %13, %39 ]
+  %67 = select i1 %.331, i32 3, i32 1
+  %68 = shl nuw nsw i32 %.3, 6
+  %69 = or disjoint i32 %68, %67
+  %70 = shl i32 %.4, 16
+  %71 = or i32 %69, %70
+  %72 = zext i32 %71 to i64
+  %73 = or disjoint i64 %72, 4294967308
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit, %2, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
-  %.sroa.2.0 = phi i64 [ %75, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread ], [ 0, %2 ], [ 0, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit ]
+  %.sroa.2.0 = phi i64 [ %73, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread ], [ 0, %2 ], [ 0, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit ]
   ret i64 %.sroa.2.0
 }
 

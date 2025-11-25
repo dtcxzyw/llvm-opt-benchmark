@@ -2270,7 +2270,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %178, %find_pdu_tran
 580:                                              ; preds = %579, %517
   %.0322 = phi ptr [ null, %517 ], [ %572, %579 ]
   %.not366 = icmp ne ptr %.0322, null
-  %spec.select = or i1 %.not366, %.0331
+  %spec.select = or i1 %.0331, %.not366
   %spec.select372 = select i1 %.not366, ptr %.0322, ptr %.0319
   br label %581
 

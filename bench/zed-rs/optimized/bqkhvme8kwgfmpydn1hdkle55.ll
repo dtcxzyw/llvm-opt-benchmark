@@ -9655,9 +9655,6 @@ define noundef zeroext i1 @_ZN7channel13channel_store13channel_index23ChannelPat
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h333d1eabe86c01aaE.llvm.13602880533186600580"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noundef nonnull %15, ptr noundef nonnull %18)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h8c205edd225747e0E.exit" unwind label %.thread
 
-.thread35:                                        ; preds = %110, %107
-  br i1 %.sroa.06.233, label %121, label %.thread35.thread
-
 .thread:                                          ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
@@ -9705,7 +9702,7 @@ define noundef zeroext i1 @_ZN7channel13channel_store13channel_index23ChannelPat
 31:                                               ; preds = %89, %96, %102
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread35.thread
+  br label %.thread35
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17hc6977133fd5995d7E.exit": ; preds = %.noexc
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 96
@@ -9889,7 +9886,7 @@ select.unfold:                                    ; preds = %.noexc.select.unfol
   %86 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..sync..ArcInner$LT$channel..channel_store..Channel$GT$$GT$17hb93e7eeead5ad6d8E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %4) #50
-          to label %.thread35.thread unwind label %87
+          to label %.thread35 unwind label %87
 
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
@@ -9947,14 +9944,17 @@ _ZN7channel13channel_store13channel_index23ChannelPathsInsertGuard11insert_root1
   %.sroa.06.233 = phi i1 [ false, %.thread29 ], [ %.sroa.06.1.ph, %.thread43 ]
   %108 = load i64, ptr %12, align 8, !noundef !12
   %109 = icmp eq i64 %108, 0
-  br i1 %109, label %.thread35, label %110
+  br i1 %109, label %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$client..user..ChannelId$GT$$GT$17h3775f86888340f3bE.exit23", label %110
 
 110:                                              ; preds = %107
   %111 = shl nuw i64 %108, 3
   %112 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %113 = load ptr, ptr %112, align 8, !nonnull !12, !noundef !12
   call void @__rust_dealloc(ptr noundef nonnull %113, i64 noundef %111, i64 noundef 8) #43, !noalias !2081
-  br label %.thread35
+  br label %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$client..user..ChannelId$GT$$GT$17h3775f86888340f3bE.exit23"
+
+"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$client..user..ChannelId$GT$$GT$17h3775f86888340f3bE.exit23": ; preds = %107, %110
+  br i1 %.sroa.06.233, label %121, label %.thread35
 
 114:                                              ; preds = %121
   %115 = landingpad { ptr, i32 }
@@ -9962,8 +9962,8 @@ _ZN7channel13channel_store13channel_index23ChannelPathsInsertGuard11insert_root1
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #51
   unreachable
 
-.thread35.thread:                                 ; preds = %85, %31, %121, %.thread35
-  %.pn.pn27 = phi { ptr, i32 } [ %.pn.pn28, %121 ], [ %.pn34, %.thread35 ], [ %86, %85 ], [ %lpad.thr_comm.split-lp, %31 ]
+.thread35:                                        ; preds = %31, %85, %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$client..user..ChannelId$GT$$GT$17h3775f86888340f3bE.exit23", %121
+  %.pn.pn27 = phi { ptr, i32 } [ %.pn.pn28, %121 ], [ %.pn34, %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$client..user..ChannelId$GT$$GT$17h3775f86888340f3bE.exit23" ], [ %lpad.thr_comm.split-lp, %31 ], [ %86, %85 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2088)
   call void @llvm.experimental.noalias.scope.decl(metadata !2091)
   call void @llvm.experimental.noalias.scope.decl(metadata !2094)
@@ -9971,18 +9971,18 @@ _ZN7channel13channel_store13channel_index23ChannelPathsInsertGuard11insert_root1
   %117 = icmp eq i64 %116, 0
   br i1 %117, label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hb2ec60ee7d8223bbE.exit24", label %118
 
-118:                                              ; preds = %.thread35.thread
+118:                                              ; preds = %.thread35
   %119 = shl nuw i64 %116, 3
   %120 = load ptr, ptr %14, align 8, !alias.scope !2097, !noalias !2100, !nonnull !12, !noundef !12
   call void @__rust_dealloc(ptr noundef nonnull %120, i64 noundef %119, i64 noundef 8) #43, !noalias !2102
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hb2ec60ee7d8223bbE.exit24"
 
-121:                                              ; preds = %.thread, %.thread35
-  %.pn.pn28 = phi { ptr, i32 } [ %19, %.thread ], [ %.pn34, %.thread35 ]
+121:                                              ; preds = %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$client..user..ChannelId$GT$$GT$17h3775f86888340f3bE.exit23", %.thread
+  %.pn.pn28 = phi { ptr, i32 } [ %19, %.thread ], [ %.pn34, %"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$client..user..ChannelId$GT$$GT$17h3775f86888340f3bE.exit23" ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbc883d05c5e4baedE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #50
-          to label %.thread35.thread unwind label %114
+          to label %.thread35 unwind label %114
 
-"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hb2ec60ee7d8223bbE.exit24": ; preds = %118, %.thread35.thread
+"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hb2ec60ee7d8223bbE.exit24": ; preds = %118, %.thread35
   resume { ptr, i32 } %.pn.pn27
 }
 

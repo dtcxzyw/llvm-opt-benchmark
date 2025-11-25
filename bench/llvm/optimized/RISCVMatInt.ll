@@ -1398,8 +1398,8 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %10
   br label %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_.exit"
 
 "_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_.exit": ; preds = %45, %44
-  %.not22 = icmp eq i64 %37, 0
-  br i1 %.not22, label %68, label %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_.exit.thread"
+  %.not21 = icmp eq i64 %37, 0
+  br i1 %.not21, label %68, label %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_.exit.thread"
 
 "_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_.exit.thread": ; preds = %.thread, %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1446,9 +1446,9 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
   store i32 0, ptr %5, align 4, !tbaa !20
   %73 = add i64 %72, 2147483648
   %74 = icmp ult i64 %73, 4294967296
-  br i1 %74, label %.thread32, label %75
+  br i1 %74, label %.thread31, label %75
 
-.thread32:                                        ; preds = %69
+.thread31:                                        ; preds = %69
   tail call fastcc void @_ZL19generateInstSeqImpllRKN4llvm15MCSubtargetInfoERNS_11SmallVectorINS_11RISCVMatInt4InstELj8EEE(i64 noundef %72, i64 %.232.val, i64 %.240.val, ptr noundef nonnull align 8 dereferenceable(80) %1)
   br label %116
 
@@ -1479,9 +1479,9 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
   %90 = and i64 %.240.val, 549755813888
   %91 = icmp ne i64 %90, 0
   %or.cond16 = and i1 %91, %89
-  br i1 %or.cond16, label %.thread36, label %94
+  br i1 %or.cond16, label %.thread35, label %94
 
-.thread36:                                        ; preds = %88
+.thread35:                                        ; preds = %88
   %92 = add nsw i32 %77, -12
   store i32 %92, ptr %5, align 4, !tbaa !20
   %93 = or disjoint i64 %83, -4294967296
@@ -1497,10 +1497,10 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
 
 97:                                               ; preds = %94
   %98 = and i64 %.240.val, 549755813888
-  %.not20.not = icmp eq i64 %98, 0
+  %.not20 = icmp eq i64 %98, 0
   %99 = or disjoint i64 %.137, -4294967296
-  %spec.select = select i1 %.not20.not, i64 %.137, i64 %99
-  %100 = select i1 %.not20.not, i32 12904, i32 12906
+  %spec.select = select i1 %.not20, i64 %.137, i64 %99
+  %100 = select i1 %.not20, i32 12904, i32 12906
   br label %101
 
 101:                                              ; preds = %97, %94
@@ -1510,11 +1510,11 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
   %.not = icmp eq i32 %95, 0
   br i1 %.not, label %116, label %102
 
-102:                                              ; preds = %.thread36, %101
-  %.042 = phi i32 [ 12906, %.thread36 ], [ %.0, %101 ]
-  %103 = phi i32 [ %92, %.thread36 ], [ %95, %101 ]
+102:                                              ; preds = %.thread35, %101
+  %.039 = phi i32 [ 12906, %.thread35 ], [ %.0, %101 ]
+  %103 = phi i32 [ %92, %.thread35 ], [ %95, %101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i32 %.042, ptr %6, align 4, !tbaa !20
+  store i32 %.039, ptr %6, align 4, !tbaa !20
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %105 = load i32, ptr %104, align 8, !tbaa !9
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1530,7 +1530,7 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
   %111 = zext i32 %105 to i64
   %112 = load ptr, ptr %1, align 8, !tbaa !3
   %113 = getelementptr inbounds nuw %"class.llvm::RISCVMatInt::Inst", ptr %112, i64 %111
-  store i32 %.042, ptr %113, align 4, !tbaa !14
+  store i32 %.039, ptr %113, align 4, !tbaa !14
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 %103, ptr %114, align 4, !tbaa !16
   %115 = add nuw i32 %105, 1
@@ -1541,7 +1541,7 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRiEEERS2_DpOT
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
 
-116:                                              ; preds = %.thread32, %_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRiEEERS2_DpOT_.exit, %101
+116:                                              ; preds = %.thread31, %_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRiEEERS2_DpOT_.exit, %101
   %.not39 = icmp eq i64 %70, 0
   br i1 %.not39, label %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0ERlEEERS2_DpOT_.exit55", label %117
 

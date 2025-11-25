@@ -2823,8 +2823,8 @@ default.unreachable:                              ; preds = %183
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %38) #21
           to label %.critedge unwind label %304
 
-.critedge:                                        ; preds = %.body224.thread, %295, %314, %320, %327, %.noexc, %321, %92
-  %.pn219 = phi { ptr, i32 } [ %334, %.noexc ], [ %.pn217232, %321 ], [ %.pn215238, %92 ], [ %328, %327 ], [ %lpad.thr_comm, %320 ], [ %315, %314 ], [ %296, %295 ], [ %.pn.ph, %.body224.thread ]
+.critedge:                                        ; preds = %295, %.body224.thread, %314, %320, %327, %.noexc, %321, %92
+  %.pn219 = phi { ptr, i32 } [ %334, %.noexc ], [ %.pn217232, %321 ], [ %.pn215238, %92 ], [ %328, %327 ], [ %lpad.thr_comm, %320 ], [ %315, %314 ], [ %.pn.ph, %.body224.thread ], [ %296, %295 ]
   resume { ptr, i32 } %.pn219
 
 321:                                              ; preds = %.thread229, %92

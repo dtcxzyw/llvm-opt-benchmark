@@ -2415,7 +2415,8 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %200, %203, %167
 
 .thread.i:                                        ; preds = %227
   %244 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %225)
-  %245 = trunc i32 %244 to i1
+  %245 = and i32 %244, 1
+  %.not181.i = icmp ne i32 %245, 0
   %246 = icmp ne ptr %.0168.i, null
   br label %255
 
@@ -2431,12 +2432,13 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %200, %203, %167
 
 252:                                              ; preds = %248
   %253 = load i32, ptr %.0168.i, align 8
-  %254 = trunc i32 %253 to i1
+  %254 = and i32 %253, 1
+  %.not182.i = icmp ne i32 %254, 0
   br label %255
 
 255:                                              ; preds = %252, %248, %247, %.thread.i
   %256 = phi i1 [ true, %248 ], [ false, %247 ], [ true, %252 ], [ %246, %.thread.i ]
-  %.1171.i = phi i1 [ false, %248 ], [ false, %247 ], [ %254, %252 ], [ %245, %.thread.i ]
+  %.1171.i = phi i1 [ false, %248 ], [ false, %247 ], [ %.not182.i, %252 ], [ %.not181.i, %.thread.i ]
   %257 = add i32 %.0..0..0..0.51, 4
   %258 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %257)
   %259 = load i32, ptr @hf_ntlmssp_auth_lmresponse, align 4

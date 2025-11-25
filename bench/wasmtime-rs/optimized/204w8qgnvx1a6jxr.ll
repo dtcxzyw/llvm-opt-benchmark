@@ -2648,9 +2648,9 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17h04
 11:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   invoke void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h1684378748581035E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %9, ptr nonnull align 8 %8, ptr nonnull align 8 @anon.8da68fc197232f12e76e91dc488218cd.32)
-          to label %14 unwind label %.thread23
+          to label %14 unwind label %.thread14
 
-.thread23:                                        ; preds = %11
+.thread14:                                        ; preds = %11
   %12 = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -2691,7 +2691,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17h04
   %24 = call zeroext i1 @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hd6e1371bc12bf282E"(ptr align 8 %22, ptr nonnull align 8 %4)
   br label %25
 
-25:                                               ; preds = %26, %23
+25:                                               ; preds = %23, %26
   ret void
 
 26:                                               ; preds = %20
@@ -2711,13 +2711,13 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17h04
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
-30:                                               ; preds = %.thread23, %13
-  %.pn22 = phi { ptr, i32 } [ %lpad.thr_comm, %13 ], [ %12, %.thread23 ]
+30:                                               ; preds = %.thread14, %13
+  %.pn13 = phi { ptr, i32 } [ %lpad.thr_comm, %13 ], [ %12, %.thread14 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %10) #11
           to label %.thread unwind label %28
 
 .thread:                                          ; preds = %13, %30, %31
-  %.pn.pn11 = phi { ptr, i32 } [ %32, %31 ], [ %.pn22, %30 ], [ %lpad.thr_comm, %13 ]
+  %.pn.pn11 = phi { ptr, i32 } [ %32, %31 ], [ %lpad.thr_comm, %13 ], [ %.pn13, %30 ]
   resume { ptr, i32 } %.pn.pn11
 
 31:                                               ; preds = %3
@@ -2780,7 +2780,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17h9b
   %24 = call zeroext i1 @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hd6e1371bc12bf282E"(ptr align 8 %22, ptr nonnull align 8 %6)
   br label %25
 
-25:                                               ; preds = %26, %23
+25:                                               ; preds = %23, %26
   ret void
 
 26:                                               ; preds = %20
@@ -2801,13 +2801,13 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17h9b
   unreachable
 
 30:                                               ; preds = %.thread, %13
-  %.pn17 = phi { ptr, i32 } [ %lpad.thr_comm, %13 ], [ %12, %.thread ]
+  %.pn8 = phi { ptr, i32 } [ %lpad.thr_comm, %13 ], [ %12, %.thread ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %11) #11
           to label %31 unwind label %28
 
 31:                                               ; preds = %13, %30
-  %.pn16 = phi { ptr, i32 } [ %lpad.thr_comm, %13 ], [ %.pn17, %30 ]
-  resume { ptr, i32 } %.pn16
+  %.pn7 = phi { ptr, i32 } [ %lpad.thr_comm, %13 ], [ %.pn8, %30 ]
+  resume { ptr, i32 } %.pn7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2825,9 +2825,9 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17hda
 12:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   invoke void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h1684378748581035E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %10, ptr nonnull align 8 %9, ptr nonnull align 8 @anon.8da68fc197232f12e76e91dc488218cd.32)
-          to label %15 unwind label %.thread23
+          to label %15 unwind label %.thread14
 
-.thread23:                                        ; preds = %12
+.thread14:                                        ; preds = %12
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -2868,7 +2868,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17hda
   %25 = call zeroext i1 @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17hd6e1371bc12bf282E"(ptr align 8 %23, ptr nonnull align 8 %5)
   br label %26
 
-26:                                               ; preds = %27, %24
+26:                                               ; preds = %24, %27
   ret void
 
 27:                                               ; preds = %21
@@ -2888,13 +2888,13 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen5Match13arm_no_fields17hda
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
-31:                                               ; preds = %.thread23, %14
-  %.pn22 = phi { ptr, i32 } [ %lpad.thr_comm, %14 ], [ %13, %.thread23 ]
+31:                                               ; preds = %.thread14, %14
+  %.pn13 = phi { ptr, i32 } [ %lpad.thr_comm, %14 ], [ %13, %.thread14 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %11) #11
           to label %.thread unwind label %29
 
 .thread:                                          ; preds = %14, %31, %32
-  %.pn.pn11 = phi { ptr, i32 } [ %33, %32 ], [ %.pn22, %31 ], [ %lpad.thr_comm, %14 ]
+  %.pn.pn11 = phi { ptr, i32 } [ %33, %32 ], [ %lpad.thr_comm, %14 ], [ %.pn13, %31 ]
   resume { ptr, i32 } %.pn.pn11
 
 32:                                               ; preds = %4

@@ -3172,65 +3172,63 @@ define hidden noundef zeroext i1 @_Z19compilerOracle_initv() local_unnamed_addr 
   store i64 0, ptr %15, align 8
   %16 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %2, ptr noundef nonnull @_ZN14CompilerOracle18parse_compile_onlyEPc)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %narrow = and i1 %10, %16
+  %.2 = and i1 %10, %16
   %17 = load ptr, ptr @CompileCommandFile, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %27, label %18
+  br i1 %.not, label %28, label %18
 
 18:                                               ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %19 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull %17, ptr noundef nonnull @.str.24) #19
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %_ZN14CompilerOracle15parse_from_fileEv.exit.thread, label %_ZN14CompilerOracle15parse_from_fileEv.exit
+  br i1 %20, label %_ZN14CompilerOracle15parse_from_fileEv.exit, label %21
 
-_ZN14CompilerOracle15parse_from_fileEv.exit.thread: ; preds = %18
-  call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %26
-
-_ZN14CompilerOracle15parse_from_fileEv.exit:      ; preds = %18
+21:                                               ; preds = %18
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %22, ptr %21, align 8
-  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %22, i1 noundef zeroext false) #19
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %19, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i8 1, ptr %24, align 8
-  %25 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %1, ptr noundef nonnull @_ZN14CompilerOracle15parse_from_lineEPc)
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %23, ptr %22, align 8
+  call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %23, i1 noundef zeroext false) #19
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr %19, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  store i8 1, ptr %25, align 8
+  %26 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %1, ptr noundef nonnull @_ZN14CompilerOracle15parse_from_lineEPc)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
-  call void @_ZN10fileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %22) #19
+  call void @_ZN10fileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(65) %23) #19
+  %27 = and i1 %.2, %26
+  br label %_ZN14CompilerOracle15parse_from_fileEv.exit
+
+_ZN14CompilerOracle15parse_from_fileEv.exit:      ; preds = %18, %21
+  %.0.i = phi i1 [ %27, %21 ], [ %.2, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br i1 %25, label %26, label %31
+  br label %32
 
-26:                                               ; preds = %_ZN14CompilerOracle15parse_from_fileEv.exit.thread, %_ZN14CompilerOracle15parse_from_fileEv.exit
-  br label %31
+28:                                               ; preds = %0
+  %29 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef nonnull @.str.141, ptr noundef nonnull %4) #19
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %32
 
-27:                                               ; preds = %0
-  %28 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef nonnull @.str.141, ptr noundef nonnull %4) #19
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %31
-
-30:                                               ; preds = %27
+31:                                               ; preds = %28
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.141) #19
-  br label %31
+  br label %32
 
-31:                                               ; preds = %26, %_ZN14CompilerOracle15parse_from_fileEv.exit, %27, %30
-  %.3.shrunk = phi i1 [ %narrow, %30 ], [ %narrow, %27 ], [ %narrow, %26 ], [ false, %_ZN14CompilerOracle15parse_from_fileEv.exit ]
-  %32 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 3), align 1
-  %33 = trunc i8 %32 to i1
-  %34 = load i8, ptr @PrintAssembly, align 1
-  %35 = trunc i8 %34 to i1
-  %or.cond = select i1 %33, i1 %35, i1 false
-  br i1 %or.cond, label %36, label %37
+32:                                               ; preds = %_ZN14CompilerOracle15parse_from_fileEv.exit, %28, %31
+  %.3 = phi i1 [ %.2, %31 ], [ %.2, %28 ], [ %.0.i, %_ZN14CompilerOracle15parse_from_fileEv.exit ]
+  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 3), align 1
+  %34 = trunc i8 %33 to i1
+  %35 = load i8, ptr @PrintAssembly, align 1
+  %36 = trunc i8 %35 to i1
+  %or.cond = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond, label %37, label %38
 
-36:                                               ; preds = %31
+37:                                               ; preds = %32
   call void (ptr, ...) @_Z7warningPKcz(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.141) #19
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %31
-  ret i1 %.3.shrunk
+38:                                               ; preds = %37, %32
+  ret i1 %.3
 }
 
 declare noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3

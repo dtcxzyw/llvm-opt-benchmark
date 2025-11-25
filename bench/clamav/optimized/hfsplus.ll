@@ -967,15 +967,15 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
   %106 = zext i16 %101 to i64
   %107 = getelementptr inbounds nuw i8, ptr %27, i64 %106
   %108 = load i8, ptr %107, align 1, !tbaa !42
-  %109 = zext i8 %108 to i32
-  %110 = shl nuw nsw i32 %109, 8
+  %109 = zext i8 %108 to i16
+  %110 = shl nuw i16 %109, 8
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 1
   %112 = load i8, ptr %111, align 1, !tbaa !42
-  %113 = zext i8 %112 to i32
-  %114 = or disjoint i32 %110, %113
-  %115 = and i32 %113, 1
-  %116 = add nuw nsw i32 %114, %115
-  %117 = and i32 %116, 65535
+  %113 = zext i8 %112 to i16
+  %114 = or disjoint i16 %110, %113
+  %115 = and i16 %113, 1
+  %116 = add i16 %114, %115
+  %117 = zext i16 %116 to i32
   %118 = add nuw nsw i32 %117, %102
   %119 = add nuw nsw i32 %118, 4
   %.not363 = icmp samesign ult i32 %119, %86
@@ -986,7 +986,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
   br label %.thread122
 
 121:                                              ; preds = %105
-  %122 = icmp samesign ugt i32 %117, 5
+  %122 = icmp ugt i16 %116, 5
   br i1 %122, label %123, label %142
 
 123:                                              ; preds = %121
@@ -1689,24 +1689,24 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %270, %264, %256, %2
   store ptr %17, ptr %19, align 8, !tbaa !94
   store i32 4096, ptr %47, align 8, !tbaa !95
   store ptr %18, ptr %48, align 8, !tbaa !96
-  %.not3981632 = icmp eq i32 %.pre-phi, 0
-  br i1 %.not3981632, label %.loopexit135, label %.lr.ph1634
+  %.not3981631 = icmp eq i32 %.pre-phi, 0
+  br i1 %.not3981631, label %.loopexit135, label %.lr.ph1633
 
 388:                                              ; preds = %401
   %.not398 = icmp eq i32 %403, 0
-  br i1 %.not398, label %.loopexit135, label %.lr.ph1634
+  br i1 %.not398, label %.loopexit135, label %.lr.ph1633
 
-.lr.ph1634:                                       ; preds = %.thread64, %388
-  %.32351633 = phi i64 [ %402, %388 ], [ %.2234467, %.thread64 ]
+.lr.ph1633:                                       ; preds = %.thread64, %388
+  %.32351632 = phi i64 [ %402, %388 ], [ %.2234467, %.thread64 ]
   %389 = call i32 @inflate(ptr noundef nonnull %19, i32 noundef 0) #12
   %or.cond15 = icmp ugt i32 %389, 1
   br i1 %or.cond15, label %390, label %391
 
-390:                                              ; preds = %.lr.ph1634
+390:                                              ; preds = %.lr.ph1633
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.88, i32 noundef %389) #12
   br label %426
 
-391:                                              ; preds = %.lr.ph1634
+391:                                              ; preds = %.lr.ph1633
   %392 = load i32, ptr %8, align 4, !tbaa !83
   %393 = load i32, ptr %47, align 8, !tbaa !95
   %394 = zext i32 %393 to i64
@@ -1723,7 +1723,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %270, %264, %256, %2
   br label %426
 
 401:                                              ; preds = %391
-  %402 = add i64 %396, %.32351633
+  %402 = add i64 %396, %.32351632
   store i32 4096, ptr %47, align 8, !tbaa !95
   store ptr %18, ptr %48, align 8, !tbaa !96
   %403 = load i32, ptr %46, align 8, !tbaa !91
@@ -1795,13 +1795,13 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %270, %264, %256, %2
   br i1 %.not390, label %.thread89, label %425
 
 425:                                              ; preds = %._crit_edge477.thread, %._crit_edge477
-  %.13278.lcssa890 = phi i1 [ %.15280.lcssa, %._crit_edge477.thread ], [ %.2267486, %._crit_edge477 ]
+  %.13278.lcssa889 = phi i1 [ %.15280.lcssa, %._crit_edge477.thread ], [ %.2267486, %._crit_edge477 ]
   call void @free(ptr noundef nonnull %.pre827) #12
   store ptr null, ptr %11, align 8, !tbaa !85
   br label %.thread89
 
 .thread89:                                        ; preds = %425, %._crit_edge477
-  %.13278.lcssa891 = phi i1 [ %.13278.lcssa890, %425 ], [ %.2267486, %._crit_edge477 ]
+  %.13278.lcssa890 = phi i1 [ %.13278.lcssa889, %425 ], [ %.2267486, %._crit_edge477 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -1818,7 +1818,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %270, %264, %256, %2
 
 427:                                              ; preds = %.thread89, %.thread82, %.thread75
   %.1781 = phi i32 [ %356, %.thread75 ], [ %360, %.thread82 ], [ 0, %.thread89 ]
-  %.2028580 = phi i1 [ %.2267486, %.thread75 ], [ %.2267486, %.thread82 ], [ %.13278.lcssa891, %.thread89 ]
+  %.2028580 = phi i1 [ %.2267486, %.thread75 ], [ %.2267486, %.thread82 ], [ %.13278.lcssa890, %.thread89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %428 = load ptr, ptr %49, align 8, !tbaa !44
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 40
@@ -1965,17 +1965,17 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %270, %264, %256, %2
 
 .sink.split:                                      ; preds = %468, %147
   %.sink = phi ptr [ %148, %147 ], [ %469, %468 ]
-  %.3291.ph1299 = phi i32 [ %.2290484, %147 ], [ %.9297, %468 ]
+  %.3291.ph1298 = phi i32 [ %.2290484, %147 ], [ %.9297, %468 ]
   %.3268.ph = phi i1 [ %.2267486, %147 ], [ %.22287, %468 ]
-  %.3.ph1300 = phi i32 [ %.2489, %147 ], [ %.23, %468 ]
+  %.3.ph1299 = phi i32 [ %.2489, %147 ], [ %.23, %468 ]
   call void @free(ptr noundef nonnull %.sink) #12
   store ptr null, ptr %9, align 8, !tbaa !82
   br label %470
 
 470:                                              ; preds = %.sink.split, %147, %468
-  %.3291 = phi i32 [ %.2290484, %147 ], [ %.9297, %468 ], [ %.3291.ph1299, %.sink.split ]
+  %.3291 = phi i32 [ %.2290484, %147 ], [ %.9297, %468 ], [ %.3291.ph1298, %.sink.split ]
   %.3268 = phi i1 [ %.2267486, %147 ], [ %.22287, %468 ], [ %.3268.ph, %.sink.split ]
-  %.3 = phi i32 [ %.2489, %147 ], [ %.23, %468 ], [ %.3.ph1300, %.sink.split ]
+  %.3 = phi i32 [ %.2489, %147 ], [ %.23, %468 ], [ %.3.ph1299, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %471 = trunc nuw i64 %indvars.iv.next to i32

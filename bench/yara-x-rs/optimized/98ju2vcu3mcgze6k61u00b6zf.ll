@@ -28054,9 +28054,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %384, label %.critedge.ithread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i"
 
 589:                                              ; preds = %614, %593
-  %.sroa.092.0.i.shrunk = phi i1 [ %615, %614 ], [ %598, %593 ]
-  %.sroa.092.1.i = xor i1 %384, %.sroa.092.0.i.shrunk
-  br i1 %.sroa.092.1.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i", label %.critedge.ithread-pre-split
+  %.sroa.092.0.i = phi i1 [ %615, %614 ], [ %598, %593 ]
+  %spec.select.i = xor i1 %384, %.sroa.092.0.i
+  br i1 %spec.select.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i", label %.critedge.ithread-pre-split
 
 590:                                              ; preds = %584
   %591 = load i8, ptr %4, align 1, !alias.scope !3391, !noalias !3598, !noundef !3
@@ -29695,9 +29695,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %1070, label %.critedge.i66thread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114"
 
 1275:                                             ; preds = %1300, %1279
-  %.sroa.092.0.i110.shrunk = phi i1 [ %1301, %1300 ], [ %1284, %1279 ]
-  %.sroa.092.1.i111 = xor i1 %1070, %.sroa.092.0.i110.shrunk
-  br i1 %.sroa.092.1.i111, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114", label %.critedge.i66thread-pre-split
+  %.sroa.092.0.i110 = phi i1 [ %1301, %1300 ], [ %1284, %1279 ]
+  %spec.select.i111 = xor i1 %1070, %.sroa.092.0.i110
+  br i1 %spec.select.i111, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114", label %.critedge.i66thread-pre-split
 
 1276:                                             ; preds = %1270
   %1277 = load i8, ptr %.sroa.03.0, align 1, !alias.scope !3648, !noalias !3854, !noundef !3
@@ -31184,9 +31184,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %382, label %.critedge.ithread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i"
 
 587:                                              ; preds = %612, %591
-  %.sroa.092.0.i.shrunk = phi i1 [ %613, %612 ], [ %596, %591 ]
-  %.sroa.092.1.i = xor i1 %382, %.sroa.092.0.i.shrunk
-  br i1 %.sroa.092.1.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i", label %.critedge.ithread-pre-split
+  %.sroa.092.0.i = phi i1 [ %613, %612 ], [ %596, %591 ]
+  %spec.select.i = xor i1 %382, %.sroa.092.0.i
+  br i1 %spec.select.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i", label %.critedge.ithread-pre-split
 
 588:                                              ; preds = %582
   %589 = load i8, ptr %61, align 1, !alias.scope !3882, !noalias !4087, !noundef !3
@@ -32837,9 +32837,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %1076, label %.critedge.i66thread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114"
 
 1281:                                             ; preds = %1306, %1285
-  %.sroa.092.0.i110.shrunk = phi i1 [ %1307, %1306 ], [ %1290, %1285 ]
-  %.sroa.092.1.i111 = xor i1 %1076, %.sroa.092.0.i110.shrunk
-  br i1 %.sroa.092.1.i111, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114", label %.critedge.i66thread-pre-split
+  %.sroa.092.0.i110 = phi i1 [ %1307, %1306 ], [ %1290, %1285 ]
+  %spec.select.i111 = xor i1 %1076, %.sroa.092.0.i110
+  br i1 %spec.select.i111, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114", label %.critedge.i66thread-pre-split
 
 1282:                                             ; preds = %1276
   %1283 = load i8, ptr %.sroa.03.0, align 1, !alias.scope !4136, !noalias !4341, !noundef !3
@@ -34332,9 +34332,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %384, label %.critedge.ithread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i"
 
 589:                                              ; preds = %614, %593
-  %.sroa.092.0.i.shrunk = phi i1 [ %615, %614 ], [ %598, %593 ]
-  %.sroa.092.1.i = xor i1 %384, %.sroa.092.0.i.shrunk
-  br i1 %.sroa.092.1.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i", label %.critedge.ithread-pre-split
+  %.sroa.092.0.i = phi i1 [ %615, %614 ], [ %598, %593 ]
+  %spec.select.i = xor i1 %384, %.sroa.092.0.i
+  br i1 %spec.select.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i", label %.critedge.ithread-pre-split
 
 590:                                              ; preds = %584
   %591 = load i8, ptr %64, align 1, !alias.scope !4369, !noalias !4574, !noundef !3
@@ -35974,9 +35974,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %1069, label %.critedge.i66thread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114"
 
 1274:                                             ; preds = %1299, %1278
-  %.sroa.092.0.i110.shrunk = phi i1 [ %1300, %1299 ], [ %1283, %1278 ]
-  %.sroa.092.1.i111 = xor i1 %1069, %.sroa.092.0.i110.shrunk
-  br i1 %.sroa.092.1.i111, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114", label %.critedge.i66thread-pre-split
+  %.sroa.092.0.i110 = phi i1 [ %1300, %1299 ], [ %1283, %1278 ]
+  %spec.select.i111 = xor i1 %1069, %.sroa.092.0.i110
+  br i1 %spec.select.i111, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114", label %.critedge.i66thread-pre-split
 
 1275:                                             ; preds = %1269
   %1276 = load i8, ptr %.sroa.03.0, align 1, !alias.scope !4623, !noalias !4828, !noundef !3
@@ -37451,9 +37451,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %366, label %.critedge.ithread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i"
 
 572:                                              ; preds = %597, %576
-  %.sroa.092.0.i.shrunk = phi i1 [ %598, %597 ], [ %581, %576 ]
-  %.sroa.092.1.i = xor i1 %366, %.sroa.092.0.i.shrunk
-  br i1 %.sroa.092.1.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i", label %.critedge.ithread-pre-split
+  %.sroa.092.0.i = phi i1 [ %598, %597 ], [ %581, %576 ]
+  %spec.select.i = xor i1 %366, %.sroa.092.0.i
+  br i1 %spec.select.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i", label %.critedge.ithread-pre-split
 
 573:                                              ; preds = %567
   %574 = load i8, ptr %59, align 1, !alias.scope !4856, !noalias !5056, !noundef !3
@@ -39082,9 +39082,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %1047, label %.critedge.i66thread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115"
 
 1253:                                             ; preds = %1278, %1257
-  %.sroa.092.0.i111.shrunk = phi i1 [ %1279, %1278 ], [ %1262, %1257 ]
-  %.sroa.092.1.i112 = xor i1 %1047, %.sroa.092.0.i111.shrunk
-  br i1 %.sroa.092.1.i112, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115", label %.critedge.i66thread-pre-split
+  %.sroa.092.0.i111 = phi i1 [ %1279, %1278 ], [ %1262, %1257 ]
+  %spec.select.i112 = xor i1 %1047, %.sroa.092.0.i111
+  br i1 %spec.select.i112, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115", label %.critedge.i66thread-pre-split
 
 1254:                                             ; preds = %1248
   %1255 = load i8, ptr %.sroa.03.0, align 1, !alias.scope !5100, !noalias !5300, !noundef !3
@@ -40560,9 +40560,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %366, label %.critedge.ithread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i"
 
 572:                                              ; preds = %597, %576
-  %.sroa.092.0.i.shrunk = phi i1 [ %598, %597 ], [ %581, %576 ]
-  %.sroa.092.1.i = xor i1 %366, %.sroa.092.0.i.shrunk
-  br i1 %.sroa.092.1.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i", label %.critedge.ithread-pre-split
+  %.sroa.092.0.i = phi i1 [ %598, %597 ], [ %581, %576 ]
+  %spec.select.i = xor i1 %366, %.sroa.092.0.i
+  br i1 %spec.select.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i", label %.critedge.ithread-pre-split
 
 573:                                              ; preds = %567
   %574 = load i8, ptr %59, align 1, !alias.scope !5333, !noalias !5533, !noundef !3
@@ -42191,9 +42191,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %1047, label %.critedge.i66thread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115"
 
 1253:                                             ; preds = %1278, %1257
-  %.sroa.092.0.i111.shrunk = phi i1 [ %1279, %1278 ], [ %1262, %1257 ]
-  %.sroa.092.1.i112 = xor i1 %1047, %.sroa.092.0.i111.shrunk
-  br i1 %.sroa.092.1.i112, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115", label %.critedge.i66thread-pre-split
+  %.sroa.092.0.i111 = phi i1 [ %1279, %1278 ], [ %1262, %1257 ]
+  %spec.select.i112 = xor i1 %1047, %.sroa.092.0.i111
+  br i1 %spec.select.i112, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115", label %.critedge.i66thread-pre-split
 
 1254:                                             ; preds = %1248
   %1255 = load i8, ptr %.sroa.03.0, align 1, !alias.scope !5577, !noalias !5777, !noundef !3
@@ -43673,9 +43673,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %368, label %.critedge.ithread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i"
 
 574:                                              ; preds = %599, %578
-  %.sroa.092.0.i.shrunk = phi i1 [ %600, %599 ], [ %583, %578 ]
-  %.sroa.092.1.i = xor i1 %368, %.sroa.092.0.i.shrunk
-  br i1 %.sroa.092.1.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i", label %.critedge.ithread-pre-split
+  %.sroa.092.0.i = phi i1 [ %600, %599 ], [ %583, %578 ]
+  %spec.select.i = xor i1 %368, %.sroa.092.0.i
+  br i1 %spec.select.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i", label %.critedge.ithread-pre-split
 
 575:                                              ; preds = %569
   %576 = load i8, ptr %4, align 1, !alias.scope !5810, !noalias !6010, !noundef !3
@@ -45293,9 +45293,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %1041, label %.critedge.i66thread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115"
 
 1247:                                             ; preds = %1272, %1251
-  %.sroa.092.0.i111.shrunk = phi i1 [ %1273, %1272 ], [ %1256, %1251 ]
-  %.sroa.092.1.i112 = xor i1 %1041, %.sroa.092.0.i111.shrunk
-  br i1 %.sroa.092.1.i112, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115", label %.critedge.i66thread-pre-split
+  %.sroa.092.0.i111 = phi i1 [ %1273, %1272 ], [ %1256, %1251 ]
+  %spec.select.i112 = xor i1 %1041, %.sroa.092.0.i111
+  br i1 %spec.select.i112, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115", label %.critedge.i66thread-pre-split
 
 1248:                                             ; preds = %1242
   %1249 = load i8, ptr %.sroa.03.0, align 1, !alias.scope !6054, !noalias !6254, !noundef !3
@@ -46783,9 +46783,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %382, label %.critedge.ithread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i"
 
 587:                                              ; preds = %612, %591
-  %.sroa.092.0.i.shrunk = phi i1 [ %613, %612 ], [ %596, %591 ]
-  %.sroa.092.1.i = xor i1 %382, %.sroa.092.0.i.shrunk
-  br i1 %.sroa.092.1.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i", label %.critedge.ithread-pre-split
+  %.sroa.092.0.i = phi i1 [ %613, %612 ], [ %596, %591 ]
+  %spec.select.i = xor i1 %382, %.sroa.092.0.i
+  br i1 %spec.select.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i", label %.critedge.ithread-pre-split
 
 588:                                              ; preds = %582
   %589 = load i8, ptr %61, align 1, !alias.scope !6287, !noalias !6492, !noundef !3
@@ -48436,9 +48436,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %1076, label %.critedge.i66thread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114"
 
 1281:                                             ; preds = %1306, %1285
-  %.sroa.092.0.i110.shrunk = phi i1 [ %1307, %1306 ], [ %1290, %1285 ]
-  %.sroa.092.1.i111 = xor i1 %1076, %.sroa.092.0.i110.shrunk
-  br i1 %.sroa.092.1.i111, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114", label %.critedge.i66thread-pre-split
+  %.sroa.092.0.i110 = phi i1 [ %1307, %1306 ], [ %1290, %1285 ]
+  %spec.select.i111 = xor i1 %1076, %.sroa.092.0.i110
+  br i1 %spec.select.i111, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit287.i114", label %.critedge.i66thread-pre-split
 
 1282:                                             ; preds = %1276
   %1283 = load i8, ptr %.sroa.03.0, align 1, !alias.scope !6541, !noalias !6746, !noundef !3
@@ -49918,9 +49918,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %368, label %.critedge.ithread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i"
 
 574:                                              ; preds = %599, %578
-  %.sroa.092.0.i.shrunk = phi i1 [ %600, %599 ], [ %583, %578 ]
-  %.sroa.092.1.i = xor i1 %368, %.sroa.092.0.i.shrunk
-  br i1 %.sroa.092.1.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i", label %.critedge.ithread-pre-split
+  %.sroa.092.0.i = phi i1 [ %600, %599 ], [ %583, %578 ]
+  %spec.select.i = xor i1 %368, %.sroa.092.0.i
+  br i1 %spec.select.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i", label %.critedge.ithread-pre-split
 
 575:                                              ; preds = %569
   %576 = load i8, ptr %62, align 1, !alias.scope !6774, !noalias !6974, !noundef !3
@@ -51539,9 +51539,9 @@ _ZN6yara_x2re8thompson5instr11InstrParser12decode_instr17h04d5acdf35d201efE.exit
   br i1 %1040, label %.critedge.i66thread-pre-split, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115"
 
 1246:                                             ; preds = %1271, %1250
-  %.sroa.092.0.i111.shrunk = phi i1 [ %1272, %1271 ], [ %1255, %1250 ]
-  %.sroa.092.1.i112 = xor i1 %1040, %.sroa.092.0.i111.shrunk
-  br i1 %.sroa.092.1.i112, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115", label %.critedge.i66thread-pre-split
+  %.sroa.092.0.i111 = phi i1 [ %1272, %1271 ], [ %1255, %1250 ]
+  %spec.select.i112 = xor i1 %1040, %.sroa.092.0.i111
+  br i1 %spec.select.i112, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3ce31a856b5ba5a2E.exit288.i115", label %.critedge.i66thread-pre-split
 
 1247:                                             ; preds = %1241
   %1248 = load i8, ptr %.sroa.03.0, align 1, !alias.scope !7018, !noalias !7218, !noundef !3

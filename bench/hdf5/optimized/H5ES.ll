@@ -381,7 +381,7 @@ define range(i32 -1, 1) i32 @H5ESget_count(i64 noundef %0, ptr noundef writeonly
 38:                                               ; preds = %36
   %39 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 16) #4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %46, label %41
+  br i1 %40, label %46, label %41, !prof !14
 
 41:                                               ; preds = %38
   %.not21 = icmp eq ptr %1, null
@@ -393,7 +393,7 @@ define range(i32 -1, 1) i32 @H5ESget_count(i64 noundef %0, ptr noundef writeonly
   store i64 %44, ptr %1, align 8, !tbaa !11
   br label %.thread36
 
-.thread36:                                        ; preds = %41, %42, %36
+.thread36:                                        ; preds = %42, %41, %36
   %45 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %52
 
@@ -483,7 +483,7 @@ define range(i32 -1, 1) i32 @H5ESget_op_counter(i64 noundef %0, ptr noundef writ
 38:                                               ; preds = %36
   %39 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 16) #4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %45, label %41
+  br i1 %40, label %45, label %41, !prof !14
 
 41:                                               ; preds = %38
   %.not21 = icmp eq ptr %1, null
@@ -494,7 +494,7 @@ define range(i32 -1, 1) i32 @H5ESget_op_counter(i64 noundef %0, ptr noundef writ
   store i64 %43, ptr %1, align 8, !tbaa !11
   br label %.thread36
 
-.thread36:                                        ; preds = %41, %42, %36
+.thread36:                                        ; preds = %42, %41, %36
   %44 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %51
 
@@ -714,7 +714,7 @@ define range(i32 -1, 1) i32 @H5ESwait(i64 noundef %0, i64 noundef %1, ptr nounde
 40:                                               ; preds = %38
   %41 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 16) #4
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %47
+  br i1 %42, label %43, label %47, !prof !14
 
 43:                                               ; preds = %40
   %44 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -724,7 +724,7 @@ define range(i32 -1, 1) i32 @H5ESwait(i64 noundef %0, i64 noundef %1, ptr nounde
 
 47:                                               ; preds = %40
   %48 = icmp eq ptr %2, null
-  br i1 %48, label %49, label %53
+  br i1 %48, label %49, label %53, !prof !14
 
 49:                                               ; preds = %47
   %50 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -734,7 +734,7 @@ define range(i32 -1, 1) i32 @H5ESwait(i64 noundef %0, i64 noundef %1, ptr nounde
 
 53:                                               ; preds = %47
   %54 = icmp eq ptr %3, null
-  br i1 %54, label %55, label %59
+  br i1 %54, label %55, label %59, !prof !14
 
 55:                                               ; preds = %53
   %56 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -745,7 +745,7 @@ define range(i32 -1, 1) i32 @H5ESwait(i64 noundef %0, i64 noundef %1, ptr nounde
 59:                                               ; preds = %53
   %60 = call i32 @H5ES__wait(ptr noundef nonnull %41, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %67
+  br i1 %61, label %62, label %67, !prof !14
 
 62:                                               ; preds = %59
   %63 = load i64, ptr @H5E_EVENTSET_g, align 8, !tbaa !11
@@ -840,7 +840,7 @@ define range(i32 -1, 1) i32 @H5EScancel(i64 noundef %0, ptr noundef %1, ptr noun
 39:                                               ; preds = %37
   %40 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 16) #4
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %46
+  br i1 %41, label %42, label %46, !prof !14
 
 42:                                               ; preds = %39
   %43 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -850,7 +850,7 @@ define range(i32 -1, 1) i32 @H5EScancel(i64 noundef %0, ptr noundef %1, ptr noun
 
 46:                                               ; preds = %39
   %47 = icmp eq ptr %1, null
-  br i1 %47, label %48, label %52
+  br i1 %47, label %48, label %52, !prof !14
 
 48:                                               ; preds = %46
   %49 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -860,7 +860,7 @@ define range(i32 -1, 1) i32 @H5EScancel(i64 noundef %0, ptr noundef %1, ptr noun
 
 52:                                               ; preds = %46
   %53 = icmp eq ptr %2, null
-  br i1 %53, label %54, label %58
+  br i1 %53, label %54, label %58, !prof !14
 
 54:                                               ; preds = %52
   %55 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -871,7 +871,7 @@ define range(i32 -1, 1) i32 @H5EScancel(i64 noundef %0, ptr noundef %1, ptr noun
 58:                                               ; preds = %52
   %59 = call i32 @H5ES__cancel(ptr noundef nonnull %40, ptr noundef nonnull %1, ptr noundef nonnull %2) #4
   %60 = icmp slt i32 %59, 0
-  br i1 %60, label %61, label %66
+  br i1 %60, label %61, label %66, !prof !14
 
 61:                                               ; preds = %58
   %62 = load i64, ptr @H5E_EVENTSET_g, align 8, !tbaa !11
@@ -966,7 +966,7 @@ define range(i32 -1, 1) i32 @H5ESget_err_status(i64 noundef %0, ptr noundef writ
 38:                                               ; preds = %36
   %39 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 16) #4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %46, label %41
+  br i1 %40, label %46, label %41, !prof !14
 
 41:                                               ; preds = %38
   %.not21 = icmp eq ptr %1, null
@@ -978,7 +978,7 @@ define range(i32 -1, 1) i32 @H5ESget_err_status(i64 noundef %0, ptr noundef writ
   store i8 %44, ptr %1, align 1, !tbaa !3
   br label %.thread36
 
-.thread36:                                        ; preds = %41, %42, %36
+.thread36:                                        ; preds = %42, %41, %36
   %45 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %52
 
@@ -1066,7 +1066,7 @@ define range(i32 -1, 1) i32 @H5ESget_err_count(i64 noundef %0, ptr noundef write
 38:                                               ; preds = %36
   %39 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 16) #4
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %50, label %41
+  br i1 %40, label %50, label %41, !prof !14
 
 41:                                               ; preds = %38
   %.not23 = icmp eq ptr %1, null
@@ -1176,7 +1176,7 @@ define range(i32 -1, 1) i32 @H5ESget_err_info(i64 noundef %0, i64 noundef %1, pt
 40:                                               ; preds = %38
   %41 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 16) #4
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %47
+  br i1 %42, label %43, label %47, !prof !14
 
 43:                                               ; preds = %40
   %44 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1186,7 +1186,7 @@ define range(i32 -1, 1) i32 @H5ESget_err_info(i64 noundef %0, i64 noundef %1, pt
 
 47:                                               ; preds = %40
   %48 = icmp eq i64 %1, 0
-  br i1 %48, label %49, label %53
+  br i1 %48, label %49, label %53, !prof !14
 
 49:                                               ; preds = %47
   %50 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1196,7 +1196,7 @@ define range(i32 -1, 1) i32 @H5ESget_err_info(i64 noundef %0, i64 noundef %1, pt
 
 53:                                               ; preds = %47
   %54 = icmp eq ptr %2, null
-  br i1 %54, label %55, label %59
+  br i1 %54, label %55, label %59, !prof !14
 
 55:                                               ; preds = %53
   %56 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1206,7 +1206,7 @@ define range(i32 -1, 1) i32 @H5ESget_err_info(i64 noundef %0, i64 noundef %1, pt
 
 59:                                               ; preds = %53
   %60 = icmp eq ptr %3, null
-  br i1 %60, label %61, label %65
+  br i1 %60, label %61, label %65, !prof !14
 
 61:                                               ; preds = %59
   %62 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1217,7 +1217,7 @@ define range(i32 -1, 1) i32 @H5ESget_err_info(i64 noundef %0, i64 noundef %1, pt
 65:                                               ; preds = %59
   %66 = call i32 @H5ES__get_err_info(ptr noundef nonnull %41, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   %67 = icmp slt i32 %66, 0
-  br i1 %67, label %68, label %73
+  br i1 %67, label %68, label %73, !prof !14
 
 68:                                               ; preds = %65
   %69 = load i64, ptr @H5E_EVENTSET_g, align 8, !tbaa !11
@@ -1445,7 +1445,7 @@ define range(i32 -1, 1) i32 @H5ESregister_insert_func(i64 noundef %0, ptr nounde
 39:                                               ; preds = %37
   %40 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 16) #4
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %46
+  br i1 %41, label %42, label %46, !prof !14
 
 42:                                               ; preds = %39
   %43 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1455,7 +1455,7 @@ define range(i32 -1, 1) i32 @H5ESregister_insert_func(i64 noundef %0, ptr nounde
 
 46:                                               ; preds = %39
   %47 = icmp eq ptr %1, null
-  br i1 %47, label %48, label %52
+  br i1 %47, label %48, label %52, !prof !14
 
 48:                                               ; preds = %46
   %49 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1555,7 +1555,7 @@ define range(i32 -1, 1) i32 @H5ESregister_complete_func(i64 noundef %0, ptr noun
 39:                                               ; preds = %37
   %40 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 16) #4
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %46
+  br i1 %41, label %42, label %46, !prof !14
 
 42:                                               ; preds = %39
   %43 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -1565,7 +1565,7 @@ define range(i32 -1, 1) i32 @H5ESregister_complete_func(i64 noundef %0, ptr noun
 
 46:                                               ; preds = %39
   %47 = icmp eq ptr %1, null
-  br i1 %47, label %48, label %52
+  br i1 %47, label %48, label %52, !prof !14
 
 48:                                               ; preds = %46
   %49 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11

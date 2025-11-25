@@ -16025,8 +16025,8 @@ _ZN4ncnn3MatD2Ev.exit73:                          ; preds = %209, %_ZNSt7__cxx11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %60, %94, %121, %._crit_edge116, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %121 ], [ %.06693, %94 ], [ %.06693, %60 ]
+._crit_edge.thread:                               ; preds = %60, %94, %._crit_edge116, %121, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %121 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %94 ], [ %.06693, %60 ]
   %exitcond115.not = icmp eq i64 %.pre-phi, %11
   br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !791
 
@@ -17245,8 +17245,8 @@ _ZN4ncnn3MatD2Ev.exit73:                          ; preds = %209, %_ZNSt7__cxx11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %60, %94, %121, %._crit_edge116, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %121 ], [ %.06693, %94 ], [ %.06693, %60 ]
+._crit_edge.thread:                               ; preds = %60, %94, %._crit_edge116, %121, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %121 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %94 ], [ %.06693, %60 ]
   %exitcond115.not = icmp eq i64 %.pre-phi, %11
   br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !805
 
@@ -18465,8 +18465,8 @@ _ZN4ncnn3MatD2Ev.exit73:                          ; preds = %209, %_ZNSt7__cxx11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %60, %94, %121, %._crit_edge116, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %121 ], [ %.06693, %94 ], [ %.06693, %60 ]
+._crit_edge.thread:                               ; preds = %60, %94, %._crit_edge116, %121, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %121 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %94 ], [ %.06693, %60 ]
   %exitcond115.not = icmp eq i64 %.pre-phi, %11
   br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !819
 
@@ -19911,8 +19911,8 @@ _ZN4ncnn3MatD2Ev.exit73:                          ; preds = %209, %_ZNSt7__cxx11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %60, %94, %121, %._crit_edge116, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %121 ], [ %.06693, %94 ], [ %.06693, %60 ]
+._crit_edge.thread:                               ; preds = %60, %94, %._crit_edge116, %121, %._crit_edge, %._crit_edge99, %125, %_ZN4ncnn3MatD2Ev.exit73, %62, %71
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge116 ], [ %.06693, %121 ], [ %.06693, %._crit_edge ], [ %.06693, %._crit_edge99 ], [ %.06693, %125 ], [ %.06693, %_ZN4ncnn3MatD2Ev.exit73 ], [ %.06693, %62 ], [ %.06693, %71 ], [ %.06693, %94 ], [ %.06693, %60 ]
   %exitcond115.not = icmp eq i64 %.pre-phi, %11
   br i1 %exitcond115.not, label %._crit_edge109, label %23, !llvm.loop !833
 

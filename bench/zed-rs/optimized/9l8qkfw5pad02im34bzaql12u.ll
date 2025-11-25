@@ -19918,18 +19918,18 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ; preds = %91, %86, %83, %80, %78
-  %.sroa.0.0.i17.i = phi i8 [ %90, %86 ], [ %82, %80 ], [ %96, %91 ], [ %85, %83 ], [ 0, %78 ]
-  %97 = trunc i8 %.sroa.0.0.i17.i to i1
+  %.sroa.0.0.i18.i = phi i8 [ %90, %86 ], [ %82, %80 ], [ %96, %91 ], [ %85, %83 ], [ 0, %78 ]
+  %97 = trunc i8 %.sroa.0.0.i18.i to i1
   %brmerge4.i = or i1 %46, %97
   %brmerge4.not.i = xor i1 %brmerge4.i, true
-  %brmerge18.i = or i1 %.sroa.010.0.i, %.sroa.012.0.i
-  %or.cond19.i = select i1 %brmerge4.not.i, i1 %brmerge18.i, i1 false
-  br i1 %or.cond19.i, label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit", label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20"
+  %brmerge17.i = or i1 %.sroa.010.0.i, %.sroa.012.0.i
+  %or.cond21.i = select i1 %brmerge4.not.i, i1 %brmerge17.i, i1 false
+  br i1 %or.cond21.i, label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit", label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20"
 
 98:                                               ; preds = %76
-  %brmerge18.old.i = or i1 %.sroa.010.0.i, %.sroa.012.0.i
-  %or.cond21.i = select i1 %.not.i, i1 %brmerge18.old.i, i1 false
-  br i1 %or.cond21.i, label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit", label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20"
+  %brmerge17.old.i = or i1 %.sroa.010.0.i, %.sroa.012.0.i
+  %or.cond23.i = select i1 %.not.i, i1 %brmerge17.old.i, i1 false
+  br i1 %or.cond23.i, label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit", label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20"
 
 99:                                               ; preds = %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20", %41
   store i64 %23, ptr %10, align 8

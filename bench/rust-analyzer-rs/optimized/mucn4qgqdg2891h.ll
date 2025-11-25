@@ -62416,8 +62416,8 @@ _ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit136.t
   invoke void @"_ZN4core3ptr220drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$hir_def..item_scope..ItemInNs$C$$LP$smallvec..SmallVec$LT$$u5b$hir_def..import_map..ImportInfo$u3b$$u20$1$u5d$$GT$$C$hir_def..import_map..IsTraitAssocItem$RP$$GT$$GT$17h4ba09ae9d599885cE.llvm.18266587286026290509"(ptr noalias noundef nonnull align 8 dereferenceable(56) %63)
           to label %"_ZN4core3ptr271drop_in_place$LT$indexmap..map..IndexMap$LT$hir_def..item_scope..ItemInNs$C$$LP$smallvec..SmallVec$LT$$u5b$hir_def..import_map..ImportInfo$u3b$$u20$1$u5d$$GT$$C$hir_def..import_map..IsTraitAssocItem$RP$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h9af3ae29ef4ac90cE.exit.i" unwind label %714, !noalias !13394
 
-.body86:                                          ; preds = %941, %934, %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit.thread", %744, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit.i", %128
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %745, %744 ], [ %129, %128 ], [ %.pn72.pn.pn.pn.pn.i, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit.i" ], [ %.pn.pn.pn.pn154, %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit.thread" ], [ %935, %934 ], [ %eh.lpad-body126, %941 ]
+.body86:                                          ; preds = %941, %934, %.thread169, %744, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit.i", %128
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %745, %744 ], [ %129, %128 ], [ %.pn72.pn.pn.pn.pn.i, %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit.i" ], [ %.pn.pn.pn.pn154, %.thread169 ], [ %eh.lpad-body126, %941 ], [ %935, %934 ]
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h92580fc9f9fd6234E"(ptr noalias noundef align 8 dereferenceable(40) %84) #58
           to label %common.resume unwind label %939
 
@@ -62429,7 +62429,7 @@ _ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit136.t
 .thread151:                                       ; preds = %747
   %746 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit.thread"
+  br label %.thread169
 
 747:                                              ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit151.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !13394
@@ -62461,9 +62461,6 @@ _ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit136.t
   store ptr %4, ptr %15, align 8, !noalias !14042
   invoke void @_ZN4core5slice4sort10merge_sort17h81db79673604c653E(ptr noalias noundef nonnull align 8 %752, i64 noundef %754, ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
           to label %757 unwind label %755
-
-"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit": ; preds = %.body111
-  br i1 %.165.lpad-body, label %.thread155, label %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit.thread"
 
 755:                                              ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h29030046702270c6E.exit", %760, %758, %757
   %756 = landingpad { ptr, i32 }
@@ -62599,33 +62596,33 @@ _ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit136.t
 801:                                              ; preds = %.lr.ph, %"_ZN7hir_def10import_map9ImportMap16import_map_query28_$u7b$$u7b$closure$u7d$$u7d$17h2f30b35bee766da2E.exit114"
   %802 = phi ptr [ %785, %.lr.ph ], [ %866, %"_ZN7hir_def10import_map9ImportMap16import_map_query28_$u7b$$u7b$closure$u7d$$u7d$17h2f30b35bee766da2E.exit114" ]
   %.pn = phi { i64, ptr } [ %784, %.lr.ph ], [ %865, %"_ZN7hir_def10import_map9ImportMap16import_map_query28_$u7b$$u7b$closure$u7d$$u7d$17h2f30b35bee766da2E.exit114" ]
-  %.069428 = phi ptr [ %781, %.lr.ph ], [ %802, %"_ZN7hir_def10import_map9ImportMap16import_map_query28_$u7b$$u7b$closure$u7d$$u7d$17h2f30b35bee766da2E.exit114" ]
-  %.070427 = phi i64 [ %783, %.lr.ph ], [ %803, %"_ZN7hir_def10import_map9ImportMap16import_map_query28_$u7b$$u7b$closure$u7d$$u7d$17h2f30b35bee766da2E.exit114" ]
+  %.069429 = phi ptr [ %781, %.lr.ph ], [ %802, %"_ZN7hir_def10import_map9ImportMap16import_map_query28_$u7b$$u7b$closure$u7d$$u7d$17h2f30b35bee766da2E.exit114" ]
+  %.070428 = phi i64 [ %783, %.lr.ph ], [ %803, %"_ZN7hir_def10import_map9ImportMap16import_map_query28_$u7b$$u7b$closure$u7d$$u7d$17h2f30b35bee766da2E.exit114" ]
   %803 = extractvalue { i64, ptr } %.pn, 0
-  %804 = load i8, ptr %.069428, align 8, !range !309, !alias.scope !14055, !noundef !4
+  %804 = load i8, ptr %.069429, align 8, !range !309, !alias.scope !14055, !noundef !4
   switch i8 %804, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbbf545a0082a3c1dE.exit.i96" [
     i8 24, label %805
     i8 25, label %811
   ]
 
 805:                                              ; preds = %801
-  %806 = getelementptr inbounds nuw i8, ptr %.069428, i64 8
+  %806 = getelementptr inbounds nuw i8, ptr %.069429, i64 8
   %807 = load ptr, ptr %806, align 8, !alias.scope !14055, !nonnull !4, !noundef !4
-  %808 = getelementptr inbounds nuw i8, ptr %.069428, i64 16
+  %808 = getelementptr inbounds nuw i8, ptr %.069429, i64 16
   %809 = load i64, ptr %808, align 8, !alias.scope !14055, !noundef !4
   %810 = getelementptr inbounds nuw i8, ptr %807, i64 16
   br label %842
 
 811:                                              ; preds = %801
-  %812 = getelementptr inbounds nuw i8, ptr %.069428, i64 8
+  %812 = getelementptr inbounds nuw i8, ptr %.069429, i64 8
   %813 = load ptr, ptr %812, align 8, !alias.scope !14055, !nonnull !4, !align !315, !noundef !4
-  %814 = getelementptr inbounds nuw i8, ptr %.069428, i64 16
+  %814 = getelementptr inbounds nuw i8, ptr %.069429, i64 16
   %815 = load i64, ptr %814, align 8, !alias.scope !14055, !noundef !4
   br label %842
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbbf545a0082a3c1dE.exit.i96": ; preds = %801
   %816 = zext nneg i8 %804 to i64
-  %817 = getelementptr inbounds nuw i8, ptr %.069428, i64 1
+  %817 = getelementptr inbounds nuw i8, ptr %.069429, i64 1
   br label %842
 
 818:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbbf545a0082a3c1dE.exit.i", %794, %788
@@ -62740,7 +62737,7 @@ _ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit136.t
   store i64 %854, ptr %10, align 8, !alias.scope !14078, !noalias !14086
   store ptr %844, ptr %.sroa.4.0..sroa_idx.i.i107, align 8, !alias.scope !14078, !noalias !14086
   store i64 %.pn3.i93, ptr %.sroa.5.0..sroa_idx10.i.i108, align 8, !alias.scope !14078, !noalias !14086
-  %855 = shl i64 %.070427, 32
+  %855 = shl i64 %.070428, 32
   %856 = or i64 %803, %855
   invoke void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hd450c9280ce80558E"(ptr noalias noundef nonnull sret({ i32, [13 x i32] }) align 8 captures(none) dereferenceable(56) %11, ptr noalias noundef nonnull align 8 dereferenceable(144) %78, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, i64 noundef %856)
           to label %.noexc110 unwind label %.loopexit
@@ -63102,7 +63099,7 @@ _ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit136.t
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   ret ptr %931
 
-939:                                              ; preds = %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit.thread", %.body111, %.body125, %.thread155, %941, %.body86
+939:                                              ; preds = %.thread169, %.body111, %.body125, %.thread155, %941, %.body86
   %940 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #57
@@ -63118,13 +63115,16 @@ _ZN7hir_def10item_scope8ItemInNs16as_module_def_id17ha427bb3e93849dd2E.exit136.t
   invoke void @"_ZN4core3ptr78drop_in_place$LT$fst..raw..build..Builder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h063b2d95ad592926E.llvm.18266587286026290509"(ptr noalias noundef nonnull align 8 dereferenceable(144) %78)
           to label %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit" unwind label %939
 
+"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit": ; preds = %.body111
+  br i1 %.165.lpad-body, label %.thread155, label %.thread169
+
 .thread155:                                       ; preds = %770, %755, %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit"
   %.pn.pn.pn160 = phi { ptr, i32 } [ %eh.lpad-body102, %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit" ], [ %756, %755 ], [ %771, %770 ]
   invoke void @"_ZN4core3ptr107drop_in_place$LT$alloc..vec..Vec$LT$$LP$hir_def..item_scope..ItemInNs$C$smol_str..SmolStr$C$u32$RP$$GT$$GT$17hf8f0d16e350b6212E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %80) #58
-          to label %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit.thread" unwind label %939
+          to label %.thread169 unwind label %939
 
-"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit.thread": ; preds = %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit", %.thread155, %.thread151
-  %.pn.pn.pn.pn154 = phi { ptr, i32 } [ %746, %.thread151 ], [ %.pn.pn.pn160, %.thread155 ], [ %eh.lpad-body102, %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit" ]
+.thread169:                                       ; preds = %.thread155, %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit", %.thread151
+  %.pn.pn.pn.pn154 = phi { ptr, i32 } [ %746, %.thread151 ], [ %eh.lpad-body102, %"_ZN4core3ptr80drop_in_place$LT$fst..inner_map..MapBuilder$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hcc5d6f966914a806E.exit" ], [ %.pn.pn.pn160, %.thread155 ]
   invoke void @"_ZN4core3ptr220drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$hir_def..item_scope..ItemInNs$C$$LP$smallvec..SmallVec$LT$$u5b$hir_def..import_map..ImportInfo$u3b$$u20$1$u5d$$GT$$C$hir_def..import_map..IsTraitAssocItem$RP$$GT$$GT$17h4ba09ae9d599885cE.llvm.18266587286026290509"(ptr noalias noundef nonnull align 8 dereferenceable(56) %81)
           to label %.body86 unwind label %939
 }

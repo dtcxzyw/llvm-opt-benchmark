@@ -4726,8 +4726,8 @@ default.unreachable:                              ; preds = %101
   invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h513574738d094a50E"(ptr noalias noundef align 8 dereferenceable(32) %24) #24
           to label %.thread unwind label %149
 
-.thread:                                          ; preds = %.body46.thread, %141, %159, %165, %166, %49
-  %.pn4452 = phi { ptr, i32 } [ %.pn4456, %166 ], [ %.pn4262, %49 ], [ %lpad.thr_comm, %165 ], [ %160, %159 ], [ %142, %141 ], [ %.pn.ph, %.body46.thread ]
+.thread:                                          ; preds = %141, %.body46.thread, %159, %165, %166, %49
+  %.pn4452 = phi { ptr, i32 } [ %.pn4456, %166 ], [ %.pn4262, %49 ], [ %lpad.thr_comm, %165 ], [ %160, %159 ], [ %.pn.ph, %.body46.thread ], [ %142, %141 ]
   resume { ptr, i32 } %.pn4452
 
 166:                                              ; preds = %.thread53, %49

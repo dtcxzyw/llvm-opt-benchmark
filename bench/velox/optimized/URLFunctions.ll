@@ -12554,7 +12554,7 @@ if.then24:                                        ; preds = %land.lhs.true19
 
 if.end27:                                         ; preds = %if.then24, %land.lhs.true19, %if.end
   %50 = phi ptr [ %incdec.ptr26, %if.then24 ], [ %45, %land.lhs.true19 ], [ %45, %if.end ]
-  %greedy.1 = phi i8 [ 0, %if.then24 ], [ 1, %land.lhs.true19 ], [ 1, %if.end ]
+  %greedy.1 = phi i1 [ false, %if.then24 ], [ true, %land.lhs.true19 ], [ true, %if.end ]
   %cmp30.not = icmp eq ptr %50, %1
   br i1 %cmp30.not, label %if.end45, label %land.lhs.true31
 
@@ -12584,7 +12584,7 @@ if.then41:                                        ; preds = %land.lhs.true35
 if.end45:                                         ; preds = %land.lhs.true, %if.end27, %land.lhs.true31, %land.lhs.true35, %if.then41, %entry
   %56 = phi ptr [ %incdec.ptr43, %if.then41 ], [ %50, %land.lhs.true35 ], [ %50, %land.lhs.true31 ], [ %1, %if.end27 ], [ %0, %entry ], [ %0, %land.lhs.true ]
   %pocessive.0 = phi i1 [ true, %if.then41 ], [ false, %land.lhs.true35 ], [ false, %land.lhs.true31 ], [ false, %if.end27 ], [ false, %entry ], [ false, %land.lhs.true ]
-  %greedy.0 = phi i8 [ %greedy.1, %if.then41 ], [ %greedy.1, %land.lhs.true35 ], [ %greedy.1, %land.lhs.true31 ], [ %greedy.1, %if.end27 ], [ 1, %entry ], [ 1, %land.lhs.true ]
+  %greedy.0 = phi i1 [ %greedy.1, %if.then41 ], [ %greedy.1, %land.lhs.true35 ], [ %greedy.1, %land.lhs.true31 ], [ %greedy.1, %if.end27 ], [ true, %entry ], [ true, %land.lhs.true ]
   %m_last_state = getelementptr inbounds nuw i8, ptr %this, i64 16
   %57 = load ptr, ptr %m_last_state, align 8
   %cmp46 = icmp eq ptr %57, null
@@ -12842,7 +12842,8 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %max = getelementptr inbounds nuw i8, ptr %call11.i, i64 296
   store i64 %high, ptr %max, align 8
   %greedy84 = getelementptr inbounds nuw i8, ptr %call11.i, i64 309
-  store i8 %greedy.0, ptr %greedy84, align 1
+  %frombool = zext i1 %greedy.0 to i8
+  store i8 %frombool, ptr %greedy84, align 1
   %leading = getelementptr inbounds nuw i8, ptr %call11.i, i64 308
   store i8 0, ptr %leading, align 4
   %98 = load ptr, ptr %this, align 8
@@ -17382,10 +17383,8 @@ if.end1193:                                       ; preds = %option_group_jump
   %idxprom.i.i633 = zext i8 %412 to i64
   %arrayidx.i.i634 = getelementptr inbounds nuw i8, ptr %m_char_map.i.i632, i64 %idxprom.i.i633
   %414 = load i8, ptr %arrayidx.i.i634, align 1
-  switch i8 %414, label %while.cond1226 [
-    i8 2, label %if.then1206
-    i8 36, label %if.then1220
-  ]
+  %cmp1205 = icmp ne i8 %414, 2
+  br i1 %cmp1205, label %if.else1214, label %if.then1206
 
 if.then1206:                                      ; preds = %if.end1193
   %415 = load ptr, ptr %this, align 8
@@ -17411,7 +17410,11 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %or145 = and i8 %419, 1
   br label %if.end1242
 
-if.then1220:                                      ; preds = %if.end1193
+if.else1214:                                      ; preds = %if.end1193
+  %cmp1219 = icmp eq i8 %414, 36
+  br i1 %cmp1219, label %if.then1220, label %while.cond1226
+
+if.then1220:                                      ; preds = %if.else1214
   %420 = load ptr, ptr %this, align 8
   %m_flags.i641 = getelementptr inbounds nuw i8, ptr %420, i64 40
   store i32 %call1171, ptr %m_flags.i641, align 8
@@ -17433,11 +17436,11 @@ _ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_re
   %423 = load ptr, ptr %m_position, align 8
   %incdec.ptr1222 = getelementptr inbounds nuw i8, ptr %423, i64 1
   store ptr %incdec.ptr1222, ptr %m_position, align 8
-  %.pre857 = load i8, ptr %m_has_case_change, align 8
+  %.pre858 = load i8, ptr %m_has_case_change, align 8
   br label %if.end1242
 
-while.cond1226:                                   ; preds = %if.end1193, %while.cond1226
-  %.pn144 = phi ptr [ %storemerge143, %while.cond1226 ], [ %411, %if.end1193 ]
+while.cond1226:                                   ; preds = %if.else1214, %while.cond1226
+  %.pn144 = phi ptr [ %storemerge143, %while.cond1226 ], [ %411, %if.else1214 ]
   %storemerge143 = getelementptr inbounds i8, ptr %.pn144, i64 -1
   store ptr %storemerge143, ptr %m_position, align 8
   %424 = load i8, ptr %storemerge143, align 1
@@ -17459,9 +17462,8 @@ while.end1235:                                    ; preds = %while.cond1226
   br label %return
 
 if.end1242:                                       ; preds = %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit
-  %428 = phi i8 [ %418, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit ], [ %.pre857, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649 ]
+  %428 = phi i8 [ %418, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit ], [ %.pre858, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649 ]
   %old_case_change.1 = phi i8 [ %or145, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit ], [ %frombool38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649 ]
-  %restore_flags.1 = phi i1 [ false, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit649 ]
   %tobool1244 = trunc i8 %428 to i1
   br i1 %tobool1244, label %if.then1245, label %sw.epilog
 
@@ -17475,7 +17477,7 @@ if.then1245:                                      ; preds = %if.end1242
 
 sw.epilog:                                        ; preds = %if.end1242, %if.then1245, %if.end445, %if.end684, %if.end868, %if.end900, %if.end738, %if.end588, %if.end1008, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431, %if.end261, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269, %sw.bb48
   %old_case_change.0 = phi i8 [ %frombool38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269 ], [ %old_case_change.1, %if.then1245 ], [ %old_case_change.1, %if.end1242 ], [ %frombool38, %sw.bb48 ], [ %frombool38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310 ], [ %frombool38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359 ], [ %frombool38, %if.end261 ], [ %frombool38, %if.end1008 ], [ %frombool38, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431 ], [ %frombool38, %if.end445 ], [ %frombool38, %if.end588 ], [ %frombool38, %if.end684 ], [ %frombool38, %if.end738 ], [ %frombool38, %if.end868 ], [ %frombool38, %if.end900 ]
-  %restore_flags.0 = phi i1 [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269 ], [ %restore_flags.1, %if.then1245 ], [ %restore_flags.1, %if.end1242 ], [ true, %sw.bb48 ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310 ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359 ], [ true, %if.end261 ], [ true, %if.end1008 ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431 ], [ true, %if.end445 ], [ true, %if.end588 ], [ true, %if.end684 ], [ true, %if.end738 ], [ true, %if.end868 ], [ true, %if.end900 ]
+  %restore_flags.0 = phi i1 [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269 ], [ %cmp1205, %if.then1245 ], [ %cmp1205, %if.end1242 ], [ true, %sw.bb48 ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310 ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359 ], [ true, %if.end261 ], [ true, %if.end1008 ], [ true, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431 ], [ true, %if.end445 ], [ true, %if.end588 ], [ true, %if.end684 ], [ true, %if.end738 ], [ true, %if.end868 ], [ true, %if.end900 ]
   %jump_offset.0 = phi i64 [ 0, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269 ], [ 0, %if.then1245 ], [ 0, %if.end1242 ], [ 0, %sw.bb48 ], [ %sub.ptr.sub.i.i314, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310 ], [ %sub.ptr.sub.i.i363, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359 ], [ %sub.ptr.sub.i.i386, %if.end261 ], [ 0, %if.end1008 ], [ %sub.ptr.sub.i.i435, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431 ], [ 0, %if.end445 ], [ 0, %if.end588 ], [ 0, %if.end684 ], [ 0, %if.end738 ], [ 0, %if.end868 ], [ 0, %if.end900 ]
   %markid.0 = phi i32 [ 0, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit269 ], [ 0, %if.then1245 ], [ 0, %if.end1242 ], [ 0, %sw.bb48 ], [ -1, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit310 ], [ -2, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit359 ], [ %.sink, %if.end261 ], [ %markid.2, %if.end1008 ], [ -3, %_ZN5boost16re_detail_10740019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit431 ], [ -4, %if.end445 ], [ -4, %if.end588 ], [ -4, %if.end684 ], [ -4, %if.end738 ], [ -4, %if.end868 ], [ -4, %if.end900 ]
   %call1252 = call noundef zeroext i1 @_ZN5boost16re_detail_10740018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE9parse_allEv(ptr noundef nonnull align 8 dereferenceable(264) %this)
@@ -17719,8 +17721,8 @@ lpad1353:                                         ; preds = %invoke.cont1352
 
 if.end1358:                                       ; preds = %if.then1318, %if.end1316
   %cmp1359 = icmp eq i32 %markid.0, -4
-  %.pre864 = load ptr, ptr %this, align 8
-  %start.i.i698 = getelementptr inbounds nuw i8, ptr %.pre864, i64 352
+  %.pre865 = load ptr, ptr %this, align 8
+  %start.i.i698 = getelementptr inbounds nuw i8, ptr %.pre865, i64 352
   %465 = load ptr, ptr %start.i.i698, align 8
   br i1 %cmp1359, label %if.then1360, label %if.end1485
 
@@ -17740,18 +17742,18 @@ if.then1363:                                      ; preds = %if.then1360
   %sub1370 = sub i64 %sub.ptr.lhs.cast.i702, %sub.ptr.lhs.cast.i.i706
   %alt1371 = getelementptr inbounds nuw i8, ptr %call1365, i64 16
   store i64 %sub1370, ptr %alt1371, align 8
-  %.pre860 = load ptr, ptr %this, align 8
-  %start.i.i726.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre860, i64 352
-  %.pre861 = load ptr, ptr %start.i.i726.phi.trans.insert, align 8
-  %add.ptr.i.i727.phi.trans.insert = getelementptr inbounds i8, ptr %.pre861, i64 %sub.ptr.sub.i
+  %.pre861 = load ptr, ptr %this, align 8
+  %start.i.i726.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre861, i64 352
+  %.pre862 = load ptr, ptr %start.i.i726.phi.trans.insert, align 8
+  %add.ptr.i.i727.phi.trans.insert = getelementptr inbounds i8, ptr %.pre862, i64 %sub.ptr.sub.i
   %next1451.phi.trans.insert = getelementptr inbounds nuw i8, ptr %add.ptr.i.i727.phi.trans.insert, i64 8
-  %.pre862 = load i64, ptr %next1451.phi.trans.insert, align 8
-  %add.ptr.i728.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i.i727.phi.trans.insert, i64 %.pre862
-  %.pre863 = load i32, ptr %add.ptr.i728.phi.trans.insert, align 8
+  %.pre863 = load i64, ptr %next1451.phi.trans.insert, align 8
+  %add.ptr.i728.phi.trans.insert = getelementptr inbounds i8, ptr %add.ptr.i.i727.phi.trans.insert, i64 %.pre863
+  %.pre864 = load i32, ptr %add.ptr.i728.phi.trans.insert, align 8
   br label %if.end1449
 
 if.else1372:                                      ; preds = %if.then1360
-  %end.i709 = getelementptr inbounds nuw i8, ptr %.pre864, i64 360
+  %end.i709 = getelementptr inbounds nuw i8, ptr %.pre865, i64 360
   %469 = load ptr, ptr %end.i709, align 8
   %sub.ptr.lhs.cast.i711 = ptrtoint ptr %469 to i64
   %sub.ptr.rhs.cast.i712 = ptrtoint ptr %465 to i64
@@ -17881,9 +17883,9 @@ lpad1443:                                         ; preds = %invoke.cont1442
   br label %eh.resume
 
 if.end1449:                                       ; preds = %if.else1414, %if.then1363
-  %489 = phi i32 [ %480, %if.else1414 ], [ %.pre863, %if.then1363 ]
-  %490 = phi ptr [ %465, %if.else1414 ], [ %.pre861, %if.then1363 ]
-  %491 = phi ptr [ %.pre864, %if.else1414 ], [ %.pre860, %if.then1363 ]
+  %489 = phi i32 [ %480, %if.else1414 ], [ %.pre864, %if.then1363 ]
+  %490 = phi ptr [ %465, %if.else1414 ], [ %.pre862, %if.then1363 ]
+  %491 = phi ptr [ %.pre865, %if.else1414 ], [ %.pre861, %if.then1363 ]
   switch i32 %489, label %while.cond1461.preheader [
     i32 27, label %if.end1485
     i32 0, label %if.end1485
@@ -17939,7 +17941,7 @@ lpad1480:                                         ; preds = %invoke.cont1479
 
 if.end1485:                                       ; preds = %if.end1358, %land.lhs.true1418, %if.end1449, %if.end1449
   %499 = phi ptr [ %490, %if.end1449 ], [ %490, %if.end1449 ], [ %465, %land.lhs.true1418 ], [ %465, %if.end1358 ]
-  %500 = phi ptr [ %491, %if.end1449 ], [ %491, %if.end1449 ], [ %.pre864, %land.lhs.true1418 ], [ %.pre864, %if.end1358 ]
+  %500 = phi ptr [ %491, %if.end1449 ], [ %491, %if.end1449 ], [ %.pre865, %land.lhs.true1418 ], [ %.pre865, %if.end1358 ]
   %end.i.i733 = getelementptr inbounds nuw i8, ptr %500, i64 360
   %501 = load ptr, ptr %end.i.i733, align 8
   %sub.ptr.lhs.cast.i.i734 = ptrtoint ptr %501 to i64

@@ -9373,8 +9373,8 @@ define internal fastcc zeroext i1 @sharkd_session_geoip_addr(ptr noundef readonl
   call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull %3, ptr noundef nonnull @.str.250, double noundef %60)
   br label %.thread
 
-.thread:                                          ; preds = %54, %58, %2, %13, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %13 ], [ false, %2 ], [ true, %58 ], [ %.5, %54 ]
+.thread:                                          ; preds = %2, %54, %58, %13, %14
+  %.0 = phi i1 [ false, %14 ], [ false, %13 ], [ true, %58 ], [ %.5, %54 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

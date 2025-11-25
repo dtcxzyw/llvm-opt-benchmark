@@ -4998,21 +4998,21 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
   %.fr = freeze i32 %15
   br label %22
 
-22:                                               ; preds = %9, %.loopexit134
-  %.0104154 = phi i32 [ 0, %9 ], [ %195, %.loopexit134 ]
+22:                                               ; preds = %9, %.loopexit133
+  %.0104153 = phi i32 [ 0, %9 ], [ %194, %.loopexit133 ]
   %23 = load i8, ptr %5, align 4, !tbaa !39
   %24 = icmp eq i8 %23, 1
   br i1 %24, label %25, label %55
 
 25:                                               ; preds = %22
-  %26 = icmp samesign ugt i32 %.0104154, 1
-  %27 = sub nuw nsw i32 7, %.0104154
+  %26 = icmp samesign ugt i32 %.0104153, 1
+  %27 = sub nuw nsw i32 7, %.0104153
   %28 = lshr i32 %27, 1
   %29 = select i1 %26, i32 %28, i32 3
   %notmask = shl nsw i32 -1, %29
   %30 = xor i32 %notmask, -1
-  %31 = and i32 %.0104154, 1
-  %32 = add nuw nsw i32 %.0104154, 1
+  %31 = and i32 %.0104153, 1
+  %32 = add nuw nsw i32 %.0104153, 1
   %33 = lshr i32 %32, 1
   %34 = sub nsw i32 3, %33
   %35 = shl nuw nsw i32 %31, %34
@@ -5021,17 +5021,17 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
   %38 = sub i32 %37, %36
   %39 = lshr i32 %38, %29
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.loopexit134, label %41
+  br i1 %40, label %.loopexit133, label %41
 
 41:                                               ; preds = %25
   %42 = shl nuw nsw i32 1, %28
   %43 = xor i32 %31, 1
-  %44 = lshr i32 %.0104154, 1
+  %44 = lshr i32 %.0104153, 1
   %45 = sub nsw i32 3, %44
   %46 = shl nuw nsw i32 %43, %45
   %47 = and i32 %46, 7
-  %48 = icmp samesign ugt i32 %.0104154, 2
-  %49 = add nsw i32 %.0104154, -1
+  %48 = icmp samesign ugt i32 %.0104153, 2
+  %49 = add nsw i32 %.0104153, -1
   %50 = ashr i32 %49, 1
   %51 = lshr i32 8, %50
   %52 = select i1 %48, i32 %51, i32 8
@@ -5045,59 +5045,59 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
   %.0107 = phi i64 [ %54, %41 ], [ 1, %22 ]
   %.0105 = phi i64 [ %53, %41 ], [ 0, %22 ]
   %56 = icmp ult i32 %.0109, %11
-  br i1 %56, label %.lr.ph147, label %.loopexit134
+  br i1 %56, label %.lr.ph146, label %.loopexit133
 
-.lr.ph147:                                        ; preds = %55
-  switch i32 %.fr, label %.lr.ph147.split [
+.lr.ph146:                                        ; preds = %55
+  switch i32 %.fr, label %.lr.ph146.split [
     i32 1, label %.preheader.us.preheader
-    i32 2, label %.preheader128.us.preheader
-    i32 3, label %.preheader130.us.preheader
-    i32 4, label %.preheader132.us.preheader
+    i32 2, label %.preheader127.us.preheader
+    i32 3, label %.preheader129.us.preheader
+    i32 4, label %.preheader131.us.preheader
   ]
 
-.preheader132.us.preheader:                       ; preds = %.lr.ph147
+.preheader131.us.preheader:                       ; preds = %.lr.ph146
   %57 = icmp samesign ult i64 %.0105, %21
-  br label %.preheader132.us
+  br label %.preheader131.us
 
-.preheader130.us.preheader:                       ; preds = %.lr.ph147
+.preheader129.us.preheader:                       ; preds = %.lr.ph146
   %58 = icmp samesign ult i64 %.0105, %21
-  br label %.preheader130.us
+  br label %.preheader129.us
 
-.preheader128.us.preheader:                       ; preds = %.lr.ph147
+.preheader127.us.preheader:                       ; preds = %.lr.ph146
   %59 = icmp samesign ult i64 %.0105, %21
-  br label %.preheader128.us
+  br label %.preheader127.us
 
-.preheader.us.preheader:                          ; preds = %.lr.ph147
+.preheader.us.preheader:                          ; preds = %.lr.ph146
   %60 = icmp samesign ult i64 %.0105, %21
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.loopexit.us
-  %.1110146.us = phi i32 [ %94, %.loopexit.us ], [ %.0109, %.preheader.us.preheader ]
+  %.1110145.us = phi i32 [ %94, %.loopexit.us ], [ %.0109, %.preheader.us.preheader ]
   %61 = load ptr, ptr %20, align 8, !tbaa !186
-  %62 = zext i32 %.1110146.us to i64
+  %62 = zext i32 %.1110145.us to i64
   %63 = mul nsw i64 %19, %62
   %64 = getelementptr inbounds i8, ptr %17, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %21
   tail call void @png_read_row(ptr noundef %4, ptr noundef %61, ptr noundef null)
-  br i1 %60, label %.lr.ph145.us.preheader, label %.loopexit.us
+  br i1 %60, label %.lr.ph144.us.preheader, label %.loopexit.us
 
-.lr.ph145.us.preheader:                           ; preds = %.preheader.us
+.lr.ph144.us.preheader:                           ; preds = %.preheader.us
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 %.0105
-  br label %.lr.ph145.us
+  br label %.lr.ph144.us
 
-.lr.ph145.us:                                     ; preds = %.lr.ph145.us.preheader, %90
-  %.0111144.us = phi ptr [ %92, %90 ], [ %66, %.lr.ph145.us.preheader ]
-  %.0115143.us = phi ptr [ %70, %90 ], [ %61, %.lr.ph145.us.preheader ]
-  %67 = getelementptr inbounds nuw i8, ptr %.0115143.us, i64 1
-  %68 = load i8, ptr %.0115143.us, align 1, !tbaa !44
+.lr.ph144.us:                                     ; preds = %.lr.ph144.us.preheader, %90
+  %.0111143.us = phi ptr [ %92, %90 ], [ %66, %.lr.ph144.us.preheader ]
+  %.0115142.us = phi ptr [ %70, %90 ], [ %61, %.lr.ph144.us.preheader ]
+  %67 = getelementptr inbounds nuw i8, ptr %.0115142.us, i64 1
+  %68 = load i8, ptr %.0115142.us, align 1, !tbaa !44
   %69 = zext i8 %68 to i32
-  %70 = getelementptr inbounds nuw i8, ptr %.0115143.us, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %.0115142.us, i64 2
   %71 = load i8, ptr %67, align 1, !tbaa !44
   %72 = zext i8 %71 to i32
   %73 = icmp ugt i8 %71, -27
   br i1 %73, label %86, label %74
 
-74:                                               ; preds = %.lr.ph145.us
+74:                                               ; preds = %.lr.ph144.us
   %75 = icmp ult i8 %71, 26
   br i1 %75, label %90, label %76
 
@@ -5113,7 +5113,7 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
   %85 = add nuw nsw i32 %84, %80
   br label %90
 
-86:                                               ; preds = %.lr.ph145.us
+86:                                               ; preds = %.lr.ph144.us
   %87 = mul nuw nsw i32 %69, 231
   %88 = add nuw nsw i32 %87, 128
   %89 = lshr i32 %88, 8
@@ -5122,75 +5122,75 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
 90:                                               ; preds = %86, %76, %74
   %.0106.us = phi i32 [ %89, %86 ], [ %85, %76 ], [ 231, %74 ]
   %91 = trunc nuw i32 %.0106.us to i8
-  store i8 %91, ptr %.0111144.us, align 1, !tbaa !44
-  %92 = getelementptr inbounds nuw i8, ptr %.0111144.us, i64 %.0107
+  store i8 %91, ptr %.0111143.us, align 1, !tbaa !44
+  %92 = getelementptr inbounds nuw i8, ptr %.0111143.us, i64 %.0107
   %93 = icmp ult ptr %92, %65
-  br i1 %93, label %.lr.ph145.us, label %.loopexit.us, !llvm.loop !202
+  br i1 %93, label %.lr.ph144.us, label %.loopexit.us, !llvm.loop !202
 
 .loopexit.us:                                     ; preds = %90, %.preheader.us
-  %94 = add i32 %.1110146.us, %.0108
+  %94 = add i32 %.1110145.us, %.0108
   %95 = icmp ult i32 %94, %11
-  br i1 %95, label %.preheader.us, label %.loopexit134, !llvm.loop !203
+  br i1 %95, label %.preheader.us, label %.loopexit133, !llvm.loop !203
 
-.preheader128.us:                                 ; preds = %.preheader128.us.preheader, %.loopexit129.us
-  %.1110146.us149 = phi i32 [ %109, %.loopexit129.us ], [ %.0109, %.preheader128.us.preheader ]
+.preheader127.us:                                 ; preds = %.preheader127.us.preheader, %.loopexit128.us
+  %.1110145.us148 = phi i32 [ %109, %.loopexit128.us ], [ %.0109, %.preheader127.us.preheader ]
   %96 = load ptr, ptr %20, align 8, !tbaa !186
-  %97 = zext i32 %.1110146.us149 to i64
+  %97 = zext i32 %.1110145.us148 to i64
   %98 = mul nsw i64 %19, %97
   %99 = getelementptr inbounds i8, ptr %17, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 %21
   tail call void @png_read_row(ptr noundef %4, ptr noundef %96, ptr noundef null)
-  br i1 %59, label %.lr.ph142.us.preheader, label %.loopexit129.us
+  br i1 %59, label %.lr.ph141.us.preheader, label %.loopexit128.us
 
-.lr.ph142.us.preheader:                           ; preds = %.preheader128.us
+.lr.ph141.us.preheader:                           ; preds = %.preheader127.us
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 %.0105
-  br label %.lr.ph142.us
+  br label %.lr.ph141.us
 
-.lr.ph142.us:                                     ; preds = %.lr.ph142.us.preheader, %.lr.ph142.us
-  %.1112141.us = phi ptr [ %107, %.lr.ph142.us ], [ %101, %.lr.ph142.us.preheader ]
-  %.1116140.us = phi ptr [ %104, %.lr.ph142.us ], [ %96, %.lr.ph142.us.preheader ]
-  %102 = getelementptr inbounds nuw i8, ptr %.1116140.us, i64 1
-  %103 = load i8, ptr %.1116140.us, align 1, !tbaa !44
-  %104 = getelementptr inbounds nuw i8, ptr %.1116140.us, i64 2
+.lr.ph141.us:                                     ; preds = %.lr.ph141.us.preheader, %.lr.ph141.us
+  %.1112140.us = phi ptr [ %107, %.lr.ph141.us ], [ %101, %.lr.ph141.us.preheader ]
+  %.1116139.us = phi ptr [ %104, %.lr.ph141.us ], [ %96, %.lr.ph141.us.preheader ]
+  %102 = getelementptr inbounds nuw i8, ptr %.1116139.us, i64 1
+  %103 = load i8, ptr %.1116139.us, align 1, !tbaa !44
+  %104 = getelementptr inbounds nuw i8, ptr %.1116139.us, i64 2
   %105 = load i8, ptr %102, align 1, !tbaa !44
   %106 = icmp eq i8 %105, 0
   %.not126.us = icmp eq i8 %103, -2
   %. = select i1 %.not126.us, i8 -1, i8 %103
   %.sink = select i1 %106, i8 -2, i8 %.
-  store i8 %.sink, ptr %.1112141.us, align 1, !tbaa !44
-  %107 = getelementptr inbounds nuw i8, ptr %.1112141.us, i64 %.0107
+  store i8 %.sink, ptr %.1112140.us, align 1, !tbaa !44
+  %107 = getelementptr inbounds nuw i8, ptr %.1112140.us, i64 %.0107
   %108 = icmp ult ptr %107, %100
-  br i1 %108, label %.lr.ph142.us, label %.loopexit129.us, !llvm.loop !204
+  br i1 %108, label %.lr.ph141.us, label %.loopexit128.us, !llvm.loop !204
 
-.loopexit129.us:                                  ; preds = %.lr.ph142.us, %.preheader128.us
-  %109 = add i32 %.1110146.us149, %.0108
+.loopexit128.us:                                  ; preds = %.lr.ph141.us, %.preheader127.us
+  %109 = add i32 %.1110145.us148, %.0108
   %110 = icmp ult i32 %109, %11
-  br i1 %110, label %.preheader128.us, label %.loopexit134, !llvm.loop !203
+  br i1 %110, label %.preheader127.us, label %.loopexit133, !llvm.loop !203
 
-.preheader130.us:                                 ; preds = %.preheader130.us.preheader, %.loopexit131.us
-  %.1110146.us151 = phi i32 [ %142, %.loopexit131.us ], [ %.0109, %.preheader130.us.preheader ]
+.preheader129.us:                                 ; preds = %.preheader129.us.preheader, %.loopexit130.us
+  %.1110145.us150 = phi i32 [ %142, %.loopexit130.us ], [ %.0109, %.preheader129.us.preheader ]
   %111 = load ptr, ptr %20, align 8, !tbaa !186
-  %112 = zext i32 %.1110146.us151 to i64
+  %112 = zext i32 %.1110145.us150 to i64
   %113 = mul nsw i64 %19, %112
   %114 = getelementptr inbounds i8, ptr %17, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 %21
   tail call void @png_read_row(ptr noundef %4, ptr noundef %111, ptr noundef null)
-  br i1 %58, label %.lr.ph139.us.preheader, label %.loopexit131.us
+  br i1 %58, label %.lr.ph138.us.preheader, label %.loopexit130.us
 
-.lr.ph139.us.preheader:                           ; preds = %.preheader130.us
+.lr.ph138.us.preheader:                           ; preds = %.preheader129.us
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 %.0105
-  br label %.lr.ph139.us
+  br label %.lr.ph138.us
 
-.lr.ph139.us:                                     ; preds = %.lr.ph139.us.preheader, %.lr.ph139.us
-  %.2113138.us = phi ptr [ %140, %.lr.ph139.us ], [ %116, %.lr.ph139.us.preheader ]
-  %.2117137.us = phi ptr [ %139, %.lr.ph139.us ], [ %111, %.lr.ph139.us.preheader ]
-  %117 = load i8, ptr %.2117137.us, align 1, !tbaa !44
+.lr.ph138.us:                                     ; preds = %.lr.ph138.us.preheader, %.lr.ph138.us
+  %.2113137.us = phi ptr [ %140, %.lr.ph138.us ], [ %116, %.lr.ph138.us.preheader ]
+  %.2117136.us = phi ptr [ %139, %.lr.ph138.us ], [ %111, %.lr.ph138.us.preheader ]
+  %117 = load i8, ptr %.2117136.us, align 1, !tbaa !44
   %118 = zext i8 %117 to i16
   %119 = mul nuw nsw i16 %118, 5
   %120 = add nuw nsw i16 %119, 130
   %121 = lshr i16 %120, 8
   %122 = mul nuw nsw i16 %121, 6
-  %123 = getelementptr inbounds nuw i8, ptr %.2117137.us, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %.2117136.us, i64 1
   %124 = load i8, ptr %123, align 1, !tbaa !44
   %125 = zext i8 %124 to i16
   %126 = mul nuw nsw i16 %125, 5
@@ -5198,7 +5198,7 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
   %128 = lshr i16 %127, 8
   %129 = add nuw nsw i16 %122, %128
   %130 = mul nuw nsw i16 %129, 6
-  %131 = getelementptr inbounds nuw i8, ptr %.2117137.us, i64 2
+  %131 = getelementptr inbounds nuw i8, ptr %.2117136.us, i64 2
   %132 = load i8, ptr %131, align 1, !tbaa !44
   %133 = zext i8 %132 to i16
   %134 = mul nuw nsw i16 %133, 5
@@ -5206,113 +5206,113 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
   %136 = lshr i16 %135, 8
   %137 = add nuw nsw i16 %130, %136
   %138 = trunc nuw i16 %137 to i8
-  store i8 %138, ptr %.2113138.us, align 1, !tbaa !44
-  %139 = getelementptr inbounds nuw i8, ptr %.2117137.us, i64 3
-  %140 = getelementptr inbounds nuw i8, ptr %.2113138.us, i64 %.0107
+  store i8 %138, ptr %.2113137.us, align 1, !tbaa !44
+  %139 = getelementptr inbounds nuw i8, ptr %.2117136.us, i64 3
+  %140 = getelementptr inbounds nuw i8, ptr %.2113137.us, i64 %.0107
   %141 = icmp ult ptr %140, %115
-  br i1 %141, label %.lr.ph139.us, label %.loopexit131.us, !llvm.loop !205
+  br i1 %141, label %.lr.ph138.us, label %.loopexit130.us, !llvm.loop !205
 
-.loopexit131.us:                                  ; preds = %.lr.ph139.us, %.preheader130.us
-  %142 = add i32 %.1110146.us151, %.0108
+.loopexit130.us:                                  ; preds = %.lr.ph138.us, %.preheader129.us
+  %142 = add i32 %.1110145.us150, %.0108
   %143 = icmp ult i32 %142, %11
-  br i1 %143, label %.preheader130.us, label %.loopexit134, !llvm.loop !203
+  br i1 %143, label %.preheader129.us, label %.loopexit133, !llvm.loop !203
 
-.preheader132.us:                                 ; preds = %.preheader132.us.preheader, %.loopexit133.us
-  %.1110146.us153 = phi i32 [ %190, %.loopexit133.us ], [ %.0109, %.preheader132.us.preheader ]
+.preheader131.us:                                 ; preds = %.preheader131.us.preheader, %.loopexit132.us
+  %.1110145.us152 = phi i32 [ %189, %.loopexit132.us ], [ %.0109, %.preheader131.us.preheader ]
   %144 = load ptr, ptr %20, align 8, !tbaa !186
-  %145 = zext i32 %.1110146.us153 to i64
+  %145 = zext i32 %.1110145.us152 to i64
   %146 = mul nsw i64 %19, %145
   %147 = getelementptr inbounds i8, ptr %17, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 %21
   tail call void @png_read_row(ptr noundef %4, ptr noundef %144, ptr noundef null)
-  br i1 %57, label %.lr.ph.us.preheader, label %.loopexit133.us
+  br i1 %57, label %.lr.ph.us.preheader, label %.loopexit132.us
 
-.lr.ph.us.preheader:                              ; preds = %.preheader132.us
+.lr.ph.us.preheader:                              ; preds = %.preheader131.us
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 %.0105
   br label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %186
-  %.3114136.us = phi ptr [ %188, %186 ], [ %149, %.lr.ph.us.preheader ]
-  %.3118135.us = phi ptr [ %187, %186 ], [ %144, %.lr.ph.us.preheader ]
-  %150 = getelementptr inbounds nuw i8, ptr %.3118135.us, i64 3
+.lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %185
+  %.3114135.us = phi ptr [ %187, %185 ], [ %149, %.lr.ph.us.preheader ]
+  %.3118134.us = phi ptr [ %186, %185 ], [ %144, %.lr.ph.us.preheader ]
+  %150 = getelementptr inbounds nuw i8, ptr %.3118134.us, i64 3
   %151 = load i8, ptr %150, align 1, !tbaa !44
   %152 = icmp ugt i8 %151, -61
-  br i1 %152, label %163, label %153
+  br i1 %152, label %162, label %153
 
 153:                                              ; preds = %.lr.ph.us
   %154 = icmp ult i8 %151, 64
-  br i1 %154, label %186, label %155
+  br i1 %154, label %185, label %155
 
 155:                                              ; preds = %153
-  %156 = load i8, ptr %.3118135.us, align 1, !tbaa !44
+  %156 = load i8, ptr %.3118134.us, align 1, !tbaa !44
   %.not.us = icmp slt i8 %156, 0
   %spec.select.us = select i1 %.not.us, i8 -30, i8 -39
   %157 = and i8 %156, 64
-  %.not121.not.us = icmp eq i8 %157, 0
+  %.not121.us = icmp eq i8 %157, 0
   %158 = add nuw nsw i8 %spec.select.us, 9
-  %.1.us = select i1 %.not121.not.us, i8 %spec.select.us, i8 %158
+  %.1.us = select i1 %.not121.us, i8 %spec.select.us, i8 %158
   %159 = add nuw nsw i8 %.1.us, 3
   %.2.us = select i1 %.not.us, i8 %159, i8 %.1.us
   %160 = add nuw nsw i8 %.2.us, 3
-  %.3.us = select i1 %.not121.not.us, i8 %.2.us, i8 %160
+  %.3.us = select i1 %.not121.us, i8 %.2.us, i8 %160
   %.lobit.us = lshr i8 %156, 7
-  %.lobit127.us = lshr exact i8 %157, 6
-  %161 = add nuw nsw i8 %.lobit127.us, %.lobit.us
-  %162 = add nuw nsw i8 %161, %.3.us
-  br label %186
+  %161 = lshr exact i8 %157, 6
+  %.4.us = add nuw nsw i8 %161, %.lobit.us
+  %.5.us = add nuw nsw i8 %.4.us, %.3.us
+  br label %185
 
-163:                                              ; preds = %.lr.ph.us
-  %164 = load i8, ptr %.3118135.us, align 1, !tbaa !44
-  %165 = zext i8 %164 to i16
-  %166 = mul nuw nsw i16 %165, 5
-  %167 = add nuw nsw i16 %166, 130
-  %168 = lshr i16 %167, 8
-  %169 = mul nuw nsw i16 %168, 6
-  %170 = getelementptr inbounds nuw i8, ptr %.3118135.us, i64 1
-  %171 = load i8, ptr %170, align 1, !tbaa !44
-  %172 = zext i8 %171 to i16
-  %173 = mul nuw nsw i16 %172, 5
-  %174 = add nuw nsw i16 %173, 130
-  %175 = lshr i16 %174, 8
-  %176 = add nuw nsw i16 %169, %175
-  %177 = mul nuw nsw i16 %176, 6
-  %178 = getelementptr inbounds nuw i8, ptr %.3118135.us, i64 2
-  %179 = load i8, ptr %178, align 1, !tbaa !44
-  %180 = zext i8 %179 to i16
-  %181 = mul nuw nsw i16 %180, 5
-  %182 = add nuw nsw i16 %181, 130
-  %183 = lshr i16 %182, 8
-  %184 = add nuw nsw i16 %177, %183
-  %185 = trunc nuw i16 %184 to i8
-  br label %186
+162:                                              ; preds = %.lr.ph.us
+  %163 = load i8, ptr %.3118134.us, align 1, !tbaa !44
+  %164 = zext i8 %163 to i16
+  %165 = mul nuw nsw i16 %164, 5
+  %166 = add nuw nsw i16 %165, 130
+  %167 = lshr i16 %166, 8
+  %168 = mul nuw nsw i16 %167, 6
+  %169 = getelementptr inbounds nuw i8, ptr %.3118134.us, i64 1
+  %170 = load i8, ptr %169, align 1, !tbaa !44
+  %171 = zext i8 %170 to i16
+  %172 = mul nuw nsw i16 %171, 5
+  %173 = add nuw nsw i16 %172, 130
+  %174 = lshr i16 %173, 8
+  %175 = add nuw nsw i16 %168, %174
+  %176 = mul nuw nsw i16 %175, 6
+  %177 = getelementptr inbounds nuw i8, ptr %.3118134.us, i64 2
+  %178 = load i8, ptr %177, align 1, !tbaa !44
+  %179 = zext i8 %178 to i16
+  %180 = mul nuw nsw i16 %179, 5
+  %181 = add nuw nsw i16 %180, 130
+  %182 = lshr i16 %181, 8
+  %183 = add nuw nsw i16 %176, %182
+  %184 = trunc nuw i16 %183 to i8
+  br label %185
 
-186:                                              ; preds = %153, %163, %155
-  %.sink175 = phi i8 [ %185, %163 ], [ %162, %155 ], [ -40, %153 ]
-  store i8 %.sink175, ptr %.3114136.us, align 1, !tbaa !44
-  %187 = getelementptr inbounds nuw i8, ptr %.3118135.us, i64 4
-  %188 = getelementptr inbounds nuw i8, ptr %.3114136.us, i64 %.0107
-  %189 = icmp ult ptr %188, %148
-  br i1 %189, label %.lr.ph.us, label %.loopexit133.us, !llvm.loop !206
+185:                                              ; preds = %153, %162, %155
+  %.sink174 = phi i8 [ %184, %162 ], [ %.5.us, %155 ], [ -40, %153 ]
+  store i8 %.sink174, ptr %.3114135.us, align 1, !tbaa !44
+  %186 = getelementptr inbounds nuw i8, ptr %.3118134.us, i64 4
+  %187 = getelementptr inbounds nuw i8, ptr %.3114135.us, i64 %.0107
+  %188 = icmp ult ptr %187, %148
+  br i1 %188, label %.lr.ph.us, label %.loopexit132.us, !llvm.loop !206
 
-.loopexit133.us:                                  ; preds = %186, %.preheader132.us
-  %190 = add i32 %.1110146.us153, %.0108
-  %191 = icmp ult i32 %190, %11
-  br i1 %191, label %.preheader132.us, label %.loopexit134, !llvm.loop !203
+.loopexit132.us:                                  ; preds = %185, %.preheader131.us
+  %189 = add i32 %.1110145.us152, %.0108
+  %190 = icmp ult i32 %189, %11
+  br i1 %190, label %.preheader131.us, label %.loopexit133, !llvm.loop !203
 
-.lr.ph147.split:                                  ; preds = %.lr.ph147, %.lr.ph147.split
-  %.1110146 = phi i32 [ %193, %.lr.ph147.split ], [ %.0109, %.lr.ph147 ]
-  %192 = load ptr, ptr %20, align 8, !tbaa !186
-  tail call void @png_read_row(ptr noundef nonnull %4, ptr noundef %192, ptr noundef null)
-  %193 = add i32 %.1110146, %.0108
-  %194 = icmp ult i32 %193, %11
-  br i1 %194, label %.lr.ph147.split, label %.loopexit134, !llvm.loop !203
+.lr.ph146.split:                                  ; preds = %.lr.ph146, %.lr.ph146.split
+  %.1110145 = phi i32 [ %192, %.lr.ph146.split ], [ %.0109, %.lr.ph146 ]
+  %191 = load ptr, ptr %20, align 8, !tbaa !186
+  tail call void @png_read_row(ptr noundef nonnull %4, ptr noundef %191, ptr noundef null)
+  %192 = add i32 %.1110145, %.0108
+  %193 = icmp ult i32 %192, %11
+  br i1 %193, label %.lr.ph146.split, label %.loopexit133, !llvm.loop !203
 
-.loopexit134:                                     ; preds = %.loopexit133.us, %.loopexit131.us, %.loopexit129.us, %.loopexit.us, %.lr.ph147.split, %55, %25
-  %195 = add nuw nsw i32 %.0104154, 1
-  %exitcond.not = icmp eq i32 %195, %.0103
-  br i1 %exitcond.not, label %196, label %22, !llvm.loop !207
+.loopexit133:                                     ; preds = %.loopexit132.us, %.loopexit130.us, %.loopexit128.us, %.loopexit.us, %.lr.ph146.split, %55, %25
+  %194 = add nuw nsw i32 %.0104153, 1
+  %exitcond.not = icmp eq i32 %194, %.0103
+  br i1 %exitcond.not, label %195, label %22, !llvm.loop !207
 
-196:                                              ; preds = %.loopexit134
+195:                                              ; preds = %.loopexit133
   ret i32 1
 }
 

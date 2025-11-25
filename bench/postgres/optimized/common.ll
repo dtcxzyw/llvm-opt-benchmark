@@ -2707,7 +2707,7 @@ select.unfold149:                                 ; preds = %.thread143
   br label %.thread151
 
 .thread151:                                       ; preds = %506, %509, %512, %select.unfold149, %513, %505
-  %.2.shrunk = phi i1 [ %.150.in, %505 ], [ %.150.in, %select.unfold149 ], [ %.150.in, %513 ], [ %.150.in, %506 ], [ false, %509 ], [ false, %512 ]
+  %.2 = phi i1 [ %.150.in, %505 ], [ %.150.in, %select.unfold149 ], [ %.150.in, %513 ], [ %.150.in, %506 ], [ false, %509 ], [ false, %512 ]
   br i1 %9, label %528, label %530
 
 528:                                              ; preds = %.thread151
@@ -2778,7 +2778,7 @@ select.unfold149:                                 ; preds = %.thread143
   br i1 %.not.i102, label %ClearOrSaveResult.exit93, label %.lr.ph.i101, !llvm.loop !20
 
 ClearOrSaveResult.exit93:                         ; preds = %561, %519, %525, %527, %361, %359, %353, %544, %383, %389, %391, %.thread, %11
-  %.049.shrunk = phi i1 [ false, %11 ], [ false, %.thread ], [ false, %391 ], [ false, %389 ], [ false, %383 ], [ %.2.shrunk, %544 ], [ false, %353 ], [ false, %359 ], [ false, %361 ], [ false, %527 ], [ false, %525 ], [ false, %519 ], [ %.2.shrunk, %561 ]
+  %.049 = phi i1 [ false, %11 ], [ false, %.thread ], [ false, %391 ], [ false, %389 ], [ false, %383 ], [ %.2, %544 ], [ false, %353 ], [ false, %359 ], [ false, %361 ], [ false, %527 ], [ false, %525 ], [ false, %519 ], [ %.2, %561 ]
   call void @ResetCancelConn() #17
   %568 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 216), align 8
   %.not75 = icmp eq ptr %568, null
@@ -2829,7 +2829,7 @@ ClearOrSaveResult.exit93:                         ; preds = %561, %519, %525, %5
 580:                                              ; preds = %577
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.049.shrunk
+  ret i1 %.049
 }
 
 ; Function Attrs: nofree nounwind

@@ -61618,9 +61618,9 @@ define hidden void @_ZN8schemars8_private8metadata11add_default17h804230ebc20e37
   ret void
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hb98eb14ec9afb443E.exit15": ; preds = %20, %24, %13
-  %.pn33 = phi { ptr, i32 } [ %14, %13 ], [ %21, %24 ], [ %21, %20 ]
+  %.pn34 = phi { ptr, i32 } [ %14, %13 ], [ %21, %24 ], [ %21, %20 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17hf0f55fcf874bc937E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %6) #78
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h5af80fd562508672E.exit" unwind label %25
+          to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hb98eb14ec9afb443E.exit19" unwind label %25
 
 20:                                               ; preds = %11
   %21 = landingpad { ptr, i32 }
@@ -61648,14 +61648,14 @@ define hidden void @_ZN8schemars8_private8metadata11add_default17h804230ebc20e37
           cleanup
   %30 = load i64, ptr %7, align 8, !range !11827, !alias.scope !11834, !noundef !9
   %31 = icmp eq i64 %30, -9223372036854775803
-  br i1 %31, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h5af80fd562508672E.exit", label %32
+  br i1 %31, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hb98eb14ec9afb443E.exit19", label %32
 
 32:                                               ; preds = %28
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17hb932c300cd7389bdE.llvm.5851185471656548919"(ptr noalias noundef nonnull align 8 dereferenceable(72) %7)
-          to label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h5af80fd562508672E.exit" unwind label %25
+          to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hb98eb14ec9afb443E.exit19" unwind label %25
 
-"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h5af80fd562508672E.exit": ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hb98eb14ec9afb443E.exit15", %32, %28
-  %.pn823 = phi { ptr, i32 } [ %.pn33, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hb98eb14ec9afb443E.exit15" ], [ %29, %32 ], [ %29, %28 ]
+"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hb98eb14ec9afb443E.exit19": ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hb98eb14ec9afb443E.exit15", %28, %32
+  %.pn823 = phi { ptr, i32 } [ %29, %32 ], [ %29, %28 ], [ %.pn34, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hb98eb14ec9afb443E.exit15" ]
   resume { ptr, i32 } %.pn823
 }
 

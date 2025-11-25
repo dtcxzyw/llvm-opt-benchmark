@@ -3786,21 +3786,21 @@ define void @_RNvXs2_NtCseG2FYMysgNb_3wax4walkNtB5_9WalkErrorINtNtCs1LoaDTb72WA_
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !range !57, !alias.scope !691, !noundef !5
   %15 = icmp eq i64 %14, -9223372036854775808
-  br i1 %15, label %.thread45, label %17
+  br i1 %15, label %.thread42, label %17
 
 .thread:                                          ; preds = %17
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread42
+  br label %.thread40
 
-.thread45:                                        ; preds = %12
+.thread42:                                        ; preds = %12
   store i64 -9223372036854775808, ptr %8, align 8
   br label %22
 
 17:                                               ; preds = %12, %2
-  %.sink47 = phi i64 [ 40, %2 ], [ 24, %12 ]
+  %.sink44 = phi i64 [ 40, %2 ], [ 24, %12 ]
   %.sink = phi i64 [ 48, %2 ], [ 32, %12 ]
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink47
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink44
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %.sroa.0.0.i.ph = load ptr, ptr %18, align 8, !alias.scope !691, !nonnull !5, !noundef !5
   %.sroa.4.0.i.ph = load i64, ptr %19, align 8, !alias.scope !691, !noundef !5
@@ -3815,7 +3815,7 @@ define void @_RNvXs2_NtCseG2FYMysgNb_3wax4walkNtB5_9WalkErrorINtNtCs1LoaDTb72WA_
   %21 = trunc nuw i64 %.pre to i1
   br i1 %21, label %35, label %22
 
-22:                                               ; preds = %.thread45, %20
+22:                                               ; preds = %.thread42, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3856,7 +3856,7 @@ define void @_RNvXs2_NtCseG2FYMysgNb_3wax4walkNtB5_9WalkErrorINtNtCs1LoaDTb72WA_
 32:                                               ; preds = %43, %29
   ret void
 
-33:                                               ; preds = %.thread42, %47, %45, %24
+33:                                               ; preds = %.thread40, %47, %45, %24
   %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() #34
@@ -3903,19 +3903,19 @@ define void @_RNvXs2_NtCseG2FYMysgNb_3wax4walkNtB5_9WalkErrorINtNtCs1LoaDTb72WA_
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCsapf13pIxsjn_3std4path7PathBufECseG2FYMysgNb_3wax(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #37
-          to label %.thread42 unwind label %33
+          to label %.thread40 unwind label %33
 
 47:                                               ; preds = %35
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtCsapf13pIxsjn_3std4path7PathBufEECseG2FYMysgNb_3wax(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #37
-          to label %.thread42 unwind label %33
+          to label %.thread40 unwind label %33
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCsfDcDyFP4TGa_7walkdir5error5ErrorECseG2FYMysgNb_3wax.exit: ; preds = %24, %.thread42
-  %.pn.pn27 = phi { ptr, i32 } [ %.pn.pn28, %.thread42 ], [ %25, %24 ]
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCsfDcDyFP4TGa_7walkdir5error5ErrorECseG2FYMysgNb_3wax.exit: ; preds = %24, %.thread40
+  %.pn.pn27 = phi { ptr, i32 } [ %.pn.pn28, %.thread40 ], [ %25, %24 ]
   resume { ptr, i32 } %.pn.pn27
 
-.thread42:                                        ; preds = %47, %45, %.thread
+.thread40:                                        ; preds = %47, %45, %.thread
   %.pn.pn28 = phi { ptr, i32 } [ %16, %.thread ], [ %46, %45 ], [ %48, %47 ]
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCsfDcDyFP4TGa_7walkdir5error10ErrorInnerECseG2FYMysgNb_3wax.llvm.4870895441494037529(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCsfDcDyFP4TGa_7walkdir5error5ErrorECseG2FYMysgNb_3wax.exit unwind label %33

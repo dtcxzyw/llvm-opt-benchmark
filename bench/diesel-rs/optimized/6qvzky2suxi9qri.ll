@@ -532,7 +532,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
   %.pn240 = phi { ptr, i32 } [ %209, %208 ], [ %.pn238332, %404 ], [ %.pn223, %225 ]
   %206 = load i64, ptr %72, align 8, !range !5, !noundef !4
   %207 = icmp ne i64 %206, -9223372036854775807
-  %or.cond = and i1 %207, %.2
+  %or.cond = and i1 %.2, %207
   br i1 %or.cond, label %409, label %146
 
 208:                                              ; preds = %408, %407, %405, %392, %324, %322, %293, %221, %217, %212, %210, %.thread304

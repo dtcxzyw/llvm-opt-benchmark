@@ -9241,7 +9241,7 @@ thread-pre-split6105:                             ; preds = %2899, %2903
   %3011 = load i8, ptr %82, align 1, !range !45
   %3012 = trunc nuw i8 %3011 to i1
   %or.cond68 = select i1 %3010, i1 true, i1 %3012
-  %spec.select3498 = or i1 %or.cond68, %.02337610363016335
+  %spec.select3498 = or i1 %.02337610363016335, %or.cond68
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
@@ -9977,7 +9977,7 @@ _ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4
   %3295 = phi i1 [ false, %.thread6147 ], [ %3253, %3255 ], [ true, %3254 ], [ %3248, %.thread6140 ]
   %or.cond92 = and i1 %.023366104630063256345, %3295
   %3296 = icmp eq i64 %.023557821, 1
-  %or.cond95 = select i1 %3296, i1 %.123386353, i1 false
+  %or.cond95 = and i1 %.123386353, %3296
   %3297 = or i1 %or.cond95, %or.cond92
   %3298 = icmp eq i64 %.023557821, 2
   %or.cond98 = and i1 %.023406351, %3298

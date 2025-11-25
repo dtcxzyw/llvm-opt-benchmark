@@ -8402,13 +8402,13 @@ VULKAN_GetRotationForCurrentRenderTarget.exit.i:  ; preds = %276, %272
   %279 = getelementptr inbounds nuw i8, ptr %.val164, i64 10524
   %280 = load i32, ptr %279, align 4
   %281 = icmp eq i32 %280, 0
-  br i1 %281, label %.sink.split, label %282
+  br i1 %281, label %VULKAN_UpdateViewport.exit, label %282
 
 282:                                              ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i
   %283 = getelementptr inbounds nuw i8, ptr %.val164, i64 10528
   %284 = load i32, ptr %283, align 4
   %285 = icmp eq i32 %284, 0
-  br i1 %285, label %.sink.split, label %286
+  br i1 %285, label %VULKAN_UpdateViewport.exit, label %286
 
 286:                                              ; preds = %282
   %287 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0.i.i168)
@@ -8485,14 +8485,14 @@ VULKAN_GetRotationForCurrentRenderTarget.exit.i:  ; preds = %276, %272
 
 315:                                              ; preds = %311, %307
   %.sink15.in = phi ptr [ %314, %311 ], [ %273, %307 ]
-  %.sink34.in = phi ptr [ %279, %311 ], [ %283, %307 ]
+  %.sink33.in = phi ptr [ %279, %311 ], [ %283, %307 ]
   %.sink2.in.i = phi ptr [ %283, %311 ], [ %279, %307 ]
   %.sink15 = load i32, ptr %.sink15.in, align 4
   %316 = sitofp i32 %.sink15 to float
   %317 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float %316, ptr %317, align 4
-  %.sink34 = load i32, ptr %.sink34.in, align 4
-  %318 = sitofp i32 %.sink34 to float
+  %.sink33 = load i32, ptr %.sink33.in, align 4
+  %318 = sitofp i32 %.sink33 to float
   %319 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store float %318, ptr %319, align 4
   %.sink2.i = load i32, ptr %.sink2.in.i, align 4
@@ -8510,16 +8510,16 @@ VULKAN_GetRotationForCurrentRenderTarget.exit.i:  ; preds = %276, %272
   %327 = getelementptr inbounds nuw i8, ptr %.val164, i64 10536
   store i8 0, ptr %327, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %.sink.split
+  br label %VULKAN_UpdateViewport.exit
 
-.sink.split:                                      ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i, %282, %315
-  %.1132.ph = phi i1 [ true, %315 ], [ %.0131, %282 ], [ %.0131, %VULKAN_GetRotationForCurrentRenderTarget.exit.i ]
+VULKAN_UpdateViewport.exit:                       ; preds = %VULKAN_GetRotationForCurrentRenderTarget.exit.i, %282, %315
+  %.0.i = phi i1 [ true, %315 ], [ %.0131, %282 ], [ %.0131, %VULKAN_GetRotationForCurrentRenderTarget.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %328
 
-328:                                              ; preds = %.sink.split, %268
-  %.1132 = phi i1 [ %.0131, %268 ], [ %.1132.ph, %.sink.split ]
+328:                                              ; preds = %VULKAN_UpdateViewport.exit, %268
+  %.1132 = phi i1 [ %.0131, %268 ], [ %.0.i, %VULKAN_UpdateViewport.exit ]
   %329 = getelementptr inbounds nuw i8, ptr %38, i64 10496
   %330 = load i8, ptr %329, align 8, !range !3, !noundef !4
   %331 = trunc nuw i8 %330 to i1
@@ -8664,18 +8664,18 @@ VULKAN_UpdateClipRect.exit:                       ; preds = %355, %361
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 4
   %405 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.0130, ptr noundef nonnull %404, i64 noundef 48) #7
   %.not159 = icmp eq i32 %405, 0
-  br i1 %.not159, label %484, label %thread-pre-split13
+  br i1 %.not159, label %484, label %thread-pre-split12
 
-thread-pre-split13:                               ; preds = %402
-  %.pr14 = load i32, ptr %400, align 4
+thread-pre-split12:                               ; preds = %402
+  %.pr13 = load i32, ptr %400, align 4
   br label %406
 
-406:                                              ; preds = %thread-pre-split13, %386
-  %407 = phi i32 [ %.pr14, %thread-pre-split13 ], [ %401, %386 ]
+406:                                              ; preds = %thread-pre-split12, %386
+  %407 = phi i32 [ %.pr13, %thread-pre-split12 ], [ %401, %386 ]
   %408 = icmp eq i32 %407, -1
-  br i1 %408, label %.thread15, label %409
+  br i1 %408, label %.thread14, label %409
 
-.thread15:                                        ; preds = %406
+.thread14:                                        ; preds = %406
   store i32 0, ptr %400, align 4
   br label %468
 
@@ -8702,7 +8702,7 @@ thread-pre-split13:                               ; preds = %402
   %426 = getelementptr inbounds nuw i32, ptr %423, i64 %425
   %427 = load i32, ptr %426, align 4
   %.not160 = icmp ult i32 %421, %427
-  br i1 %.not160, label %.thread17, label %428
+  br i1 %.not160, label %.thread16, label %428
 
 428:                                              ; preds = %419
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -8745,11 +8745,11 @@ thread-pre-split13:                               ; preds = %402
   store ptr %447, ptr %459, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %.pre = load i32, ptr %389, align 8
-  %.pre24 = zext i32 %.pre to i64
-  br label %.thread17
+  %.pre23 = zext i32 %.pre to i64
+  br label %.thread16
 
-.thread17:                                        ; preds = %419, %430
-  %.pre-phi = phi i64 [ %425, %419 ], [ %.pre24, %430 ]
+.thread16:                                        ; preds = %419, %430
+  %.pre-phi = phi i64 [ %425, %419 ], [ %.pre23, %430 ]
   store i32 %421, ptr %394, align 8
   store i32 0, ptr %400, align 4
   %460 = load ptr, ptr %387, align 8
@@ -8765,9 +8765,9 @@ thread-pre-split13:                               ; preds = %402
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %494
 
-468:                                              ; preds = %.thread17, %.thread15, %409
-  %.2138 = phi i64 [ %417, %409 ], [ 0, %.thread15 ], [ 0, %.thread17 ]
-  %.1134 = phi ptr [ %399, %409 ], [ %399, %.thread15 ], [ %466, %.thread17 ]
+468:                                              ; preds = %.thread16, %.thread14, %409
+  %.2138 = phi i64 [ %417, %409 ], [ 0, %.thread14 ], [ 0, %.thread16 ]
+  %.1134 = phi ptr [ %399, %409 ], [ %399, %.thread14 ], [ %466, %.thread16 ]
   %469 = load ptr, ptr %81, align 8
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %470, ptr noundef nonnull align 4 dereferenceable(48) %.0130, i64 48, i1 false)

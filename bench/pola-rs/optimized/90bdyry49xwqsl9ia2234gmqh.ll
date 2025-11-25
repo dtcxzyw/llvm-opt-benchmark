@@ -61264,18 +61264,18 @@ define { ptr, ptr } @_ZN14polars_parquet5arrow4read11deserialize11create_list17h
   invoke void @_ZN14polars_parquet5arrow4read11deserialize12nested_utils11NestedState3pop17h9eb2b760546b02cdE(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %32, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %37 unwind label %35
 
-.thread99.thread150:                              ; preds = %.thread99.thread, %35
+.thread99:                                        ; preds = %.thread99.thread, %35
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn71, %.thread99.thread ], [ %36, %35 ]
   %.sroa.07.1 = phi i8 [ %.sroa.07.372, %.thread99.thread ], [ %.sroa.06.0, %35 ]
   %.sroa.06.1 = phi i8 [ %.sroa.06.373, %.thread99.thread ], [ %.sroa.06.0, %35 ]
   %34 = trunc nuw i8 %.sroa.06.1 to i1
-  br i1 %34, label %.thread99.thread150.thread186, label %.thread99.thread150.thread
+  br i1 %34, label %.thread146, label %188
 
 35:                                               ; preds = %184, %43, %4
   %.sroa.06.0 = phi i8 [ 0, %184 ], [ 1, %43 ], [ 1, %4 ]
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread99.thread150
+  br label %.thread99
 
 37:                                               ; preds = %4
   %38 = load i64, ptr %32, align 8, !range !941, !noundef !12
@@ -61317,9 +61317,6 @@ define { ptr, ptr } @_ZN14polars_parquet5arrow4read11deserialize11create_list17h
 47:                                               ; preds = %45, %46
   %48 = invoke noundef align 8 dereferenceable(32) ptr @_ZN12polars_arrow9datatypes13ArrowDataType15to_logical_type17ha1201bcbe01bc398E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
           to label %51 unwind label %.thread109
-
-.thread99:                                        ; preds = %.thread102, %187
-  br i1 %.sroa.01.282, label %.thread99.thread, label %.thread99.thread150.thread186
 
 .thread:                                          ; preds = %45
   %49 = landingpad { ptr, i32 }
@@ -61564,7 +61561,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h05bb5200a8239881E.exit: ; preds
   invoke void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h5f8e0d69e6d0c220E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %28) #33
           to label %.thread102 unwind label %119
 
-119:                                              ; preds = %187, %.thread99.thread150.thread186, %189, %.thread99.thread, %.body.thread, %118
+119:                                              ; preds = %187, %.thread146, %190, %.thread99.thread, %.body.thread, %118
   %120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #35
@@ -61735,7 +61732,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h05bb5200a8239881E.exit: ; preds
   %168 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17h5d433cb91c1e148aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11) #33
-          to label %.thread99.thread150.thread.thread unwind label %170, !noalias !3594
+          to label %.thread173 unwind label %170, !noalias !3594
 
 169:                                              ; preds = %165
   unreachable
@@ -61768,7 +61765,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h05bb5200a8239881E.exit: ; preds
   %178 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr68drop_in_place$LT$polars_arrow..array..list..ListArray$LT$i64$GT$$GT$17ha79bb5fc8d1189e8E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %25) #33
-          to label %.thread99.thread150.thread.thread unwind label %179
+          to label %.thread173 unwind label %179
 
 179:                                              ; preds = %177
   %180 = landingpad { ptr, i32 }
@@ -61802,38 +61799,41 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h05bb5200a8239881E.exit: ; preds
   %.pn79 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread109 ], [ %81, %80 ], [ %89, %88 ], [ %eh.lpad-body135, %.body.thread ], [ %lpad.thr_comm116, %118 ]
   %185 = load ptr, ptr %31, align 8, !alias.scope !3598, !noundef !12
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.thread99, label %187
+  br i1 %186, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit", label %187
 
 187:                                              ; preds = %.thread102
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17h914356f7585a5259E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31)
+          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit" unwind label %119
+
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit": ; preds = %187, %.thread102
+  br i1 %.sroa.01.282, label %.thread99.thread, label %.thread146
+
+.thread99.thread:                                 ; preds = %102, %.body16, %126, %112, %50, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit", %.thread
+  %.sroa.06.373 = phi i8 [ 1, %.thread ], [ 1, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit" ], [ 0, %50 ], [ 0, %112 ], [ 0, %126 ], [ 0, %.body16 ], [ 0, %102 ]
+  %.sroa.07.372 = phi i8 [ 1, %.thread ], [ %.sroa.07.480, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit" ], [ 0, %50 ], [ 0, %112 ], [ 0, %126 ], [ 0, %.body16 ], [ 0, %102 ]
+  %.pn.pn71 = phi { ptr, i32 } [ %49, %.thread ], [ %.pn79, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit" ], [ %lpad.thr_comm.split-lp, %50 ], [ %113, %112 ], [ %127, %126 ], [ %lpad.thr_comm.split-lp117, %.body16 ], [ %103, %102 ]
+  invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i64$GT$$GT$17h106916c636b60a80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #33
           to label %.thread99 unwind label %119
 
-.thread99.thread:                                 ; preds = %102, %.body16, %126, %112, %50, %.thread, %.thread99
-  %.sroa.06.373 = phi i8 [ 1, %.thread ], [ 1, %.thread99 ], [ 0, %50 ], [ 0, %112 ], [ 0, %126 ], [ 0, %.body16 ], [ 0, %102 ]
-  %.sroa.07.372 = phi i8 [ 1, %.thread ], [ %.sroa.07.480, %.thread99 ], [ 0, %50 ], [ 0, %112 ], [ 0, %126 ], [ 0, %.body16 ], [ 0, %102 ]
-  %.pn.pn71 = phi { ptr, i32 } [ %49, %.thread ], [ %.pn79, %.thread99 ], [ %lpad.thr_comm.split-lp, %50 ], [ %113, %112 ], [ %127, %126 ], [ %lpad.thr_comm.split-lp117, %.body16 ], [ %103, %102 ]
-  invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i64$GT$$GT$17h106916c636b60a80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #33
-          to label %.thread99.thread150 unwind label %119
+188:                                              ; preds = %.thread146, %.thread99
+  %.sroa.07.1152 = phi i8 [ %.sroa.07.1153, %.thread146 ], [ %.sroa.07.1, %.thread99 ]
+  %.pn.pn.pn150 = phi { ptr, i32 } [ %.pn.pn.pn151, %.thread146 ], [ %.pn.pn.pn, %.thread99 ]
+  %189 = trunc nuw i8 %.sroa.07.1152 to i1
+  br i1 %189, label %190, label %.thread173
 
-.thread99.thread150.thread:                       ; preds = %.thread99.thread150.thread186, %.thread99.thread150
-  %.sroa.07.1192 = phi i8 [ %.sroa.07.1193, %.thread99.thread150.thread186 ], [ %.sroa.07.1, %.thread99.thread150 ]
-  %.pn.pn.pn190 = phi { ptr, i32 } [ %.pn.pn.pn191, %.thread99.thread150.thread186 ], [ %.pn.pn.pn, %.thread99.thread150 ]
-  %188 = trunc nuw i8 %.sroa.07.1192 to i1
-  br i1 %188, label %189, label %.thread99.thread150.thread.thread
-
-.thread99.thread150.thread186:                    ; preds = %.thread99, %.thread99.thread150
-  %.sroa.07.1193 = phi i8 [ %.sroa.07.1, %.thread99.thread150 ], [ %.sroa.07.480, %.thread99 ]
-  %.pn.pn.pn191 = phi { ptr, i32 } [ %.pn.pn.pn, %.thread99.thread150 ], [ %.pn79, %.thread99 ]
+.thread146:                                       ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit", %.thread99
+  %.sroa.07.1153 = phi i8 [ %.sroa.07.1, %.thread99 ], [ %.sroa.07.480, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit" ]
+  %.pn.pn.pn151 = phi { ptr, i32 } [ %.pn.pn.pn, %.thread99 ], [ %.pn79, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$polars_arrow..bitmap..immutable..Bitmap$GT$$GT$17h4c3e13c987c4b00fE.exit" ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr nonnull %2, ptr nonnull %3) #33
-          to label %.thread99.thread150.thread unwind label %119
+          to label %188 unwind label %119
 
-.thread99.thread150.thread.thread:                ; preds = %167, %177, %189, %.thread99.thread150.thread
-  %.pn.pn.pn158175 = phi { ptr, i32 } [ %.pn.pn.pn190, %189 ], [ %.pn.pn.pn190, %.thread99.thread150.thread ], [ %178, %177 ], [ %168, %167 ]
-  resume { ptr, i32 } %.pn.pn.pn158175
+.thread173:                                       ; preds = %167, %177, %190, %188
+  %.pn.pn.pn150176 = phi { ptr, i32 } [ %.pn.pn.pn150, %190 ], [ %.pn.pn.pn150, %188 ], [ %178, %177 ], [ %168, %167 ]
+  resume { ptr, i32 } %.pn.pn.pn150176
 
-189:                                              ; preds = %.thread99.thread150.thread
+190:                                              ; preds = %188
   invoke void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h5f8e0d69e6d0c220E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #33
-          to label %.thread99.thread150.thread.thread unwind label %119
+          to label %.thread173 unwind label %119
 }
 
 ; Function Attrs: nonlazybind uwtable

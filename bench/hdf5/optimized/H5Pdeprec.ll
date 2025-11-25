@@ -182,7 +182,7 @@ define range(i32 -1, -2147483648) i32 @H5Pregister1(i64 noundef %0, ptr noundef 
 76:                                               ; preds = %74
   %77 = call ptr @H5I_subst(i64 noundef %0, ptr noundef %75) #4
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %79, label %83
+  br i1 %78, label %79, label %83, !prof !18
 
 79:                                               ; preds = %76
   %80 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11
@@ -193,7 +193,7 @@ define range(i32 -1, -2147483648) i32 @H5Pregister1(i64 noundef %0, ptr noundef 
 83:                                               ; preds = %76
   %84 = call i32 @H5P__close_class(ptr noundef nonnull %47) #4
   %85 = icmp slt i32 %84, 0
-  br i1 %85, label %86, label %91
+  br i1 %85, label %86, label %91, !prof !18
 
 86:                                               ; preds = %83
   %87 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !11

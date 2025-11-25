@@ -5062,8 +5062,8 @@ make_node_avail.exit606:                          ; preds = %550, %.thread641.th
   %.11 = phi i32 [ %.7, %727 ], [ 2120, %712 ], [ 2028, %716 ]
   br i1 %.0435, label %745, label %.thread660
 
-.thread660:                                       ; preds = %719, %715, %734, %_valid_node_state_change.exit, %407, %365, %736
-  %.11666 = phi i32 [ %.11, %736 ], [ %.7, %365 ], [ 2028, %407 ], [ 2028, %_valid_node_state_change.exit ], [ %.7, %734 ], [ 2120, %715 ], [ 2028, %719 ]
+.thread660:                                       ; preds = %_valid_node_state_change.exit, %407, %365, %719, %715, %734, %736
+  %.11666 = phi i32 [ %.11, %736 ], [ %.7, %734 ], [ 2120, %715 ], [ 2028, %719 ], [ %.7, %365 ], [ 2028, %407 ], [ 2028, %_valid_node_state_change.exit ]
   %737 = getelementptr inbounds nuw i8, ptr %135, i64 320
   %738 = load i32, ptr %737, align 8
   %739 = and i32 %738, 15
@@ -6835,8 +6835,8 @@ waiting_for_node_boot.exit:                       ; preds = %64, %47
   br label %.sink.split
 
 .sink.split:                                      ; preds = %107, %113
-  %.sink579 = phi ptr [ %114, %113 ], [ %112, %107 ]
-  %115 = tail call ptr @xstrdup(ptr noundef %.sink579) #15
+  %.sink578 = phi ptr [ %114, %113 ], [ %112, %107 ]
+  %115 = tail call ptr @xstrdup(ptr noundef %.sink578) #15
   store ptr %115, ptr %11, align 8
   br label %116
 
@@ -6958,7 +6958,7 @@ waiting_for_node_boot.exit:                       ; preds = %64, %47
 163:                                              ; preds = %.lr.ph44.i
   %164 = call i32 @list_delete_all(ptr noundef nonnull %.120.i, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef nonnull %.12242.i) #15
   %.not30.i = icmp eq i32 %164, 0
-  br i1 %.not30.i, label %.critedge531, label %165
+  br i1 %.not30.i, label %.critedge530, label %165
 
 165:                                              ; preds = %163, %.lr.ph44.i
   %166 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.54, ptr noundef nonnull %6) #15
@@ -6969,7 +6969,7 @@ waiting_for_node_boot.exit:                       ; preds = %64, %47
   call void @slurm_xfree(ptr noundef nonnull %7) #15
   br label %_valid_reported_active_features.exit.thread.sink.split.sink.split
 
-.critedge531:                                     ; preds = %163
+.critedge530:                                     ; preds = %163
   call void @slurm_xfree(ptr noundef nonnull %7) #15
   call void @list_destroy(ptr noundef nonnull %.120.i) #15
   call void @slurm_xfree(ptr noundef nonnull %8) #15
@@ -6988,8 +6988,8 @@ waiting_for_node_boot.exit:                       ; preds = %64, %47
   %.not5.i = icmp eq ptr %169, null
   br i1 %.not5.i, label %_node_changeable_features.exit, label %.lr.ph.i514
 
-.lr.ph.i514:                                      ; preds = %.critedge531, %174
-  %.06.i = phi ptr [ %175, %174 ], [ %169, %.critedge531 ]
+.lr.ph.i514:                                      ; preds = %.critedge530, %174
+  %.06.i = phi ptr [ %175, %174 ], [ %169, %.critedge530 ]
   %170 = call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.06.i) #15
   br i1 %170, label %171, label %174
 
@@ -7005,7 +7005,7 @@ waiting_for_node_boot.exit:                       ; preds = %64, %47
   %.not.i515 = icmp eq ptr %175, null
   br i1 %.not.i515, label %_node_changeable_features.exit, label %.lr.ph.i514, !llvm.loop !31
 
-_node_changeable_features.exit:                   ; preds = %174, %.critedge531
+_node_changeable_features.exit:                   ; preds = %174, %.critedge530
   call void @slurm_xfree(ptr noundef nonnull %3) #15
   %176 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -7347,7 +7347,7 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
   %343 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 268), align 4
   %344 = and i32 %343, 1
   %.not430 = icmp eq i32 %344, 0
-  br i1 %.not430, label %345, label %.thread576
+  br i1 %.not430, label %345, label %.thread575
 
 345:                                              ; preds = %_set_gpu_spec.exit
   %346 = getelementptr inbounds nuw i8, ptr %54, i64 96
@@ -7377,11 +7377,11 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
 363:                                              ; preds = %361, %358
   %364 = load ptr, ptr %9, align 8
   %.not431 = icmp eq ptr %364, null
-  br i1 %.not431, label %.thread573, label %365
+  br i1 %.not431, label %.thread572, label %365
 
 365:                                              ; preds = %363
   call void @_xstrcat(ptr noundef nonnull %9, ptr noundef nonnull @.str.65) #15
-  br label %.thread573
+  br label %.thread572
 
 366:                                              ; preds = %345
   %367 = getelementptr inbounds nuw i8, ptr %19, i64 10
@@ -7391,18 +7391,18 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
   %371 = icmp ult i16 %368, %370
   br i1 %371, label %377, label %391
 
-.thread573:                                       ; preds = %363, %365
+.thread572:                                       ; preds = %363, %365
   call void @_xstrcat(ptr noundef nonnull %9, ptr noundef nonnull @.str.68) #15
   %372 = getelementptr inbounds nuw i8, ptr %19, i64 10
   %373 = load i16, ptr %372, align 2
   %374 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %375 = load i16, ptr %374, align 8
   %376 = icmp ult i16 %373, %375
-  br i1 %376, label %377, label %.thread576
+  br i1 %376, label %377, label %.thread575
 
-377:                                              ; preds = %.thread573, %366
-  %378 = phi ptr [ %374, %.thread573 ], [ %369, %366 ]
-  %379 = phi ptr [ %372, %.thread573 ], [ %367, %366 ]
+377:                                              ; preds = %.thread572, %366
+  %378 = phi ptr [ %374, %.thread572 ], [ %369, %366 ]
+  %379 = phi ptr [ %372, %.thread572 ], [ %367, %366 ]
   %380 = call i32 @get_log_level() #15
   %381 = icmp sgt i32 %380, 4
   br i1 %381, label %382, label %388
@@ -7427,11 +7427,11 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
 
 .thread:                                          ; preds = %388, %390
   call void @_xstrcat(ptr noundef nonnull %9, ptr noundef nonnull @.str.70) #15
-  br label %.thread576
+  br label %.thread575
 
 391:                                              ; preds = %366
   %392 = icmp eq i32 %.2, 0
-  br i1 %392, label %393, label %.thread576
+  br i1 %392, label %393, label %.thread575
 
 393:                                              ; preds = %391
   %394 = call i32 @slurm_select_cr_type() #15
@@ -7439,7 +7439,7 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
   %396 = load i32, ptr @validate_node_specs.node_features_cnt, align 4
   %397 = icmp sgt i32 %396, 0
   %or.cond = select i1 %395, i1 %397, i1 false
-  br i1 %or.cond, label %398, label %.thread576
+  br i1 %or.cond, label %398, label %.thread575
 
 398:                                              ; preds = %393
   %399 = load i16, ptr %197, align 8
@@ -7447,13 +7447,13 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
   %401 = load i16, ptr %346, align 8
   %402 = zext i16 %401 to i32
   %.not433 = icmp eq i16 %399, %401
-  br i1 %.not433, label %.thread576, label %403
+  br i1 %.not433, label %.thread575, label %403
 
 403:                                              ; preds = %398
   %404 = load i16, ptr %200, align 8
   %405 = load i16, ptr %349, align 4
   %.not434 = icmp eq i16 %404, %405
-  br i1 %.not434, label %.thread576, label %406
+  br i1 %.not434, label %.thread575, label %406
 
 406:                                              ; preds = %403
   %407 = zext i16 %405 to i32
@@ -7461,21 +7461,21 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
   %409 = mul nuw nsw i32 %408, %400
   %410 = mul nuw nsw i32 %407, %402
   %411 = icmp eq i32 %409, %410
-  br i1 %411, label %412, label %.thread576
+  br i1 %411, label %412, label %.thread575
 
 412:                                              ; preds = %406
   call fastcc void @_split_node_config(ptr noundef %22, ptr noundef nonnull %19)
-  br label %.thread576
+  br label %.thread575
 
-.thread576:                                       ; preds = %.thread573, %.thread, %391, %393, %398, %403, %406, %412, %_set_gpu_spec.exit
-  %.3 = phi i32 [ %.2, %_set_gpu_spec.exit ], [ 0, %412 ], [ 0, %406 ], [ 0, %403 ], [ 0, %398 ], [ 0, %393 ], [ %.2, %391 ], [ 22, %.thread ], [ 22, %.thread573 ]
+.thread575:                                       ; preds = %.thread572, %.thread, %391, %393, %398, %403, %406, %412, %_set_gpu_spec.exit
+  %.3 = phi i32 [ %.2, %_set_gpu_spec.exit ], [ 0, %412 ], [ 0, %406 ], [ 0, %403 ], [ 0, %398 ], [ 0, %393 ], [ %.2, %391 ], [ 22, %.thread ], [ 22, %.thread572 ]
   %413 = getelementptr inbounds nuw i8, ptr %19, i64 152
   %414 = load i16, ptr %413, align 8
   %415 = load i16, ptr %197, align 8
   %416 = icmp ugt i16 %414, %415
   br i1 %416, label %417, label %422
 
-417:                                              ; preds = %.thread576
+417:                                              ; preds = %.thread575
   %418 = zext i16 %415 to i32
   %419 = zext i16 %414 to i32
   %420 = load ptr, ptr %20, align 8
@@ -7483,7 +7483,7 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
   store i16 1, ptr %413, align 8
   br label %422
 
-422:                                              ; preds = %417, %.thread576
+422:                                              ; preds = %417, %.thread575
   %423 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 268), align 4
   %424 = and i32 %423, 1
   %.not435 = icmp eq i32 %424, 0
@@ -7888,9 +7888,9 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
   %612 = load ptr, ptr %608, align 8
   %613 = load i8, ptr %612, align 1
   %.not465 = icmp eq i8 %613, 0
-  br i1 %.not465, label %615, label %.thread529
+  br i1 %.not465, label %615, label %.critedge
 
-.thread529:                                       ; preds = %610
+.critedge:                                        ; preds = %610
   %614 = call ptr @xstrdup(ptr noundef nonnull %612) #15
   store ptr %614, ptr %611, align 8
   br label %616
@@ -7898,7 +7898,7 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
 615:                                              ; preds = %610, %607
   br i1 %.0383, label %616, label %619
 
-616:                                              ; preds = %.thread529, %615
+616:                                              ; preds = %.critedge, %615
   %617 = load ptr, ptr @acct_db_conn, align 8
   %618 = call i32 @clusteracct_storage_g_node_update(ptr noundef %617, ptr noundef nonnull %22) #15
   br label %619
@@ -7938,8 +7938,8 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
   %638 = icmp ne i32 %637, 1
   %639 = and i32 %636, 8704
   %or.cond501 = icmp eq i32 %639, 0
-  %or.cond534 = and i1 %638, %or.cond501
-  br i1 %or.cond534, label %640, label %645
+  %or.cond533 = and i1 %638, %or.cond501
+  br i1 %or.cond533, label %640, label %645
 
 640:                                              ; preds = %635
   %641 = load ptr, ptr %20, align 8
@@ -8074,8 +8074,8 @@ _set_gpu_spec.exit:                               ; preds = %.critedge.i, %328, 
   %707 = trunc nuw i8 %706 to i1
   %708 = and i32 %704, 8704
   %or.cond504 = icmp eq i32 %708, 0
-  %or.cond580 = select i1 %707, i1 %or.cond504, i1 false
-  br i1 %or.cond580, label %709, label %844
+  %or.cond579 = select i1 %707, i1 %or.cond504, i1 false
+  br i1 %or.cond579, label %709, label %844
 
 709:                                              ; preds = %705, %703
   %710 = load ptr, ptr @acct_db_conn, align 8

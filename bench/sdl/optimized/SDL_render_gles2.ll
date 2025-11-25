@@ -146,15 +146,15 @@ define internal noundef zeroext i1 @GLES2_CreateRenderer(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %9 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 20, ptr noundef nonnull %6) #10
-  br i1 %9, label %10, label %.thread
+  br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %3
   %11 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 17, ptr noundef nonnull %7) #10
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %10
   %13 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 18, ptr noundef nonnull %8) #10
-  br i1 %13, label %14, label %.thread
+  br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %12
   %15 = call zeroext i1 @SDL_SyncWindow_REAL(ptr noundef %1) #10
@@ -176,7 +176,7 @@ define internal noundef zeroext i1 @GLES2_CreateRenderer(ptr noundef %0, ptr nou
   %27 = and i64 %16, -805306371
   %28 = or disjoint i64 %27, 2
   %29 = call zeroext i1 @SDL_RecreateWindow(ptr noundef %1, i64 noundef %28) #10
-  br i1 %29, label %30, label %.thread94
+  br i1 %29, label %30, label %.critedge93
 
 30:                                               ; preds = %23, %14
   call void @SDL_SetupRendererColorspace(ptr noundef %0, i32 noundef %2) #10
@@ -376,12 +376,12 @@ define internal noundef zeroext i1 @GLES2_CreateRenderer(ptr noundef %0, ptr nou
   store float 1.000000e+00, ptr %134, align 4
   %.val = load ptr, ptr %38, align 8
   call fastcc void @GL_CheckAllErrors(ptr noundef nonnull @.str.5, ptr %.val, i32 noundef 2289, ptr noundef nonnull @__func__.GLES2_CreateRenderer)
-  br label %.thread
+  br label %.critedge
 
 135:                                              ; preds = %104, %59, %57, %55, %37, %35, %33
-  br i1 %or.cond3, label %.thread94, label %.thread
+  br i1 %or.cond3, label %.critedge93, label %.critedge
 
-.thread94:                                        ; preds = %23, %135
+.critedge93:                                      ; preds = %23, %135
   %136 = call ptr @SDL_GetError_REAL() #10
   %137 = call noalias ptr @SDL_strdup_REAL(ptr noundef %136) #10
   %138 = load i32, ptr %6, align 4
@@ -393,10 +393,10 @@ define internal noundef zeroext i1 @GLES2_CreateRenderer(ptr noundef %0, ptr nou
   %144 = call zeroext i1 @SDL_RecreateWindow(ptr noundef %1, i64 noundef %16) #10
   %145 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7, ptr noundef %137) #10
   call void @SDL_free_REAL(ptr noundef %137) #10
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %3, %10, %12, %135, %.thread94, %113
-  %.0 = phi i1 [ true, %113 ], [ false, %.thread94 ], [ false, %135 ], [ false, %12 ], [ false, %10 ], [ false, %3 ]
+.critedge:                                        ; preds = %135, %.critedge93, %3, %10, %12, %113
+  %.0 = phi i1 [ true, %113 ], [ false, %12 ], [ false, %10 ], [ false, %3 ], [ false, %.critedge93 ], [ false, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -359,32 +359,36 @@ define internal noundef zeroext i1 @SDL_SoftBlit(ptr noundef %0, ptr noundef rea
   %5 = load i32, ptr %2, align 8
   %6 = and i32 %5, 2
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %9, label %7
+  br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %2) #2
   %not. = xor i1 %8, true
-  br label %9
+  %9 = load i32, ptr %0, align 8
+  %10 = and i32 %9, 2
+  %.not47 = icmp eq i32 %10, 0
+  br i1 %.not47, label %15, label %13
 
-9:                                                ; preds = %7, %4
-  %.not48 = phi i1 [ true, %4 ], [ %not., %7 ]
-  %.0 = phi i1 [ true, %4 ], [ %8, %7 ]
-  %10 = load i32, ptr %0, align 8
-  %11 = and i32 %10, 2
-  %.not47 = icmp eq i32 %11, 0
-  br i1 %.not47, label %14, label %12
+.thread:                                          ; preds = %4
+  %11 = load i32, ptr %0, align 8
+  %12 = and i32 %11, 2
+  %.not4759 = icmp eq i32 %12, 0
+  br i1 %.not4759, label %.thread66, label %13
 
-12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %0) #2
-  %not.52 = xor i1 %13, true
-  %.0. = select i1 %13, i1 %.0, i1 false
-  br i1 %.0., label %15, label %86
+13:                                               ; preds = %.thread, %7
+  %.064 = phi i1 [ true, %.thread ], [ %8, %7 ]
+  %.not4862 = phi i1 [ true, %.thread ], [ %not., %7 ]
+  %14 = tail call zeroext i1 @SDL_LockSurface_REAL(ptr noundef nonnull %0) #2
+  %not.56 = xor i1 %14, true
+  %.0. = select i1 %14, i1 %.064, i1 false
+  br i1 %.0., label %.thread66, label %86
 
-14:                                               ; preds = %9
-  br i1 %.0, label %15, label %86
+15:                                               ; preds = %7
+  br i1 %8, label %.thread66, label %86
 
-15:                                               ; preds = %12, %14
-  %.not4954 = phi i1 [ %not.52, %12 ], [ true, %14 ]
+.thread66:                                        ; preds = %.thread, %13, %15
+  %.not4861 = phi i1 [ %.not4862, %13 ], [ %not., %15 ], [ true, %.thread ]
+  %.not4953 = phi i1 [ %not.56, %13 ], [ true, %15 ], [ true, %.thread ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
@@ -466,26 +470,32 @@ define internal noundef zeroext i1 @SDL_SoftBlit(ptr noundef %0, ptr noundef rea
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %85 = load ptr, ptr %84, align 8
   tail call void %85(ptr noundef nonnull %16) #2
-  br label %86
+  br i1 %.not4861, label %88, label %87
 
-86:                                               ; preds = %12, %15, %14
-  %.155 = phi i1 [ false, %12 ], [ true, %15 ], [ false, %14 ]
-  %.not4953 = phi i1 [ %not.52, %12 ], [ %.not4954, %15 ], [ true, %14 ]
-  br i1 %.not48, label %88, label %87
+86:                                               ; preds = %13, %15
+  %.not4860 = phi i1 [ %.not4862, %13 ], [ %not., %15 ]
+  %.not4952 = phi i1 [ %not.56, %13 ], [ true, %15 ]
+  br i1 %.not4860, label %88, label %87
 
-87:                                               ; preds = %86
+87:                                               ; preds = %.thread66, %86
+  %.not495271 = phi i1 [ %.not4953, %.thread66 ], [ %.not4952, %86 ]
+  %.15469 = phi i1 [ true, %.thread66 ], [ false, %86 ]
   tail call void @SDL_UnlockSurface_REAL(ptr noundef nonnull %2) #2
-  br label %88
+  br i1 %.not495271, label %90, label %89
 
-88:                                               ; preds = %87, %86
-  br i1 %.not4953, label %90, label %89
+88:                                               ; preds = %.thread66, %86
+  %.not495272 = phi i1 [ %.not4953, %.thread66 ], [ %.not4952, %86 ]
+  %.15470 = phi i1 [ true, %.thread66 ], [ false, %86 ]
+  br i1 %.not495272, label %90, label %89
 
-89:                                               ; preds = %88
+89:                                               ; preds = %87, %88
+  %.1547073 = phi i1 [ %.15469, %87 ], [ %.15470, %88 ]
   tail call void @SDL_UnlockSurface_REAL(ptr noundef nonnull %0) #2
   br label %90
 
-90:                                               ; preds = %89, %88
-  ret i1 %.155
+90:                                               ; preds = %87, %89, %88
+  %.1547074 = phi i1 [ %.15469, %87 ], [ %.1547073, %89 ], [ %.15470, %88 ]
+  ret i1 %.1547074
 }
 
 declare zeroext i1 @SDL_RLESurface(ptr noundef) local_unnamed_addr #1

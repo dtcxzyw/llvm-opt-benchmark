@@ -335,7 +335,7 @@ define range(i32 -1, 1) i32 @H5Inmembers(i32 noundef %0, ptr noundef writeonly c
   %31 = call i32 @H5E_clear_stack() #4
   %32 = add i32 %0, -1
   %or.cond = icmp ult i32 %32, 16
-  br i1 %or.cond, label %33, label %37
+  br i1 %or.cond, label %33, label %37, !prof !13
 
 33:                                               ; preds = %30
   %34 = load i64, ptr @H5E_ID_g, align 8, !tbaa !11
@@ -348,7 +348,7 @@ define range(i32 -1, 1) i32 @H5Inmembers(i32 noundef %0, ptr noundef writeonly c
   %39 = load i32, ptr @H5I_next_type_g, align 4
   %.not = icmp slt i32 %0, %39
   %or.cond29 = select i1 %38, i1 %.not, i1 false
-  br i1 %or.cond29, label %44, label %40
+  br i1 %or.cond29, label %44, label %40, !prof !14
 
 40:                                               ; preds = %37
   %41 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -361,7 +361,7 @@ define range(i32 -1, 1) i32 @H5Inmembers(i32 noundef %0, ptr noundef writeonly c
   %46 = getelementptr inbounds nuw ptr, ptr @H5I_type_info_array_g, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !15
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %53
+  br i1 %48, label %49, label %53, !prof !13
 
 49:                                               ; preds = %44
   %50 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -376,7 +376,7 @@ define range(i32 -1, 1) i32 @H5Inmembers(i32 noundef %0, ptr noundef writeonly c
 54:                                               ; preds = %53
   %55 = call i64 @H5I_nmembers(i32 noundef %0) #4
   %56 = icmp slt i64 %55, 0
-  br i1 %56, label %57, label %61
+  br i1 %56, label %57, label %61, !prof !13
 
 57:                                               ; preds = %54
   %58 = load i64, ptr @H5E_ID_g, align 8, !tbaa !11
@@ -1989,12 +1989,12 @@ switch.early.test:                                ; preds = %29
   switch i32 %35, label %50 [
     i32 5, label %36
     i32 1, label %36
-  ]
+  ], !prof !31
 
 36:                                               ; preds = %switch.early.test, %switch.early.test, %29
   %37 = call ptr @H5VL_vol_object(i64 noundef %0) #4
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %43
+  br i1 %38, label %39, label %43, !prof !13
 
 39:                                               ; preds = %36
   %40 = load i64, ptr @H5E_ID_g, align 8, !tbaa !11
@@ -2005,7 +2005,7 @@ switch.early.test:                                ; preds = %29
 43:                                               ; preds = %36
   %44 = call i64 @H5F_get_file_id(ptr noundef nonnull %37, i32 noundef %33, i1 noundef zeroext true) #4
   %45 = icmp slt i64 %44, 0
-  br i1 %45, label %46, label %55
+  br i1 %45, label %46, label %55, !prof !13
 
 46:                                               ; preds = %43
   %47 = load i64, ptr @H5E_ID_g, align 8, !tbaa !11
@@ -2112,16 +2112,16 @@ define i64 @H5Iget_name(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_un
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %43, align 4, !tbaa !31
+  store i32 0, ptr %43, align 4, !tbaa !32
   %44 = call i32 @H5I_get_type(i64 noundef %0) #4
-  store i32 %44, ptr %5, align 8, !tbaa !33
-  store i32 1, ptr %4, align 8, !tbaa !34
+  store i32 %44, ptr %5, align 8, !tbaa !34
+  store i32 1, ptr %4, align 8, !tbaa !35
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %2, ptr %45, align 8, !tbaa !36
+  store i64 %2, ptr %45, align 8, !tbaa !37
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %1, ptr %46, align 8, !tbaa !36
+  store ptr %1, ptr %46, align 8, !tbaa !37
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %6, ptr %47, align 8, !tbaa !36
+  store ptr %6, ptr %47, align 8, !tbaa !37
   %48 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
   %49 = call i32 @H5VL_object_get(ptr noundef nonnull %36, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef %48, ptr noundef null) #4
   %50 = icmp slt i32 %49, 0
@@ -2206,9 +2206,10 @@ attributes #4 = { nounwind }
 !28 = !{!29, !17, i64 0}
 !29 = !{!"", !17, i64 0, !17, i64 8}
 !30 = !{!29, !17, i64 8}
-!31 = !{!32, !20, i64 4}
-!32 = !{!"H5VL_loc_params_t", !20, i64 0, !20, i64 4, !5, i64 8}
-!33 = !{!32, !20, i64 0}
-!34 = !{!35, !20, i64 0}
-!35 = !{!"H5VL_object_get_args_t", !20, i64 0, !5, i64 8}
-!36 = !{!5, !5, i64 0}
+!31 = !{!"branch_weights", i32 0, i32 1073741824, i32 1073741824}
+!32 = !{!33, !20, i64 4}
+!33 = !{!"H5VL_loc_params_t", !20, i64 0, !20, i64 4, !5, i64 8}
+!34 = !{!33, !20, i64 0}
+!35 = !{!36, !20, i64 0}
+!36 = !{!"H5VL_object_get_args_t", !20, i64 0, !5, i64 8}
+!37 = !{!5, !5, i64 0}

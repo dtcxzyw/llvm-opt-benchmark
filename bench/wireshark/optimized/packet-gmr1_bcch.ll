@@ -652,70 +652,70 @@ define internal signext range(i16 -1, 1) i16 @Seg3A_LAI_Dissector(ptr noundef %0
 
 16:                                               ; preds = %10
   %17 = load i8, ptr %6, align 1
-  %18 = zext i8 %17 to i32
-  %19 = and i32 %18, 15
-  %20 = mul nuw nsw i32 %19, 100
-  %21 = lshr i32 %18, 4
-  %22 = mul nuw nsw i32 %21, 10
-  %23 = add nuw nsw i32 %20, %22
+  %18 = zext i8 %17 to i16
+  %19 = and i16 %18, 15
+  %20 = mul nuw nsw i16 %19, 100
+  %21 = lshr i16 %18, 4
+  %22 = mul nuw nsw i16 %21, 10
+  %23 = add nuw nsw i16 %20, %22
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 15
-  %27 = zext nneg i8 %26 to i32
-  %28 = add nuw nsw i32 %23, %27
-  %29 = trunc nuw nsw i32 %28 to i16
-  store i16 %29, ptr %3, align 2
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %31 = load i8, ptr %30, align 1
-  %32 = zext i8 %31 to i16
-  %33 = and i16 %32, 15
-  %34 = mul nuw nsw i16 %33, 10
-  %35 = lshr i16 %32, 4
-  %36 = add nuw nsw i16 %34, %35
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 %36, ptr %37, align 2
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i16
-  %41 = shl nuw i16 %40, 8
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i16
-  %45 = or disjoint i16 %41, %44
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i16 %45, ptr %46, align 2
-  %47 = lshr i8 %39, 2
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i8 %47, ptr %48, align 2
-  %49 = and i16 %45, 1023
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i16 %49, ptr %50, align 2
-  %51 = load i32, ptr @hf_seg3a_lai_mcc, align 4
-  %52 = load i32, ptr %9, align 4
-  %53 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 noundef %51, ptr noundef %2, i32 noundef %52, i32 noundef 16, i32 noundef %28, i32 noundef 0, ptr noundef nonnull @.str.314, i32 noundef %28)
+  %27 = zext nneg i8 %26 to i16
+  %28 = add nuw nsw i16 %23, %27
+  store i16 %28, ptr %3, align 2
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i16
+  %32 = and i16 %31, 15
+  %33 = mul nuw nsw i16 %32, 10
+  %34 = lshr i16 %31, 4
+  %35 = add nuw nsw i16 %33, %34
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 %35, ptr %36, align 2
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i16
+  %40 = shl nuw i16 %39, 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %42 = load i8, ptr %41, align 1
+  %43 = zext i8 %42 to i16
+  %44 = or disjoint i16 %40, %43
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 %44, ptr %45, align 2
+  %46 = lshr i8 %38, 2
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i8 %46, ptr %47, align 2
+  %48 = and i16 %44, 1023
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i16 %48, ptr %49, align 2
+  %50 = load i32, ptr @hf_seg3a_lai_mcc, align 4
+  %51 = load i32, ptr %9, align 4
+  %52 = zext nneg i16 %28 to i32
+  %53 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 noundef %50, ptr noundef %2, i32 noundef %51, i32 noundef 16, i32 noundef %52, i32 noundef 0, ptr noundef nonnull @.str.314, i32 noundef %52)
   %54 = load i32, ptr @hf_seg3a_lai_mnc, align 4
   %55 = load i32, ptr %9, align 4
   %56 = add i32 %55, 16
-  %57 = load i16, ptr %37, align 2
+  %57 = load i16, ptr %36, align 2
   %58 = zext i16 %57 to i32
   %59 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 noundef %54, ptr noundef %2, i32 noundef %56, i32 noundef 8, i32 noundef %58, i32 noundef 0, ptr noundef nonnull @.str.314, i32 noundef %58)
   %60 = load i32, ptr @hf_seg3a_lai_lac, align 4
   %61 = load i32, ptr %9, align 4
   %62 = add i32 %61, 24
-  %63 = load i16, ptr %46, align 2
+  %63 = load i16, ptr %45, align 2
   %64 = zext i16 %63 to i32
   %65 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %0, i32 noundef %60, ptr noundef %2, i32 noundef %62, i32 noundef 16, i32 noundef %64, i32 noundef 0, ptr noundef nonnull @.str.315, i32 noundef %64)
   %66 = tail call ptr @proto_item_add_subtree(ptr noundef %65, i32 noundef %4)
   %67 = load i32, ptr @hf_seg3a_lai_msc_id, align 4
   %68 = load i32, ptr %9, align 4
   %69 = add i32 %68, 24
-  %70 = load i8, ptr %48, align 2
+  %70 = load i8, ptr %47, align 2
   %71 = zext i8 %70 to i32
   %72 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %66, i32 noundef %67, ptr noundef %2, i32 noundef %69, i32 noundef 6, i32 noundef %71, i32 noundef 0, ptr noundef nonnull @.str.314, i32 noundef %71)
   %73 = load i32, ptr @hf_seg3a_lai_spot_beam_id, align 4
   %74 = load i32, ptr %9, align 4
   %75 = add i32 %74, 30
-  %76 = load i16, ptr %50, align 2
+  %76 = load i16, ptr %49, align 2
   %77 = zext i16 %76 to i32
   %78 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %66, i32 noundef %73, ptr noundef %2, i32 noundef %75, i32 noundef 10, i32 noundef %77, i32 noundef 0, ptr noundef nonnull @.str.314, i32 noundef %77)
   %79 = load i32, ptr %1, align 8

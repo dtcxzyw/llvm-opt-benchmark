@@ -9287,9 +9287,9 @@ define hidden void @_ZN4gpui8elements12uniform_list12uniform_list17h314676660559
   %13 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @"_ZN78_$LT$gpui..window..ElementId$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17hdb85de5e8abe9fccE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-          to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h48ef2ac7941114d7E.exit" unwind label %.thread75
+          to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h48ef2ac7941114d7E.exit" unwind label %.thread71
 
-.thread75:                                        ; preds = %6
+.thread71:                                        ; preds = %6
   %14 = landingpad { ptr, i32 }
           cleanup
   br label %62
@@ -9556,11 +9556,11 @@ define hidden void @_ZN4gpui8elements12uniform_list12uniform_list17h314676660559
   br label %.thread66
 
 .thread66:                                        ; preds = %61, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$gpui..window..ElementId$GT$$GT$17h011e1223d634bdb8E.exit", %62
-  %.pn1169 = phi { ptr, i32 } [ %.pn1172, %62 ], [ %23, %61 ], [ %.pn, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$gpui..window..ElementId$GT$$GT$17h011e1223d634bdb8E.exit" ]
+  %.pn1169 = phi { ptr, i32 } [ %.pn1170, %62 ], [ %23, %61 ], [ %.pn, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$gpui..window..ElementId$GT$$GT$17h011e1223d634bdb8E.exit" ]
   resume { ptr, i32 } %.pn1169
 
-62:                                               ; preds = %.thread75, %.thread
-  %.pn1172 = phi { ptr, i32 } [ %15, %.thread ], [ %14, %.thread75 ]
+62:                                               ; preds = %.thread, %.thread71
+  %.pn1170 = phi { ptr, i32 } [ %14, %.thread71 ], [ %15, %.thread ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$language_selector..LanguageSelectorDelegate$GT$$GT$$GT$17h0dd8300b57769dc2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #27
           to label %.thread66 unwind label %59
 }

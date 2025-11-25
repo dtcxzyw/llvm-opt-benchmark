@@ -1643,8 +1643,8 @@ define hidden void @_ZN4core4iter8adapters11try_process17h0fa77ce4f766a5d3E(ptr 
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load i64, ptr %6, align 8, !range !47, !noundef !25
-  %.not13 = icmp eq i64 %9, -9223372036854775798
-  br i1 %.not13, label %"_ZN4core3ptr99drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_client..html..Error$GT$$GT$17h22f4cd16eeae9403E.llvm.12405228655970632718.exit", label %18
+  %.not8 = icmp eq i64 %9, -9223372036854775798
+  br i1 %.not8, label %"_ZN4core3ptr99drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_client..html..Error$GT$$GT$17h22f4cd16eeae9403E.llvm.12405228655970632718.exit", label %18
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !661

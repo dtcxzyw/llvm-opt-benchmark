@@ -166,7 +166,7 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
 
 96:                                               ; preds = %48
   %97 = icmp samesign ugt i32 %49, -10669
-  br i1 %97, label %98, label %107
+  br i1 %97, label %98, label %106
 
 98:                                               ; preds = %96
   %99 = trunc nsw i32 %49 to i16
@@ -175,101 +175,101 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
   %.zext106.i = trunc nuw i16 %100 to i8
   %.neg.i = sub i8 0, %.zext106.i
   %101 = udiv i16 %.lhs.trunc105.i, 253
-  %.neg108.i = sub nsw i16 0, %101
+  %.zext110.i = trunc nuw nsw i16 %101 to i8
+  %.neg108.i = sub nsw i8 0, %.zext110.i
   %.not137.i = icmp eq i16 %100, 0
-  %102 = xor i16 %101, -1
-  %.081.i = select i1 %.not137.i, i16 %.neg108.i, i16 %102
+  %102 = xor i8 %.zext110.i, -1
+  %.081.i = select i1 %.not137.i, i8 %.neg108.i, i8 %102
   %.0.i = select i1 %.not137.i, i8 3, i8 %.neg.i
-  %103 = trunc nsw i16 %.081.i to i8
-  %104 = add nsw i8 %103, 49
-  %105 = getelementptr inbounds nuw i8, ptr %.04052, i64 1
-  store i8 %104, ptr %.04052, align 1, !tbaa !11
-  %106 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
-  store i8 %.0.i, ptr %105, align 1, !tbaa !11
+  %103 = add nsw i8 %.081.i, 49
+  %104 = getelementptr inbounds nuw i8, ptr %.04052, i64 1
+  store i8 %103, ptr %.04052, align 1, !tbaa !11
+  %105 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
+  store i8 %.0.i, ptr %104, align 1, !tbaa !11
   br label %_ZL11u_writeDiffiPh.exit
 
-107:                                              ; preds = %96
-  %108 = icmp samesign ugt i32 %49, -192787
+106:                                              ; preds = %96
+  %107 = icmp samesign ugt i32 %49, -192787
   %.nonneg111.i = sub nsw i32 0, %49
-  %109 = urem i32 %.nonneg111.i, 253
-  %110 = udiv i32 %.nonneg111.i, 253
-  %.not135.i = icmp ne i32 %109, 0
-  %111 = trunc nuw i32 %109 to i8
-  %112 = sub i8 0, %111
+  %108 = urem i32 %.nonneg111.i, 253
+  %109 = udiv i32 %.nonneg111.i, 253
+  %.not135.i = icmp ne i32 %108, 0
+  %110 = trunc nuw i32 %108 to i8
+  %111 = sub i8 0, %110
   %.neg140.i = zext i1 %.not135.i to i32
-  %.182.neg.i = add nuw nsw i32 %110, %.neg140.i
-  %.1.i = select i1 %.not135.i, i8 %112, i8 3
-  br i1 %108, label %113, label %122
+  %.182.neg.i = add nuw nsw i32 %109, %.neg140.i
+  %.1.i = select i1 %.not135.i, i8 %111, i8 3
+  br i1 %107, label %112, label %120
 
-113:                                              ; preds = %107
-  %114 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
-  store i8 %.1.i, ptr %114, align 1, !tbaa !11
+112:                                              ; preds = %106
+  %113 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
+  store i8 %.1.i, ptr %113, align 1, !tbaa !11
   %.neg141.i = trunc nuw nsw i32 %.182.neg.i to i16
-  %115 = urem i16 %.neg141.i, 253
-  %.zext117.i = trunc nuw i16 %115 to i8
+  %114 = urem i16 %.neg141.i, 253
+  %.zext117.i = trunc nuw i16 %114 to i8
   %.neg115.i = sub i8 0, %.zext117.i
-  %116 = udiv i16 %.neg141.i, 253
-  %.neg119.i = sub nsw i16 0, %116
-  %.not136.i = icmp eq i16 %115, 0
-  %117 = xor i16 %116, -1
-  %.283.i = select i1 %.not136.i, i16 %.neg119.i, i16 %117
+  %115 = udiv i16 %.neg141.i, 253
+  %.zext121.i = trunc nuw nsw i16 %115 to i8
+  %.neg119.i = sub nsw i8 0, %.zext121.i
+  %.not136.i = icmp eq i16 %114, 0
+  %116 = xor i8 %.zext121.i, -1
+  %.283.i = select i1 %.not136.i, i8 %.neg119.i, i8 %116
   %.2.i = select i1 %.not136.i, i8 3, i8 %.neg115.i
-  %118 = getelementptr inbounds nuw i8, ptr %.04052, i64 1
-  store i8 %.2.i, ptr %118, align 1, !tbaa !11
-  %119 = trunc nsw i16 %.283.i to i8
-  %120 = add nsw i8 %119, 7
-  store i8 %120, ptr %.04052, align 1, !tbaa !11
+  %117 = getelementptr inbounds nuw i8, ptr %.04052, i64 1
+  store i8 %.2.i, ptr %117, align 1, !tbaa !11
+  %118 = add nsw i8 %.283.i, 7
+  store i8 %118, ptr %.04052, align 1, !tbaa !11
+  %119 = getelementptr inbounds nuw i8, ptr %.04052, i64 3
+  br label %_ZL11u_writeDiffiPh.exit
+
+120:                                              ; preds = %106
   %121 = getelementptr inbounds nuw i8, ptr %.04052, i64 3
-  br label %_ZL11u_writeDiffiPh.exit
-
-122:                                              ; preds = %107
-  %123 = getelementptr inbounds nuw i8, ptr %.04052, i64 3
-  store i8 %.1.i, ptr %123, align 1, !tbaa !11
-  %124 = urem i32 %.182.neg.i, 253
-  %125 = udiv i32 %.182.neg.i, 253
-  %.not132.i = icmp ne i32 %124, 0
-  %126 = trunc nuw i32 %124 to i8
-  %127 = sub i8 0, %126
+  store i8 %.1.i, ptr %121, align 1, !tbaa !11
+  %122 = urem i32 %.182.neg.i, 253
+  %123 = udiv i32 %.182.neg.i, 253
+  %.not132.i = icmp ne i32 %122, 0
+  %124 = trunc nuw i32 %122 to i8
+  %125 = sub i8 0, %124
   %.neg133.i = zext i1 %.not132.i to i32
-  %.485.neg.i = add nuw nsw i32 %125, %.neg133.i
-  %.4.i = select i1 %.not132.i, i8 %127, i8 3
-  %128 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
-  store i8 %.4.i, ptr %128, align 1, !tbaa !11
+  %.485.neg.i = add nuw nsw i32 %123, %.neg133.i
+  %.4.i = select i1 %.not132.i, i8 %125, i8 3
+  %126 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
+  store i8 %.4.i, ptr %126, align 1, !tbaa !11
   %.lhs.trunc130.i = trunc nuw i32 %.485.neg.i to i16
-  %129 = urem i16 %.lhs.trunc130.i, 253
-  %.zext131.i = trunc nuw i16 %129 to i8
+  %127 = urem i16 %.lhs.trunc130.i, 253
+  %.zext131.i = trunc nuw i16 %127 to i8
   %.neg129.i = sub i8 0, %.zext131.i
-  %.not134.i = icmp eq i16 %129, 0
+  %.not134.i = icmp eq i16 %127, 0
   %.5.i = select i1 %.not134.i, i8 3, i8 %.neg129.i
-  %130 = getelementptr inbounds nuw i8, ptr %.04052, i64 1
-  store i8 %.5.i, ptr %130, align 1, !tbaa !11
+  %128 = getelementptr inbounds nuw i8, ptr %.04052, i64 1
+  store i8 %.5.i, ptr %128, align 1, !tbaa !11
   store i8 3, ptr %.04052, align 1, !tbaa !11
-  %131 = getelementptr inbounds nuw i8, ptr %.04052, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %.04052, i64 4
   br label %_ZL11u_writeDiffiPh.exit
 
-_ZL11u_writeDiffiPh.exit:                         ; preds = %122, %113, %98, %84, %74, %59, %53, %46
-  %.33949 = phi i32 [ %26, %46 ], [ %.33950, %53 ], [ %.33950, %59 ], [ %.33950, %74 ], [ %.33950, %84 ], [ %.33950, %98 ], [ %.33950, %113 ], [ %.33950, %122 ]
-  %.141 = phi ptr [ %47, %46 ], [ %56, %53 ], [ %67, %59 ], [ %83, %74 ], [ %95, %84 ], [ %106, %98 ], [ %121, %113 ], [ %131, %122 ]
-  %.3 = phi i32 [ 0, %46 ], [ %.13551, %53 ], [ %.13551, %59 ], [ %.13551, %74 ], [ %.13551, %84 ], [ %.13551, %98 ], [ %.13551, %113 ], [ %.13551, %122 ]
-  %132 = icmp slt i32 %.33949, %2
-  %133 = icmp ule ptr %.141, %21
-  %134 = select i1 %132, i1 %133, i1 false
-  br i1 %134, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+_ZL11u_writeDiffiPh.exit:                         ; preds = %120, %112, %98, %84, %74, %59, %53, %46
+  %.33949 = phi i32 [ %26, %46 ], [ %.33950, %53 ], [ %.33950, %59 ], [ %.33950, %74 ], [ %.33950, %84 ], [ %.33950, %98 ], [ %.33950, %112 ], [ %.33950, %120 ]
+  %.141 = phi ptr [ %47, %46 ], [ %56, %53 ], [ %67, %59 ], [ %83, %74 ], [ %95, %84 ], [ %105, %98 ], [ %119, %112 ], [ %129, %120 ]
+  %.3 = phi i32 [ 0, %46 ], [ %.13551, %53 ], [ %.13551, %59 ], [ %.13551, %74 ], [ %.13551, %84 ], [ %.13551, %98 ], [ %.13551, %112 ], [ %.13551, %120 ]
+  %130 = icmp slt i32 %.33949, %2
+  %131 = icmp ule ptr %.141, %21
+  %132 = select i1 %130, i1 %131, i1 false
+  br i1 %132, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZL11u_writeDiffiPh.exit, %17
   %.040.lcssa = phi ptr [ %.042, %17 ], [ %.141, %_ZL11u_writeDiffiPh.exit ]
   %.137.lcssa = phi i32 [ %.03657, %17 ], [ %.33949, %_ZL11u_writeDiffiPh.exit ]
   %.1.lcssa = phi i32 [ %.058, %17 ], [ %.3, %_ZL11u_writeDiffiPh.exit ]
-  %135 = ptrtoint ptr %.040.lcssa to i64
-  %136 = ptrtoint ptr %.042 to i64
-  %137 = sub i64 %135, %136
-  %138 = trunc i64 %137 to i32
-  %139 = load ptr, ptr %3, align 8, !tbaa !3
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %141 = load ptr, ptr %140, align 8
-  call void %141(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.042, i32 noundef %138)
-  %142 = icmp slt i32 %.137.lcssa, %2
-  br i1 %142, label %9, label %._crit_edge61, !llvm.loop !14
+  %133 = ptrtoint ptr %.040.lcssa to i64
+  %134 = ptrtoint ptr %.042 to i64
+  %135 = sub i64 %133, %134
+  %136 = trunc i64 %135 to i32
+  %137 = load ptr, ptr %3, align 8, !tbaa !3
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %139 = load ptr, ptr %138, align 8
+  call void %139(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.042, i32 noundef %136)
+  %140 = icmp slt i32 %.137.lcssa, %2
+  br i1 %140, label %9, label %._crit_edge61, !llvm.loop !14
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %4
   %.0.lcssa = phi i32 [ %0, %4 ], [ %.1.lcssa, %._crit_edge ]

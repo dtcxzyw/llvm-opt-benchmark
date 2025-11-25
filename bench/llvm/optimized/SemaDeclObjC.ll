@@ -52749,7 +52749,7 @@ _ZNK5clang4Type6castAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit: ; preds = %114, 
 
 133:                                              ; preds = %121
   %134 = call noundef zeroext i1 @_ZN5clang8SemaObjC20inferObjCARCLifetimeEPNS_9ValueDeclE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull %125)
-  %spec.select = or i1 %134, %.1
+  %spec.select = or i1 %.1, %134
   br i1 %spec.select, label %136, label %137
 
 135:                                              ; preds = %121

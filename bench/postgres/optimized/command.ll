@@ -6843,7 +6843,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_prompt(ptr noundef %0, 
   %20 = load ptr, ptr @stdin, align 8
   %21 = tail call ptr @gets_fromFile(ptr noundef %20) #17
   %.not31 = icmp eq ptr %21, null
-  br i1 %.not31, label %.thread, label %.thread50
+  br i1 %.not31, label %.thread, label %.thread51
 
 22:                                               ; preds = %9
   %23 = call ptr @simple_prompt_extended(ptr noundef %., i1 noundef zeroext true, ptr noundef nonnull %4) #17
@@ -6857,18 +6857,18 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_prompt(ptr noundef %0, 
 
 25:                                               ; preds = %22
   %.not32 = icmp eq ptr %23, null
-  br i1 %.not32, label %.thread40, label %.thread50
+  br i1 %.not32, label %.thread40, label %.thread51
 
-.thread50:                                        ; preds = %19, %25
-  %.04953 = phi ptr [ %23, %25 ], [ %21, %19 ]
+.thread51:                                        ; preds = %19, %25
+  %.05054 = phi ptr [ %23, %25 ], [ %21, %19 ]
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 384), align 8
-  %27 = call zeroext i1 @SetVariable(ptr noundef %26, ptr noundef nonnull %.33, ptr noundef nonnull %.04953) #17
+  %27 = call zeroext i1 @SetVariable(ptr noundef %26, ptr noundef nonnull %.33, ptr noundef nonnull %.05054) #17
   %28 = select i1 %27, i32 2, i32 5
   br label %.thread40
 
-.thread40:                                        ; preds = %.thread50, %.thread, %22, %25
-  %.037 = phi ptr [ null, %25 ], [ %23, %22 ], [ null, %.thread ], [ %.04953, %.thread50 ]
-  %.2 = phi i32 [ 2, %25 ], [ 5, %22 ], [ 5, %.thread ], [ %28, %.thread50 ]
+.thread40:                                        ; preds = %.thread51, %.thread, %22, %25
+  %.037 = phi ptr [ null, %25 ], [ %23, %22 ], [ null, %.thread ], [ %.05054, %.thread51 ]
+  %.2 = phi i32 [ 2, %25 ], [ 5, %22 ], [ 5, %.thread ], [ %28, %.thread51 ]
   call void @free(ptr noundef %.037) #17
   call void @free(ptr noundef %.) #17
   call void @free(ptr noundef %.33) #17
@@ -6886,8 +6886,8 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_prompt(ptr noundef %0, 
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %ignore_slash_options.exit, label %.lr.ph.i, !llvm.loop !10
 
-ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %29, %8, %.thread40
-  %.3 = phi i32 [ %.2, %.thread40 ], [ 5, %8 ], [ 2, %29 ], [ 2, %.lr.ph.i ]
+ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %.thread40, %29, %8
+  %.3 = phi i32 [ 5, %8 ], [ 2, %29 ], [ %.2, %.thread40 ], [ 2, %.lr.ph.i ]
   ret i32 %.3
 }
 

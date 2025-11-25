@@ -34406,7 +34406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %_Z
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %409 = load i64, ptr %408, align 8, !tbaa !15
   %410 = icmp eq i64 %409, 0
-  %spec.select86 = or i1 %410, %.5
+  %spec.select86 = or i1 %.5, %410
   br label %.thread205
 
 .thread205:                                       ; preds = %403, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143, %407

@@ -530,7 +530,7 @@ Wayland_CreateSystemCursor.exit:                  ; preds = %86, %.thread.i66, %
 
 Wayland_ReadDBusProperty.exit.thread.i:           ; preds = %96
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %135
+  br label %134
 
 100:                                              ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 208
@@ -544,7 +544,7 @@ Wayland_ReadDBusProperty.exit.thread40.i:         ; preds = %100
   %105 = load ptr, ptr %104, align 8
   call void %105(ptr noundef nonnull %99) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %135
+  br label %134
 
 Wayland_ReadDBusProperty.exit.i:                  ; preds = %100
   %106 = getelementptr inbounds nuw i8, ptr %95, i64 112
@@ -556,7 +556,7 @@ Wayland_ReadDBusProperty.exit.i:                  ; preds = %100
   call void %111(ptr noundef nonnull %99) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not22.i = icmp eq ptr %109, null
-  br i1 %.not22.i, label %135, label %112
+  br i1 %.not22.i, label %134, label %112
 
 112:                                              ; preds = %Wayland_ReadDBusProperty.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -567,7 +567,7 @@ Wayland_ReadDBusProperty.exit.i:                  ; preds = %100
   %117 = load ptr, ptr %116, align 8
   %118 = call i32 %117(ptr noundef nonnull %3) #6
   %.not.i25.i = icmp eq i32 %118, 118
-  br i1 %.not.i25.i, label %119, label %Wayland_ParseDBusReply.exit.thread.i
+  br i1 %.not.i25.i, label %119, label %Wayland_ParseDBusReply.exit.i
 
 119:                                              ; preds = %112
   %120 = getelementptr inbounds nuw i8, ptr %95, i64 304
@@ -577,7 +577,7 @@ Wayland_ReadDBusProperty.exit.i:                  ; preds = %100
   %123 = load ptr, ptr %116, align 8
   %124 = call i32 %123(ptr noundef nonnull %122) #6
   %.not10.i.i = icmp eq i32 %124, 118
-  br i1 %.not10.i.i, label %125, label %Wayland_ParseDBusReply.exit.thread.i
+  br i1 %.not10.i.i, label %125, label %Wayland_ParseDBusReply.exit.i
 
 125:                                              ; preds = %119
   %126 = load ptr, ptr %120, align 8
@@ -586,163 +586,163 @@ Wayland_ReadDBusProperty.exit.i:                  ; preds = %100
   %128 = load ptr, ptr %116, align 8
   %129 = call i32 %128(ptr noundef nonnull %127) #6
   %.not11.i27.i = icmp eq i32 %129, 105
-  br i1 %.not11.i27.i, label %130, label %Wayland_ParseDBusReply.exit.thread.i
+  br i1 %.not11.i27.i, label %130, label %Wayland_ParseDBusReply.exit.i
 
 130:                                              ; preds = %125
   %131 = getelementptr inbounds nuw i8, ptr %95, i64 288
   %132 = load ptr, ptr %131, align 8
   call void %132(ptr noundef nonnull %127, ptr noundef nonnull @dbus_cursor_size) #6
-  br label %Wayland_ParseDBusReply.exit.thread.i
+  br label %Wayland_ParseDBusReply.exit.i
 
-Wayland_ParseDBusReply.exit.thread.i:             ; preds = %130, %125, %119, %112
-  %133 = phi i1 [ true, %130 ], [ false, %112 ], [ false, %119 ], [ false, %125 ]
+Wayland_ParseDBusReply.exit.i:                    ; preds = %130, %125, %119, %112
+  %.0.i26.i = phi i1 [ true, %130 ], [ false, %112 ], [ false, %119 ], [ false, %125 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %134 = load ptr, ptr %110, align 8
-  call void %134(ptr noundef nonnull %109) #6
-  br label %135
+  %133 = load ptr, ptr %110, align 8
+  call void %133(ptr noundef nonnull %109) #6
+  br label %134
 
-135:                                              ; preds = %Wayland_ParseDBusReply.exit.thread.i, %Wayland_ReadDBusProperty.exit.i, %Wayland_ReadDBusProperty.exit.thread40.i, %Wayland_ReadDBusProperty.exit.thread.i
-  %.0.i = phi i1 [ %133, %Wayland_ParseDBusReply.exit.thread.i ], [ false, %Wayland_ReadDBusProperty.exit.i ], [ false, %Wayland_ReadDBusProperty.exit.thread.i ], [ false, %Wayland_ReadDBusProperty.exit.thread40.i ]
+134:                                              ; preds = %Wayland_ParseDBusReply.exit.i, %Wayland_ReadDBusProperty.exit.i, %Wayland_ReadDBusProperty.exit.thread40.i, %Wayland_ReadDBusProperty.exit.thread.i
+  %.0.i = phi i1 [ %.0.i26.i, %Wayland_ParseDBusReply.exit.i ], [ false, %Wayland_ReadDBusProperty.exit.i ], [ false, %Wayland_ReadDBusProperty.exit.thread.i ], [ false, %Wayland_ReadDBusProperty.exit.thread40.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @.str.4, ptr %2, align 8
-  %136 = load ptr, ptr %97, align 8
-  %137 = call ptr %136(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #6
-  %.not.i28.i = icmp eq ptr %137, null
-  br i1 %.not.i28.i, label %Wayland_ReadDBusProperty.exit32.thread.i, label %138
+  %135 = load ptr, ptr %97, align 8
+  %136 = call ptr %135(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #6
+  %.not.i28.i = icmp eq ptr %136, null
+  br i1 %.not.i28.i, label %Wayland_ReadDBusProperty.exit32.thread.i, label %137
 
-Wayland_ReadDBusProperty.exit32.thread.i:         ; preds = %135
+Wayland_ReadDBusProperty.exit32.thread.i:         ; preds = %134
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.0.i, label %178, label %Wayland_DBusInitCursorProperties.exit
+  br i1 %.0.i, label %177, label %Wayland_DBusInitCursorProperties.exit
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds nuw i8, ptr %95, i64 208
-  %140 = load ptr, ptr %139, align 8
-  %141 = call i32 (ptr, i32, ...) %140(ptr noundef nonnull %137, i32 noundef 115, ptr noundef nonnull @Wayland_ReadDBusProperty.iface, i32 noundef 115, ptr noundef nonnull %2, i32 noundef 0) #6
-  %.not11.i29.i = icmp eq i32 %141, 0
-  br i1 %.not11.i29.i, label %Wayland_ReadDBusProperty.exit32.thread46.i, label %Wayland_ReadDBusProperty.exit32.i
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds nuw i8, ptr %95, i64 208
+  %139 = load ptr, ptr %138, align 8
+  %140 = call i32 (ptr, i32, ...) %139(ptr noundef nonnull %136, i32 noundef 115, ptr noundef nonnull @Wayland_ReadDBusProperty.iface, i32 noundef 115, ptr noundef nonnull %2, i32 noundef 0) #6
+  %.not11.i29.i = icmp eq i32 %140, 0
+  br i1 %.not11.i29.i, label %Wayland_ReadDBusProperty.exit32.thread45.i, label %Wayland_ReadDBusProperty.exit32.i
 
-Wayland_ReadDBusProperty.exit32.thread46.i:       ; preds = %138
-  %142 = getelementptr inbounds nuw i8, ptr %95, i64 312
-  %143 = load ptr, ptr %142, align 8
-  call void %143(ptr noundef nonnull %137) #6
+Wayland_ReadDBusProperty.exit32.thread45.i:       ; preds = %137
+  %141 = getelementptr inbounds nuw i8, ptr %95, i64 312
+  %142 = load ptr, ptr %141, align 8
+  call void %142(ptr noundef nonnull %136) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.0.i, label %178, label %Wayland_DBusInitCursorProperties.exit
+  br i1 %.0.i, label %177, label %Wayland_DBusInitCursorProperties.exit
 
-Wayland_ReadDBusProperty.exit32.i:                ; preds = %138
-  %144 = getelementptr inbounds nuw i8, ptr %95, i64 112
-  %145 = load ptr, ptr %144, align 8
-  %146 = load ptr, ptr %95, align 8
-  %147 = call ptr %145(ptr noundef %146, ptr noundef nonnull %137, i32 noundef -1, ptr noundef null) #6
-  %148 = getelementptr inbounds nuw i8, ptr %95, i64 312
-  %149 = load ptr, ptr %148, align 8
-  call void %149(ptr noundef nonnull %137) #6
+Wayland_ReadDBusProperty.exit32.i:                ; preds = %137
+  %143 = getelementptr inbounds nuw i8, ptr %95, i64 112
+  %144 = load ptr, ptr %143, align 8
+  %145 = load ptr, ptr %95, align 8
+  %146 = call ptr %144(ptr noundef %145, ptr noundef nonnull %136, i32 noundef -1, ptr noundef null) #6
+  %147 = getelementptr inbounds nuw i8, ptr %95, i64 312
+  %148 = load ptr, ptr %147, align 8
+  call void %148(ptr noundef nonnull %136) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.not23.i = icmp eq ptr %147, null
-  br i1 %.not23.i, label %177, label %150
+  %.not23.i = icmp eq ptr %146, null
+  br i1 %.not23.i, label %176, label %149
 
-150:                                              ; preds = %Wayland_ReadDBusProperty.exit32.i
+149:                                              ; preds = %Wayland_ReadDBusProperty.exit32.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %151 = getelementptr inbounds nuw i8, ptr %95, i64 272
-  %152 = load ptr, ptr %151, align 8
-  %153 = call i32 %152(ptr noundef nonnull %147, ptr noundef nonnull %1) #6
-  %154 = getelementptr inbounds nuw i8, ptr %95, i64 296
-  %155 = load ptr, ptr %154, align 8
-  %156 = call i32 %155(ptr noundef nonnull %1) #6
-  %.not.i33.i = icmp eq i32 %156, 118
-  br i1 %.not.i33.i, label %157, label %175
+  %150 = getelementptr inbounds nuw i8, ptr %95, i64 272
+  %151 = load ptr, ptr %150, align 8
+  %152 = call i32 %151(ptr noundef nonnull %146, ptr noundef nonnull %1) #6
+  %153 = getelementptr inbounds nuw i8, ptr %95, i64 296
+  %154 = load ptr, ptr %153, align 8
+  %155 = call i32 %154(ptr noundef nonnull %1) #6
+  %.not.i33.i = icmp eq i32 %155, 118
+  br i1 %.not.i33.i, label %156, label %174
 
-157:                                              ; preds = %150
-  %158 = getelementptr inbounds nuw i8, ptr %95, i64 304
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  call void %159(ptr noundef nonnull %1, ptr noundef nonnull %160) #6
-  %161 = load ptr, ptr %154, align 8
-  %162 = call i32 %161(ptr noundef nonnull %160) #6
-  %.not10.i35.i = icmp eq i32 %162, 118
-  br i1 %.not10.i35.i, label %163, label %175
+156:                                              ; preds = %149
+  %157 = getelementptr inbounds nuw i8, ptr %95, i64 304
+  %158 = load ptr, ptr %157, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  call void %158(ptr noundef nonnull %1, ptr noundef nonnull %159) #6
+  %160 = load ptr, ptr %153, align 8
+  %161 = call i32 %160(ptr noundef nonnull %159) #6
+  %.not10.i35.i = icmp eq i32 %161, 118
+  br i1 %.not10.i35.i, label %162, label %174
 
-163:                                              ; preds = %157
-  %164 = load ptr, ptr %158, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  call void %164(ptr noundef nonnull %160, ptr noundef nonnull %165) #6
-  %166 = load ptr, ptr %154, align 8
-  %167 = call i32 %166(ptr noundef nonnull %165) #6
-  %.not11.i36.i = icmp eq i32 %167, 115
-  br i1 %.not11.i36.i, label %168, label %175
+162:                                              ; preds = %156
+  %163 = load ptr, ptr %157, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  call void %163(ptr noundef nonnull %159, ptr noundef nonnull %164) #6
+  %165 = load ptr, ptr %153, align 8
+  %166 = call i32 %165(ptr noundef nonnull %164) #6
+  %.not11.i36.i = icmp eq i32 %166, 115
+  br i1 %.not11.i36.i, label %167, label %174
 
-168:                                              ; preds = %163
-  %169 = getelementptr inbounds nuw i8, ptr %95, i64 288
-  %170 = load ptr, ptr %169, align 8
-  call void %170(ptr noundef nonnull %165, ptr noundef nonnull %5) #6
+167:                                              ; preds = %162
+  %168 = getelementptr inbounds nuw i8, ptr %95, i64 288
+  %169 = load ptr, ptr %168, align 8
+  call void %169(ptr noundef nonnull %164, ptr noundef nonnull %5) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %171 = load ptr, ptr %5, align 8
-  %.not24.i = icmp eq ptr %171, null
-  br i1 %.not24.i, label %.thread.i69, label %172
+  %170 = load ptr, ptr %5, align 8
+  %.not24.i = icmp eq ptr %170, null
+  br i1 %.not24.i, label %.thread.i69, label %171
 
-172:                                              ; preds = %168
-  %173 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %171) #6
-  store ptr %173, ptr @dbus_cursor_theme, align 8
+171:                                              ; preds = %167
+  %172 = call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %170) #6
+  store ptr %172, ptr @dbus_cursor_theme, align 8
   br label %.thread.i69
 
-.thread.i69:                                      ; preds = %172, %168
-  %174 = load ptr, ptr %148, align 8
-  call void %174(ptr noundef nonnull %147) #6
+.thread.i69:                                      ; preds = %171, %167
+  %173 = load ptr, ptr %147, align 8
+  call void %173(ptr noundef nonnull %146) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %178
+  br label %177
 
-175:                                              ; preds = %163, %157, %150
+174:                                              ; preds = %162, %156, %149
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %176 = load ptr, ptr %148, align 8
-  call void %176(ptr noundef nonnull %147) #6
+  %175 = load ptr, ptr %147, align 8
+  call void %175(ptr noundef nonnull %146) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.0.i, label %178, label %Wayland_DBusInitCursorProperties.exit
+  br i1 %.0.i, label %177, label %Wayland_DBusInitCursorProperties.exit
 
-177:                                              ; preds = %Wayland_ReadDBusProperty.exit32.i
-  br i1 %.0.i, label %178, label %Wayland_DBusInitCursorProperties.exit
+176:                                              ; preds = %Wayland_ReadDBusProperty.exit32.i
+  br i1 %.0.i, label %177, label %Wayland_DBusInitCursorProperties.exit
 
-178:                                              ; preds = %177, %175, %.thread.i69, %Wayland_ReadDBusProperty.exit32.thread46.i, %Wayland_ReadDBusProperty.exit32.thread.i
-  %179 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  %180 = load ptr, ptr %179, align 8
-  %181 = load ptr, ptr %95, align 8
-  call void %180(ptr noundef %181, ptr noundef nonnull @.str.5, ptr noundef null) #6
-  %182 = getelementptr inbounds nuw i8, ptr %95, i64 80
-  %183 = load ptr, ptr %182, align 8
-  %184 = load ptr, ptr %95, align 8
-  %185 = call i32 %183(ptr noundef %184, ptr noundef nonnull @Wayland_DBusCursorMessageFilter, ptr noundef nonnull %9, ptr noundef null) #6
-  %186 = getelementptr inbounds nuw i8, ptr %95, i64 144
-  %187 = load ptr, ptr %186, align 8
-  %188 = load ptr, ptr %95, align 8
-  call void %187(ptr noundef %188) #6
+177:                                              ; preds = %176, %174, %.thread.i69, %Wayland_ReadDBusProperty.exit32.thread45.i, %Wayland_ReadDBusProperty.exit32.thread.i
+  %178 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  %179 = load ptr, ptr %178, align 8
+  %180 = load ptr, ptr %95, align 8
+  call void %179(ptr noundef %180, ptr noundef nonnull @.str.5, ptr noundef null) #6
+  %181 = getelementptr inbounds nuw i8, ptr %95, i64 80
+  %182 = load ptr, ptr %181, align 8
+  %183 = load ptr, ptr %95, align 8
+  %184 = call i32 %182(ptr noundef %183, ptr noundef nonnull @Wayland_DBusCursorMessageFilter, ptr noundef nonnull %9, ptr noundef null) #6
+  %185 = getelementptr inbounds nuw i8, ptr %95, i64 144
+  %186 = load ptr, ptr %185, align 8
+  %187 = load ptr, ptr %95, align 8
+  call void %186(ptr noundef %187) #6
   br label %Wayland_DBusInitCursorProperties.exit
 
-Wayland_DBusInitCursorProperties.exit:            ; preds = %178, %177, %175, %Wayland_ReadDBusProperty.exit32.thread46.i, %Wayland_ReadDBusProperty.exit32.thread.i, %94, %91
-  %189 = call i32 @SDL_GetDefaultSystemCursor() #6
-  %190 = call noalias dereferenceable_or_null(16) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 16) #7
-  %.not.i.i70 = icmp eq ptr %190, null
-  br i1 %.not.i.i70, label %Wayland_CreateDefaultCursor.exit, label %191
+Wayland_DBusInitCursorProperties.exit:            ; preds = %177, %176, %174, %Wayland_ReadDBusProperty.exit32.thread45.i, %Wayland_ReadDBusProperty.exit32.thread.i, %94, %91
+  %188 = call i32 @SDL_GetDefaultSystemCursor() #6
+  %189 = call noalias dereferenceable_or_null(16) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 16) #7
+  %.not.i.i70 = icmp eq ptr %189, null
+  br i1 %.not.i.i70, label %Wayland_CreateDefaultCursor.exit, label %190
 
-191:                                              ; preds = %Wayland_DBusInitCursorProperties.exit
-  %192 = call noalias dereferenceable_or_null(40) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 40) #7
-  %.not13.not.i.i = icmp eq ptr %192, null
-  br i1 %.not13.not.i.i, label %.thread.i.i, label %193
+190:                                              ; preds = %Wayland_DBusInitCursorProperties.exit
+  %191 = call noalias dereferenceable_or_null(40) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 40) #7
+  %.not13.not.i.i = icmp eq ptr %191, null
+  br i1 %.not13.not.i.i, label %.thread.i.i, label %192
 
-.thread.i.i:                                      ; preds = %191
-  call void @SDL_free_REAL(ptr noundef nonnull %190) #6
+.thread.i.i:                                      ; preds = %190
+  call void @SDL_free_REAL(ptr noundef nonnull %189) #6
   br label %Wayland_CreateDefaultCursor.exit
 
-193:                                              ; preds = %191
-  %194 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  store ptr %192, ptr %194, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %192, i64 20
-  store i32 %189, ptr %195, align 4
-  %196 = getelementptr inbounds nuw i8, ptr %192, i64 32
-  store i8 1, ptr %196, align 8
+192:                                              ; preds = %190
+  %193 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  store ptr %191, ptr %193, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 20
+  store i32 %188, ptr %194, align 4
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 32
+  store i8 1, ptr %195, align 8
   br label %Wayland_CreateDefaultCursor.exit
 
-Wayland_CreateDefaultCursor.exit:                 ; preds = %Wayland_DBusInitCursorProperties.exit, %.thread.i.i, %193
-  %.1.i.i = phi ptr [ null, %.thread.i.i ], [ %190, %193 ], [ null, %Wayland_DBusInitCursorProperties.exit ]
+Wayland_CreateDefaultCursor.exit:                 ; preds = %Wayland_DBusInitCursorProperties.exit, %.thread.i.i, %192
+  %.1.i.i = phi ptr [ null, %.thread.i.i ], [ %189, %192 ], [ null, %Wayland_DBusInitCursorProperties.exit ]
   call void @SDL_SetDefaultCursor(ptr noundef %.1.i.i) #6
   ret void
 }

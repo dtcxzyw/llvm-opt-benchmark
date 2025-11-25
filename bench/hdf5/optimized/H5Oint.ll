@@ -4645,8 +4645,8 @@ define internal i32 @H5O__visit_cb(i64 %0, ptr noundef %1, ptr noundef readonly 
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !155
   %25 = call i32 @H5G_loc_find(ptr noundef %24, ptr noundef %1, ptr noundef nonnull %5) #12
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %82, label %27
+  %26 = icmp sgt i32 %25, -1
+  br i1 %26, label %27, label %82
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr %7, align 8, !tbaa !63

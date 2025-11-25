@@ -12977,8 +12977,8 @@ _ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit: ; preds = %27
   %37 = landingpad { ptr, i32 }
           cleanup
   %38 = load ptr, ptr %8, align 8, !noalias !2632, !noundef !16
-  %.not14.i = icmp eq ptr %38, null
-  br i1 %.not14.i, label %common.resume, label %43
+  %.not9.i = icmp eq ptr %38, null
+  br i1 %.not9.i, label %common.resume, label %43
 
 39:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2621

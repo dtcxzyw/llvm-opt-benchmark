@@ -103,11 +103,11 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %11
 
 .preheader.outer:                                 ; preds = %23, %.preheader.outer.backedge
   %.051.ph = phi ptr [ %.051.ph.be, %.preheader.outer.backedge ], [ %27, %23 ]
-  %.046.ph = phi i8 [ %.248, %.preheader.outer.backedge ], [ 1, %23 ]
+  %.046.ph = phi i1 [ %.248, %.preheader.outer.backedge ], [ true, %23 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.outer, %57
-  %.046 = phi i8 [ %.248, %57 ], [ %.046.ph, %.preheader.outer ]
+.preheader:                                       ; preds = %.preheader.outer, %55
+  %.046 = phi i1 [ %.248, %55 ], [ %.046.ph, %.preheader.outer ]
   %28 = load ptr, ptr %0, align 8, !tbaa !6
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
@@ -136,144 +136,139 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %11
 35:                                               ; preds = %32
   %36 = load ptr, ptr %.051.ph, align 8, !tbaa !8
   %37 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %38 unwind label %48
+          to label %38 unwind label %46
 
 38:                                               ; preds = %35
   %39 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %40 unwind label %48
+          to label %40 unwind label %46
 
 40:                                               ; preds = %38
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %50, label %41
+  br i1 %.not, label %48, label %41
 
 41:                                               ; preds = %40
   %42 = load ptr, ptr %36, align 8, !tbaa !6
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(216) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %46 unwind label %48
+          to label %48 unwind label %46
 
-46:                                               ; preds = %41
-  %47 = zext i1 %45 to i8
-  br label %50
-
-48:                                               ; preds = %41, %38, %35
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %41, %38, %35
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit71
 
-50:                                               ; preds = %40, %46
-  %.248 = phi i8 [ %47, %46 ], [ 1, %40 ]
-  %51 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %52 unwind label %59
+48:                                               ; preds = %41, %40
+  %.248 = phi i1 [ true, %40 ], [ %45, %41 ]
+  %49 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
+          to label %50 unwind label %57
 
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %36, align 8, !tbaa !6
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  %56 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(8) %36)
-          to label %57 unwind label %.loopexit71.loopexit
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %36, align 8, !tbaa !6
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(8) %36)
+          to label %55 unwind label %.loopexit71.loopexit
 
-57:                                               ; preds = %52
-  %58 = icmp ne i32 %51, %37
-  %or.cond = and i1 %58, %56
-  br i1 %or.cond, label %.preheader, label %61, !llvm.loop !11
+55:                                               ; preds = %50
+  %56 = icmp ne i32 %49, %37
+  %or.cond = and i1 %56, %54
+  br i1 %or.cond, label %.preheader, label %59, !llvm.loop !11
 
-59:                                               ; preds = %50
-  %60 = landingpad { ptr, i32 }
+57:                                               ; preds = %48
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit71
 
-.loopexit71.loopexit:                             ; preds = %52
+.loopexit71.loopexit:                             ; preds = %50
   %lpad.loopexit117 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit71
 
-.loopexit71.loopexit.split-lp:                    ; preds = %75, %70, %62
+.loopexit71.loopexit.split-lp:                    ; preds = %73, %68, %60
   %lpad.loopexit.split-lp118 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit71
 
-.loopexit.split-lp72:                             ; preds = %79, %80, %.noexc, %.noexc65
+.loopexit.split-lp72:                             ; preds = %77, %78, %.noexc, %.noexc65
   %lpad.loopexit.split-lp74 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit71
 
-61:                                               ; preds = %57
-  br i1 %58, label %62, label %76
+59:                                               ; preds = %55
+  br i1 %56, label %60, label %74
 
-62:                                               ; preds = %61
-  %63 = getelementptr inbounds nuw i8, ptr %.051.ph, i64 8
-  %64 = load ptr, ptr %0, align 8, !tbaa !6
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
-  %66 = load ptr, ptr %65, align 8
-  %67 = invoke noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %68 unwind label %.loopexit71.loopexit.split-lp
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds nuw i8, ptr %.051.ph, i64 8
+  %62 = load ptr, ptr %0, align 8, !tbaa !6
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
+  %64 = load ptr, ptr %63, align 8
+  %65 = invoke noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(8) %0)
+          to label %66 unwind label %.loopexit71.loopexit.split-lp
 
-68:                                               ; preds = %62
-  %69 = icmp ult ptr %63, %67
-  br i1 %69, label %70, label %.preheader.outer.backedge
+66:                                               ; preds = %60
+  %67 = icmp ult ptr %61, %65
+  br i1 %67, label %68, label %.preheader.outer.backedge
+
+68:                                               ; preds = %66
+  %69 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
+          to label %70 unwind label %.loopexit71.loopexit.split-lp
 
 70:                                               ; preds = %68
-  %71 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %72 unwind label %.loopexit71.loopexit.split-lp
+  %71 = load i32, ptr %7, align 8, !tbaa !13
+  %.not58 = icmp ne i32 %69, %71
+  %72 = icmp sgt i32 %71, %37
+  %or.cond64 = and i1 %.not58, %72
+  br i1 %or.cond64, label %73, label %.preheader.outer.backedge
 
-72:                                               ; preds = %70
-  %73 = load i32, ptr %7, align 8, !tbaa !13
-  %.not58 = icmp ne i32 %71, %73
-  %74 = icmp sgt i32 %73, %37
-  %or.cond64 = and i1 %.not58, %74
-  br i1 %or.cond64, label %75, label %.preheader.outer.backedge
-
-75:                                               ; preds = %72
-  invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %73)
+73:                                               ; preds = %70
+  invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %71)
           to label %.preheader.outer.backedge unwind label %.loopexit71.loopexit.split-lp
 
-.preheader.outer.backedge:                        ; preds = %75, %72, %68, %77
-  %.051.ph.be = phi ptr [ %78, %77 ], [ %63, %68 ], [ %63, %72 ], [ %63, %75 ]
+.preheader.outer.backedge:                        ; preds = %73, %70, %66, %75
+  %.051.ph.be = phi ptr [ %76, %75 ], [ %61, %66 ], [ %61, %70 ], [ %61, %73 ]
   br label %.preheader.outer, !llvm.loop !11
 
-76:                                               ; preds = %61
-  br i1 %56, label %77, label %79
+74:                                               ; preds = %59
+  br i1 %54, label %75, label %77
 
-77:                                               ; preds = %76
-  %78 = getelementptr inbounds nuw i8, ptr %.051.ph, i64 8
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %.051.ph, i64 8
   br label %.preheader.outer.backedge
 
-79:                                               ; preds = %76
+77:                                               ; preds = %74
   invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %22)
-          to label %80 unwind label %.loopexit.split-lp72
+          to label %78 unwind label %.loopexit.split-lp72
 
-80:                                               ; preds = %79
-  %81 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(216) %2, ptr noundef nonnull align 8 dereferenceable(216) %5)
+78:                                               ; preds = %77
+  %79 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(216) %2, ptr noundef nonnull align 8 dereferenceable(216) %5)
           to label %.noexc unwind label %.loopexit.split-lp72
 
-.noexc:                                           ; preds = %80
-  %82 = load i64, ptr %6, align 8
-  store i64 %82, ptr %7, align 8
-  %83 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %9)
+.noexc:                                           ; preds = %78
+  %80 = load i64, ptr %6, align 8
+  store i64 %80, ptr %7, align 8
+  %81 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %.noexc65 unwind label %.loopexit.split-lp72
 
 .noexc65:                                         ; preds = %.noexc
-  %84 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %12)
+  %82 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %12)
           to label %.thread unwind label %.loopexit.split-lp72
 
 .thread:                                          ; preds = %.noexc65
-  %85 = load i64, ptr %19, align 8
-  store i64 %85, ptr %20, align 8
+  %83 = load i64, ptr %19, align 8
+  store i64 %83, ptr %20, align 8
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %32, %.thread
-  %.3.in = phi i8 [ %.248, %.thread ], [ %.046, %32 ]
-  %.3 = trunc nuw i8 %.3.in to i1
+  %.3.in = phi i1 [ %.248, %.thread ], [ %.046, %32 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #14
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #14
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.3
+  ret i1 %.3.in
 
-.loopexit71:                                      ; preds = %.loopexit71.loopexit, %.loopexit71.loopexit.split-lp, %.loopexit.split-lp72, %.loopexit, %.loopexit.split-lp, %59, %48, %33
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %49, %48 ], [ %60, %59 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp72 ], [ %lpad.loopexit117, %.loopexit71.loopexit ], [ %lpad.loopexit.split-lp118, %.loopexit71.loopexit.split-lp ]
+.loopexit71:                                      ; preds = %.loopexit71.loopexit, %.loopexit71.loopexit.split-lp, %.loopexit.split-lp72, %.loopexit, %.loopexit.split-lp, %57, %46, %33
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %47, %46 ], [ %58, %57 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp74, %.loopexit.split-lp72 ], [ %lpad.loopexit117, %.loopexit71.loopexit ], [ %lpad.loopexit.split-lp118, %.loopexit71.loopexit.split-lp ]
   call void @_ZN6icu_778numparse4impl12ParsedNumberD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %5) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume

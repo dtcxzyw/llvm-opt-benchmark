@@ -189580,7 +189580,7 @@ default.unreachable2134:                          ; preds = %55
   %.sroa.0264.5720 = phi i1 [ true, %.thread712 ], [ %.sroa.0264.5, %259 ], [ %.sroa.0264.5734, %264 ], [ %.sroa.0264.5734, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i463" ]
   %262 = load ptr, ptr %22, align 8, !noundef !4
   %263 = icmp ne ptr %262, null
-  %or.cond3 = and i1 %263, %.sroa.0264.5720
+  %or.cond3 = and i1 %.sroa.0264.5720, %263
   br i1 %or.cond3, label %272, label %"_ZN4core3ptr221drop_in_place$LT$std..collections..hash..map..HashMap$LT$assistant..context..SavedMessageIdPreV0_4_0$C$assistant..context..SavedMessageMetadataPreV0_4_0$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h47d2bf2bdbe1f01cE.exit466"
 
 264:                                              ; preds = %.thread726, %259
@@ -189614,7 +189614,7 @@ default.unreachable2134:                          ; preds = %55
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit477": ; preds = %.body, %.body, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i476"
   %267 = load ptr, ptr %22, align 8, !noundef !4
   %268 = icmp ne ptr %267, null
-  %or.cond17 = and i1 %268, %.sroa.0264.2
+  %or.cond17 = and i1 %.sroa.0264.2, %268
   br i1 %or.cond17, label %310, label %.thread740
 
 "_ZN4core3ptr221drop_in_place$LT$std..collections..hash..map..HashMap$LT$assistant..context..SavedMessageIdPreV0_4_0$C$assistant..context..SavedMessageMetadataPreV0_4_0$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h47d2bf2bdbe1f01cE.exit466": ; preds = %272, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit464"
@@ -192149,7 +192149,7 @@ switch.early.test1082:                            ; preds = %.body.thread
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit591": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i590", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2546f6b250219fd6E.llvm.16973415199813822637.exit589"
   %355 = load ptr, ptr %28, align 8, !noundef !4
   %356 = icmp ne ptr %355, null
-  %or.cond7 = and i1 %356, %.sroa.0334.5968
+  %or.cond7 = and i1 %.sroa.0334.5968, %356
   br i1 %or.cond7, label %363, label %"_ZN4core3ptr221drop_in_place$LT$std..collections..hash..map..HashMap$LT$assistant..context..SavedMessageIdPreV0_4_0$C$assistant..context..SavedMessageMetadataPreV0_4_0$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h47d2bf2bdbe1f01cE.exit593"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i590": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2546f6b250219fd6E.llvm.16973415199813822637.exit589"
@@ -192161,7 +192161,7 @@ switch.early.test1082:                            ; preds = %.body.thread
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit607": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i606", %.thread994
   %358 = load ptr, ptr %28, align 8, !noundef !4
   %359 = icmp ne ptr %358, null
-  %or.cond25 = and i1 %359, %.sroa.0334.2
+  %or.cond25 = and i1 %.sroa.0334.2, %359
   br i1 %or.cond25, label %402, label %"_ZN4core3ptr221drop_in_place$LT$std..collections..hash..map..HashMap$LT$assistant..context..SavedMessageIdPreV0_4_0$C$assistant..context..SavedMessageMetadataPreV0_4_0$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h47d2bf2bdbe1f01cE.exit609"
 
 "_ZN4core3ptr221drop_in_place$LT$std..collections..hash..map..HashMap$LT$assistant..context..SavedMessageIdPreV0_4_0$C$assistant..context..SavedMessageMetadataPreV0_4_0$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h47d2bf2bdbe1f01cE.exit593": ; preds = %363, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit591"

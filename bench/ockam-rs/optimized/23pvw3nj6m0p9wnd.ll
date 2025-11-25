@@ -14358,14 +14358,14 @@ define internal fastcc void @"_ZN10ockam_node7context15receive_message55_$LT$imp
   %14 = alloca { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { { ptr, i64 }, i64, i64 } }, { { { ptr, i64 }, i64, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } }, i8, [7 x i8] } }, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %16 = load i8, ptr %15, align 8, !range !35, !noundef !4
-  switch i8 %16, label %default.unreachable88 [
+  switch i8 %16, label %default.unreachable91 [
     i8 0, label %17
     i8 1, label %25
     i8 2, label %26
     i8 3, label %19
   ]
 
-default.unreachable88:                            ; preds = %3
+default.unreachable91:                            ; preds = %3
   unreachable
 
 17:                                               ; preds = %3
@@ -142620,9 +142620,9 @@ common.ret:                                       ; preds = %69, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !20091
   %85 = load ptr, ptr %6, align 8, !noalias !20081, !noundef !4
   %.not.not.i.i.i = icmp eq ptr %85, null
-  br i1 %.not.not.i.i.i, label %.thread13.i.i.i, label %86
+  br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %86
 
-.thread13.i.i.i:                                  ; preds = %84
+.thread.i.i.i:                                    ; preds = %84
   %.sroa.070.0.copyload71 = load ptr, ptr %5, align 8, !noalias !20104
   %.sroa.472.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.472.0.copyload74 = load ptr, ptr %.sroa.472.0..sroa_idx73, align 8, !noalias !20104
@@ -142649,10 +142649,10 @@ common.ret:                                       ; preds = %69, %14
           cleanup
   br label %.body36
 
-92:                                               ; preds = %.thread13.i.i.i, %86
-  %.sroa.070.1 = phi ptr [ %.sroa.070.0.copyload71, %.thread13.i.i.i ], [ null, %86 ]
-  %.sroa.472.1 = phi ptr [ %.sroa.472.0.copyload74, %.thread13.i.i.i ], [ %85, %86 ]
-  %.sroa.675.1 = phi i64 [ %.sroa.675.0.copyload77, %.thread13.i.i.i ], [ undef, %86 ]
+92:                                               ; preds = %.thread.i.i.i, %86
+  %.sroa.070.1 = phi ptr [ %.sroa.070.0.copyload71, %.thread.i.i.i ], [ null, %86 ]
+  %.sroa.472.1 = phi ptr [ %.sroa.472.0.copyload74, %.thread.i.i.i ], [ %85, %86 ]
+  %.sroa.675.1 = phi i64 [ %.sroa.675.0.copyload77, %.thread.i.i.i ], [ undef, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !20081
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !20081
   br label %14

@@ -11045,8 +11045,8 @@ define hidden void @_ZN16uv_build_backend16find_module_root17hb1484561db880aa8E(
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #48, !noalias !2558
   unreachable
 
-common.resume:                                    ; preds = %"_ZN4core3ptr58drop_in_place$LT$uv_pypi_types..identifier..Identifier$GT$17h14ad23ea180ea91eE.exit", %122, %.thread212, %59
-  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %.pn116.pn215, %.thread212 ], [ %.pn116.pn, %122 ], [ %.pn, %"_ZN4core3ptr58drop_in_place$LT$uv_pypi_types..identifier..Identifier$GT$17h14ad23ea180ea91eE.exit" ]
+common.resume:                                    ; preds = %.body143, %"_ZN4core3ptr58drop_in_place$LT$uv_pypi_types..identifier..Identifier$GT$17h14ad23ea180ea91eE.exit", %122, %.thread212, %59
+  %common.resume.op = phi { ptr, i32 } [ %60, %59 ], [ %.pn116.pn215, %.thread212 ], [ %.pn114257, %122 ], [ %.pn, %"_ZN4core3ptr58drop_in_place$LT$uv_pypi_types..identifier..Identifier$GT$17h14ad23ea180ea91eE.exit" ], [ %.pn111, %.body143 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h457a06b2298908dfE.exit": ; preds = %61
@@ -11242,10 +11242,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr58drop
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %70
 
-122:                                              ; preds = %.body143.thread, %.body143
-  %.sroa.066.2 = phi i1 [ %.sroa.066.4256, %.body143.thread ], [ false, %.body143 ]
-  %.pn116.pn = phi { ptr, i32 } [ %.pn114257, %.body143.thread ], [ %.pn111, %.body143 ]
-  br i1 %.sroa.066.2, label %.thread212, label %common.resume
+122:                                              ; preds = %.body143.thread
+  br i1 %.sroa.066.4256, label %.thread212, label %common.resume
 
 123:                                              ; preds = %81, %70, %331, %.thread242
   %124 = landingpad { ptr, i32 }
@@ -11285,8 +11283,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr58drop
   %129 = landingpad { ptr, i32 }
           cleanup
   %130 = load ptr, ptr %24, align 8, !noalias !2631, !noundef !13
-  %.not14.i = icmp eq ptr %130, null
-  br i1 %.not14.i, label %.thread212, label %136
+  %.not9.i = icmp eq ptr %130, null
+  br i1 %.not9.i, label %.thread212, label %136
 
 131:                                              ; preds = %127
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !2620
@@ -11505,7 +11503,7 @@ default.unreachable:                              ; preds = %._crit_edge
   br i1 %199, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hfbee4642de6ad6daE.exit.thread", label %171
 
 .body143:                                         ; preds = %332, %244
-  br i1 %.sroa.064.4, label %.body143.thread, label %122
+  br i1 %.sroa.064.4, label %.body143.thread, label %common.resume
 
 .body143.thread281:                               ; preds = %"_ZN16uv_build_backend16find_module_root28_$u7b$$u7b$closure$u7d$$u7d$17h8c2ea9bf3f0f7dedE.exit.i", %193, %190, %187, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6565719fc1a0fd6E.exit.thread.i.i", %171
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -12014,7 +12012,7 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread251: ; preds = %140, 
   br label %310
 
 .thread212:                                       ; preds = %128, %136, %151, %335, %123, %75, %122
-  %.pn116.pn215 = phi { ptr, i32 } [ %.pn116.pn, %122 ], [ %124, %123 ], [ %76, %75 ], [ %336, %335 ], [ %152, %151 ], [ %129, %136 ], [ %129, %128 ]
+  %.pn116.pn215 = phi { ptr, i32 } [ %.pn114257, %122 ], [ %124, %123 ], [ %76, %75 ], [ %336, %335 ], [ %152, %151 ], [ %129, %136 ], [ %129, %128 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4bb9012c6e739e7fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53) #47
           to label %common.resume unwind label %311
 

@@ -1536,8 +1536,8 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
   %515 = zext nneg i32 %514 to i64
   %516 = getelementptr inbounds nuw i8, ptr @mc_block.weight, i64 %515
   %517 = load i8, ptr %516, align 1, !tbaa !16
-  %518 = zext i8 %517 to i32
-  %519 = sub nsw i32 8, %518
+  %518 = zext i8 %517 to i16
+  %519 = sub nsw i16 8, %518
   br i1 %303, label %.preheader323.lr.ph, label %.loopexit
 
 .preheader323.lr.ph:                              ; preds = %510
@@ -1571,16 +1571,16 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
   %indvars.iv506 = phi i64 [ 0, %.preheader323.us ], [ %indvars.iv.next507, %531 ]
   %532 = getelementptr inbounds nuw i8, ptr %.0272417.us, i64 %indvars.iv506
   %533 = load i8, ptr %532, align 1, !tbaa !16
-  %534 = zext i8 %533 to i32
-  %535 = mul nuw nsw i32 %534, %518
+  %534 = zext i8 %533 to i16
+  %535 = mul nuw i16 %534, %518
   %536 = getelementptr inbounds nuw i8, ptr %.0271418.us, i64 %indvars.iv506
   %537 = load i8, ptr %536, align 1, !tbaa !16
-  %538 = zext i8 %537 to i32
-  %539 = mul nsw i32 %519, %538
-  %540 = add nuw nsw i32 %535, 4
-  %541 = add nsw i32 %540, %539
-  %542 = lshr i32 %541, 3
-  %543 = trunc i32 %542 to i8
+  %538 = zext i8 %537 to i16
+  %539 = mul i16 %519, %538
+  %540 = add nuw i16 %535, 4
+  %541 = add i16 %540, %539
+  %542 = lshr i16 %541, 3
+  %543 = trunc i16 %542 to i8
   %544 = getelementptr inbounds nuw i8, ptr %.1419.us, i64 %indvars.iv506
   store i8 %543, ptr %544, align 1, !tbaa !16
   %indvars.iv.next507 = add nuw nsw i64 %indvars.iv506, 1

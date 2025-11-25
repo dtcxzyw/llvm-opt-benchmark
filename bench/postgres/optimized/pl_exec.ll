@@ -5576,7 +5576,7 @@ exec_eval_cleanup.exit225:                        ; preds = %844, %846
 860:                                              ; preds = %.backedge1195, %854
   %861 = phi i32 [ %.pre754, %854 ], [ %.be, %.backedge1195 ]
   %.065.i = phi i32 [ %788, %854 ], [ %.065.i.be, %.backedge1195 ]
-  %.062.i = phi i8 [ 0, %854 ], [ 1, %.backedge1195 ]
+  %.062.i = phi i1 [ false, %854 ], [ true, %.backedge1195 ]
   %.0.i121 = phi i32 [ 0, %854 ], [ %.2.i123, %.backedge1195 ]
   %.not75.i = icmp eq i32 %861, 0
   br i1 %.not75.i, label %864, label %862
@@ -5666,9 +5666,9 @@ exec_eval_cleanup.exit225:                        ; preds = %844, %846
   br label %860
 
 exec_stmt_fori.exit.loopexit:                     ; preds = %894, %890, %884, %882, %866, %864, %862
-  %.163.i.ph = phi i8 [ %.062.i, %862 ], [ 1, %866 ], [ 1, %890 ], [ 1, %894 ], [ 1, %884 ], [ 1, %882 ], [ %.062.i, %864 ]
+  %.163.i.ph = phi i1 [ %.062.i, %862 ], [ true, %866 ], [ true, %890 ], [ true, %894 ], [ true, %884 ], [ true, %882 ], [ %.062.i, %864 ]
   %.1.i122.ph = phi i32 [ %.0.i121, %862 ], [ %869, %866 ], [ %.2.i123, %890 ], [ %.2.i123, %894 ], [ 3, %884 ], [ 3, %882 ], [ %.0.i121, %864 ]
-  %898 = zext nneg i8 %.163.i.ph to i64
+  %898 = zext i1 %.163.i.ph to i64
   br label %exec_stmt_fori.exit
 
 exec_stmt_fori.exit:                              ; preds = %exec_stmt_fori.exit.loopexit, %870, %873, %875, %878

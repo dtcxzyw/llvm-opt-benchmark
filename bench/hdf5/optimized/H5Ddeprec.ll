@@ -136,7 +136,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dcreate1(i64 noundef %0, ptr n
 40:                                               ; preds = %33
   %41 = call i32 @H5E_clear_stack() #4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %42, label %46
+  br i1 %.not, label %42, label %46, !prof !14
 
 42:                                               ; preds = %40
   %43 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -145,9 +145,9 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dcreate1(i64 noundef %0, ptr n
   br label %.thread78
 
 46:                                               ; preds = %40
-  %47 = load i8, ptr %1, align 1, !tbaa !14
+  %47 = load i8, ptr %1, align 1, !tbaa !15
   %.not45 = icmp eq i8 %47, 0
-  br i1 %.not45, label %48, label %52
+  br i1 %.not45, label %48, label %52, !prof !14
 
 48:                                               ; preds = %46
   %49 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -158,7 +158,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dcreate1(i64 noundef %0, ptr n
 52:                                               ; preds = %46
   %53 = call i32 @H5CX_set_loc(i64 noundef %0) #4
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %55, label %59
+  br i1 %54, label %55, label %59, !prof !14
 
 55:                                               ; preds = %52
   %56 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !11
@@ -178,7 +178,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dcreate1(i64 noundef %0, ptr n
   %64 = load i64, ptr @H5P_CLS_DATASET_CREATE_ID_g, align 8, !tbaa !11
   %65 = call i32 @H5P_isa_class(i64 noundef %4, i64 noundef %64) #4
   %.not46 = icmp eq i32 %65, 1
-  br i1 %.not46, label %70, label %66
+  br i1 %.not46, label %70, label %66, !prof !16
 
 66:                                               ; preds = %63
   %67 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -190,12 +190,12 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dcreate1(i64 noundef %0, ptr n
   %.037 = phi i64 [ %62, %61 ], [ %4, %63 ]
   call void @H5CX_set_dcpl(i64 noundef %.037) #4
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %71, align 4, !tbaa !15
+  store i32 0, ptr %71, align 4, !tbaa !17
   %72 = call i32 @H5I_get_type(i64 noundef %0) #4
-  store i32 %72, ptr %6, align 8, !tbaa !18
+  store i32 %72, ptr %6, align 8, !tbaa !20
   %73 = call ptr @H5VL_vol_object(i64 noundef %0) #4
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %79
+  br i1 %74, label %75, label %79, !prof !14
 
 75:                                               ; preds = %70
   %76 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -209,7 +209,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dcreate1(i64 noundef %0, ptr n
   %82 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
   %83 = call ptr @H5VL_dataset_create(ptr noundef nonnull %73, ptr noundef nonnull %6, ptr noundef nonnull %1, i64 noundef %80, i64 noundef %2, i64 noundef %3, i64 noundef %.037, i64 noundef %81, i64 noundef %82, ptr noundef null) #4
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %85, label %89
+  br i1 %84, label %85, label %89, !prof !14
 
 85:                                               ; preds = %79
   %86 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !11
@@ -337,7 +337,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dopen1(i64 noundef %0, ptr nou
   store i8 1, ptr @H5D_init_g, align 1, !tbaa !3
   %24 = tail call i32 @H5D__init_package() #4
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %30, !prof !19
+  br i1 %25, label %26, label %30, !prof !21
 
 26:                                               ; preds = %23
   store i8 0, ptr @H5D_init_g, align 1, !tbaa !3
@@ -360,7 +360,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dopen1(i64 noundef %0, ptr nou
 37:                                               ; preds = %30
   %38 = call i32 @H5E_clear_stack() #4
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %39, label %43
+  br i1 %.not, label %39, label %43, !prof !14
 
 39:                                               ; preds = %37
   %40 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -369,9 +369,9 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dopen1(i64 noundef %0, ptr nou
   br label %.thread66
 
 43:                                               ; preds = %37
-  %44 = load i8, ptr %1, align 1, !tbaa !14
+  %44 = load i8, ptr %1, align 1, !tbaa !15
   %.not34 = icmp eq i8 %44, 0
-  br i1 %.not34, label %45, label %49
+  br i1 %.not34, label %45, label %49, !prof !14
 
 45:                                               ; preds = %43
   %46 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -381,12 +381,12 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dopen1(i64 noundef %0, ptr nou
 
 49:                                               ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %50, align 4, !tbaa !15
+  store i32 0, ptr %50, align 4, !tbaa !17
   %51 = call i32 @H5I_get_type(i64 noundef %0) #4
-  store i32 %51, ptr %3, align 8, !tbaa !18
+  store i32 %51, ptr %3, align 8, !tbaa !20
   %52 = call ptr @H5VL_vol_object(i64 noundef %0) #4
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %58
+  br i1 %53, label %54, label %58, !prof !14
 
 54:                                               ; preds = %49
   %55 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -399,7 +399,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Dopen1(i64 noundef %0, ptr nou
   %60 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
   %61 = call ptr @H5VL_dataset_open(ptr noundef nonnull %52, ptr noundef nonnull %3, ptr noundef nonnull %1, i64 noundef %59, i64 noundef %60, ptr noundef null) #4
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %67
+  br i1 %62, label %63, label %67, !prof !14
 
 63:                                               ; preds = %58
   %64 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !11
@@ -498,7 +498,7 @@ define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly capt
   store i8 1, ptr @H5D_init_g, align 1, !tbaa !3
   %26 = tail call i32 @H5D__init_package() #4
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %32, !prof !20
+  br i1 %27, label %28, label %32, !prof !22
 
 28:                                               ; preds = %25
   store i8 0, ptr @H5D_init_g, align 1, !tbaa !3
@@ -541,9 +541,9 @@ define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly capt
   br label %.thread81
 
 52:                                               ; preds = %47
-  store i32 2, ptr %3, align 8, !tbaa !21
+  store i32 2, ptr %3, align 8, !tbaa !23
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 -1, ptr %53, align 8, !tbaa !14
+  store i64 -1, ptr %53, align 8, !tbaa !15
   %54 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
   %55 = call i32 @H5VL_dataset_get(ptr noundef nonnull %41, ptr noundef nonnull %3, i64 noundef %54, ptr noundef null) #4
   %56 = icmp slt i32 %55, 0
@@ -556,7 +556,7 @@ define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly capt
   br label %.thread81
 
 61:                                               ; preds = %52
-  %62 = load i64, ptr %53, align 8, !tbaa !14
+  %62 = load i64, ptr %53, align 8, !tbaa !15
   %63 = icmp eq i64 %62, -1
   br i1 %63, label %64, label %68
 
@@ -613,7 +613,7 @@ define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly capt
 91:                                               ; preds = %.lr.ph, %90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %91, %82
   %92 = call i32 @H5CX_set_loc(i64 noundef %0) #4
@@ -627,9 +627,9 @@ define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly capt
   br label %.thread53
 
 98:                                               ; preds = %._crit_edge
-  store i32 0, ptr %4, align 8, !tbaa !25
+  store i32 0, ptr %4, align 8, !tbaa !27
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %5, ptr %99, align 8, !tbaa !14
+  store ptr %5, ptr %99, align 8, !tbaa !15
   %100 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
   %101 = call i32 @H5VL_dataset_specific(ptr noundef nonnull %41, ptr noundef nonnull %4, i64 noundef %100, ptr noundef null) #4
   %102 = icmp slt i32 %101, 0
@@ -646,7 +646,7 @@ define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly capt
   %.03560 = phi i32 [ -1, %71 ], [ -1, %78 ], [ -1, %94 ], [ -1, %103 ], [ 0, %98 ]
   %107 = call i32 @H5I_dec_app_ref(i64 noundef %62) #4
   %108 = icmp slt i32 %107, 0
-  br i1 %108, label %.thread84, label %114
+  br i1 %108, label %.thread84, label %114, !prof !14
 
 .thread84:                                        ; preds = %.thread53
   %109 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !11
@@ -661,7 +661,7 @@ define range(i32 -1, 1) i32 @H5Dextend(i64 noundef %0, ptr noundef readonly capt
 
 114:                                              ; preds = %.thread53
   %115 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
-  br i1 %.062, label %.thread76, label %117, !prof !27
+  br i1 %.062, label %.thread76, label %117, !prof !29
 
 .thread76:                                        ; preds = %35, %28, %15, %.thread84, %.thread81, %114
   %.1366880 = phi i32 [ %.03560, %114 ], [ -1, %.thread81 ], [ -1, %.thread84 ], [ -1, %15 ], [ -1, %28 ], [ -1, %35 ]
@@ -730,7 +730,7 @@ define i32 @H5Dvlen_reclaim(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr 
   store i8 1, ptr @H5D_init_g, align 1, !tbaa !3
   %25 = tail call i32 @H5D__init_package() #4
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %27, label %31, !prof !28
+  br i1 %26, label %27, label %31, !prof !30
 
 27:                                               ; preds = %24
   store i8 0, ptr @H5D_init_g, align 1, !tbaa !3
@@ -785,7 +785,7 @@ define i32 @H5Dvlen_reclaim(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr 
 
 59:                                               ; preds = %52
   %60 = call zeroext i1 @H5S_has_extent(ptr noundef nonnull %53) #4
-  br i1 %60, label %65, label %61, !prof !29
+  br i1 %60, label %65, label %61, !prof !16
 
 61:                                               ; preds = %59
   %62 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -805,7 +805,7 @@ define i32 @H5Dvlen_reclaim(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr 
   %70 = load i64, ptr @H5P_CLS_DATASET_XFER_ID_g, align 8, !tbaa !11
   %71 = call i32 @H5P_isa_class(i64 noundef %2, i64 noundef %70) #4
   %.not = icmp eq i32 %71, 1
-  br i1 %.not, label %77, label %72, !prof !29
+  br i1 %.not, label %77, label %72, !prof !16
 
 72:                                               ; preds = %69
   %73 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -868,19 +868,20 @@ attributes #4 = { nounwind }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !5, i64 0}
 !13 = !{!"branch_weights", i32 1100238, i32 2146383410}
-!14 = !{!5, !5, i64 0}
-!15 = !{!16, !17, i64 4}
-!16 = !{!"H5VL_loc_params_t", !17, i64 0, !17, i64 4, !5, i64 8}
-!17 = !{!"int", !5, i64 0}
-!18 = !{!16, !17, i64 0}
-!19 = !{!"branch_weights", i32 1138294, i32 2146345354}
-!20 = !{!"branch_weights", i32 1266293, i32 2146217355}
-!21 = !{!22, !17, i64 0}
-!22 = !{!"H5VL_dataset_get_args_t", !17, i64 0, !5, i64 8}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !17, i64 0}
-!26 = !{!"H5VL_dataset_specific_args_t", !17, i64 0, !5, i64 8}
-!27 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!28 = !{!"branch_weights", i32 1073205, i32 2146410443}
-!29 = !{!"branch_weights", i32 -2147483648, i32 0}
+!14 = !{!"branch_weights", i32 0, i32 -2147483648}
+!15 = !{!5, !5, i64 0}
+!16 = !{!"branch_weights", i32 -2147483648, i32 0}
+!17 = !{!18, !19, i64 4}
+!18 = !{!"H5VL_loc_params_t", !19, i64 0, !19, i64 4, !5, i64 8}
+!19 = !{!"int", !5, i64 0}
+!20 = !{!18, !19, i64 0}
+!21 = !{!"branch_weights", i32 1138294, i32 2146345354}
+!22 = !{!"branch_weights", i32 1266293, i32 2146217355}
+!23 = !{!24, !19, i64 0}
+!24 = !{!"H5VL_dataset_get_args_t", !19, i64 0, !5, i64 8}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!28, !19, i64 0}
+!28 = !{!"H5VL_dataset_specific_args_t", !19, i64 0, !5, i64 8}
+!29 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!30 = !{!"branch_weights", i32 1073205, i32 2146410443}

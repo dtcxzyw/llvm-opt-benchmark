@@ -2201,20 +2201,20 @@ _ZNK4QMapI7QString13export_type_eE5valueERKS0_RKS1_.exit: ; preds = %_ZNKSt8_Rb_
 
 52:                                               ; preds = %50
   %53 = tail call noundef zeroext i1 @_ZN20PacketFormatGroupBox12bytesEnabledEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %48)
-  %54 = and i1 %44, %53
+  %spec.select.i.i = and i1 %44, %53
   br label %_ZN22ExportDissectionDialog7isValidEv.exit.i
 
 _ZN22ExportDissectionDialog7isValidEv.exit.i:     ; preds = %52, %50, %47, %42
-  %.1.i.i = phi i1 [ %44, %47 ], [ %44, %50 ], [ %44, %42 ], [ %54, %52 ]
+  %.1.i.i = phi i1 [ %44, %47 ], [ %44, %50 ], [ %44, %42 ], [ %spec.select.i.i, %52 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable_or_null(40) %41, i1 noundef zeroext %.1.i.i)
   br label %_ZN22ExportDissectionDialog13checkValidityEv.exit
 
 _ZN22ExportDissectionDialog13checkValidityEv.exit: ; preds = %38, %_ZN22ExportDissectionDialog7isValidEv.exit.i
-  %55 = load i32, ptr %39, align 8
-  %56 = zext i32 %55 to i64
-  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL17export_extensions, i64 8), align 8
-  %58 = getelementptr %class.QString, ptr %57, i64 %56
-  tail call void @_ZN11QFileDialog16setDefaultSuffixERK7QString(ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef align 8 dereferenceable(24) %58)
+  %54 = load i32, ptr %39, align 8
+  %55 = zext i32 %54 to i64
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL17export_extensions, i64 8), align 8
+  %57 = getelementptr %class.QString, ptr %56, i64 %55
+  tail call void @_ZN11QFileDialog16setDefaultSuffixERK7QString(ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef align 8 dereferenceable(24) %57)
   ret void
 }
 
@@ -2263,7 +2263,7 @@ define void @_ZN22ExportDissectionDialog13checkValidityEv(ptr noundef align 8 de
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %18, label %4
+  br i1 %.not, label %17, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -2284,15 +2284,15 @@ define void @_ZN22ExportDissectionDialog13checkValidityEv(ptr noundef align 8 de
 
 15:                                               ; preds = %13
   %16 = tail call noundef zeroext i1 @_ZN20PacketFormatGroupBox12bytesEnabledEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %11)
-  %17 = and i1 %6, %16
+  %spec.select.i = and i1 %6, %16
   br label %_ZN22ExportDissectionDialog7isValidEv.exit
 
 _ZN22ExportDissectionDialog7isValidEv.exit:       ; preds = %4, %10, %13, %15
-  %.1.i = phi i1 [ %6, %10 ], [ %6, %13 ], [ %6, %4 ], [ %17, %15 ]
+  %.1.i = phi i1 [ %6, %10 ], [ %6, %13 ], [ %6, %4 ], [ %spec.select.i, %15 ]
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable_or_null(40) %3, i1 noundef zeroext %.1.i)
-  br label %18
+  br label %17
 
-18:                                               ; preds = %1, %_ZN22ExportDissectionDialog7isValidEv.exit
+17:                                               ; preds = %1, %_ZN22ExportDissectionDialog7isValidEv.exit
   ret void
 }
 
@@ -2854,24 +2854,24 @@ define noundef zeroext i1 @_ZN22ExportDissectionDialog7isValidEv(ptr noundef ali
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %15
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %9 = tail call noundef zeroext i1 @_ZN20PacketFormatGroupBox14summaryEnabledEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %8)
-  br i1 %9, label %15, label %10
+  br i1 %9, label %14, label %10
 
 10:                                               ; preds = %7
   %11 = tail call noundef zeroext i1 @_ZN20PacketFormatGroupBox14detailsEnabledEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %8)
-  br i1 %11, label %15, label %12
+  br i1 %11, label %14, label %12
 
 12:                                               ; preds = %10
   %13 = tail call noundef zeroext i1 @_ZN20PacketFormatGroupBox12bytesEnabledEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %8)
-  %14 = and i1 %3, %13
-  br label %15
+  %spec.select = and i1 %3, %13
+  br label %14
 
-15:                                               ; preds = %12, %7, %10, %1
-  %.1 = phi i1 [ %3, %7 ], [ %3, %10 ], [ %3, %1 ], [ %14, %12 ]
+14:                                               ; preds = %12, %7, %10, %1
+  %.1 = phi i1 [ %3, %7 ], [ %3, %10 ], [ %3, %1 ], [ %spec.select, %12 ]
   ret i1 %.1
 }
 
@@ -2927,22 +2927,22 @@ define noundef zeroext i1 @_ZN22ExportDissectionDialog11eventFilterEP7QObjectP6Q
 
 30:                                               ; preds = %28
   %31 = tail call noundef zeroext i1 @_ZN20PacketFormatGroupBox12bytesEnabledEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %26)
-  %32 = and i1 %21, %31
-  br i1 %32, label %.thread, label %33
+  %spec.select.i = and i1 %21, %31
+  br i1 %spec.select.i, label %.thread, label %32
 
 _ZN22ExportDissectionDialog7isValidEv.exit:       ; preds = %19, %25, %28
-  br i1 %21, label %.thread, label %33
+  br i1 %21, label %.thread, label %32
 
-33:                                               ; preds = %_ZN22ExportDissectionDialog7isValidEv.exit, %30
+32:                                               ; preds = %_ZN22ExportDissectionDialog7isValidEv.exit, %30
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable_or_null(40) %8, i1 noundef zeroext false)
-  br label %35
+  br label %34
 
 .thread:                                          ; preds = %30, %7, %9, %_ZN22ExportDissectionDialog7isValidEv.exit, %13, %3
-  %34 = tail call noundef zeroext i1 @_ZN7QObject11eventFilterEPS_P6QEvent(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1, ptr noundef %2)
-  br label %35
+  %33 = tail call noundef zeroext i1 @_ZN7QObject11eventFilterEPS_P6QEvent(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1, ptr noundef %2)
+  br label %34
 
-35:                                               ; preds = %33, %.thread
-  %.1 = phi i1 [ %34, %.thread ], [ true, %33 ]
+34:                                               ; preds = %32, %.thread
+  %.1 = phi i1 [ %33, %.thread ], [ true, %32 ]
   ret i1 %.1
 }
 

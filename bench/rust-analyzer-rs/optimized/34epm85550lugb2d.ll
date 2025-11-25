@@ -48568,13 +48568,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17h93a59384f8466e32E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !15924
   %10 = load ptr, ptr %5, align 8, !noundef !9
   %.not.not = icmp eq ptr %10, null
-  br i1 %.not.not, label %.thread14, label %11
+  br i1 %.not.not, label %.thread, label %11
 
-.thread14:                                        ; preds = %9
+.thread:                                          ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Position$GT$$GT$17h2f116c559f2e4597E.exit"
 
-"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Position$GT$$GT$17h2f116c559f2e4597E.exit": ; preds = %15, %11, %.thread14
+"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$lsp_types..Position$GT$$GT$17h2f116c559f2e4597E.exit": ; preds = %15, %11, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
@@ -48844,13 +48844,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17hd802bd37dd1600c2E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !16031
   %10 = load ptr, ptr %5, align 8, !noundef !9
   %.not.not = icmp eq ptr %10, null
-  br i1 %.not.not, label %.thread13, label %12
+  br i1 %.not.not, label %.thread, label %12
 
-.thread13:                                        ; preds = %9
+.thread:                                          ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %11
 
-11:                                               ; preds = %12, %.thread13
+11:                                               ; preds = %12, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -48989,13 +48989,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17he39257e92e984644E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !16085
   %10 = load ptr, ptr %5, align 8, !noundef !9
   %.not.not = icmp eq ptr %10, null
-  br i1 %.not.not, label %.thread14, label %11
+  br i1 %.not.not, label %.thread, label %11
 
-.thread14:                                        ; preds = %9
+.thread:                                          ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$span..FileRange$GT$$GT$17h866f604c8fe14cb3E.exit"
 
-"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$span..FileRange$GT$$GT$17h866f604c8fe14cb3E.exit": ; preds = %15, %11, %.thread14
+"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$span..FileRange$GT$$GT$17h866f604c8fe14cb3E.exit": ; preds = %15, %11, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 

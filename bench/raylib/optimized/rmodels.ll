@@ -31892,35 +31892,39 @@ define void @LoadModel(ptr dead_on_unwind noalias writable sret(%struct.Model) a
   %.9247.i = phi i32 [ %.8.i, %.lr.ph254.i ], [ %.10.i, %._crit_edge243.i ]
   %.4166246.i = phi i32 [ 0, %.lr.ph254.i ], [ %spec.select190.i, %._crit_edge243.i ]
   %174 = zext i32 %.9247.i to i64
-  %.not179.i = icmp samesign ult i64 %indvars.iv290.i, %174
-  br i1 %.not179.i, label %._crit_edge301.i, label %175
+  %.not179.i = icmp samesign uge i64 %indvars.iv290.i, %174
+  br i1 %.not179.i, label %175, label %183
 
 175:                                              ; preds = %173
   %176 = add i32 %.4251.i, 1
   %177 = icmp ult i32 %176, %60
-  br i1 %177, label %178, label %._crit_edge301.i
+  br i1 %177, label %178, label %183
 
 178:                                              ; preds = %175
   %179 = zext i32 %176 to i64
   %180 = getelementptr inbounds nuw %struct.tinyobj_shape_t, ptr %160, i64 %179
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load i32, ptr %181, align 8, !noalias !7
-  br label %._crit_edge301.i
+  br label %183
 
-._crit_edge301.i:                                 ; preds = %178, %175, %173
+183:                                              ; preds = %178, %175, %173
   %.10.i = phi i32 [ %.9247.i, %173 ], [ %182, %178 ], [ %59, %175 ]
-  %.0141.i = phi i8 [ 0, %173 ], [ 1, %178 ], [ 1, %175 ]
   %.5.i = phi i32 [ %.4251.i, %173 ], [ %176, %178 ], [ %176, %175 ]
   %.not180.i = icmp eq i32 %.2146249.i, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv290.i
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !noalias !7
-  %.not181.i = icmp eq i32 %.pre.i, %.2146249.i
-  %183 = select i1 %.not180.i, i1 true, i1 %.not181.i
-  %.1142.i = select i1 %183, i8 %.0141.i, i8 1
-  %184 = trunc nuw i8 %.1142.i to i1
-  %185 = zext nneg i8 %.1142.i to i32
+  br i1 %.not180.i, label %._crit_edge301.i, label %184
+
+184:                                              ; preds = %183
+  %.not181.i = icmp ne i32 %.pre.i, %.2146249.i
+  %spec.select189.i = or i1 %.not179.i, %.not181.i
+  br label %._crit_edge301.i
+
+._crit_edge301.i:                                 ; preds = %184, %183
+  %.1142.i = phi i1 [ %spec.select189.i, %184 ], [ %.not179.i, %183 ]
+  %185 = zext i1 %.1142.i to i32
   %spec.select190.i = add i32 %.4166246.i, %185
-  %spec.select191.i = select i1 %184, i32 0, i32 %.2152248.i
+  %spec.select191.i = select i1 %.1142.i, i32 0, i32 %.2152248.i
   %186 = icmp sgt i32 %.pre.i, -1
   %187 = icmp slt i32 %.pre.i, %75
   %or.cond.i = and i1 %186, %187

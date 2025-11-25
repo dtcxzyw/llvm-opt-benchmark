@@ -29978,7 +29978,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i46:             ; preds = %95, %93
   %109 = xor i32 %.lobit.i, 1
   %110 = and i32 %109, %107
   %111 = icmp eq i32 %110, 0
-  %or.cond76 = or i1 %111, %.sroa.12.072
+  %or.cond76 = or i1 %.sroa.12.072, %111
   br i1 %or.cond76, label %_ZNK12_GLOBAL__N_115MachineVerifier14report_contextEN4llvm9SlotIndexE.exit59, label %112
 
 112:                                              ; preds = %.critedge

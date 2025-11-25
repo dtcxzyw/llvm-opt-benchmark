@@ -126702,9 +126702,9 @@ define hidden void @"_ZN90_$LT$alloc..vec..Vec$LT$P$GT$$u20$as$u20$datafusion..e
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !25287
   %15 = load i64, ptr %5, align 8, !range !1525, !noalias !25284, !noundef !5
   %.not.not.i = icmp eq i64 %15, -9223372036854775790
-  br i1 %.not.not.i, label %.thread13.i, label %17
+  br i1 %.not.not.i, label %.thread.i, label %17
 
-.thread13.i:                                      ; preds = %14
+.thread.i:                                        ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 -9223372036854775790, ptr %0, align 8, !alias.scope !25299, !noalias !25302
@@ -126735,7 +126735,7 @@ define hidden void @"_ZN90_$LT$alloc..vec..Vec$LT$P$GT$$u20$as$u20$datafusion..e
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h24994ca8a9f000f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #26
           to label %26 unwind label %24
 
-23:                                               ; preds = %.thread13.i, %17
+23:                                               ; preds = %.thread.i, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !25284
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !25284
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h24994ca8a9f000f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)

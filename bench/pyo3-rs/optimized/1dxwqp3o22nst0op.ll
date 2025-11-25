@@ -4366,15 +4366,15 @@ _ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9
 
 496:                                              ; preds = %491
   invoke void @"_ZN4core3ptr180drop_in_place$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..signature$C$pyo3_macros_backend..pyfunction..signature..Signature$GT$$GT$17h991f0e2e1b31c6f4E"(ptr nonnull align 8 %93)
-          to label %495 unwind label %.thread222
+          to label %495 unwind label %.thread204
 
-.thread222:                                       ; preds = %496
+.thread204:                                       ; preds = %496
   %497 = landingpad { ptr, i32 }
           cleanup
   br label %503
 
 498:                                              ; preds = %483, %503, %500, %482
-  %.pn84.pn = phi { ptr, i32 } [ %.pn84221, %503 ], [ %.pn82, %482 ], [ %501, %500 ], [ %484, %483 ]
+  %.pn84.pn = phi { ptr, i32 } [ %.pn84203, %503 ], [ %.pn82, %482 ], [ %501, %500 ], [ %484, %483 ]
   %499 = getelementptr inbounds nuw i8, ptr %3, i64 56
   invoke void @"_ZN4core3ptr193drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$syn..token..Crate$C$pyo3_macros_backend..attributes..LitStrValue$LT$syn..path..Path$GT$$GT$$GT$$GT$17h63c9f30e5cfbae17E"(ptr nonnull align 8 %499) #9
           to label %504 unwind label %487
@@ -4388,8 +4388,8 @@ _ZN19pyo3_macros_backend6method17CallingConvention14from_signature17h2b817e2c0c9
   invoke void @"_ZN4core3ptr180drop_in_place$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..signature$C$pyo3_macros_backend..pyfunction..signature..Signature$GT$$GT$17h991f0e2e1b31c6f4E"(ptr nonnull align 8 %93) #9
           to label %482 unwind label %487
 
-503:                                              ; preds = %.thread222, %482
-  %.pn84221 = phi { ptr, i32 } [ %.pn82, %482 ], [ %497, %.thread222 ]
+503:                                              ; preds = %.thread204, %482
+  %.pn84203 = phi { ptr, i32 } [ %.pn82, %482 ], [ %497, %.thread204 ]
   invoke void @"_ZN4core3ptr220drop_in_place$LT$core..option..Option$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$pyo3_macros_backend..attributes..kw..text_signature$C$pyo3_macros_backend..attributes..TextSignatureAttributeValue$GT$$GT$$GT$17h00dba8eaf4ad99a3E"(ptr nonnull align 8 %94) #9
           to label %498 unwind label %487
 

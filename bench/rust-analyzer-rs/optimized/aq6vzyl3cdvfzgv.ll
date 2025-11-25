@@ -3632,9 +3632,9 @@ define hidden void @"_ZN3hir11term_search7tactics16type_constructor28_$u7b$$u7b$
   store i64 -9223372036854775808, ptr %52, align 8
   br label %233
 
-.thread165:                                       ; preds = %.body.i, %185, %.thread165.thread
-  %.078 = phi i8 [ %.179157, %.thread165.thread ], [ %.6, %.body.i ], [ %.6, %185 ]
-  %.pn91 = phi { ptr, i32 } [ %.pn89158, %.thread165.thread ], [ %178, %.body.i ], [ %178, %185 ]
+.thread165:                                       ; preds = %.body.i, %185, %"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Field$GT$$GT$17hd5c0cef69b4438f1E.exit122"
+  %.078 = phi i8 [ %.179157, %"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Field$GT$$GT$17hd5c0cef69b4438f1E.exit122" ], [ %.6, %.body.i ], [ %.6, %185 ]
+  %.pn91 = phi { ptr, i32 } [ %.pn89158, %"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Field$GT$$GT$17hd5c0cef69b4438f1E.exit122" ], [ %178, %.body.i ], [ %178, %185 ]
   %53 = trunc nuw i8 %.078 to i1
   br i1 %53, label %256, label %41
 
@@ -3710,7 +3710,7 @@ define hidden void @"_ZN3hir11term_search7tactics16type_constructor28_$u7b$$u7b$
 .thread153:                                       ; preds = %78, %80
   %82 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread165.thread
+  br label %"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Field$GT$$GT$17hd5c0cef69b4438f1E.exit122"
 
 83:                                               ; preds = %80
   br i1 %81, label %84, label %78
@@ -3755,7 +3755,7 @@ define hidden void @"_ZN3hir11term_search7tactics16type_constructor28_$u7b$$u7b$
 99:                                               ; preds = %100
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread165.thread
+  br label %"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Field$GT$$GT$17hd5c0cef69b4438f1E.exit122"
 
 100:                                              ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -3812,7 +3812,7 @@ define hidden void @"_ZN3hir11term_search7tactics16type_constructor28_$u7b$$u7b$
   %.5 = phi i8 [ %.6, %.body ], [ 1, %119 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %120, %119 ]
   %118 = trunc nuw i8 %.182 to i1
-  br i1 %118, label %217, label %.thread165.thread
+  br i1 %118, label %217, label %"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Field$GT$$GT$17hd5c0cef69b4438f1E.exit122"
 
 119:                                              ; preds = %130, %116, %128
   %.081 = phi i8 [ 0, %128 ], [ 1, %116 ], [ 0, %130 ]
@@ -4112,7 +4112,7 @@ common.resume:                                    ; preds = %41, %.body.i126, %.
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   ret void
 
-215:                                              ; preds = %41, %256, %.thread165.thread, %217, %.body
+215:                                              ; preds = %41, %256, %"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Field$GT$$GT$17hd5c0cef69b4438f1E.exit122", %217, %.body
   %216 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #30
@@ -4120,7 +4120,7 @@ common.resume:                                    ; preds = %41, %.body.i126, %.
 
 217:                                              ; preds = %117
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$hir..term_search..expr..Expr$GT$$GT$$GT$17hb4d09898ae5416d8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #28
-          to label %.thread165.thread unwind label %215
+          to label %"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Field$GT$$GT$17hd5c0cef69b4438f1E.exit122" unwind label %215
 
 218:                                              ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -4160,12 +4160,12 @@ common.resume:                                    ; preds = %41, %.body.i126, %.
   call void @llvm.experimental.noalias.scope.decl(metadata !485)
   %228 = load i64, ptr %23, align 8, !alias.scope !488, !noalias !491, !noundef !4
   %229 = icmp eq i64 %228, 0
-  br i1 %229, label %.thread165.thread, label %230
+  br i1 %229, label %"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Field$GT$$GT$17hd5c0cef69b4438f1E.exit122", label %230
 
 230:                                              ; preds = %227
   %231 = mul nuw i64 %228, 12
   call void @__rust_dealloc(ptr noundef nonnull %88, i64 noundef %231, i64 noundef 4) #29, !noalias !493
-  br label %.thread165.thread
+  br label %"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Field$GT$$GT$17hd5c0cef69b4438f1E.exit122"
 
 232:                                              ; preds = %226
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -4233,9 +4233,9 @@ common.resume:                                    ; preds = %41, %.body.i126, %.
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !494
   br label %214
 
-.thread165.thread:                                ; preds = %117, %217, %230, %227, %99, %.thread153
-  %.pn89158 = phi { ptr, i32 } [ %82, %.thread153 ], [ %lpad.thr_comm, %230 ], [ %lpad.thr_comm, %227 ], [ %lpad.thr_comm.split-lp, %99 ], [ %.pn, %217 ], [ %.pn, %117 ]
-  %.179157 = phi i8 [ 1, %.thread153 ], [ 1, %230 ], [ 1, %227 ], [ 1, %99 ], [ %.5, %217 ], [ %.5, %117 ]
+"_ZN4core3ptr54drop_in_place$LT$alloc..vec..Vec$LT$hir..Field$GT$$GT$17hd5c0cef69b4438f1E.exit122": ; preds = %117, %217, %99, %230, %227, %.thread153
+  %.pn89158 = phi { ptr, i32 } [ %82, %.thread153 ], [ %lpad.thr_comm, %227 ], [ %lpad.thr_comm, %230 ], [ %lpad.thr_comm.split-lp, %99 ], [ %.pn, %217 ], [ %.pn, %117 ]
+  %.179157 = phi i8 [ 1, %.thread153 ], [ 1, %227 ], [ 1, %230 ], [ 1, %99 ], [ %.5, %217 ], [ %.5, %117 ]
   invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17h1024cf95b68f9227E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24) #28
           to label %.thread165 unwind label %215
 

@@ -25901,162 +25901,162 @@ deflate_init_offset_slot_full.exit.i:             ; preds = %105, %84, %126, %61
 142:                                              ; preds = %136
   %.val.i = load i32, ptr %32, align 8
   %143 = icmp ult i32 %.val.i, 2
-  br i1 %143, label %149, label %144
+  br i1 %143, label %148, label %144
 
 144:                                              ; preds = %142
   %145 = icmp ult i32 %.val.i, 6
-  br i1 %145, label %149, label %146
+  br i1 %145, label %148, label %146
 
 146:                                              ; preds = %144
   %147 = icmp ult i32 %.val.i, 8
-  %148 = select i1 %147, i16 30848, i16 30912
-  br label %149
+  %..i = select i1 %147, i16 30848, i16 30912
+  br label %148
 
-149:                                              ; preds = %146, %144, %142
-  %.036.i = phi i16 [ 30720, %142 ], [ 30784, %144 ], [ %148, %146 ]
-  %150 = urem i16 %.036.i, 31
-  %151 = or disjoint i16 %150, %.036.i
-  %152 = xor i16 %151, 31
-  %153 = tail call i16 @llvm.bswap.i16(i16 %152)
-  store i16 %153, ptr %4, align 1
-  %154 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %155 = add i64 %5, -6
+148:                                              ; preds = %146, %144, %142
+  %.036.i = phi i16 [ 30720, %142 ], [ 30784, %144 ], [ %..i, %146 ]
+  %149 = urem i16 %.036.i, 31
+  %150 = or disjoint i16 %149, %.036.i
+  %151 = xor i16 %150, 31
+  %152 = tail call i16 @llvm.bswap.i16(i16 %151)
+  store i16 %152, ptr %4, align 1
+  %153 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %154 = add i64 %5, -6
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %156 = load i64, ptr %36, align 16
-  %.not.i.i22 = icmp ugt i64 %3, %156
-  br i1 %.not.i.i22, label %182, label %157
+  %155 = load i64, ptr %36, align 16
+  %.not.i.i22 = icmp ugt i64 %3, %155
+  br i1 %.not.i.i22, label %181, label %156
 
-157:                                              ; preds = %149
-  %158 = getelementptr inbounds i8, ptr %2, i64 %3
-  %159 = icmp eq i64 %3, 0
-  br i1 %159, label %163, label %.preheader.i.i.i
+156:                                              ; preds = %148
+  %157 = getelementptr inbounds i8, ptr %2, i64 %3
+  %158 = icmp eq i64 %3, 0
+  br i1 %158, label %162, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %157
-  %160 = getelementptr inbounds i8, ptr %154, i64 %155
-  %161 = ptrtoint ptr %158 to i64
-  %162 = ptrtoint ptr %160 to i64
-  br label %166
+.preheader.i.i.i:                                 ; preds = %156
+  %159 = getelementptr inbounds i8, ptr %153, i64 %154
+  %160 = ptrtoint ptr %157 to i64
+  %161 = ptrtoint ptr %159 to i64
+  br label %165
 
-163:                                              ; preds = %157
-  %164 = icmp ult i64 %155, 5
-  br i1 %164, label %libdeflate_deflate_compress.exit.thread.i, label %libdeflate_deflate_compress.exit.thread42.i
+162:                                              ; preds = %156
+  %163 = icmp ult i64 %154, 5
+  br i1 %163, label %libdeflate_deflate_compress.exit.thread.i, label %libdeflate_deflate_compress.exit.thread42.i
 
-libdeflate_deflate_compress.exit.thread42.i:      ; preds = %163
-  %165 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 1, ptr %154, align 1
-  store i32 -65536, ptr %165, align 1
+libdeflate_deflate_compress.exit.thread42.i:      ; preds = %162
+  %164 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  store i8 1, ptr %153, align 1
+  store i32 -65536, ptr %164, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %203
+  br label %202
 
-166:                                              ; preds = %174, %.preheader.i.i.i
-  %.050.i.i.i = phi ptr [ %181, %174 ], [ %2, %.preheader.i.i.i ]
-  %.049.i.i.i = phi ptr [ %180, %174 ], [ %154, %.preheader.i.i.i ]
-  %167 = ptrtoint ptr %.050.i.i.i to i64
-  %168 = sub i64 %161, %167
-  %169 = icmp slt i64 %168, 65536
-  %spec.select53.i.i.i = select i1 %169, i64 %168, i64 65535
-  %170 = ptrtoint ptr %.049.i.i.i to i64
-  %171 = sub i64 %162, %170
-  %172 = add nsw i64 %spec.select53.i.i.i, 5
-  %173 = icmp ult i64 %171, %172
-  br i1 %173, label %libdeflate_deflate_compress.exit.thread.i, label %174
+165:                                              ; preds = %173, %.preheader.i.i.i
+  %.050.i.i.i = phi ptr [ %180, %173 ], [ %2, %.preheader.i.i.i ]
+  %.049.i.i.i = phi ptr [ %179, %173 ], [ %153, %.preheader.i.i.i ]
+  %166 = ptrtoint ptr %.050.i.i.i to i64
+  %167 = sub i64 %160, %166
+  %168 = icmp slt i64 %167, 65536
+  %spec.select53.i.i.i = select i1 %168, i64 %167, i64 65535
+  %169 = ptrtoint ptr %.049.i.i.i to i64
+  %170 = sub i64 %161, %169
+  %171 = add nsw i64 %spec.select53.i.i.i, 5
+  %172 = icmp ult i64 %170, %171
+  br i1 %172, label %libdeflate_deflate_compress.exit.thread.i, label %173
 
-174:                                              ; preds = %166
-  %spec.select.i.i.i = zext i1 %169 to i8
-  %175 = getelementptr inbounds nuw i8, ptr %.049.i.i.i, i64 1
+173:                                              ; preds = %165
+  %spec.select.i.i.i = zext i1 %168 to i8
+  %174 = getelementptr inbounds nuw i8, ptr %.049.i.i.i, i64 1
   store i8 %spec.select.i.i.i, ptr %.049.i.i.i, align 1
-  %176 = trunc i64 %spec.select53.i.i.i to i16
-  store i16 %176, ptr %175, align 1
-  %177 = getelementptr inbounds nuw i8, ptr %.049.i.i.i, i64 3
-  %178 = xor i16 %176, -1
-  store i16 %178, ptr %177, align 1
-  %179 = getelementptr inbounds nuw i8, ptr %.049.i.i.i, i64 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %179, ptr align 1 %.050.i.i.i, i64 %spec.select53.i.i.i, i1 false)
-  %180 = getelementptr inbounds i8, ptr %179, i64 %spec.select53.i.i.i
-  %181 = getelementptr inbounds i8, ptr %.050.i.i.i, i64 %spec.select53.i.i.i
-  %.not.i.i.i = icmp eq ptr %181, %158
-  br i1 %.not.i.i.i, label %libdeflate_deflate_compress.exit.i, label %166, !llvm.loop !150
+  %175 = trunc i64 %spec.select53.i.i.i to i16
+  store i16 %175, ptr %174, align 1
+  %176 = getelementptr inbounds nuw i8, ptr %.049.i.i.i, i64 3
+  %177 = xor i16 %175, -1
+  store i16 %177, ptr %176, align 1
+  %178 = getelementptr inbounds nuw i8, ptr %.049.i.i.i, i64 5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %178, ptr align 1 %.050.i.i.i, i64 %spec.select53.i.i.i, i1 false)
+  %179 = getelementptr inbounds i8, ptr %178, i64 %spec.select53.i.i.i
+  %180 = getelementptr inbounds i8, ptr %.050.i.i.i, i64 %spec.select53.i.i.i
+  %.not.i.i.i = icmp eq ptr %180, %157
+  br i1 %.not.i.i.i, label %libdeflate_deflate_compress.exit.i, label %165, !llvm.loop !150
 
-182:                                              ; preds = %149
-  %183 = icmp ult i64 %155, 9
-  br i1 %183, label %libdeflate_deflate_compress.exit.thread.i, label %184
+181:                                              ; preds = %148
+  %182 = icmp ult i64 %154, 9
+  br i1 %182, label %libdeflate_deflate_compress.exit.thread.i, label %183
 
-184:                                              ; preds = %182
+183:                                              ; preds = %181
   store i64 0, ptr %8, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 0, ptr %185, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %154, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %154, i64 %155
-  %188 = getelementptr inbounds i8, ptr %187, i64 -8
-  %189 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %188, ptr %189, align 8
-  %190 = load ptr, ptr %29, align 32
-  call void %190(ptr noundef nonnull %29, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %8) #53
-  %191 = load ptr, ptr %186, align 8
-  %192 = load ptr, ptr %189, align 8
-  %.not17.i.i = icmp ult ptr %191, %192
-  br i1 %.not17.i.i, label %193, label %libdeflate_deflate_compress.exit.thread.i
+  %184 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 0, ptr %184, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %153, ptr %185, align 8
+  %186 = getelementptr inbounds i8, ptr %153, i64 %154
+  %187 = getelementptr inbounds i8, ptr %186, i64 -8
+  %188 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %187, ptr %188, align 8
+  %189 = load ptr, ptr %29, align 32
+  call void %189(ptr noundef nonnull %29, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %8) #53
+  %190 = load ptr, ptr %185, align 8
+  %191 = load ptr, ptr %188, align 8
+  %.not17.i.i = icmp ult ptr %190, %191
+  br i1 %.not17.i.i, label %192, label %libdeflate_deflate_compress.exit.thread.i
 
-193:                                              ; preds = %184
-  %194 = load i32, ptr %185, align 8
-  %.not18.i.i = icmp eq i32 %194, 0
-  br i1 %.not18.i.i, label %libdeflate_deflate_compress.exit.i, label %195
+192:                                              ; preds = %183
+  %193 = load i32, ptr %184, align 8
+  %.not18.i.i = icmp eq i32 %193, 0
+  br i1 %.not18.i.i, label %libdeflate_deflate_compress.exit.i, label %194
 
-195:                                              ; preds = %193
-  %196 = load i64, ptr %8, align 8
-  %197 = trunc i64 %196 to i8
-  %198 = getelementptr inbounds nuw i8, ptr %191, i64 1
-  store ptr %198, ptr %186, align 8
-  store i8 %197, ptr %191, align 1
-  %.pre.i.i = load ptr, ptr %186, align 8
+194:                                              ; preds = %192
+  %195 = load i64, ptr %8, align 8
+  %196 = trunc i64 %195 to i8
+  %197 = getelementptr inbounds nuw i8, ptr %190, i64 1
+  store ptr %197, ptr %185, align 8
+  store i8 %196, ptr %190, align 1
+  %.pre.i.i = load ptr, ptr %185, align 8
   br label %libdeflate_deflate_compress.exit.i
 
-libdeflate_deflate_compress.exit.thread.i:        ; preds = %166, %184, %182, %163
+libdeflate_deflate_compress.exit.thread.i:        ; preds = %165, %183, %181, %162
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %libdeflate_zlib_compress.exit
 
-libdeflate_deflate_compress.exit.i:               ; preds = %174, %195, %193
-  %.lcssa.sink.i = phi ptr [ %.pre.i.i, %195 ], [ %191, %193 ], [ %180, %174 ]
-  %199 = ptrtoint ptr %.lcssa.sink.i to i64
-  %200 = ptrtoint ptr %154 to i64
-  %201 = sub i64 %199, %200
+libdeflate_deflate_compress.exit.i:               ; preds = %173, %194, %192
+  %.lcssa.sink.i = phi ptr [ %.pre.i.i, %194 ], [ %190, %192 ], [ %179, %173 ]
+  %198 = ptrtoint ptr %.lcssa.sink.i to i64
+  %199 = ptrtoint ptr %153 to i64
+  %200 = sub i64 %198, %199
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %202 = icmp eq i64 %201, 0
-  br i1 %202, label %libdeflate_zlib_compress.exit, label %203
+  %201 = icmp eq i64 %200, 0
+  br i1 %201, label %libdeflate_zlib_compress.exit, label %202
 
-203:                                              ; preds = %libdeflate_deflate_compress.exit.i, %libdeflate_deflate_compress.exit.thread42.i
-  %.0.i44.i = phi i64 [ 5, %libdeflate_deflate_compress.exit.thread42.i ], [ %201, %libdeflate_deflate_compress.exit.i ]
-  %204 = getelementptr inbounds i8, ptr %154, i64 %.0.i44.i
-  %205 = icmp eq ptr %2, null
-  br i1 %205, label %libdeflate_adler32.exit.i, label %206
+202:                                              ; preds = %libdeflate_deflate_compress.exit.i, %libdeflate_deflate_compress.exit.thread42.i
+  %.0.i44.i = phi i64 [ 5, %libdeflate_deflate_compress.exit.thread42.i ], [ %200, %libdeflate_deflate_compress.exit.i ]
+  %203 = getelementptr inbounds i8, ptr %153, i64 %.0.i44.i
+  %204 = icmp eq ptr %2, null
+  br i1 %204, label %libdeflate_adler32.exit.i, label %205
 
-206:                                              ; preds = %203
-  %207 = load volatile ptr, ptr @adler32_impl, align 8
-  %208 = call i32 %207(i32 noundef 1, ptr noundef nonnull %2, i64 noundef %3) #53
-  %209 = call i32 @llvm.bswap.i32(i32 %208)
+205:                                              ; preds = %202
+  %206 = load volatile ptr, ptr @adler32_impl, align 8
+  %207 = call i32 %206(i32 noundef 1, ptr noundef nonnull %2, i64 noundef %3) #53
+  %208 = call i32 @llvm.bswap.i32(i32 %207)
   br label %libdeflate_adler32.exit.i
 
-libdeflate_adler32.exit.i:                        ; preds = %206, %203
-  %.0.i40.i = phi i32 [ %209, %206 ], [ 16777216, %203 ]
-  store i32 %.0.i40.i, ptr %204, align 1
-  %210 = add nsw i64 %.0.i44.i, 6
+libdeflate_adler32.exit.i:                        ; preds = %205, %202
+  %.0.i40.i = phi i32 [ %208, %205 ], [ 16777216, %202 ]
+  store i32 %.0.i40.i, ptr %203, align 1
+  %209 = add nsw i64 %.0.i44.i, 6
   br label %libdeflate_zlib_compress.exit
 
 libdeflate_zlib_compress.exit:                    ; preds = %136, %libdeflate_deflate_compress.exit.thread.i, %libdeflate_deflate_compress.exit.i, %libdeflate_adler32.exit.i
-  %.0.i23 = phi i64 [ %210, %libdeflate_adler32.exit.i ], [ 0, %136 ], [ 0, %libdeflate_deflate_compress.exit.i ], [ 0, %libdeflate_deflate_compress.exit.thread.i ]
+  %.0.i23 = phi i64 [ %209, %libdeflate_adler32.exit.i ], [ 0, %136 ], [ 0, %libdeflate_deflate_compress.exit.i ], [ 0, %libdeflate_deflate_compress.exit.thread.i ]
   %.val = load ptr, ptr %30, align 8
-  %211 = load ptr, ptr @libdeflate_free_func, align 8
-  call void %211(ptr noundef %.val) #53
+  %210 = load ptr, ptr @libdeflate_free_func, align 8
+  call void %210(ptr noundef %.val) #53
   %.not21 = icmp eq i64 %.0.i23, 0
-  br i1 %.not21, label %libdeflate_alloc_compressor.exit.thread, label %212
+  br i1 %.not21, label %libdeflate_alloc_compressor.exit.thread, label %211
 
-212:                                              ; preds = %libdeflate_zlib_compress.exit
+211:                                              ; preds = %libdeflate_zlib_compress.exit
   store i64 %.0.i23, ptr %6, align 8
   br label %libdeflate_alloc_compressor.exit.thread
 
-libdeflate_alloc_compressor.exit.thread:          ; preds = %.thread35, %libdeflate_aligned_malloc.exit.i, %17, %libdeflate_zlib_compress.exit, %212
-  %.0 = phi i32 [ 0, %212 ], [ 1, %libdeflate_zlib_compress.exit ], [ 1, %17 ], [ 1, %libdeflate_aligned_malloc.exit.i ], [ 1, %.thread35 ]
+libdeflate_alloc_compressor.exit.thread:          ; preds = %.thread35, %libdeflate_aligned_malloc.exit.i, %17, %libdeflate_zlib_compress.exit, %211
+  %.0 = phi i32 [ 0, %211 ], [ 1, %libdeflate_zlib_compress.exit ], [ 1, %17 ], [ 1, %libdeflate_aligned_malloc.exit.i ], [ 1, %.thread35 ]
   ret i32 %.0
 }
 

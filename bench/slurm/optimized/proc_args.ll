@@ -3246,13 +3246,13 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 120
   br label %7
 
-7:                                                ; preds = %139, %3
-  %.0226 = phi i32 [ 0, %3 ], [ %.1227, %139 ]
-  %.0224 = phi i64 [ 0, %3 ], [ %140, %139 ]
-  %.0222 = phi ptr [ %5, %3 ], [ %spec.select, %139 ]
+7:                                                ; preds = %137, %3
+  %.0226 = phi i32 [ 0, %3 ], [ %.1227, %137 ]
+  %.0224 = phi i64 [ 0, %3 ], [ %138, %137 ]
+  %.0222 = phi ptr [ %5, %3 ], [ %spec.select, %137 ]
   %8 = load i8, ptr %.0222, align 1
   switch i8 %8, label %13 [
-    i8 0, label %143
+    i8 0, label %141
     i8 43, label %9
     i8 45, label %11
   ]
@@ -3298,7 +3298,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 24:                                               ; preds = %.critedge
   %25 = icmp eq i32 %.1227, 2
   %. = select i1 %25, i64 2, i64 1
-  br label %139
+  br label %137
 
 26:                                               ; preds = %.critedge
   %27 = tail call i32 @llvm.umax.i32(i32 %19, i32 1)
@@ -3307,7 +3307,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
   %30 = icmp eq i32 %29, 0
   %31 = icmp ne i32 %.1227, 2
   %or.cond = select i1 %30, i1 %31, i1 false
-  br i1 %or.cond, label %139, label %32
+  br i1 %or.cond, label %137, label %32
 
 32:                                               ; preds = %26
   %33 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.101, i64 noundef %28) #21
@@ -3317,7 +3317,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 35:                                               ; preds = %32
   %36 = icmp eq i32 %.1227, 2
   %.271 = select i1 %36, i64 67108864, i64 33554432
-  br label %139
+  br label %137
 
 37:                                               ; preds = %32
   %38 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.102, i64 noundef %28) #21
@@ -3327,7 +3327,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 40:                                               ; preds = %37
   %41 = icmp eq i32 %.1227, 2
   %.272 = select i1 %41, i64 128, i64 64
-  br label %139
+  br label %137
 
 42:                                               ; preds = %37
   %43 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.103, i64 noundef %28) #21
@@ -3337,7 +3337,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 45:                                               ; preds = %42
   %46 = icmp eq i32 %.1227, 2
   %.273 = select i1 %46, i64 68719476736, i64 34359738368
-  br label %139
+  br label %137
 
 47:                                               ; preds = %42
   %48 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.104, i64 noundef %28) #21
@@ -3347,7 +3347,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 50:                                               ; preds = %47
   %51 = icmp eq i32 %.1227, 2
   %.274 = select i1 %51, i64 8, i64 4
-  br label %139
+  br label %137
 
 52:                                               ; preds = %47
   %53 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.105, i64 noundef %28) #21
@@ -3357,7 +3357,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 55:                                               ; preds = %52
   %56 = icmp eq i32 %.1227, 2
   %.275 = select i1 %56, i64 4194304, i64 2097152
-  br label %139
+  br label %137
 
 57:                                               ; preds = %52
   %58 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.106, i64 noundef %28) #21
@@ -3367,7 +3367,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 60:                                               ; preds = %57
   %61 = icmp eq i32 %.1227, 2
   %.276 = select i1 %61, i64 16777216, i64 8388608
-  br label %139
+  br label %137
 
 62:                                               ; preds = %57
   %63 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.107, i64 noundef %28) #21
@@ -3377,7 +3377,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 65:                                               ; preds = %62
   %66 = icmp eq i32 %.1227, 2
   %.277 = select i1 %66, i64 32, i64 16
-  br label %139
+  br label %137
 
 67:                                               ; preds = %62
   %68 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.108, i64 noundef %28) #21
@@ -3392,7 +3392,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 71:                                               ; preds = %69, %67
   %72 = icmp eq i32 %.1227, 2
   %.278 = select i1 %72, i64 512, i64 256
-  br label %139
+  br label %137
 
 73:                                               ; preds = %69
   %74 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.110, i64 noundef %28) #21
@@ -3402,7 +3402,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 76:                                               ; preds = %73
   %77 = icmp eq i32 %.1227, 2
   %.279 = select i1 %77, i64 2048, i64 1024
-  br label %139
+  br label %137
 
 78:                                               ; preds = %73
   %79 = tail call i32 @llvm.umax.i32(i32 %19, i32 2)
@@ -3414,7 +3414,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 83:                                               ; preds = %78
   %84 = icmp eq i32 %.1227, 2
   %.280 = select i1 %84, i64 8192, i64 4096
-  br label %139
+  br label %137
 
 85:                                               ; preds = %78
   %86 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.112, i64 noundef %21) #21
@@ -3429,17 +3429,17 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 89:                                               ; preds = %87, %85
   %90 = icmp eq i32 %.1227, 2
   %.281 = select i1 %90, i64 8589934592, i64 4294967296
-  br label %139
+  br label %137
 
 91:                                               ; preds = %87
   %92 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.114, i64 noundef %80) #21
   %.not242 = icmp eq i32 %92, 0
-  br i1 %.not242, label %93, label %115
+  br i1 %.not242, label %93, label %113
 
 93:                                               ; preds = %91
   %94 = load i8, ptr %18, align 1
   %95 = icmp eq i8 %94, 61
-  br i1 %95, label %96, label %111
+  br i1 %95, label %96, label %109
 
 96:                                               ; preds = %93
   %97 = add nuw i64 %indvars.iv, 1
@@ -3451,7 +3451,7 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
   %100 = load i8, ptr %99, align 1
   switch i8 %100, label %101 [
     i8 44, label %102
-    i8 0, label %.loopexit.loopexit
+    i8 0, label %.loopexit
   ]
 
 101:                                              ; preds = %98
@@ -3460,112 +3460,108 @@ define dso_local i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr nound
 
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %.1223, i64 %indvars.iv259
-  %104 = trunc nuw i64 %indvars.iv259 to i32
   store i8 0, ptr %103, align 1
-  %105 = add nuw nsw i32 %104, 1
+  %104 = add i64 %indvars.iv259, 1
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %98
-  %106 = trunc nuw i64 %indvars.iv259 to i32
-  br label %.loopexit
+.loopexit:                                        ; preds = %98, %102
+  %.1 = phi i64 [ %104, %102 ], [ %indvars.iv259, %98 ]
+  br i1 %.not245, label %109, label %105
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %102
-  %.1 = phi i32 [ %105, %102 ], [ %106, %.loopexit.loopexit ]
-  br i1 %.not245, label %111, label %107
+105:                                              ; preds = %.loopexit
+  %106 = and i64 %97, 4294967295
+  %107 = getelementptr inbounds nuw i8, ptr %.1223, i64 %106
+  %108 = tail call i32 @time_str2secs(ptr noundef nonnull %107) #21
+  store i32 %108, ptr %6, align 8
+  br label %109
 
-107:                                              ; preds = %.loopexit
-  %108 = and i64 %97, 4294967295
-  %109 = getelementptr inbounds nuw i8, ptr %.1223, i64 %108
-  %110 = tail call i32 @time_str2secs(ptr noundef nonnull %109) #21
-  store i32 %110, ptr %6, align 8
-  br label %111
+109:                                              ; preds = %.loopexit, %105, %93
+  %.1221 = phi i64 [ %indvars.iv, %93 ], [ %.1, %105 ], [ %.1, %.loopexit ]
+  %sext = shl i64 %.1221, 32
+  %110 = ashr exact i64 %sext, 32
+  %111 = getelementptr inbounds i8, ptr %.1223, i64 %110
+  %112 = icmp eq i32 %.1227, 2
+  %.282 = select i1 %112, i64 2147483648, i64 1048576
+  br label %137
 
-111:                                              ; preds = %.loopexit, %107, %93
-  %.1221 = phi i32 [ %19, %93 ], [ %.1, %107 ], [ %.1, %.loopexit ]
-  %112 = sext i32 %.1221 to i64
-  %113 = getelementptr inbounds i8, ptr %.1223, i64 %112
-  %114 = icmp eq i32 %.1227, 2
-  %.282 = select i1 %114, i64 2147483648, i64 1048576
-  br label %139
+113:                                              ; preds = %91
+  %114 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.115, i64 noundef %28) #21
+  %115 = icmp eq i32 %114, 0
+  %116 = icmp eq i32 %.1227, 0
+  %or.cond5 = select i1 %115, i1 %116, i1 false
+  br i1 %or.cond5, label %137, label %117
 
-115:                                              ; preds = %91
-  %116 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.115, i64 noundef %28) #21
-  %117 = icmp eq i32 %116, 0
-  %118 = icmp eq i32 %.1227, 0
-  %or.cond5 = select i1 %117, i1 %118, i1 false
-  br i1 %or.cond5, label %139, label %119
+117:                                              ; preds = %113
+  %118 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.116, i64 noundef %28) #21
+  %119 = icmp eq i32 %118, 0
+  %or.cond7 = select i1 %119, i1 %31, i1 false
+  br i1 %or.cond7, label %137, label %120
 
-119:                                              ; preds = %115
-  %120 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.116, i64 noundef %28) #21
-  %121 = icmp eq i32 %120, 0
-  %or.cond7 = select i1 %121, i1 %31, i1 false
-  br i1 %or.cond7, label %139, label %122
+120:                                              ; preds = %117
+  %121 = tail call i32 @llvm.umax.i32(i32 %19, i32 8)
+  %122 = zext nneg i32 %121 to i64
+  %123 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.117, i64 noundef %122) #21
+  %124 = icmp eq i32 %123, 0
+  %or.cond9 = select i1 %124, i1 %31, i1 false
+  br i1 %or.cond9, label %137, label %125
 
-122:                                              ; preds = %119
-  %123 = tail call i32 @llvm.umax.i32(i32 %19, i32 8)
-  %124 = zext nneg i32 %123 to i64
-  %125 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.117, i64 noundef %124) #21
-  %126 = icmp eq i32 %125, 0
-  %or.cond9 = select i1 %126, i1 %31, i1 false
-  br i1 %or.cond9, label %139, label %127
+125:                                              ; preds = %120
+  %126 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.118, i64 noundef %28) #21
+  %127 = icmp eq i32 %126, 0
+  %or.cond11 = select i1 %127, i1 %31, i1 false
+  br i1 %or.cond11, label %137, label %128
 
-127:                                              ; preds = %122
-  %128 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.118, i64 noundef %28) #21
-  %129 = icmp eq i32 %128, 0
-  %or.cond11 = select i1 %129, i1 %31, i1 false
-  br i1 %or.cond11, label %139, label %130
+128:                                              ; preds = %125
+  %129 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.119, i64 noundef %28) #21
+  %.not246 = icmp eq i32 %129, 0
+  br i1 %.not246, label %130, label %132
 
-130:                                              ; preds = %127
-  %131 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.119, i64 noundef %28) #21
-  %.not246 = icmp eq i32 %131, 0
-  br i1 %.not246, label %132, label %134
+130:                                              ; preds = %128
+  %131 = icmp eq i32 %.1227, 2
+  %.283 = select i1 %131, i64 1099511627776, i64 549755813888
+  br label %137
 
-132:                                              ; preds = %130
-  %133 = icmp eq i32 %.1227, 2
-  %.283 = select i1 %133, i64 1099511627776, i64 549755813888
-  br label %139
+132:                                              ; preds = %128
+  %133 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.120, i64 noundef %28) #21
+  %134 = icmp eq i32 %133, 0
+  %or.cond13 = select i1 %134, i1 %116, i1 false
+  br i1 %or.cond13, label %137, label %135
 
-134:                                              ; preds = %130
-  %135 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1223, ptr noundef nonnull @.str.120, i64 noundef %28) #21
-  %136 = icmp eq i32 %135, 0
-  %or.cond13 = select i1 %136, i1 %118, i1 false
-  br i1 %or.cond13, label %139, label %137
+135:                                              ; preds = %132
+  %136 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.121, ptr noundef %0, ptr noundef %1) #21
+  br label %149
 
-137:                                              ; preds = %134
-  %138 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.121, ptr noundef %0, ptr noundef %1) #21
-  br label %151
-
-139:                                              ; preds = %134, %132, %127, %122, %119, %115, %111, %89, %83, %76, %71, %65, %60, %55, %50, %45, %40, %35, %26, %24
-  %.sink = phi i64 [ %., %24 ], [ 16384, %26 ], [ %.271, %35 ], [ %.272, %40 ], [ %.273, %45 ], [ %.274, %50 ], [ %.275, %55 ], [ %.276, %60 ], [ %.277, %65 ], [ %.278, %71 ], [ %.279, %76 ], [ %.280, %83 ], [ %.281, %89 ], [ %.282, %111 ], [ 131072, %115 ], [ 262144, %119 ], [ 1073741824, %122 ], [ 536870912, %127 ], [ %.283, %132 ], [ 4398046511104, %134 ]
-  %.2 = phi ptr [ %18, %24 ], [ %18, %26 ], [ %18, %35 ], [ %18, %40 ], [ %18, %45 ], [ %18, %50 ], [ %18, %55 ], [ %18, %60 ], [ %18, %65 ], [ %18, %71 ], [ %18, %76 ], [ %18, %83 ], [ %18, %89 ], [ %113, %111 ], [ %18, %115 ], [ %18, %119 ], [ %18, %122 ], [ %18, %127 ], [ %18, %132 ], [ %18, %134 ]
-  %140 = or i64 %.0224, %.sink
-  %141 = load i8, ptr %.2, align 1
-  %142 = icmp eq i8 %141, 44
-  %spec.select.idx = zext i1 %142 to i64
+137:                                              ; preds = %132, %130, %125, %120, %117, %113, %109, %89, %83, %76, %71, %65, %60, %55, %50, %45, %40, %35, %26, %24
+  %.sink = phi i64 [ %., %24 ], [ 16384, %26 ], [ %.271, %35 ], [ %.272, %40 ], [ %.273, %45 ], [ %.274, %50 ], [ %.275, %55 ], [ %.276, %60 ], [ %.277, %65 ], [ %.278, %71 ], [ %.279, %76 ], [ %.280, %83 ], [ %.281, %89 ], [ %.282, %109 ], [ 131072, %113 ], [ 262144, %117 ], [ 1073741824, %120 ], [ 536870912, %125 ], [ %.283, %130 ], [ 4398046511104, %132 ]
+  %.2 = phi ptr [ %18, %24 ], [ %18, %26 ], [ %18, %35 ], [ %18, %40 ], [ %18, %45 ], [ %18, %50 ], [ %18, %55 ], [ %18, %60 ], [ %18, %65 ], [ %18, %71 ], [ %18, %76 ], [ %18, %83 ], [ %18, %89 ], [ %111, %109 ], [ %18, %113 ], [ %18, %117 ], [ %18, %120 ], [ %18, %125 ], [ %18, %130 ], [ %18, %132 ]
+  %138 = or i64 %.0224, %.sink
+  %139 = load i8, ptr %.2, align 1
+  %140 = icmp eq i8 %139, 44
+  %spec.select.idx = zext i1 %140 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.2, i64 %spec.select.idx
   br label %7, !llvm.loop !26
 
-143:                                              ; preds = %7
-  %144 = icmp ne ptr %2, null
-  %145 = icmp ne i64 %.0224, -1
-  %or.cond15 = select i1 %144, i1 %145, i1 false
-  br i1 %or.cond15, label %.sink.split, label %150
+141:                                              ; preds = %7
+  %142 = icmp ne ptr %2, null
+  %143 = icmp ne i64 %.0224, -1
+  %or.cond15 = select i1 %142, i1 %143, i1 false
+  br i1 %or.cond15, label %.sink.split, label %148
 
-.sink.split:                                      ; preds = %143
-  %146 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %147 = load i64, ptr %146, align 8
-  %148 = icmp eq i64 %147, -2
-  %149 = select i1 %148, i64 0, i64 %147
-  %.0224.lcssa.sink = or i64 %.0224, %149
-  store i64 %.0224.lcssa.sink, ptr %146, align 8
-  br label %150
+.sink.split:                                      ; preds = %141
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %145 = load i64, ptr %144, align 8
+  %146 = icmp eq i64 %145, -2
+  %147 = select i1 %146, i64 0, i64 %145
+  %.0224.lcssa.sink = or i64 %.0224, %147
+  store i64 %.0224.lcssa.sink, ptr %144, align 8
+  br label %148
 
-150:                                              ; preds = %.sink.split, %143
+148:                                              ; preds = %.sink.split, %141
   call void @slurm_xfree(ptr noundef nonnull %4) #21
-  br label %151
+  br label %149
 
-151:                                              ; preds = %150, %137
-  %.0228 = phi i64 [ -1, %137 ], [ %.0224, %150 ]
+149:                                              ; preds = %148, %135
+  %.0228 = phi i64 [ -1, %135 ], [ %.0224, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0228
 }

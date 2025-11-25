@@ -222,13 +222,13 @@ define void @ff_mpeg1_init_uni_ac_vlc(ptr noundef readonly captures(none) %0, pt
   %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv35
   br label %14
 
-14:                                               ; preds = %.preheader, %39
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %39 ]
+14:                                               ; preds = %.preheader, %42
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %42 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = sext i8 %16 to i32
   %18 = icmp sgt i32 %12, %17
-  br i1 %18, label %32, label %19
+  br i1 %18, label %34, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
@@ -236,49 +236,51 @@ define void @ff_mpeg1_init_uni_ac_vlc(ptr noundef readonly captures(none) %0, pt
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %12, %22
   %24 = icmp slt i32 %23, 112
-  br i1 %24, label %26, label %.thread31
+  br i1 %24, label %27, label %.thread31
 
 .thread31:                                        ; preds = %19
   %25 = load i16, ptr %5, align 2, !tbaa !7
-  br label %34
+  %26 = trunc i16 %25 to i8
+  br label %37
 
-26:                                               ; preds = %19
-  %27 = sext i32 %23 to i64
-  %28 = getelementptr [2 x i16], ptr %2, i64 %27
-  %29 = getelementptr i8, ptr %28, i64 -2
-  %30 = load i16, ptr %29, align 2, !tbaa !7
-  %31 = add i16 %30, 1
-  br label %39
+27:                                               ; preds = %19
+  %28 = sext i32 %23 to i64
+  %29 = getelementptr [2 x i16], ptr %2, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 -2
+  %31 = load i16, ptr %30, align 2, !tbaa !7
+  %32 = trunc i16 %31 to i8
+  %33 = add i8 %32, 1
+  br label %42
 
-32:                                               ; preds = %14
-  %33 = load i16, ptr %5, align 2, !tbaa !7
-  br i1 %13, label %34, label %37
+34:                                               ; preds = %14
+  %35 = load i16, ptr %5, align 2, !tbaa !7
+  %36 = trunc i16 %35 to i8
+  br i1 %13, label %37, label %40
 
-34:                                               ; preds = %.thread31, %32
-  %35 = phi i16 [ %25, %.thread31 ], [ %33, %32 ]
-  %36 = add i16 %35, 14
-  br label %39
+37:                                               ; preds = %.thread31, %34
+  %38 = phi i8 [ %26, %.thread31 ], [ %36, %34 ]
+  %39 = add i8 %38, 14
+  br label %42
 
-37:                                               ; preds = %32
-  %38 = add i16 %33, 22
-  br label %39
+40:                                               ; preds = %34
+  %41 = add i8 %36, 22
+  br label %42
 
-39:                                               ; preds = %34, %37, %26
-  %.026 = phi i16 [ %31, %26 ], [ %36, %34 ], [ %38, %37 ]
-  %40 = trunc i16 %.026 to i8
-  %41 = shl nuw nsw i64 %indvars.iv, 7
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %41
-  store i8 %40, ptr %gep, align 1, !tbaa !4
+42:                                               ; preds = %37, %40, %27
+  %.026 = phi i8 [ %33, %27 ], [ %39, %37 ], [ %41, %40 ]
+  %43 = shl nuw nsw i64 %indvars.iv, 7
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %43
+  store i8 %.026, ptr %gep, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !9
 
-.loopexit:                                        ; preds = %39, %6
+.loopexit:                                        ; preds = %42, %6
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next36, 128
-  br i1 %exitcond38.not, label %42, label %6, !llvm.loop !11
+  br i1 %exitcond38.not, label %44, label %6, !llvm.loop !11
 
-42:                                               ; preds = %.loopexit
+44:                                               ; preds = %.loopexit
   ret void
 }
 

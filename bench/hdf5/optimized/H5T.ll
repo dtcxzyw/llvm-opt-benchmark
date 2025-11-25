@@ -7088,7 +7088,7 @@ define range(i32 -1, 1) i32 @H5Tclose_async(ptr noundef %0, ptr noundef %1, i32 
 88:                                               ; preds = %87
   %89 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.132) #17
   %90 = icmp slt i64 %89, 0
-  br i1 %90, label %.thread65, label %96
+  br i1 %90, label %.thread65, label %96, !prof !76
 
 .thread65:                                        ; preds = %88
   %91 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !10
@@ -9690,12 +9690,12 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tget_super(i64 noundef %0) loc
   %36 = call i32 @H5E_clear_stack() #17
   %37 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 3) #17
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread54, label %39
+  br i1 %38, label %.thread54, label %39, !prof !76
 
 39:                                               ; preds = %35
   %40 = call ptr @H5T_get_super(ptr noundef nonnull %37)
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.thread54, label %42
+  br i1 %41, label %.thread54, label %42, !prof !76
 
 42:                                               ; preds = %39
   %43 = call i64 @H5I_register(i32 noundef 3, ptr noundef nonnull %40, i1 noundef zeroext true) #17

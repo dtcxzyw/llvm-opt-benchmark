@@ -2594,13 +2594,13 @@ list_length.exit218.us:                           ; preds = %125, %.lr.ph309
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %86, %257
-  %.sink = phi ptr [ %258, %257 ], [ %.0168, %86 ]
+  %.0168.sink = phi ptr [ %258, %257 ], [ %.0168, %86 ]
   %.0.ph = phi i1 [ %.1162, %257 ], [ true, %86 ]
-  store ptr %.sink, ptr %5, align 8
+  store ptr %.0168.sink, ptr %5, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %256, %86, %10
-  %.0 = phi i1 [ false, %10 ], [ true, %86 ], [ %.1162, %256 ], [ %.0.ph, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %86, %256, %10
+  %.0 = phi i1 [ false, %10 ], [ %.1162, %256 ], [ true, %86 ], [ %.0.ph, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0

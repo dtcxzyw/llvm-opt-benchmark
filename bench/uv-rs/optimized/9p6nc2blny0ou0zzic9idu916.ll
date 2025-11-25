@@ -3549,8 +3549,8 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
   %532 = landingpad { ptr, i32 }
           cleanup
   %533 = load i64, ptr %114, align 8, !range !390, !noalias !370, !noundef !7
-  %.not14.i.i = icmp eq i64 %533, -9223372036854775799
-  br i1 %.not14.i.i, label %.body, label %538
+  %.not9.i.i = icmp eq i64 %533, -9223372036854775799
+  br i1 %.not9.i.i, label %.body, label %538
 
 534:                                              ; preds = %524
   call void @llvm.lifetime.end.p0(ptr nonnull %112), !noalias !374
@@ -5432,8 +5432,8 @@ _ZN3std4path4Path4join17hefc6bd0f95adc4cbE.exit:  ; preds = %"_ZN4core3ptr50drop
   %1045 = landingpad { ptr, i32 }
           cleanup
   %1046 = load i64, ptr %58, align 8, !range !390, !noalias !627, !noundef !7
-  %.not14.i.i689 = icmp eq i64 %1046, -9223372036854775799
-  br i1 %.not14.i.i689, label %.body811, label %1051
+  %.not9.i.i689 = icmp eq i64 %1046, -9223372036854775799
+  br i1 %.not9.i.i689, label %.body811, label %1051
 
 1047:                                             ; preds = %1041
   call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !631
@@ -9175,8 +9175,8 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
   %543 = landingpad { ptr, i32 }
           cleanup
   %544 = load i64, ptr %116, align 8, !range !390, !noalias !1242, !noundef !7
-  %.not14.i.i = icmp eq i64 %544, -9223372036854775799
-  br i1 %.not14.i.i, label %.body, label %549
+  %.not9.i.i = icmp eq i64 %544, -9223372036854775799
+  br i1 %.not9.i.i, label %.body, label %549
 
 545:                                              ; preds = %535
   call void @llvm.lifetime.end.p0(ptr nonnull %114), !noalias !1246
@@ -11164,8 +11164,8 @@ _ZN3std4path4Path4join17hefc6bd0f95adc4cbE.exit:  ; preds = %"_ZN4core3ptr50drop
   %1083 = landingpad { ptr, i32 }
           cleanup
   %1084 = load i64, ptr %58, align 8, !range !390, !noalias !1497, !noundef !7
-  %.not14.i.i689 = icmp eq i64 %1084, -9223372036854775799
-  br i1 %.not14.i.i689, label %.body815, label %1089
+  %.not9.i.i689 = icmp eq i64 %1084, -9223372036854775799
+  br i1 %.not9.i.i689, label %.body815, label %1089
 
 1085:                                             ; preds = %1079
   call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !1501

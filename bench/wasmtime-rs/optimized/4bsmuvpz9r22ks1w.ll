@@ -34497,7 +34497,7 @@ default.unreachable:                              ; preds = %10, %4
   %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr84drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$GT$17ha5f1cf0757b44ff6E.llvm.17911367524062806024"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #39
-          to label %22 unwind label %20
+          to label %.thread32 unwind label %20
 
 10:                                               ; preds = %4
   %11 = bitcast double %1 to i64
@@ -34557,7 +34557,7 @@ default.unreachable:                              ; preds = %10, %4
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #40
   unreachable
 
-22:                                               ; preds = %.thread
+.thread32:                                        ; preds = %.thread
   resume { ptr, i32 } %9
 }
 

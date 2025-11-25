@@ -12694,7 +12694,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 156:                                              ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i62, %.noexc63
   %157 = icmp ne i8 %154, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %158 = or i1 %157, %.0
+  %158 = or i1 %.0, %157
   br i1 %158, label %.critedge40, label %159
 
 159:                                              ; preds = %156

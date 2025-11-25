@@ -1325,8 +1325,8 @@ define void @_ZN4rope4Rope7replace17haa67c2c550babcfeE(ptr noalias noundef align
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #24
   unreachable
 
-common.resume:                                    ; preds = %81, %.thread15.thread, %.thread15, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %42, %.thread15 ], [ %.pn.pn10, %81 ], [ %.pn.pn10, %.thread15.thread ]
+common.resume:                                    ; preds = %81, %"_ZN4core3ptr33drop_in_place$LT$rope..Cursor$GT$17hc5a592a997c50d9aE.exit", %.thread15, %20
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %42, %.thread15 ], [ %.pn.pn10, %81 ], [ %.pn.pn10, %"_ZN4core3ptr33drop_in_place$LT$rope..Cursor$GT$17hc5a592a997c50d9aE.exit" ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4rope4Rope3new17hd053e4ab1b341838E.exit:       ; preds = %.noexc.i.i
@@ -1388,7 +1388,7 @@ _ZN4rope4Rope3new17hd053e4ab1b341838E.exit:       ; preds = %.noexc.i.i
 .thread:                                          ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h31d21d472ef4511eE.llvm.4267649359718517871.exit.i.i.i"
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread15.thread
+  br label %"_ZN4core3ptr33drop_in_place$LT$rope..Cursor$GT$17hc5a592a997c50d9aE.exit"
 
 44:                                               ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h31d21d472ef4511eE.llvm.4267649359718517871.exit.i.i.i"
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1404,7 +1404,7 @@ _ZN4rope4Rope3new17hd053e4ab1b341838E.exit:       ; preds = %.noexc.i.i
 48:                                               ; preds = %_ZN4rope6Cursor6suffix17hf2158891942cf77cE.exit
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread15.thread
+  br label %"_ZN4core3ptr33drop_in_place$LT$rope..Cursor$GT$17hc5a592a997c50d9aE.exit"
 
 49:                                               ; preds = %44
   invoke void @_ZN4rope4Rope6append17h10e5ac0225e126fdE(ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %47)
@@ -1447,11 +1447,11 @@ _ZN4rope4Rope3new17hd053e4ab1b341838E.exit:       ; preds = %.noexc.i.i
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %65 = load i32, ptr %64, align 8, !alias.scope !168, !noundef !7
   %.not.i.i.i.i.i = icmp eq i32 %65, 0
-  br i1 %.not.i.i.i.i.i, label %.thread15.thread, label %66
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr33drop_in_place$LT$rope..Cursor$GT$17hc5a592a997c50d9aE.exit", label %66
 
 66:                                               ; preds = %62
   store i32 0, ptr %64, align 8, !alias.scope !181
-  br label %.thread15.thread
+  br label %"_ZN4core3ptr33drop_in_place$LT$rope..Cursor$GT$17hc5a592a997c50d9aE.exit"
 
 _ZN4rope6Cursor6suffix17hf2158891942cf77cE.exit:  ; preds = %54
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -1485,11 +1485,11 @@ _ZN4rope6Cursor6suffix17hf2158891942cf77cE.exit:  ; preds = %54
           cleanup
   %74 = load i32, ptr %45, align 8, !alias.scope !197, !noundef !7
   %.not.i.i.i.i = icmp eq i32 %74, 0
-  br i1 %.not.i.i.i.i, label %.thread15.thread, label %75
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr33drop_in_place$LT$rope..Cursor$GT$17hc5a592a997c50d9aE.exit", label %75
 
 75:                                               ; preds = %73
   store i32 0, ptr %45, align 8, !alias.scope !210
-  br label %.thread15.thread
+  br label %"_ZN4core3ptr33drop_in_place$LT$rope..Cursor$GT$17hc5a592a997c50d9aE.exit"
 
 76:                                               ; preds = %81
   %77 = landingpad { ptr, i32 }
@@ -1497,8 +1497,8 @@ _ZN4rope6Cursor6suffix17hf2158891942cf77cE.exit:  ; preds = %54
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #24
   unreachable
 
-.thread15.thread:                                 ; preds = %75, %73, %66, %62, %48, %.thread
-  %.pn.pn10 = phi { ptr, i32 } [ %43, %.thread ], [ %lpad.thr_comm, %75 ], [ %lpad.thr_comm, %73 ], [ %63, %66 ], [ %63, %62 ], [ %lpad.thr_comm.split-lp, %48 ]
+"_ZN4core3ptr33drop_in_place$LT$rope..Cursor$GT$17hc5a592a997c50d9aE.exit": ; preds = %66, %62, %48, %75, %73, %.thread
+  %.pn.pn10 = phi { ptr, i32 } [ %43, %.thread ], [ %lpad.thr_comm, %73 ], [ %lpad.thr_comm, %75 ], [ %63, %66 ], [ %63, %62 ], [ %lpad.thr_comm.split-lp, %48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
   call void @llvm.experimental.noalias.scope.decl(metadata !216)
   call void @llvm.experimental.noalias.scope.decl(metadata !219)
@@ -1508,7 +1508,7 @@ _ZN4rope6Cursor6suffix17hf2158891942cf77cE.exit:  ; preds = %54
   %80 = icmp eq i64 %79, 1
   br i1 %80, label %81, label %common.resume
 
-81:                                               ; preds = %.thread15.thread
+81:                                               ; preds = %"_ZN4core3ptr33drop_in_place$LT$rope..Cursor$GT$17hc5a592a997c50d9aE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h12c42ee14b655a68E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13)
           to label %common.resume unwind label %76
@@ -8021,7 +8021,7 @@ define noundef zeroext i1 @_ZN4rope6Chunks9next_line17h93ba3283499a851fE(ptr noa
   br i1 %.not, label %39, label %31
 
 "_ZN71_$LT$rope..Chunks$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c66813f2a4ee8d2E.exit": ; preds = %105, %104, %101, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17he41649d76fa89003E.exit.i", %84, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17he41649d76fa89003E.exit", %10
-  %.sroa.0.0.shrunk = phi i1 [ false, %10 ], [ %.sroa.0.1.shrunk, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17he41649d76fa89003E.exit" ], [ %.sroa.0.1.shrunk, %84 ], [ %.sroa.0.1.shrunk, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17he41649d76fa89003E.exit.i" ], [ %.sroa.0.1.shrunk, %101 ], [ %.sroa.0.1.shrunk, %104 ], [ %.sroa.0.1.shrunk, %105 ]
+  %.sroa.0.0 = phi i1 [ false, %10 ], [ %.sroa.0.1, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17he41649d76fa89003E.exit" ], [ %.sroa.0.1, %84 ], [ %.sroa.0.1, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17he41649d76fa89003E.exit.i" ], [ %.sroa.0.1, %101 ], [ %.sroa.0.1, %104 ], [ %.sroa.0.1, %105 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i64, ptr %26, align 8, !noundef !7
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8054,7 +8054,7 @@ define noundef zeroext i1 @_ZN4rope6Chunks9next_line17h93ba3283499a851fE(ptr noa
 
 47:                                               ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17he41649d76fa89003E.exit13", %77, %31
   %48 = phi i64 [ %35, %31 ], [ %.sroa.0.0.i12, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17he41649d76fa89003E.exit13" ], [ %80, %77 ]
-  %.sroa.0.1.shrunk = phi i1 [ %38, %31 ], [ false, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17he41649d76fa89003E.exit13" ], [ %83, %77 ]
+  %.sroa.0.1 = phi i1 [ %38, %31 ], [ false, %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17he41649d76fa89003E.exit13" ], [ %83, %77 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = tail call noundef align 8 dereferenceable_or_null(48) ptr @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$12item_summary17h4bc8f0eca2825904E.llvm.4267649359718517871"(ptr noalias noundef nonnull readonly align 8 dereferenceable(416) %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5150c66fcde2fb7b571b90378eb2eb01.128)
@@ -8212,7 +8212,7 @@ define noundef zeroext i1 @_ZN4rope6Chunks9next_line17h93ba3283499a851fE(ptr noa
   br label %125
 
 125:                                              ; preds = %"_ZN71_$LT$rope..Chunks$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c66813f2a4ee8d2E.exit", %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17hd836509a9faeff59E.exit"
-  ret i1 %.sroa.0.0.shrunk
+  ret i1 %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable

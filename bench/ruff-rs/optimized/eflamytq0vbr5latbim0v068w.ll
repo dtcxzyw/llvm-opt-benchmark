@@ -23522,7 +23522,7 @@ define internal fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceB
 .thread:                                          ; preds = %20
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread68
+  br label %.thread65
 
 33:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1972
@@ -23580,7 +23580,7 @@ define internal fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceB
 .thread38:                                        ; preds = %36, %43, %.noexc21
   %51 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39.thread"
+  br label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39"
 
 52:                                               ; preds = %.noexc21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -23628,8 +23628,8 @@ define internal fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceB
 65:                                               ; preds = %.noexc25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.0.0.copyload = load i64, ptr %9, align 8
-  %.sroa.5.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0..sroa_idx72, i64 64, i1 false)
+  %.sroa.5.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0..sroa_idx69, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %66
 
@@ -23707,7 +23707,7 @@ define internal fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceB
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %85
 
-77:                                               ; preds = %83, %93, %.thread68, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39.thread", %79
+77:                                               ; preds = %83, %93, %.thread65, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39", %79
   %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #33
@@ -23723,23 +23723,23 @@ define internal fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceB
   %.pn.pn49 = phi { ptr, i32 } [ %53, %.thread44 ], [ %80, %79 ]
   %81 = load i64, ptr %16, align 8, !range !2014, !alias.scope !2015, !noundef !59
   %82 = icmp eq i64 %81, 5
-  br i1 %82, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39.thread", label %83
+  br i1 %82, label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39", label %83
 
 83:                                               ; preds = %.thread60
   invoke void @"_ZN4core3ptr69drop_in_place$LT$ty_python_semantic..types..signatures..Parameter$GT$17h7d94b200c073240aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %16)
-          to label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39.thread" unwind label %77
+          to label %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39" unwind label %77
 
-"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39.thread": ; preds = %.thread60, %83, %.thread38
+"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39": ; preds = %.thread60, %83, %.thread38
   %.pn.pn.pn42 = phi { ptr, i32 } [ %51, %.thread38 ], [ %.pn.pn49, %83 ], [ %.pn.pn49, %.thread60 ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hd60a507c19cd8bebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #32
-          to label %.thread68 unwind label %77
+          to label %.thread65 unwind label %77
 
-84:                                               ; preds = %93, %.thread68
-  %.pn18.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn37, %.thread68 ], [ %94, %93 ]
+84:                                               ; preds = %93, %.thread65
+  %.pn18.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn37, %.thread65 ], [ %94, %93 ]
   resume { ptr, i32 } %.pn18.pn
 
-.thread68:                                        ; preds = %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39.thread", %.thread
-  %.pn.pn.pn.pn37 = phi { ptr, i32 } [ %32, %.thread ], [ %.pn.pn.pn42, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39.thread" ]
+.thread65:                                        ; preds = %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39", %.thread
+  %.pn.pn.pn.pn37 = phi { ptr, i32 } [ %32, %.thread ], [ %.pn.pn.pn42, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hc077889e2999cac5E.exit39" ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$ty_python_semantic..types..signatures..Parameter$GT$$GT$17hd60a507c19cd8bebE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #32
           to label %84 unwind label %77
 

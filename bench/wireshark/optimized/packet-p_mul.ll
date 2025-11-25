@@ -1448,7 +1448,7 @@ proto_item_set_generated.exit117.i:               ; preds = %proto_item_set_gene
   br i1 %or.cond8.i, label %proto_item_set_generated.exit117.thread.i, label %579
 
 proto_item_set_generated.exit117.thread.i:        ; preds = %proto_item_set_generated.exit117.i, %510, %507, %503, %500, %proto_item_set_generated.exit114.i, %481
-  %.1138.i = phi i1 [ %.1.i632, %proto_item_set_generated.exit117.i ], [ true, %503 ], [ true, %500 ], [ true, %proto_item_set_generated.exit114.i ], [ %.0.i631, %481 ], [ true, %510 ], [ %.0.i631, %507 ]
+  %.1139.i = phi i1 [ %.1.i632, %proto_item_set_generated.exit117.i ], [ true, %503 ], [ true, %500 ], [ true, %proto_item_set_generated.exit114.i ], [ %.0.i631, %481 ], [ true, %510 ], [ %.0.i631, %507 ]
   %514 = getelementptr inbounds nuw i8, ptr %425, i64 120
   %515 = load i32, ptr %514, align 8
   %.not102.i = icmp eq i32 %515, 0
@@ -1543,7 +1543,7 @@ proto_item_set_generated.exit129.i:               ; preds = %556, %553, %proto_i
   %560 = load i64, ptr %550, align 8
   %561 = load i64, ptr %540, align 8
   %562 = icmp eq i64 %560, %561
-  br i1 %562, label %563, label %.thread.i
+  br i1 %562, label %563, label %.critedge.i
 
 563:                                              ; preds = %proto_item_set_generated.exit129.i
   %564 = getelementptr inbounds nuw i8, ptr %425, i64 112
@@ -1552,22 +1552,22 @@ proto_item_set_generated.exit129.i:               ; preds = %556, %553, %proto_i
   %567 = load i32, ptr %566, align 8
   %568 = icmp ne i32 %565, %567
   %brmerge.i = or i1 %.not.i127.i, %568
-  br i1 %brmerge.i, label %.thread.i, label %569
+  br i1 %brmerge.i, label %.critedge.i, label %569
 
 569:                                              ; preds = %563
   %570 = getelementptr inbounds nuw i8, ptr %552, i64 40
   %571 = load ptr, ptr %570, align 8
   %.not5.i131.i = icmp eq ptr %571, null
-  br i1 %.not5.i131.i, label %.thread.i, label %572
+  br i1 %.not5.i131.i, label %.critedge.i, label %572
 
 572:                                              ; preds = %569
   %573 = getelementptr inbounds nuw i8, ptr %571, i64 28
   %574 = load i32, ptr %573, align 4
   %575 = or i32 %574, 1
   store i32 %575, ptr %573, align 4
-  br label %.thread.i
+  br label %.critedge.i
 
-.thread.i:                                        ; preds = %572, %569, %563, %proto_item_set_generated.exit129.i
+.critedge.i:                                      ; preds = %572, %569, %563, %proto_item_set_generated.exit129.i
   %576 = load ptr, ptr %9, align 8
   %577 = load i32, ptr %527, align 8
   %578 = load i32, ptr %514, align 8
@@ -1575,8 +1575,8 @@ proto_item_set_generated.exit129.i:               ; preds = %556, %553, %proto_i
   br label %add_seq_analysis.exit
 
 579:                                              ; preds = %proto_item_set_generated.exit117.thread.i, %proto_item_set_generated.exit117.i
-  %.2.i = phi i1 [ %.1138.i, %proto_item_set_generated.exit117.thread.i ], [ %.1.i632, %proto_item_set_generated.exit117.i ]
-  br i1 %.2.i, label %add_seq_analysis.exit, label %580
+  %.1138.i = phi i1 [ %.1139.i, %proto_item_set_generated.exit117.thread.i ], [ %.1.i632, %proto_item_set_generated.exit117.i ]
+  br i1 %.1138.i, label %add_seq_analysis.exit, label %580
 
 580:                                              ; preds = %579
   %581 = load ptr, ptr %5, align 8
@@ -1596,7 +1596,7 @@ proto_item_set_generated.exit129.i:               ; preds = %556, %553, %proto_i
   store i32 %588, ptr %586, align 4
   br label %add_seq_analysis.exit
 
-add_seq_analysis.exit:                            ; preds = %424, %.thread.i, %579, %580, %582, %585
+add_seq_analysis.exit:                            ; preds = %424, %.critedge.i, %579, %580, %582, %585
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %589
@@ -2795,7 +2795,7 @@ copy_address_wmem.exit160:                        ; preds = %106, %97, %95
   %176 = getelementptr inbounds nuw i8, ptr %.2167171, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %176, ptr noundef nonnull align 8 dereferenceable(16) %173, i64 16, i1 false)
   %177 = icmp ne i8 %3, 0
-  %or.cond13 = select i1 %177, i1 true, i1 %.0131
+  %or.cond13 = or i1 %177, %.0131
   br i1 %or.cond13, label %181, label %178
 
 178:                                              ; preds = %.thread169

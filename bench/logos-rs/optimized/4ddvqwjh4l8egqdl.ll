@@ -467,7 +467,7 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
   %.pn21 = phi { ptr, i32 } [ %85, %84 ], [ %.pn19, %.thread ], [ %.pn19, %86 ]
   %82 = load i32, ptr %21, align 8
   %83 = icmp ne i32 %82, 4
-  %or.cond = and i1 %83, %.sroa.09.4
+  %or.cond = and i1 %.sroa.09.4, %83
   br i1 %or.cond, label %88, label %87
 
 84:                                               ; preds = %80

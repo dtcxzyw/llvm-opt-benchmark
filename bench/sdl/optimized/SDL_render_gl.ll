@@ -164,7 +164,7 @@ define internal noundef zeroext i1 @GL_CreateRenderer(ptr noundef %0, ptr nounde
   %26 = and i64 %13, -805306371
   %27 = or disjoint i64 %26, 2
   %28 = call zeroext i1 @SDL_RecreateWindow(ptr noundef %1, i64 noundef %27) #6
-  br i1 %28, label %29, label %.thread149
+  br i1 %28, label %29, label %.critedge145
 
 29:                                               ; preds = %22, %3
   call void @SDL_SetupRendererColorspace(ptr noundef %0, i32 noundef %2) #6
@@ -955,7 +955,7 @@ GL_LoadFunctions.exit:                            ; preds = %362
   %397 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %8, ptr noundef nonnull %395, i64 noundef 16) #6
   %398 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %8, i32 noundef 46) #6
   %.not139 = icmp eq ptr %398, null
-  br i1 %.not139, label %.critedge145, label %399
+  br i1 %.not139, label %.critedge147, label %399
 
 399:                                              ; preds = %396
   store i8 0, ptr %398, align 1
@@ -964,11 +964,11 @@ GL_LoadFunctions.exit:                            ; preds = %362
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %401, label %403, label %.critedge
 
-.critedge145:                                     ; preds = %396
+.critedge147:                                     ; preds = %396
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
-.critedge:                                        ; preds = %393, %.critedge145, %399
+.critedge:                                        ; preds = %393, %.critedge147, %399
   %402 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.4) #6
   br i1 %402, label %403, label %406
 
@@ -1031,7 +1031,7 @@ GL_LoadFunctions.exit:                            ; preds = %362
   call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 6, ptr noundef nonnull @.str.10, ptr noundef nonnull %431) #6
   %432 = load ptr, ptr %430, align 8
   %.not142 = icmp eq ptr %432, null
-  br i1 %.not142, label %.thread147, label %433
+  br i1 %.not142, label %.thread149, label %433
 
 433:                                              ; preds = %428
   %434 = getelementptr inbounds nuw i8, ptr %33, i64 456
@@ -1044,7 +1044,7 @@ GL_LoadFunctions.exit:                            ; preds = %362
   %439 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 1448433993) #6
   %.pr.pre = load ptr, ptr %430, align 8
   %440 = icmp eq ptr %.pr.pre, null
-  br i1 %440, label %.thread147, label %thread-pre-split
+  br i1 %440, label %.thread149, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %437
   %.pr = load i32, ptr %434, align 8
@@ -1053,18 +1053,18 @@ thread-pre-split:                                 ; preds = %437
 .thread:                                          ; preds = %433, %thread-pre-split
   %441 = phi i32 [ %.pr, %thread-pre-split ], [ %435, %433 ]
   %442 = icmp sgt i32 %441, 1
-  br i1 %442, label %443, label %.thread147
+  br i1 %442, label %443, label %.thread149
 
 443:                                              ; preds = %.thread
   %444 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 842094158) #6
   %445 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 825382478) #6
-  br label %.thread147
+  br label %.thread149
 
-.thread147:                                       ; preds = %428, %443, %.thread, %437
+.thread149:                                       ; preds = %428, %443, %.thread, %437
   %446 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.13) #6
   br i1 %446, label %447, label %.sink.split
 
-447:                                              ; preds = %.thread147
+447:                                              ; preds = %.thread149
   %448 = getelementptr inbounds nuw i8, ptr %33, i64 46
   store i8 1, ptr %448, align 2
   %449 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.14) #6
@@ -1117,15 +1117,15 @@ thread-pre-split:                                 ; preds = %437
   store float 1.000000e+00, ptr %475, align 4
   br label %488
 
-.sink.split:                                      ; preds = %.thread147, %29
-  %.str.19.sink = phi ptr [ @.str.1, %29 ], [ @.str.19, %.thread147 ]
+.sink.split:                                      ; preds = %.thread149, %29
+  %.str.19.sink = phi ptr [ @.str.1, %29 ], [ @.str.19, %.thread149 ]
   %476 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.19.sink) #6
   br label %477
 
 477:                                              ; preds = %.sink.split, %365, %GL_LoadFunctions.exit, %78, %34, %32
-  br i1 %or.cond5, label %.thread149, label %488
+  br i1 %or.cond5, label %.critedge145, label %488
 
-.thread149:                                       ; preds = %22, %477
+.critedge145:                                     ; preds = %22, %477
   %478 = call ptr @SDL_GetError_REAL() #6
   %479 = call noalias ptr @SDL_strdup_REAL(ptr noundef %478) #6
   %480 = load i32, ptr %5, align 4
@@ -1139,8 +1139,8 @@ thread-pre-split:                                 ; preds = %437
   call void @SDL_free_REAL(ptr noundef %479) #6
   br label %488
 
-488:                                              ; preds = %477, %.thread149, %447
-  %.0 = phi i1 [ true, %447 ], [ false, %.thread149 ], [ false, %477 ]
+488:                                              ; preds = %477, %.critedge145, %447
+  %.0 = phi i1 [ true, %447 ], [ false, %.critedge145 ], [ false, %477 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

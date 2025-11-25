@@ -9492,7 +9492,7 @@ _ZNK11CaptureFile7capFileEv.exit92:               ; preds = %22, %.noexc91
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK11CaptureFile7capFileEv.exit92, %31, %26
-  %.152138.shrunk = phi i1 [ %.not73, %26 ], [ %.not73, %31 ], [ false, %_ZNK11CaptureFile7capFileEv.exit92 ]
+  %.152138 = phi i1 [ %.not73, %26 ], [ %.not73, %31 ], [ false, %_ZNK11CaptureFile7capFileEv.exit92 ]
   %.156 = phi i1 [ false, %26 ], [ %34, %31 ], [ false, %_ZNK11CaptureFile7capFileEv.exit92 ]
   %35 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %16)
           to label %.noexc93 unwind label %13
@@ -9705,7 +9705,7 @@ _ZNK11CaptureFile7capFileEv.exit.thread.sink.split: ; preds = %.noexc111, %117, 
 
 _ZNK11CaptureFile7capFileEv.exit.thread:          ; preds = %_ZNK11CaptureFile7capFileEv.exit.thread.sink.split, %.noexc, %_ZNK11CaptureFile7capFileEv.exit96, %_ZNK11CaptureFile7capFileEv.exit100, %_ZNK11CaptureFile7capFileEv.exit
   %.055 = phi i1 [ %.156, %_ZNK11CaptureFile7capFileEv.exit96 ], [ %.156, %_ZNK11CaptureFile7capFileEv.exit100 ], [ false, %_ZNK11CaptureFile7capFileEv.exit ], [ false, %.noexc ], [ %.156, %_ZNK11CaptureFile7capFileEv.exit.thread.sink.split ]
-  %.051.shrunk = phi i1 [ %.152138.shrunk, %_ZNK11CaptureFile7capFileEv.exit96 ], [ %.152138.shrunk, %_ZNK11CaptureFile7capFileEv.exit100 ], [ false, %_ZNK11CaptureFile7capFileEv.exit ], [ false, %.noexc ], [ %.152138.shrunk, %_ZNK11CaptureFile7capFileEv.exit.thread.sink.split ]
+  %.051 = phi i1 [ %.152138, %_ZNK11CaptureFile7capFileEv.exit96 ], [ %.152138, %_ZNK11CaptureFile7capFileEv.exit100 ], [ false, %_ZNK11CaptureFile7capFileEv.exit ], [ false, %.noexc ], [ %.152138, %_ZNK11CaptureFile7capFileEv.exit.thread.sink.split ]
   %120 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %16)
           to label %.noexc113 unwind label %13
 
@@ -10133,14 +10133,14 @@ _ZNK11CaptureFile7capFileEv.exit127.thread:       ; preds = %.noexc126, %261, %_
   %293 = load ptr, ptr %250, align 8
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 264
   %295 = load ptr, ptr %294, align 8
-  invoke void @_ZN7QAction10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(16) %295, i1 noundef zeroext %.051.shrunk)
+  invoke void @_ZN7QAction10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(16) %295, i1 noundef zeroext %.051)
           to label %296 unwind label %13
 
 296:                                              ; preds = %292
   %297 = load ptr, ptr %250, align 8
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 272
   %299 = load ptr, ptr %298, align 8
-  invoke void @_ZN7QAction10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(16) %299, i1 noundef zeroext %.051.shrunk)
+  invoke void @_ZN7QAction10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(16) %299, i1 noundef zeroext %.051)
           to label %300 unwind label %13
 
 300:                                              ; preds = %296

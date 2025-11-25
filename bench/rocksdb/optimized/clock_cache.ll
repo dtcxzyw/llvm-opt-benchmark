@@ -16335,10 +16335,10 @@ _ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE
   br label %119
 
 119:                                              ; preds = %110, %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread57, %116
-  %.145.ph = phi ptr [ null, %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread57 ], [ %118, %116 ], [ %112, %110 ]
-  %.130.ph = phi i64 [ %114, %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread57 ], [ %114, %116 ], [ %.sink.i.ph, %110 ]
-  %.228.ph = phi ptr [ %.12760, %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread57 ], [ %.12760, %116 ], [ null, %110 ]
-  %.2.ph = phi i1 [ %.161, %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread57 ], [ %.161, %116 ], [ false, %110 ]
+  %.145.ph = phi ptr [ %118, %116 ], [ null, %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread57 ], [ %112, %110 ]
+  %.130.ph = phi i64 [ %114, %116 ], [ %114, %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread57 ], [ %.sink.i.ph, %110 ]
+  %.228.ph = phi ptr [ %.12760, %116 ], [ %.12760, %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread57 ], [ null, %110 ]
+  %.2.ph = phi i1 [ %.161, %116 ], [ %.161, %_ZN7rocksdb10autovectorIPNS_11clock_cache19AutoHyperClockTable10HandleImplELm8EE9push_backERKS4_.exit.thread57 ], [ false, %110 ]
   %120 = add nuw nsw i64 %.02476, 1
   %exitcond = icmp eq i64 %120, 4096
   br i1 %exitcond, label %19, label %20, !prof !141, !llvm.loop !439

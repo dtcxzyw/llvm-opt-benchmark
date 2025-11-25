@@ -6726,7 +6726,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i338: ; preds = %961,
   %.1228797 = phi i1 [ true, %.thread804 ], [ %.2229.ph, %1096 ], [ %.2229.ph, %1093 ]
   %1098 = load i64, ptr %124, align 8, !range !224, !noundef !4
   %1099 = icmp ne i64 %1098, -9223372036854775807
-  %or.cond7 = and i1 %1099, %.1228797
+  %or.cond7 = and i1 %.1228797, %1099
   br i1 %or.cond7, label %1100, label %.body334
 
 1100:                                             ; preds = %.thread792

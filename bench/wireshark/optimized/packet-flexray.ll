@@ -525,7 +525,7 @@ define internal i32 @dissect_flexray(ptr noundef %0, ptr noundef %1, ptr noundef
 
 89:                                               ; preds = %67
   %90 = icmp ne i32 %72, 0
-  %spec.select = and i1 %90, %.1
+  %spec.select = and i1 %.1, %90
   br i1 %78, label %91, label %93
 
 91:                                               ; preds = %89

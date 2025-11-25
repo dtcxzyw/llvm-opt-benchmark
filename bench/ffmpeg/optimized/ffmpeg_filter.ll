@@ -5629,8 +5629,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_frames(ptr noundef %0
   %.not68.not121 = icmp sgt i32 %82, 0
   br i1 %.not68.not121, label %.lr.ph, label %.thread.thread
 
-.lr.ph:                                           ; preds = %81, %251
-  %indvars.iv = phi i64 [ %indvars.iv.next, %251 ], [ 0, %81 ]
+.lr.ph:                                           ; preds = %81, %249
+  %indvars.iv = phi i64 [ %indvars.iv.next, %249 ], [ 0, %81 ]
   %83 = load ptr, ptr %15, align 8, !tbaa !111
   %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !112
@@ -5653,7 +5653,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_frames(ptr noundef %0
 98:                                               ; preds = %fg_output_step.exit, %.lr.ph
   %.051 = phi i32 [ 0, %.lr.ph ], [ %.0.i, %fg_output_step.exit ]
   %.not67.not = icmp eq i32 %.051, 0
-  br i1 %.not67.not, label %99, label %251
+  br i1 %.not67.not, label %99, label %249
 
 99:                                               ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5740,7 +5740,7 @@ av_ts_make_string.exit.i:                         ; preds = %130, %129
 136:                                              ; preds = %av_ts_make_string.exit.i, %123
   %137 = load i32, ptr %89, align 4, !tbaa !376
   %.not67.i = icmp eq i32 %137, 0
-  br i1 %.not67.i, label %138, label %223
+  br i1 %.not67.i, label %138, label %221
 
 138:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5756,13 +5756,13 @@ av_ts_make_string.exit.i:                         ; preds = %130, %129
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %143 = load i32, ptr %142, align 8, !tbaa !391
   %144 = icmp slt i32 %143, 1
-  br i1 %144, label %222, label %145
+  br i1 %144, label %220, label %145
 
 145:                                              ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %139, i64 28
   %147 = load i32, ptr %146, align 4, !tbaa !394
   %148 = icmp slt i32 %147, 1
-  br i1 %148, label %222, label %.thread.i.i
+  br i1 %148, label %220, label %.thread.i.i
 
 149:                                              ; preds = %138
   %.sroa.018.0.copyload21.i.i = load i32, ptr %17, align 8, !tbaa !118
@@ -5797,260 +5797,259 @@ av_ts_make_string.exit.i:                         ; preds = %130, %129
   %158 = trunc i64 %157 to i32
   %.not.i.i = icmp eq i32 %158, 0
   %159 = lshr i64 %157, 32
-  %160 = trunc nuw i64 %159 to i32
-  br i1 %.not.i.i, label %161, label %167
+  br i1 %.not.i.i, label %160, label %166
 
-161:                                              ; preds = %156
-  %162 = load ptr, ptr %87, align 8, !tbaa !326
-  %163 = call i64 @av_buffersink_get_frame_rate(ptr noundef %162) #17
-  %.sroa.013.0.extract.trunc.i.i = trunc i64 %163 to i32
-  %.sroa.5.0.extract.shift.i.i = lshr i64 %163, 32
+160:                                              ; preds = %156
+  %161 = load ptr, ptr %87, align 8, !tbaa !326
+  %162 = call i64 @av_buffersink_get_frame_rate(ptr noundef %161) #17
+  %.sroa.013.0.extract.trunc.i.i = trunc i64 %162 to i32
+  %.sroa.5.0.extract.shift.i.i = lshr i64 %162, 32
   %.sroa.5.0.extract.trunc.i.i = trunc nuw i64 %.sroa.5.0.extract.shift.i.i to i32
-  %164 = icmp sgt i32 %.sroa.013.0.extract.trunc.i.i, 0
-  %165 = icmp sgt i32 %.sroa.5.0.extract.trunc.i.i, 0
-  %or.cond.i.i = select i1 %164, i1 %165, i1 false
-  br i1 %or.cond.i.i, label %166, label %167
+  %163 = icmp sgt i32 %.sroa.013.0.extract.trunc.i.i, 0
+  %164 = icmp sgt i32 %.sroa.5.0.extract.trunc.i.i, 0
+  %or.cond.i.i = select i1 %163, i1 %164, i1 false
+  br i1 %or.cond.i.i, label %165, label %166
 
-166:                                              ; preds = %161
-  store i64 %163, ptr %4, align 8
-  br label %167
+165:                                              ; preds = %160
+  store i64 %162, ptr %4, align 8
+  br label %166
 
-167:                                              ; preds = %166, %161, %156
-  %168 = phi i32 [ %160, %161 ], [ %.sroa.5.0.extract.trunc.i.i, %166 ], [ %160, %156 ]
-  %169 = phi i32 [ 0, %161 ], [ %.sroa.013.0.extract.trunc.i.i, %166 ], [ %158, %156 ]
-  %170 = load i32, ptr %93, align 8, !tbaa !395
-  switch i32 %170, label %189 [
-    i32 1, label %171
-    i32 3, label %171
+166:                                              ; preds = %165, %160, %156
+  %167 = phi i64 [ %159, %160 ], [ %.sroa.5.0.extract.shift.i.i, %165 ], [ %159, %156 ]
+  %168 = phi i32 [ 0, %160 ], [ %.sroa.013.0.extract.trunc.i.i, %165 ], [ %158, %156 ]
+  %169 = load i32, ptr %93, align 8, !tbaa !395
+  switch i32 %169, label %188 [
+    i32 1, label %170
+    i32 3, label %170
   ]
 
-171:                                              ; preds = %167, %167
-  %.not71.i.i = icmp eq i32 %169, 0
+170:                                              ; preds = %166, %166
+  %.not71.i.i = icmp eq i32 %168, 0
   %.pre147 = load i32, ptr %94, align 4, !tbaa !396
-  br i1 %.not71.i.i, label %172, label %174
+  br i1 %.not71.i.i, label %171, label %173
+
+171:                                              ; preds = %170
+  %.not72.i.i = icmp eq i32 %.pre147, 0
+  br i1 %.not72.i.i, label %172, label %.thread
 
 172:                                              ; preds = %171
-  %.not72.i.i = icmp eq i32 %.pre147, 0
-  br i1 %.not72.i.i, label %173, label %.thread
-
-173:                                              ; preds = %172
   store i32 25, ptr %4, align 8, !tbaa !118
   store i32 1, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !tbaa !118
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %85, i32 noundef 24, ptr noundef nonnull @.str.144) #17
   %.pre = load i32, ptr %94, align 4, !tbaa !396
-  br label %174
+  br label %173
 
-174:                                              ; preds = %173, %171
-  %175 = phi i32 [ %.pre, %173 ], [ %.pre147, %171 ]
-  %176 = phi i32 [ 1, %173 ], [ %168, %171 ]
-  %177 = phi i32 [ 25, %173 ], [ %169, %171 ]
-  %.not73.i.i = icmp eq i32 %175, 0
-  br i1 %.not73.i.i, label %189, label %.thread
+173:                                              ; preds = %172, %170
+  %174 = phi i32 [ %.pre, %172 ], [ %.pre147, %170 ]
+  %175 = phi i64 [ 1, %172 ], [ %167, %170 ]
+  %176 = phi i32 [ 25, %172 ], [ %168, %170 ]
+  %.not73.i.i = icmp eq i32 %174, 0
+  br i1 %.not73.i.i, label %188, label %.thread
 
-.thread:                                          ; preds = %172, %174
-  %178 = load i64, ptr %4, align 8
-  %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %178 to i32
-  %.sroa.2.0.extract.shift.i.i.i = lshr i64 %178, 32
+.thread:                                          ; preds = %171, %173
+  %177 = load i64, ptr %4, align 8
+  %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %177 to i32
+  %.sroa.2.0.extract.shift.i.i.i = lshr i64 %177, 32
   %.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i to i32
-  %179 = sitofp i32 %.sroa.0.0.extract.trunc.i.i.i to double
-  %180 = sitofp i32 %.sroa.2.0.extract.trunc.i.i.i to double
-  %181 = fdiv nsz double %179, %180
-  %182 = load i64, ptr %94, align 4
-  %.sroa.0.0.extract.trunc.i77.i.i = trunc i64 %182 to i32
-  %.sroa.2.0.extract.shift.i78.i.i = lshr i64 %182, 32
+  %178 = sitofp i32 %.sroa.0.0.extract.trunc.i.i.i to double
+  %179 = sitofp i32 %.sroa.2.0.extract.trunc.i.i.i to double
+  %180 = fdiv nsz double %178, %179
+  %181 = load i64, ptr %94, align 4
+  %.sroa.0.0.extract.trunc.i77.i.i = trunc i64 %181 to i32
+  %.sroa.2.0.extract.shift.i78.i.i = lshr i64 %181, 32
   %.sroa.2.0.extract.trunc.i79.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i78.i.i to i32
-  %183 = sitofp i32 %.sroa.0.0.extract.trunc.i77.i.i to double
-  %184 = sitofp i32 %.sroa.2.0.extract.trunc.i79.i.i to double
-  %185 = fdiv nsz double %183, %184
-  %186 = fcmp nsz ule double %181, %185
-  %187 = icmp ne i64 %.sroa.2.0.extract.shift.i.i.i, 0
-  %or.cond5.i.i = and i1 %187, %186
-  br i1 %or.cond5.i.i, label %189, label %188
+  %182 = sitofp i32 %.sroa.0.0.extract.trunc.i77.i.i to double
+  %183 = sitofp i32 %.sroa.2.0.extract.trunc.i79.i.i to double
+  %184 = fdiv nsz double %182, %183
+  %185 = fcmp nsz ule double %180, %184
+  %186 = icmp ne i64 %.sroa.2.0.extract.shift.i.i.i, 0
+  %or.cond5.i.i = and i1 %186, %185
+  br i1 %or.cond5.i.i, label %188, label %187
 
-188:                                              ; preds = %.thread
-  store i64 %182, ptr %4, align 8
-  br label %189
+187:                                              ; preds = %.thread
+  store i64 %181, ptr %4, align 8
+  br label %188
 
-189:                                              ; preds = %188, %.thread, %174, %167
-  %190 = phi i32 [ %168, %167 ], [ %176, %174 ], [ %.sroa.2.0.extract.trunc.i79.i.i, %188 ], [ %.sroa.2.0.extract.trunc.i.i.i, %.thread ]
-  %191 = phi i32 [ %169, %167 ], [ %177, %174 ], [ %.sroa.0.0.extract.trunc.i77.i.i, %188 ], [ %.sroa.0.0.extract.trunc.i.i.i, %.thread ]
-  %192 = icmp sgt i32 %191, 0
-  br i1 %192, label %193, label %214
+188:                                              ; preds = %187, %.thread, %173, %166
+  %189 = phi i64 [ %167, %166 ], [ %175, %173 ], [ %.sroa.2.0.extract.shift.i78.i.i, %187 ], [ %.sroa.2.0.extract.shift.i.i.i, %.thread ]
+  %190 = phi i32 [ %168, %166 ], [ %176, %173 ], [ %.sroa.0.0.extract.trunc.i77.i.i, %187 ], [ %.sroa.0.0.extract.trunc.i.i.i, %.thread ]
+  %191 = icmp sgt i32 %190, 0
+  br i1 %191, label %192, label %212
 
-193:                                              ; preds = %189
-  %194 = load ptr, ptr %95, align 8, !tbaa !397
-  %.not74.i.i = icmp eq ptr %194, null
-  br i1 %.not74.i.i, label %205, label %195
+192:                                              ; preds = %188
+  %193 = load ptr, ptr %95, align 8, !tbaa !397
+  %.not74.i.i = icmp eq ptr %193, null
+  br i1 %.not74.i.i, label %203, label %194
 
-195:                                              ; preds = %193
-  %196 = load i64, ptr %4, align 8
-  %197 = call i32 @av_find_nearest_q_idx(i64 %196, ptr noundef nonnull %194) #17
-  %198 = load ptr, ptr %95, align 8, !tbaa !397
-  %199 = sext i32 %197 to i64
-  %200 = getelementptr inbounds %struct.AVRational, ptr %198, i64 %199
-  %201 = load i64, ptr %200, align 4
-  store i64 %201, ptr %4, align 8
-  %202 = trunc i64 %201 to i32
-  %203 = lshr i64 %201, 32
-  %204 = trunc nuw i64 %203 to i32
-  br label %205
+194:                                              ; preds = %192
+  %195 = load i64, ptr %4, align 8
+  %196 = call i32 @av_find_nearest_q_idx(i64 %195, ptr noundef nonnull %193) #17
+  %197 = load ptr, ptr %95, align 8, !tbaa !397
+  %198 = sext i32 %196 to i64
+  %199 = getelementptr inbounds %struct.AVRational, ptr %197, i64 %198
+  %200 = load i64, ptr %199, align 4
+  store i64 %200, ptr %4, align 8
+  %201 = trunc i64 %200 to i32
+  %202 = lshr i64 %200, 32
+  br label %203
 
-205:                                              ; preds = %195, %193
-  %206 = phi i32 [ %204, %195 ], [ %190, %193 ]
-  %207 = phi i32 [ %202, %195 ], [ %191, %193 ]
-  %208 = load i32, ptr %96, align 8, !tbaa !398
-  %.not75.i.i = icmp eq i32 %208, 0
-  br i1 %.not75.i.i, label %214, label %209
+203:                                              ; preds = %194, %192
+  %204 = phi i64 [ %202, %194 ], [ %189, %192 ]
+  %205 = phi i32 [ %201, %194 ], [ %190, %192 ]
+  %206 = load i32, ptr %96, align 8, !tbaa !398
+  %.not75.i.i = icmp eq i32 %206, 0
+  br i1 %.not75.i.i, label %212, label %207
 
-209:                                              ; preds = %205
-  %210 = sext i32 %207 to i64
-  %211 = sext i32 %206 to i64
-  %212 = sext i32 %208 to i64
-  %213 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %.sroa.2.0..sroa_idx.i.i, i64 noundef %210, i64 noundef %211, i64 noundef %212) #17
-  br label %214
+207:                                              ; preds = %203
+  %208 = sext i32 %205 to i64
+  %sext.i.i = shl nuw i64 %204, 32
+  %209 = ashr exact i64 %sext.i.i, 32
+  %210 = sext i32 %206 to i64
+  %211 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %.sroa.2.0..sroa_idx.i.i, i64 noundef %208, i64 noundef %209, i64 noundef %210) #17
+  br label %212
 
-214:                                              ; preds = %209, %205, %189
-  %215 = icmp sgt i32 %.sroa.018.086.i.i, 0
-  %216 = icmp sgt i32 %.sroa.13.083.i.i, 0
-  %or.cond8.i.i = select i1 %215, i1 %216, i1 false
-  %217 = load i64, ptr %4, align 8
-  %.sroa.01.0.insert.insert.i.i.i = call i64 @llvm.fshl.i64(i64 %217, i64 %217, i64 32)
+212:                                              ; preds = %207, %203, %188
+  %213 = icmp sgt i32 %.sroa.018.086.i.i, 0
+  %214 = icmp sgt i32 %.sroa.13.083.i.i, 0
+  %or.cond8.i.i = select i1 %213, i1 %214, i1 false
+  %215 = load i64, ptr %4, align 8
+  %.sroa.01.0.insert.insert.i.i.i = call i64 @llvm.fshl.i64(i64 %215, i64 %215, i64 32)
   %.sroa.018.0.extract.trunc.i.i = trunc i64 %.sroa.01.0.insert.insert.i.i.i to i32
   %.sroa.13.0.extract.shift.i.i = lshr i64 %.sroa.01.0.insert.insert.i.i.i, 32
   %.sroa.13.0.extract.trunc.i.i = trunc nuw i64 %.sroa.13.0.extract.shift.i.i to i32
   %.sroa.13.2.i.i = select i1 %or.cond8.i.i, i32 %.sroa.13.083.i.i, i32 %.sroa.13.0.extract.trunc.i.i
   %.sroa.018.2.i.i = select i1 %or.cond8.i.i, i32 %.sroa.018.086.i.i, i32 %.sroa.018.0.extract.trunc.i.i
-  %218 = icmp sgt i32 %.sroa.018.2.i.i, 0
-  %219 = icmp sgt i32 %.sroa.13.2.i.i, 0
-  %or.cond11.i.i = select i1 %218, i1 %219, i1 false
-  br i1 %or.cond11.i.i, label %221, label %220
+  %216 = icmp sgt i32 %.sroa.018.2.i.i, 0
+  %217 = icmp sgt i32 %.sroa.13.2.i.i, 0
+  %or.cond11.i.i = select i1 %216, i1 %217, i1 false
+  br i1 %or.cond11.i.i, label %219, label %218
 
-220:                                              ; preds = %214
+218:                                              ; preds = %212
   %.sroa.018.0.copyload23.i.i = load i32, ptr %17, align 8, !tbaa !118
   %.sroa.13.0.copyload30.i.i = load i32, ptr %19, align 4, !tbaa !118
-  br label %221
+  br label %219
 
-221:                                              ; preds = %220, %214
-  %.sroa.13.3.i.i = phi i32 [ %.sroa.13.2.i.i, %214 ], [ %.sroa.13.0.copyload30.i.i, %220 ]
-  %.sroa.018.3.i.i = phi i32 [ %.sroa.018.2.i.i, %214 ], [ %.sroa.018.0.copyload23.i.i, %220 ]
-  store i64 %217, ptr %92, align 4
+219:                                              ; preds = %218, %212
+  %.sroa.13.3.i.i = phi i32 [ %.sroa.13.2.i.i, %212 ], [ %.sroa.13.0.copyload30.i.i, %218 ]
+  %.sroa.018.3.i.i = phi i32 [ %.sroa.018.2.i.i, %212 ], [ %.sroa.018.0.copyload23.i.i, %218 ]
+  store i64 %215, ptr %92, align 4
   br label %choose_out_timebase.exit.i
 
-choose_out_timebase.exit.i:                       ; preds = %221, %.thread87.i.i, %154
-  %.sroa.13.1.i.i = phi i32 [ %155, %.thread87.i.i ], [ %.sroa.13.3.i.i, %221 ], [ %.sroa.13.0.i.i, %154 ]
-  %.sroa.018.1.i.i = phi i32 [ 1, %.thread87.i.i ], [ %.sroa.018.3.i.i, %221 ], [ %.sroa.018.0.i.i, %154 ]
+choose_out_timebase.exit.i:                       ; preds = %219, %.thread87.i.i, %154
+  %.sroa.13.1.i.i = phi i32 [ %155, %.thread87.i.i ], [ %.sroa.13.3.i.i, %219 ], [ %.sroa.13.0.i.i, %154 ]
+  %.sroa.018.1.i.i = phi i32 [ 1, %.thread87.i.i ], [ %.sroa.018.3.i.i, %219 ], [ %.sroa.018.0.i.i, %154 ]
   store i32 %.sroa.018.1.i.i, ptr %97, align 4, !tbaa !118
   store i32 %.sroa.13.1.i.i, ptr %.sroa.13.0..sroa_idx31.i.i, align 4, !tbaa !118
   store i32 1, ptr %89, align 4, !tbaa !376
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %223
+  br label %221
 
-222:                                              ; preds = %145, %141
+220:                                              ; preds = %145, %141
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %85, i32 noundef 16, ptr noundef nonnull @.str.143) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %85, i32 noundef 16, ptr noundef nonnull @.str.142) #17
   call void @av_frame_unref(ptr noundef nonnull %2) #17
   br label %fg_output_step.exit.thread
 
-223:                                              ; preds = %choose_out_timebase.exit.i, %136
-  %224 = call ptr @frame_data(ptr noundef nonnull %2) #17
-  %.not68.i = icmp eq ptr %224, null
-  br i1 %.not68.i, label %225, label %226
+221:                                              ; preds = %choose_out_timebase.exit.i, %136
+  %222 = call ptr @frame_data(ptr noundef nonnull %2) #17
+  %.not68.i = icmp eq ptr %222, null
+  br i1 %.not68.i, label %223, label %224
 
-225:                                              ; preds = %223
+223:                                              ; preds = %221
   call void @av_frame_unref(ptr noundef nonnull %2) #17
   br label %fg_output_step.exit.thread
 
-226:                                              ; preds = %223
-  %227 = call i64 @av_gettime_relative() #17
-  %228 = getelementptr inbounds nuw i8, ptr %224, i64 80
-  store i64 %227, ptr %228, align 8, !tbaa !256
-  %229 = getelementptr inbounds nuw i8, ptr %100, i64 84
-  %230 = load i32, ptr %229, align 4, !tbaa !375
-  %.not69.i = icmp eq i32 %230, 0
-  br i1 %.not69.i, label %231, label %233
+224:                                              ; preds = %221
+  %225 = call i64 @av_gettime_relative() #17
+  %226 = getelementptr inbounds nuw i8, ptr %222, i64 80
+  store i64 %225, ptr %226, align 8, !tbaa !256
+  %227 = getelementptr inbounds nuw i8, ptr %100, i64 84
+  %228 = load i32, ptr %227, align 4, !tbaa !375
+  %.not69.i = icmp eq i32 %228, 0
+  br i1 %.not69.i, label %229, label %231
 
-231:                                              ; preds = %226
-  %232 = getelementptr inbounds nuw i8, ptr %224, i64 40
-  store i32 0, ptr %232, align 8, !tbaa !399
-  br label %233
+229:                                              ; preds = %224
+  %230 = getelementptr inbounds nuw i8, ptr %222, i64 40
+  store i32 0, ptr %230, align 8, !tbaa !399
+  br label %231
 
-233:                                              ; preds = %231, %226
-  %234 = load i32, ptr %91, align 8, !tbaa !204
-  %235 = icmp eq i32 %234, 0
-  br i1 %235, label %236, label %248
+231:                                              ; preds = %229, %224
+  %232 = load i32, ptr %91, align 8, !tbaa !204
+  %233 = icmp eq i32 %232, 0
+  br i1 %233, label %234, label %246
 
-236:                                              ; preds = %233
-  %237 = load i64, ptr %21, align 8, !tbaa !254
-  %.not70.i = icmp eq i64 %237, 0
-  br i1 %.not70.i, label %238, label %245
+234:                                              ; preds = %231
+  %235 = load i64, ptr %21, align 8, !tbaa !254
+  %.not70.i = icmp eq i64 %235, 0
+  br i1 %.not70.i, label %236, label %243
 
-238:                                              ; preds = %236
-  %239 = call i64 @av_buffersink_get_frame_rate(ptr noundef %101) #17
-  %.sroa.05.0.extract.trunc.i = trunc i64 %239 to i32
-  %.sroa.5.0.extract.shift.i = lshr i64 %239, 32
+236:                                              ; preds = %234
+  %237 = call i64 @av_buffersink_get_frame_rate(ptr noundef %101) #17
+  %.sroa.05.0.extract.trunc.i = trunc i64 %237 to i32
+  %.sroa.5.0.extract.shift.i = lshr i64 %237, 32
   %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
-  %240 = icmp sgt i32 %.sroa.05.0.extract.trunc.i, 0
-  %241 = icmp sgt i32 %.sroa.5.0.extract.trunc.i, 0
-  %or.cond4.i = select i1 %240, i1 %241, i1 false
-  br i1 %or.cond4.i, label %242, label %245
+  %238 = icmp sgt i32 %.sroa.05.0.extract.trunc.i, 0
+  %239 = icmp sgt i32 %.sroa.5.0.extract.trunc.i, 0
+  %or.cond4.i = select i1 %238, i1 %239, i1 false
+  br i1 %or.cond4.i, label %240, label %243
 
-242:                                              ; preds = %238
-  %.sroa.01.0.insert.insert.i.i = call i64 @llvm.fshl.i64(i64 %239, i64 %239, i64 32)
-  %243 = load i64, ptr %17, align 8
-  %244 = call i64 @av_rescale_q(i64 noundef 1, i64 %.sroa.01.0.insert.insert.i.i, i64 %243) #22
-  store i64 %244, ptr %21, align 8, !tbaa !254
-  br label %245
+240:                                              ; preds = %236
+  %.sroa.01.0.insert.insert.i.i = call i64 @llvm.fshl.i64(i64 %237, i64 %237, i64 32)
+  %241 = load i64, ptr %17, align 8
+  %242 = call i64 @av_rescale_q(i64 noundef 1, i64 %.sroa.01.0.insert.insert.i.i, i64 %241) #22
+  store i64 %242, ptr %21, align 8, !tbaa !254
+  br label %243
 
-245:                                              ; preds = %242, %238, %236
-  %246 = getelementptr inbounds nuw i8, ptr %224, i64 32
-  %247 = load i64, ptr %92, align 4
-  store i64 %247, ptr %246, align 8
-  br label %248
+243:                                              ; preds = %240, %236, %234
+  %244 = getelementptr inbounds nuw i8, ptr %222, i64 32
+  %245 = load i64, ptr %92, align 4
+  store i64 %245, ptr %244, align 8
+  br label %246
 
-248:                                              ; preds = %245, %233
-  %249 = call fastcc i32 @fg_output_frame(ptr noundef nonnull %85, ptr noundef nonnull %1, ptr noundef nonnull %2)
+246:                                              ; preds = %243, %231
+  %247 = call fastcc i32 @fg_output_frame(ptr noundef nonnull %85, ptr noundef nonnull %1, ptr noundef nonnull %2)
   call void @av_frame_unref(ptr noundef nonnull %2) #17
-  %..i = call i32 @llvm.smin.i32(i32 %249, i32 0)
+  %..i = call i32 @llvm.smin.i32(i32 %247, i32 0)
   br label %fg_output_step.exit
 
-fg_output_step.exit.thread:                       ; preds = %109, %114, %225, %222
-  %.0.i.ph = phi i32 [ -22, %222 ], [ -12, %225 ], [ %102, %114 ], [ %110, %109 ]
+fg_output_step.exit.thread:                       ; preds = %109, %114, %223, %220
+  %.0.i.ph = phi i32 [ -22, %220 ], [ -12, %223 ], [ %102, %114 ], [ %110, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread78
 
-fg_output_step.exit:                              ; preds = %109, %99, %103, %122, %248
-  %.0.i = phi i32 [ 0, %122 ], [ 1, %109 ], [ %..i, %248 ], [ 1, %99 ], [ 1, %103 ]
+fg_output_step.exit:                              ; preds = %109, %99, %103, %122, %246
+  %.0.i = phi i32 [ 0, %122 ], [ 1, %109 ], [ %..i, %246 ], [ 1, %99 ], [ 1, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %250 = icmp slt i32 %.0.i, 0
-  br i1 %250, label %.thread78, label %98, !llvm.loop !400
+  %248 = icmp slt i32 %.0.i, 0
+  br i1 %248, label %.thread78, label %98, !llvm.loop !400
 
-251:                                              ; preds = %98
+249:                                              ; preds = %98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %252 = load i32, ptr %11, align 8, !tbaa !96
-  %253 = sext i32 %252 to i64
-  %.not68.not = icmp slt i64 %indvars.iv.next, %253
+  %250 = load i32, ptr %11, align 8, !tbaa !96
+  %251 = sext i32 %250 to i64
+  %.not68.not = icmp slt i64 %indvars.iv.next, %251
   br i1 %.not68.not, label %.lr.ph, label %.thread.thread, !llvm.loop !401
 
-.thread.thread:                                   ; preds = %251, %81
-  %254 = load i32, ptr %10, align 8, !tbaa !384
-  %255 = load i32, ptr %11, align 8, !tbaa !96
-  %256 = icmp ult i32 %254, %255
-  br i1 %256, label %.lr.ph247, label %.loopexit
+.thread.thread:                                   ; preds = %249, %81
+  %252 = load i32, ptr %10, align 8, !tbaa !384
+  %253 = load i32, ptr %11, align 8, !tbaa !96
+  %254 = icmp ult i32 %252, %253
+  br i1 %254, label %.lr.ph247, label %.loopexit
 
 .loopexit:                                        ; preds = %.thread.thread, %.preheader91, %.thread82
-  %257 = phi i32 [ %.pre149, %.thread82 ], [ %23, %.preheader91 ], [ %255, %.thread.thread ]
-  %258 = phi i32 [ %.pre148, %.thread82 ], [ %22, %.preheader91 ], [ %254, %.thread.thread ]
-  %259 = icmp eq i32 %258, %257
-  %260 = select i1 %259, i32 -541478725, i32 0
+  %255 = phi i32 [ %.pre149, %.thread82 ], [ %23, %.preheader91 ], [ %253, %.thread.thread ]
+  %256 = phi i32 [ %.pre148, %.thread82 ], [ %22, %.preheader91 ], [ %252, %.thread.thread ]
+  %257 = icmp eq i32 %256, %255
+  %258 = select i1 %257, i32 -541478725, i32 0
   br label %.thread78
 
 .thread78:                                        ; preds = %79, %fg_output_step.exit, %fg_output_step.exit.thread, %74, %75, %.critedge, %.loopexit
-  %.3 = phi i32 [ %260, %.loopexit ], [ 0, %.critedge ], [ -541478725, %74 ], [ %44, %75 ], [ %.0.i.ph, %fg_output_step.exit.thread ], [ %.0.i, %fg_output_step.exit ], [ 0, %79 ]
+  %.3 = phi i32 [ %258, %.loopexit ], [ 0, %.critedge ], [ -541478725, %74 ], [ %44, %75 ], [ %.0.i.ph, %fg_output_step.exit.thread ], [ %.0.i, %fg_output_step.exit ], [ 0, %79 ]
   ret i32 %.3
 }
 

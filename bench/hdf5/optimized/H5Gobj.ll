@@ -603,9 +603,9 @@ define range(i32 -1, 1) i32 @H5G_obj_insert(ptr noundef %0, ptr noundef %1, i1 n
 
 ._crit_edge:                                      ; preds = %23
   %.pre = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7
-  %.pre141 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre142 = trunc nuw i8 %.pre to i1
-  %.pre143 = trunc nuw i8 %.pre141 to i1
+  %.pre140 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre141 = trunc nuw i8 %.pre to i1
+  %.pre142 = trunc nuw i8 %.pre140 to i1
   br label %30
 
 26:                                               ; preds = %23
@@ -613,14 +613,14 @@ define range(i32 -1, 1) i32 @H5G_obj_insert(ptr noundef %0, ptr noundef %1, i1 n
   %27 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !14
   %28 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !14
   %29 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G_obj_insert, i32 noundef 433, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.18) #5
-  br label %.thread137
+  br label %.thread136
 
 30:                                               ; preds = %._crit_edge, %5
-  %.pre-phi144 = phi i1 [ %.pre143, %._crit_edge ], [ %21, %5 ]
-  %.pre-phi = phi i1 [ %.pre142, %._crit_edge ], [ %19, %5 ]
-  %31 = xor i1 %.pre-phi144, true
+  %.pre-phi143 = phi i1 [ %.pre142, %._crit_edge ], [ %21, %5 ]
+  %.pre-phi = phi i1 [ %.pre141, %._crit_edge ], [ %19, %5 ]
+  %31 = xor i1 %.pre-phi143, true
   %32 = select i1 %.pre-phi, i1 true, i1 %31
-  br i1 %32, label %33, label %.thread137, !prof !9
+  br i1 %32, label %33, label %.thread136, !prof !9
 
 33:                                               ; preds = %30
   %34 = call i32 @H5G__obj_get_linfo(ptr noundef nonnull %0, ptr noundef nonnull %7)
@@ -631,7 +631,7 @@ define range(i32 -1, 1) i32 @H5G_obj_insert(ptr noundef %0, ptr noundef %1, i1 n
   %37 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !14
   %38 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !14
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G_obj_insert, i32 noundef 442, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.19) #5
-  br label %.thread137
+  br label %.thread136
 
 40:                                               ; preds = %33
   %.not = icmp eq i32 %34, 0
@@ -864,7 +864,7 @@ define range(i32 -1, 1) i32 @H5G_obj_insert(ptr noundef %0, ptr noundef %1, i1 n
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.thread137
+  br label %.thread136
 
 164:                                              ; preds = %123
   %165 = call i32 @H5G__stab_insert(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %3, ptr noundef %4) #5
@@ -875,7 +875,7 @@ define range(i32 -1, 1) i32 @H5G_obj_insert(ptr noundef %0, ptr noundef %1, i1 n
   %168 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !14
   %169 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !14
   %170 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G_obj_insert, i32 noundef 560, i64 noundef %168, i64 noundef %169, ptr noundef nonnull @.str.28) #5
-  br label %.thread137
+  br label %.thread136
 
 171:                                              ; preds = %118, %65
   %.176.ph.ph = phi ptr [ null, %65 ], [ %.4, %118 ]
@@ -901,10 +901,10 @@ define range(i32 -1, 1) i32 @H5G_obj_insert(ptr noundef %0, ptr noundef %1, i1 n
   %183 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !14
   %184 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !14
   %185 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G_obj_insert, i32 noundef 571, i64 noundef %183, i64 noundef %184, ptr noundef nonnull @.str.30) #5
-  br label %.thread137
+  br label %.thread136
 
 186:                                              ; preds = %171, %179
-  %.5120.ph = phi ptr [ null, %179 ], [ %.176.ph.ph, %171 ]
+  %.5119.ph = phi ptr [ null, %179 ], [ %.176.ph.ph, %171 ]
   %187 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %188 = load i64, ptr %187, align 8, !tbaa !43
   %189 = add i64 %188, 1
@@ -920,7 +920,7 @@ define range(i32 -1, 1) i32 @H5G_obj_insert(ptr noundef %0, ptr noundef %1, i1 n
   br label %213
 
 196:                                              ; preds = %164, %186
-  %.5120133 = phi ptr [ %.5120.ph, %186 ], [ null, %164 ]
+  %.5119132 = phi ptr [ %.5119.ph, %186 ], [ null, %164 ]
   br i1 %2, label %197, label %213
 
 197:                                              ; preds = %196
@@ -954,22 +954,22 @@ define range(i32 -1, 1) i32 @H5G_obj_insert(ptr noundef %0, ptr noundef %1, i1 n
 
 213:                                              ; preds = %119, %212, %196, %197, %192, %175
   %.079 = phi i32 [ %.7, %212 ], [ 0, %197 ], [ 0, %196 ], [ -1, %192 ], [ -1, %175 ], [ -1, %119 ]
-  %.075 = phi ptr [ %.5120133, %212 ], [ %.5120133, %197 ], [ %.5120133, %196 ], [ %.5120.ph, %192 ], [ %.176.ph.ph, %175 ], [ %.176, %119 ]
+  %.075 = phi ptr [ %.5119132, %212 ], [ %.5119132, %197 ], [ %.5119132, %196 ], [ %.5119.ph, %192 ], [ %.176.ph.ph, %175 ], [ %.176, %119 ]
   %.not96 = icmp eq ptr %.075, null
-  br i1 %.not96, label %.thread137, label %214
+  br i1 %.not96, label %.thread136, label %214
 
 214:                                              ; preds = %213
   %215 = call i32 @H5O_msg_reset(i32 noundef 11, ptr noundef nonnull %.075) #5
   %216 = icmp slt i32 %215, 0
-  br i1 %216, label %217, label %.thread137
+  br i1 %216, label %217, label %.thread136
 
 217:                                              ; preds = %214
   %218 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !14
   %219 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !14
   %220 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G_obj_insert, i32 noundef 599, i64 noundef %218, i64 noundef %219, ptr noundef nonnull @.str.33) #5
-  br label %.thread137
+  br label %.thread136
 
-.thread137:                                       ; preds = %163, %182, %167, %36, %26, %213, %214, %217, %30
+.thread136:                                       ; preds = %163, %182, %167, %36, %26, %213, %214, %217, %30
   %.180 = phi i32 [ -1, %217 ], [ %.079, %214 ], [ %.079, %213 ], [ 0, %30 ], [ %.6, %163 ], [ -1, %182 ], [ -1, %167 ], [ -1, %36 ], [ -1, %26 ]
   %221 = load i64, ptr %8, align 8, !tbaa !14
   call void @H5AC_tag(i64 noundef %221, ptr noundef null) #5

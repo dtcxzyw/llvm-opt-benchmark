@@ -1487,7 +1487,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit83:             ; preds = %if.then.i81, %if.el
 
 if.end90:                                         ; preds = %if.end40, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit64, %_ZNSt6vectorIlSaIlEE6resizeEm.exit83
   %total.1 = phi i32 [ %add56, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit64 ], [ %add88, %_ZNSt6vectorIlSaIlEE6resizeEm.exit83 ], [ %total.0, %if.end40 ]
-  %cmp92 = icmp ugt i32 %numBytes, %total.1
+  %cmp92 = icmp ult i32 %total.1, %numBytes
   br i1 %cmp92, label %if.then93, label %if.end106
 
 if.then93:                                        ; preds = %if.end90

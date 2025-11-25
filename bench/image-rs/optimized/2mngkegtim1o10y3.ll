@@ -17634,7 +17634,7 @@ common.resume:                                    ; preds = %.thread135.thread, 
   br label %.thread135.thread
 
 .thread:                                          ; preds = %156, %265, %.body.i, %109, %112, %51
-  %.pn.pn128 = phi { ptr, i32 } [ %52, %51 ], [ %110, %112 ], [ %110, %109 ], [ %eh.lpad-body.i, %.body.i ], [ %157, %156 ], [ %lpad.thr_comm, %265 ]
+  %.pn.pn128 = phi { ptr, i32 } [ %52, %51 ], [ %110, %112 ], [ %110, %109 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.thr_comm, %265 ], [ %157, %156 ]
   invoke void @"_ZN4core3ptr115drop_in_place$LT$exr..block..reader..Reader$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$GT$17h0590c39c61ced690E"(ptr noalias noundef nonnull align 8 dereferenceable(4368) %2) #51
           to label %.thread135.thread unwind label %263
 }
@@ -18655,7 +18655,7 @@ common.resume:                                    ; preds = %.thread135.thread, 
   br label %.thread135.thread
 
 .thread:                                          ; preds = %156, %265, %.body.i, %109, %112, %51
-  %.pn.pn128 = phi { ptr, i32 } [ %52, %51 ], [ %110, %112 ], [ %110, %109 ], [ %eh.lpad-body.i, %.body.i ], [ %157, %156 ], [ %lpad.thr_comm, %265 ]
+  %.pn.pn128 = phi { ptr, i32 } [ %52, %51 ], [ %110, %112 ], [ %110, %109 ], [ %eh.lpad-body.i, %.body.i ], [ %lpad.thr_comm, %265 ], [ %157, %156 ]
   invoke void @"_ZN4core3ptr102drop_in_place$LT$exr..block..reader..Reader$LT$std..io..cursor..Cursor$LT$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17h314cb8c62eab15dbE"(ptr noalias noundef nonnull align 8 dereferenceable(4344) %2) #51
           to label %.thread135.thread unwind label %263
 }

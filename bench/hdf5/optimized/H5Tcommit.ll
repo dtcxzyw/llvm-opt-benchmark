@@ -1992,7 +1992,7 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
   %37 = call i32 @H5E_clear_stack() #9
   %38 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 3) #9
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %44
+  br i1 %39, label %40, label %44, !prof !42
 
 40:                                               ; preds = %36
   %41 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -2017,7 +2017,7 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
   %51 = load i64, ptr @H5P_LST_DATATYPE_CREATE_ID_g, align 8, !tbaa !11
   %52 = call ptr @H5I_object(i64 noundef %51) #9
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %58
+  br i1 %53, label %54, label %58, !prof !14
 
 54:                                               ; preds = %50
   %55 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -2028,7 +2028,7 @@ define i64 @H5Tget_create_plist(i64 noundef %0) local_unnamed_addr #0 {
 58:                                               ; preds = %50
   %59 = call i64 @H5P_copy_plist(ptr noundef nonnull %52, i1 noundef zeroext true) #9
   %60 = icmp slt i64 %59, 0
-  br i1 %60, label %62, label %.thread48
+  br i1 %60, label %62, label %.thread48, !prof !14
 
 .thread48:                                        ; preds = %58
   %61 = call i32 @H5CX_pop(i1 noundef zeroext true) #9
@@ -2150,7 +2150,7 @@ define range(i32 -1, 1) i32 @H5Tflush(i64 noundef %0) local_unnamed_addr #0 {
   %37 = call i32 @H5E_clear_stack() #9
   %38 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 3) #9
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %44
+  br i1 %39, label %40, label %44, !prof !14
 
 40:                                               ; preds = %36
   %41 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -2161,7 +2161,7 @@ define range(i32 -1, 1) i32 @H5Tflush(i64 noundef %0) local_unnamed_addr #0 {
 44:                                               ; preds = %36
   %45 = call i32 @H5T_is_named(ptr noundef nonnull %38) #9
   %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %46, label %50
+  br i1 %.not, label %46, label %50, !prof !14
 
 46:                                               ; preds = %44
   %47 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -2183,7 +2183,7 @@ define range(i32 -1, 1) i32 @H5Tflush(i64 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %55 = call i32 @H5CX_set_loc(i64 noundef %0) #9
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %57, label %61
+  br i1 %56, label %57, label %61, !prof !14
 
 57:                                               ; preds = %54
   %58 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -2199,7 +2199,7 @@ define range(i32 -1, 1) i32 @H5Tflush(i64 noundef %0) local_unnamed_addr #0 {
   %64 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
   %65 = call i32 @H5VL_datatype_specific(ptr noundef %63, ptr noundef nonnull %3, i64 noundef %64, ptr noundef null) #9
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %67, label %73
+  br i1 %66, label %67, label %73, !prof !14
 
 67:                                               ; preds = %61
   %68 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -2299,7 +2299,7 @@ define range(i32 -1, 1) i32 @H5Trefresh(i64 noundef %0) local_unnamed_addr #0 {
   %37 = call i32 @H5E_clear_stack() #9
   %38 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 3) #9
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %44
+  br i1 %39, label %40, label %44, !prof !14
 
 40:                                               ; preds = %36
   %41 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -2310,7 +2310,7 @@ define range(i32 -1, 1) i32 @H5Trefresh(i64 noundef %0) local_unnamed_addr #0 {
 44:                                               ; preds = %36
   %45 = call i32 @H5T_is_named(ptr noundef nonnull %38) #9
   %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %46, label %50
+  br i1 %.not, label %46, label %50, !prof !14
 
 46:                                               ; preds = %44
   %47 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -2332,7 +2332,7 @@ define range(i32 -1, 1) i32 @H5Trefresh(i64 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %55 = call i32 @H5CX_set_loc(i64 noundef %0) #9
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %57, label %61
+  br i1 %56, label %57, label %61, !prof !14
 
 57:                                               ; preds = %54
   %58 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11
@@ -2348,7 +2348,7 @@ define range(i32 -1, 1) i32 @H5Trefresh(i64 noundef %0) local_unnamed_addr #0 {
   %64 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
   %65 = call i32 @H5VL_datatype_specific(ptr noundef %63, ptr noundef nonnull %3, i64 noundef %64, ptr noundef null) #9
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %67, label %73
+  br i1 %66, label %67, label %73, !prof !14
 
 67:                                               ; preds = %61
   %68 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !11

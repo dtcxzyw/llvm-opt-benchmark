@@ -48168,18 +48168,18 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
   br label %51
 
 51:                                               ; preds = %50, %46
-  %.0207247 = phi i64 [ %.0207.ph, %46 ], [ %.sroa.11.0.copyload, %50 ]
+  %.0207246 = phi i64 [ %.0207.ph, %46 ], [ %.sroa.11.0.copyload, %50 ]
   %.pn = phi i64 [ %49, %46 ], [ %.sroa.6.0.copyload, %50 ]
   %.0209 = sub nsw i64 %31, %.pn
   %52 = icmp eq i32 %.sroa.43.0.copyload, 2
-  %spec.select236 = zext i1 %52 to i64
+  %spec.select = zext i1 %52 to i64
   %53 = add nsw i64 %.0209, %.sroa.7.0.copyload
   %54 = icmp slt i64 %53, %29
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %51
   tail call void @H5T__bit_set(ptr noundef %3, i64 noundef %.sroa.8.0.copyload, i64 noundef %.sroa.21.0.copyload, i1 noundef zeroext false) #10
-  br label %.thread259
+  br label %.thread258
 
 56:                                               ; preds = %51
   %57 = icmp slt i64 %53, 1
@@ -48197,14 +48197,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
 61:                                               ; preds = %60
   %62 = load ptr, ptr %4, align 8, !tbaa !33
   %.not229 = icmp eq ptr %62, null
-  br i1 %.not229, label %.thread254, label %63
+  br i1 %.not229, label %.thread253, label %63
 
 63:                                               ; preds = %61
   %64 = tail call i32 @H5T__reverse_order(ptr noundef %5, ptr noundef %2, ptr noundef nonnull %0) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %65 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %8) #10
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %.thread250, label %67
+  br i1 %66, label %.thread249, label %67
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %4, align 8, !tbaa !33
@@ -48217,9 +48217,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
   %75 = call i32 %68(i32 noundef 0, i64 noundef %70, i64 noundef %72, ptr noundef %5, ptr noundef %3, ptr noundef %74) #10
   %76 = call i32 @H5_user_cb_restore(ptr noundef nonnull %8) #10
   %77 = icmp slt i32 %76, 0
-  br i1 %77, label %.thread250, label %81
+  br i1 %77, label %.thread249, label %81
 
-.thread250:                                       ; preds = %67, %63
+.thread249:                                       ; preds = %67, %63
   %H5E_CANTSET_g.sink = phi ptr [ @H5E_CANTSET_g, %63 ], [ @H5E_CANTRESTORE_g, %67 ]
   %.sink = phi i32 [ 632, %63 ], [ 638, %67 ]
   %78 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !14
@@ -48231,14 +48231,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
 81:                                               ; preds = %67
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   switch i32 %75, label %87 [
-    i32 0, label %.thread254
+    i32 0, label %.thread253
     i32 1, label %82
     i32 -1, label %83
   ]
 
-.thread254:                                       ; preds = %61, %81
+.thread253:                                       ; preds = %61, %81
   call void @H5T__bit_set(ptr noundef %3, i64 noundef %.sroa.8.0.copyload, i64 noundef %.sroa.21.0.copyload, i1 noundef zeroext false) #10
-  br label %.thread259
+  br label %.thread258
 
 82:                                               ; preds = %81
   store i8 1, ptr %6, align 1, !tbaa !3
@@ -48253,17 +48253,17 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
 87:                                               ; preds = %81, %58, %60
   %.0213 = phi i32 [ 0, %58 ], [ 0, %60 ], [ %75, %81 ]
   %.1210 = phi i64 [ 0, %58 ], [ %53, %60 ], [ %53, %81 ]
-  %.1205 = phi i64 [ %59, %58 ], [ %spec.select236, %60 ], [ %spec.select236, %81 ]
-  %.1202.shrunk = phi i1 [ true, %58 ], [ %32, %60 ], [ %32, %81 ]
-  %.not230 = icmp eq i64 %.0207247, 0
+  %.1205 = phi i64 [ %59, %58 ], [ %spec.select, %60 ], [ %spec.select, %81 ]
+  %.1202 = phi i1 [ true, %58 ], [ %32, %60 ], [ %32, %81 ]
+  %.not230 = icmp eq i64 %.0207246, 0
   %.not231 = icmp ugt i64 %.1205, %.sroa.21.0.copyload
-  %or.cond238 = select i1 %.not230, i1 true, i1 %.not231
-  br i1 %or.cond238, label %.thread259, label %88
+  %or.cond237 = select i1 %.not230, i1 true, i1 %.not231
+  br i1 %or.cond237, label %.thread258, label %88
 
 88:                                               ; preds = %87
-  %89 = add i64 %.1205, %.0207247
+  %89 = add i64 %.1205, %.0207246
   %90 = icmp ugt i64 %89, %.sroa.21.0.copyload
-  br i1 %90, label %91, label %.thread259
+  br i1 %90, label %91, label %.thread258
 
 91:                                               ; preds = %88
   %92 = sub nuw i64 %89, %.sroa.21.0.copyload
@@ -48271,54 +48271,54 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
   %94 = add i64 %93, -1
   %95 = call i64 @H5T__bit_get_d(ptr noundef %2, i64 noundef %94, i64 noundef 1) #10
   %96 = icmp eq i64 %95, 0
-  %or.cond9 = or i1 %.1202.shrunk, %96
+  %or.cond9 = or i1 %.1202, %96
   br i1 %or.cond9, label %107, label %97
 
 97:                                               ; preds = %91
-  %98 = sub i64 %.0207247, %92
+  %98 = sub i64 %.0207246, %92
   %99 = call i64 @H5T__bit_find(ptr noundef %2, i64 noundef %93, i64 noundef %98, i32 noundef 0, i1 noundef zeroext false) #10
   %100 = icmp sgt i64 %99, -1
   %101 = sub nsw i64 -2, %notmask
   %102 = icmp slt i64 %.1210, %101
-  %or.cond240 = select i1 %100, i1 true, i1 %102
-  br i1 %or.cond240, label %103, label %.thread259
+  %or.cond239 = select i1 %100, i1 true, i1 %102
+  br i1 %or.cond239, label %103, label %.thread258
 
 103:                                              ; preds = %97
-  %104 = add i64 %.0207247, 1
+  %104 = add i64 %.0207246, 1
   %105 = sub i64 %104, %92
   %106 = call zeroext i1 @H5T__bit_inc(ptr noundef %2, i64 noundef %94, i64 noundef %105) #10
-  %spec.select241 = select i1 %106, i64 2, i64 1
-  br label %.thread259
+  %spec.select240 = select i1 %106, i64 2, i64 1
+  br label %.thread258
 
 107:                                              ; preds = %91
   %108 = call i64 @H5T__bit_get_d(ptr noundef %2, i64 noundef %94, i64 noundef 1) #10
   %109 = icmp ne i64 %108, 0
-  %or.cond11 = and i1 %.1202.shrunk, %109
-  br i1 %or.cond11, label %110, label %.thread259
+  %or.cond11 = and i1 %.1202, %109
+  br i1 %or.cond11, label %110, label %.thread258
 
 110:                                              ; preds = %107
-  %111 = add i64 %.0207247, 1
+  %111 = add i64 %.0207246, 1
   %112 = sub i64 %111, %92
   %113 = call zeroext i1 @H5T__bit_inc(ptr noundef %2, i64 noundef %94, i64 noundef %112) #10
-  br label %.thread259
+  br label %.thread258
 
-.thread259:                                       ; preds = %.thread254, %55, %103, %87, %88, %97, %110, %107
-  %.1205272 = phi i64 [ %.1205, %110 ], [ %.1205, %107 ], [ %.1205, %97 ], [ %.1205, %103 ], [ %.1205, %88 ], [ %.1205, %87 ], [ %spec.select236, %55 ], [ %spec.select236, %.thread254 ]
-  %.1208271 = phi i64 [ %.0207247, %110 ], [ %.0207247, %107 ], [ %.0207247, %97 ], [ %.0207247, %103 ], [ %.0207247, %88 ], [ %.0207247, %87 ], [ 0, %55 ], [ 0, %.thread254 ]
-  %.1210270 = phi i64 [ %.1210, %110 ], [ %.1210, %107 ], [ %.1210, %97 ], [ %.1210, %103 ], [ %.1210, %88 ], [ %.1210, %87 ], [ 0, %55 ], [ %30, %.thread254 ]
-  %.0213269 = phi i32 [ %.0213, %110 ], [ %.0213, %107 ], [ %.0213, %97 ], [ %.0213, %103 ], [ %.0213, %88 ], [ %.0213, %87 ], [ 0, %55 ], [ 0, %.thread254 ]
-  %.0203 = phi i64 [ 1, %110 ], [ 1, %107 ], [ 1, %97 ], [ %spec.select241, %103 ], [ 1, %88 ], [ 1, %87 ], [ 1, %55 ], [ 1, %.thread254 ]
-  %.0200.shrunk = phi i1 [ false, %110 ], [ false, %107 ], [ false, %97 ], [ %106, %103 ], [ false, %88 ], [ false, %87 ], [ false, %55 ], [ false, %.thread254 ]
+.thread258:                                       ; preds = %.thread253, %55, %103, %87, %88, %97, %110, %107
+  %.1205271 = phi i64 [ %.1205, %110 ], [ %.1205, %107 ], [ %.1205, %97 ], [ %.1205, %103 ], [ %.1205, %88 ], [ %.1205, %87 ], [ %spec.select, %55 ], [ %spec.select, %.thread253 ]
+  %.1208270 = phi i64 [ %.0207246, %110 ], [ %.0207246, %107 ], [ %.0207246, %97 ], [ %.0207246, %103 ], [ %.0207246, %88 ], [ %.0207246, %87 ], [ 0, %55 ], [ 0, %.thread253 ]
+  %.1210269 = phi i64 [ %.1210, %110 ], [ %.1210, %107 ], [ %.1210, %97 ], [ %.1210, %103 ], [ %.1210, %88 ], [ %.1210, %87 ], [ 0, %55 ], [ %30, %.thread253 ]
+  %.0213268 = phi i32 [ %.0213, %110 ], [ %.0213, %107 ], [ %.0213, %97 ], [ %.0213, %103 ], [ %.0213, %88 ], [ %.0213, %87 ], [ 0, %55 ], [ 0, %.thread253 ]
+  %.0203 = phi i64 [ 1, %110 ], [ 1, %107 ], [ 1, %97 ], [ %spec.select240, %103 ], [ 1, %88 ], [ 1, %87 ], [ 1, %55 ], [ 1, %.thread253 ]
+  %.0200.shrunk = phi i1 [ false, %110 ], [ false, %107 ], [ false, %97 ], [ %106, %103 ], [ false, %88 ], [ false, %87 ], [ false, %55 ], [ false, %.thread253 ]
   %114 = add i64 %.sroa.21.0.copyload, 1
-  %115 = icmp ugt i64 %.1205272, %114
+  %115 = icmp ugt i64 %.1205271, %114
   br i1 %115, label %116, label %117
 
-116:                                              ; preds = %.thread259
+116:                                              ; preds = %.thread258
   call void @H5T__bit_set(ptr noundef %3, i64 noundef %.sroa.8.0.copyload, i64 noundef %.sroa.21.0.copyload, i1 noundef zeroext false) #10
   br label %141
 
-117:                                              ; preds = %.thread259
-  %118 = icmp eq i64 %.1205272, %114
+117:                                              ; preds = %.thread258
+  %118 = icmp eq i64 %.1205271, %114
   br i1 %118, label %119, label %122
 
 119:                                              ; preds = %117
@@ -48329,7 +48329,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
   br label %141
 
 122:                                              ; preds = %117
-  %123 = icmp eq i64 %.1205272, %.sroa.21.0.copyload
+  %123 = icmp eq i64 %.1205271, %.sroa.21.0.copyload
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122
@@ -48339,33 +48339,33 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
   br label %141
 
 126:                                              ; preds = %122
-  %.not232 = icmp eq i64 %.1205272, 0
+  %.not232 = icmp eq i64 %.1205271, 0
   br i1 %.not232, label %130, label %127
 
 127:                                              ; preds = %126
   %128 = add i64 %.sroa.21.0.copyload, %.sroa.8.0.copyload
-  %129 = sub i64 %128, %.1205272
-  call void @H5T__bit_set(ptr noundef %3, i64 noundef %129, i64 noundef %.1205272, i1 noundef zeroext false) #10
+  %129 = sub i64 %128, %.1205271
+  call void @H5T__bit_set(ptr noundef %3, i64 noundef %129, i64 noundef %.1205271, i1 noundef zeroext false) #10
   call void @H5T__bit_set_d(ptr noundef %3, i64 noundef %129, i64 noundef 2, i64 noundef %.0203) #10
   br label %130
 
 130:                                              ; preds = %127, %126
-  %131 = add i64 %.1208271, %.1205272
+  %131 = add i64 %.1208270, %.1205271
   %.not233 = icmp ult i64 %131, %.sroa.21.0.copyload
   br i1 %.not233, label %137, label %132
 
 132:                                              ; preds = %130
   %133 = sub i64 %.sroa.8132.0.copyload, %.sroa.21.0.copyload
-  %134 = add i64 %133, %.1205272
-  %135 = add i64 %134, %.1208271
-  %136 = sub i64 %.sroa.21.0.copyload, %.1205272
+  %134 = add i64 %133, %.1205271
+  %135 = add i64 %134, %.1208270
+  %136 = sub i64 %.sroa.21.0.copyload, %.1205271
   call void @H5T__bit_copy(ptr noundef %3, i64 noundef %.sroa.8.0.copyload, ptr noundef %2, i64 noundef %135, i64 noundef %136) #10
   br label %141
 
 137:                                              ; preds = %130
   %138 = add i64 %.sroa.21.0.copyload, %.sroa.8.0.copyload
   %139 = sub i64 %138, %131
-  call void @H5T__bit_copy(ptr noundef %3, i64 noundef %139, ptr noundef %2, i64 noundef %.sroa.8132.0.copyload, i64 noundef %.1208271) #10
+  call void @H5T__bit_copy(ptr noundef %3, i64 noundef %139, ptr noundef %2, i64 noundef %.sroa.8132.0.copyload, i64 noundef %.1208270) #10
   %140 = sub nuw i64 %.sroa.21.0.copyload, %131
   call void @H5T__bit_set(ptr noundef %3, i64 noundef %.sroa.8.0.copyload, i64 noundef %140, i1 noundef zeroext false) #10
   br label %141
@@ -48374,7 +48374,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
   br i1 %.0200.shrunk, label %142, label %172
 
 142:                                              ; preds = %141
-  %143 = add nuw nsw i64 %.1210270, 1
+  %143 = add nuw nsw i64 %.1210269, 1
   %.not234 = icmp samesign ult i64 %143, %30
   br i1 %.not234, label %172, label %144
 
@@ -48388,7 +48388,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %148 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %9) #10
   %149 = icmp slt i32 %148, 0
-  br i1 %149, label %.thread275, label %150
+  br i1 %149, label %.thread274, label %150
 
 150:                                              ; preds = %146
   %151 = load ptr, ptr %4, align 8, !tbaa !33
@@ -48401,14 +48401,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
   %158 = call i32 %151(i32 noundef 0, i64 noundef %153, i64 noundef %155, ptr noundef %5, ptr noundef %3, ptr noundef %157) #10
   %159 = call i32 @H5_user_cb_restore(ptr noundef nonnull %9) #10
   %160 = icmp slt i32 %159, 0
-  br i1 %160, label %.thread275, label %164
+  br i1 %160, label %.thread274, label %164
 
-.thread275:                                       ; preds = %150, %146
-  %H5E_CANTSET_g.sink295 = phi ptr [ @H5E_CANTSET_g, %146 ], [ @H5E_CANTRESTORE_g, %150 ]
-  %.sink292 = phi i32 [ 729, %146 ], [ 735, %150 ]
+.thread274:                                       ; preds = %150, %146
+  %H5E_CANTSET_g.sink294 = phi ptr [ @H5E_CANTSET_g, %146 ], [ @H5E_CANTRESTORE_g, %150 ]
+  %.sink291 = phi i32 [ 729, %146 ], [ 735, %150 ]
   %161 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !14
-  %162 = load i64, ptr %H5E_CANTSET_g.sink295, align 8, !tbaa !14
-  %163 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_complex_part, i32 noundef %.sink292, i64 noundef %161, i64 noundef %162, ptr noundef nonnull @.str.14) #10
+  %162 = load i64, ptr %H5E_CANTSET_g.sink294, align 8, !tbaa !14
+  %163 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_complex_part, i32 noundef %.sink291, i64 noundef %161, i64 noundef %162, ptr noundef nonnull @.str.14) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %173
 
@@ -48417,7 +48417,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
   br label %165
 
 165:                                              ; preds = %164, %144
-  %.3216 = phi i32 [ %158, %164 ], [ %.0213269, %144 ]
+  %.3216 = phi i32 [ %158, %164 ], [ %.0213268, %144 ]
   switch i32 %.3216, label %172 [
     i32 0, label %166
     i32 1, label %167
@@ -48439,12 +48439,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_complex_part(ptr noundef 
   br label %173
 
 172:                                              ; preds = %165, %142, %166, %141
-  %.2211 = phi i64 [ %30, %166 ], [ %143, %142 ], [ %.1210270, %141 ], [ %143, %165 ]
+  %.2211 = phi i64 [ %30, %166 ], [ %143, %142 ], [ %.1210269, %141 ], [ %143, %165 ]
   call void @H5T__bit_set_d(ptr noundef %3, i64 noundef %.sroa.4.0.copyload, i64 noundef %.sroa.5.0.copyload, i64 noundef %.2211) #10
   br label %173
 
-173:                                              ; preds = %.thread275, %.thread250, %7, %172, %168, %167, %83, %82, %42
-  %.0198 = phi i32 [ 0, %172 ], [ 0, %167 ], [ -1, %168 ], [ 0, %82 ], [ -1, %83 ], [ -1, %42 ], [ 0, %7 ], [ -1, %.thread250 ], [ -1, %.thread275 ]
+173:                                              ; preds = %.thread274, %.thread249, %7, %172, %168, %167, %83, %82, %42
+  %.0198 = phi i32 [ 0, %172 ], [ 0, %167 ], [ -1, %168 ], [ 0, %82 ], [ -1, %83 ], [ -1, %42 ], [ 0, %7 ], [ -1, %.thread249 ], [ -1, %.thread274 ]
   ret i32 %.0198
 }
 

@@ -1306,7 +1306,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   %.pn235 = phi { ptr, i32 } [ %233, %232 ], [ %.pn233514, %434 ], [ %.pn218, %248 ]
   %230 = load i64, ptr %60, align 8, !range !38, !noundef !10
   %231 = icmp ne i64 %230, -9223372036854775807
-  %or.cond = and i1 %231, %.2
+  %or.cond = and i1 %.2, %231
   br i1 %or.cond, label %440, label %168
 
 232:                                              ; preds = %310, %344, %437, %435, %"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17ha9c233c4d008fc49E.exit327", %244, %236, %234, %.thread486

@@ -30537,7 +30537,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread50
-  br i1 %.sroa.05.154, label %116, label %.thread70
+  br i1 %.sroa.05.154, label %116, label %.thread67
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -30546,9 +30546,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %96, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.026.073 = phi ptr [ %.sroa.0.0.copyload17, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.026.073, i64 8
-  %.val2.i = load i64, ptr %.sroa.026.073, align 8, !noalias !2810, !noundef !6
+  %.sroa.026.074 = phi ptr [ %.sroa.0.0.copyload17, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.026.074, i64 8
+  %.val2.i = load i64, ptr %.sroa.026.074, align 8, !noalias !2810, !noundef !6
   %42 = icmp ne i64 %.val2.i, -1
   br i1 %42, label %79, label %93
 
@@ -30559,7 +30559,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %45 unwind label %43
 
 .body.thread:                                     ; preds = %78
-  br i1 %.sroa.04.1.ph, label %.thread50, label %.thread70
+  br i1 %.sroa.04.1.ph, label %.thread50, label %.thread67
 
 43:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h365f3c3a75cc5b8fE.exit"
   %44 = landingpad { ptr, i32 }
@@ -30646,7 +30646,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %69 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread70 unwind label %71, !noalias !2830
+          to label %.thread67 unwind label %71, !noalias !2830
 
 70:                                               ; preds = %66
   unreachable
@@ -30756,10 +30756,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 116:                                              ; preds = %.thread, %37
   %.pn10.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1055, %37 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$alloc..vec..Vec$LT$i128$GT$$GT$17h0db1ff49ead63a3eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread70 unwind label %76
+          to label %.thread67 unwind label %76
 
-.thread70:                                        ; preds = %.body.thread, %68, %37, %116
-  %.pn10.pn34 = phi { ptr, i32 } [ %.pn1055, %37 ], [ %.pn10.pn35, %116 ], [ %69, %68 ], [ %.pn.ph, %.body.thread ]
+.thread67:                                        ; preds = %68, %.body.thread, %37, %116
+  %.pn10.pn34 = phi { ptr, i32 } [ %.pn1055, %37 ], [ %.pn10.pn35, %116 ], [ %.pn.ph, %.body.thread ], [ %69, %68 ]
   resume { ptr, i32 } %.pn10.pn34
 }
 
@@ -30829,7 +30829,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %134, label %.thread69
+  br i1 %.sroa.07.153, label %134, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -30838,9 +30838,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %115, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !2844, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !2844, !noundef !6
   %42 = icmp eq i64 %.val3.i, -1
   br i1 %42, label %111, label %43
 
@@ -30897,7 +30897,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i:
           to label %77 unwind label %75
 
 .body.thread:                                     ; preds = %110
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 75:                                               ; preds = %._crit_edge
   %76 = landingpad { ptr, i32 }
@@ -30984,7 +30984,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i:
   %101 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %103, !noalias !2863
+          to label %.thread66 unwind label %103, !noalias !2863
 
 102:                                              ; preds = %98
   unreachable
@@ -31074,10 +31074,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 134:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f64$GT$$GT$17h02377c3dd27b1475E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %108
+          to label %.thread66 unwind label %108
 
-.thread69:                                        ; preds = %.body.thread, %100, %37, %134
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %134 ], [ %101, %100 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %100, %.body.thread, %37, %134
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %134 ], [ %.pn.ph, %.body.thread ], [ %101, %100 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -31147,7 +31147,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread43
-  br i1 %.sroa.07.147, label %113, label %.thread63
+  br i1 %.sroa.07.147, label %113, label %.thread60
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -31156,9 +31156,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %93, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.066 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.066, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.066, align 8, !noalias !2874, !noundef !6
+  %.sroa.028.067 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.067, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.067, align 8, !noalias !2874, !noundef !6
   %.not = icmp ne i64 %.val3.i, -1
   br i1 %.not, label %.thread41, label %90
 
@@ -31189,7 +31189,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %57 unwind label %55
 
 .body.thread:                                     ; preds = %89
-  br i1 %.sroa.06.1.ph, label %.thread43, label %.thread63
+  br i1 %.sroa.06.1.ph, label %.thread43, label %.thread60
 
 55:                                               ; preds = %._crit_edge
   %56 = landingpad { ptr, i32 }
@@ -31275,7 +31275,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %80 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread63 unwind label %82, !noalias !2893
+          to label %.thread60 unwind label %82, !noalias !2893
 
 81:                                               ; preds = %77
   unreachable
@@ -31365,10 +31365,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 113:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1248, %37 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$i8$GT$$GT$17h374cf66b8caa6983E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread63 unwind label %87
+          to label %.thread60 unwind label %87
 
-.thread63:                                        ; preds = %.body.thread, %79, %37, %113
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1248, %37 ], [ %.pn12.pn35, %113 ], [ %80, %79 ], [ %.pn.ph, %.body.thread ]
+.thread60:                                        ; preds = %79, %.body.thread, %37, %113
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1248, %37 ], [ %.pn12.pn35, %113 ], [ %.pn.ph, %.body.thread ], [ %80, %79 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -31438,7 +31438,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread51
-  br i1 %.sroa.07.155, label %135, label %.thread71
+  br i1 %.sroa.07.155, label %135, label %.thread68
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -31447,9 +31447,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %116, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.074 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.074, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.074, align 8, !noalias !2904, !noundef !6
+  %.sroa.028.075 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.075, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.075, align 8, !noalias !2904, !noundef !6
   %42 = icmp eq i64 %.val3.i, -1
   br i1 %42, label %112, label %43
 
@@ -31506,7 +31506,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hae6f5e79c5110276E.exit.i.i.i:
           to label %78 unwind label %76
 
 .body.thread:                                     ; preds = %111
-  br i1 %.sroa.06.1.ph, label %.thread51, label %.thread71
+  br i1 %.sroa.06.1.ph, label %.thread51, label %.thread68
 
 76:                                               ; preds = %._crit_edge
   %77 = landingpad { ptr, i32 }
@@ -31593,7 +31593,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hae6f5e79c5110276E.exit.i.i.i:
   %102 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread71 unwind label %104, !noalias !2923
+          to label %.thread68 unwind label %104, !noalias !2923
 
 103:                                              ; preds = %99
   unreachable
@@ -31683,10 +31683,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 135:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1256, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i32$GT$$GT$17h0785090c88087787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread71 unwind label %109
+          to label %.thread68 unwind label %109
 
-.thread71:                                        ; preds = %.body.thread, %101, %37, %135
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1256, %37 ], [ %.pn12.pn35, %135 ], [ %102, %101 ], [ %.pn.ph, %.body.thread ]
+.thread68:                                        ; preds = %101, %.body.thread, %37, %135
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1256, %37 ], [ %.pn12.pn35, %135 ], [ %.pn.ph, %.body.thread ], [ %102, %101 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -31756,7 +31756,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %134, label %.thread69
+  br i1 %.sroa.07.153, label %134, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -31765,9 +31765,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %115, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !2934, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !2934, !noundef !6
   %42 = icmp eq i64 %.val3.i, -1
   br i1 %42, label %111, label %43
 
@@ -31824,7 +31824,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hae431fddfadf9c8aE.exit.i.i.i:
           to label %78 unwind label %76
 
 .body.thread:                                     ; preds = %110
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 76:                                               ; preds = %._crit_edge
   %77 = landingpad { ptr, i32 }
@@ -31910,7 +31910,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hae431fddfadf9c8aE.exit.i.i.i:
   %101 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %103, !noalias !2953
+          to label %.thread66 unwind label %103, !noalias !2953
 
 102:                                              ; preds = %98
   unreachable
@@ -32000,10 +32000,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 134:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$i8$GT$$GT$17h374cf66b8caa6983E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %108
+          to label %.thread66 unwind label %108
 
-.thread69:                                        ; preds = %.body.thread, %100, %37, %134
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %134 ], [ %101, %100 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %100, %.body.thread, %37, %134
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %134 ], [ %.pn.ph, %.body.thread ], [ %101, %100 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -32073,7 +32073,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread50
-  br i1 %.sroa.05.154, label %133, label %.thread70
+  br i1 %.sroa.05.154, label %133, label %.thread67
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -32082,9 +32082,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %114, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.026.073 = phi ptr [ %.sroa.0.0.copyload17, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.026.073, i64 8
-  %.val2.i = load i64, ptr %.sroa.026.073, align 8, !noalias !2964, !noundef !6
+  %.sroa.026.074 = phi ptr [ %.sroa.0.0.copyload17, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.026.074, i64 8
+  %.val2.i = load i64, ptr %.sroa.026.074, align 8, !noalias !2964, !noundef !6
   %42 = lshr i64 %.val2.i, 24
   %43 = and i64 %.val2.i, 16777215
   %44 = load ptr, ptr %30, align 8, !noalias !2968, !nonnull !6, !noundef !6
@@ -32126,7 +32126,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17ha5f8c2de68c42801E.exit.i.i.i:
           to label %70 unwind label %68
 
 .body.thread:                                     ; preds = %103
-  br i1 %.sroa.04.1.ph, label %.thread50, label %.thread70
+  br i1 %.sroa.04.1.ph, label %.thread50, label %.thread67
 
 68:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf339db42cfbf7d5E.exit"
   %69 = landingpad { ptr, i32 }
@@ -32213,7 +32213,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17ha5f8c2de68c42801E.exit.i.i.i:
   %94 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread70 unwind label %96, !noalias !2990
+          to label %.thread67 unwind label %96, !noalias !2990
 
 95:                                               ; preds = %91
   unreachable
@@ -32314,10 +32314,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 133:                                              ; preds = %.thread, %37
   %.pn10.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1055, %37 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$alloc..vec..Vec$LT$i128$GT$$GT$17h0db1ff49ead63a3eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread70 unwind label %101
+          to label %.thread67 unwind label %101
 
-.thread70:                                        ; preds = %.body.thread, %93, %37, %133
-  %.pn10.pn34 = phi { ptr, i32 } [ %.pn1055, %37 ], [ %.pn10.pn35, %133 ], [ %94, %93 ], [ %.pn.ph, %.body.thread ]
+.thread67:                                        ; preds = %93, %.body.thread, %37, %133
+  %.pn10.pn34 = phi { ptr, i32 } [ %.pn1055, %37 ], [ %.pn10.pn35, %133 ], [ %.pn.ph, %.body.thread ], [ %94, %93 ]
   resume { ptr, i32 } %.pn10.pn34
 }
 
@@ -32387,7 +32387,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %132, label %.thread69
+  br i1 %.sroa.07.153, label %132, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -32396,9 +32396,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %113, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3001, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3001, !noundef !6
   %42 = lshr i64 %.val3.i, 24
   %43 = and i64 %.val3.i, 16777215
   %44 = load ptr, ptr %30, align 8, !noalias !3001, !nonnull !6, !noundef !6
@@ -32451,7 +32451,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i:
           to label %75 unwind label %73
 
 .body.thread:                                     ; preds = %108
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 73:                                               ; preds = %._crit_edge
   %74 = landingpad { ptr, i32 }
@@ -32538,7 +32538,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i:
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %101, !noalias !3020
+          to label %.thread66 unwind label %101, !noalias !3020
 
 100:                                              ; preds = %96
   unreachable
@@ -32628,10 +32628,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 132:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17hb89db0f60e942622E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %106
+          to label %.thread66 unwind label %106
 
-.thread69:                                        ; preds = %.body.thread, %98, %37, %132
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %132 ], [ %99, %98 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %98, %.body.thread, %37, %132
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %132 ], [ %.pn.ph, %.body.thread ], [ %99, %98 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -32701,7 +32701,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread46
-  br i1 %.sroa.07.150, label %132, label %.thread66
+  br i1 %.sroa.07.150, label %132, label %.thread63
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -32710,9 +32710,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %113, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.069 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.069, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.069, align 8, !noalias !3031, !noundef !6
+  %.sroa.028.070 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.070, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.070, align 8, !noalias !3031, !noundef !6
   %42 = lshr i64 %.val3.i, 24
   %43 = and i64 %.val3.i, 16777215
   %44 = load ptr, ptr %30, align 8, !noalias !3031, !nonnull !6, !noundef !6
@@ -32765,7 +32765,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h70ff533e33717808E.exit.i.i.i:
           to label %75 unwind label %73
 
 .body.thread:                                     ; preds = %108
-  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread66
+  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread63
 
 73:                                               ; preds = %._crit_edge
   %74 = landingpad { ptr, i32 }
@@ -32852,7 +32852,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h70ff533e33717808E.exit.i.i.i:
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread66 unwind label %101, !noalias !3050
+          to label %.thread63 unwind label %101, !noalias !3050
 
 100:                                              ; preds = %96
   unreachable
@@ -32942,10 +32942,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 132:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1251, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i64$GT$$GT$17hfd85bf3f5c2d3496E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread66 unwind label %106
+          to label %.thread63 unwind label %106
 
-.thread66:                                        ; preds = %.body.thread, %98, %37, %132
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %132 ], [ %99, %98 ], [ %.pn.ph, %.body.thread ]
+.thread63:                                        ; preds = %98, %.body.thread, %37, %132
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %132 ], [ %.pn.ph, %.body.thread ], [ %99, %98 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -33015,7 +33015,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread51
-  br i1 %.sroa.07.155, label %135, label %.thread71
+  br i1 %.sroa.07.155, label %135, label %.thread68
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -33024,9 +33024,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %116, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.074 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.074, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.074, align 8, !noalias !3061, !noundef !6
+  %.sroa.028.075 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.075, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.075, align 8, !noalias !3061, !noundef !6
   %42 = icmp eq i64 %.val3.i, -1
   br i1 %42, label %112, label %43
 
@@ -33083,7 +33083,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h4662fc0ecadf8e00E.exit.i.i.i:
           to label %78 unwind label %76
 
 .body.thread:                                     ; preds = %111
-  br i1 %.sroa.06.1.ph, label %.thread51, label %.thread71
+  br i1 %.sroa.06.1.ph, label %.thread51, label %.thread68
 
 76:                                               ; preds = %._crit_edge
   %77 = landingpad { ptr, i32 }
@@ -33170,7 +33170,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h4662fc0ecadf8e00E.exit.i.i.i:
   %102 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread71 unwind label %104, !noalias !3080
+          to label %.thread68 unwind label %104, !noalias !3080
 
 103:                                              ; preds = %99
   unreachable
@@ -33260,10 +33260,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 135:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1256, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17h9903042ca36f56cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread71 unwind label %109
+          to label %.thread68 unwind label %109
 
-.thread71:                                        ; preds = %.body.thread, %101, %37, %135
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1256, %37 ], [ %.pn12.pn35, %135 ], [ %102, %101 ], [ %.pn.ph, %.body.thread ]
+.thread68:                                        ; preds = %101, %.body.thread, %37, %135
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1256, %37 ], [ %.pn12.pn35, %135 ], [ %.pn.ph, %.body.thread ], [ %102, %101 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -33333,7 +33333,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread51
-  br i1 %.sroa.07.155, label %135, label %.thread71
+  br i1 %.sroa.07.155, label %135, label %.thread68
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -33342,9 +33342,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %116, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.074 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.074, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.074, align 8, !noalias !3091, !noundef !6
+  %.sroa.028.075 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.075, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.075, align 8, !noalias !3091, !noundef !6
   %42 = icmp eq i64 %.val3.i, -1
   br i1 %42, label %112, label %43
 
@@ -33401,7 +33401,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i:
           to label %78 unwind label %76
 
 .body.thread:                                     ; preds = %111
-  br i1 %.sroa.06.1.ph, label %.thread51, label %.thread71
+  br i1 %.sroa.06.1.ph, label %.thread51, label %.thread68
 
 76:                                               ; preds = %._crit_edge
   %77 = landingpad { ptr, i32 }
@@ -33488,7 +33488,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h14cf0c9c9a8e91c7E.exit.i.i.i:
   %102 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread71 unwind label %104, !noalias !3110
+          to label %.thread68 unwind label %104, !noalias !3110
 
 103:                                              ; preds = %99
   unreachable
@@ -33578,10 +33578,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 135:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1256, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17hb89db0f60e942622E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread71 unwind label %109
+          to label %.thread68 unwind label %109
 
-.thread71:                                        ; preds = %.body.thread, %101, %37, %135
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1256, %37 ], [ %.pn12.pn35, %135 ], [ %102, %101 ], [ %.pn.ph, %.body.thread ]
+.thread68:                                        ; preds = %101, %.body.thread, %37, %135
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1256, %37 ], [ %.pn12.pn35, %135 ], [ %.pn.ph, %.body.thread ], [ %102, %101 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -33651,7 +33651,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %134, label %.thread69
+  br i1 %.sroa.07.153, label %134, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -33660,9 +33660,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %115, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3121, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3121, !noundef !6
   %42 = icmp eq i64 %.val3.i, -1
   br i1 %42, label %111, label %43
 
@@ -33719,7 +33719,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hebabbfcd5bad3137E.exit.i.i.i:
           to label %78 unwind label %76
 
 .body.thread:                                     ; preds = %110
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 76:                                               ; preds = %._crit_edge
   %77 = landingpad { ptr, i32 }
@@ -33805,7 +33805,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hebabbfcd5bad3137E.exit.i.i.i:
   %101 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %103, !noalias !3140
+          to label %.thread66 unwind label %103, !noalias !3140
 
 102:                                              ; preds = %98
   unreachable
@@ -33895,10 +33895,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 134:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17ha2aa03105e5558cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %108
+          to label %.thread66 unwind label %108
 
-.thread69:                                        ; preds = %.body.thread, %100, %37, %134
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %134 ], [ %101, %100 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %100, %.body.thread, %37, %134
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %134 ], [ %.pn.ph, %.body.thread ], [ %101, %100 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -33968,7 +33968,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread48
-  br i1 %.sroa.07.152, label %131, label %.thread68
+  br i1 %.sroa.07.152, label %131, label %.thread65
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -33977,9 +33977,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %112, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.071 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.071, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.071, align 8, !noalias !3151, !noundef !6
+  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3151, !noundef !6
   %42 = lshr i64 %.val3.i, 24
   %43 = and i64 %.val3.i, 16777215
   %44 = load ptr, ptr %30, align 8, !noalias !3151, !nonnull !6, !noundef !6
@@ -34032,7 +34032,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hebabbfcd5bad3137E.exit.i.i.i:
           to label %75 unwind label %73
 
 .body.thread:                                     ; preds = %107
-  br i1 %.sroa.06.1.ph, label %.thread48, label %.thread68
+  br i1 %.sroa.06.1.ph, label %.thread48, label %.thread65
 
 73:                                               ; preds = %._crit_edge
   %74 = landingpad { ptr, i32 }
@@ -34118,7 +34118,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hebabbfcd5bad3137E.exit.i.i.i:
   %98 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread68 unwind label %100, !noalias !3170
+          to label %.thread65 unwind label %100, !noalias !3170
 
 99:                                               ; preds = %95
   unreachable
@@ -34208,10 +34208,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 131:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1253, %37 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17ha2aa03105e5558cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread68 unwind label %105
+          to label %.thread65 unwind label %105
 
-.thread68:                                        ; preds = %.body.thread, %97, %37, %131
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1253, %37 ], [ %.pn12.pn35, %131 ], [ %98, %97 ], [ %.pn.ph, %.body.thread ]
+.thread65:                                        ; preds = %97, %.body.thread, %37, %131
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1253, %37 ], [ %.pn12.pn35, %131 ], [ %.pn.ph, %.body.thread ], [ %98, %97 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -34281,7 +34281,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %132, label %.thread69
+  br i1 %.sroa.07.153, label %132, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -34290,9 +34290,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %113, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3181, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3181, !noundef !6
   %42 = lshr i64 %.val3.i, 24
   %43 = and i64 %.val3.i, 16777215
   %44 = load ptr, ptr %30, align 8, !noalias !3181, !nonnull !6, !noundef !6
@@ -34345,7 +34345,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17he71b1b8db48106faE.exit.i.i.i:
           to label %75 unwind label %73
 
 .body.thread:                                     ; preds = %108
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 73:                                               ; preds = %._crit_edge
   %74 = landingpad { ptr, i32 }
@@ -34432,7 +34432,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17he71b1b8db48106faE.exit.i.i.i:
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %101, !noalias !3200
+          to label %.thread66 unwind label %101, !noalias !3200
 
 100:                                              ; preds = %96
   unreachable
@@ -34522,10 +34522,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 132:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17hfd0789f02f0396c0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %106
+          to label %.thread66 unwind label %106
 
-.thread69:                                        ; preds = %.body.thread, %98, %37, %132
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %132 ], [ %99, %98 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %98, %.body.thread, %37, %132
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %132 ], [ %.pn.ph, %.body.thread ], [ %99, %98 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -34595,7 +34595,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread51
-  br i1 %.sroa.07.155, label %135, label %.thread71
+  br i1 %.sroa.07.155, label %135, label %.thread68
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -34604,9 +34604,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %116, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.074 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.074, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.074, align 8, !noalias !3211, !noundef !6
+  %.sroa.028.075 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.075, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.075, align 8, !noalias !3211, !noundef !6
   %42 = icmp eq i64 %.val3.i, -1
   br i1 %42, label %112, label %43
 
@@ -34663,7 +34663,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17he71b1b8db48106faE.exit.i.i.i:
           to label %78 unwind label %76
 
 .body.thread:                                     ; preds = %111
-  br i1 %.sroa.06.1.ph, label %.thread51, label %.thread71
+  br i1 %.sroa.06.1.ph, label %.thread51, label %.thread68
 
 76:                                               ; preds = %._crit_edge
   %77 = landingpad { ptr, i32 }
@@ -34750,7 +34750,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17he71b1b8db48106faE.exit.i.i.i:
   %102 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread71 unwind label %104, !noalias !3230
+          to label %.thread68 unwind label %104, !noalias !3230
 
 103:                                              ; preds = %99
   unreachable
@@ -34840,10 +34840,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 135:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1256, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17hfd0789f02f0396c0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread71 unwind label %109
+          to label %.thread68 unwind label %109
 
-.thread71:                                        ; preds = %.body.thread, %101, %37, %135
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1256, %37 ], [ %.pn12.pn35, %135 ], [ %102, %101 ], [ %.pn.ph, %.body.thread ]
+.thread68:                                        ; preds = %101, %.body.thread, %37, %135
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1256, %37 ], [ %.pn12.pn35, %135 ], [ %.pn.ph, %.body.thread ], [ %102, %101 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -34913,7 +34913,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread46
-  br i1 %.sroa.07.150, label %115, label %.thread66
+  br i1 %.sroa.07.150, label %115, label %.thread63
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -34922,9 +34922,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.069 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.069, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.069, align 8, !noalias !3241, !noundef !6
+  %.sroa.028.070 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.070, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.070, align 8, !noalias !3241, !noundef !6
   %42 = icmp ne i64 %.val3.i, -1
   br i1 %42, label %.thread36, label %92
 
@@ -34955,7 +34955,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %58 unwind label %56
 
 .body.thread:                                     ; preds = %91
-  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread66
+  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread63
 
 56:                                               ; preds = %._crit_edge
   %57 = landingpad { ptr, i32 }
@@ -35042,7 +35042,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %82 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread66 unwind label %84, !noalias !3260
+          to label %.thread63 unwind label %84, !noalias !3260
 
 83:                                               ; preds = %79
   unreachable
@@ -35132,10 +35132,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 115:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1251, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i64$GT$$GT$17hfd85bf3f5c2d3496E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread66 unwind label %89
+          to label %.thread63 unwind label %89
 
-.thread66:                                        ; preds = %.body.thread, %81, %37, %115
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %115 ], [ %82, %81 ], [ %.pn.ph, %.body.thread ]
+.thread63:                                        ; preds = %81, %.body.thread, %37, %115
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %115 ], [ %.pn.ph, %.body.thread ], [ %82, %81 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -35205,7 +35205,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread46
-  br i1 %.sroa.07.150, label %115, label %.thread66
+  br i1 %.sroa.07.150, label %115, label %.thread63
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -35214,9 +35214,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.069 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.069, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.069, align 8, !noalias !3271, !noundef !6
+  %.sroa.028.070 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.070, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.070, align 8, !noalias !3271, !noundef !6
   %42 = icmp ne i64 %.val3.i, -1
   br i1 %42, label %.thread36, label %92
 
@@ -35247,7 +35247,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %58 unwind label %56
 
 .body.thread:                                     ; preds = %91
-  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread66
+  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread63
 
 56:                                               ; preds = %._crit_edge
   %57 = landingpad { ptr, i32 }
@@ -35334,7 +35334,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %82 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread66 unwind label %84, !noalias !3290
+          to label %.thread63 unwind label %84, !noalias !3290
 
 83:                                               ; preds = %79
   unreachable
@@ -35424,10 +35424,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 115:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1251, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f64$GT$$GT$17h02377c3dd27b1475E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread66 unwind label %89
+          to label %.thread63 unwind label %89
 
-.thread66:                                        ; preds = %.body.thread, %81, %37, %115
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %115 ], [ %82, %81 ], [ %.pn.ph, %.body.thread ]
+.thread63:                                        ; preds = %81, %.body.thread, %37, %115
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %115 ], [ %.pn.ph, %.body.thread ], [ %82, %81 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -35497,7 +35497,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread51
-  br i1 %.sroa.07.155, label %135, label %.thread71
+  br i1 %.sroa.07.155, label %135, label %.thread68
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -35506,9 +35506,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %116, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.074 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.074, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.074, align 8, !noalias !3301, !noundef !6
+  %.sroa.028.075 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.075, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.075, align 8, !noalias !3301, !noundef !6
   %42 = icmp eq i64 %.val3.i, -1
   br i1 %42, label %112, label %43
 
@@ -35565,7 +35565,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h8023d1e8729f5187E.exit.i.i.i:
           to label %78 unwind label %76
 
 .body.thread:                                     ; preds = %111
-  br i1 %.sroa.06.1.ph, label %.thread51, label %.thread71
+  br i1 %.sroa.06.1.ph, label %.thread51, label %.thread68
 
 76:                                               ; preds = %._crit_edge
   %77 = landingpad { ptr, i32 }
@@ -35652,7 +35652,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h8023d1e8729f5187E.exit.i.i.i:
   %102 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread71 unwind label %104, !noalias !3320
+          to label %.thread68 unwind label %104, !noalias !3320
 
 103:                                              ; preds = %99
   unreachable
@@ -35742,10 +35742,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 135:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1256, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h2b14d8af7961fbeaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread71 unwind label %109
+          to label %.thread68 unwind label %109
 
-.thread71:                                        ; preds = %.body.thread, %101, %37, %135
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1256, %37 ], [ %.pn12.pn35, %135 ], [ %102, %101 ], [ %.pn.ph, %.body.thread ]
+.thread68:                                        ; preds = %101, %.body.thread, %37, %135
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1256, %37 ], [ %.pn12.pn35, %135 ], [ %.pn.ph, %.body.thread ], [ %102, %101 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -35815,7 +35815,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %132, label %.thread69
+  br i1 %.sroa.07.153, label %132, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -35824,9 +35824,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %113, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3331, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3331, !noundef !6
   %42 = lshr i64 %.val3.i, 24
   %43 = and i64 %.val3.i, 16777215
   %44 = load ptr, ptr %30, align 8, !noalias !3331, !nonnull !6, !noundef !6
@@ -35879,7 +35879,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hae6f5e79c5110276E.exit.i.i.i:
           to label %75 unwind label %73
 
 .body.thread:                                     ; preds = %108
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 73:                                               ; preds = %._crit_edge
   %74 = landingpad { ptr, i32 }
@@ -35966,7 +35966,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hae6f5e79c5110276E.exit.i.i.i:
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %101, !noalias !3350
+          to label %.thread66 unwind label %101, !noalias !3350
 
 100:                                              ; preds = %96
   unreachable
@@ -36056,10 +36056,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 132:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i32$GT$$GT$17h0785090c88087787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %106
+          to label %.thread66 unwind label %106
 
-.thread69:                                        ; preds = %.body.thread, %98, %37, %132
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %132 ], [ %99, %98 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %98, %.body.thread, %37, %132
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %132 ], [ %.pn.ph, %.body.thread ], [ %99, %98 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -36129,7 +36129,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %115, label %.thread69
+  br i1 %.sroa.07.153, label %115, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -36138,9 +36138,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3361, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3361, !noundef !6
   %42 = icmp ne i64 %.val3.i, -1
   br i1 %42, label %.thread44, label %92
 
@@ -36171,7 +36171,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %58 unwind label %56
 
 .body.thread:                                     ; preds = %91
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 56:                                               ; preds = %._crit_edge
   %57 = landingpad { ptr, i32 }
@@ -36258,7 +36258,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %82 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %84, !noalias !3380
+          to label %.thread66 unwind label %84, !noalias !3380
 
 83:                                               ; preds = %79
   unreachable
@@ -36348,10 +36348,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 115:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i32$GT$$GT$17h0785090c88087787E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %89
+          to label %.thread66 unwind label %89
 
-.thread69:                                        ; preds = %.body.thread, %81, %37, %115
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %115 ], [ %82, %81 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %81, %.body.thread, %37, %115
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %115 ], [ %.pn.ph, %.body.thread ], [ %82, %81 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -36421,7 +36421,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread46
-  br i1 %.sroa.07.150, label %115, label %.thread66
+  br i1 %.sroa.07.150, label %115, label %.thread63
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -36430,9 +36430,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.069 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.069, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.069, align 8, !noalias !3391, !noundef !6
+  %.sroa.028.070 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.070, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.070, align 8, !noalias !3391, !noundef !6
   %42 = icmp ne i64 %.val3.i, -1
   br i1 %42, label %.thread36, label %92
 
@@ -36463,7 +36463,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %58 unwind label %56
 
 .body.thread:                                     ; preds = %91
-  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread66
+  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread63
 
 56:                                               ; preds = %._crit_edge
   %57 = landingpad { ptr, i32 }
@@ -36550,7 +36550,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %82 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread66 unwind label %84, !noalias !3410
+          to label %.thread63 unwind label %84, !noalias !3410
 
 83:                                               ; preds = %79
   unreachable
@@ -36640,10 +36640,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 115:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1251, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hdb08d4cacabdc264E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread66 unwind label %89
+          to label %.thread63 unwind label %89
 
-.thread66:                                        ; preds = %.body.thread, %81, %37, %115
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %115 ], [ %82, %81 ], [ %.pn.ph, %.body.thread ]
+.thread63:                                        ; preds = %81, %.body.thread, %37, %115
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %115 ], [ %.pn.ph, %.body.thread ], [ %82, %81 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -36713,7 +36713,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %115, label %.thread69
+  br i1 %.sroa.07.153, label %115, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -36722,9 +36722,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3421, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3421, !noundef !6
   %42 = icmp ne i64 %.val3.i, -1
   br i1 %42, label %.thread44, label %92
 
@@ -36755,7 +36755,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %58 unwind label %56
 
 .body.thread:                                     ; preds = %91
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 56:                                               ; preds = %._crit_edge
   %57 = landingpad { ptr, i32 }
@@ -36842,7 +36842,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %82 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %84, !noalias !3440
+          to label %.thread66 unwind label %84, !noalias !3440
 
 83:                                               ; preds = %79
   unreachable
@@ -36932,10 +36932,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 115:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i16$GT$$GT$17hfd0789f02f0396c0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %89
+          to label %.thread66 unwind label %89
 
-.thread69:                                        ; preds = %.body.thread, %81, %37, %115
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %115 ], [ %82, %81 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %81, %.body.thread, %37, %115
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %115 ], [ %.pn.ph, %.body.thread ], [ %82, %81 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -37005,7 +37005,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %115, label %.thread69
+  br i1 %.sroa.07.153, label %115, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -37014,9 +37014,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3451, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3451, !noundef !6
   %42 = icmp ne i64 %.val3.i, -1
   br i1 %42, label %.thread44, label %92
 
@@ -37047,7 +37047,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %58 unwind label %56
 
 .body.thread:                                     ; preds = %91
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 56:                                               ; preds = %._crit_edge
   %57 = landingpad { ptr, i32 }
@@ -37134,7 +37134,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %82 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %84, !noalias !3470
+          to label %.thread66 unwind label %84, !noalias !3470
 
 83:                                               ; preds = %79
   unreachable
@@ -37224,10 +37224,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 115:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17h9903042ca36f56cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %89
+          to label %.thread66 unwind label %89
 
-.thread69:                                        ; preds = %.body.thread, %81, %37, %115
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %115 ], [ %82, %81 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %81, %.body.thread, %37, %115
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %115 ], [ %.pn.ph, %.body.thread ], [ %82, %81 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -37297,7 +37297,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread43
-  br i1 %.sroa.07.147, label %113, label %.thread63
+  br i1 %.sroa.07.147, label %113, label %.thread60
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -37306,9 +37306,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %93, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.066 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.066, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.066, align 8, !noalias !3481, !noundef !6
+  %.sroa.028.067 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.067, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.067, align 8, !noalias !3481, !noundef !6
   %.not = icmp ne i64 %.val3.i, -1
   br i1 %.not, label %.thread41, label %90
 
@@ -37339,7 +37339,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %57 unwind label %55
 
 .body.thread:                                     ; preds = %89
-  br i1 %.sroa.06.1.ph, label %.thread43, label %.thread63
+  br i1 %.sroa.06.1.ph, label %.thread43, label %.thread60
 
 55:                                               ; preds = %._crit_edge
   %56 = landingpad { ptr, i32 }
@@ -37425,7 +37425,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %80 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread63 unwind label %82, !noalias !3500
+          to label %.thread60 unwind label %82, !noalias !3500
 
 81:                                               ; preds = %77
   unreachable
@@ -37515,10 +37515,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 113:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1248, %37 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17ha2aa03105e5558cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread63 unwind label %87
+          to label %.thread60 unwind label %87
 
-.thread63:                                        ; preds = %.body.thread, %79, %37, %113
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1248, %37 ], [ %.pn12.pn35, %113 ], [ %80, %79 ], [ %.pn.ph, %.body.thread ]
+.thread60:                                        ; preds = %79, %.body.thread, %37, %113
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1248, %37 ], [ %.pn12.pn35, %113 ], [ %.pn.ph, %.body.thread ], [ %80, %79 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -37588,7 +37588,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %132, label %.thread69
+  br i1 %.sroa.07.153, label %132, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -37597,9 +37597,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %113, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3511, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3511, !noundef !6
   %42 = lshr i64 %.val3.i, 24
   %43 = and i64 %.val3.i, 16777215
   %44 = load ptr, ptr %30, align 8, !noalias !3511, !nonnull !6, !noundef !6
@@ -37652,7 +37652,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h8023d1e8729f5187E.exit.i.i.i:
           to label %75 unwind label %73
 
 .body.thread:                                     ; preds = %108
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 73:                                               ; preds = %._crit_edge
   %74 = landingpad { ptr, i32 }
@@ -37739,7 +37739,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h8023d1e8729f5187E.exit.i.i.i:
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %101, !noalias !3530
+          to label %.thread66 unwind label %101, !noalias !3530
 
 100:                                              ; preds = %96
   unreachable
@@ -37829,10 +37829,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 132:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h2b14d8af7961fbeaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %106
+          to label %.thread66 unwind label %106
 
-.thread69:                                        ; preds = %.body.thread, %98, %37, %132
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %132 ], [ %99, %98 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %98, %.body.thread, %37, %132
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %132 ], [ %.pn.ph, %.body.thread ], [ %99, %98 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -37902,7 +37902,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %134, label %.thread69
+  br i1 %.sroa.07.153, label %134, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -37911,9 +37911,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %115, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3541, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3541, !noundef !6
   %42 = icmp eq i64 %.val3.i, -1
   br i1 %42, label %111, label %43
 
@@ -37970,7 +37970,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17ha049e125c1247e1dE.exit.i.i.i:
           to label %77 unwind label %75
 
 .body.thread:                                     ; preds = %110
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 75:                                               ; preds = %._crit_edge
   %76 = landingpad { ptr, i32 }
@@ -38057,7 +38057,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17ha049e125c1247e1dE.exit.i.i.i:
   %101 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %103, !noalias !3560
+          to label %.thread66 unwind label %103, !noalias !3560
 
 102:                                              ; preds = %98
   unreachable
@@ -38147,10 +38147,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 134:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hdb08d4cacabdc264E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %108
+          to label %.thread66 unwind label %108
 
-.thread69:                                        ; preds = %.body.thread, %100, %37, %134
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %134 ], [ %101, %100 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %100, %.body.thread, %37, %134
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %134 ], [ %.pn.ph, %.body.thread ], [ %101, %100 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -38220,7 +38220,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %115, label %.thread69
+  br i1 %.sroa.07.153, label %115, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -38229,9 +38229,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3571, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3571, !noundef !6
   %42 = icmp ne i64 %.val3.i, -1
   br i1 %42, label %.thread44, label %92
 
@@ -38262,7 +38262,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %58 unwind label %56
 
 .body.thread:                                     ; preds = %91
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 56:                                               ; preds = %._crit_edge
   %57 = landingpad { ptr, i32 }
@@ -38349,7 +38349,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %82 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %84, !noalias !3590
+          to label %.thread66 unwind label %84, !noalias !3590
 
 83:                                               ; preds = %79
   unreachable
@@ -38439,10 +38439,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 115:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17hb89db0f60e942622E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %89
+          to label %.thread66 unwind label %89
 
-.thread69:                                        ; preds = %.body.thread, %81, %37, %115
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %115 ], [ %82, %81 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %81, %.body.thread, %37, %115
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %115 ], [ %.pn.ph, %.body.thread ], [ %82, %81 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -38512,7 +38512,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %134, label %.thread69
+  br i1 %.sroa.07.153, label %134, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -38521,9 +38521,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %115, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3601, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3601, !noundef !6
   %42 = icmp eq i64 %.val3.i, -1
   br i1 %42, label %111, label %43
 
@@ -38580,7 +38580,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h70ff533e33717808E.exit.i.i.i:
           to label %77 unwind label %75
 
 .body.thread:                                     ; preds = %110
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 75:                                               ; preds = %._crit_edge
   %76 = landingpad { ptr, i32 }
@@ -38667,7 +38667,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h70ff533e33717808E.exit.i.i.i:
   %101 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %103, !noalias !3620
+          to label %.thread66 unwind label %103, !noalias !3620
 
 102:                                              ; preds = %98
   unreachable
@@ -38757,10 +38757,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 134:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$i64$GT$$GT$17hfd85bf3f5c2d3496E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %108
+          to label %.thread66 unwind label %108
 
-.thread69:                                        ; preds = %.body.thread, %100, %37, %134
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %134 ], [ %101, %100 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %100, %.body.thread, %37, %134
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %134 ], [ %.pn.ph, %.body.thread ], [ %101, %100 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -38830,7 +38830,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread51
-  br i1 %.sroa.05.155, label %135, label %.thread71
+  br i1 %.sroa.05.155, label %135, label %.thread68
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -38839,9 +38839,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %116, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.026.074 = phi ptr [ %.sroa.0.0.copyload17, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.026.074, i64 8
-  %.val2.i = load i64, ptr %.sroa.026.074, align 8, !noalias !3631, !noundef !6
+  %.sroa.026.075 = phi ptr [ %.sroa.0.0.copyload17, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.026.075, i64 8
+  %.val2.i = load i64, ptr %.sroa.026.075, align 8, !noalias !3631, !noundef !6
   %42 = icmp eq i64 %.val2.i, -1
   br i1 %42, label %112, label %43
 
@@ -38887,7 +38887,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17ha5f8c2de68c42801E.exit.i.i.i:
           to label %72 unwind label %70
 
 .body.thread:                                     ; preds = %105
-  br i1 %.sroa.04.1.ph, label %.thread51, label %.thread71
+  br i1 %.sroa.04.1.ph, label %.thread51, label %.thread68
 
 70:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h907d9da3ff827944E.exit"
   %71 = landingpad { ptr, i32 }
@@ -38974,7 +38974,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17ha5f8c2de68c42801E.exit.i.i.i:
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread71 unwind label %98, !noalias !3657
+          to label %.thread68 unwind label %98, !noalias !3657
 
 97:                                               ; preds = %93
   unreachable
@@ -39075,10 +39075,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 135:                                              ; preds = %.thread, %37
   %.pn10.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1056, %37 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$alloc..vec..Vec$LT$i128$GT$$GT$17h0db1ff49ead63a3eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread71 unwind label %103
+          to label %.thread68 unwind label %103
 
-.thread71:                                        ; preds = %.body.thread, %95, %37, %135
-  %.pn10.pn34 = phi { ptr, i32 } [ %.pn1056, %37 ], [ %.pn10.pn35, %135 ], [ %96, %95 ], [ %.pn.ph, %.body.thread ]
+.thread68:                                        ; preds = %95, %.body.thread, %37, %135
+  %.pn10.pn34 = phi { ptr, i32 } [ %.pn1056, %37 ], [ %.pn10.pn35, %135 ], [ %.pn.ph, %.body.thread ], [ %96, %95 ]
   resume { ptr, i32 } %.pn10.pn34
 }
 
@@ -39148,7 +39148,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %132, label %.thread69
+  br i1 %.sroa.07.153, label %132, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -39157,9 +39157,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %113, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3668, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3668, !noundef !6
   %42 = lshr i64 %.val3.i, 24
   %43 = and i64 %.val3.i, 16777215
   %44 = load ptr, ptr %30, align 8, !noalias !3668, !nonnull !6, !noundef !6
@@ -39212,7 +39212,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h4662fc0ecadf8e00E.exit.i.i.i:
           to label %75 unwind label %73
 
 .body.thread:                                     ; preds = %108
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 73:                                               ; preds = %._crit_edge
   %74 = landingpad { ptr, i32 }
@@ -39299,7 +39299,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h4662fc0ecadf8e00E.exit.i.i.i:
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %101, !noalias !3687
+          to label %.thread66 unwind label %101, !noalias !3687
 
 100:                                              ; preds = %96
   unreachable
@@ -39389,10 +39389,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 132:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u16$GT$$GT$17h9903042ca36f56cfE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %106
+          to label %.thread66 unwind label %106
 
-.thread69:                                        ; preds = %.body.thread, %98, %37, %132
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %132 ], [ %99, %98 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %98, %.body.thread, %37, %132
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %132 ], [ %.pn.ph, %.body.thread ], [ %99, %98 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -39462,7 +39462,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread46
-  br i1 %.sroa.07.150, label %132, label %.thread66
+  br i1 %.sroa.07.150, label %132, label %.thread63
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -39471,9 +39471,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %113, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.069 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.069, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.069, align 8, !noalias !3698, !noundef !6
+  %.sroa.028.070 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.070, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.070, align 8, !noalias !3698, !noundef !6
   %42 = lshr i64 %.val3.i, 24
   %43 = and i64 %.val3.i, 16777215
   %44 = load ptr, ptr %30, align 8, !noalias !3698, !nonnull !6, !noundef !6
@@ -39526,7 +39526,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i:
           to label %75 unwind label %73
 
 .body.thread:                                     ; preds = %108
-  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread66
+  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread63
 
 73:                                               ; preds = %._crit_edge
   %74 = landingpad { ptr, i32 }
@@ -39613,7 +39613,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hd3a22e2adbb31e0eE.exit.i.i.i:
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread66 unwind label %101, !noalias !3717
+          to label %.thread63 unwind label %101, !noalias !3717
 
 100:                                              ; preds = %96
   unreachable
@@ -39703,10 +39703,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 132:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1251, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f64$GT$$GT$17h02377c3dd27b1475E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread66 unwind label %106
+          to label %.thread63 unwind label %106
 
-.thread66:                                        ; preds = %.body.thread, %98, %37, %132
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %132 ], [ %99, %98 ], [ %.pn.ph, %.body.thread ]
+.thread63:                                        ; preds = %98, %.body.thread, %37, %132
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %132 ], [ %.pn.ph, %.body.thread ], [ %99, %98 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -39776,7 +39776,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread46
-  br i1 %.sroa.07.150, label %132, label %.thread66
+  br i1 %.sroa.07.150, label %132, label %.thread63
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -39785,9 +39785,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %113, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.069 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.069, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.069, align 8, !noalias !3728, !noundef !6
+  %.sroa.028.070 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.070, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.070, align 8, !noalias !3728, !noundef !6
   %42 = lshr i64 %.val3.i, 24
   %43 = and i64 %.val3.i, 16777215
   %44 = load ptr, ptr %30, align 8, !noalias !3728, !nonnull !6, !noundef !6
@@ -39840,7 +39840,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17ha049e125c1247e1dE.exit.i.i.i:
           to label %75 unwind label %73
 
 .body.thread:                                     ; preds = %108
-  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread66
+  br i1 %.sroa.06.1.ph, label %.thread46, label %.thread63
 
 73:                                               ; preds = %._crit_edge
   %74 = landingpad { ptr, i32 }
@@ -39927,7 +39927,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17ha049e125c1247e1dE.exit.i.i.i:
   %99 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread66 unwind label %101, !noalias !3747
+          to label %.thread63 unwind label %101, !noalias !3747
 
 100:                                              ; preds = %96
   unreachable
@@ -40017,10 +40017,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 132:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1251, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hdb08d4cacabdc264E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread66 unwind label %106
+          to label %.thread63 unwind label %106
 
-.thread66:                                        ; preds = %.body.thread, %98, %37, %132
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %132 ], [ %99, %98 ], [ %.pn.ph, %.body.thread ]
+.thread63:                                        ; preds = %98, %.body.thread, %37, %132
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1251, %37 ], [ %.pn12.pn35, %132 ], [ %.pn.ph, %.body.thread ], [ %99, %98 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -40090,7 +40090,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread48
-  br i1 %.sroa.07.152, label %131, label %.thread68
+  br i1 %.sroa.07.152, label %131, label %.thread65
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -40099,9 +40099,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %112, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.071 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.071, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.071, align 8, !noalias !3758, !noundef !6
+  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3758, !noundef !6
   %42 = lshr i64 %.val3.i, 24
   %43 = and i64 %.val3.i, 16777215
   %44 = load ptr, ptr %30, align 8, !noalias !3758, !nonnull !6, !noundef !6
@@ -40154,7 +40154,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hae431fddfadf9c8aE.exit.i.i.i:
           to label %75 unwind label %73
 
 .body.thread:                                     ; preds = %107
-  br i1 %.sroa.06.1.ph, label %.thread48, label %.thread68
+  br i1 %.sroa.06.1.ph, label %.thread48, label %.thread65
 
 73:                                               ; preds = %._crit_edge
   %74 = landingpad { ptr, i32 }
@@ -40240,7 +40240,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hae431fddfadf9c8aE.exit.i.i.i:
   %98 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread68 unwind label %100, !noalias !3777
+          to label %.thread65 unwind label %100, !noalias !3777
 
 99:                                               ; preds = %95
   unreachable
@@ -40330,10 +40330,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 131:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1253, %37 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$i8$GT$$GT$17h374cf66b8caa6983E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread68 unwind label %105
+          to label %.thread65 unwind label %105
 
-.thread68:                                        ; preds = %.body.thread, %97, %37, %131
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1253, %37 ], [ %.pn12.pn35, %131 ], [ %98, %97 ], [ %.pn.ph, %.body.thread ]
+.thread65:                                        ; preds = %97, %.body.thread, %37, %131
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1253, %37 ], [ %.pn12.pn35, %131 ], [ %.pn.ph, %.body.thread ], [ %98, %97 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 
@@ -40403,7 +40403,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   br label %39
 
 37:                                               ; preds = %.thread49
-  br i1 %.sroa.07.153, label %115, label %.thread69
+  br i1 %.sroa.07.153, label %115, label %.thread66
 
 .thread:                                          ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h160bf384e773e231E.exit"
   %38 = landingpad { ptr, i32 }
@@ -40412,9 +40412,9 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
 
 39:                                               ; preds = %.lr.ph, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit
   %40 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %.sroa.028.072 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.072, i64 8
-  %.val3.i = load i64, ptr %.sroa.028.072, align 8, !noalias !3788, !noundef !6
+  %.sroa.028.073 = phi ptr [ %.sroa.0.0.copyload19, %.lr.ph ], [ %41, %_ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e04E.exit ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.028.073, i64 8
+  %.val3.i = load i64, ptr %.sroa.028.073, align 8, !noalias !3788, !noundef !6
   %42 = icmp ne i64 %.val3.i, -1
   br i1 %42, label %.thread44, label %92
 
@@ -40445,7 +40445,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
           to label %58 unwind label %56
 
 .body.thread:                                     ; preds = %91
-  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread69
+  br i1 %.sroa.06.1.ph, label %.thread49, label %.thread66
 
 56:                                               ; preds = %._crit_edge
   %57 = landingpad { ptr, i32 }
@@ -40532,7 +40532,7 @@ define hidden void @"_ZN169_$LT$polars_arrow..array..primitive..PrimitiveArray$L
   %82 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$polars_error..PolarsError$GT$17hae354901d3878cbcE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5) #27
-          to label %.thread69 unwind label %84, !noalias !3807
+          to label %.thread66 unwind label %84, !noalias !3807
 
 83:                                               ; preds = %79
   unreachable
@@ -40622,10 +40622,10 @@ _ZN12polars_arrow6bitmap7builder13BitmapBuilder14push_unchecked17hacd8c13c7f934e
 115:                                              ; preds = %.thread, %37
   %.pn12.pn35 = phi { ptr, i32 } [ %38, %.thread ], [ %.pn1254, %37 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h2b14d8af7961fbeaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #27
-          to label %.thread69 unwind label %89
+          to label %.thread66 unwind label %89
 
-.thread69:                                        ; preds = %.body.thread, %81, %37, %115
-  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %115 ], [ %82, %81 ], [ %.pn.ph, %.body.thread ]
+.thread66:                                        ; preds = %81, %.body.thread, %37, %115
+  %.pn12.pn34 = phi { ptr, i32 } [ %.pn1254, %37 ], [ %.pn12.pn35, %115 ], [ %.pn.ph, %.body.thread ], [ %82, %81 ]
   resume { ptr, i32 } %.pn12.pn34
 }
 

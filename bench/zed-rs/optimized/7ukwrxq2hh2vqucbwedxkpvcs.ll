@@ -35794,7 +35794,7 @@ _ZN8language8Language11grammar_mut17hb78fcbbbf86b21dfE.exit: ; preds = %"_ZN5all
   %64 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hbea376ca9569bf04E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %5)
           to label %93 unwind label %.thread
 
-.thread61:                                        ; preds = %84, %79
+.thread66:                                        ; preds = %84, %79
   %eh.lpad-body = phi { ptr, i32 } [ %85, %84 ], [ %80, %79 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 168
@@ -35835,7 +35835,7 @@ _ZN8language19get_capture_indices17h995fa4a928182221E.exit: ; preds = %"_ZN94_$L
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %75 = load i64, ptr %74, align 8, !range !127, !alias.scope !7958, !noundef !9
   %76 = icmp eq i64 %75, -9223372036854775808
-  br i1 %76, label %.thread60, label %77
+  br i1 %76, label %.thread65, label %77
 
 77:                                               ; preds = %70
   %78 = getelementptr inbounds nuw i8, ptr %15, i64 176
@@ -35846,7 +35846,7 @@ _ZN8language19get_capture_indices17h995fa4a928182221E.exit: ; preds = %"_ZN94_$L
   %80 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$language..InjectionPatternConfig$GT$$GT$17hc6f45dc9dce8b8b4E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %74) #59
-          to label %.thread61 unwind label %81
+          to label %.thread66 unwind label %81
 
 81:                                               ; preds = %79
   %82 = landingpad { ptr, i32 }
@@ -35856,7 +35856,7 @@ _ZN8language19get_capture_indices17h995fa4a928182221E.exit: ; preds = %"_ZN94_$L
 
 "_ZN4core3ptr46drop_in_place$LT$language..InjectionConfig$GT$17hfb6ee86c94393058E.exit.i": ; preds = %77
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$language..InjectionPatternConfig$GT$$GT$17hc6f45dc9dce8b8b4E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %74)
-          to label %.thread60 unwind label %84
+          to label %.thread65 unwind label %84
 
 83:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he71b288503d2a446E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 8 dereferenceable(472) %1, i64 472, i1 false)
@@ -35866,9 +35866,9 @@ _ZN8language19get_capture_indices17h995fa4a928182221E.exit: ; preds = %"_ZN94_$L
 84:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$language..InjectionConfig$GT$17hfb6ee86c94393058E.exit.i"
   %85 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread61
+  br label %.thread66
 
-.thread60:                                        ; preds = %"_ZN4core3ptr46drop_in_place$LT$language..InjectionConfig$GT$17hfb6ee86c94393058E.exit.i", %70
+.thread65:                                        ; preds = %"_ZN4core3ptr46drop_in_place$LT$language..InjectionConfig$GT$17hfb6ee86c94393058E.exit.i", %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %.sroa.526.0..sroa_idx27 = getelementptr inbounds nuw i8, ptr %15, i64 168
   store i32 %72, ptr %.sroa.526.0..sroa_idx27, align 8
@@ -35885,7 +35885,7 @@ _ZN8language19get_capture_indices17h995fa4a928182221E.exit: ; preds = %"_ZN94_$L
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %86
 
-86:                                               ; preds = %87, %.thread60
+86:                                               ; preds = %87, %.thread65
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %88
 
@@ -35922,11 +35922,11 @@ _ZN8language19get_capture_indices17h995fa4a928182221E.exit: ; preds = %"_ZN94_$L
   br label %34
 
 95:                                               ; preds = %96, %24
-  %.pn4964 = phi { ptr, i32 } [ %.pn4965, %96 ], [ %90, %24 ]
-  resume { ptr, i32 } %.pn4964
+  %.pn4954 = phi { ptr, i32 } [ %.pn4955, %96 ], [ %90, %24 ]
+  resume { ptr, i32 } %.pn4954
 
-96:                                               ; preds = %.thread, %.thread61, %24
-  %.pn4965 = phi { ptr, i32 } [ %eh.lpad-body, %.thread61 ], [ %90, %24 ], [ %lpad.thr_comm, %.thread ]
+96:                                               ; preds = %.thread66, %.thread, %24
+  %.pn4955 = phi { ptr, i32 } [ %90, %24 ], [ %lpad.thr_comm, %.thread ], [ %eh.lpad-body, %.thread66 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$language..Language$GT$17h580037013c771df3E"(ptr noalias noundef nonnull align 8 dereferenceable(472) %1) #59
           to label %95 unwind label %91
 }

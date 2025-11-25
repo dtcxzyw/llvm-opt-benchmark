@@ -8384,19 +8384,19 @@ define hidden void @_ZN4core4iter8adapters11try_process17hc0240f6fa0e15267E(ptr 
           cleanup
   %9 = load ptr, ptr %6, align 8, !noundef !9
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %17
+  br i1 %.not, label %17, label %18
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2040
   %11 = load ptr, ptr %6, align 8, !noundef !9
   %.not.not = icmp eq ptr %11, null
-  br i1 %.not.not, label %.thread12, label %13
+  br i1 %.not.not, label %.thread, label %13
 
-.thread12:                                        ; preds = %10
+.thread:                                          ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %12
 
-12:                                               ; preds = %13, %.thread12
+12:                                               ; preds = %13, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -8408,18 +8408,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17hc0240f6fa0e15267E(ptr 
   call void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter_cli..test..TestEntry$GT$$GT$17h8d96728d21744c73E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %12
 
-15:                                               ; preds = %17
+15:                                               ; preds = %18
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #42
   unreachable
 
-.thread:                                          ; preds = %17, %7
+17:                                               ; preds = %18, %7
   resume { ptr, i32 } %8
 
-17:                                               ; preds = %7
+18:                                               ; preds = %7
   invoke void @"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17hf1ec462c9c137100E.llvm.13013766950239737229"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #41
-          to label %.thread unwind label %15
+          to label %17 unwind label %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

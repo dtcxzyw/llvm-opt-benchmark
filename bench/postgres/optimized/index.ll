@@ -1926,9 +1926,9 @@ define internal fastcc void @index_update_stats(ptr noundef %0, i1 noundef zeroe
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %4, align 4
   %.not38 = icmp eq i32 %57, %58
-  br i1 %.not38, label %59, label %.thread43
+  br i1 %.not38, label %59, label %.critedge
 
-.thread43:                                        ; preds = %55
+.critedge:                                        ; preds = %55
   store i32 %58, ptr %56, align 4
   br label %60
 
@@ -1936,7 +1936,7 @@ define internal fastcc void @index_update_stats(ptr noundef %0, i1 noundef zeroe
   %.1 = phi i1 [ %.3, %55 ], [ %.not36, %44 ]
   br i1 %.1, label %60, label %63
 
-60:                                               ; preds = %.thread43, %59
+60:                                               ; preds = %.critedge, %59
   %61 = load ptr, ptr %7, align 8
   %62 = load ptr, ptr %6, align 8
   call void @systable_inplace_update_finish(ptr noundef %61, ptr noundef %62) #10

@@ -4929,7 +4929,7 @@ define internal fastcc void @_ZN5quinn8endpoint13ConnectionSet6insert17h45bb15e9
 .thread:                                          ; preds = %8
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread48
+  br label %.thread50
 
 23:                                               ; preds = %8
   %24 = extractvalue { ptr, ptr } %21, 0
@@ -5052,7 +5052,7 @@ define internal fastcc void @_ZN5quinn8endpoint13ConnectionSet6insert17h45bb15e9
   unreachable
 
 65:                                               ; preds = %66
-  br i1 %.sroa.02.1.ph, label %67, label %.thread48
+  br i1 %.sroa.02.1.ph, label %67, label %.thread50
 
 66:                                               ; preds = %61, %40, %50
   %.pn.ph = phi { ptr, i32 } [ %62, %61 ], [ %41, %40 ], [ %51, %50 ]
@@ -5063,24 +5063,21 @@ define internal fastcc void @_ZN5quinn8endpoint13ConnectionSet6insert17h45bb15e9
 
 67:                                               ; preds = %65
   invoke void @"_ZN4core3ptr96drop_in_place$LT$tokio..sync..mpsc..unbounded..UnboundedSender$LT$quinn..ConnectionEvent$GT$$GT$17h8e41c9d7e21ac2e6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16) #21
-          to label %.thread48 unwind label %63
+          to label %.thread50 unwind label %63
 
-.thread48:                                        ; preds = %65, %67, %.thread
+.thread50:                                        ; preds = %65, %67, %.thread
   %.sroa.05.023 = phi i1 [ true, %.thread ], [ %.sroa.05.1.ph, %67 ], [ %.sroa.05.1.ph, %65 ]
   %.pn.pn21 = phi { ptr, i32 } [ %22, %.thread ], [ %.pn.ph, %67 ], [ %.pn.ph, %65 ]
   %68 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !447
   %69 = icmp eq i64 %68, 1
   br i1 %69, label %70, label %.noexc15
 
-70:                                               ; preds = %.thread48
+70:                                               ; preds = %.thread50
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h731ef816e066564eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17)
           to label %.noexc15 unwind label %63
 
-"_ZN4core3ptr83drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..AsyncUdpSocket$GT$$GT$17h6c63b93694a59fc1E.exit": ; preds = %.noexc15, %74
-  br i1 %.sroa.05.023, label %76, label %75
-
-.noexc15:                                         ; preds = %70, %.thread48
+.noexc15:                                         ; preds = %70, %.thread50
   call void @llvm.experimental.noalias.scope.decl(metadata !452)
   call void @llvm.experimental.noalias.scope.decl(metadata !455)
   %71 = load ptr, ptr %18, align 8, !alias.scope !458, !nonnull !3, !noundef !3
@@ -5093,7 +5090,10 @@ define internal fastcc void @_ZN5quinn8endpoint13ConnectionSet6insert17h45bb15e9
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf15aa35248c80e4fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %18)
           to label %"_ZN4core3ptr83drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..AsyncUdpSocket$GT$$GT$17h6c63b93694a59fc1E.exit" unwind label %63
 
-75:                                               ; preds = %76, %"_ZN4core3ptr83drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..AsyncUdpSocket$GT$$GT$17h6c63b93694a59fc1E.exit"
+"_ZN4core3ptr83drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..AsyncUdpSocket$GT$$GT$17h6c63b93694a59fc1E.exit": ; preds = %74, %.noexc15
+  br i1 %.sroa.05.023, label %76, label %75
+
+75:                                               ; preds = %"_ZN4core3ptr83drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..AsyncUdpSocket$GT$$GT$17h6c63b93694a59fc1E.exit", %76
   resume { ptr, i32 } %.pn.pn21
 
 76:                                               ; preds = %"_ZN4core3ptr83drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn..runtime..AsyncUdpSocket$GT$$GT$17h6c63b93694a59fc1E.exit"

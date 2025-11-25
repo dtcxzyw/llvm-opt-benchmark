@@ -3561,7 +3561,7 @@ _ZL17getLinkedToSymbolPKN4llvm12GlobalObjectERKNS_13TargetMachineE.exit: ; preds
   %.not = icmp ne ptr %.0.i, null
   %36 = or i32 %7, 128
   %spec.select = select i1 %.not, i32 %36, i32 %7
-  %narrow = or i1 %6, %.not
+  %spec.select21 = or i1 %6, %.not
   br i1 %5, label %37, label %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit.thread22
 
 37:                                               ; preds = %_ZL17getLinkedToSymbolPKN4llvm12GlobalObjectERKNS_13TargetMachineE.exit
@@ -3604,8 +3604,8 @@ _ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit.thread: ; preds = %53, %_ZNK4llvm
 
 _ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit.thread22: ; preds = %49, %41, %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit.thread, %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit, %_ZL17getLinkedToSymbolPKN4llvm12GlobalObjectERKNS_13TargetMachineE.exit
   %.120 = phi i32 [ %42, %41 ], [ %57, %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit.thread ], [ %spec.select, %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit ], [ %spec.select, %_ZL17getLinkedToSymbolPKN4llvm12GlobalObjectERKNS_13TargetMachineE.exit ], [ %spec.select, %49 ]
-  %.1.shrunk = phi i1 [ true, %41 ], [ true, %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit.thread ], [ %narrow, %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit ], [ %narrow, %_ZL17getLinkedToSymbolPKN4llvm12GlobalObjectERKNS_13TargetMachineE.exit ], [ %narrow, %49 ]
-  %58 = tail call fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFEPKNS_21MachineJumpTableEntryE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1264) %4, i1 noundef zeroext %.1.shrunk, i32 noundef %.120, ptr noundef %8, ptr noundef %.0.i, ptr noundef null)
+  %.1 = phi i1 [ true, %41 ], [ true, %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit.thread ], [ %spec.select21, %_ZNK4llvm9MCAsmInfo17binutilsIsAtLeastEii.exit ], [ %spec.select21, %_ZL17getLinkedToSymbolPKN4llvm12GlobalObjectERKNS_13TargetMachineE.exit ], [ %spec.select21, %49 ]
+  %58 = tail call fastcc noundef ptr @_ZL25selectELFSectionForGlobalRN4llvm9MCContextEPKNS_12GlobalObjectENS_11SectionKindERNS_7ManglerERKNS_13TargetMachineEbjPjPKNS_11MCSymbolELFEPKNS_21MachineJumpTableEntryE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(1264) %4, i1 noundef zeroext %.1, i32 noundef %.120, ptr noundef %8, ptr noundef %.0.i, ptr noundef null)
   ret ptr %58
 }
 

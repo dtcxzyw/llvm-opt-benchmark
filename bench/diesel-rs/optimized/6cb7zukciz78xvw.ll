@@ -3610,19 +3610,19 @@ define hidden void @_ZN4core4iter8adapters11try_process17haf091085e5be491dE(ptr 
           cleanup
   %9 = load ptr, ptr %7, align 8, !noundef !11
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %23
+  br i1 %.not, label %23, label %24
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1361
   %11 = load ptr, ptr %7, align 8, !noundef !11
   %.not.not = icmp eq ptr %11, null
-  br i1 %.not.not, label %.thread13, label %.noexc
+  br i1 %.not.not, label %.thread, label %.noexc
 
-.thread13:                                        ; preds = %10
+.thread:                                          ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %12
 
-12:                                               ; preds = %.thread13, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h3f0cd2b660247d8eE.exit"
+12:                                               ; preds = %.thread, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h3f0cd2b660247d8eE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
@@ -3650,18 +3650,18 @@ define hidden void @_ZN4core4iter8adapters11try_process17haf091085e5be491dE(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1378
   br label %12
 
-21:                                               ; preds = %23
+21:                                               ; preds = %24
   %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #51
   unreachable
 
-.thread:                                          ; preds = %23, %8
+23:                                               ; preds = %24, %8
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-23:                                               ; preds = %8
+24:                                               ; preds = %8
   invoke void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$diesel..pg..backend..FailedToLookupTypeError$GT$$GT$17h27c945b24bc637abE.llvm.15565454694699926178"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #50
-          to label %.thread unwind label %21
+          to label %23 unwind label %21
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

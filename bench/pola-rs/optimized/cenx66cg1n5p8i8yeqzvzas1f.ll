@@ -3417,9 +3417,9 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h96b17b4af1f95ea7E.exit.i: ; pre
 
 162:                                              ; preds = %"_ZN4core3ptr170drop_in_place$LT$core..option..Option$LT$$LP$alloc..vec..Vec$LT$polars_plan..dsl..expr..Expr$GT$$C$polars_core..chunked_array..ops..sort..options..SortOptions$RP$$GT$$GT$17h815a0939d151ef55E.exit"
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$polars_plan..dsl..expr..Expr$GT$$GT$17h76a4a0bf5962ef50E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-          to label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$polars_plan..dsl..expr..Expr$GT$$GT$$GT$17he105093c231794f0E.exit" unwind label %.thread
+          to label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$polars_plan..dsl..expr..Expr$GT$$GT$$GT$17he105093c231794f0E.exit" unwind label %.thread85
 
-.thread:                                          ; preds = %162
+.thread85:                                        ; preds = %162
   %163 = landingpad { ptr, i32 }
           cleanup
   br label %170
@@ -3444,11 +3444,11 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h96b17b4af1f95ea7E.exit.i: ; pre
           to label %132 unwind label %47
 
 169:                                              ; preds = %170, %132
-  %.pn3287 = phi { ptr, i32 } [ %.pn3288, %170 ], [ %.pn.pn.pn.pn, %132 ]
-  resume { ptr, i32 } %.pn3287
+  %.pn3283 = phi { ptr, i32 } [ %.pn3284, %170 ], [ %.pn.pn.pn.pn, %132 ]
+  resume { ptr, i32 } %.pn3283
 
-170:                                              ; preds = %.thread, %132
-  %.pn3288 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %132 ], [ %163, %.thread ]
+170:                                              ; preds = %.thread85, %132
+  %.pn3284 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %132 ], [ %163, %.thread85 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$polars_plan..dsl..expr..Expr$GT$17h6a1e205ff511b351E"(ptr noalias noundef align 16 dereferenceable(192) %1) #27
           to label %169 unwind label %47
 }

@@ -4310,120 +4310,120 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
-  %.not190219 = icmp eq ptr %49, null
+  %.not190221 = icmp eq ptr %49, null
   br i1 %switch, label %50, label %69
 
 50:                                               ; preds = %44
-  br i1 %.not190219, label %.lr.ph228.preheader, label %.lr.ph222
+  br i1 %.not190221, label %.lr.ph230.preheader, label %.lr.ph224
 
-.lr.ph222:                                        ; preds = %50, %.lr.ph222
-  %.0162220 = phi ptr [ %52, %.lr.ph222 ], [ %49, %50 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.0162220, i64 40
+.lr.ph224:                                        ; preds = %50, %.lr.ph224
+  %.0162222 = phi ptr [ %52, %.lr.ph224 ], [ %49, %50 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.0162222, i64 40
   %52 = load ptr, ptr %51, align 8
-  tail call void @free(ptr noundef nonnull %.0162220) #14
+  tail call void @free(ptr noundef nonnull %.0162222) #14
   %.not190 = icmp eq ptr %52, null
-  br i1 %.not190, label %.lr.ph228.preheader, label %.lr.ph222, !llvm.loop !32
+  br i1 %.not190, label %.lr.ph230.preheader, label %.lr.ph224, !llvm.loop !32
 
-.lr.ph228.preheader:                              ; preds = %.lr.ph222, %50
+.lr.ph230.preheader:                              ; preds = %.lr.ph224, %50
   store ptr null, ptr %48, align 8
-  br label %.lr.ph228
+  br label %.lr.ph230
 
-.lr.ph228:                                        ; preds = %.lr.ph228.preheader, %59
-  %.0161226.in = phi i32 [ %.0161226, %59 ], [ %18, %.lr.ph228.preheader ]
-  %.1163225 = phi ptr [ %56, %59 ], [ null, %.lr.ph228.preheader ]
-  %.0161226 = add nsw i32 %.0161226.in, -1
+.lr.ph230:                                        ; preds = %.lr.ph230.preheader, %59
+  %.0161228.in = phi i32 [ %.0161228, %59 ], [ %18, %.lr.ph230.preheader ]
+  %.1163227 = phi ptr [ %56, %59 ], [ null, %.lr.ph230.preheader ]
+  %.0161228 = add nsw i32 %.0161228.in, -1
   %53 = load i32, ptr %0, align 8
   %54 = load ptr, ptr %11, align 8
   %55 = load i32, ptr %45, align 8
-  %56 = tail call ptr @ecpg_build_compat_sqlda(i32 noundef %53, ptr noundef %54, i32 noundef %.0161226, i32 noundef %55) #14
+  %56 = tail call ptr @ecpg_build_compat_sqlda(i32 noundef %53, ptr noundef %54, i32 noundef %.0161228, i32 noundef %55) #14
   %.not191 = icmp eq ptr %56, null
   br i1 %.not191, label %.preheader, label %59
 
-.preheader:                                       ; preds = %.lr.ph228
-  %.not192229 = icmp eq ptr %.1163225, null
-  br i1 %.not192229, label %.loopexit197.sink.split, label %.lr.ph231
+.preheader:                                       ; preds = %.lr.ph230
+  %.not192231 = icmp eq ptr %.1163227, null
+  br i1 %.not192231, label %.loopexit199.sink.split, label %.lr.ph233
 
-.lr.ph231:                                        ; preds = %.preheader, %.lr.ph231
-  %.2164230 = phi ptr [ %58, %.lr.ph231 ], [ %.1163225, %.preheader ]
-  %57 = getelementptr inbounds nuw i8, ptr %.2164230, i64 40
+.lr.ph233:                                        ; preds = %.preheader, %.lr.ph233
+  %.2164232 = phi ptr [ %58, %.lr.ph233 ], [ %.1163227, %.preheader ]
+  %57 = getelementptr inbounds nuw i8, ptr %.2164232, i64 40
   %58 = load ptr, ptr %57, align 8
-  tail call void @free(ptr noundef nonnull %.2164230) #14
+  tail call void @free(ptr noundef nonnull %.2164232) #14
   %.not192 = icmp eq ptr %58, null
-  br i1 %.not192, label %.loopexit197.sink.split, label %.lr.ph231, !llvm.loop !33
+  br i1 %.not192, label %.loopexit199.sink.split, label %.lr.ph233, !llvm.loop !33
 
-59:                                               ; preds = %.lr.ph228
+59:                                               ; preds = %.lr.ph230
   %60 = load i32, ptr %0, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.43, i32 noundef %60) #14
   store ptr %56, ptr %48, align 8
   %61 = load i32, ptr %0, align 8
   %62 = load ptr, ptr %11, align 8
   %63 = load i32, ptr %45, align 8
-  tail call void @ecpg_set_compat_sqlda(i32 noundef %61, ptr noundef nonnull %48, ptr noundef %62, i32 noundef %.0161226, i32 noundef %63) #14
+  tail call void @ecpg_set_compat_sqlda(i32 noundef %61, ptr noundef nonnull %48, ptr noundef %62, i32 noundef %.0161228, i32 noundef %63) #14
   %64 = load i32, ptr %0, align 8
   %65 = load ptr, ptr %11, align 8
   %66 = tail call i32 @PQnfields(ptr noundef %65) #14
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.44, i32 noundef %64, i32 noundef %66) #14
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  store ptr %.1163225, ptr %67, align 8
-  %68 = icmp samesign ugt i32 %.0161226.in, 1
-  br i1 %68, label %.lr.ph228, label %.loopexit.sink.split, !llvm.loop !34
+  store ptr %.1163227, ptr %67, align 8
+  %68 = icmp samesign ugt i32 %.0161228.in, 1
+  br i1 %68, label %.lr.ph230, label %.loopexit.sink.split, !llvm.loop !34
 
 69:                                               ; preds = %44
-  br i1 %.not190219, label %.lr.ph214.preheader, label %.lr.ph208
+  br i1 %.not190221, label %.lr.ph216.preheader, label %.lr.ph210
 
-.lr.ph208:                                        ; preds = %69, %.lr.ph208
-  %.0157206 = phi ptr [ %71, %.lr.ph208 ], [ %49, %69 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.0157206, i64 24
+.lr.ph210:                                        ; preds = %69, %.lr.ph210
+  %.0157208 = phi ptr [ %71, %.lr.ph210 ], [ %49, %69 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.0157208, i64 24
   %71 = load ptr, ptr %70, align 8
-  tail call void @free(ptr noundef nonnull %.0157206) #14
+  tail call void @free(ptr noundef nonnull %.0157208) #14
   %.not187 = icmp eq ptr %71, null
-  br i1 %.not187, label %.lr.ph214.preheader, label %.lr.ph208, !llvm.loop !35
+  br i1 %.not187, label %.lr.ph216.preheader, label %.lr.ph210, !llvm.loop !35
 
-.lr.ph214.preheader:                              ; preds = %.lr.ph208, %69
+.lr.ph216.preheader:                              ; preds = %.lr.ph210, %69
   store ptr null, ptr %48, align 8
-  br label %.lr.ph214
+  br label %.lr.ph216
 
-.lr.ph214:                                        ; preds = %.lr.ph214.preheader, %78
-  %.0156212.in = phi i32 [ %.0156212, %78 ], [ %18, %.lr.ph214.preheader ]
-  %.1211 = phi ptr [ %75, %78 ], [ null, %.lr.ph214.preheader ]
-  %.0156212 = add nsw i32 %.0156212.in, -1
+.lr.ph216:                                        ; preds = %.lr.ph216.preheader, %78
+  %.0156214.in = phi i32 [ %.0156214, %78 ], [ %18, %.lr.ph216.preheader ]
+  %.1213 = phi ptr [ %75, %78 ], [ null, %.lr.ph216.preheader ]
+  %.0156214 = add nsw i32 %.0156214.in, -1
   %72 = load i32, ptr %0, align 8
   %73 = load ptr, ptr %11, align 8
   %74 = load i32, ptr %45, align 8
-  %75 = tail call ptr @ecpg_build_native_sqlda(i32 noundef %72, ptr noundef %73, i32 noundef %.0156212, i32 noundef %74) #14
+  %75 = tail call ptr @ecpg_build_native_sqlda(i32 noundef %72, ptr noundef %73, i32 noundef %.0156214, i32 noundef %74) #14
   %.not188 = icmp eq ptr %75, null
-  br i1 %.not188, label %.preheader198, label %78
+  br i1 %.not188, label %.preheader200, label %78
 
-.preheader198:                                    ; preds = %.lr.ph214
-  %.not189215 = icmp eq ptr %.1211, null
-  br i1 %.not189215, label %.loopexit197.sink.split, label %.lr.ph217
+.preheader200:                                    ; preds = %.lr.ph216
+  %.not189217 = icmp eq ptr %.1213, null
+  br i1 %.not189217, label %.loopexit199.sink.split, label %.lr.ph219
 
-.lr.ph217:                                        ; preds = %.preheader198, %.lr.ph217
-  %.2216 = phi ptr [ %77, %.lr.ph217 ], [ %.1211, %.preheader198 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.2216, i64 24
+.lr.ph219:                                        ; preds = %.preheader200, %.lr.ph219
+  %.2218 = phi ptr [ %77, %.lr.ph219 ], [ %.1213, %.preheader200 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.2218, i64 24
   %77 = load ptr, ptr %76, align 8
-  tail call void @free(ptr noundef nonnull %.2216) #14
+  tail call void @free(ptr noundef nonnull %.2218) #14
   %.not189 = icmp eq ptr %77, null
-  br i1 %.not189, label %.loopexit197.sink.split, label %.lr.ph217, !llvm.loop !36
+  br i1 %.not189, label %.loopexit199.sink.split, label %.lr.ph219, !llvm.loop !36
 
-78:                                               ; preds = %.lr.ph214
+78:                                               ; preds = %.lr.ph216
   %79 = load i32, ptr %0, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.43, i32 noundef %79) #14
   store ptr %75, ptr %48, align 8
   %80 = load i32, ptr %0, align 8
   %81 = load ptr, ptr %11, align 8
   %82 = load i32, ptr %45, align 8
-  tail call void @ecpg_set_native_sqlda(i32 noundef %80, ptr noundef nonnull %48, ptr noundef %81, i32 noundef %.0156212, i32 noundef %82) #14
+  tail call void @ecpg_set_native_sqlda(i32 noundef %80, ptr noundef nonnull %48, ptr noundef %81, i32 noundef %.0156214, i32 noundef %82) #14
   %83 = load i32, ptr %0, align 8
   %84 = load ptr, ptr %11, align 8
   %85 = tail call i32 @PQnfields(ptr noundef %84) #14
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.44, i32 noundef %83, i32 noundef %85) #14
   %86 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  store ptr %.1211, ptr %86, align 8
-  %87 = icmp samesign ugt i32 %.0156212.in, 1
-  br i1 %87, label %.lr.ph214, label %.loopexit.sink.split, !llvm.loop !37
+  store ptr %.1213, ptr %86, align 8
+  %87 = icmp samesign ugt i32 %.0156214.in, 1
+  br i1 %87, label %.lr.ph216, label %.loopexit.sink.split, !llvm.loop !37
 
-.loopexit197.sink.split:                          ; preds = %.lr.ph217, %.lr.ph231, %.preheader198, %.preheader
+.loopexit199.sink.split:                          ; preds = %.lr.ph219, %.lr.ph233, %.preheader200, %.preheader
   store ptr null, ptr %48, align 8
   %88 = load i32, ptr %0, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.42, i32 noundef %88) #14
@@ -4431,23 +4431,23 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
 
 .critedge:                                        ; preds = %29, %28
   %89 = icmp sgt i32 %16, 0
-  br i1 %89, label %.lr.ph235, label %.loopexit
+  br i1 %89, label %.lr.ph237, label %.loopexit
 
-.lr.ph235:                                        ; preds = %.critedge
+.lr.ph237:                                        ; preds = %.critedge
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %91
 
-91:                                               ; preds = %.lr.ph235, %102
-  %.1166234 = phi ptr [ %10, %.lr.ph235 ], [ %.2167, %102 ]
-  %.0171233 = phi i32 [ 0, %.lr.ph235 ], [ %103, %102 ]
-  %.not186 = icmp eq ptr %.1166234, null
+91:                                               ; preds = %.lr.ph237, %102
+  %.1166236 = phi ptr [ %10, %.lr.ph237 ], [ %.2167, %102 ]
+  %.0171235 = phi i32 [ 0, %.lr.ph237 ], [ %103, %102 ]
+  %.not186 = icmp eq ptr %.1166236, null
   br i1 %.not186, label %98, label %92
 
 92:                                               ; preds = %91
   %93 = load ptr, ptr %11, align 8
-  %94 = tail call zeroext i1 @ecpg_store_result(ptr noundef %93, i32 noundef %.0171233, ptr noundef nonnull %0, ptr noundef nonnull %.1166234)
+  %94 = tail call zeroext i1 @ecpg_store_result(ptr noundef %93, i32 noundef %.0171235, ptr noundef nonnull %0, ptr noundef nonnull %.1166236)
   %95 = zext i1 %94 to i8
-  %96 = getelementptr inbounds nuw i8, ptr %.1166234, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %.1166236, i64 96
   %97 = load ptr, ptr %96, align 8
   br label %102
 
@@ -4465,15 +4465,15 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
 102:                                              ; preds = %98, %92
   %.7 = phi i8 [ %95, %92 ], [ 1, %98 ]
   %.2167 = phi ptr [ %97, %92 ], [ null, %98 ]
-  %103 = add nuw nsw i32 %.0171233, 1
+  %103 = add nuw nsw i32 %.0171235, 1
   %104 = icmp slt i32 %103, %16
   %105 = trunc nuw i8 %.7 to i1
   %106 = select i1 %104, i1 %105, i1 false
   br i1 %106, label %91, label %.loopexit, !llvm.loop !38
 
-.loopexit.sink.split:                             ; preds = %78, %59, %.loopexit197.sink.split, %37, %31
-  %.2170.ph = phi i8 [ 1, %37 ], [ 0, %31 ], [ 0, %.loopexit197.sink.split ], [ 1, %59 ], [ 1, %78 ]
-  %.2160.ph = phi i1 [ false, %37 ], [ %1, %31 ], [ %1, %.loopexit197.sink.split ], [ %1, %59 ], [ %1, %78 ]
+.loopexit.sink.split:                             ; preds = %78, %59, %.loopexit199.sink.split, %37, %31
+  %.2170.ph = phi i8 [ 1, %37 ], [ 0, %31 ], [ 0, %.loopexit199.sink.split ], [ 1, %59 ], [ 1, %78 ]
+  %.2160.ph = phi i1 [ false, %37 ], [ %1, %31 ], [ %1, %.loopexit199.sink.split ], [ %1, %59 ], [ %1, %78 ]
   %107 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %108 = load ptr, ptr %107, align 8
   br label %.loopexit
@@ -4613,14 +4613,14 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   br i1 %.0158, label %182, label %184
 
 182:                                              ; preds = %170, %138, %111, %26, %171, %181
-  %.0168260 = phi i8 [ 0, %171 ], [ %.0168, %181 ], [ 0, %26 ], [ 0, %111 ], [ 1, %138 ], [ 0, %170 ]
+  %.0168198 = phi i8 [ 0, %171 ], [ %.0168, %181 ], [ 0, %26 ], [ 0, %111 ], [ 1, %138 ], [ 0, %170 ]
   %183 = load ptr, ptr %11, align 8
   call void @PQclear(ptr noundef %183) #14
   store ptr null, ptr %11, align 8
   br label %184
 
 184:                                              ; preds = %170, %138, %111, %26, %171, %182, %181
-  %.0168259 = phi i8 [ 0, %171 ], [ %.0168260, %182 ], [ %.0168, %181 ], [ 0, %26 ], [ 0, %111 ], [ 1, %138 ], [ 0, %170 ]
+  %.0168197 = phi i8 [ 0, %171 ], [ %.0168198, %182 ], [ %.0168, %181 ], [ 0, %26 ], [ 0, %111 ], [ 1, %138 ], [ 0, %170 ]
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
@@ -4630,11 +4630,11 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load ptr, ptr %191, align 8
   %193 = call ptr @PQnotifies(ptr noundef %192) #14
-  %.not194238 = icmp eq ptr %193, null
-  br i1 %.not194238, label %._crit_edge241, label %.lr.ph240
+  %.not194240 = icmp eq ptr %193, null
+  br i1 %.not194240, label %._crit_edge243, label %.lr.ph242
 
-.lr.ph240:                                        ; preds = %184, %.lr.ph240
-  %194 = phi ptr [ %206, %.lr.ph240 ], [ %193, %184 ]
+.lr.ph242:                                        ; preds = %184, %.lr.ph242
+  %194 = phi ptr [ %206, %.lr.ph242 ], [ %193, %184 ]
   %195 = load i32, ptr %0, align 8
   %196 = load ptr, ptr %194, align 8
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 8
@@ -4650,14 +4650,14 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   %205 = load ptr, ptr %204, align 8
   %206 = call ptr @PQnotifies(ptr noundef %205) #14
   %.not194 = icmp eq ptr %206, null
-  br i1 %.not194, label %._crit_edge241, label %.lr.ph240, !llvm.loop !40
+  br i1 %.not194, label %._crit_edge243, label %.lr.ph242, !llvm.loop !40
 
-._crit_edge241:                                   ; preds = %.lr.ph240, %184
-  %207 = trunc nuw i8 %.0168259 to i1
+._crit_edge243:                                   ; preds = %.lr.ph242, %184
+  %207 = trunc nuw i8 %.0168197 to i1
   br label %208
 
-208:                                              ; preds = %._crit_edge241, %100, %6
-  %.0 = phi i1 [ false, %6 ], [ %207, %._crit_edge241 ], [ false, %100 ]
+208:                                              ; preds = %._crit_edge243, %100, %6
+  %.0 = phi i1 [ false, %6 ], [ %207, %._crit_edge243 ], [ false, %100 ]
   ret i1 %.0
 }
 

@@ -10937,7 +10937,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i45: ; preds = %157, %1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit70
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit48: ; preds = %166, %163, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i45, %33, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit39
-  %.019.shrunk = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit39 ], [ false, %33 ], [ %132, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i45 ], [ %132, %163 ], [ %132, %166 ]
+  %.019 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit39 ], [ false, %33 ], [ %132, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i45 ], [ %132, %163 ], [ %132, %166 ]
   %174 = load ptr, ptr %1, align 8
   %175 = ptrtoint ptr %174 to i64
   %176 = and i64 %175, -8
@@ -11158,7 +11158,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc.e
           to label %273 unwind label %304
 
 273:                                              ; preds = %.loopexit
-  %274 = or i1 %.019.shrunk, %272
+  %274 = or i1 %.019, %272
   %275 = load ptr, ptr %15, align 8
   %276 = load ptr, ptr %252, align 8
   %.not4.i.i.i.i = icmp eq ptr %275, %276
@@ -11230,7 +11230,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
   br label %346
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; preds = %221, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit58, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %297, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
-  %.120.in = phi i1 [ %.019.shrunk, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit ], [ %274, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i ], [ %274, %297 ], [ %.019.shrunk, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i ], [ %.019.shrunk, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit58 ], [ %.019.shrunk, %221 ]
+  %.120 = phi i1 [ %.019, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit ], [ %274, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i ], [ %274, %297 ], [ %.019, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i ], [ %.019, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit58 ], [ %.019, %221 ]
   %306 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %307 = load ptr, ptr %306, align 8
   %308 = ptrtoint ptr %307 to i64
@@ -11326,7 +11326,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit: ; preds = %_ZN3
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit70
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %342, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit, %73, %70, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
-  %.021 = phi i1 [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i ], [ %39, %70 ], [ %39, %73 ], [ %.120.in, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ], [ %.120.in, %342 ]
+  %.021 = phi i1 [ %39, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i ], [ %39, %70 ], [ %39, %73 ], [ %.120, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ], [ %.120, %342 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %17, label %355, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
@@ -12165,7 +12165,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i41: ; preds = %156, %1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit61
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit44: ; preds = %165, %162, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i41, %32, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit35
-  %.017.shrunk = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit35 ], [ false, %32 ], [ %131, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i41 ], [ %131, %162 ], [ %131, %165 ]
+  %.017 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit35 ], [ false, %32 ], [ %131, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i41 ], [ %131, %162 ], [ %131, %165 ]
   %173 = load ptr, ptr %1, align 8
   %174 = ptrtoint ptr %173 to i64
   %175 = and i64 %174, -8
@@ -12346,11 +12346,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc.e
           to label %251 unwind label %247
 
 251:                                              ; preds = %249
-  %252 = or i1 %.017.shrunk, %250
+  %252 = or i1 %.017, %250
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit.thread: ; preds = %220, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit54, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %251, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
-  %.118.in = phi i1 [ %252, %251 ], [ %.017.shrunk, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit ], [ %.017.shrunk, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i ], [ %.017.shrunk, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit54 ], [ %.017.shrunk, %220 ]
+  %.118 = phi i1 [ %252, %251 ], [ %.017, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit ], [ %.017, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i ], [ %.017, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit54 ], [ %.017, %220 ]
   %253 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %254 = load ptr, ptr %253, align 8
   %255 = ptrtoint ptr %254 to i64
@@ -12441,7 +12441,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit: ; preds = %_ZN3
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit61
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %289, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit, %72, %69, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
-  %.019 = phi i1 [ %38, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i ], [ %38, %69 ], [ %38, %72 ], [ %.118.in, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ], [ %.118.in, %289 ]
+  %.019 = phi i1 [ %38, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i ], [ %38, %69 ], [ %38, %72 ], [ %.118, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ], [ %.118, %289 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %16, label %301, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
@@ -12968,7 +12968,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i42: ; preds = %156, %1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit64
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit45: ; preds = %165, %162, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i42, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit36
-  %.016.shrunk = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit36 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit ], [ %131, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i42 ], [ %131, %162 ], [ %131, %165 ]
+  %.016 = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit36 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit ], [ %131, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i42 ], [ %131, %162 ], [ %131, %165 ]
   %173 = load ptr, ptr %1, align 8
   %174 = ptrtoint ptr %173 to i64
   %175 = and i64 %174, -8
@@ -13149,7 +13149,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__35_WarnOnUseOfDeprecatedNonAppliedAPIEPKc.e
           to label %251 unwind label %282
 
 251:                                              ; preds = %249
-  %252 = or i1 %.016.shrunk, %250
+  %252 = or i1 %.016, %250
   %253 = load ptr, ptr %14, align 8
   %254 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %255 = load ptr, ptr %254, align 8
@@ -13218,7 +13218,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
   br label %324
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exit: ; preds = %220, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit55, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i, %276, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit
-  %.117.in = phi i1 [ %.016.shrunk, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit ], [ %252, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i ], [ %252, %276 ], [ %.016.shrunk, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i ], [ %.016.shrunk, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit55 ], [ %.016.shrunk, %220 ]
+  %.117 = phi i1 [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObjectcvbEv.exit ], [ %252, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i ], [ %252, %276 ], [ %.016, %_ZNK32pxrInternal_v0_24__pxrReserved__18Usd_PrimDataHandlecvbEv.exit.i.i ], [ %.016, %_ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit55 ], [ %.016, %220 ]
   %284 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %285 = load ptr, ptr %284, align 8
   %286 = ptrtoint ptr %285 to i64
@@ -13314,7 +13314,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit: ; preds = %_ZN3
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit64
 
 _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %320, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit, %72, %69, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i
-  %.018 = phi i1 [ %38, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i ], [ %38, %69 ], [ %38, %72 ], [ %.117.in, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ], [ %.117.in, %320 ]
+  %.018 = phi i1 [ %38, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i ], [ %38, %69 ], [ %38, %72 ], [ %.117, %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit ], [ %.117, %320 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %24, label %333, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 

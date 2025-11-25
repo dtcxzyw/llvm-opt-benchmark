@@ -20335,7 +20335,7 @@ define hidden void @_ZN11diagnostics24ProjectDiagnosticsEditor16new_with_context
   %28 = invoke { ptr, ptr } @"_ZN4gpui6window20ViewContext$LT$V$GT$9subscribe17hf386954c3d0bd41bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
           to label %30 unwind label %.thread
 
-.thread74.thread.thread:                          ; preds = %.thread74.thread
+.thread74.thread.thread98:                        ; preds = %.thread74.thread.thread
   br i1 %.sroa.06.145, label %150, label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit30"
 
 .thread:                                          ; preds = %5
@@ -20356,7 +20356,7 @@ define hidden void @_ZN11diagnostics24ProjectDiagnosticsEditor16new_with_context
 .thread38:                                        ; preds = %30
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread74.thread
+  br label %.thread74.thread.thread
 
 35:                                               ; preds = %30
   %36 = invoke { ptr, ptr } @"_ZN4gpui6window20ViewContext$LT$V$GT$11on_focus_in17hc616e7a12c8da2d6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %26)
@@ -20406,7 +20406,7 @@ define hidden void @_ZN11diagnostics24ProjectDiagnosticsEditor16new_with_context
   %.pn12.pn = phi { ptr, i32 } [ %.pn.pn, %63 ], [ %.pn1286, %146 ]
   %.sroa.07.4 = phi i1 [ false, %63 ], [ true, %146 ]
   %.sroa.02.0 = phi i1 [ %.sroa.02.2, %63 ], [ %.sroa.02.188, %146 ]
-  br i1 %.sroa.02.0, label %147, label %.thread74.thread
+  br i1 %.sroa.02.0, label %147, label %.thread74.thread.thread
 
 .thread65:                                        ; preds = %51, %54, %57
   %53 = landingpad { ptr, i32 }
@@ -20681,7 +20681,7 @@ _ZN11diagnostics24ProjectDiagnosticsEditor27enqueue_update_all_excerpts17h920cef
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret void
 
-137:                                              ; preds = %150, %146, %143, %.body, %152, %.thread74.thread, %149, %148, %147, %145, %142, %141, %140, %139, %135, %"_ZN4core3ptr147drop_in_place$LT$futures_channel..mpsc..UnboundedSender$LT$$LP$project..ProjectPath$C$core..option..Option$LT$lsp..LanguageServerId$GT$$RP$$GT$$GT$17h7c133e40d13bde33E.exit", %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit"
+137:                                              ; preds = %150, %146, %143, %.body, %152, %.thread74.thread.thread, %149, %148, %147, %145, %142, %141, %140, %139, %135, %"_ZN4core3ptr147drop_in_place$LT$futures_channel..mpsc..UnboundedSender$LT$$LP$project..ProjectPath$C$core..option..Option$LT$lsp..LanguageServerId$GT$$RP$$GT$$GT$17h7c133e40d13bde33E.exit", %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit"
   %138 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48
@@ -20734,30 +20734,30 @@ _ZN11diagnostics24ProjectDiagnosticsEditor27enqueue_update_all_excerpts17h920cef
   %.pn12.pn.pn.pn.ph = phi { ptr, i32 } [ %38, %37 ], [ %.pn12.pn.pn.ph, %148 ]
   %.sroa.07.2.ph = phi i1 [ true, %37 ], [ %.sroa.07.3.ph, %148 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$gpui..window..FocusHandle$GT$17h7b3be514cd7e8a46E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26) #49
-          to label %.thread74.thread unwind label %137
-
-.thread74.thread:                                 ; preds = %149, %.thread74, %.thread38
-  %.sroa.06.145 = phi i1 [ true, %.thread38 ], [ true, %149 ], [ false, %.thread74 ]
-  %.sroa.07.144 = phi i1 [ true, %.thread38 ], [ %.sroa.07.2.ph, %149 ], [ %.sroa.07.4, %.thread74 ]
-  %.pn12.pn.pn.pn.pn43 = phi { ptr, i32 } [ %34, %.thread38 ], [ %.pn12.pn.pn.pn.ph, %149 ], [ %.pn12.pn, %.thread74 ]
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$gpui..subscription..Subscription$GT$17h4fdb98048e7837d9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #49
           to label %.thread74.thread.thread unwind label %137
 
-"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit30": ; preds = %150, %.thread74.thread.thread
-  %.sroa.07.036 = phi i1 [ %.sroa.07.144, %.thread74.thread.thread ], [ %.sroa.07.037, %150 ]
-  %.pn12.pn.pn.pn.pn.pn34 = phi { ptr, i32 } [ %.pn12.pn.pn.pn.pn43, %.thread74.thread.thread ], [ %.pn12.pn.pn.pn.pn.pn35, %150 ]
+.thread74.thread.thread:                          ; preds = %149, %.thread74, %.thread38
+  %.sroa.06.145 = phi i1 [ true, %.thread38 ], [ false, %.thread74 ], [ true, %149 ]
+  %.sroa.07.144 = phi i1 [ true, %.thread38 ], [ %.sroa.07.4, %.thread74 ], [ %.sroa.07.2.ph, %149 ]
+  %.pn12.pn.pn.pn.pn43 = phi { ptr, i32 } [ %34, %.thread38 ], [ %.pn12.pn, %.thread74 ], [ %.pn12.pn.pn.pn.ph, %149 ]
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$gpui..subscription..Subscription$GT$17h4fdb98048e7837d9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %27) #49
+          to label %.thread74.thread.thread98 unwind label %137
+
+"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit30": ; preds = %150, %.thread74.thread.thread98
+  %.sroa.07.036 = phi i1 [ %.sroa.07.144, %.thread74.thread.thread98 ], [ %.sroa.07.037, %150 ]
+  %.pn12.pn.pn.pn.pn.pn34 = phi { ptr, i32 } [ %.pn12.pn.pn.pn.pn43, %.thread74.thread.thread98 ], [ %.pn12.pn.pn.pn.pn.pn35, %150 ]
   br i1 %.sroa.07.036, label %152, label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit30.thread"
 
-150:                                              ; preds = %.thread, %.thread74.thread.thread
-  %.sroa.07.037 = phi i1 [ true, %.thread ], [ %.sroa.07.144, %.thread74.thread.thread ]
-  %.pn12.pn.pn.pn.pn.pn35 = phi { ptr, i32 } [ %29, %.thread ], [ %.pn12.pn.pn.pn.pn43, %.thread74.thread.thread ]
+150:                                              ; preds = %.thread, %.thread74.thread.thread98
+  %.sroa.07.037 = phi i1 [ true, %.thread ], [ %.sroa.07.144, %.thread74.thread.thread98 ]
+  %.pn12.pn.pn.pn.pn.pn35 = phi { ptr, i32 } [ %29, %.thread ], [ %.pn12.pn.pn.pn.pn43, %.thread74.thread.thread98 ]
   %151 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5c9aec81b7114edaE.llvm.13118169870191431217"(ptr noalias noundef nonnull align 8 dereferenceable(8) %151)
           to label %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit30" unwind label %137
 
 "_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit30.thread": ; preds = %135, %152, %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit30"
-  %.pn12.pn.pn.pn.pn.pn34103 = phi { ptr, i32 } [ %.pn12.pn.pn.pn.pn.pn34, %152 ], [ %.pn12.pn.pn.pn.pn.pn34, %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit30" ], [ %136, %135 ]
-  resume { ptr, i32 } %.pn12.pn.pn.pn.pn.pn34103
+  %.pn12.pn.pn.pn.pn.pn34108 = phi { ptr, i32 } [ %.pn12.pn.pn.pn.pn.pn34, %152 ], [ %.pn12.pn.pn.pn.pn.pn34, %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit30" ], [ %136, %135 ]
+  resume { ptr, i32 } %.pn12.pn.pn.pn.pn.pn34108
 
 152:                                              ; preds = %"_ZN4core3ptr69drop_in_place$LT$gpui..view..WeakView$LT$workspace..Workspace$GT$$GT$17h988ad9309a9dc629E.exit30"
   invoke void @"_ZN4core3ptr73drop_in_place$LT$gpui..app..entity_map..Model$LT$project..Project$GT$$GT$17h86fb97dabd9daeacE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2) #49

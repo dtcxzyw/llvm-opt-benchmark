@@ -6615,7 +6615,7 @@ define range(i32 -1, 1) i32 @H5Pget_metadata_read_attempts(i64 noundef %0, ptr n
   %39 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !3
   %40 = call ptr @H5P_object_verify(i64 noundef %0, i64 noundef %39, i1 noundef zeroext true) #15
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %46
+  br i1 %41, label %42, label %46, !prof !30
 
 42:                                               ; preds = %38
   %43 = load i64, ptr @H5E_ID_g, align 8, !tbaa !3
@@ -6626,7 +6626,7 @@ define range(i32 -1, 1) i32 @H5Pget_metadata_read_attempts(i64 noundef %0, ptr n
 46:                                               ; preds = %38
   %47 = call i32 @H5P_get(ptr noundef nonnull %40, ptr noundef nonnull @.str.115, ptr noundef nonnull %1) #15
   %48 = icmp slt i32 %47, 0
-  br i1 %48, label %49, label %53
+  br i1 %48, label %49, label %53, !prof !30
 
 49:                                               ; preds = %46
   %50 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
@@ -8344,7 +8344,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_id(i64 noundef %0, ptr noundef writeonly
   %spec.select = select i1 %39, i64 %40, i64 %0
   %41 = call ptr @H5I_object_verify(i64 noundef %spec.select, i32 noundef 11) #15
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %47
+  br i1 %42, label %43, label %47, !prof !30
 
 43:                                               ; preds = %37
   %44 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
@@ -8358,13 +8358,13 @@ define range(i32 -1, 1) i32 @H5Pget_vol_id(i64 noundef %0, ptr noundef writeonly
   %50 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !3
   %51 = call i32 @H5P_isa_class(i64 noundef %49, i64 noundef %50) #15
   %52 = icmp eq i32 %51, 1
-  br i1 %52, label %53, label %68
+  br i1 %52, label %53, label %68, !prof !37
 
 53:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %54 = call i32 @H5P_peek(ptr noundef nonnull %41, ptr noundef nonnull @.str.156, ptr noundef nonnull %4) #15
   %55 = icmp slt i32 %54, 0
-  br i1 %55, label %56, label %60
+  br i1 %55, label %56, label %60, !prof !30
 
 56:                                               ; preds = %53
   %57 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
@@ -8377,7 +8377,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_id(i64 noundef %0, ptr noundef writeonly
   %62 = call i64 @H5VL_conn_register(ptr noundef %61) #15
   store i64 %62, ptr %1, align 8, !tbaa !3
   %63 = icmp slt i64 %62, 0
-  br i1 %63, label %64, label %74
+  br i1 %63, label %64, label %74, !prof !30
 
 64:                                               ; preds = %60
   %65 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
@@ -8482,7 +8482,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_info(i64 noundef %0, ptr noundef writeon
   %39 = call i32 @H5E_clear_stack() #15
   %40 = call ptr @H5I_object_verify(i64 noundef %0, i32 noundef 11) #15
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %46
+  br i1 %41, label %42, label %46, !prof !30
 
 42:                                               ; preds = %38
   %43 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
@@ -8496,7 +8496,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_info(i64 noundef %0, ptr noundef writeon
   %49 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !3
   %50 = call i32 @H5P_isa_class(i64 noundef %48, i64 noundef %49) #15
   %51 = icmp eq i32 %50, 1
-  br i1 %51, label %52, label %70
+  br i1 %51, label %52, label %70, !prof !37
 
 52:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -8504,7 +8504,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_info(i64 noundef %0, ptr noundef writeon
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = call i32 @H5P_peek(ptr noundef nonnull %40, ptr noundef nonnull @.str.156, ptr noundef nonnull %5) #15
   %54 = icmp slt i32 %53, 0
-  br i1 %54, label %55, label %59
+  br i1 %54, label %55, label %59, !prof !30
 
 55:                                               ; preds = %52
   %56 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
@@ -8522,7 +8522,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_info(i64 noundef %0, ptr noundef writeon
   %63 = load ptr, ptr %5, align 8, !tbaa !13
   %64 = call i32 @H5VL_copy_connector_info(ptr noundef %63, ptr noundef nonnull %4, ptr noundef nonnull %61) #15
   %65 = icmp slt i32 %64, 0
-  br i1 %65, label %66, label %._crit_edge43
+  br i1 %65, label %66, label %._crit_edge43, !prof !30
 
 ._crit_edge43:                                    ; preds = %62
   %.pre44 = load ptr, ptr %4, align 8, !tbaa !48
@@ -8646,13 +8646,13 @@ define range(i32 -1, 1) i32 @H5Pget_vol_cap_flags(i64 noundef %0, ptr noundef %1
   %43 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !3
   %44 = call i32 @H5P_isa_class(i64 noundef %spec.select, i64 noundef %43) #15
   %45 = icmp eq i32 %44, 1
-  br i1 %45, label %46, label %.thread39
+  br i1 %45, label %46, label %.thread39, !prof !37
 
 46:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = call ptr @H5I_object_verify(i64 noundef %spec.select, i32 noundef 11) #15
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %53
+  br i1 %48, label %49, label %53, !prof !30
 
 49:                                               ; preds = %46
   %50 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !3
@@ -8663,7 +8663,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_cap_flags(i64 noundef %0, ptr noundef %1
 53:                                               ; preds = %46
   %54 = call i32 @H5P_peek(ptr noundef nonnull %47, ptr noundef nonnull @.str.156, ptr noundef nonnull %4) #15
   %55 = icmp slt i32 %54, 0
-  br i1 %55, label %56, label %60
+  br i1 %55, label %56, label %60, !prof !30
 
 56:                                               ; preds = %53
   %57 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3
@@ -8674,7 +8674,7 @@ define range(i32 -1, 1) i32 @H5Pget_vol_cap_flags(i64 noundef %0, ptr noundef %1
 60:                                               ; preds = %53
   %61 = call i32 @H5VL_conn_prop_get_cap_flags(ptr noundef nonnull %4, ptr noundef nonnull %1) #15
   %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %72
+  br i1 %62, label %63, label %72, !prof !30
 
 63:                                               ; preds = %60
   %64 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !3

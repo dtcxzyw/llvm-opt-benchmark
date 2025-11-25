@@ -19407,10 +19407,10 @@ define void @_ZN7channel12channel_chat11ChannelChat14message_update17h9bc98fb97c
   %34 = zext i1 %33 to i8
   br label %36
 
-"_ZN4core3ptr132drop_in_place$LT$sum_tree..cursor..Cursor$LT$channel..channel_chat..ChannelMessage$C$channel..channel_chat..ChannelMessageId$GT$$GT$17hf4cc92296d142221E.exit41": ; preds = %.critedge22.thread71, %.critedge22, %214, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39.thread"
-  %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn59, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39.thread" ], [ %.pn16.pn59, %214 ], [ %lpad.thr_comm.split-lp, %.critedge22 ], [ %164, %.critedge22.thread71 ]
-  %.sroa.07.0 = phi i8 [ %.sroa.07.260, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39.thread" ], [ %.sroa.07.260, %214 ], [ %.sroa.04.093, %.critedge22 ], [ %.sroa.04.093, %.critedge22.thread71 ]
-  %.sroa.05.0 = phi i8 [ %.sroa.05.161, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39.thread" ], [ %.sroa.05.161, %214 ], [ %.sroa.04.093, %.critedge22 ], [ %.sroa.04.093, %.critedge22.thread71 ]
+"_ZN4core3ptr132drop_in_place$LT$sum_tree..cursor..Cursor$LT$channel..channel_chat..ChannelMessage$C$channel..channel_chat..ChannelMessageId$GT$$GT$17hf4cc92296d142221E.exit41": ; preds = %.critedge22.thread71, %.critedge22, %214, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39"
+  %.pn16.pn.pn = phi { ptr, i32 } [ %.pn16.pn59, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39" ], [ %.pn16.pn59, %214 ], [ %lpad.thr_comm.split-lp, %.critedge22 ], [ %164, %.critedge22.thread71 ]
+  %.sroa.07.0 = phi i8 [ %.sroa.07.260, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39" ], [ %.sroa.07.260, %214 ], [ %.sroa.04.093, %.critedge22 ], [ %.sroa.04.093, %.critedge22.thread71 ]
+  %.sroa.05.0 = phi i8 [ %.sroa.05.161, %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39" ], [ %.sroa.05.161, %214 ], [ %.sroa.04.093, %.critedge22 ], [ %.sroa.04.093, %.critedge22.thread71 ]
   %35 = trunc nuw i8 %.sroa.05.0 to i1
   br i1 %35, label %.thread, label %"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$$LP$core..ops..range..Range$LT$usize$GT$$C$u64$RP$$GT$$GT$17hb0c569d15ce1c0c3E.exit42"
 
@@ -19432,7 +19432,7 @@ define void @_ZN7channel12channel_chat11ChannelChat14message_update17h9bc98fb97c
 .thread54:                                        ; preds = %36
   %42 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39.thread"
+  br label %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39"
 
 43:                                               ; preds = %36
   store ptr %41, ptr %21, align 8
@@ -19618,28 +19618,28 @@ define void @_ZN7channel12channel_chat11ChannelChat14message_update17h9bc98fb97c
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2545
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 %82, ptr %20, align 16
-  %.sroa.4.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 %84, ptr %.sroa.4.0..sroa_idx123, align 8
+  %.sroa.4.0..sroa_idx119 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i64 %84, ptr %.sroa.4.0..sroa_idx119, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %105, ptr %.sroa.5.0..sroa_idx, align 16
-  %.sroa.6.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store i64 %.sroa.5.0.i, ptr %.sroa.6.0..sroa_idx124, align 8
-  %.sroa.7.0..sroa_idx125 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.7.0..sroa_idx125, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.7, i64 16, i1 false)
-  %.sroa.8.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(11) %.sroa.8.0..sroa_idx126, ptr noundef nonnull align 16 dereferenceable(11) %.sroa.8, i64 11, i1 false)
-  %.sroa.9.0..sroa_idx127 = getelementptr inbounds nuw i8, ptr %20, i64 59
-  store i8 %.sroa.4.0.i, ptr %.sroa.9.0..sroa_idx127, align 1
-  %.sroa.10.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %20, i64 60
-  store i32 %.sroa.54.0.i, ptr %.sroa.10.0..sroa_idx128, align 4
-  %.sroa.11.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  store i128 %93, ptr %.sroa.11.0..sroa_idx129, align 16
-  %.sroa.12.0..sroa_idx130 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.12.0..sroa_idx130, ptr noundef nonnull align 16 dereferenceable(24) %.sroa.12, i64 24, i1 false)
-  %.sroa.13.0..sroa_idx131 = getelementptr inbounds nuw i8, ptr %20, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.0..sroa_idx131, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13, i64 24, i1 false)
-  %.sroa.14.0..sroa_idx132 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  store ptr %88, ptr %.sroa.14.0..sroa_idx132, align 16
+  %.sroa.6.0..sroa_idx120 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store i64 %.sroa.5.0.i, ptr %.sroa.6.0..sroa_idx120, align 8
+  %.sroa.7.0..sroa_idx121 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.7.0..sroa_idx121, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.7, i64 16, i1 false)
+  %.sroa.8.0..sroa_idx122 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(11) %.sroa.8.0..sroa_idx122, ptr noundef nonnull align 16 dereferenceable(11) %.sroa.8, i64 11, i1 false)
+  %.sroa.9.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %20, i64 59
+  store i8 %.sroa.4.0.i, ptr %.sroa.9.0..sroa_idx123, align 1
+  %.sroa.10.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %20, i64 60
+  store i32 %.sroa.54.0.i, ptr %.sroa.10.0..sroa_idx124, align 4
+  %.sroa.11.0..sroa_idx125 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  store i128 %93, ptr %.sroa.11.0..sroa_idx125, align 16
+  %.sroa.12.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.12.0..sroa_idx126, ptr noundef nonnull align 16 dereferenceable(24) %.sroa.12, i64 24, i1 false)
+  %.sroa.13.0..sroa_idx127 = getelementptr inbounds nuw i8, ptr %20, i64 104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.0..sroa_idx127, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13, i64 24, i1 false)
+  %.sroa.14.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %20, i64 128
+  store ptr %88, ptr %.sroa.14.0..sroa_idx128, align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %116 = getelementptr inbounds nuw i8, ptr %20, i64 80
@@ -19922,14 +19922,14 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.9435049372332397451.ex
   %209 = load ptr, ptr %21, align 8, !alias.scope !2654, !nonnull !5, !noundef !5
   %210 = atomicrmw sub ptr %209, i64 1 release, align 8, !noalias !2654
   %211 = icmp eq i64 %210, 1
-  br i1 %211, label %212, label %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39.thread"
+  br i1 %211, label %212, label %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39"
 
 212:                                              ; preds = %.critedge22.thread77
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf5e2bce17b276cf9E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21)
-          to label %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39.thread" unwind label %140
+          to label %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39" unwind label %140
 
-"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39.thread": ; preds = %.critedge22.thread77, %212, %.thread54
+"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39": ; preds = %.critedge22.thread77, %212, %.thread54
   %.sroa.05.161 = phi i8 [ 1, %.thread54 ], [ %.sroa.05.370, %212 ], [ %.sroa.05.370, %.critedge22.thread77 ]
   %.sroa.07.260 = phi i8 [ 1, %.thread54 ], [ %.sroa.07.469, %212 ], [ %.sroa.07.469, %.critedge22.thread77 ]
   %.pn16.pn59 = phi { ptr, i32 } [ %42, %.thread54 ], [ %.pn1667, %212 ], [ %.pn1667, %.critedge22.thread77 ]
@@ -19937,7 +19937,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.9435049372332397451.ex
   %.not.i.i.i40 = icmp eq i32 %213, 0
   br i1 %.not.i.i.i40, label %"_ZN4core3ptr132drop_in_place$LT$sum_tree..cursor..Cursor$LT$channel..channel_chat..ChannelMessage$C$channel..channel_chat..ChannelMessageId$GT$$GT$17hf4cc92296d142221E.exit41", label %214
 
-214:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39.thread"
+214:                                              ; preds = %"_ZN4core3ptr83drop_in_place$LT$sum_tree..SumTree$LT$channel..channel_chat..ChannelMessage$GT$$GT$17ha7b5baef9497b2c8E.exit39"
   store i32 0, ptr %38, align 8, !alias.scope !2666
   br label %"_ZN4core3ptr132drop_in_place$LT$sum_tree..cursor..Cursor$LT$channel..channel_chat..ChannelMessage$C$channel..channel_chat..ChannelMessageId$GT$$GT$17hf4cc92296d142221E.exit41"
 

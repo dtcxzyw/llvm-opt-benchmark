@@ -8819,7 +8819,7 @@ wc_Time.exit:                                     ; preds = %9, %11
   switch i8 %18, label %.critedge [
     i8 43, label %19
     i8 45, label %19
-    i8 90, label %57
+    i8 90, label %56
   ]
 
 19:                                               ; preds = %14, %14
@@ -8840,11 +8840,11 @@ wc_Time.exit:                                     ; preds = %9, %11
   br i1 %or.cond19.i, label %.critedge, label %30
 
 30:                                               ; preds = %26
-  %31 = zext nneg i8 %24 to i32
-  %32 = mul nuw nsw i32 %31, 10
-  %33 = zext nneg i8 %28 to i32
-  %34 = add nsw i32 %32, -528
-  %35 = add nsw i32 %34, %33
+  %31 = zext nneg i8 %24 to i64
+  %32 = mul nuw nsw i64 %31, 10
+  %33 = zext nneg i8 %28 to i64
+  %34 = add nsw i64 %32, -528
+  %35 = add nsw i64 %34, %33
   %36 = sext i32 %15 to i64
   %37 = getelementptr i8, ptr %0, i64 %36
   %38 = getelementptr i8, ptr %37, i64 3
@@ -8861,193 +8861,193 @@ wc_Time.exit:                                     ; preds = %9, %11
   br i1 %or.cond19.i28, label %.critedge, label %45
 
 45:                                               ; preds = %41
-  %46 = zext nneg i8 %39 to i32
-  %47 = mul nuw nsw i32 %46, 10
-  %48 = zext nneg i8 %43 to i32
-  %49 = mul nuw nsw i32 %35, 60
-  %50 = add nsw i32 %49, -528
-  %51 = add nsw i32 %50, %47
-  %52 = add nsw i32 %51, %48
-  %53 = sub nsw i32 0, %52
-  %54 = select i1 %20, i32 %52, i32 %53
-  %55 = mul nsw i32 %54, 60
-  %56 = sext i32 %55 to i64
-  br label %57
+  %46 = zext nneg i8 %39 to i64
+  %47 = mul nuw nsw i64 %46, 10
+  %48 = zext nneg i8 %43 to i64
+  %49 = mul nuw nsw i64 %35, 60
+  %50 = add nsw i64 %49, -528
+  %51 = add nsw i64 %50, %47
+  %52 = add nsw i64 %51, %48
+  %53 = sub nsw i64 0, %52
+  %54 = select i1 %20, i64 %52, i64 %53
+  %sext = mul nsw i64 %54, 257698037760
+  %55 = ashr exact i64 %sext, 32
+  br label %56
 
-57:                                               ; preds = %14, %45
-  %.118 = phi i64 [ %56, %45 ], [ 0, %14 ]
-  %58 = sub nsw i64 %.0.i, %.118
-  store i64 %58, ptr %4, align 8, !tbaa !52
-  %59 = call ptr @gmtime_r(ptr noundef nonnull %4, ptr noundef nonnull %7) #23
-  %.not.i31 = icmp eq ptr %59, null
-  br i1 %.not.i31, label %.critedge, label %60
+56:                                               ; preds = %14, %45
+  %.118 = phi i64 [ %55, %45 ], [ 0, %14 ]
+  %57 = sub nsw i64 %.0.i, %.118
+  store i64 %57, ptr %4, align 8, !tbaa !52
+  %58 = call ptr @gmtime_r(ptr noundef nonnull %4, ptr noundef nonnull %7) #23
+  %.not.i31 = icmp eq ptr %58, null
+  br i1 %.not.i31, label %.critedge, label %59
 
-60:                                               ; preds = %57
-  %61 = load i32, ptr %59, align 8, !tbaa !122
-  %or.cond.i32 = icmp ult i32 %61, 62
-  br i1 %or.cond.i32, label %62, label %.critedge
+59:                                               ; preds = %56
+  %60 = load i32, ptr %58, align 8, !tbaa !122
+  %or.cond.i32 = icmp ult i32 %60, 62
+  br i1 %or.cond.i32, label %61, label %.critedge
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !121
-  %or.cond23.i = icmp ult i32 %64, 60
-  br i1 %or.cond23.i, label %65, label %.critedge
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %63 = load i32, ptr %62, align 4, !tbaa !121
+  %or.cond23.i = icmp ult i32 %63, 60
+  br i1 %or.cond23.i, label %64, label %.critedge
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !120
-  %or.cond24.i = icmp ult i32 %67, 24
-  br i1 %or.cond24.i, label %68, label %.critedge
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %66 = load i32, ptr %65, align 8, !tbaa !120
+  %or.cond24.i = icmp ult i32 %66, 24
+  br i1 %or.cond24.i, label %67, label %.critedge
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %70 = load i32, ptr %69, align 4, !tbaa !119
-  %71 = add i32 %70, -1
-  %or.cond25.i = icmp ult i32 %71, 31
-  br i1 %or.cond25.i, label %72, label %.critedge
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %69 = load i32, ptr %68, align 4, !tbaa !119
+  %70 = add i32 %69, -1
+  %or.cond25.i = icmp ult i32 %70, 31
+  br i1 %or.cond25.i, label %71, label %.critedge
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %74 = load i32, ptr %73, align 8, !tbaa !118
-  %or.cond26.i = icmp ult i32 %74, 12
-  br i1 %or.cond26.i, label %75, label %.critedge
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %73 = load i32, ptr %72, align 8, !tbaa !118
+  %or.cond26.i = icmp ult i32 %73, 12
+  br i1 %or.cond26.i, label %74, label %.critedge
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %77 = load i32, ptr %76, align 8, !tbaa !124
-  %or.cond27.i = icmp ult i32 %77, 7
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %76 = load i32, ptr %75, align 8, !tbaa !124
+  %or.cond27.i = icmp ult i32 %76, 7
   br i1 %or.cond27.i, label %ValidateGmtime.exit, label %.critedge
 
-ValidateGmtime.exit:                              ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %59, i64 28
-  %79 = load i32, ptr %78, align 4, !tbaa !125
-  %or.cond28.i = icmp ult i32 %79, 366
-  br i1 %or.cond28.i, label %80, label %.critedge
+ValidateGmtime.exit:                              ; preds = %74
+  %77 = getelementptr inbounds nuw i8, ptr %58, i64 28
+  %78 = load i32, ptr %77, align 4, !tbaa !125
+  %or.cond28.i = icmp ult i32 %78, 366
+  br i1 %or.cond28.i, label %79, label %.critedge
 
-80:                                               ; preds = %ValidateGmtime.exit
-  %81 = icmp eq i32 %2, 0
-  br i1 %81, label %82, label %116
+79:                                               ; preds = %ValidateGmtime.exit
+  %80 = icmp eq i32 %2, 0
+  br i1 %80, label %81, label %115
 
-82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %84 = load i32, ptr %83, align 4, !tbaa !116
-  %85 = getelementptr inbounds nuw i8, ptr %59, i64 20
-  %86 = load i32, ptr %85, align 4, !tbaa !116
-  %87 = icmp sgt i32 %84, %86
-  br i1 %87, label %DateLessThan.exit.thread, label %88
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %83 = load i32, ptr %82, align 4, !tbaa !116
+  %84 = getelementptr inbounds nuw i8, ptr %58, i64 20
+  %85 = load i32, ptr %84, align 4, !tbaa !116
+  %86 = icmp sgt i32 %83, %85
+  br i1 %86, label %DateLessThan.exit.thread, label %87
 
-88:                                               ; preds = %82
-  %89 = icmp eq i32 %84, %86
-  br i1 %89, label %90, label %.critedge
+87:                                               ; preds = %81
+  %88 = icmp eq i32 %83, %85
+  br i1 %88, label %89, label %.critedge
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %92 = load i32, ptr %91, align 8, !tbaa !118
-  %93 = icmp sgt i32 %92, %74
-  br i1 %93, label %DateLessThan.exit.thread, label %94
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %91 = load i32, ptr %90, align 8, !tbaa !118
+  %92 = icmp sgt i32 %91, %73
+  br i1 %92, label %DateLessThan.exit.thread, label %93
 
-94:                                               ; preds = %90
-  %95 = icmp eq i32 %92, %74
-  br i1 %95, label %96, label %.critedge
+93:                                               ; preds = %89
+  %94 = icmp eq i32 %91, %73
+  br i1 %94, label %95, label %.critedge
 
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %98 = load i32, ptr %97, align 4, !tbaa !119
-  %99 = icmp sgt i32 %98, %70
-  br i1 %99, label %DateLessThan.exit.thread, label %100
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %97 = load i32, ptr %96, align 4, !tbaa !119
+  %98 = icmp sgt i32 %97, %69
+  br i1 %98, label %DateLessThan.exit.thread, label %99
 
-100:                                              ; preds = %96
-  %101 = icmp eq i32 %98, %70
-  br i1 %101, label %102, label %.critedge
+99:                                               ; preds = %95
+  %100 = icmp eq i32 %97, %69
+  br i1 %100, label %101, label %.critedge
 
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %104 = load i32, ptr %103, align 8, !tbaa !120
-  %105 = icmp sgt i32 %104, %67
-  br i1 %105, label %DateLessThan.exit.thread, label %106
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %103 = load i32, ptr %102, align 8, !tbaa !120
+  %104 = icmp sgt i32 %103, %66
+  br i1 %104, label %DateLessThan.exit.thread, label %105
 
-106:                                              ; preds = %102
-  %107 = icmp eq i32 %104, %67
-  br i1 %107, label %108, label %.critedge
+105:                                              ; preds = %101
+  %106 = icmp eq i32 %103, %66
+  br i1 %106, label %107, label %.critedge
 
-108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %110 = load i32, ptr %109, align 4, !tbaa !121
-  %111 = icmp sgt i32 %110, %64
-  br i1 %111, label %DateLessThan.exit.thread, label %112
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %109 = load i32, ptr %108, align 4, !tbaa !121
+  %110 = icmp sgt i32 %109, %63
+  br i1 %110, label %DateLessThan.exit.thread, label %111
 
-112:                                              ; preds = %108
-  %113 = icmp eq i32 %110, %64
-  %114 = load i32, ptr %5, align 8
-  %115 = icmp sgt i32 %114, %61
-  %or.cond = select i1 %113, i1 %115, i1 false
+111:                                              ; preds = %107
+  %112 = icmp eq i32 %109, %63
+  %113 = load i32, ptr %5, align 8
+  %114 = icmp sgt i32 %113, %60
+  %or.cond = select i1 %112, i1 %114, i1 false
   br i1 %or.cond, label %DateLessThan.exit.thread, label %.critedge
 
-DateLessThan.exit.thread:                         ; preds = %112, %82, %90, %96, %102, %108
+DateLessThan.exit.thread:                         ; preds = %111, %81, %89, %95, %101, %107
   br label %.critedge
 
-116:                                              ; preds = %80
-  %117 = getelementptr inbounds nuw i8, ptr %59, i64 20
-  %118 = load i32, ptr %117, align 4, !tbaa !116
-  %119 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %120 = load i32, ptr %119, align 4, !tbaa !116
-  %121 = icmp sgt i32 %118, %120
-  br i1 %121, label %DateGreaterThan.exit.thread, label %122
+115:                                              ; preds = %79
+  %116 = getelementptr inbounds nuw i8, ptr %58, i64 20
+  %117 = load i32, ptr %116, align 4, !tbaa !116
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %119 = load i32, ptr %118, align 4, !tbaa !116
+  %120 = icmp sgt i32 %117, %119
+  br i1 %120, label %DateGreaterThan.exit.thread, label %121
 
-122:                                              ; preds = %116
-  %123 = icmp eq i32 %118, %120
-  br i1 %123, label %124, label %.critedge
+121:                                              ; preds = %115
+  %122 = icmp eq i32 %117, %119
+  br i1 %122, label %123, label %.critedge
 
-124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %126 = load i32, ptr %125, align 8, !tbaa !118
-  %127 = icmp sgt i32 %74, %126
-  br i1 %127, label %DateGreaterThan.exit.thread, label %128
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %125 = load i32, ptr %124, align 8, !tbaa !118
+  %126 = icmp sgt i32 %73, %125
+  br i1 %126, label %DateGreaterThan.exit.thread, label %127
 
-128:                                              ; preds = %124
-  %129 = icmp eq i32 %74, %126
-  br i1 %129, label %130, label %.critedge
+127:                                              ; preds = %123
+  %128 = icmp eq i32 %73, %125
+  br i1 %128, label %129, label %.critedge
 
-130:                                              ; preds = %128
-  %131 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %132 = load i32, ptr %131, align 4, !tbaa !119
-  %133 = icmp sgt i32 %70, %132
-  br i1 %133, label %DateGreaterThan.exit.thread, label %134
+129:                                              ; preds = %127
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %131 = load i32, ptr %130, align 4, !tbaa !119
+  %132 = icmp sgt i32 %69, %131
+  br i1 %132, label %DateGreaterThan.exit.thread, label %133
 
-134:                                              ; preds = %130
-  %135 = icmp eq i32 %70, %132
-  br i1 %135, label %136, label %.critedge
+133:                                              ; preds = %129
+  %134 = icmp eq i32 %69, %131
+  br i1 %134, label %135, label %.critedge
 
-136:                                              ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %138 = load i32, ptr %137, align 8, !tbaa !120
-  %139 = icmp sgt i32 %67, %138
-  br i1 %139, label %DateGreaterThan.exit.thread, label %140
+135:                                              ; preds = %133
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %137 = load i32, ptr %136, align 8, !tbaa !120
+  %138 = icmp sgt i32 %66, %137
+  br i1 %138, label %DateGreaterThan.exit.thread, label %139
 
-140:                                              ; preds = %136
-  %141 = icmp eq i32 %67, %138
-  br i1 %141, label %142, label %.critedge
+139:                                              ; preds = %135
+  %140 = icmp eq i32 %66, %137
+  br i1 %140, label %141, label %.critedge
 
-142:                                              ; preds = %140
-  %143 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %144 = load i32, ptr %143, align 4, !tbaa !121
-  %145 = icmp sgt i32 %64, %144
-  br i1 %145, label %DateGreaterThan.exit.thread, label %146
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %143 = load i32, ptr %142, align 4, !tbaa !121
+  %144 = icmp sgt i32 %63, %143
+  br i1 %144, label %DateGreaterThan.exit.thread, label %145
 
-146:                                              ; preds = %142
-  %147 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %148 = load i32, ptr %147, align 4, !tbaa !121
-  %149 = icmp eq i32 %64, %148
-  %150 = load i32, ptr %5, align 8
-  %151 = icmp sgt i32 %61, %150
-  %or.cond73 = select i1 %149, i1 %151, i1 false
+145:                                              ; preds = %141
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %147 = load i32, ptr %146, align 4, !tbaa !121
+  %148 = icmp eq i32 %63, %147
+  %149 = load i32, ptr %5, align 8
+  %150 = icmp sgt i32 %60, %149
+  %or.cond73 = select i1 %148, i1 %150, i1 false
   br i1 %or.cond73, label %DateGreaterThan.exit.thread, label %.critedge
 
-DateGreaterThan.exit.thread:                      ; preds = %146, %116, %124, %130, %136, %142
+DateGreaterThan.exit.thread:                      ; preds = %145, %115, %123, %129, %135, %141
   br label %.critedge
 
-.critedge:                                        ; preds = %140, %57, %60, %62, %65, %68, %72, %75, %30, %41, %19, %26, %88, %94, %100, %106, %112, %122, %128, %146, %134, %DateGreaterThan.exit.thread, %DateLessThan.exit.thread, %ValidateGmtime.exit, %14, %wc_Time.exit
-  %.0 = phi i32 [ 0, %wc_Time.exit ], [ 0, %14 ], [ 0, %ValidateGmtime.exit ], [ 0, %DateLessThan.exit.thread ], [ 0, %DateGreaterThan.exit.thread ], [ 1, %134 ], [ 1, %146 ], [ 1, %128 ], [ 1, %122 ], [ 1, %112 ], [ 1, %106 ], [ 1, %100 ], [ 1, %94 ], [ 1, %88 ], [ 0, %26 ], [ 0, %19 ], [ 0, %41 ], [ 0, %30 ], [ 0, %75 ], [ 0, %72 ], [ 0, %68 ], [ 0, %65 ], [ 0, %62 ], [ 0, %60 ], [ 0, %57 ], [ 1, %140 ]
+.critedge:                                        ; preds = %139, %56, %59, %61, %64, %67, %71, %74, %30, %41, %19, %26, %87, %93, %99, %105, %111, %121, %127, %145, %133, %DateGreaterThan.exit.thread, %DateLessThan.exit.thread, %ValidateGmtime.exit, %14, %wc_Time.exit
+  %.0 = phi i32 [ 0, %wc_Time.exit ], [ 0, %14 ], [ 0, %ValidateGmtime.exit ], [ 0, %DateLessThan.exit.thread ], [ 0, %DateGreaterThan.exit.thread ], [ 1, %133 ], [ 1, %145 ], [ 1, %127 ], [ 1, %121 ], [ 1, %111 ], [ 1, %105 ], [ 1, %99 ], [ 1, %93 ], [ 1, %87 ], [ 0, %26 ], [ 0, %19 ], [ 0, %41 ], [ 0, %30 ], [ 0, %74 ], [ 0, %71 ], [ 0, %67 ], [ 0, %64 ], [ 0, %61 ], [ 0, %59 ], [ 0, %56 ], [ 1, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

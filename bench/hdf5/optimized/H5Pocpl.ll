@@ -648,7 +648,7 @@ define range(i32 -1, 1) i32 @H5Pget_attr_creation_order(i64 noundef %0, ptr noun
   %41 = load i64, ptr @H5P_CLS_OBJECT_CREATE_ID_g, align 8, !tbaa !10
   %42 = call ptr @H5P_object_verify(i64 noundef %0, i64 noundef %41, i1 noundef zeroext true) #10
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %48
+  br i1 %43, label %44, label %48, !prof !16
 
 44:                                               ; preds = %40
   %45 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
@@ -659,7 +659,7 @@ define range(i32 -1, 1) i32 @H5Pget_attr_creation_order(i64 noundef %0, ptr noun
 48:                                               ; preds = %40
   %49 = call i32 @H5P_get(ptr noundef nonnull %42, ptr noundef nonnull @.str.16, ptr noundef nonnull %4) #10
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %56
+  br i1 %50, label %51, label %56, !prof !16
 
 51:                                               ; preds = %48
   %52 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10
@@ -891,7 +891,7 @@ define range(i32 -1, 1) i32 @H5Pget_obj_track_times(i64 noundef %0, ptr noundef 
   %41 = load i64, ptr @H5P_CLS_OBJECT_CREATE_ID_g, align 8, !tbaa !10
   %42 = call ptr @H5P_object_verify(i64 noundef %0, i64 noundef %41, i1 noundef zeroext true) #10
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %48
+  br i1 %43, label %44, label %48, !prof !16
 
 44:                                               ; preds = %40
   %45 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
@@ -902,7 +902,7 @@ define range(i32 -1, 1) i32 @H5Pget_obj_track_times(i64 noundef %0, ptr noundef 
 48:                                               ; preds = %40
   %49 = call i32 @H5P_get(ptr noundef nonnull %42, ptr noundef nonnull @.str.16, ptr noundef nonnull %4) #10
   %50 = icmp slt i32 %49, 0
-  br i1 %50, label %51, label %56
+  br i1 %50, label %51, label %56, !prof !16
 
 51:                                               ; preds = %48
   %52 = load i64, ptr @H5E_PLIST_g, align 8, !tbaa !10

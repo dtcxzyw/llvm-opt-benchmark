@@ -4478,99 +4478,99 @@ define hidden void @_ZN4core4iter8adapters11try_process17h5cbc05b606e2e59aE.llvm
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = invoke { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17h30f0391825f20029E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
-          to label %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5ab4de8400fb9ab8E.exit" unwind label %6
+          to label %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5ab4de8400fb9ab8E.exit" unwind label %.body
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+.body:                                            ; preds = %2
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %8 = load i64, ptr %4, align 8, !range !135, !noundef !8
-  %.not14 = icmp eq i64 %8, -9223372036854775808
-  br i1 %.not14, label %.thread, label %35
+  %7 = load i64, ptr %4, align 8, !range !135, !noundef !8
+  %.not10 = icmp eq i64 %7, -9223372036854775808
+  br i1 %.not10, label %34, label %35
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5ab4de8400fb9ab8E.exit": ; preds = %2
-  %9 = extractvalue { ptr, i64 } %5, 0
-  %10 = extractvalue { ptr, i64 } %5, 1
+  %8 = extractvalue { ptr, i64 } %5, 0
+  %9 = extractvalue { ptr, i64 } %5, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %11 = load i64, ptr %4, align 8, !range !135, !noundef !8
-  %.not = icmp eq i64 %11, -9223372036854775808
-  br i1 %.not, label %12, label %15
+  %10 = load i64, ptr %4, align 8, !range !135, !noundef !8
+  %.not = icmp eq i64 %10, -9223372036854775808
+  br i1 %.not, label %11, label %14
 
-12:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5ab4de8400fb9ab8E.exit"
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %13, align 8, !alias.scope !1190, !noalias !1193
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %10, ptr %14, align 8, !alias.scope !1190, !noalias !1193
+11:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5ab4de8400fb9ab8E.exit"
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %12, align 8, !alias.scope !1190, !noalias !1193
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %9, ptr %13, align 8, !alias.scope !1190, !noalias !1193
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !1190, !noalias !1193
   br label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit"
 
-"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i", %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", %12
+"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i", %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-15:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5ab4de8400fb9ab8E.exit"
+14:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5ab4de8400fb9ab8E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, i64 152, i1 false)
-  br label %16
+  br label %15
 
-16:                                               ; preds = %18, %15
-  %.sroa.0.0.i.i = phi i64 [ 0, %15 ], [ %20, %18 ]
-  %17 = icmp eq i64 %.sroa.0.0.i.i, %10
-  br i1 %17, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", label %18
+15:                                               ; preds = %17, %14
+  %.sroa.0.0.i.i = phi i64 [ 0, %14 ], [ %19, %17 ]
+  %16 = icmp eq i64 %.sroa.0.0.i.i, %9
+  br i1 %16, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", label %17
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %9, i64 %.sroa.0.0.i.i
-  %20 = add i64 %.sroa.0.0.i.i, 1
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %19)
-          to label %16 unwind label %23, !noalias !1195
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %8, i64 %.sroa.0.0.i.i
+  %19 = add i64 %.sroa.0.0.i.i, 1
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %18)
+          to label %15 unwind label %22, !noalias !1195
 
-21:                                               ; preds = %25, %23
-  %.sroa.0.1.i.i = phi i64 [ %20, %23 ], [ %27, %25 ]
-  %22 = icmp eq i64 %.sroa.0.1.i.i, %10
-  br i1 %22, label %.thread10, label %25
+20:                                               ; preds = %24, %22
+  %.sroa.0.1.i.i = phi i64 [ %19, %22 ], [ %26, %24 ]
+  %21 = icmp eq i64 %.sroa.0.1.i.i, %9
+  br i1 %21, label %.body.thread, label %24
 
-23:                                               ; preds = %18
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %21
+  br label %20
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %9, i64 %.sroa.0.1.i.i
-  %27 = add i64 %.sroa.0.1.i.i, 1
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %26) #34
-          to label %21 unwind label %28, !noalias !1195
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %8, i64 %.sroa.0.1.i.i
+  %26 = add i64 %.sroa.0.1.i.i, 1
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %25) #34
+          to label %20 unwind label %27, !noalias !1195
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #33, !noalias !1195
   unreachable
 
-.thread10:                                        ; preds = %21
-  %30 = mul nuw nsw i64 %10, 360
-  call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %30, i64 noundef 8) #35, !noalias !1198
-  br label %.thread
+.body.thread:                                     ; preds = %20
+  %29 = mul nuw nsw i64 %9, 360
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %29, i64 noundef 8) #35, !noalias !1198
+  br label %34
 
-"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i": ; preds = %16
-  %31 = icmp eq i64 %10, 0
-  br i1 %31, label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i"
+"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i": ; preds = %15
+  %30 = icmp eq i64 %9, 0
+  br i1 %30, label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i": ; preds = %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i"
-  %32 = mul nuw nsw i64 %10, 360
-  call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %32, i64 noundef 8) #35, !noalias !1201
+  %31 = mul nuw nsw i64 %9, 360
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %31, i64 noundef 8) #35, !noalias !1201
   br label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit"
 
-33:                                               ; preds = %35
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %35
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #33
   unreachable
 
-.thread:                                          ; preds = %.thread10, %35, %6
-  %.pn9 = phi { ptr, i32 } [ %7, %35 ], [ %7, %6 ], [ %24, %.thread10 ]
+34:                                               ; preds = %.body.thread, %35, %.body
+  %.pn9 = phi { ptr, i32 } [ %23, %.body.thread ], [ %6, %35 ], [ %6, %.body ]
   resume { ptr, i32 } %.pn9
 
-35:                                               ; preds = %6
+35:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_pep508..Pep508Error$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h12460f4efae78543E.llvm.2372211309796609374"(ptr noalias noundef nonnull align 8 dereferenceable(152) %4) #34
-          to label %.thread unwind label %33
+          to label %34 unwind label %32
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4584,99 +4584,99 @@ define hidden void @_ZN4core4iter8adapters11try_process17h66315622060079f5E(ptr 
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %4, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = invoke { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17h017e36af65c4f1f1E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %3)
-          to label %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h96a9c49e72e6dbf4E.llvm.2372211309796609374.exit" unwind label %6
+          to label %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h96a9c49e72e6dbf4E.llvm.2372211309796609374.exit" unwind label %.body
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+.body:                                            ; preds = %2
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %8 = load i64, ptr %4, align 8, !range !135, !noundef !8
-  %.not14 = icmp eq i64 %8, -9223372036854775808
-  br i1 %.not14, label %.thread, label %35
+  %7 = load i64, ptr %4, align 8, !range !135, !noundef !8
+  %.not10 = icmp eq i64 %7, -9223372036854775808
+  br i1 %.not10, label %34, label %35
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h96a9c49e72e6dbf4E.llvm.2372211309796609374.exit": ; preds = %2
-  %9 = extractvalue { ptr, i64 } %5, 0
-  %10 = extractvalue { ptr, i64 } %5, 1
+  %8 = extractvalue { ptr, i64 } %5, 0
+  %9 = extractvalue { ptr, i64 } %5, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %11 = load i64, ptr %4, align 8, !range !135, !noundef !8
-  %.not = icmp eq i64 %11, -9223372036854775808
-  br i1 %.not, label %12, label %15
+  %10 = load i64, ptr %4, align 8, !range !135, !noundef !8
+  %.not = icmp eq i64 %10, -9223372036854775808
+  br i1 %.not, label %11, label %14
 
-12:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h96a9c49e72e6dbf4E.llvm.2372211309796609374.exit"
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %13, align 8, !alias.scope !1204, !noalias !1207
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %10, ptr %14, align 8, !alias.scope !1204, !noalias !1207
+11:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h96a9c49e72e6dbf4E.llvm.2372211309796609374.exit"
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %12, align 8, !alias.scope !1204, !noalias !1207
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %9, ptr %13, align 8, !alias.scope !1204, !noalias !1207
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !1204, !noalias !1207
   br label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit"
 
-"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i", %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", %12
+"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i", %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-15:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h96a9c49e72e6dbf4E.llvm.2372211309796609374.exit"
+14:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h96a9c49e72e6dbf4E.llvm.2372211309796609374.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, i64 152, i1 false)
-  br label %16
+  br label %15
 
-16:                                               ; preds = %18, %15
-  %.sroa.0.0.i.i = phi i64 [ 0, %15 ], [ %20, %18 ]
-  %17 = icmp eq i64 %.sroa.0.0.i.i, %10
-  br i1 %17, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", label %18
+15:                                               ; preds = %17, %14
+  %.sroa.0.0.i.i = phi i64 [ 0, %14 ], [ %19, %17 ]
+  %16 = icmp eq i64 %.sroa.0.0.i.i, %9
+  br i1 %16, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", label %17
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %9, i64 %.sroa.0.0.i.i
-  %20 = add i64 %.sroa.0.0.i.i, 1
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %19)
-          to label %16 unwind label %23, !noalias !1209
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %8, i64 %.sroa.0.0.i.i
+  %19 = add i64 %.sroa.0.0.i.i, 1
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %18)
+          to label %15 unwind label %22, !noalias !1209
 
-21:                                               ; preds = %25, %23
-  %.sroa.0.1.i.i = phi i64 [ %20, %23 ], [ %27, %25 ]
-  %22 = icmp eq i64 %.sroa.0.1.i.i, %10
-  br i1 %22, label %.thread10, label %25
+20:                                               ; preds = %24, %22
+  %.sroa.0.1.i.i = phi i64 [ %19, %22 ], [ %26, %24 ]
+  %21 = icmp eq i64 %.sroa.0.1.i.i, %9
+  br i1 %21, label %.body.thread, label %24
 
-23:                                               ; preds = %18
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %21
+  br label %20
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %9, i64 %.sroa.0.1.i.i
-  %27 = add i64 %.sroa.0.1.i.i, 1
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %26) #34
-          to label %21 unwind label %28, !noalias !1209
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %8, i64 %.sroa.0.1.i.i
+  %26 = add i64 %.sroa.0.1.i.i, 1
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %25) #34
+          to label %20 unwind label %27, !noalias !1209
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #33, !noalias !1209
   unreachable
 
-.thread10:                                        ; preds = %21
-  %30 = mul nuw nsw i64 %10, 360
-  call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %30, i64 noundef 8) #35, !noalias !1212
-  br label %.thread
+.body.thread:                                     ; preds = %20
+  %29 = mul nuw nsw i64 %9, 360
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %29, i64 noundef 8) #35, !noalias !1212
+  br label %34
 
-"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i": ; preds = %16
-  %31 = icmp eq i64 %10, 0
-  br i1 %31, label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i"
+"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i": ; preds = %15
+  %30 = icmp eq i64 %9, 0
+  br i1 %30, label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i": ; preds = %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i"
-  %32 = mul nuw nsw i64 %10, 360
-  call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %32, i64 noundef 8) #35, !noalias !1215
+  %31 = mul nuw nsw i64 %9, 360
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %31, i64 noundef 8) #35, !noalias !1215
   br label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit"
 
-33:                                               ; preds = %35
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %35
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #33
   unreachable
 
-.thread:                                          ; preds = %.thread10, %35, %6
-  %.pn9 = phi { ptr, i32 } [ %7, %35 ], [ %7, %6 ], [ %24, %.thread10 ]
+34:                                               ; preds = %.body.thread, %35, %.body
+  %.pn9 = phi { ptr, i32 } [ %23, %.body.thread ], [ %6, %35 ], [ %6, %.body ]
   resume { ptr, i32 } %.pn9
 
-35:                                               ; preds = %6
+35:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_pep508..Pep508Error$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h12460f4efae78543E.llvm.2372211309796609374"(ptr noalias noundef nonnull align 8 dereferenceable(152) %4) #34
-          to label %.thread unwind label %33
+          to label %34 unwind label %32
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4690,99 +4690,99 @@ define hidden void @_ZN4core4iter8adapters11try_process17he27b6558e1a6fe9fE.llvm
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %4, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = invoke { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hb3cc47803c18c187E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %3)
-          to label %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h48dd58880cc42712E.exit" unwind label %6
+          to label %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h48dd58880cc42712E.exit" unwind label %.body
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+.body:                                            ; preds = %2
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %8 = load i64, ptr %4, align 8, !range !135, !noundef !8
-  %.not14 = icmp eq i64 %8, -9223372036854775808
-  br i1 %.not14, label %.thread, label %35
+  %7 = load i64, ptr %4, align 8, !range !135, !noundef !8
+  %.not10 = icmp eq i64 %7, -9223372036854775808
+  br i1 %.not10, label %34, label %35
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h48dd58880cc42712E.exit": ; preds = %2
-  %9 = extractvalue { ptr, i64 } %5, 0
-  %10 = extractvalue { ptr, i64 } %5, 1
+  %8 = extractvalue { ptr, i64 } %5, 0
+  %9 = extractvalue { ptr, i64 } %5, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %11 = load i64, ptr %4, align 8, !range !135, !noundef !8
-  %.not = icmp eq i64 %11, -9223372036854775808
-  br i1 %.not, label %12, label %15
+  %10 = load i64, ptr %4, align 8, !range !135, !noundef !8
+  %.not = icmp eq i64 %10, -9223372036854775808
+  br i1 %.not, label %11, label %14
 
-12:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h48dd58880cc42712E.exit"
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %13, align 8, !alias.scope !1218, !noalias !1221
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %10, ptr %14, align 8, !alias.scope !1218, !noalias !1221
+11:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h48dd58880cc42712E.exit"
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %12, align 8, !alias.scope !1218, !noalias !1221
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %9, ptr %13, align 8, !alias.scope !1218, !noalias !1221
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !1218, !noalias !1221
   br label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit"
 
-"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i", %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", %12
+"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i", %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-15:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h48dd58880cc42712E.exit"
+14:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h48dd58880cc42712E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, i64 152, i1 false)
-  br label %16
+  br label %15
 
-16:                                               ; preds = %18, %15
-  %.sroa.0.0.i.i = phi i64 [ 0, %15 ], [ %20, %18 ]
-  %17 = icmp eq i64 %.sroa.0.0.i.i, %10
-  br i1 %17, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", label %18
+15:                                               ; preds = %17, %14
+  %.sroa.0.0.i.i = phi i64 [ 0, %14 ], [ %19, %17 ]
+  %16 = icmp eq i64 %.sroa.0.0.i.i, %9
+  br i1 %16, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", label %17
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %9, i64 %.sroa.0.0.i.i
-  %20 = add i64 %.sroa.0.0.i.i, 1
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %19)
-          to label %16 unwind label %23, !noalias !1223
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %8, i64 %.sroa.0.0.i.i
+  %19 = add i64 %.sroa.0.0.i.i, 1
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %18)
+          to label %15 unwind label %22, !noalias !1223
 
-21:                                               ; preds = %25, %23
-  %.sroa.0.1.i.i = phi i64 [ %20, %23 ], [ %27, %25 ]
-  %22 = icmp eq i64 %.sroa.0.1.i.i, %10
-  br i1 %22, label %.thread10, label %25
+20:                                               ; preds = %24, %22
+  %.sroa.0.1.i.i = phi i64 [ %19, %22 ], [ %26, %24 ]
+  %21 = icmp eq i64 %.sroa.0.1.i.i, %9
+  br i1 %21, label %.body.thread, label %24
 
-23:                                               ; preds = %18
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %21
+  br label %20
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %9, i64 %.sroa.0.1.i.i
-  %27 = add i64 %.sroa.0.1.i.i, 1
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %26) #34
-          to label %21 unwind label %28, !noalias !1223
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %8, i64 %.sroa.0.1.i.i
+  %26 = add i64 %.sroa.0.1.i.i, 1
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %25) #34
+          to label %20 unwind label %27, !noalias !1223
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #33, !noalias !1223
   unreachable
 
-.thread10:                                        ; preds = %21
-  %30 = mul nuw nsw i64 %10, 360
-  call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %30, i64 noundef 8) #35, !noalias !1226
-  br label %.thread
+.body.thread:                                     ; preds = %20
+  %29 = mul nuw nsw i64 %9, 360
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %29, i64 noundef 8) #35, !noalias !1226
+  br label %34
 
-"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i": ; preds = %16
-  %31 = icmp eq i64 %10, 0
-  br i1 %31, label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i"
+"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i": ; preds = %15
+  %30 = icmp eq i64 %9, 0
+  br i1 %30, label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i": ; preds = %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i"
-  %32 = mul nuw nsw i64 %10, 360
-  call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %32, i64 noundef 8) #35, !noalias !1229
+  %31 = mul nuw nsw i64 %9, 360
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %31, i64 noundef 8) #35, !noalias !1229
   br label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit"
 
-33:                                               ; preds = %35
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %35
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #33
   unreachable
 
-.thread:                                          ; preds = %.thread10, %35, %6
-  %.pn9 = phi { ptr, i32 } [ %7, %35 ], [ %7, %6 ], [ %24, %.thread10 ]
+34:                                               ; preds = %.body.thread, %35, %.body
+  %.pn9 = phi { ptr, i32 } [ %23, %.body.thread ], [ %6, %35 ], [ %6, %.body ]
   resume { ptr, i32 } %.pn9
 
-35:                                               ; preds = %6
+35:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_pep508..Pep508Error$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h12460f4efae78543E.llvm.2372211309796609374"(ptr noalias noundef nonnull align 8 dereferenceable(152) %4) #34
-          to label %.thread unwind label %33
+          to label %34 unwind label %32
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4796,99 +4796,99 @@ define hidden void @_ZN4core4iter8adapters11try_process17he36778d10e712e67E(ptr 
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %4, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = invoke { ptr, i64 } @"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17h6ab4973b33270d8dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(200) %3)
-          to label %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h22205f3f2046cffdE.llvm.2372211309796609374.exit" unwind label %6
+          to label %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h22205f3f2046cffdE.llvm.2372211309796609374.exit" unwind label %.body
 
-6:                                                ; preds = %2
-  %7 = landingpad { ptr, i32 }
+.body:                                            ; preds = %2
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %8 = load i64, ptr %4, align 8, !range !135, !noundef !8
-  %.not14 = icmp eq i64 %8, -9223372036854775808
-  br i1 %.not14, label %.thread, label %35
+  %7 = load i64, ptr %4, align 8, !range !135, !noundef !8
+  %.not10 = icmp eq i64 %7, -9223372036854775808
+  br i1 %.not10, label %34, label %35
 
 "_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h22205f3f2046cffdE.llvm.2372211309796609374.exit": ; preds = %2
-  %9 = extractvalue { ptr, i64 } %5, 0
-  %10 = extractvalue { ptr, i64 } %5, 1
+  %8 = extractvalue { ptr, i64 } %5, 0
+  %9 = extractvalue { ptr, i64 } %5, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %11 = load i64, ptr %4, align 8, !range !135, !noundef !8
-  %.not = icmp eq i64 %11, -9223372036854775808
-  br i1 %.not, label %12, label %15
+  %10 = load i64, ptr %4, align 8, !range !135, !noundef !8
+  %.not = icmp eq i64 %10, -9223372036854775808
+  br i1 %.not, label %11, label %14
 
-12:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h22205f3f2046cffdE.llvm.2372211309796609374.exit"
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %9, ptr %13, align 8, !alias.scope !1232, !noalias !1235
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %10, ptr %14, align 8, !alias.scope !1232, !noalias !1235
+11:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h22205f3f2046cffdE.llvm.2372211309796609374.exit"
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %12, align 8, !alias.scope !1232, !noalias !1235
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %9, ptr %13, align 8, !alias.scope !1232, !noalias !1235
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !1232, !noalias !1235
   br label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit"
 
-"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i", %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", %12
+"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i", %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-15:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h22205f3f2046cffdE.llvm.2372211309796609374.exit"
+14:                                               ; preds = %"_ZN136_$LT$core..result..Result$LT$V$C$E$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$core..result..Result$LT$A$C$E$GT$$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h22205f3f2046cffdE.llvm.2372211309796609374.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, i64 152, i1 false)
-  br label %16
+  br label %15
 
-16:                                               ; preds = %18, %15
-  %.sroa.0.0.i.i = phi i64 [ 0, %15 ], [ %20, %18 ]
-  %17 = icmp eq i64 %.sroa.0.0.i.i, %10
-  br i1 %17, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", label %18
+15:                                               ; preds = %17, %14
+  %.sroa.0.0.i.i = phi i64 [ 0, %14 ], [ %19, %17 ]
+  %16 = icmp eq i64 %.sroa.0.0.i.i, %9
+  br i1 %16, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i", label %17
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %9, i64 %.sroa.0.0.i.i
-  %20 = add i64 %.sroa.0.0.i.i, 1
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %19)
-          to label %16 unwind label %23, !noalias !1237
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %8, i64 %.sroa.0.0.i.i
+  %19 = add i64 %.sroa.0.0.i.i, 1
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %18)
+          to label %15 unwind label %22, !noalias !1237
 
-21:                                               ; preds = %25, %23
-  %.sroa.0.1.i.i = phi i64 [ %20, %23 ], [ %27, %25 ]
-  %22 = icmp eq i64 %.sroa.0.1.i.i, %10
-  br i1 %22, label %.thread10, label %25
+20:                                               ; preds = %24, %22
+  %.sroa.0.1.i.i = phi i64 [ %19, %22 ], [ %26, %24 ]
+  %21 = icmp eq i64 %.sroa.0.1.i.i, %9
+  br i1 %21, label %.body.thread, label %24
 
-23:                                               ; preds = %18
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %17
+  %23 = landingpad { ptr, i32 }
           cleanup
-  br label %21
+  br label %20
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %9, i64 %.sroa.0.1.i.i
-  %27 = add i64 %.sroa.0.1.i.i, 1
-  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %26) #34
-          to label %21 unwind label %28, !noalias !1237
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %8, i64 %.sroa.0.1.i.i
+  %26 = add i64 %.sroa.0.1.i.i, 1
+  invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17h735dead86a719535E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %25) #34
+          to label %20 unwind label %27, !noalias !1237
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #33, !noalias !1237
   unreachable
 
-.thread10:                                        ; preds = %21
-  %30 = mul nuw nsw i64 %10, 360
-  call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %30, i64 noundef 8) #35, !noalias !1240
-  br label %.thread
+.body.thread:                                     ; preds = %20
+  %29 = mul nuw nsw i64 %9, 360
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %29, i64 noundef 8) #35, !noalias !1240
+  br label %34
 
-"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i": ; preds = %16
-  %31 = icmp eq i64 %10, 0
-  br i1 %31, label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i"
+"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i": ; preds = %15
+  %30 = icmp eq i64 %9, 0
+  br i1 %30, label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.2372211309796609374.exit.i1.i": ; preds = %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17h50a2e1de63ae2de3E.llvm.2372211309796609374.exit.i"
-  %32 = mul nuw nsw i64 %10, 360
-  call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %32, i64 noundef 8) #35, !noalias !1243
+  %31 = mul nuw nsw i64 %9, 360
+  call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %31, i64 noundef 8) #35, !noalias !1243
   br label %"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$$GT$17hf6fc1e433ee853d3E.llvm.2372211309796609374.exit"
 
-33:                                               ; preds = %35
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %35
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #33
   unreachable
 
-.thread:                                          ; preds = %.thread10, %35, %6
-  %.pn9 = phi { ptr, i32 } [ %7, %35 ], [ %7, %6 ], [ %24, %.thread10 ]
+34:                                               ; preds = %.body.thread, %35, %.body
+  %.pn9 = phi { ptr, i32 } [ %23, %.body.thread ], [ %6, %35 ], [ %6, %.body ]
   resume { ptr, i32 } %.pn9
 
-35:                                               ; preds = %6
+35:                                               ; preds = %.body
   invoke void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$uv_pep508..Pep508Error$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$$GT$17h12460f4efae78543E.llvm.2372211309796609374"(ptr noalias noundef nonnull align 8 dereferenceable(152) %4) #34
-          to label %.thread unwind label %33
+          to label %34 unwind label %32
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
