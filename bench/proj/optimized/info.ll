@@ -252,7 +252,7 @@ define void @proj_pj_info(ptr dead_on_unwind noalias writable writeonly sret(%st
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double -1.000000e+00, ptr %4, align 8, !tbaa !58
   %5 = icmp eq ptr %1, null
-  br i1 %5, label %104, label %6
+  br i1 %5, label %103, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 816
@@ -306,7 +306,7 @@ define void @proj_pj_info(ptr dead_on_unwind noalias writable writeonly sret(%st
   store ptr @.str.2, ptr %29, align 8, !tbaa !88
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @.str.2, ptr %30, align 8, !tbaa !89
-  br label %104
+  br label %103
 
 31:                                               ; preds = %._crit_edge, %16, %6
   %.0 = phi ptr [ %1, %6 ], [ %20, %16 ], [ %.3.ph, %._crit_edge ]
@@ -316,158 +316,158 @@ define void @proj_pj_info(ptr dead_on_unwind noalias writable writeonly sret(%st
   %35 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %32, ptr noundef %34, ptr noundef nonnull @.str.3)
   %36 = and i64 %35, 4294967295
   %.not = icmp eq i64 %36, 0
-  br i1 %.not, label %42, label %37
+  br i1 %.not, label %41, label %37
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %.0, align 8, !tbaa !90
   %39 = load ptr, ptr %33, align 8, !tbaa !91
   %40 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %38, ptr noundef %39, ptr noundef nonnull @.str.4)
-  %41 = inttoptr i64 %40 to ptr
-  store ptr %41, ptr %0, align 8, !tbaa !87
-  br label %42
+  %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %40 to ptr
+  store ptr %.sroa.0.0..sroa.0.0..cast, ptr %0, align 8, !tbaa !87
+  br label %41
 
-42:                                               ; preds = %37, %31
-  %43 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !92
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %44, ptr %45, align 8, !tbaa !88
-  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 640
-  %47 = load ptr, ptr %46, align 8, !tbaa !93
-  %.not83 = icmp eq ptr %47, null
-  br i1 %.not83, label %93, label %48
+41:                                               ; preds = %37, %31
+  %42 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !92
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %43, ptr %44, align 8, !tbaa !88
+  %45 = getelementptr inbounds nuw i8, ptr %.0, i64 640
+  %46 = load ptr, ptr %45, align 8, !tbaa !93
+  %.not83 = icmp eq ptr %46, null
+  br i1 %.not83, label %92, label %47
 
-48:                                               ; preds = %42
-  %49 = tail call ptr @__dynamic_cast(ptr nonnull %47, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj6common16IdentifiedObjectE, i64 0) #18
-  %.not58 = icmp eq ptr %49, null
-  br i1 %.not58, label %53, label %50
+47:                                               ; preds = %41
+  %48 = tail call ptr @__dynamic_cast(ptr nonnull %46, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj6common16IdentifiedObjectE, i64 0) #18
+  %.not58 = icmp eq ptr %48, null
+  br i1 %.not58, label %52, label %49
 
-50:                                               ; preds = %48
-  %51 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %49) #20
-  %52 = load ptr, ptr %51, align 8, !tbaa !23
-  store ptr %52, ptr %45, align 8, !tbaa !88
-  br label %53
+49:                                               ; preds = %47
+  %50 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %48) #20
+  %51 = load ptr, ptr %50, align 8, !tbaa !23
+  store ptr %51, ptr %44, align 8, !tbaa !88
+  br label %52
 
-53:                                               ; preds = %50, %48
-  %54 = tail call ptr @__dynamic_cast(ptr nonnull %47, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj9operation10ConversionE, i64 -1) #18
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %57, label %56
+52:                                               ; preds = %49, %47
+  %53 = tail call ptr @__dynamic_cast(ptr nonnull %46, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj9operation10ConversionE, i64 -1) #18
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %56, label %55
 
-56:                                               ; preds = %53
+55:                                               ; preds = %52
   store double 0.000000e+00, ptr %4, align 8, !tbaa !58
-  br label %93
+  br label %92
 
-57:                                               ; preds = %53
-  %58 = tail call ptr @__dynamic_cast(ptr nonnull %47, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj9operation19CoordinateOperationE, i64 0) #18
-  %.not60 = icmp eq ptr %58, null
-  br i1 %.not60, label %93, label %59
+56:                                               ; preds = %52
+  %57 = tail call ptr @__dynamic_cast(ptr nonnull %46, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj9operation19CoordinateOperationE, i64 0) #18
+  %.not60 = icmp eq ptr %57, null
+  br i1 %.not60, label %92, label %58
 
-59:                                               ; preds = %57
-  %60 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation19CoordinateOperation29coordinateOperationAccuraciesEv(ptr noundef nonnull align 8 dereferenceable(72) %58)
-  %61 = load ptr, ptr %60, align 8, !tbaa !94
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !94
-  %64 = icmp eq ptr %61, %63
-  br i1 %64, label %93, label %65
+58:                                               ; preds = %56
+  %59 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation19CoordinateOperation29coordinateOperationAccuraciesEv(ptr noundef nonnull align 8 dereferenceable(72) %57)
+  %60 = load ptr, ptr %59, align 8, !tbaa !94
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !94
+  %63 = icmp eq ptr %60, %62
+  br i1 %63, label %92, label %64
 
-65:                                               ; preds = %59
-  %66 = load ptr, ptr %61, align 8, !tbaa !96
-  %67 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata18PositionalAccuracy5valueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %66) #20
-  %68 = load ptr, ptr %67, align 8, !tbaa !23
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %60, align 8, !tbaa !96
+  %66 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata18PositionalAccuracy5valueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #20
+  %67 = load ptr, ptr %66, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %69 = tail call ptr @__errno_location() #22
-  %70 = load i32, ptr %69, align 4, !tbaa !55
-  store i32 0, ptr %69, align 4, !tbaa !55
-  %71 = call noundef double @strtod(ptr noundef %68, ptr noundef nonnull %3)
-  %72 = load ptr, ptr %3, align 8, !tbaa !56
-  %73 = icmp eq ptr %72, %68
-  br i1 %73, label %74, label %84
+  %68 = tail call ptr @__errno_location() #22
+  %69 = load i32, ptr %68, align 4, !tbaa !55
+  store i32 0, ptr %68, align 4, !tbaa !55
+  %70 = call noundef double @strtod(ptr noundef %67, ptr noundef nonnull %3)
+  %71 = load ptr, ptr %3, align 8, !tbaa !56
+  %72 = icmp eq ptr %71, %67
+  br i1 %72, label %73, label %83
 
-74:                                               ; preds = %65
+73:                                               ; preds = %64
   invoke void @_ZSt24__throw_invalid_argumentPKc(ptr noundef nonnull @.str.7) #23
-          to label %75 unwind label %76
+          to label %75 unwind label %75
 
-75:                                               ; preds = %74
+74:                                               ; preds = %73
   unreachable
 
-76:                                               ; preds = %.critedge.i.i, %74
-  %77 = landingpad { ptr, i32 }
+75:                                               ; preds = %.critedge.i.i, %73
+  %76 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  %78 = load i32, ptr %69, align 4, !tbaa !55
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i
+  %77 = load i32, ptr %68, align 4, !tbaa !55
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i
 
-80:                                               ; preds = %76
-  store i32 %70, ptr %69, align 4, !tbaa !55
+79:                                               ; preds = %75
+  store i32 %69, ptr %68, align 4, !tbaa !55
   br label %_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i
 
-_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i: ; preds = %80, %76
+_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i: ; preds = %79, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %81 = extractvalue { ptr, i32 } %77, 1
-  %82 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #18
-  %83 = icmp eq i32 %81, %82
-  br i1 %83, label %89, label %92
+  %80 = extractvalue { ptr, i32 } %76, 1
+  %81 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #18
+  %82 = icmp eq i32 %80, %81
+  br i1 %82, label %88, label %91
 
-84:                                               ; preds = %65
-  %85 = load i32, ptr %69, align 4, !tbaa !55
-  switch i32 %85, label %88 [
+83:                                               ; preds = %64
+  %84 = load i32, ptr %68, align 4, !tbaa !55
+  switch i32 %84, label %88 [
     i32 34, label %.critedge.i.i
-    i32 0, label %87
+    i32 0, label %86
   ]
 
-.critedge.i.i:                                    ; preds = %84
+.critedge.i.i:                                    ; preds = %83
   invoke void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.7) #23
-          to label %86 unwind label %76
+          to label %86 unwind label %75
 
-86:                                               ; preds = %.critedge.i.i
+85:                                               ; preds = %.critedge.i.i
   unreachable
 
-87:                                               ; preds = %84
-  store i32 %70, ptr %69, align 4, !tbaa !55
-  br label %88
+86:                                               ; preds = %83
+  store i32 %69, ptr %68, align 4, !tbaa !55
+  br label %87
 
-88:                                               ; preds = %84, %87
+87:                                               ; preds = %83, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store double %71, ptr %4, align 8, !tbaa !58
-  br label %93
+  store double %70, ptr %4, align 8, !tbaa !58
+  br label %92
 
-89:                                               ; preds = %_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i
-  %90 = extractvalue { ptr, i32 } %77, 0
-  %91 = tail call ptr @__cxa_begin_catch(ptr %90) #18
+88:                                               ; preds = %_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i
+  %89 = extractvalue { ptr, i32 } %76, 0
+  %90 = tail call ptr @__cxa_begin_catch(ptr %89) #18
   tail call void @__cxa_end_catch()
-  br label %93
+  br label %92
 
-92:                                               ; preds = %_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i
-  resume { ptr, i32 } %77
+91:                                               ; preds = %_ZZN9__gnu_cxx6__stoaIddcJEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i
+  resume { ptr, i32 } %76
 
-93:                                               ; preds = %42, %56, %59, %89, %88, %57
-  %94 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %95 = load ptr, ptr %94, align 8, !tbaa !99
-  %.not61 = icmp eq ptr %95, null
-  br i1 %.not61, label %96, label %.thread78
+92:                                               ; preds = %41, %55, %58, %88, %87, %56
+  %93 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %94 = load ptr, ptr %93, align 8, !tbaa !99
+  %.not61 = icmp eq ptr %94, null
+  br i1 %.not61, label %95, label %.thread78
 
-96:                                               ; preds = %93
-  %97 = tail call noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr noundef nonnull %.0, i32 noundef 0)
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %100, label %.thread78
+95:                                               ; preds = %92
+  %96 = tail call noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr noundef nonnull %.0, i32 noundef 0)
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %99, label %.thread78
 
-.thread78:                                        ; preds = %93, %96
-  %.04581 = phi ptr [ %97, %96 ], [ %95, %93 ]
-  %99 = tail call noundef ptr @_Z9pj_shrinkPc(ptr noundef nonnull %.04581)
-  br label %100
+.thread78:                                        ; preds = %92, %95
+  %.04581 = phi ptr [ %96, %96 ], [ %94, %93 ]
+  %98 = tail call noundef ptr @_Z9pj_shrinkPc(ptr noundef nonnull %.04581)
+  br label %99
 
-100:                                              ; preds = %96, %.thread78
-  %.sink = phi ptr [ %99, %.thread78 ], [ @.str.6, %96 ]
+99:                                               ; preds = %95, %.thread78
+  %.sink = phi ptr [ %98, %.thread78 ], [ @.str.6, %96 ]
   %.04580 = phi ptr [ %.04581, %.thread78 ], [ null, %96 ]
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink, ptr %101, align 8, !tbaa !89
-  store ptr %.04580, ptr %94, align 8, !tbaa !99
-  %102 = tail call noundef i32 @_Z14pj_has_inverseP8PJconsts(ptr noundef nonnull %.0)
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %102, ptr %103, align 8, !tbaa !100
-  br label %104
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sink, ptr %100, align 8, !tbaa !89
+  store ptr %.04580, ptr %93, align 8, !tbaa !99
+  %101 = tail call noundef i32 @_Z14pj_has_inverseP8PJconsts(ptr noundef nonnull %.0)
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %101, ptr %102, align 8, !tbaa !100
+  br label %103
 
-104:                                              ; preds = %.thread73, %2, %100
+103:                                              ; preds = %.thread73, %2, %99
   ret void
 }
 

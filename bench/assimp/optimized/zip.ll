@@ -12251,8 +12251,8 @@ mz_zip_set_error.exit271:                         ; preds = %132
 
 143:                                              ; preds = %132
   %144 = call i32 @llvm.umax.i32(i32 %78, i32 %86)
-  %.not428 = icmp eq i32 %144, 0
-  br i1 %.not428, label %154, label %145
+  %.not430 = icmp eq i32 %144, 0
+  br i1 %.not430, label %154, label %145
 
 145:                                              ; preds = %143
   %146 = zext nneg i32 %144 to i64
@@ -12267,7 +12267,7 @@ mz_zip_set_error.exit271:                         ; preds = %132
 mz_zip_set_error.exit269:                         ; preds = %145
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 16, ptr %153, align 4
-  br label %.thread397
+  br label %.thread399
 
 154:                                              ; preds = %145, %143
   %.sroa.0.1.ph = phi ptr [ %151, %145 ], [ null, %143 ]
@@ -12284,7 +12284,7 @@ mz_zip_set_error.exit269:                         ; preds = %145
 mz_zip_set_error.exit267:                         ; preds = %155
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 20, ptr %159, align 4
-  br label %.thread397
+  br label %.thread399
 
 160:                                              ; preds = %155
   %bcmp = call i32 @bcmp(ptr nonnull %129, ptr %.sroa.0.1.ph, i64 %128)
@@ -12294,17 +12294,17 @@ mz_zip_set_error.exit267:                         ; preds = %155
 mz_zip_set_error.exit265:                         ; preds = %160
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 30, ptr %161, align 4
-  br label %.thread397
+  br label %.thread399
 
 162:                                              ; preds = %160, %154
   %.not233 = icmp eq i32 %86, 0
-  br i1 %.not233, label %.thread420, label %163
+  br i1 %.not233, label %.thread422, label %163
 
 163:                                              ; preds = %162
   %164 = icmp eq i64 %99, 4294967295
   %165 = icmp eq i64 %112, 4294967295
   %or.cond8 = select i1 %164, i1 true, i1 %165
-  br i1 %or.cond8, label %166, label %.thread420
+  br i1 %or.cond8, label %166, label %.thread422
 
 166:                                              ; preds = %163
   %167 = load ptr, ptr %19, align 8
@@ -12316,7 +12316,7 @@ mz_zip_set_error.exit265:                         ; preds = %160
 mz_zip_set_error.exit263:                         ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 20, ptr %170, align 4
-  br label %.thread397
+  br label %.thread399
 
 .preheader:                                       ; preds = %166, %209
   %.0209 = phi ptr [ %211, %209 ], [ %.sroa.0.1.ph, %166 ]
@@ -12327,7 +12327,7 @@ mz_zip_set_error.exit263:                         ; preds = %166
 mz_zip_set_error.exit261:                         ; preds = %.preheader
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 9, ptr %172, align 4
-  br label %.thread397
+  br label %.thread399
 
 173:                                              ; preds = %.preheader
   %174 = getelementptr inbounds nuw i8, ptr %.0209, i64 2
@@ -12346,7 +12346,7 @@ mz_zip_set_error.exit261:                         ; preds = %.preheader
 mz_zip_set_error.exit259:                         ; preds = %173
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 9, ptr %185, align 4
-  br label %.thread397
+  br label %.thread399
 
 186:                                              ; preds = %173
   %187 = load i16, ptr %.0209, align 1
@@ -12360,7 +12360,7 @@ mz_zip_set_error.exit259:                         ; preds = %173
 mz_zip_set_error.exit257:                         ; preds = %189
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 9, ptr %191, align 4
-  br label %.thread397
+  br label %.thread399
 
 192:                                              ; preds = %189
   %193 = getelementptr inbounds nuw i8, ptr %.0209, i64 4
@@ -12379,16 +12379,16 @@ mz_zip_set_error.exit257:                         ; preds = %189
   %206 = zext i32 %205 to i64
   %207 = shl nuw i64 %206, 32
   %208 = or disjoint i64 %207, %203
-  br label %.thread420
+  br label %.thread422
 
 209:                                              ; preds = %186
   %210 = zext nneg i32 %183 to i64
   %211 = getelementptr inbounds nuw i8, ptr %.0209, i64 %210
   %212 = sub i32 %.0207, %183
   %.not235 = icmp eq i32 %212, 0
-  br i1 %.not235, label %.thread420, label %.preheader
+  br i1 %.not235, label %.thread422, label %.preheader
 
-.thread420:                                       ; preds = %209, %192, %163, %162
+.thread422:                                       ; preds = %209, %192, %163, %162
   %.0198 = phi i64 [ %112, %163 ], [ %112, %162 ], [ %200, %192 ], [ %112, %209 ]
   %.0193 = phi i64 [ %99, %163 ], [ %99, %162 ], [ %208, %192 ], [ %99, %209 ]
   %213 = phi i1 [ false, %163 ], [ false, %162 ], [ true, %192 ], [ false, %209 ]
@@ -12400,7 +12400,7 @@ mz_zip_set_error.exit257:                         ; preds = %189
   %or.cond12 = select i1 %or.cond10, i1 true, i1 %217
   br i1 %or.cond12, label %331, label %218
 
-218:                                              ; preds = %.thread420
+218:                                              ; preds = %.thread422
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %219 = getelementptr inbounds nuw i8, ptr %11, i64 100
   %220 = load i32, ptr %219, align 4
@@ -12411,7 +12411,7 @@ mz_zip_set_error.exit257:                         ; preds = %189
   %225 = select i1 %222, i64 24, i64 16
   %226 = call i64 %223(ptr noundef %224, i64 noundef %139, ptr noundef nonnull %8, i64 noundef %225) #36
   %.not236 = icmp eq i64 %226, %225
-  br i1 %.not236, label %227, label %.thread426
+  br i1 %.not236, label %227, label %.thread428
 
 227:                                              ; preds = %218
   %228 = load i32, ptr %8, align 16
@@ -12452,49 +12452,49 @@ mz_zip_set_error.exit257:                         ; preds = %189
   %.sroa.gep.sroa.gep360.val = load i8, ptr %.sroa.gep.sroa.gep360, align 8
   %253 = select i1 %229, i8 %.sroa.gep.sroa.gep360.val, i8 %.sroa.gep.val
   %254 = zext i8 %253 to i64
-  %.sroa.gep458 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %.sroa.gep458.val = load i8, ptr %.sroa.gep458, align 1
-  %.sroa.gep.sroa.gep369.val511 = load i8, ptr %.sroa.gep.sroa.gep369, align 1
-  %255 = select i1 %229, i8 %.sroa.gep458.val, i8 %.sroa.gep.sroa.gep369.val511
+  %.sroa.gep460 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %.sroa.gep460.val = load i8, ptr %.sroa.gep460, align 1
+  %.sroa.gep.sroa.gep369.val513 = load i8, ptr %.sroa.gep.sroa.gep369, align 1
+  %255 = select i1 %229, i8 %.sroa.gep460.val, i8 %.sroa.gep.sroa.gep369.val513
   %256 = zext i8 %255 to i64
   %257 = shl nuw nsw i64 %256, 8
   %258 = or disjoint i64 %257, %254
-  %.sroa.gep460 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %.sroa.gep460.val = load i8, ptr %.sroa.gep460, align 2
-  %.sroa.gep.sroa.gep366.val512 = load i8, ptr %.sroa.gep.sroa.gep366, align 2
-  %259 = select i1 %229, i8 %.sroa.gep460.val, i8 %.sroa.gep.sroa.gep366.val512
+  %.sroa.gep462 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %.sroa.gep462.val = load i8, ptr %.sroa.gep462, align 2
+  %.sroa.gep.sroa.gep366.val514 = load i8, ptr %.sroa.gep.sroa.gep366, align 2
+  %259 = select i1 %229, i8 %.sroa.gep462.val, i8 %.sroa.gep.sroa.gep366.val514
   %260 = zext i8 %259 to i64
   %261 = shl nuw nsw i64 %260, 16
   %262 = or disjoint i64 %258, %261
-  %.sroa.gep462 = getelementptr inbounds nuw i8, ptr %8, i64 11
-  %.sroa.gep462.val = load i8, ptr %.sroa.gep462, align 1
-  %.sroa.gep.sroa.gep363.val513 = load i8, ptr %.sroa.gep.sroa.gep363, align 1
-  %263 = select i1 %229, i8 %.sroa.gep462.val, i8 %.sroa.gep.sroa.gep363.val513
+  %.sroa.gep464 = getelementptr inbounds nuw i8, ptr %8, i64 11
+  %.sroa.gep464.val = load i8, ptr %.sroa.gep464, align 1
+  %.sroa.gep.sroa.gep363.val515 = load i8, ptr %.sroa.gep.sroa.gep363, align 1
+  %263 = select i1 %229, i8 %.sroa.gep464.val, i8 %.sroa.gep.sroa.gep363.val515
   %264 = zext i8 %263 to i64
   %265 = shl nuw nsw i64 %264, 24
   %266 = or disjoint i64 %262, %265
-  %.sroa.gep464 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %.sroa.gep464.val = load i8, ptr %.sroa.gep464, align 4
-  %.sroa.gep.sroa.gep360.val514 = load i8, ptr %.sroa.gep.sroa.gep360, align 8
-  %267 = select i1 %229, i8 %.sroa.gep464.val, i8 %.sroa.gep.sroa.gep360.val514
+  %.sroa.gep466 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %.sroa.gep466.val = load i8, ptr %.sroa.gep466, align 4
+  %.sroa.gep.sroa.gep360.val516 = load i8, ptr %.sroa.gep.sroa.gep360, align 8
+  %267 = select i1 %229, i8 %.sroa.gep466.val, i8 %.sroa.gep.sroa.gep360.val516
   %268 = zext i8 %267 to i64
-  %.sroa.gep466 = getelementptr inbounds nuw i8, ptr %8, i64 13
-  %.sroa.gep466.val = load i8, ptr %.sroa.gep466, align 1
-  %.sroa.gep458.val515 = load i8, ptr %.sroa.gep458, align 1
-  %269 = select i1 %229, i8 %.sroa.gep466.val, i8 %.sroa.gep458.val515
+  %.sroa.gep468 = getelementptr inbounds nuw i8, ptr %8, i64 13
+  %.sroa.gep468.val = load i8, ptr %.sroa.gep468, align 1
+  %.sroa.gep460.val517 = load i8, ptr %.sroa.gep460, align 1
+  %269 = select i1 %229, i8 %.sroa.gep468.val, i8 %.sroa.gep460.val517
   %270 = zext i8 %269 to i64
   br i1 %or.cond14, label %271, label %314
 
 271:                                              ; preds = %227
-  %.sroa.gep468 = getelementptr inbounds nuw i8, ptr %8, i64 14
-  %.sroa.gep468.val = load i8, ptr %.sroa.gep468, align 2
-  %.sroa.gep460.val516 = load i8, ptr %.sroa.gep460, align 2
-  %272 = select i1 %229, i8 %.sroa.gep468.val, i8 %.sroa.gep460.val516
+  %.sroa.gep470 = getelementptr inbounds nuw i8, ptr %8, i64 14
+  %.sroa.gep470.val = load i8, ptr %.sroa.gep470, align 2
+  %.sroa.gep462.val518 = load i8, ptr %.sroa.gep462, align 2
+  %272 = select i1 %229, i8 %.sroa.gep470.val, i8 %.sroa.gep462.val518
   %273 = zext i8 %272 to i64
-  %.sroa.gep470 = getelementptr inbounds nuw i8, ptr %8, i64 15
-  %.sroa.gep470.val = load i8, ptr %.sroa.gep470, align 1
-  %.sroa.gep462.val517 = load i8, ptr %.sroa.gep462, align 1
-  %274 = select i1 %229, i8 %.sroa.gep470.val, i8 %.sroa.gep462.val517
+  %.sroa.gep472 = getelementptr inbounds nuw i8, ptr %8, i64 15
+  %.sroa.gep472.val = load i8, ptr %.sroa.gep472, align 1
+  %.sroa.gep464.val519 = load i8, ptr %.sroa.gep464, align 1
+  %274 = select i1 %229, i8 %.sroa.gep472.val, i8 %.sroa.gep464.val519
   %275 = zext i8 %274 to i64
   %276 = shl nuw i64 %275, 56
   %277 = shl nuw nsw i64 %273, 48
@@ -12504,48 +12504,48 @@ mz_zip_set_error.exit257:                         ; preds = %189
   %281 = or disjoint i64 %280, %277
   %282 = or disjoint i64 %281, %276
   %283 = or disjoint i64 %282, %266
-  %.sroa.gep472 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.gep472.val = load i8, ptr %.sroa.gep472, align 16
-  %.sroa.gep464.val518 = load i8, ptr %.sroa.gep464, align 4
-  %284 = select i1 %229, i8 %.sroa.gep472.val, i8 %.sroa.gep464.val518
+  %.sroa.gep474 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.gep474.val = load i8, ptr %.sroa.gep474, align 16
+  %.sroa.gep466.val520 = load i8, ptr %.sroa.gep466, align 4
+  %284 = select i1 %229, i8 %.sroa.gep474.val, i8 %.sroa.gep466.val520
   %285 = zext i8 %284 to i64
-  %.sroa.gep474 = getelementptr inbounds nuw i8, ptr %8, i64 17
-  %.sroa.gep474.val = load i8, ptr %.sroa.gep474, align 1
-  %.sroa.gep466.val519 = load i8, ptr %.sroa.gep466, align 1
-  %286 = select i1 %229, i8 %.sroa.gep474.val, i8 %.sroa.gep466.val519
+  %.sroa.gep476 = getelementptr inbounds nuw i8, ptr %8, i64 17
+  %.sroa.gep476.val = load i8, ptr %.sroa.gep476, align 1
+  %.sroa.gep468.val521 = load i8, ptr %.sroa.gep468, align 1
+  %286 = select i1 %229, i8 %.sroa.gep476.val, i8 %.sroa.gep468.val521
   %287 = zext i8 %286 to i64
   %288 = shl nuw nsw i64 %287, 8
-  %.sroa.gep476 = getelementptr inbounds nuw i8, ptr %8, i64 18
-  %.sroa.gep476.val = load i8, ptr %.sroa.gep476, align 2
-  %.sroa.gep468.val520 = load i8, ptr %.sroa.gep468, align 2
-  %289 = select i1 %229, i8 %.sroa.gep476.val, i8 %.sroa.gep468.val520
+  %.sroa.gep478 = getelementptr inbounds nuw i8, ptr %8, i64 18
+  %.sroa.gep478.val = load i8, ptr %.sroa.gep478, align 2
+  %.sroa.gep470.val522 = load i8, ptr %.sroa.gep470, align 2
+  %289 = select i1 %229, i8 %.sroa.gep478.val, i8 %.sroa.gep470.val522
   %290 = zext i8 %289 to i64
   %291 = shl nuw nsw i64 %290, 16
-  %.sroa.gep478 = getelementptr inbounds nuw i8, ptr %8, i64 19
-  %.sroa.gep478.val = load i8, ptr %.sroa.gep478, align 1
-  %.sroa.gep470.val521 = load i8, ptr %.sroa.gep470, align 1
-  %292 = select i1 %229, i8 %.sroa.gep478.val, i8 %.sroa.gep470.val521
+  %.sroa.gep480 = getelementptr inbounds nuw i8, ptr %8, i64 19
+  %.sroa.gep480.val = load i8, ptr %.sroa.gep480, align 1
+  %.sroa.gep472.val523 = load i8, ptr %.sroa.gep472, align 1
+  %292 = select i1 %229, i8 %.sroa.gep480.val, i8 %.sroa.gep472.val523
   %293 = zext i8 %292 to i64
   %294 = shl nuw nsw i64 %293, 24
-  %.sroa.gep480 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %.sroa.gep480.val = load i8, ptr %.sroa.gep480, align 4
-  %.sroa.gep472.val522 = load i8, ptr %.sroa.gep472, align 16
-  %295 = select i1 %229, i8 %.sroa.gep480.val, i8 %.sroa.gep472.val522
+  %.sroa.gep482 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %.sroa.gep482.val = load i8, ptr %.sroa.gep482, align 4
+  %.sroa.gep474.val524 = load i8, ptr %.sroa.gep474, align 16
+  %295 = select i1 %229, i8 %.sroa.gep482.val, i8 %.sroa.gep474.val524
   %296 = zext i8 %295 to i64
-  %.sroa.gep482 = getelementptr inbounds nuw i8, ptr %8, i64 21
-  %.sroa.gep482.val = load i8, ptr %.sroa.gep482, align 1
-  %.sroa.gep474.val523 = load i8, ptr %.sroa.gep474, align 1
-  %297 = select i1 %229, i8 %.sroa.gep482.val, i8 %.sroa.gep474.val523
+  %.sroa.gep484 = getelementptr inbounds nuw i8, ptr %8, i64 21
+  %.sroa.gep484.val = load i8, ptr %.sroa.gep484, align 1
+  %.sroa.gep476.val525 = load i8, ptr %.sroa.gep476, align 1
+  %297 = select i1 %229, i8 %.sroa.gep484.val, i8 %.sroa.gep476.val525
   %298 = zext i8 %297 to i64
-  %.sroa.gep484 = getelementptr inbounds nuw i8, ptr %8, i64 22
-  %.sroa.gep484.val = load i8, ptr %.sroa.gep484, align 2
-  %.sroa.gep476.val524 = load i8, ptr %.sroa.gep476, align 2
-  %299 = select i1 %229, i8 %.sroa.gep484.val, i8 %.sroa.gep476.val524
+  %.sroa.gep486 = getelementptr inbounds nuw i8, ptr %8, i64 22
+  %.sroa.gep486.val = load i8, ptr %.sroa.gep486, align 2
+  %.sroa.gep478.val526 = load i8, ptr %.sroa.gep478, align 2
+  %299 = select i1 %229, i8 %.sroa.gep486.val, i8 %.sroa.gep478.val526
   %300 = zext i8 %299 to i64
-  %.sroa.gep486 = getelementptr inbounds nuw i8, ptr %8, i64 23
-  %.sroa.gep486.val = load i8, ptr %.sroa.gep486, align 1
-  %.sroa.gep478.val525 = load i8, ptr %.sroa.gep478, align 1
-  %301 = select i1 %229, i8 %.sroa.gep486.val, i8 %.sroa.gep478.val525
+  %.sroa.gep488 = getelementptr inbounds nuw i8, ptr %8, i64 23
+  %.sroa.gep488.val = load i8, ptr %.sroa.gep488, align 1
+  %.sroa.gep480.val527 = load i8, ptr %.sroa.gep480, align 1
+  %301 = select i1 %229, i8 %.sroa.gep488.val, i8 %.sroa.gep480.val527
   %302 = zext i8 %301 to i64
   %303 = shl nuw i64 %302, 56
   %304 = shl nuw nsw i64 %300, 48
@@ -12563,17 +12563,17 @@ mz_zip_set_error.exit257:                         ; preds = %189
 
 314:                                              ; preds = %227
   %315 = shl nuw nsw i64 %270, 8
-  %.sroa.gep454 = getelementptr inbounds nuw i8, ptr %8, i64 14
-  %.sroa.gep454.val = load i8, ptr %.sroa.gep454, align 2
-  %.sroa.gep446.val509 = load i8, ptr %.sroa.gep460, align 2
-  %316 = select i1 %229, i8 %.sroa.gep454.val, i8 %.sroa.gep446.val509
+  %.sroa.gep456 = getelementptr inbounds nuw i8, ptr %8, i64 14
+  %.sroa.gep456.val = load i8, ptr %.sroa.gep456, align 2
+  %.sroa.gep448.val511 = load i8, ptr %.sroa.gep462, align 2
+  %316 = select i1 %229, i8 %.sroa.gep456.val, i8 %.sroa.gep448.val511
   %317 = zext i8 %316 to i64
   %318 = shl nuw nsw i64 %317, 16
   %319 = or disjoint i64 %315, %318
-  %.sroa.gep456 = getelementptr inbounds nuw i8, ptr %8, i64 15
-  %.sroa.gep456.val = load i8, ptr %.sroa.gep456, align 1
-  %.sroa.gep448.val510 = load i8, ptr %.sroa.gep462, align 1
-  %320 = select i1 %229, i8 %.sroa.gep456.val, i8 %.sroa.gep448.val510
+  %.sroa.gep458 = getelementptr inbounds nuw i8, ptr %8, i64 15
+  %.sroa.gep458.val = load i8, ptr %.sroa.gep458, align 1
+  %.sroa.gep450.val512 = load i8, ptr %.sroa.gep464, align 1
+  %320 = select i1 %229, i8 %.sroa.gep458.val, i8 %.sroa.gep450.val512
   %321 = zext i8 %320 to i64
   %322 = shl nuw nsw i64 %321, 24
   %323 = or disjoint i64 %319, %322
@@ -12591,20 +12591,20 @@ mz_zip_set_error.exit257:                         ; preds = %189
   %or.cond245 = select i1 %.not237, i1 %.not238, i1 false
   %.not239 = icmp eq i64 %.0190, %326
   %or.cond246 = select i1 %or.cond245, i1 %.not239, i1 false
-  br i1 %or.cond246, label %330, label %.thread426
+  br i1 %or.cond246, label %330, label %.thread428
 
-.thread426:                                       ; preds = %325, %218
+.thread428:                                       ; preds = %325, %218
   %.sink = phi i32 [ 20, %218 ], [ 30, %325 ]
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sink, ptr %329, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread397
+  br label %.thread399
 
 330:                                              ; preds = %325
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %335
 
-331:                                              ; preds = %.thread420
+331:                                              ; preds = %.thread422
   %332 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %333 = load i32, ptr %332, align 8
   %.not240 = icmp eq i32 %125, %333
@@ -12617,7 +12617,7 @@ mz_zip_set_error.exit257:                         ; preds = %189
 mz_zip_set_error.exit251:                         ; preds = %331
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 30, ptr %334, align 4
-  br label %.thread397
+  br label %.thread399
 
 335:                                              ; preds = %330, %331
   %336 = phi i32 [ %250, %330 ], [ %125, %331 ]
@@ -12644,15 +12644,15 @@ mz_zip_set_error.exit:                            ; preds = %344
   store i32 30, ptr %346, align 4
   br label %mz_zip_set_error.exit287
 
-.thread397:                                       ; preds = %mz_zip_set_error.exit257, %mz_zip_set_error.exit259, %mz_zip_set_error.exit261, %.thread426, %mz_zip_set_error.exit263, %mz_zip_set_error.exit251, %mz_zip_set_error.exit265, %mz_zip_set_error.exit267, %mz_zip_set_error.exit269
-  %.sroa.0.1394 = phi ptr [ %.sroa.0.1.ph, %mz_zip_set_error.exit251 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit265 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit267 ], [ null, %mz_zip_set_error.exit269 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit263 ], [ %.sroa.0.1.ph, %.thread426 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit261 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit259 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit257 ]
+.thread399:                                       ; preds = %mz_zip_set_error.exit257, %mz_zip_set_error.exit259, %mz_zip_set_error.exit261, %.thread428, %mz_zip_set_error.exit263, %mz_zip_set_error.exit251, %mz_zip_set_error.exit265, %mz_zip_set_error.exit267, %mz_zip_set_error.exit269
+  %.sroa.0.1396 = phi ptr [ %.sroa.0.1.ph, %mz_zip_set_error.exit251 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit265 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit267 ], [ null, %mz_zip_set_error.exit269 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit263 ], [ %.sroa.0.1.ph, %.thread426 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit261 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit259 ], [ %.sroa.0.1.ph, %mz_zip_set_error.exit257 ]
   %347 = load ptr, ptr %16, align 8
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %349 = load ptr, ptr %348, align 8
-  call void %347(ptr noundef %349, ptr noundef %.sroa.0.1394) #36
+  call void %347(ptr noundef %349, ptr noundef %.sroa.0.1396) #36
   br label %mz_zip_set_error.exit287
 
-mz_zip_set_error.exit287:                         ; preds = %21, %3, %335, %344, %342, %39, %mz_zip_get_cdh.exit, %.thread397, %mz_zip_set_error.exit, %mz_zip_set_error.exit271, %mz_zip_set_error.exit273, %mz_zip_set_error.exit275, %mz_zip_set_error.exit277, %mz_zip_set_error.exit279, %mz_zip_set_error.exit281, %mz_zip_set_error.exit283, %mz_zip_set_error.exit285
+mz_zip_set_error.exit287:                         ; preds = %21, %3, %335, %344, %342, %39, %mz_zip_get_cdh.exit, %.thread399, %mz_zip_set_error.exit, %mz_zip_set_error.exit271, %mz_zip_set_error.exit273, %mz_zip_set_error.exit275, %mz_zip_set_error.exit277, %mz_zip_set_error.exit279, %mz_zip_set_error.exit281, %mz_zip_set_error.exit283, %mz_zip_set_error.exit285
   %.0 = phi i32 [ 0, %mz_zip_set_error.exit285 ], [ 0, %mz_zip_set_error.exit283 ], [ 0, %mz_zip_set_error.exit281 ], [ 0, %mz_zip_set_error.exit277 ], [ 0, %mz_zip_set_error.exit275 ], [ 0, %mz_zip_set_error.exit273 ], [ 0, %mz_zip_set_error.exit271 ], [ 0, %.thread397 ], [ 0, %mz_zip_set_error.exit ], [ 0, %mz_zip_set_error.exit279 ], [ 0, %mz_zip_get_cdh.exit ], [ 1, %39 ], [ 0, %342 ], [ 1, %344 ], [ 1, %335 ], [ 0, %3 ], [ 0, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -17450,7 +17450,7 @@ mz_zip_array_resize.exit459:                      ; preds = %143
   %155 = add i64 %114, %154
   %156 = call i64 %152(ptr noundef %153, i64 noundef %155, ptr noundef nonnull %149, i64 noundef %144) #36
   %.not353 = icmp eq i64 %156, %144
-  br i1 %.not353, label %.preheader653, label %mz_zip_set_error.exit418
+  br i1 %.not353, label %.preheader661, label %mz_zip_set_error.exit418
 
 mz_zip_set_error.exit418:                         ; preds = %mz_zip_array_resize.exit459
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -17461,13 +17461,13 @@ mz_zip_set_error.exit418:                         ; preds = %mz_zip_array_resize
   store i32 20, ptr %160, align 4
   br label %mz_zip_set_error.exit438
 
-.preheader653:                                    ; preds = %mz_zip_array_resize.exit459, %191
+.preheader661:                                    ; preds = %mz_zip_array_resize.exit459, %191
   %.0330 = phi i32 [ %194, %191 ], [ %130, %mz_zip_array_resize.exit459 ]
   %.0328 = phi ptr [ %193, %191 ], [ %149, %mz_zip_array_resize.exit459 ]
   %161 = icmp ult i32 %.0330, 4
   br i1 %161, label %mz_zip_set_error.exit416, label %166
 
-mz_zip_set_error.exit416:                         ; preds = %.preheader653
+mz_zip_set_error.exit416:                         ; preds = %.preheader661
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %163 = load ptr, ptr %162, align 8
   %164 = load ptr, ptr %147, align 8
@@ -17476,7 +17476,7 @@ mz_zip_set_error.exit416:                         ; preds = %.preheader653
   store i32 9, ptr %165, align 4
   br label %mz_zip_set_error.exit438
 
-166:                                              ; preds = %.preheader653
+166:                                              ; preds = %.preheader661
   %167 = getelementptr inbounds nuw i8, ptr %.0328, i64 2
   %168 = load i8, ptr %167, align 1
   %169 = zext i8 %168 to i64
@@ -17522,7 +17522,7 @@ mz_zip_set_error.exit412:                         ; preds = %185
   %193 = getelementptr inbounds nuw i8, ptr %.0328, i64 %192
   %194 = sub i32 %.0330, %176
   %.not354 = icmp eq i32 %194, 0
-  br i1 %.not354, label %.loopexit, label %.preheader653
+  br i1 %.not354, label %.loopexit, label %.preheader661
 
 .loopexit:                                        ; preds = %191, %185
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -17587,8 +17587,8 @@ mz_zip_set_error.exit408:                         ; preds = %211
 
 .preheader:                                       ; preds = %220
   %229 = add i64 %213, 30
-  %.not358664 = icmp eq i64 %135, 0
-  br i1 %.not358664, label %252, label %.lr.ph
+  %.not358672 = icmp eq i64 %135, 0
+  br i1 %.not358672, label %252, label %.lr.ph
 
 mz_zip_set_error.exit406:                         ; preds = %220
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -17596,13 +17596,13 @@ mz_zip_set_error.exit406:                         ; preds = %220
   br label %mz_zip_set_error.exit438
 
 .lr.ph:                                           ; preds = %.preheader, %247
-  %.0313667 = phi i64 [ %250, %247 ], [ %135, %.preheader ]
-  %.0314666 = phi i64 [ %248, %247 ], [ %114, %.preheader ]
-  %.0315665 = phi i64 [ %249, %247 ], [ %229, %.preheader ]
-  %231 = call i64 @llvm.umin.i64(i64 %.0313667, i64 65536)
+  %.0313675 = phi i64 [ %250, %247 ], [ %135, %.preheader ]
+  %.0314674 = phi i64 [ %248, %247 ], [ %114, %.preheader ]
+  %.0315673 = phi i64 [ %249, %247 ], [ %229, %.preheader ]
+  %231 = call i64 @llvm.umin.i64(i64 %.0313675, i64 65536)
   %232 = load ptr, ptr %16, align 8
   %233 = load ptr, ptr %106, align 8
-  %234 = call i64 %232(ptr noundef %233, i64 noundef %.0314666, ptr noundef %227, i64 noundef %231) #36
+  %234 = call i64 %232(ptr noundef %233, i64 noundef %.0314674, ptr noundef %227, i64 noundef %231) #36
   %.not373 = icmp eq i64 %234, %231
   br i1 %.not373, label %239, label %mz_zip_set_error.exit404
 
@@ -17618,7 +17618,7 @@ mz_zip_set_error.exit404:                         ; preds = %.lr.ph
 239:                                              ; preds = %.lr.ph
   %240 = load ptr, ptr %214, align 8
   %241 = load ptr, ptr %216, align 8
-  %242 = call i64 %240(ptr noundef %241, i64 noundef %.0315665, ptr noundef %227, i64 noundef %231) #36
+  %242 = call i64 %240(ptr noundef %241, i64 noundef %.0315673, ptr noundef %227, i64 noundef %231) #36
   %.not374 = icmp eq i64 %242, %231
   br i1 %.not374, label %247, label %mz_zip_set_error.exit402
 
@@ -17632,9 +17632,9 @@ mz_zip_set_error.exit402:                         ; preds = %239
   br label %mz_zip_set_error.exit438
 
 247:                                              ; preds = %239
-  %248 = add i64 %231, %.0314666
-  %249 = add i64 %231, %.0315665
-  %250 = sub i64 %.0313667, %231
+  %248 = add i64 %231, %.0314674
+  %249 = add i64 %231, %.0315673
+  %250 = sub i64 %.0313675, %231
   %.not358 = icmp eq i64 %250, 0
   br i1 %.not358, label %._crit_edge, label %.lr.ph
 
@@ -17681,7 +17681,7 @@ mz_zip_set_error.exit400:                         ; preds = %263
   %270 = load i32, ptr %227, align 1
   %271 = icmp eq i32 %270, 134695760
   %272 = select i1 %271, i32 24, i32 20
-  br label %.thread611
+  br label %.thread619
 
 273:                                              ; preds = %256
   %274 = call i64 %261(ptr noundef %262, i64 noundef %.0314.lcssa, ptr noundef %227, i64 noundef 16) #36
@@ -17758,11 +17758,11 @@ mz_zip_set_error.exit400:                         ; preds = %263
   store i8 %309, ptr %322, align 1
   %323 = getelementptr inbounds nuw i8, ptr %227, i64 20
   store i32 0, ptr %323, align 1
-  br label %.thread611
+  br label %.thread619
 
 324:                                              ; preds = %275
   %325 = select i1 %277, i32 16, i32 12
-  br label %.thread611
+  br label %.thread619
 
 326:                                              ; preds = %273
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -17773,17 +17773,17 @@ mz_zip_set_error.exit400:                         ; preds = %263
   store i32 20, ptr %330, align 4
   br label %mz_zip_set_error.exit438
 
-.thread611:                                       ; preds = %324, %281, %269
-  %storemerge652 = phi i32 [ %272, %269 ], [ %325, %324 ], [ 24, %281 ]
-  store i32 %storemerge652, ptr %4, align 4
+.thread619:                                       ; preds = %324, %281, %269
+  %storemerge660 = phi i32 [ %272, %269 ], [ %325, %324 ], [ 24, %281 ]
+  store i32 %storemerge660, ptr %4, align 4
   %331 = load ptr, ptr %214, align 8
   %332 = load ptr, ptr %216, align 8
-  %333 = zext nneg i32 %storemerge652 to i64
+  %333 = zext nneg i32 %storemerge660 to i64
   %334 = call i64 %331(ptr noundef %332, i64 noundef %.0315.lcssa, ptr noundef nonnull %227, i64 noundef %333) #36
   %.not363 = icmp eq i64 %334, %333
   br i1 %.not363, label %339, label %mz_zip_set_error.exit396
 
-mz_zip_set_error.exit396:                         ; preds = %.thread611
+mz_zip_set_error.exit396:                         ; preds = %.thread619
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %336 = load ptr, ptr %335, align 8
   %337 = load ptr, ptr %223, align 8
@@ -17792,7 +17792,7 @@ mz_zip_set_error.exit396:                         ; preds = %.thread611
   store i32 19, ptr %338, align 4
   br label %mz_zip_set_error.exit438
 
-339:                                              ; preds = %.thread611
+339:                                              ; preds = %.thread619
   %340 = add i64 %.0315.lcssa, %333
   br label %341
 
@@ -17819,8 +17819,8 @@ mz_zip_set_error.exit396:                         ; preds = %.thread611
   %352 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %.20..20..20..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i64 -1, ptr %.20..20..20..sroa_idx, align 4
-  %.42..42..42..sroa_idx745 = getelementptr inbounds nuw i8, ptr %6, i64 42
-  store i32 -1, ptr %.42..42..42..sroa_idx745, align 2
+  %.42..42..42..sroa_idx753 = getelementptr inbounds nuw i8, ptr %6, i64 42
+  store i32 -1, ptr %.42..42..42..sroa_idx753, align 2
   %.val501 = load i64, ptr %352, align 8
   %353 = call fastcc i32 @mz_zip_writer_update_zip64_extension_block(ptr noundef %8, ptr noundef %0, ptr noundef %350, i32 noundef %69, i64 %134, i64 %.val501, i64 %213)
   %.not367 = icmp eq i32 %353, 0
@@ -17957,7 +17957,7 @@ mz_zip_set_error.exit392:                         ; preds = %400, %409
   %425 = getelementptr inbounds nuw i8, ptr %421, i64 %424
   %426 = mul i64 %360, %423
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %425, ptr align 1 %413, i64 %426, i1 false)
-  %.pre684 = load i64, ptr %72, align 8
+  %.pre692 = load i64, ptr %72, align 8
   br label %442
 
 mz_zip_array_push_back.exit474:                   ; preds = %417
@@ -17994,7 +17994,7 @@ mz_zip_set_error.exit390:                         ; preds = %431, %440
   br label %477
 
 442:                                              ; preds = %420, %419
-  %443 = phi i64 [ %.pre684, %420 ], [ %414, %419 ]
+  %443 = phi i64 [ %.pre692, %420 ], [ %414, %419 ]
   %444 = zext nneg i32 %69 to i64
   %445 = getelementptr inbounds nuw i8, ptr %350, i64 %444
   %446 = zext nneg i32 %61 to i64

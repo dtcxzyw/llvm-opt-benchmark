@@ -114,72 +114,72 @@ define internal fastcc noundef zeroext i1 @_ZL17getAlgoFromParamsP8PJconstsR9TMe
 
 8:                                                ; preds = %2
   store i32 1, ptr %1, align 4, !tbaa !3
-  br label %48
+  br label %47
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !tbaa !42
   %11 = load ptr, ptr %4, align 8, !tbaa !43
   %12 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %10, ptr noundef %11, ptr noundef nonnull @.str.11)
-  %13 = inttoptr i64 %12 to ptr
-  %.not25 = icmp eq i64 %12, 0
-  br i1 %.not25, label %26, label %14
+  %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %12 to ptr
+  %.not24 = icmp eq i64 %12, 0
+  br i1 %.not24, label %25, label %13
 
-14:                                               ; preds = %9
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(15) @.str.12) #11
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %18
+13:                                               ; preds = %9
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(15) @.str.12) #11
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %17
 
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   store i32 1, ptr %1, align 4, !tbaa !3
-  br label %48
+  br label %47
 
-18:                                               ; preds = %14
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(15) @.str.13) #11
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %22
+17:                                               ; preds = %13
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(15) @.str.13) #11
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %21
 
-21:                                               ; preds = %18
+20:                                               ; preds = %17
   store i32 2, ptr %1, align 4, !tbaa !3
-  br label %48
+  br label %47
 
-22:                                               ; preds = %18
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(5) @.str.14) #11
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.thread, label %25
+21:                                               ; preds = %17
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(5) @.str.14) #11
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %.thread, label %24
 
-.thread:                                          ; preds = %22
+.thread:                                          ; preds = %21
   store i32 0, ptr %1, align 4, !tbaa !3
   br label %33
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
-  br label %48
+  br label %47
 
-26:                                               ; preds = %9
+25:                                               ; preds = %9
   %27 = load ptr, ptr %0, align 8, !tbaa !42
   tail call void @_Z11pj_load_iniP6pj_ctx(ptr noundef %27)
   %28 = load ptr, ptr %0, align 8, !tbaa !42
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %28, i32 noundef 0)
-  %29 = load ptr, ptr %0, align 8, !tbaa !42
+  %30 = load ptr, ptr %0, align 8, !tbaa !42
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 560
   %31 = load i32, ptr %30, align 8, !tbaa !44
   store i32 %31, ptr %1, align 4, !tbaa !3
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %48
 
-33:                                               ; preds = %.thread, %26
+33:; preds = %.thread, %26
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %35 = load double, ptr %34, align 8, !tbaa !67
   %36 = fcmp ogt double %35, 1.000000e-01
   br i1 %36, label %47, label %37
 
-37:                                               ; preds = %33
+37:; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %39 = load double, ptr %38, align 8, !tbaa !68
   %40 = fcmp une double %39, 0.000000e+00
   br i1 %40, label %47, label %41
 
-41:                                               ; preds = %37
+41:; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %43 = load double, ptr %42, align 8, !tbaa !69
   %44 = fadd double %43, -1.000000e+00
@@ -189,9 +189,9 @@ define internal fastcc noundef zeroext i1 @_ZL17getAlgoFromParamsP8PJconstsR9TMe
 
 47:                                               ; preds = %41, %37, %33
   store i32 2, ptr %1, align 4, !tbaa !3
-  br label %48
+  br label %47
 
-48:                                               ; preds = %17, %21, %25, %47, %41, %26, %8
+47:                                               ; preds = %16, %20, %24, %47, %41, %25, %8
   %.0 = phi i1 [ true, %8 ], [ true, %17 ], [ true, %21 ], [ false, %25 ], [ true, %47 ], [ true, %41 ], [ true, %26 ]
   ret i1 %.0
 }
