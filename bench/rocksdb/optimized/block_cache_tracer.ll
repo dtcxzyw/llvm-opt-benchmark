@@ -5069,7 +5069,7 @@ define void @_ZN7rocksdb16BlockCacheTracer16WriteBlockAccessERKNS_21BlockCacheTr
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load atomic i64, ptr %7 seq_cst, align 8
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %29, label %9
+  br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %6
   %.val9 = load i64, ptr %1, align 8, !tbaa !153
@@ -5081,81 +5081,66 @@ _ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptions
   %.val8 = load i64, ptr %10, align 8
   %.val = load ptr, ptr %3, align 8
   %11 = tail call noundef i64 @_ZN7rocksdb6Hash64EPKcm(ptr noundef %.val, i64 noundef %.val8)
-  %12 = and i64 %.val9, 4294967295
-  %13 = and i64 %11, 4294967295
-  %14 = mul nuw i64 %13, %12
-  %15 = lshr i64 %14, 32
-  %16 = lshr i64 %11, 32
-  %17 = mul nuw i64 %16, %12
-  %18 = add nuw i64 %15, %17
-  %19 = lshr i64 %.val9, 32
-  %20 = mul nuw i64 %13, %19
-  %21 = and i64 %20, 4294967295
-  %22 = add nuw i64 %18, %21
-  %23 = lshr i64 %22, 32
-  %24 = lshr i64 %20, 32
-  %25 = mul nuw i64 %16, %19
-  %26 = add nuw i64 %24, %25
-  %27 = or i64 %23, %26
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit.thread, label %29
+  %umul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %11, i64 %.val9)
+  %12 = extractvalue { i64, i1 } %umul.i, 1
+  br i1 %12, label %13, label %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit.thread
 
-29:                                               ; preds = %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit, %6
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %30, align 8, !tbaa !53, !alias.scope !160
+13:                                               ; preds = %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit, %6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %14, align 8, !tbaa !53, !alias.scope !160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !160
   br label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit12
 
 _ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit.thread: ; preds = %9, %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %31)
-  %32 = load atomic i64, ptr %7 seq_cst, align 8
-  %.not7 = icmp eq i64 %32, 0
-  br i1 %.not7, label %33, label %40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 dereferenceable(60) %15)
+  %16 = load atomic i64, ptr %7 seq_cst, align 8
+  %.not7 = icmp eq i64 %16, 0
+  br i1 %.not7, label %17, label %24
 
-33:                                               ; preds = %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit.thread
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %34, align 8, !tbaa !53, !alias.scope !163
+17:                                               ; preds = %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit.thread
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %18, align 8, !tbaa !53, !alias.scope !163
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !163
-  br label %45
+  br label %29
 
-35:                                               ; preds = %40
-  %36 = landingpad { ptr, i32 }
+19:                                               ; preds = %24
+  %20 = landingpad { ptr, i32 }
           cleanup
-  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %31)
-          to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit unwind label %37
+  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %15)
+          to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit unwind label %21
 
-37:                                               ; preds = %35
-  %38 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #30
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #30
   unreachable
 
-_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit:      ; preds = %35
-  resume { ptr, i32 } %36
+_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit:      ; preds = %19
+  resume { ptr, i32 } %20
 
-40:                                               ; preds = %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit.thread
-  %41 = load atomic i64, ptr %7 seq_cst, align 8
-  %.0.i.i11 = inttoptr i64 %41 to ptr
-  %42 = load ptr, ptr %.0.i.i11, align 8, !tbaa !37
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8
-  invoke void %44(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i11, ptr noundef nonnull align 8 dereferenceable(185) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %45 unwind label %35
+24:                                               ; preds = %_ZN7rocksdb12_GLOBAL__N_111ShouldTraceERKNS_5SliceERKNS_22BlockCacheTraceOptionsE.exit.thread
+  %25 = load atomic i64, ptr %7 seq_cst, align 8
+  %.0.i.i11 = inttoptr i64 %25 to ptr
+  %26 = load ptr, ptr %.0.i.i11, align 8, !tbaa !37
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 8
+  invoke void %28(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i11, ptr noundef nonnull align 8 dereferenceable(185) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %29 unwind label %19
 
-45:                                               ; preds = %33, %40
-  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %31)
-          to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit12 unwind label %46
+29:                                               ; preds = %17, %24
+  invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(60) %15)
+          to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit12 unwind label %30
 
-46:                                               ; preds = %45
-  %47 = landingpad { ptr, i32 }
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  tail call void @__clang_call_terminate(ptr %48) #30
+  %32 = extractvalue { ptr, i32 } %31, 0
+  tail call void @__clang_call_terminate(ptr %32) #30
   unreachable
 
-_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit12:    ; preds = %45, %29
+_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit12:    ; preds = %29, %13
   ret void
 }
 
@@ -6094,6 +6079,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #24
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }

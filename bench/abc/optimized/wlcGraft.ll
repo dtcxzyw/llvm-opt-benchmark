@@ -1849,29 +1849,15 @@ declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Sbc_Mult(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #4 {
-  %4 = and i64 %0, 4294967295
-  %5 = and i64 %1, 4294967295
-  %6 = mul nuw i64 %5, %4
-  %7 = lshr i64 %1, 32
-  %8 = mul nuw i64 %7, %4
-  %9 = lshr i64 %0, 32
-  %10 = mul nuw i64 %5, %9
-  %11 = mul nuw i64 %7, %9
-  %12 = and i64 %8, 4294967295
-  %13 = and i64 %10, 4294967295
-  %14 = add nuw nsw i64 %12, %13
-  %15 = lshr i64 %6, 32
-  %16 = add nuw nsw i64 %14, %15
-  %17 = mul i64 %1, %0
-  store i64 %17, ptr %2, align 8, !tbaa !52
-  %18 = lshr i64 %8, 32
-  %19 = add nuw i64 %18, %11
-  %20 = lshr i64 %10, 32
-  %21 = add nuw i64 %19, %20
-  %22 = lshr i64 %16, 32
-  %23 = add nuw i64 %21, %22
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %23, ptr %24, align 8, !tbaa !52
+  %4 = mul i64 %1, %0
+  store i64 %4, ptr %2, align 8, !tbaa !52
+  %5 = zext i64 %0 to i128
+  %6 = zext i64 %1 to i128
+  %7 = mul nuw i128 %6, %5
+  %8 = lshr i128 %7, 64
+  %9 = trunc nuw i128 %8 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %9, ptr %10, align 8, !tbaa !52
   ret void
 }
 
@@ -1900,8 +1886,8 @@ define void @Sbc_SimMult(ptr noundef captures(none) %0, ptr noundef captures(non
   %14 = tail call i32 @Gia_ManRandom(i32 noundef 1) #20
   br label %15
 
-15:                                               ; preds = %10, %71
-  %indvars.iv51 = phi i64 [ 0, %10 ], [ %indvars.iv.next52, %71 ]
+15:                                               ; preds = %10, %57
+  %indvars.iv51 = phi i64 [ 0, %10 ], [ %indvars.iv.next52, %57 ]
   %.not = icmp eq i64 %indvars.iv51, 0
   br i1 %.not, label %.thread, label %16
 
@@ -1915,91 +1901,77 @@ define void @Sbc_SimMult(ptr noundef captures(none) %0, ptr noundef captures(non
 .thread:                                          ; preds = %15, %16
   %21 = phi i64 [ %18, %16 ], [ 0, %15 ]
   %22 = phi i64 [ %20, %16 ], [ 0, %15 ]
-  %23 = and i64 %21, 4294967295
-  %24 = and i64 %22, 4294967295
-  %25 = mul nuw i64 %24, %23
-  %26 = lshr i64 %22, 32
-  %27 = mul nuw i64 %26, %23
-  %28 = lshr i64 %21, 32
-  %29 = mul nuw i64 %24, %28
-  %30 = mul nuw i64 %26, %28
-  %31 = and i64 %27, 4294967295
-  %32 = and i64 %29, 4294967295
-  %33 = add nuw nsw i64 %31, %32
-  %34 = lshr i64 %25, 32
-  %35 = add nuw nsw i64 %33, %34
-  %36 = mul i64 %22, %21
-  %37 = lshr i64 %27, 32
-  %38 = add nuw i64 %37, %30
-  %39 = lshr i64 %29, 32
-  %40 = add nuw i64 %38, %39
-  %41 = lshr i64 %35, 32
-  %42 = add nuw i64 %40, %41
-  %43 = shl nuw i64 1, %indvars.iv51
-  br label %44
+  %23 = mul i64 %22, %21
+  %24 = zext i64 %21 to i128
+  %25 = zext i64 %22 to i128
+  %26 = mul nuw i128 %25, %24
+  %27 = lshr i128 %26, 64
+  %28 = trunc nuw i128 %27 to i64
+  %29 = shl nuw i64 1, %indvars.iv51
+  br label %30
 
-44:                                               ; preds = %.thread, %70
-  %indvars.iv47 = phi i64 [ 0, %.thread ], [ %indvars.iv.next48, %70 ]
-  %45 = shl nuw i64 1, %indvars.iv47
-  %46 = and i64 %45, %21
-  %.not39 = icmp eq i64 %46, 0
-  br i1 %.not39, label %51, label %47
+30:                                               ; preds = %.thread, %56
+  %indvars.iv47 = phi i64 [ 0, %.thread ], [ %indvars.iv.next48, %56 ]
+  %31 = shl nuw i64 1, %indvars.iv47
+  %32 = and i64 %31, %21
+  %.not39 = icmp eq i64 %32, 0
+  br i1 %.not39, label %37, label %33
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv47
-  %49 = load i64, ptr %48, align 8, !tbaa !52
-  %50 = or i64 %49, %43
-  store i64 %50, ptr %48, align 8, !tbaa !52
-  br label %51
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv47
+  %35 = load i64, ptr %34, align 8, !tbaa !52
+  %36 = or i64 %35, %29
+  store i64 %36, ptr %34, align 8, !tbaa !52
+  br label %37
 
-51:                                               ; preds = %47, %44
-  %52 = and i64 %45, %22
-  %.not40 = icmp eq i64 %52, 0
-  br i1 %.not40, label %57, label %53
+37:                                               ; preds = %33, %30
+  %38 = and i64 %31, %22
+  %.not40 = icmp eq i64 %38, 0
+  br i1 %.not40, label %43, label %39
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv47
-  %55 = load i64, ptr %54, align 8, !tbaa !52
-  %56 = or i64 %55, %43
-  store i64 %56, ptr %54, align 8, !tbaa !52
-  br label %57
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv47
+  %41 = load i64, ptr %40, align 8, !tbaa !52
+  %42 = or i64 %41, %29
+  store i64 %42, ptr %40, align 8, !tbaa !52
+  br label %43
 
-57:                                               ; preds = %53, %51
-  %58 = and i64 %45, %36
-  %.not41 = icmp eq i64 %58, 0
-  br i1 %.not41, label %63, label %59
+43:                                               ; preds = %39, %37
+  %44 = and i64 %31, %23
+  %.not41 = icmp eq i64 %44, 0
+  br i1 %.not41, label %49, label %45
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv47
-  %61 = load i64, ptr %60, align 8, !tbaa !52
-  %62 = or i64 %61, %43
-  store i64 %62, ptr %60, align 8, !tbaa !52
-  br label %63
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv47
+  %47 = load i64, ptr %46, align 8, !tbaa !52
+  %48 = or i64 %47, %29
+  store i64 %48, ptr %46, align 8, !tbaa !52
+  br label %49
 
-63:                                               ; preds = %59, %57
-  %64 = and i64 %45, %42
-  %.not42 = icmp eq i64 %64, 0
-  br i1 %.not42, label %70, label %65
+49:                                               ; preds = %45, %43
+  %50 = and i64 %31, %28
+  %.not42 = icmp eq i64 %50, 0
+  br i1 %.not42, label %56, label %51
 
-65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv47
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 512
-  %68 = load i64, ptr %67, align 8, !tbaa !52
-  %69 = or i64 %68, %43
-  store i64 %69, ptr %67, align 8, !tbaa !52
-  br label %70
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv47
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 512
+  %54 = load i64, ptr %53, align 8, !tbaa !52
+  %55 = or i64 %54, %29
+  store i64 %55, ptr %53, align 8, !tbaa !52
+  br label %56
 
-70:                                               ; preds = %63, %65
+56:                                               ; preds = %49, %51
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 64
-  br i1 %exitcond50.not, label %71, label %44, !llvm.loop !91
+  br i1 %exitcond50.not, label %57, label %30, !llvm.loop !91
 
-71:                                               ; preds = %70
+57:                                               ; preds = %56
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 64
-  br i1 %exitcond54.not, label %72, label %15, !llvm.loop !92
+  br i1 %exitcond54.not, label %58, label %15, !llvm.loop !92
 
-72:                                               ; preds = %71
+58:                                               ; preds = %57
   ret void
 }
 

@@ -7107,26 +7107,15 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN7rocksdb
   %7 = load i64, ptr %6, align 8, !tbaa !193
   %8 = tail call noundef i64 @_ZN7rocksdb6Hash64EPKcmm(ptr noundef %5, i64 noundef %7, i64 noundef %2)
   %9 = load i64, ptr %4, align 8, !tbaa !252
-  %10 = and i64 %9, 4294967295
-  %11 = and i64 %8, 4294967295
-  %12 = mul nuw i64 %10, %11
-  %13 = lshr i64 %12, 32
-  %14 = lshr i64 %8, 32
-  %15 = mul nuw i64 %10, %14
-  %16 = add nuw i64 %13, %15
-  %17 = lshr i64 %9, 32
-  %18 = mul nuw i64 %17, %11
-  %19 = and i64 %18, 4294967295
-  %20 = add nuw i64 %16, %19
-  %21 = lshr i64 %20, 32
-  %22 = lshr i64 %18, 32
-  %23 = mul nuw i64 %17, %14
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !262
-  %26 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %25, i64 %22
-  %27 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %26, i64 %23
-  %28 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %27, i64 %21
-  ret ptr %28
+  %10 = zext i64 %9 to i128
+  %11 = zext i64 %8 to i128
+  %12 = mul nuw i128 %10, %11
+  %13 = lshr i128 %12, 64
+  %14 = trunc nuw i128 %13 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !262
+  %17 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %16, i64 %14
+  ret ptr %17
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -7370,26 +7359,15 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN7rocksdb
   %7 = load i64, ptr %6, align 8, !tbaa !193
   %8 = tail call noundef i64 @_ZN7rocksdb6Hash64EPKcmm(ptr noundef %5, i64 noundef %7, i64 noundef %2)
   %9 = load i64, ptr %4, align 8, !tbaa !264
-  %10 = and i64 %9, 4294967295
-  %11 = and i64 %8, 4294967295
-  %12 = mul nuw i64 %10, %11
-  %13 = lshr i64 %12, 32
-  %14 = lshr i64 %8, 32
-  %15 = mul nuw i64 %10, %14
-  %16 = add nuw i64 %13, %15
-  %17 = lshr i64 %9, 32
-  %18 = mul nuw i64 %17, %11
-  %19 = and i64 %18, 4294967295
-  %20 = add nuw i64 %16, %19
-  %21 = lshr i64 %20, 32
-  %22 = lshr i64 %18, 32
-  %23 = mul nuw i64 %17, %14
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !273
-  %26 = getelementptr inbounds nuw %"class.rocksdb::port::Mutex", ptr %25, i64 %22
-  %27 = getelementptr inbounds nuw %"class.rocksdb::port::Mutex", ptr %26, i64 %23
-  %28 = getelementptr inbounds nuw %"class.rocksdb::port::Mutex", ptr %27, i64 %21
-  ret ptr %28
+  %10 = zext i64 %9 to i128
+  %11 = zext i64 %8 to i128
+  %12 = mul nuw i128 %10, %11
+  %13 = lshr i128 %12, 64
+  %14 = trunc nuw i128 %13 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !273
+  %17 = getelementptr inbounds nuw %"class.rocksdb::port::Mutex", ptr %16, i64 %14
+  ret ptr %17
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
