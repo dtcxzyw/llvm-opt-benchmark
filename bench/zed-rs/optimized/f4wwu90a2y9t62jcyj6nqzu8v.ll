@@ -2097,8 +2097,8 @@ define void @"_ZN55_$LT$git..Oid$u20$as$u20$core..str..traits..FromStr$GT$8from_
   %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(5) %.sroa.65.0..sroa_idx, i64 5, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.513.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(5) %.sroa.8, i64 5, i1 false)
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.413.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(5) %.sroa.8, i64 5, i1 false)
   br label %28
 
 13:                                               ; preds = %3
@@ -2167,10 +2167,10 @@ define void @"_ZN55_$LT$git..Oid$u20$as$u20$core..str..traits..FromStr$GT$8from_
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %"_ZN55_$LT$git..Oid$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98f489dd27269378E.llvm.5252317761193634178.exit", %10
-  %.sink = phi ptr [ %22, %"_ZN55_$LT$git..Oid$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98f489dd27269378E.llvm.5252317761193634178.exit" ], [ %.sroa.5.0.copyload, %10 ]
+29:                                               ; preds = %"_ZN55_$LT$git..Oid$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98f489dd27269378E.llvm.5252317761193634178.exit", %10
+  %storemerge = phi ptr [ %22, %"_ZN55_$LT$git..Oid$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98f489dd27269378E.llvm.5252317761193634178.exit" ], [ %.sroa.5.0.copyload, %10 ]
   %storemerge = phi i8 [ 1, %"_ZN55_$LT$git..Oid$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98f489dd27269378E.llvm.5252317761193634178.exit" ], [ 0, %10 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %29, align 8

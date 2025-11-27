@@ -39063,14 +39063,14 @@ define void @_ZN7rocksdb6DBImpl19PrepareMultiGetKeysEmbPNS_10autovectorIPNS_10Ke
   %9 = alloca %"class.rocksdb::autovector<rocksdb::KeyContext *, 32>::iterator_impl", align 8
   %10 = alloca %"class.rocksdb::autovector<rocksdb::KeyContext *, 32>::iterator_impl", align 8
   %11 = alloca %"class.rocksdb::autovector<rocksdb::KeyContext *, 32>::iterator_impl", align 8
-  br i1 %2, label %22, label %12
+  br i1 %2, label %21, label %12
 
 12:                                               ; preds = %4
   %13 = ptrtoint ptr %3 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not.i.i = icmp eq i64 %1, 0
-  br i1 %.not.i.i, label %21, label %.noexc.i
+  br i1 %.not.i.i, label %20, label %.noexc.i
 
 .noexc.i:                                         ; preds = %12
   store ptr %3, ptr %10, align 8, !tbaa !2002
@@ -39079,43 +39079,43 @@ define void @_ZN7rocksdb6DBImpl19PrepareMultiGetKeysEmbPNS_10autovectorIPNS_10Ke
   store i64 %13, ptr %11, align 8, !tbaa !2002
   %.sroa.3.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %1, ptr %.sroa.3.0..sroa_idx5.i, align 8, !tbaa !99
-  %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
-  %15 = shl nuw nsw i64 %14, 1
-  %16 = xor i64 %15, 126
-  call fastcc void @_ZSt16__introsort_loopIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_T1_(ptr noundef %10, ptr noundef %11, i64 noundef %16)
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
+  %14 = shl nuw nsw i64 %13, 1
+  %15 = xor i64 %14, 126
+  call fastcc void @_ZSt16__introsort_loopIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_T1_(ptr noundef %10, ptr noundef %11, i64 noundef %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %17 = icmp sgt i64 %1, 16
-  br i1 %17, label %.noexc.i.i, label %20
+  %16 = icmp sgt i64 %1, 16
+  br i1 %16, label %.noexc.i.i, label %19
 
 .noexc.i.i:                                       ; preds = %.noexc.i
   store ptr %3, ptr %6, align 8, !tbaa !2002
   %.sroa.5.0..sroa_idx18.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %.sroa.5.0..sroa_idx18.i.i, align 8, !tbaa !99
   store ptr %3, ptr %7, align 8, !tbaa !2004, !alias.scope !2006
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 16, ptr %18, align 8, !tbaa !2009, !alias.scope !2006
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 16, ptr %17, align 8, !tbaa !2009, !alias.scope !2006
   call fastcc void @_ZSt16__insertion_sortIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_(ptr noundef %6, ptr noundef %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.5.0..sroa_idx5.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.noexc.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %.noexc.i.i.i, %.noexc.i.i
-  %.sroa.5.09.i.i.i.i = phi i64 [ 16, %.noexc.i.i ], [ %19, %.noexc.i.i.i ]
+  %.sroa.5.09.i.i.i.i = phi i64 [ 16, %.noexc.i.i ], [ %18, %.noexc.i.i.i ]
   store i64 %13, ptr %5, align 8, !tbaa !2002
   store i64 %.sroa.5.09.i.i.i.i, ptr %.sroa.5.0..sroa_idx5.i.i.i.i, align 8, !tbaa !99
   call fastcc void @_ZSt25__unguarded_linear_insertIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops14_Val_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_T0_(ptr noundef %5)
-  %19 = add nuw nsw i64 %.sroa.5.09.i.i.i.i, 1
-  %.not.i.i.i.i = icmp eq i64 %19, %1
+  %18 = add nuw nsw i64 %.sroa.5.09.i.i.i.i, 1
+  %.not.i.i.i.i = icmp eq i64 %18, %1
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i, label %.noexc.i.i.i, !llvm.loop !2010
 
 .loopexit.i.i.i:                                  ; preds = %.noexc.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.noexc3.i
 
-20:                                               ; preds = %.noexc.i
+19:                                               ; preds = %.noexc.i
   store ptr %3, ptr %8, align 8, !tbaa !2002
   %.sroa.5.0..sroa_idx16.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %.sroa.5.0..sroa_idx16.i.i, align 8, !tbaa !99
@@ -39125,19 +39125,19 @@ define void @_ZN7rocksdb6DBImpl19PrepareMultiGetKeysEmbPNS_10autovectorIPNS_10Ke
   call fastcc void @_ZSt16__insertion_sortIN7rocksdb10autovectorIPNS0_10KeyContextELm32EE13iterator_implIS4_S3_EEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12_GLOBAL__N_117CompareKeyContextEEEEvT_SD_T0_(ptr noundef %8, ptr noundef %9)
   br label %.noexc3.i
 
-.noexc3.i:                                        ; preds = %20, %.loopexit.i.i.i
+.noexc3.i:                                        ; preds = %19, %.loopexit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %21
+  br label %20
 
-21:                                               ; preds = %.noexc3.i, %12
+20:                                               ; preds = %.noexc3.i, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %22
+  br label %21
 
-22:                                               ; preds = %4, %21
+21:                                               ; preds = %4, %20
   ret void
 }
 

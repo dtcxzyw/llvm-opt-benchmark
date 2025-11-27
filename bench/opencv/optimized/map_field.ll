@@ -4173,7 +4173,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapVa
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
-  br i1 %8, label %9, label %30
+  br i1 %8, label %9, label %29
 
 9:                                                ; preds = %2
   %10 = ptrtoint ptr %7 to i64
@@ -4208,62 +4208,62 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapVa
   store ptr %28, ptr %27, align 8, !tbaa !121
   store i64 %10, ptr %4, align 8, !tbaa !47
   store i64 %11, ptr %6, align 8, !tbaa !47
-  br label %52
+  br label %51
 
-30:                                               ; preds = %2
+29:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %0)
-  %31 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
-          to label %32 unwind label %50
+  %30 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+          to label %32 unwind label %49
 
-32:                                               ; preds = %30
-  %33 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %34 unwind label %50
+31:                                               ; preds = %29
+  %32 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %34 unwind label %49
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %36 = load ptr, ptr %35, align 8, !tbaa !59
-  %37 = icmp ne ptr %36, null
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %39 = load i64, ptr %38, align 8
-  %.not.i.i = icmp eq i64 %39, 1
-  %or.cond.i.i = select i1 %37, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev.exit, label %40
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %35 = load ptr, ptr %34, align 8, !tbaa !59
+  %36 = icmp ne ptr %35, null
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %38 = load i64, ptr %37, align 8
+  %.not.i.i = icmp eq i64 %38, 1
+  %or.cond.i.i = select i1 %36, i1 true, i1 %.not.i.i
+  br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev.exit, label %39
 
-40:                                               ; preds = %34
+39:                                               ; preds = %33
   invoke void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %41 unwind label %47
+          to label %41 unwind label %46
 
-41:                                               ; preds = %40
-  %42 = load i64, ptr %35, align 8, !tbaa !47
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %44, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev.exit
+40:                                               ; preds = %39
+  %41 = load i64, ptr %34, align 8, !tbaa !47
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %43, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev.exit
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %46 = load ptr, ptr %45, align 8, !tbaa !58
-  call void @_ZdlPv(ptr noundef %46) #29
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %45 = load ptr, ptr %44, align 8, !tbaa !58
+  call void @_ZdlPv(ptr noundef %45) #29
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev.exit
 
-47:                                               ; preds = %40
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %39
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #28
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #28
   unreachable
 
-_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev.exit: ; preds = %34, %41, %44
+_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev.exit: ; preds = %33, %40, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %52
+  br label %51
 
-50:                                               ; preds = %32, %30
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %31, %29
+  %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %51
+  resume { ptr, i32 } %50
 
-52:                                               ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev.exit, %9
+51:                                               ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEED2Ev.exit, %9
   ret void
 }
 

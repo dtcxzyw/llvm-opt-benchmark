@@ -534,7 +534,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal20generic_product_implINS_
   %17 = icmp slt i64 %16, 20
   %18 = icmp sgt i64 %10, 0
   %or.cond = and i1 %18, %17
-  br i1 %or.cond, label %19, label %31
+  br i1 %or.cond, label %19, label %30
 
 19:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -572,51 +572,51 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal20generic_product_implINS_
   %.not.i.i.i.i = icmp eq i64 %12, %.sroa.4.0.copyload.i.i
   %.not8.i.i.i.i = icmp eq i64 %15, %.sroa.4.0.copyload.i
   %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %.not8.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i, label %_ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIS5_EENS_10DenseShapeES8_Li3EE12eval_dynamicINS3_IfLin1ELin1ELi0ELi12ELi12EEENS0_9assign_opIffEEEEvRT_RKS5_RKS7_RKT0_.exit, label %26
+  br i1 %or.cond.i.i.i.i, label %_ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIS5_EENS_10DenseShapeES8_Li3EE12eval_dynamicINS3_IfLin1ELin1ELi0ELi12ELi12EEENS0_9assign_opIffEEEEvRT_RKS5_RKS7_RKT0_.exit, label %25
 
-26:                                               ; preds = %19
+25:                                               ; preds = %19
   store i64 %.sroa.4.0.copyload.i.i, ptr %11, align 16, !tbaa !45
   store i64 %.sroa.4.0.copyload.i, ptr %14, align 8, !tbaa !48
   br label %_ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIS5_EENS_10DenseShapeES8_Li3EE12eval_dynamicINS3_IfLin1ELin1ELi0ELi12ELi12EEENS0_9assign_opIffEEEEvRT_RKS5_RKS7_RKT0_.exit
 
-_ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIS5_EENS_10DenseShapeES8_Li3EE12eval_dynamicINS3_IfLin1ELin1ELi0ELi12ELi12EEENS0_9assign_opIffEEEEvRT_RKS5_RKS7_RKT0_.exit: ; preds = %19, %26
+_ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIS5_EENS_10DenseShapeES8_Li3EE12eval_dynamicINS3_IfLin1ELin1ELi0ELi12ELi12EEENS0_9assign_opIffEEEEvRT_RKS5_RKS7_RKT0_.exit: ; preds = %19, %25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !49
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sroa.4.0.copyload.i.i, ptr %27, align 8, !tbaa !51
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.sroa.4.0.copyload.i.i, ptr %26, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %5, ptr %6, align 8, !tbaa !58
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %4, ptr %28, align 8, !tbaa !82
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %7, ptr %29, align 8, !tbaa !29
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %0, ptr %30, align 8, !tbaa !84
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %4, ptr %27, align 8, !tbaa !82
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %7, ptr %28, align 8, !tbaa !29
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %0, ptr %29, align 8, !tbaa !84
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restricted_packet_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEEENS3_INS_7ProductINS_5BlockINS4_IfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIKSA_EELi1EEEEENS0_9assign_opIffEEEELi4ELi0EE3runERSI_(ptr noundef nonnull align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %34
+  br label %33
 
-31:                                               ; preds = %3
-  %32 = mul nsw i64 %15, %12
-  %33 = icmp slt i64 %32, 1
-  br i1 %33, label %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE11setConstantERKf.exit.loopexit.i
+30:                                               ; preds = %3
+  %31 = mul nsw i64 %15, %12
+  %32 = icmp slt i64 %31, 1
+  br i1 %32, label %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE11setConstantERKf.exit.loopexit.i
 
-_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE11setConstantERKf.exit.loopexit.i: ; preds = %31
-  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %32, 2
+_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE11setConstantERKf.exit.loopexit.i: ; preds = %30
+  %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %31, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 16 dereferenceable(1) %0, i8 0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, i1 false), !tbaa !31
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit
 
-_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit: ; preds = %31, %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE11setConstantERKf.exit.loopexit.i
+_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit: ; preds = %30, %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE11setConstantERKf.exit.loopexit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 1.000000e+00, ptr %8, align 4, !tbaa !31
   call void @_ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIS5_EENS_10DenseShapeES8_Li8EE13scaleAndAddToINS3_IfLin1ELin1ELi0ELi12ELi12EEEEEvRT_RKS5_RKS7_RKf(ptr noundef nonnull align 16 dereferenceable(592) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 4 dereferenceable(4) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %34
+  br label %33
 
-34:                                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit, %_ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIS5_EENS_10DenseShapeES8_Li3EE12eval_dynamicINS3_IfLin1ELin1ELi0ELi12ELi12EEENS0_9assign_opIffEEEEvRT_RKS5_RKS7_RKT0_.exit
+33:                                               ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIfLin1ELin1ELi0ELi12ELi12EEEE7setZeroEv.exit, %_ZN5Eigen8internal20generic_product_implINS_5BlockINS_6MatrixIfLi12ELi3ELi0ELi12ELi3EEELin1ELin1ELb0EEENS_9TransposeIS5_EENS_10DenseShapeES8_Li3EE12eval_dynamicINS3_IfLin1ELin1ELi0ELi12ELi12EEENS0_9assign_opIffEEEEvRT_RKS5_RKS7_RKT0_.exit
   ret void
 }
 

@@ -15241,15 +15241,15 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_5BlockIKNS
   %26 = load i64, ptr %25, align 8
   %.not8.i.i = icmp eq i64 %26, %.sroa.8.56.copyload
   %or.cond.i.i = select i1 %.not.i.i, i1 %.not8.i.i, i1 false
-  br i1 %or.cond.i.i, label %_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_5BlockIKS3_Lin1ELin1ELb0EEENS5_IS3_Lin1ELin1ELb0EEELi1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_.exit, label %27
+  br i1 %or.cond.i.i, label %_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_5BlockIKS3_Lin1ELin1ELb0EEENS5_IS3_Lin1ELin1ELb0EEELi1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_.exit, label %26
 
-27:                                               ; preds = %5
-  %28 = icmp eq i64 %.sroa.4.0.copyload, 0
-  %29 = icmp eq i64 %.sroa.8.56.copyload, 0
-  %or.cond.i.i.i.i = or i1 %28, %29
+26:                                               ; preds = %5
+  %27 = icmp eq i64 %.sroa.4.0.copyload, 0
+  %28 = icmp eq i64 %.sroa.8.56.copyload, 0
+  %or.cond.i.i.i.i = or i1 %27, %28
   br i1 %or.cond.i.i.i.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i, label %30
 
-30:                                               ; preds = %27
+.noexc.i:                                         ; preds = %27
   %31 = sdiv i64 9223372036854775807, %.sroa.8.56.copyload
   %32 = icmp sgt i64 %.sroa.4.0.copyload, %31
   br i1 %32, label %.noexc.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i
@@ -15260,27 +15260,27 @@ define linkonce_odr void @_ZN5Eigen8internal20generic_product_implINS_5BlockIKNS
   tail call void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #37
   unreachable
 
-_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i: ; preds = %30, %27
-  %34 = mul nsw i64 %.sroa.8.56.copyload, %.sroa.4.0.copyload
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %34, i64 noundef %.sroa.4.0.copyload, i64 noundef %.sroa.8.56.copyload)
+_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i: ; preds = %30, %26
+  %33 = mul nsw i64 %.sroa.8.56.copyload, %.sroa.4.0.copyload
+  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %33, i64 noundef %.sroa.4.0.copyload, i64 noundef %.sroa.8.56.copyload)
   %.pre.i = load i64, ptr %23, align 8, !tbaa !376
   br label %_ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_5BlockIKS3_Lin1ELin1ELb0EEENS5_IS3_Lin1ELin1ELb0EEELi1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_.exit
 
 _ZN5Eigen8internal42call_restricted_packet_assignment_no_aliasINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_7ProductINS_5BlockIKS3_Lin1ELin1ELb0EEENS5_IS3_Lin1ELin1ELb0EEELi1EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_.exit: ; preds = %5, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i
-  %35 = phi i64 [ %.pre.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i ], [ %.sroa.4.0.copyload, %5 ]
+  %34 = phi i64 [ %.pre.i, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i ], [ %.sroa.4.0.copyload, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %36 = load ptr, ptr %0, align 8, !tbaa !379
-  store ptr %36, ptr %7, align 8, !tbaa !549
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %35, ptr %37, align 8, !tbaa !551
+  %35 = load ptr, ptr %0, align 8, !tbaa !379
+  store ptr %35, ptr %7, align 8, !tbaa !549
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %34, ptr %36, align 8, !tbaa !551
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %7, ptr %8, align 8, !tbaa !552
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %6, ptr %38, align 8, !tbaa !824
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %3, ptr %39, align 8, !tbaa !556
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %0, ptr %40, align 8, !tbaa !383
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %6, ptr %37, align 8, !tbaa !824
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %3, ptr %38, align 8, !tbaa !556
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %0, ptr %39, align 8, !tbaa !383
   call void @_ZN5Eigen8internal21dense_assignment_loopINS0_41restricted_packet_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEENS3_INS_7ProductINS_5BlockIKS5_Lin1ELin1ELb0EEENS8_IS5_Lin1ELin1ELb0EEELi1EEEEENS0_9assign_opIddEEEELi4ELi0EE3runERSG_(ptr noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -132830,8 +132830,8 @@ define void @"_ZN9ockam_api2ui8terminal4term136_$LT$impl$u20$ockam_api..ui..term
   store i64 0, ptr %5, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i8 0, ptr %.sroa.410.0..sroa_idx, align 8
-  %.sroa.511.sroa.3.0..sroa.511.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.511.sroa.3.0..sroa.511.0..sroa_idx.sroa_idx, align 8
+  %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 120
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx, align 8
   %.sroa.511.sroa.4.0..sroa.511.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.511.sroa.4.0..sroa.511.0..sroa_idx.sroa_idx, i8 0, i64 24, i1 false)
   call void @_ZN7console4term4Term10with_inner17hff86de39b4044ed6E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(152) %3)
@@ -132884,8 +132884,8 @@ define void @"_ZN9ockam_api2ui8terminal4term136_$LT$impl$u20$ockam_api..ui..term
   store i64 0, ptr %5, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i8 0, ptr %.sroa.410.0..sroa_idx, align 8
-  %.sroa.511.sroa.3.0..sroa.511.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.511.sroa.3.0..sroa.511.0..sroa_idx.sroa_idx, align 8
+  %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 120
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx, align 8
   %.sroa.511.sroa.4.0..sroa.511.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.511.sroa.4.0..sroa.511.0..sroa_idx.sroa_idx, i8 0, i64 24, i1 false)
   call void @_ZN7console4term4Term10with_inner17hff86de39b4044ed6E(ptr noalias noundef nonnull sret({ ptr, i8, i8, [6 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(152) %3)

@@ -24074,13 +24074,13 @@ cdce.end.i.i:                                     ; preds = %cdce.call, %19
   %28 = fsub double 0x3FF921FB54442D18, %24
   %29 = tail call double @llvm.fabs.f64(double %28)
   %30 = fcmp oeq double %29, 0x7FF0000000000000
-  br i1 %30, label %cdce.call12, label %cdce.end10.i.i, !prof !481
+  br i1 %30, label %cdce.call13, label %cdce.end10.i.i, !prof !481
 
-cdce.call12:                                      ; preds = %cdce.end.i.i
+cdce.call13:                                      ; preds = %cdce.end.i.i
   %31 = tail call double @sin(double noundef %28) #66, !tbaa !3, !noalias !591
   br label %cdce.end10.i.i
 
-cdce.end10.i.i:                                   ; preds = %cdce.call12, %cdce.end.i.i
+cdce.end10.i.i:                                   ; preds = %cdce.call13, %cdce.end.i.i
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %ma_bpf_get_heap_layout.exit.thread, label %33
 

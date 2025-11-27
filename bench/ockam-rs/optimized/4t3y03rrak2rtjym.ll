@@ -1141,7 +1141,7 @@ define hidden void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17hc5c
   %11 = load ptr, ptr %1, align 8, !nonnull !10, !align !149
   br label %12
 
-12:                                               ; preds = %.lr.ph, %48
+12:                                               ; preds = %.lr.ph, %47
   %.sroa.0.043 = phi ptr [ %4, %.lr.ph ], [ %13, %48 ]
   %.sroa.8.042 = phi i64 [ 0, %.lr.ph ], [ %14, %48 ]
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.043, i64 40
@@ -1149,7 +1149,7 @@ define hidden void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17hc5c
   %exitcond.not = icmp eq i64 %.sroa.8.042, %10
   br i1 %exitcond.not, label %38, label %15, !prof !235
 
-._crit_edge:                                      ; preds = %48, %2, %39
+._crit_edge:                                      ; preds = %47, %2, %39
   %.sink = phi i8 [ 0, %39 ], [ 2, %2 ], [ 2, %48 ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.sink, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1167,11 +1167,11 @@ define hidden void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17hc5c
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.043, i64 16
   %22 = atomicrmw xchg ptr %21, i64 274877906944 acquire, align 8, !noalias !236
   %.not.i.i = icmp eq i64 %22, 274877906944
-  br i1 %.not.i.i, label %48, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.thread31.i"
+  br i1 %.not.i.i, label %47, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.thread31.i"
 
 "_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.i": ; preds = %15
-  %.not42.not.i = icmp eq i64 %.val.i, 274877906944
-  br i1 %.not42.not.i, label %48, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.thread31.i"
+  %.not39.not.i = icmp eq i64 %.val.i, 274877906944
+  br i1 %.not39.not.i, label %47, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.thread31.i"
 
 "_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.thread31.i": ; preds = %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.i", %20
   %.0.i34.i = phi i64 [ %.val.i, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.i" ], [ %22, %20 ]
@@ -1204,7 +1204,7 @@ define hidden void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17hc5c
   %34 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h884bb096e39ee00aE.llvm.1091148472540163290(ptr noundef nonnull %33, i8 noundef 2), !noalias !243
   %35 = and i64 %34, 2251799813685244
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %39, label %48
+  br i1 %36, label %39, label %47
 
 37:                                               ; preds = %.thread.i
   tail call void @_ZN4core9panicking18panic_bounds_check17hb0ff58c889dba9eeE(i64 noundef %.0.i34.i, i64 noundef %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd112a14df90db5fef21b728579ed996.3) #44, !noalias !239
@@ -1218,7 +1218,7 @@ define hidden void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17hc5c
   %40 = getelementptr inbounds nuw i64, ptr %11, i64 %.sroa.8.042
   %41 = add i64 %.pn.i, %.0.i34.i
   %42 = ptrtoint ptr %32 to i64
-  %43 = and i64 %34, -2251799813685248
+  %43 = and i64 %34, -2251799813685247
   %44 = and i64 %41, 2251799813685247
   %45 = or disjoint i64 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 88
@@ -1231,9 +1231,9 @@ define hidden void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$9init_with17hc5c
   store i64 %34, ptr %.sroa.3.0..sroa_idx, align 8
   br label %._crit_edge
 
-48:                                               ; preds = %20, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.i", %31
-  %49 = icmp eq ptr %13, %7
-  br i1 %49, label %._crit_edge, label %12
+47:                                               ; preds = %20, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17h78f4d061c5fecd30E.exit.i", %31
+  %48 = icmp eq ptr %13, %7
+  br i1 %48, label %._crit_edge, label %12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

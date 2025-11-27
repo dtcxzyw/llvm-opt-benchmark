@@ -887,8 +887,8 @@ _ZN4llvm17make_filter_rangeINS_14iterator_rangeINS_21ConstMIBundleOperandsEEEPFb
   store ptr %48, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !73
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @_ZZN4llvm19phys_regs_and_masksERKNS_12MachineInstrEENUlRKNS_14MachineOperandEE_8__invokeES5_, ptr %.sroa.11.0..sroa_idx.i, align 8, !alias.scope !73
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %.sroa.026.0.i, ptr %120, align 8, !alias.scope !73
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %.sroa.026.0.i, ptr %119, align 8, !alias.scope !73
   %.sroa.472.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %13, ptr %.sroa.472.0..sroa_idx.i, align 8, !alias.scope !73
   %.sroa.573.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
