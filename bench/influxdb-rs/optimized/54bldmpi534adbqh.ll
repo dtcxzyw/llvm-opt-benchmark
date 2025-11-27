@@ -16199,7 +16199,7 @@ define internal void @"_ZN88_$LT$influxdb3_write..persister..PersisterImpl$u20$a
   %.sroa.066 = alloca { { { i32, [7 x i32] }, { { { { { ptr, i64 }, i64 } } }, i64, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { { { i32, i32 }, i32 }, {} }, [1 x i32] }, { i64, i64 } }, [144 x i8] }, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 57
   %10 = load i8, ptr %9, align 1, !range !202, !noundef !23
-  switch i8 %10, label %default.unreachable107 [
+  switch i8 %10, label %default.unreachable108 [
     i8 0, label %16
     i8 1, label %33
     i8 2, label %34
@@ -16207,15 +16207,15 @@ define internal void @"_ZN88_$LT$influxdb3_write..persister..PersisterImpl$u20$a
     i8 4, label %12
   ]
 
-default.unreachable107:                           ; preds = %3
+default.unreachable108:                           ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.066)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !2775, !noalias !2780
-  %.phi.trans.insert101 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.pre102 = load ptr, ptr %.phi.trans.insert101, align 8, !alias.scope !2775, !noalias !2780
+  %.phi.trans.insert102 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.pre103 = load ptr, ptr %.phi.trans.insert102, align 8, !alias.scope !2775, !noalias !2780
   br label %35
 
 12:                                               ; preds = %3
@@ -16227,7 +16227,7 @@ default.unreachable107:                           ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %14 = load i8, ptr %13, align 8, !range !214, !noundef !23
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %99, label %98
+  br i1 %15, label %96, label %95
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -16260,12 +16260,12 @@ default.unreachable107:                           ; preds = %3
   invoke void @"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #38
           to label %29 unwind label %70
 
-29:                                               ; preds = %.body, %96
-  %.pn40 = phi { ptr, i32 } [ %97, %96 ], [ %.pn38, %.body ]
+29:                                               ; preds = %.body, %93
+  %.pn40 = phi { ptr, i32 } [ %94, %93 ], [ %.pn38, %.body ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %31 = load i8, ptr %30, align 8, !range !214, !noundef !23
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %111, label %108
+  br i1 %32, label %108, label %105
 
 33:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.45ca28eacd16980a982db8040ceab1d4.378) #37
@@ -16276,7 +16276,7 @@ default.unreachable107:                           ; preds = %3
   unreachable
 
 35:                                               ; preds = %11, %24
-  %36 = phi ptr [ %.pre102, %11 ], [ %26, %24 ]
+  %36 = phi ptr [ %.pre103, %11 ], [ %26, %24 ]
   %37 = phi ptr [ %.pre, %11 ], [ %25, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -16329,8 +16329,8 @@ default.unreachable107:                           ; preds = %3
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h31b4e28eaae81b72E.llvm.12494526139044184965"(ptr noalias noundef nonnull align 8 dereferenceable(16) %38)
           to label %"_ZN4core3ptr226drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$object_store..GetResult$C$object_store..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h2e58eb7601e03523E.exit" unwind label %55
 
-common.ret:                                       ; preds = %98, %80, %54
-  %.sink = phi i8 [ 1, %98 ], [ 4, %80 ], [ 3, %54 ]
+common.ret:                                       ; preds = %95, %80, %54
+  %.sink = phi i8 [ 1, %95 ], [ 4, %80 ], [ 3, %54 ]
   store i8 %.sink, ptr %9, align 1
   ret void
 
@@ -16372,23 +16372,24 @@ common.ret:                                       ; preds = %98, %80, %54
   %.sroa.072.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sroa.072.sroa.3.0.copyload = load i64, ptr %.sroa.072.sroa.3.0..sroa_idx, align 8
   %.sroa.072.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %.sroa.072.sroa.4.0.copyload = load ptr, ptr %.sroa.072.sroa.4.0..sroa_idx, align 8
+  %.sroa.072.sroa.4.0.copyload = load i64, ptr %.sroa.072.sroa.4.0..sroa_idx, align 8
   %.sroa.072.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.sroa.072.sroa.5.0.copyload = load i64, ptr %.sroa.072.sroa.5.0..sroa_idx, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.3, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.880, ptr noundef nonnull align 4 dereferenceable(40) %61, i64 40, i1 false)
   br label %62
 
-62:                                               ; preds = %94, %60
-  %.sroa.7.sroa.0.1 = phi i64 [ %.sroa.072.sroa.2.0.copyload, %60 ], [ %.sroa.374.sroa.0.0.copyload, %94 ]
-  %.sroa.478.1 = phi i64 [ %.sroa.072.sroa.0.0.copyload, %60 ], [ %77, %94 ]
-  %.sroa.7.sroa.4.sroa.0.1 = phi i64 [ %.sroa.072.sroa.3.0.copyload, %60 ], [ %.sroa.374.sroa.3.0.copyload, %94 ]
-  %.sroa.7.sroa.4.sroa.4.sroa.0.1 = phi ptr [ %.sroa.072.sroa.4.0.copyload, %60 ], [ %95, %94 ]
-  %.sroa.7.sroa.4.sroa.4.sroa.4.1 = phi i64 [ %.sroa.072.sroa.5.0.copyload, %60 ], [ %.sroa.374.sroa.7.0.copyload, %94 ]
+62:                                               ; preds = %83, %60
+  %.sroa.5.sink = phi ptr [ %61, %60 ], [ %.sroa.5, %83 ]
+  %.sroa.7.sroa.0.1 = phi i64 [ %.sroa.072.sroa.2.0.copyload, %60 ], [ %.sroa.374.sroa.0.0.copyload, %83 ]
+  %.sroa.478.1 = phi i64 [ %.sroa.072.sroa.0.0.copyload, %60 ], [ %77, %83 ]
+  %.sroa.7.sroa.4.sroa.0.1 = phi i64 [ %.sroa.072.sroa.3.0.copyload, %60 ], [ %.sroa.374.sroa.3.0.copyload, %83 ]
+  %.sroa.7.sroa.4.sroa.4.sroa.0.1 = phi i64 [ %.sroa.072.sroa.4.0.copyload, %60 ], [ %.sroa.374.sroa.5.0.copyload, %83 ]
+  %.sroa.7.sroa.4.sroa.4.sroa.4.1 = phi i64 [ %.sroa.072.sroa.5.0.copyload, %60 ], [ %.sroa.374.sroa.7.0.copyload, %83 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.880, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.5.sink, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.066)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2783
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6692686a2b5e9f59E.llvm.12494526139044184965"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-          to label %.noexc50 unwind label %96
+          to label %.noexc50 unwind label %93
 
 .noexc50:                                         ; preds = %62
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -16402,9 +16403,9 @@ common.ret:                                       ; preds = %98, %80, %54
   %68 = load i64, ptr %67, align 8, !noalias !2783, !noundef !23
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.12494526139044184965"(ptr noalias noundef nonnull readonly align 1 %69, ptr noundef nonnull %66, i64 noundef %64, i64 noundef %68)
-          to label %.noexc51 unwind label %96
+          to label %.noexc51 unwind label %93
 
-70:                                               ; preds = %111, %74, %42, %.body
+70:                                               ; preds = %108, %74, %42, %.body
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #39
@@ -16455,49 +16456,43 @@ common.ret:                                       ; preds = %98, %80, %54
 
 83:                                               ; preds = %79
   %84 = icmp eq i64 %77, 16
-  br i1 %84, label %85, label %94
+  br i1 %84, label %85, label %62
 
 85:                                               ; preds = %83
-  %86 = inttoptr i64 %.sroa.374.sroa.7.0.copyload to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.066)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2811
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6692686a2b5e9f59E.llvm.12494526139044184965"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-          to label %.noexc53 unwind label %96
+          to label %.noexc53 unwind label %93
 
 .noexc53:                                         ; preds = %85
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %88 = load i64, ptr %87, align 8, !range !95, !noalias !2811, !noundef !23
-  %.not.i.i.i.i.i.i52 = icmp eq i64 %88, 0
-  br i1 %.not.i.i.i.i.i.i52, label %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55", label %89
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %87 = load i64, ptr %86, align 8, !range !95, !noalias !2811, !noundef !23
+  %.not.i.i.i.i.i.i52 = icmp eq i64 %87, 0
+  br i1 %.not.i.i.i.i.i.i52, label %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55", label %88
 
-89:                                               ; preds = %.noexc53
-  %90 = load ptr, ptr %5, align 8, !noalias !2811, !nonnull !23, !noundef !23
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %92 = load i64, ptr %91, align 8, !noalias !2811, !noundef !23
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.12494526139044184965"(ptr noalias noundef nonnull readonly align 1 %93, ptr noundef nonnull %90, i64 noundef %88, i64 noundef %92)
-          to label %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55" unwind label %96
+88:                                               ; preds = %.noexc53
+  %89 = load ptr, ptr %5, align 8, !noalias !2811, !nonnull !23, !noundef !23
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %91 = load i64, ptr %90, align 8, !noalias !2811, !noundef !23
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.12494526139044184965"(ptr noalias noundef nonnull readonly align 1 %92, ptr noundef nonnull %89, i64 noundef %87, i64 noundef %91)
+          to label %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55" unwind label %93
 
-"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55": ; preds = %89, %.noexc53
+"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55": ; preds = %88, %.noexc53
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2811
-  br label %98
+  br label %95
 
-94:                                               ; preds = %83
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.880, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, i64 40, i1 false)
-  %95 = inttoptr i64 %.sroa.374.sroa.5.0.copyload to ptr
-  br label %62
-
-96:                                               ; preds = %89, %85, %65, %62
-  %97 = landingpad { ptr, i32 }
+93:                                               ; preds = %88, %85, %65, %62
+  %94 = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-98:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60", %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55", %.noexc51
+95:                                               ; preds = %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60", %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55", %.noexc51
   %.sroa.7.sroa.0.0 = phi i64 [ %.sroa.7.sroa.0.1, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60" ], [ %.sroa.7.sroa.0.1, %.noexc51 ], [ %.sroa.374.sroa.3.0.copyload, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55" ]
   %.sroa.478.0 = phi i64 [ %.sroa.478.1, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60" ], [ %.sroa.478.1, %.noexc51 ], [ %.sroa.374.sroa.0.0.copyload, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55" ]
   %.sroa.077.0 = phi i64 [ 23, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60" ], [ 23, %.noexc51 ], [ 27, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55" ]
   %.sroa.7.sroa.4.sroa.0.0 = phi i64 [ %.sroa.7.sroa.4.sroa.0.1, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60" ], [ %.sroa.7.sroa.4.sroa.0.1, %.noexc51 ], [ %.sroa.374.sroa.5.0.copyload, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55" ]
-  %.sroa.7.sroa.4.sroa.4.sroa.0.0 = phi ptr [ %.sroa.7.sroa.4.sroa.4.sroa.0.1, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60" ], [ %.sroa.7.sroa.4.sroa.4.sroa.0.1, %.noexc51 ], [ %86, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55" ]
+  %.sroa.7.sroa.4.sroa.4.sroa.0.0 = phi i64 [ %.sroa.7.sroa.4.sroa.4.sroa.0.1, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60" ], [ %.sroa.7.sroa.4.sroa.4.sroa.0.1, %.noexc51 ], [ %.sroa.374.sroa.7.0.copyload, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55" ]
   %.sroa.7.sroa.4.sroa.4.sroa.4.0 = phi i64 [ %.sroa.7.sroa.4.sroa.4.sroa.4.1, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60" ], [ %.sroa.7.sroa.4.sroa.4.sroa.4.1, %.noexc51 ], [ undef, %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit55" ]
   store i64 %.sroa.077.0, ptr %0, align 8
   %.sroa.478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16507,51 +16502,51 @@ common.ret:                                       ; preds = %98, %80, %54
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.7.sroa.4.sroa.0.0, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.7.sroa.4.sroa.4.0..sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sroa.7.sroa.4.sroa.4.sroa.0.0, ptr %.sroa.7.sroa.4.sroa.4.0..sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.7.sroa.4.sroa.4.sroa.0.0, ptr %.sroa.7.sroa.4.sroa.4.0..sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.7.sroa.4.sroa.4.sroa.4.0..sroa.7.sroa.4.sroa.4.0..sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.7.sroa.4.sroa.4.sroa.4.0, ptr %.sroa.7.sroa.4.sroa.4.sroa.4.0..sroa.7.sroa.4.sroa.4.0..sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.880.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.880.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.880, i64 40, i1 false)
   br label %common.ret
 
-99:                                               ; preds = %.noexc51
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 24
+96:                                               ; preds = %.noexc51
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2824
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6692686a2b5e9f59E.llvm.12494526139044184965"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %100)
-          to label %.noexc58 unwind label %109
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6692686a2b5e9f59E.llvm.12494526139044184965"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %97)
+          to label %.noexc58 unwind label %106
 
-.noexc58:                                         ; preds = %99
-  %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %102 = load i64, ptr %101, align 8, !range !95, !noalias !2824, !noundef !23
-  %.not.i.i.i.i.i.i57 = icmp eq i64 %102, 0
-  br i1 %.not.i.i.i.i.i.i57, label %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60", label %103
+.noexc58:                                         ; preds = %96
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %99 = load i64, ptr %98, align 8, !range !95, !noalias !2824, !noundef !23
+  %.not.i.i.i.i.i.i57 = icmp eq i64 %99, 0
+  br i1 %.not.i.i.i.i.i.i57, label %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60", label %100
 
-103:                                              ; preds = %.noexc58
-  %104 = load ptr, ptr %4, align 8, !noalias !2824, !nonnull !23, !noundef !23
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %106 = load i64, ptr %105, align 8, !noalias !2824, !noundef !23
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.12494526139044184965"(ptr noalias noundef nonnull readonly align 1 %107, ptr noundef nonnull %104, i64 noundef %102, i64 noundef %106)
-          to label %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60" unwind label %109
+100:                                              ; preds = %.noexc58
+  %101 = load ptr, ptr %4, align 8, !noalias !2824, !nonnull !23, !noundef !23
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %103 = load i64, ptr %102, align 8, !noalias !2824, !noundef !23
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.12494526139044184965"(ptr noalias noundef nonnull readonly align 1 %104, ptr noundef nonnull %101, i64 noundef %99, i64 noundef %103)
+          to label %"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60" unwind label %106
 
-"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60": ; preds = %103, %.noexc58
+"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E.exit60": ; preds = %100, %.noexc58
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2824
-  br label %98
+  br label %95
 
-108:                                              ; preds = %111, %109, %29
-  %.pn42 = phi { ptr, i32 } [ %110, %109 ], [ %.pn40, %111 ], [ %.pn40, %29 ]
+105:                                              ; preds = %108, %106, %29
+  %.pn42 = phi { ptr, i32 } [ %107, %106 ], [ %.pn40, %108 ], [ %.pn40, %29 ]
   store i8 2, ptr %9, align 1
   resume { ptr, i32 } %.pn42
 
-109:                                              ; preds = %103, %99
-  %110 = landingpad { ptr, i32 }
+106:                                              ; preds = %100, %96
+  %107 = landingpad { ptr, i32 }
           cleanup
-  br label %108
+  br label %105
 
-111:                                              ; preds = %29
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %112) #38
-          to label %108 unwind label %70
+108:                                              ; preds = %29
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$influxdb3_write..paths..ParquetFilePath$GT$17h49f51891d3b7b679E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %109) #38
+          to label %105 unwind label %70
 }
 
 ; Function Attrs: nonlazybind uwtable

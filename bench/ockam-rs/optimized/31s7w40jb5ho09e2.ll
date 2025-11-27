@@ -722,23 +722,24 @@ define hidden void @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$6create28_$u7b$$u7
   %6 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h884bb096e39ee00aE.llvm.1091148472540163290(ptr noundef nonnull %5, i8 noundef 2), !noalias !111
   %7 = and i64 %6, 2251799813685244
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %13
+  br i1 %8, label %9, label %14
 
 9:                                                ; preds = %4
-  %10 = and i64 %6, -2251799813685248
-  %11 = and i64 %2, 2251799813685247
-  %12 = or disjoint i64 %10, %11
-  store i64 %12, ptr %0, align 8
+  %10 = ptrtoint ptr %3 to i64
+  %11 = and i64 %6, -2251799813685248
+  %12 = and i64 %2, 2251799813685247
+  %13 = or disjoint i64 %11, %12
+  store i64 %13, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %10, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  br label %13
+  br label %14
 
-13:                                               ; preds = %4, %9
+14:                                               ; preds = %4, %9
   %.sink = phi i8 [ 0, %9 ], [ 2, %4 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sink, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 %.sink, ptr %15, align 8
   ret void
 }
 
@@ -3811,20 +3812,21 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   br i1 %8, label %9, label %"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$6create28_$u7b$$u7b$closure$u7d$$u7d$17h7c698bf91af177ffE.llvm.16910215836284360165.exit"
 
 9:                                                ; preds = %4
-  %10 = and i64 %6, -2251799813685248
-  %11 = and i64 %2, 2251799813685247
-  %12 = or disjoint i64 %10, %11
-  store i64 %12, ptr %0, align 8, !alias.scope !662
+  %10 = ptrtoint ptr %3 to i64
+  %11 = and i64 %6, -2251799813685248
+  %12 = and i64 %2, 2251799813685247
+  %13 = or disjoint i64 %11, %12
+  store i64 %13, ptr %0, align 8, !alias.scope !662
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !662
+  store i64 %10, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !662
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !662
   br label %"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$6create28_$u7b$$u7b$closure$u7d$$u7d$17h7c698bf91af177ffE.llvm.16910215836284360165.exit"
 
 "_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$6create28_$u7b$$u7b$closure$u7d$$u7d$17h7c698bf91af177ffE.llvm.16910215836284360165.exit": ; preds = %4, %9
   %.sink.i = phi i8 [ 0, %9 ], [ 2, %4 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sink.i, ptr %13, align 8, !alias.scope !662
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 %.sink.i, ptr %14, align 8, !alias.scope !662
   ret void
 }
 

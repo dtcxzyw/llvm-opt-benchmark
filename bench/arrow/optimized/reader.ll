@@ -74589,7 +74589,7 @@ _ZN5arrow6StatusC2ERKS0_.exit67:                  ; preds = %205
 225:                                              ; preds = %203
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %226 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %226, align 8, !tbaa !2546
+  %.sroa.0.0.copyload = load i64, ptr %226, align 8, !tbaa !2546
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !47
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -74685,7 +74685,7 @@ _ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEEC2ERKS3_.exit.i.i.i.i.i.i.i: ; p
   store ptr %263, ptr %262, align 8, !tbaa !79, !noalias !2549
   store ptr null, ptr %6, align 8, !tbaa !91, !noalias !2549
   %264 = getelementptr inbounds nuw i8, ptr %233, i64 32
-  store ptr %.sroa.0.0.copyload, ptr %264, align 8, !tbaa !2546, !noalias !2549
+  store i64 %.sroa.0.0.copyload, ptr %264, align 8, !tbaa !2546, !noalias !2549
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %233, i64 40
   store ptr %.sroa.5.0.copyload, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !47, !noalias !2549
   %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %233, i64 48

@@ -3382,13 +3382,14 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %182, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !665
   %.sroa.04.0.copyload.i.i = load i32, ptr %10, align 4, !noalias !665
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !665
+  %.sroa.499.0.insert.ext = zext i32 %.sroa.04.0.copyload.i.i to i64
+  %.sroa.499.0.insert.shift = shl nuw i64 %.sroa.499.0.insert.ext, 32
+  %.sroa.098.0.insert.insert = or disjoint i64 %.sroa.499.0.insert.shift, 1
   store i64 2, ptr %0, align 8
   %.sroa.596.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.596.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
   %.sroa.697.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 1, ptr %.sroa.697.0..sroa_idx, align 8
-  %.sroa.697.sroa.4.0..sroa.697.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %.sroa.04.0.copyload.i.i, ptr %.sroa.697.sroa.4.0..sroa.697.0..sroa_idx.sroa_idx, align 4
+  store i64 %.sroa.098.0.insert.insert, ptr %.sroa.697.0..sroa_idx, align 8
   br label %.thread338
 
 193:                                              ; preds = %.noexc196
@@ -3429,7 +3430,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %182, %1
   %.sroa.777.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.777.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %.sroa.8.0..sroa_idx, align 8
+  store i64 0, ptr %.sroa.8.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.676)
   br label %.thread338
 
@@ -3444,15 +3445,16 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %182, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !676
   %.sroa.04.0.copyload.i.i239 = load i32, ptr %6, align 4, !noalias !676
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !676
+  %.sroa.458.0.insert.ext = zext i32 %.sroa.04.0.copyload.i.i239 to i64
+  %.sroa.458.0.insert.shift = shl nuw i64 %.sroa.458.0.insert.ext, 32
+  %.sroa.057.0.insert.insert = or disjoint i64 %.sroa.458.0.insert.shift, 1
   store i64 1, ptr %0, align 8
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.454.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 48, i1 false)
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.555.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
   %.sroa.656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 1, ptr %.sroa.656.0..sroa_idx, align 8
-  %.sroa.656.sroa.4.0..sroa.656.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %.sroa.04.0.copyload.i.i239, ptr %.sroa.656.sroa.4.0..sroa.656.0..sroa_idx.sroa_idx, align 4
+  store i64 %.sroa.057.0.insert.insert, ptr %.sroa.656.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread338
 
@@ -10383,9 +10385,9 @@ define void @"_ZN3syn3gen5clone69_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
 
 15:                                               ; preds = %.noexc
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 176) #26
-          to label %.noexc2 unwind label %12
+          to label %.noexc3 unwind label %12
 
-.noexc2:                                          ; preds = %15
+.noexc3:                                          ; preds = %15
   unreachable
 
 "_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc76c3682fc5a0307E.exit.i": ; preds = %.noexc

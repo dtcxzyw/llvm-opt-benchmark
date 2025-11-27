@@ -14999,8 +14999,9 @@ do.end12.i.i:                                     ; preds = %_ZN4node12stringsea
   store i64 %haystack_length, ptr %agg.tmp.sroa.2.0.agg.tmp26.sroa_idx, align 8
   %agg.tmp.sroa.3.0.agg.tmp26.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp26, i64 16
   store i8 %frombool.i, ptr %agg.tmp.sroa.3.0.agg.tmp26.sroa_idx, align 8
+  %0 = ptrtoint ptr %needle to i64
   %pattern_.i.i = getelementptr inbounds nuw i8, ptr %search.i, i64 3032
-  store ptr %needle, ptr %pattern_.i.i, align 8
+  store i64 %0, ptr %pattern_.i.i, align 8
   %agg.tmp2.sroa.4.0.pattern_.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %search.i, i64 3040
   store i64 %needle_length, ptr %agg.tmp2.sroa.4.0.pattern_.i.sroa_idx.i, align 8
   %agg.tmp2.sroa.5.0.pattern_.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %search.i, i64 3048
@@ -15087,8 +15088,9 @@ do.end12.i.i:                                     ; preds = %_ZN4node12stringsea
   store i64 %haystack_length, ptr %agg.tmp.sroa.2.0.agg.tmp26.sroa_idx, align 8
   %agg.tmp.sroa.3.0.agg.tmp26.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp26, i64 16
   store i8 %frombool.i, ptr %agg.tmp.sroa.3.0.agg.tmp26.sroa_idx, align 8
+  %0 = ptrtoint ptr %needle to i64
   %pattern_.i.i = getelementptr inbounds nuw i8, ptr %search.i, i64 3032
-  store ptr %needle, ptr %pattern_.i.i, align 8
+  store i64 %0, ptr %pattern_.i.i, align 8
   %agg.tmp2.sroa.4.0.pattern_.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %search.i, i64 3040
   store i64 %needle_length, ptr %agg.tmp2.sroa.4.0.pattern_.i.sroa_idx.i, align 8
   %agg.tmp2.sroa.5.0.pattern_.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %search.i, i64 3048

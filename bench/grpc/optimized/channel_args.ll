@@ -3061,26 +3061,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %13, 
 define noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channel_argsPPKcmPK8grpc_argm(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.loopexit74, label %.preheader73
+  br i1 %.not, label %.loopexit75, label %.preheader74
 
-.preheader73:                                     ; preds = %5
+.preheader74:                                     ; preds = %5
   %7 = load i64, ptr %0, align 8, !tbaa !51
-  %.not90 = icmp eq i64 %7, 0
-  br i1 %.not90, label %.loopexit74, label %.lr.ph
+  %.not91 = icmp eq i64 %7, 0
+  br i1 %.not91, label %.loopexit75, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader73
+.lr.ph:                                           ; preds = %.preheader74
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %.loopexit74, label %.lr.ph.split
+  br i1 %.not.i, label %.loopexit75, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !53
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.split, %.loopexit72
-  %.04676 = phi i64 [ 0, %.lr.ph.split ], [ %22, %.loopexit72 ]
-  %.14875 = phi i64 [ 0, %.lr.ph.split ], [ %21, %.loopexit72 ]
-  %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %9, i64 %.04676
+.lr.ph.i:                                         ; preds = %.lr.ph.split, %.loopexit73
+  %.04677 = phi i64 [ 0, %.lr.ph.split ], [ %22, %.loopexit73 ]
+  %.14876 = phi i64 [ 0, %.lr.ph.split ], [ %21, %.loopexit73 ]
+  %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %9, i64 %.04677
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   br label %15
@@ -3096,56 +3096,56 @@ define noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channe
   %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %17) #45
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.loopexit72, label %13
+  br i1 %19, label %.loopexit73, label %13
 
 _ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit: ; preds = %13
-  %20 = add i64 %.14875, 1
-  br label %.loopexit72
+  %20 = add i64 %.14876, 1
+  br label %.loopexit73
 
-.loopexit72:                                      ; preds = %15, %_ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit
-  %21 = phi i64 [ %20, %_ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit ], [ %.14875, %15 ]
-  %22 = add nuw i64 %.04676, 1
+.loopexit73:                                      ; preds = %15, %_ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit
+  %21 = phi i64 [ %20, %_ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit ], [ %.14876, %15 ]
+  %22 = add nuw i64 %.04677, 1
   %exitcond.not = icmp eq i64 %22, %7
-  br i1 %exitcond.not, label %.loopexit74, label %.lr.ph.i, !llvm.loop !165
+  br i1 %exitcond.not, label %.loopexit75, label %.lr.ph.i, !llvm.loop !165
 
-.loopexit74:                                      ; preds = %.loopexit72, %.lr.ph, %.preheader73, %5
-  %.047 = phi i64 [ 0, %5 ], [ 0, %.preheader73 ], [ %7, %.lr.ph ], [ %21, %.loopexit72 ]
+.loopexit75:                                      ; preds = %.loopexit73, %.lr.ph, %.preheader74, %5
+  %.047 = phi i64 [ 0, %5 ], [ 0, %.preheader74 ], [ %7, %.lr.ph ], [ %21, %.loopexit73 ]
   %23 = tail call ptr @gpr_malloc(i64 noundef 16)
   %24 = add i64 %.047, %4
   store i64 %24, ptr %23, align 8, !tbaa !51
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %28
 
-26:                                               ; preds = %.loopexit74
+26:                                               ; preds = %.loopexit75
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr null, ptr %27, align 8, !tbaa !53
   br label %.critedge
 
-28:                                               ; preds = %.loopexit74
+28:                                               ; preds = %.loopexit75
   %29 = shl i64 %24, 5
   %30 = tail call ptr @gpr_malloc(i64 noundef %29)
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %30, ptr %31, align 8, !tbaa !53
-  br i1 %.not, label %.loopexit71, label %.preheader
+  br i1 %.not, label %.loopexit72, label %.preheader
 
 .preheader:                                       ; preds = %28
   %32 = load i64, ptr %0, align 8, !tbaa !51
-  %.not91 = icmp eq i64 %32, 0
-  br i1 %.not91, label %.loopexit71, label %.lr.ph82
+  %.not92 = icmp eq i64 %32, 0
+  br i1 %.not92, label %.loopexit72, label %.lr.ph83
 
-.lr.ph82:                                         ; preds = %.preheader
+.lr.ph83:                                         ; preds = %.preheader
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not.i54 = icmp eq i64 %2, 0
   br label %34
 
-34:                                               ; preds = %.lr.ph82, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59
-  %35 = phi i64 [ %32, %.lr.ph82 ], [ %63, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
-  %.04381 = phi i64 [ 0, %.lr.ph82 ], [ %64, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
-  %.180 = phi i64 [ 0, %.lr.ph82 ], [ %.2, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
-  %.sroa.567.079 = phi ptr [ undef, %.lr.ph82 ], [ %.sroa.567.1, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
-  %.sroa.968.078 = phi ptr [ undef, %.lr.ph82 ], [ %.sroa.968.1, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
+34:                                               ; preds = %.lr.ph83, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59
+  %35 = phi i64 [ %32, %.lr.ph83 ], [ %63, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
+  %.04382 = phi i64 [ 0, %.lr.ph83 ], [ %64, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
+  %.181 = phi i64 [ 0, %.lr.ph83 ], [ %.2, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
+  %.sroa.567.080 = phi ptr [ undef, %.lr.ph83 ], [ %.sroa.567.1, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
+  %.sroa.968.079 = phi i64 [ undef, %.lr.ph83 ], [ %.sroa.968.1, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
   %36 = load ptr, ptr %33, align 8, !tbaa !53
-  %37 = getelementptr inbounds nuw %struct.grpc_arg, ptr %36, i64 %.04381
+  %37 = getelementptr inbounds nuw %struct.grpc_arg, ptr %36, i64 %.04382
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !40
   br i1 %.not.i54, label %.loopexit, label %.lr.ph.i55
@@ -3181,7 +3181,7 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit: ; preds = %13
 50:                                               ; preds = %.loopexit
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %52 = load i32, ptr %51, align 8, !tbaa !41, !noalias !166
-  %53 = ptrtoint ptr %.sroa.567.079 to i64
+  %53 = ptrtoint ptr %.sroa.567.080 to i64
   %.sroa.567.0.insert.ext = zext i32 %52 to i64
   %.sroa.567.0.insert.mask = and i64 %53, -4294967296
   %.sroa.567.0.insert.insert = or disjoint i64 %.sroa.567.0.insert.mask, %.sroa.567.0.insert.ext
@@ -3191,54 +3191,55 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit: ; preds = %13
 55:                                               ; preds = %.loopexit
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %.sroa.968.16..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %.sroa.968.16.copyload = load ptr, ptr %.sroa.968.16..sroa_idx, align 8, !tbaa !169
-  %57 = load ptr, ptr %.sroa.968.16.copyload, align 8, !tbaa !19, !noalias !166
+  %.sroa.968.16.copyload = load i64, ptr %.sroa.968.16..sroa_idx, align 8, !tbaa !169
+  %.cast = inttoptr i64 %.sroa.968.16.copyload to ptr
+  %57 = load ptr, ptr %.cast, align 8, !tbaa !19, !noalias !166
   %58 = load ptr, ptr %56, align 8, !tbaa !41, !noalias !166
   %59 = tail call noundef ptr %57(ptr noundef %58), !noalias !166
   br label %_ZL8copy_argPK8grpc_arg.exit
 
 _ZL8copy_argPK8grpc_arg.exit:                     ; preds = %.loopexit, %46, %50, %55
-  %.sroa.968.2 = phi ptr [ %.sroa.968.078, %.loopexit ], [ %.sroa.968.078, %46 ], [ %.sroa.968.078, %50 ], [ %.sroa.968.16.copyload, %55 ]
-  %.sroa.567.2 = phi ptr [ %.sroa.567.079, %.loopexit ], [ %49, %46 ], [ %54, %50 ], [ %59, %55 ]
+  %.sroa.968.2 = phi i64 [ %.sroa.968.079, %.loopexit ], [ %.sroa.968.079, %46 ], [ %.sroa.968.079, %50 ], [ %.sroa.968.16.copyload, %55 ]
+  %.sroa.567.2 = phi ptr [ %.sroa.567.080, %.loopexit ], [ %49, %46 ], [ %54, %50 ], [ %59, %55 ]
   %60 = load ptr, ptr %31, align 8, !tbaa !53
-  %61 = add i64 %.180, 1
-  %62 = getelementptr inbounds nuw %struct.grpc_arg, ptr %60, i64 %.180
+  %61 = add i64 %.181, 1
+  %62 = getelementptr inbounds nuw %struct.grpc_arg, ptr %60, i64 %.181
   store i32 %44, ptr %62, align 8, !tbaa !170
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %45, ptr %.sroa.466.0..sroa_idx, align 8, !tbaa !30
   %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %.sroa.567.2, ptr %.sroa.567.0..sroa_idx, align 8
   %.sroa.968.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store ptr %.sroa.968.2, ptr %.sroa.968.0..sroa_idx, align 8, !tbaa !41
-  %.pre97 = load i64, ptr %0, align 8, !tbaa !51
+  store i64 %.sroa.968.2, ptr %.sroa.968.0..sroa_idx, align 8, !tbaa !41
+  %.pre98 = load i64, ptr %0, align 8, !tbaa !51
   br label %_ZL17should_remove_argPK8grpc_argPPKcm.exit59
 
 _ZL17should_remove_argPK8grpc_argPPKcm.exit59:    ; preds = %.lr.ph.i55, %_ZL8copy_argPK8grpc_arg.exit
-  %63 = phi i64 [ %.pre97, %_ZL8copy_argPK8grpc_arg.exit ], [ %35, %.lr.ph.i55 ]
-  %.sroa.968.1 = phi ptr [ %.sroa.968.2, %_ZL8copy_argPK8grpc_arg.exit ], [ %.sroa.968.078, %.lr.ph.i55 ]
-  %.sroa.567.1 = phi ptr [ %.sroa.567.2, %_ZL8copy_argPK8grpc_arg.exit ], [ %.sroa.567.079, %.lr.ph.i55 ]
-  %.2 = phi i64 [ %61, %_ZL8copy_argPK8grpc_arg.exit ], [ %.180, %.lr.ph.i55 ]
-  %64 = add nuw i64 %.04381, 1
+  %63 = phi i64 [ %.pre98, %_ZL8copy_argPK8grpc_arg.exit ], [ %35, %.lr.ph.i55 ]
+  %.sroa.968.1 = phi i64 [ %.sroa.968.2, %_ZL8copy_argPK8grpc_arg.exit ], [ %.sroa.968.079, %.lr.ph.i55 ]
+  %.sroa.567.1 = phi ptr [ %.sroa.567.2, %_ZL8copy_argPK8grpc_arg.exit ], [ %.sroa.567.080, %.lr.ph.i55 ]
+  %.2 = phi i64 [ %61, %_ZL8copy_argPK8grpc_arg.exit ], [ %.181, %.lr.ph.i55 ]
+  %64 = add nuw i64 %.04382, 1
   %65 = icmp ult i64 %64, %63
-  br i1 %65, label %34, label %.loopexit71, !llvm.loop !171
+  br i1 %65, label %34, label %.loopexit72, !llvm.loop !171
 
-.loopexit71:                                      ; preds = %_ZL17should_remove_argPK8grpc_argPPKcm.exit59, %.preheader, %28
+.loopexit72:                                      ; preds = %_ZL17should_remove_argPK8grpc_argPPKcm.exit59, %.preheader, %28
   %.044 = phi i64 [ 0, %28 ], [ 0, %.preheader ], [ %.2, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
-  %.not92 = icmp eq i64 %4, 0
-  br i1 %.not92, label %._crit_edge, label %.lr.ph88
+  %.not93 = icmp eq i64 %4, 0
+  br i1 %.not93, label %._crit_edge, label %.lr.ph89
 
-._crit_edge:                                      ; preds = %_ZL8copy_argPK8grpc_arg.exit60, %.loopexit71
-  %.3.lcssa = phi i64 [ %.044, %.loopexit71 ], [ %87, %_ZL8copy_argPK8grpc_arg.exit60 ]
+._crit_edge:                                      ; preds = %_ZL8copy_argPK8grpc_arg.exit60, %.loopexit72
+  %.3.lcssa = phi i64 [ %.044, %.loopexit72 ], [ %87, %_ZL8copy_argPK8grpc_arg.exit60 ]
   %66 = load i64, ptr %23, align 8, !tbaa !51
   %.not53.not = icmp eq i64 %.3.lcssa, %66
   br i1 %.not53.not, label %.critedge, label %90, !prof !172
 
-.lr.ph88:                                         ; preds = %.loopexit71, %_ZL8copy_argPK8grpc_arg.exit60
-  %.04287 = phi i64 [ %89, %_ZL8copy_argPK8grpc_arg.exit60 ], [ 0, %.loopexit71 ]
-  %.386 = phi i64 [ %87, %_ZL8copy_argPK8grpc_arg.exit60 ], [ %.044, %.loopexit71 ]
-  %.sroa.5.085 = phi ptr [ %.sroa.5.1, %_ZL8copy_argPK8grpc_arg.exit60 ], [ undef, %.loopexit71 ]
-  %.sroa.9.084 = phi ptr [ %.sroa.9.1, %_ZL8copy_argPK8grpc_arg.exit60 ], [ undef, %.loopexit71 ]
-  %67 = getelementptr inbounds nuw %struct.grpc_arg, ptr %3, i64 %.04287
+.lr.ph89:                                         ; preds = %.loopexit72, %_ZL8copy_argPK8grpc_arg.exit60
+  %.04288 = phi i64 [ %89, %_ZL8copy_argPK8grpc_arg.exit60 ], [ 0, %.loopexit72 ]
+  %.387 = phi i64 [ %87, %_ZL8copy_argPK8grpc_arg.exit60 ], [ %.044, %.loopexit72 ]
+  %.sroa.5.086 = phi ptr [ %.sroa.5.1, %_ZL8copy_argPK8grpc_arg.exit60 ], [ undef, %.loopexit72 ]
+  %.sroa.9.085 = phi i64 [ %.sroa.9.1, %_ZL8copy_argPK8grpc_arg.exit60 ], [ undef, %.loopexit72 ]
+  %67 = getelementptr inbounds nuw %struct.grpc_arg, ptr %3, i64 %.04288
   %68 = load i32, ptr %67, align 8, !tbaa !37, !noalias !173
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !40, !noalias !173
@@ -3249,47 +3250,48 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit59:    ; preds = %.lr.ph.i55, %_ZL8co
     i32 2, label %81
   ]
 
-72:                                               ; preds = %.lr.ph88
+72:                                               ; preds = %.lr.ph89
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !41, !noalias !173
   %75 = tail call ptr @gpr_strdup(ptr noundef %74), !noalias !173
   br label %_ZL8copy_argPK8grpc_arg.exit60
 
-76:                                               ; preds = %.lr.ph88
+76:                                               ; preds = %.lr.ph89
   %77 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %78 = load i32, ptr %77, align 8, !tbaa !41, !noalias !173
-  %79 = ptrtoint ptr %.sroa.5.085 to i64
+  %79 = ptrtoint ptr %.sroa.5.086 to i64
   %.sroa.5.0.insert.ext = zext i32 %78 to i64
   %.sroa.5.0.insert.mask = and i64 %79, -4294967296
   %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.mask, %.sroa.5.0.insert.ext
   %80 = inttoptr i64 %.sroa.5.0.insert.insert to ptr
   br label %_ZL8copy_argPK8grpc_arg.exit60
 
-81:                                               ; preds = %.lr.ph88
+81:                                               ; preds = %.lr.ph89
   %82 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %.sroa.9.16..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %.sroa.9.16.copyload = load ptr, ptr %.sroa.9.16..sroa_idx, align 8, !tbaa !169
-  %83 = load ptr, ptr %.sroa.9.16.copyload, align 8, !tbaa !19, !noalias !173
+  %.sroa.9.16.copyload = load i64, ptr %.sroa.9.16..sroa_idx, align 8, !tbaa !169
+  %.cast71 = inttoptr i64 %.sroa.9.16.copyload to ptr
+  %83 = load ptr, ptr %.cast71, align 8, !tbaa !19, !noalias !173
   %84 = load ptr, ptr %82, align 8, !tbaa !41, !noalias !173
   %85 = tail call noundef ptr %83(ptr noundef %84), !noalias !173
   br label %_ZL8copy_argPK8grpc_arg.exit60
 
-_ZL8copy_argPK8grpc_arg.exit60:                   ; preds = %.lr.ph88, %72, %76, %81
-  %.sroa.9.1 = phi ptr [ %.sroa.9.084, %.lr.ph88 ], [ %.sroa.9.084, %72 ], [ %.sroa.9.084, %76 ], [ %.sroa.9.16.copyload, %81 ]
-  %.sroa.5.1 = phi ptr [ %.sroa.5.085, %.lr.ph88 ], [ %75, %72 ], [ %80, %76 ], [ %85, %81 ]
+_ZL8copy_argPK8grpc_arg.exit60:                   ; preds = %.lr.ph89, %72, %76, %81
+  %.sroa.9.1 = phi i64 [ %.sroa.9.085, %.lr.ph89 ], [ %.sroa.9.085, %72 ], [ %.sroa.9.085, %76 ], [ %.sroa.9.16.copyload, %81 ]
+  %.sroa.5.1 = phi ptr [ %.sroa.5.086, %.lr.ph89 ], [ %75, %72 ], [ %80, %76 ], [ %85, %81 ]
   %86 = load ptr, ptr %31, align 8, !tbaa !53
-  %87 = add i64 %.386, 1
-  %88 = getelementptr inbounds nuw %struct.grpc_arg, ptr %86, i64 %.386
+  %87 = add i64 %.387, 1
+  %88 = getelementptr inbounds nuw %struct.grpc_arg, ptr %86, i64 %.387
   store i32 %68, ptr %88, align 8, !tbaa !170
   %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr %71, ptr %.sroa.463.0..sroa_idx, align 8, !tbaa !30
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr %.sroa.5.1, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 24
-  store ptr %.sroa.9.1, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !41
-  %89 = add nuw i64 %.04287, 1
-  %exitcond96.not = icmp eq i64 %89, %4
-  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph88, !llvm.loop !176
+  store i64 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !41
+  %89 = add nuw i64 %.04288, 1
+  %exitcond97.not = icmp eq i64 %89, %4
+  br i1 %exitcond97.not, label %._crit_edge, label %.lr.ph89, !llvm.loop !176
 
 90:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3515,7 +3517,7 @@ define noundef ptr @_Z27grpc_channel_args_normalizePK17grpc_channel_args(ptr nou
 .lr.ph31:                                         ; preds = %._crit_edge.thread, %_ZL8copy_argPK8grpc_arg.exit
   %.029 = phi i64 [ %41, %_ZL8copy_argPK8grpc_arg.exit ], [ 0, %._crit_edge.thread ]
   %.sroa.5.028 = phi ptr [ %.sroa.5.1, %_ZL8copy_argPK8grpc_arg.exit ], [ undef, %._crit_edge.thread ]
-  %.sroa.9.027 = phi ptr [ %.sroa.9.1, %_ZL8copy_argPK8grpc_arg.exit ], [ undef, %._crit_edge.thread ]
+  %.sroa.9.027 = phi i64 [ %.sroa.9.1, %_ZL8copy_argPK8grpc_arg.exit ], [ undef, %._crit_edge.thread ]
   %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %.029
   %20 = load ptr, ptr %19, align 8, !tbaa !70
   %21 = load i32, ptr %20, align 8, !tbaa !37, !noalias !182
@@ -3547,14 +3549,15 @@ define noundef ptr @_Z27grpc_channel_args_normalizePK17grpc_channel_args(ptr nou
 34:                                               ; preds = %.lr.ph31
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.sroa.9.16..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.sroa.9.16.copyload = load ptr, ptr %.sroa.9.16..sroa_idx, align 8, !tbaa !169
-  %36 = load ptr, ptr %.sroa.9.16.copyload, align 8, !tbaa !19, !noalias !182
+  %.sroa.9.16.copyload = load i64, ptr %.sroa.9.16..sroa_idx, align 8, !tbaa !169
+  %.cast = inttoptr i64 %.sroa.9.16.copyload to ptr
+  %36 = load ptr, ptr %.cast, align 8, !tbaa !19, !noalias !182
   %37 = load ptr, ptr %35, align 8, !tbaa !41, !noalias !182
   %38 = tail call noundef ptr %36(ptr noundef %37), !noalias !182
   br label %_ZL8copy_argPK8grpc_arg.exit
 
 _ZL8copy_argPK8grpc_arg.exit:                     ; preds = %.lr.ph31, %25, %29, %34
-  %.sroa.9.1 = phi ptr [ %.sroa.9.027, %.lr.ph31 ], [ %.sroa.9.027, %25 ], [ %.sroa.9.027, %29 ], [ %.sroa.9.16.copyload, %34 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.027, %.lr.ph31 ], [ %.sroa.9.027, %25 ], [ %.sroa.9.027, %29 ], [ %.sroa.9.16.copyload, %34 ]
   %.sroa.5.1 = phi ptr [ %.sroa.5.028, %.lr.ph31 ], [ %28, %25 ], [ %33, %29 ], [ %38, %34 ]
   %39 = load ptr, ptr %17, align 8, !tbaa !53
   %40 = getelementptr inbounds nuw %struct.grpc_arg, ptr %39, i64 %.029
@@ -3564,7 +3567,7 @@ _ZL8copy_argPK8grpc_arg.exit:                     ; preds = %.lr.ph31, %25, %29,
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %.sroa.5.1, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr %.sroa.9.1, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !41
+  store i64 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !41
   %41 = add nuw i64 %.029, 1
   %42 = load i64, ptr %0, align 8, !tbaa !51
   %43 = icmp ult i64 %41, %42

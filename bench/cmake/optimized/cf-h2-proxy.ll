@@ -100,7 +100,7 @@ define internal void @cf_h2_proxy_destroy(ptr noundef captures(none) %0, ptr rea
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !13
+  %.sroa.0.0.copyload.i.i = load i64, ptr %6, align 8, !tbaa !13
   %7 = load ptr, ptr %4, align 8, !tbaa !15
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %cf_h2_proxy_ctx_free.exit, label %8
@@ -126,7 +126,7 @@ cf_h2_proxy_ctx_free.exit:                        ; preds = %5, %8
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   tail call void %15(ptr noundef %17) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %4, i8 0, i64 320, i1 false)
-  store ptr %.sroa.0.0.copyload.i.i, ptr %6, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload.i.i, ptr %6, align 8, !tbaa !13
   %18 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
   tail call void %18(ptr noundef nonnull %4) #7
   store ptr null, ptr %3, align 8, !tbaa !4
@@ -189,7 +189,7 @@ define internal i32 @cf_h2_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   %35 = phi ptr [ %.pre, %._crit_edge ], [ %17, %23 ]
   store i8 0, ptr %3, align 1, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %36, align 8, !tbaa !13
+  %.sroa.0.0.copyload = load i64, ptr %36, align 8, !tbaa !13
   store ptr %1, ptr %36, align 8, !tbaa !34
   %37 = load ptr, ptr %17, align 8, !tbaa !15
   %.not41 = icmp eq ptr %37, null
@@ -1089,7 +1089,7 @@ H2_CONNECT.exit.thread47:                         ; preds = %H2_CONNECT.exit
   %.03745 = phi i32 [ %.03746, %.critedge ], [ 0, %H2_CONNECT.exit.thread47 ], [ 0, %409 ]
   %415 = load ptr, ptr %16, align 8, !tbaa !4
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %416, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload, ptr %416, align 8, !tbaa !13
   br label %417
 
 417:                                              ; preds = %29, %31, %414, %22
@@ -1106,8 +1106,9 @@ define internal void @cf_h2_proxy_close(ptr noundef readonly captures(none) %0, 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %6, align 8, !tbaa !13
+  %.sroa.0.0.copyload = load i64, ptr %6, align 8, !tbaa !13
   store ptr %1, ptr %6, align 8, !tbaa !34
+  %.sroa.0.0.copyload.i.cast = ptrtoint ptr %1 to i64
   %7 = load ptr, ptr %4, align 8, !tbaa !15
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %cf_h2_proxy_ctx_clear.exit, label %8
@@ -1133,10 +1134,10 @@ cf_h2_proxy_ctx_clear.exit:                       ; preds = %5, %8
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   tail call void %15(ptr noundef %17) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %4, i8 0, i64 320, i1 false)
-  store ptr %1, ptr %6, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload.i.cast, ptr %6, align 8, !tbaa !13
   %18 = load ptr, ptr %3, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %19, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload, ptr %19, align 8, !tbaa !13
   br label %20
 
 20:                                               ; preds = %cf_h2_proxy_ctx_clear.exit, %2
@@ -1187,7 +1188,7 @@ define internal i32 @cf_h2_proxy_shutdown(ptr noundef %0, ptr noundef %1, ptr no
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %18, align 8, !tbaa !13
+  %.sroa.0.0.copyload = load i64, ptr %18, align 8, !tbaa !13
   store ptr %1, ptr %18, align 8, !tbaa !34
   %19 = and i8 %14, 4
   %.not39 = icmp eq i8 %19, 0
@@ -1203,7 +1204,7 @@ define internal i32 @cf_h2_proxy_shutdown(ptr noundef %0, ptr noundef %1, ptr no
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.62, ptr noundef %22, i32 noundef %21) #7
   %23 = load ptr, ptr %4, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %24, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload, ptr %24, align 8, !tbaa !13
   br label %57
 
 25:                                               ; preds = %20
@@ -1255,7 +1256,7 @@ define internal i32 @cf_h2_proxy_shutdown(ptr noundef %0, ptr noundef %1, ptr no
   store i8 0, ptr %2, align 1, !tbaa !29
   %43 = load ptr, ptr %4, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %44, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload, ptr %44, align 8, !tbaa !13
   br label %57
 
 .thread56:                                        ; preds = %.thread51, %42
@@ -1276,7 +1277,7 @@ define internal i32 @cf_h2_proxy_shutdown(ptr noundef %0, ptr noundef %1, ptr no
   store i8 %.ph, ptr %2, align 1, !tbaa !29
   %51 = load ptr, ptr %4, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %52, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload, ptr %52, align 8, !tbaa !13
   %53 = shl nuw nsw i8 %.ph, 1
   br label %57
 
@@ -1284,7 +1285,7 @@ define internal i32 @cf_h2_proxy_shutdown(ptr noundef %0, ptr noundef %1, ptr no
   store i8 1, ptr %2, align 1, !tbaa !29
   %55 = load ptr, ptr %4, align 8, !tbaa !4
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %56, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload, ptr %56, align 8, !tbaa !13
   br label %57
 
 57:                                               ; preds = %54, %.thread64, %.thread68, %.thread60
@@ -1370,7 +1371,7 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
 38:                                               ; preds = %33
   %39 = load ptr, ptr %6, align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %40, align 8, !tbaa !13
+  %.sroa.0.0.copyload = load i64, ptr %40, align 8, !tbaa !13
   store ptr %1, ptr %40, align 8, !tbaa !34
   %41 = call i32 @nghttp2_session_get_remote_window_size(ptr noundef nonnull %32) #7
   %.not86 = icmp eq i32 %41, 0
@@ -1471,7 +1472,7 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
 93:                                               ; preds = %90
   %94 = load ptr, ptr %6, align 8, !tbaa !4
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %.sroa.0.0.copyload18 = load ptr, ptr %95, align 8, !tbaa !13
+  %.sroa.0.0.copyload18 = load i64, ptr %95, align 8, !tbaa !13
   store ptr %1, ptr %95, align 8, !tbaa !34
   %96 = call i32 @nghttp2_session_want_write(ptr noundef %32) #7
   %.not82 = icmp eq i32 %96, 0
@@ -1530,7 +1531,7 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
   br i1 %128, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %124, %81
-  %.sroa.0.0.copyload18.sink.ph = phi ptr [ %.sroa.0.0.copyload, %81 ], [ %.sroa.0.0.copyload18, %124 ]
+  %.sroa.0.0.copyload18.sink.ph = phi i64 [ %.sroa.0.0.copyload, %81 ], [ %.sroa.0.0.copyload18, %124 ]
   %129 = load i8, ptr %4, align 1, !tbaa !29, !range !32, !noundef !33
   %130 = zext nneg i8 %129 to i32
   %131 = load i8, ptr %5, align 1, !tbaa !29, !range !32, !noundef !33
@@ -1539,10 +1540,10 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %124, %120, %113, %105, %81, %77, %70, %65
-  %.sroa.0.0.copyload18.sink = phi ptr [ %.sroa.0.0.copyload, %65 ], [ %.sroa.0.0.copyload, %70 ], [ %.sroa.0.0.copyload, %77 ], [ %.sroa.0.0.copyload, %81 ], [ %.sroa.0.0.copyload18, %105 ], [ %.sroa.0.0.copyload18, %113 ], [ %.sroa.0.0.copyload18, %120 ], [ %.sroa.0.0.copyload18, %124 ], [ %.sroa.0.0.copyload18.sink.ph, %.sink.split.sink.split ]
+  %.sroa.0.0.copyload18.sink = phi i64 [ %.sroa.0.0.copyload, %65 ], [ %.sroa.0.0.copyload, %70 ], [ %.sroa.0.0.copyload, %77 ], [ %.sroa.0.0.copyload, %81 ], [ %.sroa.0.0.copyload18, %105 ], [ %.sroa.0.0.copyload18, %113 ], [ %.sroa.0.0.copyload18, %120 ], [ %.sroa.0.0.copyload18, %124 ], [ %.sroa.0.0.copyload18.sink.ph, %.sink.split.sink.split ]
   %133 = load ptr, ptr %6, align 8, !tbaa !4
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  store ptr %.sroa.0.0.copyload18.sink, ptr %134, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload18.sink, ptr %134, align 8, !tbaa !13
   br label %135
 
 135:                                              ; preds = %.sink.split, %86, %90
@@ -1607,7 +1608,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %13, align 8, !tbaa !13
+  %.sroa.0.0.copyload = load i64, ptr %13, align 8, !tbaa !13
   store ptr %1, ptr %13, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 300
   %15 = load i8, ptr %14, align 4
@@ -1829,7 +1830,7 @@ drain_tunnel.exit.thread:                         ; preds = %75, %98, %drain_tun
 126:                                              ; preds = %drain_tunnel.exit, %drain_tunnel.exit.thread, %105, %109, %114
   %127 = load ptr, ptr %7, align 8, !tbaa !4
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %128, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload, ptr %128, align 8, !tbaa !13
   br label %129
 
 129:                                              ; preds = %126, %11
@@ -1852,7 +1853,7 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %12, align 8, !tbaa !13
+  %.sroa.0.0.copyload = load i64, ptr %12, align 8, !tbaa !13
   store ptr %1, ptr %12, align 8, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %14 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %13) #7
@@ -2243,7 +2244,7 @@ drain_tunnel.exit.thread:                         ; preds = %165, %188, %drain_t
 208:                                              ; preds = %drain_tunnel.exit, %drain_tunnel.exit.thread, %195, %199, %204
   %209 = load ptr, ptr %6, align 8, !tbaa !4
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %210, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload, ptr %210, align 8, !tbaa !13
   br label %211
 
 211:                                              ; preds = %208, %10
@@ -2260,7 +2261,7 @@ define internal i32 @cf_h2_proxy_cntrl(ptr noundef %0, ptr noundef %1, i32 nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %9, align 8, !tbaa !13
+  %.sroa.0.0.copyload = load i64, ptr %9, align 8, !tbaa !13
   store ptr %1, ptr %9, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %11 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %10) #7
@@ -2326,7 +2327,7 @@ define internal i32 @cf_h2_proxy_cntrl(ptr noundef %0, ptr noundef %1, i32 nound
 cf_h2_proxy_flush.exit:                           ; preds = %20, %21, %28, %32, %37
   %47 = load ptr, ptr %7, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %48, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload, ptr %48, align 8, !tbaa !13
   br label %49
 
 49:                                               ; preds = %5, %cf_h2_proxy_flush.exit
@@ -2340,7 +2341,7 @@ define internal zeroext i1 @cf_h2_proxy_is_alive(ptr noundef %0, ptr noundef %1,
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %7, align 8, !tbaa !13
+  %.sroa.0.0.copyload = load i64, ptr %7, align 8, !tbaa !13
   store ptr %1, ptr %7, align 8, !tbaa !34
   %8 = load ptr, ptr %6, align 8, !tbaa !15
   %.not24 = icmp eq ptr %8, null
@@ -2441,7 +2442,7 @@ proxy_h2_connisalive.exit:                        ; preds = %proxy_h2_should_clo
 55:                                               ; preds = %proxy_h2_connisalive.exit, %36, %43, %47, %52
   %56 = load ptr, ptr %5, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %.sroa.0.0.copyload, ptr %57, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload, ptr %57, align 8, !tbaa !13
   ret i1 %34
 }
 
@@ -2542,7 +2543,7 @@ define dso_local i32 @Curl_cf_h2_proxy_insert_after(ptr noundef %0, ptr noundef 
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %11, align 8, !tbaa !13
+  %.sroa.0.0.copyload.i.i = load i64, ptr %11, align 8, !tbaa !13
   %12 = load ptr, ptr %5, align 8, !tbaa !15
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %cf_h2_proxy_ctx_clear.exit.i, label %13
@@ -2568,7 +2569,7 @@ cf_h2_proxy_ctx_clear.exit.i:                     ; preds = %13, %10
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   call void %20(ptr noundef %22) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %5, i8 0, i64 320, i1 false)
-  store ptr %.sroa.0.0.copyload.i.i, ptr %11, align 8, !tbaa !13
+  store i64 %.sroa.0.0.copyload.i.i, ptr %11, align 8, !tbaa !13
   %23 = load ptr, ptr @Curl_cfree, align 8, !tbaa !27
   call void %23(ptr noundef nonnull %5) #7
   br label %cf_h2_proxy_ctx_free.exit

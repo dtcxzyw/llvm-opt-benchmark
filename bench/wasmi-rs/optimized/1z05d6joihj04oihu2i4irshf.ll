@@ -5704,8 +5704,8 @@ define internal fastcc noundef ptr @_ZN10wasmi_wast10WastRunner6invoke17h0d7c95d
 63:                                               ; preds = %54
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.05.013.i, i64 8
   %65 = load i64, ptr %64, align 8, !alias.scope !377, !noalias !378, !noundef !9
-  %.sroa.18.sroa.0.0.extract.trunc1.i.i = trunc i64 %65 to i32
-  %.sroa.18.sroa.10.0.extract.shift3.i.i = and i64 %65, -4294967296
+  %.sroa.18.sroa.0.0.extract.trunc2.i.i = trunc i64 %65 to i32
+  %.sroa.18.sroa.10.0.extract.shift4.i.i = and i64 %65, -4294967296
   br label %94
 
 66:                                               ; preds = %54
@@ -5716,8 +5716,8 @@ define internal fastcc noundef ptr @_ZN10wasmi_wast10WastRunner6invoke17h0d7c95d
 69:                                               ; preds = %54
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.05.013.i, i64 8
   %71 = load i64, ptr %70, align 8, !alias.scope !377, !noalias !378, !noundef !9
-  %.sroa.18.sroa.0.0.extract.trunc2.i.i = trunc i64 %71 to i32
-  %.sroa.18.sroa.10.0.extract.shift5.i.i = and i64 %71, -4294967296
+  %.sroa.18.sroa.0.0.extract.trunc3.i.i = trunc i64 %71 to i32
+  %.sroa.18.sroa.10.0.extract.shift6.i.i = and i64 %71, -4294967296
   br label %94
 
 72:                                               ; preds = %54
@@ -5738,8 +5738,8 @@ define internal fastcc noundef ptr @_ZN10wasmi_wast10WastRunner6invoke17h0d7c95d
   %.sroa.18.1.copyload.i.i = load i64, ptr %.sroa.18.1..sroa_idx.i.i, align 1, !noalias !381
   %.sroa.18.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.18.1.copyload.i.i to i32
   %.sroa.18.sroa.10.0.extract.shift.i.i = and i64 %.sroa.18.1.copyload.i.i, -4294967296
-  %.sroa.23.1.copyload.i.i = load i8, ptr %.sroa.23.1..sroa_idx.i.i, align 1, !noalias !381
-  %.sroa.23.1.insert.ext.i.i = zext i8 %.sroa.23.1.copyload.i.i to i64
+  %.sroa.23.0.copyload1.i.i = load i8, ptr %.sroa.23.1..sroa_idx.i.i, align 1, !noalias !381
+  %.sroa.23.0.insert.ext.i.i = zext i8 %.sroa.23.0.copyload1.i.i to i64
   br label %94
 
 75:                                               ; preds = %54
@@ -5784,9 +5784,9 @@ define internal fastcc noundef ptr @_ZN10wasmi_wast10WastRunner6invoke17h0d7c95d
   br label %94
 
 94:                                               ; preds = %.noexc36, %.noexc35, %.noexc34, %.noexc33, %69, %66, %63, %60
-  %.sroa.18.sroa.10.0.i.i = phi i64 [ 0, %60 ], [ %.sroa.18.sroa.10.0.extract.shift3.i.i, %63 ], [ 0, %66 ], [ %.sroa.18.sroa.10.0.extract.shift5.i.i, %69 ], [ %.sroa.18.sroa.10.0.extract.shift.i.i, %.noexc33 ], [ 0, %.noexc35 ], [ 0, %.noexc36 ], [ 0, %.noexc34 ]
-  %.sroa.18.sroa.0.0.i.i = phi i32 [ undef, %60 ], [ %.sroa.18.sroa.0.0.extract.trunc1.i.i, %63 ], [ undef, %66 ], [ %.sroa.18.sroa.0.0.extract.trunc2.i.i, %69 ], [ %.sroa.18.sroa.0.0.extract.trunc.i.i, %.noexc33 ], [ %89, %.noexc35 ], [ %93, %.noexc36 ], [ %82, %.noexc34 ]
-  %.sroa.23.0.i.i = phi i64 [ undef, %60 ], [ undef, %63 ], [ undef, %66 ], [ undef, %69 ], [ %.sroa.23.1.insert.ext.i.i, %.noexc33 ], [ undef, %.noexc35 ], [ undef, %.noexc36 ], [ undef, %.noexc34 ]
+  %.sroa.18.sroa.10.0.i.i = phi i64 [ 0, %60 ], [ %.sroa.18.sroa.10.0.extract.shift4.i.i, %63 ], [ 0, %66 ], [ %.sroa.18.sroa.10.0.extract.shift6.i.i, %69 ], [ %.sroa.18.sroa.10.0.extract.shift.i.i, %.noexc33 ], [ 0, %.noexc35 ], [ 0, %.noexc36 ], [ 0, %.noexc34 ]
+  %.sroa.18.sroa.0.0.i.i = phi i32 [ undef, %60 ], [ %.sroa.18.sroa.0.0.extract.trunc2.i.i, %63 ], [ undef, %66 ], [ %.sroa.18.sroa.0.0.extract.trunc3.i.i, %69 ], [ %.sroa.18.sroa.0.0.extract.trunc.i.i, %.noexc33 ], [ %89, %.noexc35 ], [ %93, %.noexc36 ], [ %82, %.noexc34 ]
+  %.sroa.23.0.i.i = phi i64 [ undef, %60 ], [ undef, %63 ], [ undef, %66 ], [ undef, %69 ], [ %.sroa.23.0.insert.ext.i.i, %.noexc33 ], [ undef, %.noexc35 ], [ undef, %.noexc36 ], [ undef, %.noexc34 ]
   %.sroa.13.0.i.i = phi i32 [ %62, %60 ], [ undef, %63 ], [ %68, %66 ], [ undef, %69 ], [ %.sroa.13.1.copyload.i.i, %.noexc33 ], [ %88, %.noexc35 ], [ %92, %.noexc36 ], [ %81, %.noexc34 ]
   %.sroa.0.0.i.i = phi i8 [ 0, %60 ], [ 1, %63 ], [ 2, %66 ], [ 3, %69 ], [ 4, %.noexc33 ], [ 5, %.noexc35 ], [ 6, %.noexc36 ], [ 6, %.noexc34 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.2.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.12.i.i, i64 3, i1 false), !noalias !372

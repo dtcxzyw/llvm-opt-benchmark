@@ -2000,8 +2000,10 @@ define { ptr, i1 } @_ZN11wasi_common4sync14WasiCtxBuilder3new17hd9a4710b81612b7c
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !180
   %.sroa.59.sroa.0.7..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.59.sroa.0.i, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.59.sroa.0.7..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.bf6d5467f4e221758038f393bad32ebf.55.llvm.17575819821291883266, i64 32, i1 false), !noalias !180
+  store i64 0, ptr %5, align 8, !alias.scope !180
+  %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i8 0, ptr %.sroa.48.0..sroa_idx.i, align 8, !alias.scope !180
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 9, i1 false), !alias.scope !180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.59.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.59.sroa.0.i, i64 39, i1 false)
   %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %16, ptr %.sroa.59.sroa.4.0..sroa.59.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !180
@@ -6935,7 +6937,7 @@ _ZN11wasi_common5sched12subscription14RwSubscription5error17he1b92eb4753cb17aE.e
 
 ._crit_edge.i.i:                                  ; preds = %434
   %.pre.i.i = load ptr, ptr %57, align 8, !alias.scope !1080
-  %.pre3.i.i = add i64 %435, 1
+  %.pre5.i.i = add i64 %435, 1
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h59e7b7c493b16d9eE.exit.i"
 
 438:                                              ; preds = %434
@@ -7001,7 +7003,7 @@ _ZN5alloc7raw_vec11finish_grow17h5dc0bd592416ad76E.exit.i.i.i.i: ; preds = %452,
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h59e7b7c493b16d9eE.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h59e7b7c493b16d9eE.exit.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i.i", %._crit_edge.i.i
-  %.pre-phi.i.i = phi i64 [ %.pre3.i.i, %._crit_edge.i.i ], [ %442, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i.i" ]
+  %.pre-phi.i.i = phi i64 [ %.pre5.i.i, %._crit_edge.i.i ], [ %442, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i.i" ]
   %455 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.012.1.i.i.pn.i.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i.i" ]
   %456 = getelementptr inbounds { i32, i16, i16 }, ptr %455, i64 %435
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %456, align 4, !noalias !1080
@@ -7104,7 +7106,7 @@ _ZN5alloc7raw_vec11finish_grow17h5dc0bd592416ad76E.exit.i.i.i.i: ; preds = %452,
 
 ._crit_edge.i257.i:                               ; preds = %480
   %.pre.i259.i = load ptr, ptr %57, align 8, !alias.scope !1111
-  %.pre3.i260.i = add i64 %481, 1
+  %.pre5.i260.i = add i64 %481, 1
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h59e7b7c493b16d9eE.exit275.i"
 
 484:                                              ; preds = %480
@@ -7170,7 +7172,7 @@ _ZN5alloc7raw_vec11finish_grow17h5dc0bd592416ad76E.exit.i.i.i266.i: ; preds = %4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h59e7b7c493b16d9eE.exit275.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h59e7b7c493b16d9eE.exit275.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i269.i", %._crit_edge.i257.i
-  %.pre-phi.i261.i = phi i64 [ %.pre3.i260.i, %._crit_edge.i257.i ], [ %488, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i269.i" ]
+  %.pre-phi.i261.i = phi i64 [ %.pre5.i260.i, %._crit_edge.i257.i ], [ %488, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i269.i" ]
   %501 = phi ptr [ %.pre.i259.i, %._crit_edge.i257.i ], [ %.sroa.012.1.i.i.pn.i.i.i.i267.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i269.i" ]
   %502 = getelementptr inbounds { i32, i16, i16 }, ptr %501, i64 %481
   store i64 %.sroa.0.0.insert.insert.i256.i, ptr %502, align 4, !noalias !1111

@@ -8338,14 +8338,15 @@ define noundef ptr @_ZN7rocksdb15GetPropertyInfoERKNS_5SliceE(ptr noundef nonnul
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !860)
-  %.sroa.013.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !380, !noalias !860
+  %.sroa.013.0.copyload.i = load i64, ptr %0, align 8, !tbaa !380, !noalias !860
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !40, !noalias !860
+  %.sroa.0.0.copyload.cast.i = inttoptr i64 %.sroa.013.0.copyload.i to ptr
   %.not.i = icmp eq i64 %.sroa.4.0.copyload.i, 0
   br i1 %.not.i, label %_ZN7rocksdb12_GLOBAL__N_121GetPropertyNameAndArgERKNS_5SliceE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %4 = getelementptr i8, ptr %.sroa.013.0.copyload.i, i64 %.sroa.4.0.copyload.i
+  %4 = getelementptr i8, ptr %.sroa.0.0.copyload.cast.i, i64 %.sroa.4.0.copyload.i
   br label %5
 
 5:                                                ; preds = %10, %.lr.ph.i
@@ -8366,8 +8367,8 @@ define noundef ptr @_ZN7rocksdb15GetPropertyInfoERKNS_5SliceE(ptr noundef nonnul
 _ZN7rocksdb12_GLOBAL__N_121GetPropertyNameAndArgERKNS_5SliceE.exit: ; preds = %5, %10, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %.017.i, %5 ], [ %.sroa.4.0.copyload.i, %10 ]
   %12 = sub i64 %.sroa.4.0.copyload.i, %.0.lcssa.i
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload.i, i64 %12
-  store ptr %.sroa.013.0.copyload.i, ptr %3, align 8, !tbaa !380, !alias.scope !860
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.cast.i, i64 %12
+  store i64 %.sroa.013.0.copyload.i, ptr %3, align 8, !tbaa !380, !alias.scope !860
   %.sroa.4.0..sroa_idx15.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %12, ptr %.sroa.4.0..sroa_idx15.i, align 8, !tbaa !40, !alias.scope !860
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -8421,14 +8422,15 @@ declare void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr dead_on_unwind writable s
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN7rocksdb13InternalStats17GetStringPropertyERKNS_14DBPropertyInfoERKNS_5SliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2000) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef %3) local_unnamed_addr #4 align 2 {
-  %.sroa.013.0.copyload.i = load ptr, ptr %2, align 8, !tbaa !380, !noalias !864
+  %.sroa.013.0.copyload.i = load i64, ptr %2, align 8, !tbaa !380, !noalias !864
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !40, !noalias !864
+  %.sroa.0.0.copyload.cast.i = inttoptr i64 %.sroa.013.0.copyload.i to ptr
   %.not.i = icmp eq i64 %.sroa.4.0.copyload.i, 0
   br i1 %.not.i, label %_ZN7rocksdb12_GLOBAL__N_121GetPropertyNameAndArgERKNS_5SliceE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %5 = getelementptr i8, ptr %.sroa.013.0.copyload.i, i64 %.sroa.4.0.copyload.i
+  %5 = getelementptr i8, ptr %.sroa.0.0.copyload.cast.i, i64 %.sroa.4.0.copyload.i
   br label %6
 
 6:                                                ; preds = %11, %.lr.ph.i
@@ -8471,7 +8473,7 @@ _ZN7rocksdb12_GLOBAL__N_121GetPropertyNameAndArgERKNS_5SliceE.exit: ; preds = %6
 23:                                               ; preds = %21, %16
   %24 = phi ptr [ %20, %16 ], [ %22, %21 ]
   %25 = sub i64 %.sroa.4.0.copyload.i, %.0.lcssa.i
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload.i, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.cast.i, i64 %25
   %27 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(2000) %14, ptr noundef %3, ptr %26, i64 %.0.lcssa.i)
   ret i1 %27
 }
@@ -8481,14 +8483,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN7rocksdb13InternalStats14GetMapPropertyERKNS_14DBPropertyInfoERKNS_5SliceEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEE(ptr noundef nonnull align 8 dereferenceable(2000) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef %3) local_unnamed_addr #4 align 2 {
-  %.sroa.013.0.copyload.i = load ptr, ptr %2, align 8, !tbaa !380, !noalias !869
+  %.sroa.013.0.copyload.i = load i64, ptr %2, align 8, !tbaa !380, !noalias !869
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !40, !noalias !869
+  %.sroa.0.0.copyload.cast.i = inttoptr i64 %.sroa.013.0.copyload.i to ptr
   %.not.i = icmp eq i64 %.sroa.4.0.copyload.i, 0
   br i1 %.not.i, label %_ZN7rocksdb12_GLOBAL__N_121GetPropertyNameAndArgERKNS_5SliceE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %5 = getelementptr i8, ptr %.sroa.013.0.copyload.i, i64 %.sroa.4.0.copyload.i
+  %5 = getelementptr i8, ptr %.sroa.0.0.copyload.cast.i, i64 %.sroa.4.0.copyload.i
   br label %6
 
 6:                                                ; preds = %11, %.lr.ph.i
@@ -8531,7 +8534,7 @@ _ZN7rocksdb12_GLOBAL__N_121GetPropertyNameAndArgERKNS_5SliceE.exit: ; preds = %6
 23:                                               ; preds = %21, %16
   %24 = phi ptr [ %20, %16 ], [ %22, %21 ]
   %25 = sub i64 %.sroa.4.0.copyload.i, %.0.lcssa.i
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.copyload.i, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.cast.i, i64 %25
   %27 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(2000) %14, ptr noundef %3, ptr %26, i64 %.0.lcssa.i)
   ret i1 %27
 }

@@ -45071,7 +45071,7 @@ define void @GetScreenToWorldRayEx(ptr dead_on_unwind noalias writable writeonly
   %125 = fmul float %124, -2.000000e+00
   %126 = fdiv float %125, %109
   store float %112, ptr %7, align 8
-  store float 0.000000e+00, ptr %84, align 4
+  store i32 0, ptr %84, align 4
   %.sroa.578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %116, ptr %.sroa.578.0..sroa_idx, align 8
   %.sroa.679.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -45088,7 +45088,8 @@ define void @GetScreenToWorldRayEx(ptr dead_on_unwind noalias writable writeonly
   store i64 0, ptr %.sroa.1085.0..sroa_idx, align 8
   %.sroa.1086.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
   store float -1.000000e+00, ptr %.sroa.1086.0..sroa_idx, align 8
-  br label %.sink.split
+  store i32 0, ptr %87, align 4
+  br label %150
 
 127:                                              ; preds = %5
   %128 = sitofp i32 %3 to double
@@ -45128,14 +45129,10 @@ define void @GetScreenToWorldRayEx(ptr dead_on_unwind noalias writable writeonly
   store float 0xBFF0001500000000, ptr %.sroa.14.0..sroa_idx, align 4
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 52
   store float 0.000000e+00, ptr %.sroa.16.0..sroa_idx, align 4
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %90, %127
-  %.sink = phi float [ 1.000000e+00, %127 ], [ 0.000000e+00, %90 ]
-  store float %.sink, ptr %87, align 4
+  store float 1.000000e+00, ptr %87, align 4
   br label %150
 
-150:                                              ; preds = %.sink.split, %5
+150:                                              ; preds = %5, %127, %90
   %.sroa.041.0.vec.insert = insertelement <2 x float> poison, float %11, i64 0
   %.sroa.041.4.vec.insert = insertelement <2 x float> %.sroa.041.0.vec.insert, float %15, i64 1
   %151 = tail call { <2 x float>, float } @Vector3Unproject(<2 x float> %.sroa.041.4.vec.insert, float 0.000000e+00, ptr noundef nonnull byval(%struct.Matrix) align 8 %7, ptr noundef nonnull byval(%struct.Matrix) align 8 %6)
@@ -45375,14 +45372,14 @@ define <2 x float> @GetWorldToScreenEx(<2 x float> %0, float %1, ptr noundef rea
   br label %58
 
 58:                                               ; preds = %5, %35, %8
-  %.sroa.067.0 = phi float [ 1.000000e+00, %5 ], [ %27, %8 ], [ %48, %35 ]
-  %.sroa.44.0 = phi float [ 0.000000e+00, %5 ], [ -1.000000e+00, %8 ], [ 0.000000e+00, %35 ]
-  %.sroa.47.0 = phi float [ 1.000000e+00, %5 ], [ 0.000000e+00, %8 ], [ 1.000000e+00, %35 ]
-  %.sroa.25.0 = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %8 ], [ %57, %35 ]
-  %.sroa.2273.0 = phi float [ 0.000000e+00, %5 ], [ %34, %8 ], [ 0.000000e+00, %35 ]
-  %.sroa.1872.0 = phi float [ 1.000000e+00, %5 ], [ %28, %8 ], [ %49, %35 ]
-  %.sroa.1370.0 = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %8 ], [ %53, %35 ]
-  %.sroa.1069.0 = phi float [ 0.000000e+00, %5 ], [ %31, %8 ], [ 0.000000e+00, %35 ]
+  %.sroa.071.0 = phi float [ 1.000000e+00, %5 ], [ %27, %8 ], [ %48, %35 ]
+  %.sroa.46.0 = phi float [ 0.000000e+00, %5 ], [ -1.000000e+00, %8 ], [ 0.000000e+00, %35 ]
+  %.sroa.49.0 = phi float [ 1.000000e+00, %5 ], [ 0.000000e+00, %8 ], [ 1.000000e+00, %35 ]
+  %.sroa.2676.0 = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %8 ], [ %57, %35 ]
+  %.sroa.23.0 = phi float [ 0.000000e+00, %5 ], [ %34, %8 ], [ 0.000000e+00, %35 ]
+  %.sroa.19.0 = phi float [ 1.000000e+00, %5 ], [ %28, %8 ], [ %49, %35 ]
+  %.sroa.1374.0 = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %8 ], [ %53, %35 ]
+  %.sroa.1073.0 = phi float [ 0.000000e+00, %5 ], [ %31, %8 ], [ 0.000000e+00, %35 ]
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.021.0.copyload = load <2 x float>, ptr %2, align 8
@@ -45469,16 +45466,16 @@ define <2 x float> @GetWorldToScreenEx(<2 x float> %0, float %1, ptr noundef rea
   %123 = tail call float @llvm.fmuladd.f32(float %1, float 0.000000e+00, float %122)
   %124 = fadd float %123, 1.000000e+00
   %125 = fmul float %116, 0.000000e+00
-  %126 = tail call float @llvm.fmuladd.f32(float %.sroa.067.0, float %112, float %125)
-  %127 = tail call float @llvm.fmuladd.f32(float %.sroa.1069.0, float %120, float %126)
-  %128 = tail call float @llvm.fmuladd.f32(float %.sroa.1370.0, float %124, float %127)
-  %129 = fmul float %.sroa.1872.0, %116
+  %126 = tail call float @llvm.fmuladd.f32(float %.sroa.071.0, float %112, float %125)
+  %127 = tail call float @llvm.fmuladd.f32(float %.sroa.1073.0, float %120, float %126)
+  %128 = tail call float @llvm.fmuladd.f32(float %.sroa.1374.0, float %124, float %127)
+  %129 = fmul float %.sroa.19.0, %116
   %130 = tail call float @llvm.fmuladd.f32(float %112, float 0.000000e+00, float %129)
-  %131 = tail call float @llvm.fmuladd.f32(float %.sroa.2273.0, float %120, float %130)
-  %132 = tail call float @llvm.fmuladd.f32(float %.sroa.25.0, float %124, float %131)
+  %131 = tail call float @llvm.fmuladd.f32(float %.sroa.23.0, float %120, float %130)
+  %132 = tail call float @llvm.fmuladd.f32(float %.sroa.2676.0, float %124, float %131)
   %133 = tail call float @llvm.fmuladd.f32(float %112, float 0.000000e+00, float %125)
-  %134 = tail call float @llvm.fmuladd.f32(float %.sroa.44.0, float %120, float %133)
-  %135 = tail call float @llvm.fmuladd.f32(float %.sroa.47.0, float %124, float %134)
+  %134 = tail call float @llvm.fmuladd.f32(float %.sroa.46.0, float %120, float %133)
+  %135 = tail call float @llvm.fmuladd.f32(float %.sroa.49.0, float %124, float %134)
   %136 = fdiv float %128, %135
   %137 = fadd float %136, 1.000000e+00
   %138 = fmul float %137, 5.000000e-01

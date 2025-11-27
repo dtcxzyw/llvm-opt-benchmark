@@ -105,12 +105,10 @@ if.end.i:                                         ; preds = %if.then15
 
 _ZNOSt8optionalIN5folly5RangeIPcEEE5valueEv.exit: ; preds = %if.then15
   %range.sroa.0.0.copyload = load ptr, ptr %ref.tmp, align 8
-  %range.sroa.4.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %range.sroa.4.0.copyload = load ptr, ptr %range.sroa.4.0.ref.tmp.sroa_idx, align 8
   %startOfRun_20 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %10 = load ptr, ptr %startOfRun_20, align 8
   %cmp21 = icmp eq ptr %range.sroa.0.0.copyload, %10
-  br i1 %cmp21, label %if.then22, label %return
+  br i1 %cmp21, label %if.then22, label %if.end25
 
 if.then22:                                        ; preds = %_ZNOSt8optionalIN5folly5RangeIPcEEE5valueEv.exit
   %currentOffset_24 = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -118,13 +116,19 @@ if.then22:                                        ; preds = %_ZNOSt8optionalIN5f
   %add.ptr.i18 = getelementptr inbounds i8, ptr %range.sroa.0.0.copyload, i64 %11
   br label %return
 
+if.end25:                                         ; preds = %_ZNOSt8optionalIN5folly5RangeIPcEEE5valueEv.exit
+  %range.sroa.4.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %range.sroa.4.0.copyload = load i64, ptr %range.sroa.4.0.ref.tmp.sroa_idx, align 8
+  %12 = inttoptr i64 %range.sroa.4.0.copyload to ptr
+  br label %return
+
 if.end26:                                         ; preds = %if.end
   tail call void @llvm.trap()
   unreachable
 
-return:                                           ; preds = %_ZNOSt8optionalIN5folly5RangeIPcEEE5valueEv.exit, %if.then22, %if.then
-  %retval.sroa.0.0 = phi ptr [ %3, %if.then ], [ %range.sroa.0.0.copyload, %if.then22 ], [ %range.sroa.0.0.copyload, %_ZNOSt8optionalIN5folly5RangeIPcEEE5valueEv.exit ]
-  %retval.sroa.4.0 = phi ptr [ %add.ptr.i5, %if.then ], [ %add.ptr.i18, %if.then22 ], [ %range.sroa.4.0.copyload, %_ZNOSt8optionalIN5folly5RangeIPcEEE5valueEv.exit ]
+return:                                           ; preds = %if.end25, %if.then22, %if.then
+  %retval.sroa.0.0 = phi ptr [ %3, %if.then ], [ %range.sroa.0.0.copyload, %if.then22 ], [ %range.sroa.0.0.copyload, %if.end25 ]
+  %retval.sroa.4.0 = phi ptr [ %add.ptr.i5, %if.then ], [ %add.ptr.i18, %if.then22 ], [ %12, %if.end25 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

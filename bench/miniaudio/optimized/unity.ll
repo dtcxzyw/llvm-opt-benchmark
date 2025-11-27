@@ -24074,13 +24074,13 @@ cdce.end.i.i:                                     ; preds = %cdce.call, %19
   %28 = fsub double 0x3FF921FB54442D18, %24
   %29 = tail call double @llvm.fabs.f64(double %28)
   %30 = fcmp oeq double %29, 0x7FF0000000000000
-  br i1 %30, label %cdce.call13, label %cdce.end10.i.i, !prof !481
+  br i1 %30, label %cdce.call12, label %cdce.end10.i.i, !prof !481
 
-cdce.call13:                                      ; preds = %cdce.end.i.i
+cdce.call12:                                      ; preds = %cdce.end.i.i
   %31 = tail call double @sin(double noundef %28) #66, !tbaa !3, !noalias !591
   br label %cdce.end10.i.i
 
-cdce.end10.i.i:                                   ; preds = %cdce.call13, %cdce.end.i.i
+cdce.end10.i.i:                                   ; preds = %cdce.call12, %cdce.end.i.i
   %32 = icmp eq i32 %21, 0
   br i1 %32, label %ma_bpf_get_heap_layout.exit.thread, label %33
 
@@ -79461,7 +79461,7 @@ define void @ma_data_source_node_config_init(ptr dead_on_unwind noalias writable
 ma_zero_memory_default.exit:
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx, i8 0, i64 20, i1 false)
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store i64 0, ptr %0, align 8, !tbaa !27
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -79616,7 +79616,7 @@ define void @ma_splitter_node_config_init(ptr dead_on_unwind noalias writable wr
 ma_zero_memory_default.exit:
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.7.0..sroa_idx, i8 0, i64 20, i1 false)
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store i64 0, ptr %0, align 8, !tbaa !27
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -79701,7 +79701,7 @@ define void @ma_splitter_node_uninit(ptr noundef readonly captures(address_is_nu
 define void @ma_biquad_node_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_biquad_node_config) align 8 captures(none) initializes((0, 96)) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
   %.sroa.710.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.710.0..sroa_idx, i8 0, i64 20, i1 false)
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store i64 0, ptr %0, align 8, !tbaa !27
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.47.0..sroa_idx, align 8, !tbaa !3
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -79902,7 +79902,7 @@ ma_biquad_uninit.exit:                            ; preds = %17, %15, %12, %7, %
 define void @ma_lpf_node_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_lpf_node_config) align 8 captures(none) initializes((0, 72)) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.77.0..sroa_idx, i8 0, i64 20, i1 false)
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store i64 0, ptr %0, align 8, !tbaa !27
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !3
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -80009,7 +80009,7 @@ define void @ma_lpf_node_uninit(ptr noundef readonly captures(address_is_null) %
 define void @ma_hpf_node_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_hpf_node_config) align 8 captures(none) initializes((0, 72)) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.77.0..sroa_idx, i8 0, i64 20, i1 false)
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store i64 0, ptr %0, align 8, !tbaa !27
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !3
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -80116,7 +80116,7 @@ define void @ma_hpf_node_uninit(ptr noundef readonly captures(address_is_null) %
 define void @ma_bpf_node_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_bpf_node_config) align 8 captures(none) initializes((0, 72)) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.77.0..sroa_idx, i8 0, i64 20, i1 false)
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store i64 0, ptr %0, align 8, !tbaa !27
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !3
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -80224,7 +80224,7 @@ define void @ma_notch_node_config_init(ptr dead_on_unwind noalias writable write
 ma_notch2_config_init.exit:
   %.sroa.76.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.76.0..sroa_idx, i8 0, i64 20, i1 false)
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store i64 0, ptr %0, align 8, !tbaa !27
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -80356,7 +80356,7 @@ define void @ma_peak_node_config_init(ptr dead_on_unwind noalias writable writeo
 ma_peak2_config_init.exit:
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.77.0..sroa_idx, i8 0, i64 20, i1 false)
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store i64 0, ptr %0, align 8, !tbaa !27
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -80493,7 +80493,7 @@ ma_peak2_uninit.exit:                             ; preds = %17, %15, %12, %7, %
 define void @ma_loshelf_node_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_loshelf_node_config) align 8 captures(none) initializes((0, 80)) %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #0 {
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.77.0..sroa_idx, i8 0, i64 20, i1 false)
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store i64 0, ptr %0, align 8, !tbaa !27
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -80624,7 +80624,7 @@ ma_loshelf2_uninit.exit:                          ; preds = %17, %15, %12, %7, %
 define void @ma_hishelf_node_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_hishelf_node_config) align 8 captures(none) initializes((0, 80)) %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #0 {
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.77.0..sroa_idx, i8 0, i64 20, i1 false)
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store i64 0, ptr %0, align 8, !tbaa !27
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -80755,7 +80755,7 @@ ma_hishelf2_uninit.exit:                          ; preds = %17, %15, %12, %7, %
 define void @ma_delay_node_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_delay_node_config) align 8 captures(none) initializes((0, 68)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #0 {
   %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.77.0..sroa_idx, i8 0, i64 20, i1 false)
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store i64 0, ptr %0, align 8, !tbaa !27
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !3
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12

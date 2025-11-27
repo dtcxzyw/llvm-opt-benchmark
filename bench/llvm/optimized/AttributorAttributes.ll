@@ -97559,7 +97559,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121AAPotentialValuesImpl8ItemInf
   br i1 %spec.select.i.i.i.i.i.i.i.i.i87.i, label %435, label %.thread.i.i
 
 435:                                              ; preds = %.thread161.i.thread
-  %.sroa.0148.0.copyload.i = load ptr, ptr %50, align 8
+  %.sroa.0148.0.copyload.i = load i64, ptr %50, align 8
   %436 = getelementptr inbounds i8, ptr %212, i64 -64
   %437 = load ptr, ptr %436, align 8, !tbaa !177
   %438 = getelementptr inbounds i8, ptr %212, i64 -32
@@ -97569,7 +97569,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_121AAPotentialValuesImpl8ItemInf
   %442 = and i16 %441, 63
   %443 = zext nneg i16 %442 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  store ptr %.sroa.0148.0.copyload.i, ptr %45, align 8
+  store i64 %.sroa.0148.0.copyload.i, ptr %45, align 8
   store ptr %.sroa.2.0.copyload.i, ptr %.sroa.4142.0..sroa_idx.i, align 8
   store i8 %.sroa.3149.0.copyload.i, ptr %.sroa.7.0..sroa_idx.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4150.0..sroa_idx.i, i64 7, i1 false)
@@ -176646,14 +176646,17 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit:     ; preds = %_ZNK4llvm10IRPositi
   %.sroa.6.0.extract.shift8 = lshr i16 %19, 8
   %.sroa.6.0.v = select i1 %or.cond, i16 %.sroa.6.0.extract.shift8, i16 %.sroa.6.0.extract.shift
   %.sroa.0.0 = select i1 %or.cond, i16 %19, i16 %20
+  %.sroa.0.0.insert.ext = zext i16 %19 to i32
   %.sroa.6.0.insert.shift = shl nuw i16 %.sroa.6.0.v, 8
-  %.sroa.0.0.insert.ext = and i16 %.sroa.0.0, 255
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.6.0.insert.shift, %.sroa.0.0.insert.ext
+  %.sroa.0.0.insert.ext6 = and i16 %.sroa.0.0, 255
+  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.6.0.insert.shift, %.sroa.0.0.insert.ext6
+  %.sroa.0.2.insert.ext = zext i16 %.sroa.0.0.insert.insert to i32
+  %.sroa.0.2.insert.shift = shl nuw i32 %.sroa.0.2.insert.ext, 16
+  %.sroa.0.2.insert.insert = or disjoint i32 %.sroa.0.2.insert.shift, %.sroa.0.0.insert.ext
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i16 %19, ptr %24, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 90
-  store i16 %.sroa.0.0.insert.insert, ptr %.sroa.4.0..sroa_idx, align 2
-  %.not.i = icmp ne i16 %.sroa.6.0.extract.shift8, 3
+  store i32 %.sroa.0.2.insert.insert, ptr %24, align 8
+  %.mask = and i16 %19, -256
+  %.not.i = icmp ne i16 %.mask, 768
   %25 = and i16 %19, 255
   %.not1.i = icmp ne i16 %25, 3
   %or.cond.i.not15 = and i1 %.not.i, %.not1.i

@@ -4879,60 +4879,61 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br i1 %169, label %170, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
 
 170:                                              ; preds = %168
-  %.sroa.0.0.copyload = load ptr, ptr %9, align 8
+  %.sroa.0.0.copyload = load i64, ptr %9, align 8
   %.sroa.4.0.copyload = load i64, ptr %10, align 8
+  %171 = inttoptr i64 %.sroa.0.0.copyload to ptr
   %.not23.i157 = icmp sgt i64 %.sroa.4.0.copyload, 0
   br i1 %.not23.i157, label %.preheader.us.us.i159, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
 
-171:                                              ; preds = %.preheader.us.us.i159
-  %172 = add nuw nsw i64 %.01324.us.us.i160, 1
-  %exitcond.not.i161 = icmp eq i64 %172, %.sroa.4.0.copyload
+172:                                              ; preds = %.preheader.us.us.i159
+  %173 = add nuw nsw i64 %.01324.us.us.i160, 1
+  %exitcond.not.i161 = icmp eq i64 %173, %.sroa.4.0.copyload
   br i1 %exitcond.not.i161, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit, label %.preheader.us.us.i159, !llvm.loop !267
 
-.preheader.us.us.i159:                            ; preds = %170, %171
-  %.01324.us.us.i160 = phi i64 [ %172, %171 ], [ 0, %170 ]
-  %173 = getelementptr double, ptr %.sroa.0.0.copyload, i64 %.01324.us.us.i160
-  %174 = load double, ptr %173, align 8, !tbaa !40
-  %175 = fcmp oeq double %174, 0.000000e+00
-  br i1 %175, label %171, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
+.preheader.us.us.i159:                            ; preds = %170, %172
+  %.01324.us.us.i160 = phi i64 [ %173, %172 ], [ 0, %170 ]
+  %174 = getelementptr double, ptr %171, i64 %.01324.us.us.i160
+  %175 = load double, ptr %174, align 8, !tbaa !40
+  %176 = fcmp oeq double %175, 0.000000e+00
+  br i1 %176, label %172, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
 
-_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit: ; preds = %171, %.preheader.us.us.i159, %.lr.ph.i17.i.i.i.i.i.i149, %.thread438, %168, %170, %._crit_edge.i.i.i.i.i.i148
-  %176 = phi double [ %115, %._crit_edge.i.i.i.i.i.i148 ], [ %115, %168 ], [ %115, %170 ], [ %107, %.thread438 ], [ %115, %.lr.ph.i17.i.i.i.i.i.i149 ], [ %115, %.preheader.us.us.i159 ], [ %115, %171 ]
-  %177 = phi i1 [ true, %._crit_edge.i.i.i.i.i.i148 ], [ false, %168 ], [ false, %170 ], [ %108, %.thread438 ], [ true, %.lr.ph.i17.i.i.i.i.i.i149 ], [ false, %.preheader.us.us.i159 ], [ false, %171 ]
-  %.4 = phi i8 [ %.0120.ph, %._crit_edge.i.i.i.i.i.i148 ], [ 0, %168 ], [ 1, %170 ], [ %.0120.ph, %.thread438 ], [ %.0120.ph, %.lr.ph.i17.i.i.i.i.i.i149 ], [ 1, %171 ], [ 0, %.preheader.us.us.i159 ]
-  %178 = select i1 %177, i1 %.0116.ph, i1 false
-  %.5 = select i1 %178, i8 0, i8 %.4
-  %not. = xor i1 %177, true
+_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit: ; preds = %172, %.preheader.us.us.i159, %.lr.ph.i17.i.i.i.i.i.i149, %.thread438, %168, %170, %._crit_edge.i.i.i.i.i.i148
+  %177 = phi double [ %115, %._crit_edge.i.i.i.i.i.i148 ], [ %115, %168 ], [ %115, %170 ], [ %107, %.thread438 ], [ %115, %.lr.ph.i17.i.i.i.i.i.i149 ], [ %115, %.preheader.us.us.i159 ], [ %115, %172 ]
+  %178 = phi i1 [ true, %._crit_edge.i.i.i.i.i.i148 ], [ false, %168 ], [ false, %170 ], [ %108, %.thread438 ], [ true, %.lr.ph.i17.i.i.i.i.i.i149 ], [ false, %.preheader.us.us.i159 ], [ false, %172 ]
+  %.4 = phi i8 [ %.0120.ph, %._crit_edge.i.i.i.i.i.i148 ], [ 0, %168 ], [ 1, %170 ], [ %.0120.ph, %.thread438 ], [ %.0120.ph, %.lr.ph.i17.i.i.i.i.i.i149 ], [ 1, %172 ], [ 0, %.preheader.us.us.i159 ]
+  %179 = select i1 %178, i1 %.0116.ph, i1 false
+  %.5 = select i1 %179, i8 0, i8 %.4
+  %not. = xor i1 %178, true
   %.2118 = select i1 %not., i1 true, i1 %.0116.ph
-  %179 = load i32, ptr %3, align 4, !tbaa !261
-  switch i32 %179, label %.outer.backedge [
-    i32 0, label %180
-    i32 1, label %182
-    i32 2, label %184
+  %180 = load i32, ptr %3, align 4, !tbaa !261
+  switch i32 %180, label %.outer.backedge [
+    i32 0, label %181
+    i32 1, label %183
+    i32 2, label %185
   ]
 
-180:                                              ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
-  %181 = fcmp olt double %176, 0.000000e+00
-  br i1 %181, label %.outer.backedge.sink.split, label %.outer.backedge
+181:                                              ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
+  %182 = fcmp olt double %177, 0.000000e+00
+  br i1 %182, label %.outer.backedge.sink.split, label %.outer.backedge
 
-182:                                              ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
-  %183 = fcmp ogt double %176, 0.000000e+00
-  br i1 %183, label %.outer.backedge.sink.split, label %.outer.backedge
+183:                                              ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
+  %184 = fcmp ogt double %177, 0.000000e+00
+  br i1 %184, label %.outer.backedge.sink.split, label %.outer.backedge
 
-184:                                              ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
-  %185 = fcmp ogt double %176, 0.000000e+00
-  br i1 %185, label %.outer.backedge.sink.split, label %186
+185:                                              ; preds = %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit
+  %186 = fcmp ogt double %177, 0.000000e+00
+  br i1 %186, label %.outer.backedge.sink.split, label %187
 
-186:                                              ; preds = %184
-  %187 = fcmp olt double %176, 0.000000e+00
-  br i1 %187, label %.outer.backedge.sink.split, label %.outer.backedge
+187:                                              ; preds = %185
+  %188 = fcmp olt double %177, 0.000000e+00
+  br i1 %188, label %.outer.backedge.sink.split, label %.outer.backedge
 
-.outer.backedge.sink.split:                       ; preds = %186, %184, %182, %180
-  %.sink = phi i32 [ 3, %180 ], [ 3, %182 ], [ 0, %184 ], [ 1, %186 ]
+.outer.backedge.sink.split:                       ; preds = %187, %185, %183, %181
+  %.sink = phi i32 [ 3, %181 ], [ 3, %183 ], [ 0, %185 ], [ 1, %187 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !261
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %.outer.backedge.sink.split, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit, %182, %186, %180
+.outer.backedge:                                  ; preds = %.outer.backedge.sink.split, %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELin1ELi1ELb0EEEEdVERKd.exit, %183, %187, %181
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.outer, !llvm.loop !262
 

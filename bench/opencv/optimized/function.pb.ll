@@ -4424,16 +4424,16 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   store ptr %74, ptr %73, align 8, !tbaa !194
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %76, align 8, !tbaa !62
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %76, align 8, !tbaa !62
   %78 = load i64, ptr %77, align 8, !tbaa !62
   store i64 %78, ptr %76, align 8, !tbaa !62
-  store ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %77, align 8, !tbaa !62
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i, ptr %77, align 8, !tbaa !62
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %.sroa.0.0.copyload.i = load ptr, ptr %80, align 8, !tbaa !25
+  %.sroa.0.0.copyload.i = load i64, ptr %80, align 8, !tbaa !25
   %81 = load i64, ptr %79, align 8, !tbaa !25
   store i64 %81, ptr %80, align 8, !tbaa !25
-  store ptr %.sroa.0.0.copyload.i, ptr %79, align 8, !tbaa !25
+  store i64 %.sroa.0.0.copyload.i, ptr %79, align 8, !tbaa !25
   ret void
 }
 
@@ -6351,16 +6351,16 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   store i64 %3, ptr %4, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8, !tbaa !25
+  %.sroa.0.0.copyload.i = load i64, ptr %7, align 8, !tbaa !25
   %8 = load i64, ptr %6, align 8, !tbaa !25
   store i64 %8, ptr %7, align 8, !tbaa !25
-  store ptr %.sroa.0.0.copyload.i, ptr %6, align 8, !tbaa !25
+  store i64 %.sroa.0.0.copyload.i, ptr %6, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i12 = load ptr, ptr %10, align 8, !tbaa !25
+  %.sroa.0.0.copyload.i12 = load i64, ptr %10, align 8, !tbaa !25
   %11 = load i64, ptr %9, align 8, !tbaa !25
   store i64 %11, ptr %10, align 8, !tbaa !25
-  store ptr %.sroa.0.0.copyload.i12, ptr %9, align 8, !tbaa !25
+  store i64 %.sroa.0.0.copyload.i12, ptr %9, align 8, !tbaa !25
   ret void
 }
 
@@ -7739,10 +7739,10 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv
   store ptr %21, ptr %20, align 8, !tbaa !194
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %23, align 8, !tbaa !62
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %23, align 8, !tbaa !62
   %25 = load i64, ptr %24, align 8, !tbaa !62
   store i64 %25, ptr %23, align 8, !tbaa !62
-  store ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %24, align 8, !tbaa !62
+  store i64 %.sroa.0.0.copyload.i.i.i.i.i, ptr %24, align 8, !tbaa !62
   ret void
 }
 
@@ -12732,100 +12732,101 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf6MapKey4typeEv(ptr n
 define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE4swapERSA_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::Map", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !97
+  %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
-  br i1 %8, label %9, label %29
+  br i1 %8, label %9, label %30
 
 9:                                                ; preds = %2
   %10 = ptrtoint ptr %7 to i64
-  %11 = load i64, ptr %0, align 8, !tbaa !56
-  %12 = load i64, ptr %1, align 8, !tbaa !56
-  store i64 %12, ptr %0, align 8, !tbaa !56
-  store i64 %11, ptr %1, align 8, !tbaa !56
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i64, ptr %13, align 8, !tbaa !56
+  %11 = ptrtoint ptr %5 to i64
+  %12 = load i64, ptr %0, align 8, !tbaa !56
+  %13 = load i64, ptr %1, align 8, !tbaa !56
+  store i64 %13, ptr %0, align 8, !tbaa !56
+  store i64 %12, ptr %1, align 8, !tbaa !56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %14, align 8, !tbaa !56
-  store i64 %16, ptr %13, align 8, !tbaa !56
-  store i64 %15, ptr %14, align 8, !tbaa !56
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load i64, ptr %17, align 8, !tbaa !56
+  %17 = load i64, ptr %15, align 8, !tbaa !56
+  store i64 %17, ptr %14, align 8, !tbaa !56
+  store i64 %16, ptr %15, align 8, !tbaa !56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %18, align 8, !tbaa !56
-  store i64 %20, ptr %17, align 8, !tbaa !56
-  store i64 %19, ptr %18, align 8, !tbaa !56
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load i64, ptr %21, align 8, !tbaa !56
+  %21 = load i64, ptr %19, align 8, !tbaa !56
+  store i64 %21, ptr %18, align 8, !tbaa !56
+  store i64 %20, ptr %19, align 8, !tbaa !56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %22, align 8, !tbaa !56
-  store i64 %24, ptr %21, align 8, !tbaa !56
-  store i64 %23, ptr %22, align 8, !tbaa !56
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %27 = load ptr, ptr %25, align 8, !tbaa !194
+  %25 = load i64, ptr %23, align 8, !tbaa !56
+  store i64 %25, ptr %22, align 8, !tbaa !56
+  store i64 %24, ptr %23, align 8, !tbaa !56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %26, align 8, !tbaa !194
-  store ptr %28, ptr %25, align 8, !tbaa !194
-  store ptr %27, ptr %26, align 8, !tbaa !194
+  %29 = load ptr, ptr %27, align 8, !tbaa !194
+  store ptr %29, ptr %26, align 8, !tbaa !194
+  store ptr %28, ptr %27, align 8, !tbaa !194
   store i64 %10, ptr %4, align 8, !tbaa !62
-  store ptr %5, ptr %6, align 8, !tbaa !62
-  br label %51
+  store i64 %11, ptr %6, align 8, !tbaa !62
+  br label %52
 
-29:                                               ; preds = %2
+30:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %0)
-  %30 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
-          to label %31 unwind label %49
+  %31 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
+          to label %32 unwind label %50
 
-31:                                               ; preds = %29
-  %32 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %33 unwind label %49
+32:                                               ; preds = %30
+  %33 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %34 unwind label %50
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !97
-  %36 = icmp ne ptr %35, null
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %38 = load i64, ptr %37, align 8
-  %.not.i.i = icmp eq i64 %38, 1
-  %or.cond.i.i = select i1 %36, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev.exit, label %39
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %36 = load ptr, ptr %35, align 8, !tbaa !97
+  %37 = icmp ne ptr %36, null
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %39 = load i64, ptr %38, align 8
+  %.not.i.i = icmp eq i64 %39, 1
+  %or.cond.i.i = select i1 %37, i1 true, i1 %.not.i.i
+  br i1 %or.cond.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev.exit, label %40
 
-39:                                               ; preds = %33
+40:                                               ; preds = %34
   invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %40 unwind label %46
+          to label %41 unwind label %47
 
-40:                                               ; preds = %39
-  %41 = load i64, ptr %34, align 8, !tbaa !62
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev.exit
+41:                                               ; preds = %40
+  %42 = load i64, ptr %35, align 8, !tbaa !62
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev.exit
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !96
-  call void @_ZdlPv(ptr noundef %45) #30
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %46 = load ptr, ptr %45, align 8, !tbaa !96
+  call void @_ZdlPv(ptr noundef %46) #30
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev.exit
 
-46:                                               ; preds = %39
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %40
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #29
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #29
   unreachable
 
-_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev.exit: ; preds = %33, %40, %43
+_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev.exit: ; preds = %34, %41, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %51
+  br label %52
 
-49:                                               ; preds = %31, %29
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %32, %30
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %50
+  resume { ptr, i32 } %51
 
-51:                                               ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev.exit, %9
+52:                                               ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev.exit, %9
   ret void
 }
 

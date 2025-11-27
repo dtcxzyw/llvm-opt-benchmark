@@ -553,9 +553,9 @@ arena_get.exit:                                   ; preds = %.lr.ph131, %62
 94:                                               ; preds = %89
   %95 = zext i32 %.1161.i97 to i64
   %96 = getelementptr inbounds nuw %union.emap_batch_lookup_result_u, ptr %51, i64 %95
-  %.sroa.0.0.copyload.i = load ptr, ptr %96, align 8, !tbaa !56
+  %.sroa.0.0.copyload.i = load i64, ptr %96, align 8, !tbaa !56
   store i64 %88, ptr %96, align 8, !tbaa !56
-  store ptr %.sroa.0.0.copyload.i, ptr %83, align 8, !tbaa !56
+  store i64 %.sroa.0.0.copyload.i, ptr %83, align 8, !tbaa !56
   %97 = getelementptr inbounds nuw ptr, ptr %43, i64 %95
   %98 = load ptr, ptr %97, align 8, !tbaa !37
   %99 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
@@ -2156,9 +2156,9 @@ arena_dalloc_bin_locked_step.exit.us:             ; preds = %340, %330, %326, %3
 355:                                              ; preds = %350
   %356 = zext i32 %.1161.i145.us to i64
   %357 = getelementptr inbounds nuw %union.emap_batch_lookup_result_u, ptr %51, i64 %356
-  %.sroa.0.0.copyload.i.us = load ptr, ptr %357, align 8, !tbaa !56
+  %.sroa.0.0.copyload.i.us = load i64, ptr %357, align 8, !tbaa !56
   store i64 %349, ptr %357, align 8, !tbaa !56
-  store ptr %.sroa.0.0.copyload.i.us, ptr %344, align 8, !tbaa !56
+  store i64 %.sroa.0.0.copyload.i.us, ptr %344, align 8, !tbaa !56
   %358 = getelementptr inbounds nuw ptr, ptr %43, i64 %356
   %359 = load ptr, ptr %358, align 8, !tbaa !37
   %360 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv204

@@ -869,6 +869,7 @@ _ZN4llvm21iterator_adaptor_baseINS_20filter_iterator_baseINS_21ConstMIBundleOper
   br label %_ZN4llvm20filter_iterator_implINS_21ConstMIBundleOperandsEPFbRKNS_14MachineOperandEESt20forward_iterator_tagEC2ES1_S1_S6_.exit.split109.i, !llvm.loop !64
 
 _ZN4llvm17make_filter_rangeINS_14iterator_rangeINS_21ConstMIBundleOperandsEEEPFbRKNS_14MachineOperandEEEENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISC_E4typeEEEEEOSA_SD_.exit: ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.i.i.i8.i, %85, %_ZZN4llvm19phys_regs_and_masksERKNS_12MachineInstrEENUlRKNS_14MachineOperandEE_8__invokeES5_.exit
+  %119 = ptrtoint ptr %13 to i64
   store ptr %.sroa.037.0.i, ptr %0, align 8, !alias.scope !73
   %.sroa.466.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %.sroa.466.0..sroa_idx.i, align 8, !alias.scope !73
@@ -879,15 +880,15 @@ _ZN4llvm17make_filter_rangeINS_14iterator_rangeINS_21ConstMIBundleOperandsEEEPFb
   %.sroa.769.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %13, ptr %.sroa.769.0..sroa_idx.i, align 8, !alias.scope !73
   %.sroa.870.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %13, ptr %.sroa.870.0..sroa_idx.i, align 8, !alias.scope !73
+  store i64 %119, ptr %.sroa.870.0..sroa_idx.i, align 8, !alias.scope !73
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %48, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !73
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %48, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !73
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @_ZZN4llvm19phys_regs_and_masksERKNS_12MachineInstrEENUlRKNS_14MachineOperandEE_8__invokeES5_, ptr %.sroa.11.0..sroa_idx.i, align 8, !alias.scope !73
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %.sroa.026.0.i, ptr %119, align 8, !alias.scope !73
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %.sroa.026.0.i, ptr %120, align 8, !alias.scope !73
   %.sroa.472.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %13, ptr %.sroa.472.0..sroa_idx.i, align 8, !alias.scope !73
   %.sroa.573.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -897,7 +898,7 @@ _ZN4llvm17make_filter_rangeINS_14iterator_rangeINS_21ConstMIBundleOperandsEEEPFb
   %.sroa.775.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %13, ptr %.sroa.775.0..sroa_idx.i, align 8, !alias.scope !73
   %.sroa.876.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %13, ptr %.sroa.876.0..sroa_idx.i, align 8, !alias.scope !73
+  store i64 %119, ptr %.sroa.876.0..sroa_idx.i, align 8, !alias.scope !73
   %.sroa.977.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %48, ptr %.sroa.977.0..sroa_idx.i, align 8, !alias.scope !73
   %.sroa.1078.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 128

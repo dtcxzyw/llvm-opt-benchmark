@@ -221,20 +221,20 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups26canonical_fully_decompo
   %15 = mul nuw nsw i64 %14, 2061
   %16 = lshr i64 %15, 32
   %17 = getelementptr inbounds nuw { i32, { i16, i16 } }, ptr @anon.1bf8cbd9db60c063894021140588f89d.5.llvm.3355593342274400970, i64 %16
-  %.sroa.03.0.copyload.i = load i64, ptr %17, align 4, !alias.scope !19, !noalias !16
-  %.sroa.01.0.extract.trunc.i.i.i = trunc i64 %.sroa.03.0.copyload.i to i32
+  %.sroa.02.0.copyload.i = load i64, ptr %17, align 4, !alias.scope !19, !noalias !16
+  %.sroa.01.0.extract.trunc.i.i.i = trunc i64 %.sroa.02.0.copyload.i to i32
   %18 = icmp eq i32 %0, %.sroa.01.0.extract.trunc.i.i.i
   br i1 %18, label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit, label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit: ; preds = %1
-  %19 = lshr i64 %.sroa.03.0.copyload.i, 32
+  %19 = lshr i64 %.sroa.02.0.copyload.i, 32
   %.2.extract.trunc = trunc i64 %19 to i16
   %20 = and i64 %19, 65535
   %21 = icmp ugt i16 %.2.extract.trunc, 3406
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
-  %.4.extract.shift8 = lshr i64 %.sroa.03.0.copyload.i, 48
+  %.4.extract.shift8 = lshr i64 %.sroa.02.0.copyload.i, 48
   %23 = sub nuw nsw i64 3406, %20
   %24 = icmp samesign ult i64 %23, %.4.extract.shift8
   br i1 %24, label %25, label %"_ZN21unicode_normalization7lookups26canonical_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h8e2d0b0857b7106bE.llvm.3355593342274400970.exit"
@@ -306,20 +306,20 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups30compatibility_fully_dec
   %15 = mul nuw nsw i64 %14, 3812
   %16 = lshr i64 %15, 32
   %17 = getelementptr inbounds nuw { i32, { i16, i16 } }, ptr @anon.1bf8cbd9db60c063894021140588f89d.11.llvm.3355593342274400970, i64 %16
-  %.sroa.03.0.copyload.i = load i64, ptr %17, align 4, !alias.scope !30, !noalias !27
-  %.sroa.01.0.extract.trunc.i.i.i = trunc i64 %.sroa.03.0.copyload.i to i32
+  %.sroa.02.0.copyload.i = load i64, ptr %17, align 4, !alias.scope !30, !noalias !27
+  %.sroa.01.0.extract.trunc.i.i.i = trunc i64 %.sroa.02.0.copyload.i to i32
   %18 = icmp eq i32 %0, %.sroa.01.0.extract.trunc.i.i.i
   br i1 %18, label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit, label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit: ; preds = %1
-  %19 = lshr i64 %.sroa.03.0.copyload.i, 32
+  %19 = lshr i64 %.sroa.02.0.copyload.i, 32
   %.2.extract.trunc = trunc i64 %19 to i16
   %20 = and i64 %19, 65535
   %21 = icmp ugt i16 %.2.extract.trunc, 5735
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
-  %.4.extract.shift8 = lshr i64 %.sroa.03.0.copyload.i, 48
+  %.4.extract.shift8 = lshr i64 %.sroa.02.0.copyload.i, 48
   %23 = sub nuw nsw i64 5735, %20
   %24 = icmp samesign ult i64 %23, %.4.extract.shift8
   br i1 %24, label %25, label %"_ZN21unicode_normalization7lookups30compatibility_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h1cb84bb88a75d1a0E.llvm.3355593342274400970.exit"
@@ -391,20 +391,20 @@ define { ptr, i64 } @_ZN21unicode_normalization7lookups36cjk_compat_variants_ful
   %15 = mul nuw nsw i64 %14, 1002
   %16 = lshr i64 %15, 32
   %17 = getelementptr inbounds nuw { i32, { i16, i16 } }, ptr @anon.1bf8cbd9db60c063894021140588f89d.16, i64 %16
-  %.sroa.03.0.copyload.i = load i64, ptr %17, align 4, !alias.scope !41, !noalias !38
-  %.sroa.01.0.extract.trunc.i.i.i = trunc i64 %.sroa.03.0.copyload.i to i32
+  %.sroa.02.0.copyload.i = load i64, ptr %17, align 4, !alias.scope !41, !noalias !38
+  %.sroa.01.0.extract.trunc.i.i.i = trunc i64 %.sroa.02.0.copyload.i to i32
   %18 = icmp eq i32 %0, %.sroa.01.0.extract.trunc.i.i.i
   br i1 %18, label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit, label %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit.thread
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit: ; preds = %1
-  %19 = lshr i64 %.sroa.03.0.copyload.i, 32
+  %19 = lshr i64 %.sroa.02.0.copyload.i, 32
   %.2.extract.trunc = trunc i64 %19 to i16
   %20 = and i64 %19, 65535
   %21 = icmp ugt i16 %.2.extract.trunc, 2004
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5b766c31ba8E.llvm.3355593342274400970.exit
-  %.4.extract.shift8 = lshr i64 %.sroa.03.0.copyload.i, 48
+  %.4.extract.shift8 = lshr i64 %.sroa.02.0.copyload.i, 48
   %23 = sub nuw nsw i64 2004, %20
   %24 = icmp samesign ult i64 %23, %.4.extract.shift8
   br i1 %24, label %25, label %"_ZN21unicode_normalization7lookups36cjk_compat_variants_fully_decomposed28_$u7b$$u7b$closure$u7d$$u7d$17h11e9bd9139359a17E.exit"
@@ -554,8 +554,8 @@ define hidden i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5
 
 26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw { i32, { i16, i16 } }, ptr %3, i64 %23
-  %.sroa.03.0.copyload = load i64, ptr %27, align 4
-  %.sroa.01.0.extract.trunc.i.i = trunc i64 %.sroa.03.0.copyload to i32
+  %.sroa.02.0.copyload = load i64, ptr %27, align 4
+  %.sroa.01.0.extract.trunc.i.i = trunc i64 %.sroa.02.0.copyload to i32
   %28 = icmp eq i32 %0, %.sroa.01.0.extract.trunc.i.i
   br i1 %28, label %30, label %33
 
@@ -564,10 +564,10 @@ define hidden i48 @_ZN21unicode_normalization12perfect_hash10mph_lookup17h9605c5
   unreachable
 
 30:                                               ; preds = %26
-  %sh.diff.i.i = lshr i64 %.sroa.03.0.copyload, 16
+  %sh.diff.i.i = lshr i64 %.sroa.02.0.copyload, 16
   %tr.sh.diff.i.i = trunc nuw i64 %sh.diff.i.i to i48
   %.sroa.3.0.insert.shift.i.i = and i48 %tr.sh.diff.i.i, -4294967296
-  %31 = trunc i64 %.sroa.03.0.copyload to i48
+  %31 = trunc i64 %.sroa.02.0.copyload to i48
   %32 = lshr i48 %31, 16
   %.sroa.23.0.insert.shift.i.i = and i48 %32, 4294901760
   %.sroa.23.0.insert.insert.i.i = or disjoint i48 %.sroa.23.0.insert.shift.i.i, %.sroa.3.0.insert.shift.i.i

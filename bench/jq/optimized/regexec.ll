@@ -10695,7 +10695,7 @@ onig_check_callout_data_and_clear_old_values.exit: ; preds = %2, %17
   %.phi.trans.insert103 = getelementptr i8, ptr %28, i64 -112
   %.sroa.0.0.copyload80.pre = load i64, ptr %.phi.trans.insert103, align 8
   %.sroa.11.0..sroa_idx.phi.trans.insert = getelementptr i8, ptr %28, i64 -104
-  %.sroa.11.0.copyload.pre = load ptr, ptr %.sroa.11.0..sroa_idx.phi.trans.insert, align 8, !tbaa !56
+  %.sroa.11.0.copyload.pre = load i64, ptr %.sroa.11.0..sroa_idx.phi.trans.insert, align 8, !tbaa !56
   %33 = icmp eq i32 %.pre102, 0
   %34 = select i1 %33, i64 0, i64 %.sroa.0.0.copyload80.pre
   br label %onig_get_callout_data_by_callout_args_self.exit
@@ -10709,7 +10709,7 @@ onig_check_callout_data_and_clear_old_values.exit: ; preds = %2, %17
 
 onig_get_callout_data_by_callout_args_self.exit:  ; preds = %.onig_get_callout_data_by_callout_args_self.exit_crit_edge, %35
   %37 = phi i32 [ %19, %.onig_get_callout_data_by_callout_args_self.exit_crit_edge ], [ %.pre106, %35 ]
-  %.sroa.11.0.copyload = phi ptr [ %.sroa.11.0.copyload.pre, %.onig_get_callout_data_by_callout_args_self.exit_crit_edge ], [ null, %35 ]
+  %.sroa.11.0.copyload = phi i64 [ %.sroa.11.0.copyload.pre, %.onig_get_callout_data_by_callout_args_self.exit_crit_edge ], [ 0, %35 ]
   %.not = phi i64 [ %34, %.onig_get_callout_data_by_callout_args_self.exit_crit_edge ], [ 0, %35 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !156
@@ -10845,7 +10845,7 @@ onig_get_callout_data_by_callout_args.exit:       ; preds = %67, %.onig_get_call
   %105 = getelementptr i8, ptr %102, i64 -112
   store i64 %.sroa.0.1, ptr %105, align 8
   %.sroa.11.0..sroa_idx82 = getelementptr i8, ptr %102, i64 -104
-  store ptr %.sroa.11.0.copyload, ptr %.sroa.11.0..sroa_idx82, align 8, !tbaa !56
+  store i64 %.sroa.11.0.copyload, ptr %.sroa.11.0..sroa_idx82, align 8, !tbaa !56
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 48
   %107 = load i32, ptr %106, align 8, !tbaa !40
   store i32 %107, ptr %103, align 8, !tbaa !53

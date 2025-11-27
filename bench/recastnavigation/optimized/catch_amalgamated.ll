@@ -45935,7 +45935,7 @@ _ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EEC2ERKS3_.exit36.thread: ; preds = %
   %.sroa.0.018.i.i.i.i = phi ptr [ %117, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Catch14TestCaseHandleESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_9sortTestsERKNS2_7IConfigERKS7_E3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %56, %55 ]
   %.sroa.03.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.0.018.i.i.i.i, align 8
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.018.i.i.i.i, i64 8
-  %.sroa.3.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8
+  %.sroa.3.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload.i.i.i.i.i, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload.i.i.i.i.i, i64 40
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload.i.i.i.i.i, i64 80
@@ -46095,7 +46095,7 @@ _ZSt30__lexicographical_compare_implIPKN5Catch3TagES3_N9__gnu_cxx5__ops15_Iter_l
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Catch14TestCaseHandleESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_9sortTestsERKNS2_7IConfigERKS7_E3$_0EEEvT_T0_.exit.i.i.i.i": ; preds = %_ZSt30__lexicographical_compare_implIPKN5Catch3TagES3_N9__gnu_cxx5__ops15_Iter_less_iterEEbT_S7_T0_S8_T1_.exit.i.i.i.i, %70, %63, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPKN5Catch3TagES6_EEbT_T0_.exit40.i.i.i.i.i, %.lr.ph.i.i.i.i.i31.i.i.i.i.i
   store ptr %.sroa.03.0.copyload.i.i.i.i.i, ptr %.sroa.07.0.i.i.i.i.i, align 8
   %.sroa.3.0..sroa_idx5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i, i64 8
-  store ptr %.sroa.3.0.copyload.i.i.i.i.i, ptr %.sroa.3.0..sroa_idx5.i.i.i.i.i, align 8
+  store i64 %.sroa.3.0.copyload.i.i.i.i.i, ptr %.sroa.3.0..sroa_idx5.i.i.i.i.i, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.018.i.i.i.i, i64 16
   %.not.i.i.i.i37 = icmp eq ptr %117, %.ptr.le
   br i1 %.not.i.i.i.i37, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Catch14TestCaseHandleESt6vectorIS3_SaIS3_EEEEZNS2_9sortTestsERKNS2_7IConfigERKS7_E3$_0EvT_SF_T0_.exit", label %.lr.ph.i.i.i.i, !llvm.loop !704
@@ -105279,7 +105279,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Catch14TestCaseHandleESt6v
 34:                                               ; preds = %17, %8, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5Catch9sortTestsERKNS2_7IConfigERKSt6vectorINS2_14TestCaseHandleESaIS7_EEE3$_0EclINS_17__normal_iteratorIPS7_S9_EESH_EEbT_T0_.exit"
   %.sroa.03.0.copyload.i = load ptr, ptr %.sroa.0.021, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.pn20, i64 24
-  %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload.i, i64 32
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload.i, i64 40
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload.i, i64 80
@@ -105334,7 +105334,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Catch14TestCaseHandleESt6v
 "_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Catch14TestCaseHandleESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_9sortTestsERKNS2_7IConfigERKS7_E3$_0EEEvT_T0_.exit": ; preds = %41, %48, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN5Catch9sortTestsERKNS2_7IConfigERKSt6vectorINS2_14TestCaseHandleESaIS7_EEE3$_0EclIS7_NS_17__normal_iteratorIPS7_S9_EEEEbRT_T0_.exit.i"
   store ptr %.sroa.03.0.copyload.i, ptr %.sroa.07.0.i, align 8
   %.sroa.3.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 8
-  store ptr %.sroa.3.0.copyload.i, ptr %.sroa.3.0..sroa_idx5.i, align 8
+  store i64 %.sroa.3.0.copyload.i, ptr %.sroa.3.0..sroa_idx5.i, align 8
   br label %58
 
 58:                                               ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Catch14TestCaseHandleESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5Catch14TestCaseHandleESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_9sortTestsERKNS2_7IConfigERKS7_E3$_0EEEvT_T0_.exit"
@@ -106232,7 +106232,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %62 = icmp sgt i64 %.1, %1
   br i1 %62, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImN5Catch14TestCaseHandleEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZNS3_9sortTestsERKNS3_7IConfigERKS7_IS4_SaIS4_EEE3$_1EEEvT_T0_SN_T1_RT2_.exit"
 
@@ -106312,7 +106312,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store ptr %.sroa.2.0.copyload, ptr %97, align 8
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store ptr %.sroa.3.0.copyload, ptr %.sroa.6.8..sroa_idx, align 8
+  store i64 %.sroa.3.0.copyload, ptr %.sroa.6.8..sroa_idx, align 8
   ret void
 }
 
@@ -106441,7 +106441,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__nor
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %2 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 80
@@ -106511,7 +106511,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__nor
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 8
   store ptr %.sroa.3.0.copyload, ptr %33, align 8
   %.sroa.5.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 16
-  store ptr %.sroa.5.0.copyload, ptr %.sroa.5.8..sroa_idx, align 8
+  store i64 %.sroa.5.0.copyload, ptr %.sroa.5.8..sroa_idx, align 8
   ret void
 }
 
@@ -130066,13 +130066,13 @@ common.ret:                                       ; preds = %94, %95, %50, %53, 
   %61 = load i64, ptr %60, align 8
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds %"class.std::__cxx11::sub_match", ptr %62, i64 %61
-  %.sroa.0.0.copyload.i = load ptr, ptr %63, align 8
+  %.sroa.0.0.copyload.i = load i64, ptr %63, align 8
   %64 = load i64, ptr %11, align 8
   store i64 %64, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %66 = load i64, ptr %65, align 8
   tail call void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE6_M_dfsENSH_11_Match_modeEl(ptr noundef nonnull align 8 dereferenceable(141) %0, i8 noundef zeroext %1, i64 noundef %66)
-  store ptr %.sroa.0.0.copyload.i, ptr %63, align 8
+  store i64 %.sroa.0.0.copyload.i, ptr %63, align 8
   br label %common.ret
 
 67:                                               ; preds = %.lr.ph
@@ -130525,7 +130525,7 @@ define linkonce_odr dso_local void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__norm
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %50
+  br i1 %16, label %17, label %51
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -130577,29 +130577,30 @@ define linkonce_odr dso_local void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__norm
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %36, ptr %39, align 8
   %40 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_12regex_traitsIcEEE8_M_applyESB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %20, ptr %.sroa.017.0.lcssa)
-  br i1 %40, label %41, label %50
+  br i1 %40, label %41, label %51
 
 41:                                               ; preds = %.critedge
   %42 = load ptr, ptr %18, align 8
   %.not21 = icmp eq ptr %.sroa.017.0.lcssa, %42
-  br i1 %.not21, label %47, label %43
+  br i1 %.not21, label %48, label %43
 
 43:                                               ; preds = %41
-  %44 = ptrtoint ptr %.sroa.017.0.lcssa to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = ptrtoint ptr %.sroa.017.0.lcssa to i64
+  store i64 %45, ptr %18, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %47 = load i64, ptr %46, align 8
+  call void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE6_M_dfsENSH_11_Match_modeEl(ptr noundef nonnull align 8 dereferenceable(141) %0, i8 noundef zeroext %1, i64 noundef %47)
   store i64 %44, ptr %18, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %46 = load i64, ptr %45, align 8
-  call void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE6_M_dfsENSH_11_Match_modeEl(ptr noundef nonnull align 8 dereferenceable(141) %0, i8 noundef zeroext %1, i64 noundef %46)
-  store ptr %42, ptr %18, align 8
-  br label %50
+  br label %51
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %49 = load i64, ptr %48, align 8
-  call void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE6_M_dfsENSH_11_Match_modeEl(ptr noundef nonnull align 8 dereferenceable(141) %0, i8 noundef zeroext %1, i64 noundef %49)
-  br label %50
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %50 = load i64, ptr %49, align 8
+  call void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EE6_M_dfsENSH_11_Match_modeEl(ptr noundef nonnull align 8 dereferenceable(141) %0, i8 noundef zeroext %1, i64 noundef %50)
+  br label %51
 
-50:                                               ; preds = %43, %47, %3, %.critedge
+51:                                               ; preds = %43, %48, %3, %.critedge
   ret void
 }
 
@@ -131729,13 +131730,13 @@ common.ret:                                       ; preds = %124, %_ZNKSt8__deta
   %77 = load i64, ptr %76, align 8
   %78 = load ptr, ptr %0, align 8
   %79 = getelementptr inbounds %"class.std::__cxx11::sub_match", ptr %78, i64 %77
-  %.sroa.0.0.copyload.i = load ptr, ptr %79, align 8
+  %.sroa.0.0.copyload.i = load i64, ptr %79, align 8
   %80 = load i64, ptr %7, align 8
   store i64 %80, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %82 = load i64, ptr %81, align 8
   tail call void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE6_M_dfsENSH_11_Match_modeEl(ptr noundef nonnull align 8 dereferenceable(117) %0, i8 noundef zeroext %1, i64 noundef %82)
-  store ptr %.sroa.0.0.copyload.i, ptr %79, align 8
+  store i64 %.sroa.0.0.copyload.i, ptr %79, align 8
   br label %common.ret
 
 83:                                               ; preds = %tailrecurse
@@ -131947,7 +131948,7 @@ define linkonce_odr dso_local void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__norm
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %50
+  br i1 %16, label %17, label %51
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -131999,29 +132000,30 @@ define linkonce_odr dso_local void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__norm
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %36, ptr %39, align 8
   %40 = call noundef zeroext i1 @_ZNSt8__detail16_Backref_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS5_12regex_traitsIcEEE8_M_applyESB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %20, ptr %.sroa.017.0.lcssa)
-  br i1 %40, label %41, label %50
+  br i1 %40, label %41, label %51
 
 41:                                               ; preds = %.critedge
   %42 = load ptr, ptr %18, align 8
   %.not21 = icmp eq ptr %.sroa.017.0.lcssa, %42
-  br i1 %.not21, label %47, label %43
+  br i1 %.not21, label %48, label %43
 
 43:                                               ; preds = %41
-  %44 = ptrtoint ptr %.sroa.017.0.lcssa to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = ptrtoint ptr %.sroa.017.0.lcssa to i64
+  store i64 %45, ptr %18, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %47 = load i64, ptr %46, align 8
+  call void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE6_M_dfsENSH_11_Match_modeEl(ptr noundef nonnull align 8 dereferenceable(117) %0, i8 noundef zeroext %1, i64 noundef %47)
   store i64 %44, ptr %18, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %46 = load i64, ptr %45, align 8
-  call void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE6_M_dfsENSH_11_Match_modeEl(ptr noundef nonnull align 8 dereferenceable(117) %0, i8 noundef zeroext %1, i64 noundef %46)
-  store ptr %42, ptr %18, align 8
-  br label %50
+  br label %51
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %49 = load i64, ptr %48, align 8
-  call void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE6_M_dfsENSH_11_Match_modeEl(ptr noundef nonnull align 8 dereferenceable(117) %0, i8 noundef zeroext %1, i64 noundef %49)
-  br label %50
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %50 = load i64, ptr %49, align 8
+  call void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb1EE6_M_dfsENSH_11_Match_modeEl(ptr noundef nonnull align 8 dereferenceable(117) %0, i8 noundef zeroext %1, i64 noundef %50)
+  br label %51
 
-50:                                               ; preds = %43, %47, %3, %.critedge
+51:                                               ; preds = %43, %48, %3, %.critedge
   ret void
 }
 

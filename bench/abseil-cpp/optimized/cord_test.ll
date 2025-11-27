@@ -38534,7 +38534,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN4absl10CordBufferD2Ev.exit130:                 ; preds = %229, %227
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !24
+  store i64 0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %32, ptr noundef nonnull align 1 dereferenceable(5) @.str.204, i64 5, i1 false)
   store i8 11, ptr %3, align 8, !tbaa !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !123
@@ -40784,7 +40784,7 @@ _ZN4absl4Cord6AppendENS_10CordBufferE.exit:       ; preds = %_ZNK4absl10CordBuff
 _ZN4absl10CordBufferD2Ev.exit88:                  ; preds = %102, %99
   store ptr inttoptr (i64 1 to ptr), ptr %4, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !24
+  store i64 0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %48, ptr noundef nonnull align 1 dereferenceable(3) @.str.201, i64 3, i1 false)
   store i8 7, ptr %4, align 8, !tbaa !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !123
@@ -42673,7 +42673,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN4absl10CordBufferD2Ev.exit130:                 ; preds = %229, %227
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !24
+  store i64 0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %32, ptr noundef nonnull align 1 dereferenceable(5) @.str.204, i64 5, i1 false)
   store i8 11, ptr %3, align 8, !tbaa !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !123
@@ -44125,7 +44125,7 @@ _ZN4absl10CordBuffer22CreateWithDefaultLimitEm.exit104: ; preds = %.noexc103, %_
 _ZN4absl10CordBufferD2Ev.exit115:                 ; preds = %240, %_ZN4absl10CordBuffer22CreateWithDefaultLimitEm.exit104
   store ptr %.sroa.0.0, ptr %6, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !24
+  store i64 0, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !24
   %250 = ptrtoint ptr %.sroa.0.0 to i64
   %251 = and i64 %250, 1
   %.not.i116 = icmp eq i64 %251, 0
@@ -46455,7 +46455,7 @@ _ZN4absl10CordBuffer22CreateWithDefaultLimitEm.exit104: ; preds = %.noexc103, %_
 _ZN4absl10CordBufferD2Ev.exit115:                 ; preds = %240, %_ZN4absl10CordBuffer22CreateWithDefaultLimitEm.exit104
   store ptr %.sroa.0.0, ptr %6, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !24
+  store i64 0, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !24
   %250 = ptrtoint ptr %.sroa.0.0 to i64
   %251 = and i64 %250, 1
   %.not.i116 = icmp eq i64 %251, 0
