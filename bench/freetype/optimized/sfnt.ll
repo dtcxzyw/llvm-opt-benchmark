@@ -1374,10 +1374,10 @@ define internal range(i32 0, 65536) i32 @tt_cmap6_char_next(ptr noundef readonly
   br i1 %.not, label %39, label %._crit_edge
 
 39:                                               ; preds = %.lr.ph
-  %exitcond = icmp eq i32 %.13641, 65535
-  br i1 %exitcond, label %.loopexit, label %40
+  %40 = icmp eq i32 %.13641, 65535
+  br i1 %40, label %.loopexit, label %40
 
-40:                                               ; preds = %39
+._crit_edge:                                      ; preds = %39
   %41 = add nuw nsw i32 %.13641, 1
   %42 = add nuw nsw i32 %.043, 1
   %43 = icmp ult i32 %42, %14

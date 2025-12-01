@@ -15898,11 +15898,11 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_.exit.i:
 
 .preheader43.i.i:                                 ; preds = %385
   %.not2546.not.i.i = icmp eq i32 %383, 0
-  %388 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %389 = load ptr, ptr %388, align 8
-  br i1 %.not2546.not.i.i, label %_ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj.exit.thread16.i, label %.preheader.us.i.preheader.i
+  %389 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %390 = load ptr, ptr %389, align 8
+  br i1 %.not2546.not.i.i, label %_ZN4llvm7CCState16AllocateRegBlockENS_8ArrayRefItEEj.exit.thread16.i, label %.preheader.us.i.i
 
-.preheader.us.i.preheader.i:                      ; preds = %.preheader43.i.i
+.preheader.us.i.i:                                ; preds = %.preheader43.i.i
   %390 = sub nuw nsw i32 5, %382
   br label %.preheader.us.i.i
 
@@ -15926,7 +15926,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_11CCValAssignELb1EE9push_backERKS1_.exit.i:
   %399 = zext i16 %398 to i32
   %400 = lshr i32 %399, 5
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds nuw i32, ptr %389, i64 %401
+  %402 = getelementptr inbounds nuw i32, ptr %390, i64 %401
   %403 = load i32, ptr %402, align 4, !tbaa !286
   %404 = and i32 %399, 31
   %405 = shl nuw i32 1, %404

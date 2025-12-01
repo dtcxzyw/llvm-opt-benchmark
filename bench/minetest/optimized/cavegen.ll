@@ -954,19 +954,19 @@ vector.ph:                                        ; preds = %vector.scevcheck
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %vector.body ], [ 0, %vector.ph ]
+  %index = phi i64 [ %indvars.iv.next, %vector.body ], [ 0, %vector.ph ]
   %vec.ind = phi <4 x i16> [ %vec.ind.next, %vector.body ], [ %induction, %vector.ph ]
-  %20 = sitofp <4 x i16> %vec.ind to <4 x float>
-  %21 = fsub nsz <4 x float> %broadcast.splat, %20
-  %22 = fdiv nsz <4 x float> %21, %broadcast.splat199
-  %23 = fcmp nsz olt <4 x float> %22, splat (float 1.000000e+00)
-  %24 = select <4 x i1> %23, <4 x float> %22, <4 x float> splat (float 1.000000e+00)
-  %25 = getelementptr inbounds nuw float, ptr %call9, i64 %indvars.iv
+  %19 = sitofp <4 x i16> %vec.ind to <4 x float>
+  %20 = fsub nsz <4 x float> %broadcast.splat, %19
+  %21 = fdiv nsz <4 x float> %20, %broadcast.splat199
+  %22 = fcmp nsz olt <4 x float> %21, splat (float 1.000000e+00)
+  %23 = select <4 x i1> %22, <4 x float> %21, <4 x float> splat (float 1.000000e+00)
+  %25 = getelementptr inbounds nuw float, ptr %call9, i64 %index
   store <4 x float> %24, ptr %25, align 4, !tbaa !70
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
+  %indvars.iv.next = add nuw nsw i64 %index, 4
   %vec.ind.next = add <4 x i16> %vec.ind, splat (i16 -4)
-  %26 = icmp eq i64 %indvars.iv.next, %19
-  br i1 %26, label %middle.block, label %vector.body, !llvm.loop !123
+  %27 = icmp eq i64 %indvars.iv.next, %19
+  br i1 %27, label %middle.block, label %vector.body, !llvm.loop !123
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = trunc i32 %n.vec to i8
@@ -1039,33 +1039,33 @@ for.cond35.for.cond.cleanup40_crit_edge.split:    ; preds = %for.cond63.for.cond
 for.body41:                                       ; preds = %for.cond63.for.cond.cleanup69_crit_edge, %for.cond35.preheader
   %.pre180189 = phi i16 [ %.pre180, %for.cond35.preheader ], [ %.pre180187, %for.cond63.for.cond.cleanup69_crit_edge ]
   %.pre185 = phi i16 [ %.pre, %for.cond35.preheader ], [ %.pre183, %for.cond63.for.cond.cleanup69_crit_edge ]
-  %27 = phi i16 [ %.pre, %for.cond35.preheader ], [ %50, %for.cond63.for.cond.cleanup69_crit_edge ]
-  %28 = phi i16 [ %.pre180, %for.cond35.preheader ], [ %51, %for.cond63.for.cond.cleanup69_crit_edge ]
+  %28 = phi i16 [ %.pre, %for.cond35.preheader ], [ %51, %for.cond63.for.cond.cleanup69_crit_edge ]
+  %29 = phi i16 [ %.pre180, %for.cond35.preheader ], [ %52, %for.cond63.for.cond.cleanup69_crit_edge ]
   %conv36156 = phi i32 [ %conv36151, %for.cond35.preheader ], [ %conv36, %for.cond63.for.cond.cleanup69_crit_edge ]
   %x.0155 = phi i16 [ %nmin.sroa.0.0.extract.trunc, %for.cond35.preheader ], [ %inc99, %for.cond63.for.cond.cleanup69_crit_edge ]
   %near_cavern.1153 = phi i8 [ %near_cavern.0162, %for.cond35.preheader ], [ %near_cavern.3, %for.cond63.for.cond.cleanup69_crit_edge ]
-  %29 = load i16, ptr %Z.i, align 2, !tbaa !31
-  %conv2.i = sext i16 %29 to i32
+  %30 = load i16, ptr %Z.i, align 2, !tbaa !31
+  %conv2.i = sext i16 %30 to i32
   %sub.i = sub nsw i32 %conv28165, %conv2.i
-  %30 = load i16, ptr %Y.i, align 2, !tbaa !32
-  %conv3.i = sext i16 %30 to i32
+  %31 = load i16, ptr %Y.i, align 2, !tbaa !32
+  %conv3.i = sext i16 %31 to i32
   %mul.i = mul nsw i32 %sub.i, %conv3.i
-  %conv5.i = sext i16 %27 to i32
-  %31 = load i16, ptr %Y9.i, align 2, !tbaa !33
-  %conv10.i = sext i16 %31 to i32
+  %conv5.i = sext i16 %28 to i32
+  %32 = load i16, ptr %Y9.i, align 2, !tbaa !33
+  %conv10.i = sext i16 %32 to i32
   %sub11.i = add nsw i32 %mul.i, %conv11140
   %mul622.i = sub i32 %sub11.i, %conv10.i
   %add.i = mul i32 %mul622.i, %conv5.i
-  %32 = load i16, ptr %m_area, align 2, !tbaa !34
-  %conv19.i = sext i16 %32 to i32
+  %33 = load i16, ptr %m_area, align 2, !tbaa !34
+  %conv19.i = sext i16 %33 to i32
   %sub20.i = sub nsw i32 %conv36156, %conv19.i
   %add21.i = add nsw i32 %sub20.i, %add.i
-  %33 = load i16, ptr %m_zstride_1d, align 2, !tbaa !115
-  %conv49 = zext i16 %33 to i32
+  %34 = load i16, ptr %m_zstride_1d, align 2, !tbaa !115
+  %conv49 = zext i16 %34 to i32
   %mul = mul nsw i32 %sub48, %conv49
-  %34 = load i16, ptr %Y6, align 2, !tbaa !122
-  %conv52 = sext i16 %34 to i32
-  %conv53 = zext i16 %28 to i32
+  %35 = load i16, ptr %Y6, align 2, !tbaa !122
+  %conv52 = sext i16 %35 to i32
+  %conv53 = zext i16 %29 to i32
   %mul54 = mul nsw i32 %conv52, %conv53
   %add55 = sub nsw i32 %conv36156, %conv36151
   %sub59 = add i32 %add55, %mul
@@ -1088,59 +1088,59 @@ for.body70:                                       ; preds = %if.end90, %for.body
   %index3d.0148 = phi i32 [ %add60, %for.body41 ], [ %sub95, %if.end90 ]
   %near_cavern.2147 = phi i8 [ %near_cavern.1153, %for.body41 ], [ %near_cavern.3, %if.end90 ]
   %vi.0146 = phi i32 [ %add21.i, %for.body41 ], [ %add.i137, %if.end90 ]
-  %37 = load ptr, ptr %m_data, align 8, !tbaa !59
+  %38 = load ptr, ptr %m_data, align 8, !tbaa !59
   %idxprom71 = zext i32 %vi.0146 to i64
-  %arrayidx72 = getelementptr inbounds nuw %struct.MapNode, ptr %37, i64 %idxprom71
-  %38 = load i16, ptr %arrayidx72, align 4, !tbaa !61
-  %39 = load ptr, ptr %noise_cavern, align 8, !tbaa !116
-  %result = getelementptr inbounds nuw i8, ptr %39, i64 80
-  %40 = load ptr, ptr %result, align 8, !tbaa !66
+  %arrayidx72 = getelementptr inbounds nuw %struct.MapNode, ptr %38, i64 %idxprom71
+  %39 = load i16, ptr %arrayidx72, align 4, !tbaa !61
+  %40 = load ptr, ptr %noise_cavern, align 8, !tbaa !116
+  %result = getelementptr inbounds nuw i8, ptr %40, i64 80
+  %41 = load ptr, ptr %result, align 8, !tbaa !66
   %idxprom75 = zext i32 %index3d.0148 to i64
-  %arrayidx76 = getelementptr inbounds nuw float, ptr %40, i64 %idxprom75
-  %41 = load float, ptr %arrayidx76, align 4, !tbaa !70
-  %42 = tail call nsz noundef float @llvm.fabs.f32(float %41)
+  %arrayidx76 = getelementptr inbounds nuw float, ptr %41, i64 %idxprom75
+  %42 = load float, ptr %arrayidx76, align 4, !tbaa !70
+  %43 = tail call nsz noundef float @llvm.fabs.f32(float %42)
   %idxprom78 = zext i8 %cavern_amp_index.1150 to i64
   %arrayidx79 = getelementptr inbounds nuw float, ptr %call9, i64 %idxprom78
-  %43 = load float, ptr %arrayidx79, align 4, !tbaa !70
-  %mul80 = fmul nsz float %42, %43
-  %44 = load float, ptr %m_cavern_threshold, align 8, !tbaa !113
-  %sub81 = fadd nsz float %44, 0xBFB99999A0000000
+  %44 = load float, ptr %arrayidx79, align 4, !tbaa !70
+  %mul80 = fmul nsz float %43, %44
+  %45 = load float, ptr %m_cavern_threshold, align 8, !tbaa !113
+  %sub81 = fadd nsz float %45, 0xBFB99999A0000000
   %cmp82 = fcmp nsz ogt float %mul80, %sub81
   br i1 %cmp82, label %if.then, label %if.end90
 
 if.then:                                          ; preds = %for.body70
-  %cmp84 = fcmp nsz ogt float %mul80, %44
+  %cmp84 = fcmp nsz ogt float %mul80, %45
   br i1 %cmp84, label %land.lhs.true, label %if.end90
 
 land.lhs.true:                                    ; preds = %if.then
-  %45 = load ptr, ptr %this, align 8, !tbaa !109
-  %conv.i135 = zext i16 %38 to i64
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %46 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !71
-  %47 = load ptr, ptr %45, align 8, !tbaa !73
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %46 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %47 to i64
+  %46 = load ptr, ptr %this, align 8, !tbaa !109
+  %conv.i135 = zext i16 %39 to i64
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %47 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !71
+  %48 = load ptr, ptr %46, align 8, !tbaa !73
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %47 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %48 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 3712
   %cmp.i = icmp ugt i64 %sub.ptr.div.i.i, %conv.i135
   br i1 %cmp.i, label %land.lhs.true.i, label %cond.false.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %47, i64 %conv.i135
+  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %48, i64 %conv.i135
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1456
-  %48 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !74
-  %cmp.i.i = icmp eq i64 %48, 0
+  %49 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !74
+  %cmp.i.i = icmp eq i64 %49, 0
   br i1 %cmp.i.i, label %cond.false.i, label %_ZNK14NodeDefManager3getEt.exit
 
 cond.false.i:                                     ; preds = %land.lhs.true.i, %land.lhs.true
-  %add.ptr.i14.i = getelementptr inbounds nuw i8, ptr %47, i64 464000
+  %add.ptr.i14.i = getelementptr inbounds nuw i8, ptr %48, i64 464000
   br label %_ZNK14NodeDefManager3getEt.exit
 
 _ZNK14NodeDefManager3getEt.exit:                  ; preds = %cond.false.i, %land.lhs.true.i
   %cond-lvalue.i = phi ptr [ %add.ptr.i14.i, %cond.false.i ], [ %add.ptr.i.i, %land.lhs.true.i ]
   %is_ground_content = getelementptr inbounds nuw i8, ptr %cond-lvalue.i, i64 3042
-  %49 = load i8, ptr %is_ground_content, align 2, !tbaa !75, !range !99, !noundef !100
-  %tobool.not = icmp eq i8 %49, 0
+  %50 = load i8, ptr %is_ground_content, align 2, !tbaa !75, !range !99, !noundef !100
+  %tobool.not = icmp eq i8 %50, 0
   br i1 %tobool.not, label %if.end90, label %if.then86
 
 if.then86:                                        ; preds = %_ZNK14NodeDefManager3getEt.exit
@@ -1152,13 +1152,13 @@ if.then86:                                        ; preds = %_ZNK14NodeDefManage
 if.end90:                                         ; preds = %if.then86, %_ZNK14NodeDefManager3getEt.exit, %if.then, %for.body70
   %.pre180187 = phi i16 [ %.pre181, %if.then86 ], [ %.pre180188, %_ZNK14NodeDefManager3getEt.exit ], [ %.pre180188, %if.then ], [ %.pre180188, %for.body70 ]
   %.pre183 = phi i16 [ %.pre182, %if.then86 ], [ %.pre184, %_ZNK14NodeDefManager3getEt.exit ], [ %.pre184, %if.then ], [ %.pre184, %for.body70 ]
-  %50 = phi i16 [ %.pre182, %if.then86 ], [ %35, %_ZNK14NodeDefManager3getEt.exit ], [ %35, %if.then ], [ %35, %for.body70 ]
-  %51 = phi i16 [ %.pre181, %if.then86 ], [ %36, %_ZNK14NodeDefManager3getEt.exit ], [ %36, %if.then ], [ %36, %for.body70 ]
+  %51 = phi i16 [ %.pre182, %if.then86 ], [ %35, %_ZNK14NodeDefManager3getEt.exit ], [ %35, %if.then ], [ %35, %for.body70 ]
+  %52 = phi i16 [ %.pre181, %if.then86 ], [ %36, %_ZNK14NodeDefManager3getEt.exit ], [ %36, %if.then ], [ %36, %for.body70 ]
   %near_cavern.3 = phi i8 [ 1, %if.then86 ], [ 1, %_ZNK14NodeDefManager3getEt.exit ], [ 1, %if.then ], [ %near_cavern.2147, %for.body70 ]
   %dec92 = add i16 %y61.0149, -1
-  %conv94 = zext i16 %51 to i32
+  %conv94 = zext i16 %52 to i32
   %sub95 = sub i32 %index3d.0148, %conv94
-  %conv1.i = sext i16 %50 to i32
+  %conv1.i = sext i16 %51 to i32
   %add.i137 = sub i32 %vi.0146, %conv1.i
   %inc96 = add i8 %cavern_amp_index.1150, 1
   %conv64 = sext i16 %dec92 to i32
@@ -1166,11 +1166,11 @@ if.end90:                                         ; preds = %if.then86, %_ZNK14N
   br i1 %cmp68.not, label %for.cond63.for.cond.cleanup69_crit_edge, label %for.body70, !llvm.loop !129
 
 delete.notnull.loopexit179:                       ; preds = %for.cond35.for.cond.cleanup40_crit_edge.split
-  %52 = icmp ne i8 %near_cavern.3, 0
+  %53 = icmp ne i8 %near_cavern.3, 0
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %delete.notnull.loopexit179, %for.cond35.preheader.lr.ph, %for.cond.cleanup
-  %near_cavern.0.lcssa = phi i1 [ false, %for.cond.cleanup ], [ %52, %delete.notnull.loopexit179 ], [ false, %for.cond35.preheader.lr.ph ]
+  %near_cavern.0.lcssa = phi i1 [ false, %for.cond.cleanup ], [ %53, %delete.notnull.loopexit179 ], [ false, %for.cond35.preheader.lr.ph ]
   tail call void @_ZdaPv(ptr noundef nonnull %call9) #24
   ret i1 %near_cavern.0.lcssa
 }

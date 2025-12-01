@@ -6296,8 +6296,8 @@ agxblen.exit.i.i:                                 ; preds = %edge_in_layer.exit.
   br i1 %.not.i26.i.i, label %94, label %.thread
 
 .thread:                                          ; preds = %agxblen.exit.i.i, %88
-  %.val.i25.i.i277 = phi i8 [ %.val.i25.pre.i.i, %88 ], [ 0, %agxblen.exit.i.i ]
-  %89 = zext i8 %.val.i25.i.i277 to i64
+  %.val.i25.i.i278 = phi i8 [ %.val.i25.pre.i.i, %88 ], [ 0, %agxblen.exit.i.i ]
+  %89 = zext i8 %.val.i25.i.i278 to i64
   %90 = getelementptr inbounds nuw i8, ptr %15, i64 %89
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %90, ptr nonnull readonly align 1 %82, i64 %83, i1 false)
   %91 = trunc i64 %83 to i8
@@ -6483,7 +6483,7 @@ agxblen.exit.i.i70:                               ; preds = %agxbput.exit68
 
 agxbsizeof.exit.i.i69:                            ; preds = %173, %agxblen.exit.i.i70
   %179 = phi ptr [ %174, %173 ], [ %171, %agxblen.exit.i.i70 ]
-  %.val.i279 = phi i8 [ -1, %173 ], [ %.val.i, %agxblen.exit.i.i70 ]
+  %.val.i280 = phi i8 [ -1, %173 ], [ %.val.i, %agxblen.exit.i.i70 ]
   %.0.i20.i.i = phi i64 [ %176, %173 ], [ %172, %agxblen.exit.i.i70 ]
   %.0.i14.i.i = phi i64 [ %178, %173 ], [ 31, %agxblen.exit.i.i70 ]
   %.not.i5.i = icmp ult i64 %.0.i20.i.i, %.0.i14.i.i
@@ -6495,7 +6495,7 @@ agxbsizeof.exit.i.i69:                            ; preds = %173, %agxblen.exit.
   br label %181
 
 181:                                              ; preds = %180, %agxbsizeof.exit.i.i69
-  %.val.i15.i.i = phi i8 [ %.val.i15.pre.i.i, %180 ], [ %.val.i279, %agxbsizeof.exit.i.i69 ]
+  %.val.i15.i.i = phi i8 [ %.val.i15.pre.i.i, %180 ], [ %.val.i280, %agxbsizeof.exit.i.i69 ]
   %.not.i16.i.i = icmp eq i8 %.val.i15.i.i, -1
   br i1 %.not.i16.i.i, label %187, label %182
 
@@ -6958,7 +6958,7 @@ agxbfree.exit.i:                                  ; preds = %372, %366
 410:                                              ; preds = %408, %404
   %.2.i = phi ptr [ %403, %404 ], [ %407, %408 ]
   %411 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %.2.i, ptr noundef nonnull %1) #28
-  br label %.sink.split661.i
+  br label %.sink.split662.i
 
 412:                                              ; preds = %408, %406
   %.not308.i = icmp eq ptr %.1247.i, null
@@ -6967,7 +6967,7 @@ agxbfree.exit.i:                                  ; preds = %372, %366
 413:                                              ; preds = %412
   %414 = call noalias ptr @strdup(ptr noundef nonnull readonly %.1247.i) #28
   %415 = icmp eq ptr %414, null
-  br i1 %415, label %416, label %.sink.split661.i
+  br i1 %415, label %416, label %.sink.split662.i
 
 416:                                              ; preds = %413
   %417 = load ptr, ptr @stderr, align 8, !tbaa !6
@@ -6977,13 +6977,13 @@ agxbfree.exit.i:                                  ; preds = %372, %366
   call fastcc void @graphviz_exit() #31
   unreachable
 
-.sink.split661.i:                                 ; preds = %413, %410
-  %.sink662.i = phi ptr [ %411, %410 ], [ %414, %413 ]
+.sink.split662.i:                                 ; preds = %413, %410
+  %.sink663.i = phi ptr [ %411, %410 ], [ %414, %413 ]
   %421 = getelementptr inbounds nuw i8, ptr %220, i64 264
-  store ptr %.sink662.i, ptr %421, align 8, !tbaa !46
+  store ptr %.sink663.i, ptr %421, align 8, !tbaa !46
   br label %422
 
-422:                                              ; preds = %.sink.split661.i, %412
+422:                                              ; preds = %.sink.split662.i, %412
   %423 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.76) #28
   %.not309.i = icmp eq ptr %423, null
   br i1 %.not309.i, label %426, label %424
@@ -7130,7 +7130,7 @@ gv_strdup.exit362.i:                              ; preds = %461
   %486 = or i16 %485, 64
   store i16 %486, ptr %484, align 8
   %487 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %480, ptr noundef nonnull %1) #28
-  br label %.sink.split664.i
+  br label %.sink.split665.i
 
 488:                                              ; preds = %481, %479
   %.not324.i = icmp eq ptr %.1249.i, null
@@ -7139,7 +7139,7 @@ gv_strdup.exit362.i:                              ; preds = %461
 489:                                              ; preds = %488
   %490 = call noalias ptr @strdup(ptr noundef nonnull readonly %.1249.i) #28
   %491 = icmp eq ptr %490, null
-  br i1 %491, label %492, label %.sink.split664.i
+  br i1 %491, label %492, label %.sink.split665.i
 
 492:                                              ; preds = %489
   %493 = load ptr, ptr @stderr, align 8, !tbaa !6
@@ -7149,13 +7149,13 @@ gv_strdup.exit362.i:                              ; preds = %461
   call fastcc void @graphviz_exit() #31
   unreachable
 
-.sink.split664.i:                                 ; preds = %489, %483
-  %.sink665.i = phi ptr [ %487, %483 ], [ %490, %489 ]
+.sink.split665.i:                                 ; preds = %489, %483
+  %.sink666.i = phi ptr [ %487, %483 ], [ %490, %489 ]
   %497 = getelementptr inbounds nuw i8, ptr %220, i64 320
-  store ptr %.sink665.i, ptr %497, align 8, !tbaa !53
+  store ptr %.sink666.i, ptr %497, align 8, !tbaa !53
   br label %498
 
-498:                                              ; preds = %.sink.split664.i, %488
+498:                                              ; preds = %.sink.split665.i, %488
   %499 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.81) #28
   %.not325.i = icmp eq ptr %499, null
   br i1 %.not325.i, label %504, label %500
@@ -7167,7 +7167,7 @@ gv_strdup.exit362.i:                              ; preds = %461
 
 502:                                              ; preds = %500
   %503 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %499, ptr noundef nonnull %1) #28
-  br label %.sink.split667.i
+  br label %.sink.split668.i
 
 504:                                              ; preds = %500, %498
   %.not327.i = icmp eq ptr %.1249.i, null
@@ -7176,7 +7176,7 @@ gv_strdup.exit362.i:                              ; preds = %461
 505:                                              ; preds = %504
   %506 = call noalias ptr @strdup(ptr noundef nonnull readonly %.1249.i) #28
   %507 = icmp eq ptr %506, null
-  br i1 %507, label %508, label %.sink.split667.i
+  br i1 %507, label %508, label %.sink.split668.i
 
 508:                                              ; preds = %505
   %509 = load ptr, ptr @stderr, align 8, !tbaa !6
@@ -7186,13 +7186,13 @@ gv_strdup.exit362.i:                              ; preds = %461
   call fastcc void @graphviz_exit() #31
   unreachable
 
-.sink.split667.i:                                 ; preds = %505, %502
-  %.sink668.i = phi ptr [ %503, %502 ], [ %506, %505 ]
+.sink.split668.i:                                 ; preds = %505, %502
+  %.sink669.i = phi ptr [ %503, %502 ], [ %506, %505 ]
   %513 = getelementptr inbounds nuw i8, ptr %220, i64 328
-  store ptr %.sink668.i, ptr %513, align 8, !tbaa !54
+  store ptr %.sink669.i, ptr %513, align 8, !tbaa !54
   br label %514
 
-514:                                              ; preds = %.sink.split667.i, %504
+514:                                              ; preds = %.sink.split668.i, %504
   %515 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.82) #28
   %.not328.i = icmp eq ptr %515, null
   br i1 %.not328.i, label %524, label %516
@@ -7250,7 +7250,7 @@ gv_strdup.exit365.i:                              ; preds = %525
   %541 = or i16 %540, 32
   store i16 %541, ptr %539, align 8
   %542 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %535, ptr noundef nonnull %1) #28
-  br label %.sink.split670.i
+  br label %.sink.split671.i
 
 543:                                              ; preds = %536, %534
   %.not333.i = icmp eq ptr %.1249.i, null
@@ -7259,7 +7259,7 @@ gv_strdup.exit365.i:                              ; preds = %525
 544:                                              ; preds = %543
   %545 = call noalias ptr @strdup(ptr noundef nonnull readonly %.1249.i) #28
   %546 = icmp eq ptr %545, null
-  br i1 %546, label %547, label %.sink.split670.i
+  br i1 %546, label %547, label %.sink.split671.i
 
 547:                                              ; preds = %544
   %548 = load ptr, ptr @stderr, align 8, !tbaa !6
@@ -7269,13 +7269,13 @@ gv_strdup.exit365.i:                              ; preds = %525
   call fastcc void @graphviz_exit() #31
   unreachable
 
-.sink.split670.i:                                 ; preds = %544, %538
-  %.sink671.i = phi ptr [ %542, %538 ], [ %545, %544 ]
+.sink.split671.i:                                 ; preds = %544, %538
+  %.sink672.i = phi ptr [ %542, %538 ], [ %545, %544 ]
   %552 = getelementptr inbounds nuw i8, ptr %220, i64 344
-  store ptr %.sink671.i, ptr %552, align 8, !tbaa !56
+  store ptr %.sink672.i, ptr %552, align 8, !tbaa !56
   br label %553
 
-553:                                              ; preds = %.sink.split670.i, %543, %471
+553:                                              ; preds = %.sink.split671.i, %543, %471
   %.0248.i = phi ptr [ null, %543 ], [ null, %471 ], [ %.1249.i, %.sink.split670.i ]
   %554 = and i32 %219, 4194304
   %.not334.i = icmp eq i32 %554, 0
@@ -7836,12 +7836,12 @@ gv_alloc.exit.i413.i:                             ; preds = %.lr.ph.i
   %772 = add i64 %771, -1
   %773 = udiv i64 %772, 3
   %.not55.i.i = icmp ult i64 %772, 3
-  br i1 %.not55.i.i, label %.preheader46.i.i.preheader, label %.preheader47.i.i
+  br i1 %.not55.i.i, label %.preheader46.i.i.preheader, label %.preheader47.preheader.i.i
 
 .preheader46.i.i.preheader:                       ; preds = %776, %gv_alloc.exit.i413.i
   br label %.preheader46.i.i
 
-.preheader47.i.i:                                 ; preds = %gv_alloc.exit.i413.i, %776
+.preheader47.preheader.i.i:                       ; preds = %gv_alloc.exit.i413.i, %776
   %.03750.i.i = phi i64 [ %778, %776 ], [ 0, %gv_alloc.exit.i413.i ]
   %.03949.i.i = phi ptr [ %777, %776 ], [ %764, %gv_alloc.exit.i413.i ]
   %774 = load ptr, ptr %763, align 8, !tbaa !365
@@ -12997,8 +12997,8 @@ gv_calloc.exit79:                                 ; preds = %gv_calloc.exit
 
 75:                                               ; preds = %.lr.ph13
   %76 = add nuw nsw i64 %.07410, 1
-  %exitcond35.not = icmp eq i64 %76, %5
-  br i1 %exitcond35.not, label %._crit_edge14, label %.lr.ph13, !llvm.loop !504
+  %exitcond36.not = icmp eq i64 %76, %5
+  br i1 %exitcond36.not, label %._crit_edge14, label %.lr.ph13, !llvm.loop !504
 
 ._crit_edge14:                                    ; preds = %75, %.lr.ph13
   %.074.lcssa = phi i64 [ %5, %75 ], [ %.07410, %.lr.ph13 ]
@@ -13104,12 +13104,12 @@ gv_calloc.exit88:                                 ; preds = %.thread4, %111
   br i1 %125, label %.lr.ph21, label %._crit_edge22.loopexit, !llvm.loop !505
 
 ._crit_edge22.loopexit:                           ; preds = %.lr.ph21
-  %.pre36 = load i64, ptr %105, align 8, !tbaa !363
+  %.pre37 = load i64, ptr %105, align 8, !tbaa !363
   %126 = add i64 %.07220, -3
   br label %._crit_edge22
 
 ._crit_edge22:                                    ; preds = %._crit_edge22.loopexit, %gv_calloc.exit88
-  %127 = phi i64 [ %104, %gv_calloc.exit88 ], [ %.pre36, %._crit_edge22.loopexit ]
+  %127 = phi i64 [ %104, %gv_calloc.exit88 ], [ %.pre37, %._crit_edge22.loopexit ]
   %.072.lcssa = phi i64 [ -4, %gv_calloc.exit88 ], [ %126, %._crit_edge22.loopexit ]
   %.not32 = icmp eq i64 %127, 0
   br i1 %.not32, label %._crit_edge28, label %.lr.ph27

@@ -9166,8 +9166,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17hd3fee00edead3fbaE.exit: ; pre
   %67 = add nuw nsw i64 %.sroa.0.05.i, 1
   %68 = getelementptr inbounds nuw ptr, ptr %60, i64 %.sroa.0.05.i
   %69 = load ptr, ptr %68, align 8, !nonnull !17, !noundef !17
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 352
-  store ptr %10, ptr %70, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %69, i64 352
+  store ptr %10, ptr %69, align 8
   %71 = trunc nuw nsw i64 %.sroa.0.05.i to i16
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 448
   store i16 %71, ptr %72, align 8
@@ -9439,8 +9439,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17hed6fd6d8b38bc861E.exit: ; pre
   %69 = add nuw nsw i64 %.sroa.0.05.i, 1
   %70 = getelementptr inbounds nuw ptr, ptr %62, i64 %.sroa.0.05.i
   %71 = load ptr, ptr %70, align 8, !nonnull !17, !noundef !17
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 176
-  store ptr %9, ptr %72, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %71, i64 176
+  store ptr %9, ptr %71, align 8
   %73 = trunc nuw nsw i64 %.sroa.0.05.i to i16
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 272
   store i16 %73, ptr %74, align 8

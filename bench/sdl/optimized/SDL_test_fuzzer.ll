@@ -176,7 +176,7 @@ define dso_local zeroext i8 @SDLTest_RandomUint8BoundaryValue(i8 noundef zeroext
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.umin.i64(i64 %5, i64 %6)
   %.51.i = tail call i64 @llvm.umax.i64(i64 %5, i64 %6)
-  br i1 %2, label %7, label %21
+  br i1 %2, label %7, label %24
 
 7:                                                ; preds = %3
   %8 = icmp eq i8 %1, %0
@@ -185,9 +185,9 @@ define dso_local zeroext i8 @SDLTest_RandomUint8BoundaryValue(i8 noundef zeroext
 9:                                                ; preds = %7
   %10 = sub nsw i64 %.51.i, %..i
   %11 = icmp ult i64 %10, 4
-  br i1 %11, label %.preheader.preheader.i, label %15
+  br i1 %11, label %.preheader.i, label %18
 
-.preheader.preheader.i:                           ; preds = %9
+.preheader.i:                                     ; preds = %9
   %12 = trunc nuw nsw i64 %10 to i8
   %umax = tail call i8 @llvm.umax.i8(i8 %12, i8 1)
   %wide.trip.count = zext nneg i8 %umax to i64
@@ -198,37 +198,37 @@ define dso_local zeroext i8 @SDLTest_RandomUint8BoundaryValue(i8 noundef zeroext
   %13 = add nuw nsw i64 %..i, %indvars.iv
   %14 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %13, ptr %14, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %15 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %13, %wide.trip.count
   br i1 %exitcond.not, label %.thread.i, label %.preheader.i, !llvm.loop !4
 
-15:                                               ; preds = %9
+18:                                               ; preds = %9
   store i64 %..i, ptr %4, align 16
-  %16 = add nuw nsw i64 %..i, 1
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %16, ptr %17, align 8
-  %18 = add nsw i64 %.51.i, -1
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %18, ptr %19, align 16
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.51.i, ptr %20, align 8
+  %19 = add nuw nsw i64 %..i, 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %19, ptr %20, align 8
+  %21 = add nsw i64 %.51.i, -1
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %21, ptr %22, align 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.51.i, ptr %23, align 8
   br label %.thread.i
 
-21:                                               ; preds = %3
+24:                                               ; preds = %3
   %.not.i = icmp eq i64 %..i, 0
-  br i1 %.not.i, label %22, label %.thread
+  br i1 %.not.i, label %22, label %25
 
-22:                                               ; preds = %21
+25:                                               ; preds = %24
   %.not5 = icmp eq i64 %.51.i, 255
   br i1 %.not5, label %.loopexit.i, label %24
 
-.thread:                                          ; preds = %21
+27:                                               ; preds = %24
   %23 = add nsw i64 %..i, -1
   store i64 %23, ptr %4, align 16
   %.not = icmp eq i64 %.51.i, 255
-  br i1 %.not, label %.thread.i, label %24
+  br i1 %.not, label %.thread.i, label %28
 
-24:                                               ; preds = %.thread, %22
+28:                                               ; preds = %27, %22
   %.2.i4 = phi i8 [ 1, %.thread ], [ 0, %22 ]
   %25 = add nuw nsw i64 %.51.i, 1
   %26 = zext nneg i8 %.2.i4 to i64
@@ -241,25 +241,25 @@ define dso_local zeroext i8 @SDLTest_RandomUint8BoundaryValue(i8 noundef zeroext
   %29 = tail call zeroext i1 (ptr, ...) @SDL_SetError(ptr noundef nonnull @.str.3) #6
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
-.thread.i:                                        ; preds = %.preheader.i, %.thread, %24, %15
-  %.153.i = phi i8 [ %28, %24 ], [ 4, %15 ], [ 1, %.thread ], [ %umax, %.preheader.i ]
-  %30 = load i32, ptr @fuzzerInvocationCounter, align 4
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr @fuzzerInvocationCounter, align 4
-  %32 = tail call i32 @SDL_rand_bits_r(ptr noundef nonnull @rndContext) #6
-  %33 = lshr i32 %32, 24
-  %34 = trunc nuw i32 %33 to i8
-  %35 = urem i8 %34, %.153.i
-  %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %4, i64 %36
-  %38 = load i64, ptr %37, align 8
+.thread.i:                                        ; preds = %.preheader.i, %25, %28, %18
+  %.153.i = phi i8 [ %28, %24 ], [ 4, %18 ], [ 1, %.thread ], [ %umax, %.preheader.i ]
+  %36 = load i32, ptr @fuzzerInvocationCounter, align 4
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr @fuzzerInvocationCounter, align 4
+  %38 = tail call i32 @SDL_rand_bits_r(ptr noundef nonnull @rndContext) #6
+  %39 = lshr i32 %38, 24
+  %40 = trunc nuw i32 %39 to i8
+  %41 = urem i8 %40, %.153.i
+  %42 = zext nneg i8 %41 to i64
+  %43 = getelementptr inbounds nuw i64, ptr %4, i64 %42
+  %44 = load i64, ptr %43, align 8
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %7, %.loopexit.i, %.thread.i
-  %.043.i = phi i64 [ 0, %.loopexit.i ], [ %38, %.thread.i ], [ %..i, %7 ]
+  %.043.i = phi i64 [ 0, %.loopexit.i ], [ %44, %.thread.i ], [ %..i, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %39 = trunc i64 %.043.i to i8
-  ret i8 %39
+  %45 = trunc i64 %.043.i to i8
+  ret i8 %45
 }
 
 ; Function Attrs: nounwind uwtable
@@ -270,7 +270,7 @@ define dso_local zeroext i16 @SDLTest_RandomUint16BoundaryValue(i16 noundef zero
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.umin.i64(i64 %5, i64 %6)
   %.51.i = tail call i64 @llvm.umax.i64(i64 %5, i64 %6)
-  br i1 %2, label %7, label %21
+  br i1 %2, label %7, label %24
 
 7:                                                ; preds = %3
   %8 = icmp eq i16 %1, %0
@@ -279,9 +279,9 @@ define dso_local zeroext i16 @SDLTest_RandomUint16BoundaryValue(i16 noundef zero
 9:                                                ; preds = %7
   %10 = sub nsw i64 %.51.i, %..i
   %11 = icmp ult i64 %10, 4
-  br i1 %11, label %.preheader.preheader.i, label %15
+  br i1 %11, label %.preheader.i, label %18
 
-.preheader.preheader.i:                           ; preds = %9
+.preheader.i:                                     ; preds = %9
   %12 = trunc nuw nsw i64 %10 to i8
   %umax = tail call i8 @llvm.umax.i8(i8 %12, i8 1)
   %wide.trip.count = zext nneg i8 %umax to i64
@@ -292,37 +292,37 @@ define dso_local zeroext i16 @SDLTest_RandomUint16BoundaryValue(i16 noundef zero
   %13 = add nuw nsw i64 %..i, %indvars.iv
   %14 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %13, ptr %14, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %15 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %13, %wide.trip.count
   br i1 %exitcond.not, label %.thread.i, label %.preheader.i, !llvm.loop !4
 
-15:                                               ; preds = %9
+18:                                               ; preds = %9
   store i64 %..i, ptr %4, align 16
-  %16 = add nuw nsw i64 %..i, 1
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %16, ptr %17, align 8
-  %18 = add nsw i64 %.51.i, -1
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %18, ptr %19, align 16
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.51.i, ptr %20, align 8
+  %19 = add nuw nsw i64 %..i, 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %19, ptr %20, align 8
+  %21 = add nsw i64 %.51.i, -1
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %21, ptr %22, align 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.51.i, ptr %23, align 8
   br label %.thread.i
 
-21:                                               ; preds = %3
+24:                                               ; preds = %3
   %.not.i = icmp eq i64 %..i, 0
-  br i1 %.not.i, label %22, label %.thread
+  br i1 %.not.i, label %22, label %25
 
-22:                                               ; preds = %21
+25:                                               ; preds = %24
   %.not5 = icmp eq i64 %.51.i, 65535
   br i1 %.not5, label %.loopexit.i, label %24
 
-.thread:                                          ; preds = %21
+27:                                               ; preds = %24
   %23 = add nsw i64 %..i, -1
   store i64 %23, ptr %4, align 16
   %.not = icmp eq i64 %.51.i, 65535
-  br i1 %.not, label %.thread.i, label %24
+  br i1 %.not, label %.thread.i, label %28
 
-24:                                               ; preds = %.thread, %22
+28:                                               ; preds = %27, %22
   %.2.i4 = phi i8 [ 1, %.thread ], [ 0, %22 ]
   %25 = add nuw nsw i64 %.51.i, 1
   %26 = zext nneg i8 %.2.i4 to i64
@@ -335,25 +335,25 @@ define dso_local zeroext i16 @SDLTest_RandomUint16BoundaryValue(i16 noundef zero
   %29 = tail call zeroext i1 (ptr, ...) @SDL_SetError(ptr noundef nonnull @.str.3) #6
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
-.thread.i:                                        ; preds = %.preheader.i, %.thread, %24, %15
-  %.153.i = phi i8 [ %28, %24 ], [ 4, %15 ], [ 1, %.thread ], [ %umax, %.preheader.i ]
-  %30 = load i32, ptr @fuzzerInvocationCounter, align 4
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr @fuzzerInvocationCounter, align 4
-  %32 = tail call i32 @SDL_rand_bits_r(ptr noundef nonnull @rndContext) #6
-  %33 = lshr i32 %32, 24
-  %34 = trunc nuw i32 %33 to i8
-  %35 = urem i8 %34, %.153.i
-  %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %4, i64 %36
-  %38 = load i64, ptr %37, align 8
+.thread.i:                                        ; preds = %.preheader.i, %25, %28, %18
+  %.153.i = phi i8 [ %28, %24 ], [ 4, %18 ], [ 1, %.thread ], [ %umax, %.preheader.i ]
+  %36 = load i32, ptr @fuzzerInvocationCounter, align 4
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr @fuzzerInvocationCounter, align 4
+  %38 = tail call i32 @SDL_rand_bits_r(ptr noundef nonnull @rndContext) #6
+  %39 = lshr i32 %38, 24
+  %40 = trunc nuw i32 %39 to i8
+  %41 = urem i8 %40, %.153.i
+  %42 = zext nneg i8 %41 to i64
+  %43 = getelementptr inbounds nuw i64, ptr %4, i64 %42
+  %44 = load i64, ptr %43, align 8
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %7, %.loopexit.i, %.thread.i
-  %.043.i = phi i64 [ 0, %.loopexit.i ], [ %38, %.thread.i ], [ %..i, %7 ]
+  %.043.i = phi i64 [ 0, %.loopexit.i ], [ %44, %.thread.i ], [ %..i, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %39 = trunc i64 %.043.i to i16
-  ret i16 %39
+  %45 = trunc i64 %.043.i to i16
+  ret i16 %45
 }
 
 ; Function Attrs: nounwind uwtable
@@ -364,7 +364,7 @@ define dso_local i32 @SDLTest_RandomUint32BoundaryValue(i32 noundef %0, i32 noun
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.umin.i64(i64 %5, i64 %6)
   %.51.i = tail call i64 @llvm.umax.i64(i64 %5, i64 %6)
-  br i1 %2, label %7, label %21
+  br i1 %2, label %7, label %24
 
 7:                                                ; preds = %3
   %8 = icmp eq i32 %1, %0
@@ -373,9 +373,9 @@ define dso_local i32 @SDLTest_RandomUint32BoundaryValue(i32 noundef %0, i32 noun
 9:                                                ; preds = %7
   %10 = sub nsw i64 %.51.i, %..i
   %11 = icmp ult i64 %10, 4
-  br i1 %11, label %.preheader.preheader.i, label %15
+  br i1 %11, label %.preheader.i, label %18
 
-.preheader.preheader.i:                           ; preds = %9
+.preheader.i:                                     ; preds = %9
   %12 = trunc nuw nsw i64 %10 to i8
   %umax = tail call i8 @llvm.umax.i8(i8 %12, i8 1)
   %wide.trip.count = zext nneg i8 %umax to i64
@@ -386,37 +386,37 @@ define dso_local i32 @SDLTest_RandomUint32BoundaryValue(i32 noundef %0, i32 noun
   %13 = add nuw nsw i64 %..i, %indvars.iv
   %14 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %13, ptr %14, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %15 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %13, %wide.trip.count
   br i1 %exitcond.not, label %.thread.i, label %.preheader.i, !llvm.loop !4
 
-15:                                               ; preds = %9
+18:                                               ; preds = %9
   store i64 %..i, ptr %4, align 16
-  %16 = add nuw nsw i64 %..i, 1
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %16, ptr %17, align 8
-  %18 = add nsw i64 %.51.i, -1
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %18, ptr %19, align 16
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.51.i, ptr %20, align 8
+  %19 = add nuw nsw i64 %..i, 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %19, ptr %20, align 8
+  %21 = add nsw i64 %.51.i, -1
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %21, ptr %22, align 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.51.i, ptr %23, align 8
   br label %.thread.i
 
-21:                                               ; preds = %3
+24:                                               ; preds = %3
   %.not.i = icmp eq i64 %..i, 0
-  br i1 %.not.i, label %22, label %.thread
+  br i1 %.not.i, label %22, label %25
 
-22:                                               ; preds = %21
+25:                                               ; preds = %24
   %.not5 = icmp eq i64 %.51.i, 4294967295
   br i1 %.not5, label %.loopexit.i, label %24
 
-.thread:                                          ; preds = %21
+27:                                               ; preds = %24
   %23 = add nsw i64 %..i, -1
   store i64 %23, ptr %4, align 16
   %.not = icmp eq i64 %.51.i, 4294967295
-  br i1 %.not, label %.thread.i, label %24
+  br i1 %.not, label %.thread.i, label %28
 
-24:                                               ; preds = %.thread, %22
+28:                                               ; preds = %27, %22
   %.2.i4 = phi i8 [ 1, %.thread ], [ 0, %22 ]
   %25 = add nuw nsw i64 %.51.i, 1
   %26 = zext nneg i8 %.2.i4 to i64
@@ -429,25 +429,25 @@ define dso_local i32 @SDLTest_RandomUint32BoundaryValue(i32 noundef %0, i32 noun
   %29 = tail call zeroext i1 (ptr, ...) @SDL_SetError(ptr noundef nonnull @.str.3) #6
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
-.thread.i:                                        ; preds = %.preheader.i, %.thread, %24, %15
-  %.153.i = phi i8 [ %28, %24 ], [ 4, %15 ], [ 1, %.thread ], [ %umax, %.preheader.i ]
-  %30 = load i32, ptr @fuzzerInvocationCounter, align 4
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr @fuzzerInvocationCounter, align 4
-  %32 = tail call i32 @SDL_rand_bits_r(ptr noundef nonnull @rndContext) #6
-  %33 = lshr i32 %32, 24
-  %34 = trunc nuw i32 %33 to i8
-  %35 = urem i8 %34, %.153.i
-  %36 = zext nneg i8 %35 to i64
-  %37 = getelementptr inbounds nuw i64, ptr %4, i64 %36
-  %38 = load i64, ptr %37, align 8
+.thread.i:                                        ; preds = %.preheader.i, %25, %28, %18
+  %.153.i = phi i8 [ %28, %24 ], [ 4, %18 ], [ 1, %.thread ], [ %umax, %.preheader.i ]
+  %36 = load i32, ptr @fuzzerInvocationCounter, align 4
+  %37 = add nsw i32 %36, 1
+  store i32 %37, ptr @fuzzerInvocationCounter, align 4
+  %38 = tail call i32 @SDL_rand_bits_r(ptr noundef nonnull @rndContext) #6
+  %39 = lshr i32 %38, 24
+  %40 = trunc nuw i32 %39 to i8
+  %41 = urem i8 %40, %.153.i
+  %42 = zext nneg i8 %41 to i64
+  %43 = getelementptr inbounds nuw i64, ptr %4, i64 %42
+  %44 = load i64, ptr %43, align 8
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %7, %.loopexit.i, %.thread.i
-  %.043.i = phi i64 [ 0, %.loopexit.i ], [ %38, %.thread.i ], [ %..i, %7 ]
+  %.043.i = phi i64 [ 0, %.loopexit.i ], [ %44, %.thread.i ], [ %..i, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %39 = trunc i64 %.043.i to i32
-  ret i32 %39
+  %45 = trunc i64 %.043.i to i32
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind uwtable
@@ -456,7 +456,7 @@ define dso_local i64 @SDLTest_RandomUint64BoundaryValue(i64 noundef %0, i64 noun
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %..i = tail call i64 @llvm.umin.i64(i64 %0, i64 %1)
   %.51.i = tail call i64 @llvm.umax.i64(i64 %0, i64 %1)
-  br i1 %2, label %5, label %19
+  br i1 %2, label %5, label %22
 
 5:                                                ; preds = %3
   %6 = icmp eq i64 %1, %0
@@ -465,9 +465,9 @@ define dso_local i64 @SDLTest_RandomUint64BoundaryValue(i64 noundef %0, i64 noun
 7:                                                ; preds = %5
   %8 = sub i64 %.51.i, %..i
   %9 = icmp ult i64 %8, 4
-  br i1 %9, label %.preheader.preheader.i, label %13
+  br i1 %9, label %.preheader.i, label %16
 
-.preheader.preheader.i:                           ; preds = %7
+.preheader.i:                                     ; preds = %7
   %10 = trunc nuw nsw i64 %8 to i8
   %umax = tail call i8 @llvm.umax.i8(i8 %10, i8 1)
   %wide.trip.count = zext nneg i8 %umax to i64
@@ -478,41 +478,41 @@ define dso_local i64 @SDLTest_RandomUint64BoundaryValue(i64 noundef %0, i64 noun
   %11 = add i64 %..i, %indvars.iv
   %12 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %11, ptr %12, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %13 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %13, %wide.trip.count
   br i1 %exitcond.not, label %.thread.i, label %.preheader.i, !llvm.loop !4
 
-13:                                               ; preds = %7
+16:                                               ; preds = %7
   store i64 %..i, ptr %4, align 16
-  %14 = add i64 %..i, 1
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %14, ptr %15, align 8
-  %16 = add i64 %.51.i, -1
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %16, ptr %17, align 16
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.51.i, ptr %18, align 8
+  %17 = add i64 %..i, 1
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %17, ptr %18, align 8
+  %19 = add i64 %.51.i, -1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %19, ptr %20, align 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %.51.i, ptr %21, align 8
   br label %.thread.i
 
-19:                                               ; preds = %3
+22:                                               ; preds = %3
   %.not.i = icmp eq i64 %..i, 0
-  br i1 %.not.i, label %20, label %.thread
+  br i1 %.not.i, label %20, label %25
 
-20:                                               ; preds = %19
+23:                                               ; preds = %22
   %.not5 = icmp eq i64 %.51.i, -1
-  br i1 %.not5, label %.loopexit.i, label %22
+  br i1 %.not5, label %.loopexit.i, label %26
 
-.thread:                                          ; preds = %19
+25:                                               ; preds = %22
   %21 = add i64 %..i, -1
   store i64 %21, ptr %4, align 16
   %.not = icmp eq i64 %.51.i, -1
-  br i1 %.not, label %.thread.i, label %22
+  br i1 %.not, label %.thread.i, label %26
 
-22:                                               ; preds = %.thread, %20
+26:                                               ; preds = %25, %20
   %.2.i4 = phi i8 [ 1, %.thread ], [ 0, %20 ]
   %23 = add nuw i64 %.51.i, 1
   %24 = zext nneg i8 %.2.i4 to i64
-  %25 = getelementptr inbounds nuw i64, ptr %4, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %4, i64 %28
   store i64 %23, ptr %25, align 8
   %26 = add nuw nsw i8 %.2.i4, 1
   br label %.thread.i
@@ -521,22 +521,22 @@ define dso_local i64 @SDLTest_RandomUint64BoundaryValue(i64 noundef %0, i64 noun
   %27 = tail call zeroext i1 (ptr, ...) @SDL_SetError(ptr noundef nonnull @.str.3) #6
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
-.thread.i:                                        ; preds = %.preheader.i, %.thread, %22, %13
+.thread.i:                                        ; preds = %.preheader.i, %25, %26, %16
   %.153.i = phi i8 [ %26, %22 ], [ 4, %13 ], [ 1, %.thread ], [ %umax, %.preheader.i ]
-  %28 = load i32, ptr @fuzzerInvocationCounter, align 4
-  %29 = add nsw i32 %28, 1
-  store i32 %29, ptr @fuzzerInvocationCounter, align 4
-  %30 = tail call i32 @SDL_rand_bits_r(ptr noundef nonnull @rndContext) #6
-  %31 = lshr i32 %30, 24
-  %32 = trunc nuw i32 %31 to i8
-  %33 = urem i8 %32, %.153.i
-  %34 = zext nneg i8 %33 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %4, i64 %34
-  %36 = load i64, ptr %35, align 8
+  %34 = load i32, ptr @fuzzerInvocationCounter, align 4
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr @fuzzerInvocationCounter, align 4
+  %36 = tail call i32 @SDL_rand_bits_r(ptr noundef nonnull @rndContext) #6
+  %37 = lshr i32 %36, 24
+  %38 = trunc nuw i32 %37 to i8
+  %39 = urem i8 %38, %.153.i
+  %40 = zext nneg i8 %39 to i64
+  %41 = getelementptr inbounds nuw i64, ptr %4, i64 %40
+  %42 = load i64, ptr %41, align 8
   br label %SDLTest_GenerateUnsignedBoundaryValues.exit
 
 SDLTest_GenerateUnsignedBoundaryValues.exit:      ; preds = %5, %.loopexit.i, %.thread.i
-  %.043.i = phi i64 [ 0, %.loopexit.i ], [ %36, %.thread.i ], [ %..i, %5 ]
+  %.043.i = phi i64 [ 0, %.loopexit.i ], [ %42, %.thread.i ], [ %..i, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.043.i
 }

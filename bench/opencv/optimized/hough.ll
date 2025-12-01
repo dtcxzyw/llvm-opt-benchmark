@@ -15440,8 +15440,8 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit346.i.i.i:          ; preds = %176, %.lr.ph.i.i.i
 
 229:                                              ; preds = %227, %119, %96, %80
   %indvars.iv.next507.i.i.i = add nuw nsw i64 %indvars.iv506.i.i.i, 1
-  %exitcond19.not.i.i = icmp eq i64 %indvars.iv.next507.i.i.i, %47
-  br i1 %exitcond19.not.i.i, label %._crit_edge444.i.i.i, label %64, !llvm.loop !398
+  %exitcond20.not.i.i = icmp eq i64 %indvars.iv.next507.i.i.i, %47
+  br i1 %exitcond20.not.i.i, label %._crit_edge444.i.i.i, label %64, !llvm.loop !398
 
 .lr.ph470.i.i.i:                                  ; preds = %.lr.ph470.i.i.i.preheader, %296
   %indvars.iv526.i.i.i = phi i64 [ %indvars.iv.next527.i.i.i, %296 ], [ 0, %.lr.ph470.i.i.i.preheader ]
@@ -15565,8 +15565,8 @@ _ZN2cv3VecIfLi4EEC2ERKS1_.exit346.i.i.i:          ; preds = %176, %.lr.ph.i.i.i
 
 296:                                              ; preds = %370
   %indvars.iv.next527.i.i.i = add nuw nsw i64 %indvars.iv526.i.i.i, 1
-  %exitcond21.not.i.i = icmp eq i64 %indvars.iv.next527.i.i.i, %47
-  br i1 %exitcond21.not.i.i, label %._crit_edge471.i.i.i, label %.lr.ph470.i.i.i, !llvm.loop !402
+  %exitcond23.not.i.i = icmp eq i64 %indvars.iv.next527.i.i.i, %47
+  br i1 %exitcond23.not.i.i, label %._crit_edge471.i.i.i, label %.lr.ph470.i.i.i, !llvm.loop !402
 
 .preheader401.i.i.i:                              ; preds = %.loopexit400.i.i.i, %370
   %indvars.iv521.i.i.i = phi i64 [ %indvars.iv.next522.i.i.i, %370 ], [ 0, %.loopexit400.i.i.i ]

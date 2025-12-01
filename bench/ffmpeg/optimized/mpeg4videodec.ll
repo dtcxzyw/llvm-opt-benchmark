@@ -9106,7 +9106,7 @@ define range(i32 -1163346256, 101) i32 @ff_mpeg4_decode_picture_header(ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %4 = load ptr, ptr %3, align 8, !tbaa !222
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %54, label %5
+  br i1 %.not, label %53, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4160
@@ -9128,95 +9128,95 @@ define range(i32 -1163346256, 101) i32 @ff_mpeg4_decode_picture_header(ptr nound
 
 .lr.ph.preheader:                                 ; preds = %5
   %17 = lshr i32 %9, 3
-  %18 = add nsw i32 %17, -3
-  %wide.trip.count = zext nneg i32 %18 to i64
+  %smax = add nsw i32 %17, -3
+  %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %38 ]
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
-  %20 = load i8, ptr %19, align 1, !tbaa !88
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %22, label %38
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
+  %19 = load i8, ptr %18, align 1, !tbaa !88
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %21, label %37
 
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  %24 = load i8, ptr %23, align 1, !tbaa !88
-  %25 = icmp eq i8 %24, 0
-  br i1 %25, label %26, label %38
+21:                                               ; preds = %.lr.ph
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %23 = load i8, ptr %22, align 1, !tbaa !88
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %37
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  %28 = load i8, ptr %27, align 1, !tbaa !88
-  %29 = icmp eq i8 %28, 1
-  br i1 %29, label %30, label %38
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 2
+  %27 = load i8, ptr %26, align 1, !tbaa !88
+  %28 = icmp eq i8 %27, 1
+  br i1 %28, label %29, label %37
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %19, i64 3
-  %32 = load i8, ptr %31, align 1, !tbaa !88
-  %33 = icmp eq i8 %32, -80
-  br i1 %33, label %.thread, label %.loopexit
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 3
+  %31 = load i8, ptr %30, align 1, !tbaa !88
+  %32 = icmp eq i8 %31, -80
+  br i1 %32, label %.thread, label %.loopexit
 
-.thread:                                          ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %35 = load ptr, ptr %34, align 8, !tbaa !61
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %35, i32 noundef 24, ptr noundef nonnull @.str.52) #16
-  %36 = load ptr, ptr %3, align 8, !tbaa !222
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i64 0, ptr %37, align 8, !tbaa !223
+.thread:                                          ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %34 = load ptr, ptr %33, align 8, !tbaa !61
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %34, i32 noundef 24, ptr noundef nonnull @.str.52) #16
+  %35 = load ptr, ptr %3, align 8, !tbaa !222
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store i64 0, ptr %36, align 8, !tbaa !223
   br label %.thread46
 
-38:                                               ; preds = %.lr.ph, %22, %26
+37:                                               ; preds = %.lr.ph, %21, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !227
 
-.loopexit:                                        ; preds = %38, %30, %5
+.loopexit:                                        ; preds = %37, %29, %5
   store i64 0, ptr %10, align 8, !tbaa !223
   %.not42 = icmp eq i32 %12, 0
-  br i1 %.not42, label %.thread46, label %39
+  br i1 %.not42, label %.thread46, label %38
 
-39:                                               ; preds = %.loopexit
-  %40 = icmp ne i32 %15, 0
-  %41 = icmp ult i32 %9, 160
-  %or.cond = select i1 %40, i1 true, i1 %41
-  br i1 %or.cond, label %42, label %.thread46
+38:                                               ; preds = %.loopexit
+  %39 = icmp ne i32 %15, 0
+  %40 = icmp ult i32 %9, 160
+  %or.cond = select i1 %39, i1 true, i1 %40
+  br i1 %or.cond, label %41, label %.thread46
 
-.thread46:                                        ; preds = %.loopexit, %39, %.thread
+.thread46:                                        ; preds = %.loopexit, %38, %.thread
   tail call void @av_buffer_unref(ptr noundef nonnull %3) #16
-  br label %54
+  br label %53
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !228
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !228
   %or.cond.i = icmp ugt i32 %12, 268435455
-  %45 = shl nuw nsw i32 %12, 3
-  %46 = select i1 %or.cond.i, i32 -8, i32 %45
-  %or.cond.i.i = icmp ult i32 %46, 2147483135
-  %47 = icmp ne ptr %44, null
-  %or.cond3.i.i = and i1 %or.cond.i.i, %47
-  %.018.i.i = select i1 %or.cond3.i.i, i32 %46, i32 0
-  %.017.i.i = select i1 %or.cond.i.i, ptr %44, ptr null
-  %48 = lshr exact i32 %.018.i.i, 3
+  %44 = shl nuw nsw i32 %12, 3
+  %45 = select i1 %or.cond.i, i32 -8, i32 %44
+  %or.cond.i.i = icmp ult i32 %45, 2147483135
+  %46 = icmp ne ptr %43, null
+  %or.cond3.i.i = and i1 %or.cond.i.i, %46
+  %.018.i.i = select i1 %or.cond3.i.i, i32 %45, i32 0
+  %.017.i.i = select i1 %or.cond.i.i, ptr %43, ptr null
+  %47 = lshr exact i32 %.018.i.i, 3
   store ptr %.017.i.i, ptr %6, align 8, !tbaa !98
   store i32 %.018.i.i, ptr %8, align 4, !tbaa !108
-  %49 = add nuw nsw i32 %.018.i.i, 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4184
-  store i32 %49, ptr %50, align 8, !tbaa !229
-  %51 = zext nneg i32 %48 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 4168
-  store ptr %52, ptr %53, align 8, !tbaa !230
+  %48 = add nuw nsw i32 %.018.i.i, 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4184
+  store i32 %48, ptr %49, align 8, !tbaa !229
+  %50 = zext nneg i32 %47 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4168
+  store ptr %51, ptr %52, align 8, !tbaa !230
   store i32 0, ptr %7, align 8, !tbaa !96
-  br i1 %or.cond3.i.i, label %54, label %57
+  br i1 %or.cond3.i.i, label %53, label %56
 
-54:                                               ; preds = %.thread46, %42, %1
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4160
-  %56 = tail call i32 @ff_mpeg4_parse_picture_header(ptr noundef nonnull %0, ptr noundef nonnull %55, i32 noundef 0, i32 noundef 0)
-  br label %57
+53:                                               ; preds = %.thread46, %41, %1
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 4160
+  %55 = tail call i32 @ff_mpeg4_parse_picture_header(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef 0, i32 noundef 0)
+  br label %56
 
-57:                                               ; preds = %42, %54
-  %.3 = phi i32 [ %56, %54 ], [ -1094995529, %42 ]
+56:                                               ; preds = %41, %53
+  %.3 = phi i32 [ %55, %54 ], [ -1094995529, %42 ]
   ret i32 %.3
 }
 

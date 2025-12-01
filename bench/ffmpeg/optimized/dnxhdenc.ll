@@ -3899,12 +3899,12 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   %50 = mul nsw i32 %49, %2
   %51 = add nsw i32 %50, %.0112163
   %.pre = load i32, ptr %42, align 8, !tbaa !68
-  %.pre194 = shl nsw i32 %.0112163, 4
+  %.pre195 = shl nsw i32 %.0112163, 4
   br i1 %20, label %._crit_edge, label %52
 
 52:                                               ; preds = %48
   %53 = add nsw i32 %.pre, -16
-  %.not = icmp sle i32 %.pre194, %53
+  %.not = icmp sle i32 %.pre195, %53
   %54 = and i32 %.pre, 15
   %55 = icmp eq i32 %54, 0
   %or.cond = and i1 %.not, %55
@@ -3917,25 +3917,25 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   %60 = load ptr, ptr %44, align 8, !tbaa !215
   %61 = load i64, ptr %30, align 8, !tbaa !105
   %62 = tail call i32 %60(ptr noundef %.0111164, i64 noundef %61) #12
-  %.pre193 = load i32, ptr %31, align 4, !tbaa !79
+  %.pre194 = load i32, ptr %31, align 4, !tbaa !79
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %48, %52
-  %63 = sub nsw i32 %.pre, %.pre194
+  %63 = sub nsw i32 %.pre, %.pre195
   %64 = load i32, ptr %45, align 4, !tbaa !69
   %65 = load i32, ptr %46, align 8, !tbaa !81
   %66 = ashr i32 %64, %65
   %67 = sub nsw i32 %66, %29
   %68 = icmp sgt i32 %67, 0
   %69 = icmp sgt i32 %63, 0
-  %or.cond204 = select i1 %68, i1 %69, i1 false
-  br i1 %or.cond204, label %.preheader.lr.ph.split.us, label %.loopexit
+  %or.cond205 = select i1 %68, i1 %69, i1 false
+  br i1 %or.cond205, label %.preheader.lr.ph.split.us, label %.loopexit
 
 .preheader.lr.ph.split.us:                        ; preds = %._crit_edge
   %70 = tail call i32 @llvm.smin.i32(i32 %67, i32 16)
   %spec.select = tail call i32 @llvm.smin.i32(i32 %63, i32 16)
-  %71 = load i64, ptr %30, align 8, !tbaa !105
-  %72 = zext nneg i32 %spec.select to i64
+  %70 = load i64, ptr %30, align 8, !tbaa !105
+  %71 = zext nneg i32 %spec.select to i64
   %wide.trip.count191 = zext nneg i32 %70 to i64
   br label %.preheader.us
 
@@ -3943,7 +3943,7 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   %indvars.iv188 = phi i64 [ %indvars.iv.next189, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %.1117158.us = phi i32 [ %79, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %.1121157.us = phi i32 [ %81, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %73 = mul nsw i64 %71, %indvars.iv188
+  %73 = mul nsw i64 %70, %indvars.iv188
   %74 = getelementptr i8, ptr %.0111164, i64 %73
   br label %75
 
@@ -3958,16 +3958,16 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   %80 = mul nuw nsw i32 %78, %78
   %81 = add nsw i32 %80, %.2122152.us
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
-  %82 = icmp samesign ult i64 %indvars.iv.next186, %72
+  %82 = icmp samesign ult i64 %indvars.iv.next186, %71
   br i1 %82, label %75, label %._crit_edge.us, !llvm.loop !216
 
 ._crit_edge.us:                                   ; preds = %75
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
-  %exitcond192.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
-  br i1 %exitcond192.not, label %.loopexit, label %.preheader.us, !llvm.loop !217
+  %exitcond193.not = icmp eq i64 %indvars.iv.next189, %wide.trip.count191
+  br i1 %exitcond193.not, label %.loopexit, label %.preheader.us, !llvm.loop !217
 
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge, %56
-  %83 = phi i32 [ %.pre193, %56 ], [ %49, %._crit_edge ], [ %49, %._crit_edge.us ]
+  %83 = phi i32 [ %.pre194, %56 ], [ %49, %._crit_edge ], [ %49, %._crit_edge.us ]
   %.0120 = phi i32 [ %62, %56 ], [ 0, %._crit_edge ], [ %81, %._crit_edge.us ]
   %.0116 = phi i32 [ %59, %56 ], [ 0, %._crit_edge ], [ %79, %._crit_edge.us ]
   %84 = mul i32 %.0116, %.0116
@@ -4017,9 +4017,9 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   %121 = tail call i32 @llvm.smin.i32(i32 %120, i32 16)
   %122 = icmp sgt i32 %120, 0
   %sext = shl i64 %102, 32
-  %123 = ashr exact i64 %sext, 31
-  %124 = getelementptr inbounds nuw i8, ptr %24, i64 10560
-  %125 = load ptr, ptr %124, align 16, !tbaa !138
+  %122 = ashr exact i64 %sext, 31
+  %123 = getelementptr inbounds nuw i8, ptr %24, i64 10560
+  %124 = load ptr, ptr %123, align 16, !tbaa !138
   %wide.trip.count183 = zext nneg i32 %98 to i64
   br i1 %122, label %.preheader132.lr.ph.us, label %.lr.ph.split
 
@@ -4050,7 +4050,7 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   %139 = trunc i64 %indvars.iv180 to i32
   %140 = add i32 %112, %139
   %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw %struct.RCCMPEntry, ptr %125, i64 %141
+  %142 = getelementptr inbounds nuw %struct.RCCMPEntry, ptr %124, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store i32 %138, ptr %143, align 4, !tbaa !140
   store i32 %140, ptr %142, align 4, !tbaa !148
@@ -4081,7 +4081,7 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   br i1 %152, label %144, label %._crit_edge.us.us, !llvm.loop !220
 
 ._crit_edge.us.us:                                ; preds = %144
-  %153 = getelementptr inbounds i8, ptr %.0118138.us.us, i64 %123
+  %153 = getelementptr inbounds i8, ptr %.0118138.us.us, i64 %122
   %154 = add nuw nsw i32 %.0108141.us.us, 1
   %exitcond179.not = icmp eq i32 %154, %121
   br i1 %exitcond179.not, label %._crit_edge142.us.loopexit, label %.preheader132.us.us, !llvm.loop !221
@@ -4091,7 +4091,7 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   %155 = trunc i64 %indvars.iv to i32
   %156 = add i32 %112, %155
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw %struct.RCCMPEntry, ptr %125, i64 %157
+  %158 = getelementptr inbounds nuw %struct.RCCMPEntry, ptr %124, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store i32 0, ptr %159, align 4, !tbaa !140
   store i32 %156, ptr %158, align 4, !tbaa !148
