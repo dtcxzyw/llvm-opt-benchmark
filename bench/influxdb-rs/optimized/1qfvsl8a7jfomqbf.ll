@@ -13527,8 +13527,8 @@ _ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit.thread.us.i: ; pre
   br i1 %67, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit.thread, label %68
 
 68:                                               ; preds = %66
-  %exitcond114.not.i = icmp eq i64 %53, %.0.sroa.speculated.i.i
-  br i1 %exitcond114.not.i, label %._crit_edge.i, label %_ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit.thread.us.i
+  %exitcond113.not.i = icmp eq i64 %53, %.0.sroa.speculated.i.i
+  br i1 %exitcond113.not.i, label %._crit_edge.i, label %_ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit.thread.us.i
 
 ._crit_edge.i:                                    ; preds = %165, %68
   %69 = icmp ugt i64 %29, 10
@@ -13650,8 +13650,8 @@ _ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit72.thread.us.i: ; p
   br i1 %119, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit.thread, label %120
 
 120:                                              ; preds = %118
-  %exitcond116.not.i = icmp eq i64 %105, %29
-  br i1 %exitcond116.not.i, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit, label %_ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit72.thread.us.i
+  %exitcond115.not.i = icmp eq i64 %105, %29
+  br i1 %exitcond115.not.i, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit, label %_ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit72.thread.us.i
 
 .lr.ph89.split.i:                                 ; preds = %.lr.ph89.i, %148
   %.sroa.020.087.i = phi i64 [ %121, %148 ], [ %.0.sroa.speculated.i68.i, %.lr.ph89.i ]
@@ -13732,8 +13732,8 @@ _ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit72.thread.i: ; pred
   br i1 %147, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit.thread, label %148
 
 148:                                              ; preds = %146, %133
-  %exitcond115.not.i = icmp eq i64 %121, %29
-  br i1 %exitcond115.not.i, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit, label %.lr.ph89.split.i
+  %exitcond114.not.i = icmp eq i64 %121, %29
+  br i1 %exitcond114.not.i, label %_ZN11arrow_array5array16print_long_array17h621a0279e2d0f04cE.exit, label %.lr.ph89.split.i
 
 _ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit.thread.i: ; preds = %_ZN11arrow_array5array5Array7is_null17h113980c4b1c33747E.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !2057

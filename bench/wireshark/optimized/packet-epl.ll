@@ -4434,15 +4434,11 @@ define internal fastcc i32 @dissect_epl_asnd_sres(ptr noundef %0, ptr noundef %1
   %53 = load i32, ptr @ett_epl_el, align 4
   %54 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %49, i32 noundef -1, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.742, i32 noundef %52)
   %.not107 = icmp ult i32 %51, 20
-  br i1 %.not107, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not107, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %4
-  %umax = tail call i32 @llvm.umax.i32(i32 %52, i32 1)
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0106 = phi i32 [ %80, %.lr.ph ], [ %49, %.lr.ph.preheader ]
-  %.0104105 = phi i32 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.0106 = phi i32 [ %80, %.lr.ph ], [ %49, %4 ]
+  %.0104105 = phi i32 [ %56, %.lr.ph ], [ 0, %4 ]
   %55 = load i32, ptr @ett_epl_el_entry, align 4
   %56 = add nuw nsw i32 %.0104105, 1
   %57 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %54, ptr noundef %1, i32 noundef %.0106, i32 noundef 20, i32 noundef %55, ptr noundef nonnull %5, ptr noundef nonnull @.str.743, i32 noundef %56)
@@ -4469,7 +4465,7 @@ define internal fastcc i32 @dissect_epl_asnd_sres(ptr noundef %0, ptr noundef %1
   %78 = load i32, ptr @hf_epl_asnd_statusresponse_el_entry_add, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %78, ptr noundef %1, i32 noundef %77, i32 noundef 8, i32 noundef -2147483648)
   %80 = add i32 %.0106, 20
-  %exitcond.not = icmp eq i32 %56, %umax
+  %exitcond.not = icmp eq i32 %56, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -7677,9 +7673,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #19
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
 
 attributes #0 = { nofree norecurse nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

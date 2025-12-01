@@ -4705,7 +4705,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br i1 %26, label %28, label %31
 
 28:                                               ; preds = %25
-  %29 = call i64 @strtoul(ptr noundef captures(none) %27, ptr noundef null, i32 noundef 10) #9
+  %29 = call i64 @strtoul(ptr noundef captures(none) %27, ptr noundef null, i32 noundef 10) #8
   %30 = trunc i64 %29 to i32
   br label %33
 
@@ -4801,7 +4801,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br label %82
 
 77:                                               ; preds = %73
-  %78 = call i64 @strtoul(ptr noundef captures(none) %75, ptr noundef null, i32 noundef 10) #9
+  %78 = call i64 @strtoul(ptr noundef captures(none) %75, ptr noundef null, i32 noundef 10) #8
   %79 = trunc i64 %78 to i32
   %80 = icmp ult i32 %79, 24
   %81 = icmp ult i32 %.0, %79
@@ -4879,7 +4879,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   %118 = load ptr, ptr %21, align 8
   %119 = zext nneg i32 %117 to i64
   %120 = mul nuw nsw i64 %119, 12
-  %121 = call noalias ptr @wmem_alloc0(ptr noundef %118, i64 noundef %120) #10
+  %121 = call noalias ptr @wmem_alloc0(ptr noundef %118, i64 noundef %120) #9
   %122 = load i32, ptr @hf_marc_directory, align 4
   %123 = add i32 %.0288, -24
   %124 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %122, ptr noundef %0, i32 noundef 24, i32 noundef %123, i32 noundef 0)
@@ -4914,7 +4914,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br i1 %140, label %142, label %145
 
 142:                                              ; preds = %139
-  %143 = call i64 @strtoul(ptr noundef captures(none) %141, ptr noundef null, i32 noundef 10) #9
+  %143 = call i64 @strtoul(ptr noundef captures(none) %141, ptr noundef null, i32 noundef 10) #8
   %144 = trunc i64 %143 to i32
   br label %147
 
@@ -4939,7 +4939,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br i1 %154, label %156, label %159
 
 156:                                              ; preds = %153
-  %157 = call i64 @strtoul(ptr noundef captures(none) %155, ptr noundef null, i32 noundef 10) #9
+  %157 = call i64 @strtoul(ptr noundef captures(none) %155, ptr noundef null, i32 noundef 10) #8
   %158 = trunc i64 %157 to i32
   br label %161
 
@@ -4964,7 +4964,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   br i1 %168, label %170, label %173
 
 170:                                              ; preds = %167
-  %171 = call i64 @strtoul(ptr noundef captures(none) %169, ptr noundef null, i32 noundef 10) #9
+  %171 = call i64 @strtoul(ptr noundef captures(none) %169, ptr noundef null, i32 noundef 10) #8
   %172 = trunc i64 %171 to i32
   br label %175
 
@@ -5013,16 +5013,11 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   %195 = load i32, ptr @ett_marc_fields, align 4
   %196 = call ptr @proto_item_add_subtree(ptr noundef %194, i32 noundef %195)
   %.not355 = icmp ult i32 %116, 12
-  br i1 %.not355, label %._crit_edge353, label %.lr.ph352.preheader
+  br i1 %.not355, label %._crit_edge353, label %.lr.ph352
 
-.lr.ph352.preheader:                              ; preds = %._crit_edge
-  %umax = call i32 @llvm.umax.i32(i32 %117, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
-  br label %.lr.ph352
-
-.lr.ph352:                                        ; preds = %.lr.ph352.preheader, %246
-  %indvars.iv = phi i64 [ 0, %.lr.ph352.preheader ], [ %indvars.iv.next, %246 ]
-  %.1293349 = phi i32 [ %191, %.lr.ph352.preheader ], [ %.2, %246 ]
+.lr.ph352:                                        ; preds = %._crit_edge, %246
+  %indvars.iv = phi i64 [ %indvars.iv.next, %246 ], [ 0, %._crit_edge ]
+  %.1293349 = phi i32 [ %.2, %246 ], [ %191, %._crit_edge ]
   %197 = load i32, ptr @hf_marc_field, align 4
   %198 = getelementptr %struct.marc_directory_entry, ptr %121, i64 %indvars.iv
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
@@ -5102,7 +5097,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
 246:                                              ; preds = %.loopexit, %210
   %.2 = phi i32 [ %217, %210 ], [ %245, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %119
   br i1 %exitcond.not, label %._crit_edge353, label %.lr.ph352, !llvm.loop !11
 
 ._crit_edge353:                                   ; preds = %246, %._crit_edge
@@ -5144,7 +5139,7 @@ define internal i32 @get_z3950_pdu_len(ptr readnone captures(none) %0, ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @get_z3950_pdu_len.catch_spec, i64 noundef 1)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %11 = call i32 @_setjmp(ptr noundef nonnull %10) #11
+  %11 = call i32 @_setjmp(ptr noundef nonnull %10) #10
   %.not = icmp eq i32 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not, ptr null, ptr %12
@@ -5219,7 +5214,7 @@ define internal i32 @get_z3950_pdu_len(ptr readnone captures(none) %0, ptr nound
 
 39:                                               ; preds = %38
   %.0..0..0..0.11 = load volatile ptr, ptr %6, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.11) #12
+  call void @except_rethrow(ptr noundef %.0..0..0..0.11) #11
   unreachable
 
 40:                                               ; preds = %38, %36
@@ -5785,7 +5780,7 @@ define internal i32 @dissect_z3950_AttributeSetId(i1 noundef zeroext %0, ptr nou
 
 25:                                               ; preds = %10
   %26 = load ptr, ptr %14, align 8
-  %27 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %26, i64 noundef 8) #10
+  %27 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %26, i64 noundef 8) #9
   store i32 %spec.select, ptr %27, align 4
   %28 = load ptr, ptr %14, align 8
   %29 = load i32, ptr @proto_z3950, align 4
@@ -6215,7 +6210,7 @@ define internal i32 @dissect_z3950_T_diagnosticSetId(i1 noundef zeroext %0, ptr 
 
 25:                                               ; preds = %10
   %26 = load ptr, ptr %14, align 8
-  %27 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %26, i64 noundef 8) #10
+  %27 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %26, i64 noundef 8) #9
   store i32 %spec.select, ptr %27, align 4
   %28 = load ptr, ptr %14, align 8
   %29 = load i32, ptr @proto_z3950, align 4
@@ -8082,9 +8077,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
-
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8093,11 +8085,10 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_
 attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { allocsize(1) }
-attributes #11 = { nounwind returns_twice }
-attributes #12 = { noreturn }
+attributes #8 = { nounwind }
+attributes #9 = { allocsize(1) }
+attributes #10 = { nounwind returns_twice }
+attributes #11 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

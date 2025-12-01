@@ -754,60 +754,63 @@ define internal fastcc range(i32 0, 2) i32 @HKDF_Expand(ptr noundef nonnull %0, 
 
 .preheader:                                       ; preds = %22
   %.not5160 = icmp eq i64 %spec.select, 0
-  br i1 %.not5160, label %.loopexit, label %.lr.ph
+  br i1 %.not5160, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %.preheader, %37
-  %.04562 = phi i64 [ %41, %37 ], [ 0, %.preheader ]
-  %.04661 = phi i32 [ %42, %37 ], [ 1, %.preheader ]
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %25 = trunc nuw nsw i64 %spec.select to i32
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
+  %.04562 = phi i64 [ %42, %38 ], [ 0, %.lr.ph.preheader ]
+  %.04661 = phi i32 [ %43, %38 ], [ 1, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %25 = trunc i32 %.04661 to i8
-  store i8 %25, ptr %9, align 1, !tbaa !29
-  %26 = icmp ugt i32 %.04661, 1
-  br i1 %26, label %27, label %31
+  %26 = trunc i32 %.04661 to i8
+  store i8 %26, ptr %9, align 1, !tbaa !29
+  %27 = icmp ugt i32 %.04661, 1
+  br i1 %27, label %28, label %32
 
-27:                                               ; preds = %.lr.ph
-  %28 = call i32 @HMAC_Init_ex(ptr noundef nonnull %20, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #7
-  %.not52 = icmp eq i32 %28, 0
-  br i1 %.not52, label %.thread, label %29
+28:                                               ; preds = %.lr.ph
+  %29 = call i32 @HMAC_Init_ex(ptr noundef nonnull %20, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #7
+  %.not52 = icmp eq i32 %29, 0
+  br i1 %.not52, label %.thread, label %30
 
-29:                                               ; preds = %27
-  %30 = call i32 @HMAC_Update(ptr noundef nonnull %20, ptr noundef nonnull %8, i64 noundef %13) #7
-  %.not53 = icmp eq i32 %30, 0
-  br i1 %.not53, label %.thread, label %31
+30:                                               ; preds = %28
+  %31 = call i32 @HMAC_Update(ptr noundef nonnull %20, ptr noundef nonnull %8, i64 noundef %13) #7
+  %.not53 = icmp eq i32 %31, 0
+  br i1 %.not53, label %.thread, label %32
 
-31:                                               ; preds = %29, %.lr.ph
-  %32 = call i32 @HMAC_Update(ptr noundef nonnull %20, ptr noundef %3, i64 noundef %4) #7
-  %.not54 = icmp eq i32 %32, 0
-  br i1 %.not54, label %.thread, label %33
+32:                                               ; preds = %30, %.lr.ph
+  %33 = call i32 @HMAC_Update(ptr noundef nonnull %20, ptr noundef %3, i64 noundef %4) #7
+  %.not54 = icmp eq i32 %33, 0
+  br i1 %.not54, label %.thread, label %34
 
-33:                                               ; preds = %31
-  %34 = call i32 @HMAC_Update(ptr noundef nonnull %20, ptr noundef nonnull %9, i64 noundef 1) #7
-  %.not55 = icmp eq i32 %34, 0
-  br i1 %.not55, label %.thread, label %35
+34:                                               ; preds = %32
+  %35 = call i32 @HMAC_Update(ptr noundef nonnull %20, ptr noundef nonnull %9, i64 noundef 1) #7
+  %.not55 = icmp eq i32 %35, 0
+  br i1 %.not55, label %.thread, label %36
 
-35:                                               ; preds = %33
-  %36 = call i32 @HMAC_Final(ptr noundef nonnull %20, ptr noundef nonnull %8, ptr noundef null) #7
-  %.not56 = icmp eq i32 %36, 0
-  br i1 %.not56, label %.thread, label %37
+36:                                               ; preds = %34
+  %37 = call i32 @HMAC_Final(ptr noundef nonnull %20, ptr noundef nonnull %8, ptr noundef null) #7
+  %.not56 = icmp eq i32 %37, 0
+  br i1 %.not56, label %.thread, label %38
 
-.thread:                                          ; preds = %27, %29, %31, %33, %35
+.thread:                                          ; preds = %28, %30, %32, %34, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-37:                                               ; preds = %35
-  %38 = sub i64 %6, %.04562
-  %39 = call i64 @llvm.umin.i64(i64 %38, i64 %13)
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %.04562
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull align 16 %8, i64 %39, i1 false)
-  %41 = add i64 %39, %.04562
+38:                                               ; preds = %36
+  %39 = sub i64 %6, %.04562
+  %40 = call i64 @llvm.umin.i64(i64 %39, i64 %13)
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 %.04562
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr nonnull align 16 %8, i64 %40, i1 false)
+  %42 = add i64 %40, %.04562
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %42 = add i32 %.04661, 1
-  %43 = zext i32 %42 to i64
-  %.not51 = icmp ult i64 %spec.select, %43
+  %43 = add i32 %.04661, 1
+  %.not51 = icmp ugt i32 %43, %25
   br i1 %.not51, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
-.loopexit:                                        ; preds = %37, %.preheader, %.thread, %22
-  %.044 = phi i32 [ 0, %22 ], [ 0, %.thread ], [ 1, %.preheader ], [ 1, %37 ]
+.loopexit:                                        ; preds = %38, %.preheader, %.thread, %22
+  %.044 = phi i32 [ 0, %22 ], [ 0, %.thread ], [ 1, %.preheader ], [ 1, %38 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %8, i64 noundef 64) #7
   call void @HMAC_CTX_free(ptr noundef nonnull %20) #7
   br label %44

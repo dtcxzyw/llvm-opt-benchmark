@@ -786,7 +786,7 @@ if.end18.i.i:                                     ; preds = %for.body.i.i
   %incdec.ptr8.i.i = getelementptr inbounds nuw i8, ptr %pSource.i.163.i, i64 1
   %shl.i.i = shl i32 %c.i.162.i, 6
   %add.i.i = add i32 %shl.i.i, %conv9.i.i
-  %inc.i.i = add nuw i32 %i.i.061.i, 1
+  %inc.i.i = add nuw nsw i32 %i.i.061.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i.i, %sub.i.i
   br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !21
 
@@ -977,7 +977,7 @@ if.end18.i.i:                                     ; preds = %for.body.i.i
   %incdec.ptr8.i.i = getelementptr inbounds nuw i8, ptr %pSource.i.163.i, i64 1
   %shl.i.i = shl i32 %c.i.162.i, 6
   %add.i.i = add i32 %shl.i.i, %conv9.i.i
-  %inc.i.i = add nuw i32 %i.i.061.i, 1
+  %inc.i.i = add nuw nsw i32 %i.i.061.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i.i, %sub.i.i
   br i1 %exitcond.not.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !21
 

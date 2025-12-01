@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.47af8473826c8c2585696a780e517604.26 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.47af8473826c8c2585696a780e517604.23, [16 x i8] c"b\00\00\00\00\00\00\00.\00\00\00?\00\00\00" }>, align 8
 @_ZN13generic_array3hex11LOWER_CHARS17h0cbc070625234dd5E = external local_unnamed_addr global { ptr, i64 }
 @anon.47af8473826c8c2585696a780e517604.27 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.47af8473826c8c2585696a780e517604.23, [16 x i8] c"b\00\00\00\00\00\00\00*\00\00\00\1E\00\00\00" }>, align 8
-@anon.47af8473826c8c2585696a780e517604.28 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.47af8473826c8c2585696a780e517604.23, [16 x i8] c"b\00\00\00\00\00\00\00*\00\00\00\11\00\00\00" }>, align 8
 @anon.47af8473826c8c2585696a780e517604.29 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.47af8473826c8c2585696a780e517604.23, [16 x i8] c"b\00\00\00\00\00\00\00+\00\00\00\22\00\00\00" }>, align 8
 @anon.47af8473826c8c2585696a780e517604.35.llvm.12101516472763982539 = hidden unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr89drop_in_place$LT$std..io..Write..write_fmt..Adapter$LT$std..io..stdio..StderrLock$GT$$GT$17h0cd537823c99708cE", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h351d906509d09f76E", ptr @_ZN4core3fmt5Write10write_char17h0d72b7bb764a4ebdE, ptr @_ZN4core3fmt5Write9write_fmt17hcd23d0eb2273baffE }>, align 8
 @anon.47af8473826c8c2585696a780e517604.36.llvm.12101516472763982539 = hidden unnamed_addr constant <{ [86 x i8] }> <{ [86 x i8] c"a formatting trait implementation returned an error when the underlying stream did not" }>, align 1
@@ -570,55 +569,47 @@ define hidden noundef zeroext i1 @"_ZN13generic_array3hex91_$LT$impl$u20$core..f
   %16 = lshr i8 %.val7.i, 4
   %17 = zext nneg i8 %16 to i64
   %18 = icmp ugt i64 %11, %17
-  br i1 %18, label %19, label %20
+  br i1 %18, label %20, label %19
 
 19:                                               ; preds = %13
-  %exitcond.not.i = icmp eq i64 %.sroa.0.017.i, 32
-  br i1 %exitcond.not.i, label %29, label %21
-
-20:                                               ; preds = %13
   tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %17, i64 noundef %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.47af8473826c8c2585696a780e517604.27) #46, !noalias !76
   unreachable
 
-21:                                               ; preds = %19
-  %22 = shl nuw i64 %.sroa.0.017.i, 1
-  %23 = getelementptr inbounds nuw i8, ptr %12, i64 %17
-  %24 = load i8, ptr %23, align 1, !noalias !76, !noundef !8
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 %22
-  store i8 %24, ptr %25, align 1, !alias.scope !73, !noalias !81
-  %26 = and i8 %.val7.i, 15
-  %27 = zext nneg i8 %26 to i64
-  %28 = icmp ugt i64 %11, %27
-  br i1 %28, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hb605a1c2a52bd367E.exit.i", label %30
+20:                                               ; preds = %13
+  %21 = shl nuw i64 %.sroa.0.017.i, 1
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 %17
+  %23 = load i8, ptr %22, align 1, !noalias !76, !noundef !8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %21
+  store i8 %23, ptr %24, align 1, !alias.scope !73, !noalias !81
+  %25 = and i8 %.val7.i, 15
+  %26 = zext nneg i8 %25 to i64
+  %27 = icmp ugt i64 %11, %26
+  br i1 %27, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hb605a1c2a52bd367E.exit.i", label %28
 
-29:                                               ; preds = %19
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef 64, i64 noundef 64, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.47af8473826c8c2585696a780e517604.28) #46, !noalias !76
+28:                                               ; preds = %20
+  tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %26, i64 noundef %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.47af8473826c8c2585696a780e517604.29) #46, !noalias !76
   unreachable
 
-30:                                               ; preds = %21
-  tail call void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %27, i64 noundef %11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.47af8473826c8c2585696a780e517604.29) #46, !noalias !76
-  unreachable
-
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hb605a1c2a52bd367E.exit.i": ; preds = %21
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 %27
-  %32 = load i8, ptr %31, align 1, !noalias !76, !noundef !8
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  store i8 %32, ptr %33, align 1, !alias.scope !73, !noalias !81
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hb605a1c2a52bd367E.exit.i": ; preds = %20
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 %26
+  %30 = load i8, ptr %29, align 1, !noalias !76, !noundef !8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  store i8 %30, ptr %31, align 1, !alias.scope !73, !noalias !81
   %exitcond26.not.i = icmp eq i64 %14, %.sroa.0.0.sroa.speculated.i.i
   br i1 %exitcond26.not.i, label %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h31c5d3e741fd51bfE.exit", label %13
 
 "_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h31c5d3e741fd51bfE.exit": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hb605a1c2a52bd367E.exit.i", %2
-  %34 = icmp ugt i64 %.sroa.03.0, 64
-  br i1 %34, label %35, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8437439e292fafaE.exit", !prof !82
+  %32 = icmp ugt i64 %.sroa.03.0, 64
+  br i1 %32, label %33, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8437439e292fafaE.exit", !prof !82
 
-35:                                               ; preds = %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h31c5d3e741fd51bfE.exit"
+33:                                               ; preds = %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h31c5d3e741fd51bfE.exit"
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h2903cb26d3368388E(i64 noundef %.sroa.03.0, i64 noundef 64, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.47af8473826c8c2585696a780e517604.26) #46, !noalias !83
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he8437439e292fafaE.exit": ; preds = %"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..adapters..take..SpecTake$GT$9spec_fold17h31c5d3e741fd51bfE.exit"
-  %36 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %.sroa.03.0)
+  %34 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %.sroa.03.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %36
+  ret i1 %34
 }
 
 ; Function Attrs: nonlazybind uwtable

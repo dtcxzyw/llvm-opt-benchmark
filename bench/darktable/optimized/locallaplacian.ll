@@ -2728,7 +2728,6 @@ define internal fastcc void @gauss_reduce(ptr noundef readonly captures(none) %0
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %umax = tail call i64 @llvm.umax.i64(i64 %23, i64 2)
   br label %57
 
 ._crit_edge77:                                    ; preds = %180, %4
@@ -3001,7 +3000,7 @@ _convolve_14641_vert.exit64:                      ; preds = %.preheader.i60
 180:                                              ; preds = %155, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %181 = add nuw nsw i64 %.04974, 1
-  %exitcond79.not = icmp eq i64 %181, %umax
+  %exitcond79.not = icmp eq i64 %181, %23
   br i1 %exitcond79.not, label %._crit_edge77, label %57
 }
 
@@ -3294,9 +3293,6 @@ declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ldexp.f32.i32(float, i32) #16
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16

@@ -7200,22 +7200,22 @@ define internal fastcc void @decode_deep_tvdc32(ptr noundef writeonly captures(n
   br i1 %.not78, label %32, label %.critedge
 
 32:                                               ; preds = %31
-  %33 = add nsw i32 %.05290, 2
-  %34 = sub nsw i32 %3, %.06585
-  %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph, label %.loopexit
+  %33 = ashr i32 %20, 1
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %1, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !30
+  %37 = and i8 %36, 15
+  %38 = lshr i8 %36, 4
+  %.in80 = select i1 %.not, i8 %37, i8 %38
+  %narrow = add nuw nsw i8 %.in80, 1
+  %39 = zext nneg i8 %narrow to i32
+  %40 = add nsw i32 %.05290, 2
+  %41 = sub nsw i32 %3, %.06585
+  %42 = tail call i32 @llvm.smin.i32(i32 %41, i32 %39)
+  %43 = icmp sgt i32 %41, 0
+  br i1 %43, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %32
-  %36 = ashr i32 %20, 1
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %1, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !30
-  %40 = and i8 %39, 15
-  %41 = lshr i8 %39, 4
-  %.in80 = select i1 %.not, i8 %40, i8 %41
-  %narrow = add nuw nsw i8 %.in80, 1
-  %42 = zext nneg i8 %narrow to i32
-  %43 = tail call i32 @llvm.umin.i32(i32 %34, i32 %42)
   %44 = mul nsw i32 %.06186, %5
   %45 = add i32 %.05787, %44
   %46 = sext i32 %.06585 to i64
@@ -7232,7 +7232,7 @@ define internal fastcc void @decode_deep_tvdc32(ptr noundef writeonly captures(n
   store i8 %.05389, ptr %51, align 1, !tbaa !30
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %52 = add nuw nsw i32 %.05184, 1
-  %exitcond.not = icmp eq i32 %52, %43
+  %exitcond.not = icmp eq i32 %52, %42
   br i1 %exitcond.not, label %.loopexit.loopexit, label %47, !llvm.loop !168
 
 .loopexit.loopexit:                               ; preds = %47
@@ -7242,7 +7242,7 @@ define internal fastcc void @decode_deep_tvdc32(ptr noundef writeonly captures(n
 .loopexit:                                        ; preds = %.loopexit.loopexit, %32, %21
   %.166 = phi i32 [ %30, %21 ], [ %.06585, %32 ], [ %53, %.loopexit.loopexit ]
   %.154 = phi i8 [ %23, %21 ], [ %.05389, %32 ], [ %.05389, %.loopexit.loopexit ]
-  %.1 = phi i32 [ %20, %21 ], [ %33, %32 ], [ %33, %.loopexit.loopexit ]
+  %.1 = phi i32 [ %20, %21 ], [ %40, %32 ], [ %40, %.loopexit.loopexit ]
   %.not81 = icmp slt i32 %.166, %3
   br i1 %.not81, label %62, label %54
 

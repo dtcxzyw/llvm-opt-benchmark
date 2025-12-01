@@ -1358,10 +1358,10 @@ define internal range(i32 0, 65536) i32 @tt_cmap6_char_next(ptr noundef readonly
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
-  %.043 = phi i32 [ %43, %41 ], [ %25, %.lr.ph.preheader ]
-  %.03342 = phi ptr [ %31, %41 ], [ %30, %.lr.ph.preheader ]
-  %.13641 = phi i32 [ %42, %41 ], [ %spec.select, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
+  %.043 = phi i32 [ %42, %40 ], [ %25, %.lr.ph.preheader ]
+  %.03342 = phi ptr [ %31, %40 ], [ %30, %.lr.ph.preheader ]
+  %.13641 = phi i32 [ %41, %40 ], [ %spec.select, %.lr.ph.preheader ]
   %31 = getelementptr inbounds nuw i8, ptr %.03342, i64 2
   %32 = load i8, ptr %.03342, align 1, !tbaa !15
   %33 = zext i8 %32 to i32
@@ -1374,18 +1374,18 @@ define internal range(i32 0, 65536) i32 @tt_cmap6_char_next(ptr noundef readonly
   br i1 %.not, label %39, label %._crit_edge
 
 39:                                               ; preds = %.lr.ph
-  %40 = icmp ugt i32 %.13641, 65534
-  br i1 %40, label %.loopexit, label %41
+  %exitcond = icmp eq i32 %.13641, 65535
+  br i1 %exitcond, label %.loopexit, label %40
 
-41:                                               ; preds = %39
-  %42 = add nuw nsw i32 %.13641, 1
-  %43 = add nuw nsw i32 %.043, 1
-  %44 = icmp ult i32 %43, %14
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+40:                                               ; preds = %39
+  %41 = add nuw nsw i32 %.13641, 1
+  %42 = add nuw nsw i32 %.043, 1
+  %43 = icmp ult i32 %42, %14
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %41, %.lr.ph, %16
-  %.1 = phi i32 [ 0, %16 ], [ %38, %.lr.ph ], [ 0, %41 ]
-  %.032 = phi i32 [ 0, %16 ], [ %.13641, %.lr.ph ], [ 0, %41 ]
+._crit_edge:                                      ; preds = %40, %.lr.ph, %16
+  %.1 = phi i32 [ 0, %16 ], [ %38, %.lr.ph ], [ 0, %40 ]
+  %.032 = phi i32 [ 0, %16 ], [ %.13641, %.lr.ph ], [ 0, %40 ]
   store i32 %.032, ptr %1, align 4, !tbaa !16
   br label %.loopexit
 

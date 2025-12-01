@@ -3767,14 +3767,12 @@ _ZN5alloc11collections5btree4node13move_to_slice17h84387d6dfca94129E.exit: ; pre
 65:                                               ; preds = %65, %_ZN5alloc11collections5btree4node13move_to_slice17h84387d6dfca94129E.exit
   %.sroa.0.05.i = phi i64 [ 0, %_ZN5alloc11collections5btree4node13move_to_slice17h84387d6dfca94129E.exit ], [ %66, %65 ]
   %66 = add nuw nsw i64 %.sroa.0.05.i, 1
-  %67 = icmp samesign ult i64 %.sroa.0.05.i, 12
-  tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw ptr, ptr %59, i64 %.sroa.0.05.i
-  %69 = load ptr, ptr %68, align 8, !nonnull !7, !noundef !7
-  store ptr %10, ptr %69, align 8
-  %70 = trunc nuw nsw i64 %.sroa.0.05.i to i16
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 1240
-  store i16 %70, ptr %71, align 8
+  %67 = getelementptr inbounds nuw ptr, ptr %59, i64 %.sroa.0.05.i
+  %68 = load ptr, ptr %67, align 8, !nonnull !7, !noundef !7
+  store ptr %10, ptr %68, align 8
+  %69 = trunc nuw nsw i64 %.sroa.0.05.i to i16
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 1240
+  store i16 %69, ptr %70, align 8
   %exitcond.not.i = icmp eq i64 %.sroa.0.05.i, %14
   br i1 %exitcond.not.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h6a70967897fd5e28E.exit", label %65
 }
@@ -19248,7 +19246,7 @@ _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit180.i
 
 .loopexit264.i:                                   ; preds = %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit187.i, %.preheader263.i
   %.not126.not.i = icmp eq i64 %.sroa.597.1351.i, 0
-  %1083 = add i64 %.sroa.096.1350.i, 4
+  %1083 = add nuw nsw i64 %.sroa.096.1350.i, 4
   br i1 %.not126.not.i, label %.loopexit265.i, label %.preheader263.i
 
 .preheader263.i:                                  ; preds = %.loopexit264.i, %.preheader263.lr.ph.i
@@ -19259,7 +19257,7 @@ _ZN5image6codecs4webp11loop_filter14simple_segment17h68ed65405427d4b1E.exit180.i
   br i1 %.not373.i, label %.loopexit264.i, label %.lr.ph346.i
 
 .lr.ph346.i:                                      ; preds = %.preheader263.i
-  %1084 = add i64 %.sroa.6101.1352.i, %733
+  %1084 = add nuw nsw i64 %.sroa.6101.1352.i, %733
   %1085 = mul i64 %1084, %714
   %1086 = add i64 %1085, %800
   br label %1144
@@ -19372,7 +19370,7 @@ _ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit: ; 
 1144:                                             ; preds = %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit187.i, %.lr.ph346.i
   %.sroa.0104.0345.i = phi i64 [ 0, %.lr.ph346.i ], [ %1145, %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit187.i ]
   %1145 = add nuw nsw i64 %.sroa.0104.0345.i, 1
-  %1146 = add i64 %1086, %.sroa.0104.0345.i
+  %1146 = add nuw nsw i64 %1086, %.sroa.0104.0345.i
   %1147 = call fastcc noundef zeroext i1 @_ZN5image6codecs4webp11loop_filter13should_filter17h674fddabbab381b7E(i8 noundef %spec.store.select.i485.i, i8 noundef %798, ptr noalias noundef nonnull readonly align 1 %.val173.i, i64 noundef %.val174.i, i64 noundef %1146, i64 noundef %714), !noalias !2209
   br i1 %1147, label %1148, label %_ZN5image6codecs4webp11loop_filter15subblock_filter17h6d6e8a66c01a51cfE.exit187.i
 

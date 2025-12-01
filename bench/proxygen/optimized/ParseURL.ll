@@ -171,8 +171,8 @@ while.body10.i.i.i:                               ; preds = %while.cond8.i.i.i
   %cmp11.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i1.i.i
   br i1 %cmp11.i.i.i, label %if.else126, label %while.cond8.i.i.i.backedge
 
-while.cond8.i.i.i.backedge:                       ; preds = %while.body10.i.i.i, %if.end28.i.i.i
-  %i.1.i.i.i.be = phi ptr [ %incdec.ptr.i.i.i, %while.body10.i.i.i ], [ %add.ptr29.i.i.i, %if.end28.i.i.i ]
+while.cond8.i.i.i.backedge:                       ; preds = %while.body10.i.i.i, %if.then17.i.i.i
+  %i.1.i.i.i.be = phi ptr [ %incdec.ptr.i.i.i, %while.body10.i.i.i ], [ %add.ptr29.i.i.i, %if.then17.i.i.i ]
   br label %while.cond8.i.i.i, !llvm.loop !4
 
 for.cond.i.i.i:                                   ; preds = %while.cond8.i.i.i, %if.end30.i.i.i
@@ -182,9 +182,9 @@ for.cond.i.i.i:                                   ; preds = %while.cond8.i.i.i, 
   %4 = load i8, ptr %arrayidx14.i.i.i, align 1
   %5 = load i8, ptr %arrayidx.i31.i.i.i, align 1
   %cmp.i32.i.i.i = icmp eq i8 %4, %5
-  br i1 %cmp.i32.i.i.i, label %if.end30.i.i.i, label %if.end28.i.i.i
+  br i1 %cmp.i32.i.i.i, label %if.end30.i.i.i, label %if.then17.i.i.i
 
-if.end28.i.i.i:                                   ; preds = %for.cond.i.i.i
+if.then17.i.i.i:                                  ; preds = %for.cond.i.i.i
   %add.ptr29.i.i.i = getelementptr inbounds nuw i8, ptr %i.1.i.i.i, i64 1
   %cmp7.i.i.i = icmp ult ptr %add.ptr29.i.i.i, %add.ptr.i1.i.i
   br i1 %cmp7.i.i.i, label %while.cond8.i.i.i.backedge, label %if.else126
@@ -509,7 +509,7 @@ cond.end:                                         ; preds = %_ZNK5folly5RangeIPK
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116) #20
   br label %if.end128
 
-if.else126:                                       ; preds = %if.end28.i.i.i, %while.body10.i.i.i, %land.lhs.true, %if.end3.i.i.i, %if.end, %_ZNK5folly5RangeIPKcE4findES2_.exit.i, %invoke.cont8
+if.else126:                                       ; preds = %if.then17.i.i.i, %while.body10.i.i.i, %land.lhs.true, %if.end3.i.i.i, %if.end, %_ZNK5folly5RangeIPKcE4findES2_.exit.i, %invoke.cont8
   tail call void @_ZN8proxygen8ParseURL13parseNonFullyEb(ptr noundef nonnull align 8 dereferenceable(148) %this, i1 noundef zeroext %strict) #20
   br label %if.end128
 

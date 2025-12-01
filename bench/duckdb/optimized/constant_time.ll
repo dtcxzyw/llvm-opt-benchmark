@@ -503,65 +503,61 @@ define hidden noundef range(i32 -17408, 1) i32 @_Z36mbedtls_ct_rsaes_pkcs1_v15_u
   %54 = add i64 %7, -1
   %.not.i = icmp eq i64 %54, 0
   %55 = getelementptr inbounds i8, ptr %50, i64 -1
-  br i1 %.not.i, label %.preheader.split.i, label %.lr.ph.us.i
+  br i1 %.not.i, label %.preheader.split.i.preheader, label %.lr.ph.us.i
+
+.preheader.split.i.preheader:                     ; preds = %.preheader.i
+  %56 = load volatile i8, ptr %55, align 1, !tbaa !3
+  %57 = icmp eq i32 %48, 0
+  %58 = select i1 %57, i8 0, i8 %56
+  store volatile i8 %58, ptr %55, align 1, !tbaa !3
+  br label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
 
 .lr.ph.us.i:                                      ; preds = %.preheader.i, %._crit_edge.us.i
-  %.028.us.i = phi i64 [ %66, %._crit_edge.us.i ], [ 0, %.preheader.i ]
-  %56 = sub i64 %.028.us.i, %49
-  %57 = icmp slt i64 %56, 0
-  br i1 %57, label %.lr.ph.split.us.us.i, label %.lr.ph.split.us31.i
+  %.028.us.i = phi i64 [ %69, %._crit_edge.us.i ], [ 0, %.preheader.i ]
+  %59 = sub i64 %.028.us.i, %49
+  %60 = icmp slt i64 %59, 0
+  br i1 %60, label %.lr.ph.split.us.us.i, label %.lr.ph.split.us31.i
 
 .lr.ph.split.us31.i:                              ; preds = %.lr.ph.us.i, %.lr.ph.split.us31.i
-  %.02427.us29.i = phi i64 [ %60, %.lr.ph.split.us31.i ], [ 0, %.lr.ph.us.i ]
-  %58 = getelementptr inbounds nuw i8, ptr %52, i64 %.02427.us29.i
-  %59 = load volatile i8, ptr %58, align 1, !tbaa !3
-  %60 = add nuw i64 %.02427.us29.i, 1
-  %61 = getelementptr inbounds nuw i8, ptr %52, i64 %60
+  %.02427.us29.i = phi i64 [ %63, %.lr.ph.split.us31.i ], [ 0, %.lr.ph.us.i ]
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 %.02427.us29.i
   %62 = load volatile i8, ptr %61, align 1, !tbaa !3
-  store volatile i8 %62, ptr %58, align 1, !tbaa !3
-  %exitcond.not.i = icmp eq i64 %60, %54
+  %63 = add nuw i64 %.02427.us29.i, 1
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 %63
+  %65 = load volatile i8, ptr %64, align 1, !tbaa !3
+  store volatile i8 %65, ptr %61, align 1, !tbaa !3
+  %exitcond.not.i = icmp eq i64 %63, %54
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us31.i, !llvm.loop !23
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph.split.us31.i, %.lr.ph.split.us.us.i
-  %63 = load volatile i8, ptr %55, align 1, !tbaa !3
-  %64 = icmp sgt i64 %56, -1
-  %65 = select i1 %64, i8 0, i8 %63
-  store volatile i8 %65, ptr %55, align 1, !tbaa !3
-  %66 = add nuw i64 %.028.us.i, 1
-  %exitcond35.not.i = icmp eq i64 %66, %7
+  %66 = load volatile i8, ptr %55, align 1, !tbaa !3
+  %67 = icmp sgt i64 %59, -1
+  %68 = select i1 %67, i8 0, i8 %66
+  store volatile i8 %68, ptr %55, align 1, !tbaa !3
+  %69 = add nuw i64 %.028.us.i, 1
+  %exitcond35.not.i = icmp eq i64 %69, %7
   br i1 %exitcond35.not.i, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.lr.ph.us.i, !llvm.loop !24
 
 .lr.ph.split.us.us.i:                             ; preds = %.lr.ph.us.i, %.lr.ph.split.us.us.i
-  %.02427.us.us.i = phi i64 [ %69, %.lr.ph.split.us.us.i ], [ 0, %.lr.ph.us.i ]
-  %67 = getelementptr inbounds nuw i8, ptr %52, i64 %.02427.us.us.i
-  %68 = load volatile i8, ptr %67, align 1, !tbaa !3
-  %69 = add nuw i64 %.02427.us.us.i, 1
-  %70 = getelementptr inbounds nuw i8, ptr %52, i64 %69
+  %.02427.us.us.i = phi i64 [ %72, %.lr.ph.split.us.us.i ], [ 0, %.lr.ph.us.i ]
+  %70 = getelementptr inbounds nuw i8, ptr %52, i64 %.02427.us.us.i
   %71 = load volatile i8, ptr %70, align 1, !tbaa !3
-  store volatile i8 %68, ptr %67, align 1, !tbaa !3
-  %exitcond34.not.i = icmp eq i64 %69, %54
+  %72 = add nuw i64 %.02427.us.us.i, 1
+  %73 = getelementptr inbounds nuw i8, ptr %52, i64 %72
+  %74 = load volatile i8, ptr %73, align 1, !tbaa !3
+  store volatile i8 %71, ptr %70, align 1, !tbaa !3
+  %exitcond34.not.i = icmp eq i64 %72, %54
   br i1 %exitcond34.not.i, label %._crit_edge.us.i, label %.lr.ph.split.us.us.i, !llvm.loop !23
 
-.preheader.split.i:                               ; preds = %.preheader.i, %.preheader.split.i
-  %.028.i = phi i64 [ %76, %.preheader.split.i ], [ 0, %.preheader.i ]
-  %72 = sub i64 %.028.i, %49
-  %73 = load volatile i8, ptr %55, align 1, !tbaa !3
-  %74 = icmp sgt i64 %72, -1
-  %75 = select i1 %74, i8 0, i8 %73
-  store volatile i8 %75, ptr %55, align 1, !tbaa !3
-  %76 = add nuw i64 %.028.i, 1
-  %exitcond36.not.i = icmp eq i64 %76, %7
-  br i1 %exitcond36.not.i, label %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit, label %.preheader.split.i, !llvm.loop !24
-
-_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit:        ; preds = %._crit_edge.us.i, %.preheader.split.i, %._crit_edge70
+_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit:        ; preds = %._crit_edge.us.i, %.preheader.split.i.preheader, %._crit_edge70
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %78, label %77
+  br i1 %.not, label %76, label %75
 
-77:                                               ; preds = %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
+75:                                               ; preds = %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %52, i64 %7, i1 false)
-  br label %78
+  br label %76
 
-78:                                               ; preds = %77, %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
+76:                                               ; preds = %75, %_ZL27mbedtls_ct_mem_move_to_leftPvmm.exit
   %.neg = select i1 %42, i32 0, i32 -17408
   %.neg60 = select i1 %38, i32 %.neg, i32 -16640
   store i64 %49, ptr %4, align 8, !tbaa !8

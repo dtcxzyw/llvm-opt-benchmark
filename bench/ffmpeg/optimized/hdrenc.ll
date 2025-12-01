@@ -400,8 +400,7 @@ float2rgbe.exit86:                                ; preds = %.lr.ph, %134
 
 .lr.ph71.preheader.i:                             ; preds = %.lr.ph74.i
   %204 = sext i32 %.272.i to i64
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %200, i32 1)
-  %wide.trip.count.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count.i = zext nneg i32 %200 to i64
   br label %.lr.ph71.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph71.i, %.lr.ph74.i

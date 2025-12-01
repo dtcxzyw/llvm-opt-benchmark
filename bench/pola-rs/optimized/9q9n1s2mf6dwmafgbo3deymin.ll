@@ -10363,67 +10363,67 @@ define hidden void @"_ZN134_$LT$polars_arrow..array..list..builder..ListArrayBui
   %67 = getelementptr i64, ptr %64, i64 %65
   %68 = getelementptr i8, ptr %67, i64 -8
   %69 = load i64, ptr %68, align 8, !noalias !745, !noundef !3
-  br label %79
+  br label %80
 
 .lr.ph.preheader:                                 ; preds = %.preheader27
   %70 = sub i64 %3, %.sroa.0.037
+  %71 = trunc nuw i64 %60 to i32
   br label %.lr.ph
 
 .preheader:                                       ; preds = %55
   br i1 %63, label %.lr.ph32.preheader, label %._crit_edge33
 
 .lr.ph32.preheader:                               ; preds = %.preheader
-  %71 = sub i64 %3, %.sroa.0.037
+  %72 = sub i64 %3, %.sroa.0.037
   br label %.lr.ph32
 
 ._crit_edge:                                      ; preds = %96, %.lr.ph
   %.sroa.09.1.lcssa = phi i64 [ %70, %96 ], [ %.sroa.09.128, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !748)
-  %72 = load ptr, ptr %40, align 8, !alias.scope !748, !nonnull !3, !noundef !3
-  %73 = load i64, ptr %41, align 8, !alias.scope !748, !noundef !3
-  %74 = icmp ne i64 %73, 0
-  tail call void @llvm.assume(i1 %74)
-  %75 = getelementptr i64, ptr %72, i64 %73
-  %76 = getelementptr i8, ptr %75, i64 -8
-  %77 = load i64, ptr %76, align 8, !noalias !748, !noundef !3
-  %78 = icmp eq i64 %.sroa.09.1.lcssa, 1
-  br i1 %78, label %79, label %89
+  %73 = load ptr, ptr %40, align 8, !alias.scope !748, !nonnull !3, !noundef !3
+  %74 = load i64, ptr %41, align 8, !alias.scope !748, !noundef !3
+  %75 = icmp ne i64 %74, 0
+  tail call void @llvm.assume(i1 %75)
+  %76 = getelementptr i64, ptr %73, i64 %74
+  %77 = getelementptr i8, ptr %76, i64 -8
+  %78 = load i64, ptr %77, align 8, !noalias !748, !noundef !3
+  %79 = icmp eq i64 %.sroa.09.1.lcssa, 1
+  br i1 %79, label %80, label %90
 
-79:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %80 = phi i64 [ %69, %._crit_edge.thread ], [ %77, %._crit_edge ]
-  %81 = phi i64 [ %65, %._crit_edge.thread ], [ %73, %._crit_edge ]
-  %82 = phi ptr [ %64, %._crit_edge.thread ], [ %72, %._crit_edge ]
-  %83 = load i64, ptr %0, align 8, !range !117, !alias.scope !750, !noalias !753, !noundef !3
-  %84 = icmp eq i64 %81, %83
-  br i1 %84, label %85, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0778b63baba3322E.exit.i"
+80:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %81 = phi i64 [ %69, %._crit_edge.thread ], [ %78, %._crit_edge ]
+  %82 = phi i64 [ %65, %._crit_edge.thread ], [ %74, %._crit_edge ]
+  %83 = phi ptr [ %64, %._crit_edge.thread ], [ %73, %._crit_edge ]
+  %84 = load i64, ptr %0, align 8, !range !117, !alias.scope !750, !noalias !753, !noundef !3
+  %85 = icmp eq i64 %82, %84
+  br i1 %85, label %86, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0778b63baba3322E.exit.i"
 
-85:                                               ; preds = %79
+86:                                               ; preds = %80
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h694661cb61a4c094E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26c8ba34914650c1c1cd302a1d6cb960.290)
   %.pre.i = load ptr, ptr %40, align 8, !alias.scope !750, !noalias !753
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0778b63baba3322E.exit.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0778b63baba3322E.exit.i": ; preds = %85, %79
-  %86 = phi ptr [ %82, %79 ], [ %.pre.i, %85 ]
-  %87 = getelementptr inbounds nuw i64, ptr %86, i64 %81
-  store i64 %80, ptr %87, align 8
-  %88 = add i64 %81, 1
-  store i64 %88, ptr %41, align 8, !alias.scope !750, !noalias !753
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0778b63baba3322E.exit.i": ; preds = %86, %80
+  %87 = phi ptr [ %83, %80 ], [ %.pre.i, %86 ]
+  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %82
+  store i64 %81, ptr %88, align 8
+  %89 = add i64 %82, 1
+  store i64 %89, ptr %41, align 8, !alias.scope !750, !noalias !753
   br label %"_ZN12polars_arrow6offset16Offsets$LT$O$GT$15extend_constant17hf3f90121ecbdb104E.exit"
 
-89:                                               ; preds = %._crit_edge
-  %90 = icmp ult i64 %73, 1152921504606846976
-  tail call void @llvm.assume(i1 %90)
-  %91 = add i64 %73, %.sroa.09.1.lcssa
-  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hef2a76c41c5eb09cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %91, i64 noundef %77, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26c8ba34914650c1c1cd302a1d6cb960.291)
+90:                                               ; preds = %._crit_edge
+  %91 = icmp ult i64 %74, 1152921504606846976
+  tail call void @llvm.assume(i1 %91)
+  %92 = add i64 %74, %.sroa.09.1.lcssa
+  tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hef2a76c41c5eb09cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %92, i64 noundef %78, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26c8ba34914650c1c1cd302a1d6cb960.291)
   br label %"_ZN12polars_arrow6offset16Offsets$LT$O$GT$15extend_constant17hf3f90121ecbdb104E.exit"
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %96
-  %92 = phi i64 [ %98, %96 ], [ %62, %.lr.ph.preheader ]
+  %93 = phi i64 [ %98, %96 ], [ %62, %.lr.ph.preheader ]
   %.sroa.09.128 = phi i64 [ %97, %96 ], [ 1, %.lr.ph.preheader ]
-  %93 = getelementptr inbounds nuw i32, ptr %2, i64 %92
-  %94 = load i32, ptr %93, align 4, !noundef !3
-  %95 = zext i32 %94 to i64
-  %.not25 = icmp samesign ugt i64 %60, %95
+  %94 = getelementptr inbounds nuw i32, ptr %2, i64 %93
+  %95 = load i32, ptr %94, align 4, !noundef !3
+  %.not25 = icmp ult i32 %95, %71
   br i1 %.not25, label %._crit_edge, label %96
 
 96:                                               ; preds = %.lr.ph
@@ -10432,14 +10432,14 @@ define hidden void @"_ZN134_$LT$polars_arrow..array..list..builder..ListArrayBui
   %exitcond.not = icmp eq i64 %97, %70
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-"_ZN12polars_arrow6offset16Offsets$LT$O$GT$15extend_constant17hf3f90121ecbdb104E.exit": ; preds = %89, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0778b63baba3322E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h201f8fe5de08cbbdE.exit"
-  %.sroa.09.2 = phi i64 [ %.sroa.09.0.lcssa, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h201f8fe5de08cbbdE.exit" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0778b63baba3322E.exit.i" ], [ %.sroa.09.1.lcssa, %89 ]
+"_ZN12polars_arrow6offset16Offsets$LT$O$GT$15extend_constant17hf3f90121ecbdb104E.exit": ; preds = %90, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0778b63baba3322E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h201f8fe5de08cbbdE.exit"
+  %.sroa.09.2 = phi i64 [ %.sroa.09.0.lcssa, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h201f8fe5de08cbbdE.exit" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0778b63baba3322E.exit.i" ], [ %.sroa.09.1.lcssa, %90 ]
   %99 = add i64 %.sroa.09.2, %.sroa.0.037
   %100 = icmp ult i64 %99, %3
   br i1 %100, label %55, label %._crit_edge40
 
 ._crit_edge33:                                    ; preds = %127, %.lr.ph32, %.preheader
-  %.sroa.09.0.lcssa = phi i64 [ 1, %.preheader ], [ %.sroa.09.031, %.lr.ph32 ], [ %71, %127 ]
+  %.sroa.09.0.lcssa = phi i64 [ 1, %.preheader ], [ %.sroa.09.031, %.lr.ph32 ], [ %72, %127 ]
   %101 = load ptr, ptr %42, align 8, !noundef !3
   %102 = icmp ugt i64 %59, %58
   tail call void @llvm.assume(i1 %102)
@@ -10507,7 +10507,7 @@ define hidden void @"_ZN134_$LT$polars_arrow..array..list..builder..ListArrayBui
 127:                                              ; preds = %.lr.ph32
   %128 = add i64 %.sroa.09.031, 1
   %129 = add i64 %128, %.sroa.0.037
-  %exitcond42.not = icmp eq i64 %128, %71
+  %exitcond42.not = icmp eq i64 %128, %72
   br i1 %exitcond42.not, label %._crit_edge33, label %.lr.ph32
 }
 
