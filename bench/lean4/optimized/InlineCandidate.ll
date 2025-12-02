@@ -62,34 +62,28 @@ define nonnull ptr @l_Lean_Compiler_LCNF_Simp_InlineCandidateInfo_arity___boxed(
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr i8, ptr %3, i64 8
   %.val.i = load i64, ptr %4, align 8, !tbaa !8
-  %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %5 = load i32, ptr %0, align 8, !tbaa !10
+  %6 = icmp sgt i32 %5, 1
+  br i1 %6, label %7, label %9, !prof !13
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %0, align 4, !tbaa !10
-  %9 = icmp sgt i32 %8, 1
-  br i1 %9, label %10, label %12, !prof !13
-
-10:                                               ; preds = %7
-  %11 = add nsw i32 %8, -1
-  store i32 %11, ptr %0, align 4, !tbaa !10
+  %8 = add nsw i32 %5, -1
+  store i32 %8, ptr %0, align 4, !tbaa !10
   br label %lean_dec.exit
 
-12:                                               ; preds = %7
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %lean_dec.exit, label %13
+9:                                                ; preds = %1
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %lean_dec.exit, label %10
 
-13:                                               ; preds = %12
+10:                                               ; preds = %9
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %13, %12, %10, %1
-  %14 = shl i64 %.val.i, 1
-  %15 = or disjoint i64 %14, 1
-  %16 = inttoptr i64 %15 to ptr
-  ret ptr %16
+lean_dec.exit:                                    ; preds = %10, %9, %7
+  %11 = shl i64 %.val.i, 1
+  %12 = or disjoint i64 %11, 1
+  %13 = inttoptr i64 %12 to ptr
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable

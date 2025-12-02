@@ -987,39 +987,30 @@ lean_alloc_closure.exit:                          ; preds = %6
   store ptr %4, ptr %17, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %18, align 8, !tbaa !10
-  %19 = ptrtoint ptr %7 to i64
-  %20 = and i64 %19, 1
-  %.not.i = icmp eq i64 %20, 0
-  br i1 %.not.i, label %21, label %lean_inc.exit.i
+  store i32 2, ptr %7, align 8, !tbaa !4
+  tail call void @lean_inc_heartbeat() #3
+  %19 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %l_Lake_recFetch___rarg.exit
 
 21:                                               ; preds = %lean_alloc_closure.exit
-  store i32 2, ptr %7, align 4, !tbaa !4
-  br label %lean_inc.exit.i
-
-lean_inc.exit.i:                                  ; preds = %21, %lean_alloc_closure.exit
-  tail call void @lean_inc_heartbeat() #3
-  %22 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %l_Lake_recFetch___rarg.exit
-
-24:                                               ; preds = %lean_inc.exit.i
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-l_Lake_recFetch___rarg.exit:                      ; preds = %lean_inc.exit.i
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 1, ptr %22, align 4, !tbaa !4
-  store i32 -184549344, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr @l_Lake_recFetch___rarg, ptr %26, align 8, !tbaa !10
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i16 2, ptr %27, align 8, !tbaa !12
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 18
-  store i16 1, ptr %28, align 2, !tbaa !12
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr %7, ptr %29, align 8, !tbaa !10
-  %30 = tail call ptr @lean_apply_2(ptr noundef nonnull %7, ptr noundef %5, ptr noundef nonnull %22) #3
-  ret ptr %30
+l_Lake_recFetch___rarg.exit:                      ; preds = %lean_alloc_closure.exit
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 1, ptr %19, align 4, !tbaa !4
+  store i32 -184549344, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr @l_Lake_recFetch___rarg, ptr %23, align 8, !tbaa !10
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i16 2, ptr %24, align 8, !tbaa !12
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 18
+  store i16 1, ptr %25, align 2, !tbaa !12
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store ptr %7, ptr %26, align 8, !tbaa !10
+  %27 = tail call ptr @lean_apply_2(ptr noundef nonnull %7, ptr noundef %5, ptr noundef nonnull %19) #3
+  ret ptr %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2061,39 +2052,30 @@ lean_alloc_closure.exit:                          ; preds = %7
   store ptr %3, ptr %19, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr %0, ptr %20, align 8, !tbaa !10
-  %21 = ptrtoint ptr %8 to i64
-  %22 = and i64 %21, 1
-  %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %23, label %lean_inc.exit.i
+  store i32 2, ptr %8, align 8, !tbaa !4
+  tail call void @lean_inc_heartbeat() #3
+  %21 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %l_Lake_recFetch___rarg.exit
 
 23:                                               ; preds = %lean_alloc_closure.exit
-  store i32 2, ptr %8, align 4, !tbaa !4
-  br label %lean_inc.exit.i
-
-lean_inc.exit.i:                                  ; preds = %23, %lean_alloc_closure.exit
-  tail call void @lean_inc_heartbeat() #3
-  %24 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #3
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %l_Lake_recFetch___rarg.exit
-
-26:                                               ; preds = %lean_inc.exit.i
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
-l_Lake_recFetch___rarg.exit:                      ; preds = %lean_inc.exit.i
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store i32 1, ptr %24, align 4, !tbaa !4
-  store i32 -184549344, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr @l_Lake_recFetch___rarg, ptr %28, align 8, !tbaa !10
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i16 2, ptr %29, align 8, !tbaa !12
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 18
-  store i16 1, ptr %30, align 2, !tbaa !12
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr %8, ptr %31, align 8, !tbaa !10
-  %32 = tail call ptr @lean_apply_2(ptr noundef nonnull %8, ptr noundef %6, ptr noundef nonnull %24) #3
-  ret ptr %32
+l_Lake_recFetch___rarg.exit:                      ; preds = %lean_alloc_closure.exit
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i32 1, ptr %21, align 4, !tbaa !4
+  store i32 -184549344, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr @l_Lake_recFetch___rarg, ptr %25, align 8, !tbaa !10
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i16 2, ptr %26, align 8, !tbaa !12
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 18
+  store i16 1, ptr %27, align 2, !tbaa !12
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store ptr %8, ptr %28, align 8, !tbaa !10
+  %29 = tail call ptr @lean_apply_2(ptr noundef nonnull %8, ptr noundef %6, ptr noundef nonnull %21) #3
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable

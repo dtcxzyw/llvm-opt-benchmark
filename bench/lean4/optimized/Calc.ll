@@ -3943,18 +3943,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_alloc_ctor.exi
   store i16 1, ptr %23, align 2, !tbaa !15
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %1, ptr %24, align 8, !tbaa !4
-  %25 = ptrtoint ptr %17 to i64
-  %26 = and i64 %25, 1
-  %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %lean_inc_ref.exit, label %lean_inc.exit
-
-lean_inc_ref.exit:                                ; preds = %lean_alloc_closure.exit
-  store i32 2, ptr %17, align 4, !tbaa !8
-  br label %lean_inc.exit
-
-lean_inc.exit:                                    ; preds = %lean_alloc_closure.exit, %lean_inc_ref.exit
-  %27 = tail call ptr @l_Lean_Elab_Term_ensureHasTypeWithErrorMsgs(ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %17, ptr noundef nonnull %17, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #4
-  ret ptr %27
+  store i32 2, ptr %17, align 8, !tbaa !8
+  %25 = tail call ptr @l_Lean_Elab_Term_ensureHasTypeWithErrorMsgs(ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %17, ptr noundef nonnull %17, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #4
+  ret ptr %25
 }
 
 ; Function Attrs: nounwind uwtable
