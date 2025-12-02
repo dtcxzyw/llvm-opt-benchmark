@@ -3083,61 +3083,61 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completio
   store i32 %11, ptr %2, align 4, !tbaa !4
   br label %lean_dec.exit12
 
-12:                                               ; preds = %6
+15:                                               ; preds = %6
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %lean_dec.exit12, label %13
+  br i1 %.not.i, label %lean_dec.exit12, label %16
 
-13:                                               ; preds = %12
+16:                                               ; preds = %15
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #3
   br label %lean_dec.exit12
 
-lean_dec.exit12:                                  ; preds = %13, %12, %10
-  %14 = getelementptr i8, ptr %3, i64 8
-  %.val17 = load i64, ptr %14, align 8, !tbaa !12
+lean_dec.exit12:                                  ; preds = %16, %15, %10
+  %17 = getelementptr i8, ptr %3, i64 8
+  %.val17 = load i64, ptr %17, align 8, !tbaa !12
   %15 = load i32, ptr %3, align 8, !tbaa !4
   %16 = icmp sgt i32 %15, 1
   br i1 %16, label %17, label %19, !prof !11
 
-17:                                               ; preds = %lean_dec.exit12
-  %18 = add nsw i32 %15, -1
-  store i32 %18, ptr %3, align 4, !tbaa !4
+23:                                               ; preds = %lean_dec.exit12
+  %24 = add nsw i32 %15, -1
+  store i32 %24, ptr %3, align 4, !tbaa !4
   br label %lean_dec.exit11
 
-19:                                               ; preds = %lean_dec.exit12
+25:                                               ; preds = %lean_dec.exit12
   %.not.i13 = icmp eq i32 %15, 0
-  br i1 %.not.i13, label %lean_dec.exit11, label %20
+  br i1 %.not.i13, label %lean_dec.exit11, label %26
 
-20:                                               ; preds = %19
+26:                                               ; preds = %25
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #3
   br label %lean_dec.exit11
 
-lean_dec.exit11:                                  ; preds = %20, %19, %17
-  %21 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_getEligibleHeaderDecls___spec__2(ptr noundef %0, ptr noundef %1, i64 noundef %.val, i64 noundef %.val17, ptr noundef %4, ptr noundef %5)
-  %22 = ptrtoint ptr %1 to i64
-  %23 = and i64 %22, 1
-  %.not19 = icmp eq i64 %23, 0
-  br i1 %.not19, label %24, label %lean_dec.exit
+lean_dec.exit11:                                  ; preds = %26, %25, %23
+  %27 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_getEligibleHeaderDecls___spec__2(ptr noundef %0, ptr noundef %1, i64 noundef %.val, i64 noundef %.val17, ptr noundef %4, ptr noundef %5)
+  %28 = ptrtoint ptr %1 to i64
+  %29 = and i64 %28, 1
+  %.not19 = icmp eq i64 %29, 0
+  br i1 %.not19, label %30, label %lean_dec.exit
 
-24:                                               ; preds = %lean_dec.exit11
-  %25 = load i32, ptr %1, align 4, !tbaa !4
-  %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %27, label %29, !prof !11
+30:                                               ; preds = %lean_dec.exit11
+  %31 = load i32, ptr %1, align 4, !tbaa !4
+  %32 = icmp sgt i32 %31, 1
+  br i1 %32, label %33, label %35, !prof !11
 
-27:                                               ; preds = %24
-  %28 = add nsw i32 %25, -1
-  store i32 %28, ptr %1, align 4, !tbaa !4
+33:                                               ; preds = %30
+  %34 = add nsw i32 %31, -1
+  store i32 %34, ptr %1, align 4, !tbaa !4
   br label %lean_dec.exit
 
-29:                                               ; preds = %24
-  %.not.i15 = icmp eq i32 %25, 0
-  br i1 %.not.i15, label %lean_dec.exit, label %30
+35:                                               ; preds = %30
+  %.not.i15 = icmp eq i32 %31, 0
+  br i1 %.not.i15, label %lean_dec.exit, label %36
 
-30:                                               ; preds = %29
+36:                                               ; preds = %35
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %30, %29, %27, %lean_dec.exit11
-  ret ptr %21
+lean_dec.exit:                                    ; preds = %36, %35, %33, %lean_dec.exit11
+  ret ptr %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4017,38 +4017,38 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_forEligibleDec
   store i32 %11, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit10
 
-12:                                               ; preds = %6
+15:                                               ; preds = %6
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %lean_dec.exit10, label %13
+  br i1 %.not.i, label %lean_dec.exit10, label %16
 
-13:                                               ; preds = %12
+16:                                               ; preds = %15
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit10
 
-lean_dec.exit10:                                  ; preds = %13, %12, %10
-  %14 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %14, align 8, !tbaa !12
+lean_dec.exit10:                                  ; preds = %16, %15, %10
+  %17 = getelementptr i8, ptr %4, i64 8
+  %.val = load i64, ptr %17, align 8, !tbaa !12
   %15 = load i32, ptr %4, align 8, !tbaa !4
   %16 = icmp sgt i32 %15, 1
   br i1 %16, label %17, label %19, !prof !11
 
-17:                                               ; preds = %lean_dec.exit10
-  %18 = add nsw i32 %15, -1
-  store i32 %18, ptr %4, align 4, !tbaa !4
+23:                                               ; preds = %lean_dec.exit10
+  %24 = add nsw i32 %15, -1
+  store i32 %24, ptr %4, align 4, !tbaa !4
   br label %lean_dec.exit
 
-19:                                               ; preds = %lean_dec.exit10
+25:                                               ; preds = %lean_dec.exit10
   %.not.i11 = icmp eq i32 %15, 0
-  br i1 %.not.i11, label %lean_dec.exit, label %20
+  br i1 %.not.i11, label %lean_dec.exit, label %26
 
-20:                                               ; preds = %19
+26:                                               ; preds = %25
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %20, %19, %17
-  %21 = add i64 %.val13, 1
-  %22 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_forEligibleDeclsM___spec__4___rarg(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %21, i64 noundef %.val, ptr noundef %5)
-  ret ptr %22
+lean_dec.exit:                                    ; preds = %26, %25, %23
+  %27 = add i64 %.val13, 1
+  %28 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_forEligibleDeclsM___spec__4___rarg(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %27, i64 noundef %.val, ptr noundef %5)
+  ret ptr %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4088,37 +4088,37 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_forEligibleDec
   store i32 %11, ptr %3, align 4, !tbaa !4
   br label %lean_dec.exit10
 
-12:                                               ; preds = %6
+15:                                               ; preds = %6
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %lean_dec.exit10, label %13
+  br i1 %.not.i, label %lean_dec.exit10, label %16
 
-13:                                               ; preds = %12
+16:                                               ; preds = %15
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #3
   br label %lean_dec.exit10
 
-lean_dec.exit10:                                  ; preds = %13, %12, %10
-  %14 = getelementptr i8, ptr %4, i64 8
-  %.val = load i64, ptr %14, align 8, !tbaa !12
+lean_dec.exit10:                                  ; preds = %16, %15, %10
+  %17 = getelementptr i8, ptr %4, i64 8
+  %.val = load i64, ptr %17, align 8, !tbaa !12
   %15 = load i32, ptr %4, align 8, !tbaa !4
   %16 = icmp sgt i32 %15, 1
   br i1 %16, label %17, label %19, !prof !11
 
-17:                                               ; preds = %lean_dec.exit10
-  %18 = add nsw i32 %15, -1
-  store i32 %18, ptr %4, align 4, !tbaa !4
+23:                                               ; preds = %lean_dec.exit10
+  %24 = add nsw i32 %15, -1
+  store i32 %24, ptr %4, align 4, !tbaa !4
   br label %lean_dec.exit
 
-19:                                               ; preds = %lean_dec.exit10
+25:                                               ; preds = %lean_dec.exit10
   %.not.i11 = icmp eq i32 %15, 0
-  br i1 %.not.i11, label %lean_dec.exit, label %20
+  br i1 %.not.i11, label %lean_dec.exit, label %26
 
-20:                                               ; preds = %19
+26:                                               ; preds = %25
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %4) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %20, %19, %17
-  %21 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_forEligibleDeclsM___spec__4___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %.val13, i64 noundef %.val, ptr noundef %5)
-  ret ptr %21
+lean_dec.exit:                                    ; preds = %26, %25, %23
+  %27 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_forEligibleDeclsM___spec__4___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %.val13, i64 noundef %.val, ptr noundef %5)
+  ret ptr %27
 }
 
 ; Function Attrs: nounwind uwtable

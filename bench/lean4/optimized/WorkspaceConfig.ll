@@ -590,17 +590,17 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_WorkspaceConfig_instConfigMeta__
   store i32 %9, ptr %1, align 4, !tbaa !4
   br label %lean_dec.exit10
 
-10:                                               ; preds = %4
+13:                                               ; preds = %4
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit10, label %11
+  br i1 %.not.i, label %lean_dec.exit10, label %14
 
-11:                                               ; preds = %10
+14:                                               ; preds = %13
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #5
   br label %lean_dec.exit10
 
-lean_dec.exit10:                                  ; preds = %11, %10, %8
-  %12 = getelementptr i8, ptr %2, i64 8
-  %.val15 = load i64, ptr %12, align 8, !tbaa !11
+lean_dec.exit10:                                  ; preds = %14, %13, %8
+  %15 = getelementptr i8, ptr %2, i64 8
+  %.val15 = load i64, ptr %15, align 8, !tbaa !11
   %13 = load i32, ptr %2, align 8, !tbaa !4
   %14 = icmp sgt i32 %13, 1
   br i1 %14, label %15, label %17, !prof !13
@@ -610,20 +610,20 @@ lean_dec.exit10:                                  ; preds = %11, %10, %8
   store i32 %16, ptr %2, align 4, !tbaa !4
   br label %lean_dec.exit9
 
-17:                                               ; preds = %lean_dec.exit10
+23:                                               ; preds = %lean_dec.exit10
   %.not.i11 = icmp eq i32 %13, 0
-  br i1 %.not.i11, label %lean_dec.exit9, label %18
+  br i1 %.not.i11, label %lean_dec.exit9, label %24
 
-18:                                               ; preds = %17
+24:                                               ; preds = %23
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #5
   br label %lean_dec.exit9
 
-lean_dec.exit9:                                   ; preds = %18, %17, %15
+lean_dec.exit9:                                   ; preds = %24, %23, %15
   %.not28.i = icmp eq i64 %.val, %.val15
   br i1 %.not28.i, label %l_Array_foldlMUnsafe_fold___at_Lake_WorkspaceConfig_instConfigMeta___spec__1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit9
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %20
 
 20:                                               ; preds = %40, %.lr.ph.i
@@ -641,77 +641,77 @@ lean_dec.exit9:                                   ; preds = %18, %17, %15
   %26 = icmp sgt i32 %.val.i.i.i, 0
   br i1 %26, label %27, label %29, !prof !13
 
-27:                                               ; preds = %25
+26:                                               ; preds = %25
   %28 = add nuw i32 %.val.i.i.i, 1
   store i32 %28, ptr %22, align 4, !tbaa !4
   br label %lean_array_uget.exit.i
 
-29:                                               ; preds = %25
+35:                                               ; preds = %25
   %.not.i.i.i = icmp eq i32 %.val.i.i.i, 0
-  br i1 %.not.i.i.i, label %lean_array_uget.exit.i, label %30
+  br i1 %.not.i.i.i, label %lean_array_uget.exit.i, label %36
 
-30:                                               ; preds = %29
+36:                                               ; preds = %35
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %22) #5
   br label %lean_array_uget.exit.i
 
-lean_array_uget.exit.i:                           ; preds = %30, %29, %27, %20
-  %31 = getelementptr i8, ptr %22, i64 8
-  %.val.i = load ptr, ptr %31, align 8, !tbaa !9
-  %32 = ptrtoint ptr %.val.i to i64
-  %33 = and i64 %32, 1
-  %.not27.i = icmp eq i64 %33, 0
-  br i1 %.not27.i, label %34, label %40
+lean_array_uget.exit.i:                           ; preds = %36, %35, %26, %20
+  %37 = getelementptr i8, ptr %22, i64 8
+  %.val.i = load ptr, ptr %37, align 8, !tbaa !9
+  %38 = ptrtoint ptr %.val.i to i64
+  %39 = and i64 %38, 1
+  %.not27.i = icmp eq i64 %39, 0
+  br i1 %.not27.i, label %40, label %46
 
-34:                                               ; preds = %lean_array_uget.exit.i
+40:                                               ; preds = %lean_array_uget.exit.i
   %.val.i.i = load i32, ptr %.val.i, align 4, !tbaa !4
-  %35 = icmp sgt i32 %.val.i.i, 0
-  br i1 %35, label %36, label %38, !prof !13
+  %41 = icmp sgt i32 %.val.i.i, 0
+  br i1 %41, label %42, label %44, !prof !13
 
-36:                                               ; preds = %34
-  %37 = add nuw i32 %.val.i.i, 1
-  store i32 %37, ptr %.val.i, align 4, !tbaa !4
-  br label %40
+42:                                               ; preds = %40
+  %43 = add nuw i32 %.val.i.i, 1
+  store i32 %43, ptr %.val.i, align 4, !tbaa !4
+  br label %46
 
-38:                                               ; preds = %34
+44:                                               ; preds = %40
   %.not.i21.i = icmp eq i32 %.val.i.i, 0
-  br i1 %.not.i21.i, label %40, label %39
+  br i1 %.not.i21.i, label %46, label %45
 
-39:                                               ; preds = %38
+45:                                               ; preds = %44
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %.val.i) #5
-  br label %40
+  br label %46
 
-40:                                               ; preds = %39, %38, %36, %lean_array_uget.exit.i
-  %41 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %.01929.i, ptr noundef %.val.i, ptr noundef nonnull %22) #5
-  %42 = add i64 %.01730.i, 1
-  %.not.i16 = icmp eq i64 %42, %.val15
+46:                                               ; preds = %45, %44, %42, %lean_array_uget.exit.i
+  %47 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %.01929.i, ptr noundef %.val.i, ptr noundef nonnull %22) #5
+  %48 = add i64 %.01730.i, 1
+  %.not.i16 = icmp eq i64 %48, %.val15
   br i1 %.not.i16, label %l_Array_foldlMUnsafe_fold___at_Lake_WorkspaceConfig_instConfigMeta___spec__1.exit, label %20
 
-l_Array_foldlMUnsafe_fold___at_Lake_WorkspaceConfig_instConfigMeta___spec__1.exit: ; preds = %40, %lean_dec.exit9
-  %.019.lcssa.i = phi ptr [ %3, %lean_dec.exit9 ], [ %41, %40 ]
-  %43 = ptrtoint ptr %0 to i64
-  %44 = and i64 %43, 1
-  %.not18 = icmp eq i64 %44, 0
-  br i1 %.not18, label %45, label %lean_dec.exit
+l_Array_foldlMUnsafe_fold___at_Lake_WorkspaceConfig_instConfigMeta___spec__1.exit: ; preds = %46, %lean_dec.exit9
+  %.019.lcssa.i = phi ptr [ %3, %lean_dec.exit9 ], [ %47, %40 ]
+  %49 = ptrtoint ptr %0 to i64
+  %50 = and i64 %49, 1
+  %.not18 = icmp eq i64 %50, 0
+  br i1 %.not18, label %51, label %lean_dec.exit
 
-45:                                               ; preds = %l_Array_foldlMUnsafe_fold___at_Lake_WorkspaceConfig_instConfigMeta___spec__1.exit
-  %46 = load i32, ptr %0, align 4, !tbaa !4
-  %47 = icmp sgt i32 %46, 1
-  br i1 %47, label %48, label %50, !prof !13
+51:                                               ; preds = %l_Array_foldlMUnsafe_fold___at_Lake_WorkspaceConfig_instConfigMeta___spec__1.exit
+  %52 = load i32, ptr %0, align 4, !tbaa !4
+  %53 = icmp sgt i32 %52, 1
+  br i1 %53, label %54, label %56, !prof !13
 
-48:                                               ; preds = %45
-  %49 = add nsw i32 %46, -1
-  store i32 %49, ptr %0, align 4, !tbaa !4
+54:                                               ; preds = %51
+  %55 = add nsw i32 %52, -1
+  store i32 %55, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit
 
-50:                                               ; preds = %45
-  %.not.i13 = icmp eq i32 %46, 0
-  br i1 %.not.i13, label %lean_dec.exit, label %51
+56:                                               ; preds = %51
+  %.not.i13 = icmp eq i32 %52, 0
+  br i1 %.not.i13, label %lean_dec.exit, label %57
 
-51:                                               ; preds = %50
+57:                                               ; preds = %56
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %51, %50, %48, %l_Array_foldlMUnsafe_fold___at_Lake_WorkspaceConfig_instConfigMeta___spec__1.exit
+lean_dec.exit:                                    ; preds = %57, %56, %54, %l_Array_foldlMUnsafe_fold___at_Lake_WorkspaceConfig_instConfigMeta___spec__1.exit
   ret ptr %.019.lcssa.i
 }
 

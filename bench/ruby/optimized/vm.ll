@@ -19549,13 +19549,13 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %11
 26:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not23 = icmp eq ptr %2, null
-  br i1 %.not23, label %99, label %27
+  br i1 %.not23, label %101, label %27
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !187
   store i64 %29, ptr %2, align 8, !tbaa !7
-  br label %99
+  br label %101
 
 30:                                               ; preds = %24, %15, %rb_vm_lock_enter.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19721,19 +19721,19 @@ negative_cme.exit:                                ; preds = %72, %75
 
 cache_callable_method_entry.exit:                 ; preds = %87, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %99
+  br label %101
 
-99:                                               ; preds = %26, %27, %cache_callable_method_entry.exit
+101:                                              ; preds = %26, %27, %cache_callable_method_entry.exit
   %.0 = phi ptr [ %21, %27 ], [ %21, %26 ], [ %.1, %cache_callable_method_entry.exit ]
-  %100 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !110
-  %.not.i.i30 = icmp eq ptr %100, null
-  br i1 %.not.i.i30, label %101, label %rb_vm_lock_leave.exit
+  %102 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !110
+  %.not.i.i30 = icmp eq ptr %102, null
+  br i1 %.not.i.i30, label %103, label %rb_vm_lock_leave.exit
 
-101:                                              ; preds = %99
+103:                                              ; preds = %101
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %9) #20
   br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %99, %101
+rb_vm_lock_leave.exit:                            ; preds = %101, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
@@ -31220,23 +31220,23 @@ vm_proc_iseq.exit:                                ; preds = %tailrecurse.i.i
   %29 = icmp eq ptr %26, null
   br i1 %29, label %proc_isolate_env.exit, label %30
 
-30:                                               ; preds = %23
+34:                                               ; preds = %23
   %31 = ptrtoint ptr %26 to i64
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %31) #20
   br label %proc_isolate_env.exit
 
-proc_isolate_env.exit:                            ; preds = %23, %30
-  %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %33 = load i8, ptr %32, align 8
-  %34 = or i8 %33, 4
-  store i8 %34, ptr %32, align 8
+proc_isolate_env.exit:                            ; preds = %23, %34
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %36 = load i8, ptr %35, align 8
+  %37 = or i8 %36, 4
+  store i8 %37, ptr %35, align 8
   br label %vm_proc_iseq.exit.thread
 
 vm_proc_iseq.exit.thread:                         ; preds = %tailrecurse.i.i, %tailrecurse.i.i, %proc_isolate_env.exit, %vm_proc_iseq.exit
-  %35 = inttoptr i64 %0 to ptr
-  %36 = load i64, ptr %35, align 8, !tbaa !97
-  %37 = or i64 %36, 256
-  store i64 %37, ptr %35, align 8, !tbaa !97
+  %38 = inttoptr i64 %0 to ptr
+  %39 = load i64, ptr %38, align 8, !tbaa !97
+  %40 = or i64 %39, 256
+  store i64 %40, ptr %38, align 8, !tbaa !97
   ret i64 %0
 }
 
@@ -31452,25 +31452,25 @@ rb_ractor_shareable_p.exit.thread:                ; preds = %21, %vm_block_self.
   %39 = load ptr, ptr %38, align 8, !tbaa !433
   store ptr %39, ptr %35, align 8, !tbaa !26
   %40 = icmp eq ptr %37, null
-  br i1 %40, label %proc_isolate_env.exit, label %41
+  br i1 %40, label %proc_isolate_env.exit, label %45
 
-41:                                               ; preds = %34
-  %42 = ptrtoint ptr %37 to i64
+45:                                               ; preds = %34
+  %42 = ptrtoint ptr %40 to i64
   tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %42) #20
   br label %proc_isolate_env.exit
 
-proc_isolate_env.exit:                            ; preds = %34, %41
-  %43 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %44 = load i8, ptr %43, align 8
-  %45 = or i8 %44, 4
-  store i8 %45, ptr %43, align 8
+proc_isolate_env.exit:                            ; preds = %34, %45
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %47 = load i8, ptr %46, align 8
+  %48 = or i8 %47, 4
+  store i8 %48, ptr %46, align 8
   br label %vm_proc_iseq.exit.thread
 
 vm_proc_iseq.exit.thread:                         ; preds = %tailrecurse.i.i, %tailrecurse.i.i, %proc_isolate_env.exit, %vm_proc_iseq.exit
-  %46 = inttoptr i64 %0 to ptr
-  %47 = load i64, ptr %46, align 8, !tbaa !97
-  %48 = or i64 %47, 256
-  store i64 %48, ptr %46, align 8, !tbaa !97
+  %49 = inttoptr i64 %0 to ptr
+  %50 = load i64, ptr %49, align 8, !tbaa !97
+  %51 = or i64 %50, 256
+  store i64 %51, ptr %49, align 8, !tbaa !97
   ret i64 %0
 }
 
@@ -60590,7 +60590,7 @@ rb_obj_write.exit67:                              ; preds = %.thread69, %.thread
   %.val = phi i64 [ %.val.pre, %.loopexit70.loopexit ], [ %30, %RARRAY_LENINT.exit ], [ %30, %rb_obj_write.exit ]
   %100 = and i64 %.val, 2
   %.not58 = icmp eq i64 %100, 0
-  br i1 %.not58, label %101, label %118
+  br i1 %.not58, label %101, label %121
 
 101:                                              ; preds = %.loopexit70
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -60609,23 +60609,23 @@ rb_obj_write.exit67:                              ; preds = %.thread69, %.thread
   %113 = icmp eq ptr %107, null
   br i1 %113, label %rb_obj_written.exit, label %114
 
-114:                                              ; preds = %101
+114:; preds = %101
   %115 = ptrtoint ptr %107 to i64
   tail call void @rb_gc_writebarrier(i64 noundef %16, i64 noundef %115) #20
   br label %rb_obj_written.exit
 
 rb_obj_written.exit:                              ; preds = %101, %114
-  %116 = load i64, ptr %12, align 8, !tbaa !7
-  %117 = and i64 %116, -3
-  store i64 %117, ptr %12, align 8, !tbaa !7
-  br label %120
+  %119 = load i64, ptr %12, align 8, !tbaa !7
+  %120 = and i64 %119, -3
+  store i64 %120, ptr %12, align 8, !tbaa !7
+  br label %123
 
-118:                                              ; preds = %.loopexit70
-  %119 = getelementptr i8, ptr %12, i64 -8
-  store i64 0, ptr %119, align 8, !tbaa !7
-  br label %120
+121:                                              ; preds = %.loopexit70
+  %122 = getelementptr i8, ptr %12, i64 -8
+  store i64 0, ptr %122, align 8, !tbaa !7
+  br label %123
 
-120:                                              ; preds = %118, %rb_obj_written.exit
+123:                                              ; preds = %121, %rb_obj_written.exit
   ret ptr %17
 }
 

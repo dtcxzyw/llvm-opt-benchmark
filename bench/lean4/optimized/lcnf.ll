@@ -15115,25 +15115,25 @@ _ZNK4lean16elab_environment4findERKNS_4nameE.exit: ; preds = %5, %12, %14, %15
   store i32 %31, ptr %25, align 4, !tbaa !8
   br label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit
 
-32:                                               ; preds = %23
+35:                                               ; preds = %23
   %.not.i.i.i.i4 = icmp eq i32 %28, 0
-  br i1 %.not.i.i.i.i4, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit, label %33
+  br i1 %.not.i.i.i.i4, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit, label %36
 
-33:                                               ; preds = %32
+36:                                               ; preds = %35
   invoke void @lean_dec_ref_cold(ptr noundef nonnull %25)
-          to label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit unwind label %34
+          to label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit unwind label %37
 
-34:                                               ; preds = %33
-  %35 = landingpad { ptr, i32 }
+37:                                               ; preds = %36
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #16
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #16
   unreachable
 
-_ZN4lean8optionalINS_13constant_infoEED2Ev.exit:  ; preds = %_ZNK4lean16elab_environment4findERKNS_4nameE.exit, %30, %32, %33
-  %37 = phi i1 [ %27, %30 ], [ %27, %32 ], [ %27, %33 ], [ false, %_ZNK4lean16elab_environment4findERKNS_4nameE.exit ]
+_ZN4lean8optionalINS_13constant_infoEED2Ev.exit:  ; preds = %_ZNK4lean16elab_environment4findERKNS_4nameE.exit, %30, %35, %36
+  %40 = phi i1 [ %27, %30 ], [ %27, %32 ], [ %27, %33 ], [ false, %_ZNK4lean16elab_environment4findERKNS_4nameE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %37
+  ret i1 %40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16857,27 +16857,27 @@ define linkonce_odr hidden noundef i32 @_ZN4lean10to_lcnf_fn23get_constructor_nf
   store i32 %30, ptr %22, align 4, !tbaa !8
   br label %_ZN4lean10object_refD2Ev.exit
 
-31:                                               ; preds = %21
+34:                                               ; preds = %21
   %.not.i.i.i3 = icmp eq i32 %27, 0
-  br i1 %.not.i.i.i3, label %_ZN4lean10object_refD2Ev.exit, label %32
+  br i1 %.not.i.i.i3, label %_ZN4lean10object_refD2Ev.exit, label %35
 
-32:                                               ; preds = %31
+35:                                               ; preds = %34
   invoke void @lean_dec_ref_cold(ptr noundef nonnull %22)
-          to label %_ZN4lean10object_refD2Ev.exit unwind label %33
+          to label %_ZN4lean10object_refD2Ev.exit unwind label %36
 
-33:                                               ; preds = %32
-  %34 = landingpad { ptr, i32 }
+36:                                               ; preds = %35
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #16
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #16
   unreachable
 
-_ZN4lean10object_refD2Ev.exit:                    ; preds = %29, %31, %32
-  %36 = ptrtoint ptr %26 to i64
-  %37 = lshr i64 %36, 1
-  %38 = trunc i64 %37 to i32
+_ZN4lean10object_refD2Ev.exit:                    ; preds = %29, %34, %35
+  %39 = ptrtoint ptr %26 to i64
+  %40 = lshr i64 %39, 1
+  %41 = trunc i64 %40 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %38
+  ret i32 %41
 }
 
 declare void @_ZN4lean15instantiate_revERKNS_4exprEjPS1_(ptr dead_on_unwind writable sret(%"class.lean::expr") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef) local_unnamed_addr #1

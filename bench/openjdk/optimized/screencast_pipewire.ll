@@ -2588,7 +2588,7 @@ define internal void @onStreamParamChanged(ptr noundef %0, i32 noundef %1, ptr n
   %21 = icmp eq ptr %2, null
   %22 = icmp ne i32 %1, 4
   %or.cond = or i1 %22, %21
-  br i1 %or.cond, label %148, label %23
+  br i1 %or.cond, label %151, label %23
 
 23:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2605,7 +2605,7 @@ define internal void @onStreamParamChanged(ptr noundef %0, i32 noundef %1, ptr n
   %.not.i.i.i.i = icmp ult i32 %24, -8
   br i1 %.not.i.i.i.i, label %28, label %spa_format_parse.exit.thread
 
-28:                                               ; preds = %23
+28:; preds = %23
   %29 = zext i32 %25 to i64
   %30 = zext i32 %24 to i64
   %31 = add nsw i64 %30, -1
@@ -2615,227 +2615,227 @@ define internal void @onStreamParamChanged(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not13.i.i.i.i, label %spa_format_parse.exit.thread, label %spa_pod_parser_current.exit.i.i
 
 spa_pod_parser_current.exit.i.i:                  ; preds = %28
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp ne i32 %35, 15
-  %37 = icmp ult i32 %24, 8
-  %or.cond.i.i = or i1 %37, %36
-  br i1 %or.cond.i.i, label %spa_format_parse.exit.thread, label %38
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp ne i32 %38, 15
+  %40 = icmp ult i32 %24, 8
+  %or.cond.i.i = or i1 %40, %39
+  br i1 %or.cond.i.i, label %spa_format_parse.exit.thread, label %41
 
-38:                                               ; preds = %spa_pod_parser_current.exit.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = load i32, ptr %39, align 4
-  %.not16.i.i = icmp eq i32 %40, 262147
+41:                                               ; preds = %spa_pod_parser_current.exit.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %43 = load i32, ptr %42, align 4
+  %.not16.i.i = icmp eq i32 %43, 262147
   br i1 %.not16.i.i, label %spa_format_parse.exit, label %spa_format_parse.exit.thread
 
-spa_format_parse.exit.thread:                     ; preds = %spa_pod_parser_current.exit.i.i, %28, %23, %38
+spa_format_parse.exit.thread:                     ; preds = %spa_pod_parser_current.exit.i.i, %28, %23, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %148
+  br label %151
 
-spa_format_parse.exit:                            ; preds = %38
+spa_format_parse.exit:                            ; preds = %41
   %.val.i.i = load i64, ptr %2, align 4
   store i64 %.val.i.i, ptr %7, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   store ptr %7, ptr %26, align 8
   store i32 %25, ptr %27, align 8
-  %42 = call i32 (ptr, ...) @spa_pod_parser_get(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.76, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull %9, i32 noundef 0)
+  %45 = call i32 (ptr, ...) @spa_pod_parser_get(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @.str.76, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull @.str.76, ptr noundef nonnull %9, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %148, label %44
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %151, label %47
 
-44:                                               ; preds = %spa_format_parse.exit
-  %45 = load i32, ptr %8, align 4
-  %46 = icmp ne i32 %45, 2
-  %47 = load i32, ptr %9, align 4
-  %48 = icmp ne i32 %47, 1
-  %or.cond3 = select i1 %46, i1 true, i1 %48
-  br i1 %or.cond3, label %148, label %49
+47:                                               ; preds = %spa_format_parse.exit
+  %48 = load i32, ptr %8, align 4
+  %49 = icmp ne i32 %48, 2
+  %50 = load i32, ptr %9, align 4
+  %51 = icmp ne i32 %50, 1
+  %or.cond3 = select i1 %49, i1 true, i1 %51
+  br i1 %or.cond3, label %151, label %52
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 0, ptr %51, align 4
-  %52 = load i32, ptr %34, align 4
-  %53 = icmp eq i32 %52, 15
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 0, ptr %54, align 4
+  %55 = load i32, ptr %37, align 4
+  %56 = icmp eq i32 %55, 15
   %.pre27.i = load i32, ptr %2, align 4
-  br i1 %53, label %spa_pod_is_object.exit.i.i, label %spa_pod_find_prop.exit.thread.i
+  br i1 %56, label %spa_pod_is_object.exit.i.i, label %spa_pod_find_prop.exit.thread.i
 
-spa_pod_is_object.exit.i.i:                       ; preds = %49
-  %54 = icmp ult i32 %.pre27.i, 8
-  br i1 %54, label %.thread, label %58
+spa_pod_is_object.exit.i.i:                       ; preds = %52
+  %57 = icmp ult i32 %.pre27.i, 8
+  br i1 %57, label %.thread, label %61
 
 .thread:                                          ; preds = %spa_pod_is_object.exit.i.i
-  %55 = or disjoint i32 %.pre27.i, 8
+  %58 = or disjoint i32 %.pre27.i, 8
   store ptr %2, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i.i30.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %55, ptr %.sroa.2.0..sroa_idx.i.i30.i, align 8
+  store i32 %58, ptr %.sroa.2.0..sroa_idx.i.i30.i, align 8
   %.sroa.3.0..sroa_idx.i.i31.i = getelementptr inbounds nuw i8, ptr %4, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.0..sroa_idx.i.i31.i, i8 0, i64 20, i1 false)
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %57 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %85
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %88
 
-58:                                               ; preds = %spa_pod_is_object.exit.i.i
-  %59 = ptrtoint ptr %39 to i64
-  %60 = add i64 %59, 8
-  %61 = inttoptr i64 %60 to ptr
-  %62 = zext i32 %.pre27.i to i64
-  %63 = getelementptr i8, ptr %39, i64 %62
-  %64 = getelementptr i8, ptr %61, i64 16
-  %.not.i25.i.i.i = icmp ugt ptr %64, %63
+61:                                               ; preds = %spa_pod_is_object.exit.i.i
+  %62 = ptrtoint ptr %42 to i64
+  %63 = add i64 %62, 8
+  %64 = inttoptr i64 %63 to ptr
+  %65 = zext i32 %.pre27.i to i64
+  %66 = getelementptr i8, ptr %42, i64 %65
+  %67 = getelementptr i8, ptr %64, i64 16
+  %.not.i25.i.i.i = icmp ugt ptr %67, %66
   br i1 %.not.i25.i.i.i, label %spa_pod_find_prop.exit.thread.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %58, %73
-  %.026.i.i.i = phi ptr [ %79, %73 ], [ %61, %58 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.026.i.i.i, i64 8
-  %66 = load i32, ptr %65, align 4
-  %67 = zext i32 %66 to i64
-  %68 = getelementptr i8, ptr %.026.i.i.i, i64 %67
-  %69 = getelementptr i8, ptr %68, i64 16
-  %.not22.i.i.i = icmp ugt ptr %69, %63
-  br i1 %.not22.i.i.i, label %spa_pod_find_prop.exit.thread.i, label %70
+.lr.ph.i.i.i:                                     ; preds = %61, %76
+  %.026.i.i.i = phi ptr [ %82, %73 ], [ %64, %58 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.026.i.i.i, i64 8
+  %69 = load i32, ptr %68, align 4
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr i8, ptr %.026.i.i.i, i64 %70
+  %72 = getelementptr i8, ptr %71, i64 16
+  %.not22.i.i.i = icmp ugt ptr %72, %66
+  br i1 %.not22.i.i.i, label %spa_pod_find_prop.exit.thread.i, label %73
 
-70:                                               ; preds = %.lr.ph.i.i.i
-  %71 = load i32, ptr %.026.i.i.i, align 4
-  %72 = icmp eq i32 %71, 131074
-  br i1 %72, label %spa_pod_find_prop.exit.i, label %73
+73:                                               ; preds = %.lr.ph.i.i.i
+  %74 = load i32, ptr %.026.i.i.i, align 4
+  %75 = icmp eq i32 %74, 131074
+  br i1 %75, label %spa_pod_find_prop.exit.i, label %76
 
-73:                                               ; preds = %70
-  %74 = ptrtoint ptr %.026.i.i.i to i64
-  %75 = add nuw nsw i64 %67, 15
-  %76 = or i64 %75, 7
-  %77 = add i64 %74, 1
-  %78 = add i64 %77, %76
-  %79 = inttoptr i64 %78 to ptr
-  %80 = getelementptr i8, ptr %79, i64 16
-  %.not.i.i.i.i32 = icmp ugt ptr %80, %63
+76:                                               ; preds = %73
+  %77 = ptrtoint ptr %.026.i.i.i to i64
+  %78 = add nuw nsw i64 %70, 15
+  %79 = or i64 %78, 7
+  %80 = add i64 %77, 1
+  %81 = add i64 %80, %79
+  %82 = inttoptr i64 %81 to ptr
+  %83 = getelementptr i8, ptr %82, i64 16
+  %.not.i.i.i.i32 = icmp ugt ptr %83, %66
   br i1 %.not.i.i.i.i32, label %spa_pod_find_prop.exit.thread.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
-spa_pod_find_prop.exit.i:                         ; preds = %70
-  store i32 4, ptr %51, align 4
+spa_pod_find_prop.exit.i:                         ; preds = %73
+  store i32 4, ptr %54, align 4
   %.pre.i = load i32, ptr %2, align 4
   br label %spa_pod_find_prop.exit.thread.i
 
-spa_pod_find_prop.exit.thread.i:                  ; preds = %73, %.lr.ph.i.i.i, %spa_pod_find_prop.exit.i, %58, %49
-  %81 = phi i32 [ %.pre27.i, %49 ], [ %.pre27.i, %58 ], [ %.pre.i, %spa_pod_find_prop.exit.i ], [ %.pre27.i, %.lr.ph.i.i.i ], [ %.pre27.i, %73 ]
-  %82 = add i32 %81, 8
+spa_pod_find_prop.exit.thread.i:                  ; preds = %76, %.lr.ph.i.i.i, %spa_pod_find_prop.exit.i, %61, %52
+  %84 = phi i32 [ %.pre27.i, %49 ], [ %.pre27.i, %58 ], [ %.pre.i, %spa_pod_find_prop.exit.i ], [ %.pre27.i, %.lr.ph.i.i.i ], [ %.pre27.i, %73 ]
+  %85 = add i32 %84, 8
   store ptr %2, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i.i.i24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %82, ptr %.sroa.2.0..sroa_idx.i.i.i24, align 8
+  store i32 %85, ptr %.sroa.2.0..sroa_idx.i.i.i24, align 8
   %.sroa.3.0..sroa_idx.i.i.i25 = getelementptr inbounds nuw i8, ptr %4, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.3.0..sroa_idx.i.i.i25, i8 0, i64 20, i1 false)
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %84 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.not.i.i.i22.i = icmp ult i32 %81, -8
-  br i1 %.not.i.i.i22.i, label %85, label %spa_format_video_raw_parse.exit.thread
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.not.i.i.i22.i = icmp ult i32 %84, -8
+  br i1 %.not.i.i.i22.i, label %88, label %spa_format_video_raw_parse.exit.thread
 
-85:                                               ; preds = %spa_pod_find_prop.exit.thread.i, %.thread
-  %86 = phi i32 [ %.pre27.i, %.thread ], [ %81, %spa_pod_find_prop.exit.thread.i ]
-  %87 = phi i32 [ %55, %.thread ], [ %82, %spa_pod_find_prop.exit.thread.i ]
-  %88 = phi ptr [ %56, %.thread ], [ %83, %spa_pod_find_prop.exit.thread.i ]
-  %89 = phi ptr [ %57, %.thread ], [ %84, %spa_pod_find_prop.exit.thread.i ]
-  %90 = zext i32 %87 to i64
-  %91 = zext i32 %86 to i64
-  %92 = add nsw i64 %91, -1
-  %93 = or i64 %92, 7
-  %94 = add nsw i64 %93, 9
-  %.not13.i.i.i.i27 = icmp ugt i64 %94, %90
+88:                                               ; preds = %spa_pod_find_prop.exit.thread.i, %.thread
+  %89 = phi i32 [ %.pre27.i, %.thread ], [ %84, %spa_pod_find_prop.exit.thread.i ]
+  %90 = phi i32 [ %58, %.thread ], [ %85, %spa_pod_find_prop.exit.thread.i ]
+  %91 = phi ptr [ %59, %.thread ], [ %86, %spa_pod_find_prop.exit.thread.i ]
+  %92 = phi ptr [ %60, %.thread ], [ %87, %spa_pod_find_prop.exit.thread.i ]
+  %93 = zext i32 %90 to i64
+  %94 = zext i32 %89 to i64
+  %95 = add nsw i64 %94, -1
+  %96 = or i64 %95, 7
+  %97 = add nsw i64 %96, 9
+  %.not13.i.i.i.i27 = icmp ugt i64 %97, %93
   br i1 %.not13.i.i.i.i27, label %spa_format_video_raw_parse.exit.thread, label %spa_pod_parser_current.exit.i.i28
 
-spa_pod_parser_current.exit.i.i28:                ; preds = %85
-  %95 = load i32, ptr %34, align 4
-  %96 = icmp ne i32 %95, 15
-  %97 = icmp ult i32 %86, 8
-  %or.cond.i.i29 = or i1 %97, %96
-  br i1 %or.cond.i.i29, label %spa_format_video_raw_parse.exit.thread, label %98
+spa_pod_parser_current.exit.i.i28:                ; preds = %88
+  %98 = load i32, ptr %37, align 4
+  %99 = icmp ne i32 %98, 15
+  %100 = icmp ult i32 %89, 8
+  %or.cond.i.i29 = or i1 %100, %99
+  br i1 %or.cond.i.i29, label %spa_format_video_raw_parse.exit.thread, label %101
 
-98:                                               ; preds = %spa_pod_parser_current.exit.i.i28
-  %99 = load i32, ptr %39, align 4
-  %.not16.i.i30 = icmp eq i32 %99, 262147
+101:                                              ; preds = %spa_pod_parser_current.exit.i.i28
+  %102 = load i32, ptr %42, align 4
+  %.not16.i.i30 = icmp eq i32 %102, 262147
   br i1 %.not16.i.i30, label %spa_format_video_raw_parse.exit, label %spa_format_video_raw_parse.exit.thread
 
-spa_format_video_raw_parse.exit.thread:           ; preds = %spa_pod_find_prop.exit.thread.i, %spa_pod_parser_current.exit.i.i28, %85, %98
+spa_format_video_raw_parse.exit.thread:           ; preds = %spa_pod_find_prop.exit.thread.i, %spa_pod_parser_current.exit.i.i28, %88, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %148
+  br label %151
 
-spa_format_video_raw_parse.exit:                  ; preds = %98
+spa_format_video_raw_parse.exit:                  ; preds = %101
   %.val.i.i31 = load i64, ptr %2, align 4
   store i64 %.val.i.i31, ptr %5, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
-  store ptr %5, ptr %88, align 8
-  store i32 %87, ptr %89, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %116 = call i32 (ptr, ...) @spa_pod_parser_get(ptr noundef %4, i32 noundef 131073, ptr noundef nonnull @.str.77, ptr noundef nonnull %50, i32 noundef 131074, ptr noundef nonnull @.str.78, ptr noundef nonnull %102, i32 noundef 131075, ptr noundef nonnull @.str.79, ptr noundef nonnull %103, i32 noundef 131076, ptr noundef nonnull @.str.80, ptr noundef nonnull %104, i32 noundef 131077, ptr noundef nonnull @.str.80, ptr noundef nonnull %105, i32 noundef 131078, ptr noundef nonnull @.str.81, ptr noundef nonnull %106, i32 noundef 131079, ptr noundef nonnull @.str.77, ptr noundef nonnull %107, i32 noundef 131080, ptr noundef nonnull @.str.80, ptr noundef nonnull %108, i32 noundef 131081, ptr noundef nonnull @.str.77, ptr noundef nonnull %109, i32 noundef 131082, ptr noundef nonnull @.str.77, ptr noundef nonnull %110, i32 noundef 131083, ptr noundef nonnull @.str.77, ptr noundef nonnull %111, i32 noundef 131084, ptr noundef nonnull @.str.77, ptr noundef nonnull %112, i32 noundef 131085, ptr noundef nonnull @.str.77, ptr noundef nonnull %113, i32 noundef 131086, ptr noundef nonnull @.str.77, ptr noundef nonnull %114, i32 noundef 131087, ptr noundef nonnull @.str.77, ptr noundef nonnull %115, i32 noundef 0)
-  %117 = load ptr, ptr %101, align 8
-  store ptr %117, ptr %88, align 8
-  %118 = load i32, ptr %100, align 8
-  %119 = load i32, ptr %5, align 8
-  %120 = add i32 %119, 7
-  %121 = or i32 %120, 7
-  %122 = add i32 %118, 1
-  %123 = add i32 %122, %121
-  store i32 %123, ptr %89, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
+  store ptr %5, ptr %91, align 8
+  store i32 %90, ptr %92, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %119 = call i32 (ptr, ...) @spa_pod_parser_get(ptr noundef %4, i32 noundef 131073, ptr noundef nonnull @.str.77, ptr noundef nonnull %53, i32 noundef 131074, ptr noundef nonnull @.str.78, ptr noundef nonnull %105, i32 noundef 131075, ptr noundef nonnull @.str.79, ptr noundef nonnull %106, i32 noundef 131076, ptr noundef nonnull @.str.80, ptr noundef nonnull %107, i32 noundef 131077, ptr noundef nonnull @.str.80, ptr noundef nonnull %108, i32 noundef 131078, ptr noundef nonnull @.str.81, ptr noundef nonnull %109, i32 noundef 131079, ptr noundef nonnull @.str.77, ptr noundef nonnull %110, i32 noundef 131080, ptr noundef nonnull @.str.80, ptr noundef nonnull %111, i32 noundef 131081, ptr noundef nonnull @.str.77, ptr noundef nonnull %112, i32 noundef 131082, ptr noundef nonnull @.str.77, ptr noundef nonnull %113, i32 noundef 131083, ptr noundef nonnull @.str.77, ptr noundef nonnull %114, i32 noundef 131084, ptr noundef nonnull @.str.77, ptr noundef nonnull %115, i32 noundef 131085, ptr noundef nonnull @.str.77, ptr noundef nonnull %116, i32 noundef 131086, ptr noundef nonnull @.str.77, ptr noundef nonnull %117, i32 noundef 131087, ptr noundef nonnull @.str.77, ptr noundef nonnull %118, i32 noundef 0)
+  %120 = load ptr, ptr %104, align 8
+  store ptr %120, ptr %91, align 8
+  %121 = load i32, ptr %103, align 8
+  %122 = load i32, ptr %5, align 8
+  %123 = add i32 %122, 7
+  %124 = or i32 %123, 7
+  %125 = add i32 %121, 1
+  %126 = add i32 %125, %124
+  store i32 %126, ptr %92, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %124 = icmp slt i32 %116, 0
-  br i1 %124, label %148, label %125
+  %127 = icmp slt i32 %119, 0
+  br i1 %127, label %151, label %128
 
-125:                                              ; preds = %spa_format_video_raw_parse.exit
-  %126 = load ptr, ptr %10, align 8
-  %127 = load i32, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 4
-  %129 = load i32, ptr %128, align 4
-  %130 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %131 = load i32, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %126, i64 12
-  %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  %135 = load i32, ptr %134, align 8
-  %136 = load i32, ptr %50, align 8
-  %137 = call fastcc ptr @spa_debug_type_find(ptr noundef nonnull @spa_type_video_format, i32 noundef %136)
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %spa_debug_type_find_name.exit, label %139
+128:                                              ; preds = %spa_format_video_raw_parse.exit
+  %129 = load ptr, ptr %10, align 8
+  %130 = load i32, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 4
+  %132 = load i32, ptr %131, align 4
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %134 = load i32, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %129, i64 12
+  %136 = load i32, ptr %135, align 4
+  %137 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %138 = load i32, ptr %137, align 8
+  %139 = load i32, ptr %53, align 8
+  %140 = call fastcc ptr @spa_debug_type_find(ptr noundef nonnull @spa_type_video_format, i32 noundef %139)
+  %141 = icmp eq ptr %140, null
+  br i1 %141, label %spa_debug_type_find_name.exit, label %142
 
-139:                                              ; preds = %125
-  %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %141 = load ptr, ptr %140, align 8
+142:                                              ; preds = %128
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %144 = load ptr, ptr %143, align 8
   br label %spa_debug_type_find_name.exit
 
-spa_debug_type_find_name.exit:                    ; preds = %125, %139
-  %.0.i33 = phi ptr [ %141, %139 ], [ null, %125 ]
-  %142 = load i32, ptr %103, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %144 = load i32, ptr %143, align 4
-  call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.75, ptr noundef nonnull @__func__.onStreamParamChanged, i32 noundef 223, i32 noundef %127, i32 noundef %129, i32 noundef %131, i32 noundef %133, i32 noundef %135, ptr noundef %.0.i33, i32 noundef %136, i32 noundef %142, i32 noundef %144)
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 1, ptr %145, align 8
-  %146 = load ptr, ptr @fp_pw_thread_loop_signal, align 8
-  %147 = load ptr, ptr @pw, align 8
-  call void %146(ptr noundef %147, i1 noundef zeroext true) #16
-  br label %148
+spa_debug_type_find_name.exit:                    ; preds = %128, %142
+  %.0.i33 = phi ptr [ %144, %139 ], [ null, %125 ]
+  %145 = load i32, ptr %106, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %147 = load i32, ptr %146, align 4
+  call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.75, ptr noundef nonnull @__func__.onStreamParamChanged, i32 noundef 223, i32 noundef %130, i32 noundef %132, i32 noundef %134, i32 noundef %136, i32 noundef %138, ptr noundef %.0.i33, i32 noundef %139, i32 noundef %145, i32 noundef %147)
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i32 1, ptr %148, align 8
+  %149 = load ptr, ptr @fp_pw_thread_loop_signal, align 8
+  %150 = load ptr, ptr @pw, align 8
+  call void %146(ptr noundef %150, i1 noundef zeroext true) #16
+  br label %151
 
-148:                                              ; preds = %spa_format_video_raw_parse.exit.thread, %spa_format_parse.exit.thread, %spa_format_video_raw_parse.exit, %44, %spa_format_parse.exit, %3, %spa_debug_type_find_name.exit
+151:                                              ; preds = %spa_format_video_raw_parse.exit.thread, %spa_format_parse.exit.thread, %spa_format_video_raw_parse.exit, %47, %spa_format_parse.exit, %3, %spa_debug_type_find_name.exit
   ret void
 }
 

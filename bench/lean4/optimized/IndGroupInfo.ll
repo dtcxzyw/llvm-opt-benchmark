@@ -5424,61 +5424,61 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Elab_Structural_IndGroupInst_isDefE
   store i32 %13, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit14
 
-14:                                               ; preds = %8
+17:                                               ; preds = %8
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %lean_dec.exit14, label %15
+  br i1 %.not.i, label %lean_dec.exit14, label %18
 
-15:                                               ; preds = %14
+18:                                               ; preds = %17
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
   br label %lean_dec.exit14
 
-lean_dec.exit14:                                  ; preds = %15, %14, %12
-  %16 = getelementptr i8, ptr %2, i64 8
-  %.val19 = load i64, ptr %16, align 8, !tbaa !13
+lean_dec.exit14:                                  ; preds = %18, %17, %15
+  %19 = getelementptr i8, ptr %2, i64 8
+  %.val19 = load i64, ptr %19, align 8, !tbaa !13
   %17 = load i32, ptr %2, align 8, !tbaa !5
   %18 = icmp sgt i32 %17, 1
   br i1 %18, label %19, label %21, !prof !10
 
-19:                                               ; preds = %lean_dec.exit14
-  %20 = add nsw i32 %17, -1
-  store i32 %20, ptr %2, align 4, !tbaa !5
+25:                                               ; preds = %lean_dec.exit14
+  %26 = add nsw i32 %17, -1
+  store i32 %26, ptr %2, align 4, !tbaa !5
   br label %lean_dec.exit13
 
-21:                                               ; preds = %lean_dec.exit14
+27:                                               ; preds = %lean_dec.exit14
   %.not.i15 = icmp eq i32 %17, 0
-  br i1 %.not.i15, label %lean_dec.exit13, label %22
+  br i1 %.not.i15, label %lean_dec.exit13, label %28
 
-22:                                               ; preds = %21
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #4
   br label %lean_dec.exit13
 
-lean_dec.exit13:                                  ; preds = %22, %21, %19
-  %23 = tail call ptr @l_Array_anyMUnsafe_any___at_Lean_Elab_Structural_IndGroupInst_isDefEq___spec__1(ptr noundef %0, i64 noundef %.val, i64 noundef %.val19, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %24 = ptrtoint ptr %0 to i64
-  %25 = and i64 %24, 1
-  %.not21 = icmp eq i64 %25, 0
-  br i1 %.not21, label %26, label %lean_dec.exit
+lean_dec.exit13:                                  ; preds = %28, %27, %25
+  %29 = tail call ptr @l_Array_anyMUnsafe_any___at_Lean_Elab_Structural_IndGroupInst_isDefEq___spec__1(ptr noundef %0, i64 noundef %.val, i64 noundef %.val19, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %30 = ptrtoint ptr %0 to i64
+  %31 = and i64 %30, 1
+  %.not21 = icmp eq i64 %31, 0
+  br i1 %.not21, label %32, label %lean_dec.exit
 
-26:                                               ; preds = %lean_dec.exit13
-  %27 = load i32, ptr %0, align 4, !tbaa !5
-  %28 = icmp sgt i32 %27, 1
-  br i1 %28, label %29, label %31, !prof !10
+32:                                               ; preds = %lean_dec.exit13
+  %33 = load i32, ptr %0, align 4, !tbaa !5
+  %34 = icmp sgt i32 %33, 1
+  br i1 %34, label %35, label %37, !prof !10
 
-29:                                               ; preds = %26
-  %30 = add nsw i32 %27, -1
-  store i32 %30, ptr %0, align 4, !tbaa !5
+35:                                               ; preds = %32
+  %36 = add nsw i32 %33, -1
+  store i32 %36, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-31:                                               ; preds = %26
-  %.not.i17 = icmp eq i32 %27, 0
-  br i1 %.not.i17, label %lean_dec.exit, label %32
+37:                                               ; preds = %32
+  %.not.i17 = icmp eq i32 %33, 0
+  br i1 %.not.i17, label %lean_dec.exit, label %38
 
-32:                                               ; preds = %31
+38:                                               ; preds = %37
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %32, %31, %29, %lean_dec.exit13
-  ret ptr %23
+lean_dec.exit:                                    ; preds = %38, %37, %35, %lean_dec.exit13
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5795,20 +5795,20 @@ define nonnull ptr @l_Lean_Elab_Structural_IndGroupInst_isDefEq___lambda__4___bo
   store i32 %10, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit
 
-11:                                               ; preds = %1
+14:                                               ; preds = %1
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %lean_dec.exit, label %12
+  br i1 %.not.i, label %lean_dec.exit, label %15
 
-12:                                               ; preds = %11
+15:                                               ; preds = %14
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %12, %11, %9
-  %13 = zext i8 %6 to i64
-  %14 = shl nuw nsw i64 %13, 1
-  %15 = or disjoint i64 %14, 1
-  %16 = inttoptr i64 %15 to ptr
-  ret ptr %16
+lean_dec.exit:                                    ; preds = %15, %14, %9
+  %16 = zext i8 %6 to i64
+  %17 = shl nuw nsw i64 %16, 1
+  %18 = or disjoint i64 %17, 1
+  %19 = inttoptr i64 %18 to ptr
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9586,37 +9586,37 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Structural_IndGroupInst_nested
   store i32 %13, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit12
 
-14:                                               ; preds = %8
+17:                                               ; preds = %8
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %lean_dec.exit12, label %15
+  br i1 %.not.i, label %lean_dec.exit12, label %18
 
-15:                                               ; preds = %14
+18:                                               ; preds = %17
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
   br label %lean_dec.exit12
 
-lean_dec.exit12:                                  ; preds = %15, %14, %12
-  %16 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !13
+lean_dec.exit12:                                  ; preds = %18, %17, %15
+  %19 = getelementptr i8, ptr %1, i64 8
+  %.val = load i64, ptr %19, align 8, !tbaa !13
   %17 = load i32, ptr %1, align 8, !tbaa !5
   %18 = icmp sgt i32 %17, 1
   br i1 %18, label %19, label %21, !prof !10
 
-19:                                               ; preds = %lean_dec.exit12
-  %20 = add nsw i32 %17, -1
-  store i32 %20, ptr %1, align 4, !tbaa !5
+25:                                               ; preds = %lean_dec.exit12
+  %26 = add nsw i32 %17, -1
+  store i32 %26, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit
 
-21:                                               ; preds = %lean_dec.exit12
+27:                                               ; preds = %lean_dec.exit12
   %.not.i13 = icmp eq i32 %17, 0
-  br i1 %.not.i13, label %lean_dec.exit, label %22
+  br i1 %.not.i13, label %lean_dec.exit, label %28
 
-22:                                               ; preds = %21
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %22, %21, %19
-  %23 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Structural_IndGroupInst_nestedTypeFormers___spec__5(i64 noundef %.val15, i64 noundef %.val, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  ret ptr %23
+lean_dec.exit:                                    ; preds = %28, %27, %25
+  %29 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Structural_IndGroupInst_nestedTypeFormers___spec__5(i64 noundef %.val15, i64 noundef %.val, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable

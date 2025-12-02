@@ -1541,17 +1541,17 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Client_0__Lean_L
   store i32 %8, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit7
 
-9:                                                ; preds = %3
+12:                                               ; preds = %3
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %lean_dec.exit7, label %10
+  br i1 %.not.i, label %lean_dec.exit7, label %13
 
-10:                                               ; preds = %9
+13:                                               ; preds = %12
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
   br label %lean_dec.exit7
 
-lean_dec.exit7:                                   ; preds = %10, %9, %7
-  %11 = getelementptr i8, ptr %1, i64 8
-  %.val10 = load i64, ptr %11, align 8, !tbaa !12
+lean_dec.exit7:                                   ; preds = %13, %12, %7
+  %14 = getelementptr i8, ptr %1, i64 8
+  %.val10 = load i64, ptr %14, align 8, !tbaa !12
   %12 = load i32, ptr %1, align 8, !tbaa !8
   %13 = icmp sgt i32 %12, 1
   br i1 %13, label %14, label %16, !prof !11
@@ -1561,17 +1561,17 @@ lean_dec.exit7:                                   ; preds = %10, %9, %7
   store i32 %15, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit
 
-16:                                               ; preds = %lean_dec.exit7
+22:                                               ; preds = %lean_dec.exit7
   %.not.i8 = icmp eq i32 %12, 0
-  br i1 %.not.i8, label %lean_dec.exit, label %17
+  br i1 %.not.i8, label %lean_dec.exit, label %23
 
-17:                                               ; preds = %16
+23:                                               ; preds = %22
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %17, %16, %14
-  %18 = tail call ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Client_0__Lean_Lsp_toJsonRegistrationParams____x40_Lean_Data_Lsp_Client___hyg_258____spec__2(i64 noundef %.val, i64 noundef %.val10, ptr noundef %2)
-  ret ptr %18
+lean_dec.exit:                                    ; preds = %23, %22, %14
+  %24 = tail call ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Client_0__Lean_Lsp_toJsonRegistrationParams____x40_Lean_Data_Lsp_Client___hyg_258____spec__2(i64 noundef %.val, i64 noundef %.val10, ptr noundef %2)
+  ret ptr %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2454,17 +2454,17 @@ define ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Client_0__Lean_L
   store i32 %8, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit7
 
-9:                                                ; preds = %3
+12:                                               ; preds = %3
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %lean_dec.exit7, label %10
+  br i1 %.not.i, label %lean_dec.exit7, label %13
 
-10:                                               ; preds = %9
+13:                                               ; preds = %12
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
   br label %lean_dec.exit7
 
-lean_dec.exit7:                                   ; preds = %10, %9, %7
-  %11 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %11, align 8, !tbaa !12
+lean_dec.exit7:                                   ; preds = %13, %12, %7
+  %14 = getelementptr i8, ptr %1, i64 8
+  %.val = load i64, ptr %14, align 8, !tbaa !12
   %12 = load i32, ptr %1, align 8, !tbaa !8
   %13 = icmp sgt i32 %12, 1
   br i1 %13, label %14, label %16, !prof !11
@@ -2474,17 +2474,17 @@ lean_dec.exit7:                                   ; preds = %10, %9, %7
   store i32 %15, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit
 
-16:                                               ; preds = %lean_dec.exit7
+22:                                               ; preds = %lean_dec.exit7
   %.not.i8 = icmp eq i32 %12, 0
-  br i1 %.not.i8, label %lean_dec.exit, label %17
+  br i1 %.not.i8, label %lean_dec.exit, label %23
 
-17:                                               ; preds = %16
+23:                                               ; preds = %22
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %17, %16, %14
-  %18 = tail call ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Client_0__Lean_Lsp_fromJsonRegistrationParams____x40_Lean_Data_Lsp_Client___hyg_296____spec__3(i64 noundef %.val10, i64 noundef %.val, ptr noundef %2)
-  ret ptr %18
+lean_dec.exit:                                    ; preds = %23, %22, %14
+  %24 = tail call ptr @l_Array_mapMUnsafe_map___at___private_Lean_Data_Lsp_Client_0__Lean_Lsp_fromJsonRegistrationParams____x40_Lean_Data_Lsp_Client___hyg_296____spec__3(i64 noundef %.val10, i64 noundef %.val, ptr noundef %2)
+  ret ptr %24
 }
 
 ; Function Attrs: nounwind uwtable

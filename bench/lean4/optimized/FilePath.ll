@@ -776,20 +776,20 @@ lean_inc.exit:
   store i32 %10, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit
 
-11:                                               ; preds = %lean_inc.exit
+14:                                               ; preds = %lean_inc.exit
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %lean_dec.exit, label %12
+  br i1 %.not.i, label %lean_dec.exit, label %15
 
-12:                                               ; preds = %11
+15:                                               ; preds = %14
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %12, %11, %9
-  %13 = load ptr, ptr @l_Lake_joinRelative___closed__3, align 8, !tbaa !13
-  %14 = tail call ptr @l_String_stripSuffix(ptr noundef %6, ptr noundef %13) #3
-  %15 = tail call ptr @l_System_FilePath_components(ptr noundef %14) #3
-  %16 = tail call ptr @l_List_foldl___at_Lake_modOfFilePath___spec__1(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %15)
-  ret ptr %16
+lean_dec.exit:                                    ; preds = %15, %14, %9
+  %16 = load ptr, ptr @l_Lake_joinRelative___closed__3, align 8, !tbaa !13
+  %17 = tail call ptr @l_String_stripSuffix(ptr noundef %6, ptr noundef %16) #3
+  %18 = tail call ptr @l_System_FilePath_components(ptr noundef %17) #3
+  %19 = tail call ptr @l_List_foldl___at_Lake_modOfFilePath___spec__1(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %18)
+  ret ptr %19
 }
 
 declare ptr @l_System_FilePath_normalize(ptr noundef) local_unnamed_addr #1

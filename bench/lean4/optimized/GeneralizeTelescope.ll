@@ -5592,40 +5592,40 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_GeneralizeTelescope_generalize
 
 7:                                                ; preds = %3
   %8 = add nsw i32 %5, -1
-  store i32 %8, ptr %0, align 4, !tbaa !9
+  store i32 %8, ptr %0, align 4, !tbaa !12
   br label %lean_dec.exit7
 
-9:                                                ; preds = %3
+12:                                               ; preds = %3
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %lean_dec.exit7, label %10
+  br i1 %.not.i, label %lean_dec.exit7, label %13
 
-10:                                               ; preds = %9
+13:                                               ; preds = %12
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit7
 
-lean_dec.exit7:                                   ; preds = %10, %9, %7
-  %11 = getelementptr i8, ptr %1, i64 8
-  %.val10 = load i64, ptr %11, align 8, !tbaa !4
+lean_dec.exit7:                                   ; preds = %13, %12, %7
+  %14 = getelementptr i8, ptr %1, i64 8
+  %.val10 = load i64, ptr %14, align 8, !tbaa !4
   %12 = load i32, ptr %1, align 8, !tbaa !9
   %13 = icmp sgt i32 %12, 1
   br i1 %13, label %14, label %16, !prof !12
 
-14:                                               ; preds = %lean_dec.exit7
-  %15 = add nsw i32 %12, -1
-  store i32 %15, ptr %1, align 4, !tbaa !9
+20:                                               ; preds = %lean_dec.exit7
+  %21 = add nsw i32 %12, -1
+  store i32 %21, ptr %1, align 4, !tbaa !9
   br label %lean_dec.exit
 
-16:                                               ; preds = %lean_dec.exit7
+22:                                               ; preds = %lean_dec.exit7
   %.not.i8 = icmp eq i32 %12, 0
-  br i1 %.not.i8, label %lean_dec.exit, label %17
+  br i1 %.not.i8, label %lean_dec.exit, label %23
 
-17:                                               ; preds = %16
+23:                                               ; preds = %22
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %17, %16, %14
-  %18 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_GeneralizeTelescope_generalizeTelescopeAux___spec__1(i64 noundef %.val, i64 noundef %.val10, ptr noundef %2)
-  ret ptr %18
+lean_dec.exit:                                    ; preds = %23, %22, %20
+  %24 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_GeneralizeTelescope_generalizeTelescopeAux___spec__1(i64 noundef %.val, i64 noundef %.val10, ptr noundef %2)
+  ret ptr %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6873,26 +6873,26 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_generalizeTelescope___spec__1_
   %.val15 = load i64, ptr %9, align 8, !tbaa !4
   %10 = load i32, ptr %0, align 8, !tbaa !9
   %11 = icmp sgt i32 %10, 1
-  br i1 %11, label %12, label %14, !prof !12
+  br i1 %11, label %12, label %20, !prof !12
 
 12:                                               ; preds = %8
   %13 = add nsw i32 %10, -1
-  store i32 %13, ptr %0, align 4, !tbaa !9
+  store i32 %13, ptr %0, align 4, !tbaa !12
   br label %lean_dec.exit12
 
-14:                                               ; preds = %8
-  %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %lean_dec.exit12, label %15
+17:                                               ; preds = %8
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %lean_dec.exit12, label %18
 
-15:                                               ; preds = %14
+18:                                               ; preds = %17
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit12
 
-lean_dec.exit12:                                  ; preds = %15, %14, %12
-  %16 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %16, align 8, !tbaa !4
+lean_dec.exit12:                                  ; preds = %18, %17, %12
+  %19 = getelementptr i8, ptr %1, i64 8
+  %.val = load i64, ptr %19, align 8, !tbaa !4
   %17 = load i32, ptr %1, align 8, !tbaa !9
-  %18 = icmp sgt i32 %17, 1
+  %18 = icmp sgt i32 %23, 1
   br i1 %18, label %19, label %21, !prof !12
 
 19:                                               ; preds = %lean_dec.exit12
@@ -6900,17 +6900,17 @@ lean_dec.exit12:                                  ; preds = %15, %14, %12
   store i32 %20, ptr %1, align 4, !tbaa !9
   br label %lean_dec.exit
 
-21:                                               ; preds = %lean_dec.exit12
-  %.not.i13 = icmp eq i32 %17, 0
-  br i1 %.not.i13, label %lean_dec.exit, label %22
+27:                                               ; preds = %lean_dec.exit12
+  %.not.i13 = icmp eq i32 %23, 0
+  br i1 %.not.i13, label %lean_dec.exit, label %28
 
-22:                                               ; preds = %21
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %22, %21, %19
-  %23 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_generalizeTelescope___spec__1(i64 noundef %.val15, i64 noundef %.val, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  ret ptr %23
+lean_dec.exit:                                    ; preds = %28, %27, %112
+  %29 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_generalizeTelescope___spec__1(i64 noundef %.val15, i64 noundef %.val, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable

@@ -3283,72 +3283,72 @@ define hidden void @_ZN4lean14update_bindingERKNS_4exprES2_S2_(ptr dead_on_unwin
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = load ptr, ptr %3, align 8, !tbaa !10
   %14 = icmp eq ptr %12, %13
-  br i1 %14, label %29, label %15
+  br i1 %14, label %32, label %15
 
 15:                                               ; preds = %10, %4
   %16 = getelementptr i8, ptr %5, i64 4
   %.val.i.i.i = load i32, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.val.i.i.i.i = load i32, ptr %5, align 4, !tbaa !21
-  %18 = icmp sgt i32 %.val.i.i.i.i, 0
-  br i1 %18, label %19, label %21, !prof !24
+  %21 = icmp sgt i32 %.val.i.i.i.i, 0
+  br i1 %21, label %22, label %24, !prof !24
 
-19:                                               ; preds = %15
-  %20 = add nuw nsw i32 %.val.i.i.i.i, 1
-  store i32 %20, ptr %5, align 4, !tbaa !21
+22:                                               ; preds = %15
+  %23 = add nuw nsw i32 %.val.i.i.i.i, 1
+  store i32 %23, ptr %5, align 4, !tbaa !21
   br label %_ZN4lean12binding_infoERKNS_4exprE.exit
 
-21:                                               ; preds = %15
+24:                                               ; preds = %15
   %.not.i.i.i.i = icmp eq i32 %.val.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %_ZN4lean12binding_infoERKNS_4exprE.exit, label %22
+  br i1 %.not.i.i.i.i, label %_ZN4lean12binding_infoERKNS_4exprE.exit, label %25
 
-22:                                               ; preds = %21
+25:                                               ; preds = %24
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %5)
   %.pre.i.i = load ptr, ptr %1, align 8, !tbaa !10
   br label %_ZN4lean12binding_infoERKNS_4exprE.exit
 
-_ZN4lean12binding_infoERKNS_4exprE.exit:          ; preds = %19, %21, %22
-  %23 = phi ptr [ %5, %19 ], [ %5, %21 ], [ %.pre.i.i, %22 ]
-  %24 = tail call zeroext i8 @lean_expr_binder_info(ptr noundef %23)
-  %25 = zext i8 %24 to i32
+_ZN4lean12binding_infoERKNS_4exprE.exit:          ; preds = %22, %24, %25
+  %26 = phi ptr [ %5, %19 ], [ %5, %21 ], [ %.pre.i.i, %22 ]
+  %27 = tail call zeroext i8 @lean_expr_binder_info(ptr noundef %26)
+  %28 = zext i8 %27 to i32
   %.mask = and i32 %.val.i.i.i, -16777216
-  %26 = icmp eq i32 %.mask, 117440512
-  br i1 %26, label %27, label %28
+  %29 = icmp eq i32 %.mask, 117440512
+  br i1 %29, label %30, label %31
 
-27:                                               ; preds = %_ZN4lean12binding_infoERKNS_4exprE.exit
-  tail call void @_ZN4lean5mk_piERKNS_4nameERKNS_4exprES5_NS_11binder_infoE(ptr dead_on_unwind writable sret(%"class.lean::expr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %25)
+30:                                               ; preds = %_ZN4lean12binding_infoERKNS_4exprE.exit
+  tail call void @_ZN4lean5mk_piERKNS_4nameERKNS_4exprES5_NS_11binder_infoE(ptr dead_on_unwind writable sret(%"class.lean::expr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %28)
   br label %_ZN4lean10mk_bindingENS_9expr_kindERKNS_4nameERKNS_4exprES6_NS_11binder_infoE.exit
 
-28:                                               ; preds = %_ZN4lean12binding_infoERKNS_4exprE.exit
-  tail call void @_ZN4lean9mk_lambdaERKNS_4nameERKNS_4exprES5_NS_11binder_infoE(ptr dead_on_unwind writable sret(%"class.lean::expr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %25)
+31:                                               ; preds = %_ZN4lean12binding_infoERKNS_4exprE.exit
+  tail call void @_ZN4lean9mk_lambdaERKNS_4nameERKNS_4exprES5_NS_11binder_infoE(ptr dead_on_unwind writable sret(%"class.lean::expr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %28)
   br label %_ZN4lean10mk_bindingENS_9expr_kindERKNS_4nameERKNS_4exprES6_NS_11binder_infoE.exit
 
-29:                                               ; preds = %10
+32:                                               ; preds = %10
   store ptr %5, ptr %0, align 8, !tbaa !10
-  %30 = ptrtoint ptr %5 to i64
-  %31 = and i64 %30, 1
-  %.not.i.i.i10 = icmp eq i64 %31, 0
-  br i1 %.not.i.i.i10, label %32, label %_ZN4lean10mk_bindingENS_9expr_kindERKNS_4nameERKNS_4exprES6_NS_11binder_infoE.exit
+  %33 = ptrtoint ptr %5 to i64
+  %34 = and i64 %33, 1
+  %.not.i.i.i10 = icmp eq i64 %34, 0
+  br i1 %.not.i.i.i10, label %35, label %_ZN4lean10mk_bindingENS_9expr_kindERKNS_4nameERKNS_4exprES6_NS_11binder_infoE.exit
 
-32:                                               ; preds = %29
+35:                                               ; preds = %32
   %.val.i.i.i.i11 = load i32, ptr %5, align 4, !tbaa !21
-  %33 = icmp sgt i32 %.val.i.i.i.i11, 0
-  br i1 %33, label %34, label %36, !prof !24
+  %36 = icmp sgt i32 %.val.i.i.i.i11, 0
+  br i1 %36, label %37, label %39, !prof !24
 
-34:                                               ; preds = %32
-  %35 = add nuw nsw i32 %.val.i.i.i.i11, 1
-  store i32 %35, ptr %5, align 4, !tbaa !21
+37:                                               ; preds = %35
+  %38 = add nuw nsw i32 %.val.i.i.i.i11, 1
+  store i32 %38, ptr %5, align 4, !tbaa !21
   br label %_ZN4lean10mk_bindingENS_9expr_kindERKNS_4nameERKNS_4exprES6_NS_11binder_infoE.exit
 
-36:                                               ; preds = %32
+39:                                               ; preds = %35
   %.not.i.i.i.i12 = icmp eq i32 %.val.i.i.i.i11, 0
-  br i1 %.not.i.i.i.i12, label %_ZN4lean10mk_bindingENS_9expr_kindERKNS_4nameERKNS_4exprES6_NS_11binder_infoE.exit, label %37
+  br i1 %.not.i.i.i.i12, label %_ZN4lean10mk_bindingENS_9expr_kindERKNS_4nameERKNS_4exprES6_NS_11binder_infoE.exit, label %40
 
-37:                                               ; preds = %36
+40:                                               ; preds = %39
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %5)
   br label %_ZN4lean10mk_bindingENS_9expr_kindERKNS_4nameERKNS_4exprES6_NS_11binder_infoE.exit
 
-_ZN4lean10mk_bindingENS_9expr_kindERKNS_4nameERKNS_4exprES6_NS_11binder_infoE.exit: ; preds = %37, %36, %34, %29, %28, %27
+_ZN4lean10mk_bindingENS_9expr_kindERKNS_4nameERKNS_4exprES6_NS_11binder_infoE.exit: ; preds = %40, %39, %37, %32, %31, %30
   ret void
 }
 
