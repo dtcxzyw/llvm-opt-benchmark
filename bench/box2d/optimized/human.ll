@@ -1031,8 +1031,8 @@ define void @Human_SetVelocity(ptr noundef readonly captures(none) %0, <2 x floa
 
 7:                                                ; preds = %4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.5.0.insert.ext = zext i32 %.sroa.5.0.copyload to i64
+  %.sroa.5.sroa.0.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.5.0.insert.ext = zext i32 %.sroa.5.sroa.0.0.copyload to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0.copyload to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext

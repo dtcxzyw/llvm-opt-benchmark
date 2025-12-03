@@ -2807,8 +2807,8 @@ Scl_LibPinDeparture.exit:                         ; preds = %187, %Scl_LibLookup
 ; Function Attrs: nounwind uwtable
 define void @Abc_SclTimeCone(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %1, i64 4
-  %.val1418.i = load i32, ptr %3, align 4, !tbaa !128
-  %4 = icmp sgt i32 %.val1418.i, 0
+  %.val1317.i = load i32, ptr %3, align 4, !tbaa !128
+  %4 = icmp sgt i32 %.val1317.i, 0
   br i1 %4, label %.lr.ph.i, label %.critedge
 
 .lr.ph.i:                                         ; preds = %2
@@ -2819,18 +2819,18 @@ define void @Abc_SclTimeCone(ptr noundef %0, ptr noundef readonly captures(none)
   br label %9
 
 9:                                                ; preds = %25, %.lr.ph.i
-  %.val1421.i = phi i32 [ %.val1418.i, %.lr.ph.i ], [ %.val14.i, %25 ]
+  %.val1320.i = phi i32 [ %.val1317.i, %.lr.ph.i ], [ %.val13.i, %25 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
   %10 = load ptr, ptr %5, align 8, !tbaa !3
-  %.val15.i = load ptr, ptr %6, align 8, !tbaa !68
-  %11 = getelementptr inbounds nuw i32, ptr %.val15.i, i64 %indvars.iv.i
+  %.val14.i = load ptr, ptr %6, align 8, !tbaa !68
+  %11 = getelementptr inbounds nuw i32, ptr %.val14.i, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4, !tbaa !44
   %13 = getelementptr i8, ptr %10, i64 32
-  %.val13.i = load ptr, ptr %13, align 8, !tbaa !52
-  %14 = getelementptr i8, ptr %.val13.i, i64 8
-  %.val13.val.i = load ptr, ptr %14, align 8, !tbaa !36
+  %.val12.i = load ptr, ptr %13, align 8, !tbaa !52
+  %14 = getelementptr i8, ptr %.val12.i, i64 8
+  %.val12.val.i = load ptr, ptr %14, align 8, !tbaa !36
   %15 = sext i32 %12 to i64
-  %16 = getelementptr inbounds ptr, ptr %.val13.val.i, i64 %15
+  %16 = getelementptr inbounds ptr, ptr %.val12.val.i, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !38
   %18 = icmp eq ptr %17, null
   br i1 %18, label %25, label %19
@@ -2838,27 +2838,27 @@ define void @Abc_SclTimeCone(ptr noundef %0, ptr noundef readonly captures(none)
 19:                                               ; preds = %9
   %.val.i = load ptr, ptr %7, align 8, !tbaa !37
   %20 = getelementptr i8, ptr %17, i64 16
-  %.val12.i = load i32, ptr %20, align 8, !tbaa !39
-  %21 = zext i32 %.val12.i to i64
+  %.val11.i = load i32, ptr %20, align 8, !tbaa !39
+  %21 = zext i32 %.val11.i to i64
   %22 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val.i, i64 %21
   store i64 0, ptr %22, align 4
-  %.val16.i = load ptr, ptr %8, align 8, !tbaa !94
-  %.val17.i = load i32, ptr %20, align 8, !tbaa !39
-  %23 = zext i32 %.val17.i to i64
-  %24 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val16.i, i64 %23
+  %.val15.i = load ptr, ptr %8, align 8, !tbaa !94
+  %.val16.i = load i32, ptr %20, align 8, !tbaa !39
+  %23 = zext i32 %.val16.i to i64
+  %24 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val15.i, i64 %23
   store i64 0, ptr %24, align 4
-  %.val14.pre.i = load i32, ptr %3, align 4, !tbaa !128
+  %.val13.pre.i = load i32, ptr %3, align 4, !tbaa !128
   br label %25
 
 25:                                               ; preds = %19, %9
-  %.val14.i = phi i32 [ %.val14.pre.i, %19 ], [ %.val1421.i, %9 ]
+  %.val13.i = phi i32 [ %.val13.pre.i, %19 ], [ %.val1320.i, %9 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %26 = sext i32 %.val14.i to i64
+  %26 = sext i32 %.val13.i to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
   br i1 %27, label %9, label %Abc_SclConeClean.exit, !llvm.loop !129
 
 Abc_SclConeClean.exit:                            ; preds = %25
-  %28 = icmp sgt i32 %.val14.i, 0
+  %28 = icmp sgt i32 %.val13.i, 0
   br i1 %28, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Abc_SclConeClean.exit
@@ -2867,7 +2867,7 @@ Abc_SclConeClean.exit:                            ; preds = %25
   br label %31
 
 31:                                               ; preds = %.lr.ph, %42
-  %.val2733 = phi i32 [ %.val14.i, %.lr.ph ], [ %.val27, %42 ]
+  %.val2733 = phi i32 [ %.val13.i, %.lr.ph ], [ %.val27, %42 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %32 = load ptr, ptr %29, align 8, !tbaa !3
   %.val28 = load ptr, ptr %30, align 8, !tbaa !68

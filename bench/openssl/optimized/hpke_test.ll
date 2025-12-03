@@ -1911,8 +1911,8 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i32
   %24 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1825, ptr noundef nonnull @.str.235, i32 noundef %23) #7
-  %.not41 = icmp eq i32 %24, 0
-  br i1 %.not41, label %81, label %25
+  %.not44 = icmp eq i32 %24, 0
+  br i1 %.not44, label %81, label %25
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %4, align 8, !tbaa !6
@@ -1920,8 +1920,8 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   %28 = icmp ne i32 %27, 0
   %29 = zext i1 %28 to i32
   %30 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1831, ptr noundef nonnull @.str.238, i32 noundef %29) #7
-  %.not42 = icmp eq i32 %30, 0
-  br i1 %.not42, label %81, label %31
+  %.not45 = icmp eq i32 %30, 0
+  br i1 %.not45, label %81, label %31
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr @testctx, align 8, !tbaa !13
@@ -1929,15 +1929,15 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   %34 = icmp ne i32 %33, 0
   %35 = zext i1 %34 to i32
   %36 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1836, ptr noundef nonnull @.str.69, i32 noundef %35) #7
-  %.not43 = icmp eq i32 %36, 0
-  br i1 %.not43, label %81, label %37
+  %.not46 = icmp eq i32 %36, 0
+  br i1 %.not46, label %81, label %37
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr @testctx, align 8, !tbaa !13
   %39 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 2, i48 4295032848, i32 noundef 0, ptr noundef %38, ptr noundef null) #7
   %40 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1840, ptr noundef nonnull @.str.70, ptr noundef %39) #7
-  %.not44 = icmp eq i32 %40, 0
-  br i1 %.not44, label %81, label %41
+  %.not47 = icmp eq i32 %40, 0
+  br i1 %.not47, label %81, label %41
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %4, align 8, !tbaa !6
@@ -1945,8 +1945,8 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
   %46 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1842, ptr noundef nonnull @.str.88, i32 noundef %45) #7
-  %.not45 = icmp eq i32 %46, 0
-  br i1 %.not45, label %81, label %47
+  %.not48 = icmp eq i32 %46, 0
+  br i1 %.not48, label %81, label %47
 
 47:                                               ; preds = %41
   %48 = load i64, ptr %3, align 8, !tbaa !11
@@ -1954,23 +1954,23 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
   %52 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1844, ptr noundef nonnull @.str.73, i32 noundef %51) #7
-  %.not46 = icmp eq i32 %52, 0
-  br i1 %.not46, label %81, label %53
+  %.not49 = icmp eq i32 %52, 0
+  br i1 %.not49, label %81, label %53
 
 53:                                               ; preds = %47
   %54 = call i32 @OSSL_HPKE_seal(ptr noundef %39, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7, i64 noundef 16) #7
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
   %57 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1847, ptr noundef nonnull @.str.74, i32 noundef %56) #7
-  %.not47 = icmp eq i32 %57, 0
-  br i1 %.not47, label %81, label %58
+  %.not50 = icmp eq i32 %57, 0
+  br i1 %.not50, label %81, label %58
 
 58:                                               ; preds = %53
   %59 = load ptr, ptr @testctx, align 8, !tbaa !13
   %60 = call ptr @OSSL_HPKE_CTX_new(i32 noundef 2, i48 4295032848, i32 noundef 1, ptr noundef %59, ptr noundef null) #7
   %61 = call i32 @test_ptr(ptr noundef nonnull @.str.31, i32 noundef 1853, ptr noundef nonnull @.str.78, ptr noundef %60) #7
-  %.not48 = icmp eq i32 %61, 0
-  br i1 %.not48, label %81, label %62
+  %.not51 = icmp eq i32 %61, 0
+  br i1 %.not51, label %81, label %62
 
 62:                                               ; preds = %58
   %63 = load i64, ptr %6, align 8, !tbaa !11
@@ -1978,8 +1978,8 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   %65 = icmp ne i32 %64, 0
   %66 = zext i1 %65 to i32
   %67 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1855, ptr noundef nonnull @.str.239, i32 noundef %66) #7
-  %.not49 = icmp eq i32 %67, 0
-  br i1 %.not49, label %81, label %68
+  %.not52 = icmp eq i32 %67, 0
+  br i1 %.not52, label %81, label %68
 
 68:                                               ; preds = %62
   %69 = load i64, ptr %9, align 8, !tbaa !11
@@ -1988,8 +1988,8 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   %72 = icmp ne i32 %71, 0
   %73 = zext i1 %72 to i32
   %74 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1857, ptr noundef nonnull @.str.79, i32 noundef %73) #7
-  %.not50 = icmp eq i32 %74, 0
-  br i1 %.not50, label %81, label %75
+  %.not53 = icmp eq i32 %74, 0
+  br i1 %.not53, label %81, label %75
 
 75:                                               ; preds = %68
   %76 = load i64, ptr %11, align 8, !tbaa !11
@@ -1997,20 +1997,20 @@ define internal range(i32 0, 2) i32 @test_hpke_compressed() #1 {
   %78 = icmp ne i32 %77, 0
   %79 = zext i1 %78 to i32
   %80 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 1860, ptr noundef nonnull @.str.80, i32 noundef %79) #7
-  %.not51 = icmp ne i32 %80, 0
-  %spec.select = zext i1 %.not51 to i32
+  %.not54 = icmp ne i32 %80, 0
+  %spec.select = zext i1 %.not54 to i32
   br label %81
 
 81:                                               ; preds = %75, %68, %62, %58, %53, %47, %41, %37, %31, %25, %19, %0
-  %.040 = phi ptr [ %60, %68 ], [ %60, %62 ], [ %60, %58 ], [ null, %53 ], [ null, %47 ], [ null, %41 ], [ null, %37 ], [ null, %31 ], [ null, %25 ], [ null, %19 ], [ null, %0 ], [ %60, %75 ]
-  %.039 = phi ptr [ %39, %68 ], [ %39, %62 ], [ %39, %58 ], [ %39, %53 ], [ %39, %47 ], [ %39, %41 ], [ %39, %37 ], [ null, %31 ], [ null, %25 ], [ null, %19 ], [ null, %0 ], [ %39, %75 ]
+  %.043 = phi ptr [ %60, %68 ], [ %60, %62 ], [ %60, %58 ], [ null, %53 ], [ null, %47 ], [ null, %41 ], [ null, %37 ], [ null, %31 ], [ null, %25 ], [ null, %19 ], [ null, %0 ], [ %60, %75 ]
+  %.042 = phi ptr [ %39, %68 ], [ %39, %62 ], [ %39, %58 ], [ %39, %53 ], [ %39, %47 ], [ %39, %41 ], [ %39, %37 ], [ null, %31 ], [ null, %25 ], [ null, %19 ], [ null, %0 ], [ %39, %75 ]
   %.0 = phi i32 [ 0, %68 ], [ 0, %62 ], [ 0, %58 ], [ 0, %53 ], [ 0, %47 ], [ 0, %41 ], [ 0, %37 ], [ 0, %31 ], [ 0, %25 ], [ 0, %19 ], [ 0, %0 ], [ %spec.select, %75 ]
   %82 = load ptr, ptr %1, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %82) #7
   %83 = load ptr, ptr %4, align 8, !tbaa !6
   call void @EVP_PKEY_free(ptr noundef %83) #7
-  call void @OSSL_HPKE_CTX_free(ptr noundef %.039) #7
-  call void @OSSL_HPKE_CTX_free(ptr noundef %.040) #7
+  call void @OSSL_HPKE_CTX_free(ptr noundef %.042) #7
+  call void @OSSL_HPKE_CTX_free(ptr noundef %.043) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)

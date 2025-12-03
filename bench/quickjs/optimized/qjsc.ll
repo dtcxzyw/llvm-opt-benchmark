@@ -296,26 +296,26 @@ namelist_add.exit:                                ; preds = %27, %34
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 0, ptr %37, align 8, !tbaa !19
   %38 = tail call ptr @JS_NewCModule(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @js_module_dummy_init) #18
-  br label %91
+  br label %90
 
 .loopexit:                                        ; preds = %10, %3
   %39 = tail call i32 @has_suffix(ptr noundef %1, ptr noundef nonnull @.str) #18
-  %.not35 = icmp eq i32 %39, 0
-  br i1 %.not35, label %44, label %40
+  %.not36 = icmp eq i32 %39, 0
+  br i1 %.not36, label %44, label %40
 
 40:                                               ; preds = %.loopexit
   %41 = load ptr, ptr @stderr, align 8, !tbaa !23
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.1, ptr noundef %1) #20
   %43 = tail call ptr @JS_NewCModule(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @js_module_dummy_init) #18
   store i1 true, ptr @dynamic_export, align 4
-  br label %91
+  br label %90
 
 44:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = call ptr @js_load_file(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1) #18
-  %.not36 = icmp eq ptr %45, null
-  br i1 %.not36, label %46, label %48
+  %.not37 = icmp eq ptr %45, null
+  br i1 %.not37, label %46, label %48
 
 46:                                               ; preds = %44
   %47 = call { i64, i64 } (ptr, ptr, ...) @JS_ThrowReferenceError(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1) #18
@@ -335,38 +335,38 @@ namelist_add.exit:                                ; preds = %27, %34
   call fastcc void @get_c_name(ptr noundef %6, ptr noundef %1)
   %55 = load i32, ptr @cname_list.1, align 8, !tbaa !7
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph.i40, label %namelist_find.exit46.thread
+  br i1 %56, label %.lr.ph.i44, label %namelist_find.exit50.thread
 
-.lr.ph.i40:                                       ; preds = %54
+.lr.ph.i44:                                       ; preds = %54
   %57 = load ptr, ptr @cname_list.0, align 8, !tbaa !14
-  %wide.trip.count.i41 = zext nneg i32 %55 to i64
+  %wide.trip.count.i45 = zext nneg i32 %55 to i64
   br label %59
 
 58:                                               ; preds = %59
-  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i42, 1
-  %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, %wide.trip.count.i41
-  br i1 %exitcond.not.i45, label %namelist_find.exit46.thread, label %59, !llvm.loop !22
+  %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i46, 1
+  %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i45
+  br i1 %exitcond.not.i49, label %namelist_find.exit50.thread, label %59, !llvm.loop !22
 
-59:                                               ; preds = %58, %.lr.ph.i40
-  %indvars.iv.i42 = phi i64 [ 0, %.lr.ph.i40 ], [ %indvars.iv.next.i44, %58 ]
-  %60 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %57, i64 %indvars.iv.i42
+59:                                               ; preds = %58, %.lr.ph.i44
+  %indvars.iv.i46 = phi i64 [ 0, %.lr.ph.i40 ], [ %indvars.iv.next.i48, %58 ]
+  %60 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %57, i64 %indvars.iv.i46
   %61 = load ptr, ptr %60, align 8, !tbaa !15
   %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(1) %6) #19
-  %.not.not.i43 = icmp eq i32 %62, 0
-  br i1 %.not.not.i43, label %namelist_find.exit46, label %58
+  %.not.not.i47 = icmp eq i32 %62, 0
+  br i1 %.not.not.i47, label %namelist_find.exit50, label %58
 
-namelist_find.exit46:                             ; preds = %59
+namelist_find.exit50:                             ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #19
   %64 = icmp ugt i64 %63, 1008
   br i1 %64, label %65, label %67
 
-65:                                               ; preds = %namelist_find.exit46
+65:                                               ; preds = %namelist_find.exit50
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 1008
   store i8 0, ptr %66, align 16, !tbaa !27
   br label %67
 
-67:                                               ; preds = %65, %namelist_find.exit46
+67:                                               ; preds = %65, %namelist_find.exit50
   %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.30, ptr noundef nonnull %6, i32 noundef 1) #18
   %69 = load i32, ptr @cname_list.1, align 8, !tbaa !7
   %70 = icmp sgt i32 %69, 0
@@ -402,39 +402,39 @@ namelist_find.exit.i:                             ; preds = %74
 find_unique_cname.exit:                           ; preds = %namelist_find.exit.i, %73, %67
   call void @pstrcpy(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %4) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %namelist_find.exit46.thread
+  br label %namelist_find.exit50.thread
 
-namelist_find.exit46.thread:                      ; preds = %58, %54, %find_unique_cname.exit
+namelist_find.exit50.thread:                      ; preds = %58, %54, %find_unique_cname.exit
   %82 = load ptr, ptr @outfile, align 8, !tbaa !23
   call fastcc void @output_object_code(ptr noundef %0, ptr noundef %82, i64 %51, i64 %52, ptr noundef %6, i32 noundef 1)
-  %83 = inttoptr i64 %51 to ptr
-  %84 = trunc i64 %52 to i32
-  %85 = icmp ugt i32 %84, -12
-  br i1 %85, label %86, label %JS_FreeValue.exit
+  %.sroa.02.0..sroa.02.0..cast = inttoptr i64 %51 to ptr
+  %83 = trunc i64 %52 to i32
+  %84 = icmp ugt i32 %83, -12
+  br i1 %84, label %85, label %JS_FreeValue.exit
 
-86:                                               ; preds = %namelist_find.exit46.thread
-  %87 = load i32, ptr %83, align 4, !tbaa !28
-  %88 = add i32 %87, -1
-  store i32 %88, ptr %83, align 4, !tbaa !28
-  %89 = icmp slt i32 %88, 1
-  br i1 %89, label %90, label %JS_FreeValue.exit
+85:                                               ; preds = %namelist_find.exit50.thread
+  %86 = load i32, ptr %.sroa.02.0..sroa.02.0..cast, align 4, !tbaa !28
+  %87 = add i32 %86, -1
+  store i32 %87, ptr %.sroa.02.0..sroa.02.0..cast, align 4, !tbaa !28
+  %88 = icmp slt i32 %87, 1
+  br i1 %88, label %89, label %JS_FreeValue.exit
 
-90:                                               ; preds = %86
+89:                                               ; preds = %85
   call void @__JS_FreeValue(ptr noundef %0, i64 %51, i64 %52) #18
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %namelist_find.exit46.thread, %86, %90
+JS_FreeValue.exit:                                ; preds = %namelist_find.exit50.thread, %85, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %91
+  br label %90
 
 .critedge:                                        ; preds = %48, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %91
+  br label %90
 
-91:                                               ; preds = %namelist_add.exit, %40, %JS_FreeValue.exit, %.critedge
-  %.1 = phi ptr [ null, %.critedge ], [ %38, %namelist_add.exit ], [ %43, %40 ], [ %83, %JS_FreeValue.exit ]
+90:                                               ; preds = %namelist_add.exit, %40, %JS_FreeValue.exit, %.critedge
+  %.1 = phi ptr [ null, %.critedge ], [ %38, %namelist_add.exit ], [ %43, %40 ], [ %.sroa.02.0..sroa.02.0..cast, %JS_FreeValue.exit ]
   ret ptr %.1
 }
 

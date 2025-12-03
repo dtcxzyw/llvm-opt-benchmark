@@ -214,7 +214,7 @@ define i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %0, ptr noundef %1, ptr
   br label %7
 
 7:                                                ; preds = %5, %3
-  %.048 = phi ptr [ %6, %5 ], [ %0, %3 ]
+  %.028 = phi ptr [ %6, %5 ], [ %0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %2, align 1, !tbaa !3
   %10 = sext i8 %9 to i32
@@ -272,18 +272,18 @@ define i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %0, ptr noundef %1, ptr
 _Z15pj_param_existsP8ARG_listPKc.exit:            ; preds = %30, %33, %15, %28
   %.020.i = phi ptr [ %.02127.i, %28 ], [ null, %15 ], [ null, %33 ], [ null, %30 ]
   %35 = icmp eq i8 %9, 116
-  br i1 %35, label %36, label %38
+  br i1 %35, label %36, label %39
 
 36:                                               ; preds = %_Z15pj_param_existsP8ARG_listPKc.exit
   %37 = icmp ne ptr %.020.i, null
-  %.sroa.0.0.insert.ext = zext i1 %37 to i64
+  %38 = zext i1 %37 to i64
   br label %.loopexit
 
-38:                                               ; preds = %_Z15pj_param_existsP8ARG_listPKc.exit
-  %39 = icmp eq ptr %.020.i, null
-  br i1 %39, label %.loopexit, label %40
+39:                                               ; preds = %_Z15pj_param_existsP8ARG_listPKc.exit
+  %40 = icmp eq ptr %.020.i, null
+  br i1 %40, label %.loopexit, label %40
 
-40:                                               ; preds = %38
+41:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %42 = load i8, ptr %41, align 8, !tbaa !3
   %43 = or i8 %42, 1
@@ -297,71 +297,71 @@ _Z15pj_param_existsP8ARG_listPKc.exit:            ; preds = %30, %33, %15, %28
   %spec.select.idx = zext i1 %49 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %47, i64 %spec.select.idx
   switch i8 %9, label %.loopexit [
-    i8 105, label %50
-    i8 100, label %59
-    i8 114, label %62
-    i8 115, label %65
-    i8 98, label %67
+    i8 105, label %55
+    i8 100, label %65
+    i8 114, label %67
+    i8 115, label %69
+    i8 98, label %70
   ]
 
-50:                                               ; preds = %40
-  %51 = tail call i64 @strtol(ptr noundef nonnull captures(none) %spec.select, ptr noundef null, i32 noundef 10) #17
-  %.sroa.0.0.insert.ext32 = and i64 %51, 4294967295
+55:                                               ; preds = %40
+  %56 = tail call i64 @strtol(ptr noundef nonnull captures(none) %spec.select, ptr noundef null, i32 noundef 10) #17
+  %.sroa.0.0.insert.ext32 = and i64 %56, 4294967295
   %52 = load i8, ptr %spec.select, align 1, !tbaa !3
   %.not55 = icmp eq i8 %52, 0
   br i1 %.not55, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %50, %56
   %53 = phi i8 [ %58, %56 ], [ %52, %50 ]
-  %.057 = phi ptr [ %57, %56 ], [ %spec.select, %50 ]
-  %.sroa.0.356 = phi i64 [ %.sroa.0.4, %56 ], [ %.sroa.0.0.insert.ext32, %50 ]
-  %54 = add i8 %53, -48
-  %or.cond = icmp ult i8 %54, 10
-  br i1 %or.cond, label %56, label %55
+  %59 = phi ptr [ %63, %56 ], [ %spec.select, %50 ]
+  %.038 = phi i64 [ %.sroa.0.4, %56 ], [ %.sroa.0.0.insert.ext32, %50 ]
+  %60 = add i8 %53, -48
+  %or.cond = icmp ult i8 %60, 10
+  br i1 %or.cond, label %56, label %61
 
-55:                                               ; preds = %.lr.ph
-  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %.048, i32 noundef 1027)
+61:                                               ; preds = %.lr.ph
+  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %.028, i32 noundef 1027)
   br label %56
 
 56:                                               ; preds = %.lr.ph, %55
-  %.sroa.0.4 = phi i64 [ 0, %55 ], [ %.sroa.0.356, %.lr.ph ]
-  %57 = getelementptr inbounds nuw i8, ptr %.057, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !3
-  %.not = icmp eq i8 %58, 0
+  %.sroa.0.4 = phi i64 [ 0, %55 ], [ %.038, %.lr.ph ]
+  %63 = getelementptr inbounds nuw i8, ptr %.057, i64 1
+  %64 = load i8, ptr %63, align 1, !tbaa !3
+  %.not = icmp eq i8 %64, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
-59:                                               ; preds = %40
-  %60 = tail call noundef double @_Z7pj_atofPKc(ptr noundef nonnull %spec.select)
-  %61 = bitcast double %60 to i64
-  br label %.loopexit
-
-62:                                               ; preds = %40
-  %63 = tail call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef %.048, ptr noundef nonnull %spec.select, ptr noundef null)
-  %64 = bitcast double %63 to i64
-  br label %.loopexit
-
 65:                                               ; preds = %40
-  %66 = ptrtoint ptr %spec.select to i64
+  %66 = tail call noundef double @_Z7pj_atofPKc(ptr noundef nonnull %spec.select)
+  %61 = bitcast double %66 to i64
   br label %.loopexit
 
 67:                                               ; preds = %40
-  %68 = load i8, ptr %spec.select, align 1, !tbaa !3
-  switch i8 %68, label %70 [
+  %68 = tail call noundef double @_Z10dmstor_ctxP6pj_ctxPKcPPc(ptr noundef %.028, ptr noundef nonnull %spec.select, ptr noundef null)
+  %64 = bitcast double %68 to i64
+  br label %.loopexit
+
+69:                                               ; preds = %40
+  %66 = ptrtoint ptr %spec.select to i64
+  br label %.loopexit
+
+70:                                               ; preds = %40
+  %71 = load i8, ptr %spec.select, align 1, !tbaa !3
+  switch i8 %71, label %70 [
     i8 70, label %.loopexit
     i8 102, label %.loopexit
-    i8 0, label %69
-    i8 84, label %69
-    i8 116, label %69
+    i8 0, label %72
+    i8 84, label %72
+    i8 116, label %72
   ]
 
-69:                                               ; preds = %67, %67, %67
+72:                                               ; preds = %70, %70, %67
   br label %.loopexit
 
-70:                                               ; preds = %67
-  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %.048, i32 noundef 1027)
+74:                                               ; preds = %70
+  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %.028, i32 noundef 1027)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %56, %50, %38, %40, %59, %62, %65, %70, %69, %67, %67, %36
+.loopexit:                                        ; preds = %56, %55, %38, %40, %65, %67, %69, %74, %72, %67, %67, %36
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.insert.ext, %36 ], [ 0, %40 ], [ %61, %59 ], [ %64, %62 ], [ %66, %65 ], [ 0, %70 ], [ 1, %69 ], [ 0, %67 ], [ 0, %67 ], [ 0, %38 ], [ %.sroa.0.0.insert.ext32, %50 ], [ %.sroa.0.4, %56 ]
   ret i64 %.sroa.0.0
 }

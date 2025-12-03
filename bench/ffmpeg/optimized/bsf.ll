@@ -863,8 +863,8 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.031 = load i64, ptr %5, align 8
-  %.032 = load ptr, ptr %4, align 8, !tbaa !71
+  %.029 = load i64, ptr %5, align 8
+  %.sroa.0.030 = load ptr, ptr %4, align 8, !tbaa !71
   %7 = load i32, ptr %6, align 8, !tbaa !64
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -877,8 +877,8 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
 10:                                               ; preds = %.lr.ph, %28
   %11 = phi ptr [ %.pre, %.lr.ph ], [ %29, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %.035 = phi ptr [ %.032, %.lr.ph ], [ %.0, %28 ]
-  %.sroa.0.034 = phi i64 [ %.sroa.0.031, %.lr.ph ], [ %.sroa.0.0, %28 ]
+  %.sroa.0.033 = phi ptr [ %.sroa.0.030, %.lr.ph ], [ %.0, %28 ]
+  %.032 = phi i64 [ %.029, %.lr.ph ], [ %.sroa.0.0, %28 ]
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -915,8 +915,8 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
   br i1 %36, label %10, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %28, %1
-  %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.031, %1 ], [ %.sroa.0.0, %28 ]
-  %.0.lcssa = phi ptr [ %.032, %1 ], [ %.0, %28 ]
+  %.0.lcssa = phi i64 [ %.029, %1 ], [ %.sroa.0.0, %28 ]
+  %.sroa.0.0.lcssa = phi ptr [ %.sroa.0.030, %1 ], [ %.0, %28 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.0.0.lcssa, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -925,8 +925,8 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %10, %._crit_edge
-  %.026 = phi i32 [ %40, %._crit_edge ], [ %26, %18 ], [ %16, %10 ]
-  ret i32 %.026
+  %.023 = phi i32 [ %40, %._crit_edge ], [ %26, %18 ], [ %16, %10 ]
+  ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable

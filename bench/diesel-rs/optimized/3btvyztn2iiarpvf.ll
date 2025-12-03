@@ -8331,17 +8331,17 @@ define void @"_ZN95_$LT$diesel..sqlite..connection..SqliteConnection$u20$as$u20$
   invoke void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.2e81c50020d01ae8187fdce9ab0139a8.16.llvm.18245684541142357402, i64 noundef 70, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2e81c50020d01ae8187fdce9ab0139a8.5.llvm.18245684541142357402, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2e81c50020d01ae8187fdce9ab0139a8.18.llvm.18245684541142357402) #28
           to label %.noexc35.i unwind label %51, !noalias !1212
 
-.noexc35.i:                                       ; preds = %29
+.noexc33.i:                                       ; preds = %29
   unreachable
 
 30:                                               ; preds = %.noexc25
-  %.sroa.519.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sroa.322.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.322.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.519.0..sroa_idx.i, i64 24, i1 false), !noalias !1226
+  %.sroa.518.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.321.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.321.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.518.0..sroa_idx.i, i64 24, i1 false), !noalias !1226
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1215
   store i64 %23, ptr %12, align 8, !alias.scope !1212, !noalias !1226
-  %.sroa.221.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %26, ptr %.sroa.221.0..sroa_idx.i, align 8, !alias.scope !1212, !noalias !1226
+  %.sroa.220.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %26, ptr %.sroa.220.0..sroa_idx.i, align 8, !alias.scope !1212, !noalias !1226
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 77
   store i8 4, ptr %31, align 1, !alias.scope !1212, !noalias !1226
   br label %52
@@ -8356,8 +8356,8 @@ define void @"_ZN95_$LT$diesel..sqlite..connection..SqliteConnection$u20$as$u20$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) @anon.2e81c50020d01ae8187fdce9ab0139a8.20.llvm.18245684541142357402, i64 32, i1 false), !noalias !1215
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %34, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1215
-  %.sroa.558.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i64 %36, ptr %.sroa.558.0..sroa_idx.i, align 8, !noalias !1215
+  %.sroa.556.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 56
+  store i64 %36, ptr %.sroa.556.0..sroa_idx.i, align 8, !noalias !1215
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %26, ptr %38, align 8, !noalias !1215
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -8367,7 +8367,7 @@ define void @"_ZN95_$LT$diesel..sqlite..connection..SqliteConnection$u20$as$u20$
   invoke void @_ZN6diesel6sqlite10connection3raw13RawConnection21register_sql_function17hc960ec4b2556ab0aE(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %38, ptr noalias noundef nonnull readonly align 1 @anon.90c1904676608adc7b7fc776e0ff2b83.92, i64 noundef 24, i64 noundef 1, i1 noundef zeroext false)
           to label %.noexc37.i unwind label %42, !noalias !1212
 
-.noexc37.i:                                       ; preds = %32
+.noexc35.i:                                       ; preds = %32
   %40 = load i64, ptr %5, align 8, !range !166, !noalias !1227, !noundef !10
   %41 = icmp eq i64 %40, -9223372036854775798
   br i1 %41, label %44, label %47
@@ -8378,7 +8378,7 @@ define void @"_ZN95_$LT$diesel..sqlite..connection..SqliteConnection$u20$as$u20$
   invoke void @"_ZN4core3ptr65drop_in_place$LT$diesel..sqlite..connection..SqliteConnection$GT$17h8d22a9aa8c9ce246E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7) #29
           to label %110 unwind label %49, !noalias !1212
 
-44:                                               ; preds = %.noexc37.i
+44:                                               ; preds = %.noexc35.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1227
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(80) %7, i64 80, i1 false), !noalias !1226
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1215
@@ -8388,14 +8388,14 @@ define void @"_ZN95_$LT$diesel..sqlite..connection..SqliteConnection$u20$as$u20$
   %46 = select i1 %45, ptr %12, ptr null
   br label %52
 
-47:                                               ; preds = %.noexc37.i
+47:                                               ; preds = %.noexc35.i
   %.sroa.46.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.229.sroa.2.0..sroa.229.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.229.sroa.2.0..sroa.229.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx.i.i.i, i64 24, i1 false), !noalias !1226
+  %.sroa.227.sroa.2.0..sroa.227.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.227.sroa.2.0..sroa.227.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx.i.i.i, i64 24, i1 false), !noalias !1226
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1227
   store i64 3, ptr %12, align 8, !alias.scope !1212, !noalias !1226
-  %.sroa.229.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %40, ptr %.sroa.229.0..sroa_idx.i, align 8, !alias.scope !1212, !noalias !1226
+  %.sroa.227.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %40, ptr %.sroa.227.0..sroa_idx.i, align 8, !alias.scope !1212, !noalias !1226
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 77
   store i8 4, ptr %48, align 1, !alias.scope !1212, !noalias !1226
   invoke void @"_ZN4core3ptr65drop_in_place$LT$diesel..sqlite..connection..SqliteConnection$GT$17h8d22a9aa8c9ce246E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7)

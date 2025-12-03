@@ -2869,18 +2869,18 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
 
 20:                                               ; preds = %1
   %21 = load volatile i32, ptr %17, align 8
-  %.not108 = icmp eq i32 %21, 0
-  br i1 %.not108, label %139, label %22
+  %.not107 = icmp eq i32 %21, 0
+  br i1 %.not107, label %139, label %22
 
 22:                                               ; preds = %20
   %23 = load volatile i32, ptr %15, align 4
-  %.not109 = icmp eq i32 %23, 0
-  br i1 %.not109, label %24, label %139
+  %.not108 = icmp eq i32 %23, 0
+  br i1 %.not108, label %24, label %139
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %0, align 8
-  %.not110 = icmp eq ptr %25, null
-  br i1 %.not110, label %30, label %26
+  %.not109 = icmp eq ptr %25, null
+  br i1 %.not109, label %30, label %26
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr @fp_pw_stream_dequeue_buffer, align 8
@@ -2899,11 +2899,11 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
 
 36:                                               ; preds = %26
   %37 = load ptr, ptr %28, align 8
-  %.not111 = icmp eq ptr %37, null
-  br i1 %.not111, label %._crit_edge, label %38
+  %.not110 = icmp eq ptr %37, null
+  br i1 %.not110, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %36
-  %.pre117 = load i32, ptr inttoptr (i64 4 to ptr), align 4
+  %.pre116 = load i32, ptr inttoptr (i64 4 to ptr), align 4
   br label %48
 
 38:                                               ; preds = %36
@@ -2921,7 +2921,7 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %._crit_edge, %42, %38
-  %49 = phi i32 [ %.pre117, %._crit_edge ], [ %40, %42 ], [ 0, %38 ]
+  %49 = phi i32 [ %.pre116, %._crit_edge ], [ %40, %42 ], [ 0, %38 ]
   %50 = load i32, ptr %3, align 8
   %51 = load i32, ptr %5, align 4
   %52 = load i32, ptr %7, align 8
@@ -2983,11 +2983,11 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %93 = load i32, ptr %85, align 4
   %94 = tail call ptr %92(ptr noundef nonnull %46, i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %57, i32 noundef %59, i32 noundef %93, ptr noundef null, ptr noundef null) #16
   %95 = load i32, ptr %9, align 4
-  %.not112 = icmp eq i32 %95, %57
+  %.not111 = icmp eq i32 %95, %57
   %.pre = load i32, ptr %11, align 8
-  %.not113 = icmp eq i32 %.pre, %59
-  %or.cond124 = select i1 %.not112, i1 %.not113, i1 false
-  br i1 %or.cond124, label %109, label %96
+  %.not112 = icmp eq i32 %.pre, %59
+  %or.cond123 = select i1 %.not111, i1 %.not112, i1 false
+  br i1 %or.cond123, label %109, label %96
 
 96:                                               ; preds = %55
   %97 = load i32, ptr %3, align 8
@@ -3008,9 +3008,9 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
 
 109:                                              ; preds = %55, %96
   %.0 = phi ptr [ %105, %96 ], [ %94, %55 ]
-  %.not114 = icmp eq i32 %.sroa.3.0.copyload, %.sroa.1.0.copyload
-  %.not115 = icmp eq i32 %.sroa.6.0.copyload, %.sroa.2.0.copyload
-  %or.cond = select i1 %.not114, i1 %.not115, i1 false
+  %.not113 = icmp eq i32 %.sroa.3.0.copyload, %.sroa.1.0.copyload
+  %.not114 = icmp eq i32 %.sroa.6.0.copyload, %.sroa.2.0.copyload
+  %or.cond = select i1 %.not113, i1 %.not114, i1 false
   br i1 %or.cond, label %126, label %110
 
 110:                                              ; preds = %109
@@ -3018,8 +3018,8 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 800
   %113 = load ptr, ptr %112, align 8
   %114 = tail call ptr %113(i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.6.0.copyload) #16
-  %.not116 = icmp eq ptr %114, null
-  br i1 %.not116, label %119, label %115
+  %.not115 = icmp eq ptr %114, null
+  br i1 %.not115, label %119, label %115
 
 115:                                              ; preds = %110
   %116 = load ptr, ptr @gtk, align 8

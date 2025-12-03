@@ -4307,8 +4307,8 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.432)
-  %.sroa.432.7..sroa_idx69 = getelementptr inbounds nuw i8, ptr %.sroa.432, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.432.7..sroa_idx69, i8 0, i64 17, i1 false), !alias.scope !383
+  %.sroa.432.7..sroa_idx73 = getelementptr inbounds nuw i8, ptr %.sroa.432, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.432.7..sroa_idx73, i8 0, i64 17, i1 false), !alias.scope !383
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !386
   invoke void @"_ZN5tokio4util12sharded_list24ShardedList$LT$L$C$T$GT$3new17h96768b3880282718E"(ptr noalias noundef nonnull sret({ { ptr, i64 }, { i64 }, i64 }) align 8 captures(none) dereferenceable(32) %8, i64 noundef 4)
           to label %.noexc unwind label %53
@@ -4406,10 +4406,10 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %36, ptr %38, align 8
-  %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr %37, ptr %.sroa.463.0..sroa_idx, align 8
-  %.sroa.564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.564.0..sroa_idx, i8 0, i64 20, i1 false)
+  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr %37, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.568.0..sroa_idx, i8 0, i64 20, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 100
   store i32 %.0, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 104
@@ -4480,11 +4480,11 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
           to label %.critedge.thread unwind label %51
 
 "_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit": ; preds = %.critedge.thread, %.critedge
-  %.pn.pn425155 = phi { ptr, i32 } [ %.pn, %.critedge ], [ %.pn.pn425156, %.critedge.thread ]
-  resume { ptr, i32 } %.pn.pn425155
+  %.pn.pn475660 = phi { ptr, i32 } [ %.pn, %.critedge ], [ %.pn.pn475661, %.critedge.thread ]
+  resume { ptr, i32 } %.pn.pn475660
 
 .critedge.thread:                                 ; preds = %24, %.noexc28, %.critedge
-  %.pn.pn425156 = phi { ptr, i32 } [ %.pn, %.critedge ], [ %54, %.noexc28 ], [ %25, %24 ]
+  %.pn.pn475661 = phi { ptr, i32 } [ %.pn, %.critedge ], [ %54, %.noexc28 ], [ %25, %24 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..driver..TimeDriver$GT$17hca22e64e71c86c3dE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
           to label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit" unwind label %51
 }
@@ -8734,9 +8734,9 @@ define hidden void @_ZN5tokio7runtime7metrics4mock12MetricsBatch19incr_overflow_
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio4sync7barrier7Barrier3new17h2164f7da09107193E(ptr noalias noundef writeonly sret({ { ptr, i64 }, { {}, { { { i8 } }, [7 x i8], { { ptr, i64, i64 } } } }, i64 }) align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca { { [8 x { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }] }, { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } } }, align 8
+  %.sroa.514.i = alloca { { [8 x { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }] }, { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i), !noalias !755
-  call void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h2df7d786969fa7d4E"(ptr noalias noundef nonnull sret([8 x { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }]) align 8 captures(none) dereferenceable(256) %.sroa.0.i), !noalias !755
+  call void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h2df7d786969fa7d4E"(ptr noalias noundef nonnull sret([8 x { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }]) align 8 captures(none) dereferenceable(256) %.sroa.514.i), !noalias !755
   %.sroa.0.256..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.256..sroa_idx.i, i8 0, i64 32, i1 false), !noalias !755
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !758
@@ -8839,7 +8839,7 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$tokio..sync..watch..Shared$LT$T$GT$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5tokio4sync5watch7channel17h33fc22043f4b2082E(ptr noalias noundef writeonly sret({ ptr, { ptr, i64 } }) align 8 captures(none) dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %.sroa.0 = alloca { { [8 x { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }] }, { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } } }, align 8
+  %.sroa.514 = alloca { { [8 x { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }] }, { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } } }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @"_ZN4core5array75_$LT$impl$u20$core..default..Default$u20$for$u20$$u5b$T$u3b$$u20$_$u5d$$GT$7default17h2df7d786969fa7d4E"(ptr noalias noundef nonnull sret([8 x { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }]) align 8 captures(none) dereferenceable(256) %.sroa.0)
   %.sroa.0.256..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 256
