@@ -4439,7 +4439,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %_ZNK3ue29CharReachc
 
 252:                                              ; preds = %250
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !211
-  %.not.i.i14.i.i = icmp ult i64 %.020.i.i, 256
+  %.not.i.i14.i.i = icmp samesign ult i64 %.020.i.i, 256
   br i1 %.not.i.i14.i.i, label %253, label %.loopexit64.i
 
 253:                                              ; preds = %252

@@ -11908,7 +11908,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   %37 = getelementptr i8, ptr %4, i64 %34
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
-  %40 = icmp ult i32 %36, %39
+  %40 = icmp samesign ult i32 %36, %39
   %41 = tail call i32 @llvm.smax.i32(i32 %36, i32 %39)
   %42 = trunc i64 %34 to i32
   %43 = select i1 %40, i32 %42, i32 %35

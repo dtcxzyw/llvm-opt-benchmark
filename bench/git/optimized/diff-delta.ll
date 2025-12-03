@@ -408,7 +408,7 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   %.0245388 = phi i32 [ %60, %.lr.ph395 ], [ %.3248, %.thread325 ]
   %.0252387 = phi i64 [ 0, %.lr.ph395 ], [ %.6258, %.thread325 ]
   %.1263386 = phi i64 [ %.0262, %.lr.ph395 ], [ %.2264, %.thread325 ]
-  %66 = icmp ult i64 %.0252387, 4096
+  %66 = icmp samesign ult i64 %.0252387, 4096
   br i1 %66, label %67, label %.thread315
 
 67:                                               ; preds = %65

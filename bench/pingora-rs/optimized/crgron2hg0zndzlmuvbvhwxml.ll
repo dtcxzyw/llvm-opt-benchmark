@@ -3782,7 +3782,7 @@ common.resume.i:                                  ; preds = %.body.i, %42
   call void @llvm.experimental.noalias.scope.decl(metadata !567)
   %110 = add nuw nsw i64 %129, 1
   store i64 %110, ptr %16, align 8, !alias.scope !553, !noalias !569
-  %111 = icmp ult i64 %129, 6
+  %111 = icmp samesign ult i64 %129, 6
   call void @llvm.assume(i1 %111)
   %112 = getelementptr inbounds nuw { [6 x i64] }, ptr %.sroa.5.0..sroa_idx.i, i64 %129
   %.sroa.06.0.copyload7.i = load i64, ptr %112, align 8, !alias.scope !570, !noalias !546

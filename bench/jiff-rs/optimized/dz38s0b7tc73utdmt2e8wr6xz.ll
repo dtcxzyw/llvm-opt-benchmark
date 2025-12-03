@@ -2374,7 +2374,7 @@ _ZN4jiff3fmt7strtime5parse19parse_optional_sign17h6a583a31efc71bb2E.exit.i: ; pr
 937:                                              ; preds = %.critedge.i.i663, %._crit_edge59.i
   %938 = phi i64 [ %storemerge.i.lcssa.i, %._crit_edge59.i ], [ %955, %.critedge.i.i663 ]
   %.sroa.033.0.i.i = phi i64 [ 0, %._crit_edge59.i ], [ %962, %.critedge.i.i663 ]
-  %or.cond.i.i658 = icmp ult i64 %938, %invariant.umin63.i
+  %or.cond.i.i658 = icmp samesign ult i64 %938, %invariant.umin63.i
   br i1 %or.cond.i.i658, label %941, label %939
 
 939:                                              ; preds = %941, %937
@@ -2972,7 +2972,7 @@ _ZN4jiff3fmt7strtime5parse19parse_optional_sign17h6a583a31efc71bb2E.exit.i684: ;
 1149:                                             ; preds = %.critedge.i.i718, %._crit_edge57.i
   %1150 = phi i64 [ %storemerge.i.lcssa.i699, %._crit_edge57.i ], [ %1167, %.critedge.i.i718 ]
   %.sroa.033.0.i.i701 = phi i64 [ 0, %._crit_edge57.i ], [ %1174, %.critedge.i.i718 ]
-  %or.cond.i.i702 = icmp ult i64 %1150, %invariant.umin61.i
+  %or.cond.i.i702 = icmp samesign ult i64 %1150, %invariant.umin61.i
   br i1 %or.cond.i.i702, label %1153, label %1151
 
 1151:                                             ; preds = %1153, %1149
@@ -3289,7 +3289,7 @@ _ZN4jiff3fmt7strtime5parse6Parser19parse_iso_week_year17h772b010f17836e17E.exit:
 1247:                                             ; preds = %.critedge.i.i774, %._crit_edge59.i745
   %1248 = phi i64 [ %storemerge.i.lcssa.i746, %._crit_edge59.i745 ], [ %1265, %.critedge.i.i774 ]
   %.sroa.033.0.i.i749 = phi i64 [ 0, %._crit_edge59.i745 ], [ %1272, %.critedge.i.i774 ]
-  %or.cond.i.i750 = icmp ult i64 %1248, %invariant.umin63.i747
+  %or.cond.i.i750 = icmp samesign ult i64 %1248, %invariant.umin63.i747
   br i1 %or.cond.i.i750, label %1251, label %1249
 
 1249:                                             ; preds = %1251, %1247
@@ -3702,7 +3702,7 @@ _ZN4jiff3fmt7strtime5parse6Parser20parse_iso_week_year217h90badefaee25ef59E.exit
 1385:                                             ; preds = %.critedge.i.i821, %._crit_edge55.i
   %1386 = phi i64 [ %storemerge.i.lcssa.i802, %._crit_edge55.i ], [ %1403, %.critedge.i.i821 ]
   %.sroa.033.0.i.i804 = phi i64 [ 0, %._crit_edge55.i ], [ %1410, %.critedge.i.i821 ]
-  %or.cond.i.i805 = icmp ult i64 %1386, %invariant.umin59.i
+  %or.cond.i.i805 = icmp samesign ult i64 %1386, %invariant.umin59.i
   br i1 %or.cond.i.i805, label %1389, label %1387
 
 1387:                                             ; preds = %1389, %1385
@@ -4075,7 +4075,7 @@ _ZN4jiff3fmt7strtime5parse6Parser17parse_day_of_year17h6e402fac778d0259E.exit: ;
 1506:                                             ; preds = %.critedge.i.i885, %._crit_edge55.i853
   %1507 = phi i64 [ %storemerge.i.lcssa.i854, %._crit_edge55.i853 ], [ %1524, %.critedge.i.i885 ]
   %.sroa.033.0.i.i857 = phi i64 [ 0, %._crit_edge55.i853 ], [ %1531, %.critedge.i.i885 ]
-  %or.cond.i.i858 = icmp ult i64 %1507, %invariant.umin59.i855
+  %or.cond.i.i858 = icmp samesign ult i64 %1507, %invariant.umin59.i855
   br i1 %or.cond.i.i858, label %1510, label %1508
 
 1508:                                             ; preds = %1510, %1506
@@ -4381,7 +4381,7 @@ _ZN4jiff3fmt7strtime5parse6Parser12parse_minute17h6512887fd247a2e6E.exit: ; pred
 1598:                                             ; preds = %.critedge.i.i945, %._crit_edge55.i913
   %1599 = phi i64 [ %storemerge.i.lcssa.i914, %._crit_edge55.i913 ], [ %1616, %.critedge.i.i945 ]
   %.sroa.033.0.i.i917 = phi i64 [ 0, %._crit_edge55.i913 ], [ %1623, %.critedge.i.i945 ]
-  %or.cond.i.i918 = icmp ult i64 %1599, %invariant.umin59.i915
+  %or.cond.i.i918 = icmp samesign ult i64 %1599, %invariant.umin59.i915
   br i1 %or.cond.i.i918, label %1602, label %1600
 
 1600:                                             ; preds = %1602, %1598
@@ -4908,7 +4908,7 @@ _ZN4jiff3fmt7strtime5parse6Parser18parse_clock_nosecs17he524c0debd4e1c9eE.exit: 
 1775:                                             ; preds = %.critedge.i.i1022, %._crit_edge57.i992
   %1776 = phi i64 [ %storemerge.i.lcssa.i993, %._crit_edge57.i992 ], [ %1793, %.critedge.i.i1022 ]
   %.sroa.033.0.i.i996 = phi i64 [ 0, %._crit_edge57.i992 ], [ %1800, %.critedge.i.i1022 ]
-  %or.cond.i.i997 = icmp ult i64 %1776, %invariant.umin61.i994
+  %or.cond.i.i997 = icmp samesign ult i64 %1776, %invariant.umin61.i994
   br i1 %or.cond.i.i997, label %1779, label %1777
 
 1777:                                             ; preds = %1779, %1775
@@ -5242,7 +5242,7 @@ _ZN4jiff3fmt7strtime5parse19parse_optional_sign17h6a583a31efc71bb2E.exit.i1033: 
 1877:                                             ; preds = %.critedge.i.i1065, %._crit_edge105.i
   %1878 = phi i64 [ %storemerge.i.lcssa.i1050, %._crit_edge105.i ], [ %1895, %.critedge.i.i1065 ]
   %.sroa.033.0.i.i1051 = phi i64 [ 0, %._crit_edge105.i ], [ %1902, %.critedge.i.i1065 ]
-  %or.cond.i.i1052 = icmp ult i64 %1878, %invariant.umin109.i
+  %or.cond.i.i1052 = icmp samesign ult i64 %1878, %invariant.umin109.i
   br i1 %or.cond.i.i1052, label %1881, label %1879
 
 1879:                                             ; preds = %1881, %1877
@@ -5900,7 +5900,7 @@ _ZN4jiff3fmt7strtime5parse6Parser16parse_whitespace17h1aa1df4d2933e9a1E.exit1085
 2130:                                             ; preds = %.critedge.i.i1140, %._crit_edge55.i1108
   %2131 = phi i64 [ %storemerge.i.lcssa.i1109, %._crit_edge55.i1108 ], [ %2148, %.critedge.i.i1140 ]
   %.sroa.033.0.i.i1112 = phi i64 [ 0, %._crit_edge55.i1108 ], [ %2155, %.critedge.i.i1140 ]
-  %or.cond.i.i1113 = icmp ult i64 %2131, %invariant.umin59.i1110
+  %or.cond.i.i1113 = icmp samesign ult i64 %2131, %invariant.umin59.i1110
   br i1 %or.cond.i.i1113, label %2134, label %2132
 
 2132:                                             ; preds = %2134, %2130
@@ -6208,7 +6208,7 @@ _ZN4jiff3fmt7strtime5parse6Parser14parse_week_sun17hc935e05458728c1aE.exit: ; pr
 2222:                                             ; preds = %.critedge.i.i1184, %._crit_edge70.i
   %2223 = phi i64 [ %storemerge.i.lcssa.i1164, %._crit_edge70.i ], [ %2240, %.critedge.i.i1184 ]
   %.sroa.033.0.i.i1166 = phi i64 [ 0, %._crit_edge70.i ], [ %2247, %.critedge.i.i1184 ]
-  %or.cond.i.i1167 = icmp ult i64 %2223, %invariant.umin74.i
+  %or.cond.i.i1167 = icmp samesign ult i64 %2223, %invariant.umin74.i
   br i1 %or.cond.i.i1167, label %2226, label %2224
 
 2224:                                             ; preds = %2226, %2222
@@ -6547,7 +6547,7 @@ _ZN4jiff3fmt7strtime5parse6Parser17parse_weekday_mon17h95aab88c7955daefE.exit: ;
 2320:                                             ; preds = %.critedge.i.i1244, %._crit_edge55.i1212
   %2321 = phi i64 [ %storemerge.i.lcssa.i1213, %._crit_edge55.i1212 ], [ %2338, %.critedge.i.i1244 ]
   %.sroa.033.0.i.i1216 = phi i64 [ 0, %._crit_edge55.i1212 ], [ %2345, %.critedge.i.i1244 ]
-  %or.cond.i.i1217 = icmp ult i64 %2321, %invariant.umin59.i1214
+  %or.cond.i.i1217 = icmp samesign ult i64 %2321, %invariant.umin59.i1214
   br i1 %or.cond.i.i1217, label %2324, label %2322
 
 2322:                                             ; preds = %2324, %2320
@@ -6854,7 +6854,7 @@ _ZN4jiff3fmt7strtime5parse6Parser14parse_week_iso17h667ca6119ddd690dE.exit: ; pr
 2413:                                             ; preds = %.critedge.i.i1305, %._crit_edge55.i1272
   %2414 = phi i64 [ %storemerge.i.lcssa.i1273, %._crit_edge55.i1272 ], [ %2431, %.critedge.i.i1305 ]
   %.sroa.033.0.i.i1276 = phi i64 [ 0, %._crit_edge55.i1272 ], [ %2438, %.critedge.i.i1305 ]
-  %or.cond.i.i1277 = icmp ult i64 %2414, %invariant.umin59.i1274
+  %or.cond.i.i1277 = icmp samesign ult i64 %2414, %invariant.umin59.i1274
   br i1 %or.cond.i.i1277, label %2417, label %2415
 
 2415:                                             ; preds = %2417, %2413
@@ -7162,7 +7162,7 @@ _ZN4jiff3fmt7strtime5parse6Parser14parse_week_mon17hdcc54a9dcbc588ecE.exit: ; pr
 2505:                                             ; preds = %.critedge.i.i1372, %._crit_edge70.i1335
   %2506 = phi i64 [ %storemerge.i.lcssa.i1336, %._crit_edge70.i1335 ], [ %2523, %.critedge.i.i1372 ]
   %.sroa.033.0.i.i1338 = phi i64 [ 0, %._crit_edge70.i1335 ], [ %2530, %.critedge.i.i1372 ]
-  %or.cond.i.i1339 = icmp ult i64 %2506, %invariant.umin74.i1337
+  %or.cond.i.i1339 = icmp samesign ult i64 %2506, %invariant.umin74.i1337
   br i1 %or.cond.i.i1339, label %2509, label %2507
 
 2507:                                             ; preds = %2509, %2505
@@ -7546,7 +7546,7 @@ _ZN4jiff3fmt7strtime5parse19parse_optional_sign17h6a583a31efc71bb2E.exit.i1383: 
 2619:                                             ; preds = %.critedge.i.i1438, %._crit_edge57.i1405
   %2620 = phi i64 [ %storemerge.i.lcssa.i1406, %._crit_edge57.i1405 ], [ %2637, %.critedge.i.i1438 ]
   %.sroa.033.0.i.i1409 = phi i64 [ 0, %._crit_edge57.i1405 ], [ %2644, %.critedge.i.i1438 ]
-  %or.cond.i.i1410 = icmp ult i64 %2620, %invariant.umin61.i1407
+  %or.cond.i.i1410 = icmp samesign ult i64 %2620, %invariant.umin61.i1407
   br i1 %or.cond.i.i1410, label %2623, label %2621
 
 2621:                                             ; preds = %2623, %2619
@@ -7863,7 +7863,7 @@ _ZN4jiff3fmt7strtime5parse6Parser10parse_year17h8fd5e7e295a416c0E.exit: ; preds 
 2717:                                             ; preds = %.critedge.i.i1502, %._crit_edge59.i1465
   %2718 = phi i64 [ %storemerge.i.lcssa.i1466, %._crit_edge59.i1465 ], [ %2735, %.critedge.i.i1502 ]
   %.sroa.033.0.i.i1469 = phi i64 [ 0, %._crit_edge59.i1465 ], [ %2742, %.critedge.i.i1502 ]
-  %or.cond.i.i1470 = icmp ult i64 %2718, %invariant.umin63.i1467
+  %or.cond.i.i1470 = icmp samesign ult i64 %2718, %invariant.umin63.i1467
   br i1 %or.cond.i.i1470, label %2721, label %2719
 
 2719:                                             ; preds = %2721, %2717
@@ -9773,7 +9773,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt7strtime5parse6Parser9parse_day
 26:                                               ; preds = %.critedge.i, %._crit_edge55
   %27 = phi i64 [ %storemerge.i.lcssa, %._crit_edge55 ], [ %48, %.critedge.i ]
   %.sroa.033.0.i = phi i64 [ 0, %._crit_edge55 ], [ %55, %.critedge.i ]
-  %or.cond.i = icmp ult i64 %27, %invariant.umin59
+  %or.cond.i = icmp samesign ult i64 %27, %invariant.umin59
   br i1 %or.cond.i, label %30, label %28
 
 28:                                               ; preds = %30, %26
@@ -10097,7 +10097,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt7strtime5parse6Parser12parse_ho
 26:                                               ; preds = %.critedge.i, %._crit_edge55
   %27 = phi i64 [ %storemerge.i.lcssa, %._crit_edge55 ], [ %48, %.critedge.i ]
   %.sroa.033.0.i = phi i64 [ 0, %._crit_edge55 ], [ %55, %.critedge.i ]
-  %or.cond.i = icmp ult i64 %27, %invariant.umin59
+  %or.cond.i = icmp samesign ult i64 %27, %invariant.umin59
   br i1 %or.cond.i, label %30, label %28
 
 28:                                               ; preds = %30, %26
@@ -10420,7 +10420,7 @@ define internal fastcc { i64, ptr } @_ZN4jiff3fmt7strtime5parse6Parser12parse_ho
 26:                                               ; preds = %.critedge.i, %._crit_edge55
   %27 = phi i64 [ %storemerge.i.lcssa, %._crit_edge55 ], [ %48, %.critedge.i ]
   %.sroa.033.0.i = phi i64 [ 0, %._crit_edge55 ], [ %55, %.critedge.i ]
-  %or.cond.i = icmp ult i64 %27, %invariant.umin59
+  %or.cond.i = icmp samesign ult i64 %27, %invariant.umin59
   br i1 %or.cond.i, label %30, label %28
 
 28:                                               ; preds = %30, %26

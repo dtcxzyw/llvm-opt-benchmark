@@ -23203,7 +23203,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17h33982119e1d00688E.exit144: ; preds =
   %289 = uitofp i64 %288 to float
   %290 = fcmp olt float %287, %289
   %.sroa.05.0 = select i1 %290, float %289, float %287
-  %291 = icmp ult i64 %.sroa.028.0229, 13
+  %291 = icmp samesign ult i64 %.sroa.028.0229, 13
   br i1 %291, label %292, label %.invoke
 
 292:                                              ; preds = %286

@@ -5962,7 +5962,7 @@ define dso_local range(i32 -2147483648, 1) i32 @xhci_queue_isoc_tx_prepare(ptr n
   %328 = lshr i32 %327, 7
   %329 = and i32 %328, 4
   %330 = or i32 %329, %326
-  %331 = icmp ult i32 %316, %310
+  %331 = icmp samesign ult i32 %316, %310
   br i1 %331, label %332, label %334
 
 332:                                              ; preds = %325

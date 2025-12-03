@@ -264,7 +264,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures
   %47 = zext i32 %46 to i64
   %48 = sub nsw i64 %.01741.i.i, %47
   %49 = and i64 %48, %26
-  %50 = icmp ugt i64 %.01840.i.i, %49
+  %50 = icmp samesign ugt i64 %.01840.i.i, %49
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !24
   br i1 %50, label %53, label %54
@@ -339,7 +339,7 @@ map_resize.exit.thread:                           ; preds = %insert.exit.i, %.pr
   %84 = zext i32 %83 to i64
   %85 = sub nsw i64 %.01741.i, %84
   %86 = and i64 %85, %78
-  %87 = icmp ugt i64 %.01840.i, %86
+  %87 = icmp samesign ugt i64 %.01840.i, %86
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !24
   br i1 %87, label %90, label %91

@@ -178,7 +178,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
   %102 = inttoptr i64 %101 to ptr
   tail call fastcc void @blockmix_salsa8(ptr noundef %98, ptr noundef %102, i64 noundef range(i64 1, 4294967296) %11)
   %103 = add nuw nsw i64 %.17786.i, 2
-  %104 = icmp ult i64 %103, %71
+  %104 = icmp samesign ult i64 %103, %71
   br i1 %104, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

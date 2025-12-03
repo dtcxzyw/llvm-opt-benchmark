@@ -2963,7 +2963,7 @@ define void @_ZN8uu_touch6uu_app17hfdf7fa67492b8c67E(ptr noalias noundef writeon
   %612 = phi i64 [ %621, %619 ], [ 0, %607 ]
   %613 = add nuw nsw i64 %612, 1
   store i64 %613, ptr %.sroa.4.0..sroa_idx.i325, align 8, !alias.scope !852, !noalias !849
-  %614 = icmp ult i64 %612, 3
+  %614 = icmp samesign ult i64 %612, 3
   call void @llvm.assume(i1 %614)
   %615 = getelementptr inbounds nuw { [2 x i64] }, ptr %5, i64 %612
   %616 = load ptr, ptr %615, align 8, !alias.scope !852, !noalias !849, !nonnull !5, !align !15, !noundef !5

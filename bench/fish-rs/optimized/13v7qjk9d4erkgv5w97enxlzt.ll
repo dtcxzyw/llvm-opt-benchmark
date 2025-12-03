@@ -17348,7 +17348,7 @@ common.resume:                                    ; preds = %.body, %173, %214, 
   %.not.i.i.i = icmp eq i64 %430, 0
   %431 = fmul double %.sroa.08.028.i.i.i, %429
   %.sroa.08.1.i.i.i = select i1 %.not.i.i.i, double %.sroa.08.028.i.i.i, double %431
-  %432 = icmp ugt i64 %.sroa.0.129.i.i.i, 3
+  %432 = icmp samesign ugt i64 %.sroa.0.129.i.i.i, 3
   br i1 %432, label %.lr.ph30.i.i.i, label %_ZN10num_traits3pow3pow17h589c697e61dda714E.exit.i.i
 
 _ZN10num_traits3pow3pow17h589c697e61dda714E.exit.i.i: ; preds = %.lr.ph30.i.i.i, %._crit_edge.i.i.i, %419
@@ -17559,7 +17559,7 @@ default.unreachable:                              ; preds = %_ZN10num_traits3pow
   %.not.i75.i.i = icmp eq i64 %488, 0
   %489 = fmul double %.sroa.08.028.i73.i.i, %487
   %.sroa.08.1.i76.i.i = select i1 %.not.i75.i.i, double %.sroa.08.028.i73.i.i, double %489
-  %490 = icmp ugt i64 %.sroa.0.129.i72.i.i, 3
+  %490 = icmp samesign ugt i64 %.sroa.0.129.i72.i.i, 3
   br i1 %490, label %.lr.ph30.i71.i.i, label %_ZN10num_traits3pow3pow17h589c697e61dda714E.exit81.i.i
 
 _ZN10num_traits3pow3pow17h589c697e61dda714E.exit81.i.i: ; preds = %.lr.ph30.i71.i.i, %._crit_edge.i68.i.i

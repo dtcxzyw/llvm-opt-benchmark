@@ -8458,7 +8458,7 @@ define void @_ZN4fish6common19redirect_tty_output17h3aac83529abf2725E(i1 noundef
   %30 = phi i64 [ %45, %43 ], [ 0, %.lr.ph.preheader ]
   %31 = add nuw nsw i64 %30, 1
   store i64 %31, ptr %3, align 8, !alias.scope !771
-  %32 = icmp ult i64 %30, 3
+  %32 = icmp samesign ult i64 %30, 3
   call void @llvm.assume(i1 %32)
   %33 = getelementptr inbounds nuw i32, ptr %.sroa.511.0..sroa_idx, i64 %30
   %34 = load i32, ptr %33, align 4, !alias.scope !771, !noundef !3
@@ -37447,7 +37447,7 @@ _ZN4fish9tokenizer9Tokenizer7text_of17h70926fe64123cf90E.exit: ; preds = %22
   %.pn = phi ptr [ %36, %.lr.ph.backedge.i ], [ %28, %.lr.ph.i.preheader ]
   %.sroa.01.016.i24 = phi i1 [ true, %.lr.ph.backedge.i ], [ false, %.lr.ph.i.preheader ]
   %36 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
-  %37 = icmp ult i32 %35, 1114112
+  %37 = icmp samesign ult i32 %35, 1114112
   tail call void @llvm.assume(i1 %37)
   br i1 %.sroa.01.016.i24, label %46, label %38
 

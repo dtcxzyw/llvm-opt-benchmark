@@ -1766,7 +1766,7 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h0791f778
   tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
   %10 = add nuw nsw i64 %39, 1
   store i64 %10, ptr %6, align 8, !alias.scope !177, !noalias !180
-  %11 = icmp ult i64 %39, 3
+  %11 = icmp samesign ult i64 %39, 3
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %39
   %.sroa.03.0.copyload4 = load i64, ptr %12, align 8, !alias.scope !182
@@ -1897,7 +1897,7 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h2afda4ce
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
   %10 = add nuw nsw i64 %39, 1
   store i64 %10, ptr %6, align 8, !alias.scope !208, !noalias !211
-  %11 = icmp ult i64 %39, 15
+  %11 = icmp samesign ult i64 %39, 15
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %39
   %.sroa.03.0.copyload4 = load i64, ptr %12, align 8, !alias.scope !213
@@ -2028,7 +2028,7 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h319c363f
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   %10 = add nuw nsw i64 %39, 1
   store i64 %10, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !239, !noalias !242
-  %11 = icmp ult i64 %39, 20
+  %11 = icmp samesign ult i64 %39, 20
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %39
   %.sroa.03.0.copyload4 = load i64, ptr %12, align 8, !alias.scope !244
@@ -2159,7 +2159,7 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h4ac41663
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
   %10 = add nuw nsw i64 %39, 1
   store i64 %10, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !270, !noalias !273
-  %11 = icmp ult i64 %39, 10
+  %11 = icmp samesign ult i64 %39, 10
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %39
   %.sroa.03.0.copyload4 = load i64, ptr %12, align 8, !alias.scope !275
@@ -2290,7 +2290,7 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h531a8c4e
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
   %10 = add nuw nsw i64 %39, 1
   store i64 %10, ptr %6, align 8, !alias.scope !301, !noalias !304
-  %11 = icmp ult i64 %39, 5
+  %11 = icmp samesign ult i64 %39, 5
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %39
   %.sroa.03.0.copyload4 = load i64, ptr %12, align 8, !alias.scope !306
@@ -2421,7 +2421,7 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17h5ee596be
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
   %10 = add nuw nsw i64 %39, 1
   store i64 %10, ptr %6, align 8, !alias.scope !332, !noalias !335
-  %11 = icmp ult i64 %39, 23
+  %11 = icmp samesign ult i64 %39, 23
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %39
   %.sroa.03.0.copyload4 = load i64, ptr %12, align 8, !alias.scope !337
@@ -2935,7 +2935,7 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17ha7f55dcd
   tail call void @llvm.experimental.noalias.scope.decl(metadata !459)
   %10 = add nuw nsw i64 %39, 1
   store i64 %10, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !456, !noalias !459
-  %11 = icmp ult i64 %39, 6
+  %11 = icmp samesign ult i64 %39, 6
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %39
   %.sroa.03.0.copyload4 = load i64, ptr %12, align 8, !alias.scope !461
@@ -3073,7 +3073,7 @@ define hidden void @_ZN12clap_builder7builder9arg_group8ArgGroup4args17hf44c7526
   tail call void @llvm.experimental.noalias.scope.decl(metadata !490)
   %10 = add nuw nsw i64 %39, 1
   store i64 %10, ptr %6, align 8, !alias.scope !487, !noalias !490
-  %11 = icmp ult i64 %39, 9
+  %11 = icmp samesign ult i64 %39, 9
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %39
   %.sroa.03.0.copyload4 = load i64, ptr %12, align 8, !alias.scope !492

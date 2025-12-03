@@ -1113,7 +1113,7 @@ define internal i32 @tt_cmap4_validate(ptr noundef %0, ptr noundef %1) #0 {
   br label %175
 
 175:                                              ; preds = %174, %140
-  %176 = icmp ule i32 %148, %.0171209
+  %176 = icmp samesign ule i32 %148, %.0171209
   %177 = icmp ne i32 %.0173206, 0
   %or.cond = and i1 %177, %176
   br i1 %or.cond, label %178, label %188
@@ -1128,8 +1128,8 @@ define internal i32 @tt_cmap4_validate(ptr noundef %0, ptr noundef %1) #0 {
   br label %188
 
 181:                                              ; preds = %178
-  %182 = icmp ugt i32 %.0172208, %148
-  %183 = icmp ugt i32 %.0171209, %156
+  %182 = icmp samesign ugt i32 %.0172208, %148
+  %183 = icmp samesign ugt i32 %.0171209, %156
   %or.cond199 = or i1 %182, %183
   br i1 %or.cond199, label %184, label %186
 
@@ -4983,7 +4983,7 @@ define internal noundef i32 @tt_cmap14_validate(ptr noundef %0, ptr noundef %1) 
   br label %113
 
 113:                                              ; preds = %62, %112
-  %114 = icmp ult i64 %74, %.0116138
+  %114 = icmp samesign ult i64 %74, %.0116138
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %113
@@ -5170,7 +5170,7 @@ define internal noundef i32 @tt_cmap14_validate(ptr noundef %0, ptr noundef %1) 
   br label %228
 
 228:                                              ; preds = %227, %.lr.ph137
-  %229 = icmp ult i64 %216, %.0114136
+  %229 = icmp samesign ult i64 %216, %.0114136
   br i1 %229, label %230, label %231
 
 230:                                              ; preds = %228
@@ -9402,7 +9402,7 @@ define internal i32 @tt_face_load_kern(ptr noundef %0, ptr noundef %1) #0 {
   %103 = load i8, ptr %102, align 1, !tbaa !15
   %104 = zext i8 %103 to i64
   %105 = or disjoint i64 %101, %104
-  %106 = icmp ult i64 %105, %.081125
+  %106 = icmp samesign ult i64 %105, %.081125
   br i1 %106, label %.loopexit, label %107
 
 107:                                              ; preds = %.lr.ph

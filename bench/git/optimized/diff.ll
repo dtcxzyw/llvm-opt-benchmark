@@ -6838,7 +6838,7 @@ define internal range(i32 -1, 1) i32 @diff_opt_break_rewrites(ptr noundef readon
   br i1 %or.cond3.i, label %20, label %.loopexit.i
 
 20:                                               ; preds = %18
-  %21 = icmp ult i64 %.027.i, 100000
+  %21 = icmp samesign ult i64 %.027.i, 100000
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %20
@@ -7032,7 +7032,7 @@ define internal range(i32 -1, 1) i32 @diff_opt_find_renames(ptr noundef readonly
   br i1 %or.cond3.i, label %20, label %.loopexit.i
 
 20:                                               ; preds = %18
-  %21 = icmp ult i64 %.027.i, 100000
+  %21 = icmp samesign ult i64 %.027.i, 100000
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %20
@@ -7140,7 +7140,7 @@ define internal range(i32 -1, 1) i32 @diff_opt_find_copies(ptr noundef readonly 
   br i1 %or.cond3.i, label %20, label %.loopexit.i
 
 20:                                               ; preds = %18
-  %21 = icmp ult i64 %.027.i, 100000
+  %21 = icmp samesign ult i64 %.027.i, 100000
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %20
@@ -8289,7 +8289,7 @@ define dso_local i32 @parse_rename_score(ptr noundef captures(none) %0) local_un
   br i1 %or.cond3, label %15, label %.loopexit
 
 15:                                               ; preds = %13
-  %16 = icmp ult i64 %.027, 100000
+  %16 = icmp samesign ult i64 %.027, 100000
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15

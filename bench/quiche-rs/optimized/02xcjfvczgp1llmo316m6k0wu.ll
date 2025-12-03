@@ -5330,7 +5330,7 @@ define internal fastcc void @_ZN6quiche8recovery10congestion8recovery14LegacyRec
   %.sroa.028.0145 = phi i64 [ undef, %.lr.ph ], [ %.sroa.028.0.be, %.backedge ]
   %86 = add nuw nsw i64 %85, 1
   store i64 %86, ptr %6, align 8, !alias.scope !483
-  %87 = icmp ult i64 %85, 3
+  %87 = icmp samesign ult i64 %85, 3
   tail call void @llvm.assume(i1 %87)
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.654.0..sroa_idx, i64 %85
   %89 = load i8, ptr %88, align 1, !range !466, !alias.scope !483, !noundef !3

@@ -41136,7 +41136,7 @@ _ZN5clang26ImplicitConversionSequence14setUserDefinedEv.exit: ; preds = %231, %2
 
 298:                                              ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.pre-phi, %.critedge ]
-  %299 = icmp ult i64 %indvars.iv, %272
+  %299 = icmp samesign ult i64 %indvars.iv, %272
   br i1 %299, label %300, label %387
 
 300:                                              ; preds = %298

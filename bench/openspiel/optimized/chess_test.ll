@@ -3738,7 +3738,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 
 .lr.ph.i.i.i.i:                                   ; preds = %1226, %.noexc36.i
   %1230 = phi i64 [ %1276, %.noexc36.i ], [ %1201, %1226 ]
-  %1231 = icmp ugt i64 %1230, 623
+  %1231 = icmp samesign ugt i64 %1230, 623
   br i1 %1231, label %1232, label %.noexc36.i
 
 1232:                                             ; preds = %.lr.ph.i.i.i.i

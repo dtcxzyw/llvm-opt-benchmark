@@ -2547,7 +2547,7 @@ define void @"_ZN75_$LT$ty..args..RulesArg$u20$as$u20$clap_builder..derive..From
   call void @llvm.experimental.noalias.scope.decl(metadata !233)
   %18 = add nuw nsw i64 %17, 1
   store i64 %18, ptr %10, align 8, !alias.scope !236, !noalias !233
-  %19 = icmp ult i64 %17, 3
+  %19 = icmp samesign ult i64 %17, 3
   call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw { [3 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %17
   %.sroa.0.0.copyload = load i8, ptr %20, align 8, !alias.scope !238

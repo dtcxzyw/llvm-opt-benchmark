@@ -8330,7 +8330,7 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %.noexc.i.i, %64
   %.023.i.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i.i, %64 ], [ %134, %.noexc.i.i ]
   %.01422.i.i.i.i.i.i = phi double [ 1.000000e+00, %64 ], [ %133, %.noexc.i.i ]
   %.01521.i.i.i.i.i.i = phi double [ 0.000000e+00, %64 ], [ %130, %.noexc.i.i ]
-  %70 = icmp ugt i64 %69, 623
+  %70 = icmp samesign ugt i64 %69, 623
   br i1 %70, label %71, label %.noexc.i.i
 
 71:                                               ; preds = %select.unfold.i.i.i.i.i.i
@@ -8460,7 +8460,7 @@ select.unfold.i.i.i.i33.i.i:                      ; preds = %.noexc39.i.i, %143
   %.023.i.i.i.i34.i.i = phi i64 [ %spec.select.i.i.i.i.i.i, %143 ], [ %213, %.noexc39.i.i ]
   %.01422.i.i.i.i35.i.i = phi double [ 1.000000e+00, %143 ], [ %212, %.noexc39.i.i ]
   %.01521.i.i.i.i36.i.i = phi double [ 0.000000e+00, %143 ], [ %209, %.noexc39.i.i ]
-  %149 = icmp ugt i64 %148, 623
+  %149 = icmp samesign ugt i64 %148, 623
   br i1 %149, label %150, label %.noexc39.i.i
 
 150:                                              ; preds = %select.unfold.i.i.i.i33.i.i

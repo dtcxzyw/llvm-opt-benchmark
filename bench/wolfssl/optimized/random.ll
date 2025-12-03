@@ -46,7 +46,7 @@ define range(i32 -173, 2) i32 @wc_RNG_DRBG_Reseed(ptr noundef readonly captures(
   %15 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !11
   %16 = add nsw i32 %.01827.i.i, -8
-  %17 = icmp ugt i32 %16, 7
+  %17 = icmp samesign ugt i32 %16, 7
   br i1 %17, label %.lr.ph29.i.i, label %.lr.ph35.i.i, !llvm.loop !13
 
 .lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph35.i.i
@@ -102,7 +102,7 @@ define internal fastcc range(i32 0, 2) i32 @Hash_DRBG_Reseed(ptr noundef %0, ptr
   %10 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !11
   %11 = add nsw i32 %.01827.i, -8
-  %12 = icmp ugt i32 %11, 7
+  %12 = icmp samesign ugt i32 %11, 7
   br i1 %12, label %.lr.ph29.i, label %.lr.ph35.i, !llvm.loop !13
 
 .lr.ph35.i:                                       ; preds = %.lr.ph29.i, %.lr.ph35.i
@@ -982,7 +982,7 @@ array_add_one.exit.i:                             ; preds = %array_add_one.exit.
   %46 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !11
   %47 = add nsw i32 %.01827.i.i, -8
-  %48 = icmp ugt i32 %47, 7
+  %48 = icmp samesign ugt i32 %47, 7
   br i1 %48, label %.lr.ph29.i.i, label %.lr.ph35.i.i, !llvm.loop !13
 
 .lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph35.i.i
@@ -1358,7 +1358,7 @@ define range(i32 -173, 1) i32 @wc_RNG_HealthTest_ex(i32 noundef %0, ptr noundef 
   %33 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !11
   %34 = add nsw i32 %.01827.i.i, -8
-  %35 = icmp ugt i32 %34, 7
+  %35 = icmp samesign ugt i32 %34, 7
   br i1 %35, label %.lr.ph29.i.i, label %.lr.ph35.i.i, !llvm.loop !13
 
 .lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph35.i.i

@@ -1233,7 +1233,7 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   %.0103 = phi i32 [ %11, %.lr.ph104 ], [ %115, %._crit_edge ]
   %.082102 = phi i64 [ 0, %.lr.ph104 ], [ %116, %._crit_edge ]
   %.083101 = phi i64 [ 0, %.lr.ph104 ], [ %.184.lcssa, %._crit_edge ]
-  %42 = icmp ugt i64 %.083101, 9999
+  %42 = icmp samesign ugt i64 %.083101, 9999
   br i1 %42, label %cdf_read_sector.exit.thread, label %43
 
 43:                                               ; preds = %41

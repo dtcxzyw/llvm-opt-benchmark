@@ -487,7 +487,7 @@ define internal i32 @p9_fd_create_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 
 58:                                               ; preds = %61
   %59 = add nsw i32 %62, -1
-  %60 = icmp ugt i32 %59, 664
+  %60 = icmp samesign ugt i32 %59, 664
   br i1 %60, label %61, label %.thread, !llvm.loop !20
 
 .thread:                                          ; preds = %58

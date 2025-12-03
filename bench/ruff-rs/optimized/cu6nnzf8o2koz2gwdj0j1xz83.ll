@@ -5824,7 +5824,7 @@ define void @"_ZN109_$LT$ruff_db..system..memory_fs..MemoryWalker$u20$as$u20$ruf
   %57 = icmp samesign ult i64 %55, %56
   call void @llvm.assume(i1 %57)
   %58 = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
-  %59 = icmp ult i64 %54, 288230376151711745
+  %59 = icmp samesign ult i64 %54, 288230376151711745
   call void @llvm.assume(i1 %59)
   %60 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %58, i64 %55
   %.sroa.0139.0.copyload = load i64, ptr %60, align 8

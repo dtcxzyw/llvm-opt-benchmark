@@ -2244,7 +2244,7 @@ tailrecurse.i:                                    ; preds = %14, %tailrecurse.i
   %61 = icmp samesign ult i64 %59, %60
   call void @llvm.assume(i1 %61)
   %62 = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
-  %63 = icmp ult i64 %58, 1152921504606846977
+  %63 = icmp samesign ult i64 %58, 1152921504606846977
   call void @llvm.assume(i1 %63)
   %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %59
   %65 = load ptr, ptr %64, align 8, !nonnull !4, !align !25, !noundef !4

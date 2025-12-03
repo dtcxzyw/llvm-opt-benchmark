@@ -2186,7 +2186,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIj
   br i1 %.not.i22.i.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEvT_S7_.exit.i.i, label %.lr.ph.i16.i.i.i.i.i, !llvm.loop !63
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEvT_S7_.exit.i.i: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i.i.i, %704, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit.i.i.i.i.i, %._crit_edge.i.i
-  %.not.i20.i.i = icmp ult i64 %.019.i.i, 256
+  %.not.i20.i.i = icmp samesign ult i64 %.019.i.i, 256
   br i1 %.not.i20.i.i, label %720, label %_ZN3ue2L13haig_do_predsINS_8bitfieldILm256EEEEEvRKNS_8NGHolderERKT_RKSt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISG_EERNS_8flat_mapIjS9_IjSaIjEESt4lessIjESaISt4pairIjSN_EEEE.exit.i
 
 720:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEvT_S7_.exit.i.i
@@ -4801,7 +4801,7 @@ _ZNK3ue29CharReach10find_firstEv.exit36.i.i:      ; preds = %110
   br label %132
 
 132:                                              ; preds = %124, %121
-  %.not.i.i37.i.i = icmp ult i64 %.062.i.i, 256
+  %.not.i.i37.i.i = icmp samesign ult i64 %.062.i.i, 256
   br i1 %.not.i.i37.i.i, label %133, label %.preheader.i.i.preheader
 
 133:                                              ; preds = %132
@@ -10801,7 +10801,7 @@ _ZN3ue28containsINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graph
 
 345:                                              ; preds = %338, %._crit_edge184.i.i
   %.1.i.i = phi i8 [ 0, %._crit_edge184.i.i ], [ %344, %338 ]
-  %.not.i71.i.i = icmp ult i64 %.065186.i.i, 256
+  %.not.i71.i.i = icmp samesign ult i64 %.065186.i.i, 256
   br i1 %.not.i71.i.i, label %346, label %._crit_edge189.i.i
 
 346:                                              ; preds = %345
@@ -11048,7 +11048,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %432
   br i1 %.not.i.i97.i43.i, label %.lr.ph.i, label %._crit_edge207.i.i
 
 ._crit_edge207.i.i:                               ; preds = %435, %473, %.lr.ph206.i.i, %_ZNK3ue29CharReach10find_firstEv.exit.i.i
-  %.not.i89.i.i = icmp ult i64 %.062209.i.i, 256
+  %.not.i89.i.i = icmp samesign ult i64 %.062209.i.i, 256
   br i1 %.not.i89.i.i, label %445, label %._crit_edge211.i.i
 
 445:                                              ; preds = %._crit_edge207.i.i

@@ -5718,7 +5718,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   br label %.loopexit22
 
 .critedge17:                                      ; preds = %.critedge17.loopexit.split.us, %326, %168, %318
-  %335 = icmp ugt i32 %67, 12
+  %335 = icmp samesign ugt i32 %67, 12
   br i1 %335, label %66, label %.loopexit22
 
 .loopexit22:                                      ; preds = %.critedge17, %331, %17, %12

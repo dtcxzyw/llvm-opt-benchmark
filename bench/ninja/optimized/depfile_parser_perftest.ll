@@ -420,7 +420,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %104
   %138 = shl nuw nsw i32 %.073362, 1
-  %139 = icmp ult i32 %.073362, 524288
+  %139 = icmp samesign ult i32 %.073362, 524288
   br i1 %139, label %.split, label %.thread133, !llvm.loop !25
 
 140:                                              ; preds = %.loopexit172, %.loopexit.split-lp173, %.split366, %.split366.us, %136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99

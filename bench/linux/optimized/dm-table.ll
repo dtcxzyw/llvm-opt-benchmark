@@ -1480,7 +1480,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   %160 = add nuw nsw i32 %159, 8
   %161 = udiv i32 %160, 9
   %162 = add i32 %158, 1
-  %163 = icmp ugt i32 %159, 9
+  %163 = icmp samesign ugt i32 %159, 9
   br i1 %163, label %.preheader41, label %164, !llvm.loop !34
 
 164:                                              ; preds = %.preheader41

@@ -36609,7 +36609,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_Eix
   %.in = phi i16 [ %60, %59 ], [ %58, %.preheader ]
   %63 = add nsw i64 %indvars.iv56, -1
   %64 = zext i16 %.in to i64
-  %.not.i21 = icmp ult i64 %63, %64
+  %.not.i21 = icmp samesign ult i64 %63, %64
   br i1 %.not.i21, label %65, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit23, !prof !35
 
 65:                                               ; preds = %.lr.ph53
@@ -90719,7 +90719,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK2OT17ClassDefFormat1_3INS_
   %12 = load i16, ptr %3, align 1, !tbaa !40
   %13 = tail call noundef i16 @llvm.bswap.i16(i16 %12)
   %14 = zext i16 %13 to i64
-  %.not.i = icmp ult i64 %indvars.iv, %14
+  %.not.i = icmp samesign ult i64 %indvars.iv, %14
   br i1 %.not.i, label %15, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit, !prof !35
 
 15:                                               ; preds = %11
@@ -100297,7 +100297,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_Eix
   %65 = phi i32 [ %62, %61 ], [ %60, %.preheader ]
   %66 = add nsw i64 %indvars.iv56, -1
   %67 = zext i32 %65 to i64
-  %.not.i21 = icmp ult i64 %66, %67
+  %.not.i21 = icmp samesign ult i64 %66, %67
   br i1 %.not.i21, label %68, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit23, !prof !35
 
 68:                                               ; preds = %.lr.ph53

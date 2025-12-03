@@ -2070,7 +2070,7 @@ define internal fastcc ptr @scsi_get_vpd_buf(ptr noundef %0, i8 noundef zeroext 
   %17 = phi i32 [ %37, %42 ], [ %4, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !14
-  %18 = icmp ult i32 %17, 4
+  %18 = icmp samesign ult i32 %17, 4
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %.lr.ph

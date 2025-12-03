@@ -6138,7 +6138,7 @@ define internal void @_ZN4absl18debugging_internal12_GLOBAL__N_175BoundedUtf8Len
   br label %.lr.ph48.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %1
-  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %.lr.ph48.i ], [ 2, %1 ]
+  %indvars.iv50.i = phi i64 [ 2, %1 ], [ %indvars.iv.next51.i, %.lr.ph48.i ]
   %34 = getelementptr i64, ptr %2, i64 %indvars.iv50.i
   %35 = load i64, ptr %34, align 8, !tbaa !65
   %36 = getelementptr i8, ptr %34, i64 -8
@@ -6461,7 +6461,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br label %.lr.ph48.i103
 
 .lr.ph48.i103:                                    ; preds = %.lr.ph48.i103, %146
-  %indvars.iv50.i104 = phi i64 [ %indvars.iv.next51.i105, %.lr.ph48.i103 ], [ 2, %146 ]
+  %indvars.iv50.i104 = phi i64 [ 2, %146 ], [ %indvars.iv.next51.i105, %.lr.ph48.i103 ]
   %147 = getelementptr i64, ptr %2, i64 %indvars.iv50.i104
   %148 = load i64, ptr %147, align 8, !tbaa !65
   %149 = getelementptr i8, ptr %147, i64 -8

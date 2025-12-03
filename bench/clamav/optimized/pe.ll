@@ -2773,7 +2773,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %707 = load i32, ptr %706, align 4, !tbaa !3
   %708 = add i32 %707, -5
   %709 = zext i32 %708 to i64
-  %710 = icmp ult i64 %indvars.iv.next3360.pre-phi, %709
+  %710 = icmp samesign ult i64 %indvars.iv.next3360.pre-phi, %709
   br i1 %710, label %649, label %._crit_edge3257
 
 ._crit_edge3257:                                  ; preds = %704

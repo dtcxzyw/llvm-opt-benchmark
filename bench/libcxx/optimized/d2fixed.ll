@@ -1352,7 +1352,7 @@ _ZNSt3__117__append_d_digitsB8ne210000EjjPc.exit: ; preds = %219, %228
   %.6278492 = phi i32 [ %.0272578, %.lr.ph497 ], [ %.8280.ph, %.thread400 ]
   %262 = trunc nuw nsw i64 %indvars.iv550 to i32
   %.reass = add i32 %invariant.op, %262
-  %.not311 = icmp ult i32 %.reass, %252
+  %.not311 = icmp samesign ult i32 %.reass, %252
   br i1 %.not311, label %263, label %.thread398
 
 263:                                              ; preds = %261

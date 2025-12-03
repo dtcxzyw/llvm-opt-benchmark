@@ -28838,7 +28838,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h20c98cf32f8b1ae7
 "_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h131a748485d30895E.exit18": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h222089a34671c7a0E.exit17.thread", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h222089a34671c7a0E.exit17.thread31"
   %.sroa.5.2 = phi i64 [ %44, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h222089a34671c7a0E.exit17.thread31" ], [ %45, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h222089a34671c7a0E.exit17.thread" ]
   %.sroa.12.2 = phi i64 [ %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h222089a34671c7a0E.exit17.thread31" ], [ %.sroa.12.138, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h222089a34671c7a0E.exit17.thread" ]
-  %46 = icmp ult i64 %.sroa.5.2, %3
+  %46 = icmp samesign ult i64 %.sroa.5.2, %3
   br i1 %46, label %.lr.ph, label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h131a748485d30895E.exit._crit_edge"
 }
 
@@ -28966,7 +28966,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h68a2465c5a3f272f
 "_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17hd5cbb4a4f711d69cE.exit18": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hb0c7aa4780a6a859E.exit17.thread", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hb0c7aa4780a6a859E.exit17.thread31"
   %.sroa.5.2 = phi i64 [ %44, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hb0c7aa4780a6a859E.exit17.thread31" ], [ %45, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hb0c7aa4780a6a859E.exit17.thread" ]
   %.sroa.12.2 = phi i64 [ %43, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hb0c7aa4780a6a859E.exit17.thread31" ], [ %.sroa.12.138, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17hb0c7aa4780a6a859E.exit17.thread" ]
-  %46 = icmp ult i64 %.sroa.5.2, %3
+  %46 = icmp samesign ult i64 %.sroa.5.2, %3
   br i1 %46, label %.lr.ph, label %"_ZN4core3ptr60drop_in_place$LT$uv_normalize..package_name..PackageName$GT$17hd5cbb4a4f711d69cE.exit._crit_edge"
 }
 

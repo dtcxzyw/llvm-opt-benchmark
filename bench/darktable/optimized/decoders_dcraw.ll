@@ -9726,7 +9726,7 @@ define void @_ZN6LibRaw13sony_load_rawEv(ptr noundef nonnull align 8 dereference
   %36 = load i8, ptr %35, align 1, !tbaa !88
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %34, %37
-  %39 = icmp ugt i64 %indvars.iv.next, 22
+  %39 = icmp samesign ugt i64 %indvars.iv.next, 22
   br i1 %39, label %33, label %40, !llvm.loop !234
 
 40:                                               ; preds = %33

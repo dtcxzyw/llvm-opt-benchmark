@@ -27758,7 +27758,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN12_GLOBAL__N_17FAddendELb1EE9push_backES4_.
   %35 = add i32 %34, 1
   store i32 %35, ptr %20, align 8, !tbaa !136
   %36 = add nuw nsw i64 %indvars.iv95, 1
-  %37 = icmp ult i64 %36, %22
+  %37 = icmp samesign ult i64 %36, %22
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55, %_ZN4llvm23SmallVectorTemplateBaseIPKN12_GLOBAL__N_17FAddendELb1EE9push_backES4_.exit

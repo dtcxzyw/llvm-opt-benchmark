@@ -17204,7 +17204,7 @@ define dso_local void @_ZN4llvm18CodeGenSchedModels24verifyProcResourceGroupsERK
   %39 = load ptr, ptr %38, align 8, !tbaa !93
   call void @_ZNK4llvm6Record20getValueAsListOfDefsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.14") align 8 %6, ptr noundef nonnull align 8 dereferenceable(192) %39, ptr nonnull @.str.76, i64 9) #21
   %40 = add nuw nsw i64 %indvars.iv121, 1
-  %41 = icmp ult i64 %40, %30
+  %41 = icmp samesign ult i64 %40, %30
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit, %36

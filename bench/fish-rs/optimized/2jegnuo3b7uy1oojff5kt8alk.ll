@@ -3083,7 +3083,7 @@ define internal { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h69d3bfbf9
   call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %34 = add nuw nsw i64 %33, 1
   store i64 %34, ptr %2, align 8, !alias.scope !156, !noalias !168
-  %35 = icmp ult i64 %33, 20
+  %35 = icmp samesign ult i64 %33, 20
   call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw { [4 x i64] }, ptr %.sroa.5274.0..sroa_idx.i, i64 %33
   %.sroa.0.0.copyload.i = load ptr, ptr %36, align 8, !alias.scope !170
@@ -46821,7 +46821,7 @@ define internal fastcc void @_ZN4fish13topic_monitor12TopicMonitor20updated_gens
   %65 = phi i64 [ 0, %.lr.ph ], [ %75, %74 ]
   %66 = add nuw nsw i64 %65, 1
   store i64 %66, ptr %19, align 8, !alias.scope !4359
-  %67 = icmp ult i64 %65, 3
+  %67 = icmp samesign ult i64 %65, 3
   call void @llvm.assume(i1 %67)
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.512.0..sroa_idx, i64 %65
   %69 = load i8, ptr %68, align 1, !range !551, !alias.scope !4359, !noundef !4

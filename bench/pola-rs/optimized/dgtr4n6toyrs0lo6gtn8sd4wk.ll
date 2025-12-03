@@ -100601,7 +100601,7 @@ thread-pre-split:                                 ; preds = %91, %"_ZN11polars_p
   %22 = icmp samesign ult i64 %20, %21
   call void @llvm.assume(i1 %22)
   %23 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %24 = icmp ult i64 %19, 1152921504606846977
+  %24 = icmp samesign ult i64 %19, 1152921504606846977
   call void @llvm.assume(i1 %24)
   %25 = getelementptr inbounds nuw i64, ptr %23, i64 %20
   %26 = load i64, ptr %25, align 8, !noundef !4

@@ -945,7 +945,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   call void @ecp_nistz256_point_double(ptr noundef nonnull %205, ptr noundef nonnull %205) #7
   call void @ecp_nistz256_point_double(ptr noundef nonnull %205, ptr noundef nonnull %205) #7
   call void @ecp_nistz256_point_double(ptr noundef nonnull %205, ptr noundef nonnull %205) #7
-  %353 = icmp ugt i32 %352, 4
+  %353 = icmp samesign ugt i32 %352, 4
   br i1 %353, label %304, label %.preheader.i, !llvm.loop !43
 
 .preheader.i:                                     ; preds = %._crit_edge262.i, %.preheader.i

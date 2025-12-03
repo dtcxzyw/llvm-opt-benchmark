@@ -11967,7 +11967,7 @@ find_next_best_node.exit.thread:                  ; preds = %33, %36, %.thread5.
   store i32 %112, ptr %113, align 8
   %114 = load i32, ptr @policy_zone, align 4
   %115 = zext i32 %114 to i64
-  %116 = icmp ugt i64 %97, %115
+  %116 = icmp samesign ugt i64 %97, %115
   %117 = icmp ne i64 %97, 3
   %118 = and i1 %117, %116
   br i1 %118, label %119, label %121
@@ -12024,7 +12024,7 @@ find_next_best_node.exit.thread:                  ; preds = %33, %36, %.thread5.
   store i32 %151, ptr %152, align 8
   %153 = load i32, ptr @policy_zone, align 4
   %154 = zext i32 %153 to i64
-  %155 = icmp ugt i64 %136, %154
+  %155 = icmp samesign ugt i64 %136, %154
   %156 = icmp ne i64 %136, 3
   %157 = and i1 %156, %155
   br i1 %157, label %158, label %160

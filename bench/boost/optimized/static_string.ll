@@ -26200,7 +26200,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %15 = load i8, ptr %14, align 1, !tbaa !9, !noalias !221
   store i8 %15, ptr %.ptr8.i.i, align 1, !tbaa !9, !noalias !221
   %16 = udiv i32 %.12431.i.i.i, 10
-  %.not33.i.i.i = icmp ult i32 %.12431.i.i.i, 10
+  %.not33.i.i.i = icmp samesign ult i32 %.12431.i.i.i, 10
   br i1 %.not33.i.i.i, label %17, label %select.unfold.i.i, !llvm.loop !222
 
 17:                                               ; preds = %select.unfold.i.i
@@ -26426,7 +26426,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %14 = load i8, ptr %13, align 1, !tbaa !9, !noalias !238
   store i8 %14, ptr %.ptr8.i.i, align 1, !tbaa !9, !noalias !238
   %15 = udiv i64 %.12431.i.i.i, 10
-  %.not33.i.i.i = icmp ult i64 %.12431.i.i.i, 10
+  %.not33.i.i.i = icmp samesign ult i64 %.12431.i.i.i, 10
   br i1 %.not33.i.i.i, label %16, label %select.unfold.i.i, !llvm.loop !110
 
 16:                                               ; preds = %select.unfold.i.i
@@ -26807,7 +26807,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %14 = load i32, ptr %13, align 4, !tbaa !160, !noalias !269
   store i32 %14, ptr %.ptr8.i.i, align 4, !tbaa !160, !noalias !269
   %15 = udiv i32 %.12431.i.i.i, 10
-  %.not33.i.i.i = icmp ult i32 %.12431.i.i.i, 10
+  %.not33.i.i.i = icmp samesign ult i32 %.12431.i.i.i, 10
   br i1 %.not33.i.i.i, label %16, label %select.unfold.i.i, !llvm.loop !270
 
 16:                                               ; preds = %select.unfold.i.i
@@ -27037,7 +27037,7 @@ select.unfold.i.i:                                ; preds = %.preheader35.i.i.i,
   %13 = load i32, ptr %12, align 4, !tbaa !160, !noalias !290
   store i32 %13, ptr %.ptr8.i.i, align 4, !tbaa !160, !noalias !290
   %14 = udiv i64 %.12431.i.i.i, 10
-  %.not33.i.i.i = icmp ult i64 %.12431.i.i.i, 10
+  %.not33.i.i.i = icmp samesign ult i64 %.12431.i.i.i, 10
   br i1 %.not33.i.i.i, label %15, label %select.unfold.i.i, !llvm.loop !172
 
 15:                                               ; preds = %select.unfold.i.i

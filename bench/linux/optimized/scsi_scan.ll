@@ -844,7 +844,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 123:                                              ; preds = %122, %.loopexit
   %124 = add nsw i32 %113, -1
   %125 = getelementptr i8, ptr %114, i64 1
-  %126 = icmp ugt i32 %113, 1
+  %126 = icmp samesign ugt i32 %113, 1
   br i1 %126, label %.loopexit, label %.preheader25, !llvm.loop !14
 
 .preheader25:                                     ; preds = %123, %138
@@ -867,7 +867,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 138:                                              ; preds = %137, %.preheader25
   %139 = add nsw i32 %128, -1
   %140 = getelementptr i8, ptr %129, i64 1
-  %141 = icmp ugt i32 %128, 1
+  %141 = icmp samesign ugt i32 %128, 1
   br i1 %141, label %.preheader25, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %138, %153
@@ -890,7 +890,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 153:                                              ; preds = %152, %.preheader
   %154 = add nsw i32 %143, -1
   %155 = getelementptr i8, ptr %144, i64 1
-  %156 = icmp ugt i32 %143, 1
+  %156 = icmp samesign ugt i32 %143, 1
   br i1 %156, label %.preheader, label %157, !llvm.loop !14
 
 157:                                              ; preds = %153

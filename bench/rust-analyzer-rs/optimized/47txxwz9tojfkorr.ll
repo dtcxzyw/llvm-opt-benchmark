@@ -960,7 +960,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree5split178_$LT$impl$u20$
   %.sroa.612.0.i = phi i64 [ %.sroa.612.0.i.be, %"_ZN5alloc11collections5btree8navigate178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11calc_length28_$u7b$$u7b$closure$u7d$$u7d$17h838759d206689d4cE.exit79.i.backedge" ], [ %7, %9 ]
   %.sroa.7.0.i = phi i64 [ %.sroa.7.0.i.be, %"_ZN5alloc11collections5btree8navigate178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11calc_length28_$u7b$$u7b$closure$u7d$$u7d$17h838759d206689d4cE.exit79.i.backedge" ], [ 0, %9 ]
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 104
-  %16 = icmp ult i64 %.sroa.7.0.i, 12
+  %16 = icmp samesign ult i64 %.sroa.7.0.i, 12
   tail call void @llvm.assume(i1 %16)
   %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %.sroa.7.0.i
   %18 = load ptr, ptr %17, align 8, !noalias !144, !nonnull !4, !noundef !4
@@ -1031,7 +1031,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree5split178_$LT$impl$u20$
   %.sroa.612.0.i14 = phi i64 [ %.sroa.612.0.i14.be, %"_ZN5alloc11collections5btree8navigate178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11calc_length28_$u7b$$u7b$closure$u7d$$u7d$17h838759d206689d4cE.exit79.i12.backedge" ], [ %5, %38 ]
   %.sroa.7.0.i15 = phi i64 [ %.sroa.7.0.i15.be, %"_ZN5alloc11collections5btree8navigate178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11calc_length28_$u7b$$u7b$closure$u7d$$u7d$17h838759d206689d4cE.exit79.i12.backedge" ], [ 0, %38 ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i13, i64 104
-  %45 = icmp ult i64 %.sroa.7.0.i15, 12
+  %45 = icmp samesign ult i64 %.sroa.7.0.i15, 12
   tail call void @llvm.assume(i1 %45)
   %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %.sroa.7.0.i15
   %47 = load ptr, ptr %46, align 8, !noalias !154, !nonnull !4, !noundef !4
@@ -1323,7 +1323,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h6f6d55eec4473bdaE.exit.i: ; p
   %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %76
   %79 = load ptr, ptr %78, align 8, !noalias !210, !nonnull !4, !noundef !4
   %80 = add i64 %75, -1
-  %81 = icmp ult i16 %.in.in.i, 12
+  %81 = icmp samesign ult i16 %.in.in.i, 12
   tail call void @llvm.assume(i1 %81)
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %83 = load ptr, ptr %82, align 8, !noalias !210, !nonnull !4, !noundef !4
@@ -2100,7 +2100,7 @@ default.unreachable.i34.i:                        ; preds = %"_ZN110_$LT$core..i
   %.sroa.992.0 = phi i64 [ 3, %71 ], [ %.sroa.03.0163, %.lr.ph.preheader ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h329998435239fe20E.exit.i.i" ], [ 1, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h329998435239fe20E.exit.i26.i" ], [ 0, %56 ], [ 3, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf27ebbcfb88760c3E.exit.loopexit" ], [ 1, %67 ], [ 2, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf27ebbcfb88760c3E.exit.loopexit280" ]
   %.sroa.16.1 = phi ptr [ %.sroa.16.0156, %71 ], [ %.sroa.16.0156, %.lr.ph.preheader ], [ %.sroa.54.0162, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h329998435239fe20E.exit.i.i" ], [ %.sroa.54.0162, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h329998435239fe20E.exit.i26.i" ], [ %.sroa.54.0162, %56 ], [ %.sroa.16.0156, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf27ebbcfb88760c3E.exit.loopexit" ], [ %.sroa.54.0162, %67 ], [ %.sroa.16.0156, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf27ebbcfb88760c3E.exit.loopexit280" ]
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.014.0157, i64 104
-  %76 = icmp ult i64 %.sroa.619.0165, 12
+  %76 = icmp samesign ult i64 %.sroa.619.0165, 12
   call void @llvm.assume(i1 %76)
   %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %.sroa.619.0165
   %78 = load ptr, ptr %77, align 8, !nonnull !4, !noundef !4
@@ -2131,7 +2131,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate178_$LT$impl$u20$alloc
   %.sroa.612.0 = phi i64 [ %.sroa.612.0.be, %"_ZN5alloc11collections5btree8navigate178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11calc_length28_$u7b$$u7b$closure$u7d$$u7d$17h838759d206689d4cE.exit79.backedge" ], [ %1, %3 ]
   %.sroa.7.0 = phi i64 [ %.sroa.7.0.be, %"_ZN5alloc11collections5btree8navigate178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11calc_length28_$u7b$$u7b$closure$u7d$$u7d$17h838759d206689d4cE.exit79.backedge" ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.09.0, i64 104
-  %11 = icmp ult i64 %.sroa.7.0, 12
+  %11 = icmp samesign ult i64 %.sroa.7.0, 12
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.7.0
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4

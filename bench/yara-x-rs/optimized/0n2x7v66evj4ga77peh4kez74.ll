@@ -3709,7 +3709,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   %.sink10.i.i.i.i.i = select i1 %33, i64 %36, i64 %32
   %37 = add i64 %.sroa.8.0298, 1
   store i64 %.sroa.8.0298, ptr %11, align 8
-  %38 = icmp ult i64 %.sroa.8.0298, 2147483647
+  %38 = icmp samesign ult i64 %.sroa.8.0298, 2147483647
   %39 = trunc nuw nsw i64 %.sroa.8.0298 to i32
   %.sroa.6.0 = select i1 %38, i32 %39, i32 undef
   %exitcond.not = icmp eq i64 %.sroa.8.0298, 2147483647

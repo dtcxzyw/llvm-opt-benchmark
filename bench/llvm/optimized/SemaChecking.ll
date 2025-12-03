@@ -42514,7 +42514,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang17FunctionProtoTypeEEPKNS1_12FunctionTypeEEEbR
 .lr.ph.i.i253:                                    ; preds = %616, %637
   %.02230.i.i = phi i32 [ %638, %637 ], [ %.pre, %616 ]
   %.02329.i.i = phi i32 [ %639, %637 ], [ 1, %616 ]
-  %626 = icmp ult i32 %.02230.i.i, 100
+  %626 = icmp samesign ult i32 %.02230.i.i, 100
   br i1 %626, label %627, label %629
 
 627:                                              ; preds = %.lr.ph.i.i253
@@ -42522,7 +42522,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang17FunctionProtoTypeEEPKNS1_12FunctionTypeEEEbR
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 629:                                              ; preds = %.lr.ph.i.i253
-  %630 = icmp ult i32 %.02230.i.i, 1000
+  %630 = icmp samesign ult i32 %.02230.i.i, 1000
   br i1 %630, label %631, label %633
 
 631:                                              ; preds = %629
@@ -42530,7 +42530,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang17FunctionProtoTypeEEPKNS1_12FunctionTypeEEEbR
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 633:                                              ; preds = %629
-  %634 = icmp ult i32 %.02230.i.i, 10000
+  %634 = icmp samesign ult i32 %.02230.i.i, 10000
   br i1 %634, label %635, label %637
 
 635:                                              ; preds = %633
@@ -42540,7 +42540,7 @@ _ZN4llvm15isa_and_nonnullIJN5clang17FunctionProtoTypeEEPKNS1_12FunctionTypeEEEbR
 637:                                              ; preds = %633
   %638 = udiv i32 %.02230.i.i, 10000
   %639 = add i32 %.02329.i.i, 4
-  %640 = icmp ult i32 %.02230.i.i, 100000
+  %640 = icmp samesign ult i32 %.02230.i.i, 100000
   br i1 %640, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i253, !llvm.loop !1596
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %637, %616, %635, %631, %627
@@ -42577,7 +42577,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %637, %616, %635, %6
   %659 = getelementptr inbounds nuw i8, ptr %642, i64 %658
   store i8 %656, ptr %659, align 1, !tbaa !1035
   %660 = add i32 %.01819.i.i, -2
-  %661 = icmp ugt i32 %.020.i.i, 9999
+  %661 = icmp samesign ugt i32 %.020.i.i, 9999
   br i1 %661, label %.lr.ph.i2.i, label %._crit_edge.i.i, !llvm.loop !1597
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i2.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i

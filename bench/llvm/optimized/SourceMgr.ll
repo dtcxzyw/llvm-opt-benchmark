@@ -2991,7 +2991,7 @@ _ZN4llvm6any_ofIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFbcEEEbOT
   %248 = trunc i64 %247 to i32
   %.039.i = select i1 %245, i32 0, i32 %248
   %249 = zext i32 %.039.i to i64
-  %250 = icmp ugt i64 %.03568.i, %249
+  %250 = icmp samesign ugt i64 %.03568.i, %249
   %251 = trunc nuw i64 %.03568.i to i32
   %252 = add i32 %251, 1
   %.038.i = select i1 %250, i32 %252, i32 %.039.i

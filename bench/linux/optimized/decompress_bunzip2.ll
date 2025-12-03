@@ -778,7 +778,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @get_next_block(ptr noundef 
   %150 = getelementptr i8, ptr %2, i64 %147
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
-  %153 = icmp ult i32 %148, %152
+  %153 = icmp samesign ult i32 %148, %152
   %154 = tail call i32 @llvm.smin.i32(i32 %149, i32 %152)
   %155 = select i1 %153, i32 %149, i32 %154
   %156 = tail call i32 @llvm.smax.i32(i32 %148, i32 %152)

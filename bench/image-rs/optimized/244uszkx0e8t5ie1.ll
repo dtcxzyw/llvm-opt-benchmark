@@ -11700,7 +11700,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread63.
 
 178:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %179 = icmp ugt i64 %.sroa.8.0206, 65535
+  %179 = icmp samesign ugt i64 %.sroa.8.0206, 65535
   br i1 %179, label %180, label %181
 
 180:                                              ; preds = %178
@@ -11786,7 +11786,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread63.
 
 206:                                              ; preds = %.lr.ph
   %207 = add i64 %.096202, 1
-  %208 = icmp ugt i64 %.sroa.7136.0200, 65535
+  %208 = icmp samesign ugt i64 %.sroa.7136.0200, 65535
   %209 = trunc nuw i64 %.sroa.7136.0200 to i16
   br i1 %208, label %210, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h74ff3933f176a277E.exit135"
 
@@ -16300,7 +16300,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5image6codecs4webp3vp819Vp8Decode
   %.sroa.08.0119 = phi i64 [ %., %8 ], [ %27, %.backedge ]
   %.043118 = phi i1 [ false, %8 ], [ %.043.be, %.backedge ]
   %27 = add nuw nsw i64 %.sroa.08.0119, 1
-  %28 = icmp ult i64 %.0121, 3
+  %28 = icmp samesign ult i64 %.0121, 3
   br i1 %28, label %29, label %35, !prof !828
 
 29:                                               ; preds = %26

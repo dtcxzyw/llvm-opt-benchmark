@@ -15278,7 +15278,7 @@ _mi_strlcpy.exit:                                 ; preds = %.lr.ph.i
   %14 = add nsw i64 %.017.i, -1
   %15 = load i8, ptr %13, align 1, !tbaa !54
   %16 = icmp ne i8 %15, 0
-  %17 = icmp ugt i64 %14, 1
+  %17 = icmp samesign ugt i64 %14, 1
   %18 = select i1 %16, i1 %17, i1 false
   br i1 %18, label %.lr.ph.i40, label %.preheader.i.i, !llvm.loop !221
 
@@ -15345,7 +15345,7 @@ _mi_strlcat.exit:                                 ; preds = %_mi_strlcpy.exit, %
   %40 = add nsw i64 %.017.i61, -1
   %41 = load i8, ptr %39, align 1, !tbaa !54
   %42 = icmp ne i8 %41, 0
-  %43 = icmp ugt i64 %40, 1
+  %43 = icmp samesign ugt i64 %40, 1
   %44 = select i1 %42, i1 %43, i1 false
   br i1 %44, label %.lr.ph.i60, label %.preheader.i.i50, !llvm.loop !221
 

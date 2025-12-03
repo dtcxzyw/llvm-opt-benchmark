@@ -3907,7 +3907,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11Lut1DOpData21initializeFromForward
 
 82:                                               ; preds = %84, %.critedge6
   %.0169 = phi i64 [ 64511, %.critedge6 ], [ %85, %84 ]
-  %83 = icmp ugt i64 %.0169, 32768
+  %83 = icmp samesign ugt i64 %.0169, 32768
   br i1 %83, label %84, label %.critedge8
 
 84:                                               ; preds = %82

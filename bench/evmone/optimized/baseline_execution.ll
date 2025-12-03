@@ -1698,7 +1698,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i:         ; preds = %479, %470
   %505 = getelementptr inbounds nuw i64, ptr %472, i64 %.026.i
   store i64 %503, ptr %505, align 8, !tbaa !3
   %506 = add nsw i64 %.026.i, -1
-  %507 = icmp ugt i64 %506, %491
+  %507 = icmp samesign ugt i64 %506, %491
   br i1 %507, label %.lr.ph.i, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE11EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !llvm.loop !195
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE11EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %.lr.ph.i, %489, %_ZN4intxltERKNS_4uintILj256EEES3_.exit.i
@@ -10150,7 +10150,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i:         ; preds = %466, %457
   %492 = getelementptr inbounds nuw i64, ptr %459, i64 %.026.i
   store i64 %490, ptr %492, align 8, !tbaa !3
   %493 = add nsw i64 %.026.i, -1
-  %494 = icmp ugt i64 %493, %478
+  %494 = icmp samesign ugt i64 %493, %478
   br i1 %494, label %.lr.ph.i, label %.loopexit, !llvm.loop !195
 
 .loopexit:                                        ; preds = %.lr.ph.i, %_ZN4intxltERKNS_4uintILj256EEES3_.exit.i, %476
@@ -18623,7 +18623,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i:         ; preds = %459, %450
   %485 = getelementptr inbounds nuw i64, ptr %452, i64 %.026.i
   store i64 %483, ptr %485, align 8, !tbaa !3
   %486 = add nsw i64 %.026.i, -1
-  %487 = icmp ugt i64 %486, %471
+  %487 = icmp samesign ugt i64 %486, %471
   br i1 %487, label %.lr.ph.i, label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE11EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit, !llvm.loop !195
 
 _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE11EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %.lr.ph.i, %469, %_ZN4intxltERKNS_4uintILj256EEES3_.exit.i

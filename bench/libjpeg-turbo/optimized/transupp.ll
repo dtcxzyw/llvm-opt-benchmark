@@ -5880,7 +5880,7 @@ define internal fastcc void @do_flip_h_no_crop(ptr noundef %0, ptr noundef reado
 51:                                               ; preds = %54
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %52 = shl nuw i64 %indvars.iv.next116, 1
-  %53 = icmp ult i64 %52, %29
+  %53 = icmp samesign ult i64 %52, %29
   br i1 %53, label %44, label %._crit_edge.us.us.us, !llvm.loop !240
 
 54:                                               ; preds = %54, %44
@@ -5942,7 +5942,7 @@ define internal fastcc void @do_flip_h_no_crop(ptr noundef %0, ptr noundef reado
 83:                                               ; preds = %86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = shl nuw i64 %indvars.iv.next, 1
-  %85 = icmp ult i64 %84, %29
+  %85 = icmp samesign ult i64 %84, %29
   br i1 %85, label %76, label %._crit_edge.us.us, !llvm.loop !240
 
 86:                                               ; preds = %86, %76

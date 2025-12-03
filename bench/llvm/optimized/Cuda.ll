@@ -3170,7 +3170,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 .preheader:                                       ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit222, %924
   %.090745 = phi i32 [ %925, %924 ], [ 4, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit222 ]
   %895 = add nsw i32 %.090745, -2
-  %896 = icmp ult i32 %895, 23
+  %896 = icmp samesign ult i32 %895, 23
   br i1 %896, label %897, label %924
 
 897:                                              ; preds = %.preheader

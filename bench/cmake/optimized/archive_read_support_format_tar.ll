@@ -2761,7 +2761,7 @@ define internal fastcc i64 @tar_atol(ptr noundef nonnull readonly captures(none)
   %12 = add nsw i64 %.02638.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.02239.i, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !4
-  %15 = icmp ugt i64 %12, 8
+  %15 = icmp samesign ugt i64 %12, 8
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !90
 
 ._crit_edge.i:                                    ; preds = %11, %4

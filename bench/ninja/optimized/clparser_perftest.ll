@@ -229,7 +229,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
 
 79:                                               ; preds = %67
   %80 = shl nuw nsw i32 %.034112, 1
-  %81 = icmp ult i32 %.034112, 524288
+  %81 = icmp samesign ult i32 %.034112, 524288
   br i1 %81, label %24, label %.thread73, !llvm.loop !27
 
 82:                                               ; preds = %77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52, %28

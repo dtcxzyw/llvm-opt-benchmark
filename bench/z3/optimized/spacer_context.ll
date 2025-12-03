@@ -17048,7 +17048,7 @@ _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit:        ; preds = %_ZNK6spacer16pred_t
   %138 = getelementptr inbounds i8, ptr %137, i64 -4
   %139 = load i32, ptr %138, align 4, !tbaa !100
   %140 = zext i32 %139 to i64
-  %141 = icmp ult i64 %indvars.iv, %140
+  %141 = icmp samesign ult i64 %indvars.iv, %140
   br i1 %141, label %151, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit, %239, %_ZNK6spacer16pred_transformer17find_predecessorsERKN7datalog4ruleER10ptr_vectorI9func_declE.exit

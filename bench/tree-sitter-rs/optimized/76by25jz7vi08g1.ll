@@ -42706,7 +42706,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %255 = ptrtoint ptr %.sroa.0110.0.i to i64
   %256 = sub nuw i64 %248, %255
   %257 = lshr exact i64 %256, 5
-  %.not.i.i.not.i = icmp ult i64 %.sroa.10.0.i, %257
+  %.not.i.i.not.i = icmp samesign ult i64 %.sroa.10.0.i, %257
   %258 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.sroa.0110.0.i, i64 %.sroa.10.0.i
   br i1 %.not.i.i.not.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h172a3aa15bfd6183E.exit.thread145.i", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h172a3aa15bfd6183E.exit.thread.i"
 

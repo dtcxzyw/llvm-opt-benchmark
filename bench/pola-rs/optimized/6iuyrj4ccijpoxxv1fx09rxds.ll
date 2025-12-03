@@ -51450,7 +51450,7 @@ define hidden void @_ZN13polars_stream14async_executor10task_scope17h7da1e110c28
   %79 = icmp samesign ult i64 %77, %78
   call void @llvm.assume(i1 %79)
   %80 = load ptr, ptr %66, align 8, !noalias !4654, !nonnull !4, !noundef !4
-  %81 = icmp ult i64 %76, 1152921504606846977
+  %81 = icmp samesign ult i64 %76, 1152921504606846977
   call void @llvm.assume(i1 %81)
   %82 = getelementptr inbounds nuw { { i32, i32 } }, ptr %80, i64 %77
   %83 = load i32, ptr %82, align 4, !range !4662, !noalias !4654, !noundef !4

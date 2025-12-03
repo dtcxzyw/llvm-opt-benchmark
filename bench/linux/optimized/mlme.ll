@@ -10387,7 +10387,7 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
 
 295:                                              ; preds = %274, %281
   %296 = add nsw i32 %275, -1
-  %297 = icmp ugt i32 %275, 1
+  %297 = icmp samesign ugt i32 %275, 1
   br i1 %297, label %274, label %.loopexit96, !llvm.loop !212
 
 .loopexit96:                                      ; preds = %295, %267, %265

@@ -33240,7 +33240,7 @@ _ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit: ; preds =
   %33 = getelementptr inbounds nuw i8, ptr %.15491.i.i.i.i, i64 4
   %34 = add nuw nsw i64 %.092.i.i.i.i, 1
   %35 = add nuw nsw i64 %34, %.052.lcssa.i.i.i.i
-  %36 = icmp ugt i64 %35, 16
+  %36 = icmp samesign ugt i64 %35, 16
   %37 = icmp eq ptr %33, %16
   %or.cond66.i.i.i.i = select i1 %36, i1 true, i1 %37
   br i1 %or.cond66.i.i.i.i, label %._crit_edge.i.i.i.i, label %38
@@ -33258,7 +33258,7 @@ _ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit: ; preds =
   %45 = getelementptr inbounds nuw i8, ptr %.15491.i.i.i.i, i64 8
   %46 = add nuw nsw i64 %.092.i.i.i.i, 2
   %47 = add nuw nsw i64 %46, %.052.lcssa.i.i.i.i
-  %48 = icmp ugt i64 %47, 16
+  %48 = icmp samesign ugt i64 %47, 16
   %49 = icmp eq ptr %45, %16
   %or.cond69.i.i.i.i = select i1 %48, i1 true, i1 %49
   br i1 %or.cond69.i.i.i.i, label %._crit_edge.i.i.i.i, label %50
@@ -33276,7 +33276,7 @@ _ZN5boost6spirit2qi13real_policiesIdE10parse_signIPKwEEbRT_RKS7_.exit: ; preds =
   %57 = getelementptr inbounds nuw i8, ptr %.15491.i.i.i.i, i64 12
   %58 = add nuw nsw i64 %.092.i.i.i.i, 3
   %59 = add nuw nsw i64 %58, %.052.lcssa.i.i.i.i
-  %60 = icmp ugt i64 %59, 16
+  %60 = icmp samesign ugt i64 %59, 16
   %61 = icmp eq ptr %57, %16
   %or.cond63.i.i.i.i = select i1 %60, i1 true, i1 %61
   br i1 %or.cond63.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph93.i.i.i.i, !llvm.loop !331

@@ -166920,7 +166920,7 @@ define void @_ZN11polars_plan6client18prepare_cloud_plan17hbd34b8843369021eE(ptr
   %84 = icmp samesign ult i64 %82, %83
   call void @llvm.assume(i1 %84)
   %85 = load ptr, ptr %75, align 8, !alias.scope !26508, !noalias !26477, !nonnull !8, !noundef !8
-  %86 = icmp ult i64 %81, 1152921504606846977
+  %86 = icmp samesign ult i64 %81, 1152921504606846977
   call void @llvm.assume(i1 %86)
   %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %82
   %88 = load ptr, ptr %87, align 8, !noalias !26510, !nonnull !8, !align !1844, !noundef !8

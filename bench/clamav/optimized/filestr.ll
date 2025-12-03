@@ -465,7 +465,7 @@ _ZN5ArrayIwE5AllocEm.exit173:                     ; preds = %152, %163, %154
   %182 = getelementptr inbounds nuw i32, ptr %.sroa.0.6, i64 %181
   store i32 %179, ptr %182, align 4, !tbaa !3
   %183 = add nuw nsw i64 %.099371, 2
-  %184 = icmp ult i64 %183, %165
+  %184 = icmp samesign ult i64 %183, %165
   br i1 %184, label %173, label %._crit_edge, !llvm.loop !19
 
 _Z18DetectTextEncodingPKhm.exit.thread301.thread329: ; preds = %.noexc145, %_Z18DetectTextEncodingPKhm.exit.thread301

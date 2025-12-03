@@ -6084,7 +6084,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sd_sync_cache(ptr noundef 
   %28 = icmp ne i32 %27, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = add nsw i32 %21, -1
-  %30 = icmp ugt i32 %21, 1
+  %30 = icmp samesign ugt i32 %21, 1
   %31 = select i1 %28, i1 %30, i1 false
   br i1 %31, label %20, label %32, !llvm.loop !35
 

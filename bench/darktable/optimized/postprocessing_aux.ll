@@ -1967,7 +1967,7 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   %191 = zext nneg i16 %189 to i32
   %192 = lshr i32 4, %191
   %193 = mul i32 %192, %168
-  %194 = icmp ult i32 %190, %193
+  %194 = icmp samesign ult i32 %190, %193
   br i1 %194, label %180, label %._crit_edge276.us, !llvm.loop !146
 
 195:                                              ; preds = %.lr.ph271.us, %220
@@ -2013,7 +2013,7 @@ define void @_ZN6LibRaw18recover_highlightsEv(ptr noundef nonnull align 8 derefe
   %224 = zext nneg i16 %222 to i32
   %225 = lshr i32 4, %224
   %226 = mul i32 %225, %229
-  %227 = icmp ult i32 %223, %226
+  %227 = icmp samesign ult i32 %223, %226
   br i1 %227, label %195, label %._crit_edge272.us, !llvm.loop !147
 
 .lr.ph271.us:                                     ; preds = %180

@@ -1143,7 +1143,7 @@ HashObject.exit:                                  ; preds = %14
   %68 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !27
   %69 = add nsw i32 %.01827.i.i, -8
-  %70 = icmp ugt i32 %69, 7
+  %70 = icmp samesign ugt i32 %69, 7
   br i1 %70, label %.lr.ph29.i.i, label %.lr.ph35.i.i, !llvm.loop !45
 
 .lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph35.i.i
@@ -1824,7 +1824,7 @@ define void @wolfSSL_CTX_flush_sessions(ptr noundef readnone captures(none) %0, 
   %28 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !27
   %29 = add nsw i32 %.01827.i.i, -8
-  %30 = icmp ugt i32 %29, 7
+  %30 = icmp samesign ugt i32 %29, 7
   br i1 %30, label %.lr.ph29.i.i, label %.lr.ph35.i.i, !llvm.loop !45
 
 .lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph35.i.i
@@ -6771,7 +6771,7 @@ define range(i32 -241, 2) i32 @wolfSSL_Cleanup() local_unnamed_addr #0 {
   %27 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !27
   %28 = add nsw i32 %.01827.i.i, -8
-  %29 = icmp ugt i32 %28, 7
+  %29 = icmp samesign ugt i32 %28, 7
   br i1 %29, label %.lr.ph29.i.i, label %.lr.ph35.i.i, !llvm.loop !45
 
 .lr.ph35.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph35.i.i

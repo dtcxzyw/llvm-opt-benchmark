@@ -1228,7 +1228,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @build_decrypt_array(ptr nounde
   store i32 %36, ptr %37, align 4, !tbaa !16
   %38 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next142
   store i32 %36, ptr %38, align 4, !tbaa !16
-  %39 = icmp ugt i32 %.093126, 15
+  %39 = icmp samesign ugt i32 %.093126, 15
   br i1 %39, label %40, label %58
 
 40:                                               ; preds = %30

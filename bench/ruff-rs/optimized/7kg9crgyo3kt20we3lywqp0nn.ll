@@ -577,7 +577,7 @@ _ZN5alloc5slice11stable_sort17h47ddf444397b7814E.exit.i: ; preds = %27, %26
 62:                                               ; preds = %60, %57
   %63 = phi i64 [ %61, %60 ], [ %59, %57 ]
   %64 = phi i64 [ %48, %60 ], [ %58, %57 ]
-  %65 = icmp ult i64 %63, %.pr.i
+  %65 = icmp samesign ult i64 %63, %.pr.i
   br i1 %65, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 66:                                               ; preds = %46

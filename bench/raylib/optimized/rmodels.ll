@@ -2043,7 +2043,7 @@ is_line_ending.exit.thread:                       ; preds = %.lr.ph, %.lr.ph, %3
 
 44:                                               ; preds = %.lr.ph534
   %45 = add nuw nsw i64 %indvars.iv597, 1
-  %46 = icmp ult i64 %45, %41
+  %46 = icmp samesign ult i64 %45, %41
   br i1 %46, label %47, label %is_line_ending.exit444
 
 47:                                               ; preds = %44

@@ -252,7 +252,7 @@ _ZL9schubfachim.exit:                             ; preds = %37, %149, %160
   %187 = load i16, ptr %186, align 2
   store i16 %187, ptr %182, align 1
   %188 = udiv i64 %.01922.i, 10000
-  %189 = icmp ugt i64 %.01922.i, 99999999
+  %189 = icmp samesign ugt i64 %.01922.i, 99999999
   br i1 %189, label %.lr.ph.i, label %._crit_edge.i78, !llvm.loop !10
 
 ._crit_edge.i78:                                  ; preds = %.lr.ph.i, %_ZL9schubfachim.exit

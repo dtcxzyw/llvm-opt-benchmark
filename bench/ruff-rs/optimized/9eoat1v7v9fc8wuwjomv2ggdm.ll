@@ -334,7 +334,7 @@ default.unreachable:                              ; preds = %.noexc121.i, %.noex
   %.sroa.092.0227.i = phi i64 [ %.sroa.0141.0.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17h24e2ac158018f3ffE.exit.i" ], [ %.sroa.095.0.i.i, %.preheader.i ]
   %.sroa.16.0226.i = phi ptr [ %.sroa.16.1.i, %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17h24e2ac158018f3ffE.exit.i" ], [ undef, %.preheader.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0230.i, i64 720
-  %51 = icmp ult i64 %.sroa.092.0227.i, 12
+  %51 = icmp samesign ult i64 %.sroa.092.0227.i, 12
   call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %.sroa.092.0227.i
   %53 = load ptr, ptr %52, align 8, !noalias !40, !nonnull !4, !noundef !4

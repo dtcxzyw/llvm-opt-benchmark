@@ -736,7 +736,7 @@ ecp_nistz256_bignum_to_field_elem.exit.thread.i:  ; preds = %196, %188, %._crit_
   call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #7
   call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #7
   call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #7
-  %285 = icmp ugt i32 %284, 4
+  %285 = icmp samesign ugt i32 %284, 4
   br i1 %285, label %239, label %286, !llvm.loop !28
 
 286:                                              ; preds = %283

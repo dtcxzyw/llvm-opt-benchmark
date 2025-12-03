@@ -1559,7 +1559,7 @@ define hidden void @_ZN11hb_buffer_t21delete_glyphs_inplaceEPFbPK15hb_glyph_info
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = add nuw nsw i64 %indvars.iv54, 1
-  %18 = icmp ult i64 %17, %7
+  %18 = icmp samesign ult i64 %17, %7
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %12

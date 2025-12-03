@@ -276,7 +276,7 @@ define dso_local i32 @__register_blkdev(i32 noundef %0, ptr noundef %1, ptr noun
 
 10:                                               ; preds = %.preheader
   %11 = add nsw i32 %5, -1
-  %12 = icmp ugt i32 %5, 1
+  %12 = icmp samesign ugt i32 %5, 1
   br i1 %12, label %.preheader, label %13, !llvm.loop !9
 
 13:                                               ; preds = %10

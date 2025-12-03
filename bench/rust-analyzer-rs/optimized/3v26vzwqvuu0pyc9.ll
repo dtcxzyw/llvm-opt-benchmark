@@ -1508,7 +1508,7 @@ _ZN8lz4_flex5block9hashtable11HashTable4K3new17h38d5fc5553627a54E.exit.i: ; pred
   store i32 %75, ptr %74, align 4, !noalias !234
   %76 = add nuw nsw i64 %.02.i.i, 3
   %77 = add nuw nsw i64 %.02.i.i, 11
-  %.not.i.i = icmp ugt i64 %77, %.sroa.9.0.i
+  %.not.i.i = icmp samesign ugt i64 %77, %.sroa.9.0.i
   br i1 %.not.i.i, label %_ZN8lz4_flex5block8compress9init_dict17h348ff7f8f1aa90a5E.exit.i, label %70
 
 78:                                               ; preds = %35
@@ -1601,7 +1601,7 @@ _ZN8lz4_flex5block9hashtable14HashTable4KU163new17hea4dcbfbe9d4a03dE.exit.i: ; p
   store i16 %112, ptr %111, align 2, !noalias !255
   %113 = add nuw nsw i64 %.02.i11.i, 3
   %114 = add nuw nsw i64 %.02.i11.i, 11
-  %.not.i13.i = icmp ugt i64 %114, %.sroa.9.2.i
+  %.not.i13.i = icmp samesign ugt i64 %114, %.sroa.9.2.i
   br i1 %.not.i13.i, label %_ZN8lz4_flex5block8compress9init_dict17h17cfb7df0eb34f5cE.exit.i, label %106
 
 115:                                              ; preds = %_ZN8lz4_flex5block8compress9init_dict17h348ff7f8f1aa90a5E.exit.i

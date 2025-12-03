@@ -107759,7 +107759,7 @@ thread-pre-split:                                 ; preds = %445, %414, %_ZN4cor
   %301 = icmp samesign ult i64 %299, %300
   call void @llvm.assume(i1 %301)
   %302 = load ptr, ptr %185, align 8, !nonnull !7, !noundef !7
-  %303 = icmp ult i64 %298, 576460752303423489
+  %303 = icmp samesign ult i64 %298, 576460752303423489
   call void @llvm.assume(i1 %303)
   %304 = getelementptr inbounds nuw { i64, i64 }, ptr %302, i64 %299
   %305 = load i64, ptr %304, align 8, !noundef !7

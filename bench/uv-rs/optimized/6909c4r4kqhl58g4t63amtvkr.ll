@@ -1163,7 +1163,7 @@ define hidden void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..colle
   %not. = xor i1 %7, true
   %8 = zext i1 %not. to i64
   %spec.select8 = add nuw nsw i64 %.sroa.0.011, %8
-  %9 = icmp ult i64 %.sroa.0.011, 12
+  %9 = icmp samesign ult i64 %.sroa.0.011, 12
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.sroa.0.011
   %11 = load ptr, ptr %10, align 8, !noalias !122, !nonnull !12, !noundef !12
@@ -1202,7 +1202,7 @@ define hidden void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..colle
   %not. = xor i1 %7, true
   %8 = zext i1 %not. to i64
   %spec.select8 = add nuw nsw i64 %.sroa.0.011, %8
-  %9 = icmp ult i64 %.sroa.0.011, 12
+  %9 = icmp samesign ult i64 %.sroa.0.011, 12
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.sroa.0.011
   %11 = load ptr, ptr %10, align 8, !noalias !128, !nonnull !12, !noundef !12
@@ -1241,7 +1241,7 @@ define hidden void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..colle
   %not. = xor i1 %7, true
   %8 = zext i1 %not. to i64
   %spec.select8 = add nuw nsw i64 %.sroa.0.011, %8
-  %9 = icmp ult i64 %.sroa.0.011, 12
+  %9 = icmp samesign ult i64 %.sroa.0.011, 12
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.sroa.0.011
   %11 = load ptr, ptr %10, align 8, !noalias !134, !nonnull !12, !noundef !12
@@ -1280,7 +1280,7 @@ define hidden void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..colle
   %not. = xor i1 %7, true
   %8 = zext i1 %not. to i64
   %spec.select8 = add nuw nsw i64 %.sroa.0.011, %8
-  %9 = icmp ult i64 %.sroa.0.011, 12
+  %9 = icmp samesign ult i64 %.sroa.0.011, 12
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.sroa.0.011
   %11 = load ptr, ptr %10, align 8, !noalias !140, !nonnull !12, !noundef !12
@@ -1319,7 +1319,7 @@ define hidden void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..colle
   %not. = xor i1 %7, true
   %8 = zext i1 %not. to i64
   %spec.select8 = add nuw nsw i64 %.sroa.0.011, %8
-  %9 = icmp ult i64 %.sroa.0.011, 12
+  %9 = icmp samesign ult i64 %.sroa.0.011, 12
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.sroa.0.011
   %11 = load ptr, ptr %10, align 8, !noalias !146, !nonnull !12, !noundef !12

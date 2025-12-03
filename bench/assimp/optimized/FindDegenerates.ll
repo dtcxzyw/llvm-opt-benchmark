@@ -553,7 +553,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %12, %2
   %.0 = select i1 %66, i32 %.sroa.speculated, i32 %37
   %69 = add nuw nsw i64 %indvars.iv200, 1
   %70 = zext i32 %.0 to i64
-  %.not112170 = icmp ult i64 %69, %70
+  %.not112170 = icmp samesign ult i64 %69, %70
   br i1 %.not112170, label %.lr.ph175, label %.thread144
 
 .lr.ph175:                                        ; preds = %.thread
@@ -719,7 +719,7 @@ _ZNK10aiVector3tIfEeqERKS0_.exit.thread:          ; preds = %72, %88, %_ZNK10aiV
   %150 = phi i32 [ %38, %.loopexit..thread148_crit_edge ], [ %128, %..thread148_crit_edge ], [ %128, %.thread144 ]
   %.1103 = phi i1 [ %.0102177, %.loopexit..thread148_crit_edge ], [ %.2104.lcssa, %..thread148_crit_edge ], [ %.2104.lcssa, %.thread144 ]
   %151 = zext i32 %149 to i64
-  %152 = icmp ult i64 %indvars.iv.next201.pre-phi, %151
+  %152 = icmp samesign ult i64 %indvars.iv.next201.pre-phi, %151
   br i1 %152, label %36, label %._crit_edge182, !llvm.loop !12
 
 ._crit_edge182:                                   ; preds = %.thread148

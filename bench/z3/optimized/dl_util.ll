@@ -2415,7 +2415,7 @@ define hidden void @_ZN7datalog21variable_intersection13populate_selfEPK3app(ptr
 
 .preheader:                                       ; preds = %14
   %21 = add nuw nsw i64 %indvars.iv47, 1
-  %22 = icmp ult i64 %21, %13
+  %22 = icmp samesign ult i64 %21, %13
   br i1 %22, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader

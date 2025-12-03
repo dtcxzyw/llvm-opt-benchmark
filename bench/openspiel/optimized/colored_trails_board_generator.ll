@@ -721,7 +721,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.noexc.i.i, %.noexc36.i.i
   %184 = phi i64 [ %230, %.noexc36.i.i ], [ %167, %.noexc.i.i ]
-  %185 = icmp ugt i64 %184, 623
+  %185 = icmp samesign ugt i64 %184, 623
   br i1 %185, label %186, label %.noexc36.i.i
 
 186:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -954,7 +954,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 
 .lr.ph.i.i.i.i.i.i39.i.i:                         ; preds = %331, %.noexc41.i.i
   %335 = phi i64 [ %381, %.noexc41.i.i ], [ %307, %331 ]
-  %336 = icmp ugt i64 %335, 623
+  %336 = icmp samesign ugt i64 %335, 623
   br i1 %336, label %337, label %.noexc41.i.i
 
 337:                                              ; preds = %.lr.ph.i.i.i.i.i.i39.i.i
@@ -1228,7 +1228,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 
 .lr.ph.i.i.i.i.i.i50.i.i:                         ; preds = %501, %.noexc53.i.i
   %505 = phi i64 [ %551, %.noexc53.i.i ], [ %477, %501 ]
-  %506 = icmp ugt i64 %505, 623
+  %506 = icmp samesign ugt i64 %505, 623
   br i1 %506, label %507, label %.noexc53.i.i
 
 507:                                              ; preds = %.lr.ph.i.i.i.i.i.i50.i.i
@@ -1703,7 +1703,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 
 .lr.ph.i.i.i.i.i.i62.i.i:                         ; preds = %740, %.noexc65.i.i
   %743 = phi i64 [ %789, %.noexc65.i.i ], [ %719, %740 ]
-  %744 = icmp ugt i64 %743, 623
+  %744 = icmp samesign ugt i64 %743, 623
   br i1 %744, label %745, label %.noexc65.i.i
 
 745:                                              ; preds = %.lr.ph.i.i.i.i.i.i62.i.i

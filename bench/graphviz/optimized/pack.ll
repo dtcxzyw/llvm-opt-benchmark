@@ -3016,7 +3016,7 @@ define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nou
 
 60:                                               ; preds = %.lr.ph186
   %61 = add nsw i32 %.2129184, -1
-  %62 = icmp sgt i32 %61, %58
+  %62 = icmp samesign ugt i32 %61, %58
   br i1 %62, label %.lr.ph186, label %.lr.ph189, !llvm.loop !179
 
 .preheader150:                                    ; preds = %64

@@ -368,7 +368,7 @@ FLAC__metadata_simple_iterator_delete.exit:       ; preds = %38, %41
 78:                                               ; preds = %76
   %79 = icmp eq i64 %54, %.044
   %80 = zext i32 %72 to i64
-  %81 = icmp ult i64 %.046, %80
+  %81 = icmp samesign ult i64 %.046, %80
   %or.cond = select i1 %79, i1 %81, i1 false
   br i1 %or.cond, label %82, label %88
 

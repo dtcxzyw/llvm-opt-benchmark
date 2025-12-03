@@ -6854,7 +6854,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
   %106 = phi i64 [ %115, %113 ], [ 0, %2 ]
   %107 = add nuw nsw i64 %106, 1
   store i64 %107, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !721, !noalias !718
-  %108 = icmp ult i64 %106, 5
+  %108 = icmp samesign ult i64 %106, 5
   tail call void @llvm.assume(i1 %108)
   %109 = getelementptr inbounds nuw { [2 x i64] }, ptr %71, i64 %106
   %110 = load ptr, ptr %109, align 8, !alias.scope !721, !noalias !718, !nonnull !14, !align !43, !noundef !14
@@ -9204,7 +9204,7 @@ define void @"_ZN80_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u20$clap_builde
   %106 = phi i64 [ %115, %113 ], [ 0, %2 ]
   %107 = add nuw nsw i64 %106, 1
   store i64 %107, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1380, !noalias !1377
-  %108 = icmp ult i64 %106, 5
+  %108 = icmp samesign ult i64 %106, 5
   tail call void @llvm.assume(i1 %108)
   %109 = getelementptr inbounds nuw { [2 x i64] }, ptr %71, i64 %106
   %110 = load ptr, ptr %109, align 8, !alias.scope !1380, !noalias !1377, !nonnull !14, !align !43, !noundef !14

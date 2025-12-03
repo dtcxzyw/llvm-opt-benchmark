@@ -1511,7 +1511,7 @@ define dso_local i32 @ebitmap_hash(ptr noundef readonly captures(none) %0, i32 n
   %94 = add i32 %89, %90
   %95 = add nsw i32 %62, -12
   %96 = getelementptr i8, ptr %58, i64 12
-  %97 = icmp ugt i32 %95, 12
+  %97 = icmp samesign ugt i32 %95, 12
   br i1 %97, label %57, label %98, !llvm.loop !35
 
 98:                                               ; preds = %57

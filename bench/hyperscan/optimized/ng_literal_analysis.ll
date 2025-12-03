@@ -6255,7 +6255,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %_ZNK3ue29CharReach3
 
 123:                                              ; preds = %121, %113
   %.1.i.i = phi i32 [ %.01022.i.i, %113 ], [ %122, %121 ]
-  %.not.i.i15.i.i = icmp ult i64 %.023.i.i, 256
+  %.not.i.i15.i.i = icmp samesign ult i64 %.023.i.i, 256
   br i1 %.not.i.i15.i.i, label %124, label %.loopexit.i
 
 124:                                              ; preds = %123
@@ -6604,7 +6604,7 @@ _ZN3ue2L13addToLitGraphERNS_12_GLOBAL__N_18LitGraphENS_12graph_detail17vertex_de
   br label %_ZN3ue223add_edge_if_not_presentINS_12_GLOBAL__N_18LitGraphEEESt4pairINT_15edge_descriptorEbENS4_17vertex_descriptorES7_RS4_.exit132.i
 
 _ZN3ue223add_edge_if_not_presentINS_12_GLOBAL__N_18LitGraphEEESt4pairINT_15edge_descriptorEbENS4_17vertex_descriptorES7_RS4_.exit132.i: ; preds = %273, %267, %.noexc131.i, %225
-  %.not.i.i133.i = icmp ult i64 %.08142.i, 256
+  %.not.i.i133.i = icmp samesign ult i64 %.08142.i, 256
   br i1 %.not.i.i133.i, label %277, label %_ZN3ue223add_edge_if_not_presentINS_12_GLOBAL__N_18LitGraphEEESt4pairINT_15edge_descriptorEbENS4_17vertex_descriptorES7_RS4_.exit.i
 
 277:                                              ; preds = %_ZN3ue223add_edge_if_not_presentINS_12_GLOBAL__N_18LitGraphEEESt4pairINT_15edge_descriptorEbENS4_17vertex_descriptorES7_RS4_.exit132.i

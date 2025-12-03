@@ -14697,7 +14697,7 @@ _ZNSt6vectorIN3ue211ue2_literalESaIS1_EE9push_backERKS1_.exit.i.i.i: ; preds = %
 .loopexit.i.i.i:                                  ; preds = %1934, %.thread661.i.i.i, %1844
   %.7162.i.i.i = phi i32 [ %.5160846.i.i.i, %1844 ], [ %.5160846.i.i.i, %.thread661.i.i.i ], [ %1908, %1934 ]
   %.9150.i.i.i = phi i1 [ %.7148847.i.i.i, %1844 ], [ %.7148847.i.i.i, %.thread661.i.i.i ], [ true, %1934 ]
-  %.not.i.i413.i.i.i = icmp ult i64 %.0167844.i.i.i, 256
+  %.not.i.i413.i.i.i = icmp samesign ult i64 %.0167844.i.i.i, 256
   br i1 %.not.i.i413.i.i.i, label %1936, label %._crit_edge849.i.i.i
 
 1936:                                             ; preds = %.loopexit.i.i.i

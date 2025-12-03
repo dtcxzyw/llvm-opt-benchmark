@@ -2177,7 +2177,7 @@ static_protections.exit.thread.us.us:             ; preds = %static_protections.
   %455 = add i64 %451, sub (i64 ptrtoint (ptr @__start_rodata to i64), i64 -2147483648)
   %456 = lshr i64 %455, 12
   %457 = icmp uge i64 %454, %405
-  %458 = icmp ule i64 %456, %450
+  %458 = icmp samesign ule i64 %456, %450
   %459 = and i1 %458, %457
   br i1 %459, label %461, label %460
 

@@ -6460,7 +6460,7 @@ estimate_timings.exit:                            ; preds = %1323, %1304
   %1441 = load i64, ptr %1440, align 8
   %1442 = call i64 @av_rescale_q(i64 noundef %.041.i, i64 4294967296000001, i64 %1441) #19
   %1443 = add nuw nsw i64 %indvars.iv.i795, 1
-  %1444 = icmp ult i64 %1443, %1410
+  %1444 = icmp samesign ult i64 %1443, %1410
   br i1 %1444, label %1445, label %.._crit_edge63.i_crit_edge
 
 .._crit_edge63.i_crit_edge:                       ; preds = %1439

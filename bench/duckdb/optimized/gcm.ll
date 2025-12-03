@@ -179,7 +179,7 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %121 = shl nuw nsw i32 %.156.i, 1
-  %122 = icmp ult i32 %.156.i, 5
+  %122 = icmp samesign ult i32 %.156.i, 5
   br i1 %122, label %.lr.ph.preheader.i, label %_ZL13gcm_gen_tableP19mbedtls_gcm_context.exit, !llvm.loop !19
 
 _ZL13gcm_gen_tableP19mbedtls_gcm_context.exit:    ; preds = %._crit_edge.i, %16
@@ -732,7 +732,7 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit: ; preds = %36
   store i8 %89, ptr %87, align 1, !tbaa !15
   %.not.i97 = icmp eq i8 %89, 0
   %90 = add nsw i64 %.03.i, -1
-  %91 = icmp ugt i64 %90, 12
+  %91 = icmp samesign ugt i64 %90, 12
   %or.cond.i = select i1 %.not.i97, i1 %91, i1 false
   br i1 %or.cond.i, label %85, label %_ZL8gcm_incrPh.exit, !llvm.loop !36
 
@@ -812,7 +812,7 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit103: ; preds = %_ZL8gcm_incrPh.
   store i8 %124, ptr %122, align 1, !tbaa !15
   %.not.i105 = icmp eq i8 %124, 0
   %125 = add nsw i64 %.03.i104, -1
-  %126 = icmp ugt i64 %125, 12
+  %126 = icmp samesign ugt i64 %125, 12
   %or.cond.i106 = select i1 %.not.i105, i1 %126, i1 false
   br i1 %or.cond.i106, label %.preheader, label %_ZL8gcm_incrPh.exit107, !llvm.loop !36
 

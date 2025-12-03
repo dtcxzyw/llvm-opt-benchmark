@@ -73879,7 +73879,7 @@ define internal fastcc void @_ZN11polars_plan5plans10conversion14expr_expansion1
   %120 = icmp samesign ult i64 %118, %119
   call void @llvm.assume(i1 %120)
   %121 = load ptr, ptr %38, align 8, !nonnull !12, !noundef !12
-  %122 = icmp ult i64 %117, 48038396025285292
+  %122 = icmp samesign ult i64 %117, 48038396025285292
   call void @llvm.assume(i1 %122)
   %123 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %121, i64 %118
   %.sroa.0126.0.copyload = load i64, ptr %123, align 16

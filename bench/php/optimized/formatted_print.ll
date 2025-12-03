@@ -1048,7 +1048,7 @@ zval_get_long.exit:                               ; preds = %383, %385
   %393 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.next.i
   store i8 %392, ptr %393, align 1, !tbaa !11
   %394 = icmp ugt i64 %.129.i, 9
-  %395 = icmp ugt i64 %indvars.iv.next.i, 1
+  %395 = icmp samesign ugt i64 %indvars.iv.next.i, 1
   %396 = and i1 %394, %395
   br i1 %396, label %388, label %397
 

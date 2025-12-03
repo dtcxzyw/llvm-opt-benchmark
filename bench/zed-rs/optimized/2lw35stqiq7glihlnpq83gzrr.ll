@@ -31206,7 +31206,7 @@ default.unreachable:                              ; preds = %.thread1195.i
   br i1 %exitcond1118.not.i, label %..loopexit442_crit_edge.us.i, label %851
 
 ..loopexit442_crit_edge.us.i:                     ; preds = %873
-  %878 = icmp ult i64 %spec.select806.us.i, %523
+  %878 = icmp samesign ult i64 %spec.select806.us.i, %523
   %879 = zext i1 %878 to i64
   %spec.select.us.i = add nuw i64 %spec.select806.us.i, %879
   br i1 %878, label %.preheader.us.i, label %.loopexit444.i

@@ -3181,7 +3181,7 @@ thread-pre-split:                                 ; preds = %.invoke
   %80 = icmp samesign ult i64 %78, %79
   call void @llvm.assume(i1 %80)
   %81 = load ptr, ptr %50, align 8, !nonnull !3, !noundef !3
-  %82 = icmp ult i64 %77, 288230376151711745
+  %82 = icmp samesign ult i64 %77, 288230376151711745
   call void @llvm.assume(i1 %82)
   %83 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, i64 }, ptr %81, i64 %78
   %.sroa.0171.0.copyload = load i64, ptr %83, align 8

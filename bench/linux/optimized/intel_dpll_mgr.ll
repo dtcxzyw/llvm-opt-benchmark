@@ -2822,7 +2822,7 @@ ehl_combo_pll_div_frac_wa_needed.exit16:          ; preds = %258, %262
 
 328:                                              ; preds = %311
   %329 = add nsw i32 %312, -1
-  %330 = icmp ult i32 %312, 2
+  %330 = icmp samesign ult i32 %312, 2
   br i1 %330, label %331, label %311, !llvm.loop !195
 
 331:                                              ; preds = %328

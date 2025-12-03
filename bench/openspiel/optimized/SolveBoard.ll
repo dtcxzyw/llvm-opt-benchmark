@@ -687,7 +687,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %39, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
   %64 = add nuw nsw i64 %indvars.iv49, 1
-  %65 = icmp ult i64 %64, %9
+  %65 = icmp samesign ult i64 %64, %9
   br i1 %65, label %.lr.ph36, label %.loopexit
 
 .lr.ph36:                                         ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit

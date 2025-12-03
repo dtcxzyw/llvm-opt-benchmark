@@ -11590,7 +11590,7 @@ common.resume:                                    ; preds = %.body, %.body.i.i.i
   %258 = icmp samesign ult i64 %256, %257
   call void @llvm.assume(i1 %258)
   %259 = load ptr, ptr %213, align 8, !nonnull !31, !noundef !31
-  %260 = icmp ult i64 %255, 24530244778869086
+  %260 = icmp samesign ult i64 %255, 24530244778869086
   call void @llvm.assume(i1 %260)
   %261 = getelementptr inbounds nuw { i64, [46 x i64] }, ptr %259, i64 %256
   %.sroa.0464.0.copyload = load i64, ptr %261, align 8

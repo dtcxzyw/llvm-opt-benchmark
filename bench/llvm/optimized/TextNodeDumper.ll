@@ -13335,7 +13335,7 @@ tailrecurse.i:                                    ; preds = %17, %14
 
 21:                                               ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   %22 = sub i32 %storemerge26, %.027
-  %23 = icmp ult i32 %22, 4
+  %23 = icmp samesign ult i32 %22, 4
   br i1 %23, label %24, label %_ZL15isSimpleAPValueRKN5clang7APValueE.exit
 
 24:                                               ; preds = %21
@@ -14198,7 +14198,7 @@ tailrecurse.i209:                                 ; preds = %196, %192
 
 200:                                              ; preds = %tailrecurse.i209, %tailrecurse.i209, %tailrecurse.i209, %tailrecurse.i209, %tailrecurse.i209, %tailrecurse.i209, %tailrecurse.i209, %tailrecurse.i209, %tailrecurse.i209, %tailrecurse.i209
   %201 = sub i32 %storemerge.i411, %.0.i412
-  %202 = icmp ult i32 %201, 4
+  %202 = icmp samesign ult i32 %201, 4
   br i1 %202, label %203, label %_ZL15isSimpleAPValueRKN5clang7APValueE.exit213
 
 203:                                              ; preds = %200
@@ -14893,7 +14893,7 @@ tailrecurse.i217:                                 ; preds = %567, %563
 
 571:                                              ; preds = %tailrecurse.i217, %tailrecurse.i217, %tailrecurse.i217, %tailrecurse.i217, %tailrecurse.i217, %tailrecurse.i217, %tailrecurse.i217, %tailrecurse.i217, %tailrecurse.i217, %tailrecurse.i217
   %572 = sub i32 %storemerge.i159399, %.0.i158400
-  %573 = icmp ult i32 %572, 4
+  %573 = icmp samesign ult i32 %572, 4
   br i1 %573, label %574, label %_ZL15isSimpleAPValueRKN5clang7APValueE.exit221
 
 574:                                              ; preds = %571
@@ -15181,7 +15181,7 @@ tailrecurse.i232:                                 ; preds = %687, %683
 
 691:                                              ; preds = %tailrecurse.i232, %tailrecurse.i232, %tailrecurse.i232, %tailrecurse.i232, %tailrecurse.i232, %tailrecurse.i232, %tailrecurse.i232, %tailrecurse.i232, %tailrecurse.i232, %tailrecurse.i232
   %692 = sub i32 %storemerge.i170393, %.0.i169394
-  %693 = icmp ult i32 %692, 4
+  %693 = icmp samesign ult i32 %692, 4
   br i1 %693, label %694, label %_ZL15isSimpleAPValueRKN5clang7APValueE.exit236
 
 694:                                              ; preds = %691
@@ -15278,7 +15278,7 @@ tailrecurse.i241:                                 ; preds = %717, %712
 
 721:                                              ; preds = %tailrecurse.i241, %tailrecurse.i241, %tailrecurse.i241, %tailrecurse.i241, %tailrecurse.i241, %tailrecurse.i241, %tailrecurse.i241, %tailrecurse.i241, %tailrecurse.i241, %tailrecurse.i241
   %722 = sub i32 %storemerge.i177396, %.0.i176397
-  %723 = icmp ult i32 %722, 4
+  %723 = icmp samesign ult i32 %722, 4
   br i1 %723, label %724, label %_ZL15isSimpleAPValueRKN5clang7APValueE.exit245
 
 724:                                              ; preds = %721

@@ -3350,7 +3350,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit138: ; 
 
 "_ZN4core3ptr111drop_in_place$LT$$LP$ropey..tree..text_info..TextInfo$C$alloc..sync..Arc$LT$ropey..tree..node..Node$GT$$RP$$GT$17h40ed027ddefe1b82E.exit": ; preds = %441, %446
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %447 = icmp ult i64 %442, %.sroa.048.0
+  %447 = icmp samesign ult i64 %442, %.sroa.048.0
   br i1 %447, label %441, label %._crit_edge548
 
 448:                                              ; preds = %454, %._crit_edge548

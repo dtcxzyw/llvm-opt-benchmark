@@ -43693,7 +43693,7 @@ resend_lost_signals.exit.thread:                  ; preds = %.preheader.i
   %.01639.i = phi i32 [ %.218.i, %48 ], [ 0, %.preheader.i ]
   %.01938.i = phi i32 [ %.221.i, %48 ], [ 0, %.preheader.i ]
   %.02337.i = phi i64 [ %50, %48 ], [ 0, %.preheader.i ]
-  %27 = icmp ugt i64 %.02337.i, 100000
+  %27 = icmp samesign ugt i64 %.02337.i, 100000
   br i1 %27, label %28, label %48
 
 28:                                               ; preds = %.lr.ph.i

@@ -4850,7 +4850,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
 109:                                              ; preds = %107
   %110 = load i8, ptr %9, align 8, !tbaa !323
   %111 = zext i8 %110 to i64
-  %112 = icmp ugt i64 %indvars.iv, %111
+  %112 = icmp samesign ugt i64 %indvars.iv, %111
   br i1 %112, label %_ZN6duckdb3alp14AlpCompressionIfLb1EE22CompareALPCombinationsERKNS0_14AlpCombinationES5_.exit.thread90, label %113
 
 113:                                              ; preds = %109
@@ -10537,7 +10537,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
 108:                                              ; preds = %106
   %109 = load i8, ptr %9, align 8, !tbaa !323
   %110 = zext i8 %109 to i64
-  %111 = icmp ugt i64 %indvars.iv, %110
+  %111 = icmp samesign ugt i64 %indvars.iv, %110
   br i1 %111, label %_ZN6duckdb3alp14AlpCompressionIdLb1EE22CompareALPCombinationsERKNS0_14AlpCombinationES5_.exit.thread90, label %112
 
 112:                                              ; preds = %108

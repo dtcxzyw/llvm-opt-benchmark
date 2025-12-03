@@ -2157,7 +2157,7 @@ mmbit_get_flat_block.exit.i318:                   ; preds = %1205, %1197, %1194,
   %.127.i = phi i32 [ 0, %.thread1478 ], [ %.127.i.be, %.backedge844.backedge ]
   %.124.i = phi i32 [ 0, %.thread1478 ], [ %.124.i.be, %.backedge844.backedge ]
   %.1.i344 = phi i32 [ 0, %.thread1478 ], [ %.1.i344.be, %.backedge844.backedge ]
-  %1222 = icmp ult i32 %.124.i, 64
+  %1222 = icmp samesign ult i32 %.124.i, 64
   br i1 %1222, label %1223, label %.thread617
 
 1223:                                             ; preds = %.backedge844

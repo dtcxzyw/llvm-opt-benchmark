@@ -27404,7 +27404,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %143 = load i8, ptr %142, align 1
   %144 = zext i8 %143 to i32
   %145 = or disjoint i32 %141, %144
-  %.not.i.i.us.i = icmp ult i32 %.sroa.20.020.us21.i, %145
+  %.not.i.i.us.i = icmp samesign ult i32 %.sroa.20.020.us21.i, %145
   br i1 %.not.i.i.us.i, label %154, label %146
 
 146:                                              ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.i
@@ -27592,7 +27592,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN23hb_bit_set_invertible_t16add
   %.133.us59.i.i = phi i32 [ %.03254.us.i10.i, %.split.us68.i.i ], [ %.135.us58.i.i, %40 ]
   %.131.us60.i.i = phi i32 [ %.03055.us.i9.i, %.split.us68.i.i ], [ %39, %40 ]
   %.1.us61.i.i = phi ptr [ %.02956.us.i8.i, %.split.us68.i.i ], [ %41, %40 ]
-  %.not.i.not.not = icmp uge i32 %.135.us58.i.i, %.133.us59.i.i
+  %.not.i.not.not = icmp samesign uge i32 %.135.us58.i.i, %.133.us59.i.i
   br i1 %.not.i.not.not, label %29, label %_ZN12hb_bit_set_t16add_sorted_arrayIN2OT11HBGlyphID16EEEbPKT_jj.exit
 
 29:                                               ; preds = %28
@@ -27747,7 +27747,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %26, %_ZNK11hb_vecto
   %.133.us.i = phi i32 [ %.135.us.i, %60 ], [ %.03254.i, %.split.us.i.preheader ]
   %.131.us.i = phi i32 [ %59, %60 ], [ %.03055.i, %.split.us.i.preheader ]
   %.1.us.i = phi ptr [ %61, %60 ], [ %.02956.i, %.split.us.i.preheader ]
-  %.not60.not = icmp uge i32 %.135.us.i, %.133.us.i
+  %.not60.not = icmp samesign uge i32 %.135.us.i, %.133.us.i
   br i1 %.not60.not, label %58, label %_ZN12hb_bit_set_t16set_sorted_arrayIN2OT11HBGlyphID16EEEbbPKT_jj.exit
 
 58:                                               ; preds = %.split.us.i
@@ -27772,7 +27772,7 @@ _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %26, %_ZNK11hb_vecto
   %.133.i = phi i32 [ %.135.i, %81 ], [ %.03254.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
   %.131.i = phi i32 [ %80, %81 ], [ %.03055.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
   %.1.i = phi ptr [ %82, %81 ], [ %.02956.i, %_ZN12hb_bit_set_t8page_forEjb.exit ]
-  %.not.not = icmp uge i32 %.135.i, %.133.i
+  %.not.not = icmp samesign uge i32 %.135.i, %.133.i
   br i1 %.not.not, label %70, label %_ZN12hb_bit_set_t16set_sorted_arrayIN2OT11HBGlyphID16EEEbbPKT_jj.exit
 
 70:                                               ; preds = %.split.i
@@ -33640,7 +33640,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT17ClassDefFormat1_3INS_6La
   %20 = load i8, ptr %7, align 1
   %21 = zext i8 %20 to i64
   %22 = or disjoint i64 %19, %21
-  %.not.i = icmp ult i64 %indvars.iv, %22
+  %.not.i = icmp samesign ult i64 %indvars.iv, %22
   br i1 %.not.i, label %23, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_EixEi.exit
 
 23:                                               ; preds = %16
@@ -39894,7 +39894,7 @@ define linkonce_odr hidden void @_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
-  %32 = icmp ult i32 %31, %.021
+  %32 = icmp samesign ult i32 %31, %.021
   br i1 %32, label %._crit_edge, label %33
 
 33:                                               ; preds = %24

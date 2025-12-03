@@ -693,7 +693,7 @@ zend_jit_trace_get_exit_addr.exit:                ; preds = %99, %101
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 20
   %142 = load i32, ptr %141, align 4, !tbaa !34
   %143 = zext i32 %142 to i64
-  %144 = icmp ult i64 %137, %143
+  %144 = icmp samesign ult i64 %137, %143
   tail call void @llvm.assume(i1 %144)
   %145 = load ptr, ptr %124, align 8, !tbaa !37
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 24

@@ -12378,7 +12378,7 @@ if.end13:                                         ; preds = %for.cond.preheader,
   %i.031 = phi i64 [ %add19, %if.end17 ], [ %spec.select.i.i, %for.cond.preheader ]
   %pois.030 = phi x86_fp80 [ %mul25, %if.end17 ], [ %mul, %for.cond.preheader ]
   %sub = sub nsw i64 %i.031, %spec.select.i.i
-  %cmp14.not = icmp ult i64 %sub, 1000000
+  %cmp14.not = icmp samesign ult i64 %sub, 1000000
   br i1 %cmp14.not, label %if.end17, label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.end13

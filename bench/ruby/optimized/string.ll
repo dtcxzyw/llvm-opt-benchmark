@@ -29104,7 +29104,7 @@ RSTRING_PTR.exit:                                 ; preds = %13, %18
   %.03345 = phi i64 [ %37, %str_mod_check.exit ], [ 0, %RSTRING_PTR.exit ]
   %.03444 = phi i64 [ %.135, %str_mod_check.exit ], [ 1, %RSTRING_PTR.exit ]
   %.03743 = phi ptr [ %38, %str_mod_check.exit ], [ %.sroa.2.0.i, %RSTRING_PTR.exit ]
-  %23 = icmp ugt i64 %.03345, 4611686018427387648
+  %23 = icmp samesign ugt i64 %.03345, 4611686018427387648
   br i1 %23, label %24, label %str_mod_check.exit
 
 24:                                               ; preds = %.lr.ph

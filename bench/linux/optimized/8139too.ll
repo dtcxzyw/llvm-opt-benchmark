@@ -461,7 +461,7 @@ define internal i32 @rtl8139_init_one(ptr noundef %0, ptr noundef readonly captu
 177:                                              ; preds = %172
   tail call void @__const_udelay(i64 noundef 42950) #14
   %178 = add nsw i32 %173, -1
-  %179 = icmp ugt i32 %173, 1
+  %179 = icmp samesign ugt i32 %173, 1
   br i1 %179, label %172, label %.loopexit, !llvm.loop !13
 
 .loopexit27:                                      ; preds = %104, %119, %.thread21, %.loopexit26, %57, %51
@@ -868,7 +868,7 @@ define internal fastcc i32 @read_eeprom(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @iowrite8(i8 noundef zeroext -120, ptr noundef %6) #14
   %29 = tail call i32 @ioread8(ptr noundef %6) #14
   %30 = add nsw i32 %22, -1
-  %31 = icmp ugt i32 %22, 1
+  %31 = icmp samesign ugt i32 %22, 1
   br i1 %31, label %21, label %32, !llvm.loop !16
 
 32:                                               ; preds = %21
@@ -2291,7 +2291,7 @@ define internal fastcc void @rtl8139_hw_start(ptr noundef %0) unnamed_addr #2 al
 19:                                               ; preds = %14
   tail call void @__const_udelay(i64 noundef 42950) #14
   %20 = add nsw i32 %15, -1
-  %21 = icmp ugt i32 %15, 1
+  %21 = icmp samesign ugt i32 %15, 1
   br i1 %21, label %14, label %22, !llvm.loop !13
 
 22:                                               ; preds = %19, %14

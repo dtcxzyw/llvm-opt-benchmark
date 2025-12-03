@@ -99079,7 +99079,7 @@ define hidden void @_ZN11polars_plan5plans9optimizer12cache_states16set_cache_st
   %143 = icmp samesign ult i64 %141, %142
   call void @llvm.assume(i1 %143)
   %144 = load ptr, ptr %106, align 8, !nonnull !4, !noundef !4
-  %145 = icmp ult i64 %140, 128102389400760777
+  %145 = icmp samesign ult i64 %140, 128102389400760777
   call void @llvm.assume(i1 %145)
   %146 = getelementptr inbounds nuw { { i64, [1 x i64] }, [2 x { i64, [1 x i64] }], { i64, [1 x i64] }, i64 }, ptr %144, i64 %141
   %.sroa.0134.0.copyload = load i64, ptr %146, align 8
@@ -107624,7 +107624,7 @@ define void @_ZN11polars_plan5plans9optimizer9stack_opt14StackOptimizer13optimiz
   %47 = icmp samesign ult i64 %45, %46
   call void @llvm.assume(i1 %47)
   %48 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %49 = icmp ult i64 %44, 1152921504606846977
+  %49 = icmp samesign ult i64 %44, 1152921504606846977
   call void @llvm.assume(i1 %49)
   %50 = getelementptr inbounds nuw i64, ptr %48, i64 %45
   %51 = load i64, ptr %50, align 8, !noundef !4
@@ -107683,7 +107683,7 @@ define void @_ZN11polars_plan5plans9optimizer9stack_opt14StackOptimizer13optimiz
   %73 = icmp samesign ult i64 %71, %72
   call void @llvm.assume(i1 %73)
   %74 = load ptr, ptr %22, align 8, !nonnull !4, !noundef !4
-  %75 = icmp ult i64 %70, 82351536043346214
+  %75 = icmp samesign ult i64 %70, 82351536043346214
   call void @llvm.assume(i1 %75)
   %76 = getelementptr inbounds nuw { { i64, [3 x i64] }, { { { [6 x i64] } }, { { { i32 } } }, {}, [12 x i8] }, i64, [1 x i64] }, ptr %74, i64 %71
   %.sroa.0154.0.copyload = load i64, ptr %76, align 16

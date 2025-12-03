@@ -16995,7 +16995,7 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   %30 = load i32, ptr %28, align 8, !tbaa !31
   store i32 %30, ptr %27, align 16, !tbaa !31
   store i32 %29, ptr %28, align 8, !tbaa !31
-  %31 = icmp ugt i64 %26, 7
+  %31 = icmp samesign ugt i64 %26, 7
   br i1 %31, label %9, label %32, !llvm.loop !371
 
 32:                                               ; preds = %9

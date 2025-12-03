@@ -14726,7 +14726,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_P8CVertexOS6_S6_.exit64: ; preds = %1
   %.pre-phi142 = phi i64 [ %.pre141, %.preheader.._crit_edge113_crit_edge ], [ %152, %_ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_P8CVertexOS6_S6_.exit64 ]
   %indvars.iv.next137.pre-phi = phi i64 [ %.pre139, %.preheader.._crit_edge113_crit_edge ], [ %114, %_ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_P8CVertexOS6_S6_.exit64 ]
   %154 = phi i32 [ %111, %.preheader.._crit_edge113_crit_edge ], [ %150, %_ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_P8CVertexOS6_S6_.exit64 ]
-  %155 = icmp ult i64 %indvars.iv.next137.pre-phi, %.pre-phi142
+  %155 = icmp samesign ult i64 %indvars.iv.next137.pre-phi, %.pre-phi142
   br i1 %155, label %.preheader, label %._crit_edge115, !llvm.loop !112
 
 ._crit_edge115:                                   ; preds = %._crit_edge113, %.preheader104

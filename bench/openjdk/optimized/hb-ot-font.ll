@@ -22988,14 +22988,15 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_Eix
   %.in.in = phi i16 [ %.sroa.0.0.copyload.i35, %67 ], [ %.sroa.0.0.copyload.i3562, %.preheader ]
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %67 ], [ 1, %.preheader ]
   %70 = add nsw i64 %indvars.iv71, -1
-  %rev88 = tail call i16 @llvm.bswap.i16(i16 %.in.in)
-  %71 = zext i16 %rev88 to i64
-  %.not.i36 = icmp ult i64 %70, %71
-  br i1 %.not.i36, label %72, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38
+  %rev85 = tail call i16 @llvm.bswap.i16(i16 %.in.in)
+  %71 = zext i16 %rev85 to i64
+  %72 = zext i16 %rev85 to i64
+  %.not.i36 = icmp samesign ult i64 %70, %72
+  br i1 %.not.i36, label %73, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38
 
-72:                                               ; preds = %.lr.ph65
+73:                                               ; preds = %.lr.ph65
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
-  %73 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range", ptr %4, i64 %70
+  %74 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range", ptr %4, i64 %70
   %.pre = load i8, ptr %0, align 1
   %.pre74 = load i8, ptr %18, align 1
   %.pre75 = zext i8 %.pre to i64
@@ -23004,89 +23005,89 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_Eix
   %.pre80 = or disjoint i64 %.pre76, %.pre78
   br label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38
 
-_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38: ; preds = %.lr.ph65, %72
-  %.pre-phi83 = phi i64 [ %71, %.lr.ph65 ], [ %.pre80, %72 ]
-  %.0.i37 = phi ptr [ @_hb_NullPool, %.lr.ph65 ], [ %73, %72 ]
-  %74 = load i8, ptr %.0.i37, align 1
-  %75 = zext i8 %74 to i32
-  %76 = shl nuw nsw i32 %75, 8
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i37, i64 1
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = or disjoint i32 %76, %79
-  %.not.i39 = icmp samesign ult i64 %indvars.iv71, %.pre-phi83
-  br i1 %.not.i39, label %81, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit41
+_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38: ; preds = %.lr.ph65, %73
+  %.pre-phi81 = phi i64 [ %71, %.lr.ph65 ], [ %.pre80, %73 ]
+  %.0.i37 = phi ptr [ @_hb_NullPool, %.lr.ph65 ], [ %74, %73 ]
+  %75 = load i8, ptr %.0.i37, align 1
+  %76 = zext i8 %75 to i32
+  %77 = shl nuw nsw i32 %76, 8
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i37, i64 1
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = or disjoint i32 %77, %80
+  %.not.i39 = icmp samesign ult i64 %indvars.iv71, %.pre-phi81
+  br i1 %.not.i39, label %82, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit41
 
-81:                                               ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38
+82:                                               ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
-  %82 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range", ptr %4, i64 %indvars.iv71
+  %83 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range", ptr %4, i64 %indvars.iv71
   br label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit41
 
-_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit41: ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38, %81
-  %.0.i40 = phi ptr [ %82, %81 ], [ @_hb_NullPool, %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38 ]
-  %83 = load i8, ptr %.0.i40, align 1
-  %84 = zext i8 %83 to i32
-  %85 = shl nuw nsw i32 %84, 8
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i40, i64 1
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i32
-  %89 = or disjoint i32 %85, %88
-  %.not33 = icmp samesign ult i32 %80, %89
+_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit41: ; preds = %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38, %82
+  %.0.i40 = phi ptr [ %83, %82 ], [ @_hb_NullPool, %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit38 ]
+  %84 = load i8, ptr %.0.i40, align 1
+  %85 = zext i8 %84 to i32
+  %86 = shl nuw nsw i32 %85, 8
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i40, i64 1
+  %88 = load i8, ptr %87, align 1
+  %89 = zext i8 %88 to i32
+  %90 = or disjoint i32 %86, %89
+  %.not33 = icmp samesign ult i32 %81, %90
   br i1 %.not33, label %67, label %.critedge
 
 ._crit_edge66:                                    ; preds = %67, %.preheader
   %.sroa.0.0.copyload.i35.lcssa = phi i16 [ %.sroa.0.0.copyload.i3562, %.preheader ], [ %.sroa.0.0.copyload.i35, %67 ]
   %.not.i.i.not = icmp eq i16 %.sroa.0.0.copyload.i35.lcssa, 0
-  br i1 %.not.i.i.not, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit, label %90
+  br i1 %.not.i.i.not, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit, label %91
 
-90:                                               ; preds = %._crit_edge66
+91:                                               ; preds = %._crit_edge66
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i35.lcssa)
-  %91 = zext i16 %rev.i to i64
-  %92 = add nuw nsw i64 %91, 4294967295
+  %92 = zext i16 %rev.i to i64
+  %93 = add nuw nsw i64 %92, 4294967295
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
-  %93 = and i64 %92, 4294967295
-  %94 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range", ptr %4, i64 %93
+  %94 = and i64 %93, 4294967295
+  %95 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range", ptr %4, i64 %94
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit
 
-_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit: ; preds = %._crit_edge66, %90
-  %.0.i.i = phi ptr [ %94, %90 ], [ @_hb_NullPool, %._crit_edge66 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 5
-  %96 = load ptr, ptr %5, align 8
-  %97 = ptrtoint ptr %95 to i64
+_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit: ; preds = %._crit_edge66, %91
+  %.0.i.i = phi ptr [ %95, %91 ], [ @_hb_NullPool, %._crit_edge66 ]
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 5
+  %97 = load ptr, ptr %5, align 8
   %98 = ptrtoint ptr %96 to i64
-  %99 = sub i64 %97, %98
-  %100 = load i32, ptr %10, align 8
-  %101 = zext i32 %100 to i64
-  %.not58 = icmp ugt i64 %99, %101
-  br i1 %.not58, label %.critedge, label %102
+  %99 = ptrtoint ptr %97 to i64
+  %100 = sub i64 %98, %99
+  %101 = load i32, ptr %10, align 8
+  %102 = zext i32 %101 to i64
+  %.not58 = icmp ugt i64 %100, %102
+  br i1 %.not58, label %.critedge, label %103
 
-102:                                              ; preds = %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit
+103:                                              ; preds = %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit
   %.sroa.0.0.copyload.i.i42 = load i16, ptr %0, align 1
   %.not.i.i45.not = icmp eq i16 %.sroa.0.0.copyload.i.i42, 0
-  br i1 %.not.i.i45.not, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit47, label %103
+  br i1 %.not.i.i45.not, label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit47, label %104
 
-103:                                              ; preds = %102
+104:                                              ; preds = %103
   %rev.i43 = tail call i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i.i42)
-  %104 = zext i16 %rev.i43 to i64
-  %105 = add nuw nsw i64 %104, 4294967295
+  %105 = zext i16 %rev.i43 to i64
+  %106 = add nuw nsw i64 %105, 4294967295
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !16
-  %106 = and i64 %105, 4294967295
-  %107 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range", ptr %4, i64 %106
+  %107 = and i64 %106, 4294967295
+  %108 = getelementptr inbounds nuw %"struct.CFF::FDSelect3_4_Range", ptr %4, i64 %107
   br label %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit47
 
-_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit47: ; preds = %102, %103
-  %.0.i.i46 = phi ptr [ %107, %103 ], [ @_hb_NullPool, %102 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.0.i.i46, i64 3
-  %109 = load i8, ptr %108, align 1
-  %110 = zext i8 %109 to i32
-  %111 = shl nuw nsw i32 %110, 8
-  %112 = getelementptr inbounds nuw i8, ptr %.0.i.i46, i64 4
-  %113 = load i8, ptr %112, align 1
-  %114 = zext i8 %113 to i32
-  %115 = or disjoint i32 %111, %114
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %117 = load i32, ptr %116, align 8
-  %.not32 = icmp eq i32 %115, %117
+_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit47: ; preds = %103, %104
+  %.0.i.i46 = phi ptr [ %108, %104 ], [ @_hb_NullPool, %103 ]
+  %109 = getelementptr inbounds nuw i8, ptr %.0.i.i46, i64 3
+  %110 = load i8, ptr %109, align 1
+  %111 = zext i8 %110 to i32
+  %112 = shl nuw nsw i32 %111, 8
+  %113 = getelementptr inbounds nuw i8, ptr %.0.i.i46, i64 4
+  %114 = load i8, ptr %113, align 1
+  %115 = zext i8 %114 to i32
+  %116 = or disjoint i32 %112, %115
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %118 = load i32, ptr %117, align 8
+  %.not32 = icmp eq i32 %116, %118
   br label %.critedge
 
 .critedge:                                        ; preds = %41, %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit41, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit47, %13, %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_E16sanitize_shallowEP21hb_sanitize_context_t.exit, %_ZNK3CFF11FDSelect3_4IN2OT7IntTypeItLj2EEENS2_IhLj1EEEE8sentinelEv.exit, %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeItLj2EEENS3_IhLj1EEEEES4_EixEi.exit, %3, %._crit_edge
@@ -23267,7 +23268,7 @@ _ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_Eix
   %119 = add nsw i64 %indvars.iv70, -1
   %120 = tail call i32 @llvm.bswap.i32(i32 %.in.in)
   %121 = zext i32 %120 to i64
-  %.not.i36 = icmp ult i64 %119, %121
+  %.not.i36 = icmp samesign ult i64 %119, %121
   br i1 %.not.i36, label %122, label %_ZNK2OT7ArrayOfIN3CFF17FDSelect3_4_RangeINS_7IntTypeIjLj4EEENS3_ItLj2EEEEES4_EixEi.exit38
 
 122:                                              ; preds = %.lr.ph64

@@ -58874,7 +58874,7 @@ define hidden void @"_ZN6search14project_search16ProjectSearchBar18next_history_
   call void @llvm.experimental.noalias.scope.decl(metadata !11904)
   %56 = add nuw nsw i64 %281, 1
   store i64 %56, ptr %20, align 8, !alias.scope !11894, !noalias !11904
-  %57 = icmp ult i64 %281, 3
+  %57 = icmp samesign ult i64 %281, 3
   call void @llvm.assume(i1 %57)
   %58 = getelementptr inbounds nuw { [5 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %281
   %.sroa.5.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %58, i64 32
@@ -59707,7 +59707,7 @@ define hidden void @"_ZN6search14project_search16ProjectSearchBar22previous_hist
   call void @llvm.experimental.noalias.scope.decl(metadata !12119)
   %66 = add nuw nsw i64 %404, 1
   store i64 %66, ptr %25, align 8, !alias.scope !12109, !noalias !12119
-  %67 = icmp ult i64 %404, 3
+  %67 = icmp samesign ult i64 %404, 3
   call void @llvm.assume(i1 %67)
   %68 = getelementptr inbounds nuw { [5 x i64] }, ptr %.sroa.6.0..sroa_idx, i64 %404
   %.sroa.6.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %68, i64 32

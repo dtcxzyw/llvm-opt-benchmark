@@ -3355,7 +3355,7 @@ intel_pll_is_valid.exit.thread:                   ; preds = %66, %.thread.i, %96
 
 .split62.us:                                      ; preds = %.split53
   %116 = add nsw i32 %.sroa.12.0, -1
-  %117 = icmp ugt i32 %.sroa.12.0, 2
+  %117 = icmp samesign ugt i32 %.sroa.12.0, 2
   br i1 %117, label %.split51.preheader, label %118, !llvm.loop !54
 
 118:                                              ; preds = %.split62.us

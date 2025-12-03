@@ -3161,7 +3161,7 @@ _.exit198:                                        ; preds = %351, %353
   %367 = load i32, ptr %190, align 8, !tbaa !41
   %368 = add i32 %367, %366
   %369 = zext i32 %368 to i64
-  %370 = icmp ult i64 %indvars.iv.next302.pre-phi, %369
+  %370 = icmp samesign ult i64 %indvars.iv.next302.pre-phi, %369
   br i1 %370, label %279, label %.loopexit, !llvm.loop !119
 
 .loopexit:                                        ; preds = %365, %274, %363

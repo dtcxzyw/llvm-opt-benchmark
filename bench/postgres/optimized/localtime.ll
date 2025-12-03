@@ -676,7 +676,7 @@ detzcode.exit533.i:                               ; preds = %261
   %297 = add i64 %.neg.i, %.0381690.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %.10419.lcssa.i, i64 %297, i1 false)
   %298 = shl nuw nsw i32 %.0380691.i, 1
-  %299 = icmp ult i32 %.0380691.i, 5
+  %299 = icmp samesign ult i32 %.0380691.i, 5
   br i1 %299, label %50, label %300, !llvm.loop !14
 
 300:                                              ; preds = %295, %._crit_edge688.i

@@ -24673,7 +24673,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha350208786dc6228E.exit: ; preds = %"_ZN
   %.us-phi390 = phi i64 [ %.sroa.3.0.i.i.i.i10.i.i.us.le, %.thread.split.us ], [ %102, %_ZN4core3ops8function6FnOnce9call_once17ha350208786dc6228E.exit ]
   %104 = add i64 %.sroa.24191.0400, 1
   store i64 %.sroa.24191.0400, ptr %11, align 8
-  %105 = icmp ult i64 %.sroa.24191.0400, 2147483647
+  %105 = icmp samesign ult i64 %.sroa.24191.0400, 2147483647
   %106 = trunc nuw nsw i64 %.sroa.24191.0400 to i32
   %.sroa.6.0 = select i1 %105, i32 %106, i32 undef
   %exitcond.not = icmp eq i64 %.sroa.24191.0400, 2147483647
@@ -25733,7 +25733,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha350208786dc6228E.exit.i: ; preds = %"_
   %.sroa.10285.2409 = phi ptr [ %119, %_ZN4core3ops8function6FnOnce9call_once17ha350208786dc6228E.exit.i233 ], [ %.sroa.10285.2, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hcc569e27cff7c0c5E.exit.i.i.i.thread384.loopexit1112.loopexit.loopexit1127" ], [ %197, %_ZN4core3ops8function6FnOnce9call_once17ha350208786dc6228E.exit.i201 ], [ %267, %_ZN4core3ops8function6FnOnce9call_once17ha350208786dc6228E.exit.i ]
   %272 = add i64 %.sroa.71.0652, 1
   store i64 %.sroa.71.0652, ptr %13, align 8
-  %273 = icmp ult i64 %.sroa.71.0652, 2147483647
+  %273 = icmp samesign ult i64 %.sroa.71.0652, 2147483647
   %274 = trunc nuw nsw i64 %.sroa.71.0652 to i32
   %.sroa.6.0 = select i1 %273, i32 %274, i32 undef
   %exitcond.not = icmp eq i64 %.sroa.71.0652, 2147483647

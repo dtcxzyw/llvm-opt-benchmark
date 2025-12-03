@@ -5541,7 +5541,7 @@ call29.i.i.noexc.i.i.i:                           ; preds = %_ZNSt23mersenne_twi
 
 for.cond73.i.i.i.i:                               ; preds = %call76.i.noexc.i.i.i, %call29.i.i.noexc.i.i.i
   %165 = phi i64 [ %inc.i1003.i.i, %call76.i.noexc.i.i.i ], [ %inc.i.i390.i.i, %call29.i.i.noexc.i.i.i ]
-  %cmp.i1002.i.i = icmp ugt i64 %165, 623
+  %cmp.i1002.i.i = icmp samesign ugt i64 %165, 623
   br i1 %cmp.i1002.i.i, label %if.then.i1016.i.i, label %call76.i.noexc.i.i.i
 
 if.then.i1016.i.i:                                ; preds = %for.cond73.i.i.i.i
@@ -5808,7 +5808,7 @@ while.cond.while.end_crit_edge.i.i.i.i:           ; preds = %_ZNSt23mersenne_twi
 
 for.cond73.i.i.i:                                 ; preds = %call76.i.noexc.i.i, %while.cond.while.end_crit_edge.i.i.i.i
   %199 = phi i64 [ %inc.i1133.i.i, %call76.i.noexc.i.i ], [ %inc.i993.i.i, %while.cond.while.end_crit_edge.i.i.i.i ]
-  %cmp.i1132.i.i = icmp ugt i64 %199, 623
+  %cmp.i1132.i.i = icmp samesign ugt i64 %199, 623
   br i1 %cmp.i1132.i.i, label %if.then.i1146.i.i, label %call76.i.noexc.i.i
 
 if.then.i1146.i.i:                                ; preds = %for.cond73.i.i.i
@@ -6228,7 +6228,7 @@ call29.i.i.noexc.i534.i.i:                        ; preds = %_ZNSt23mersenne_twi
 
 for.cond73.i.i547.i.i:                            ; preds = %call76.i.noexc.i550.i.i, %call29.i.i.noexc.i534.i.i
   %258 = phi i64 [ %inc.i1068.i.i, %call76.i.noexc.i550.i.i ], [ %inc.i.i535.i.i, %call29.i.i.noexc.i534.i.i ]
-  %cmp.i1067.i.i = icmp ugt i64 %258, 623
+  %cmp.i1067.i.i = icmp samesign ugt i64 %258, 623
   br i1 %cmp.i1067.i.i, label %if.then.i1081.i.i, label %call76.i.noexc.i550.i.i
 
 if.then.i1081.i.i:                                ; preds = %for.cond73.i.i547.i.i

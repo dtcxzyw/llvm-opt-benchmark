@@ -12541,7 +12541,7 @@ default.unreachable:                              ; preds = %758
   br i1 %exitcond1120.not.i, label %..loopexit489_crit_edge.us.i, label %848
 
 ..loopexit489_crit_edge.us.i:                     ; preds = %869
-  %874 = icmp ult i64 %spec.select826.us.i, %533
+  %874 = icmp samesign ult i64 %spec.select826.us.i, %533
   %875 = zext i1 %874 to i64
   %spec.select.us.i = add nuw i64 %spec.select826.us.i, %875
   br i1 %874, label %.preheader.us.i, label %.loopexit491.i
@@ -16088,7 +16088,7 @@ default.unreachable:                              ; preds = %769
   br i1 %exitcond1118.not.i, label %..loopexit487_crit_edge.us.i, label %859
 
 ..loopexit487_crit_edge.us.i:                     ; preds = %880
-  %885 = icmp ult i64 %spec.select824.us.i, %544
+  %885 = icmp samesign ult i64 %spec.select824.us.i, %544
   %886 = zext i1 %885 to i64
   %spec.select.us.i = add nuw i64 %spec.select824.us.i, %886
   br i1 %885, label %.preheader.us.i, label %.loopexit489.i
@@ -19592,7 +19592,7 @@ default.unreachable:                              ; preds = %750
   br i1 %exitcond1118.not.i, label %..loopexit487_crit_edge.us.i, label %840
 
 ..loopexit487_crit_edge.us.i:                     ; preds = %861
-  %866 = icmp ult i64 %spec.select824.us.i, %525
+  %866 = icmp samesign ult i64 %spec.select824.us.i, %525
   %867 = zext i1 %866 to i64
   %spec.select.us.i = add nuw i64 %spec.select824.us.i, %867
   br i1 %866, label %.preheader.us.i, label %.loopexit489.i

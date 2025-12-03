@@ -2081,7 +2081,7 @@ define noundef i16 @"_ZN9softposit5p16e14math2ln41_$LT$impl$u20$softposit..p16e1
   %78 = lshr i64 %.686, 1
   %79 = or i64 %77, %78
   %80 = add i32 %.487, 1
-  %81 = icmp ugt i64 %.686, 4294967295
+  %81 = icmp samesign ugt i64 %.686, 4294967295
   br i1 %81, label %.lr.ph88, label %._crit_edge
 
 82:                                               ; preds = %._crit_edge

@@ -11533,7 +11533,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engine
   %30 = load i32, ptr %28, align 8, !tbaa !30
   store i32 %30, ptr %27, align 16, !tbaa !30
   store i32 %29, ptr %28, align 8, !tbaa !30
-  %31 = icmp ugt i64 %26, 7
+  %31 = icmp samesign ugt i64 %26, 7
   br i1 %31, label %9, label %32, !llvm.loop !391
 
 32:                                               ; preds = %9

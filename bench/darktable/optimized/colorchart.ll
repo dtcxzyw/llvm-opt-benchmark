@@ -1739,7 +1739,7 @@ parse_double.exit538:                             ; preds = %.preheader680
 458:                                              ; preds = %parse_string.exit
   %459 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.5) #13
   %460 = icmp eq i32 %459, 0
-  %461 = icmp ult i32 %.0345.ph1170, 2
+  %461 = icmp samesign ult i32 %.0345.ph1170, 2
   %or.cond21 = and i1 %461, %460
   br i1 %or.cond21, label %462, label %473
 
@@ -1775,7 +1775,7 @@ parse_double.exit563:                             ; preds = %.preheader694
 473:                                              ; preds = %458
   %474 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.6) #13
   %475 = icmp eq i32 %474, 0
-  %476 = icmp ult i32 %.0345.ph1170, 3
+  %476 = icmp samesign ult i32 %.0345.ph1170, 3
   %or.cond23 = and i1 %476, %475
   br i1 %or.cond23, label %477, label %488
 
@@ -1811,21 +1811,21 @@ parse_double.exit566:                             ; preds = %.preheader695
 488:                                              ; preds = %473
   %489 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.7) #13
   %490 = icmp eq i32 %489, 0
-  %491 = icmp ult i32 %.0345.ph1170, 4
+  %491 = icmp samesign ult i32 %.0345.ph1170, 4
   %or.cond25 = and i1 %491, %490
   br i1 %or.cond25, label %.outer.backedge.sink.split, label %492
 
 492:                                              ; preds = %488
   %493 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.8) #13
   %494 = icmp eq i32 %493, 0
-  %495 = icmp ult i32 %.0345.ph1170, 5
+  %495 = icmp samesign ult i32 %.0345.ph1170, 5
   %or.cond27 = and i1 %495, %494
   br i1 %or.cond27, label %.outer.backedge.sink.split, label %496
 
 496:                                              ; preds = %492
   %497 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.9) #13
   %498 = icmp eq i32 %497, 0
-  %499 = icmp ult i32 %.0345.ph1170, 6
+  %499 = icmp samesign ult i32 %.0345.ph1170, 6
   %or.cond29 = and i1 %499, %498
   br i1 %or.cond29, label %500, label %573
 

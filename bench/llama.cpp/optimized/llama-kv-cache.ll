@@ -1372,7 +1372,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 .thread:                                          ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, %169, %.critedge294.thread
   store i32 %.4251447, ptr %122, align 4, !tbaa !118
   %182 = add nuw nsw i64 %indvars.iv514, 1
-  %183 = icmp ult i64 %182, %109
+  %183 = icmp samesign ult i64 %182, %109
   br i1 %183, label %.preheader391, label %.loopexit392
 
 .preheader391:                                    ; preds = %.thread

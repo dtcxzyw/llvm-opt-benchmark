@@ -3419,7 +3419,7 @@ _ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compac
   %indvars.iv.next.pre-phi = phi i64 [ %48, %47 ], [ %.pre, %_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE6decodeEj.exit ], [ %48, %_ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE6decodeEj.exit27 ]
   %88 = load i32, ptr %3, align 8
   %89 = zext i32 %88 to i64
-  %90 = icmp ult i64 %indvars.iv.next.pre-phi, %89
+  %90 = icmp samesign ult i64 %indvars.iv.next.pre-phi, %89
   br i1 %90, label %7, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.loopexit, %2

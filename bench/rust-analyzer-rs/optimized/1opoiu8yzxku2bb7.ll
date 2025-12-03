@@ -11313,7 +11313,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 
 19:                                               ; preds = %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h26e1e90bee19bd2aE.exit.i.i", %15
   %20 = phi i64 [ %22, %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h26e1e90bee19bd2aE.exit.i.i" ], [ %1, %15 ]
-  %21 = icmp ult i64 %18, %20
+  %21 = icmp samesign ult i64 %18, %20
   br i1 %21, label %"_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h26e1e90bee19bd2aE.exit.i.i", label %_ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit
 
 "_ZN4core4iter6traits12double_ended19DoubleEndedIterator5rfind5check28_$u7b$$u7b$closure$u7d$$u7d$17h26e1e90bee19bd2aE.exit.i.i": ; preds = %19

@@ -272,7 +272,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %125 = load i64, ptr %124, align 8, !tbaa !16
   %126 = call i64 @llvm.fshl.i64(i64 %122, i64 %125, i64 2)
   store i64 %126, ptr %123, align 8, !tbaa !16
-  %127 = icmp ugt i64 %indvars.iv.next52.i, %102
+  %127 = icmp samesign ugt i64 %indvars.iv.next52.i, %102
   br i1 %127, label %.lr.ph48.i, label %._crit_edge.loopexit.i, !llvm.loop !24
 
 _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit: ; preds = %.preheader.i, %._crit_edge.loopexit.i

@@ -31879,7 +31879,7 @@ _ZN11polars_lazy13physical_plan9streaming11convert_alp16insert_file_sink17h4348d
   %186 = icmp samesign ult i64 %184, %185
   call void @llvm.assume(i1 %186)
   %187 = load ptr, ptr %111, align 8, !noalias !3592, !nonnull !4, !noundef !4
-  %188 = icmp ult i64 %183, 104811045873349727
+  %188 = icmp samesign ult i64 %183, 104811045873349727
   call void @llvm.assume(i1 %188)
   %189 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i32, i32, i8, [7 x i8] }, i64, i64, i8, [7 x i8] }, ptr %187, i64 %184
   %.sroa.0496.0.copyload.i = load i64, ptr %189, align 8, !noalias !3591
@@ -41205,7 +41205,7 @@ define internal fastcc void @_ZN11polars_lazy13physical_plan9streaming11convert_
   %73 = icmp samesign ult i64 %71, %72
   tail call void @llvm.assume(i1 %73)
   %74 = load ptr, ptr %56, align 8, !nonnull !4, !noundef !4
-  %75 = icmp ult i64 %69, 1152921504606846977
+  %75 = icmp samesign ult i64 %69, 1152921504606846977
   tail call void @llvm.assume(i1 %75)
   %76 = getelementptr inbounds nuw i64, ptr %74, i64 %71
   %77 = load i64, ptr %76, align 8, !noundef !4
@@ -41285,7 +41285,7 @@ define internal fastcc void @_ZN11polars_lazy13physical_plan9streaming11convert_
   %102 = icmp samesign ult i64 %100, %101
   tail call void @llvm.assume(i1 %102)
   %103 = load ptr, ptr %56, align 8, !nonnull !4, !noundef !4
-  %104 = icmp ult i64 %99, 1152921504606846977
+  %104 = icmp samesign ult i64 %99, 1152921504606846977
   tail call void @llvm.assume(i1 %104)
   %105 = getelementptr inbounds nuw i64, ptr %103, i64 %100
   %106 = load i64, ptr %105, align 8, !noundef !4

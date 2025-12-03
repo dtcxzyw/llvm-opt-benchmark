@@ -358,7 +358,7 @@ print_sep.exit.thread:                            ; preds = %83, %print_sep.exit
   %106 = zext i32 %105 to i64
   store i64 %106, ptr %27, align 8, !tbaa !32
   %107 = zext i16 %102 to i32
-  %108 = icmp ult i32 %.2199.ph, %107
+  %108 = icmp samesign ult i32 %.2199.ph, %107
   br i1 %108, label %96, label %109
 
 109:                                              ; preds = %103

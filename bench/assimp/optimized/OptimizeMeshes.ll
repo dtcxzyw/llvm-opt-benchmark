@@ -1070,7 +1070,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit69: ; preds = %_ZNSt6vectorIP6
   store i32 %storemerge, ptr %24, align 4
   %260 = load i32, ptr %4, align 8
   %261 = zext i32 %260 to i64
-  %262 = icmp ult i64 %indvars.iv.next.pre-phi, %261
+  %262 = icmp samesign ult i64 %indvars.iv.next.pre-phi, %261
   br i1 %262, label %21, label %.preheader, !llvm.loop !10
 
 ._crit_edge86:                                    ; preds = %263, %.preheader

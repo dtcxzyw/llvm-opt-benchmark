@@ -7140,7 +7140,7 @@ while.body.i:                                     ; preds = %_ZN9struct_pb13Unkn
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %v.addr.i.050, 7
   %pos.2 = add i64 %pos.251, 1
-  %cmp.i = icmp ugt i64 %v.addr.i.050, 16383
+  %cmp.i = icmp samesign ugt i64 %v.addr.i.050, 16383
   br i1 %cmp.i, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, !llvm.loop !9
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %_ZN9struct_pb13UnknownFieldsD2Ev.exit

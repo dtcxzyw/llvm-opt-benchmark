@@ -341,7 +341,7 @@ define internal fastcc i32 @decode_ints_uint64(ptr noalias noundef captures(none
   %.sroa.19.0119.i = phi ptr [ %.sroa.19.0.copyload.i, %.lr.ph124.preheader.i ], [ %.sroa.19.2.i, %.loopexit.i ]
   %.sroa.11.0118.i = phi i64 [ %.sroa.11.0.copyload.i, %.lr.ph124.preheader.i ], [ %.sroa.11.2.i, %.loopexit.i ]
   %indvars.iv.next139.i = add nsw i64 %indvars.iv138.i, -1
-  %10 = icmp ugt i64 %indvars.iv138.i, %9
+  %10 = icmp samesign ugt i64 %indvars.iv138.i, %9
   br i1 %10, label %11, label %decode_few_ints_uint64.exit
 
 11:                                               ; preds = %.lr.ph124.i
@@ -525,7 +525,7 @@ decode_few_ints_uint64.exit:                      ; preds = %.loopexit.i, %.lr.p
 
 .loopexit.i34:                                    ; preds = %.lr.ph101.i, %.critedge.i
   %indvars.iv.next115.i = add nsw i64 %indvars.iv114.i, -1
-  %78 = icmp ugt i64 %indvars.iv114.i, %77
+  %78 = icmp samesign ugt i64 %indvars.iv114.i, %77
   br i1 %78, label %.lr.ph106.i, label %decode_few_ints_prec_uint64.exit
 
 .lr.ph106.i:                                      ; preds = %.loopexit.i34, %.lr.ph106.preheader.i

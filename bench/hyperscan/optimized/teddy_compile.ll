@@ -532,7 +532,7 @@ _ZN3ue210verify_u32ImEEjT_.exit.us.us.i.i:        ; preds = %179
   %199 = add i32 %198, %195
   %200 = shl i32 %196, 4
   %201 = shl i32 %199, 4
-  %.not.us.us.i.i = icmp ult i64 %indvars.iv133.i.i, %185
+  %.not.us.us.i.i = icmp samesign ult i64 %indvars.iv133.i.i, %185
   br i1 %.not.us.us.i.i, label %208, label %.preheader.us.us.preheader.i.i
 
 .preheader.us.us.preheader.i.i:                   ; preds = %190
@@ -1017,7 +1017,7 @@ _ZN3ue210verify_u32ImEEjT_.exit.us.us.i88.i:      ; preds = %410
   %431 = or disjoint i32 %430, 16
   %432 = shl i32 %427, 5
   %433 = or disjoint i32 %432, 16
-  %.not.us.us.i89.i = icmp ult i64 %indvars.iv169.i.i, %416
+  %.not.us.us.i89.i = icmp samesign ult i64 %indvars.iv169.i.i, %416
   br i1 %.not.us.us.i89.i, label %446, label %.preheader.us.us.preheader.i90.i
 
 .preheader.us.us.preheader.i90.i:                 ; preds = %421

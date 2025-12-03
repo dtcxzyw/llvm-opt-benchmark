@@ -7247,7 +7247,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState4pol
   %55 = icmp samesign ult i64 %53, %54
   call void @llvm.assume(i1 %55)
   %56 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
-  %57 = icmp ult i64 %52, 1152921504606846977
+  %57 = icmp samesign ult i64 %52, 1152921504606846977
   call void @llvm.assume(i1 %57)
   %58 = getelementptr inbounds nuw i64, ptr %56, i64 %53
   %59 = load i64, ptr %58, align 8, !noundef !3

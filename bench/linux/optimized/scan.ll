@@ -1745,7 +1745,7 @@ define dso_local void @acpi_init_device_object(ptr noundef %0, ptr noundef %1, i
 65:                                               ; preds = %59
   store i8 0, ptr %62, align 1
   %66 = add nsw i32 %60, -1
-  %67 = icmp ugt i32 %60, 2
+  %67 = icmp samesign ugt i32 %60, 2
   br i1 %67, label %59, label %68, !llvm.loop !20
 
 68:                                               ; preds = %65, %59

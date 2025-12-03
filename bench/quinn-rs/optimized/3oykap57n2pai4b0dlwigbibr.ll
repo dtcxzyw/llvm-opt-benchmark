@@ -7895,7 +7895,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
   %1819 = icmp samesign ult i64 %1817, %1818
   call void @llvm.assume(i1 %1819)
   %1820 = load ptr, ptr %1812, align 8, !noalias !210, !nonnull !3, !noundef !3
-  %1821 = icmp ult i64 %1816, 288230376151711745
+  %1821 = icmp samesign ult i64 %1816, 288230376151711745
   call void @llvm.assume(i1 %1821)
   %1822 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %1820, i64 %1817
   %.sroa.0595.0.copyload.i = load i16, ptr %1822, align 4, !noalias !210
@@ -8294,7 +8294,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
   %1979 = icmp samesign ult i64 %1977, %1978
   call void @llvm.assume(i1 %1979)
   %1980 = load ptr, ptr %1792, align 16, !noalias !210, !nonnull !3, !noundef !3
-  %1981 = icmp ult i64 %1976, 1152921504606846977
+  %1981 = icmp samesign ult i64 %1976, 1152921504606846977
   call void @llvm.assume(i1 %1981)
   %1982 = getelementptr inbounds nuw i64, ptr %1980, i64 %1977
   %1983 = load i64, ptr %1982, align 8, !noalias !210, !noundef !3
@@ -8581,7 +8581,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
   %2087 = icmp samesign ult i64 %2085, %2086
   call void @llvm.assume(i1 %2087)
   %2088 = load ptr, ptr %1783, align 8, !noalias !210, !nonnull !3, !noundef !3
-  %2089 = icmp ult i64 %2084, 192153584101141164
+  %2089 = icmp samesign ult i64 %2084, 192153584101141164
   call void @llvm.assume(i1 %2089)
   %2090 = getelementptr inbounds nuw { { [16 x i8] }, i64, { [20 x i8], i8 }, [3 x i8] }, ptr %2088, i64 %2085
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %2090, i64 16, i1 false), !noalias !210

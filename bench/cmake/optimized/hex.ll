@@ -58,7 +58,7 @@ define dso_local void @rhash_byte_to_base32(ptr noundef writeonly captures(none)
   %.041 = phi ptr [ %0, %.lr.ph ], [ %40, %37 ]
   %.02840 = phi i32 [ 0, %.lr.ph ], [ %.129, %37 ]
   %.03039 = phi ptr [ %1, %.lr.ph ], [ %.131, %37 ]
-  %8 = icmp ugt i32 %.02840, 3
+  %8 = icmp samesign ugt i32 %.02840, 3
   br i1 %8, label %9, label %27
 
 9:                                                ; preds = %7
@@ -129,7 +129,7 @@ define dso_local void @rhash_byte_to_base64(ptr noundef writeonly captures(none)
   %.045 = phi ptr [ %49, %47 ], [ %0, %3 ]
   %.03344 = phi i32 [ %.134, %47 ], [ 0, %3 ]
   %.03543 = phi ptr [ %.136, %47 ], [ %1, %3 ]
-  %5 = icmp ugt i32 %.03344, 2
+  %5 = icmp samesign ugt i32 %.03344, 2
   br i1 %5, label %6, label %24
 
 6:                                                ; preds = %.lr.ph
@@ -255,7 +255,7 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
   %.045.i = phi ptr [ %55, %53 ], [ %6, %8 ]
   %.03344.i = phi i32 [ %.134.i, %53 ], [ 0, %8 ]
   %.03543.i = phi ptr [ %.136.i, %53 ], [ %.02349, %8 ]
-  %11 = icmp ugt i32 %.03344.i, 2
+  %11 = icmp samesign ugt i32 %.03344.i, 2
   br i1 %11, label %12, label %30
 
 12:                                               ; preds = %.lr.ph.i
@@ -460,7 +460,7 @@ rhash_urlencode.exit:                             ; preds = %79, %._crit_edge.i2
   %.045.i32 = phi ptr [ %160, %158 ], [ %0, %114 ]
   %.03344.i33 = phi i32 [ %.134.i38, %158 ], [ 0, %114 ]
   %.03543.i34 = phi ptr [ %.136.i37, %158 ], [ %1, %114 ]
-  %116 = icmp ugt i32 %.03344.i33, 2
+  %116 = icmp samesign ugt i32 %.03344.i33, 2
   br i1 %116, label %117, label %135
 
 117:                                              ; preds = %.lr.ph.i31

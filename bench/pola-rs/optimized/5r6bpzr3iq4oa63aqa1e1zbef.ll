@@ -88784,7 +88784,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hd6da39511420313aE.exit.preheade
   %20 = icmp samesign ult i64 %18, %19
   call void @llvm.assume(i1 %20)
   %21 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %22 = icmp ult i64 %17, 1152921504606846977
+  %22 = icmp samesign ult i64 %17, 1152921504606846977
   call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw { { i32, i32 } }, ptr %21, i64 %18
   %24 = load i32, ptr %23, align 4, !range !5006, !noundef !6
@@ -89238,7 +89238,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h9b66afbe231e01ecE.exit.preheade
   %46 = icmp samesign ult i64 %44, %45
   call void @llvm.assume(i1 %46)
   %47 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %48 = icmp ult i64 %43, 1152921504606846977
+  %48 = icmp samesign ult i64 %43, 1152921504606846977
   call void @llvm.assume(i1 %48)
   %49 = getelementptr inbounds nuw { { i32, i32 } }, ptr %47, i64 %44
   %50 = load i32, ptr %49, align 4, !range !5006, !noundef !6

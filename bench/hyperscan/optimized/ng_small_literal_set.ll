@@ -1597,7 +1597,7 @@ _ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit219.i: ; preds = %_ZN5boost14dynamic_
   br label %660
 
 621:                                              ; preds = %_ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit219.i, %562
-  %.not.i.i220.i = icmp ult i64 %.0144514.i, 256
+  %.not.i.i220.i = icmp samesign ult i64 %.0144514.i, 256
   br i1 %.not.i.i220.i, label %622, label %.loopexit430.i
 
 622:                                              ; preds = %621

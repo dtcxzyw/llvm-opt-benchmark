@@ -6050,7 +6050,7 @@ _ZN23SharedDictionaryPrinter8do_valueEPK16RunTimeClassInfo.exit: ; preds = %69, 
   %indvars.iv.next.pre-phi = phi i64 [ %24, %23 ], [ %.pre, %18 ], [ %24, %_ZN23SharedDictionaryPrinter8do_valueEPK16RunTimeClassInfo.exit ]
   %74 = load i32, ptr %3, align 8
   %75 = zext i32 %74 to i64
-  %76 = icmp ult i64 %indvars.iv.next.pre-phi, %75
+  %76 = icmp samesign ult i64 %indvars.iv.next.pre-phi, %75
   br i1 %76, label %9, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
@@ -6194,7 +6194,7 @@ _ZN29SharedLambdaDictionaryPrinter8do_valueEPK27RunTimeLambdaProxyClassInfo.exit
   %indvars.iv.next.pre-phi = phi i64 [ %24, %23 ], [ %.pre, %18 ], [ %24, %_ZN29SharedLambdaDictionaryPrinter8do_valueEPK27RunTimeLambdaProxyClassInfo.exit ]
   %72 = load i32, ptr %3, align 8
   %73 = zext i32 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next.pre-phi, %73
+  %74 = icmp samesign ult i64 %indvars.iv.next.pre-phi, %73
   br i1 %74, label %9, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.loopexit, %2

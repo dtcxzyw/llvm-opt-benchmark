@@ -29265,7 +29265,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4035)
   %47 = add nuw nsw i64 %44, 1
   store i64 %47, ptr %4, align 8, !alias.scope !4030, !noalias !4035
-  %48 = icmp ult i64 %44, 3
+  %48 = icmp samesign ult i64 %44, 3
   tail call void @llvm.assume(i1 %48)
   %49 = getelementptr inbounds nuw { [3 x i64] }, ptr %45, i64 %44
   %.sroa.037.0.copyload38137 = load i8, ptr %49, align 8, !alias.scope !4037
@@ -29280,7 +29280,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4038)
   %51 = add nuw nsw i64 %99, 1
   store i64 %51, ptr %4, align 8, !alias.scope !4030, !noalias !4038
-  %52 = icmp ult i64 %99, 3
+  %52 = icmp samesign ult i64 %99, 3
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw { [3 x i64] }, ptr %45, i64 %99
   %.sroa.037.0.copyload38 = load i8, ptr %53, align 8, !alias.scope !4040

@@ -775,7 +775,7 @@ hash_match.exit.thread83.us.us.us.preheader.i.i:  ; preds = %.lr.ph.us.us.i.i
 
 .sink.split.i.i:                                  ; preds = %.sink.split.i.sink.split.i, %161, %.lr.ph.split.us.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %191 = icmp ugt i64 %154, %.055.lcssa.i.i
+  %191 = icmp samesign ugt i64 %154, %.055.lcssa.i.i
   br i1 %191, label %.lr.ph.split.us.i.i, label %..loopexit_crit_edge.split.us106.i.i
 
 ..loopexit_crit_edge.split.us106.i.i:             ; preds = %.sink.split.i.i

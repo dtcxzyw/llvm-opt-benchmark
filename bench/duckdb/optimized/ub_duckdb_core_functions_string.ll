@@ -75114,7 +75114,7 @@ define linkonce_odr { i64, ptr } @_ZN6duckdb18FromBinaryOperator9OperationINS_8s
 41:                                               ; preds = %_ZN6duckdb10StringUtil14GetBinaryValueEc.exit
   store i8 %74, ptr %.13555, align 1, !tbaa !65
   %42 = getelementptr inbounds nuw i8, ptr %.13555, i64 1
-  %43 = icmp ult i64 %40, %14
+  %43 = icmp samesign ult i64 %40, %14
   br i1 %43, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !1705
 
 44:                                               ; preds = %.preheader, %_ZN6duckdb10StringUtil14GetBinaryValueEc.exit

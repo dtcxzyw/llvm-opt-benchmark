@@ -9269,7 +9269,7 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
 
 37:                                               ; preds = %40
   %38 = add nuw nsw i32 %.0544.us, 1
-  %39 = icmp ult i32 %38, %34
+  %39 = icmp samesign ult i32 %38, %34
   br i1 %39, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !36
 
 40:                                               ; preds = %.lr.ph.split.us, %40
@@ -9309,7 +9309,7 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
 
 56:                                               ; preds = %49
   %57 = add nuw nsw i32 %.0544, 1
-  %58 = icmp ult i32 %57, %34
+  %58 = icmp samesign ult i32 %57, %34
   br i1 %58, label %.lr.ph.split, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %56, %37, %28, %3, %4, %4

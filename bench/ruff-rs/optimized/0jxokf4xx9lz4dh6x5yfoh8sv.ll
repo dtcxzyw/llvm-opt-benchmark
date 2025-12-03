@@ -39005,7 +39005,7 @@ default.unreachable7:                             ; preds = %1
   %31 = icmp samesign ult i64 %29, %30
   tail call void @llvm.assume(i1 %31)
   %32 = load ptr, ptr %25, align 8, !nonnull !4, !noundef !4
-  %33 = icmp ult i64 %28, 2305843009213693953
+  %33 = icmp samesign ult i64 %28, 2305843009213693953
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw i32, ptr %32, i64 %29
   %35 = load i32, ptr %34, align 4, !range !62, !noundef !4
@@ -39154,7 +39154,7 @@ define hidden noundef i32 @"_ZN18ty_python_semantic4list24ListBuilder$LT$K$C$V$G
   %54 = icmp samesign ult i64 %52, %53
   tail call void @llvm.assume(i1 %54)
   %55 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %56 = icmp ult i64 %51, 2305843009213693953
+  %56 = icmp samesign ult i64 %51, 2305843009213693953
   tail call void @llvm.assume(i1 %56)
   %57 = getelementptr inbounds nuw i32, ptr %55, i64 %52
   %58 = load i32, ptr %57, align 4, !range !62, !noundef !4

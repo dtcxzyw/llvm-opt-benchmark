@@ -32979,7 +32979,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h8820aa048111d4f3
 "_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17hcc3de07393fe8bdfE.exit25": ; preds = %64, %.noexc22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h9174a1c411e99206E.exit20.thread", %.noexc23, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h9174a1c411e99206E.exit20.thread38"
   %.sroa.5.2 = phi i64 [ %56, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h9174a1c411e99206E.exit20.thread38" ], [ %57, %.noexc23 ], [ %57, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h9174a1c411e99206E.exit20.thread" ], [ %57, %.noexc22 ], [ %57, %64 ]
   %.sroa.12.2 = phi i64 [ %55, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h9174a1c411e99206E.exit20.thread38" ], [ %.sroa.12.145, %.noexc23 ], [ %.sroa.12.145, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5dedup28_$u7b$$u7b$closure$u7d$$u7d$17h9174a1c411e99206E.exit20.thread" ], [ %.sroa.12.145, %.noexc22 ], [ %.sroa.12.145, %64 ]
-  %69 = icmp ult i64 %.sroa.5.2, %3
+  %69 = icmp samesign ult i64 %.sroa.5.2, %3
   br i1 %69, label %.lr.ph, label %._crit_edge
 }
 

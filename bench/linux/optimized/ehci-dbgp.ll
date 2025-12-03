@@ -1161,7 +1161,7 @@ define internal fastcc void @early_ehci_bios_handoff() unnamed_addr #0 section "
   %41 = tail call i32 @read_pci_config(i8 noundef zeroext %36, i8 noundef zeroext %38, i8 noundef zeroext %40, i8 noundef zeroext %14) #7
   %42 = and i32 %41, 65536
   %43 = icmp ne i32 %42, 0
-  %44 = icmp ugt i32 %28, 10
+  %44 = icmp samesign ugt i32 %28, 10
   %45 = select i1 %43, i1 %44, i1 false
   br i1 %45, label %.preheader, label %46, !llvm.loop !34
 

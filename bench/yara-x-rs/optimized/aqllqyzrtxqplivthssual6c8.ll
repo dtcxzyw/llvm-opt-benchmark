@@ -17102,7 +17102,7 @@ default.unreachable:                              ; preds = %39, %11
   %34 = icmp samesign ult i64 %32, %33
   call void @llvm.assume(i1 %34)
   %35 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3737, !noalias !3743, !nonnull !3, !noundef !3
-  %36 = icmp ult i64 %31, 230584300921369397
+  %36 = icmp samesign ult i64 %31, 230584300921369397
   call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds nuw { ptr, { i64, [3 x i64] } }, ptr %35, i64 %32
   %.sroa.031.0.copyload.i = load ptr, ptr %37, align 8, !nonnull !3, !noundef !3

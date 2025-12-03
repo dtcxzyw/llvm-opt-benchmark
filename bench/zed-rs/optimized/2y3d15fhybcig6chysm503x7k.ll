@@ -745,7 +745,7 @@ define hidden void @"_ZN51_$LT$git2..oid..Oid$u20$as$u20$core..hash..Hash$GT$4ha
   %9 = mul i64 %8, 5871781006564002453
   %10 = add nsw i64 %.sroa.11.048.i, -8
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.049.i, i64 8
-  %12 = icmp ugt i64 %10, 7
+  %12 = icmp samesign ugt i64 %10, 7
   br i1 %12, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7941161e5d1f20fdE.exit.i", label %"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.18231090826604324723.exit"
 
 "_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.18231090826604324723.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7941161e5d1f20fdE.exit.i"

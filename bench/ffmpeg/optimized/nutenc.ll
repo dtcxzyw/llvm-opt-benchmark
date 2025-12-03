@@ -4250,7 +4250,7 @@ write_streaminfo.exit:                            ; preds = %get_v_length.exit.i
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 44
   %679 = load i32, ptr %678, align 4, !tbaa !35
   %680 = zext i32 %679 to i64
-  %681 = icmp ult i64 %indvars.iv.next159.pre-phi, %680
+  %681 = icmp samesign ult i64 %indvars.iv.next159.pre-phi, %680
   br i1 %681, label %.lr.ph128, label %.preheader, !llvm.loop !184
 
 682:                                              ; preds = %.lr.ph130, %.loopexit

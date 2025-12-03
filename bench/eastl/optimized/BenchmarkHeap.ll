@@ -604,7 +604,7 @@ do.body.i.i:                                      ; preds = %_ZN5eastl11adjust_h
   %53 = load i32, ptr %add.ptr.i.i198, align 4
   %childPosition.0.in20.i.i.i.i = shl nuw nsw i64 %dec.i.i197, 1
   %childPosition.021.i.i.i.i = add nuw nsw i64 %childPosition.0.in20.i.i.i.i, 2
-  %cmp22.i.i.i.i = icmp ult i64 %parentPosition.0.i.i, 50000
+  %cmp22.i.i.i.i = icmp samesign ult i64 %parentPosition.0.i.i, 50000
   br i1 %cmp22.i.i.i.i, label %for.body.i.i.i.i, label %for.end.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %do.body.i.i, %for.body.i.i.i.i

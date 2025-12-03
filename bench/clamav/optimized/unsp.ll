@@ -501,7 +501,7 @@ getbit_from_table.exit478:                        ; preds = %161, %168, %get_byt
   %202 = phi i32 [ %152, %161 ], [ %183, %get_byte.exit.i476 ], [ %166, %168 ], [ %199, %get_byte.exit57.i473 ], [ %185, %184 ]
   %.0.i471 = phi i32 [ 255, %161 ], [ 0, %get_byte.exit.i476 ], [ 0, %168 ], [ 1, %get_byte.exit57.i473 ], [ 1, %184 ]
   %203 = or i32 %.0.i471, %153
-  %204 = icmp ult i32 %.05.i, 128
+  %204 = icmp samesign ult i32 %.05.i, 128
   br i1 %204, label %149, label %205
 
 205:                                              ; preds = %getbit_from_table.exit478
@@ -2020,7 +2020,7 @@ define range(i32 0, 256) i32 @get_100_bits_from_table(ptr noundef %0, ptr nounde
   %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
   %7 = tail call i32 @getbit_from_table(ptr noundef %6, ptr noundef %1)
   %8 = or i32 %7, %4
-  %9 = icmp ult i32 %.05, 128
+  %9 = icmp samesign ult i32 %.05, 128
   br i1 %9, label %3, label %10
 
 10:                                               ; preds = %3

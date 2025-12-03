@@ -4743,7 +4743,7 @@ if.end.i.i1802.preheader:                         ; preds = %for.body
 if.end.i.i1802:                                   ; preds = %if.end14.i.i, %if.end.i.i1802.preheader
   %__value.addr.041.i.i = phi i32 [ %753, %if.end14.i.i ], [ %752, %if.end.i.i1802.preheader ]
   %__n.040.i.i = phi i32 [ %add17.i.i, %if.end14.i.i ], [ 1, %if.end.i.i1802.preheader ]
-  %cmp3.i.i = icmp ult i32 %__value.addr.041.i.i, 100
+  %cmp3.i.i = icmp samesign ult i32 %__value.addr.041.i.i, 100
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end5.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i1802
@@ -4751,7 +4751,7 @@ if.then4.i.i:                                     ; preds = %if.end.i.i1802
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i1802
-  %cmp6.i.i = icmp ult i32 %__value.addr.041.i.i, 1000
+  %cmp6.i.i = icmp samesign ult i32 %__value.addr.041.i.i, 1000
   br i1 %cmp6.i.i, label %if.then7.i.i, label %if.end9.i.i
 
 if.then7.i.i:                                     ; preds = %if.end5.i.i
@@ -4759,7 +4759,7 @@ if.then7.i.i:                                     ; preds = %if.end5.i.i
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 if.end9.i.i:                                      ; preds = %if.end5.i.i
-  %cmp11.i.i = icmp ult i32 %__value.addr.041.i.i, 10000
+  %cmp11.i.i = icmp samesign ult i32 %__value.addr.041.i.i, 10000
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.end14.i.i
 
 if.then12.i.i:                                    ; preds = %if.end9.i.i
@@ -4769,7 +4769,7 @@ if.then12.i.i:                                    ; preds = %if.end9.i.i
 if.end14.i.i:                                     ; preds = %if.end9.i.i
   %753 = udiv i32 %__value.addr.041.i.i, 10000
   %add17.i.i = add i32 %__n.040.i.i, 4
-  %cmp.i.i = icmp ult i32 %__value.addr.041.i.i, 100000
+  %cmp.i.i = icmp samesign ult i32 %__value.addr.041.i.i, 100000
   br i1 %cmp.i.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %if.end.i.i1802, !llvm.loop !19
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %if.end14.i.i, %if.then12.i.i, %if.then7.i.i, %if.then4.i.i, %for.body

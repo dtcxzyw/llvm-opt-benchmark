@@ -524,7 +524,7 @@ define hidden void @_ZN5ropey4tree9node_text8NodeText16insert_str_split17hc04ccf
 42:                                               ; preds = %40, %37, %32
   %.sroa.01.0.in.us = phi ptr [ %41, %40 ], [ %38, %37 ], [ %33, %32 ]
   %43 = sub nuw i64 %.sroa.025.0165.us, %18
-  %44 = icmp ult i64 %43, 8
+  %44 = icmp samesign ult i64 %43, 8
   br i1 %44, label %45, label %.split175.us, !prof !87
 
 45:                                               ; preds = %42
@@ -1154,7 +1154,7 @@ _ZN5ropey4tree9node_text5inner15NodeSmallString18inline_if_possible17h729e92ebdd
 287:                                              ; preds = %283, %285, %290
   %.sroa.01.0.in = phi ptr [ %291, %290 ], [ %286, %285 ], [ %284, %283 ]
   %288 = sub nuw i64 %.sroa.025.0165, %18
-  %289 = icmp ult i64 %288, 8
+  %289 = icmp samesign ult i64 %288, 8
   br i1 %289, label %292, label %.split175.us, !prof !87
 
 290:                                              ; preds = %"_ZN76_$LT$ropey..tree..node_text..NodeText$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1a060fa94bb6231eE.exit130"

@@ -42632,7 +42632,7 @@ default.unreachable:                              ; preds = %2151
   br i1 %exitcond1173.not.i, label %..loopexit464_crit_edge.us.i, label %2234
 
 ..loopexit464_crit_edge.us.i:                     ; preds = %2250
-  %2255 = icmp ult i64 %spec.select847.us.i, %1799
+  %2255 = icmp samesign ult i64 %spec.select847.us.i, %1799
   %2256 = zext i1 %2255 to i64
   %spec.select.us.i = add nuw i64 %spec.select847.us.i, %2256
   br i1 %2255, label %.preheader.us.i, label %.loopexit466.i

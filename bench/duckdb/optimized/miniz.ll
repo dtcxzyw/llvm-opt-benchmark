@@ -6856,7 +6856,7 @@ _ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i.exit: ; pred
   %162 = xor i32 %156, %161
   %163 = getelementptr inbounds nuw i8, ptr %.035.i, i64 4
   %164 = add nsw i64 %.02533.i, -4
-  %165 = icmp ugt i64 %164, 3
+  %165 = icmp samesign ugt i64 %164, 3
   br i1 %165, label %.lr.ph.i, label %_ZN12duckdb_miniz8mz_crc32EmPKhm.exit, !llvm.loop !12
 
 _ZN12duckdb_miniz8mz_crc32EmPKhm.exit:            ; preds = %.lr.ph.i

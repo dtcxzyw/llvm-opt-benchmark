@@ -428,7 +428,7 @@ define void @ossl_curve448_precomputed_scalarmul(ptr noundef %0, ptr noundef rea
   %19 = add nuw nsw i64 %indvars.iv, %17
   %20 = mul nuw nsw i64 %19, 18
   %21 = add nuw nsw i64 %indvars.iv.next47, %20
-  %22 = icmp ult i64 %21, 446
+  %22 = icmp samesign ult i64 %21, 446
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %18

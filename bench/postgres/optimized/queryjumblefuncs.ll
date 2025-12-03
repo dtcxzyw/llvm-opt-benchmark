@@ -1999,7 +1999,7 @@ AppendJumble.exit28:                              ; preds = %35
   %.026.i31 = phi ptr [ %55, %50 ], [ %43, %44 ]
   %.02125.i32 = phi i64 [ %56, %50 ], [ %46, %44 ]
   %.02224.i33 = phi i64 [ %54, %50 ], [ %39, %44 ]
-  %47 = icmp ugt i64 %.02224.i33, 1023
+  %47 = icmp samesign ugt i64 %.02224.i33, 1023
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %.lr.ph.i30
@@ -2093,7 +2093,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i10 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i11 = phi i64 [ %28, %22 ], [ 2, %AppendJumble.exit ]
   %.02224.i12 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i12, 1023
+  %19 = icmp samesign ugt i64 %.02224.i12, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i9
@@ -2123,7 +2123,7 @@ AppendJumble.exit15:                              ; preds = %22
   %.026.i17 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit15 ]
   %.02125.i18 = phi i64 [ %40, %34 ], [ 4, %AppendJumble.exit15 ]
   %.02224.i19 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit15 ]
-  %31 = icmp ugt i64 %.02224.i19, 1023
+  %31 = icmp samesign ugt i64 %.02224.i19, 1023
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i16
@@ -2153,7 +2153,7 @@ AppendJumble.exit22:                              ; preds = %34
   %.026.i24 = phi ptr [ %51, %46 ], [ %41, %AppendJumble.exit22 ]
   %.02125.i25 = phi i64 [ %52, %46 ], [ 4, %AppendJumble.exit22 ]
   %.02224.i26 = phi i64 [ %50, %46 ], [ %38, %AppendJumble.exit22 ]
-  %43 = icmp ugt i64 %.02224.i26, 1023
+  %43 = icmp samesign ugt i64 %.02224.i26, 1023
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %.lr.ph.i23
@@ -2306,7 +2306,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i8 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i9 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i10 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i10, 1023
+  %19 = icmp samesign ugt i64 %.02224.i10, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i7
@@ -2336,7 +2336,7 @@ AppendJumble.exit13:                              ; preds = %22
   %.026.i15 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit13 ]
   %.02125.i16 = phi i64 [ %40, %34 ], [ 4, %AppendJumble.exit13 ]
   %.02224.i17 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit13 ]
-  %31 = icmp ugt i64 %.02224.i17, 1023
+  %31 = icmp samesign ugt i64 %.02224.i17, 1023
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i14
@@ -2626,7 +2626,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i6 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i7 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i8 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i8, 1023
+  %19 = icmp samesign ugt i64 %.02224.i8, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i5
@@ -3007,7 +3007,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i10 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i11 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i12 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i12, 1023
+  %19 = icmp samesign ugt i64 %.02224.i12, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i9
@@ -3479,7 +3479,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i6 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i7 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i8 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i8, 1023
+  %19 = icmp samesign ugt i64 %.02224.i8, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i5
@@ -3607,7 +3607,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i6 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i7 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i8 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i8, 1023
+  %19 = icmp samesign ugt i64 %.02224.i8, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i5
@@ -3677,7 +3677,7 @@ AppendJumble.exit:                                ; preds = %12
   %.026.i8 = phi ptr [ %29, %24 ], [ %19, %AppendJumble.exit ]
   %.02125.i9 = phi i64 [ %30, %24 ], [ 4, %AppendJumble.exit ]
   %.02224.i10 = phi i64 [ %28, %24 ], [ %16, %AppendJumble.exit ]
-  %21 = icmp ugt i64 %.02224.i10, 1023
+  %21 = icmp samesign ugt i64 %.02224.i10, 1023
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
@@ -3973,7 +3973,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i34 = phi ptr [ %31, %26 ], [ %18, %19 ]
   %.02125.i35 = phi i64 [ %32, %26 ], [ %21, %19 ]
   %.02224.i36 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i36, 1023
+  %23 = icmp samesign ugt i64 %.02224.i36, 1023
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i33
@@ -4071,7 +4071,7 @@ AppendJumble.exit55:                              ; preds = %.lr.ph.i48, %62, %.
   %.026.i57 = phi ptr [ %79, %74 ], [ %69, %AppendJumble.exit55 ]
   %.02125.i58 = phi i64 [ %80, %74 ], [ 4, %AppendJumble.exit55 ]
   %.02224.i59 = phi i64 [ %78, %74 ], [ %68, %AppendJumble.exit55 ]
-  %71 = icmp ugt i64 %.02224.i59, 1023
+  %71 = icmp samesign ugt i64 %.02224.i59, 1023
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %.lr.ph.i56
@@ -4118,7 +4118,7 @@ AppendJumble.exit71:                              ; preds = %.lr.ph.i64, %84
   %.026.i73 = phi ptr [ %99, %94 ], [ %89, %AppendJumble.exit71 ]
   %.02125.i74 = phi i64 [ %100, %94 ], [ 4, %AppendJumble.exit71 ]
   %.02224.i75 = phi i64 [ %98, %94 ], [ %88, %AppendJumble.exit71 ]
-  %91 = icmp ugt i64 %.02224.i75, 1023
+  %91 = icmp samesign ugt i64 %.02224.i75, 1023
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %.lr.ph.i72
@@ -4262,7 +4262,7 @@ AppendJumble.exit17:                              ; preds = %22
   %.026.i19 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit17 ]
   %.02125.i20 = phi i64 [ %40, %34 ], [ 4, %AppendJumble.exit17 ]
   %.02224.i21 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit17 ]
-  %31 = icmp ugt i64 %.02224.i21, 1023
+  %31 = icmp samesign ugt i64 %.02224.i21, 1023
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i18
@@ -4420,7 +4420,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i10 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i11 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i12 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i12, 1023
+  %19 = icmp samesign ugt i64 %.02224.i12, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i9
@@ -4615,7 +4615,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i10 = phi ptr [ %30, %25 ], [ %18, %19 ]
   %.02125.i11 = phi i64 [ %31, %25 ], [ %21, %19 ]
   %.02224.i12 = phi i64 [ %29, %25 ], [ %14, %19 ]
-  %22 = icmp ugt i64 %.02224.i12, 1023
+  %22 = icmp samesign ugt i64 %.02224.i12, 1023
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph.i9
@@ -4722,7 +4722,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i6 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i7 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i8 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i8, 1023
+  %19 = icmp samesign ugt i64 %.02224.i8, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i5
@@ -4792,7 +4792,7 @@ AppendJumble.exit:                                ; preds = %12
   %.026.i8 = phi ptr [ %29, %24 ], [ %19, %AppendJumble.exit ]
   %.02125.i9 = phi i64 [ %30, %24 ], [ 4, %AppendJumble.exit ]
   %.02224.i10 = phi i64 [ %28, %24 ], [ %16, %AppendJumble.exit ]
-  %21 = icmp ugt i64 %.02224.i10, 1023
+  %21 = icmp samesign ugt i64 %.02224.i10, 1023
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
@@ -4919,7 +4919,7 @@ AppendJumble.exit:                                ; preds = %12
   %.026.i8 = phi ptr [ %29, %24 ], [ %19, %AppendJumble.exit ]
   %.02125.i9 = phi i64 [ %30, %24 ], [ 4, %AppendJumble.exit ]
   %.02224.i10 = phi i64 [ %28, %24 ], [ %16, %AppendJumble.exit ]
-  %21 = icmp ugt i64 %.02224.i10, 1023
+  %21 = icmp samesign ugt i64 %.02224.i10, 1023
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
@@ -5577,7 +5577,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   %.026.i29 = phi ptr [ %25, %20 ], [ %15, %14 ]
   %.02125.i30 = phi i64 [ %26, %20 ], [ 4, %14 ]
   %.02224.i31 = phi i64 [ %24, %20 ], [ %11, %14 ]
-  %17 = icmp ugt i64 %.02224.i31, 1023
+  %17 = icmp samesign ugt i64 %.02224.i31, 1023
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %.lr.ph.i28
@@ -5617,7 +5617,7 @@ AppendJumble.exit34:                              ; preds = %20
   %.026.i36 = phi ptr [ %39, %34 ], [ %29, %28 ]
   %.02125.i37 = phi i64 [ %40, %34 ], [ 4, %28 ]
   %.02224.i38 = phi i64 [ %38, %34 ], [ %24, %28 ]
-  %31 = icmp ugt i64 %.02224.i38, 1023
+  %31 = icmp samesign ugt i64 %.02224.i38, 1023
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i35
@@ -5654,7 +5654,7 @@ AppendJumble.exit34:                              ; preds = %20
   %.026.i43 = phi ptr [ %56, %51 ], [ %43, %44 ]
   %.02125.i44 = phi i64 [ %57, %51 ], [ %46, %44 ]
   %.02224.i45 = phi i64 [ %55, %51 ], [ %24, %44 ]
-  %48 = icmp ugt i64 %.02224.i45, 1023
+  %48 = icmp samesign ugt i64 %.02224.i45, 1023
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %.lr.ph.i42
@@ -5710,7 +5710,7 @@ AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %61
   %.026.i59 = phi ptr [ %81, %76 ], [ %68, %69 ]
   %.02125.i60 = phi i64 [ %82, %76 ], [ %71, %69 ]
   %.02224.i61 = phi i64 [ %80, %76 ], [ %24, %69 ]
-  %73 = icmp ugt i64 %.02224.i61, 1023
+  %73 = icmp samesign ugt i64 %.02224.i61, 1023
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %.lr.ph.i58
@@ -5747,7 +5747,7 @@ AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %61
   %.026.i68 = phi ptr [ %98, %93 ], [ %85, %86 ]
   %.02125.i69 = phi i64 [ %99, %93 ], [ %88, %86 ]
   %.02224.i70 = phi i64 [ %97, %93 ], [ %24, %86 ]
-  %90 = icmp ugt i64 %.02224.i70, 1023
+  %90 = icmp samesign ugt i64 %.02224.i70, 1023
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %.lr.ph.i67
@@ -5855,7 +5855,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i8 = phi ptr [ %31, %26 ], [ %18, %19 ]
   %.02125.i9 = phi i64 [ %32, %26 ], [ %21, %19 ]
   %.02224.i10 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i10, 1023
+  %23 = icmp samesign ugt i64 %.02224.i10, 1023
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i7
@@ -6009,7 +6009,7 @@ AppendJumble.exit41:                              ; preds = %.lr.ph.i35, %52, %.
   %.026.i43 = phi ptr [ %69, %64 ], [ %59, %AppendJumble.exit41 ]
   %.02125.i44 = phi i64 [ %70, %64 ], [ 4, %AppendJumble.exit41 ]
   %.02224.i45 = phi i64 [ %68, %64 ], [ %58, %AppendJumble.exit41 ]
-  %61 = icmp ugt i64 %.02224.i45, 1023
+  %61 = icmp samesign ugt i64 %.02224.i45, 1023
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %.lr.ph.i42
@@ -6176,7 +6176,7 @@ AppendJumble.exit:                                ; preds = %12
   %.026.i8 = phi ptr [ %29, %24 ], [ %19, %AppendJumble.exit ]
   %.02125.i9 = phi i64 [ %30, %24 ], [ 4, %AppendJumble.exit ]
   %.02224.i10 = phi i64 [ %28, %24 ], [ %16, %AppendJumble.exit ]
-  %21 = icmp ugt i64 %.02224.i10, 1023
+  %21 = icmp samesign ugt i64 %.02224.i10, 1023
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
@@ -6246,7 +6246,7 @@ AppendJumble.exit:                                ; preds = %12
   %.026.i10 = phi ptr [ %29, %24 ], [ %19, %AppendJumble.exit ]
   %.02125.i11 = phi i64 [ %30, %24 ], [ 4, %AppendJumble.exit ]
   %.02224.i12 = phi i64 [ %28, %24 ], [ %16, %AppendJumble.exit ]
-  %21 = icmp ugt i64 %.02224.i12, 1023
+  %21 = icmp samesign ugt i64 %.02224.i12, 1023
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i9
@@ -6931,7 +6931,7 @@ AppendJumble.exit95:                              ; preds = %.lr.ph.i88, %94, %.
   %.026.i98 = phi ptr [ %115, %110 ], [ %102, %103 ]
   %.02125.i99 = phi i64 [ %116, %110 ], [ %105, %103 ]
   %.02224.i100 = phi i64 [ %114, %110 ], [ %100, %103 ]
-  %107 = icmp ugt i64 %.02224.i100, 1023
+  %107 = icmp samesign ugt i64 %.02224.i100, 1023
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %.lr.ph.i97
@@ -7090,7 +7090,7 @@ AppendJumble.exit:                                ; preds = %12
   %.026.i8 = phi ptr [ %29, %24 ], [ %19, %AppendJumble.exit ]
   %.02125.i9 = phi i64 [ %30, %24 ], [ 4, %AppendJumble.exit ]
   %.02224.i10 = phi i64 [ %28, %24 ], [ %16, %AppendJumble.exit ]
-  %21 = icmp ugt i64 %.02224.i10, 1023
+  %21 = icmp samesign ugt i64 %.02224.i10, 1023
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
@@ -7257,7 +7257,7 @@ AppendJumble.exit39:                              ; preds = %56
   %.026.i41 = phi ptr [ %73, %68 ], [ %63, %AppendJumble.exit39 ]
   %.02125.i42 = phi i64 [ %74, %68 ], [ 4, %AppendJumble.exit39 ]
   %.02224.i43 = phi i64 [ %72, %68 ], [ %60, %AppendJumble.exit39 ]
-  %65 = icmp ugt i64 %.02224.i43, 1023
+  %65 = icmp samesign ugt i64 %.02224.i43, 1023
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %.lr.ph.i40
@@ -7455,7 +7455,7 @@ AppendJumble.exit:                                ; preds = %12
   %.026.i8 = phi ptr [ %29, %24 ], [ %19, %AppendJumble.exit ]
   %.02125.i9 = phi i64 [ %30, %24 ], [ 4, %AppendJumble.exit ]
   %.02224.i10 = phi i64 [ %28, %24 ], [ %16, %AppendJumble.exit ]
-  %21 = icmp ugt i64 %.02224.i10, 1023
+  %21 = icmp samesign ugt i64 %.02224.i10, 1023
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
@@ -7691,7 +7691,7 @@ AppendJumble.exit21:                              ; preds = %.lr.ph.i15, %16, %.
   %.026.i23 = phi ptr [ %33, %28 ], [ %23, %AppendJumble.exit21 ]
   %.02125.i24 = phi i64 [ %34, %28 ], [ 4, %AppendJumble.exit21 ]
   %.02224.i25 = phi i64 [ %32, %28 ], [ %22, %AppendJumble.exit21 ]
-  %25 = icmp ugt i64 %.02224.i25, 1023
+  %25 = icmp samesign ugt i64 %.02224.i25, 1023
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph.i22
@@ -7721,7 +7721,7 @@ AppendJumble.exit28:                              ; preds = %28
   %.026.i30 = phi ptr [ %45, %40 ], [ %35, %AppendJumble.exit28 ]
   %.02125.i31 = phi i64 [ %46, %40 ], [ 4, %AppendJumble.exit28 ]
   %.02224.i32 = phi i64 [ %44, %40 ], [ %32, %AppendJumble.exit28 ]
-  %37 = icmp ugt i64 %.02224.i32, 1023
+  %37 = icmp samesign ugt i64 %.02224.i32, 1023
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph.i29
@@ -7868,7 +7868,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i34 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i35 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i36 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i36, 1023
+  %19 = icmp samesign ugt i64 %.02224.i36, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i33
@@ -8066,7 +8066,7 @@ AppendJumble.exit75:                              ; preds = %91
   %.026.i78 = phi ptr [ %112, %107 ], [ %99, %100 ]
   %.02125.i79 = phi i64 [ %113, %107 ], [ %102, %100 ]
   %.02224.i80 = phi i64 [ %111, %107 ], [ %95, %100 ]
-  %104 = icmp ugt i64 %.02224.i80, 1023
+  %104 = icmp samesign ugt i64 %.02224.i80, 1023
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %.lr.ph.i77
@@ -8154,7 +8154,7 @@ AppendJumble.exit21:                              ; preds = %.lr.ph.i15, %20
   %.026.i23 = phi ptr [ %35, %30 ], [ %25, %AppendJumble.exit21 ]
   %.02125.i24 = phi i64 [ %36, %30 ], [ 8, %AppendJumble.exit21 ]
   %.02224.i25 = phi i64 [ %34, %30 ], [ %24, %AppendJumble.exit21 ]
-  %27 = icmp ugt i64 %.02224.i25, 1023
+  %27 = icmp samesign ugt i64 %.02224.i25, 1023
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %.lr.ph.i22
@@ -8184,7 +8184,7 @@ AppendJumble.exit28:                              ; preds = %30
   %.026.i30 = phi ptr [ %47, %42 ], [ %37, %AppendJumble.exit28 ]
   %.02125.i31 = phi i64 [ %48, %42 ], [ 4, %AppendJumble.exit28 ]
   %.02224.i32 = phi i64 [ %46, %42 ], [ %34, %AppendJumble.exit28 ]
-  %39 = icmp ugt i64 %.02224.i32, 1023
+  %39 = icmp samesign ugt i64 %.02224.i32, 1023
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %.lr.ph.i29
@@ -8311,7 +8311,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i18 = phi ptr [ %31, %26 ], [ %18, %19 ]
   %.02125.i19 = phi i64 [ %32, %26 ], [ %21, %19 ]
   %.02224.i20 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i20, 1023
+  %23 = icmp samesign ugt i64 %.02224.i20, 1023
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i17
@@ -8446,7 +8446,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i12 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i13 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i14 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i14, 1023
+  %19 = icmp samesign ugt i64 %.02224.i14, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i11
@@ -8476,7 +8476,7 @@ AppendJumble.exit17:                              ; preds = %22
   %.026.i19 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit17 ]
   %.02125.i20 = phi i64 [ %40, %34 ], [ 4, %AppendJumble.exit17 ]
   %.02224.i21 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit17 ]
-  %31 = icmp ugt i64 %.02224.i21, 1023
+  %31 = icmp samesign ugt i64 %.02224.i21, 1023
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i18
@@ -8657,7 +8657,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i10 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i11 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i12 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i12, 1023
+  %19 = icmp samesign ugt i64 %.02224.i12, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i9
@@ -8687,7 +8687,7 @@ AppendJumble.exit15:                              ; preds = %22
   %.026.i17 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit15 ]
   %.02125.i18 = phi i64 [ %40, %34 ], [ 4, %AppendJumble.exit15 ]
   %.02224.i19 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit15 ]
-  %31 = icmp ugt i64 %.02224.i19, 1023
+  %31 = icmp samesign ugt i64 %.02224.i19, 1023
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i16
@@ -8899,7 +8899,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %9
   %.026.i10 = phi ptr [ %28, %23 ], [ %15, %16 ]
   %.02125.i11 = phi i64 [ %29, %23 ], [ %18, %16 ]
   %.02224.i12 = phi i64 [ %27, %23 ], [ %13, %16 ]
-  %20 = icmp ugt i64 %.02224.i12, 1023
+  %20 = icmp samesign ugt i64 %.02224.i12, 1023
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %.lr.ph.i9
@@ -9077,7 +9077,7 @@ AppendJumble.exit41:                              ; preds = %53
   %.026.i43 = phi ptr [ %70, %65 ], [ %60, %AppendJumble.exit41 ]
   %.02125.i44 = phi i64 [ %71, %65 ], [ 4, %AppendJumble.exit41 ]
   %.02224.i45 = phi i64 [ %69, %65 ], [ %57, %AppendJumble.exit41 ]
-  %62 = icmp ugt i64 %.02224.i45, 1023
+  %62 = icmp samesign ugt i64 %.02224.i45, 1023
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %.lr.ph.i42
@@ -9107,7 +9107,7 @@ AppendJumble.exit49:                              ; preds = %65
   %.026.i51 = phi ptr [ %82, %77 ], [ %72, %AppendJumble.exit49 ]
   %.02125.i52 = phi i64 [ %83, %77 ], [ 4, %AppendJumble.exit49 ]
   %.02224.i53 = phi i64 [ %81, %77 ], [ %69, %AppendJumble.exit49 ]
-  %74 = icmp ugt i64 %.02224.i53, 1023
+  %74 = icmp samesign ugt i64 %.02224.i53, 1023
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %.lr.ph.i50
@@ -9137,7 +9137,7 @@ AppendJumble.exit57:                              ; preds = %77
   %.026.i59 = phi ptr [ %94, %89 ], [ %84, %AppendJumble.exit57 ]
   %.02125.i60 = phi i64 [ %95, %89 ], [ 4, %AppendJumble.exit57 ]
   %.02224.i61 = phi i64 [ %93, %89 ], [ %81, %AppendJumble.exit57 ]
-  %86 = icmp ugt i64 %.02224.i61, 1023
+  %86 = icmp samesign ugt i64 %.02224.i61, 1023
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %.lr.ph.i58
@@ -9298,7 +9298,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i14 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i15 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i16 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i16, 1023
+  %19 = icmp samesign ugt i64 %.02224.i16, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i13
@@ -9328,7 +9328,7 @@ AppendJumble.exit19:                              ; preds = %22
   %.026.i21 = phi ptr [ %39, %34 ], [ %29, %AppendJumble.exit19 ]
   %.02125.i22 = phi i64 [ %40, %34 ], [ 4, %AppendJumble.exit19 ]
   %.02224.i23 = phi i64 [ %38, %34 ], [ %26, %AppendJumble.exit19 ]
-  %31 = icmp ugt i64 %.02224.i23, 1023
+  %31 = icmp samesign ugt i64 %.02224.i23, 1023
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i20
@@ -9412,7 +9412,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i8 = phi ptr [ %31, %26 ], [ %18, %19 ]
   %.02125.i9 = phi i64 [ %32, %26 ], [ %21, %19 ]
   %.02224.i10 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i10, 1023
+  %23 = icmp samesign ugt i64 %.02224.i10, 1023
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i7
@@ -9665,7 +9665,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i24 = phi ptr [ %31, %26 ], [ %18, %19 ]
   %.02125.i25 = phi i64 [ %32, %26 ], [ %21, %19 ]
   %.02224.i26 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i26, 1023
+  %23 = icmp samesign ugt i64 %.02224.i26, 1023
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i23
@@ -9748,7 +9748,7 @@ AppendJumble.exit37:                              ; preds = %52
   %.026.i39 = phi ptr [ %69, %64 ], [ %59, %AppendJumble.exit37 ]
   %.02125.i40 = phi i64 [ %70, %64 ], [ 4, %AppendJumble.exit37 ]
   %.02224.i41 = phi i64 [ %68, %64 ], [ %56, %AppendJumble.exit37 ]
-  %61 = icmp ugt i64 %.02224.i41, 1023
+  %61 = icmp samesign ugt i64 %.02224.i41, 1023
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %.lr.ph.i38
@@ -9918,7 +9918,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i24 = phi ptr [ %31, %26 ], [ %18, %19 ]
   %.02125.i25 = phi i64 [ %32, %26 ], [ %21, %19 ]
   %.02224.i26 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i26, 1023
+  %23 = icmp samesign ugt i64 %.02224.i26, 1023
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i23
@@ -9992,7 +9992,7 @@ AppendJumble.exit37:                              ; preds = %46
   %.026.i39 = phi ptr [ %63, %58 ], [ %53, %AppendJumble.exit37 ]
   %.02125.i40 = phi i64 [ %64, %58 ], [ 4, %AppendJumble.exit37 ]
   %.02224.i41 = phi i64 [ %62, %58 ], [ %50, %AppendJumble.exit37 ]
-  %55 = icmp ugt i64 %.02224.i41, 1023
+  %55 = icmp samesign ugt i64 %.02224.i41, 1023
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %.lr.ph.i38
@@ -10901,7 +10901,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   %.026.i8 = phi ptr [ %26, %21 ], [ %13, %14 ]
   %.02125.i9 = phi i64 [ %27, %21 ], [ %16, %14 ]
   %.02224.i10 = phi i64 [ %25, %21 ], [ %11, %14 ]
-  %18 = icmp ugt i64 %.02224.i10, 1023
+  %18 = icmp samesign ugt i64 %.02224.i10, 1023
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i7
@@ -10980,7 +10980,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i20 = phi ptr [ %30, %25 ], [ %18, %19 ]
   %.02125.i21 = phi i64 [ %31, %25 ], [ %21, %19 ]
   %.02224.i22 = phi i64 [ %29, %25 ], [ %14, %19 ]
-  %22 = icmp ugt i64 %.02224.i22, 1023
+  %22 = icmp samesign ugt i64 %.02224.i22, 1023
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph.i19
@@ -11273,7 +11273,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   %.026.i20 = phi ptr [ %22, %17 ], [ %12, %AppendJumble.exit ]
   %.02125.i21 = phi i64 [ %23, %17 ], [ 4, %AppendJumble.exit ]
   %.02224.i22 = phi i64 [ %21, %17 ], [ %11, %AppendJumble.exit ]
-  %14 = icmp ugt i64 %.02224.i22, 1023
+  %14 = icmp samesign ugt i64 %.02224.i22, 1023
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %.lr.ph.i19
@@ -11303,7 +11303,7 @@ AppendJumble.exit25:                              ; preds = %17
   %.026.i27 = phi ptr [ %34, %29 ], [ %24, %AppendJumble.exit25 ]
   %.02125.i28 = phi i64 [ %35, %29 ], [ 4, %AppendJumble.exit25 ]
   %.02224.i29 = phi i64 [ %33, %29 ], [ %21, %AppendJumble.exit25 ]
-  %26 = icmp ugt i64 %.02224.i29, 1023
+  %26 = icmp samesign ugt i64 %.02224.i29, 1023
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.lr.ph.i26
@@ -11623,7 +11623,7 @@ AppendJumble.exit25:                              ; preds = %.lr.ph.i19, %22, %.
   %.026.i27 = phi ptr [ %43, %38 ], [ %30, %31 ]
   %.02125.i28 = phi i64 [ %44, %38 ], [ %33, %31 ]
   %.02224.i29 = phi i64 [ %42, %38 ], [ %28, %31 ]
-  %35 = icmp ugt i64 %.02224.i29, 1023
+  %35 = icmp samesign ugt i64 %.02224.i29, 1023
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %.lr.ph.i26
@@ -11708,7 +11708,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i15 = phi ptr [ %31, %26 ], [ %18, %19 ]
   %.02125.i16 = phi i64 [ %32, %26 ], [ %21, %19 ]
   %.02224.i17 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i17, 1023
+  %23 = icmp samesign ugt i64 %.02224.i17, 1023
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i14
@@ -11942,7 +11942,7 @@ AppendJumble.exit:                                ; preds = %28
   %.026.i34 = phi ptr [ %48, %43 ], [ %36, %37 ]
   %.02125.i35 = phi i64 [ %49, %43 ], [ %39, %37 ]
   %.02224.i36 = phi i64 [ %47, %43 ], [ %32, %37 ]
-  %40 = icmp ugt i64 %.02224.i36, 1023
+  %40 = icmp samesign ugt i64 %.02224.i36, 1023
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %.lr.ph.i33
@@ -12092,7 +12092,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i88 = phi ptr [ %30, %25 ], [ %18, %19 ]
   %.02125.i89 = phi i64 [ %31, %25 ], [ %21, %19 ]
   %.02224.i90 = phi i64 [ %29, %25 ], [ %14, %19 ]
-  %22 = icmp ugt i64 %.02224.i90, 1023
+  %22 = icmp samesign ugt i64 %.02224.i90, 1023
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph.i87
@@ -12559,7 +12559,7 @@ AppendJumble.exit208:                             ; preds = %.lr.ph.i201, %206
   %.026.i211 = phi ptr [ %225, %220 ], [ %212, %213 ]
   %.02125.i212 = phi i64 [ %226, %220 ], [ %215, %213 ]
   %.02224.i213 = phi i64 [ %224, %220 ], [ %210, %213 ]
-  %217 = icmp ugt i64 %.02224.i213, 1023
+  %217 = icmp samesign ugt i64 %.02224.i213, 1023
   br i1 %217, label %218, label %220
 
 218:                                              ; preds = %.lr.ph.i210
@@ -13401,7 +13401,7 @@ AppendJumble.exit18:                              ; preds = %28
   %.026.i20 = phi ptr [ %45, %40 ], [ %35, %AppendJumble.exit18 ]
   %.02125.i21 = phi i64 [ %46, %40 ], [ 4, %AppendJumble.exit18 ]
   %.02224.i22 = phi i64 [ %44, %40 ], [ %32, %AppendJumble.exit18 ]
-  %37 = icmp ugt i64 %.02224.i22, 1023
+  %37 = icmp samesign ugt i64 %.02224.i22, 1023
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph.i19
@@ -13959,7 +13959,7 @@ AppendJumble.exit:                                ; preds = %28
   %.026.i42 = phi ptr [ %48, %43 ], [ %36, %37 ]
   %.02125.i43 = phi i64 [ %49, %43 ], [ %39, %37 ]
   %.02224.i44 = phi i64 [ %47, %43 ], [ %32, %37 ]
-  %40 = icmp ugt i64 %.02224.i44, 1023
+  %40 = icmp samesign ugt i64 %.02224.i44, 1023
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %.lr.ph.i41
@@ -14072,7 +14072,7 @@ AppendJumble.exit64:                              ; preds = %.lr.ph.i57, %71
   %.026.i67 = phi ptr [ %90, %85 ], [ %77, %78 ]
   %.02125.i68 = phi i64 [ %91, %85 ], [ %80, %78 ]
   %.02224.i69 = phi i64 [ %89, %85 ], [ %75, %78 ]
-  %82 = icmp ugt i64 %.02224.i69, 1023
+  %82 = icmp samesign ugt i64 %.02224.i69, 1023
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %.lr.ph.i66
@@ -14845,7 +14845,7 @@ AppendJumble.exit39:                              ; preds = %.lr.ph.i33, %16, %.
   %.026.i41 = phi ptr [ %37, %32 ], [ %24, %25 ]
   %.02125.i42 = phi i64 [ %38, %32 ], [ %27, %25 ]
   %.02224.i43 = phi i64 [ %36, %32 ], [ %22, %25 ]
-  %29 = icmp ugt i64 %.02224.i43, 1023
+  %29 = icmp samesign ugt i64 %.02224.i43, 1023
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %.lr.ph.i40
@@ -14906,7 +14906,7 @@ AppendJumble.exit54:                              ; preds = %.lr.ph.i47, %49
   %.026.i56 = phi ptr [ %64, %59 ], [ %54, %AppendJumble.exit54 ]
   %.02125.i57 = phi i64 [ %65, %59 ], [ 2, %AppendJumble.exit54 ]
   %.02224.i58 = phi i64 [ %63, %59 ], [ %53, %AppendJumble.exit54 ]
-  %56 = icmp ugt i64 %.02224.i58, 1023
+  %56 = icmp samesign ugt i64 %.02224.i58, 1023
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %.lr.ph.i55
@@ -14936,7 +14936,7 @@ AppendJumble.exit62:                              ; preds = %59
   %.026.i64 = phi ptr [ %76, %71 ], [ %66, %AppendJumble.exit62 ]
   %.02125.i65 = phi i64 [ %77, %71 ], [ 2, %AppendJumble.exit62 ]
   %.02224.i66 = phi i64 [ %75, %71 ], [ %63, %AppendJumble.exit62 ]
-  %68 = icmp ugt i64 %.02224.i66, 1023
+  %68 = icmp samesign ugt i64 %.02224.i66, 1023
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %.lr.ph.i63
@@ -15228,7 +15228,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   %.026.i16 = phi ptr [ %26, %21 ], [ %13, %14 ]
   %.02125.i17 = phi i64 [ %27, %21 ], [ %16, %14 ]
   %.02224.i18 = phi i64 [ %25, %21 ], [ %11, %14 ]
-  %18 = icmp ugt i64 %.02224.i18, 1023
+  %18 = icmp samesign ugt i64 %.02224.i18, 1023
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i15
@@ -15334,7 +15334,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i10 = phi ptr [ %31, %26 ], [ %18, %19 ]
   %.02125.i11 = phi i64 [ %32, %26 ], [ %21, %19 ]
   %.02224.i12 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i12, 1023
+  %23 = icmp samesign ugt i64 %.02224.i12, 1023
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i9
@@ -16088,7 +16088,7 @@ AppendJumble.exit:                                ; preds = %12
   %.026.i12 = phi ptr [ %29, %24 ], [ %19, %AppendJumble.exit ]
   %.02125.i13 = phi i64 [ %30, %24 ], [ 4, %AppendJumble.exit ]
   %.02224.i14 = phi i64 [ %28, %24 ], [ %16, %AppendJumble.exit ]
-  %21 = icmp ugt i64 %.02224.i14, 1023
+  %21 = icmp samesign ugt i64 %.02224.i14, 1023
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i11
@@ -16180,7 +16180,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %9
   %.026.i8 = phi ptr [ %24, %19 ], [ %14, %AppendJumble.exit ]
   %.02125.i9 = phi i64 [ %25, %19 ], [ 4, %AppendJumble.exit ]
   %.02224.i10 = phi i64 [ %23, %19 ], [ %13, %AppendJumble.exit ]
-  %16 = icmp ugt i64 %.02224.i10, 1023
+  %16 = icmp samesign ugt i64 %.02224.i10, 1023
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %.lr.ph.i7
@@ -16597,7 +16597,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i12 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i13 = phi i64 [ %28, %22 ], [ 8, %AppendJumble.exit ]
   %.02224.i14 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i14, 1023
+  %19 = icmp samesign ugt i64 %.02224.i14, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i11
@@ -16635,7 +16635,7 @@ AppendJumble.exit17:                              ; preds = %22
   %.026.i19 = phi ptr [ %42, %37 ], [ %30, %31 ]
   %.02125.i20 = phi i64 [ %43, %37 ], [ %33, %31 ]
   %.02224.i21 = phi i64 [ %41, %37 ], [ %26, %31 ]
-  %34 = icmp ugt i64 %.02224.i21, 1023
+  %34 = icmp samesign ugt i64 %.02224.i21, 1023
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %.lr.ph.i18
@@ -16933,7 +16933,7 @@ AppendJumble.exit99:                              ; preds = %97
   %.026.i101 = phi ptr [ %114, %109 ], [ %104, %AppendJumble.exit99 ]
   %.02125.i102 = phi i64 [ %115, %109 ], [ 4, %AppendJumble.exit99 ]
   %.02224.i103 = phi i64 [ %113, %109 ], [ %101, %AppendJumble.exit99 ]
-  %106 = icmp ugt i64 %.02224.i103, 1023
+  %106 = icmp samesign ugt i64 %.02224.i103, 1023
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %.lr.ph.i100
@@ -16963,7 +16963,7 @@ AppendJumble.exit107:                             ; preds = %109
   %.026.i109 = phi ptr [ %126, %121 ], [ %116, %AppendJumble.exit107 ]
   %.02125.i110 = phi i64 [ %127, %121 ], [ 4, %AppendJumble.exit107 ]
   %.02224.i111 = phi i64 [ %125, %121 ], [ %113, %AppendJumble.exit107 ]
-  %118 = icmp ugt i64 %.02224.i111, 1023
+  %118 = icmp samesign ugt i64 %.02224.i111, 1023
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %.lr.ph.i108
@@ -16993,7 +16993,7 @@ AppendJumble.exit115:                             ; preds = %121
   %.026.i117 = phi ptr [ %138, %133 ], [ %128, %AppendJumble.exit115 ]
   %.02125.i118 = phi i64 [ %139, %133 ], [ 4, %AppendJumble.exit115 ]
   %.02224.i119 = phi i64 [ %137, %133 ], [ %125, %AppendJumble.exit115 ]
-  %130 = icmp ugt i64 %.02224.i119, 1023
+  %130 = icmp samesign ugt i64 %.02224.i119, 1023
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %.lr.ph.i116
@@ -17710,7 +17710,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i24 = phi ptr [ %27, %22 ], [ %17, %AppendJumble.exit ]
   %.02125.i25 = phi i64 [ %28, %22 ], [ 4, %AppendJumble.exit ]
   %.02224.i26 = phi i64 [ %26, %22 ], [ %14, %AppendJumble.exit ]
-  %19 = icmp ugt i64 %.02224.i26, 1023
+  %19 = icmp samesign ugt i64 %.02224.i26, 1023
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i23
@@ -20338,7 +20338,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i10 = phi ptr [ %31, %26 ], [ %18, %19 ]
   %.02125.i11 = phi i64 [ %32, %26 ], [ %21, %19 ]
   %.02224.i12 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i12, 1023
+  %23 = icmp samesign ugt i64 %.02224.i12, 1023
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i9
@@ -20523,7 +20523,7 @@ AppendJumble.exit20:                              ; preds = %.lr.ph.i13, %30
   %.026.i22 = phi ptr [ %45, %40 ], [ %35, %AppendJumble.exit20 ]
   %.02125.i23 = phi i64 [ %46, %40 ], [ 4, %AppendJumble.exit20 ]
   %.02224.i24 = phi i64 [ %44, %40 ], [ %34, %AppendJumble.exit20 ]
-  %37 = icmp ugt i64 %.02224.i24, 1023
+  %37 = icmp samesign ugt i64 %.02224.i24, 1023
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph.i21
@@ -20697,7 +20697,7 @@ AppendJumble.exit:                                ; preds = %10
   %.026.i18 = phi ptr [ %31, %26 ], [ %18, %19 ]
   %.02125.i19 = phi i64 [ %32, %26 ], [ %21, %19 ]
   %.02224.i20 = phi i64 [ %30, %26 ], [ %14, %19 ]
-  %23 = icmp ugt i64 %.02224.i20, 1023
+  %23 = icmp samesign ugt i64 %.02224.i20, 1023
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i17
@@ -20858,7 +20858,7 @@ AppendJumble.exit16:                              ; preds = %.lr.ph.i9, %25
   %.026.i18 = phi ptr [ %40, %35 ], [ %30, %AppendJumble.exit16 ]
   %.02125.i19 = phi i64 [ %41, %35 ], [ 4, %AppendJumble.exit16 ]
   %.02224.i20 = phi i64 [ %39, %35 ], [ %29, %AppendJumble.exit16 ]
-  %32 = icmp ugt i64 %.02224.i20, 1023
+  %32 = icmp samesign ugt i64 %.02224.i20, 1023
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.lr.ph.i17

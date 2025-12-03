@@ -948,7 +948,7 @@ define internal fastcc i32 @decode_ints_uint32(ptr noalias noundef captures(none
   %.sroa.16.0121.i = phi ptr [ %.sroa.16.3.i, %stream_read_bit.exit58._crit_edge.i ], [ %.sroa.16.0.copyload.i, %8 ]
   %.sroa.10.0120.i = phi i64 [ %.sroa.10.3.i, %stream_read_bit.exit58._crit_edge.i ], [ %.sroa.10.0.copyload.i, %8 ]
   %9 = add nsw i32 %.044124.i, -1
-  %10 = icmp ugt i32 %.044124.i, %7
+  %10 = icmp samesign ugt i32 %.044124.i, %7
   br i1 %10, label %11, label %decode_many_ints_uint32.exit
 
 11:                                               ; preds = %.lr.ph126.i
@@ -1281,7 +1281,7 @@ stream_read_bit.exit46.i:                         ; preds = %88, %._crit_edge.i4
   %.sroa.18.3.i = phi ptr [ %.sroa.18.6.i, %.preheader70.i ], [ %.sroa.18.5.ph.i, %.critedge2.thread.i ], [ %.sroa.18.7.i, %stream_read_bit.exit41.i ], [ %.sroa.18.8.i, %.critedge2.i ]
   %.sroa.0.3.i36 = phi i64 [ %72, %.preheader70.i ], [ %.sroa.0.5.ph.i, %.critedge2.thread.i ], [ %83, %stream_read_bit.exit41.i ], [ %90, %.critedge2.i ]
   %103 = add nsw i32 %66, -1
-  %104 = icmp ugt i32 %66, %7
+  %104 = icmp samesign ugt i32 %66, %7
   br i1 %104, label %.preheader71.i, label %decode_many_ints_prec_uint32.exit
 
 decode_many_ints_prec_uint32.exit:                ; preds = %.critedge.i, %63

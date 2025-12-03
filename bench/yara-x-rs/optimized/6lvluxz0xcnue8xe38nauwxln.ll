@@ -43709,7 +43709,7 @@ define hidden void @_ZN6yara_x8compiler2ir2IR7dfs_mut17h65352356ca2f864bE(ptr no
   %24 = icmp samesign ult i64 %22, %23
   call void @llvm.assume(i1 %24)
   %25 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %26 = icmp ult i64 %21, 768614336404564652
+  %26 = icmp samesign ult i64 %21, 768614336404564652
   call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw { i32, [2 x i32] }, ptr %25, i64 %22
   %.sroa.034.0.copyload = load i32, ptr %27, align 4

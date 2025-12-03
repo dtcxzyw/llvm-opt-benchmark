@@ -34389,7 +34389,7 @@ _ZN3std4sync6poison4once4Once9call_once17h8f8ac5c0a03556b6E.exit: ; preds = %134
   %.sroa.051.0677 = phi i8 [ %.sroa.051.1, %204 ], [ 0, %.lr.ph.preheader ]
   %179 = add nuw nsw i64 %178, 1
   store i64 %179, ptr %83, align 8, !alias.scope !2191
-  %180 = icmp ult i64 %178, 3
+  %180 = icmp samesign ult i64 %178, 3
   call void @llvm.assume(i1 %180)
   %181 = getelementptr inbounds nuw ptr, ptr %.sroa.3209.0..sroa_idx, i64 %178
   %182 = load ptr, ptr %181, align 8, !alias.scope !2191, !nonnull !6, !align !791, !noundef !6
@@ -34757,7 +34757,7 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %.n
   %289 = phi i64 [ 0, %.lr.ph686 ], [ %763, %761 ]
   %290 = add nuw nsw i64 %289, 1
   store i64 %290, ptr %70, align 8, !alias.scope !2225
-  %291 = icmp ult i64 %289, 3
+  %291 = icmp samesign ult i64 %289, 3
   call void @llvm.assume(i1 %291)
   %292 = getelementptr inbounds nuw ptr, ptr %.sroa.3247.0..sroa_idx, i64 %289
   %293 = load ptr, ptr %292, align 8, !alias.scope !2225, !nonnull !6, !align !791, !noundef !6
@@ -34824,7 +34824,7 @@ _ZN11polars_core5frame6column6Column3len17h1b65492e8a5a992cE.exit: ; preds = %.n
   %310 = phi i64 [ %750, %748 ], [ 0, %.lr.ph690.preheader ]
   %311 = add nuw nsw i64 %310, 1
   store i64 %311, ptr %67, align 8, !alias.scope !2238
-  %312 = icmp ult i64 %310, 3
+  %312 = icmp samesign ult i64 %310, 3
   call void @llvm.assume(i1 %312)
   %313 = getelementptr inbounds nuw ptr, ptr %.sroa.3260.0..sroa_idx, i64 %310
   %314 = load ptr, ptr %313, align 8, !alias.scope !2238, !nonnull !6, !align !791, !noundef !6

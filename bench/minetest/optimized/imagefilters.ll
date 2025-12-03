@@ -275,7 +275,7 @@ if.end54.us.us.i:                                 ; preds = %for.body49.us.us.i
   %cond68.us.us.i = tail call i32 @llvm.usub.sat.i32(i32 %13, i32 1)
   %18 = add nuw nsw i64 %indvars.iv162.i, 1
   %19 = zext i32 %cond68.us.us.i to i64
-  %cmp7190.us.us.i = icmp uge i64 %18, %19
+  %cmp7190.us.us.i = icmp samesign uge i64 %18, %19
   %cmp7491.us.us.i = icmp ult i32 %cond68.us.us.i, %dim.sroa.0.0.extract.trunc.i
   %20 = and i1 %cmp7491.us.us.i, %cmp7190.us.us.i
   br i1 %20, label %for.body62.us.us.us.i, label %for.inc130.us.us.i
@@ -368,7 +368,7 @@ for.inc104.us.us.us.i:                            ; preds = %invoke.cont84.us.us
   %sg.2.us.us.us.i = phi i32 [ %add99.us.us.us.i, %invoke.cont84.us.us.us.i ], [ %sg.194.us.us.us.i, %for.body77.us.us.us.i ]
   %sb.2.us.us.us.i = phi i32 [ %add102.us.us.us.i, %invoke.cont84.us.us.us.i ], [ %sb.195.us.us.us.i, %for.body77.us.us.us.i ]
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
-  %cmp71.us.us.us.i = icmp ule i64 %indvars.iv159.i, %indvars.iv162.i
+  %cmp71.us.us.us.i = icmp samesign ule i64 %indvars.iv159.i, %indvars.iv162.i
   %cmp74.us.us.us.i = icmp samesign ult i64 %indvars.iv.next160.i, %11
   %27 = and i1 %cmp71.us.us.us.i, %cmp74.us.us.us.i
   br i1 %27, label %for.body77.us.us.us.i, label %for.cond69.for.cond.cleanup76_crit_edge.us.us.us.i, !llvm.loop !25

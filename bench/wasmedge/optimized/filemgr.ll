@@ -805,7 +805,7 @@ define void @_ZN8WasmEdge7FileMgr7readS33Ev(ptr dead_on_unwind noalias writable 
   br i1 %.not22.i, label %33, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = icmp ult i64 %.02055.i11, 7
+  %22 = icmp samesign ult i64 %.02055.i11, 7
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21
@@ -914,7 +914,7 @@ define void @_ZN8WasmEdge7FileMgr7readS32Ev(ptr dead_on_unwind noalias writable 
   br i1 %.not23.i, label %29, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = icmp ult i64 %.02056.i11, 7
+  %19 = icmp samesign ult i64 %.02056.i11, 7
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %18
@@ -1025,7 +1025,7 @@ define void @_ZN8WasmEdge7FileMgr7readS64Ev(ptr dead_on_unwind noalias writable 
   br i1 %.not22.i, label %33, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = icmp ult i64 %.02055.i11, 7
+  %22 = icmp samesign ult i64 %.02055.i11, 7
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %21

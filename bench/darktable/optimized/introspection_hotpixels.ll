@@ -393,7 +393,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 144:                                              ; preds = %148
   %indvars.iv.next170.i = add nsw i64 %indvars.iv169.i, -1
   %145 = icmp samesign ugt i64 %indvars.iv.next170.i, -11
-  %146 = icmp sgt i64 %indvars.iv169.i, %141
+  %146 = icmp samesign ugt i64 %indvars.iv169.i, %141
   %147 = select i1 %145, i1 %146, i1 false
   br i1 %147, label %.preheader119.us.i, label %.preheader120.us.i
 
@@ -682,7 +682,7 @@ FCxtrans.exit136.us.i:                            ; preds = %.lr.ph.us.i40, %274
 274:                                              ; preds = %271, %FCxtrans.exit136.us.i
   %indvars.iv.next224.i = add nsw i64 %indvars.iv223.i, -1
   %275 = icmp samesign ugt i64 %indvars.iv.next224.i, -11
-  %276 = icmp sgt i64 %indvars.iv223.i, %308
+  %276 = icmp samesign ugt i64 %indvars.iv223.i, %308
   %277 = select i1 %275, i1 %276, i1 false
   br i1 %277, label %FCxtrans.exit136.us.i, label %.preheader.us.i41
 
@@ -1074,7 +1074,7 @@ process_xtrans.exit:                              ; preds = %._crit_edge.split.u
   store float %.pre.i53, ptr %449, align 4, !tbaa !47
   %indvars.iv.next.i56 = add nsw i64 %indvars.iv.i55, -2
   %450 = icmp samesign ugt i64 %indvars.iv.next.i56, -11
-  %451 = icmp sge i64 %indvars.iv.next.i56, %447
+  %451 = icmp samesign uge i64 %indvars.iv.next.i56, %447
   %452 = select i1 %450, i1 %451, i1 false
   br i1 %452, label %.lr.ph.us.i54, label %.preheader.us.i57
 

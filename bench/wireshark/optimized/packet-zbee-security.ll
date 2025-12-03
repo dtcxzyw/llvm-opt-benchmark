@@ -1360,7 +1360,7 @@ define hidden zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noundef reado
 75:                                               ; preds = %65, %82
   %indvars.iv90 = phi i64 [ 0, %65 ], [ %indvars.iv.next91, %82 ]
   %.179 = phi i32 [ 2, %65 ], [ %90, %82 ]
-  %76 = icmp ugt i32 %.179, 15
+  %76 = icmp samesign ugt i32 %.179, 15
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %75
@@ -1411,7 +1411,7 @@ define hidden zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noundef reado
 .lr.ph83:                                         ; preds = %.loopexit, %100
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %100 ], [ 0, %.loopexit ]
   %.482 = phi i32 [ %108, %100 ], [ %.0, %.loopexit ]
-  %94 = icmp ugt i32 %.482, 15
+  %94 = icmp samesign ugt i32 %.482, 15
   br i1 %94, label %95, label %100
 
 95:                                               ; preds = %.lr.ph83

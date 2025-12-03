@@ -6940,7 +6940,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %.sroa.093.0166.i = phi i64 [ %21, %.lr.ph.i ], [ %52, %51 ]
   %.sroa.092.0165.i = phi i64 [ %18, %.lr.ph.i ], [ %44, %51 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0168.i, i64 368
-  %39 = icmp ult i64 %.sroa.092.0165.i, 12
+  %39 = icmp samesign ult i64 %.sroa.092.0165.i, 12
   call void @llvm.assume(i1 %39)
   %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %.sroa.092.0165.i
   %41 = load ptr, ptr %40, align 8, !noalias !641, !nonnull !4, !noundef !4
@@ -7110,7 +7110,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %.sroa.093.0166.i = phi i64 [ %21, %.lr.ph.i ], [ %52, %51 ]
   %.sroa.092.0165.i = phi i64 [ %18, %.lr.ph.i ], [ %44, %51 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0168.i, i64 2128
-  %39 = icmp ult i64 %.sroa.092.0165.i, 12
+  %39 = icmp samesign ult i64 %.sroa.092.0165.i, 12
   call void @llvm.assume(i1 %39)
   %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %.sroa.092.0165.i
   %41 = load ptr, ptr %40, align 8, !noalias !659, !nonnull !4, !noundef !4
@@ -12245,7 +12245,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %.sroa.093.0166.i = phi i64 [ %21, %.lr.ph.i ], [ %52, %51 ]
   %.sroa.092.0165.i = phi i64 [ %18, %.lr.ph.i ], [ %44, %51 ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0168.i, i64 2128
-  %39 = icmp ult i64 %.sroa.092.0165.i, 12
+  %39 = icmp samesign ult i64 %.sroa.092.0165.i, 12
   call void @llvm.assume(i1 %39)
   %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %.sroa.092.0165.i
   %41 = load ptr, ptr %40, align 8, !noalias !1702, !nonnull !4, !noundef !4

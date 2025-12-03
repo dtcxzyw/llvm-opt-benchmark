@@ -3320,7 +3320,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_5ValueELb1EE9push_backES3_.exit48: ; pred
   %81 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, 134217727
-  %84 = icmp ugt i32 %83, %.025
+  %84 = icmp samesign ugt i32 %83, %.025
   br i1 %84, label %.thread81, label %85
 
 85:                                               ; preds = %80

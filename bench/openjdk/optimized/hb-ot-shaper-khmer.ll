@@ -515,7 +515,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %18
 
 62:                                               ; preds = %55
   %63 = add nuw nsw i64 %indvars.iv22.i.i, 1
-  %64 = icmp ult i64 %63, %50
+  %64 = icmp samesign ult i64 %63, %50
   br i1 %64, label %65, label %.thread.i.i
 
 65:                                               ; preds = %62

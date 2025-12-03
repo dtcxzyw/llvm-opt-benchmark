@@ -3379,7 +3379,7 @@ _ZL15uivector_resizeP8uivectorm.exit.i.i:         ; preds = %364, %361
   %396 = getelementptr i8, ptr %395, i64 -4
   %397 = load i32, ptr %396, align 4, !tbaa !10
   %.not.i.i67.i = icmp eq i32 %397, 0
-  %398 = icmp ugt i64 %.020.i.i.i, 257
+  %398 = icmp samesign ugt i64 %.020.i.i.i, 257
   %399 = and i1 %398, %.not.i.i67.i
   %400 = add nsw i64 %.020.i.i.i, -1
   br i1 %399, label %394, label %401, !llvm.loop !148
@@ -3410,7 +3410,7 @@ _ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit.i.i: ; preds = %40
   %409 = getelementptr i8, ptr %408, i64 -4
   %410 = load i32, ptr %409, align 4, !tbaa !10
   %.not.i237.i.i = icmp eq i32 %410, 0
-  %411 = icmp ugt i64 %.020.i236.i.i, 2
+  %411 = icmp samesign ugt i64 %.020.i236.i.i, 2
   %412 = and i1 %411, %.not.i237.i.i
   %413 = add nsw i64 %.020.i236.i.i, -1
   br i1 %412, label %.preheader300.i.i, label %414, !llvm.loop !148
@@ -3646,7 +3646,7 @@ _ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i: ; preds = 
 
 513:                                              ; preds = %.preheader294.i.i
   %514 = add nsw i64 %.0200332.i.i, -1
-  %515 = icmp ugt i64 %514, 4
+  %515 = icmp samesign ugt i64 %514, 4
   br i1 %515, label %.preheader294.i.i, label %.lr.ph335.i.i, !llvm.loop !153
 
 .lr.ph335.i.i:                                    ; preds = %513, %.preheader294.i.i

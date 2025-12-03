@@ -17615,7 +17615,7 @@ _Z11_mi_strlcpyPcPKcm.exit:                       ; preds = %.lr.ph.i
   %13 = add nsw i64 %.017.i, -1
   %14 = load i8, ptr %12, align 1, !tbaa !25
   %15 = icmp ne i8 %14, 0
-  %16 = icmp ugt i64 %13, 1
+  %16 = icmp samesign ugt i64 %13, 1
   %17 = select i1 %15, i1 %16, i1 false
   br i1 %17, label %.lr.ph.i39, label %.preheader.i.i, !llvm.loop !243
 
@@ -17683,7 +17683,7 @@ _Z11_mi_strlcatPcPKcm.exit:                       ; preds = %_Z11_mi_strlcpyPcPK
   %38 = add nsw i64 %.017.i60, -1
   %39 = load i8, ptr %37, align 1, !tbaa !25
   %40 = icmp ne i8 %39, 0
-  %41 = icmp ugt i64 %38, 1
+  %41 = icmp samesign ugt i64 %38, 1
   %42 = select i1 %40, i1 %41, i1 false
   br i1 %42, label %.lr.ph.i59, label %.preheader.i.i49, !llvm.loop !243
 

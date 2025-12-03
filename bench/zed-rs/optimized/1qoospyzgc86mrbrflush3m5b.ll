@@ -21668,7 +21668,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h273295f8ce
   %21 = phi i64 [ %11, %.lr.ph ], [ %77, %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h314161ab5cf08655E.exit" ]
   %22 = add nuw nsw i64 %21, 1
   store i64 %22, ptr %0, align 8, !alias.scope !7023
-  %23 = icmp ult i64 %21, 18
+  %23 = icmp samesign ult i64 %21, 18
   call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds nuw { [3 x i64] }, ptr %2, i64 %21
   %.sroa.01.0.copyload.i.i = load ptr, ptr %24, align 8, !nonnull !15, !noundef !15

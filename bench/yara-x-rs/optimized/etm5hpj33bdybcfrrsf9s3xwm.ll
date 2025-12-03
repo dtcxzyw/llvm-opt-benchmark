@@ -106665,7 +106665,7 @@ define void @_ZN6yara_x7modules2pe7imphash17h4d2225b5feb1ea72E(ptr dead_on_unwin
   %.sroa.415.0165 = phi i64 [ %184, %182 ], [ %81, %.lr.ph.preheader ]
   %87 = add nuw nsw i64 %86, 1
   store i64 %87, ptr %12, align 8, !alias.scope !13394
-  %88 = icmp ult i64 %86, 3
+  %88 = icmp samesign ult i64 %86, 3
   call void @llvm.assume(i1 %88)
   %89 = getelementptr inbounds nuw { [2 x i64] }, ptr %.sroa.538.0..sroa_idx, i64 %86
   %90 = load ptr, ptr %89, align 8, !alias.scope !13394, !nonnull !8, !align !34, !noundef !8

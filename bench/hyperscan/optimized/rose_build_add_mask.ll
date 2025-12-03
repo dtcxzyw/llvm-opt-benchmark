@@ -4735,7 +4735,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %_ZNSt6vectorIN3ue21
 .noexc35:                                         ; preds = %81, %.noexc, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not.i.i20.i = icmp ult i64 %.01228.i, 256
+  %.not.i.i20.i = icmp samesign ult i64 %.01228.i, 256
   br i1 %.not.i.i20.i, label %82, label %_ZN3ue2L17initFmlCandidatesERKNS_9CharReachERSt6vectorINS_11ue2_literalESaIS4_EE.exit
 
 82:                                               ; preds = %.noexc35
@@ -5071,7 +5071,7 @@ _ZNSt6vectorIN3ue211ue2_literalESaIS1_EE9push_backERKS1_.exit.i: ; preds = %.noe
   br i1 %.not150.i, label %.loopexit.i, label %.lr.ph.i40
 
 .loopexit.i:                                      ; preds = %.noexc51, %150, %141
-  %.not.i.i45.i = icmp ult i64 %.032171.i, 256
+  %.not.i.i45.i = icmp samesign ult i64 %.032171.i, 256
   br i1 %.not.i.i45.i, label %212, label %._crit_edge.loopexit.i
 
 212:                                              ; preds = %.loopexit.i

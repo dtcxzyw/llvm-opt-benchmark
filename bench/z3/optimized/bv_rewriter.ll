@@ -7725,7 +7725,7 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i262:   ; preds = %.noexc267, %._crit_
   %storemerge = phi i32 [ %316, %311 ], [ 1, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit ]
   store i32 %storemerge, ptr %230, align 8, !tbaa !107
   %320 = add nuw nsw i64 %indvars.iv565, 1
-  %.not455506 = icmp ult i64 %320, %235
+  %.not455506 = icmp samesign ult i64 %320, %235
   br i1 %.not455506, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %319, %434

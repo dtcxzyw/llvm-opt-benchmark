@@ -21688,7 +21688,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h5627fedb8b598f9bE.exit2
   store i32 %706, ptr %707, align 4, !noalias !1167
   %708 = getelementptr inbounds nuw i32, ptr %113, i64 %.sroa.0128.0767.i.i
   store i32 1, ptr %708, align 4, !noalias !1167
-  %709 = icmp ult i64 %.sroa.0128.1769.i.i, %.sroa.0.0.sroa.speculated.i361.i.i
+  %709 = icmp samesign ult i64 %.sroa.0128.1769.i.i, %.sroa.0.0.sroa.speculated.i361.i.i
   %710 = zext i1 %709 to i64
   %.sroa.0128.1.i.i = add nuw i64 %.sroa.0128.1769.i.i, %710
   br i1 %709, label %.lr.ph770.i.i, label %._crit_edge771.i.i
@@ -24244,7 +24244,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hce70b9dbdc8b1214E.exit2
   store i32 %1606, ptr %1607, align 4, !noalias !1355
   %1608 = getelementptr inbounds nuw i32, ptr %75, i64 %.sroa.0128.0767.i.i319
   store i32 1, ptr %1608, align 4, !noalias !1355
-  %1609 = icmp ult i64 %.sroa.0128.1769.i.i317, %.sroa.0.0.sroa.speculated.i361.i.i315
+  %1609 = icmp samesign ult i64 %.sroa.0128.1769.i.i317, %.sroa.0.0.sroa.speculated.i361.i.i315
   %1610 = zext i1 %1609 to i64
   %.sroa.0128.1.i.i333 = add nuw i64 %.sroa.0128.1769.i.i317, %1610
   br i1 %1609, label %.lr.ph770.i.i316, label %._crit_edge771.i.i334
@@ -24635,7 +24635,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hc739cffa8ac13cb5E.exit.
 
 ._crit_edge384.i.i192:                            ; preds = %1808, %1730
   %.sroa.041.1.lcssa.i.i193 = phi float [ %.sroa.041.0.lcssa.i.i179, %1730 ], [ %.sroa.041.2.i.i189, %1808 ]
-  %1735 = icmp ult i64 %.sroa.7.0389.i.i162, 2000
+  %1735 = icmp samesign ult i64 %.sroa.7.0389.i.i162, 2000
   br i1 %1735, label %1794, label %1736
 
 1736:                                             ; preds = %1794, %._crit_edge384.i.i192
@@ -26796,7 +26796,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17he69cc7e364323581E.exit2
   store i32 %2504, ptr %2505, align 4, !noalias !1543
   %2506 = getelementptr inbounds nuw i32, ptr %37, i64 %.sroa.0128.0767.i.i823
   store i32 1, ptr %2506, align 4, !noalias !1543
-  %2507 = icmp ult i64 %.sroa.0128.1769.i.i821, %.sroa.0.0.sroa.speculated.i361.i.i819
+  %2507 = icmp samesign ult i64 %.sroa.0128.1769.i.i821, %.sroa.0.0.sroa.speculated.i361.i.i819
   %2508 = zext i1 %2507 to i64
   %.sroa.0128.1.i.i843 = add nuw i64 %.sroa.0128.1769.i.i821, %2508
   br i1 %2507, label %.lr.ph770.i.i820, label %._crit_edge771.i.i844
@@ -27187,7 +27187,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hc739cffa8ac13cb5E.exit.
 
 ._crit_edge384.i.i696:                            ; preds = %2706, %2628
   %.sroa.041.1.lcssa.i.i697 = phi float [ %.sroa.041.0.lcssa.i.i683, %2628 ], [ %.sroa.041.2.i.i693, %2706 ]
-  %2633 = icmp ult i64 %.sroa.7.0389.i.i666, 2000
+  %2633 = icmp samesign ult i64 %.sroa.7.0389.i.i666, 2000
   br i1 %2633, label %2692, label %2634
 
 2634:                                             ; preds = %2692, %._crit_edge384.i.i696
@@ -29059,13 +29059,13 @@ _ZN6brotli3enc7command19GetInsertLengthCode17hf18659ac2766ba2cE.exit: ; preds = 
 
 .outer._crit_edge:                                ; preds = %.lr.ph252.split, %.loopexit, %172, %"_ZN6brotli3enc19backward_references2hq29ZopfliCostModel$LT$AllocF$GT$17get_literal_costs17he069dcdda7a0b292E.exit96"
   %.sroa.0.1.ph.lcssa186 = phi i64 [ %.sroa.0.0306, %"_ZN6brotli3enc19backward_references2hq29ZopfliCostModel$LT$AllocF$GT$17get_literal_costs17he069dcdda7a0b292E.exit96" ], [ %.sroa.0.1.ph287, %172 ], [ %.sroa.0.1.ph287, %.lr.ph252.split ], [ %.sroa.0.2.lcssa, %.loopexit ]
-  %150 = icmp ult i64 %.sroa.053.0305, 2
+  %150 = icmp samesign ult i64 %.sroa.053.0305, 2
   %brmerge.not = and i1 %150, %78
   br i1 %brmerge.not, label %.lr.ph303, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge296, %.outer._crit_edge
   %.sroa.0.0.be = phi i64 [ %.sroa.0.1.ph.lcssa186, %.outer._crit_edge ], [ %.sroa.0.5.lcssa, %._crit_edge296 ]
-  %151 = icmp ult i64 %.sroa.053.1307, %.sroa.0.0.sroa.speculated.i121
+  %151 = icmp samesign ult i64 %.sroa.053.1307, %.sroa.0.0.sroa.speculated.i121
   %152 = zext i1 %151 to i64
   %.sroa.053.1 = add nuw i64 %.sroa.053.1307, %152
   br i1 %151, label %86, label %._crit_edge309

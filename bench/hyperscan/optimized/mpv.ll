@@ -473,7 +473,7 @@ mmbit_get_flat_block.exit73:                      ; preds = %85, %88, %91, %99
   %.127.i = phi i32 [ 0, %110 ], [ %.127.i.be, %.backedge128.backedge ]
   %.124.i = phi i32 [ 0, %110 ], [ %.124.i.be, %.backedge128.backedge ]
   %.1.i36 = phi i32 [ 0, %110 ], [ %.1.i36.be, %.backedge128.backedge ]
-  %116 = icmp ult i32 %.124.i, 64
+  %116 = icmp samesign ult i32 %.124.i, 64
   br i1 %116, label %117, label %.thread84
 
 117:                                              ; preds = %.backedge128
@@ -3971,7 +3971,7 @@ mmbit_get_flat_block.exit96.i:                    ; preds = %1325, %1317, %1314,
   %.127.i.i = phi i32 [ 0, %1336 ], [ %.127.i.i.be, %.backedge662.backedge ]
   %.124.i.i = phi i32 [ 0, %1336 ], [ %.124.i.i.be, %.backedge662.backedge ]
   %.1.i59.i = phi i32 [ 0, %1336 ], [ %.1.i59.i.be, %.backedge662.backedge ]
-  %1342 = icmp ult i32 %.124.i.i, 64
+  %1342 = icmp samesign ult i32 %.124.i.i, 64
   br i1 %1342, label %1343, label %.thread486
 
 1343:                                             ; preds = %.backedge662
@@ -5094,7 +5094,7 @@ mmbit_get_flat_block.exit88:                      ; preds = %1868, %1871, %1874,
   %.127.i41 = phi i32 [ 0, %1893 ], [ %.127.i41.be, %.backedge624.backedge ]
   %.124.i42 = phi i32 [ 0, %1893 ], [ %.124.i42.be, %.backedge624.backedge ]
   %.1.i43 = phi i32 [ 0, %1893 ], [ %.1.i43.be, %.backedge624.backedge ]
-  %1899 = icmp ult i32 %.124.i42, 64
+  %1899 = icmp samesign ult i32 %.124.i42, 64
   br i1 %1899, label %1900, label %.thread558
 
 1900:                                             ; preds = %.backedge624
@@ -5728,7 +5728,7 @@ mmbit_get_flat_block.exit96:                      ; preds = %2219, %2222, %2225,
   %.127.i = phi i32 [ 0, %2244 ], [ %.127.i.be, %.backedge625.backedge ]
   %.124.i = phi i32 [ 0, %2244 ], [ %.124.i.be, %.backedge625.backedge ]
   %.1.i37 = phi i32 [ 0, %2244 ], [ %.1.i37.be, %.backedge625.backedge ]
-  %2250 = icmp ult i32 %.124.i, 64
+  %2250 = icmp samesign ult i32 %.124.i, 64
   br i1 %2250, label %2251, label %.thread595
 
 2251:                                             ; preds = %.backedge625
@@ -8360,7 +8360,7 @@ mmbit_get_flat_block.exit96.i:                    ; preds = %1333, %1325, %1322,
   %.127.i.i = phi i32 [ 0, %1344 ], [ %.127.i.i.be, %.backedge748.backedge ]
   %.124.i.i = phi i32 [ 0, %1344 ], [ %.124.i.i.be, %.backedge748.backedge ]
   %.1.i59.i = phi i32 [ 0, %1344 ], [ %.1.i59.i.be, %.backedge748.backedge ]
-  %1350 = icmp ult i32 %.124.i.i, 64
+  %1350 = icmp samesign ult i32 %.124.i.i, 64
   br i1 %1350, label %1351, label %.thread550
 
 1351:                                             ; preds = %.backedge748
@@ -9483,7 +9483,7 @@ mmbit_get_flat_block.exit144:                     ; preds = %1876, %1879, %1882,
   %.127.i81 = phi i32 [ 0, %1901 ], [ %.127.i81.be, %.backedge710.backedge ]
   %.124.i82 = phi i32 [ 0, %1901 ], [ %.124.i82.be, %.backedge710.backedge ]
   %.1.i83 = phi i32 [ 0, %1901 ], [ %.1.i83.be, %.backedge710.backedge ]
-  %1907 = icmp ult i32 %.124.i82, 64
+  %1907 = icmp samesign ult i32 %.124.i82, 64
   br i1 %1907, label %1908, label %.thread622
 
 1908:                                             ; preds = %.backedge710
@@ -10117,7 +10117,7 @@ mmbit_get_flat_block.exit152:                     ; preds = %2227, %2230, %2233,
   %.127.i = phi i32 [ 0, %2252 ], [ %.127.i.be, %.backedge711.backedge ]
   %.124.i = phi i32 [ 0, %2252 ], [ %.124.i.be, %.backedge711.backedge ]
   %.1.i77 = phi i32 [ 0, %2252 ], [ %.1.i77.be, %.backedge711.backedge ]
-  %2258 = icmp ult i32 %.124.i, 64
+  %2258 = icmp samesign ult i32 %.124.i, 64
   br i1 %2258, label %2259, label %.thread659
 
 2259:                                             ; preds = %.backedge711
@@ -10270,7 +10270,7 @@ mmbit_get_flat_block.exit.i346:                   ; preds = %2313, %2305, %2302,
   %.127.i113 = phi i32 [ 0, %2326 ], [ %.127.i113.be, %.backedge.backedge ]
   %.124.i114 = phi i32 [ 0, %2326 ], [ %.124.i114.be, %.backedge.backedge ]
   %.1.i115 = phi i32 [ 0, %2326 ], [ %.1.i115.be, %.backedge.backedge ]
-  %2333 = icmp ult i32 %.124.i114, 64
+  %2333 = icmp samesign ult i32 %.124.i114, 64
   br i1 %2333, label %2334, label %.thread670
 
 2334:                                             ; preds = %.backedge
@@ -10542,7 +10542,7 @@ mmbit_get_flat_block.exit150:                     ; preds = %64, %67, %70, %78
   %.127.i = phi i32 [ 0, %89 ], [ %.127.i.be, %.backedge386.backedge ]
   %.124.i = phi i32 [ 0, %89 ], [ %.124.i.be, %.backedge386.backedge ]
   %.1.i115 = phi i32 [ 0, %89 ], [ %.1.i115.be, %.backedge386.backedge ]
-  %95 = icmp ult i32 %.124.i, 64
+  %95 = icmp samesign ult i32 %.124.i, 64
   br i1 %95, label %96, label %.thread287
 
 96:                                               ; preds = %.backedge386

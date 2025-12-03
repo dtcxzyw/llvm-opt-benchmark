@@ -1523,7 +1523,7 @@ spec_ith_char.exit89.i:                           ; preds = %497, %492
   %.062133.us.i = phi i32 [ %529, %._crit_edge.us.i ], [ %505, %spec_ith_char.exit89.i ]
   %.2132.us.i = phi i32 [ %.3.lcssa.us.i, %._crit_edge.us.i ], [ %.166148.i, %spec_ith_char.exit89.i ]
   %.269131.us.i = phi i32 [ %.370.lcssa.us.i, %._crit_edge.us.i ], [ %.168147.i, %spec_ith_char.exit89.i ]
-  %.not79111.us.i = icmp ugt i32 %.061136.us.i, %504
+  %.not79111.us.i = icmp samesign ugt i32 %.061136.us.i, %504
   br i1 %.not79111.us.i, label %._crit_edge.us.i, label %.lr.ph.us.i
 
 .lr.ph.split.us141.i:                             ; preds = %.lr.ph.us.i, %527

@@ -14182,7 +14182,7 @@ define void @_ZN12pingora_core6server6Server3run17h5ffdca7dfc2651c3E(ptr noalias
   %151 = icmp samesign ult i64 %149, %150
   call void @llvm.assume(i1 %151)
   %152 = load ptr, ptr %114, align 8, !nonnull !3, !noundef !3
-  %153 = icmp ult i64 %148, 576460752303423489
+  %153 = icmp samesign ult i64 %148, 576460752303423489
   call void @llvm.assume(i1 %153)
   %154 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %152, i64 %149
   %155 = load ptr, ptr %154, align 8, !nonnull !3, !align !724, !noundef !3

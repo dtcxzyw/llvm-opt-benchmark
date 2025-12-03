@@ -6440,7 +6440,7 @@ define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr noundef readonly cap
 .thread2:                                         ; preds = %32, %36, %59, %35, %56
   %61 = phi i32 [ %60, %59 ], [ %25, %36 ], [ %25, %56 ], [ %25, %35 ], [ %25, %32 ]
   %62 = add nsw i64 %24, -2
-  %63 = icmp ugt i64 %24, 9
+  %63 = icmp samesign ugt i64 %24, 9
   br i1 %63, label %23, label %64, !llvm.loop !208
 
 64:                                               ; preds = %.thread2

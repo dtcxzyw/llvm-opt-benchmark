@@ -2865,7 +2865,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
 195:                                              ; preds = %193, %.preheader37
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %196 = add nsw i64 %185, -1
-  %197 = icmp ugt i64 %185, 10
+  %197 = icmp samesign ugt i64 %185, 10
   br i1 %197, label %.preheader37, label %.preheader36, !llvm.loop !27
 
 .preheader36:                                     ; preds = %195, %.loopexit35
@@ -2896,13 +2896,13 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
   %213 = add nsw i32 %208, -1
   call void @__const_udelay(i64 noundef 4295000) #27
   %214 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef %201, i32 noundef %200) #27
-  %215 = icmp ult i32 %208, 2
+  %215 = icmp samesign ult i32 %208, 2
   br i1 %215, label %.loopexit35, label %207, !llvm.loop !28
 
 .loopexit35:                                      ; preds = %212, %207, %.preheader36
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %216 = add nsw i64 %198, -1
-  %217 = icmp ugt i64 %198, 4
+  %217 = icmp samesign ugt i64 %198, 4
   br i1 %217, label %.preheader36, label %.preheader33, !llvm.loop !27
 
 .preheader33:                                     ; preds = %.loopexit35, %228
@@ -2948,7 +2948,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
 241:                                              ; preds = %239, %.preheader41
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %242 = add nsw i64 %231, -1
-  %243 = icmp ugt i64 %231, 12
+  %243 = icmp samesign ugt i64 %231, 12
   br i1 %243, label %.preheader41, label %.preheader40, !llvm.loop !27
 
 .preheader40:                                     ; preds = %241, %.preheader40
@@ -2963,7 +2963,7 @@ define dso_local void @pci_restore_state(ptr noundef %0) #4 align 16 {
   %250 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef %248, i32 noundef %246) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %251 = add nsw i64 %244, -1
-  %252 = icmp ugt i64 %244, 9
+  %252 = icmp samesign ugt i64 %244, 9
   br i1 %252, label %.preheader40, label %.preheader38, !llvm.loop !27
 
 .preheader38:                                     ; preds = %.preheader40, %263

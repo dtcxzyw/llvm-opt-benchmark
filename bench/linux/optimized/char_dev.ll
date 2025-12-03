@@ -231,7 +231,7 @@ define internal fastcc ptr @__register_chrdev_region(i32 noundef %0, i32 noundef
 
 26:                                               ; preds = %.preheader19
   %27 = add nsw i32 %21, -1
-  %28 = icmp ugt i32 %21, 234
+  %28 = icmp samesign ugt i32 %21, 234
   br i1 %28, label %.preheader19, label %.preheader18, !llvm.loop !11
 
 .preheader18:                                     ; preds = %26, %41
@@ -255,7 +255,7 @@ define internal fastcc ptr @__register_chrdev_region(i32 noundef %0, i32 noundef
 
 41:                                               ; preds = %37
   %42 = add nsw i32 %29, -1
-  %43 = icmp ugt i32 %29, 384
+  %43 = icmp samesign ugt i32 %29, 384
   br i1 %43, label %.preheader18, label %.thread, !llvm.loop !13
 
 .loopexit17:                                      ; preds = %.preheader19, %33

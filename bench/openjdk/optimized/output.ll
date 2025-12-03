@@ -1783,7 +1783,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %179, %184
   %.1188.lcssa = phi i32 [ %.0187284, %163 ], [ %.2189, %282 ]
   %.1184.lcssa = phi i32 [ %.0183285, %163 ], [ %.2185, %282 ]
   %.1.lcssa = phi i1 [ %.0182286, %163 ], [ %.2, %282 ]
-  %283 = icmp ult i64 %indvars.iv306, %50
+  %283 = icmp samesign ult i64 %indvars.iv306, %50
   br i1 %283, label %284, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -2519,7 +2519,7 @@ _ZNK5Block23non_connector_successorEi.exit:       ; preds = %.lr.ph.i.i, %292
   %332 = getelementptr inbounds nuw i32, ptr %2, i64 %331
   %333 = load i32, ptr %332, align 4
   %334 = sub i32 %333, %.4258
-  %.not = icmp ugt i64 %indvars.iv442, %331
+  %.not = icmp samesign ugt i64 %indvars.iv442, %331
   br i1 %.not, label %338, label %335
 
 335:                                              ; preds = %323
@@ -3002,7 +3002,7 @@ _ZN19NonSafepointEmitter17observe_safepointEP8JVMStatei.exit333: ; preds = %588,
   %.1255.lcssa = phi i32 [ %.0254422, %80 ], [ %.2256, %607 ]
   %.1250.lcssa = phi i32 [ %.0249423, %80 ], [ %.2251, %607 ]
   %.1.lcssa = phi i32 [ %.0424, %80 ], [ %.2, %607 ]
-  %610 = icmp ult i64 %indvars.iv442, %74
+  %610 = icmp samesign ult i64 %indvars.iv442, %74
   br i1 %610, label %611, label %._crit_edge412._ZN5Block17alignment_paddingEi.exit.thread_crit_edge
 
 ._crit_edge412._ZN5Block17alignment_paddingEi.exit.thread_crit_edge: ; preds = %._crit_edge412

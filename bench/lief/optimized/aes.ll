@@ -2123,7 +2123,7 @@ mbedtls_xor.exit72:                               ; preds = %.lr.ph131, %.prehea
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 %.0.i73133
   store i64 %89, ptr %90, align 1
   %91 = add nuw nsw i64 %86, 8
-  %.not.i74 = icmp ugt i64 %91, %84
+  %.not.i74 = icmp samesign ugt i64 %91, %84
   br i1 %.not.i74, label %.preheader106, label %.lr.ph134, !llvm.loop !31
 
 .lr.ph137:                                        ; preds = %.preheader106, %.lr.ph137
@@ -2136,7 +2136,7 @@ mbedtls_xor.exit72:                               ; preds = %.lr.ph131, %.prehea
   %97 = getelementptr inbounds nuw i8, ptr %81, i64 %.1.i75136
   store i8 %96, ptr %97, align 1, !tbaa !9
   %98 = add nuw nsw i64 %.1.i75136, 1
-  %99 = icmp ult i64 %98, %84
+  %99 = icmp samesign ult i64 %98, %84
   br i1 %99, label %.lr.ph137, label %mbedtls_xor.exit76, !llvm.loop !30
 
 mbedtls_xor.exit76:                               ; preds = %.lr.ph137, %.preheader106

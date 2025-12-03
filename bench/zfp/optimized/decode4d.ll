@@ -952,7 +952,7 @@ define internal fastcc i32 @decode_ints_uint64(ptr noalias noundef captures(none
   %.sroa.16.0121.i = phi ptr [ %.sroa.16.0.copyload.i, %.lr.ph126.preheader.i ], [ %.sroa.16.3.i, %stream_read_bit.exit58._crit_edge.i ]
   %.sroa.10.0120.i = phi i64 [ %.sroa.10.0.copyload.i, %.lr.ph126.preheader.i ], [ %.sroa.10.3.i, %stream_read_bit.exit58._crit_edge.i ]
   %indvars.iv.next144.i = add nsw i64 %indvars.iv143.i, -1
-  %10 = icmp ugt i64 %indvars.iv143.i, %9
+  %10 = icmp samesign ugt i64 %indvars.iv143.i, %9
   br i1 %10, label %11, label %decode_many_ints_uint64.exit
 
 11:                                               ; preds = %.lr.ph126.i
@@ -1287,7 +1287,7 @@ stream_read_bit.exit46.i:                         ; preds = %89, %._crit_edge.i4
   %.sroa.18.3.i = phi ptr [ %.sroa.18.6.i, %.preheader70.i ], [ %.sroa.18.5.ph.i, %.critedge2.thread.i ], [ %.sroa.18.7.i, %stream_read_bit.exit41.i ], [ %.sroa.18.8.i, %.critedge2.i ]
   %.sroa.0.3.i36 = phi i64 [ %73, %.preheader70.i ], [ %.sroa.0.5.ph.i, %.critedge2.thread.i ], [ %84, %stream_read_bit.exit41.i ], [ %91, %.critedge2.i ]
   %indvars.iv.next121.i = add nsw i64 %indvars.iv120.i, -1
-  %104 = icmp ugt i64 %indvars.iv120.i, %66
+  %104 = icmp samesign ugt i64 %indvars.iv120.i, %66
   br i1 %104, label %.preheader71.i, label %decode_many_ints_prec_uint64.exit
 
 decode_many_ints_prec_uint64.exit:                ; preds = %.critedge.i, %63

@@ -3849,7 +3849,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12StmtSequenceELb1EE9push_backERKS2_.ex
   %indvars.iv.next57.pre-phi = phi i64 [ %.pre61, %.lr.ph45._crit_edge ], [ %47, %_ZN4llvm11SmallVectorIN5clang12StmtSequenceELj8EED2Ev.exit ]
   %105 = phi i32 [ %41, %.lr.ph45._crit_edge ], [ %.pre60, %_ZN4llvm11SmallVectorIN5clang12StmtSequenceELj8EED2Ev.exit ]
   %106 = zext i32 %105 to i64
-  %107 = icmp ult i64 %indvars.iv.next57.pre-phi, %106
+  %107 = icmp samesign ult i64 %indvars.iv.next57.pre-phi, %106
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   br i1 %107, label %.lr.ph45, label %.loopexit, !llvm.loop !445
 }

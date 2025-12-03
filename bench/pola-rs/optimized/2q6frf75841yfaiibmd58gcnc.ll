@@ -37132,7 +37132,7 @@ _ZN3std4sync6poison4once4Once9call_once17h3ff5b804752c8eaeE.exit: ; preds = %2, 
   %211 = icmp samesign ult i64 %209, %210
   call void @llvm.assume(i1 %211)
   %212 = load ptr, ptr %113, align 8, !noalias !3866, !nonnull !4, !noundef !4
-  %213 = icmp ult i64 %208, 1152921504606846977
+  %213 = icmp samesign ult i64 %208, 1152921504606846977
   call void @llvm.assume(i1 %213)
   %214 = getelementptr inbounds nuw { { i32, i32 } }, ptr %212, i64 %209
   %215 = load i32, ptr %214, align 4, !range !7, !noalias !3877, !noundef !4
@@ -37936,7 +37936,7 @@ _ZN13polars_stream7execute31find_runnable_pipeline_blockers17h375ca945f6a8cecaE.
   %483 = icmp samesign ult i64 %481, %482
   call void @llvm.assume(i1 %483)
   %484 = load ptr, ptr %145, align 8, !alias.scope !3940, !noalias !3946, !nonnull !4, !noundef !4
-  %485 = icmp ult i64 %480, 1152921504606846977
+  %485 = icmp samesign ult i64 %480, 1152921504606846977
   call void @llvm.assume(i1 %485)
   %486 = getelementptr inbounds nuw { { i32, i32 } }, ptr %484, i64 %481
   %487 = load i32, ptr %486, align 4, !range !7, !noalias !3953, !noundef !4

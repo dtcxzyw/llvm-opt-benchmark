@@ -4448,7 +4448,7 @@ _ZN13CodeHeapState12get_heapNameEP8CodeHeap.exit: ; preds = %9, %12
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv429
   store ptr %122, ptr %123, align 8
-  %124 = icmp ugt i64 %indvars.iv.next430, %indvars.iv420
+  %124 = icmp samesign ugt i64 %indvars.iv.next430, %indvars.iv420
   br i1 %124, label %.lr.ph381, label %._crit_edge382, !llvm.loop !34
 
 ._crit_edge382:                                   ; preds = %.lr.ph381, %.preheader361
@@ -4665,7 +4665,7 @@ _ZN13CodeHeapState12get_heapNameEP8CodeHeap.exit: ; preds = %9, %12
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv452
   store ptr %221, ptr %222, align 8
-  %223 = icmp ugt i64 %indvars.iv.next453, %indvars.iv442
+  %223 = icmp samesign ugt i64 %indvars.iv.next453, %indvars.iv442
   br i1 %223, label %.lr.ph395, label %._crit_edge396, !llvm.loop !38
 
 ._crit_edge396:                                   ; preds = %.lr.ph395, %.preheader

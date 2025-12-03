@@ -388,7 +388,7 @@ define internal fastcc i32 @dissect_dvb_ait_descriptor(ptr noundef %0, i32 nound
   %41 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %13, i32 noundef %33, ptr noundef %0, i32 noundef %27, i32 noundef 3, i32 noundef %40, ptr noundef nonnull @.str.104, i32 noundef %34, i32 noundef %36, i32 noundef %39)
   %42 = add i32 %.01.i, 5
   %43 = sub i32 %42, %23
-  %44 = icmp ult i32 %43, %24
+  %44 = icmp samesign ult i32 %43, %24
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %19

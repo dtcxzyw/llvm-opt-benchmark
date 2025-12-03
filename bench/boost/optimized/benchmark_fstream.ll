@@ -3787,7 +3787,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc118, %61
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSolsEPFRSoS_E.exit, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %125 = shl nuw nsw i32 %.050188, 1
-  %126 = icmp ult i32 %.050188, 4097
+  %126 = icmp samesign ult i32 %.050188, 4097
   br i1 %126, label %30, label %.preheader, !llvm.loop !88
 
 127:                                              ; preds = %.loopexit162, %.loopexit.split-lp163, %116, %59
@@ -4034,7 +4034,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit108:                 ; preds = %.noexc128
   %228 = call i32 @fclose(ptr noundef %149)
   call void @_ZdlPvm(ptr noundef nonnull %145, i64 noundef %144) #26
   %229 = shl nuw nsw i32 %.052190, 1
-  %230 = icmp ult i32 %.052190, 4097
+  %230 = icmp samesign ult i32 %.052190, 4097
   br i1 %230, label %143, label %136, !llvm.loop !90
 
 .loopexit:                                        ; preds = %186, %184, %193, %195, %_ZNSolsEd.exit102, %221, %.noexc126, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i123, %.noexc128
@@ -5522,7 +5522,7 @@ _ZN10io_fstreamISt13basic_fstreamIcSt11char_traitsIcEEED2Ev.exit: ; preds = %.no
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN10io_fstreamISt13basic_fstreamIcSt11char_traitsIcEEED2Ev.exit, %138
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %143 = shl nuw nsw i32 %.050174, 1
-  %144 = icmp ult i32 %.050174, 4097
+  %144 = icmp samesign ult i32 %.050174, 4097
   br i1 %144, label %34, label %.preheader, !llvm.loop !115
 
 145:                                              ; preds = %.loopexit154, %.loopexit.split-lp155, %123, %68, %47
@@ -5796,7 +5796,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit111:                 ; preds = %.noexc.i107, %249
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZdlPvm(ptr noundef nonnull %162, i64 noundef %161) #26
   %260 = shl nuw nsw i32 %.052176, 1
-  %261 = icmp ult i32 %.052176, 4097
+  %261 = icmp samesign ult i32 %.052176, 4097
   br i1 %261, label %160, label %153, !llvm.loop !117
 
 262:                                              ; preds = %196
@@ -6271,7 +6271,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc117, %_ZN10io
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSolsEPFRSoS_E.exit, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %127 = shl nuw nsw i32 %.050168, 1
-  %128 = icmp ult i32 %.050168, 4097
+  %128 = icmp samesign ult i32 %.050168, 4097
   br i1 %128, label %30, label %.preheader, !llvm.loop !119
 
 129:                                              ; preds = %.loopexit150, %.loopexit.split-lp151, %119, %64, %43
@@ -6518,7 +6518,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit107:                 ; preds = %.noexc127
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef %145) #26
   %232 = shl nuw nsw i32 %.052170, 1
-  %233 = icmp ult i32 %.052170, 4097
+  %233 = icmp samesign ult i32 %.052170, 4097
   br i1 %233, label %144, label %137, !llvm.loop !121
 
 234:                                              ; preds = %180

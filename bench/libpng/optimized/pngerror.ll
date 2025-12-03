@@ -603,7 +603,7 @@ define void @png_warning_parameter_signed(ptr noundef writeonly captures(address
   br i1 %or.cond4267.i, label %.sink.split.i, label %53
 
 50:                                               ; preds = %39
-  %51 = icmp ult i64 %.03253.i, 10
+  %51 = icmp samesign ult i64 %.03253.i, 10
   br i1 %51, label %.sink.split.i, label %53
 
 .sink.split.i:                                    ; preds = %50, %.thread.i

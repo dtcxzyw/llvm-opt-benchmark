@@ -3219,7 +3219,7 @@ dissect_pdu_bit_flag_v.exit.i.i:                  ; preds = %271, %.thread.i
   %366 = getelementptr i8, ptr %.0117178.i.i, i64 %365
   store i8 %363, ptr %366, align 1
   %367 = udiv i8 %.043.i.i.i, 10
-  %.not.i128.i.i = icmp ult i8 %.043.i.i.i, 10
+  %.not.i128.i.i = icmp samesign ult i8 %.043.i.i.i, 10
   br i1 %.not.i128.i.i, label %.preheader.i.i.i, label %.preheader45.i.i.i, !llvm.loop !11
 
 .preheader.i.i.i:                                 ; preds = %.preheader45.i.i.i

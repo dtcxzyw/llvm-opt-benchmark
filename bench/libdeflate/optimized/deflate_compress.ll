@@ -8533,7 +8533,7 @@ define internal fastcc void @deflate_precompute_huffman_header(ptr noundef initi
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 288, %1 ]
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %6, ptr %3, align 4, !tbaa !25
-  %7 = icmp ugt i64 %indvars.iv, 257
+  %7 = icmp samesign ugt i64 %indvars.iv, 257
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %5
@@ -8553,7 +8553,7 @@ define internal fastcc void @deflate_precompute_huffman_header(ptr noundef initi
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %17 ], [ 32, %11 ]
   %15 = trunc nuw nsw i64 %indvars.iv55 to i32
   store i32 %15, ptr %12, align 16, !tbaa !25
-  %16 = icmp ugt i64 %indvars.iv55, 1
+  %16 = icmp samesign ugt i64 %indvars.iv55, 1
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
@@ -8743,7 +8743,7 @@ deflate_compute_precode_items.exit:               ; preds = %._crit_edge86.i
 
 108:                                              ; preds = %110, %deflate_compute_precode_items.exit
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %110 ], [ 19, %deflate_compute_precode_items.exit ]
-  %109 = icmp ugt i64 %indvars.iv58, 4
+  %109 = icmp samesign ugt i64 %indvars.iv58, 4
   br i1 %109, label %110, label %.split.loop.exit74
 
 110:                                              ; preds = %108

@@ -2884,7 +2884,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit376: ; preds = %719, %
   %723 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @_ZZNK4LIEF5MachO8DyldInfo20show_rebases_opcodesB5cxx11EvE3tab, i64 noundef 4) #26
   %724 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.17, i64 noundef 7) #26
   %725 = zext nneg i8 %.0103555601 to i64
-  %.not.i.i.i.i.i.i.i377 = icmp ugt i8 %.0103555601, 2
+  %.not.i.i.i.i.i.i.i377 = icmp samesign ugt i8 %.0103555601, 2
   br i1 %.not.i.i.i.i.i.i.i377, label %726, label %727
 
 726:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit376

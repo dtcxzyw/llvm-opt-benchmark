@@ -7434,7 +7434,7 @@ _ZN3ue211ue2_literalD2Ev.exit.i.i.i:              ; preds = %_ZN5boost14dynamic_
   br label %1760
 
 1760:                                             ; preds = %_ZN3ue211ue2_literalD2Ev.exit.i.i.i, %1634
-  %.not.i.i93.i.i.i = icmp ult i64 %.039173.i.i.i, 256
+  %.not.i.i93.i.i.i = icmp samesign ult i64 %.039173.i.i.i, 256
   br i1 %.not.i.i93.i.i.i, label %1761, label %._crit_edge.i.i.i
 
 1761:                                             ; preds = %1760

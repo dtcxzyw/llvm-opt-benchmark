@@ -2652,7 +2652,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_registration(ptr noun
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %9, ptr noundef %0, i32 noundef %.011, i32 noundef 1, i32 noundef 0)
   %11 = add i32 %.011, 1
   %12 = sub i32 %11, %1
-  %13 = icmp ult i32 %12, %2
+  %13 = icmp samesign ult i32 %12, %2
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -4864,7 +4864,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_app_sig(ptr noundef %
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0)
   %11 = add i32 %.011, 3
   %12 = sub i32 %11, %1
-  %13 = icmp ult i32 %12, %2
+  %13 = icmp samesign ult i32 %12, %2
   br i1 %13, label %5, label %14, !llvm.loop !26
 
 14:                                               ; preds = %5

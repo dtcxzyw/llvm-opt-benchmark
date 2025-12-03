@@ -50432,7 +50432,7 @@ common.resume:                                    ; preds = %95, %76, %30
   %51 = icmp samesign ult i64 %49, %50
   call void @llvm.assume(i1 %51)
   %52 = load ptr, ptr %41, align 8, !nonnull !55, !noundef !55
-  %53 = icmp ult i64 %48, 1152921504606846977
+  %53 = icmp samesign ult i64 %48, 1152921504606846977
   call void @llvm.assume(i1 %53)
   %54 = getelementptr inbounds nuw i64, ptr %52, i64 %49
   %55 = load i64, ptr %54, align 8, !noundef !55
@@ -60420,7 +60420,7 @@ define hidden void @_ZN11polars_plan5plans9optimizer20cluster_with_columns8optim
   %151 = icmp samesign ult i64 %149, %150
   call void @llvm.assume(i1 %151)
   %152 = load ptr, ptr %58, align 8, !nonnull !55, !noundef !55
-  %153 = icmp ult i64 %148, 1152921504606846977
+  %153 = icmp samesign ult i64 %148, 1152921504606846977
   call void @llvm.assume(i1 %153)
   %154 = getelementptr inbounds nuw i64, ptr %152, i64 %149
   %155 = load i64, ptr %154, align 8, !noundef !55
@@ -62534,7 +62534,7 @@ thread-pre-split:                                 ; preds = %203, %652, %"_ZN5al
   %188 = icmp samesign ult i64 %186, %187
   call void @llvm.assume(i1 %188)
   %189 = load ptr, ptr %101, align 8, !nonnull !55, !noundef !55
-  %190 = icmp ult i64 %185, 1152921504606846977
+  %190 = icmp samesign ult i64 %185, 1152921504606846977
   call void @llvm.assume(i1 %190)
   %191 = getelementptr inbounds nuw i64, ptr %189, i64 %186
   %192 = load i64, ptr %191, align 8, !noundef !55
@@ -92511,7 +92511,7 @@ _ZN11polars_plan5plans6schema14estimate_sizes17h446228e07bef903eE.exit89: ; pred
   %318 = icmp samesign ult i64 %316, %317
   tail call void @llvm.assume(i1 %318)
   %319 = load ptr, ptr %41, align 8, !nonnull !55, !noundef !55
-  %320 = icmp ult i64 %313, 1152921504606846977
+  %320 = icmp samesign ult i64 %313, 1152921504606846977
   tail call void @llvm.assume(i1 %320)
   %321 = getelementptr inbounds nuw i64, ptr %319, i64 %316
   %322 = load i64, ptr %321, align 8, !noundef !55

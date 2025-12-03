@@ -86764,7 +86764,7 @@ _ZN4llvm15SmallVectorImplINS_7SDValueEEaSEOS2_.exit.i: ; preds = %_ZN4llvm23Smal
   %1749 = add nuw nsw i64 %1745, 2
   %1750 = load i32, ptr %1368, align 8, !tbaa !33
   %1751 = zext i32 %1750 to i64
-  %1752 = icmp ult i64 %1749, %1751
+  %1752 = icmp samesign ult i64 %1749, %1751
   br i1 %1752, label %1753, label %1755
 
 1753:                                             ; preds = %1744

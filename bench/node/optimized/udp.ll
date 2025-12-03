@@ -896,7 +896,7 @@ for.body84:                                       ; preds = %for.cond76.preheade
   store ptr %q.191, ptr %prev.i60, align 8
   %inc90 = add nuw nsw i64 %i.090, 1
   %q.1 = load ptr, ptr %write_queue, align 8
-  %cmp77 = icmp ult i64 %inc90, %pkts.0.lcssa
+  %cmp77 = icmp samesign ult i64 %inc90, %pkts.0.lcssa
   %cmp81 = icmp ne ptr %q.1, %write_queue
   %15 = select i1 %cmp77, i1 %cmp81, i1 false
   br i1 %15, label %for.body84, label %return.sink.split

@@ -6606,7 +6606,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK1
 
 34:                                               ; preds = %28, %32
   %.pre-phi23 = phi i64 [ %.pre-phi, %28 ], [ %.pre22, %32 ]
-  %35 = icmp ult i64 %indvars.iv.next, %.pre-phi23
+  %35 = icmp samesign ult i64 %indvars.iv.next, %.pre-phi23
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !318
 }
 

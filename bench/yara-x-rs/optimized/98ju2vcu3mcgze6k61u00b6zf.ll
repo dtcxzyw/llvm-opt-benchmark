@@ -26983,7 +26983,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17he89bdca97c90295eE.exit.preheade
   %150 = icmp samesign ult i64 %148, %149
   call void @llvm.assume(i1 %150)
   %151 = load ptr, ptr %73, align 8, !alias.scope !3393, !noalias !3401, !nonnull !3, !noundef !3
-  %152 = icmp ult i64 %147, 576460752303423489
+  %152 = icmp samesign ult i64 %147, 576460752303423489
   call void @llvm.assume(i1 %152)
   %153 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %151, i64 %148
   %154 = load i64, ptr %153, align 8, !noalias !3403, !noundef !3
@@ -28624,7 +28624,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17he89bdca97c90295eE.exit226: ; pr
   %836 = icmp samesign ult i64 %834, %835
   call void @llvm.assume(i1 %836)
   %837 = load ptr, ptr %73, align 8, !alias.scope !3650, !noalias !3658, !nonnull !3, !noundef !3
-  %838 = icmp ult i64 %833, 576460752303423489
+  %838 = icmp samesign ult i64 %833, 576460752303423489
   call void @llvm.assume(i1 %838)
   %839 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %837, i64 %834
   %840 = load i64, ptr %839, align 8, !noalias !3659, !noundef !3
@@ -30113,7 +30113,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17he89bdca97c90295eE.exit.preheade
   %148 = icmp samesign ult i64 %146, %147
   call void @llvm.assume(i1 %148)
   %149 = load ptr, ptr %70, align 8, !alias.scope !3884, !noalias !3892, !nonnull !3, !noundef !3
-  %150 = icmp ult i64 %145, 576460752303423489
+  %150 = icmp samesign ult i64 %145, 576460752303423489
   call void @llvm.assume(i1 %150)
   %151 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %149, i64 %146
   %152 = load i64, ptr %151, align 8, !noalias !3893, !noundef !3
@@ -31766,7 +31766,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17he89bdca97c90295eE.exit226: ; pr
   %842 = icmp samesign ult i64 %840, %841
   call void @llvm.assume(i1 %842)
   %843 = load ptr, ptr %70, align 8, !alias.scope !4138, !noalias !4146, !nonnull !3, !noundef !3
-  %844 = icmp ult i64 %839, 576460752303423489
+  %844 = icmp samesign ult i64 %839, 576460752303423489
   call void @llvm.assume(i1 %844)
   %845 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %843, i64 %840
   %846 = load i64, ptr %845, align 8, !noalias !4147, !noundef !3
@@ -33261,7 +33261,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17he89bdca97c90295eE.exit.preheade
   %150 = icmp samesign ult i64 %148, %149
   call void @llvm.assume(i1 %150)
   %151 = load ptr, ptr %73, align 8, !alias.scope !4371, !noalias !4379, !nonnull !3, !noundef !3
-  %152 = icmp ult i64 %147, 576460752303423489
+  %152 = icmp samesign ult i64 %147, 576460752303423489
   call void @llvm.assume(i1 %152)
   %153 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %151, i64 %148
   %154 = load i64, ptr %153, align 8, !noalias !4380, !noundef !3
@@ -34903,7 +34903,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17he89bdca97c90295eE.exit226: ; pr
   %835 = icmp samesign ult i64 %833, %834
   call void @llvm.assume(i1 %835)
   %836 = load ptr, ptr %73, align 8, !alias.scope !4625, !noalias !4633, !nonnull !3, !noundef !3
-  %837 = icmp ult i64 %832, 576460752303423489
+  %837 = icmp samesign ult i64 %832, 576460752303423489
   call void @llvm.assume(i1 %837)
   %838 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %836, i64 %833
   %839 = load i64, ptr %838, align 8, !noalias !4634, !noundef !3
@@ -36375,7 +36375,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17hc0bd01f5e0fb39b6E.exit.preheade
   %132 = icmp samesign ult i64 %130, %131
   call void @llvm.assume(i1 %132)
   %133 = load ptr, ptr %68, align 8, !alias.scope !4858, !noalias !4866, !nonnull !3, !noundef !3
-  %134 = icmp ult i64 %129, 576460752303423489
+  %134 = icmp samesign ult i64 %129, 576460752303423489
   call void @llvm.assume(i1 %134)
   %135 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %133, i64 %130
   %136 = load i64, ptr %135, align 8, !noalias !4867, !noundef !3
@@ -38006,7 +38006,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17hc0bd01f5e0fb39b6E.exit229: ; pr
   %813 = icmp samesign ult i64 %811, %812
   call void @llvm.assume(i1 %813)
   %814 = load ptr, ptr %68, align 8, !alias.scope !5102, !noalias !5110, !nonnull !3, !noundef !3
-  %815 = icmp ult i64 %810, 576460752303423489
+  %815 = icmp samesign ult i64 %810, 576460752303423489
   call void @llvm.assume(i1 %815)
   %816 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %814, i64 %811
   %817 = load i64, ptr %816, align 8, !noalias !5111, !noundef !3
@@ -39484,7 +39484,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17hc0bd01f5e0fb39b6E.exit.preheade
   %132 = icmp samesign ult i64 %130, %131
   call void @llvm.assume(i1 %132)
   %133 = load ptr, ptr %68, align 8, !alias.scope !5335, !noalias !5343, !nonnull !3, !noundef !3
-  %134 = icmp ult i64 %129, 576460752303423489
+  %134 = icmp samesign ult i64 %129, 576460752303423489
   call void @llvm.assume(i1 %134)
   %135 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %133, i64 %130
   %136 = load i64, ptr %135, align 8, !noalias !5344, !noundef !3
@@ -41115,7 +41115,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17hc0bd01f5e0fb39b6E.exit229: ; pr
   %813 = icmp samesign ult i64 %811, %812
   call void @llvm.assume(i1 %813)
   %814 = load ptr, ptr %68, align 8, !alias.scope !5579, !noalias !5587, !nonnull !3, !noundef !3
-  %815 = icmp ult i64 %810, 576460752303423489
+  %815 = icmp samesign ult i64 %810, 576460752303423489
   call void @llvm.assume(i1 %815)
   %816 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %814, i64 %811
   %817 = load i64, ptr %816, align 8, !noalias !5588, !noundef !3
@@ -42597,7 +42597,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17hc0bd01f5e0fb39b6E.exit.preheade
   %134 = icmp samesign ult i64 %132, %133
   call void @llvm.assume(i1 %134)
   %135 = load ptr, ptr %71, align 8, !alias.scope !5812, !noalias !5820, !nonnull !3, !noundef !3
-  %136 = icmp ult i64 %131, 576460752303423489
+  %136 = icmp samesign ult i64 %131, 576460752303423489
   call void @llvm.assume(i1 %136)
   %137 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %135, i64 %132
   %138 = load i64, ptr %137, align 8, !noalias !5821, !noundef !3
@@ -44217,7 +44217,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17hc0bd01f5e0fb39b6E.exit229: ; pr
   %807 = icmp samesign ult i64 %805, %806
   call void @llvm.assume(i1 %807)
   %808 = load ptr, ptr %71, align 8, !alias.scope !6056, !noalias !6064, !nonnull !3, !noundef !3
-  %809 = icmp ult i64 %804, 576460752303423489
+  %809 = icmp samesign ult i64 %804, 576460752303423489
   call void @llvm.assume(i1 %809)
   %810 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %808, i64 %805
   %811 = load i64, ptr %810, align 8, !noalias !6065, !noundef !3
@@ -45712,7 +45712,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17he89bdca97c90295eE.exit.preheade
   %148 = icmp samesign ult i64 %146, %147
   call void @llvm.assume(i1 %148)
   %149 = load ptr, ptr %70, align 8, !alias.scope !6289, !noalias !6297, !nonnull !3, !noundef !3
-  %150 = icmp ult i64 %145, 576460752303423489
+  %150 = icmp samesign ult i64 %145, 576460752303423489
   call void @llvm.assume(i1 %150)
   %151 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %149, i64 %146
   %152 = load i64, ptr %151, align 8, !noalias !6298, !noundef !3
@@ -47365,7 +47365,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17he89bdca97c90295eE.exit226: ; pr
   %842 = icmp samesign ult i64 %840, %841
   call void @llvm.assume(i1 %842)
   %843 = load ptr, ptr %70, align 8, !alias.scope !6543, !noalias !6551, !nonnull !3, !noundef !3
-  %844 = icmp ult i64 %839, 576460752303423489
+  %844 = icmp samesign ult i64 %839, 576460752303423489
   call void @llvm.assume(i1 %844)
   %845 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %843, i64 %840
   %846 = load i64, ptr %845, align 8, !noalias !6552, !noundef !3
@@ -48842,7 +48842,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17hc0bd01f5e0fb39b6E.exit.preheade
   %134 = icmp samesign ult i64 %132, %133
   call void @llvm.assume(i1 %134)
   %135 = load ptr, ptr %71, align 8, !alias.scope !6776, !noalias !6784, !nonnull !3, !noundef !3
-  %136 = icmp ult i64 %131, 576460752303423489
+  %136 = icmp samesign ult i64 %131, 576460752303423489
   call void @llvm.assume(i1 %136)
   %137 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %135, i64 %132
   %138 = load i64, ptr %137, align 8, !noalias !6785, !noundef !3
@@ -50463,7 +50463,7 @@ _ZN6yara_x2re8thompson6pikevm15epsilon_closure17hc0bd01f5e0fb39b6E.exit229: ; pr
   %806 = icmp samesign ult i64 %804, %805
   call void @llvm.assume(i1 %806)
   %807 = load ptr, ptr %71, align 8, !alias.scope !7020, !noalias !7028, !nonnull !3, !noundef !3
-  %808 = icmp ult i64 %803, 576460752303423489
+  %808 = icmp samesign ult i64 %803, 576460752303423489
   call void @llvm.assume(i1 %808)
   %809 = getelementptr inbounds nuw { i64, i32, [1 x i32] }, ptr %807, i64 %804
   %810 = load i64, ptr %809, align 8, !noalias !7029, !noundef !3

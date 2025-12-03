@@ -697,7 +697,7 @@ mismatches_ref.exit:                              ; preds = %308
   %317 = load i32, ptr %254, align 4, !tbaa !94
   %318 = add nuw nsw i64 %indvars.iv393, 1
   %319 = zext i32 %317 to i64
-  %320 = icmp ult i64 %318, %319
+  %320 = icmp samesign ult i64 %318, %319
   %321 = trunc nuw nsw i64 %indvars.iv393 to i32
   br i1 %320, label %.lr.ph353, label %._crit_edge
 

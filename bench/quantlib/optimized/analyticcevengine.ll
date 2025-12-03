@@ -6968,7 +6968,7 @@ for.cond47.preheader:                             ; preds = %lor.lhs.false, %lan
 
 cleanup:                                          ; preds = %lor.lhs.false, %land.lhs.true
   %sub19 = sub nsw i64 %add23, %spec.select.i
-  %cmp20 = icmp ult i64 %sub19, 1000000
+  %cmp20 = icmp samesign ult i64 %sub19, 1000000
   br i1 %cmp20, label %for.body, label %if.then43, !llvm.loop !161
 
 if.then43:                                        ; preds = %cleanup

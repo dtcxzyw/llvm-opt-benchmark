@@ -867,7 +867,7 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i.i:       ; preds = %12, %2
   %38 = getelementptr inbounds nuw i64, ptr %5, i64 %.026.i.i
   store i64 %36, ptr %38, align 8, !tbaa !59
   %39 = add nsw i64 %.026.i.i, -1
-  %40 = icmp ugt i64 %39, %24
+  %40 = icmp samesign ugt i64 %39, %24
   br i1 %40, label %.lr.ph.i.i, label %_ZN6evmone8advanced5instr4implILNS_6OpcodeE11EXadL_ZNS_5instr4core10signextendENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateE.exit, !llvm.loop !111
 
 _ZN6evmone8advanced5instr4implILNS_6OpcodeE11EXadL_ZNS_5instr4core10signextendENS_8StackTopEEEEEvRNS0_22AdvancedExecutionStateE.exit: ; preds = %.lr.ph.i.i, %_ZN4intxltERKNS_4uintILj256EEES3_.exit.i.i, %22

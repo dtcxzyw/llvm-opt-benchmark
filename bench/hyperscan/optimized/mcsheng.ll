@@ -5202,7 +5202,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   br i1 %.not132.i, label %.thread142, label %361
 
 361:                                              ; preds = %360
-  %362 = icmp ult i32 %.6114.i, %.pre-phi330
+  %362 = icmp samesign ult i32 %.6114.i, %.pre-phi330
   br i1 %362, label %363, label %577
 
 363:                                              ; preds = %361
@@ -6234,7 +6234,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   br i1 %.not132.i, label %.thread57, label %329
 
 329:                                              ; preds = %328
-  %330 = icmp ult i32 %.6114.i, %.pre-phi201
+  %330 = icmp samesign ult i32 %.6114.i, %.pre-phi201
   br i1 %330, label %331, label %540
 
 331:                                              ; preds = %329
@@ -7181,7 +7181,7 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   br i1 %.not132.i, label %.thread40, label %321
 
 321:                                              ; preds = %320
-  %322 = icmp ult i32 %.6114.i, %.pre-phi178
+  %322 = icmp samesign ult i32 %.6114.i, %.pre-phi178
   br i1 %322, label %323, label %536
 
 323:                                              ; preds = %321

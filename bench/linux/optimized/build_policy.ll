@@ -3773,7 +3773,7 @@ define dso_local range(i32 0, 2) i32 @cpudl_find(ptr noundef readonly captures(n
 31:                                               ; preds = %28
   %32 = and i64 %25, 63
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %32) #30, !srcloc !119
-  %33 = icmp ult i64 %19, 1024
+  %33 = icmp samesign ult i64 %19, 1024
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %31

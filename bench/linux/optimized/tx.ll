@@ -15132,7 +15132,7 @@ define internal fastcc void @__ieee80211_beacon_add_tim(ptr noundef nonnull read
 
 65:                                               ; preds = %.preheader
   %66 = add nsw i32 %60, -1
-  %67 = icmp ugt i32 %60, %59
+  %67 = icmp samesign ugt i32 %60, %59
   br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !261
 
 .loopexit:                                        ; preds = %65, %.preheader, %.loopexit5

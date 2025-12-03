@@ -192,7 +192,7 @@ _ZNSt6vectorI8FDRFloodSaIS0_EEC2EmRKS1_.exit:     ; preds = %.lr.ph.i.i.i.i.i.i.
   %indvars.iv362 = phi i64 [ %indvars.iv.next363, %.thread247.us ], [ 0, %.lr.ph ]
   %.0146316.us = phi i32 [ %.5151.us, %.thread247.us ], [ %71, %.lr.ph ]
   %.0152315.us = phi i32 [ %.5157.us, %.thread247.us ], [ %71, %.lr.ph ]
-  %81 = icmp ult i64 %indvars.iv362, %25
+  %81 = icmp samesign ult i64 %indvars.iv362, %25
   br i1 %81, label %82, label %94
 
 82:                                               ; preds = %.lr.ph.split.us
@@ -254,7 +254,7 @@ _ZN3ue2L11isDifferentEhhb.exit.us:                ; preds = %82
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread247
   %indvars.iv358 = phi i64 [ %indvars.iv.next359, %.thread247 ], [ 0, %.lr.ph ]
-  %111 = icmp ult i64 %indvars.iv358, %25
+  %111 = icmp samesign ult i64 %indvars.iv358, %25
   br i1 %111, label %112, label %126
 
 112:                                              ; preds = %.lr.ph.split

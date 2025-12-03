@@ -1207,7 +1207,7 @@ stbsp__lead_sign.exit1242:                        ; preds = %450, %.sink.split.i
   %494 = add nsw i8 %493, 48
   %495 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.next2016
   store i8 %494, ptr %495, align 1, !tbaa !3
-  %496 = icmp ult i64 %indvars.iv2015, 5
+  %496 = icmp samesign ult i64 %indvars.iv2015, 5
   br i1 %496, label %.loopexit1476, label %489
 
 497:                                              ; preds = %200

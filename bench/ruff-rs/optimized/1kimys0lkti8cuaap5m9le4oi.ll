@@ -8537,7 +8537,7 @@ _ZN3std4sync6poison4once4Once9call_once17hb5506e9a3a18ec70E.exit.i.i.i.i.i: ; pr
   %380 = icmp samesign ult i64 %378, %379
   call void @llvm.assume(i1 %380)
   %381 = load ptr, ptr %366, align 8, !noalias !813, !nonnull !4, !noundef !4
-  %382 = icmp ult i64 %377, 1152921504606846977
+  %382 = icmp samesign ult i64 %377, 1152921504606846977
   call void @llvm.assume(i1 %382)
   %383 = getelementptr inbounds nuw ptr, ptr %381, i64 %378
   %384 = load ptr, ptr %383, align 8, !noalias !814, !nonnull !4, !align !26, !noundef !4

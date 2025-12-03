@@ -323,7 +323,7 @@ _ZN12regex_syntax3ast7visitor10ClassFrame5child17he32e93aec79d26e3E.exit.i.i.i: 
   %60 = icmp samesign ult i64 %58, %59
   call void @llvm.assume(i1 %60)
   %61 = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !alias.scope !43, !noalias !44, !nonnull !13, !noundef !13
-  %62 = icmp ult i64 %57, 192153584101141164
+  %62 = icmp samesign ult i64 %57, 192153584101141164
   call void @llvm.assume(i1 %62)
   %63 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [3 x i64] } }, ptr %61, i64 %58
   %.sroa.01.0.copyload.i.i.i = load i64, ptr %63, align 8, !noalias !42
@@ -549,7 +549,7 @@ _ZN12regex_syntax3ast7visitor10ClassFrame5child17he32e93aec79d26e3E.exit14.i.i.i
   %138 = icmp samesign ult i64 %136, %137
   call void @llvm.assume(i1 %138)
   %139 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !6, !noalias !11, !nonnull !13, !noundef !13
-  %140 = icmp ult i64 %135, 230584300921369397
+  %140 = icmp samesign ult i64 %135, 230584300921369397
   call void @llvm.assume(i1 %140)
   %141 = getelementptr inbounds nuw { ptr, { i64, [3 x i64] } }, ptr %139, i64 %136
   %.sroa.071.0.copyload.i = load ptr, ptr %141, align 8, !noalias !3, !nonnull !13, !noundef !13

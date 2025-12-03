@@ -1225,7 +1225,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 209:                                              ; preds = %200
   %210 = add nsw i32 %201, -1
-  %211 = icmp ugt i32 %201, 3
+  %211 = icmp samesign ugt i32 %201, 3
   br i1 %211, label %200, label %212, !llvm.loop !28
 
 212:                                              ; preds = %209, %200

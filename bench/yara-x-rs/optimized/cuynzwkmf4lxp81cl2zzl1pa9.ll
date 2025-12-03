@@ -51625,7 +51625,7 @@ define noundef nonnull align 8 dereferenceable(2912) ptr @_ZN6yara_x8compiler8Co
   %15 = phi i64 [ 0, %.lr.ph.i ], [ %33, %31 ]
   %16 = add nuw nsw i64 %15, 1
   store i64 %16, ptr %5, align 8, !alias.scope !13912, !noalias !13902
-  %17 = icmp ult i64 %15, 20
+  %17 = icmp samesign ult i64 %15, 20
   tail call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds nuw { [2 x i64] }, ptr %.sroa.55.0..sroa_idx.i, i64 %15
   %19 = load ptr, ptr %18, align 8, !alias.scope !13912, !noalias !13902, !nonnull !6, !align !17, !noundef !6

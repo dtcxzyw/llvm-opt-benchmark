@@ -5143,7 +5143,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hd9851b7ee2ea3b44E
   %79 = phi i64 [ 0, %1 ], [ %94, %_ZN4fish12env_dispatch16VarDispatchTable8add_anon17h0558327bd53f1cd4E.exit.i ]
   %80 = add nuw nsw i64 %79, 1
   store i64 %80, ptr %69, align 8, !alias.scope !695, !noalias !685
-  %81 = icmp ult i64 %79, 10
+  %81 = icmp samesign ult i64 %79, 10
   call void @llvm.assume(i1 %81)
   %82 = getelementptr inbounds nuw { [2 x i64] }, ptr %.sroa.514.0..sroa_idx.i, i64 %79
   %83 = load ptr, ptr %82, align 8, !alias.scope !695, !noalias !685, !nonnull !3, !align !13, !noundef !3
@@ -5233,7 +5233,7 @@ _ZN4fish12env_dispatch16VarDispatchTable8add_anon17h0558327bd53f1cd4E.exit.i: ; 
   %102 = phi i64 [ 0, %.lr.ph20.i ], [ %117, %_ZN4fish12env_dispatch16VarDispatchTable8add_anon17h0558327bd53f1cd4E.exit37.i ]
   %103 = add nuw nsw i64 %102, 1
   store i64 %103, ptr %68, align 8, !alias.scope !709, !noalias !685
-  %104 = icmp ult i64 %102, 3
+  %104 = icmp samesign ult i64 %102, 3
   call void @llvm.assume(i1 %104)
   %105 = getelementptr inbounds nuw { [2 x i64] }, ptr %.sroa.520.0..sroa_idx.i, i64 %102
   %106 = load ptr, ptr %105, align 8, !alias.scope !709, !noalias !685, !nonnull !3, !align !13, !noundef !3
@@ -29142,7 +29142,7 @@ define void @_ZN4fish12env_dispatch22read_terminfo_database17h3bf38691a90797b4E(
   %73 = phi i64 [ 0, %.lr.ph ], [ %351, %349 ]
   %74 = add nuw nsw i64 %73, 1
   store i64 %74, ptr %41, align 8, !alias.scope !2802
-  %75 = icmp ult i64 %73, 3
+  %75 = icmp samesign ult i64 %73, 3
   call void @llvm.assume(i1 %75)
   %76 = getelementptr inbounds nuw { [2 x i64] }, ptr %.sroa.510.0..sroa_idx, i64 %73
   %77 = load ptr, ptr %76, align 8, !alias.scope !2802, !nonnull !3, !align !13, !noundef !3
@@ -30342,7 +30342,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr47drop
   %181 = phi i64 [ 0, %.lr.ph ], [ %1035, %1033 ]
   %182 = add nuw nsw i64 %181, 1
   store i64 %182, ptr %118, align 8, !alias.scope !2947
-  %183 = icmp ult i64 %181, 10
+  %183 = icmp samesign ult i64 %181, 10
   call void @llvm.assume(i1 %183)
   %184 = getelementptr inbounds nuw { [2 x i64] }, ptr %.sroa.525.0..sroa_idx, i64 %181
   %185 = load ptr, ptr %184, align 8, !alias.scope !2947, !nonnull !3, !align !13, !noundef !3

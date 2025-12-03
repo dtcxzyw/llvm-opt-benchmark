@@ -12250,7 +12250,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17h526b4db181ff434aE.exit.
 
 ._crit_edge393.i.i195:                            ; preds = %1773, %1695
   %.sroa.056.1.lcssa.i.i196 = phi float [ %.sroa.056.0.lcssa.i.i182, %1695 ], [ %.sroa.056.2.i.i192, %1773 ]
-  %1700 = icmp ult i64 %.sroa.7.0398.i.i165, 2000
+  %1700 = icmp samesign ult i64 %.sroa.7.0398.i.i165, 2000
   br i1 %1700, label %1759, label %1701
 
 1701:                                             ; preds = %1759, %._crit_edge393.i.i195
@@ -14786,7 +14786,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17h526b4db181ff434aE.exit.
 
 ._crit_edge393.i.i686:                            ; preds = %2652, %2574
   %.sroa.056.1.lcssa.i.i687 = phi float [ %.sroa.056.0.lcssa.i.i673, %2574 ], [ %.sroa.056.2.i.i683, %2652 ]
-  %2579 = icmp ult i64 %.sroa.7.0398.i.i656, 2000
+  %2579 = icmp samesign ult i64 %.sroa.7.0398.i.i656, 2000
   br i1 %2579, label %2638, label %2580
 
 2580:                                             ; preds = %2638, %._crit_edge393.i.i686

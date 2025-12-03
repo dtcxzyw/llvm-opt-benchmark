@@ -28018,7 +28018,7 @@ define hidden void @_ZN11uv_resolver9graph_ops25simplify_conflict_markers17h2b5b
   %133 = icmp samesign ult i64 %131, %132
   call void @llvm.assume(i1 %133)
   %134 = load ptr, ptr %104, align 8, !nonnull !3, !noundef !3
-  %135 = icmp ult i64 %130, 2305843009213693953
+  %135 = icmp samesign ult i64 %130, 2305843009213693953
   call void @llvm.assume(i1 %135)
   %136 = getelementptr inbounds nuw i32, ptr %134, i64 %131
   %137 = load i32, ptr %136, align 4, !noundef !3

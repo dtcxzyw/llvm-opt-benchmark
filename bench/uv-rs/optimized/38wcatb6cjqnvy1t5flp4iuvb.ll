@@ -11890,7 +11890,7 @@ define hidden void @_ZN11uv_resolver9graph_ops19marker_reachability17h2aa5715ed8
   %67 = icmp samesign ult i64 %65, %66
   call void @llvm.assume(i1 %67)
   %68 = load ptr, ptr %27, align 8, !nonnull !3, !noundef !3
-  %69 = icmp ult i64 %64, 2305843009213693953
+  %69 = icmp samesign ult i64 %64, 2305843009213693953
   call void @llvm.assume(i1 %69)
   %70 = getelementptr inbounds nuw i32, ptr %68, i64 %65
   %71 = load i32, ptr %70, align 4, !noundef !3
@@ -12717,7 +12717,7 @@ default.unreachable776:                           ; preds = %313
   %135 = icmp samesign ult i64 %133, %134
   call void @llvm.assume(i1 %135)
   %136 = load ptr, ptr %66, align 8, !nonnull !3, !noundef !3
-  %137 = icmp ult i64 %132, 2305843009213693953
+  %137 = icmp samesign ult i64 %132, 2305843009213693953
   call void @llvm.assume(i1 %137)
   %138 = getelementptr inbounds nuw i32, ptr %136, i64 %133
   %139 = load i32, ptr %138, align 4, !noundef !3

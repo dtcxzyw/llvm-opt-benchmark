@@ -2430,7 +2430,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   %32 = load i8, ptr @global_rlc_headers_expected, align 1, !range !6
   %33 = trunc nuw i8 %32 to i1
   %or.cond.us = select i1 %31, i1 true, i1 %33
-  %34 = icmp uge i16 %26, %.0139.us
+  %34 = icmp samesign uge i16 %26, %.0139.us
   %or.cond155.not.us = select i1 %or.cond.us, i1 %34, i1 false
   br i1 %or.cond155.not.us, label %35, label %.split185.us
 
@@ -2520,7 +2520,7 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   %69 = load i8, ptr @global_rlc_headers_expected, align 1, !range !6
   %70 = trunc nuw i8 %69 to i1
   %or.cond3 = select i1 %68, i1 true, i1 %70
-  %71 = icmp ule i16 %.0139, %48
+  %71 = icmp samesign ule i16 %.0139, %48
   %or.cond156.not = select i1 %or.cond3, i1 %71, i1 false
   br i1 %or.cond156.not, label %79, label %72
 

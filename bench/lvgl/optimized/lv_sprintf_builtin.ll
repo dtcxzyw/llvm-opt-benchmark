@@ -382,7 +382,7 @@ thread-pre-split:                                 ; preds = %_atoi.exit289, %_at
   %163 = getelementptr inbounds nuw i8, ptr %11, i64 %.1.i
   store i8 %161, ptr %163, align 1, !tbaa !3
   %164 = udiv i64 %.0.i, %.0223374379
-  %165 = icmp ule i64 %.0223374379, %.0.i
+  %165 = icmp samesign ule i64 %.0223374379, %.0.i
   %166 = icmp samesign ult i64 %.1.i, 31
   %167 = and i1 %166, %165
   br i1 %167, label %154, label %_ntoa_long_long.exit, !llvm.loop !15
@@ -452,7 +452,7 @@ _ntoa_long_long.exit:                             ; preds = %154, %142
   %204 = getelementptr inbounds nuw i8, ptr %10, i64 %.1.i294
   store i8 %202, ptr %204, align 1, !tbaa !3
   %205 = udiv i64 %.0.i295, %.0223374379
-  %206 = icmp ule i64 %.0223374379, %.0.i295
+  %206 = icmp samesign ule i64 %.0223374379, %.0.i295
   %207 = icmp samesign ult i64 %.1.i294, 31
   %208 = and i1 %207, %206
   br i1 %208, label %195, label %_ntoa_long.exit, !llvm.loop !18
@@ -582,7 +582,7 @@ _ntoa_long.exit:                                  ; preds = %195, %183
   %278 = getelementptr inbounds nuw i8, ptr %9, i64 %.1.i300
   store i8 %276, ptr %278, align 1, !tbaa !3
   %279 = udiv i64 %.0.i301, %.0223374379
-  %280 = icmp ule i64 %.0223374379, %.0.i301
+  %280 = icmp samesign ule i64 %.0223374379, %.0.i301
   %281 = icmp samesign ult i64 %.1.i300, 31
   %282 = and i1 %281, %280
   br i1 %282, label %269, label %_ntoa_long.exit302, !llvm.loop !18
@@ -880,7 +880,7 @@ _ntoa_long.exit316:                               ; preds = %369, %359
   %450 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i321
   store i8 %448, ptr %450, align 1, !tbaa !3
   %451 = udiv i64 %.0.i322, %.0223374379
-  %452 = icmp ule i64 %.0223374379, %.0.i322
+  %452 = icmp samesign ule i64 %.0223374379, %.0.i322
   %453 = icmp samesign ult i64 %.1.i321, 31
   %454 = and i1 %453, %452
   br i1 %454, label %441, label %_ntoa_long.exit323, !llvm.loop !18

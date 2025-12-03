@@ -3609,7 +3609,7 @@ define internal fastcc noundef zeroext i1 @intel_sdvo_read_response(ptr noundef 
 45:                                               ; preds = %38, %31
   %46 = phi i8 [ 14, %31 ], [ %42, %38 ]
   %47 = phi i8 [ 15, %31 ], [ %46, %38 ]
-  %48 = icmp ult i8 %47, 11
+  %48 = icmp samesign ult i8 %47, 11
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %45

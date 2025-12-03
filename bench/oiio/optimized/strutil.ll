@@ -1839,7 +1839,7 @@ _ZL16stbsp__lead_signjPc.exit1239:                ; preds = %447, %.sink.split.i
   %491 = add nsw i8 %490, 48
   %492 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.next2013
   store i8 %491, ptr %492, align 1, !tbaa !3
-  %493 = icmp ult i64 %indvars.iv2012, 5
+  %493 = icmp samesign ult i64 %indvars.iv2012, 5
   br i1 %493, label %.loopexit1473, label %486, !llvm.loop !26
 
 494:                                              ; preds = %200

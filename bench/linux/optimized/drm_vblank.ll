@@ -378,7 +378,7 @@ define internal fastcc void @drm_update_vblank_count(ptr noundef %0, i32 noundef
   %40 = call fastcc i32 @__get_vblank_counter(ptr noundef %0, i32 noundef %1)
   %41 = icmp ne i32 %22, %40
   %42 = add nsw i32 %21, -1
-  %43 = icmp ugt i32 %21, 1
+  %43 = icmp samesign ugt i32 %21, 1
   %44 = select i1 %41, i1 %43, i1 false
   br i1 %44, label %20, label %45, !llvm.loop !20
 
@@ -2822,7 +2822,7 @@ define dso_local void @drm_crtc_vblank_on(ptr noundef readonly captures(none) %0
   %65 = call fastcc i32 @__get_vblank_counter(ptr noundef %4, i32 noundef %6)
   %66 = icmp ne i32 %47, %65
   %67 = add nsw i32 %46, -1
-  %68 = icmp ugt i32 %46, 1
+  %68 = icmp samesign ugt i32 %46, 1
   %69 = select i1 %66, i1 %68, i1 false
   br i1 %69, label %45, label %70, !llvm.loop !153
 
@@ -3099,7 +3099,7 @@ define dso_local void @drm_crtc_vblank_restore(ptr noundef readonly captures(non
   %100 = call fastcc i32 @__get_vblank_counter(ptr noundef %17, i32 noundef %19)
   %101 = icmp ne i32 %82, %100
   %102 = add nsw i32 %81, -1
-  %103 = icmp ugt i32 %81, 1
+  %103 = icmp samesign ugt i32 %81, 1
   %104 = select i1 %101, i1 %103, i1 false
   br i1 %104, label %80, label %105, !llvm.loop !179
 

@@ -3490,7 +3490,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit284.thread:   ; preds = %189, %_ZN7lodepngL9
   %.0213397 = phi i64 [ 0, %517 ], [ %544, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit292 ]
   %.1396 = phi i64 [ %518, %517 ], [ %520, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit292 ]
   %520 = add nuw nsw i64 %.1396, 4
-  %521 = icmp ugt i64 %520, %2
+  %521 = icmp samesign ugt i64 %520, %2
   br i1 %521, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit292, label %522
 
 522:                                              ; preds = %519
@@ -3644,7 +3644,7 @@ _ZN7lodepngL15decodeICCUint16EPKhmPm.exit:        ; preds = %587, %590
   %.1214399 = phi i64 [ %625, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit297 ], [ 0, %.lr.ph.preheader ]
   %.3398 = phi i64 [ %611, %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit297 ], [ %565, %.lr.ph.preheader ]
   %611 = add nuw nsw i64 %.3398, 2
-  %612 = icmp ugt i64 %611, %2
+  %612 = icmp samesign ugt i64 %611, %2
   br i1 %612, label %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit297, label %613
 
 613:                                              ; preds = %.lr.ph

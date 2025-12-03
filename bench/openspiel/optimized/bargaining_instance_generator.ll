@@ -533,7 +533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 .preheader.i.i:                                   ; preds = %74, %.preheader.i.i.backedge
   %76 = phi i64 [ %.be, %.preheader.i.i.backedge ], [ %75, %74 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.i.i.be, %.preheader.i.i.backedge ], [ 0, %74 ]
-  %77 = icmp ugt i64 %76, 623
+  %77 = icmp samesign ugt i64 %76, 623
   br i1 %77, label %78, label %.noexc.i.i
 
 78:                                               ; preds = %.preheader.i.i
@@ -629,7 +629,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.noexc.i.i, %.noexc49.i.i
   %139 = phi i64 [ %185, %.noexc49.i.i ], [ %122, %.noexc.i.i ]
-  %140 = icmp ugt i64 %139, 623
+  %140 = icmp samesign ugt i64 %139, 623
   br i1 %140, label %141, label %.noexc49.i.i
 
 141:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -778,7 +778,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET0_T_S8_S
   %.047.idx108.i.i = phi i64 [ 0, %217 ], [ %.047.add.i.i, %.loopexit.i.i ]
   %.047.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.047.idx108.i.i
   %221 = load i32, ptr %.047.ptr.i.i, align 4, !noalias !23
-  %222 = icmp ugt i64 %220, 623
+  %222 = icmp samesign ugt i64 %220, 623
   br i1 %222, label %223, label %.noexc53.i.i
 
 223:                                              ; preds = %219
@@ -874,7 +874,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 
 .lr.ph.i.i.i.i.i.i52.i.i:                         ; preds = %.noexc53.i.i, %.noexc54.i.i
   %284 = phi i64 [ %330, %.noexc54.i.i ], [ %267, %.noexc53.i.i ]
-  %285 = icmp ugt i64 %284, 623
+  %285 = icmp samesign ugt i64 %284, 623
   br i1 %285, label %286, label %.noexc54.i.i
 
 286:                                              ; preds = %.lr.ph.i.i.i.i.i.i52.i.i

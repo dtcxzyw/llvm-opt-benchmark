@@ -6662,7 +6662,7 @@ bytestream2_get_le32.exit.i154:                   ; preds = %816, %815
   br i1 %882, label %.critedge.sink.split.i, label %decode_adaptive6.exit.thread.thread
 
 883:                                              ; preds = %833
-  %.not91.i = icmp ugt i32 %.082114.i, %832
+  %.not91.i = icmp samesign ugt i32 %.082114.i, %832
   br i1 %.not91.i, label %incr_cntdec.exit.i, label %884
 
 884:                                              ; preds = %883

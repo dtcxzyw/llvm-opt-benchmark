@@ -711,7 +711,7 @@ logger_thread_read.exit:                          ; preds = %.lr.ph, %121
   br i1 %.013.lcssa, label %129, label %133
 
 129:                                              ; preds = %._crit_edge
-  %130 = icmp ult i32 %.01442, 1000000
+  %130 = icmp samesign ult i32 %.01442, 1000000
   %131 = lshr i32 %.01442, 3
   %132 = select i1 %130, i32 %131, i32 0
   %.1 = add nuw nsw i32 %132, %.01442

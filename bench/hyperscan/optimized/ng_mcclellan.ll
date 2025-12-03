@@ -5378,7 +5378,7 @@ _ZN3ue28containsINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graph
 
 373:                                              ; preds = %366, %._crit_edge184.i.i
   %.1.i.i = phi i8 [ 0, %._crit_edge184.i.i ], [ %372, %366 ]
-  %.not.i71.i.i = icmp ult i64 %.065186.i.i, 256
+  %.not.i71.i.i = icmp samesign ult i64 %.065186.i.i, 256
   br i1 %.not.i71.i.i, label %374, label %._crit_edge189.i.i
 
 374:                                              ; preds = %373
@@ -5625,7 +5625,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %460
   br i1 %.not.i.i97.i43.i, label %.lr.ph.i, label %._crit_edge207.i.i
 
 ._crit_edge207.i.i:                               ; preds = %463, %501, %.lr.ph206.i.i, %_ZNK3ue29CharReach10find_firstEv.exit.i.i
-  %.not.i89.i.i = icmp ult i64 %.062209.i.i, 256
+  %.not.i89.i.i = icmp samesign ult i64 %.062209.i.i, 256
   br i1 %.not.i89.i.i, label %473, label %._crit_edge211.i.i
 
 473:                                              ; preds = %._crit_edge207.i.i

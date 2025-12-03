@@ -4860,7 +4860,7 @@ parse_treeish_dataref.exit:                       ; preds = %73
   %206 = add nsw i32 %.011.i, -1
   %207 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 96
   store ptr %207, ptr %.0910.i, align 8, !tbaa !143
-  %208 = icmp ugt i32 %206, 1
+  %208 = icmp samesign ugt i32 %206, 1
   br i1 %208, label %205, label %209, !llvm.loop !144
 
 209:                                              ; preds = %205
@@ -9191,7 +9191,7 @@ gfi_unpack_entry.exit:                            ; preds = %33, %44, %54
   %86 = add nsw i32 %.011.i, -1
   %87 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 96
   store ptr %87, ptr %.0910.i, align 8, !tbaa !143
-  %88 = icmp ugt i32 %86, 1
+  %88 = icmp samesign ugt i32 %86, 1
   br i1 %88, label %85, label %89, !llvm.loop !144
 
 89:                                               ; preds = %85
@@ -10163,7 +10163,7 @@ define internal fastcc range(i32 0, 2) i32 @tree_content_set(ptr noundef %0, ptr
   %128 = add nsw i32 %.011.i, -1
   %129 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 96
   store ptr %129, ptr %.0910.i, align 8, !tbaa !143
-  %130 = icmp ugt i32 %128, 1
+  %130 = icmp samesign ugt i32 %128, 1
   br i1 %130, label %127, label %131, !llvm.loop !144
 
 131:                                              ; preds = %127
@@ -10682,7 +10682,7 @@ new_tree_content.exit:                            ; preds = %16, %20, %.critedge
   %42 = add nsw i32 %.011.i, -1
   %43 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 96
   store ptr %43, ptr %.0910.i, align 8, !tbaa !143
-  %44 = icmp ugt i32 %42, 1
+  %44 = icmp samesign ugt i32 %42, 1
   br i1 %44, label %41, label %45, !llvm.loop !144
 
 45:                                               ; preds = %41

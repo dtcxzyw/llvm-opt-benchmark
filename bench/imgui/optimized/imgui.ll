@@ -28513,7 +28513,7 @@ _ZL14UpdateAliasKey8ImGuiKeybf.exit.i:            ; preds = %_ZL14UpdateAliasKey
 
 638:                                              ; preds = %634, %.thread.i
   %639 = add nsw i64 %indvars.iv102.i, -512
-  %640 = icmp ult i64 %639, 119
+  %640 = icmp samesign ult i64 %639, 119
   br i1 %640, label %641, label %643
 
 641:                                              ; preds = %638

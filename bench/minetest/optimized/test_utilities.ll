@@ -3451,7 +3451,7 @@ while.end.i.i138:                                 ; preds = %while.body.i.i135.1
 
 while.cond3.i.i141:                               ; preds = %land.rhs5.i.i154, %while.end.i.i138
   %back.0.i.i142 = phi i64 [ 15, %while.end.i.i138 ], [ %sub.i.i155, %land.rhs5.i.i154 ]
-  %cmp4.i.i143 = icmp ugt i64 %back.0.i.i142, %front.0.lcssa.i.i139
+  %cmp4.i.i143 = icmp samesign ugt i64 %back.0.i.i142, %front.0.lcssa.i.i139
   br i1 %cmp4.i.i143, label %land.rhs5.i.i154, label %_Z4trimPKc.exit159
 
 land.rhs5.i.i154:                                 ; preds = %while.cond3.i.i141
@@ -3567,7 +3567,7 @@ while.end.i.i187:                                 ; preds = %while.body.i.i184.1
 
 while.cond3.i.i190:                               ; preds = %land.rhs5.i.i203, %while.end.i.i187
   %back.0.i.i191 = phi i64 [ 21, %while.end.i.i187 ], [ %sub.i.i204, %land.rhs5.i.i203 ]
-  %cmp4.i.i192 = icmp ugt i64 %back.0.i.i191, %front.0.lcssa.i.i188
+  %cmp4.i.i192 = icmp samesign ugt i64 %back.0.i.i191, %front.0.lcssa.i.i188
   br i1 %cmp4.i.i192, label %land.rhs5.i.i203, label %_Z4trimPKc.exit209
 
 land.rhs5.i.i203:                                 ; preds = %while.cond3.i.i190
@@ -3656,7 +3656,7 @@ while.end.i.i237:                                 ; preds = %while.body.i.i234.2
 
 while.cond3.i.i240:                               ; preds = %land.rhs5.i.i253, %while.end.i.i237
   %back.0.i.i241 = phi i64 [ 14, %while.end.i.i237 ], [ %sub.i.i254, %land.rhs5.i.i253 ]
-  %cmp4.i.i242 = icmp ugt i64 %back.0.i.i241, %front.0.lcssa.i.i238
+  %cmp4.i.i242 = icmp samesign ugt i64 %back.0.i.i241, %front.0.lcssa.i.i238
   br i1 %cmp4.i.i242, label %land.rhs5.i.i253, label %_Z4trimPKc.exit259
 
 land.rhs5.i.i253:                                 ; preds = %while.cond3.i.i240
@@ -3731,7 +3731,7 @@ while.end.i.i287:                                 ; preds = %while.body.i.i284.1
 
 while.cond3.i.i290:                               ; preds = %land.rhs5.i.i303, %while.end.i.i287
   %back.0.i.i291 = phi i64 [ 3, %while.end.i.i287 ], [ %sub.i.i304, %land.rhs5.i.i303 ]
-  %cmp4.i.i292 = icmp ugt i64 %back.0.i.i291, %front.0.lcssa.i.i288
+  %cmp4.i.i292 = icmp samesign ugt i64 %back.0.i.i291, %front.0.lcssa.i.i288
   br i1 %cmp4.i.i292, label %land.rhs5.i.i303, label %_Z4trimPKc.exit309
 
 land.rhs5.i.i303:                                 ; preds = %while.cond3.i.i290
@@ -3800,7 +3800,7 @@ ehcleanup86:                                      ; preds = %lpad82
 
 while.cond3.i.i340:                               ; preds = %land.rhs5.i.i353, %land.rhs.i.i328.preheader
   %back.0.i.i341 = phi i64 [ 4, %land.rhs.i.i328.preheader ], [ %sub.i.i354, %land.rhs5.i.i353 ]
-  %cmp4.i.i342 = icmp ugt i64 %back.0.i.i341, %front.0.lcssa.i.i338
+  %cmp4.i.i342 = icmp samesign ugt i64 %back.0.i.i341, %front.0.lcssa.i.i338
   br i1 %cmp4.i.i342, label %land.rhs5.i.i353, label %_Z4trimPKc.exit359
 
 land.rhs5.i.i353:                                 ; preds = %while.cond3.i.i340

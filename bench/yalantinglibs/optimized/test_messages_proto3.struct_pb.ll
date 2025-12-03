@@ -6431,7 +6431,7 @@ while.body.i8922:                                 ; preds = %_ZN9struct_pb13Unkn
   store i8 %conv.i8924, ptr %arrayidx.i8926, align 1
   %shr.i8927 = lshr i64 %v.addr.i8916.06199, 7
   %pos.28 = add i64 %pos.286200, 1
-  %cmp.i8918 = icmp ugt i64 %v.addr.i8916.06199, 16383
+  %cmp.i8918 = icmp samesign ugt i64 %v.addr.i8916.06199, 16383
   br i1 %cmp.i8918, label %while.body.i8922, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit8928, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit8928: ; preds = %while.body.i8922, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3540.thread, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3540
@@ -8038,7 +8038,7 @@ while.body.i8074:                                 ; preds = %_ZN9struct_pb13Unkn
   store i8 %conv.i8076, ptr %arrayidx.i8078, align 1
   %shr.i8079 = lshr i64 %v.addr.i8068.06502, 7
   %pos.114 = add i64 %pos.1146503, 1
-  %cmp.i8070 = icmp ugt i64 %v.addr.i8068.06502, 16383
+  %cmp.i8070 = icmp samesign ugt i64 %v.addr.i8068.06502, 16383
   br i1 %cmp.i8070, label %while.body.i8074, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit8080, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit8080: ; preds = %while.body.i8074, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3808.thread, %_ZN9struct_pb13UnknownFieldsD2Ev.exit3808
@@ -8465,7 +8465,7 @@ while.body.i7882:                                 ; preds = %_ZN9struct_pb8inter
   store i8 %conv.i7884, ptr %arrayidx.i7886, align 1
   %shr.i7887 = lshr i64 %v.addr.i7876.06579, 7
   %pos.135 = add i64 %pos.1356580, 1
-  %cmp.i7878 = icmp ugt i64 %v.addr.i7876.06579, 16383
+  %cmp.i7878 = icmp samesign ugt i64 %v.addr.i7876.06579, 16383
   br i1 %cmp.i7878, label %while.body.i7882, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7888, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7888: ; preds = %while.body.i7882, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3350
@@ -8590,7 +8590,7 @@ while.body.i7786:                                 ; preds = %_ZN9struct_pb8inter
   store i8 %conv.i7788, ptr %arrayidx.i7790, align 1
   %shr.i7791 = lshr i64 %v.addr.i7780.06602, 7
   %pos.140 = add i64 %pos.1406603, 1
-  %cmp.i7782 = icmp ugt i64 %v.addr.i7780.06602, 16383
+  %cmp.i7782 = icmp samesign ugt i64 %v.addr.i7780.06602, 16383
   br i1 %cmp.i7782, label %while.body.i7786, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7792, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7792: ; preds = %while.body.i7786, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3336
@@ -8715,7 +8715,7 @@ while.body.i7690:                                 ; preds = %_ZN9struct_pb8inter
   store i8 %conv.i7692, ptr %arrayidx.i7694, align 1
   %shr.i7695 = lshr i64 %v.addr.i7684.06625, 7
   %pos.145 = add i64 %pos.1456626, 1
-  %cmp.i7686 = icmp ugt i64 %v.addr.i7684.06625, 16383
+  %cmp.i7686 = icmp samesign ugt i64 %v.addr.i7684.06625, 16383
   br i1 %cmp.i7686, label %while.body.i7690, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7696, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7696: ; preds = %while.body.i7690, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3322
@@ -8840,7 +8840,7 @@ while.body.i7594:                                 ; preds = %_ZN9struct_pb8inter
   store i8 %conv.i7596, ptr %arrayidx.i7598, align 1
   %shr.i7599 = lshr i64 %v.addr.i7588.06648, 7
   %pos.150 = add i64 %pos.1506649, 1
-  %cmp.i7590 = icmp ugt i64 %v.addr.i7588.06648, 16383
+  %cmp.i7590 = icmp samesign ugt i64 %v.addr.i7588.06648, 16383
   br i1 %cmp.i7590, label %while.body.i7594, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7600, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7600: ; preds = %while.body.i7594, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3308
@@ -8971,7 +8971,7 @@ while.body.i7498:                                 ; preds = %_ZN9struct_pb8inter
   store i8 %conv.i7500, ptr %arrayidx.i7502, align 1
   %shr.i7503 = lshr i64 %v.addr.i7492.06671, 7
   %pos.155 = add i64 %pos.1556672, 1
-  %cmp.i7494 = icmp ugt i64 %v.addr.i7492.06671, 16383
+  %cmp.i7494 = icmp samesign ugt i64 %v.addr.i7492.06671, 16383
   br i1 %cmp.i7494, label %while.body.i7498, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7504, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7504: ; preds = %while.body.i7498, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3294
@@ -9108,7 +9108,7 @@ while.body.i7402:                                 ; preds = %_ZN9struct_pb8inter
   store i8 %conv.i7404, ptr %arrayidx.i7406, align 1
   %shr.i7407 = lshr i64 %v.addr.i7396.06694, 7
   %pos.160 = add i64 %pos.1606695, 1
-  %cmp.i7398 = icmp ugt i64 %v.addr.i7396.06694, 16383
+  %cmp.i7398 = icmp samesign ugt i64 %v.addr.i7396.06694, 16383
   br i1 %cmp.i7398, label %while.body.i7402, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7408, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7408: ; preds = %while.body.i7402, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3280
@@ -9364,7 +9364,7 @@ while.body.i7050:                                 ; preds = %_ZN9struct_pb8inter
   store i8 %conv.i7052, ptr %arrayidx.i7054, align 1
   %shr.i7055 = lshr i64 %v.addr.i7044.06741, 7
   %pos.173 = add i64 %pos.1736742, 1
-  %cmp.i7046 = icmp ugt i64 %v.addr.i7044.06741, 16383
+  %cmp.i7046 = icmp samesign ugt i64 %v.addr.i7044.06741, 16383
   br i1 %cmp.i7046, label %while.body.i7050, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7056, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7056: ; preds = %while.body.i7050, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3273
@@ -9456,7 +9456,7 @@ while.body.i6970:                                 ; preds = %_ZN9struct_pb8inter
   store i8 %conv.i6972, ptr %arrayidx.i6974, align 1
   %shr.i6975 = lshr i64 %v.addr.i6964.06759, 7
   %pos.177 = add i64 %pos.1776760, 1
-  %cmp.i6966 = icmp ugt i64 %v.addr.i6964.06759, 16383
+  %cmp.i6966 = icmp samesign ugt i64 %v.addr.i6964.06759, 16383
   br i1 %cmp.i6966, label %while.body.i6970, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6976, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6976: ; preds = %while.body.i6970, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3266
@@ -10219,7 +10219,7 @@ while.body.i6442:                                 ; preds = %_ZN9struct_pb13Unkn
   store i8 %conv.i6444, ptr %arrayidx.i6446, align 1
   %shr.i6447 = lshr i64 %v.addr.i6436.06870, 7
   %pos.200 = add i64 %pos.2006871, 1
-  %cmp.i6438 = icmp ugt i64 %v.addr.i6436.06870, 16383
+  %cmp.i6438 = icmp samesign ugt i64 %v.addr.i6436.06870, 16383
   br i1 %cmp.i6438, label %while.body.i6442, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6448, !llvm.loop !7
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6448: ; preds = %while.body.i6442, %_ZN9struct_pb13UnknownFieldsD2Ev.exit4157.thread, %_ZN9struct_pb13UnknownFieldsD2Ev.exit4157

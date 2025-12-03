@@ -4431,7 +4431,7 @@ cleanup.us:                                       ; preds = %cleanup.us.loopexit
   %tokenStartIdx.1.us = phi i32 [ %tokenStartIdx.0165.us, %cleanup.us.loopexit ], [ %36, %if.end31.us ]
   %add.us = add i64 %37, 1
   %38 = and i64 %add.us, 4294967295
-  %cmp.us = icmp ult i64 %indvars.iv.next174.pre-phi, %38
+  %cmp.us = icmp samesign ult i64 %indvars.iv.next174.pre-phi, %38
   br i1 %cmp.us, label %for.cond4.preheader.us, label %for.cond.cleanup.loopexit171, !llvm.loop !99
 
 for.cond.cleanup.loopexit171:                     ; preds = %cleanup.us

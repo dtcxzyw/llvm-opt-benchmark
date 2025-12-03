@@ -6051,7 +6051,7 @@ _ZNK3ue29CharReach10find_firstEv.exit41.i:        ; preds = %248
   br label %276
 
 ._crit_edge.i:                                    ; preds = %251, %_ZN3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE7emplaceIJRmS8_EEES1_INS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPS2_Lb0EEEKS2_EEbEDpOT_.exit.i, %338, %_ZNK3ue29CharReach10find_firstEv.exit41.i
-  %.not.i.i42.i = icmp ult i64 %storemerge75.i, 256
+  %.not.i.i42.i = icmp samesign ult i64 %storemerge75.i, 256
   br i1 %.not.i.i42.i, label %257, label %.loopexit.i
 
 257:                                              ; preds = %._crit_edge.i
@@ -6231,7 +6231,7 @@ _ZN3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE7emplaceIJRmS8_EEES1_INS_11flat_
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !418
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !418
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !418
-  %.not.i.i43.i = icmp ult i64 %storemerge1873.i, 256
+  %.not.i.i43.i = icmp samesign ult i64 %storemerge1873.i, 256
   br i1 %.not.i.i43.i, label %328, label %._crit_edge.i
 
 328:                                              ; preds = %_ZN3ue28flat_setISt4pairIhhESt4lessIS2_ESaIS2_EE7emplaceIJRmS8_EEES1_INS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPS2_Lb0EEEKS2_EEbEDpOT_.exit.i

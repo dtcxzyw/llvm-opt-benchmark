@@ -2079,7 +2079,7 @@ define internal fastcc void @xhci_stop_device(ptr noundef %0, i32 noundef range(
 
 61:                                               ; preds = %46, %57, %42, %37
   %62 = add nsw i64 %38, -1
-  %63 = icmp ugt i64 %38, 1
+  %63 = icmp samesign ugt i64 %38, 1
   br i1 %63, label %37, label %64, !llvm.loop !38
 
 64:                                               ; preds = %61

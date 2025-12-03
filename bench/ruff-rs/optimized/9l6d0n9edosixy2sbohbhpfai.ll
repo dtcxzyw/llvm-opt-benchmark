@@ -1127,7 +1127,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
   %28 = load ptr, ptr %27, align 8, !noalias !226, !nonnull !3, !noundef !3
   %29 = add i64 %.sroa.0111.0235, -1
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0236, i64 144
-  %31 = icmp ult i64 %.sroa.093.0228, 12
+  %31 = icmp samesign ult i64 %.sroa.093.0228, 12
   call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %.sroa.093.0228
   %33 = load ptr, ptr %32, align 8, !noalias !229, !nonnull !3, !noundef !3

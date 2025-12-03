@@ -1391,7 +1391,7 @@ while.body.i.i10:                                 ; preds = %while.body.i.i10, %
   %5 = load i16, ptr %arrayidx.i.i13, align 2
   %add.ptr.i.i14 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.i.i11
   store i16 %5, ptr %add.ptr.i.i14, align 1
-  %cmp.i.i15 = icmp ugt i64 %sub.i.i11, 2
+  %cmp.i.i15 = icmp samesign ugt i64 %sub.i.i11, 2
   br i1 %cmp.i.i15, label %while.body.i.i10, label %_ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit, !llvm.loop !30
 
 _ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit: ; preds = %while.body.i.i10
@@ -1413,7 +1413,7 @@ while.body.i.i19:                                 ; preds = %while.body.i.i19, %
   %8 = load i16, ptr %arrayidx.i.i25, align 2
   %add.ptr.i.i26 = getelementptr inbounds i8, ptr %add.ptr.i18, i64 %sub.i.i22
   store i16 %8, ptr %add.ptr.i.i26, align 1
-  %cmp.i.i27 = icmp ugt i64 %sub.i.i22, 2
+  %cmp.i.i27 = icmp samesign ugt i64 %sub.i.i22, 2
   br i1 %cmp.i.i27, label %while.body.i.i19, label %_ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit32, !llvm.loop !30
 
 _ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit32: ; preds = %while.body.i.i19
@@ -1515,7 +1515,7 @@ while.body.i.i80:                                 ; preds = %while.body.i.i80, %
   %15 = load i16, ptr %arrayidx.i.i86, align 2
   %add.ptr.i.i87 = getelementptr inbounds i8, ptr %add.ptr.i79, i64 %sub.i.i83
   store i16 %15, ptr %add.ptr.i.i87, align 1
-  %cmp.i.i88 = icmp ugt i64 %sub.i.i83, 2
+  %cmp.i.i88 = icmp samesign ugt i64 %sub.i.i83, 2
   br i1 %cmp.i.i88, label %while.body.i.i80, label %_ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit93, !llvm.loop !30
 
 _ZZN5folly6detail18unsafeTelescope128EPcS1_oENKUlmE_clEm.exit93: ; preds = %while.body.i.i80

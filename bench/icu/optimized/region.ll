@@ -2389,7 +2389,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %_ZNK6icu_7713Unicod
   %737 = sext i16 %736 to i32
   %738 = select i1 %735, i32 %733, i32 %737
   %739 = zext i32 %738 to i64
-  %740 = icmp ult i64 %indvars.iv, %739
+  %740 = icmp samesign ult i64 %indvars.iv, %739
   br i1 %740, label %_ZNK6icu_7713UnicodeString6charAtEi.exit715, label %._ZNK6icu_7713UnicodeString6charAtEi.exit715.thread_crit_edge
 
 ._ZNK6icu_7713UnicodeString6charAtEi.exit715.thread_crit_edge: ; preds = %732

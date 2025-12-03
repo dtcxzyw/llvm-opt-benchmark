@@ -6821,7 +6821,7 @@ define internal void @pred16x16_plane_9_c(ptr noundef captures(none) %0, i64 nou
   %93 = getelementptr i8, ptr %74, i64 38
   store i16 %92, ptr %93, align 2, !tbaa !9
   %94 = add nsw i32 %.095.i, %67
-  %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 4
+  %indvars.iv.next104.i = add nsw i64 %indvars.iv103.i, 4
   %.not.i = icmp eq i64 %indvars.iv103.i, -4
   br i1 %.not.i, label %95, label %69, !llvm.loop !49
 
@@ -14159,7 +14159,7 @@ define internal void @pred16x16_plane_10_c(ptr noundef captures(none) %0, i64 no
   %93 = getelementptr i8, ptr %74, i64 38
   store i16 %92, ptr %93, align 2, !tbaa !9
   %94 = add nsw i32 %.095.i, %67
-  %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 4
+  %indvars.iv.next104.i = add nsw i64 %indvars.iv103.i, 4
   %.not.i = icmp eq i64 %indvars.iv103.i, -4
   br i1 %.not.i, label %95, label %69, !llvm.loop !109
 
@@ -21497,7 +21497,7 @@ define internal void @pred16x16_plane_12_c(ptr noundef captures(none) %0, i64 no
   %93 = getelementptr i8, ptr %74, i64 38
   store i16 %92, ptr %93, align 2, !tbaa !9
   %94 = add nsw i32 %.095.i, %67
-  %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 4
+  %indvars.iv.next104.i = add nsw i64 %indvars.iv103.i, 4
   %.not.i = icmp eq i64 %indvars.iv103.i, -4
   br i1 %.not.i, label %95, label %69, !llvm.loop !167
 
@@ -28835,7 +28835,7 @@ define internal void @pred16x16_plane_14_c(ptr noundef captures(none) %0, i64 no
   %93 = getelementptr i8, ptr %74, i64 38
   store i16 %92, ptr %93, align 2, !tbaa !9
   %94 = add nsw i32 %.095.i, %67
-  %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 4
+  %indvars.iv.next104.i = add nsw i64 %indvars.iv103.i, 4
   %.not.i = icmp eq i64 %indvars.iv103.i, -4
   br i1 %.not.i, label %95, label %69, !llvm.loop !225
 
@@ -39225,9 +39225,9 @@ define internal fastcc void @pred16x16_plane_compat_8_c(ptr noundef captures(non
   %107 = getelementptr i8, ptr %91, i64 19
   store i8 %.0.i, ptr %107, align 1, !tbaa !8
   %108 = add nsw i32 %.096, %85
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 4
-  %.not110 = icmp eq i64 %indvars.iv104, -4
-  br i1 %.not110, label %109, label %87, !llvm.loop !316
+  %indvars.iv.next105 = add nsw i64 %indvars.iv104, 4
+  %.not107 = icmp eq i64 %indvars.iv104, -4
+  br i1 %.not107, label %109, label %87, !llvm.loop !316
 
 109:                                              ; preds = %87
   %110 = add nsw i32 %.07897, %.1

@@ -22496,7 +22496,7 @@ build_open_gop_key_points.exit:                   ; preds = %43, %.get_sgpd_sync
 
 489:                                              ; preds = %481, %.thread809, %478
   %.0367 = phi i32 [ %479, %478 ], [ %486, %481 ], [ %488, %.thread809 ]
-  %.not574 = icmp ult i64 %indvars.iv725, %467
+  %.not574 = icmp samesign ult i64 %indvars.iv725, %467
   br i1 %.not574, label %490, label %496
 
 490:                                              ; preds = %489

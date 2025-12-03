@@ -20823,7 +20823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i: ; preds =
   %648 = getelementptr inbounds nuw i8, ptr %.sroa.012.024.i, i64 4
   store i8 %647, ptr %642, align 1, !tbaa !14
   %649 = add nsw i64 %.03325.i, -3
-  %650 = icmp ugt i64 %649, 2
+  %650 = icmp samesign ugt i64 %649, 2
   br i1 %650, label %616, label %655, !llvm.loop !554
 
 651:                                              ; preds = %549

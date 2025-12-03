@@ -4458,7 +4458,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$16exte
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1286)
   %7 = add nuw nsw i64 %31, 1
   store i64 %7, ptr %3, align 8, !alias.scope !1283, !noalias !1286
-  %8 = icmp ult i64 %31, 3
+  %8 = icmp samesign ult i64 %31, 3
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw { [5 x i64] }, ptr %.sroa.5.0..sroa_idx, i64 %31
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8

@@ -9551,7 +9551,7 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit.i: ; preds = %_ZN5boost9conta
   br i1 %.not.i.i13.i, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i, label %.lr.ph.i.i.i259, !llvm.loop !313
 
 _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i: ; preds = %.critedge24.i.i.i, %.critedge.i.i.i263, %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit.i, %.loopexit.i
-  %.not.i14.i = icmp ult i64 %.033.i, 512
+  %.not.i14.i = icmp samesign ult i64 %.033.i, 512
   br i1 %.not.i14.i, label %433, label %.loopexit25
 
 433:                                              ; preds = %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit.i
@@ -9800,7 +9800,7 @@ _ZNK3ue28bitfieldILm512EE10find_firstEv.exit45.i: ; preds = %.preheader.i
   br i1 %.not106.i, label %._crit_edge110.i, label %.lr.ph109.i
 
 ._crit_edge110.i:                                 ; preds = %_ZN3ue28containsISt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEEEEbRKT_RKNSJ_8key_typeE.exit.thread.i, %.lr.ph113.i
-  %.not.i46.i = icmp ult i64 %.036112.i, 512
+  %.not.i46.i = icmp samesign ult i64 %.036112.i, 512
   br i1 %.not.i46.i, label %523, label %.preheader.i.preheader
 
 523:                                              ; preds = %._crit_edge110.i
@@ -10052,7 +10052,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %622
   br i1 %.not.i.i68.i107, label %.lr.ph, label %._crit_edge117.i
 
 ._crit_edge117.i:                                 ; preds = %625, %663, %.lr.ph116.i, %_ZNK3ue29CharReach10find_firstEv.exit.i
-  %.not.i60.i = icmp ult i64 %.035119.i, 512
+  %.not.i60.i = icmp samesign ult i64 %.035119.i, 512
   br i1 %.not.i60.i, label %635, label %_ZN3ue212_GLOBAL__N_116Automaton_Holder10transitionERKNS0_15Holder_StateSetEPS2_.exit
 
 635:                                              ; preds = %._crit_edge117.i

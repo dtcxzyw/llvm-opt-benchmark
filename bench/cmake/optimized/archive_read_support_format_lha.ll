@@ -1162,7 +1162,7 @@ lha_read_file_header_2.exit:                      ; preds = %lha_read_file_heade
   %535 = load i16, ptr %534, align 2, !tbaa !40
   %536 = xor i16 %535, %531
   %537 = add nsw i64 %.15365.i.i234, -8
-  %538 = icmp ugt i64 %537, 7
+  %538 = icmp samesign ugt i64 %537, 7
   br i1 %538, label %.lr.ph.i.i232, label %.preheader.i.i236, !llvm.loop !78
 
 .lr.ph73.i.i238:                                  ; preds = %.preheader.i.i236, %.lr.ph73.i.i238

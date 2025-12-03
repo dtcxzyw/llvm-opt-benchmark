@@ -2979,7 +2979,7 @@ define hidden i32 @avifEncoderFinish(ptr noundef %0, ptr noundef %1) local_unnam
   %869 = getelementptr inbounds nuw i8, ptr %868, i64 12
   %870 = load i32, ptr %869, align 4
   %871 = zext i32 %870 to i64
-  %872 = icmp ult i64 %indvars.iv.next1284.pre-phi, %871
+  %872 = icmp samesign ult i64 %indvars.iv.next1284.pre-phi, %871
   br i1 %872, label %520, label %._crit_edge1165, !llvm.loop !28
 
 ._crit_edge1165:                                  ; preds = %867, %514

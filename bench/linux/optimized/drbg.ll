@@ -1158,7 +1158,7 @@ define internal i32 @drbg_hmac_update(ptr noundef readonly captures(address_is_n
 
 96:                                               ; preds = %.loopexit
   %97 = add nsw i32 %100, -1
-  %98 = icmp ugt i32 %100, 1
+  %98 = icmp samesign ugt i32 %100, 1
   br i1 %98, label %99, label %.loopexit14, !llvm.loop !15
 
 99:                                               ; preds = %96, %87
