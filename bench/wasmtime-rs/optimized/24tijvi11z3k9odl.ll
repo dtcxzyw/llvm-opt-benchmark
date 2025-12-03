@@ -6762,8 +6762,10 @@ define noundef nonnull ptr @"_ZN164_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %3, align 8, !noalias !726
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 0, ptr %4, align 8, !noalias !726
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i8 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !726
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %4, i8 0, i64 9, i1 false), !noalias !726
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.5.i.sroa.0, i64 31, i1 false), !noalias !726
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !noalias !726
@@ -6777,9 +6779,9 @@ define noundef nonnull ptr @"_ZN164_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
 
 8:                                                ; preds = %.noexc.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 64) #32
-          to label %.noexc14.i unwind label %9, !noalias !726
+          to label %.noexc13.i unwind label %9, !noalias !726
 
-.noexc14.i:                                       ; preds = %8
+.noexc13.i:                                       ; preds = %8
   unreachable
 
 9:                                                ; preds = %8, %1
@@ -6819,7 +6821,9 @@ define noundef nonnull ptr @"_ZN155_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %8, align 8, !noalias !729
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %9, i8 0, i64 9, i1 false), !noalias !729
+  store i64 0, ptr %9, align 8, !noalias !729
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i8 0, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !729
   %.sroa.5.i.sroa.0.i.sroa.3.0..sroa.5.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %5, ptr %.sroa.5.i.sroa.0.i.sroa.3.0..sroa.5.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !729
   %.sroa.5.i.sroa.0.i.sroa.4.0..sroa.5.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -6838,9 +6842,9 @@ define noundef nonnull ptr @"_ZN155_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
 
 13:                                               ; preds = %.noexc.i.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 64) #32
-          to label %.noexc14.i.i unwind label %14, !noalias !729
+          to label %.noexc13.i.i unwind label %14, !noalias !729
 
-.noexc14.i.i:                                     ; preds = %13
+.noexc13.i.i:                                     ; preds = %13
   unreachable
 
 14:                                               ; preds = %13, %2
@@ -6876,8 +6880,10 @@ define noundef nonnull ptr @"_ZN156_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %3, align 8, !noalias !734
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 0, ptr %4, align 8, !noalias !734
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i8 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !734
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %4, i8 0, i64 9, i1 false), !noalias !734
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.5.i.sroa.0, i64 31, i1 false), !noalias !734
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 0, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !noalias !734
@@ -6891,9 +6897,9 @@ define noundef nonnull ptr @"_ZN156_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
 
 8:                                                ; preds = %.noexc.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 64) #32
-          to label %.noexc14.i unwind label %9, !noalias !734
+          to label %.noexc13.i unwind label %9, !noalias !734
 
-.noexc14.i:                                       ; preds = %8
+.noexc13.i:                                       ; preds = %8
   unreachable
 
 9:                                                ; preds = %8, %1
@@ -6933,7 +6939,9 @@ define noundef nonnull ptr @"_ZN142_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %8, align 8, !noalias !737
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %9, i8 0, i64 9, i1 false), !noalias !737
+  store i64 0, ptr %9, align 8, !noalias !737
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i8 0, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !737
   %.sroa.5.i.sroa.0.i.sroa.3.0..sroa.5.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %5, ptr %.sroa.5.i.sroa.0.i.sroa.3.0..sroa.5.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !737
   %.sroa.5.i.sroa.0.i.sroa.4.0..sroa.5.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -6952,9 +6960,9 @@ define noundef nonnull ptr @"_ZN142_$LT$wasi_common..pipe..ReadPipe$LT$std..io..
 
 13:                                               ; preds = %.noexc.i.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 64) #32
-          to label %.noexc14.i.i unwind label %14, !noalias !737
+          to label %.noexc13.i.i unwind label %14, !noalias !737
 
-.noexc14.i.i:                                     ; preds = %13
+.noexc13.i.i:                                     ; preds = %13
   unreachable
 
 14:                                               ; preds = %13, %2
@@ -6986,7 +6994,9 @@ define noundef nonnull ptr @"_ZN11wasi_common4pipe73WritePipe$LT$std..io..cursor
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 1, ptr %2, align 8, !noalias !742
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %3, i8 0, i64 9, i1 false), !noalias !742
+  store i64 0, ptr %3, align 8, !noalias !742
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i8 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !742
   %.sroa.5.i.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %.sroa.5.i.sroa.3.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !noalias !742
   %.sroa.5.i.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -7003,9 +7013,9 @@ define noundef nonnull ptr @"_ZN11wasi_common4pipe73WritePipe$LT$std..io..cursor
 
 7:                                                ; preds = %.noexc.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 64) #32
-          to label %.noexc14.i unwind label %8, !noalias !742
+          to label %.noexc13.i unwind label %8, !noalias !742
 
-.noexc14.i:                                       ; preds = %7
+.noexc13.i:                                       ; preds = %7
   unreachable
 
 8:                                                ; preds = %7, %0

@@ -14659,7 +14659,7 @@ _ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit: ; preds = %7
   %25 = load i64, ptr %8, align 8
   %26 = add i64 %25, 1
   store i64 %26, ptr %8, align 8
-  br label %62
+  br label %61
 
 27:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairIiiEE14freeSpaceAtEndEv.exit, %7
   %28 = icmp eq i64 %1, 0
@@ -14672,8 +14672,8 @@ _ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit: ; preds = %27
   %32 = add i64 %31, 23
   %33 = and i64 %32, -8
   %34 = ptrtoint ptr %30 to i64
-  %.not12 = icmp eq i64 %33, %34
-  br i1 %.not12, label %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread, label %35
+  %.not13 = icmp eq i64 %33, %34
+  br i1 %.not13, label %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread, label %35
 
 35:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit
   %36 = getelementptr i8, ptr %30, i64 -8
@@ -14685,49 +14685,49 @@ _ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit: ; preds = %27
   %40 = load i64, ptr %8, align 8
   %41 = add i64 %40, 1
   store i64 %41, ptr %8, align 8
-  br label %62
+  br label %61
 
 _ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread: ; preds = %3, %27, %_ZNK17QArrayDataPointerISt4pairIiiEE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit
-  %42 = load i64, ptr %2, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = load i64, ptr %43, align 8
-  %45 = icmp ne i64 %44, 0
-  %46 = icmp eq i64 %1, 0
-  %or.cond = and i1 %46, %45
+  %.sroa.0.0.copyload = load i64, ptr %2, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load i64, ptr %42, align 8
+  %44 = icmp ne i64 %43, 0
+  %45 = icmp eq i64 %1, 0
+  %or.cond = and i1 %45, %44
   %spec.store.select = zext i1 %or.cond to i32
   tail call void @_ZN17QArrayDataPointerISt4pairIiiEE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS1_PS2_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef %spec.store.select, i64 noundef 1, ptr noundef null, ptr noundef null)
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr %"struct.std::pair", ptr %48, i64 %1
-  br i1 %or.cond, label %57, label %50
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr %"struct.std::pair", ptr %47, i64 %1
+  br i1 %or.cond, label %56, label %49
 
-50:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread
-  %51 = load i64, ptr %43, align 8
-  %52 = icmp slt i64 %1, %51
-  br i1 %52, label %53, label %_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit
+49:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread
+  %50 = load i64, ptr %42, align 8
+  %51 = icmp slt i64 %1, %50
+  br i1 %51, label %52, label %_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit
 
-53:                                               ; preds = %50
-  %54 = getelementptr i8, ptr %49, i64 8
-  %55 = sub i64 %51, %1
-  %56 = shl i64 %55, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %54, ptr noundef align 1 %49, i64 noundef %56, i1 noundef false) #22
+52:                                               ; preds = %49
+  %53 = getelementptr i8, ptr %48, i64 8
+  %54 = sub i64 %50, %1
+  %55 = shl i64 %54, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %53, ptr noundef align 1 %48, i64 noundef %55, i1 noundef false) #22
   br label %_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit
 
-57:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread
+56:                                               ; preds = %_ZNK17QArrayDataPointerISt4pairIiiEE11needsDetachEv.exit.thread
+  %57 = getelementptr i8, ptr %47, i64 -8
+  store ptr %57, ptr %46, align 8
   %58 = getelementptr i8, ptr %48, i64 -8
-  store ptr %58, ptr %47, align 8
-  %59 = getelementptr i8, ptr %49, i64 -8
   br label %_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit
 
-_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit: ; preds = %50, %53, %57
-  %.0.i14 = phi ptr [ %49, %53 ], [ %49, %50 ], [ %59, %57 ]
-  %60 = load i64, ptr %43, align 8
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %43, align 8
-  store i64 %42, ptr %.0.i14, align 4
-  br label %62
+_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit: ; preds = %49, %52, %56
+  %.0.i15 = phi ptr [ %48, %52 ], [ %48, %49 ], [ %58, %56 ]
+  %59 = load i64, ptr %42, align 8
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %42, align 8
+  store i64 %.sroa.0.0.copyload, ptr %.0.i15, align 4
+  br label %61
 
-62:                                               ; preds = %_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit, %35, %22
+61:                                               ; preds = %_ZN9QtPrivate12QPodArrayOpsISt4pairIiiEE10createHoleEN10QArrayData14GrowthPositionExx.exit, %35, %22
   ret void
 }
 

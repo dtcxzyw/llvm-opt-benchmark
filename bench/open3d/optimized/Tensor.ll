@@ -217263,8 +217263,8 @@ define linkonce_odr void @_ZN6open3d4core21Open3DDLManagedTensorC2ERKNS0_6Tensor
   call void @free(ptr noundef %17) #38
   br label %common.resume
 
-common.resume:                                    ; preds = %15, %20, %92
-  %common.resume.op = phi { ptr, i32 } [ %.pn15.pn.pn, %92 ], [ %16, %20 ], [ %16, %15 ]
+common.resume:                                    ; preds = %15, %20, %90
+  %common.resume.op = phi { ptr, i32 } [ %.pn15.pn.pn, %90 ], [ %16, %20 ], [ %16, %15 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %2
@@ -217305,12 +217305,12 @@ _ZN6open3d4core6TensorC2Ev.exit:                  ; preds = %2
 31:                                               ; preds = %_ZN6open3d4core6TensorC2Ev.exit
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %92
+  br label %90
 
 33:                                               ; preds = %27
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %91
+  br label %89
 
 35:                                               ; preds = %28
   br label %48
@@ -217349,96 +217349,96 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %39
   %.pn15 = phi { ptr, i32 } [ %40, %39 ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %91
+  br label %89
 
 48:                                               ; preds = %28, %35
-  %.013 = phi i32 [ 2, %35 ], [ 1, %28 ]
+  %.013 = phi i64 [ 2, %35 ], [ 1, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false), !tbaa.struct !73
   %49 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float32E)
-          to label %.noexc19 unwind label %86
+          to label %.noexc19 unwind label %84
 
 .noexc19:                                         ; preds = %48
   br i1 %49, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %50
 
 50:                                               ; preds = %.noexc19
   %51 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core7Float64E)
-          to label %.noexc20 unwind label %86
+          to label %.noexc20 unwind label %84
 
 .noexc20:                                         ; preds = %50
   br i1 %51, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %52
 
 52:                                               ; preds = %.noexc20
   %53 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core4Int8E)
-          to label %.noexc21 unwind label %86
+          to label %.noexc21 unwind label %84
 
 .noexc21:                                         ; preds = %52
   br i1 %53, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %54
 
 54:                                               ; preds = %.noexc21
   %55 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Int16E)
-          to label %.noexc22 unwind label %86
+          to label %.noexc22 unwind label %84
 
 .noexc22:                                         ; preds = %54
   br i1 %55, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %56
 
 56:                                               ; preds = %.noexc22
   %57 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Int32E)
-          to label %.noexc23 unwind label %86
+          to label %.noexc23 unwind label %84
 
 .noexc23:                                         ; preds = %56
   br i1 %57, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %58
 
 58:                                               ; preds = %.noexc23
   %59 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5Int64E)
-          to label %.noexc24 unwind label %86
+          to label %.noexc24 unwind label %84
 
 .noexc24:                                         ; preds = %58
   br i1 %59, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %60
 
 60:                                               ; preds = %.noexc24
   %61 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core5UInt8E)
-          to label %.noexc25 unwind label %86
+          to label %.noexc25 unwind label %84
 
 .noexc25:                                         ; preds = %60
   br i1 %61, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %62
 
 62:                                               ; preds = %.noexc25
   %63 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core6UInt16E)
-          to label %.noexc26 unwind label %86
+          to label %.noexc26 unwind label %84
 
 .noexc26:                                         ; preds = %62
   br i1 %63, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %64
 
 64:                                               ; preds = %.noexc26
   %65 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core6UInt32E)
-          to label %.noexc27 unwind label %86
+          to label %.noexc27 unwind label %84
 
 .noexc27:                                         ; preds = %64
   br i1 %65, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %66
 
 66:                                               ; preds = %.noexc27
   %67 = invoke noundef zeroext i1 @_ZNK6open3d4core5DtypeeqERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZN6open3d4core6UInt64E)
-          to label %.noexc28 unwind label %86
+          to label %.noexc28 unwind label %84
 
 .noexc28:                                         ; preds = %66
   br i1 %67, label %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit, label %68
 
 68:                                               ; preds = %.noexc28
   invoke void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE, ptr noundef nonnull @.str.117) #40
-          to label %.noexc29 unwind label %86
+          to label %.noexc29 unwind label %84
 
 .noexc29:                                         ; preds = %68
   unreachable
 
 _ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit: ; preds = %.noexc28, %.noexc27, %.noexc26, %.noexc25, %.noexc24, %.noexc23, %.noexc22, %.noexc21, %.noexc20, %.noexc19
-  %.0.i = phi i8 [ 2, %.noexc19 ], [ 2, %.noexc20 ], [ 0, %.noexc21 ], [ 0, %.noexc22 ], [ 0, %.noexc23 ], [ 0, %.noexc24 ], [ 1, %.noexc25 ], [ 1, %.noexc26 ], [ 1, %.noexc27 ], [ 1, %.noexc28 ]
+  %.0.i = phi i32 [ 65538, %.noexc19 ], [ 65538, %.noexc20 ], [ 65536, %.noexc21 ], [ 65536, %.noexc22 ], [ 65536, %.noexc23 ], [ 65536, %.noexc24 ], [ 65537, %.noexc25 ], [ 65537, %.noexc26 ], [ 65537, %.noexc27 ], [ 65537, %.noexc28 ]
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %70 = load i64, ptr %69, align 8, !tbaa !102
   %71 = load ptr, ptr %21, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN6open3d4core10SizeVectorC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %_ZNK6open3d4core6Tensor8GetShapeEv.exit unwind label %88
+          to label %_ZNK6open3d4core6Tensor8GetShapeEv.exit unwind label %86
 
 _ZNK6open3d4core6Tensor8GetShapeEv.exit:          ; preds = %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -217453,64 +217453,60 @@ _ZNK6open3d4core6Tensor8GetShapeEv.exit:          ; preds = %_ZN6open3d4coreL21D
   br label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit
 
 _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit:     ; preds = %_ZNK6open3d4core6Tensor8GetShapeEv.exit, %77
-  %78 = lshr i64 %.sroa.0.0.copyload.i.i, 32
-  %79 = trunc nuw i64 %78 to i32
-  %.tr = trunc i64 %70 to i8
-  %80 = shl i8 %.tr, 3
+  %.sroa.55.0.insert.shift = and i64 %.sroa.0.0.copyload.i.i, -4294967296
+  %.tr = trunc i64 %70 to i32
+  %78 = shl i32 %.tr, 11
+  %.sroa.04.0.insert.insert = or disjoint i64 %.sroa.55.0.insert.shift, %.013
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %81 = load ptr, ptr %11, align 8, !tbaa !19
-  %82 = load ptr, ptr %13, align 8, !tbaa !19
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %0, ptr %84, align 8, !tbaa !3234
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr @_ZN6open3d4core21Open3DDLManagedTensor7DeleterEP15DLManagedTensor, ptr %85, align 8, !tbaa !3241
-  store ptr %71, ptr %83, align 8, !tbaa !120
+  %.sroa.52.0.insert.ext = and i32 %78, 63488
+  %.sroa.01.0.insert.insert = or disjoint i32 %.0.i, %.sroa.52.0.insert.ext
+  %79 = load ptr, ptr %11, align 8, !tbaa !19
+  %80 = load ptr, ptr %13, align 8, !tbaa !19
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store ptr %0, ptr %82, align 8, !tbaa !3234
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store ptr @_ZN6open3d4core21Open3DDLManagedTensor7DeleterEP15DLManagedTensor, ptr %83, align 8, !tbaa !3241
+  store ptr %71, ptr %81, align 8, !tbaa !120
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 %.013, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !3242
-  %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %79, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 4, !tbaa !17
+  store i64 %.sroa.04.0.insert.insert, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %73, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !17
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i8 %.0.i, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !16
-  %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 181
-  store i8 %80, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 1, !tbaa !16
-  %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 182
-  store i16 1, ptr %.sroa.7.sroa.6.0..sroa.7.0..sroa_idx.sroa_idx, align 2, !tbaa !797
+  store i32 %.sroa.01.0.insert.insert, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %81, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !334
+  store ptr %79, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !334
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %82, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !334
+  store ptr %80, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !334
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 0, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !56
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-86:                                               ; preds = %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48
+84:                                               ; preds = %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  br label %88
+
+86:                                               ; preds = %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit
   %87 = landingpad { ptr, i32 }
           cleanup
-  br label %90
-
-88:                                               ; preds = %_ZN6open3d4coreL21DtypeToDLDataTypeCodeERKNS0_5DtypeE.exit
-  %89 = landingpad { ptr, i32 }
-          cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %88
+
+88:                                               ; preds = %86, %84
+  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %89
+
+89:                                               ; preds = %88, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %33
+  %.pn15.pn = phi { ptr, i32 } [ %.pn15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %88 ], [ %34, %33 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %90
 
-90:                                               ; preds = %88, %86
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %91
-
-91:                                               ; preds = %90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %33
-  %.pn15.pn = phi { ptr, i32 } [ %.pn15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn, %90 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %92
-
-92:                                               ; preds = %91, %31
-  %.pn15.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %91 ], [ %32, %31 ]
+90:                                               ; preds = %89, %31
+  %.pn15.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %89 ], [ %32, %31 ]
   call void @_ZN6open3d4core6TensorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #38
   br label %common.resume
 }
@@ -217518,7 +217514,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit:     ; preds = %_ZNK6open3d4core6Te
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d4core21Open3DDLManagedTensor7DeleterEP15DLManagedTensor(ptr noundef %0) #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !3243
+  %3 = load ptr, ptr %2, align 8, !tbaa !3242
   %4 = icmp eq ptr %3, null
   br i1 %4, label %39, label %5
 
@@ -217616,7 +217612,7 @@ define void @_ZN6open3d4core6Tensor10FromDLPackEPK15DLManagedTensor(ptr dead_on_
   %11 = alloca %"class.open3d::core::SizeVector", align 8
   %12 = alloca %"class.std::shared_ptr", align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !3244
+  %14 = load i32, ptr %13, align 8, !tbaa !3243
   switch i32 %14, label %49 [
     i32 1, label %._crit_edge.i.i
     i32 2, label %._crit_edge.i.i41
@@ -217633,7 +217629,7 @@ define void @_ZN6open3d4core6Tensor10FromDLPackEPK15DLManagedTensor(ptr dead_on_
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 19
   store i8 0, ptr %17, align 1, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !3245
+  %19 = load i32, ptr %18, align 4, !tbaa !3244
   invoke void @_ZN6open3d4core6DeviceC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %19)
           to label %20 unwind label %26
 
@@ -217683,7 +217679,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %26,
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %34, align 4, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %36 = load i32, ptr %35, align 4, !tbaa !3245
+  %36 = load i32, ptr %35, align 4, !tbaa !3244
   invoke void @_ZN6open3d4core6DeviceC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %36)
           to label %37 unwind label %43
 
@@ -217730,16 +217726,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %43,
   %.sroa.073.0.in = phi i64 [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  %53 = load i16, ptr %52, align 2, !tbaa !3246, !noalias !3247
+  %53 = load i16, ptr %52, align 2, !tbaa !3245, !noalias !3246
   %.not.i = icmp eq i16 %53, 1
   br i1 %.not.i, label %55, label %54
 
 54:                                               ; preds = %50
-  call void @_ZN6open3d7utility6Logger9LogError_IJRKtEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 59, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType, ptr noundef nonnull @.str.130, ptr noundef nonnull align 2 dereferenceable(2) %52) #40, !noalias !3247
+  call void @_ZN6open3d7utility6Logger9LogError_IJRKtEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 59, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType, ptr noundef nonnull @.str.130, ptr noundef nonnull align 2 dereferenceable(2) %52) #40, !noalias !3246
   unreachable
 
 55:                                               ; preds = %50
-  %56 = load i8, ptr %51, align 2, !tbaa !3250, !noalias !3247
+  %56 = load i8, ptr %51, align 2, !tbaa !3249, !noalias !3246
   switch i8 %56, label %87 [
     i8 1, label %57
     i8 0, label %69
@@ -217748,7 +217744,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %43,
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 21
-  %59 = load i8, ptr %58, align 1, !tbaa !3251, !noalias !3247
+  %59 = load i8, ptr %58, align 1, !tbaa !3250, !noalias !3246
   %60 = zext i8 %59 to i32
   %61 = call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %60)
   %62 = icmp eq i32 %61, 1
@@ -217780,12 +217776,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %43,
   br label %_ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType.exit
 
 68:                                               ; preds = %.split.i, %57
-  call void @_ZN6open3d7utility6Logger9LogError_IJRKhEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType, ptr noundef nonnull @.str.131, ptr noundef nonnull align 1 dereferenceable(1) %58) #40, !noalias !3247
+  call void @_ZN6open3d7utility6Logger9LogError_IJRKhEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType, ptr noundef nonnull @.str.131, ptr noundef nonnull align 1 dereferenceable(1) %58) #40, !noalias !3246
   unreachable
 
 69:                                               ; preds = %55
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 21
-  %71 = load i8, ptr %70, align 1, !tbaa !3251, !noalias !3247
+  %71 = load i8, ptr %70, align 1, !tbaa !3250, !noalias !3246
   %72 = zext i8 %71 to i32
   %73 = call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %72)
   %74 = icmp eq i32 %73, 1
@@ -217817,12 +217813,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %43,
   br label %_ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType.exit
 
 80:                                               ; preds = %.split1.i, %69
-  call void @_ZN6open3d7utility6Logger9LogError_IJRKhEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 89, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType, ptr noundef nonnull @.str.132, ptr noundef nonnull align 1 dereferenceable(1) %70) #40, !noalias !3247
+  call void @_ZN6open3d7utility6Logger9LogError_IJRKhEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 89, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType, ptr noundef nonnull @.str.132, ptr noundef nonnull align 1 dereferenceable(1) %70) #40, !noalias !3246
   unreachable
 
 81:                                               ; preds = %55
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 21
-  %83 = load i8, ptr %82, align 1, !tbaa !3251, !noalias !3247
+  %83 = load i8, ptr %82, align 1, !tbaa !3250, !noalias !3246
   switch i8 %83, label %86 [
     i8 32, label %84
     i8 64, label %85
@@ -217837,19 +217833,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %43,
   br label %_ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType.exit
 
 86:                                               ; preds = %81
-  call void @_ZN6open3d7utility6Logger9LogError_IJRKhEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType, ptr noundef nonnull @.str.133, ptr noundef nonnull align 1 dereferenceable(1) %82) #40, !noalias !3247
+  call void @_ZN6open3d7utility6Logger9LogError_IJRKhEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType, ptr noundef nonnull @.str.133, ptr noundef nonnull align 1 dereferenceable(1) %82) #40, !noalias !3246
   unreachable
 
 87:                                               ; preds = %55
-  call void @_ZN6open3d7utility6Logger9LogError_IJRKhEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 104, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType, ptr noundef nonnull @.str.134, ptr noundef nonnull align 2 dereferenceable(4) %51) #40, !noalias !3247
+  call void @_ZN6open3d7utility6Logger9LogError_IJRKhEEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 104, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType, ptr noundef nonnull @.str.134, ptr noundef nonnull align 2 dereferenceable(4) %51) #40, !noalias !3246
   unreachable
 
 _ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType.exit: ; preds = %64, %65, %66, %67, %76, %77, %78, %79, %84, %85
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %89 = load ptr, ptr %88, align 8, !tbaa !3252
+  %89 = load ptr, ptr %88, align 8, !tbaa !3251
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %91 = load i32, ptr %90, align 8, !tbaa !3253
+  %91 = load i32, ptr %90, align 8, !tbaa !3252
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %93, ptr %8, align 8, !tbaa !19
@@ -217909,7 +217905,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 4, ptr %112, align 4, !tbaa !877
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %114 = load ptr, ptr %113, align 8, !tbaa !3254
+  %114 = load ptr, ptr %113, align 8, !tbaa !3253
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %132
 
@@ -217960,7 +217956,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit51:   ; preds = %131, %126, %124
 
 132:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %133 = load i32, ptr %90, align 8, !tbaa !3253
+  %133 = load i32, ptr %90, align 8, !tbaa !3252
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %135, ptr %11, align 8, !tbaa !19
@@ -218041,7 +218037,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit60:   ; preds = %152, %155
 160:                                              ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit60, %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.val36 = load ptr, ptr %1, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !3255)
+  call void @llvm.experimental.noalias.scope.decl(metadata !3254)
   %161 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %162 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #41
           to label %163 unwind label %221
@@ -218049,26 +218045,26 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit60:   ; preds = %152, %155
 163:                                              ; preds = %160
   %164 = ptrtoint ptr %1 to i64
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  store i32 1, ptr %165, align 8, !tbaa !12, !noalias !3255
+  store i32 1, ptr %165, align 8, !tbaa !12, !noalias !3254
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 12
-  store i32 1, ptr %166, align 4, !tbaa !15, !noalias !3255
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %162, align 8, !tbaa !4, !noalias !3255
+  store i32 1, ptr %166, align 4, !tbaa !15, !noalias !3254
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6open3d4core4BlobESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %162, align 8, !tbaa !4, !noalias !3254
   %167 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %168 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %169 = getelementptr inbounds nuw i8, ptr %162, i64 40
   %170 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  store i64 0, ptr %170, align 8, !noalias !3255
-  store i64 %164, ptr %167, align 8, !tbaa !3258, !noalias !3255
-  store ptr @"_ZNSt17_Function_handlerIFvPvEZN6open3d4core6Tensor10FromDLPackEPK15DLManagedTensorE3$_0E9_M_invokeERKSt9_Any_dataOS0_", ptr %169, align 8, !tbaa !702, !noalias !3255
-  store ptr @"_ZNSt17_Function_handlerIFvPvEZN6open3d4core6Tensor10FromDLPackEPK15DLManagedTensorE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %168, align 8, !tbaa !701, !noalias !3255
+  store i64 0, ptr %170, align 8, !noalias !3254
+  store i64 %164, ptr %167, align 8, !tbaa !3257, !noalias !3254
+  store ptr @"_ZNSt17_Function_handlerIFvPvEZN6open3d4core6Tensor10FromDLPackEPK15DLManagedTensorE3$_0E9_M_invokeERKSt9_Any_dataOS0_", ptr %169, align 8, !tbaa !702, !noalias !3254
+  store ptr @"_ZNSt17_Function_handlerIFvPvEZN6open3d4core6Tensor10FromDLPackEPK15DLManagedTensorE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %168, align 8, !tbaa !701, !noalias !3254
   %171 = getelementptr inbounds nuw i8, ptr %162, i64 48
-  store ptr %.val36, ptr %171, align 8, !tbaa !694, !noalias !3255
+  store ptr %.val36, ptr %171, align 8, !tbaa !694, !noalias !3254
   %172 = getelementptr inbounds nuw i8, ptr %162, i64 56
-  store i64 %.sroa.073.0.in, ptr %172, align 8, !noalias !3255
-  store ptr %162, ptr %161, align 8, !tbaa !7, !alias.scope !3255
-  store ptr %167, ptr %12, align 8, !tbaa !700, !alias.scope !3255
+  store i64 %.sroa.073.0.in, ptr %172, align 8, !noalias !3254
+  store ptr %162, ptr %161, align 8, !tbaa !7, !alias.scope !3254
+  store ptr %167, ptr %12, align 8, !tbaa !700, !alias.scope !3254
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %174 = load i64, ptr %173, align 8, !tbaa !3260
+  %174 = load i64, ptr %173, align 8, !tbaa !3259
   %175 = getelementptr inbounds nuw i8, ptr %.val36, i64 %174
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d4core6TensorE, i64 16), ptr %0, align 8, !tbaa !4
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -218244,7 +218240,7 @@ define linkonce_odr void @_ZN6open3d7utility6Logger9LogError_IJRK12DLDeviceTypeE
   store i64 %9, ptr %7, align 16
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 ptrtoint (ptr @_ZN3fmt3v106detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argI12DLDeviceTypeNS0_9formatterIS8_cvEEEEvPvRNS0_26basic_format_parse_contextIcEERS5_ to i64), ptr %10, align 8
-  %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #38, !noalias !3261
+  %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #38, !noalias !3260
   call void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr nonnull %3, i64 %11, i64 15, ptr nonnull %7)
   invoke void @_ZNK6open3d7utility6Logger6VErrorEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %6) #40
           to label %12 unwind label %13
@@ -218275,7 +218271,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13, %
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr void @_ZN3fmt3v106detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argI12DLDeviceTypeNS0_9formatterIS8_cvEEEEvPvRNS0_26basic_format_parse_contextIcEERS5_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #1 comdat align 2 {
   %4 = alloca %"class.fmt::v10::format_arg_store.838", align 16
-  %5 = load i32, ptr %0, align 4, !tbaa !3242
+  %5 = load i32, ptr %0, align 4, !tbaa !3263
   %switch.tableidx = add i32 %5, -1
   %6 = icmp ult i32 %switch.tableidx, 12
   br i1 %6, label %switch.lookup, label %_ZNK3fmt3v109formatterI12DLDeviceTypecvE6formatINS0_20basic_format_contextINS0_8appenderEcEEEEDTcldtfp0_3outEERKS2_RT_.exit
@@ -218649,8 +218645,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPvEZN6open3d4cor
   br label %"_ZNSt14_Function_base13_Base_managerIZN6open3d4core6Tensor10FromDLPackEPK15DLManagedTensorE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  %.val.i = load i64, ptr %1, align 8, !tbaa !3258
-  store i64 %.val.i, ptr %0, align 8, !tbaa !3258
+  %.val.i = load i64, ptr %1, align 8, !tbaa !3257
+  store i64 %.val.i, ptr %0, align 8, !tbaa !3257
   br label %"_ZNSt14_Function_base13_Base_managerIZN6open3d4core6Tensor10FromDLPackEPK15DLManagedTensorE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN6open3d4core6Tensor10FromDLPackEPK15DLManagedTensorE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -226642,28 +226638,28 @@ attributes #43 = { nounwind willreturn memory(read) }
 !3239 = !{!"_ZTS12DLDeviceType", !11, i64 0}
 !3240 = !{!"_ZTS10DLDataType", !11, i64 0, !11, i64 1, !798, i64 2}
 !3241 = !{!3235, !10, i64 216}
-!3242 = !{!3239, !3239, i64 0}
-!3243 = !{!3236, !10, i64 48}
-!3244 = !{!3236, !3239, i64 8}
-!3245 = !{!3236, !14, i64 12}
-!3246 = !{!3240, !798, i64 2}
-!3247 = !{!3248}
-!3248 = distinct !{!3248, !3249, !"_ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType: argument 0"}
-!3249 = distinct !{!3249, !"_ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType"}
-!3250 = !{!3240, !11, i64 0}
-!3251 = !{!3240, !11, i64 1}
-!3252 = !{!3236, !59, i64 24}
-!3253 = !{!3236, !14, i64 16}
-!3254 = !{!3236, !59, i64 32}
-!3255 = !{!3256}
-!3256 = distinct !{!3256, !3257, !"_ZSt11make_sharedIN6open3d4core4BlobEJRNS1_6DeviceERKPvRZNS1_6Tensor10FromDLPackEPK15DLManagedTensorE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_: argument 0"}
-!3257 = distinct !{!3257, !"_ZSt11make_sharedIN6open3d4core4BlobEJRNS1_6DeviceERKPvRZNS1_6Tensor10FromDLPackEPK15DLManagedTensorE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_"}
-!3258 = !{!3259, !3259, i64 0}
-!3259 = !{!"p1 _ZTS15DLManagedTensor", !10, i64 0}
-!3260 = !{!3236, !28, i64 40}
-!3261 = !{!3262}
-!3262 = distinct !{!3262, !3263, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE: argument 0"}
-!3263 = distinct !{!3263, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE"}
+!3242 = !{!3236, !10, i64 48}
+!3243 = !{!3236, !3239, i64 8}
+!3244 = !{!3236, !14, i64 12}
+!3245 = !{!3240, !798, i64 2}
+!3246 = !{!3247}
+!3247 = distinct !{!3247, !3248, !"_ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType: argument 0"}
+!3248 = distinct !{!3248, !"_ZN6open3d4coreL17DLDataTypeToDtypeERK10DLDataType"}
+!3249 = !{!3240, !11, i64 0}
+!3250 = !{!3240, !11, i64 1}
+!3251 = !{!3236, !59, i64 24}
+!3252 = !{!3236, !14, i64 16}
+!3253 = !{!3236, !59, i64 32}
+!3254 = !{!3255}
+!3255 = distinct !{!3255, !3256, !"_ZSt11make_sharedIN6open3d4core4BlobEJRNS1_6DeviceERKPvRZNS1_6Tensor10FromDLPackEPK15DLManagedTensorE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_: argument 0"}
+!3256 = distinct !{!3256, !"_ZSt11make_sharedIN6open3d4core4BlobEJRNS1_6DeviceERKPvRZNS1_6Tensor10FromDLPackEPK15DLManagedTensorE3$_0EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_"}
+!3257 = !{!3258, !3258, i64 0}
+!3258 = !{!"p1 _ZTS15DLManagedTensor", !10, i64 0}
+!3259 = !{!3236, !28, i64 40}
+!3260 = !{!3261}
+!3261 = distinct !{!3261, !3262, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE: argument 0"}
+!3262 = distinct !{!3262, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE"}
+!3263 = !{!3239, !3239, i64 0}
 !3264 = !{!3265}
 !3265 = distinct !{!3265, !3266, !"_ZN3fmt3v106detail10get_bufferIcNS0_8appenderEEENS1_15iterator_bufferIT0_T_NS1_13buffer_traitsEEES5_: argument 0"}
 !3266 = distinct !{!3266, !"_ZN3fmt3v106detail10get_bufferIcNS0_8appenderEEENS1_15iterator_bufferIT0_T_NS1_13buffer_traitsEEES5_"}
@@ -226674,8 +226670,8 @@ attributes #43 = { nounwind willreturn memory(read) }
 !3271 = !{!3272}
 !3272 = distinct !{!3272, !3273, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE: argument 0"}
 !3273 = distinct !{!3273, !"_ZN6open3d7utility6Logger10FormatArgsB5cxx11EPKcN3fmt3v1017basic_format_argsINS5_20basic_format_contextINS5_8appenderEcEEEE"}
-!3274 = !{!3275, !3259, i64 0}
-!3275 = !{!"_ZTSZN6open3d4core6Tensor10FromDLPackEPK15DLManagedTensorE3$_0", !3259, i64 0}
+!3274 = !{!3275, !3258, i64 0}
+!3275 = !{!"_ZTSZN6open3d4core6Tensor10FromDLPackEPK15DLManagedTensorE3$_0", !3258, i64 0}
 !3276 = !{!3236, !10, i64 56}
 !3277 = !{!3278, !3278, i64 0}
 !3278 = !{!"p1 _ZTSSt9type_info", !10, i64 0}

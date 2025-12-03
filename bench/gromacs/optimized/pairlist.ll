@@ -11773,7 +11773,7 @@ define internal fastcc void @_ZN3gmxL8sort_sciEPNS_16NbnxnPairlistGpuE(ptr nound
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 4
   %.not = icmp sgt i64 %10, %19
-  br i1 %.not, label %20, label %109
+  br i1 %.not, label %20, label %108
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -11933,34 +11933,34 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %56, %58, %60, %62
   store ptr %88, ptr %27, align 8, !tbaa !99
   store ptr %89, ptr %28, align 8, !tbaa !149
   store ptr %91, ptr %93, align 8, !tbaa !150
-  %95 = load i64, ptr %11, align 8
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 5, i1 false)
-  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %95 to i40
+  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.0.0.copyload.i.i.i.i.i to i40
   store i40 %.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %26, align 8
-  br label %109
+  br label %108
 
 .lr.ph76:                                         ; preds = %._crit_edge72, %.lr.ph76
-  %.sroa.042.074 = phi ptr [ %108, %.lr.ph76 ], [ %63, %._crit_edge72 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.042.074, i64 12
-  %97 = load i32, ptr %96, align 4, !tbaa !422
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.042.074, i64 8
-  %99 = load i32, ptr %98, align 4, !tbaa !423
-  %100 = sub nsw i32 %97, %99
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %100, i32 %25)
-  %101 = sext i32 %.sroa.speculated to i64
-  %102 = load ptr, ptr %43, align 8, !tbaa !110
-  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %101
-  %104 = load i32, ptr %103, align 4, !tbaa !101
-  %105 = add nsw i32 %104, 1
-  store i32 %105, ptr %103, align 4, !tbaa !101
-  %106 = sext i32 %104 to i64
-  %107 = getelementptr inbounds %"struct.gmx::nbnxn_sci_t", ptr %82, i64 %106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %107, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.042.074, i64 16, i1 false), !tbaa.struct !458
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.042.074, i64 16
-  %.not65 = icmp eq ptr %108, %64
+  %.sroa.042.074 = phi ptr [ %107, %.lr.ph76 ], [ %63, %._crit_edge72 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.042.074, i64 12
+  %96 = load i32, ptr %95, align 4, !tbaa !422
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.042.074, i64 8
+  %98 = load i32, ptr %97, align 4, !tbaa !423
+  %99 = sub nsw i32 %96, %98
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %99, i32 %25)
+  %100 = sext i32 %.sroa.speculated to i64
+  %101 = load ptr, ptr %43, align 8, !tbaa !110
+  %102 = getelementptr inbounds nuw i32, ptr %101, i64 %100
+  %103 = load i32, ptr %102, align 4, !tbaa !101
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %102, align 4, !tbaa !101
+  %105 = sext i32 %103 to i64
+  %106 = getelementptr inbounds %"struct.gmx::nbnxn_sci_t", ptr %82, i64 %105
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %106, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.042.074, i64 16, i1 false), !tbaa.struct !458
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.042.074, i64 16
+  %.not65 = icmp eq ptr %107, %64
   br i1 %.not65, label %._crit_edge77.loopexit, label %.lr.ph76
 
-109:                                              ; preds = %1, %._crit_edge77
+108:                                              ; preds = %1, %._crit_edge77
   ret void
 }
 

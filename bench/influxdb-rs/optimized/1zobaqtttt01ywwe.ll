@@ -9531,12 +9531,8 @@ define hidden void @_ZN5tokio4sync5watch7channel17h13b95b33440c4ee0E(ptr noalias
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(256) %.sroa.0, i64 256, i1 false)
   %.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 272
-  store i64 0, ptr %.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8
-  %.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 280
-  store i8 0, ptr %.sroa.5.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8
-  %.sroa.626.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 288
   %.sroa.10.0..sroa.5.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 320
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.626.0..sroa.5.0..sroa_idx.i.sroa_idx, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa.5.0..sroa_idx.i.sroa_idx, i8 0, i64 48, i1 false)
   store i64 1, ptr %.sroa.10.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %6 = atomicrmw add ptr %3, i64 1 monotonic, align 8

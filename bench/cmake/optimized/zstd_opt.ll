@@ -1051,8 +1051,8 @@ ZSTD_MLcode.exit46:                               ; preds = %502, %505
   br label %548
 
 548:                                              ; preds = %.thread165, %541
-  %.sroa.8.3 = phi i32 [ %435, %541 ], [ %.sroa.8.0.copyload78, %.thread165 ]
   %.sroa.15.3 = phi i32 [ %410, %541 ], [ %.sroa.15.0.copyload80, %.thread165 ]
+  %.sroa.8.3 = phi i32 [ %435, %541 ], [ %.sroa.8.0.copyload78, %.thread165 ]
   %.sroa.574.3 = phi i32 [ %440, %541 ], [ %.sroa.574.0.copyload76, %.thread165 ]
   %.sroa.072.1 = phi i32 [ %.sroa.072.0272, %541 ], [ %.sroa.072.0.copyload73, %.thread165 ]
   %.4334.i = phi i32 [ %spec.store.select.i, %541 ], [ %spec.select, %.thread165 ]
@@ -1063,8 +1063,8 @@ ZSTD_MLcode.exit46:                               ; preds = %502, %505
   %.4334.i195 = phi i32 [ 0, %.thread180 ], [ %.4334.i, %548 ]
   %.sroa.072.1194 = phi i32 [ %.sroa.072.0272, %.thread180 ], [ %.sroa.072.1, %548 ]
   %.sroa.574.3192 = phi i32 [ %153, %.thread180 ], [ %.sroa.574.3, %548 ]
-  %.sroa.15.3190 = phi i32 [ %86, %.thread180 ], [ %.sroa.15.3, %548 ]
-  %.sroa.8.3188 = phi i32 [ %151, %.thread180 ], [ %.sroa.8.3, %548 ]
+  %.sroa.8.3190 = phi i32 [ %151, %.thread180 ], [ %.sroa.8.3, %548 ]
+  %.sroa.15.3188 = phi i32 [ %86, %.thread180 ], [ %.sroa.15.3, %548 ]
   %550 = zext i32 %.4334.i195 to i64
   %551 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %550
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 16
@@ -1081,7 +1081,7 @@ ZSTD_MLcode.exit46:                               ; preds = %502, %505
   br label %.sink.split.i.i50
 
 558:                                              ; preds = %549
-  %559 = icmp eq i32 %.sroa.15.3190, 0
+  %559 = icmp eq i32 %.sroa.15.3188, 0
   %560 = zext i1 %559 to i32
   %561 = add nsw i32 %.sroa.574.3192, -1
   %562 = add nsw i32 %561, %560
@@ -1141,8 +1141,8 @@ ZSTD_newRep.exit61:                               ; preds = %.ZSTD_updateRep.exi
   %.4334.i196 = phi i32 [ %.4334.i, %574 ], [ %.4334.i195, %ZSTD_newRep.exit61 ]
   %.sroa.072.1193 = phi i32 [ %.sroa.072.1, %574 ], [ %.sroa.072.1194, %ZSTD_newRep.exit61 ]
   %.sroa.574.3191 = phi i32 [ %.sroa.574.3, %574 ], [ %.sroa.574.3192, %ZSTD_newRep.exit61 ]
-  %.sroa.15.3189 = phi i32 [ %.sroa.15.3, %574 ], [ %.sroa.15.3190, %ZSTD_newRep.exit61 ]
-  %.sroa.8.3187 = phi i32 [ 0, %574 ], [ %.sroa.8.3188, %ZSTD_newRep.exit61 ]
+  %.sroa.8.3189 = phi i32 [ 0, %574 ], [ %.sroa.8.3190, %ZSTD_newRep.exit61 ]
+  %.sroa.15.3187 = phi i32 [ %.sroa.15.3, %574 ], [ %.sroa.15.3188, %ZSTD_newRep.exit61 ]
   %579 = add i32 %.4334.i196, 1
   %580 = zext i32 %579 to i64
   %581 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %580
@@ -1150,9 +1150,9 @@ ZSTD_newRep.exit61:                               ; preds = %.ZSTD_updateRep.exi
   %.sroa.574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %581, i64 4
   store i32 %.sroa.574.3191, ptr %.sroa.574.0..sroa_idx, align 4, !tbaa !24
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %581, i64 8
-  store i32 %.sroa.8.3187, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !24
+  store i32 %.sroa.8.3189, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !24
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %581, i64 12
-  store i32 %.sroa.15.3189, ptr %.sroa.15.0..sroa_idx, align 4, !tbaa !24
+  store i32 %.sroa.15.3187, ptr %.sroa.15.0..sroa_idx, align 4, !tbaa !24
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %581, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.22.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.22, i64 12, i1 false), !tbaa.struct !63
   %.not383.i257 = icmp eq i32 %.4334.i196, 0
@@ -2549,8 +2549,8 @@ ZSTD_MLcode.exit50:                               ; preds = %541, %544
   br label %592
 
 592:                                              ; preds = %.thread165, %584
-  %.sroa.8.3 = phi i32 [ %473, %584 ], [ %.sroa.8.0.copyload82, %.thread165 ]
   %.sroa.15.3 = phi i32 [ %444, %584 ], [ %.sroa.15.0.copyload84, %.thread165 ]
+  %.sroa.8.3 = phi i32 [ %473, %584 ], [ %.sroa.8.0.copyload82, %.thread165 ]
   %.sroa.578.3 = phi i32 [ %478, %584 ], [ %.sroa.578.0.copyload80, %.thread165 ]
   %.sroa.076.1 = phi i32 [ %.sroa.076.0296, %584 ], [ %.sroa.076.0.copyload77, %.thread165 ]
   %.4334.i = phi i32 [ %spec.store.select.i, %584 ], [ %spec.select, %.thread165 ]
@@ -2561,8 +2561,8 @@ ZSTD_MLcode.exit50:                               ; preds = %541, %544
   %.4334.i194 = phi i32 [ 0, %.thread179 ], [ %.4334.i, %592 ]
   %.sroa.076.1193 = phi i32 [ %.sroa.076.0296, %.thread179 ], [ %.sroa.076.1, %592 ]
   %.sroa.578.3191 = phi i32 [ %163, %.thread179 ], [ %.sroa.578.3, %592 ]
-  %.sroa.15.3189 = phi i32 [ %86, %.thread179 ], [ %.sroa.15.3, %592 ]
-  %.sroa.8.3187 = phi i32 [ %161, %.thread179 ], [ %.sroa.8.3, %592 ]
+  %.sroa.8.3189 = phi i32 [ %161, %.thread179 ], [ %.sroa.8.3, %592 ]
+  %.sroa.15.3187 = phi i32 [ %86, %.thread179 ], [ %.sroa.15.3, %592 ]
   %594 = zext i32 %.4334.i194 to i64
   %595 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %594
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 16
@@ -2579,7 +2579,7 @@ ZSTD_MLcode.exit50:                               ; preds = %541, %544
   br label %.sink.split.i.i54
 
 602:                                              ; preds = %593
-  %603 = icmp eq i32 %.sroa.15.3189, 0
+  %603 = icmp eq i32 %.sroa.15.3187, 0
   %604 = zext i1 %603 to i32
   %605 = add nsw i32 %.sroa.578.3191, -1
   %606 = add nsw i32 %605, %604
@@ -2639,8 +2639,8 @@ ZSTD_newRep.exit65:                               ; preds = %.ZSTD_updateRep.exi
   %.4334.i195 = phi i32 [ %.4334.i, %618 ], [ %.4334.i194, %ZSTD_newRep.exit65 ]
   %.sroa.076.1192 = phi i32 [ %.sroa.076.1, %618 ], [ %.sroa.076.1193, %ZSTD_newRep.exit65 ]
   %.sroa.578.3190 = phi i32 [ %.sroa.578.3, %618 ], [ %.sroa.578.3191, %ZSTD_newRep.exit65 ]
-  %.sroa.15.3188 = phi i32 [ %.sroa.15.3, %618 ], [ %.sroa.15.3189, %ZSTD_newRep.exit65 ]
-  %.sroa.8.3186 = phi i32 [ 0, %618 ], [ %.sroa.8.3187, %ZSTD_newRep.exit65 ]
+  %.sroa.8.3188 = phi i32 [ 0, %618 ], [ %.sroa.8.3189, %ZSTD_newRep.exit65 ]
+  %.sroa.15.3186 = phi i32 [ %.sroa.15.3, %618 ], [ %.sroa.15.3187, %ZSTD_newRep.exit65 ]
   %623 = add i32 %.4334.i195, 1
   %624 = zext i32 %623 to i64
   %625 = getelementptr inbounds nuw %struct.ZSTD_optimal_t, ptr %39, i64 %624
@@ -2648,9 +2648,9 @@ ZSTD_newRep.exit65:                               ; preds = %.ZSTD_updateRep.exi
   %.sroa.578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %625, i64 4
   store i32 %.sroa.578.3190, ptr %.sroa.578.0..sroa_idx, align 4, !tbaa !24
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %625, i64 8
-  store i32 %.sroa.8.3186, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !24
+  store i32 %.sroa.8.3188, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !24
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %625, i64 12
-  store i32 %.sroa.15.3188, ptr %.sroa.15.0..sroa_idx, align 4, !tbaa !24
+  store i32 %.sroa.15.3186, ptr %.sroa.15.0..sroa_idx, align 4, !tbaa !24
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %625, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.22.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.22, i64 12, i1 false), !tbaa.struct !63
   %.not383.i281 = icmp eq i32 %.4334.i195, 0

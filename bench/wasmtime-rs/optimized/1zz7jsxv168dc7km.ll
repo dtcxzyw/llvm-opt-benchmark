@@ -3587,7 +3587,7 @@ define { i64, ptr } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory4
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %18, align 8
   %19 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %10)
-          to label %24 unwind label %.thread48
+          to label %24 unwind label %.thread49
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3595,7 +3595,7 @@ define { i64, ptr } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory4
   %.not = icmp eq i64 %22, 0
   br i1 %.not, label %48, label %44
 
-.thread48:                                        ; preds = %14, %44, %48, %54, %61
+.thread49:                                        ; preds = %14, %44, %48, %54, %61
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -3641,14 +3641,14 @@ define { i64, ptr } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory4
   br label %"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmtime_runtime..memory..RuntimeLinearMemory$GT$$GT$17hd6041e714ae6a6cdE.exit"
 
 common.resume:                                    ; preds = %.thread, %79, %27, %35
-  %common.resume.op = phi { ptr, i32 } [ %28, %35 ], [ %28, %27 ], [ %.pn47, %.thread ], [ %80, %79 ]
+  %common.resume.op = phi { ptr, i32 } [ %28, %35 ], [ %28, %27 ], [ %.pn48, %.thread ], [ %80, %79 ]
   resume { ptr, i32 } %common.resume.op
 
 44:                                               ; preds = %20
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %46 = load ptr, ptr %45, align 8, !invariant.load !4, !nonnull !4
   %47 = invoke { ptr, ptr } %46(ptr noundef nonnull align 1 %1)
-          to label %54 unwind label %.thread48
+          to label %54 unwind label %.thread49
 
 48:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3662,7 +3662,7 @@ common.resume:                                    ; preds = %.thread, %79, %27, 
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %52, align 8
   %53 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias noundef align 8 captures(none) dereferenceable(48) %9)
-          to label %88 unwind label %.thread48
+          to label %88 unwind label %.thread49
 
 54:                                               ; preds = %44
   %55 = extractvalue { ptr, ptr } %47, 0
@@ -3670,11 +3670,11 @@ common.resume:                                    ; preds = %.thread, %79, %27, 
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8, !invariant.load !4, !nonnull !4
   %59 = invoke noundef i128 %58(ptr noundef align 1 %55)
-          to label %60 unwind label %.thread48
+          to label %60 unwind label %.thread49
 
 60:                                               ; preds = %54
-  %.not36 = icmp eq i128 %59, -101084004025800487874573260070676418087
-  br i1 %.not36, label %61, label %66
+  %.not37 = icmp eq i128 %59, -101084004025800487874573260070676418087
+  br i1 %.not37, label %61, label %66
 
 61:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3688,7 +3688,7 @@ common.resume:                                    ; preds = %.thread, %79, %27, 
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %65, align 8
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.148) #30
-          to label %69 unwind label %.thread48
+          to label %69 unwind label %.thread49
 
 66:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3727,9 +3727,11 @@ common.resume:                                    ; preds = %.thread, %79, %27, 
   store i64 1, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %.sroa.05.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %.sroa.05.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i64 0, ptr %.sroa.05.sroa.4.0..sroa_idx, align 8
+  %.sroa.05.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i8 0, ptr %.sroa.05.sroa.5.0..sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.05.sroa.0.sroa.4.0..sroa_idx, i8 0, i64 9, i1 false)
   store ptr %1, ptr %.sroa.56.0..sroa_idx, align 8
   %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %2, ptr %.sroa.67.0..sroa_idx, align 8
@@ -3779,8 +3781,8 @@ common.resume:                                    ; preds = %.thread, %79, %27, 
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %25
 
-.thread:                                          ; preds = %70, %.thread48
-  %.pn47 = phi { ptr, i32 } [ %23, %.thread48 ], [ %71, %70 ]
+.thread:                                          ; preds = %70, %.thread49
+  %.pn48 = phi { ptr, i32 } [ %23, %.thread49 ], [ %71, %70 ]
   invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$wasmtime_runtime..memory..RuntimeLinearMemory$GT$$GT$17hd6041e714ae6a6cdE"(ptr nonnull %1, ptr nonnull %2) #33
           to label %common.resume unwind label %86
 }

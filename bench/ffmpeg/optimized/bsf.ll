@@ -863,8 +863,8 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.029 = load ptr, ptr %4, align 8, !tbaa !71
-  %.sroa.0.030 = load i64, ptr %5, align 8
+  %.sroa.0.031 = load i64, ptr %5, align 8
+  %.032 = load ptr, ptr %4, align 8, !tbaa !71
   %7 = load i32, ptr %6, align 8, !tbaa !64
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -877,13 +877,13 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
 10:                                               ; preds = %.lr.ph, %28
   %11 = phi ptr [ %.pre, %.lr.ph ], [ %29, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %.sroa.0.033 = phi i64 [ %.sroa.0.030, %.lr.ph ], [ %.sroa.0.0, %28 ]
-  %.032 = phi ptr [ %.029, %.lr.ph ], [ %.0, %28 ]
+  %.035 = phi ptr [ %.032, %.lr.ph ], [ %.0, %28 ]
+  %.sroa.0.034 = phi i64 [ %.sroa.0.031, %.lr.ph ], [ %.sroa.0.0, %28 ]
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !23
-  %16 = tail call i32 @avcodec_parameters_copy(ptr noundef %15, ptr noundef %.032) #6
+  %16 = tail call i32 @avcodec_parameters_copy(ptr noundef %15, ptr noundef %.035) #6
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %.loopexit, label %18
 
@@ -892,7 +892,7 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i64 %.sroa.0.033, ptr %22, align 8
+  store i64 %.sroa.0.034, ptr %22, align 8
   %23 = load ptr, ptr %9, align 8, !tbaa !62
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !4
@@ -907,16 +907,16 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.0 = load ptr, ptr %32, align 8, !tbaa !71
   %.sroa.0.0 = load i64, ptr %33, align 8
+  %.0 = load ptr, ptr %32, align 8, !tbaa !71
   %34 = load i32, ptr %6, align 8, !tbaa !64
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
   br i1 %36, label %10, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %28, %1
-  %.0.lcssa = phi ptr [ %.029, %1 ], [ %.0, %28 ]
-  %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.030, %1 ], [ %.sroa.0.0, %28 ]
+  %.sroa.0.0.lcssa = phi i64 [ %.sroa.0.031, %1 ], [ %.sroa.0.0, %28 ]
+  %.0.lcssa = phi ptr [ %.032, %1 ], [ %.0, %28 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.0.0.lcssa, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -925,8 +925,8 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %10, %._crit_edge
-  %.023 = phi i32 [ %40, %._crit_edge ], [ %26, %18 ], [ %16, %10 ]
-  ret i32 %.023
+  %.026 = phi i32 [ %40, %._crit_edge ], [ %26, %18 ], [ %16, %10 ]
+  ret i32 %.026
 }
 
 ; Function Attrs: nounwind uwtable

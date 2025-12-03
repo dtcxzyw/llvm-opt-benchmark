@@ -3527,8 +3527,8 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %16, %17, %.thread.i
   br label %39
 
 39:                                               ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit, %_ZN9grpc_core20hpack_encoder_detail7Encoder11EmitIndexedEj.exit
-  %.036 = phi i64 [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit ], [ %75, %_ZN9grpc_core20hpack_encoder_detail7Encoder11EmitIndexedEj.exit ]
-  %40 = getelementptr inbounds nuw %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout", ptr %0, i64 %.036
+  %.037 = phi i64 [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit ], [ %75, %_ZN9grpc_core20hpack_encoder_detail7Encoder11EmitIndexedEj.exit ]
+  %40 = getelementptr inbounds nuw %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout", ptr %0, i64 %.037
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !339
   %43 = load i32, ptr %38, align 8, !tbaa !242
@@ -3536,8 +3536,8 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %16, %17, %.thread.i
   br i1 %44, label %45, label %_ZN9grpc_core20hpack_encoder_detail7Encoder11EmitIndexedEj.exit
 
 45:                                               ; preds = %39
-  %.sroa.05.0.copyload = load i32, ptr %40, align 4
-  %46 = call noundef double @_ZNK9grpc_core7Timeout11RatioVersusES0_(ptr noundef nonnull align 2 dereferenceable(3) %6, i32 %.sroa.05.0.copyload)
+  %.sroa.06.0.copyload = load i32, ptr %40, align 4
+  %46 = call noundef double @_ZNK9grpc_core7Timeout11RatioVersusES0_(ptr noundef nonnull align 2 dereferenceable(3) %6, i32 %.sroa.06.0.copyload)
   %47 = fcmp ogt double %46, -3.000000e+00
   %48 = fcmp ole double %46, 0.000000e+00
   %or.cond = and i1 %47, %48
@@ -3586,7 +3586,7 @@ _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i:     ; preds = %49
   br label %118
 
 _ZN9grpc_core20hpack_encoder_detail7Encoder11EmitIndexedEj.exit: ; preds = %39, %45
-  %75 = add nuw nsw i64 %.036, 1
+  %75 = add nuw nsw i64 %.037, 1
   %exitcond = icmp eq i64 %75, 5
   br i1 %exitcond, label %76, label %39, !llvm.loop !344
 
@@ -3629,18 +3629,18 @@ _ZN9grpc_core20hpack_encoder_detail7Encoder11EmitIndexedEj.exit: ; preds = %39, 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %78, %81, %84
   %90 = load ptr, ptr %8, align 8, !tbaa !107
   %91 = icmp ugt ptr %90, inttoptr (i64 1 to ptr)
-  br i1 %91, label %92, label %_ZN9grpc_core5SliceD2Ev.exit32
+  br i1 %91, label %92, label %_ZN9grpc_core5SliceD2Ev.exit33
 
 92:                                               ; preds = %_ZN9grpc_core5SliceD2Ev.exit
   %93 = atomicrmw sub ptr %90, i64 1 acq_rel, align 8
   %94 = icmp eq i64 %93, 1
-  br i1 %94, label %95, label %_ZN9grpc_core5SliceD2Ev.exit32
+  br i1 %94, label %95, label %_ZN9grpc_core5SliceD2Ev.exit33
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !123
   invoke void %97(ptr noundef nonnull align 8 dereferenceable(16) %90)
-          to label %_ZN9grpc_core5SliceD2Ev.exit32 unwind label %98
+          to label %_ZN9grpc_core5SliceD2Ev.exit33 unwind label %98
 
 98:                                               ; preds = %95
   %99 = landingpad { ptr, i32 }
@@ -3649,33 +3649,33 @@ _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %78, %81, %84
   call void @__clang_call_terminate(ptr %100) #29
   unreachable
 
-_ZN9grpc_core5SliceD2Ev.exit32:                   ; preds = %_ZN9grpc_core5SliceD2Ev.exit, %92, %95
+_ZN9grpc_core5SliceD2Ev.exit33:                   ; preds = %_ZN9grpc_core5SliceD2Ev.exit, %92, %95
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %102 = load i32, ptr %101, align 4, !tbaa !353
   %103 = add i32 %102, 1
   store i32 %103, ptr %101, align 4, !tbaa !353
-  %.sroa.0.sroa.0.0.copyload = load i24, ptr %6, align 4
-  %.sroa.0.sroa.0.0.insert.ext = zext i24 %.sroa.0.sroa.0.0.copyload to i32
+  %.sroa.0.0.copyload2 = load i24, ptr %6, align 4
+  %.sroa.0.0.insert.ext = zext i24 %.sroa.0.0.copyload2 to i32
   %104 = urem i32 %102, 5
   %105 = zext nneg i32 %104 to i64
   %106 = getelementptr inbounds nuw %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout", ptr %0, i64 %105
-  store i32 %.sroa.0.sroa.0.0.insert.ext, ptr %106, align 4
+  store i32 %.sroa.0.0.insert.ext, ptr %106, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 4
   store i32 %77, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !100
   %107 = load ptr, ptr %7, align 8, !tbaa !107
   %108 = icmp ugt ptr %107, inttoptr (i64 1 to ptr)
-  br i1 %108, label %109, label %_ZN9grpc_core5SliceD2Ev.exit33
+  br i1 %108, label %109, label %_ZN9grpc_core5SliceD2Ev.exit34
 
-109:                                              ; preds = %_ZN9grpc_core5SliceD2Ev.exit32
+109:                                              ; preds = %_ZN9grpc_core5SliceD2Ev.exit33
   %110 = atomicrmw sub ptr %107, i64 1 acq_rel, align 8
   %111 = icmp eq i64 %110, 1
-  br i1 %111, label %112, label %_ZN9grpc_core5SliceD2Ev.exit33
+  br i1 %111, label %112, label %_ZN9grpc_core5SliceD2Ev.exit34
 
 112:                                              ; preds = %109
   %113 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !123
   invoke void %114(ptr noundef nonnull align 8 dereferenceable(16) %107)
-          to label %_ZN9grpc_core5SliceD2Ev.exit33 unwind label %115
+          to label %_ZN9grpc_core5SliceD2Ev.exit34 unwind label %115
 
 115:                                              ; preds = %112
   %116 = landingpad { ptr, i32 }
@@ -3684,11 +3684,11 @@ _ZN9grpc_core5SliceD2Ev.exit32:                   ; preds = %_ZN9grpc_core5Slice
   call void @__clang_call_terminate(ptr %117) #29
   unreachable
 
-_ZN9grpc_core5SliceD2Ev.exit33:                   ; preds = %_ZN9grpc_core5SliceD2Ev.exit32, %109, %112
+_ZN9grpc_core5SliceD2Ev.exit34:                   ; preds = %_ZN9grpc_core5SliceD2Ev.exit33, %109, %112
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %118
 
-118:                                              ; preds = %72, %68, %_ZN9grpc_core5SliceD2Ev.exit33
+118:                                              ; preds = %72, %68, %_ZN9grpc_core5SliceD2Ev.exit34
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 

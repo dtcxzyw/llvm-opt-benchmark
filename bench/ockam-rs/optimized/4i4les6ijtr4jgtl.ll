@@ -14027,21 +14027,25 @@ define hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN77_$LT$std..sync..rwlock..RwLock$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h737c3eace8b05cc0E"(ptr noalias noundef writeonly sret({ { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { ptr, i64 }, i64 } } }) align 8 captures(none) dereferenceable(40) initializes((0, 9), (16, 40)) %0) unnamed_addr #4 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %0, i8 0, i64 9, i1 false)
-  store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
-  %.sroa.02.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.02.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
+  store i64 0, ptr %0, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %3, align 8
+  %.sroa.04.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN77_$LT$std..sync..rwlock..RwLock$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h74fbc29f0c587d1dE"(ptr noalias noundef writeonly sret({ { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { ptr, i64 }, i64, { {} }, {} } } }) align 8 captures(none) dereferenceable(40) initializes((0, 9), (16, 24), (32, 40)) %0) unnamed_addr #4 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %2, align 8
-  %.sroa.02.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %.sroa.02.sroa.5.0..sroa_idx, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %0, i8 0, i64 9, i1 false)
+  store i64 0, ptr %0, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %3, align 8
+  %.sroa.04.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %.sroa.04.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
@@ -17377,7 +17381,7 @@ default.unreachable511:                           ; preds = %2000, %1624, %1511,
   %.sroa.5155.i.sroa.5.2 = phi i32 [ %.sroa.5155.i.sroa.5.3, %1427 ], [ undef, %117 ]
   %.sroa.5155.i.sroa.6.2 = phi i32 [ %.sroa.5155.i.sroa.6.3, %1427 ], [ undef, %117 ]
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  switch i8 %121, label %default.unreachable18.i [
+  switch i8 %121, label %default.unreachable20.i [
     i8 0, label %123
     i8 1, label %.invoke
     i8 2, label %139
@@ -17389,7 +17393,7 @@ default.unreachable511:                           ; preds = %2000, %1624, %1511,
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !range !269, !noalias !2267
   br label %142
 
-default.unreachable18.i:                          ; preds = %120
+default.unreachable20.i:                          ; preds = %120
   unreachable
 
 123:                                              ; preds = %120
@@ -17421,7 +17425,7 @@ default.unreachable18.i:                          ; preds = %120
   unreachable
 
 .body.i:                                          ; preds = %155, %153, %134, %131, %125
-  %.pn14.pn.i = phi { ptr, i32 } [ %132, %131 ], [ %126, %125 ], [ %135, %134 ], [ %156, %155 ], [ %154, %153 ]
+  %.pn16.pn.i = phi { ptr, i32 } [ %132, %131 ], [ %126, %125 ], [ %135, %134 ], [ %156, %155 ], [ %154, %153 ]
   store i8 2, ptr %122, align 8, !noalias !2264
   br label %.body
 
@@ -21054,7 +21058,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19.i.i.backedg
           to label %1427 unwind label %1425
 
 .body:                                            ; preds = %.body.i, %157, %1345, %1318, %1325, %1425, %1429
-  %.pn116.pn = phi { ptr, i32 } [ %.pn111.pn, %1429 ], [ %1426, %1425 ], [ %1326, %1325 ], [ %1319, %1318 ], [ %.pn103.pn.pn.pn, %1345 ], [ %158, %157 ], [ %.pn14.pn.i, %.body.i ]
+  %.pn116.pn = phi { ptr, i32 } [ %.pn111.pn, %1429 ], [ %1426, %1425 ], [ %1326, %1325 ], [ %1319, %1318 ], [ %.pn103.pn.pn.pn, %1345 ], [ %158, %157 ], [ %.pn16.pn.i, %.body.i ]
   %1384 = getelementptr inbounds nuw i8, ptr %1, i64 120
   invoke fastcc void @"_ZN4core3ptr170drop_in_place$LT$core..result..Result$LT$sqlx_core..pool..inner..DecrementSizeGuard$LT$sqlx_sqlite..database..Sqlite$GT$$C$sqlx_core..sync..AsyncSemaphoreReleaser$GT$$GT$17hf7c79f10db6f53a9E"(ptr noalias noundef align 8 dereferenceable(24) %1384) #43
           to label %.body137 unwind label %1285
@@ -24080,16 +24084,18 @@ define void @_ZN14ockam_identity14secure_channel8registry26SecureChannelRegistry
 ; Function Attrs: nonlazybind uwtable
 define noalias noundef nonnull ptr @_ZN14ockam_identity14secure_channel8registry21SecureChannelRegistry3new17h86cfca3682035850E() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca { { i64 }, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { ptr, i64 }, i64, { {} }, {} } } } }, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !3040
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %2, i8 0, i64 9, i1 false)
   store i64 1, ptr %1, align 8, !noalias !3040
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 1, ptr %3, align 8, !noalias !3040
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i64 0, ptr %.sroa.51.0..sroa_idx, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 1, ptr %2, align 8, !noalias !3040
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 0, ptr %3, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr null, ptr %.sroa.51.0..sroa_idx, align 8
+  %.sroa.62.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i64 0, ptr %.sroa.62.0..sroa_idx, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !3043
   %5 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #29, !noalias !3043
   %6 = icmp eq ptr %5, null

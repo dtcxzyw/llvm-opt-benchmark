@@ -84,19 +84,19 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr noundef writeon
   br i1 %.not, label %17, label %.critedge
 
 17:                                               ; preds = %14, %7
-  %.035 = phi i64 [ %9, %7 ], [ %11, %14 ]
+  %.033 = phi i64 [ %9, %7 ], [ %11, %14 ]
   switch i32 %2, label %.critedge [
     i32 2, label %18
     i32 10, label %24
   ]
 
 18:                                               ; preds = %17
-  %or.cond = icmp ult i64 %.035, 33
+  %or.cond = icmp ult i64 %.033, 33
   br i1 %or.cond, label %19, label %.critedge
 
 19:                                               ; preds = %18
-  %.not38 = icmp eq i64 %.035, 0
-  %20 = sub nuw nsw i64 32, %.035
+  %.not38 = icmp eq i64 %.033, 0
+  %20 = sub nuw nsw i64 32, %.033
   %21 = shl nuw nsw i64 4294967295, %20
   %22 = trunc i64 %21 to i32
   %23 = tail call i32 @llvm.bswap.i32(i32 %22)
@@ -110,7 +110,7 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr noundef writeon
 
 24:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %or.cond4 = icmp ult i64 %.035, 129
+  %or.cond4 = icmp ult i64 %.033, 129
   br i1 %or.cond4, label %25, label %.critedge40
 
 25:                                               ; preds = %24
@@ -120,16 +120,16 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr noundef writeon
 
 27:                                               ; preds = %25, %36
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %36 ]
-  %.13641 = phi i64 [ %.035, %25 ], [ %38, %36 ]
-  %28 = icmp slt i64 %.13641, 1
+  %.13441 = phi i64 [ %.033, %25 ], [ %38, %36 ]
+  %28 = icmp slt i64 %.13441, 1
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %27
-  %30 = icmp samesign ugt i64 %.13641, 7
+  %30 = icmp samesign ugt i64 %.13441, 7
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %29
-  %32 = trunc nuw nsw i64 %.13641 to i16
+  %32 = trunc nuw nsw i64 %.13441 to i16
   %33 = sub nuw nsw i16 8, %32
   %34 = shl nuw nsw i16 255, %33
   %35 = trunc i16 %34 to i8
@@ -139,7 +139,7 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr noundef writeon
   %.sink = phi i8 [ %35, %31 ], [ 0, %27 ], [ -1, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
   store i8 %.sink, ptr %37, align 1
-  %38 = add i64 %.13641, -8
+  %38 = add i64 %.13441, -8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %39, label %27, !llvm.loop !6

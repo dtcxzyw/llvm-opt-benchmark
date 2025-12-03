@@ -11326,9 +11326,9 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI10b3SortDataE17qui
   store i64 %12, ptr %5, align 8
   br label %13
 
-13:                                               ; preds = %37, %4
-  %.028 = phi i32 [ %2, %4 ], [ %.230, %37 ]
-  %.0 = phi i32 [ %3, %4 ], [ %.2, %37 ]
+13:                                               ; preds = %36, %4
+  %.028 = phi i32 [ %2, %4 ], [ %.230, %36 ]
+  %.0 = phi i32 [ %3, %4 ], [ %.2, %36 ]
   %14 = sext i32 %.028 to i64
   br label %15
 
@@ -11356,45 +11356,45 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayI10b3SortDataE17qui
   %25 = trunc nsw i64 %indvars.iv to i32
   %26 = trunc nsw i64 %indvars.iv37 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv37
-  br i1 %.not, label %37, label %27
+  br i1 %.not, label %36, label %27
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %6, align 8, !tbaa !25
   %29 = getelementptr inbounds %struct.b3SortData, ptr %28, i64 %indvars.iv
-  %30 = load i64, ptr %29, align 4
-  %31 = getelementptr inbounds %struct.b3SortData, ptr %28, i64 %indvars.iv37
-  %32 = load i64, ptr %31, align 4
-  store i64 %32, ptr %29, align 4
-  %33 = load ptr, ptr %6, align 8, !tbaa !25
-  %34 = getelementptr inbounds %struct.b3SortData, ptr %33, i64 %indvars.iv37
-  store i64 %30, ptr %34, align 4
-  %35 = add nsw i32 %25, 1
-  %36 = add nsw i32 %26, -1
-  br label %37
+  %.sroa.0.0.copyload.i = load i64, ptr %29, align 4
+  %30 = getelementptr inbounds %struct.b3SortData, ptr %28, i64 %indvars.iv37
+  %31 = load i64, ptr %30, align 4
+  store i64 %31, ptr %29, align 4
+  %32 = load ptr, ptr %6, align 8, !tbaa !25
+  %33 = getelementptr inbounds %struct.b3SortData, ptr %32, i64 %indvars.iv37
+  store i64 %.sroa.0.0.copyload.i, ptr %33, align 4
+  %34 = add nsw i32 %25, 1
+  %35 = add nsw i32 %26, -1
+  br label %36
 
-37:                                               ; preds = %24, %27
-  %.230 = phi i32 [ %35, %27 ], [ %25, %24 ]
-  %.2 = phi i32 [ %36, %27 ], [ %26, %24 ]
+36:                                               ; preds = %24, %27
+  %.230 = phi i32 [ %34, %27 ], [ %25, %24 ]
+  %.2 = phi i32 [ %35, %27 ], [ %26, %24 ]
   %.not33 = icmp sgt i32 %.230, %.2
-  br i1 %.not33, label %38, label %13, !llvm.loop !254
+  br i1 %.not33, label %37, label %13, !llvm.loop !254
 
-38:                                               ; preds = %37
-  %39 = icmp slt i32 %2, %.2
-  br i1 %39, label %40, label %41
+37:                                               ; preds = %36
+  %38 = icmp slt i32 %2, %.2
+  br i1 %38, label %39, label %40
 
-40:                                               ; preds = %38
+39:                                               ; preds = %37
   call void @_ZN20b3AlignedObjectArrayI10b3SortDataE17quickSortInternalIFbRKS0_S4_EEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %.2)
-  br label %41
+  br label %40
 
-41:                                               ; preds = %40, %38
-  %42 = icmp slt i32 %.230, %3
-  br i1 %42, label %43, label %44
+40:                                               ; preds = %39, %37
+  %41 = icmp slt i32 %.230, %3
+  br i1 %41, label %42, label %43
 
-43:                                               ; preds = %41
+42:                                               ; preds = %40
   call void @_ZN20b3AlignedObjectArrayI10b3SortDataE17quickSortInternalIFbRKS0_S4_EEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull %1, i32 noundef %.230, i32 noundef %3)
-  br label %44
+  br label %43
 
-44:                                               ; preds = %43, %41
+43:                                               ; preds = %42, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
