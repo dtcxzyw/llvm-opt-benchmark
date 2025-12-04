@@ -702,32 +702,26 @@ lean_alloc_ctor.exit36:                           ; preds = %lean_alloc_ctor.exi
 define noalias nonnull ptr @l_Lean_Expr_ReplaceLevelImpl_cache___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %5, align 8, !tbaa !12
-  %6 = ptrtoint ptr %0 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_dec.exit
+  %6 = load i32, ptr %0, align 8, !tbaa !4
+  %7 = icmp sgt i32 %6, 1
+  br i1 %7, label %8, label %10, !prof !9
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr %0, align 4, !tbaa !4
-  %10 = icmp sgt i32 %9, 1
-  br i1 %10, label %11, label %13, !prof !9
-
-11:                                               ; preds = %8
-  %12 = add nsw i32 %9, -1
-  store i32 %12, ptr %0, align 4, !tbaa !4
+  %9 = add nsw i32 %6, -1
+  store i32 %9, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit
 
-13:                                               ; preds = %8
-  %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %lean_dec.exit, label %14
+10:                                               ; preds = %4
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %lean_dec.exit, label %11
 
-14:                                               ; preds = %13
+11:                                               ; preds = %10
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %14, %13, %11, %4
-  %15 = tail call ptr @l_Lean_Expr_ReplaceLevelImpl_cache(i64 noundef %.val, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  ret ptr %15
+lean_dec.exit:                                    ; preds = %11, %10, %8
+  %12 = tail call ptr @l_Lean_Expr_ReplaceLevelImpl_cache(i64 noundef %.val, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4438,32 +4432,26 @@ declare ptr @l_Lean_Expr_proj___override(ptr noundef, ptr noundef, ptr noundef) 
 define noalias nonnull ptr @l_Lean_Expr_ReplaceLevelImpl_replaceUnsafeM_visit___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load i64, ptr %5, align 8, !tbaa !12
-  %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_dec.exit
+  %6 = load i32, ptr %1, align 8, !tbaa !4
+  %7 = icmp sgt i32 %6, 1
+  br i1 %7, label %8, label %10, !prof !9
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr %1, align 4, !tbaa !4
-  %10 = icmp sgt i32 %9, 1
-  br i1 %10, label %11, label %13, !prof !9
-
-11:                                               ; preds = %8
-  %12 = add nsw i32 %9, -1
-  store i32 %12, ptr %1, align 4, !tbaa !4
+  %9 = add nsw i32 %6, -1
+  store i32 %9, ptr %1, align 4, !tbaa !4
   br label %lean_dec.exit
 
-13:                                               ; preds = %8
-  %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %lean_dec.exit, label %14
+10:                                               ; preds = %4
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %lean_dec.exit, label %11
 
-14:                                               ; preds = %13
+11:                                               ; preds = %10
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %14, %13, %11, %4
-  %15 = tail call ptr @l_Lean_Expr_ReplaceLevelImpl_replaceUnsafeM_visit(ptr noundef %0, i64 noundef %.val, ptr noundef %2, ptr noundef %3)
-  ret ptr %15
+lean_dec.exit:                                    ; preds = %11, %10, %8
+  %12 = tail call ptr @l_Lean_Expr_ReplaceLevelImpl_replaceUnsafeM_visit(ptr noundef %0, i64 noundef %.val, ptr noundef %2, ptr noundef %3)
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4476,32 +4464,26 @@ define noalias nonnull ptr @l_Lean_Expr_ReplaceLevelImpl_replaceUnsafeM(ptr noun
 define noalias nonnull ptr @l_Lean_Expr_ReplaceLevelImpl_replaceUnsafeM___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val = load i64, ptr %5, align 8, !tbaa !12
-  %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_dec.exit
+  %6 = load i32, ptr %1, align 8, !tbaa !4
+  %7 = icmp sgt i32 %6, 1
+  br i1 %7, label %8, label %10, !prof !9
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr %1, align 4, !tbaa !4
-  %10 = icmp sgt i32 %9, 1
-  br i1 %10, label %11, label %13, !prof !9
-
-11:                                               ; preds = %8
-  %12 = add nsw i32 %9, -1
-  store i32 %12, ptr %1, align 4, !tbaa !4
+  %9 = add nsw i32 %6, -1
+  store i32 %9, ptr %1, align 4, !tbaa !4
   br label %lean_dec.exit
 
-13:                                               ; preds = %8
-  %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %lean_dec.exit, label %14
+10:                                               ; preds = %4
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %lean_dec.exit, label %11
 
-14:                                               ; preds = %13
+11:                                               ; preds = %10
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %14, %13, %11, %4
-  %15 = tail call noalias nonnull ptr @l_Lean_Expr_ReplaceLevelImpl_replaceUnsafeM_visit(ptr noundef %0, i64 noundef %.val, ptr noundef %2, ptr noundef %3)
-  ret ptr %15
+lean_dec.exit:                                    ; preds = %11, %10, %8
+  %12 = tail call noalias nonnull ptr @l_Lean_Expr_ReplaceLevelImpl_replaceUnsafeM_visit(ptr noundef %0, i64 noundef %.val, ptr noundef %2, ptr noundef %3)
+  ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable

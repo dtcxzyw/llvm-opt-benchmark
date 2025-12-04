@@ -163,41 +163,33 @@ $_ZZN5clang4ento17ProgramStateTraitIN4llvm12ImmutableMapIPKNS0_7SymExprENS0_8Ran
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang4ento19Z3CrosscheckVisitorC2ERNS1_8Z3ResultERKNS_15AnalyzerOptionsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(488) %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !3
+_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_8RangeSetEEEED2Ev.exit:
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %3, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang4ento19Z3CrosscheckVisitorE, i64 16), ptr %0, align 8, !tbaa !8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #19
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  store ptr %8, ptr %7, align 8, !tbaa !10
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 4, ptr %9, align 4, !tbaa !13
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store ptr %11, ptr %10, align 8, !tbaa !10
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  store i64 1, ptr %13, align 8, !tbaa !14
-  %14 = ptrtoint ptr %6 to i64
-  store ptr null, ptr %5, align 8, !tbaa !27, !alias.scope !30
-  %15 = and i64 %14, 1
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_8RangeSetEEEED2Ev.exit
-
-17:                                               ; preds = %3
-  tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #20
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 96) #21
-  br label %_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_8RangeSetEEEED2Ev.exit
-
-_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprENS3_8RangeSetEEEED2Ev.exit: ; preds = %17, %3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #19
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
+  store ptr %7, ptr %6, align 8, !tbaa !10
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i32 4, ptr %8, align 4, !tbaa !13
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store ptr %10, ptr %9, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  store i64 1, ptr %12, align 8, !tbaa !14
+  store ptr null, ptr %4, align 8, !tbaa !27, !alias.scope !30
+  tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 96) #21
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #20
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %18, align 8, !tbaa !33
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %2, ptr %19, align 8, !tbaa !35
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %1, ptr %13, align 8, !tbaa !33
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %2, ptr %14, align 8, !tbaa !35
   ret void
 }
 

@@ -19549,13 +19549,13 @@ rb_vm_lock_enter.exit:                            ; preds = %3, %11
 26:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not23 = icmp eq ptr %2, null
-  br i1 %.not23, label %101, label %27
+  br i1 %.not23, label %99, label %27
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !187
   store i64 %29, ptr %2, align 8, !tbaa !7
-  br label %101
+  br label %99
 
 30:                                               ; preds = %24, %15, %rb_vm_lock_enter.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -19716,29 +19716,24 @@ negative_cme.exit:                                ; preds = %72, %75
   %96 = ptrtoint ptr %90 to i64
   %97 = call i32 @rb_id_table_insert(ptr noundef %.0.i28, i64 noundef %1, i64 noundef %96) #20
   %98 = ptrtoint ptr %.1 to i64
-  %99 = and i64 %98, 7
-  %.not.i.i29 = icmp eq i64 %99, 0
-  br i1 %.not.i.i29, label %100, label %cache_callable_method_entry.exit
-
-100:                                              ; preds = %89
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %98) #20
   br label %cache_callable_method_entry.exit
 
-cache_callable_method_entry.exit:                 ; preds = %87, %89, %100
+cache_callable_method_entry.exit:                 ; preds = %87, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %101
+  br label %99
 
-101:                                              ; preds = %26, %27, %cache_callable_method_entry.exit
+99:                                               ; preds = %26, %27, %cache_callable_method_entry.exit
   %.0 = phi ptr [ %21, %27 ], [ %21, %26 ], [ %.1, %cache_callable_method_entry.exit ]
-  %102 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !110
-  %.not.i.i30 = icmp eq ptr %102, null
-  br i1 %.not.i.i30, label %103, label %rb_vm_lock_leave.exit
+  %100 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !110
+  %.not.i.i30 = icmp eq ptr %100, null
+  br i1 %.not.i.i30, label %101, label %rb_vm_lock_leave.exit
 
-103:                                              ; preds = %101
+101:                                              ; preds = %99
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %9) #20
   br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %101, %103
+rb_vm_lock_leave.exit:                            ; preds = %99, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
@@ -31222,29 +31217,26 @@ vm_proc_iseq.exit:                                ; preds = %tailrecurse.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !433
   store ptr %28, ptr %24, align 8, !tbaa !26
-  %29 = ptrtoint ptr %26 to i64
-  %30 = icmp eq ptr %26, null
-  %31 = and i64 %29, 7
-  %32 = icmp ne i64 %31, 0
-  %33 = or i1 %30, %32
-  br i1 %33, label %proc_isolate_env.exit, label %34
+  %29 = icmp eq ptr %26, null
+  br i1 %29, label %proc_isolate_env.exit, label %30
 
-34:                                               ; preds = %23
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %29) #20
+30:                                               ; preds = %23
+  %31 = ptrtoint ptr %26 to i64
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %31) #20
   br label %proc_isolate_env.exit
 
-proc_isolate_env.exit:                            ; preds = %23, %34
-  %35 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %36 = load i8, ptr %35, align 8
-  %37 = or i8 %36, 4
-  store i8 %37, ptr %35, align 8
+proc_isolate_env.exit:                            ; preds = %23, %30
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %33 = load i8, ptr %32, align 8
+  %34 = or i8 %33, 4
+  store i8 %34, ptr %32, align 8
   br label %vm_proc_iseq.exit.thread
 
 vm_proc_iseq.exit.thread:                         ; preds = %tailrecurse.i.i, %tailrecurse.i.i, %proc_isolate_env.exit, %vm_proc_iseq.exit
-  %38 = inttoptr i64 %0 to ptr
-  %39 = load i64, ptr %38, align 8, !tbaa !97
-  %40 = or i64 %39, 256
-  store i64 %40, ptr %38, align 8, !tbaa !97
+  %35 = inttoptr i64 %0 to ptr
+  %36 = load i64, ptr %35, align 8, !tbaa !97
+  %37 = or i64 %36, 256
+  store i64 %37, ptr %35, align 8, !tbaa !97
   ret i64 %0
 }
 
@@ -31459,29 +31451,26 @@ rb_ractor_shareable_p.exit.thread:                ; preds = %21, %vm_block_self.
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !433
   store ptr %39, ptr %35, align 8, !tbaa !26
-  %40 = ptrtoint ptr %37 to i64
-  %41 = icmp eq ptr %37, null
-  %42 = and i64 %40, 7
-  %43 = icmp ne i64 %42, 0
-  %44 = or i1 %41, %43
-  br i1 %44, label %proc_isolate_env.exit, label %45
+  %40 = icmp eq ptr %37, null
+  br i1 %40, label %proc_isolate_env.exit, label %41
 
-45:                                               ; preds = %34
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %40) #20
+41:                                               ; preds = %34
+  %42 = ptrtoint ptr %37 to i64
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %42) #20
   br label %proc_isolate_env.exit
 
-proc_isolate_env.exit:                            ; preds = %34, %45
-  %46 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %47 = load i8, ptr %46, align 8
-  %48 = or i8 %47, 4
-  store i8 %48, ptr %46, align 8
+proc_isolate_env.exit:                            ; preds = %34, %41
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %44 = load i8, ptr %43, align 8
+  %45 = or i8 %44, 4
+  store i8 %45, ptr %43, align 8
   br label %vm_proc_iseq.exit.thread
 
 vm_proc_iseq.exit.thread:                         ; preds = %tailrecurse.i.i, %tailrecurse.i.i, %proc_isolate_env.exit, %vm_proc_iseq.exit
-  %49 = inttoptr i64 %0 to ptr
-  %50 = load i64, ptr %49, align 8, !tbaa !97
-  %51 = or i64 %50, 256
-  store i64 %51, ptr %49, align 8, !tbaa !97
+  %46 = inttoptr i64 %0 to ptr
+  %47 = load i64, ptr %46, align 8, !tbaa !97
+  %48 = or i64 %47, 256
+  store i64 %48, ptr %46, align 8, !tbaa !97
   ret i64 %0
 }
 
@@ -38351,30 +38340,23 @@ declare i32 @rb_id_table_delete(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef nonnull ptr @vm_ccs_create(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 {
-  %5 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #65
-  store i32 0, ptr %5, align 8, !tbaa !180
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %6, align 4, !tbaa !162
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %3, ptr %7, align 8, !tbaa !166
-  %8 = load i64, ptr %3, align 8, !tbaa !167
-  %9 = or i64 %8, 1048576
-  store i64 %9, ptr %3, align 8, !tbaa !167
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %10, align 8, !tbaa !170
-  %11 = ptrtoint ptr %5 to i64
-  %12 = tail call i32 @rb_id_table_insert(ptr noundef %1, i64 noundef %2, i64 noundef %11) #20
-  %13 = ptrtoint ptr %3 to i64
-  %14 = and i64 %13, 7
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %15, label %rb_obj_written.exit
-
-15:                                               ; preds = %4
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %13) #20
-  br label %rb_obj_written.exit
-
-rb_obj_written.exit:                              ; preds = %4, %15
-  ret ptr %5
+rb_obj_written.exit:
+  %4 = tail call noalias nonnull dereferenceable(24) ptr @ruby_xmalloc(i64 noundef 24) #65
+  store i32 0, ptr %4, align 8, !tbaa !180
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 0, ptr %5, align 4, !tbaa !162
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %3, ptr %6, align 8, !tbaa !166
+  %7 = load i64, ptr %3, align 8, !tbaa !167
+  %8 = or i64 %7, 1048576
+  store i64 %8, ptr %3, align 8, !tbaa !167
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr null, ptr %9, align 8, !tbaa !170
+  %10 = ptrtoint ptr %4 to i64
+  %11 = tail call i32 @rb_id_table_insert(ptr noundef %1, i64 noundef %2, i64 noundef %10) #20
+  %12 = ptrtoint ptr %3 to i64
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %12) #20
+  ret ptr %4
 }
 
 ; Function Attrs: allocsize(0,1)
@@ -60608,7 +60590,7 @@ rb_obj_write.exit67:                              ; preds = %.thread69, %.thread
   %.val = phi i64 [ %.val.pre, %.loopexit70.loopexit ], [ %30, %RARRAY_LENINT.exit ], [ %30, %rb_obj_write.exit ]
   %100 = and i64 %.val, 2
   %.not58 = icmp eq i64 %100, 0
-  br i1 %.not58, label %101, label %121
+  br i1 %.not58, label %101, label %118
 
 101:                                              ; preds = %.loopexit70
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -60624,29 +60606,26 @@ rb_obj_write.exit67:                              ; preds = %.thread69, %.thread
   %111 = or i64 %110, 1
   %112 = getelementptr i8, ptr %12, i64 -8
   store i64 %111, ptr %112, align 8, !tbaa !7
-  %113 = ptrtoint ptr %107 to i64
-  %114 = icmp eq ptr %107, null
-  %115 = and i64 %113, 7
-  %116 = icmp ne i64 %115, 0
-  %117 = or i1 %114, %116
-  br i1 %117, label %rb_obj_written.exit, label %118
+  %113 = icmp eq ptr %107, null
+  br i1 %113, label %rb_obj_written.exit, label %114
 
-118:                                              ; preds = %101
-  tail call void @rb_gc_writebarrier(i64 noundef %16, i64 noundef %113) #20
+114:                                              ; preds = %101
+  %115 = ptrtoint ptr %107 to i64
+  tail call void @rb_gc_writebarrier(i64 noundef %16, i64 noundef %115) #20
   br label %rb_obj_written.exit
 
-rb_obj_written.exit:                              ; preds = %101, %118
-  %119 = load i64, ptr %12, align 8, !tbaa !7
-  %120 = and i64 %119, -3
-  store i64 %120, ptr %12, align 8, !tbaa !7
-  br label %123
+rb_obj_written.exit:                              ; preds = %101, %114
+  %116 = load i64, ptr %12, align 8, !tbaa !7
+  %117 = and i64 %116, -3
+  store i64 %117, ptr %12, align 8, !tbaa !7
+  br label %120
 
-121:                                              ; preds = %.loopexit70
-  %122 = getelementptr i8, ptr %12, i64 -8
-  store i64 0, ptr %122, align 8, !tbaa !7
-  br label %123
+118:                                              ; preds = %.loopexit70
+  %119 = getelementptr i8, ptr %12, i64 -8
+  store i64 0, ptr %119, align 8, !tbaa !7
+  br label %120
 
-123:                                              ; preds = %121, %rb_obj_written.exit
+120:                                              ; preds = %118, %rb_obj_written.exit
   ret ptr %17
 }
 

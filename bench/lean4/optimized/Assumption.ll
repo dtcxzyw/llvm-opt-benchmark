@@ -6169,30 +6169,24 @@ define ptr @l_Lean_LocalContext_findDeclRevM_x3f___at_Lean_Meta_findLocalDeclWit
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %10 = tail call ptr @l_Lean_PersistentArray_findSomeRevM_x3f___at_Lean_Meta_findLocalDeclWithType_x3f___spec__2(ptr noundef %0, ptr noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %11 = ptrtoint ptr %1 to i64
-  %12 = and i64 %11, 1
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %13, label %lean_dec.exit
+  %11 = load i32, ptr %1, align 8, !tbaa !5
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %13, label %15, !prof !10
 
 13:                                               ; preds = %7
-  %14 = load i32, ptr %1, align 4, !tbaa !5
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %18, !prof !10
-
-16:                                               ; preds = %13
-  %17 = add nsw i32 %14, -1
-  store i32 %17, ptr %1, align 4, !tbaa !5
+  %14 = add nsw i32 %11, -1
+  store i32 %14, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit
 
-18:                                               ; preds = %13
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %lean_dec.exit, label %19
+15:                                               ; preds = %7
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %lean_dec.exit, label %16
 
-19:                                               ; preds = %18
+16:                                               ; preds = %15
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %19, %18, %16, %7
+lean_dec.exit:                                    ; preds = %16, %15, %13
   ret ptr %10
 }
 
