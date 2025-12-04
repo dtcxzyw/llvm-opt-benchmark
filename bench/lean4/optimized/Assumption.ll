@@ -6178,15 +6178,15 @@ define ptr @l_Lean_LocalContext_findDeclRevM_x3f___at_Lean_Meta_findLocalDeclWit
   store i32 %14, ptr %1, align 4, !tbaa !5
   br label %lean_dec.exit
 
-15:                                               ; preds = %7
+18:                                               ; preds = %7
   %.not.i = icmp eq i32 %11, 0
-  br i1 %.not.i, label %lean_dec.exit, label %16
+  br i1 %.not.i, label %lean_dec.exit, label %19
 
-16:                                               ; preds = %15
+19:                                               ; preds = %18
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %16, %15, %13
+lean_dec.exit:                                    ; preds = %19, %18, %13
   ret ptr %10
 }
 

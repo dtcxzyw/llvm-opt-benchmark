@@ -3779,16 +3779,16 @@ _ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26
 
-26:                                               ; preds = %51, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit
+26:                                               ; preds = %56, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit
   %27 = phi ptr [ %.val, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit ], [ %.pre, %51 ]
-  %.024 = phi ptr [ %1, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit ], [ %52, %51 ]
+  %.024 = phi ptr [ %1, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit ], [ %57, %51 ]
   %.023 = phi ptr [ null, %_ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit ], [ %.232, %51 ]
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %.thread29
 
 29:                                               ; preds = %26
   %30 = icmp eq ptr %.023, null
-  br i1 %30, label %31, label %37
+  br i1 %30, label %31, label %42
 
 31:                                               ; preds = %29
   %32 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %7, i8 noundef zeroext 7, i32 noundef 1) #21
@@ -3803,50 +3803,50 @@ _ZL35guarantee_failed_speculations_aliveP7nmethodPP17FailedSpeculation.exit: ; p
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr readonly align 1 %2, i64 %6, i1 false)
   br label %37
 
-37:                                               ; preds = %34, %29
+42:                                               ; preds = %34, %29
   %.1 = phi ptr [ %32, %34 ], [ %.023, %29 ]
-  %38 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.1, ptr null, ptr nonnull %.024) #21, !srcloc !23
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread, label %40
+  %43 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.1, ptr null, ptr nonnull %.024) #21, !srcloc !23
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %.thread, label %45
 
-40:                                               ; preds = %37
+45:                                               ; preds = %42
   %.pr = load ptr, ptr %.024, align 8
   %.not = icmp eq ptr %.pr, null
-  br i1 %.not, label %41, label %.thread29
+  br i1 %.not, label %46, label %.thread29
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %42, align 1
+46:                                               ; preds = %45
+  %47 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %47, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.5, i32 noundef 856, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41) #22
   unreachable
 
-.thread29:                                        ; preds = %26, %40
+.thread29:                                        ; preds = %26, %45
   %.232 = phi ptr [ %.1, %40 ], [ %.023, %26 ]
-  %43 = phi ptr [ %.pr, %40 ], [ %27, %26 ]
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp eq i32 %44, %3
-  br i1 %45, label %46, label %51
+  %48 = phi ptr [ %.pr, %40 ], [ %27, %26 ]
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp eq i32 %49, %3
+  br i1 %50, label %51, label %56
 
-46:                                               ; preds = %.thread29
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %bcmp = tail call i32 @bcmp(ptr %2, ptr nonnull %47, i64 %6)
-  %48 = icmp eq i32 %bcmp, 0
-  br i1 %48, label %49, label %51
+51:                                               ; preds = %.thread29
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %bcmp = tail call i32 @bcmp(ptr %2, ptr nonnull %52, i64 %6)
+  %53 = icmp eq i32 %bcmp, 0
+  br i1 %53, label %54, label %56
 
-49:                                               ; preds = %46
+54:                                               ; preds = %51
   %.not28 = icmp eq ptr %.232, null
-  br i1 %.not28, label %.thread, label %50
+  br i1 %.not28, label %.thread, label %55
 
-50:                                               ; preds = %49
+55:                                               ; preds = %54
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.232) #21
   br label %.thread
 
-51:                                               ; preds = %46, %.thread29
-  %52 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %.pre = load ptr, ptr %52, align 8
+56:                                               ; preds = %51, %.thread29
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %.pre = load ptr, ptr %57, align 8
   br label %26, !llvm.loop !24
 
-.thread:                                          ; preds = %31, %37, %49, %50
+.thread:                                          ; preds = %31, %42, %54, %55
   %.0 = phi i1 [ false, %50 ], [ false, %49 ], [ false, %31 ], [ true, %37 ]
   ret i1 %.0
 }

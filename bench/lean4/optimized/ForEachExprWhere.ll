@@ -684,17 +684,17 @@ define noalias noundef nonnull ptr @l_Lean_ForEachExprWhere_visited___rarg___lam
   store i32 %8, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit
 
-9:                                                ; preds = %3
+12:                                               ; preds = %3
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %lean_dec.exit, label %10
+  br i1 %.not.i, label %lean_dec.exit, label %13
 
-10:                                               ; preds = %9
+13:                                               ; preds = %12
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %10, %9, %7
-  %11 = tail call ptr @l_Lean_ForEachExprWhere_visited___rarg___lambda__1(i64 noundef %.val, ptr noundef %1, ptr noundef %2)
-  ret ptr %11
+lean_dec.exit:                                    ; preds = %13, %12, %7
+  %14 = tail call ptr @l_Lean_ForEachExprWhere_visited___rarg___lambda__1(i64 noundef %.val, ptr noundef %1, ptr noundef %2)
+  ret ptr %14
 }
 
 declare ptr @l_ST_Prim_Ref_modifyGetUnsafe___rarg___boxed(ptr noundef, ptr noundef, ptr noundef) #1
@@ -3585,37 +3585,37 @@ define noalias noundef nonnull ptr @l_Lean_ForEachExprWhere_checked___rarg___lam
   store i32 %9, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit8
 
-10:                                               ; preds = %4
+13:                                               ; preds = %4
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit8, label %11
+  br i1 %.not.i, label %lean_dec.exit8, label %14
 
-11:                                               ; preds = %10
+14:                                               ; preds = %13
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit8
 
-lean_dec.exit8:                                   ; preds = %11, %10, %8
-  %12 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %12, align 8, !tbaa !13
+lean_dec.exit8:                                   ; preds = %14, %13, %8
+  %15 = getelementptr i8, ptr %1, i64 8
+  %.val = load i64, ptr %15, align 8, !tbaa !13
   %13 = load i32, ptr %1, align 8, !tbaa !4
   %14 = icmp sgt i32 %13, 1
   br i1 %14, label %15, label %17, !prof !11
 
-15:                                               ; preds = %lean_dec.exit8
-  %16 = add nsw i32 %13, -1
-  store i32 %16, ptr %1, align 4, !tbaa !4
+21:                                               ; preds = %lean_dec.exit8
+  %22 = add nsw i32 %13, -1
+  store i32 %22, ptr %1, align 4, !tbaa !4
   br label %lean_dec.exit
 
-17:                                               ; preds = %lean_dec.exit8
+23:                                               ; preds = %lean_dec.exit8
   %.not.i9 = icmp eq i32 %13, 0
-  br i1 %.not.i9, label %lean_dec.exit, label %18
+  br i1 %.not.i9, label %lean_dec.exit, label %24
 
-18:                                               ; preds = %17
+24:                                               ; preds = %23
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %18, %17, %15
-  %19 = tail call ptr @l_Lean_ForEachExprWhere_checked___rarg___lambda__1(i64 noundef %.val11, i64 noundef %.val, ptr noundef %2, ptr noundef %3)
-  ret ptr %19
+lean_dec.exit:                                    ; preds = %24, %23, %21
+  %25 = tail call ptr @l_Lean_ForEachExprWhere_checked___rarg___lambda__1(i64 noundef %.val11, i64 noundef %.val, ptr noundef %2, ptr noundef %3)
+  ret ptr %112
 }
 
 ; Function Attrs: nounwind uwtable

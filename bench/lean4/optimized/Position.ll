@@ -2717,24 +2717,24 @@ define nonnull ptr @l_Lean_FileMap_getLastLine___boxed(ptr noundef %0) local_unn
 
 7:                                                ; preds = %1
   %8 = add nsw i32 %5, -1
-  store i32 %8, ptr %0, align 4, !tbaa !9
+  store i32 %8, ptr %0, align 4, !tbaa !12
   br label %lean_dec.exit
 
-9:                                                ; preds = %1
+12:                                               ; preds = %1
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %lean_dec.exit, label %10
+  br i1 %.not.i, label %lean_dec.exit, label %13
 
-10:                                               ; preds = %9
+13:                                               ; preds = %12
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %10, %9, %7
-  %11 = and i64 %.val.i, 9223372036854775807
-  %12 = icmp eq i64 %11, 0
-  %13 = shl i64 %.val.i, 1
-  %14 = add i64 %13, -1
-  %15 = inttoptr i64 %14 to ptr
-  %.1.i.i = select i1 %12, ptr inttoptr (i64 1 to ptr), ptr %15
+lean_dec.exit:                                    ; preds = %13, %12, %7
+  %14 = and i64 %.val.i, 9223372036854775807
+  %15 = icmp eq i64 %14, 0
+  %16 = shl i64 %.val.i, 1
+  %17 = add i64 %16, -1
+  %18 = inttoptr i64 %17 to ptr
+  %.1.i.i = select i1 %15, ptr inttoptr (i64 1 to ptr), ptr %18
   ret ptr %.1.i.i
 }
 

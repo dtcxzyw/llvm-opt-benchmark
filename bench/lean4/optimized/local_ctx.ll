@@ -394,30 +394,30 @@ define hidden void @_ZN4lean10local_declC2ERKS0_RKNS_4exprE(ptr noundef nonnull 
   %7 = icmp sgt i32 %.val.i.i.i.i, 0
   br i1 %7, label %8, label %10, !prof !13
 
-8:                                                ; preds = %3
-  %9 = add nuw nsw i32 %.val.i.i.i.i, 1
-  store i32 %9, ptr %4, align 4, !tbaa !10
+11:                                               ; preds = %3
+  %12 = add nuw nsw i32 %.val.i.i.i.i, 1
+  store i32 %12, ptr %4, align 4, !tbaa !10
   br label %_ZNK4lean10local_decl8get_infoEv.exit
 
-10:                                               ; preds = %3
+13:                                               ; preds = %3
   %.not.i.i.i.i = icmp eq i32 %.val.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %_ZNK4lean10local_decl8get_infoEv.exit, label %11
+  br i1 %.not.i.i.i.i, label %_ZNK4lean10local_decl8get_infoEv.exit, label %14
 
-11:                                               ; preds = %10
+14:                                               ; preds = %13
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %4)
   %.pre.i.i = load ptr, ptr %1, align 8, !tbaa !8
   br label %_ZNK4lean10local_decl8get_infoEv.exit
 
-_ZNK4lean10local_decl8get_infoEv.exit:            ; preds = %8, %10, %11
-  %12 = phi ptr [ %4, %8 ], [ %4, %10 ], [ %.pre.i.i, %11 ]
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %15 = ptrtoint ptr %6 to i64
-  %16 = lshr i64 %15, 1
-  %17 = trunc i64 %16 to i32
-  %18 = tail call zeroext i8 @lean_local_decl_binder_info(ptr noundef %12)
-  %19 = zext i8 %18 to i32
-  tail call void @_ZN4lean10local_declC2EjRKNS_4nameES3_RKNS_4exprENS_11binder_infoE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %19)
+_ZNK4lean10local_decl8get_infoEv.exit:            ; preds = %11, %13, %14
+  %15 = phi ptr [ %4, %8 ], [ %4, %10 ], [ %.pre.i.i, %11 ]
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = ptrtoint ptr %6 to i64
+  %19 = lshr i64 %18, 1
+  %20 = trunc i64 %19 to i32
+  %21 = tail call zeroext i8 @lean_local_decl_binder_info(ptr noundef %15)
+  %22 = zext i8 %21 to i32
+  tail call void @_ZN4lean10local_declC2EjRKNS_4nameES3_RKNS_4exprENS_11binder_infoE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %22)
   ret void
 }
 

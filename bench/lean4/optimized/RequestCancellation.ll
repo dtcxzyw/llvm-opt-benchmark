@@ -1422,15 +1422,15 @@ define ptr @l_Lean_Server_RequestCancellationToken_requestCancellationTask___box
   store i32 %8, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-9:                                                ; preds = %1
+12:                                               ; preds = %1
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %lean_dec.exit, label %10
+  br i1 %.not.i, label %lean_dec.exit, label %13
 
-10:                                               ; preds = %9
+13:                                               ; preds = %12
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %10, %9, %7
+lean_dec.exit:                                    ; preds = %13, %12, %7
   ret ptr %4
 }
 
@@ -1456,15 +1456,15 @@ define ptr @l_Lean_Server_RequestCancellationToken_editCancellationTask___boxed(
   store i32 %8, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-9:                                                ; preds = %1
+12:                                               ; preds = %1
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %lean_dec.exit, label %10
+  br i1 %.not.i, label %lean_dec.exit, label %13
 
-10:                                               ; preds = %9
+13:                                               ; preds = %12
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %10, %9, %7
+lean_dec.exit:                                    ; preds = %13, %12, %7
   ret ptr %4
 }
 
@@ -1567,15 +1567,15 @@ define ptr @l_Lean_Server_RequestCancellationToken_wasCancelledByCancelRequest__
   store i32 %9, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-10:                                               ; preds = %2
+13:                                               ; preds = %2
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+  br i1 %.not.i, label %lean_dec.exit, label %14
 
-11:                                               ; preds = %10
+14:                                               ; preds = %13
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8
+lean_dec.exit:                                    ; preds = %14, %13, %8
   ret ptr %5
 }
 
@@ -1601,15 +1601,15 @@ define ptr @l_Lean_Server_RequestCancellationToken_wasCancelledByEdit___boxed(pt
   store i32 %9, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-10:                                               ; preds = %2
+13:                                               ; preds = %2
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+  br i1 %.not.i, label %lean_dec.exit, label %14
 
-11:                                               ; preds = %10
+14:                                               ; preds = %13
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8
+lean_dec.exit:                                    ; preds = %14, %13, %8
   ret ptr %5
 }
 

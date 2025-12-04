@@ -1573,17 +1573,17 @@ define ptr @l_Lean_Elab_Tactic_Conv_evalDelta___lambda__1___boxed(ptr noundef %0
   store i32 %17, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit16
 
-18:                                               ; preds = %12
+21:                                               ; preds = %12
   %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %lean_dec.exit16, label %19
+  br i1 %.not.i, label %lean_dec.exit16, label %22
 
-19:                                               ; preds = %18
+22:                                               ; preds = %21
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit16
 
-lean_dec.exit16:                                  ; preds = %19, %18, %16
-  %20 = getelementptr i8, ptr %1, i64 8
-  %.val19 = load i64, ptr %20, align 8, !tbaa !14
+lean_dec.exit16:                                  ; preds = %22, %21, %16
+  %23 = getelementptr i8, ptr %1, i64 8
+  %.val19 = load i64, ptr %23, align 8, !tbaa !14
   %21 = load i32, ptr %1, align 8, !tbaa !4
   %22 = icmp sgt i32 %21, 1
   br i1 %22, label %23, label %25, !prof !9
@@ -1593,17 +1593,17 @@ lean_dec.exit16:                                  ; preds = %19, %18, %16
   store i32 %24, ptr %1, align 4, !tbaa !4
   br label %lean_dec.exit
 
-25:                                               ; preds = %lean_dec.exit16
+31:                                               ; preds = %lean_dec.exit16
   %.not.i17 = icmp eq i32 %21, 0
-  br i1 %.not.i17, label %lean_dec.exit, label %26
+  br i1 %.not.i17, label %lean_dec.exit, label %32
 
-26:                                               ; preds = %25
+32:                                               ; preds = %31
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %26, %25, %23
-  %27 = tail call ptr @l_Lean_Elab_Tactic_Conv_evalDelta___lambda__1(i64 noundef %.val, i64 noundef %.val19, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
-  ret ptr %27
+lean_dec.exit:                                    ; preds = %32, %31, %23
+  %33 = tail call ptr @l_Lean_Elab_Tactic_Conv_evalDelta___lambda__1(i64 noundef %.val, i64 noundef %.val19, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
+  ret ptr %33
 }
 
 declare ptr @l_Lean_Elab_Tactic_withMainContext___rarg(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

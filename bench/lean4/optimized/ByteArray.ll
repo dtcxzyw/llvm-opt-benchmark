@@ -738,20 +738,20 @@ define nonnull ptr @l_Std_Internal_Parsec_ByteArray_instInputIteratorUInt8Nat___
   store i32 %15, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-16:                                               ; preds = %2
-  %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %lean_dec.exit, label %17
+19:                                               ; preds = %2
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %lean_dec.exit, label %20
 
-17:                                               ; preds = %16
+20:                                               ; preds = %19
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %17, %16, %14
-  %18 = zext i8 %11 to i64
-  %19 = shl nuw nsw i64 %18, 1
-  %20 = or disjoint i64 %19, 1
-  %21 = inttoptr i64 %20 to ptr
-  ret ptr %21
+lean_dec.exit:                                    ; preds = %20, %19, %14
+  %21 = zext i8 %11 to i64
+  %22 = shl nuw nsw i64 %21, 1
+  %23 = or disjoint i64 %22, 1
+  %24 = inttoptr i64 %23 to ptr
+  ret ptr %24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2476,61 +2476,61 @@ define noalias noundef nonnull ptr @l_ByteArray_forInUnsafe_loop___at_Std_Intern
   store i32 %10, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit11
 
-11:                                               ; preds = %5
+14:                                               ; preds = %5
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %lean_dec.exit11, label %12
+  br i1 %.not.i, label %lean_dec.exit11, label %15
 
-12:                                               ; preds = %11
+15:                                               ; preds = %14
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
   br label %lean_dec.exit11
 
-lean_dec.exit11:                                  ; preds = %12, %11, %9
-  %13 = getelementptr i8, ptr %2, i64 8
-  %.val16 = load i64, ptr %13, align 8, !tbaa !13
+lean_dec.exit11:                                  ; preds = %15, %14, %9
+  %16 = getelementptr i8, ptr %2, i64 8
+  %.val16 = load i64, ptr %16, align 8, !tbaa !13
   %14 = load i32, ptr %2, align 8, !tbaa !8
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %16, label %18, !prof !11
 
-16:                                               ; preds = %lean_dec.exit11
-  %17 = add nsw i32 %14, -1
-  store i32 %17, ptr %2, align 4, !tbaa !8
+22:                                               ; preds = %lean_dec.exit11
+  %23 = add nsw i32 %14, -1
+  store i32 %23, ptr %2, align 4, !tbaa !8
   br label %lean_dec.exit10
 
-18:                                               ; preds = %lean_dec.exit11
+24:                                               ; preds = %lean_dec.exit11
   %.not.i12 = icmp eq i32 %14, 0
-  br i1 %.not.i12, label %lean_dec.exit10, label %19
+  br i1 %.not.i12, label %lean_dec.exit10, label %22
 
-19:                                               ; preds = %18
+25:                                               ; preds = %24
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #6
   br label %lean_dec.exit10
 
-lean_dec.exit10:                                  ; preds = %19, %18, %16
-  %20 = tail call ptr @l_ByteArray_forInUnsafe_loop___at_Std_Internal_Parsec_ByteArray_skipBytes___spec__1(ptr noundef %0, i64 noundef %.val, i64 noundef %.val16, ptr noundef %3, ptr noundef %4)
-  %21 = ptrtoint ptr %0 to i64
-  %22 = and i64 %21, 1
-  %.not18 = icmp eq i64 %22, 0
-  br i1 %.not18, label %23, label %lean_dec.exit
+lean_dec.exit10:                                  ; preds = %22, %24, %22
+  %26 = tail call ptr @l_ByteArray_forInUnsafe_loop___at_Std_Internal_Parsec_ByteArray_skipBytes___spec__1(ptr noundef %0, i64 noundef %.val, i64 noundef %.val16, ptr noundef %3, ptr noundef %4)
+  %27 = ptrtoint ptr %0 to i64
+  %28 = and i64 %27, 1
+  %.not18 = icmp eq i64 %28, 0
+  br i1 %.not18, label %29, label %lean_dec.exit
 
-23:                                               ; preds = %lean_dec.exit10
-  %24 = load i32, ptr %0, align 4, !tbaa !8
-  %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %28, !prof !11
+29:                                               ; preds = %lean_dec.exit10
+  %30 = load i32, ptr %0, align 4, !tbaa !8
+  %31 = icmp sgt i32 %30, 1
+  br i1 %31, label %32, label %34, !prof !11
 
-26:                                               ; preds = %23
-  %27 = add nsw i32 %24, -1
-  store i32 %27, ptr %0, align 4, !tbaa !8
+32:                                               ; preds = %29
+  %33 = add nsw i32 %30, -1
+  store i32 %33, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-28:                                               ; preds = %23
-  %.not.i14 = icmp eq i32 %24, 0
-  br i1 %.not.i14, label %lean_dec.exit, label %29
+34:                                               ; preds = %29
+  %.not.i14 = icmp eq i32 %30, 0
+  br i1 %.not.i14, label %lean_dec.exit, label %35
 
-29:                                               ; preds = %28
+35:                                               ; preds = %34
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %29, %28, %26, %lean_dec.exit10
-  ret ptr %20
+lean_dec.exit:                                    ; preds = %35, %34, %32, %lean_dec.exit10
+  ret ptr %26
 }
 
 ; Function Attrs: nounwind uwtable

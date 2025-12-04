@@ -868,15 +868,15 @@ lean_alloc_closure.exit:                          ; preds = %40
   store i32 %53, ptr %41, align 4, !tbaa !4
   br label %lean_inc.exit15
 
-54:                                               ; preds = %lean_alloc_closure.exit
+57:                                               ; preds = %lean_alloc_closure.exit
   %.not.i16 = icmp eq i32 %50, 0
-  br i1 %.not.i16, label %lean_inc.exit15, label %55
+  br i1 %.not.i16, label %lean_inc.exit15, label %58
 
-55:                                               ; preds = %54
+58:                                               ; preds = %57
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %41) #4
   br label %lean_inc.exit15
 
-lean_inc.exit15:                                  ; preds = %52, %54, %55, %31, %36, %38, %39, %lean_dec.exit14, %19, %21, %22
+lean_inc.exit15:                                  ; preds = %52, %57, %58, %31, %36, %38, %39, %lean_dec.exit14, %19, %21, %22
   %.0 = phi ptr [ %1, %22 ], [ %1, %21 ], [ %1, %19 ], [ %1, %lean_dec.exit14 ], [ %1, %39 ], [ %1, %38 ], [ %1, %36 ], [ %1, %31 ], [ %49, %55 ], [ %49, %54 ], [ %49, %52 ]
   ret ptr %.0
 }

@@ -71,19 +71,19 @@ define nonnull ptr @l_Lean_Compiler_LCNF_Simp_InlineCandidateInfo_arity___boxed(
   store i32 %8, ptr %0, align 4, !tbaa !10
   br label %lean_dec.exit
 
-9:                                                ; preds = %1
+12:                                               ; preds = %1
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %lean_dec.exit, label %10
+  br i1 %.not.i, label %lean_dec.exit, label %13
 
-10:                                               ; preds = %9
+13:                                               ; preds = %12
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %10, %9, %7
-  %11 = shl i64 %.val.i, 1
-  %12 = or disjoint i64 %11, 1
-  %13 = inttoptr i64 %12 to ptr
-  ret ptr %13
+lean_dec.exit:                                    ; preds = %13, %12, %7
+  %14 = shl i64 %.val.i, 1
+  %15 = or disjoint i64 %14, 1
+  %16 = inttoptr i64 %15 to ptr
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable

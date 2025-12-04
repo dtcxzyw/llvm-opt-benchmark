@@ -198,12 +198,12 @@ define weak_odr dso_local void @_ZN3igl9unprojectIdEEN5Eigen6MatrixIT_Li3ELi1ELi
   %35 = load <2 x double>, ptr %34, align 16, !tbaa !14
   %36 = fmul <2 x double> %33, %35
   %.sroa.0.i.i.sroa.0.8.vec.extract = extractelement <2 x double> %26, i64 1
-  %37 = bitcast double %.sroa.0.i.i.sroa.0.8.vec.extract to <1 x double>
-  %38 = shufflevector <1 x double> %37, <1 x double> poison, <2 x i32> zeroinitializer
+  %42 = bitcast double %.sroa.0.i.i.sroa.0.8.vec.extract to <1 x double>
+  %43 = shufflevector <1 x double> %42, <1 x double> poison, <2 x i32> zeroinitializer
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %40 = load <2 x double>, ptr %39, align 16, !tbaa !14
   %41 = fmul <2 x double> %38, %40
-  %42 = fadd <2 x double> %36, %41
+  %47 = fadd <2 x double> %36, %41
   %43 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> zeroinitializer
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %45 = load <2 x double>, ptr %44, align 16, !tbaa !14
