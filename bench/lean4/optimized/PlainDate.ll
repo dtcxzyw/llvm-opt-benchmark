@@ -7908,35 +7908,29 @@ define nonnull ptr @l_Std_Time_PlainDate_era___boxed(ptr noundef %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = tail call zeroext i8 @l_Std_Time_Year_Offset_era(ptr noundef %3) #5
-  %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %5 = load i32, ptr %0, align 8, !tbaa !9
+  %6 = icmp sgt i32 %5, 1
+  br i1 %6, label %7, label %9, !prof !14
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %0, align 4, !tbaa !9
-  %9 = icmp sgt i32 %8, 1
-  br i1 %9, label %10, label %12, !prof !14
-
-10:                                               ; preds = %7
-  %11 = add nsw i32 %8, -1
-  store i32 %11, ptr %0, align 4, !tbaa !9
+  %8 = add nsw i32 %5, -1
+  store i32 %8, ptr %0, align 4, !tbaa !9
   br label %lean_dec.exit
 
-12:                                               ; preds = %7
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %lean_dec.exit, label %13
+9:                                                ; preds = %1
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %lean_dec.exit, label %10
 
-13:                                               ; preds = %12
+10:                                               ; preds = %9
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #5
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %13, %12, %10, %1
-  %14 = zext i8 %4 to i64
-  %15 = shl nuw nsw i64 %14, 1
-  %16 = or disjoint i64 %15, 1
-  %17 = inttoptr i64 %16 to ptr
-  ret ptr %17
+lean_dec.exit:                                    ; preds = %10, %9, %7
+  %11 = zext i8 %4 to i64
+  %12 = shl nuw nsw i64 %11, 1
+  %13 = or disjoint i64 %12, 1
+  %14 = inttoptr i64 %13 to ptr
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable

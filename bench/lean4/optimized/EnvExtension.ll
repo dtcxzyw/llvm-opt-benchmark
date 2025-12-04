@@ -2195,30 +2195,24 @@ lean_alloc_ctor.exit:                             ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %7, align 8, !tbaa !12
   %8 = tail call ptr @l_Lean_instInhabitedPersistentEnvExtension(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %2) #6
-  %9 = ptrtoint ptr %2 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit
+  %9 = load i32, ptr %2, align 8, !tbaa !8
+  %10 = icmp sgt i32 %9, 1
+  br i1 %10, label %11, label %13, !prof !11
 
 11:                                               ; preds = %lean_alloc_ctor.exit
-  %12 = load i32, ptr %2, align 4, !tbaa !8
-  %13 = icmp sgt i32 %12, 1
-  br i1 %13, label %14, label %16, !prof !11
-
-14:                                               ; preds = %11
-  %15 = add nsw i32 %12, -1
-  store i32 %15, ptr %2, align 4, !tbaa !8
+  %12 = add nsw i32 %9, -1
+  store i32 %12, ptr %2, align 4, !tbaa !8
   br label %lean_dec.exit
 
-16:                                               ; preds = %11
-  %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %lean_dec.exit, label %17
+13:                                               ; preds = %lean_alloc_ctor.exit
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %lean_dec.exit, label %14
 
-17:                                               ; preds = %16
+14:                                               ; preds = %13
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %17, %16, %14, %lean_alloc_ctor.exit
+lean_dec.exit:                                    ; preds = %14, %13, %11
   ret ptr %8
 }
 
@@ -8693,7 +8687,7 @@ define ptr @initialize_Lean_EnvExtension(i8 noundef zeroext %0, ptr noundef read
   %.val = load i32, ptr %9, align 4
   %.mask.i = and i32 %.val, -16777216
   %10 = icmp eq i32 %.mask.i, 16777216
-  br i1 %10, label %337, label %11
+  br i1 %10, label %334, label %11
 
 11:                                               ; preds = %7
   %12 = load i32, ptr %8, align 4, !tbaa !8
@@ -9126,406 +9120,400 @@ lean_alloc_ctor.exit.i.i:                         ; preds = %_init_l_Lean_mkTagD
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 16
   store ptr %178, ptr %184, align 8, !tbaa !12
   %185 = tail call ptr @l_Lean_instInhabitedPersistentEnvExtension(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %179) #6
-  %186 = ptrtoint ptr %179 to i64
-  %187 = and i64 %186, 1
-  %.not.i.i = icmp eq i64 %187, 0
-  br i1 %.not.i.i, label %188, label %_init_l_Lean_TagDeclarationExtension_instInhabited___closed__1.exit
+  %186 = load i32, ptr %179, align 8, !tbaa !8
+  %187 = icmp sgt i32 %186, 1
+  br i1 %187, label %188, label %190, !prof !11
 
 188:                                              ; preds = %lean_alloc_ctor.exit.i.i
-  %189 = load i32, ptr %179, align 4, !tbaa !8
-  %190 = icmp sgt i32 %189, 1
-  br i1 %190, label %191, label %193, !prof !11
-
-191:                                              ; preds = %188
-  %192 = add nsw i32 %189, -1
-  store i32 %192, ptr %179, align 4, !tbaa !8
+  %189 = add nsw i32 %186, -1
+  store i32 %189, ptr %179, align 4, !tbaa !8
   br label %_init_l_Lean_TagDeclarationExtension_instInhabited___closed__1.exit
 
-193:                                              ; preds = %188
-  %.not.i.i.i = icmp eq i32 %189, 0
-  br i1 %.not.i.i.i, label %_init_l_Lean_TagDeclarationExtension_instInhabited___closed__1.exit, label %194
+190:                                              ; preds = %lean_alloc_ctor.exit.i.i
+  %.not.i.i.i = icmp eq i32 %186, 0
+  br i1 %.not.i.i.i, label %_init_l_Lean_TagDeclarationExtension_instInhabited___closed__1.exit, label %191
 
-194:                                              ; preds = %193
+191:                                              ; preds = %190
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %179) #6
   br label %_init_l_Lean_TagDeclarationExtension_instInhabited___closed__1.exit
 
-_init_l_Lean_TagDeclarationExtension_instInhabited___closed__1.exit: ; preds = %lean_alloc_ctor.exit.i.i, %191, %193, %194
+_init_l_Lean_TagDeclarationExtension_instInhabited___closed__1.exit: ; preds = %188, %190, %191
   store ptr %185, ptr @l_Lean_TagDeclarationExtension_instInhabited___closed__1, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %185) #6
-  %195 = load ptr, ptr @l_Lean_TagDeclarationExtension_instInhabited___closed__1, align 8, !tbaa !12
-  store ptr %195, ptr @l_Lean_TagDeclarationExtension_instInhabited, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %195) #6
-  %196 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.11, i64 noundef 21, i64 noundef 21) #6
-  store ptr %196, ptr @l_Lean_TagDeclarationExtension_tag___closed__1, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %196) #6
-  %197 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.12, i64 noundef 31, i64 noundef 31) #6
-  store ptr %197, ptr @l_Lean_TagDeclarationExtension_tag___closed__2, align 8, !tbaa !12
+  %192 = load ptr, ptr @l_Lean_TagDeclarationExtension_instInhabited___closed__1, align 8, !tbaa !12
+  store ptr %192, ptr @l_Lean_TagDeclarationExtension_instInhabited, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %192) #6
+  %193 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.11, i64 noundef 21, i64 noundef 21) #6
+  store ptr %193, ptr @l_Lean_TagDeclarationExtension_tag___closed__1, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %193) #6
+  %194 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.12, i64 noundef 31, i64 noundef 31) #6
+  store ptr %194, ptr @l_Lean_TagDeclarationExtension_tag___closed__2, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %194) #6
+  %195 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__1, align 8, !tbaa !12
+  %196 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__2, align 8, !tbaa !12
+  %197 = tail call ptr @lean_string_append(ptr noundef %195, ptr noundef %196) #6
+  store ptr %197, ptr @l_Lean_TagDeclarationExtension_tag___closed__3, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %197) #6
-  %198 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__1, align 8, !tbaa !12
-  %199 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__2, align 8, !tbaa !12
-  %200 = tail call ptr @lean_string_append(ptr noundef %198, ptr noundef %199) #6
-  store ptr %200, ptr @l_Lean_TagDeclarationExtension_tag___closed__3, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %200) #6
-  %201 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.13, i64 noundef 17, i64 noundef 17) #6
-  store ptr %201, ptr @l_Lean_TagDeclarationExtension_tag___closed__4, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %201) #6
-  %202 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.14, i64 noundef 32, i64 noundef 32) #6
-  store ptr %202, ptr @l_Lean_TagDeclarationExtension_tag___closed__5, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %202) #6
-  %203 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__4, align 8, !tbaa !12
-  %204 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__5, align 8, !tbaa !12
-  %205 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__3, align 8, !tbaa !12
-  %206 = tail call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %203, ptr noundef %204, ptr noundef nonnull inttoptr (i64 225 to ptr), ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef %205) #6
-  store ptr %206, ptr @l_Lean_TagDeclarationExtension_tag___closed__6, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %206) #6
-  %207 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.15, i64 noundef 86, i64 noundef 86) #6
-  store ptr %207, ptr @l_Lean_TagDeclarationExtension_tag___closed__7, align 8, !tbaa !12
+  %198 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.13, i64 noundef 17, i64 noundef 17) #6
+  store ptr %198, ptr @l_Lean_TagDeclarationExtension_tag___closed__4, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %198) #6
+  %199 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.14, i64 noundef 32, i64 noundef 32) #6
+  store ptr %199, ptr @l_Lean_TagDeclarationExtension_tag___closed__5, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %199) #6
+  %200 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__4, align 8, !tbaa !12
+  %201 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__5, align 8, !tbaa !12
+  %202 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__3, align 8, !tbaa !12
+  %203 = tail call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %200, ptr noundef %201, ptr noundef nonnull inttoptr (i64 225 to ptr), ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef %202) #6
+  store ptr %203, ptr @l_Lean_TagDeclarationExtension_tag___closed__6, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %203) #6
+  %204 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.15, i64 noundef 86, i64 noundef 86) #6
+  store ptr %204, ptr @l_Lean_TagDeclarationExtension_tag___closed__7, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %204) #6
+  %205 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__1, align 8, !tbaa !12
+  %206 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__7, align 8, !tbaa !12
+  %207 = tail call ptr @lean_string_append(ptr noundef %205, ptr noundef %206) #6
+  store ptr %207, ptr @l_Lean_TagDeclarationExtension_tag___closed__8, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %207) #6
-  %208 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__1, align 8, !tbaa !12
-  %209 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__7, align 8, !tbaa !12
-  %210 = tail call ptr @lean_string_append(ptr noundef %208, ptr noundef %209) #6
-  store ptr %210, ptr @l_Lean_TagDeclarationExtension_tag___closed__8, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %210) #6
-  %211 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__4, align 8, !tbaa !12
-  %212 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__5, align 8, !tbaa !12
-  %213 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__8, align 8, !tbaa !12
-  %214 = tail call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %211, ptr noundef %212, ptr noundef nonnull inttoptr (i64 223 to ptr), ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef %213) #6
-  store ptr %214, ptr @l_Lean_TagDeclarationExtension_tag___closed__9, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %214) #6
-  %215 = load ptr, ptr @l_Lean_NameSet_instInhabited, align 8, !tbaa !12
+  %208 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__4, align 8, !tbaa !12
+  %209 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__5, align 8, !tbaa !12
+  %210 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__8, align 8, !tbaa !12
+  %211 = tail call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %208, ptr noundef %209, ptr noundef nonnull inttoptr (i64 223 to ptr), ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef %210) #6
+  store ptr %211, ptr @l_Lean_TagDeclarationExtension_tag___closed__9, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %211) #6
+  %212 = load ptr, ptr @l_Lean_NameSet_instInhabited, align 8, !tbaa !12
   tail call void @lean_inc_heartbeat() #6
-  %216 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %217 = icmp eq ptr %216, null
-  br i1 %217, label %218, label %_init_l_Lean_TagDeclarationExtension_isTagged___closed__1.exit
+  %213 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %214 = icmp eq ptr %213, null
+  br i1 %214, label %215, label %_init_l_Lean_TagDeclarationExtension_isTagged___closed__1.exit
 
-218:                                              ; preds = %_init_l_Lean_TagDeclarationExtension_instInhabited___closed__1.exit
+215:                                              ; preds = %_init_l_Lean_TagDeclarationExtension_instInhabited___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_TagDeclarationExtension_isTagged___closed__1.exit: ; preds = %_init_l_Lean_TagDeclarationExtension_instInhabited___closed__1.exit
-  %219 = getelementptr inbounds nuw i8, ptr %216, i64 4
-  store i32 1, ptr %216, align 4, !tbaa !8
-  store i32 131096, ptr %219, align 4
-  %220 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %220, align 8, !tbaa !12
-  %221 = getelementptr inbounds nuw i8, ptr %216, i64 16
-  store ptr %215, ptr %221, align 8, !tbaa !12
-  store ptr %216, ptr @l_Lean_TagDeclarationExtension_isTagged___closed__1, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %216) #6
-  %222 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.16, i64 noundef 36, i64 noundef 36) #6
-  store ptr %222, ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__1, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %222) #6
-  %223 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__1, align 8, !tbaa !12
+  %216 = getelementptr inbounds nuw i8, ptr %213, i64 4
+  store i32 1, ptr %213, align 4, !tbaa !8
+  store i32 131096, ptr %216, align 4
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %217, align 8, !tbaa !12
+  %218 = getelementptr inbounds nuw i8, ptr %213, i64 16
+  store ptr %212, ptr %218, align 8, !tbaa !12
+  store ptr %213, ptr @l_Lean_TagDeclarationExtension_isTagged___closed__1, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %213) #6
+  %219 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.16, i64 noundef 36, i64 noundef 36) #6
+  store ptr %219, ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__1, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %219) #6
+  %220 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__1, align 8, !tbaa !12
   tail call void @lean_inc_heartbeat() #6
-  %224 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
-  %225 = icmp eq ptr %224, null
-  br i1 %225, label %226, label %_init_l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__2.exit
+  %221 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
+  %222 = icmp eq ptr %221, null
+  br i1 %222, label %223, label %_init_l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__2.exit
 
-226:                                              ; preds = %_init_l_Lean_TagDeclarationExtension_isTagged___closed__1.exit
+223:                                              ; preds = %_init_l_Lean_TagDeclarationExtension_isTagged___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__2.exit: ; preds = %_init_l_Lean_TagDeclarationExtension_isTagged___closed__1.exit
-  %227 = getelementptr inbounds nuw i8, ptr %224, i64 4
-  store i32 1, ptr %224, align 4, !tbaa !8
-  store i32 302055440, ptr %227, align 4
-  %228 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  store ptr %223, ptr %228, align 8, !tbaa !12
-  store ptr %224, ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__2, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %224) #6
+  %224 = getelementptr inbounds nuw i8, ptr %221, i64 4
+  store i32 1, ptr %221, align 4, !tbaa !8
+  store i32 302055440, ptr %224, align 4
+  %225 = getelementptr inbounds nuw i8, ptr %221, i64 8
+  store ptr %220, ptr %225, align 8, !tbaa !12
+  store ptr %221, ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__2, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %221) #6
   tail call void @lean_inc_heartbeat() #6
-  %229 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %230 = icmp eq ptr %229, null
-  br i1 %230, label %231, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__1.exit
+  %226 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %227 = icmp eq ptr %226, null
+  br i1 %227, label %228, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__1.exit
 
-231:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__2.exit
+228:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__2.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_instInhabitedMapDeclarationExtension___closed__1.exit: ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___lambda__1___closed__2.exit
-  %232 = getelementptr inbounds nuw i8, ptr %229, i64 4
-  store i32 1, ptr %229, align 4, !tbaa !8
-  store i32 -184549352, ptr %232, align 4
-  %233 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__1, ptr %233, align 8, !tbaa !12
-  %234 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  store i16 1, ptr %234, align 8, !tbaa !14
-  %235 = getelementptr inbounds nuw i8, ptr %229, i64 18
-  store i16 0, ptr %235, align 2, !tbaa !14
-  store ptr %229, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__1, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %229) #6
-  %236 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__1, align 8, !tbaa !12
+  %229 = getelementptr inbounds nuw i8, ptr %226, i64 4
+  store i32 1, ptr %226, align 4, !tbaa !8
+  store i32 -184549352, ptr %229, align 4
+  %230 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  store ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__1, ptr %230, align 8, !tbaa !12
+  %231 = getelementptr inbounds nuw i8, ptr %226, i64 16
+  store i16 1, ptr %231, align 8, !tbaa !14
+  %232 = getelementptr inbounds nuw i8, ptr %226, i64 18
+  store i16 0, ptr %232, align 2, !tbaa !14
+  store ptr %226, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__1, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %226) #6
+  %233 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__1, align 8, !tbaa !12
   tail call void @lean_inc_heartbeat() #6
-  %237 = tail call noalias ptr @mi_malloc_small(i64 noundef 40) #6
-  %238 = icmp eq ptr %237, null
-  br i1 %238, label %239, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__2.exit
+  %234 = tail call noalias ptr @mi_malloc_small(i64 noundef 40) #6
+  %235 = icmp eq ptr %234, null
+  br i1 %235, label %236, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__2.exit
 
-239:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__1.exit
+236:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_instInhabitedMapDeclarationExtension___closed__2.exit: ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__1.exit
-  %240 = getelementptr inbounds nuw i8, ptr %237, i64 4
-  %241 = getelementptr inbounds nuw i8, ptr %237, i64 32
-  store i64 0, ptr %241, align 8, !tbaa !4
-  store i32 1, ptr %237, align 8, !tbaa !8
-  store i32 196648, ptr %240, align 4
-  %242 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %242, align 8, !tbaa !12
-  %243 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  store ptr %236, ptr %243, align 8, !tbaa !12
-  %244 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  store ptr inttoptr (i64 1 to ptr), ptr %244, align 8, !tbaa !12
-  store ptr %237, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__2, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %237) #6
+  %237 = getelementptr inbounds nuw i8, ptr %234, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %234, i64 32
+  store i64 0, ptr %238, align 8, !tbaa !4
+  store i32 1, ptr %234, align 8, !tbaa !8
+  store i32 196648, ptr %237, align 4
+  %239 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %239, align 8, !tbaa !12
+  %240 = getelementptr inbounds nuw i8, ptr %234, i64 16
+  store ptr %233, ptr %240, align 8, !tbaa !12
+  %241 = getelementptr inbounds nuw i8, ptr %234, i64 24
+  store ptr inttoptr (i64 1 to ptr), ptr %241, align 8, !tbaa !12
+  store ptr %234, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__2, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %234) #6
   tail call void @lean_inc_heartbeat() #6
-  %245 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %246 = icmp eq ptr %245, null
-  br i1 %246, label %247, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__3.exit
+  %242 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %243 = icmp eq ptr %242, null
+  br i1 %243, label %244, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__3.exit
 
-247:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__2.exit
+244:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__2.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_instInhabitedMapDeclarationExtension___closed__3.exit: ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__2.exit
-  %248 = getelementptr inbounds nuw i8, ptr %245, i64 4
-  store i32 1, ptr %245, align 4, !tbaa !8
-  store i32 -184549352, ptr %248, align 4
-  %249 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  store ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__2___boxed, ptr %249, align 8, !tbaa !12
-  %250 = getelementptr inbounds nuw i8, ptr %245, i64 16
-  store i16 3, ptr %250, align 8, !tbaa !14
-  %251 = getelementptr inbounds nuw i8, ptr %245, i64 18
-  store i16 0, ptr %251, align 2, !tbaa !14
-  store ptr %245, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__3, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %245) #6
+  %245 = getelementptr inbounds nuw i8, ptr %242, i64 4
+  store i32 1, ptr %242, align 4, !tbaa !8
+  store i32 -184549352, ptr %245, align 4
+  %246 = getelementptr inbounds nuw i8, ptr %242, i64 8
+  store ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__2___boxed, ptr %246, align 8, !tbaa !12
+  %247 = getelementptr inbounds nuw i8, ptr %242, i64 16
+  store i16 3, ptr %247, align 8, !tbaa !14
+  %248 = getelementptr inbounds nuw i8, ptr %242, i64 18
+  store i16 0, ptr %248, align 2, !tbaa !14
+  store ptr %242, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__3, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %242) #6
   tail call void @lean_inc_heartbeat() #6
-  %252 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %253 = icmp eq ptr %252, null
-  br i1 %253, label %254, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__4.exit
+  %249 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %250 = icmp eq ptr %249, null
+  br i1 %250, label %251, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__4.exit
 
-254:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__3.exit
+251:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__3.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_instInhabitedMapDeclarationExtension___closed__4.exit: ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__3.exit
-  %255 = getelementptr inbounds nuw i8, ptr %252, i64 4
-  store i32 1, ptr %252, align 4, !tbaa !8
-  store i32 -184549352, ptr %255, align 4
-  %256 = getelementptr inbounds nuw i8, ptr %252, i64 8
-  store ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__3___boxed, ptr %256, align 8, !tbaa !12
-  %257 = getelementptr inbounds nuw i8, ptr %252, i64 16
-  store i16 2, ptr %257, align 8, !tbaa !14
-  %258 = getelementptr inbounds nuw i8, ptr %252, i64 18
-  store i16 0, ptr %258, align 2, !tbaa !14
-  store ptr %252, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__4, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %252) #6
+  %252 = getelementptr inbounds nuw i8, ptr %249, i64 4
+  store i32 1, ptr %249, align 4, !tbaa !8
+  store i32 -184549352, ptr %252, align 4
+  %253 = getelementptr inbounds nuw i8, ptr %249, i64 8
+  store ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__3___boxed, ptr %253, align 8, !tbaa !12
+  %254 = getelementptr inbounds nuw i8, ptr %249, i64 16
+  store i16 2, ptr %254, align 8, !tbaa !14
+  %255 = getelementptr inbounds nuw i8, ptr %249, i64 18
+  store i16 0, ptr %255, align 2, !tbaa !14
+  store ptr %249, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__4, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %249) #6
   tail call void @lean_inc_heartbeat() #6
-  %259 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %260 = icmp eq ptr %259, null
-  br i1 %260, label %261, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__5.exit
+  %256 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %257 = icmp eq ptr %256, null
+  br i1 %257, label %258, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__5.exit
 
-261:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__4.exit
+258:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__4.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_instInhabitedMapDeclarationExtension___closed__5.exit: ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__4.exit
-  %262 = getelementptr inbounds nuw i8, ptr %259, i64 4
-  store i32 1, ptr %259, align 4, !tbaa !8
-  store i32 -184549352, ptr %262, align 4
-  %263 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  store ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__4___boxed, ptr %263, align 8, !tbaa !12
-  %264 = getelementptr inbounds nuw i8, ptr %259, i64 16
-  store i16 1, ptr %264, align 8, !tbaa !14
-  %265 = getelementptr inbounds nuw i8, ptr %259, i64 18
-  store i16 0, ptr %265, align 2, !tbaa !14
-  store ptr %259, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__5, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %259) #6
+  %259 = getelementptr inbounds nuw i8, ptr %256, i64 4
+  store i32 1, ptr %256, align 4, !tbaa !8
+  store i32 -184549352, ptr %259, align 4
+  %260 = getelementptr inbounds nuw i8, ptr %256, i64 8
+  store ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__4___boxed, ptr %260, align 8, !tbaa !12
+  %261 = getelementptr inbounds nuw i8, ptr %256, i64 16
+  store i16 1, ptr %261, align 8, !tbaa !14
+  %262 = getelementptr inbounds nuw i8, ptr %256, i64 18
+  store i16 0, ptr %262, align 2, !tbaa !14
+  store ptr %256, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__5, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %256) #6
   tail call void @lean_inc_heartbeat() #6
-  %266 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %267 = icmp eq ptr %266, null
-  br i1 %267, label %268, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__6.exit
+  %263 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %264 = icmp eq ptr %263, null
+  br i1 %264, label %265, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__6.exit
 
-268:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__5.exit
+265:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__5.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_instInhabitedMapDeclarationExtension___closed__6.exit: ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__5.exit
-  %269 = getelementptr inbounds nuw i8, ptr %266, i64 4
-  store i32 1, ptr %266, align 4, !tbaa !8
-  store i32 -184549352, ptr %269, align 4
-  %270 = getelementptr inbounds nuw i8, ptr %266, i64 8
-  store ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__5___boxed, ptr %270, align 8, !tbaa !12
-  %271 = getelementptr inbounds nuw i8, ptr %266, i64 16
-  store i16 1, ptr %271, align 8, !tbaa !14
-  %272 = getelementptr inbounds nuw i8, ptr %266, i64 18
-  store i16 0, ptr %272, align 2, !tbaa !14
-  store ptr %266, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__6, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %266) #6
-  %273 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__2, align 8, !tbaa !12
-  %274 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__3, align 8, !tbaa !12
-  %275 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__4, align 8, !tbaa !12
-  %276 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__5, align 8, !tbaa !12
-  %277 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__6, align 8, !tbaa !12
+  %266 = getelementptr inbounds nuw i8, ptr %263, i64 4
+  store i32 1, ptr %263, align 4, !tbaa !8
+  store i32 -184549352, ptr %266, align 4
+  %267 = getelementptr inbounds nuw i8, ptr %263, i64 8
+  store ptr @l_Lean_instInhabitedMapDeclarationExtension___lambda__5___boxed, ptr %267, align 8, !tbaa !12
+  %268 = getelementptr inbounds nuw i8, ptr %263, i64 16
+  store i16 1, ptr %268, align 8, !tbaa !14
+  %269 = getelementptr inbounds nuw i8, ptr %263, i64 18
+  store i16 0, ptr %269, align 2, !tbaa !14
+  store ptr %263, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__6, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %263) #6
+  %270 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__2, align 8, !tbaa !12
+  %271 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__3, align 8, !tbaa !12
+  %272 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__4, align 8, !tbaa !12
+  %273 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__5, align 8, !tbaa !12
+  %274 = load ptr, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__6, align 8, !tbaa !12
   tail call void @lean_inc_heartbeat() #6
-  %278 = tail call noalias ptr @mi_malloc_small(i64 noundef 64) #6
-  %279 = icmp eq ptr %278, null
-  br i1 %279, label %280, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__7.exit
+  %275 = tail call noalias ptr @mi_malloc_small(i64 noundef 64) #6
+  %276 = icmp eq ptr %275, null
+  br i1 %276, label %277, label %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__7.exit
 
-280:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__6.exit
+277:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__6.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_instInhabitedMapDeclarationExtension___closed__7.exit: ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__6.exit
-  %281 = getelementptr inbounds nuw i8, ptr %278, i64 4
-  store i32 1, ptr %278, align 4, !tbaa !8
-  store i32 458816, ptr %281, align 4
-  %282 = getelementptr inbounds nuw i8, ptr %278, i64 8
-  store ptr %273, ptr %282, align 8, !tbaa !12
-  %283 = getelementptr inbounds nuw i8, ptr %278, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %283, align 8, !tbaa !12
-  %284 = getelementptr inbounds nuw i8, ptr %278, i64 24
-  store ptr %274, ptr %284, align 8, !tbaa !12
-  %285 = getelementptr inbounds nuw i8, ptr %278, i64 32
-  store ptr %275, ptr %285, align 8, !tbaa !12
-  %286 = getelementptr inbounds nuw i8, ptr %278, i64 40
-  store ptr %276, ptr %286, align 8, !tbaa !12
-  %287 = getelementptr inbounds nuw i8, ptr %278, i64 48
-  store ptr %276, ptr %287, align 8, !tbaa !12
-  %288 = getelementptr inbounds nuw i8, ptr %278, i64 56
-  store ptr %277, ptr %288, align 8, !tbaa !12
-  store ptr %278, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__7, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %278) #6
-  %289 = load ptr, ptr @l_Lean_SimplePersistentEnvExtensionDescr_name___autoParam___closed__29, align 8, !tbaa !12
-  store ptr %289, ptr @l___auto____x40_Lean_EnvExtension___hyg_833_, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %289) #6
+  %278 = getelementptr inbounds nuw i8, ptr %275, i64 4
+  store i32 1, ptr %275, align 4, !tbaa !8
+  store i32 458816, ptr %278, align 4
+  %279 = getelementptr inbounds nuw i8, ptr %275, i64 8
+  store ptr %270, ptr %279, align 8, !tbaa !12
+  %280 = getelementptr inbounds nuw i8, ptr %275, i64 16
+  store ptr inttoptr (i64 1 to ptr), ptr %280, align 8, !tbaa !12
+  %281 = getelementptr inbounds nuw i8, ptr %275, i64 24
+  store ptr %271, ptr %281, align 8, !tbaa !12
+  %282 = getelementptr inbounds nuw i8, ptr %275, i64 32
+  store ptr %272, ptr %282, align 8, !tbaa !12
+  %283 = getelementptr inbounds nuw i8, ptr %275, i64 40
+  store ptr %273, ptr %283, align 8, !tbaa !12
+  %284 = getelementptr inbounds nuw i8, ptr %275, i64 48
+  store ptr %273, ptr %284, align 8, !tbaa !12
+  %285 = getelementptr inbounds nuw i8, ptr %275, i64 56
+  store ptr %274, ptr %285, align 8, !tbaa !12
+  store ptr %275, ptr @l_Lean_instInhabitedMapDeclarationExtension___closed__7, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %275) #6
+  %286 = load ptr, ptr @l_Lean_SimplePersistentEnvExtensionDescr_name___autoParam___closed__29, align 8, !tbaa !12
+  store ptr %286, ptr @l___auto____x40_Lean_EnvExtension___hyg_833_, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %286) #6
   tail call void @lean_inc_heartbeat() #6
-  %290 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %291 = icmp eq ptr %290, null
-  br i1 %291, label %292, label %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__1.exit
+  %287 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %288 = icmp eq ptr %287, null
+  br i1 %288, label %289, label %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__1.exit
 
-292:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__7.exit
+289:                                              ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__7.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_mkMapDeclarationExtension___rarg___closed__1.exit: ; preds = %_init_l_Lean_instInhabitedMapDeclarationExtension___closed__7.exit
-  %293 = getelementptr inbounds nuw i8, ptr %290, i64 4
-  store i32 1, ptr %290, align 4, !tbaa !8
-  store i32 -184549344, ptr %293, align 4
-  %294 = getelementptr inbounds nuw i8, ptr %290, i64 8
-  store ptr @l_EStateM_pure___rarg, ptr %294, align 8, !tbaa !12
-  %295 = getelementptr inbounds nuw i8, ptr %290, i64 16
-  store i16 2, ptr %295, align 8, !tbaa !14
-  %296 = getelementptr inbounds nuw i8, ptr %290, i64 18
-  store i16 1, ptr %296, align 2, !tbaa !14
-  %297 = getelementptr inbounds nuw i8, ptr %290, i64 24
-  store ptr inttoptr (i64 1 to ptr), ptr %297, align 8, !tbaa !12
-  store ptr %290, ptr @l_Lean_mkMapDeclarationExtension___rarg___closed__1, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %290) #6
+  %290 = getelementptr inbounds nuw i8, ptr %287, i64 4
+  store i32 1, ptr %287, align 4, !tbaa !8
+  store i32 -184549344, ptr %290, align 4
+  %291 = getelementptr inbounds nuw i8, ptr %287, i64 8
+  store ptr @l_EStateM_pure___rarg, ptr %291, align 8, !tbaa !12
+  %292 = getelementptr inbounds nuw i8, ptr %287, i64 16
+  store i16 2, ptr %292, align 8, !tbaa !14
+  %293 = getelementptr inbounds nuw i8, ptr %287, i64 18
+  store i16 1, ptr %293, align 2, !tbaa !14
+  %294 = getelementptr inbounds nuw i8, ptr %287, i64 24
+  store ptr inttoptr (i64 1 to ptr), ptr %294, align 8, !tbaa !12
+  store ptr %287, ptr @l_Lean_mkMapDeclarationExtension___rarg___closed__1, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %287) #6
   tail call void @lean_inc_heartbeat() #6
-  %298 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %299 = icmp eq ptr %298, null
-  br i1 %299, label %300, label %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__2.exit
+  %295 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %296 = icmp eq ptr %295, null
+  br i1 %296, label %297, label %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__2.exit
 
-300:                                              ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__1.exit
+297:                                              ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_mkMapDeclarationExtension___rarg___closed__2.exit: ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__1.exit
-  %301 = getelementptr inbounds nuw i8, ptr %298, i64 4
-  store i32 1, ptr %298, align 4, !tbaa !8
-  store i32 -184549352, ptr %301, align 4
-  %302 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  store ptr @l_Lean_mkMapDeclarationExtension___rarg___lambda__3___boxed, ptr %302, align 8, !tbaa !12
-  %303 = getelementptr inbounds nuw i8, ptr %298, i64 16
-  store i16 4, ptr %303, align 8, !tbaa !14
-  %304 = getelementptr inbounds nuw i8, ptr %298, i64 18
-  store i16 0, ptr %304, align 2, !tbaa !14
-  store ptr %298, ptr @l_Lean_mkMapDeclarationExtension___rarg___closed__2, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %298) #6
-  %305 = load ptr, ptr @l_Lean_mkMapDeclarationExtension___rarg___closed__2, align 8, !tbaa !12
+  %298 = getelementptr inbounds nuw i8, ptr %295, i64 4
+  store i32 1, ptr %295, align 4, !tbaa !8
+  store i32 -184549352, ptr %298, align 4
+  %299 = getelementptr inbounds nuw i8, ptr %295, i64 8
+  store ptr @l_Lean_mkMapDeclarationExtension___rarg___lambda__3___boxed, ptr %299, align 8, !tbaa !12
+  %300 = getelementptr inbounds nuw i8, ptr %295, i64 16
+  store i16 4, ptr %300, align 8, !tbaa !14
+  %301 = getelementptr inbounds nuw i8, ptr %295, i64 18
+  store i16 0, ptr %301, align 2, !tbaa !14
+  store ptr %295, ptr @l_Lean_mkMapDeclarationExtension___rarg___closed__2, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %295) #6
+  %302 = load ptr, ptr @l_Lean_mkMapDeclarationExtension___rarg___closed__2, align 8, !tbaa !12
   tail call void @lean_inc_heartbeat() #6
-  %306 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
-  %307 = icmp eq ptr %306, null
-  br i1 %307, label %308, label %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__3.exit
+  %303 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #6
+  %304 = icmp eq ptr %303, null
+  br i1 %304, label %305, label %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__3.exit
 
-308:                                              ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__2.exit
+305:                                              ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__2.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_mkMapDeclarationExtension___rarg___closed__3.exit: ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__2.exit
-  %309 = getelementptr inbounds nuw i8, ptr %306, i64 4
-  store i32 1, ptr %306, align 4, !tbaa !8
-  store i32 16842768, ptr %309, align 4
-  %310 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  store ptr %305, ptr %310, align 8, !tbaa !12
-  store ptr %306, ptr @l_Lean_mkMapDeclarationExtension___rarg___closed__3, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %306) #6
+  %306 = getelementptr inbounds nuw i8, ptr %303, i64 4
+  store i32 1, ptr %303, align 4, !tbaa !8
+  store i32 16842768, ptr %306, align 4
+  %307 = getelementptr inbounds nuw i8, ptr %303, i64 8
+  store ptr %302, ptr %307, align 8, !tbaa !12
+  store ptr %303, ptr @l_Lean_mkMapDeclarationExtension___rarg___closed__3, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %303) #6
   tail call void @lean_inc_heartbeat() #6
-  %311 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %312 = icmp eq ptr %311, null
-  br i1 %312, label %313, label %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__4.exit
+  %308 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %309 = icmp eq ptr %308, null
+  br i1 %309, label %310, label %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__4.exit
 
-313:                                              ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__3.exit
+310:                                              ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__3.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Lean_mkMapDeclarationExtension___rarg___closed__4.exit: ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__3.exit
-  %314 = getelementptr inbounds nuw i8, ptr %311, i64 4
-  store i32 1, ptr %311, align 4, !tbaa !8
-  store i32 -184549352, ptr %314, align 4
-  %315 = getelementptr inbounds nuw i8, ptr %311, i64 8
-  store ptr @l_Lean_mkMapDeclarationExtension___rarg___lambda__2, ptr %315, align 8, !tbaa !12
-  %316 = getelementptr inbounds nuw i8, ptr %311, i64 16
-  store i16 2, ptr %316, align 8, !tbaa !14
-  %317 = getelementptr inbounds nuw i8, ptr %311, i64 18
-  store i16 0, ptr %317, align 2, !tbaa !14
-  store ptr %311, ptr @l_Lean_mkMapDeclarationExtension___rarg___closed__4, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef nonnull %311) #6
-  %318 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.17, i64 noundef 35, i64 noundef 35) #6
-  store ptr %318, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__1, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %318) #6
-  %319 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__4, align 8, !tbaa !12
-  %320 = load ptr, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__1, align 8, !tbaa !12
-  %321 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__3, align 8, !tbaa !12
-  %322 = tail call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %319, ptr noundef %320, ptr noundef nonnull inttoptr (i64 307 to ptr), ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef %321) #6
-  store ptr %322, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__2, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %322) #6
-  %323 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.18, i64 noundef 86, i64 noundef 86) #6
-  store ptr %323, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__3, align 8, !tbaa !12
+  %311 = getelementptr inbounds nuw i8, ptr %308, i64 4
+  store i32 1, ptr %308, align 4, !tbaa !8
+  store i32 -184549352, ptr %311, align 4
+  %312 = getelementptr inbounds nuw i8, ptr %308, i64 8
+  store ptr @l_Lean_mkMapDeclarationExtension___rarg___lambda__2, ptr %312, align 8, !tbaa !12
+  %313 = getelementptr inbounds nuw i8, ptr %308, i64 16
+  store i16 2, ptr %313, align 8, !tbaa !14
+  %314 = getelementptr inbounds nuw i8, ptr %308, i64 18
+  store i16 0, ptr %314, align 2, !tbaa !14
+  store ptr %308, ptr @l_Lean_mkMapDeclarationExtension___rarg___closed__4, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef nonnull %308) #6
+  %315 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.17, i64 noundef 35, i64 noundef 35) #6
+  store ptr %315, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__1, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %315) #6
+  %316 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__4, align 8, !tbaa !12
+  %317 = load ptr, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__1, align 8, !tbaa !12
+  %318 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__3, align 8, !tbaa !12
+  %319 = tail call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %316, ptr noundef %317, ptr noundef nonnull inttoptr (i64 307 to ptr), ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef %318) #6
+  store ptr %319, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__2, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %319) #6
+  %320 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.18, i64 noundef 86, i64 noundef 86) #6
+  store ptr %320, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__3, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %320) #6
+  %321 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__1, align 8, !tbaa !12
+  %322 = load ptr, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__3, align 8, !tbaa !12
+  %323 = tail call ptr @lean_string_append(ptr noundef %321, ptr noundef %322) #6
+  store ptr %323, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__4, align 8, !tbaa !12
   tail call void @lean_mark_persistent(ptr noundef %323) #6
-  %324 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__1, align 8, !tbaa !12
-  %325 = load ptr, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__3, align 8, !tbaa !12
-  %326 = tail call ptr @lean_string_append(ptr noundef %324, ptr noundef %325) #6
-  store ptr %326, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__4, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %326) #6
-  %327 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__4, align 8, !tbaa !12
-  %328 = load ptr, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__1, align 8, !tbaa !12
-  %329 = load ptr, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__4, align 8, !tbaa !12
-  %330 = tail call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %327, ptr noundef %328, ptr noundef nonnull inttoptr (i64 305 to ptr), ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef %329) #6
-  store ptr %330, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__5, align 8, !tbaa !12
-  tail call void @lean_mark_persistent(ptr noundef %330) #6
+  %324 = load ptr, ptr @l_Lean_TagDeclarationExtension_tag___closed__4, align 8, !tbaa !12
+  %325 = load ptr, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__1, align 8, !tbaa !12
+  %326 = load ptr, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__4, align 8, !tbaa !12
+  %327 = tail call ptr @l___private_Init_Util_0__mkPanicMessageWithDecl(ptr noundef %324, ptr noundef %325, ptr noundef nonnull inttoptr (i64 305 to ptr), ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef %326) #6
+  store ptr %327, ptr @l_Lean_MapDeclarationExtension_insert___rarg___closed__5, align 8, !tbaa !12
+  tail call void @lean_mark_persistent(ptr noundef %327) #6
   tail call void @lean_inc_heartbeat() #6
-  %331 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %332 = icmp eq ptr %331, null
-  br i1 %332, label %333, label %.sink.split
+  %328 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %329 = icmp eq ptr %328, null
+  br i1 %329, label %330, label %.sink.split
 
-333:                                              ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__4.exit
+330:                                              ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__4.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__4.exit, %3
-  %.sink40 = phi ptr [ %4, %3 ], [ %331, %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__4.exit ]
-  %334 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
+  %.sink40 = phi ptr [ %4, %3 ], [ %328, %_init_l_Lean_mkMapDeclarationExtension___rarg___closed__4.exit ]
+  %331 = getelementptr inbounds nuw i8, ptr %.sink40, i64 4
   store i32 1, ptr %.sink40, align 4, !tbaa !8
-  store i32 131096, ptr %334, align 4
-  %335 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %335, align 8, !tbaa !12
-  %336 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %336, align 8, !tbaa !12
-  br label %337
+  store i32 131096, ptr %331, align 4
+  %332 = getelementptr inbounds nuw i8, ptr %.sink40, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %332, align 8, !tbaa !12
+  %333 = getelementptr inbounds nuw i8, ptr %.sink40, i64 16
+  store ptr inttoptr (i64 1 to ptr), ptr %333, align 8, !tbaa !12
+  br label %334
 
-337:                                              ; preds = %.sink.split, %7
+334:                                              ; preds = %.sink.split, %7
   %.0 = phi ptr [ %8, %7 ], [ %.sink40, %.sink.split ]
   ret ptr %.0
 }

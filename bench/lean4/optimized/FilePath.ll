@@ -767,35 +767,29 @@ lean_inc.exit:
   %4 = add i64 %3, -1
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @l_Lake_modOfFilePath_removeExts(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %5)
-  %7 = ptrtoint ptr %1 to i64
-  %8 = and i64 %7, 1
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %lean_dec.exit
+  %7 = load i32, ptr %1, align 8, !tbaa !8
+  %8 = icmp sgt i32 %7, 1
+  br i1 %8, label %9, label %11, !prof !11
 
 9:                                                ; preds = %lean_inc.exit
-  %10 = load i32, ptr %1, align 4, !tbaa !8
-  %11 = icmp sgt i32 %10, 1
-  br i1 %11, label %12, label %14, !prof !11
-
-12:                                               ; preds = %9
-  %13 = add nsw i32 %10, -1
-  store i32 %13, ptr %1, align 4, !tbaa !8
+  %10 = add nsw i32 %7, -1
+  store i32 %10, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit
 
-14:                                               ; preds = %9
-  %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %lean_dec.exit, label %15
+11:                                               ; preds = %lean_inc.exit
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %lean_dec.exit, label %12
 
-15:                                               ; preds = %14
+12:                                               ; preds = %11
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %15, %14, %12, %lean_inc.exit
-  %16 = load ptr, ptr @l_Lake_joinRelative___closed__3, align 8, !tbaa !13
-  %17 = tail call ptr @l_String_stripSuffix(ptr noundef %6, ptr noundef %16) #3
-  %18 = tail call ptr @l_System_FilePath_components(ptr noundef %17) #3
-  %19 = tail call ptr @l_List_foldl___at_Lake_modOfFilePath___spec__1(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %18)
-  ret ptr %19
+lean_dec.exit:                                    ; preds = %12, %11, %9
+  %13 = load ptr, ptr @l_Lake_joinRelative___closed__3, align 8, !tbaa !13
+  %14 = tail call ptr @l_String_stripSuffix(ptr noundef %6, ptr noundef %13) #3
+  %15 = tail call ptr @l_System_FilePath_components(ptr noundef %14) #3
+  %16 = tail call ptr @l_List_foldl___at_Lake_modOfFilePath___spec__1(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %15)
+  ret ptr %16
 }
 
 declare ptr @l_System_FilePath_normalize(ptr noundef) local_unnamed_addr #1

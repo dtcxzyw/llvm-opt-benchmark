@@ -266,157 +266,148 @@ define noalias noundef nonnull ptr @lean_uv_tcp_connect(ptr noundef %0, ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %0, ptr %9, align 8, !tbaa !47
   store ptr %8, ptr %7, align 8, !tbaa !48
-  %10 = ptrtoint ptr %0 to i64
-  %11 = and i64 %10, 1
-  %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %12, label %_ZL8lean_incP11lean_object.exit
+  %.val.i = load i32, ptr %0, align 8, !tbaa !40
+  %10 = icmp sgt i32 %.val.i, 0
+  br i1 %10, label %11, label %13, !prof !9
 
-12:                                               ; preds = %3
-  %.val.i = load i32, ptr %0, align 4, !tbaa !40
-  %13 = icmp sgt i32 %.val.i, 0
-  br i1 %13, label %14, label %16, !prof !9
-
-14:                                               ; preds = %12
-  %15 = add nuw nsw i32 %.val.i, 1
-  store i32 %15, ptr %0, align 4, !tbaa !40
+11:                                               ; preds = %3
+  %12 = add nuw nsw i32 %.val.i, 1
+  store i32 %12, ptr %0, align 4, !tbaa !40
   br label %_ZL8lean_incP11lean_object.exit
 
-16:                                               ; preds = %12
+13:                                               ; preds = %3
   %.not.i29 = icmp eq i32 %.val.i, 0
-  br i1 %.not.i29, label %_ZL8lean_incP11lean_object.exit, label %17
+  br i1 %.not.i29, label %_ZL8lean_incP11lean_object.exit, label %14
 
-17:                                               ; preds = %16
+14:                                               ; preds = %13
   call void @lean_inc_ref_cold(ptr noundef nonnull %0)
   br label %_ZL8lean_incP11lean_object.exit
 
-_ZL8lean_incP11lean_object.exit:                  ; preds = %17, %16, %14, %3
-  %18 = ptrtoint ptr %6 to i64
-  %19 = and i64 %18, 1
-  %.not35 = icmp eq i64 %19, 0
-  br i1 %.not35, label %20, label %_ZL8lean_incP11lean_object.exit22
+_ZL8lean_incP11lean_object.exit:                  ; preds = %14, %13, %11
+  %15 = ptrtoint ptr %6 to i64
+  %16 = and i64 %15, 1
+  %.not35 = icmp eq i64 %16, 0
+  br i1 %.not35, label %17, label %_ZL8lean_incP11lean_object.exit22
 
-20:                                               ; preds = %_ZL8lean_incP11lean_object.exit
+17:                                               ; preds = %_ZL8lean_incP11lean_object.exit
   %.val.i30 = load i32, ptr %6, align 4, !tbaa !40
-  %21 = icmp sgt i32 %.val.i30, 0
-  br i1 %21, label %22, label %24, !prof !9
+  %18 = icmp sgt i32 %.val.i30, 0
+  br i1 %18, label %19, label %21, !prof !9
 
-22:                                               ; preds = %20
-  %23 = add nuw nsw i32 %.val.i30, 1
-  store i32 %23, ptr %6, align 4, !tbaa !40
+19:                                               ; preds = %17
+  %20 = add nuw nsw i32 %.val.i30, 1
+  store i32 %20, ptr %6, align 4, !tbaa !40
   br label %_ZL8lean_incP11lean_object.exit22
 
-24:                                               ; preds = %20
+21:                                               ; preds = %17
   %.not.i31 = icmp eq i32 %.val.i30, 0
-  br i1 %.not.i31, label %_ZL8lean_incP11lean_object.exit22, label %25
+  br i1 %.not.i31, label %_ZL8lean_incP11lean_object.exit22, label %22
 
-25:                                               ; preds = %24
+22:                                               ; preds = %21
   call void @lean_inc_ref_cold(ptr noundef nonnull %6)
   br label %_ZL8lean_incP11lean_object.exit22
 
-_ZL8lean_incP11lean_object.exit22:                ; preds = %25, %24, %22, %_ZL8lean_incP11lean_object.exit
+_ZL8lean_incP11lean_object.exit22:                ; preds = %22, %21, %19, %_ZL8lean_incP11lean_object.exit
   call void @_ZN4lean15event_loop_lockEPNS_12event_loop_tE(ptr noundef nonnull @_ZN4lean9global_evE)
-  %26 = load ptr, ptr %.val, align 8, !tbaa !22
-  %27 = call i32 @uv_tcp_connect(ptr noundef nonnull %7, ptr noundef %26, ptr noundef nonnull %4, ptr noundef nonnull @"_ZZ19lean_uv_tcp_connectEN3$_08__invokeEP12uv_connect_si")
+  %23 = load ptr, ptr %.val, align 8, !tbaa !22
+  %24 = call i32 @uv_tcp_connect(ptr noundef nonnull %7, ptr noundef %23, ptr noundef nonnull %4, ptr noundef nonnull @"_ZZ19lean_uv_tcp_connectEN3$_08__invokeEP12uv_connect_si")
   call void @_ZN4lean17event_loop_unlockEPNS_12event_loop_tE(ptr noundef nonnull @_ZN4lean9global_evE)
-  %28 = icmp slt i32 %27, 0
-  br i1 %28, label %29, label %56
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %26, label %52
 
-29:                                               ; preds = %_ZL8lean_incP11lean_object.exit22
-  br i1 %.not35, label %30, label %_ZL8lean_decP11lean_object.exit23
+26:                                               ; preds = %_ZL8lean_incP11lean_object.exit22
+  br i1 %.not35, label %27, label %_ZL8lean_decP11lean_object.exit23
 
-30:                                               ; preds = %29
-  %31 = load i32, ptr %6, align 4, !tbaa !40
-  %32 = icmp sgt i32 %31, 1
-  br i1 %32, label %33, label %35, !prof !9
+27:                                               ; preds = %26
+  %28 = load i32, ptr %6, align 4, !tbaa !40
+  %29 = icmp sgt i32 %28, 1
+  br i1 %29, label %30, label %32, !prof !9
 
-33:                                               ; preds = %30
-  %34 = add nsw i32 %31, -1
-  store i32 %34, ptr %6, align 4, !tbaa !40
-  br label %37
+30:                                               ; preds = %27
+  %31 = add nsw i32 %28, -1
+  store i32 %31, ptr %6, align 4, !tbaa !40
+  br label %34
 
-35:                                               ; preds = %30
-  %.not.i27 = icmp eq i32 %31, 0
-  br i1 %.not.i27, label %_ZL8lean_decP11lean_object.exit23, label %36
+32:                                               ; preds = %27
+  %.not.i27 = icmp eq i32 %28, 0
+  br i1 %.not.i27, label %_ZL8lean_decP11lean_object.exit23, label %33
 
-36:                                               ; preds = %35
+33:                                               ; preds = %32
   call void @lean_dec_ref_cold(ptr noundef nonnull %6)
   %.pr = load i32, ptr %6, align 4, !tbaa !40
-  br label %37
+  br label %34
 
-37:                                               ; preds = %36, %33
-  %38 = phi i32 [ %.pr, %36 ], [ %34, %33 ]
-  %39 = icmp sgt i32 %38, 1
-  br i1 %39, label %40, label %42, !prof !52
+34:                                               ; preds = %33, %30
+  %35 = phi i32 [ %.pr, %33 ], [ %31, %30 ]
+  %36 = icmp sgt i32 %35, 1
+  br i1 %36, label %37, label %39, !prof !52
 
-40:                                               ; preds = %37
-  %41 = add nsw i32 %38, -1
-  store i32 %41, ptr %6, align 4, !tbaa !40
+37:                                               ; preds = %34
+  %38 = add nsw i32 %35, -1
+  store i32 %38, ptr %6, align 4, !tbaa !40
   br label %_ZL8lean_decP11lean_object.exit23
 
-42:                                               ; preds = %37
-  %.not.i25 = icmp eq i32 %38, 0
-  br i1 %.not.i25, label %_ZL8lean_decP11lean_object.exit23, label %43
+39:                                               ; preds = %34
+  %.not.i25 = icmp eq i32 %35, 0
+  br i1 %.not.i25, label %_ZL8lean_decP11lean_object.exit23, label %40
 
-43:                                               ; preds = %42
+40:                                               ; preds = %39
   call void @lean_dec_ref_cold(ptr noundef nonnull %6)
   br label %_ZL8lean_decP11lean_object.exit23
 
-_ZL8lean_decP11lean_object.exit23:                ; preds = %35, %43, %42, %40, %29
-  br i1 %.not, label %44, label %_ZL8lean_decP11lean_object.exit24
+_ZL8lean_decP11lean_object.exit23:                ; preds = %26, %37, %39, %40, %32
+  %41 = load i32, ptr %0, align 4, !tbaa !40
+  %42 = icmp sgt i32 %41, 1
+  br i1 %42, label %43, label %45, !prof !9
 
-44:                                               ; preds = %_ZL8lean_decP11lean_object.exit23
-  %45 = load i32, ptr %0, align 4, !tbaa !40
-  %46 = icmp sgt i32 %45, 1
-  br i1 %46, label %47, label %49, !prof !9
-
-47:                                               ; preds = %44
-  %48 = add nsw i32 %45, -1
-  store i32 %48, ptr %0, align 4, !tbaa !40
+43:                                               ; preds = %_ZL8lean_decP11lean_object.exit23
+  %44 = add nsw i32 %41, -1
+  store i32 %44, ptr %0, align 4, !tbaa !40
   br label %_ZL8lean_decP11lean_object.exit24
 
-49:                                               ; preds = %44
-  %.not.i = icmp eq i32 %45, 0
-  br i1 %.not.i, label %_ZL8lean_decP11lean_object.exit24, label %50
+45:                                               ; preds = %_ZL8lean_decP11lean_object.exit23
+  %.not.i = icmp eq i32 %41, 0
+  br i1 %.not.i, label %_ZL8lean_decP11lean_object.exit24, label %46
 
-50:                                               ; preds = %49
+46:                                               ; preds = %45
   call void @lean_dec_ref_cold(ptr noundef nonnull %0)
   br label %_ZL8lean_decP11lean_object.exit24
 
-_ZL8lean_decP11lean_object.exit24:                ; preds = %50, %49, %47, %_ZL8lean_decP11lean_object.exit23
-  %51 = load ptr, ptr %7, align 8, !tbaa !48
-  call void @free(ptr noundef %51) #15
+_ZL8lean_decP11lean_object.exit24:                ; preds = %46, %45, %43
+  %47 = load ptr, ptr %7, align 8, !tbaa !48
+  call void @free(ptr noundef %47) #15
   call void @free(ptr noundef nonnull %7) #15
-  %52 = call ptr @lean_decode_uv_error(i32 noundef %27, ptr noundef null)
+  %48 = call ptr @lean_decode_uv_error(i32 noundef %24, ptr noundef null)
+  call void @lean_inc_heartbeat()
+  %49 = call noalias ptr @mi_malloc_small(i64 noundef 24) #15
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %_ZL23lean_io_result_mk_errorP11lean_object.exit
+
+51:                                               ; preds = %_ZL8lean_decP11lean_object.exit24
+  call void @lean_internal_panic_out_of_memory() #16
+  unreachable
+
+52:                                               ; preds = %_ZL8lean_incP11lean_object.exit22
   call void @lean_inc_heartbeat()
   %53 = call noalias ptr @mi_malloc_small(i64 noundef 24) #15
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %_ZL23lean_io_result_mk_errorP11lean_object.exit
 
-55:                                               ; preds = %_ZL8lean_decP11lean_object.exit24
+55:                                               ; preds = %52
   call void @lean_internal_panic_out_of_memory() #16
   unreachable
 
-56:                                               ; preds = %_ZL8lean_incP11lean_object.exit22
-  call void @lean_inc_heartbeat()
-  %57 = call noalias ptr @mi_malloc_small(i64 noundef 24) #15
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %_ZL23lean_io_result_mk_errorP11lean_object.exit
-
-59:                                               ; preds = %56
-  call void @lean_internal_panic_out_of_memory() #16
-  unreachable
-
-_ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %56, %_ZL8lean_decP11lean_object.exit24
-  %.sink50 = phi ptr [ %53, %_ZL8lean_decP11lean_object.exit24 ], [ %57, %56 ]
-  %.sink47 = phi i32 [ 16908312, %_ZL8lean_decP11lean_object.exit24 ], [ 131096, %56 ]
-  %.sink = phi ptr [ %52, %_ZL8lean_decP11lean_object.exit24 ], [ %6, %56 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sink50, i64 4
+_ZL23lean_io_result_mk_errorP11lean_object.exit:  ; preds = %52, %_ZL8lean_decP11lean_object.exit24
+  %.sink50 = phi ptr [ %49, %_ZL8lean_decP11lean_object.exit24 ], [ %53, %52 ]
+  %.sink47 = phi i32 [ 16908312, %_ZL8lean_decP11lean_object.exit24 ], [ 131096, %52 ]
+  %.sink = phi ptr [ %48, %_ZL8lean_decP11lean_object.exit24 ], [ %6, %52 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sink50, i64 4
   store i32 1, ptr %.sink50, align 4, !tbaa !40
-  store i32 %.sink47, ptr %60, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %.sink50, i64 8
-  store ptr %.sink, ptr %61, align 8, !tbaa !34
-  %62 = getelementptr inbounds nuw i8, ptr %.sink50, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %62, align 8, !tbaa !34
+  store i32 %.sink47, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %.sink50, i64 8
+  store ptr %.sink, ptr %57, align 8, !tbaa !34
+  %58 = getelementptr inbounds nuw i8, ptr %.sink50, i64 16
+  store ptr inttoptr (i64 1 to ptr), ptr %58, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sink50
 }

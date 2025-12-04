@@ -2104,30 +2104,24 @@ define ptr @l_Std_Sat_AIG_toCNF_Cache_init___boxed(ptr noundef %0) local_unnamed
   %6 = or disjoint i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @lean_mk_array(ptr noundef nonnull %7, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  %9 = ptrtoint ptr %0 to i64
-  %10 = and i64 %9, 1
-  %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %lean_dec.exit
+  %9 = load i32, ptr %0, align 8, !tbaa !4
+  %10 = icmp sgt i32 %9, 1
+  br i1 %10, label %11, label %13, !prof !13
 
 11:                                               ; preds = %1
-  %12 = load i32, ptr %0, align 4, !tbaa !4
-  %13 = icmp sgt i32 %12, 1
-  br i1 %13, label %14, label %16, !prof !13
-
-14:                                               ; preds = %11
-  %15 = add nsw i32 %12, -1
-  store i32 %15, ptr %0, align 4, !tbaa !4
+  %12 = add nsw i32 %9, -1
+  store i32 %12, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit
 
-16:                                               ; preds = %11
-  %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %lean_dec.exit, label %17
+13:                                               ; preds = %1
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %lean_dec.exit, label %14
 
-17:                                               ; preds = %16
+14:                                               ; preds = %13
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %17, %16, %14, %1
+lean_dec.exit:                                    ; preds = %14, %13, %11
   ret ptr %8
 }
 

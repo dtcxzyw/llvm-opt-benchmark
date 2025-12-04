@@ -11603,82 +11603,70 @@ lean_alloc_closure.exit:                          ; preds = %3
 define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Meta_Tactic_Grind_Split_0__Lean_Meta_Grind_isCongrToPrevSplit___spec__3___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) #0 {
   %15 = getelementptr i8, ptr %2, i64 8
   %.val = load i64, ptr %15, align 8, !tbaa !15
-  %16 = ptrtoint ptr %2 to i64
-  %17 = and i64 %16, 1
-  %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %18, label %lean_dec.exit20
+  %16 = load i32, ptr %2, align 8, !tbaa !10
+  %17 = icmp sgt i32 %16, 1
+  br i1 %17, label %18, label %20, !prof !13
 
 18:                                               ; preds = %14
-  %19 = load i32, ptr %2, align 4, !tbaa !10
-  %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %23, !prof !13
-
-21:                                               ; preds = %18
-  %22 = add nsw i32 %19, -1
-  store i32 %22, ptr %2, align 4, !tbaa !10
+  %19 = add nsw i32 %16, -1
+  store i32 %19, ptr %2, align 4, !tbaa !10
   br label %lean_dec.exit20
 
-23:                                               ; preds = %18
-  %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %lean_dec.exit20, label %24
+20:                                               ; preds = %14
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %lean_dec.exit20, label %21
 
-24:                                               ; preds = %23
+21:                                               ; preds = %20
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #4
   br label %lean_dec.exit20
 
-lean_dec.exit20:                                  ; preds = %24, %23, %21, %14
-  %25 = getelementptr i8, ptr %3, i64 8
-  %.val25 = load i64, ptr %25, align 8, !tbaa !15
-  %26 = ptrtoint ptr %3 to i64
-  %27 = and i64 %26, 1
-  %.not26 = icmp eq i64 %27, 0
-  br i1 %.not26, label %28, label %lean_dec.exit19
+lean_dec.exit20:                                  ; preds = %21, %20, %18
+  %22 = getelementptr i8, ptr %3, i64 8
+  %.val25 = load i64, ptr %22, align 8, !tbaa !15
+  %23 = load i32, ptr %3, align 8, !tbaa !10
+  %24 = icmp sgt i32 %23, 1
+  br i1 %24, label %25, label %27, !prof !13
 
-28:                                               ; preds = %lean_dec.exit20
-  %29 = load i32, ptr %3, align 4, !tbaa !10
-  %30 = icmp sgt i32 %29, 1
-  br i1 %30, label %31, label %33, !prof !13
-
-31:                                               ; preds = %28
-  %32 = add nsw i32 %29, -1
-  store i32 %32, ptr %3, align 4, !tbaa !10
+25:                                               ; preds = %lean_dec.exit20
+  %26 = add nsw i32 %23, -1
+  store i32 %26, ptr %3, align 4, !tbaa !10
   br label %lean_dec.exit19
 
-33:                                               ; preds = %28
-  %.not.i21 = icmp eq i32 %29, 0
-  br i1 %.not.i21, label %lean_dec.exit19, label %34
+27:                                               ; preds = %lean_dec.exit20
+  %.not.i21 = icmp eq i32 %23, 0
+  br i1 %.not.i21, label %lean_dec.exit19, label %28
 
-34:                                               ; preds = %33
+28:                                               ; preds = %27
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #4
   br label %lean_dec.exit19
 
-lean_dec.exit19:                                  ; preds = %34, %33, %31, %lean_dec.exit20
-  %35 = tail call ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Meta_Tactic_Grind_Split_0__Lean_Meta_Grind_isCongrToPrevSplit___spec__3___rarg(ptr noundef %0, ptr noundef %1, i64 noundef %.val, i64 noundef %.val25, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  %36 = ptrtoint ptr %1 to i64
-  %37 = and i64 %36, 1
-  %.not27 = icmp eq i64 %37, 0
-  br i1 %.not27, label %38, label %lean_dec.exit
+lean_dec.exit19:                                  ; preds = %28, %27, %25
+  %29 = tail call ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Meta_Tactic_Grind_Split_0__Lean_Meta_Grind_isCongrToPrevSplit___spec__3___rarg(ptr noundef %0, ptr noundef %1, i64 noundef %.val, i64 noundef %.val25, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
+  %30 = ptrtoint ptr %1 to i64
+  %31 = and i64 %30, 1
+  %.not27 = icmp eq i64 %31, 0
+  br i1 %.not27, label %32, label %lean_dec.exit
 
-38:                                               ; preds = %lean_dec.exit19
-  %39 = load i32, ptr %1, align 4, !tbaa !10
-  %40 = icmp sgt i32 %39, 1
-  br i1 %40, label %41, label %43, !prof !13
+32:                                               ; preds = %lean_dec.exit19
+  %33 = load i32, ptr %1, align 4, !tbaa !10
+  %34 = icmp sgt i32 %33, 1
+  br i1 %34, label %35, label %37, !prof !13
 
-41:                                               ; preds = %38
-  %42 = add nsw i32 %39, -1
-  store i32 %42, ptr %1, align 4, !tbaa !10
+35:                                               ; preds = %32
+  %36 = add nsw i32 %33, -1
+  store i32 %36, ptr %1, align 4, !tbaa !10
   br label %lean_dec.exit
 
-43:                                               ; preds = %38
-  %.not.i23 = icmp eq i32 %39, 0
-  br i1 %.not.i23, label %lean_dec.exit, label %44
+37:                                               ; preds = %32
+  %.not.i23 = icmp eq i32 %33, 0
+  br i1 %.not.i23, label %lean_dec.exit, label %38
 
-44:                                               ; preds = %43
+38:                                               ; preds = %37
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %44, %43, %41, %lean_dec.exit19
-  ret ptr %35
+lean_dec.exit:                                    ; preds = %38, %37, %35, %lean_dec.exit19
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable

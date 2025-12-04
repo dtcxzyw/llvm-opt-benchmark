@@ -780,38 +780,32 @@ define hidden noundef zeroext i1 @_ZN4lean12is_inductiveERKNS_11environmentERKNS
   %.val.i.i.i = load i32, ptr %9, align 4
   %.mask.i = and i32 %.val.i.i.i, -16777216
   %10 = icmp eq i32 %.mask.i, 83886080
-  %11 = ptrtoint ptr %8 to i64
-  %12 = and i64 %11, 1
-  %.not.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.i, label %13, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit
+  %11 = load i32, ptr %8, align 4, !tbaa !8
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %13, label %15, !prof !11
 
 13:                                               ; preds = %6
-  %14 = load i32, ptr %8, align 4, !tbaa !8
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %18, !prof !11
-
-16:                                               ; preds = %13
-  %17 = add nsw i32 %14, -1
-  store i32 %17, ptr %8, align 4, !tbaa !8
+  %14 = add nsw i32 %11, -1
+  store i32 %14, ptr %8, align 4, !tbaa !8
   br label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit
 
-18:                                               ; preds = %13
-  %.not.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i.i.i.i, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit, label %19
+15:                                               ; preds = %6
+  %.not.i.i.i.i = icmp eq i32 %11, 0
+  br i1 %.not.i.i.i.i, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit, label %16
 
-19:                                               ; preds = %18
+16:                                               ; preds = %15
   invoke void @lean_dec_ref_cold(ptr noundef nonnull %8)
-          to label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit unwind label %20
+          to label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit unwind label %17
 
-20:                                               ; preds = %19
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #15
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #15
   unreachable
 
-_ZN4lean8optionalINS_13constant_infoEED2Ev.exit:  ; preds = %2, %6, %16, %18, %19
-  %spec.select = phi i1 [ %10, %6 ], [ %10, %16 ], [ %10, %18 ], [ %10, %19 ], [ false, %2 ]
+_ZN4lean8optionalINS_13constant_infoEED2Ev.exit:  ; preds = %2, %13, %15, %16
+  %spec.select = phi i1 [ %10, %13 ], [ %10, %15 ], [ %10, %16 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %spec.select
 }
@@ -877,38 +871,32 @@ define hidden noundef zeroext i1 @_ZN4lean14is_constructorERKNS_11environmentERK
   %.val.i.i.i = load i32, ptr %9, align 4
   %.mask.i = and i32 %.val.i.i.i, -16777216
   %10 = icmp eq i32 %.mask.i, 100663296
-  %11 = ptrtoint ptr %8 to i64
-  %12 = and i64 %11, 1
-  %.not.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.i, label %13, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit
+  %11 = load i32, ptr %8, align 4, !tbaa !8
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %13, label %15, !prof !11
 
 13:                                               ; preds = %6
-  %14 = load i32, ptr %8, align 4, !tbaa !8
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %18, !prof !11
-
-16:                                               ; preds = %13
-  %17 = add nsw i32 %14, -1
-  store i32 %17, ptr %8, align 4, !tbaa !8
+  %14 = add nsw i32 %11, -1
+  store i32 %14, ptr %8, align 4, !tbaa !8
   br label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit
 
-18:                                               ; preds = %13
-  %.not.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i.i.i.i, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit, label %19
+15:                                               ; preds = %6
+  %.not.i.i.i.i = icmp eq i32 %11, 0
+  br i1 %.not.i.i.i.i, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit, label %16
 
-19:                                               ; preds = %18
+16:                                               ; preds = %15
   invoke void @lean_dec_ref_cold(ptr noundef nonnull %8)
-          to label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit unwind label %20
+          to label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit unwind label %17
 
-20:                                               ; preds = %19
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #15
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #15
   unreachable
 
-_ZN4lean8optionalINS_13constant_infoEED2Ev.exit:  ; preds = %2, %6, %16, %18, %19
-  %spec.select = phi i1 [ %10, %6 ], [ %10, %16 ], [ %10, %18 ], [ %10, %19 ], [ false, %2 ]
+_ZN4lean8optionalINS_13constant_infoEED2Ev.exit:  ; preds = %2, %13, %15, %16
+  %spec.select = phi i1 [ %10, %13 ], [ %10, %15 ], [ %10, %16 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %spec.select
 }
@@ -929,38 +917,32 @@ define hidden noundef zeroext i1 @_ZN4lean11is_recursorERKNS_11environmentERKNS_
   %.val.i.i.i = load i32, ptr %9, align 4
   %.mask.i = and i32 %.val.i.i.i, -16777216
   %10 = icmp eq i32 %.mask.i, 117440512
-  %11 = ptrtoint ptr %8 to i64
-  %12 = and i64 %11, 1
-  %.not.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.i, label %13, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit
+  %11 = load i32, ptr %8, align 4, !tbaa !8
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %13, label %15, !prof !11
 
 13:                                               ; preds = %6
-  %14 = load i32, ptr %8, align 4, !tbaa !8
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %18, !prof !11
-
-16:                                               ; preds = %13
-  %17 = add nsw i32 %14, -1
-  store i32 %17, ptr %8, align 4, !tbaa !8
+  %14 = add nsw i32 %11, -1
+  store i32 %14, ptr %8, align 4, !tbaa !8
   br label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit
 
-18:                                               ; preds = %13
-  %.not.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i.i.i.i, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit, label %19
+15:                                               ; preds = %6
+  %.not.i.i.i.i = icmp eq i32 %11, 0
+  br i1 %.not.i.i.i.i, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit, label %16
 
-19:                                               ; preds = %18
+16:                                               ; preds = %15
   invoke void @lean_dec_ref_cold(ptr noundef nonnull %8)
-          to label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit unwind label %20
+          to label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit unwind label %17
 
-20:                                               ; preds = %19
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #15
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #15
   unreachable
 
-_ZN4lean8optionalINS_13constant_infoEED2Ev.exit:  ; preds = %2, %6, %16, %18, %19
-  %spec.select = phi i1 [ %10, %6 ], [ %10, %16 ], [ %10, %18 ], [ %10, %19 ], [ false, %2 ]
+_ZN4lean8optionalINS_13constant_infoEED2Ev.exit:  ; preds = %2, %13, %15, %16
+  %spec.select = phi i1 [ %10, %13 ], [ %10, %15 ], [ %10, %16 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %spec.select
 }
@@ -974,7 +956,7 @@ define hidden void @_ZN4lean18is_constructor_appERKNS_11environmentERKNS_4exprE(
   %.val.i.i.i.i.i = load i32, ptr %7, align 4
   %.mask.i.i = and i32 %.val.i.i.i.i.i, -16777216
   %8 = icmp eq i32 %.mask.i.i, 67108864
-  br i1 %8, label %9, label %43
+  br i1 %8, label %9, label %40
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -986,7 +968,7 @@ define hidden void @_ZN4lean18is_constructor_appERKNS_11environmentERKNS_4exprE(
 
 _ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit.thread: ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %43
+  br label %40
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -995,76 +977,70 @@ _ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit.thread: ; preds = %
   %.val.i.i.i.i = load i32, ptr %16, align 4
   %.mask.i.i5 = and i32 %.val.i.i.i.i, -16777216
   %17 = icmp eq i32 %.mask.i.i5, 100663296
-  %18 = ptrtoint ptr %15 to i64
-  %19 = and i64 %18, 1
-  %.not.i.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i.i.i, label %20, label %_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit
+  %18 = load i32, ptr %15, align 4, !tbaa !8
+  %19 = icmp sgt i32 %18, 1
+  br i1 %19, label %20, label %22, !prof !11
 
 20:                                               ; preds = %13
-  %21 = load i32, ptr %15, align 4, !tbaa !8
-  %22 = icmp sgt i32 %21, 1
-  br i1 %22, label %23, label %25, !prof !11
-
-23:                                               ; preds = %20
-  %24 = add nsw i32 %21, -1
-  store i32 %24, ptr %15, align 4, !tbaa !8
+  %21 = add nsw i32 %18, -1
+  store i32 %21, ptr %15, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %17, label %30, label %43
+  br i1 %17, label %27, label %40
 
-25:                                               ; preds = %20
-  %.not.i.i.i.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit, label %26
+22:                                               ; preds = %13
+  %.not.i.i.i.i.i = icmp eq i32 %18, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit, label %23
 
-26:                                               ; preds = %25
+23:                                               ; preds = %22
   invoke void @lean_dec_ref_cold(ptr noundef nonnull %15)
-          to label %_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit unwind label %27
+          to label %_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit unwind label %24
 
-27:                                               ; preds = %26
-  %28 = landingpad { ptr, i32 }
+24:                                               ; preds = %23
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #15
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #15
   unreachable
 
-_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit: ; preds = %13, %25, %26
+_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit: ; preds = %22, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %17, label %30, label %43
+  br i1 %17, label %27, label %40
 
-30:                                               ; preds = %23, %_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit
-  %31 = load ptr, ptr %5, align 8, !tbaa !3
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+27:                                               ; preds = %20, %_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit
+  %28 = load ptr, ptr %5, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i8 1, ptr %0, align 8, !tbaa !20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %32, align 8, !tbaa !3
-  store ptr %34, ptr %33, align 8, !tbaa !3
-  %35 = ptrtoint ptr %34 to i64
-  %36 = and i64 %35, 1
-  %.not.i.i.i.i6 = icmp eq i64 %36, 0
-  br i1 %.not.i.i.i.i6, label %37, label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %29, align 8, !tbaa !3
+  store ptr %31, ptr %30, align 8, !tbaa !3
+  %32 = ptrtoint ptr %31 to i64
+  %33 = and i64 %32, 1
+  %.not.i.i.i.i6 = icmp eq i64 %33, 0
+  br i1 %.not.i.i.i.i6, label %34, label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit
 
-37:                                               ; preds = %30
-  %.val.i.i.i.i.i7 = load i32, ptr %34, align 4, !tbaa !8
-  %38 = icmp sgt i32 %.val.i.i.i.i.i7, 0
-  br i1 %38, label %39, label %41, !prof !11
+34:                                               ; preds = %27
+  %.val.i.i.i.i.i7 = load i32, ptr %31, align 4, !tbaa !8
+  %35 = icmp sgt i32 %.val.i.i.i.i.i7, 0
+  br i1 %35, label %36, label %38, !prof !11
 
-39:                                               ; preds = %37
-  %40 = add nuw nsw i32 %.val.i.i.i.i.i7, 1
-  store i32 %40, ptr %34, align 4, !tbaa !8
+36:                                               ; preds = %34
+  %37 = add nuw nsw i32 %.val.i.i.i.i.i7, 1
+  store i32 %37, ptr %31, align 4, !tbaa !8
   br label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit
 
-41:                                               ; preds = %37
+38:                                               ; preds = %34
   %.not.i.i.i.i.i8 = icmp eq i32 %.val.i.i.i.i.i7, 0
-  br i1 %.not.i.i.i.i.i8, label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit, label %42
+  br i1 %.not.i.i.i.i.i8, label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit, label %39
 
-42:                                               ; preds = %41
-  call void @lean_inc_ref_cold(ptr noundef nonnull %34)
+39:                                               ; preds = %38
+  call void @lean_inc_ref_cold(ptr noundef nonnull %31)
   br label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit
 
-43:                                               ; preds = %23, %_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit.thread, %_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit, %3
+40:                                               ; preds = %20, %_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit.thread, %_ZN4lean14is_constructorERKNS_11environmentERKNS_4nameE.exit, %3
   store i8 0, ptr %0, align 8, !tbaa !20
   br label %_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit
 
-_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit:        ; preds = %42, %41, %39, %30, %43
+_ZN4lean8optionalINS_4nameEEC2ERKS1_.exit:        ; preds = %39, %38, %36, %27, %40
   ret void
 }
 

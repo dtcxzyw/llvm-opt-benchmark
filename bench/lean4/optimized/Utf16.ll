@@ -289,30 +289,24 @@ define ptr @l_String_utf16Length___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %4 = add i64 %3, -1
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @l_String_foldrAux___at_String_utf16Length___spec__1(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  %7 = ptrtoint ptr %0 to i64
-  %8 = and i64 %7, 1
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %lean_dec.exit
+  %7 = load i32, ptr %0, align 8, !tbaa !4
+  %8 = icmp sgt i32 %7, 1
+  br i1 %8, label %9, label %11, !prof !9
 
 9:                                                ; preds = %1
-  %10 = load i32, ptr %0, align 4, !tbaa !4
-  %11 = icmp sgt i32 %10, 1
-  br i1 %11, label %12, label %14, !prof !9
-
-12:                                               ; preds = %9
-  %13 = add nsw i32 %10, -1
-  store i32 %13, ptr %0, align 4, !tbaa !4
+  %10 = add nsw i32 %7, -1
+  store i32 %10, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit
 
-14:                                               ; preds = %9
-  %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %lean_dec.exit, label %15
+11:                                               ; preds = %1
+  %.not.i = icmp eq i32 %7, 0
+  br i1 %.not.i, label %lean_dec.exit, label %12
 
-15:                                               ; preds = %14
+12:                                               ; preds = %11
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %15, %14, %12, %1
+lean_dec.exit:                                    ; preds = %12, %11, %9
   ret ptr %6
 }
 

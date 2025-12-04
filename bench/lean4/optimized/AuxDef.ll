@@ -548,6001 +548,5971 @@ define ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1(ptr noundef %0, ptr nound
 lean_dec.exit1235:                                ; preds = %20, %19, %17, %7
   %21 = getelementptr i8, ptr %11, i64 8
   %.val1349 = load i64, ptr %21, align 8, !tbaa !14
-  %22 = ptrtoint ptr %11 to i64
-  %23 = and i64 %22, 1
-  %.not1921 = icmp eq i64 %23, 0
-  br i1 %.not1921, label %24, label %lean_nat_lt.exit
+  %.val.i = load i32, ptr %11, align 8, !tbaa !8
+  %22 = icmp sgt i32 %.val.i, 0
+  br i1 %22, label %23, label %25, !prof !13
 
-24:                                               ; preds = %lean_dec.exit1235
-  %.val.i = load i32, ptr %11, align 4, !tbaa !8
-  %25 = icmp sgt i32 %.val.i, 0
-  br i1 %25, label %26, label %28, !prof !13
-
-26:                                               ; preds = %24
-  %27 = add nuw i32 %.val.i, 1
-  store i32 %27, ptr %11, align 4, !tbaa !8
+23:                                               ; preds = %lean_dec.exit1235
+  %24 = add nuw i32 %.val.i, 1
+  store i32 %24, ptr %11, align 4, !tbaa !8
   br label %lean_nat_lt.exit
 
-28:                                               ; preds = %24
+25:                                               ; preds = %lean_dec.exit1235
   %.not.i1351 = icmp eq i32 %.val.i, 0
-  br i1 %.not.i1351, label %lean_nat_lt.exit, label %29
+  br i1 %.not.i1351, label %lean_nat_lt.exit, label %26
 
-29:                                               ; preds = %28
+26:                                               ; preds = %25
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %11) #6
   br label %lean_nat_lt.exit
 
-lean_nat_lt.exit:                                 ; preds = %lean_dec.exit1235, %26, %28, %29
-  %30 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Command_elabAuxDef___spec__3(i64 noundef %.val1349, i64 noundef 0, ptr noundef nonnull %11)
-  %31 = getelementptr i8, ptr %30, i64 8
-  %.val1350 = load i64, ptr %31, align 8, !tbaa !14
+lean_nat_lt.exit:                                 ; preds = %23, %25, %26
+  %27 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Command_elabAuxDef___spec__3(i64 noundef %.val1349, i64 noundef 0, ptr noundef nonnull %11)
+  %28 = getelementptr i8, ptr %27, i64 8
+  %.val1350 = load i64, ptr %28, align 8, !tbaa !14
   %.mask = and i64 %.val1350, 9223372036854775807
   %.not1922 = icmp eq i64 %.mask, 0
-  %32 = tail call ptr @l_Lean_Elab_Command_getMainModule___rarg(ptr noundef %5, ptr noundef %6) #6
-  br i1 %.not1922, label %lean_dec.exit1234, label %71
+  %29 = tail call ptr @l_Lean_Elab_Command_getMainModule___rarg(ptr noundef %5, ptr noundef %6) #6
+  br i1 %.not1922, label %lean_dec.exit1234, label %68
 
 lean_dec.exit1234:                                ; preds = %lean_nat_lt.exit
-  %33 = ptrtoint ptr %30 to i64
-  %34 = and i64 %33, 1
-  %.not1927 = icmp eq i64 %34, 0
-  br i1 %.not1927, label %35, label %lean_dec.exit1233
+  %30 = ptrtoint ptr %27 to i64
+  %31 = and i64 %30, 1
+  %.not1927 = icmp eq i64 %31, 0
+  br i1 %.not1927, label %32, label %lean_dec.exit1233
 
-35:                                               ; preds = %lean_dec.exit1234
-  %36 = load i32, ptr %30, align 4, !tbaa !8
-  %37 = icmp sgt i32 %36, 1
-  br i1 %37, label %38, label %40, !prof !13
+32:                                               ; preds = %lean_dec.exit1234
+  %33 = load i32, ptr %27, align 4, !tbaa !8
+  %34 = icmp sgt i32 %33, 1
+  br i1 %34, label %35, label %37, !prof !13
 
-38:                                               ; preds = %35
-  %39 = add nsw i32 %36, -1
-  store i32 %39, ptr %30, align 4, !tbaa !8
+35:                                               ; preds = %32
+  %36 = add nsw i32 %33, -1
+  store i32 %36, ptr %27, align 4, !tbaa !8
   br label %lean_dec.exit1233
 
-40:                                               ; preds = %35
-  %.not.i1238 = icmp eq i32 %36, 0
-  br i1 %.not.i1238, label %lean_dec.exit1233, label %41
+37:                                               ; preds = %32
+  %.not.i1238 = icmp eq i32 %33, 0
+  br i1 %.not.i1238, label %lean_dec.exit1233, label %38
 
-41:                                               ; preds = %40
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %30) #6
+38:                                               ; preds = %37
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %27) #6
   br label %lean_dec.exit1233
 
-lean_dec.exit1233:                                ; preds = %41, %40, %38, %lean_dec.exit1234
-  %42 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !4
-  %44 = ptrtoint ptr %43 to i64
-  %45 = and i64 %44, 1
-  %.not1928 = icmp eq i64 %45, 0
-  br i1 %.not1928, label %46, label %lean_inc.exit1184
+lean_dec.exit1233:                                ; preds = %38, %37, %35, %lean_dec.exit1234
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !4
+  %41 = ptrtoint ptr %40 to i64
+  %42 = and i64 %41, 1
+  %.not1928 = icmp eq i64 %42, 0
+  br i1 %.not1928, label %43, label %lean_inc.exit1184
 
-46:                                               ; preds = %lean_dec.exit1233
-  %.val.i1352 = load i32, ptr %43, align 4, !tbaa !8
-  %47 = icmp sgt i32 %.val.i1352, 0
-  br i1 %47, label %48, label %50, !prof !13
+43:                                               ; preds = %lean_dec.exit1233
+  %.val.i1352 = load i32, ptr %40, align 4, !tbaa !8
+  %44 = icmp sgt i32 %.val.i1352, 0
+  br i1 %44, label %45, label %47, !prof !13
 
-48:                                               ; preds = %46
-  %49 = add nuw i32 %.val.i1352, 1
-  store i32 %49, ptr %43, align 4, !tbaa !8
+45:                                               ; preds = %43
+  %46 = add nuw i32 %.val.i1352, 1
+  store i32 %46, ptr %40, align 4, !tbaa !8
   br label %lean_inc.exit1184
 
-50:                                               ; preds = %46
+47:                                               ; preds = %43
   %.not.i1353 = icmp eq i32 %.val.i1352, 0
-  br i1 %.not.i1353, label %lean_inc.exit1184, label %51
+  br i1 %.not.i1353, label %lean_inc.exit1184, label %48
 
-51:                                               ; preds = %50
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %43) #6
+48:                                               ; preds = %47
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %40) #6
   br label %lean_inc.exit1184
 
-lean_inc.exit1184:                                ; preds = %51, %50, %48, %lean_dec.exit1233
-  %52 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !4
-  %54 = ptrtoint ptr %53 to i64
-  %55 = and i64 %54, 1
-  %.not1929 = icmp eq i64 %55, 0
-  br i1 %.not1929, label %56, label %lean_inc.exit1183
+lean_inc.exit1184:                                ; preds = %48, %47, %45, %lean_dec.exit1233
+  %49 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %50 = load ptr, ptr %49, align 8, !tbaa !4
+  %51 = ptrtoint ptr %50 to i64
+  %52 = and i64 %51, 1
+  %.not1929 = icmp eq i64 %52, 0
+  br i1 %.not1929, label %53, label %lean_inc.exit1183
 
-56:                                               ; preds = %lean_inc.exit1184
-  %.val.i1355 = load i32, ptr %53, align 4, !tbaa !8
-  %57 = icmp sgt i32 %.val.i1355, 0
-  br i1 %57, label %58, label %60, !prof !13
+53:                                               ; preds = %lean_inc.exit1184
+  %.val.i1355 = load i32, ptr %50, align 4, !tbaa !8
+  %54 = icmp sgt i32 %.val.i1355, 0
+  br i1 %54, label %55, label %57, !prof !13
 
-58:                                               ; preds = %56
-  %59 = add nuw i32 %.val.i1355, 1
-  store i32 %59, ptr %53, align 4, !tbaa !8
+55:                                               ; preds = %53
+  %56 = add nuw i32 %.val.i1355, 1
+  store i32 %56, ptr %50, align 4, !tbaa !8
   br label %lean_inc.exit1183
 
-60:                                               ; preds = %56
+57:                                               ; preds = %53
   %.not.i1356 = icmp eq i32 %.val.i1355, 0
-  br i1 %.not.i1356, label %lean_inc.exit1183, label %61
+  br i1 %.not.i1356, label %lean_inc.exit1183, label %58
 
-61:                                               ; preds = %60
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %53) #6
+58:                                               ; preds = %57
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %50) #6
   br label %lean_inc.exit1183
 
-lean_inc.exit1183:                                ; preds = %61, %60, %58, %lean_inc.exit1184
-  %62 = ptrtoint ptr %32 to i64
-  %63 = and i64 %62, 1
-  %.not1930 = icmp eq i64 %63, 0
-  br i1 %.not1930, label %64, label %lean_dec.exit1232
+lean_inc.exit1183:                                ; preds = %58, %57, %55, %lean_inc.exit1184
+  %59 = ptrtoint ptr %29 to i64
+  %60 = and i64 %59, 1
+  %.not1930 = icmp eq i64 %60, 0
+  br i1 %.not1930, label %61, label %lean_dec.exit1232
 
-64:                                               ; preds = %lean_inc.exit1183
-  %65 = load i32, ptr %32, align 4, !tbaa !8
-  %66 = icmp sgt i32 %65, 1
-  br i1 %66, label %67, label %69, !prof !13
+61:                                               ; preds = %lean_inc.exit1183
+  %62 = load i32, ptr %29, align 4, !tbaa !8
+  %63 = icmp sgt i32 %62, 1
+  br i1 %63, label %64, label %66, !prof !13
 
-67:                                               ; preds = %64
-  %68 = add nsw i32 %65, -1
-  store i32 %68, ptr %32, align 4, !tbaa !8
+64:                                               ; preds = %61
+  %65 = add nsw i32 %62, -1
+  store i32 %65, ptr %29, align 4, !tbaa !8
   br label %lean_dec.exit1232
 
-69:                                               ; preds = %64
-  %.not.i1240 = icmp eq i32 %65, 0
-  br i1 %.not.i1240, label %lean_dec.exit1232, label %70
+66:                                               ; preds = %61
+  %.not.i1240 = icmp eq i32 %62, 0
+  br i1 %.not.i1240, label %lean_dec.exit1232, label %67
 
-70:                                               ; preds = %69
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %32) #6
+67:                                               ; preds = %66
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %29) #6
   br label %lean_dec.exit1232
 
-71:                                               ; preds = %lean_nat_lt.exit
-  %72 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !4
-  %74 = ptrtoint ptr %73 to i64
-  %75 = and i64 %74, 1
-  %.not1923 = icmp eq i64 %75, 0
-  br i1 %.not1923, label %76, label %lean_inc.exit1180
+68:                                               ; preds = %lean_nat_lt.exit
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !4
+  %71 = ptrtoint ptr %70 to i64
+  %72 = and i64 %71, 1
+  %.not1923 = icmp eq i64 %72, 0
+  br i1 %.not1923, label %73, label %lean_inc.exit1180
 
-76:                                               ; preds = %71
-  %.val.i1364 = load i32, ptr %73, align 4, !tbaa !8
-  %77 = icmp sgt i32 %.val.i1364, 0
-  br i1 %77, label %78, label %80, !prof !13
+73:                                               ; preds = %68
+  %.val.i1364 = load i32, ptr %70, align 4, !tbaa !8
+  %74 = icmp sgt i32 %.val.i1364, 0
+  br i1 %74, label %75, label %77, !prof !13
 
-78:                                               ; preds = %76
-  %79 = add nuw i32 %.val.i1364, 1
-  store i32 %79, ptr %73, align 4, !tbaa !8
+75:                                               ; preds = %73
+  %76 = add nuw i32 %.val.i1364, 1
+  store i32 %76, ptr %70, align 4, !tbaa !8
   br label %lean_inc.exit1180
 
-80:                                               ; preds = %76
+77:                                               ; preds = %73
   %.not.i1365 = icmp eq i32 %.val.i1364, 0
-  br i1 %.not.i1365, label %lean_inc.exit1180, label %81
+  br i1 %.not.i1365, label %lean_inc.exit1180, label %78
 
-81:                                               ; preds = %80
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %73) #6
+78:                                               ; preds = %77
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %70) #6
   br label %lean_inc.exit1180
 
-lean_inc.exit1180:                                ; preds = %81, %80, %78, %71
-  %82 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !4
-  %84 = ptrtoint ptr %83 to i64
-  %85 = and i64 %84, 1
-  %.not1924 = icmp eq i64 %85, 0
-  br i1 %.not1924, label %86, label %lean_inc.exit1179
+lean_inc.exit1180:                                ; preds = %78, %77, %75, %68
+  %79 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %80 = load ptr, ptr %79, align 8, !tbaa !4
+  %81 = ptrtoint ptr %80 to i64
+  %82 = and i64 %81, 1
+  %.not1924 = icmp eq i64 %82, 0
+  br i1 %.not1924, label %83, label %lean_inc.exit1179
 
-86:                                               ; preds = %lean_inc.exit1180
-  %.val.i1367 = load i32, ptr %83, align 4, !tbaa !8
-  %87 = icmp sgt i32 %.val.i1367, 0
-  br i1 %87, label %88, label %90, !prof !13
+83:                                               ; preds = %lean_inc.exit1180
+  %.val.i1367 = load i32, ptr %80, align 4, !tbaa !8
+  %84 = icmp sgt i32 %.val.i1367, 0
+  br i1 %84, label %85, label %87, !prof !13
 
-88:                                               ; preds = %86
-  %89 = add nuw i32 %.val.i1367, 1
-  store i32 %89, ptr %83, align 4, !tbaa !8
+85:                                               ; preds = %83
+  %86 = add nuw i32 %.val.i1367, 1
+  store i32 %86, ptr %80, align 4, !tbaa !8
   br label %lean_inc.exit1179
 
-90:                                               ; preds = %86
+87:                                               ; preds = %83
   %.not.i1368 = icmp eq i32 %.val.i1367, 0
-  br i1 %.not.i1368, label %lean_inc.exit1179, label %91
+  br i1 %.not.i1368, label %lean_inc.exit1179, label %88
 
-91:                                               ; preds = %90
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %83) #6
+88:                                               ; preds = %87
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %80) #6
   br label %lean_inc.exit1179
 
-lean_inc.exit1179:                                ; preds = %91, %90, %88, %lean_inc.exit1180
-  %92 = ptrtoint ptr %32 to i64
-  %93 = and i64 %92, 1
-  %.not1925 = icmp eq i64 %93, 0
-  br i1 %.not1925, label %94, label %.lr.ph.i
+lean_inc.exit1179:                                ; preds = %88, %87, %85, %lean_inc.exit1180
+  %89 = ptrtoint ptr %29 to i64
+  %90 = and i64 %89, 1
+  %.not1925 = icmp eq i64 %90, 0
+  br i1 %.not1925, label %91, label %.lr.ph.i
 
-94:                                               ; preds = %lean_inc.exit1179
-  %95 = load i32, ptr %32, align 4, !tbaa !8
-  %96 = icmp sgt i32 %95, 1
-  br i1 %96, label %97, label %99, !prof !13
+91:                                               ; preds = %lean_inc.exit1179
+  %92 = load i32, ptr %29, align 4, !tbaa !8
+  %93 = icmp sgt i32 %92, 1
+  br i1 %93, label %94, label %96, !prof !13
 
-97:                                               ; preds = %94
-  %98 = add nsw i32 %95, -1
-  store i32 %98, ptr %32, align 4, !tbaa !8
+94:                                               ; preds = %91
+  %95 = add nsw i32 %92, -1
+  store i32 %95, ptr %29, align 4, !tbaa !8
   br label %.lr.ph.i
 
-99:                                               ; preds = %94
-  %.not.i1248 = icmp eq i32 %95, 0
-  br i1 %.not.i1248, label %.lr.ph.i, label %100
+96:                                               ; preds = %91
+  %.not.i1248 = icmp eq i32 %92, 0
+  br i1 %.not.i1248, label %.lr.ph.i, label %97
 
-100:                                              ; preds = %99
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %32) #6
+97:                                               ; preds = %96
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %29) #6
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %100, %99, %97, %lean_inc.exit1179
-  %101 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  br label %102
+.lr.ph.i:                                         ; preds = %97, %96, %94, %lean_inc.exit1179
+  %98 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  br label %99
 
-102:                                              ; preds = %113, %.lr.ph.i
-  %.01425.i = phi i64 [ 0, %.lr.ph.i ], [ %115, %113 ]
-  %.01624.i = phi ptr [ inttoptr (i64 1 to ptr), %.lr.ph.i ], [ %114, %113 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %101, i64 %.01425.i
-  %104 = load ptr, ptr %103, align 8, !tbaa !4
-  %105 = ptrtoint ptr %104 to i64
-  %106 = and i64 %105, 1
-  %.not.i.i = icmp eq i64 %106, 0
-  br i1 %.not.i.i, label %107, label %113
+99:                                               ; preds = %110, %.lr.ph.i
+  %.01425.i = phi i64 [ 0, %.lr.ph.i ], [ %112, %110 ]
+  %.01624.i = phi ptr [ inttoptr (i64 1 to ptr), %.lr.ph.i ], [ %111, %110 ]
+  %100 = getelementptr inbounds nuw ptr, ptr %98, i64 %.01425.i
+  %101 = load ptr, ptr %100, align 8, !tbaa !4
+  %102 = ptrtoint ptr %101 to i64
+  %103 = and i64 %102, 1
+  %.not.i.i = icmp eq i64 %103, 0
+  br i1 %.not.i.i, label %104, label %110
 
-107:                                              ; preds = %102
-  %.val.i.i.i = load i32, ptr %104, align 4, !tbaa !8
-  %108 = icmp sgt i32 %.val.i.i.i, 0
-  br i1 %108, label %109, label %111, !prof !13
+104:                                              ; preds = %99
+  %.val.i.i.i = load i32, ptr %101, align 4, !tbaa !8
+  %105 = icmp sgt i32 %.val.i.i.i, 0
+  br i1 %105, label %106, label %108, !prof !13
 
-109:                                              ; preds = %107
-  %110 = add nuw i32 %.val.i.i.i, 1
-  store i32 %110, ptr %104, align 4, !tbaa !8
-  br label %113
+106:                                              ; preds = %104
+  %107 = add nuw i32 %.val.i.i.i, 1
+  store i32 %107, ptr %101, align 4, !tbaa !8
+  br label %110
 
-111:                                              ; preds = %107
+108:                                              ; preds = %104
   %.not.i.i.i = icmp eq i32 %.val.i.i.i, 0
-  br i1 %.not.i.i.i, label %113, label %112
+  br i1 %.not.i.i.i, label %110, label %109
 
-112:                                              ; preds = %111
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %104) #6
-  br label %113
+109:                                              ; preds = %108
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %101) #6
+  br label %110
 
-113:                                              ; preds = %112, %111, %109, %102
-  %114 = tail call ptr @l_Lean_Name_append(ptr noundef %.01624.i, ptr noundef %104) #6
-  %115 = add nuw nsw i64 %.01425.i, 1
-  %.not.i1371 = icmp eq i64 %115, %.mask
-  br i1 %.not.i1371, label %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit, label %102
+110:                                              ; preds = %109, %108, %106, %99
+  %111 = tail call ptr @l_Lean_Name_append(ptr noundef %.01624.i, ptr noundef %101) #6
+  %112 = add nuw nsw i64 %.01425.i, 1
+  %.not.i1371 = icmp eq i64 %112, %.mask
+  br i1 %.not.i1371, label %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit, label %99
 
-l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit: ; preds = %113
-  %116 = ptrtoint ptr %30 to i64
-  %117 = and i64 %116, 1
-  %.not1926 = icmp eq i64 %117, 0
-  br i1 %.not1926, label %118, label %lean_dec.exit1232
+l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit: ; preds = %110
+  %113 = ptrtoint ptr %27 to i64
+  %114 = and i64 %113, 1
+  %.not1926 = icmp eq i64 %114, 0
+  br i1 %.not1926, label %115, label %lean_dec.exit1232
 
-118:                                              ; preds = %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit
-  %119 = load i32, ptr %30, align 4, !tbaa !8
-  %120 = icmp sgt i32 %119, 1
-  br i1 %120, label %121, label %123, !prof !13
+115:                                              ; preds = %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit
+  %116 = load i32, ptr %27, align 4, !tbaa !8
+  %117 = icmp sgt i32 %116, 1
+  br i1 %117, label %118, label %120, !prof !13
 
-121:                                              ; preds = %118
-  %122 = add nsw i32 %119, -1
-  store i32 %122, ptr %30, align 4, !tbaa !8
+118:                                              ; preds = %115
+  %119 = add nsw i32 %116, -1
+  store i32 %119, ptr %27, align 4, !tbaa !8
   br label %lean_dec.exit1232
 
-123:                                              ; preds = %118
-  %.not.i1252 = icmp eq i32 %119, 0
-  br i1 %.not.i1252, label %lean_dec.exit1232, label %124
+120:                                              ; preds = %115
+  %.not.i1252 = icmp eq i32 %116, 0
+  br i1 %.not.i1252, label %lean_dec.exit1232, label %121
 
-124:                                              ; preds = %123
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %30) #6
+121:                                              ; preds = %120
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %27) #6
   br label %lean_dec.exit1232
 
-lean_dec.exit1232:                                ; preds = %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit, %121, %123, %124, %lean_inc.exit1183, %67, %69, %70
-  %.01044 = phi ptr [ %53, %70 ], [ %53, %69 ], [ %53, %67 ], [ %53, %lean_inc.exit1183 ], [ %83, %124 ], [ %83, %123 ], [ %83, %121 ], [ %83, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
-  %.01042 = phi ptr [ %43, %70 ], [ %43, %69 ], [ %43, %67 ], [ %43, %lean_inc.exit1183 ], [ %73, %124 ], [ %73, %123 ], [ %73, %121 ], [ %73, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
-  %.01040 = phi ptr [ inttoptr (i64 1 to ptr), %70 ], [ inttoptr (i64 1 to ptr), %69 ], [ inttoptr (i64 1 to ptr), %67 ], [ inttoptr (i64 1 to ptr), %lean_inc.exit1183 ], [ %114, %124 ], [ %114, %123 ], [ %114, %121 ], [ %114, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
-  %125 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__2, align 8, !tbaa !4
-  %126 = tail call ptr @l_Lean_Name_append(ptr noundef %125, ptr noundef %.01042) #6
-  %127 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__4, align 8, !tbaa !4
-  %128 = tail call ptr @l_Lean_Name_append(ptr noundef %126, ptr noundef %127) #6
-  %129 = tail call ptr @l_Lean_Name_append(ptr noundef %128, ptr noundef %.01040) #6
-  %130 = tail call ptr @l_Lean_Name_components(ptr noundef %129) #6
-  %131 = tail call ptr @l_List_mapTR_loop___at_Lean_Elab_Command_elabAuxDef___spec__2(ptr noundef %130, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  %132 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__3, align 8, !tbaa !4
-  %133 = tail call ptr @l_String_intercalate(ptr noundef %132, ptr noundef %131) #6
-  %134 = tail call ptr @l_Lean_Elab_Command_getScope___rarg(ptr noundef %5, ptr noundef %.01044) #6
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %136 = load ptr, ptr %135, align 8, !tbaa !4
-  %137 = ptrtoint ptr %136 to i64
-  %138 = and i64 %137, 1
-  %.not1931 = icmp eq i64 %138, 0
-  br i1 %.not1931, label %139, label %lean_inc.exit1178
+lean_dec.exit1232:                                ; preds = %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit, %118, %120, %121, %lean_inc.exit1183, %64, %66, %67
+  %.01044 = phi ptr [ %50, %67 ], [ %50, %66 ], [ %50, %64 ], [ %50, %lean_inc.exit1183 ], [ %80, %121 ], [ %80, %120 ], [ %80, %118 ], [ %80, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
+  %.01042 = phi ptr [ %40, %67 ], [ %40, %66 ], [ %40, %64 ], [ %40, %lean_inc.exit1183 ], [ %70, %121 ], [ %70, %120 ], [ %70, %118 ], [ %70, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
+  %.01040 = phi ptr [ inttoptr (i64 1 to ptr), %67 ], [ inttoptr (i64 1 to ptr), %66 ], [ inttoptr (i64 1 to ptr), %64 ], [ inttoptr (i64 1 to ptr), %lean_inc.exit1183 ], [ %111, %121 ], [ %111, %120 ], [ %111, %118 ], [ %111, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit ]
+  %122 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__2, align 8, !tbaa !4
+  %123 = tail call ptr @l_Lean_Name_append(ptr noundef %122, ptr noundef %.01042) #6
+  %124 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__4, align 8, !tbaa !4
+  %125 = tail call ptr @l_Lean_Name_append(ptr noundef %123, ptr noundef %124) #6
+  %126 = tail call ptr @l_Lean_Name_append(ptr noundef %125, ptr noundef %.01040) #6
+  %127 = tail call ptr @l_Lean_Name_components(ptr noundef %126) #6
+  %128 = tail call ptr @l_List_mapTR_loop___at_Lean_Elab_Command_elabAuxDef___spec__2(ptr noundef %127, ptr noundef nonnull inttoptr (i64 1 to ptr))
+  %129 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__3, align 8, !tbaa !4
+  %130 = tail call ptr @l_String_intercalate(ptr noundef %129, ptr noundef %128) #6
+  %131 = tail call ptr @l_Lean_Elab_Command_getScope___rarg(ptr noundef %5, ptr noundef %.01044) #6
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %133 = load ptr, ptr %132, align 8, !tbaa !4
+  %134 = ptrtoint ptr %133 to i64
+  %135 = and i64 %134, 1
+  %.not1931 = icmp eq i64 %135, 0
+  br i1 %.not1931, label %136, label %lean_inc.exit1178
 
-139:                                              ; preds = %lean_dec.exit1232
-  %.val.i1372 = load i32, ptr %136, align 4, !tbaa !8
-  %140 = icmp sgt i32 %.val.i1372, 0
-  br i1 %140, label %141, label %143, !prof !13
+136:                                              ; preds = %lean_dec.exit1232
+  %.val.i1372 = load i32, ptr %133, align 4, !tbaa !8
+  %137 = icmp sgt i32 %.val.i1372, 0
+  br i1 %137, label %138, label %140, !prof !13
 
-141:                                              ; preds = %139
-  %142 = add nuw i32 %.val.i1372, 1
-  store i32 %142, ptr %136, align 4, !tbaa !8
+138:                                              ; preds = %136
+  %139 = add nuw i32 %.val.i1372, 1
+  store i32 %139, ptr %133, align 4, !tbaa !8
   br label %lean_inc.exit1178
 
-143:                                              ; preds = %139
+140:                                              ; preds = %136
   %.not.i1373 = icmp eq i32 %.val.i1372, 0
-  br i1 %.not.i1373, label %lean_inc.exit1178, label %144
+  br i1 %.not.i1373, label %lean_inc.exit1178, label %141
 
-144:                                              ; preds = %143
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %136) #6
+141:                                              ; preds = %140
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %133) #6
   br label %lean_inc.exit1178
 
-lean_inc.exit1178:                                ; preds = %144, %143, %141, %lean_dec.exit1232
-  %145 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %146 = load ptr, ptr %145, align 8, !tbaa !4
-  %147 = ptrtoint ptr %146 to i64
-  %148 = and i64 %147, 1
-  %.not1932 = icmp eq i64 %148, 0
-  br i1 %.not1932, label %149, label %lean_inc.exit1177
+lean_inc.exit1178:                                ; preds = %141, %140, %138, %lean_dec.exit1232
+  %142 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  %143 = load ptr, ptr %142, align 8, !tbaa !4
+  %144 = ptrtoint ptr %143 to i64
+  %145 = and i64 %144, 1
+  %.not1932 = icmp eq i64 %145, 0
+  br i1 %.not1932, label %146, label %lean_inc.exit1177
 
-149:                                              ; preds = %lean_inc.exit1178
-  %.val.i1375 = load i32, ptr %146, align 4, !tbaa !8
-  %150 = icmp sgt i32 %.val.i1375, 0
-  br i1 %150, label %151, label %153, !prof !13
+146:                                              ; preds = %lean_inc.exit1178
+  %.val.i1375 = load i32, ptr %143, align 4, !tbaa !8
+  %147 = icmp sgt i32 %.val.i1375, 0
+  br i1 %147, label %148, label %150, !prof !13
 
-151:                                              ; preds = %149
-  %152 = add nuw i32 %.val.i1375, 1
-  store i32 %152, ptr %146, align 4, !tbaa !8
+148:                                              ; preds = %146
+  %149 = add nuw i32 %.val.i1375, 1
+  store i32 %149, ptr %143, align 4, !tbaa !8
   br label %lean_inc.exit1177
 
-153:                                              ; preds = %149
+150:                                              ; preds = %146
   %.not.i1376 = icmp eq i32 %.val.i1375, 0
-  br i1 %.not.i1376, label %lean_inc.exit1177, label %154
+  br i1 %.not.i1376, label %lean_inc.exit1177, label %151
 
-154:                                              ; preds = %153
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %146) #6
+151:                                              ; preds = %150
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %143) #6
   br label %lean_inc.exit1177
 
-lean_inc.exit1177:                                ; preds = %154, %153, %151, %lean_inc.exit1178
-  %155 = ptrtoint ptr %134 to i64
-  %156 = and i64 %155, 1
-  %.not1933 = icmp eq i64 %156, 0
-  br i1 %.not1933, label %157, label %lean_dec.exit1225
+lean_inc.exit1177:                                ; preds = %151, %150, %148, %lean_inc.exit1178
+  %152 = ptrtoint ptr %131 to i64
+  %153 = and i64 %152, 1
+  %.not1933 = icmp eq i64 %153, 0
+  br i1 %.not1933, label %154, label %lean_dec.exit1225
 
-157:                                              ; preds = %lean_inc.exit1177
-  %158 = load i32, ptr %134, align 4, !tbaa !8
-  %159 = icmp sgt i32 %158, 1
-  br i1 %159, label %160, label %162, !prof !13
+154:                                              ; preds = %lean_inc.exit1177
+  %155 = load i32, ptr %131, align 4, !tbaa !8
+  %156 = icmp sgt i32 %155, 1
+  br i1 %156, label %157, label %159, !prof !13
 
-160:                                              ; preds = %157
-  %161 = add nsw i32 %158, -1
-  store i32 %161, ptr %134, align 4, !tbaa !8
+157:                                              ; preds = %154
+  %158 = add nsw i32 %155, -1
+  store i32 %158, ptr %131, align 4, !tbaa !8
   br label %lean_dec.exit1225
 
-162:                                              ; preds = %157
-  %.not.i1254 = icmp eq i32 %158, 0
-  br i1 %.not.i1254, label %lean_dec.exit1225, label %163
+159:                                              ; preds = %154
+  %.not.i1254 = icmp eq i32 %155, 0
+  br i1 %.not.i1254, label %lean_dec.exit1225, label %160
 
-163:                                              ; preds = %162
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %134) #6
+160:                                              ; preds = %159
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %131) #6
   br label %lean_dec.exit1225
 
-lean_dec.exit1225:                                ; preds = %163, %162, %160, %lean_inc.exit1177
-  %164 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %165 = load ptr, ptr %164, align 8, !tbaa !4
-  %166 = ptrtoint ptr %165 to i64
-  %167 = and i64 %166, 1
-  %.not1934 = icmp eq i64 %167, 0
-  br i1 %.not1934, label %168, label %lean_inc.exit1176
+lean_dec.exit1225:                                ; preds = %160, %159, %157, %lean_inc.exit1177
+  %161 = getelementptr inbounds nuw i8, ptr %133, i64 24
+  %162 = load ptr, ptr %161, align 8, !tbaa !4
+  %163 = ptrtoint ptr %162 to i64
+  %164 = and i64 %163, 1
+  %.not1934 = icmp eq i64 %164, 0
+  br i1 %.not1934, label %165, label %lean_inc.exit1176
 
-168:                                              ; preds = %lean_dec.exit1225
-  %.val.i1378 = load i32, ptr %165, align 4, !tbaa !8
-  %169 = icmp sgt i32 %.val.i1378, 0
-  br i1 %169, label %170, label %172, !prof !13
+165:                                              ; preds = %lean_dec.exit1225
+  %.val.i1378 = load i32, ptr %162, align 4, !tbaa !8
+  %166 = icmp sgt i32 %.val.i1378, 0
+  br i1 %166, label %167, label %169, !prof !13
 
-170:                                              ; preds = %168
-  %171 = add nuw i32 %.val.i1378, 1
-  store i32 %171, ptr %165, align 4, !tbaa !8
+167:                                              ; preds = %165
+  %168 = add nuw i32 %.val.i1378, 1
+  store i32 %168, ptr %162, align 4, !tbaa !8
   br label %lean_inc.exit1176
 
-172:                                              ; preds = %168
+169:                                              ; preds = %165
   %.not.i1379 = icmp eq i32 %.val.i1378, 0
-  br i1 %.not.i1379, label %lean_inc.exit1176, label %173
+  br i1 %.not.i1379, label %lean_inc.exit1176, label %170
 
-173:                                              ; preds = %172
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %165) #6
+170:                                              ; preds = %169
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %162) #6
   br label %lean_inc.exit1176
 
-lean_inc.exit1176:                                ; preds = %173, %172, %170, %lean_dec.exit1225
-  br i1 %.not1931, label %174, label %lean_dec.exit1224
+lean_inc.exit1176:                                ; preds = %170, %169, %167, %lean_dec.exit1225
+  br i1 %.not1931, label %171, label %lean_dec.exit1224
 
-174:                                              ; preds = %lean_inc.exit1176
-  %175 = load i32, ptr %136, align 4, !tbaa !8
-  %176 = icmp sgt i32 %175, 1
-  br i1 %176, label %177, label %179, !prof !13
+171:                                              ; preds = %lean_inc.exit1176
+  %172 = load i32, ptr %133, align 4, !tbaa !8
+  %173 = icmp sgt i32 %172, 1
+  br i1 %173, label %174, label %176, !prof !13
 
-177:                                              ; preds = %174
-  %178 = add nsw i32 %175, -1
-  store i32 %178, ptr %136, align 4, !tbaa !8
+174:                                              ; preds = %171
+  %175 = add nsw i32 %172, -1
+  store i32 %175, ptr %133, align 4, !tbaa !8
   br label %lean_dec.exit1224
 
-179:                                              ; preds = %174
-  %.not.i1256 = icmp eq i32 %175, 0
-  br i1 %.not.i1256, label %lean_dec.exit1224, label %180
+176:                                              ; preds = %171
+  %.not.i1256 = icmp eq i32 %172, 0
+  br i1 %.not.i1256, label %lean_dec.exit1224, label %177
 
-180:                                              ; preds = %179
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %136) #6
+177:                                              ; preds = %176
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %133) #6
   br label %lean_dec.exit1224
 
-lean_dec.exit1224:                                ; preds = %180, %179, %177, %lean_inc.exit1176
-  %181 = tail call ptr @lean_st_ref_get(ptr noundef %5, ptr noundef %146) #6
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  %183 = load ptr, ptr %182, align 8, !tbaa !4
-  %184 = ptrtoint ptr %183 to i64
-  %185 = and i64 %184, 1
-  %.not1935 = icmp eq i64 %185, 0
-  br i1 %.not1935, label %186, label %lean_inc.exit1175
+lean_dec.exit1224:                                ; preds = %177, %176, %174, %lean_inc.exit1176
+  %178 = tail call ptr @lean_st_ref_get(ptr noundef %5, ptr noundef %143) #6
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  %180 = load ptr, ptr %179, align 8, !tbaa !4
+  %181 = ptrtoint ptr %180 to i64
+  %182 = and i64 %181, 1
+  %.not1935 = icmp eq i64 %182, 0
+  br i1 %.not1935, label %183, label %lean_inc.exit1175
 
-186:                                              ; preds = %lean_dec.exit1224
-  %.val.i1381 = load i32, ptr %183, align 4, !tbaa !8
-  %187 = icmp sgt i32 %.val.i1381, 0
-  br i1 %187, label %188, label %190, !prof !13
+183:                                              ; preds = %lean_dec.exit1224
+  %.val.i1381 = load i32, ptr %180, align 4, !tbaa !8
+  %184 = icmp sgt i32 %.val.i1381, 0
+  br i1 %184, label %185, label %187, !prof !13
 
-188:                                              ; preds = %186
-  %189 = add nuw i32 %.val.i1381, 1
-  store i32 %189, ptr %183, align 4, !tbaa !8
+185:                                              ; preds = %183
+  %186 = add nuw i32 %.val.i1381, 1
+  store i32 %186, ptr %180, align 4, !tbaa !8
   br label %lean_inc.exit1175
 
-190:                                              ; preds = %186
+187:                                              ; preds = %183
   %.not.i1382 = icmp eq i32 %.val.i1381, 0
-  br i1 %.not.i1382, label %lean_inc.exit1175, label %191
+  br i1 %.not.i1382, label %lean_inc.exit1175, label %188
 
-191:                                              ; preds = %190
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %183) #6
+188:                                              ; preds = %187
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %180) #6
   br label %lean_inc.exit1175
 
-lean_inc.exit1175:                                ; preds = %191, %190, %188, %lean_dec.exit1224
-  %192 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  %193 = load ptr, ptr %192, align 8, !tbaa !4
-  %194 = ptrtoint ptr %193 to i64
-  %195 = and i64 %194, 1
-  %.not1936 = icmp eq i64 %195, 0
-  br i1 %.not1936, label %196, label %lean_inc.exit1174
+lean_inc.exit1175:                                ; preds = %188, %187, %185, %lean_dec.exit1224
+  %189 = getelementptr inbounds nuw i8, ptr %178, i64 16
+  %190 = load ptr, ptr %189, align 8, !tbaa !4
+  %191 = ptrtoint ptr %190 to i64
+  %192 = and i64 %191, 1
+  %.not1936 = icmp eq i64 %192, 0
+  br i1 %.not1936, label %193, label %lean_inc.exit1174
 
-196:                                              ; preds = %lean_inc.exit1175
-  %.val.i1384 = load i32, ptr %193, align 4, !tbaa !8
-  %197 = icmp sgt i32 %.val.i1384, 0
-  br i1 %197, label %198, label %200, !prof !13
+193:                                              ; preds = %lean_inc.exit1175
+  %.val.i1384 = load i32, ptr %190, align 4, !tbaa !8
+  %194 = icmp sgt i32 %.val.i1384, 0
+  br i1 %194, label %195, label %197, !prof !13
 
-198:                                              ; preds = %196
-  %199 = add nuw i32 %.val.i1384, 1
-  store i32 %199, ptr %193, align 4, !tbaa !8
+195:                                              ; preds = %193
+  %196 = add nuw i32 %.val.i1384, 1
+  store i32 %196, ptr %190, align 4, !tbaa !8
   br label %lean_inc.exit1174
 
-200:                                              ; preds = %196
+197:                                              ; preds = %193
   %.not.i1385 = icmp eq i32 %.val.i1384, 0
-  br i1 %.not.i1385, label %lean_inc.exit1174, label %201
+  br i1 %.not.i1385, label %lean_inc.exit1174, label %198
 
-201:                                              ; preds = %200
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %193) #6
+198:                                              ; preds = %197
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %190) #6
   br label %lean_inc.exit1174
 
-lean_inc.exit1174:                                ; preds = %201, %200, %198, %lean_inc.exit1175
-  %202 = ptrtoint ptr %181 to i64
-  %203 = and i64 %202, 1
-  %.not1937 = icmp eq i64 %203, 0
-  br i1 %.not1937, label %204, label %lean_dec.exit1223
+lean_inc.exit1174:                                ; preds = %198, %197, %195, %lean_inc.exit1175
+  %199 = ptrtoint ptr %178 to i64
+  %200 = and i64 %199, 1
+  %.not1937 = icmp eq i64 %200, 0
+  br i1 %.not1937, label %201, label %lean_dec.exit1223
 
-204:                                              ; preds = %lean_inc.exit1174
-  %205 = load i32, ptr %181, align 4, !tbaa !8
-  %206 = icmp sgt i32 %205, 1
-  br i1 %206, label %207, label %209, !prof !13
+201:                                              ; preds = %lean_inc.exit1174
+  %202 = load i32, ptr %178, align 4, !tbaa !8
+  %203 = icmp sgt i32 %202, 1
+  br i1 %203, label %204, label %206, !prof !13
 
-207:                                              ; preds = %204
-  %208 = add nsw i32 %205, -1
-  store i32 %208, ptr %181, align 4, !tbaa !8
+204:                                              ; preds = %201
+  %205 = add nsw i32 %202, -1
+  store i32 %205, ptr %178, align 4, !tbaa !8
   br label %lean_dec.exit1223
 
-209:                                              ; preds = %204
-  %.not.i1258 = icmp eq i32 %205, 0
-  br i1 %.not.i1258, label %lean_dec.exit1223, label %210
+206:                                              ; preds = %201
+  %.not.i1258 = icmp eq i32 %202, 0
+  br i1 %.not.i1258, label %lean_dec.exit1223, label %207
 
-210:                                              ; preds = %209
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %181) #6
+207:                                              ; preds = %206
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %178) #6
   br label %lean_dec.exit1223
 
-lean_dec.exit1223:                                ; preds = %210, %209, %207, %lean_inc.exit1174
-  %211 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %212 = load ptr, ptr %211, align 8, !tbaa !4
-  %213 = ptrtoint ptr %212 to i64
-  %214 = and i64 %213, 1
-  %.not1938 = icmp eq i64 %214, 0
-  br i1 %.not1938, label %215, label %lean_inc.exit1173
+lean_dec.exit1223:                                ; preds = %207, %206, %204, %lean_inc.exit1174
+  %208 = getelementptr inbounds nuw i8, ptr %180, i64 8
+  %209 = load ptr, ptr %208, align 8, !tbaa !4
+  %210 = ptrtoint ptr %209 to i64
+  %211 = and i64 %210, 1
+  %.not1938 = icmp eq i64 %211, 0
+  br i1 %.not1938, label %212, label %lean_inc.exit1173
 
-215:                                              ; preds = %lean_dec.exit1223
-  %.val.i1387 = load i32, ptr %212, align 4, !tbaa !8
-  %216 = icmp sgt i32 %.val.i1387, 0
-  br i1 %216, label %217, label %219, !prof !13
+212:                                              ; preds = %lean_dec.exit1223
+  %.val.i1387 = load i32, ptr %209, align 4, !tbaa !8
+  %213 = icmp sgt i32 %.val.i1387, 0
+  br i1 %213, label %214, label %216, !prof !13
 
-217:                                              ; preds = %215
-  %218 = add nuw i32 %.val.i1387, 1
-  store i32 %218, ptr %212, align 4, !tbaa !8
+214:                                              ; preds = %212
+  %215 = add nuw i32 %.val.i1387, 1
+  store i32 %215, ptr %209, align 4, !tbaa !8
   br label %lean_inc.exit1173
 
-219:                                              ; preds = %215
+216:                                              ; preds = %212
   %.not.i1388 = icmp eq i32 %.val.i1387, 0
-  br i1 %.not.i1388, label %lean_inc.exit1173, label %220
+  br i1 %.not.i1388, label %lean_inc.exit1173, label %217
 
-220:                                              ; preds = %219
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %212) #6
+217:                                              ; preds = %216
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %209) #6
   br label %lean_inc.exit1173
 
-lean_inc.exit1173:                                ; preds = %220, %219, %217, %lean_dec.exit1223
-  br i1 %.not1935, label %221, label %lean_dec.exit1222
+lean_inc.exit1173:                                ; preds = %217, %216, %214, %lean_dec.exit1223
+  br i1 %.not1935, label %218, label %lean_dec.exit1222
 
-221:                                              ; preds = %lean_inc.exit1173
-  %222 = load i32, ptr %183, align 4, !tbaa !8
-  %223 = icmp sgt i32 %222, 1
-  br i1 %223, label %224, label %226, !prof !13
+218:                                              ; preds = %lean_inc.exit1173
+  %219 = load i32, ptr %180, align 4, !tbaa !8
+  %220 = icmp sgt i32 %219, 1
+  br i1 %220, label %221, label %223, !prof !13
 
-224:                                              ; preds = %221
-  %225 = add nsw i32 %222, -1
-  store i32 %225, ptr %183, align 4, !tbaa !8
+221:                                              ; preds = %218
+  %222 = add nsw i32 %219, -1
+  store i32 %222, ptr %180, align 4, !tbaa !8
   br label %lean_dec.exit1222
 
-226:                                              ; preds = %221
-  %.not.i1260 = icmp eq i32 %222, 0
-  br i1 %.not.i1260, label %lean_dec.exit1222, label %227
+223:                                              ; preds = %218
+  %.not.i1260 = icmp eq i32 %219, 0
+  br i1 %.not.i1260, label %lean_dec.exit1222, label %224
 
-227:                                              ; preds = %226
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %183) #6
+224:                                              ; preds = %223
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %180) #6
   br label %lean_dec.exit1222
 
-lean_dec.exit1222:                                ; preds = %227, %226, %224, %lean_inc.exit1173
-  br i1 %.not1934, label %228, label %lean_inc.exit1172
+lean_dec.exit1222:                                ; preds = %224, %223, %221, %lean_inc.exit1173
+  br i1 %.not1934, label %225, label %lean_inc.exit1172
 
-228:                                              ; preds = %lean_dec.exit1222
-  %.val.i1390 = load i32, ptr %165, align 4, !tbaa !8
-  %229 = icmp sgt i32 %.val.i1390, 0
-  br i1 %229, label %230, label %232, !prof !13
+225:                                              ; preds = %lean_dec.exit1222
+  %.val.i1390 = load i32, ptr %162, align 4, !tbaa !8
+  %226 = icmp sgt i32 %.val.i1390, 0
+  br i1 %226, label %227, label %229, !prof !13
 
-230:                                              ; preds = %228
-  %231 = add nuw i32 %.val.i1390, 1
-  store i32 %231, ptr %165, align 4, !tbaa !8
+227:                                              ; preds = %225
+  %228 = add nuw i32 %.val.i1390, 1
+  store i32 %228, ptr %162, align 4, !tbaa !8
   br label %lean_inc.exit1172
 
-232:                                              ; preds = %228
+229:                                              ; preds = %225
   %.not.i1391 = icmp eq i32 %.val.i1390, 0
-  br i1 %.not.i1391, label %lean_inc.exit1172, label %233
+  br i1 %.not.i1391, label %lean_inc.exit1172, label %230
 
-233:                                              ; preds = %232
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %165) #6
+230:                                              ; preds = %229
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %162) #6
   br label %lean_inc.exit1172
 
-lean_inc.exit1172:                                ; preds = %233, %232, %230, %lean_dec.exit1222
+lean_inc.exit1172:                                ; preds = %230, %229, %227, %lean_dec.exit1222
   tail call void @lean_inc_heartbeat() #6
-  %234 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %235 = icmp eq ptr %234, null
-  br i1 %235, label %236, label %lean_alloc_ctor.exit
+  %231 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %232 = icmp eq ptr %231, null
+  br i1 %232, label %233, label %lean_alloc_ctor.exit
 
-236:                                              ; preds = %lean_inc.exit1172
+233:                                              ; preds = %lean_inc.exit1172
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit1172
-  %237 = getelementptr inbounds nuw i8, ptr %234, i64 4
-  store i32 1, ptr %234, align 4, !tbaa !8
-  store i32 196640, ptr %237, align 4
-  %238 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  store ptr %165, ptr %238, align 8, !tbaa !4
-  %239 = getelementptr inbounds nuw i8, ptr %234, i64 16
-  store ptr inttoptr (i64 3 to ptr), ptr %239, align 8, !tbaa !4
-  %240 = getelementptr inbounds nuw i8, ptr %234, i64 24
-  store ptr inttoptr (i64 1 to ptr), ptr %240, align 8, !tbaa !4
-  %241 = tail call ptr @l_Lean_Name_str___override(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %133) #6
-  %242 = tail call ptr @l_Lean_DeclNameGenerator_mkUniqueName(ptr noundef %212, ptr noundef nonnull %234, ptr noundef %241) #6
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
-  %244 = load ptr, ptr %243, align 8, !tbaa !4
-  %245 = ptrtoint ptr %244 to i64
-  %246 = and i64 %245, 1
-  %.not1939 = icmp eq i64 %246, 0
-  br i1 %.not1939, label %247, label %lean_inc.exit1171
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 4
+  store i32 1, ptr %231, align 4, !tbaa !8
+  store i32 196640, ptr %234, align 4
+  %235 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  store ptr %162, ptr %235, align 8, !tbaa !4
+  %236 = getelementptr inbounds nuw i8, ptr %231, i64 16
+  store ptr inttoptr (i64 3 to ptr), ptr %236, align 8, !tbaa !4
+  %237 = getelementptr inbounds nuw i8, ptr %231, i64 24
+  store ptr inttoptr (i64 1 to ptr), ptr %237, align 8, !tbaa !4
+  %238 = tail call ptr @l_Lean_Name_str___override(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %130) #6
+  %239 = tail call ptr @l_Lean_DeclNameGenerator_mkUniqueName(ptr noundef %209, ptr noundef nonnull %231, ptr noundef %238) #6
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
+  %241 = load ptr, ptr %240, align 8, !tbaa !4
+  %242 = ptrtoint ptr %241 to i64
+  %243 = and i64 %242, 1
+  %.not1939 = icmp eq i64 %243, 0
+  br i1 %.not1939, label %244, label %lean_inc.exit1171
 
-247:                                              ; preds = %lean_alloc_ctor.exit
-  %.val.i1393 = load i32, ptr %244, align 4, !tbaa !8
-  %248 = icmp sgt i32 %.val.i1393, 0
-  br i1 %248, label %249, label %251, !prof !13
+244:                                              ; preds = %lean_alloc_ctor.exit
+  %.val.i1393 = load i32, ptr %241, align 4, !tbaa !8
+  %245 = icmp sgt i32 %.val.i1393, 0
+  br i1 %245, label %246, label %248, !prof !13
 
-249:                                              ; preds = %247
-  %250 = add nuw i32 %.val.i1393, 1
-  store i32 %250, ptr %244, align 4, !tbaa !8
+246:                                              ; preds = %244
+  %247 = add nuw i32 %.val.i1393, 1
+  store i32 %247, ptr %241, align 4, !tbaa !8
   br label %lean_inc.exit1171
 
-251:                                              ; preds = %247
+248:                                              ; preds = %244
   %.not.i1394 = icmp eq i32 %.val.i1393, 0
-  br i1 %.not.i1394, label %lean_inc.exit1171, label %252
+  br i1 %.not.i1394, label %lean_inc.exit1171, label %249
 
-252:                                              ; preds = %251
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %244) #6
+249:                                              ; preds = %248
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %241) #6
   br label %lean_inc.exit1171
 
-lean_inc.exit1171:                                ; preds = %252, %251, %249, %lean_alloc_ctor.exit
-  %253 = ptrtoint ptr %242 to i64
-  %254 = and i64 %253, 1
-  %.not1940 = icmp eq i64 %254, 0
-  br i1 %.not1940, label %255, label %lean_dec.exit1221
+lean_inc.exit1171:                                ; preds = %249, %248, %246, %lean_alloc_ctor.exit
+  %250 = ptrtoint ptr %239 to i64
+  %251 = and i64 %250, 1
+  %.not1940 = icmp eq i64 %251, 0
+  br i1 %.not1940, label %252, label %lean_dec.exit1221
 
-255:                                              ; preds = %lean_inc.exit1171
-  %256 = load i32, ptr %242, align 4, !tbaa !8
-  %257 = icmp sgt i32 %256, 1
-  br i1 %257, label %258, label %260, !prof !13
+252:                                              ; preds = %lean_inc.exit1171
+  %253 = load i32, ptr %239, align 4, !tbaa !8
+  %254 = icmp sgt i32 %253, 1
+  br i1 %254, label %255, label %257, !prof !13
 
-258:                                              ; preds = %255
-  %259 = add nsw i32 %256, -1
-  store i32 %259, ptr %242, align 4, !tbaa !8
+255:                                              ; preds = %252
+  %256 = add nsw i32 %253, -1
+  store i32 %256, ptr %239, align 4, !tbaa !8
   br label %lean_dec.exit1221
 
-260:                                              ; preds = %255
-  %.not.i1262 = icmp eq i32 %256, 0
-  br i1 %.not.i1262, label %lean_dec.exit1221, label %261
+257:                                              ; preds = %252
+  %.not.i1262 = icmp eq i32 %253, 0
+  br i1 %.not.i1262, label %lean_dec.exit1221, label %258
 
-261:                                              ; preds = %260
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %242) #6
+258:                                              ; preds = %257
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %239) #6
   br label %lean_dec.exit1221
 
-lean_dec.exit1221:                                ; preds = %261, %260, %258, %lean_inc.exit1171
-  %262 = tail call ptr @l_Lean_Name_replacePrefix(ptr noundef %244, ptr noundef %165, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
-  br i1 %.not1934, label %263, label %lean_dec.exit1220
+lean_dec.exit1221:                                ; preds = %258, %257, %255, %lean_inc.exit1171
+  %259 = tail call ptr @l_Lean_Name_replacePrefix(ptr noundef %241, ptr noundef %162, ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
+  br i1 %.not1934, label %260, label %lean_dec.exit1220
 
-263:                                              ; preds = %lean_dec.exit1221
-  %264 = load i32, ptr %165, align 4, !tbaa !8
-  %265 = icmp sgt i32 %264, 1
-  br i1 %265, label %266, label %268, !prof !13
+260:                                              ; preds = %lean_dec.exit1221
+  %261 = load i32, ptr %162, align 4, !tbaa !8
+  %262 = icmp sgt i32 %261, 1
+  br i1 %262, label %263, label %265, !prof !13
 
-266:                                              ; preds = %263
-  %267 = add nsw i32 %264, -1
-  store i32 %267, ptr %165, align 4, !tbaa !8
+263:                                              ; preds = %260
+  %264 = add nsw i32 %261, -1
+  store i32 %264, ptr %162, align 4, !tbaa !8
   br label %lean_dec.exit1220
 
-268:                                              ; preds = %263
-  %.not.i1264 = icmp eq i32 %264, 0
-  br i1 %.not.i1264, label %lean_dec.exit1220, label %269
+265:                                              ; preds = %260
+  %.not.i1264 = icmp eq i32 %261, 0
+  br i1 %.not.i1264, label %lean_dec.exit1220, label %266
 
-269:                                              ; preds = %268
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %165) #6
+266:                                              ; preds = %265
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %162) #6
   br label %lean_dec.exit1220
 
-lean_dec.exit1220:                                ; preds = %269, %268, %266, %lean_dec.exit1221
-  %270 = tail call ptr @l_Lean_Elab_Command_getRef(ptr noundef %4, ptr noundef %5, ptr noundef %193) #6
-  %.val1348 = load i32, ptr %270, align 4, !tbaa !8
-  %271 = icmp eq i32 %.val1348, 1
-  %272 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  %273 = load ptr, ptr %272, align 8, !tbaa !4
-  %274 = getelementptr inbounds nuw i8, ptr %270, i64 16
-  %275 = load ptr, ptr %274, align 8, !tbaa !4
-  br i1 %271, label %276, label %1674
+lean_dec.exit1220:                                ; preds = %266, %265, %263, %lean_dec.exit1221
+  %267 = tail call ptr @l_Lean_Elab_Command_getRef(ptr noundef %4, ptr noundef %5, ptr noundef %190) #6
+  %.val1348 = load i32, ptr %267, align 4, !tbaa !8
+  %268 = icmp eq i32 %.val1348, 1
+  %269 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  %270 = load ptr, ptr %269, align 8, !tbaa !4
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 16
+  %272 = load ptr, ptr %271, align 8, !tbaa !4
+  br i1 %268, label %273, label %1662
 
-276:                                              ; preds = %lean_dec.exit1220
-  %277 = tail call ptr @l_Lean_SourceInfo_fromRef(ptr noundef %273, i8 noundef zeroext 0) #6
-  %278 = ptrtoint ptr %273 to i64
-  %279 = and i64 %278, 1
-  %.not1961 = icmp eq i64 %279, 0
-  br i1 %.not1961, label %280, label %lean_dec.exit1219
+273:                                              ; preds = %lean_dec.exit1220
+  %274 = tail call ptr @l_Lean_SourceInfo_fromRef(ptr noundef %270, i8 noundef zeroext 0) #6
+  %275 = ptrtoint ptr %270 to i64
+  %276 = and i64 %275, 1
+  %.not1961 = icmp eq i64 %276, 0
+  br i1 %.not1961, label %277, label %lean_dec.exit1219
 
-280:                                              ; preds = %276
-  %281 = load i32, ptr %273, align 4, !tbaa !8
-  %282 = icmp sgt i32 %281, 1
-  br i1 %282, label %283, label %285, !prof !13
+277:                                              ; preds = %273
+  %278 = load i32, ptr %270, align 4, !tbaa !8
+  %279 = icmp sgt i32 %278, 1
+  br i1 %279, label %280, label %282, !prof !13
 
-283:                                              ; preds = %280
-  %284 = add nsw i32 %281, -1
-  store i32 %284, ptr %273, align 4, !tbaa !8
+280:                                              ; preds = %277
+  %281 = add nsw i32 %278, -1
+  store i32 %281, ptr %270, align 4, !tbaa !8
   br label %lean_dec.exit1219
 
-285:                                              ; preds = %280
-  %.not.i1266 = icmp eq i32 %281, 0
-  br i1 %.not.i1266, label %lean_dec.exit1219, label %286
+282:                                              ; preds = %277
+  %.not.i1266 = icmp eq i32 %278, 0
+  br i1 %.not.i1266, label %lean_dec.exit1219, label %283
 
-286:                                              ; preds = %285
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %273) #6
+283:                                              ; preds = %282
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %270) #6
   br label %lean_dec.exit1219
 
-lean_dec.exit1219:                                ; preds = %286, %285, %283, %276
-  %287 = tail call ptr @l_Lean_Elab_Command_getCurrMacroScope(ptr noundef %4, ptr noundef %5, ptr noundef %275) #6
-  %.val1347 = load i32, ptr %287, align 4, !tbaa !8
-  %288 = icmp eq i32 %.val1347, 1
-  br i1 %288, label %289, label %1177
+lean_dec.exit1219:                                ; preds = %283, %282, %280, %273
+  %284 = tail call ptr @l_Lean_Elab_Command_getCurrMacroScope(ptr noundef %4, ptr noundef %5, ptr noundef %272) #6
+  %.val1347 = load i32, ptr %284, align 4, !tbaa !8
+  %285 = icmp eq i32 %.val1347, 1
+  br i1 %285, label %286, label %1168
 
-289:                                              ; preds = %lean_dec.exit1219
-  %290 = getelementptr inbounds nuw i8, ptr %287, i64 8
-  %291 = getelementptr inbounds nuw i8, ptr %287, i64 16
-  %292 = load ptr, ptr %291, align 8, !tbaa !4
-  %293 = load ptr, ptr %290, align 8, !tbaa !4
-  %294 = ptrtoint ptr %293 to i64
-  %295 = and i64 %294, 1
-  %.not1979 = icmp eq i64 %295, 0
-  br i1 %.not1979, label %296, label %lean_dec.exit1218
+286:                                              ; preds = %lean_dec.exit1219
+  %287 = getelementptr inbounds nuw i8, ptr %284, i64 8
+  %288 = getelementptr inbounds nuw i8, ptr %284, i64 16
+  %289 = load ptr, ptr %288, align 8, !tbaa !4
+  %290 = load ptr, ptr %287, align 8, !tbaa !4
+  %291 = ptrtoint ptr %290 to i64
+  %292 = and i64 %291, 1
+  %.not1979 = icmp eq i64 %292, 0
+  br i1 %.not1979, label %293, label %lean_dec.exit1218
 
-296:                                              ; preds = %289
-  %297 = load i32, ptr %293, align 4, !tbaa !8
-  %298 = icmp sgt i32 %297, 1
-  br i1 %298, label %299, label %301, !prof !13
+293:                                              ; preds = %286
+  %294 = load i32, ptr %290, align 4, !tbaa !8
+  %295 = icmp sgt i32 %294, 1
+  br i1 %295, label %296, label %298, !prof !13
 
-299:                                              ; preds = %296
-  %300 = add nsw i32 %297, -1
-  store i32 %300, ptr %293, align 4, !tbaa !8
+296:                                              ; preds = %293
+  %297 = add nsw i32 %294, -1
+  store i32 %297, ptr %290, align 4, !tbaa !8
   br label %lean_dec.exit1218
 
-301:                                              ; preds = %296
-  %.not.i1268 = icmp eq i32 %297, 0
-  br i1 %.not.i1268, label %lean_dec.exit1218, label %302
+298:                                              ; preds = %293
+  %.not.i1268 = icmp eq i32 %294, 0
+  br i1 %.not.i1268, label %lean_dec.exit1218, label %299
 
-302:                                              ; preds = %301
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %293) #6
+299:                                              ; preds = %298
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %290) #6
   br label %lean_dec.exit1218
 
-lean_dec.exit1218:                                ; preds = %302, %301, %299, %289
-  %303 = tail call ptr @l_Lean_Elab_Command_getMainModule___rarg(ptr noundef %5, ptr noundef %292) #6
-  %.val1346 = load i32, ptr %303, align 4, !tbaa !8
-  %304 = icmp eq i32 %.val1346, 1
-  br i1 %304, label %305, label %737
+lean_dec.exit1218:                                ; preds = %299, %298, %296, %286
+  %300 = tail call ptr @l_Lean_Elab_Command_getMainModule___rarg(ptr noundef %5, ptr noundef %289) #6
+  %.val1346 = load i32, ptr %300, align 4, !tbaa !8
+  %301 = icmp eq i32 %.val1346, 1
+  br i1 %301, label %302, label %731
 
-305:                                              ; preds = %lean_dec.exit1218
-  %306 = getelementptr inbounds nuw i8, ptr %303, i64 8
-  %307 = getelementptr inbounds nuw i8, ptr %303, i64 16
-  %308 = load ptr, ptr %307, align 8, !tbaa !4
-  %309 = load ptr, ptr %306, align 8, !tbaa !4
-  %310 = ptrtoint ptr %309 to i64
-  %311 = and i64 %310, 1
-  %.not1995 = icmp eq i64 %311, 0
-  br i1 %.not1995, label %312, label %lean_dec.exit1217
+302:                                              ; preds = %lean_dec.exit1218
+  %303 = getelementptr inbounds nuw i8, ptr %300, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %300, i64 16
+  %305 = load ptr, ptr %304, align 8, !tbaa !4
+  %306 = load ptr, ptr %303, align 8, !tbaa !4
+  %307 = ptrtoint ptr %306 to i64
+  %308 = and i64 %307, 1
+  %.not1995 = icmp eq i64 %308, 0
+  br i1 %.not1995, label %309, label %lean_dec.exit1217
 
-312:                                              ; preds = %305
-  %313 = load i32, ptr %309, align 4, !tbaa !8
-  %314 = icmp sgt i32 %313, 1
-  br i1 %314, label %315, label %317, !prof !13
+309:                                              ; preds = %302
+  %310 = load i32, ptr %306, align 4, !tbaa !8
+  %311 = icmp sgt i32 %310, 1
+  br i1 %311, label %312, label %314, !prof !13
 
-315:                                              ; preds = %312
-  %316 = add nsw i32 %313, -1
-  store i32 %316, ptr %309, align 4, !tbaa !8
+312:                                              ; preds = %309
+  %313 = add nsw i32 %310, -1
+  store i32 %313, ptr %306, align 4, !tbaa !8
   br label %lean_dec.exit1217
 
-317:                                              ; preds = %312
-  %.not.i1270 = icmp eq i32 %313, 0
-  br i1 %.not.i1270, label %lean_dec.exit1217, label %318
+314:                                              ; preds = %309
+  %.not.i1270 = icmp eq i32 %310, 0
+  br i1 %.not.i1270, label %lean_dec.exit1217, label %315
 
-318:                                              ; preds = %317
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %309) #6
+315:                                              ; preds = %314
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %306) #6
   br label %lean_dec.exit1217
 
-lean_dec.exit1217:                                ; preds = %318, %317, %315, %305
-  %319 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__10, align 8, !tbaa !4
-  %320 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__11, align 8, !tbaa !4
-  %321 = ptrtoint ptr %277 to i64
-  %322 = and i64 %321, 1
-  %.not1996 = icmp eq i64 %322, 0
-  br i1 %.not1996, label %323, label %lean_inc.exit1170
+lean_dec.exit1217:                                ; preds = %315, %314, %312, %302
+  %316 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__10, align 8, !tbaa !4
+  %317 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__11, align 8, !tbaa !4
+  %318 = ptrtoint ptr %274 to i64
+  %319 = and i64 %318, 1
+  %.not1996 = icmp eq i64 %319, 0
+  br i1 %.not1996, label %320, label %lean_inc.exit1170
 
-323:                                              ; preds = %lean_dec.exit1217
-  %.val.i1396 = load i32, ptr %277, align 4, !tbaa !8
-  %324 = icmp sgt i32 %.val.i1396, 0
-  br i1 %324, label %325, label %327, !prof !13
+320:                                              ; preds = %lean_dec.exit1217
+  %.val.i1396 = load i32, ptr %274, align 4, !tbaa !8
+  %321 = icmp sgt i32 %.val.i1396, 0
+  br i1 %321, label %322, label %324, !prof !13
 
-325:                                              ; preds = %323
-  %326 = add nuw i32 %.val.i1396, 1
-  store i32 %326, ptr %277, align 4, !tbaa !8
+322:                                              ; preds = %320
+  %323 = add nuw i32 %.val.i1396, 1
+  store i32 %323, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1170
 
-327:                                              ; preds = %323
+324:                                              ; preds = %320
   %.not.i1397 = icmp eq i32 %.val.i1396, 0
-  br i1 %.not.i1397, label %lean_inc.exit1170, label %328
+  br i1 %.not.i1397, label %lean_inc.exit1170, label %325
 
-328:                                              ; preds = %327
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+325:                                              ; preds = %324
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1170
 
-lean_inc.exit1170:                                ; preds = %328, %327, %325, %lean_dec.exit1217
+lean_inc.exit1170:                                ; preds = %325, %324, %322, %lean_dec.exit1217
   tail call void @lean_inc_heartbeat() #6
-  %329 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %330 = icmp eq ptr %329, null
-  br i1 %330, label %331, label %lean_alloc_ctor.exit1399
+  %326 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %327 = icmp eq ptr %326, null
+  br i1 %327, label %328, label %lean_alloc_ctor.exit1399
 
-331:                                              ; preds = %lean_inc.exit1170
+328:                                              ; preds = %lean_inc.exit1170
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1399:                         ; preds = %lean_inc.exit1170
-  %332 = getelementptr inbounds nuw i8, ptr %329, i64 4
-  store i32 1, ptr %329, align 4, !tbaa !8
-  store i32 16973856, ptr %332, align 4
-  %333 = getelementptr inbounds nuw i8, ptr %329, i64 8
-  store ptr %277, ptr %333, align 8, !tbaa !4
-  %334 = getelementptr inbounds nuw i8, ptr %329, i64 16
-  store ptr %319, ptr %334, align 8, !tbaa !4
-  %335 = getelementptr inbounds nuw i8, ptr %329, i64 24
-  store ptr %320, ptr %335, align 8, !tbaa !4
-  %336 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__14, align 8, !tbaa !4
-  br i1 %.not1996, label %337, label %lean_inc.exit1169
+  %329 = getelementptr inbounds nuw i8, ptr %326, i64 4
+  store i32 1, ptr %326, align 4, !tbaa !8
+  store i32 16973856, ptr %329, align 4
+  %330 = getelementptr inbounds nuw i8, ptr %326, i64 8
+  store ptr %274, ptr %330, align 8, !tbaa !4
+  %331 = getelementptr inbounds nuw i8, ptr %326, i64 16
+  store ptr %316, ptr %331, align 8, !tbaa !4
+  %332 = getelementptr inbounds nuw i8, ptr %326, i64 24
+  store ptr %317, ptr %332, align 8, !tbaa !4
+  %333 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__14, align 8, !tbaa !4
+  br i1 %.not1996, label %334, label %lean_inc.exit1169
 
-337:                                              ; preds = %lean_alloc_ctor.exit1399
-  %.val.i1400 = load i32, ptr %277, align 4, !tbaa !8
-  %338 = icmp sgt i32 %.val.i1400, 0
-  br i1 %338, label %339, label %341, !prof !13
+334:                                              ; preds = %lean_alloc_ctor.exit1399
+  %.val.i1400 = load i32, ptr %274, align 4, !tbaa !8
+  %335 = icmp sgt i32 %.val.i1400, 0
+  br i1 %335, label %336, label %338, !prof !13
 
-339:                                              ; preds = %337
-  %340 = add nuw i32 %.val.i1400, 1
-  store i32 %340, ptr %277, align 4, !tbaa !8
+336:                                              ; preds = %334
+  %337 = add nuw i32 %.val.i1400, 1
+  store i32 %337, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1169
 
-341:                                              ; preds = %337
+338:                                              ; preds = %334
   %.not.i1401 = icmp eq i32 %.val.i1400, 0
-  br i1 %.not.i1401, label %lean_inc.exit1169, label %342
+  br i1 %.not.i1401, label %lean_inc.exit1169, label %339
 
-342:                                              ; preds = %341
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+339:                                              ; preds = %338
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1169
 
-lean_inc.exit1169:                                ; preds = %342, %341, %339, %lean_alloc_ctor.exit1399
-  %343 = getelementptr inbounds nuw i8, ptr %303, i64 4
-  %344 = load i32, ptr %343, align 4
-  %345 = and i32 %344, 16777215
-  %346 = or disjoint i32 %345, 33554432
-  store i32 %346, ptr %343, align 4
-  store ptr %336, ptr %307, align 8, !tbaa !4
-  store ptr %277, ptr %306, align 8, !tbaa !4
+lean_inc.exit1169:                                ; preds = %339, %338, %336, %lean_alloc_ctor.exit1399
+  %340 = getelementptr inbounds nuw i8, ptr %300, i64 4
+  %341 = load i32, ptr %340, align 4
+  %342 = and i32 %341, 16777215
+  %343 = or disjoint i32 %342, 33554432
+  store i32 %343, ptr %340, align 4
+  store ptr %333, ptr %304, align 8, !tbaa !4
+  store ptr %274, ptr %303, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
-  %347 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %348 = icmp eq ptr %347, null
-  br i1 %348, label %349, label %lean_alloc_ctor.exit1403
+  %344 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %345 = icmp eq ptr %344, null
+  br i1 %345, label %346, label %lean_alloc_ctor.exit1403
 
-349:                                              ; preds = %lean_inc.exit1169
+346:                                              ; preds = %lean_inc.exit1169
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1403:                         ; preds = %lean_inc.exit1169
-  %350 = getelementptr inbounds nuw i8, ptr %347, i64 4
-  store i32 1, ptr %347, align 4, !tbaa !8
-  store i32 16973856, ptr %350, align 4
-  %351 = getelementptr inbounds nuw i8, ptr %347, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %351, align 8, !tbaa !4
-  %352 = getelementptr inbounds nuw i8, ptr %347, i64 16
-  store ptr %319, ptr %352, align 8, !tbaa !4
-  %353 = getelementptr inbounds nuw i8, ptr %347, i64 24
-  store ptr %11, ptr %353, align 8, !tbaa !4
-  %354 = tail call ptr @l_Lean_mkIdentFrom(ptr noundef nonnull %347, ptr noundef %262, i8 noundef zeroext 1) #6
-  %355 = ptrtoint ptr %347 to i64
-  %356 = and i64 %355, 1
-  %.not1997 = icmp eq i64 %356, 0
-  br i1 %.not1997, label %357, label %lean_dec.exit1216
+  %347 = getelementptr inbounds nuw i8, ptr %344, i64 4
+  store i32 1, ptr %344, align 4, !tbaa !8
+  store i32 16973856, ptr %347, align 4
+  %348 = getelementptr inbounds nuw i8, ptr %344, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %348, align 8, !tbaa !4
+  %349 = getelementptr inbounds nuw i8, ptr %344, i64 16
+  store ptr %316, ptr %349, align 8, !tbaa !4
+  %350 = getelementptr inbounds nuw i8, ptr %344, i64 24
+  store ptr %11, ptr %350, align 8, !tbaa !4
+  %351 = tail call ptr @l_Lean_mkIdentFrom(ptr noundef nonnull %344, ptr noundef %259, i8 noundef zeroext 1) #6
+  %352 = load i32, ptr %344, align 8, !tbaa !8
+  %353 = icmp sgt i32 %352, 1
+  br i1 %353, label %354, label %356, !prof !13
 
-357:                                              ; preds = %lean_alloc_ctor.exit1403
-  %358 = load i32, ptr %347, align 4, !tbaa !8
-  %359 = icmp sgt i32 %358, 1
-  br i1 %359, label %360, label %362, !prof !13
-
-360:                                              ; preds = %357
-  %361 = add nsw i32 %358, -1
-  store i32 %361, ptr %347, align 4, !tbaa !8
+354:                                              ; preds = %lean_alloc_ctor.exit1403
+  %355 = add nsw i32 %352, -1
+  store i32 %355, ptr %344, align 4, !tbaa !8
   br label %lean_dec.exit1216
 
-362:                                              ; preds = %357
-  %.not.i1272 = icmp eq i32 %358, 0
-  br i1 %.not.i1272, label %lean_dec.exit1216, label %363
+356:                                              ; preds = %lean_alloc_ctor.exit1403
+  %.not.i1272 = icmp eq i32 %352, 0
+  br i1 %.not.i1272, label %lean_dec.exit1216, label %357
 
-363:                                              ; preds = %362
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %347) #6
+357:                                              ; preds = %356
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %344) #6
   br label %lean_dec.exit1216
 
-lean_dec.exit1216:                                ; preds = %363, %362, %360, %lean_alloc_ctor.exit1403
-  %364 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__16, align 8, !tbaa !4
-  %365 = ptrtoint ptr %329 to i64
-  %366 = and i64 %365, 1
-  %.not1998 = icmp eq i64 %366, 0
-  br i1 %.not1998, label %367, label %lean_inc.exit1168
+lean_dec.exit1216:                                ; preds = %357, %356, %354
+  %358 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__16, align 8, !tbaa !4
+  %359 = ptrtoint ptr %326 to i64
+  %360 = and i64 %359, 1
+  %.not1998 = icmp eq i64 %360, 0
+  br i1 %.not1998, label %361, label %lean_inc.exit1168
 
-367:                                              ; preds = %lean_dec.exit1216
-  %.val.i1404 = load i32, ptr %329, align 4, !tbaa !8
-  %368 = icmp sgt i32 %.val.i1404, 0
+361:                                              ; preds = %lean_dec.exit1216
+  %.val.i1404 = load i32, ptr %326, align 4, !tbaa !8
+  %362 = icmp sgt i32 %.val.i1404, 0
+  br i1 %362, label %363, label %365, !prof !13
+
+363:                                              ; preds = %361
+  %364 = add nuw i32 %.val.i1404, 1
+  store i32 %364, ptr %326, align 4, !tbaa !8
+  br label %lean_inc.exit1168
+
+365:                                              ; preds = %361
+  %.not.i1405 = icmp eq i32 %.val.i1404, 0
+  br i1 %.not.i1405, label %lean_inc.exit1168, label %366
+
+366:                                              ; preds = %365
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %326) #6
+  br label %lean_inc.exit1168
+
+lean_inc.exit1168:                                ; preds = %366, %365, %363, %lean_dec.exit1216
+  br i1 %.not1996, label %367, label %lean_inc.exit1167
+
+367:                                              ; preds = %lean_inc.exit1168
+  %.val.i1407 = load i32, ptr %274, align 4, !tbaa !8
+  %368 = icmp sgt i32 %.val.i1407, 0
   br i1 %368, label %369, label %371, !prof !13
 
 369:                                              ; preds = %367
-  %370 = add nuw i32 %.val.i1404, 1
-  store i32 %370, ptr %329, align 4, !tbaa !8
-  br label %lean_inc.exit1168
+  %370 = add nuw i32 %.val.i1407, 1
+  store i32 %370, ptr %274, align 4, !tbaa !8
+  br label %375
 
 371:                                              ; preds = %367
-  %.not.i1405 = icmp eq i32 %.val.i1404, 0
-  br i1 %.not.i1405, label %lean_inc.exit1168, label %372
+  %.not.i1408 = icmp eq i32 %.val.i1407, 0
+  br i1 %.not.i1408, label %375, label %372
 
 372:                                              ; preds = %371
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %329) #6
-  br label %lean_inc.exit1168
-
-lean_inc.exit1168:                                ; preds = %372, %371, %369, %lean_dec.exit1216
-  br i1 %.not1996, label %373, label %lean_inc.exit1167
-
-373:                                              ; preds = %lean_inc.exit1168
-  %.val.i1407 = load i32, ptr %277, align 4, !tbaa !8
-  %374 = icmp sgt i32 %.val.i1407, 0
-  br i1 %374, label %375, label %377, !prof !13
-
-375:                                              ; preds = %373
-  %376 = add nuw i32 %.val.i1407, 1
-  store i32 %376, ptr %277, align 4, !tbaa !8
-  br label %381
-
-377:                                              ; preds = %373
-  %.not.i1408 = icmp eq i32 %.val.i1407, 0
-  br i1 %.not.i1408, label %381, label %378
-
-378:                                              ; preds = %377
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %381
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
+  br label %375
 
 lean_inc.exit1167:                                ; preds = %lean_inc.exit1168
-  %379 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %364, ptr noundef %354, ptr noundef nonnull %329) #6
-  %380 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
+  %373 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %358, ptr noundef %351, ptr noundef nonnull %326) #6
+  %374 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
   br label %lean_inc.exit1166
 
-381:                                              ; preds = %378, %377, %375
-  %382 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %277, ptr noundef %364, ptr noundef %354, ptr noundef nonnull %329) #6
-  %383 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
-  %.val.i1410 = load i32, ptr %277, align 4, !tbaa !8
-  %384 = icmp sgt i32 %.val.i1410, 0
-  br i1 %384, label %385, label %387, !prof !13
+375:                                              ; preds = %372, %371, %369
+  %376 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %274, ptr noundef %358, ptr noundef %351, ptr noundef nonnull %326) #6
+  %377 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
+  %.val.i1410 = load i32, ptr %274, align 4, !tbaa !8
+  %378 = icmp sgt i32 %.val.i1410, 0
+  br i1 %378, label %379, label %381, !prof !13
 
-385:                                              ; preds = %381
-  %386 = add nuw i32 %.val.i1410, 1
-  store i32 %386, ptr %277, align 4, !tbaa !8
+379:                                              ; preds = %375
+  %380 = add nuw i32 %.val.i1410, 1
+  store i32 %380, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1166
 
-387:                                              ; preds = %381
+381:                                              ; preds = %375
   %.not.i1411 = icmp eq i32 %.val.i1410, 0
-  br i1 %.not.i1411, label %lean_inc.exit1166, label %388
+  br i1 %.not.i1411, label %lean_inc.exit1166, label %382
 
-388:                                              ; preds = %387
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+382:                                              ; preds = %381
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1166
 
-lean_inc.exit1166:                                ; preds = %388, %387, %385, %lean_inc.exit1167
-  %389 = phi ptr [ %380, %lean_inc.exit1167 ], [ %383, %385 ], [ %383, %387 ], [ %383, %388 ]
-  %390 = phi ptr [ %379, %lean_inc.exit1167 ], [ %382, %385 ], [ %382, %387 ], [ %382, %388 ]
-  %391 = getelementptr inbounds nuw i8, ptr %287, i64 4
-  %392 = load i32, ptr %391, align 4
-  %393 = and i32 %392, 16777215
-  %394 = or disjoint i32 %393, 33554432
-  store i32 %394, ptr %391, align 4
-  store ptr %389, ptr %291, align 8, !tbaa !4
-  store ptr %277, ptr %290, align 8, !tbaa !4
-  %395 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__20, align 8, !tbaa !4
-  br i1 %.not1996, label %396, label %lean_inc.exit1165
+lean_inc.exit1166:                                ; preds = %382, %381, %379, %lean_inc.exit1167
+  %383 = phi ptr [ %374, %lean_inc.exit1167 ], [ %377, %379 ], [ %377, %381 ], [ %377, %382 ]
+  %384 = phi ptr [ %373, %lean_inc.exit1167 ], [ %376, %379 ], [ %376, %381 ], [ %376, %382 ]
+  %385 = getelementptr inbounds nuw i8, ptr %284, i64 4
+  %386 = load i32, ptr %385, align 4
+  %387 = and i32 %386, 16777215
+  %388 = or disjoint i32 %387, 33554432
+  store i32 %388, ptr %385, align 4
+  store ptr %383, ptr %288, align 8, !tbaa !4
+  store ptr %274, ptr %287, align 8, !tbaa !4
+  %389 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__20, align 8, !tbaa !4
+  br i1 %.not1996, label %390, label %lean_inc.exit1165
 
-396:                                              ; preds = %lean_inc.exit1166
-  %.val.i1413 = load i32, ptr %277, align 4, !tbaa !8
-  %397 = icmp sgt i32 %.val.i1413, 0
-  br i1 %397, label %398, label %400, !prof !13
+390:                                              ; preds = %lean_inc.exit1166
+  %.val.i1413 = load i32, ptr %274, align 4, !tbaa !8
+  %391 = icmp sgt i32 %.val.i1413, 0
+  br i1 %391, label %392, label %394, !prof !13
 
-398:                                              ; preds = %396
-  %399 = add nuw i32 %.val.i1413, 1
-  store i32 %399, ptr %277, align 4, !tbaa !8
-  br label %403
+392:                                              ; preds = %390
+  %393 = add nuw i32 %.val.i1413, 1
+  store i32 %393, ptr %274, align 4, !tbaa !8
+  br label %397
 
-400:                                              ; preds = %396
+394:                                              ; preds = %390
   %.not.i1414 = icmp eq i32 %.val.i1413, 0
-  br i1 %.not.i1414, label %403, label %401
+  br i1 %.not.i1414, label %397, label %395
 
-401:                                              ; preds = %400
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %403
+395:                                              ; preds = %394
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
+  br label %397
 
 lean_inc.exit1165:                                ; preds = %lean_inc.exit1166
-  %402 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %395, ptr noundef nonnull %287, ptr noundef %9) #6
+  %396 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %389, ptr noundef nonnull %284, ptr noundef %9) #6
   br label %lean_inc.exit1164
 
-403:                                              ; preds = %401, %400, %398
-  %404 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %277, ptr noundef %395, ptr noundef nonnull %287, ptr noundef %9) #6
-  %.val.i1416 = load i32, ptr %277, align 4, !tbaa !8
-  %405 = icmp sgt i32 %.val.i1416, 0
-  br i1 %405, label %406, label %408, !prof !13
+397:                                              ; preds = %395, %394, %392
+  %398 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %274, ptr noundef %389, ptr noundef nonnull %284, ptr noundef %9) #6
+  %.val.i1416 = load i32, ptr %274, align 4, !tbaa !8
+  %399 = icmp sgt i32 %.val.i1416, 0
+  br i1 %399, label %400, label %402, !prof !13
 
-406:                                              ; preds = %403
-  %407 = add nuw i32 %.val.i1416, 1
-  store i32 %407, ptr %277, align 4, !tbaa !8
+400:                                              ; preds = %397
+  %401 = add nuw i32 %.val.i1416, 1
+  store i32 %401, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1164
 
-408:                                              ; preds = %403
+402:                                              ; preds = %397
   %.not.i1417 = icmp eq i32 %.val.i1416, 0
-  br i1 %.not.i1417, label %lean_inc.exit1164, label %409
+  br i1 %.not.i1417, label %lean_inc.exit1164, label %403
 
-409:                                              ; preds = %408
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+403:                                              ; preds = %402
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1164
 
-lean_inc.exit1164:                                ; preds = %409, %408, %406, %lean_inc.exit1165
-  %410 = phi ptr [ %402, %lean_inc.exit1165 ], [ %404, %406 ], [ %404, %408 ], [ %404, %409 ]
-  %411 = tail call ptr @l_Lean_Syntax_node1(ptr noundef %277, ptr noundef %319, ptr noundef %410) #6
-  %412 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__18, align 8, !tbaa !4
-  br i1 %.not1998, label %413, label %lean_inc.exit1163
+lean_inc.exit1164:                                ; preds = %403, %402, %400, %lean_inc.exit1165
+  %404 = phi ptr [ %396, %lean_inc.exit1165 ], [ %398, %400 ], [ %398, %402 ], [ %398, %403 ]
+  %405 = tail call ptr @l_Lean_Syntax_node1(ptr noundef %274, ptr noundef %316, ptr noundef %404) #6
+  %406 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__18, align 8, !tbaa !4
+  br i1 %.not1998, label %407, label %lean_inc.exit1163
 
-413:                                              ; preds = %lean_inc.exit1164
-  %.val.i1419 = load i32, ptr %329, align 4, !tbaa !8
-  %414 = icmp sgt i32 %.val.i1419, 0
+407:                                              ; preds = %lean_inc.exit1164
+  %.val.i1419 = load i32, ptr %326, align 4, !tbaa !8
+  %408 = icmp sgt i32 %.val.i1419, 0
+  br i1 %408, label %409, label %411, !prof !13
+
+409:                                              ; preds = %407
+  %410 = add nuw i32 %.val.i1419, 1
+  store i32 %410, ptr %326, align 4, !tbaa !8
+  br label %lean_inc.exit1163
+
+411:                                              ; preds = %407
+  %.not.i1420 = icmp eq i32 %.val.i1419, 0
+  br i1 %.not.i1420, label %lean_inc.exit1163, label %412
+
+412:                                              ; preds = %411
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %326) #6
+  br label %lean_inc.exit1163
+
+lean_inc.exit1163:                                ; preds = %412, %411, %409, %lean_inc.exit1164
+  br i1 %.not1996, label %413, label %lean_inc.exit1162
+
+413:                                              ; preds = %lean_inc.exit1163
+  %.val.i1422 = load i32, ptr %274, align 4, !tbaa !8
+  %414 = icmp sgt i32 %.val.i1422, 0
   br i1 %414, label %415, label %417, !prof !13
 
 415:                                              ; preds = %413
-  %416 = add nuw i32 %.val.i1419, 1
-  store i32 %416, ptr %329, align 4, !tbaa !8
-  br label %lean_inc.exit1163
+  %416 = add nuw i32 %.val.i1422, 1
+  store i32 %416, ptr %274, align 4, !tbaa !8
+  br label %421
 
 417:                                              ; preds = %413
-  %.not.i1420 = icmp eq i32 %.val.i1419, 0
-  br i1 %.not.i1420, label %lean_inc.exit1163, label %418
+  %.not.i1423 = icmp eq i32 %.val.i1422, 0
+  br i1 %.not.i1423, label %421, label %418
 
 418:                                              ; preds = %417
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %329) #6
-  br label %lean_inc.exit1163
-
-lean_inc.exit1163:                                ; preds = %418, %417, %415, %lean_inc.exit1164
-  br i1 %.not1996, label %419, label %lean_inc.exit1162
-
-419:                                              ; preds = %lean_inc.exit1163
-  %.val.i1422 = load i32, ptr %277, align 4, !tbaa !8
-  %420 = icmp sgt i32 %.val.i1422, 0
-  br i1 %420, label %421, label %423, !prof !13
-
-421:                                              ; preds = %419
-  %422 = add nuw i32 %.val.i1422, 1
-  store i32 %422, ptr %277, align 4, !tbaa !8
-  br label %427
-
-423:                                              ; preds = %419
-  %.not.i1423 = icmp eq i32 %.val.i1422, 0
-  br i1 %.not.i1423, label %427, label %424
-
-424:                                              ; preds = %423
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %427
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
+  br label %421
 
 lean_inc.exit1162:                                ; preds = %lean_inc.exit1163
-  %425 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %412, ptr noundef nonnull %329, ptr noundef %411) #6
-  %426 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
+  %419 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %406, ptr noundef nonnull %326, ptr noundef %405) #6
+  %420 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
   br label %lean_inc.exit1161
 
-427:                                              ; preds = %424, %423, %421
-  %428 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %277, ptr noundef %412, ptr noundef nonnull %329, ptr noundef %411) #6
-  %429 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
-  %.val.i1425 = load i32, ptr %277, align 4, !tbaa !8
-  %430 = icmp sgt i32 %.val.i1425, 0
-  br i1 %430, label %431, label %433, !prof !13
+421:                                              ; preds = %418, %417, %415
+  %422 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %274, ptr noundef %406, ptr noundef nonnull %326, ptr noundef %405) #6
+  %423 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
+  %.val.i1425 = load i32, ptr %274, align 4, !tbaa !8
+  %424 = icmp sgt i32 %.val.i1425, 0
+  br i1 %424, label %425, label %427, !prof !13
 
-431:                                              ; preds = %427
-  %432 = add nuw i32 %.val.i1425, 1
-  store i32 %432, ptr %277, align 4, !tbaa !8
+425:                                              ; preds = %421
+  %426 = add nuw i32 %.val.i1425, 1
+  store i32 %426, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1161
 
-433:                                              ; preds = %427
+427:                                              ; preds = %421
   %.not.i1426 = icmp eq i32 %.val.i1425, 0
-  br i1 %.not.i1426, label %lean_inc.exit1161, label %434
+  br i1 %.not.i1426, label %lean_inc.exit1161, label %428
 
-434:                                              ; preds = %433
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+428:                                              ; preds = %427
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1161
 
-lean_inc.exit1161:                                ; preds = %434, %433, %431, %lean_inc.exit1162
-  %435 = phi ptr [ %426, %lean_inc.exit1162 ], [ %429, %431 ], [ %429, %433 ], [ %429, %434 ]
-  %436 = phi ptr [ %425, %lean_inc.exit1162 ], [ %428, %431 ], [ %428, %433 ], [ %428, %434 ]
-  %437 = getelementptr inbounds nuw i8, ptr %270, i64 4
-  %438 = load i32, ptr %437, align 4
-  %439 = and i32 %438, 16777215
-  %440 = or disjoint i32 %439, 33554432
-  store i32 %440, ptr %437, align 4
-  store ptr %435, ptr %274, align 8, !tbaa !4
-  store ptr %277, ptr %272, align 8, !tbaa !4
-  %441 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__25, align 8, !tbaa !4
-  br i1 %.not1998, label %442, label %lean_inc_n.exit
+lean_inc.exit1161:                                ; preds = %428, %427, %425, %lean_inc.exit1162
+  %429 = phi ptr [ %420, %lean_inc.exit1162 ], [ %423, %425 ], [ %423, %427 ], [ %423, %428 ]
+  %430 = phi ptr [ %419, %lean_inc.exit1162 ], [ %422, %425 ], [ %422, %427 ], [ %422, %428 ]
+  %431 = getelementptr inbounds nuw i8, ptr %267, i64 4
+  %432 = load i32, ptr %431, align 4
+  %433 = and i32 %432, 16777215
+  %434 = or disjoint i32 %433, 33554432
+  store i32 %434, ptr %431, align 4
+  store ptr %429, ptr %271, align 8, !tbaa !4
+  store ptr %274, ptr %269, align 8, !tbaa !4
+  %435 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__25, align 8, !tbaa !4
+  br i1 %.not1998, label %436, label %lean_inc_n.exit
 
-442:                                              ; preds = %lean_inc.exit1161
-  %.val.i.i = load i32, ptr %329, align 4, !tbaa !8
-  %443 = icmp sgt i32 %.val.i.i, 0
+436:                                              ; preds = %lean_inc.exit1161
+  %.val.i.i = load i32, ptr %326, align 4, !tbaa !8
+  %437 = icmp sgt i32 %.val.i.i, 0
+  br i1 %437, label %438, label %440, !prof !13
+
+438:                                              ; preds = %436
+  %439 = add nuw i32 %.val.i.i, 2
+  store i32 %439, ptr %326, align 4, !tbaa !8
+  br label %lean_inc_n.exit
+
+440:                                              ; preds = %436
+  %.not.i.i1429 = icmp eq i32 %.val.i.i, 0
+  br i1 %.not.i.i1429, label %lean_inc_n.exit, label %441
+
+441:                                              ; preds = %440
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %326, i32 noundef 2) #6
+  br label %lean_inc_n.exit
+
+lean_inc_n.exit:                                  ; preds = %lean_inc.exit1161, %438, %440, %441
+  br i1 %.not1996, label %442, label %lean_inc.exit1160
+
+442:                                              ; preds = %lean_inc_n.exit
+  %.val.i1430 = load i32, ptr %274, align 4, !tbaa !8
+  %443 = icmp sgt i32 %.val.i1430, 0
   br i1 %443, label %444, label %446, !prof !13
 
 444:                                              ; preds = %442
-  %445 = add nuw i32 %.val.i.i, 2
-  store i32 %445, ptr %329, align 4, !tbaa !8
-  br label %lean_inc_n.exit
+  %445 = add nuw i32 %.val.i1430, 1
+  store i32 %445, ptr %274, align 4, !tbaa !8
+  br label %lean_inc.exit1160
 
 446:                                              ; preds = %442
-  %.not.i.i1429 = icmp eq i32 %.val.i.i, 0
-  br i1 %.not.i.i1429, label %lean_inc_n.exit, label %447
+  %.not.i1431 = icmp eq i32 %.val.i1430, 0
+  br i1 %.not.i1431, label %lean_inc.exit1160, label %447
 
 447:                                              ; preds = %446
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %329, i32 noundef 2) #6
-  br label %lean_inc_n.exit
-
-lean_inc_n.exit:                                  ; preds = %lean_inc.exit1161, %444, %446, %447
-  br i1 %.not1996, label %448, label %lean_inc.exit1160
-
-448:                                              ; preds = %lean_inc_n.exit
-  %.val.i1430 = load i32, ptr %277, align 4, !tbaa !8
-  %449 = icmp sgt i32 %.val.i1430, 0
-  br i1 %449, label %450, label %452, !prof !13
-
-450:                                              ; preds = %448
-  %451 = add nuw i32 %.val.i1430, 1
-  store i32 %451, ptr %277, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1160
 
-452:                                              ; preds = %448
-  %.not.i1431 = icmp eq i32 %.val.i1430, 0
-  br i1 %.not.i1431, label %lean_inc.exit1160, label %453
+lean_inc.exit1160:                                ; preds = %447, %446, %444, %lean_inc_n.exit
+  %448 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %435, ptr noundef nonnull %326, ptr noundef nonnull %326) #6
+  %449 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__22, align 8, !tbaa !4
+  br i1 %.not1998, label %450, label %lean_inc.exit1159
 
-453:                                              ; preds = %452
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %lean_inc.exit1160
+450:                                              ; preds = %lean_inc.exit1160
+  %.val.i1433 = load i32, ptr %326, align 4, !tbaa !8
+  %451 = icmp sgt i32 %.val.i1433, 0
+  br i1 %451, label %452, label %454, !prof !13
 
-lean_inc.exit1160:                                ; preds = %453, %452, %450, %lean_inc_n.exit
-  %454 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %441, ptr noundef nonnull %329, ptr noundef nonnull %329) #6
-  %455 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__22, align 8, !tbaa !4
-  br i1 %.not1998, label %456, label %lean_inc.exit1159
+452:                                              ; preds = %450
+  %453 = add nuw i32 %.val.i1433, 1
+  store i32 %453, ptr %326, align 4, !tbaa !8
+  br label %lean_inc.exit1159
 
-456:                                              ; preds = %lean_inc.exit1160
-  %.val.i1433 = load i32, ptr %329, align 4, !tbaa !8
-  %457 = icmp sgt i32 %.val.i1433, 0
+454:                                              ; preds = %450
+  %.not.i1434 = icmp eq i32 %.val.i1433, 0
+  br i1 %.not.i1434, label %lean_inc.exit1159, label %455
+
+455:                                              ; preds = %454
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %326) #6
+  br label %lean_inc.exit1159
+
+lean_inc.exit1159:                                ; preds = %455, %454, %452, %lean_inc.exit1160
+  br i1 %.not1996, label %456, label %lean_inc.exit1158
+
+456:                                              ; preds = %lean_inc.exit1159
+  %.val.i1436 = load i32, ptr %274, align 4, !tbaa !8
+  %457 = icmp sgt i32 %.val.i1436, 0
   br i1 %457, label %458, label %460, !prof !13
 
 458:                                              ; preds = %456
-  %459 = add nuw i32 %.val.i1433, 1
-  store i32 %459, ptr %329, align 4, !tbaa !8
-  br label %lean_inc.exit1159
+  %459 = add nuw i32 %.val.i1436, 1
+  store i32 %459, ptr %274, align 4, !tbaa !8
+  br label %lean_inc.exit1158
 
 460:                                              ; preds = %456
-  %.not.i1434 = icmp eq i32 %.val.i1433, 0
-  br i1 %.not.i1434, label %lean_inc.exit1159, label %461
+  %.not.i1437 = icmp eq i32 %.val.i1436, 0
+  br i1 %.not.i1437, label %lean_inc.exit1158, label %461
 
 461:                                              ; preds = %460
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %329) #6
-  br label %lean_inc.exit1159
-
-lean_inc.exit1159:                                ; preds = %461, %460, %458, %lean_inc.exit1160
-  br i1 %.not1996, label %462, label %lean_inc.exit1158
-
-462:                                              ; preds = %lean_inc.exit1159
-  %.val.i1436 = load i32, ptr %277, align 4, !tbaa !8
-  %463 = icmp sgt i32 %.val.i1436, 0
-  br i1 %463, label %464, label %466, !prof !13
-
-464:                                              ; preds = %462
-  %465 = add nuw i32 %.val.i1436, 1
-  store i32 %465, ptr %277, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1158
 
-466:                                              ; preds = %462
-  %.not.i1437 = icmp eq i32 %.val.i1436, 0
-  br i1 %.not.i1437, label %lean_inc.exit1158, label %467
+lean_inc.exit1158:                                ; preds = %461, %460, %458, %lean_inc.exit1159
+  %462 = tail call ptr @l_Lean_Syntax_node4(ptr noundef %274, ptr noundef %449, ptr noundef nonnull %267, ptr noundef %10, ptr noundef %448, ptr noundef nonnull %326) #6
+  %463 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__13, align 8, !tbaa !4
+  br i1 %.not1998, label %464, label %lean_inc.exit1157
 
-467:                                              ; preds = %466
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %lean_inc.exit1158
+464:                                              ; preds = %lean_inc.exit1158
+  %.val.i1439 = load i32, ptr %326, align 4, !tbaa !8
+  %465 = icmp sgt i32 %.val.i1439, 0
+  br i1 %465, label %466, label %468, !prof !13
 
-lean_inc.exit1158:                                ; preds = %467, %466, %464, %lean_inc.exit1159
-  %468 = tail call ptr @l_Lean_Syntax_node4(ptr noundef %277, ptr noundef %455, ptr noundef nonnull %270, ptr noundef %10, ptr noundef %454, ptr noundef nonnull %329) #6
-  %469 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__13, align 8, !tbaa !4
-  br i1 %.not1998, label %470, label %lean_inc.exit1157
+466:                                              ; preds = %464
+  %467 = add nuw i32 %.val.i1439, 1
+  store i32 %467, ptr %326, align 4, !tbaa !8
+  br label %lean_inc.exit1157
 
-470:                                              ; preds = %lean_inc.exit1158
-  %.val.i1439 = load i32, ptr %329, align 4, !tbaa !8
-  %471 = icmp sgt i32 %.val.i1439, 0
+468:                                              ; preds = %464
+  %.not.i1440 = icmp eq i32 %.val.i1439, 0
+  br i1 %.not.i1440, label %lean_inc.exit1157, label %469
+
+469:                                              ; preds = %468
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %326) #6
+  br label %lean_inc.exit1157
+
+lean_inc.exit1157:                                ; preds = %469, %468, %466, %lean_inc.exit1158
+  br i1 %.not1996, label %470, label %lean_inc.exit1156
+
+470:                                              ; preds = %lean_inc.exit1157
+  %.val.i1442 = load i32, ptr %274, align 4, !tbaa !8
+  %471 = icmp sgt i32 %.val.i1442, 0
   br i1 %471, label %472, label %474, !prof !13
 
 472:                                              ; preds = %470
-  %473 = add nuw i32 %.val.i1439, 1
-  store i32 %473, ptr %329, align 4, !tbaa !8
-  br label %lean_inc.exit1157
+  %473 = add nuw i32 %.val.i1442, 1
+  store i32 %473, ptr %274, align 4, !tbaa !8
+  br label %lean_inc.exit1156
 
 474:                                              ; preds = %470
-  %.not.i1440 = icmp eq i32 %.val.i1439, 0
-  br i1 %.not.i1440, label %lean_inc.exit1157, label %475
+  %.not.i1443 = icmp eq i32 %.val.i1442, 0
+  br i1 %.not.i1443, label %lean_inc.exit1156, label %475
 
 475:                                              ; preds = %474
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %329) #6
-  br label %lean_inc.exit1157
-
-lean_inc.exit1157:                                ; preds = %475, %474, %472, %lean_inc.exit1158
-  br i1 %.not1996, label %476, label %lean_inc.exit1156
-
-476:                                              ; preds = %lean_inc.exit1157
-  %.val.i1442 = load i32, ptr %277, align 4, !tbaa !8
-  %477 = icmp sgt i32 %.val.i1442, 0
-  br i1 %477, label %478, label %480, !prof !13
-
-478:                                              ; preds = %476
-  %479 = add nuw i32 %.val.i1442, 1
-  store i32 %479, ptr %277, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1156
 
-480:                                              ; preds = %476
-  %.not.i1443 = icmp eq i32 %.val.i1442, 0
-  br i1 %.not.i1443, label %lean_inc.exit1156, label %481
+lean_inc.exit1156:                                ; preds = %475, %474, %472, %lean_inc.exit1157
+  %476 = tail call ptr @l_Lean_Syntax_node5(ptr noundef %274, ptr noundef %463, ptr noundef nonnull %300, ptr noundef %384, ptr noundef %430, ptr noundef %462, ptr noundef nonnull %326) #6
+  %477 = ptrtoint ptr %1 to i64
+  %478 = and i64 %477, 1
+  %.not.i1445 = icmp eq i64 %478, 0
+  br i1 %.not.i1445, label %482, label %479
 
-481:                                              ; preds = %480
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %lean_inc.exit1156
-
-lean_inc.exit1156:                                ; preds = %481, %480, %478, %lean_inc.exit1157
-  %482 = tail call ptr @l_Lean_Syntax_node5(ptr noundef %277, ptr noundef %469, ptr noundef nonnull %303, ptr noundef %390, ptr noundef %436, ptr noundef %468, ptr noundef nonnull %329) #6
-  %483 = ptrtoint ptr %1 to i64
-  %484 = and i64 %483, 1
-  %.not.i1445 = icmp eq i64 %484, 0
-  br i1 %.not.i1445, label %488, label %485
-
-485:                                              ; preds = %lean_inc.exit1156
-  %486 = lshr i64 %483, 1
-  %487 = trunc i64 %486 to i32
+479:                                              ; preds = %lean_inc.exit1156
+  %480 = lshr i64 %477, 1
+  %481 = trunc i64 %480 to i32
   br label %lean_obj_tag.exit
 
-488:                                              ; preds = %lean_inc.exit1156
-  %489 = getelementptr i8, ptr %1, i64 4
-  %.val.i1447 = load i32, ptr %489, align 4
-  %490 = lshr i32 %.val.i1447, 24
+482:                                              ; preds = %lean_inc.exit1156
+  %483 = getelementptr i8, ptr %1, i64 4
+  %.val.i1447 = load i32, ptr %483, align 4
+  %484 = lshr i32 %.val.i1447, 24
   br label %lean_obj_tag.exit
 
-lean_obj_tag.exit:                                ; preds = %485, %488
-  %.0.i1446 = phi i32 [ %487, %485 ], [ %490, %488 ]
-  %491 = icmp eq i32 %.0.i1446, 0
-  br i1 %491, label %492, label %595
+lean_obj_tag.exit:                                ; preds = %479, %482
+  %.0.i1446 = phi i32 [ %481, %479 ], [ %484, %482 ]
+  %485 = icmp eq i32 %.0.i1446, 0
+  br i1 %485, label %486, label %589
 
-492:                                              ; preds = %lean_obj_tag.exit
-  %493 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
-  br i1 %.not1996, label %494, label %lean_inc.exit1155
+486:                                              ; preds = %lean_obj_tag.exit
+  %487 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
+  br i1 %.not1996, label %488, label %lean_inc.exit1155
 
-494:                                              ; preds = %492
-  %.val.i1448 = load i32, ptr %277, align 4, !tbaa !8
-  %495 = icmp sgt i32 %.val.i1448, 0
-  br i1 %495, label %496, label %498, !prof !13
+488:                                              ; preds = %486
+  %.val.i1448 = load i32, ptr %274, align 4, !tbaa !8
+  %489 = icmp sgt i32 %.val.i1448, 0
+  br i1 %489, label %490, label %492, !prof !13
 
-496:                                              ; preds = %494
-  %497 = add nuw i32 %.val.i1448, 1
-  store i32 %497, ptr %277, align 4, !tbaa !8
+490:                                              ; preds = %488
+  %491 = add nuw i32 %.val.i1448, 1
+  store i32 %491, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1155
 
-498:                                              ; preds = %494
+492:                                              ; preds = %488
   %.not.i1449 = icmp eq i32 %.val.i1448, 0
-  br i1 %.not.i1449, label %lean_inc.exit1155, label %499
+  br i1 %.not.i1449, label %lean_inc.exit1155, label %493
 
-499:                                              ; preds = %498
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+493:                                              ; preds = %492
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1155
 
-lean_inc.exit1155:                                ; preds = %499, %498, %496, %492
+lean_inc.exit1155:                                ; preds = %493, %492, %490, %486
   tail call void @lean_inc_heartbeat() #6
-  %500 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %501 = icmp eq ptr %500, null
-  br i1 %501, label %502, label %lean_alloc_ctor.exit1451
+  %494 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %495 = icmp eq ptr %494, null
+  br i1 %495, label %496, label %lean_alloc_ctor.exit1451
 
-502:                                              ; preds = %lean_inc.exit1155
+496:                                              ; preds = %lean_inc.exit1155
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1451:                         ; preds = %lean_inc.exit1155
-  %503 = getelementptr inbounds nuw i8, ptr %500, i64 4
-  store i32 1, ptr %500, align 4, !tbaa !8
-  store i32 16973856, ptr %503, align 4
-  %504 = getelementptr inbounds nuw i8, ptr %500, i64 8
-  store ptr %277, ptr %504, align 8, !tbaa !4
-  %505 = getelementptr inbounds nuw i8, ptr %500, i64 16
-  store ptr %319, ptr %505, align 8, !tbaa !4
-  %506 = getelementptr inbounds nuw i8, ptr %500, i64 24
-  store ptr %493, ptr %506, align 8, !tbaa !4
-  %507 = ptrtoint ptr %3 to i64
-  %508 = and i64 %507, 1
-  %.not.i1452 = icmp eq i64 %508, 0
-  br i1 %.not.i1452, label %512, label %509
+  %497 = getelementptr inbounds nuw i8, ptr %494, i64 4
+  store i32 1, ptr %494, align 4, !tbaa !8
+  store i32 16973856, ptr %497, align 4
+  %498 = getelementptr inbounds nuw i8, ptr %494, i64 8
+  store ptr %274, ptr %498, align 8, !tbaa !4
+  %499 = getelementptr inbounds nuw i8, ptr %494, i64 16
+  store ptr %316, ptr %499, align 8, !tbaa !4
+  %500 = getelementptr inbounds nuw i8, ptr %494, i64 24
+  store ptr %487, ptr %500, align 8, !tbaa !4
+  %501 = ptrtoint ptr %3 to i64
+  %502 = and i64 %501, 1
+  %.not.i1452 = icmp eq i64 %502, 0
+  br i1 %.not.i1452, label %506, label %503
 
-509:                                              ; preds = %lean_alloc_ctor.exit1451
-  %510 = lshr i64 %507, 1
-  %511 = trunc i64 %510 to i32
+503:                                              ; preds = %lean_alloc_ctor.exit1451
+  %504 = lshr i64 %501, 1
+  %505 = trunc i64 %504 to i32
   br label %lean_obj_tag.exit1455
 
-512:                                              ; preds = %lean_alloc_ctor.exit1451
-  %513 = getelementptr i8, ptr %3, i64 4
-  %.val.i1454 = load i32, ptr %513, align 4
-  %514 = lshr i32 %.val.i1454, 24
+506:                                              ; preds = %lean_alloc_ctor.exit1451
+  %507 = getelementptr i8, ptr %3, i64 4
+  %.val.i1454 = load i32, ptr %507, align 4
+  %508 = lshr i32 %.val.i1454, 24
   br label %lean_obj_tag.exit1455
 
-lean_obj_tag.exit1455:                            ; preds = %509, %512
-  %.0.i1453 = phi i32 [ %511, %509 ], [ %514, %512 ]
-  %515 = icmp eq i32 %.0.i1453, 0
-  br i1 %515, label %516, label %536
+lean_obj_tag.exit1455:                            ; preds = %503, %506
+  %.0.i1453 = phi i32 [ %505, %503 ], [ %508, %506 ]
+  %509 = icmp eq i32 %.0.i1453, 0
+  br i1 %509, label %510, label %530
 
-516:                                              ; preds = %lean_obj_tag.exit1455
-  %517 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  tail call fastcc void @lean_inc_n(ptr noundef %329, i64 noundef 3)
-  %518 = ptrtoint ptr %500 to i64
-  %519 = and i64 %518, 1
-  %.not2008 = icmp eq i64 %519, 0
-  br i1 %.not2008, label %520, label %lean_inc.exit1154
+510:                                              ; preds = %lean_obj_tag.exit1455
+  %511 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  tail call fastcc void @lean_inc_n(ptr noundef %326, i64 noundef 3)
+  %512 = ptrtoint ptr %494 to i64
+  %513 = and i64 %512, 1
+  %.not2008 = icmp eq i64 %513, 0
+  br i1 %.not2008, label %514, label %lean_inc.exit1154
 
-520:                                              ; preds = %516
-  %.val.i1456 = load i32, ptr %500, align 4, !tbaa !8
-  %521 = icmp sgt i32 %.val.i1456, 0
+514:                                              ; preds = %510
+  %.val.i1456 = load i32, ptr %494, align 4, !tbaa !8
+  %515 = icmp sgt i32 %.val.i1456, 0
+  br i1 %515, label %516, label %518, !prof !13
+
+516:                                              ; preds = %514
+  %517 = add nuw i32 %.val.i1456, 1
+  store i32 %517, ptr %494, align 4, !tbaa !8
+  br label %lean_inc.exit1154
+
+518:                                              ; preds = %514
+  %.not.i1457 = icmp eq i32 %.val.i1456, 0
+  br i1 %.not.i1457, label %lean_inc.exit1154, label %519
+
+519:                                              ; preds = %518
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %494) #6
+  br label %lean_inc.exit1154
+
+lean_inc.exit1154:                                ; preds = %519, %518, %516, %510
+  br i1 %.not1996, label %520, label %lean_inc.exit1153
+
+520:                                              ; preds = %lean_inc.exit1154
+  %.val.i1459 = load i32, ptr %274, align 4, !tbaa !8
+  %521 = icmp sgt i32 %.val.i1459, 0
   br i1 %521, label %522, label %524, !prof !13
 
 522:                                              ; preds = %520
-  %523 = add nuw i32 %.val.i1456, 1
-  store i32 %523, ptr %500, align 4, !tbaa !8
-  br label %lean_inc.exit1154
+  %523 = add nuw i32 %.val.i1459, 1
+  store i32 %523, ptr %274, align 4, !tbaa !8
+  br label %lean_inc.exit1153
 
 524:                                              ; preds = %520
-  %.not.i1457 = icmp eq i32 %.val.i1456, 0
-  br i1 %.not.i1457, label %lean_inc.exit1154, label %525
+  %.not.i1460 = icmp eq i32 %.val.i1459, 0
+  br i1 %.not.i1460, label %lean_inc.exit1153, label %525
 
 525:                                              ; preds = %524
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %500) #6
-  br label %lean_inc.exit1154
-
-lean_inc.exit1154:                                ; preds = %525, %524, %522, %516
-  br i1 %.not1996, label %526, label %lean_inc.exit1153
-
-526:                                              ; preds = %lean_inc.exit1154
-  %.val.i1459 = load i32, ptr %277, align 4, !tbaa !8
-  %527 = icmp sgt i32 %.val.i1459, 0
-  br i1 %527, label %528, label %530, !prof !13
-
-528:                                              ; preds = %526
-  %529 = add nuw i32 %.val.i1459, 1
-  store i32 %529, ptr %277, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1153
 
-530:                                              ; preds = %526
-  %.not.i1460 = icmp eq i32 %.val.i1459, 0
-  br i1 %.not.i1460, label %lean_inc.exit1153, label %531
+lean_inc.exit1153:                                ; preds = %525, %524, %522, %lean_inc.exit1154
+  %526 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %511, ptr noundef nonnull %494, ptr noundef nonnull %494, ptr noundef nonnull %326, ptr noundef nonnull %326, ptr noundef nonnull %326, ptr noundef nonnull %326) #6
+  %527 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %528 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %527, ptr noundef %526, ptr noundef %476) #6
+  %529 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %528, ptr noundef %4, ptr noundef %5, ptr noundef %305) #6
+  br label %2221
 
-531:                                              ; preds = %530
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %lean_inc.exit1153
+530:                                              ; preds = %lean_obj_tag.exit1455
+  %531 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %532 = load ptr, ptr %531, align 8, !tbaa !4
+  %533 = ptrtoint ptr %532 to i64
+  %534 = and i64 %533, 1
+  %.not2005 = icmp eq i64 %534, 0
+  br i1 %.not2005, label %535, label %lean_inc.exit1152
 
-lean_inc.exit1153:                                ; preds = %531, %530, %528, %lean_inc.exit1154
-  %532 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %517, ptr noundef nonnull %500, ptr noundef nonnull %500, ptr noundef nonnull %329, ptr noundef nonnull %329, ptr noundef nonnull %329, ptr noundef nonnull %329) #6
-  %533 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %534 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %533, ptr noundef %532, ptr noundef %482) #6
-  %535 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %534, ptr noundef %4, ptr noundef %5, ptr noundef %308) #6
-  br label %2236
+535:                                              ; preds = %530
+  %.val.i1462 = load i32, ptr %532, align 4, !tbaa !8
+  %536 = icmp sgt i32 %.val.i1462, 0
+  br i1 %536, label %537, label %539, !prof !13
 
-536:                                              ; preds = %lean_obj_tag.exit1455
-  %537 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %538 = load ptr, ptr %537, align 8, !tbaa !4
-  %539 = ptrtoint ptr %538 to i64
-  %540 = and i64 %539, 1
-  %.not2005 = icmp eq i64 %540, 0
-  br i1 %.not2005, label %541, label %lean_inc.exit1152
-
-541:                                              ; preds = %536
-  %.val.i1462 = load i32, ptr %538, align 4, !tbaa !8
-  %542 = icmp sgt i32 %.val.i1462, 0
-  br i1 %542, label %543, label %545, !prof !13
-
-543:                                              ; preds = %541
-  %544 = add nuw i32 %.val.i1462, 1
-  store i32 %544, ptr %538, align 4, !tbaa !8
+537:                                              ; preds = %535
+  %538 = add nuw i32 %.val.i1462, 1
+  store i32 %538, ptr %532, align 4, !tbaa !8
   br label %lean_inc.exit1152
 
-545:                                              ; preds = %541
+539:                                              ; preds = %535
   %.not.i1463 = icmp eq i32 %.val.i1462, 0
-  br i1 %.not.i1463, label %lean_inc.exit1152, label %546
+  br i1 %.not.i1463, label %lean_inc.exit1152, label %540
 
-546:                                              ; preds = %545
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %538) #6
+540:                                              ; preds = %539
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %532) #6
   br label %lean_inc.exit1152
 
-lean_inc.exit1152:                                ; preds = %546, %545, %543, %536
-  br i1 %.not.i1452, label %547, label %lean_dec.exit1215
+lean_inc.exit1152:                                ; preds = %540, %539, %537, %530
+  br i1 %.not.i1452, label %541, label %lean_dec.exit1215
 
-547:                                              ; preds = %lean_inc.exit1152
-  %548 = load i32, ptr %3, align 4, !tbaa !8
-  %549 = icmp sgt i32 %548, 1
-  br i1 %549, label %550, label %552, !prof !13
+541:                                              ; preds = %lean_inc.exit1152
+  %542 = load i32, ptr %3, align 4, !tbaa !8
+  %543 = icmp sgt i32 %542, 1
+  br i1 %543, label %544, label %546, !prof !13
 
-550:                                              ; preds = %547
-  %551 = add nsw i32 %548, -1
-  store i32 %551, ptr %3, align 4, !tbaa !8
+544:                                              ; preds = %541
+  %545 = add nsw i32 %542, -1
+  store i32 %545, ptr %3, align 4, !tbaa !8
   br label %lean_dec.exit1215
 
-552:                                              ; preds = %547
-  %.not.i1274 = icmp eq i32 %548, 0
-  br i1 %.not.i1274, label %lean_dec.exit1215, label %553
+546:                                              ; preds = %541
+  %.not.i1274 = icmp eq i32 %542, 0
+  br i1 %.not.i1274, label %lean_dec.exit1215, label %547
 
-553:                                              ; preds = %552
+547:                                              ; preds = %546
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #6
   br label %lean_dec.exit1215
 
-lean_dec.exit1215:                                ; preds = %553, %552, %550, %lean_inc.exit1152
-  %554 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %538) #6
-  %555 = tail call ptr @l_Array_append___rarg(ptr noundef %320, ptr noundef %554) #6
-  %556 = ptrtoint ptr %554 to i64
-  %557 = and i64 %556, 1
-  %.not2007 = icmp eq i64 %557, 0
-  br i1 %.not2007, label %558, label %lean_dec.exit1214
+lean_dec.exit1215:                                ; preds = %547, %546, %544, %lean_inc.exit1152
+  %548 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %532) #6
+  %549 = tail call ptr @l_Array_append___rarg(ptr noundef %317, ptr noundef %548) #6
+  %550 = ptrtoint ptr %548 to i64
+  %551 = and i64 %550, 1
+  %.not2007 = icmp eq i64 %551, 0
+  br i1 %.not2007, label %552, label %lean_dec.exit1214
 
-558:                                              ; preds = %lean_dec.exit1215
-  %559 = load i32, ptr %554, align 4, !tbaa !8
-  %560 = icmp sgt i32 %559, 1
+552:                                              ; preds = %lean_dec.exit1215
+  %553 = load i32, ptr %548, align 4, !tbaa !8
+  %554 = icmp sgt i32 %553, 1
+  br i1 %554, label %555, label %557, !prof !13
+
+555:                                              ; preds = %552
+  %556 = add nsw i32 %553, -1
+  store i32 %556, ptr %548, align 4, !tbaa !8
+  br label %lean_dec.exit1214
+
+557:                                              ; preds = %552
+  %.not.i1276 = icmp eq i32 %553, 0
+  br i1 %.not.i1276, label %lean_dec.exit1214, label %558
+
+558:                                              ; preds = %557
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %548) #6
+  br label %lean_dec.exit1214
+
+lean_dec.exit1214:                                ; preds = %558, %557, %555, %lean_dec.exit1215
+  br i1 %.not1996, label %559, label %lean_inc.exit1151
+
+559:                                              ; preds = %lean_dec.exit1214
+  %.val.i1465 = load i32, ptr %274, align 4, !tbaa !8
+  %560 = icmp sgt i32 %.val.i1465, 0
   br i1 %560, label %561, label %563, !prof !13
 
-561:                                              ; preds = %558
-  %562 = add nsw i32 %559, -1
-  store i32 %562, ptr %554, align 4, !tbaa !8
-  br label %lean_dec.exit1214
+561:                                              ; preds = %559
+  %562 = add nuw i32 %.val.i1465, 1
+  store i32 %562, ptr %274, align 4, !tbaa !8
+  br label %lean_inc.exit1151
 
-563:                                              ; preds = %558
-  %.not.i1276 = icmp eq i32 %559, 0
-  br i1 %.not.i1276, label %lean_dec.exit1214, label %564
+563:                                              ; preds = %559
+  %.not.i1466 = icmp eq i32 %.val.i1465, 0
+  br i1 %.not.i1466, label %lean_inc.exit1151, label %564
 
 564:                                              ; preds = %563
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %554) #6
-  br label %lean_dec.exit1214
-
-lean_dec.exit1214:                                ; preds = %564, %563, %561, %lean_dec.exit1215
-  br i1 %.not1996, label %565, label %lean_inc.exit1151
-
-565:                                              ; preds = %lean_dec.exit1214
-  %.val.i1465 = load i32, ptr %277, align 4, !tbaa !8
-  %566 = icmp sgt i32 %.val.i1465, 0
-  br i1 %566, label %567, label %569, !prof !13
-
-567:                                              ; preds = %565
-  %568 = add nuw i32 %.val.i1465, 1
-  store i32 %568, ptr %277, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1151
 
-569:                                              ; preds = %565
-  %.not.i1466 = icmp eq i32 %.val.i1465, 0
-  br i1 %.not.i1466, label %lean_inc.exit1151, label %570
-
-570:                                              ; preds = %569
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %lean_inc.exit1151
-
-lean_inc.exit1151:                                ; preds = %570, %569, %567, %lean_dec.exit1214
+lean_inc.exit1151:                                ; preds = %564, %563, %561, %lean_dec.exit1214
   tail call void @lean_inc_heartbeat() #6
-  %571 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %572 = icmp eq ptr %571, null
-  br i1 %572, label %573, label %lean_alloc_ctor.exit1468
+  %565 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %566 = icmp eq ptr %565, null
+  br i1 %566, label %567, label %lean_alloc_ctor.exit1468
 
-573:                                              ; preds = %lean_inc.exit1151
+567:                                              ; preds = %lean_inc.exit1151
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1468:                         ; preds = %lean_inc.exit1151
-  %574 = getelementptr inbounds nuw i8, ptr %571, i64 4
-  store i32 1, ptr %571, align 4, !tbaa !8
-  store i32 16973856, ptr %574, align 4
-  %575 = getelementptr inbounds nuw i8, ptr %571, i64 8
-  store ptr %277, ptr %575, align 8, !tbaa !4
-  %576 = getelementptr inbounds nuw i8, ptr %571, i64 16
-  store ptr %319, ptr %576, align 8, !tbaa !4
-  %577 = getelementptr inbounds nuw i8, ptr %571, i64 24
-  store ptr %555, ptr %577, align 8, !tbaa !4
-  %578 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1998, label %579, label %lean_inc_n.exit1472
+  %568 = getelementptr inbounds nuw i8, ptr %565, i64 4
+  store i32 1, ptr %565, align 4, !tbaa !8
+  store i32 16973856, ptr %568, align 4
+  %569 = getelementptr inbounds nuw i8, ptr %565, i64 8
+  store ptr %274, ptr %569, align 8, !tbaa !4
+  %570 = getelementptr inbounds nuw i8, ptr %565, i64 16
+  store ptr %316, ptr %570, align 8, !tbaa !4
+  %571 = getelementptr inbounds nuw i8, ptr %565, i64 24
+  store ptr %549, ptr %571, align 8, !tbaa !4
+  %572 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1998, label %573, label %lean_inc_n.exit1472
 
-579:                                              ; preds = %lean_alloc_ctor.exit1468
-  %.val.i.i1470 = load i32, ptr %329, align 4, !tbaa !8
-  %580 = icmp sgt i32 %.val.i.i1470, 0
+573:                                              ; preds = %lean_alloc_ctor.exit1468
+  %.val.i.i1470 = load i32, ptr %326, align 4, !tbaa !8
+  %574 = icmp sgt i32 %.val.i.i1470, 0
+  br i1 %574, label %575, label %577, !prof !13
+
+575:                                              ; preds = %573
+  %576 = add nuw i32 %.val.i.i1470, 3
+  store i32 %576, ptr %326, align 4, !tbaa !8
+  br label %lean_inc_n.exit1472
+
+577:                                              ; preds = %573
+  %.not.i.i1471 = icmp eq i32 %.val.i.i1470, 0
+  br i1 %.not.i.i1471, label %lean_inc_n.exit1472, label %578
+
+578:                                              ; preds = %577
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %326, i32 noundef 3) #6
+  br label %lean_inc_n.exit1472
+
+lean_inc_n.exit1472:                              ; preds = %lean_alloc_ctor.exit1468, %575, %577, %578
+  br i1 %.not1996, label %579, label %lean_inc.exit1150
+
+579:                                              ; preds = %lean_inc_n.exit1472
+  %.val.i1473 = load i32, ptr %274, align 4, !tbaa !8
+  %580 = icmp sgt i32 %.val.i1473, 0
   br i1 %580, label %581, label %583, !prof !13
 
 581:                                              ; preds = %579
-  %582 = add nuw i32 %.val.i.i1470, 3
-  store i32 %582, ptr %329, align 4, !tbaa !8
-  br label %lean_inc_n.exit1472
+  %582 = add nuw i32 %.val.i1473, 1
+  store i32 %582, ptr %274, align 4, !tbaa !8
+  br label %lean_inc.exit1150
 
 583:                                              ; preds = %579
-  %.not.i.i1471 = icmp eq i32 %.val.i.i1470, 0
-  br i1 %.not.i.i1471, label %lean_inc_n.exit1472, label %584
+  %.not.i1474 = icmp eq i32 %.val.i1473, 0
+  br i1 %.not.i1474, label %lean_inc.exit1150, label %584
 
 584:                                              ; preds = %583
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %329, i32 noundef 3) #6
-  br label %lean_inc_n.exit1472
-
-lean_inc_n.exit1472:                              ; preds = %lean_alloc_ctor.exit1468, %581, %583, %584
-  br i1 %.not1996, label %585, label %lean_inc.exit1150
-
-585:                                              ; preds = %lean_inc_n.exit1472
-  %.val.i1473 = load i32, ptr %277, align 4, !tbaa !8
-  %586 = icmp sgt i32 %.val.i1473, 0
-  br i1 %586, label %587, label %589, !prof !13
-
-587:                                              ; preds = %585
-  %588 = add nuw i32 %.val.i1473, 1
-  store i32 %588, ptr %277, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1150
 
-589:                                              ; preds = %585
-  %.not.i1474 = icmp eq i32 %.val.i1473, 0
-  br i1 %.not.i1474, label %lean_inc.exit1150, label %590
+lean_inc.exit1150:                                ; preds = %584, %583, %581, %lean_inc_n.exit1472
+  %585 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %572, ptr noundef nonnull %494, ptr noundef nonnull %565, ptr noundef nonnull %326, ptr noundef nonnull %326, ptr noundef nonnull %326, ptr noundef nonnull %326) #6
+  %586 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %587 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %586, ptr noundef %585, ptr noundef %476) #6
+  %588 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %587, ptr noundef %4, ptr noundef %5, ptr noundef %305) #6
+  br label %2221
 
-590:                                              ; preds = %589
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %lean_inc.exit1150
+589:                                              ; preds = %lean_obj_tag.exit
+  %590 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %591 = load ptr, ptr %590, align 8, !tbaa !4
+  %592 = ptrtoint ptr %591 to i64
+  %593 = and i64 %592, 1
+  %.not1999 = icmp eq i64 %593, 0
+  br i1 %.not1999, label %594, label %lean_inc.exit1149
 
-lean_inc.exit1150:                                ; preds = %590, %589, %587, %lean_inc_n.exit1472
-  %591 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %578, ptr noundef nonnull %500, ptr noundef nonnull %571, ptr noundef nonnull %329, ptr noundef nonnull %329, ptr noundef nonnull %329, ptr noundef nonnull %329) #6
-  %592 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %593 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %592, ptr noundef %591, ptr noundef %482) #6
-  %594 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %593, ptr noundef %4, ptr noundef %5, ptr noundef %308) #6
-  br label %2236
+594:                                              ; preds = %589
+  %.val.i1476 = load i32, ptr %591, align 4, !tbaa !8
+  %595 = icmp sgt i32 %.val.i1476, 0
+  br i1 %595, label %596, label %598, !prof !13
 
-595:                                              ; preds = %lean_obj_tag.exit
-  %596 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %597 = load ptr, ptr %596, align 8, !tbaa !4
-  %598 = ptrtoint ptr %597 to i64
-  %599 = and i64 %598, 1
-  %.not1999 = icmp eq i64 %599, 0
-  br i1 %.not1999, label %600, label %lean_inc.exit1149
-
-600:                                              ; preds = %595
-  %.val.i1476 = load i32, ptr %597, align 4, !tbaa !8
-  %601 = icmp sgt i32 %.val.i1476, 0
-  br i1 %601, label %602, label %604, !prof !13
-
-602:                                              ; preds = %600
-  %603 = add nuw i32 %.val.i1476, 1
-  store i32 %603, ptr %597, align 4, !tbaa !8
+596:                                              ; preds = %594
+  %597 = add nuw i32 %.val.i1476, 1
+  store i32 %597, ptr %591, align 4, !tbaa !8
   br label %lean_inc.exit1149
 
-604:                                              ; preds = %600
+598:                                              ; preds = %594
   %.not.i1477 = icmp eq i32 %.val.i1476, 0
-  br i1 %.not.i1477, label %lean_inc.exit1149, label %605
+  br i1 %.not.i1477, label %lean_inc.exit1149, label %599
 
-605:                                              ; preds = %604
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %597) #6
+599:                                              ; preds = %598
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %591) #6
   br label %lean_inc.exit1149
 
-lean_inc.exit1149:                                ; preds = %605, %604, %602, %595
-  br i1 %.not.i1445, label %606, label %lean_dec.exit1213
+lean_inc.exit1149:                                ; preds = %599, %598, %596, %589
+  br i1 %.not.i1445, label %600, label %lean_dec.exit1213
 
-606:                                              ; preds = %lean_inc.exit1149
-  %607 = load i32, ptr %1, align 4, !tbaa !8
-  %608 = icmp sgt i32 %607, 1
-  br i1 %608, label %609, label %611, !prof !13
+600:                                              ; preds = %lean_inc.exit1149
+  %601 = load i32, ptr %1, align 4, !tbaa !8
+  %602 = icmp sgt i32 %601, 1
+  br i1 %602, label %603, label %605, !prof !13
 
-609:                                              ; preds = %606
-  %610 = add nsw i32 %607, -1
-  store i32 %610, ptr %1, align 4, !tbaa !8
+603:                                              ; preds = %600
+  %604 = add nsw i32 %601, -1
+  store i32 %604, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit1213
 
-611:                                              ; preds = %606
-  %.not.i1278 = icmp eq i32 %607, 0
-  br i1 %.not.i1278, label %lean_dec.exit1213, label %612
+605:                                              ; preds = %600
+  %.not.i1278 = icmp eq i32 %601, 0
+  br i1 %.not.i1278, label %lean_dec.exit1213, label %606
 
-612:                                              ; preds = %611
+606:                                              ; preds = %605
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
   br label %lean_dec.exit1213
 
-lean_dec.exit1213:                                ; preds = %612, %611, %609, %lean_inc.exit1149
-  %613 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %597) #6
-  %614 = tail call ptr @l_Array_append___rarg(ptr noundef %320, ptr noundef %613) #6
-  %615 = ptrtoint ptr %613 to i64
-  %616 = and i64 %615, 1
-  %.not2001 = icmp eq i64 %616, 0
-  br i1 %.not2001, label %617, label %lean_dec.exit1212
+lean_dec.exit1213:                                ; preds = %606, %605, %603, %lean_inc.exit1149
+  %607 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %591) #6
+  %608 = tail call ptr @l_Array_append___rarg(ptr noundef %317, ptr noundef %607) #6
+  %609 = ptrtoint ptr %607 to i64
+  %610 = and i64 %609, 1
+  %.not2001 = icmp eq i64 %610, 0
+  br i1 %.not2001, label %611, label %lean_dec.exit1212
 
-617:                                              ; preds = %lean_dec.exit1213
-  %618 = load i32, ptr %613, align 4, !tbaa !8
-  %619 = icmp sgt i32 %618, 1
+611:                                              ; preds = %lean_dec.exit1213
+  %612 = load i32, ptr %607, align 4, !tbaa !8
+  %613 = icmp sgt i32 %612, 1
+  br i1 %613, label %614, label %616, !prof !13
+
+614:                                              ; preds = %611
+  %615 = add nsw i32 %612, -1
+  store i32 %615, ptr %607, align 4, !tbaa !8
+  br label %lean_dec.exit1212
+
+616:                                              ; preds = %611
+  %.not.i1280 = icmp eq i32 %612, 0
+  br i1 %.not.i1280, label %lean_dec.exit1212, label %617
+
+617:                                              ; preds = %616
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %607) #6
+  br label %lean_dec.exit1212
+
+lean_dec.exit1212:                                ; preds = %617, %616, %614, %lean_dec.exit1213
+  br i1 %.not1996, label %618, label %lean_inc.exit1148
+
+618:                                              ; preds = %lean_dec.exit1212
+  %.val.i1479 = load i32, ptr %274, align 4, !tbaa !8
+  %619 = icmp sgt i32 %.val.i1479, 0
   br i1 %619, label %620, label %622, !prof !13
 
-620:                                              ; preds = %617
-  %621 = add nsw i32 %618, -1
-  store i32 %621, ptr %613, align 4, !tbaa !8
-  br label %lean_dec.exit1212
+620:                                              ; preds = %618
+  %621 = add nuw i32 %.val.i1479, 1
+  store i32 %621, ptr %274, align 4, !tbaa !8
+  br label %lean_inc.exit1148
 
-622:                                              ; preds = %617
-  %.not.i1280 = icmp eq i32 %618, 0
-  br i1 %.not.i1280, label %lean_dec.exit1212, label %623
+622:                                              ; preds = %618
+  %.not.i1480 = icmp eq i32 %.val.i1479, 0
+  br i1 %.not.i1480, label %lean_inc.exit1148, label %623
 
 623:                                              ; preds = %622
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %613) #6
-  br label %lean_dec.exit1212
-
-lean_dec.exit1212:                                ; preds = %623, %622, %620, %lean_dec.exit1213
-  br i1 %.not1996, label %624, label %lean_inc.exit1148
-
-624:                                              ; preds = %lean_dec.exit1212
-  %.val.i1479 = load i32, ptr %277, align 4, !tbaa !8
-  %625 = icmp sgt i32 %.val.i1479, 0
-  br i1 %625, label %626, label %628, !prof !13
-
-626:                                              ; preds = %624
-  %627 = add nuw i32 %.val.i1479, 1
-  store i32 %627, ptr %277, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1148
 
-628:                                              ; preds = %624
-  %.not.i1480 = icmp eq i32 %.val.i1479, 0
-  br i1 %.not.i1480, label %lean_inc.exit1148, label %629
-
-629:                                              ; preds = %628
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %lean_inc.exit1148
-
-lean_inc.exit1148:                                ; preds = %629, %628, %626, %lean_dec.exit1212
+lean_inc.exit1148:                                ; preds = %623, %622, %620, %lean_dec.exit1212
   tail call void @lean_inc_heartbeat() #6
-  %630 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %631 = icmp eq ptr %630, null
-  br i1 %631, label %632, label %lean_alloc_ctor.exit1482
+  %624 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %625 = icmp eq ptr %624, null
+  br i1 %625, label %626, label %lean_alloc_ctor.exit1482
 
-632:                                              ; preds = %lean_inc.exit1148
+626:                                              ; preds = %lean_inc.exit1148
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1482:                         ; preds = %lean_inc.exit1148
-  %633 = getelementptr inbounds nuw i8, ptr %630, i64 4
-  store i32 1, ptr %630, align 4, !tbaa !8
-  store i32 16973856, ptr %633, align 4
-  %634 = getelementptr inbounds nuw i8, ptr %630, i64 8
-  store ptr %277, ptr %634, align 8, !tbaa !4
-  %635 = getelementptr inbounds nuw i8, ptr %630, i64 16
-  store ptr %319, ptr %635, align 8, !tbaa !4
-  %636 = getelementptr inbounds nuw i8, ptr %630, i64 24
-  store ptr %614, ptr %636, align 8, !tbaa !4
-  %637 = ptrtoint ptr %3 to i64
-  %638 = and i64 %637, 1
-  %.not.i1483 = icmp eq i64 %638, 0
-  br i1 %.not.i1483, label %642, label %639
+  %627 = getelementptr inbounds nuw i8, ptr %624, i64 4
+  store i32 1, ptr %624, align 4, !tbaa !8
+  store i32 16973856, ptr %627, align 4
+  %628 = getelementptr inbounds nuw i8, ptr %624, i64 8
+  store ptr %274, ptr %628, align 8, !tbaa !4
+  %629 = getelementptr inbounds nuw i8, ptr %624, i64 16
+  store ptr %316, ptr %629, align 8, !tbaa !4
+  %630 = getelementptr inbounds nuw i8, ptr %624, i64 24
+  store ptr %608, ptr %630, align 8, !tbaa !4
+  %631 = ptrtoint ptr %3 to i64
+  %632 = and i64 %631, 1
+  %.not.i1483 = icmp eq i64 %632, 0
+  br i1 %.not.i1483, label %636, label %633
 
-639:                                              ; preds = %lean_alloc_ctor.exit1482
-  %640 = lshr i64 %637, 1
-  %641 = trunc i64 %640 to i32
+633:                                              ; preds = %lean_alloc_ctor.exit1482
+  %634 = lshr i64 %631, 1
+  %635 = trunc i64 %634 to i32
   br label %lean_obj_tag.exit1486
 
-642:                                              ; preds = %lean_alloc_ctor.exit1482
-  %643 = getelementptr i8, ptr %3, i64 4
-  %.val.i1485 = load i32, ptr %643, align 4
-  %644 = lshr i32 %.val.i1485, 24
+636:                                              ; preds = %lean_alloc_ctor.exit1482
+  %637 = getelementptr i8, ptr %3, i64 4
+  %.val.i1485 = load i32, ptr %637, align 4
+  %638 = lshr i32 %.val.i1485, 24
   br label %lean_obj_tag.exit1486
 
-lean_obj_tag.exit1486:                            ; preds = %639, %642
-  %.0.i1484 = phi i32 [ %641, %639 ], [ %644, %642 ]
-  %645 = icmp eq i32 %.0.i1484, 0
-  br i1 %645, label %646, label %678
+lean_obj_tag.exit1486:                            ; preds = %633, %636
+  %.0.i1484 = phi i32 [ %635, %633 ], [ %638, %636 ]
+  %639 = icmp eq i32 %.0.i1484, 0
+  br i1 %639, label %640, label %672
 
-646:                                              ; preds = %lean_obj_tag.exit1486
-  %647 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
-  br i1 %.not1996, label %648, label %lean_inc.exit1147
+640:                                              ; preds = %lean_obj_tag.exit1486
+  %641 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
+  br i1 %.not1996, label %642, label %lean_inc.exit1147
 
-648:                                              ; preds = %646
-  %.val.i1487 = load i32, ptr %277, align 4, !tbaa !8
-  %649 = icmp sgt i32 %.val.i1487, 0
-  br i1 %649, label %650, label %652, !prof !13
+642:                                              ; preds = %640
+  %.val.i1487 = load i32, ptr %274, align 4, !tbaa !8
+  %643 = icmp sgt i32 %.val.i1487, 0
+  br i1 %643, label %644, label %646, !prof !13
 
-650:                                              ; preds = %648
-  %651 = add nuw i32 %.val.i1487, 1
-  store i32 %651, ptr %277, align 4, !tbaa !8
+644:                                              ; preds = %642
+  %645 = add nuw i32 %.val.i1487, 1
+  store i32 %645, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1147
 
-652:                                              ; preds = %648
+646:                                              ; preds = %642
   %.not.i1488 = icmp eq i32 %.val.i1487, 0
-  br i1 %.not.i1488, label %lean_inc.exit1147, label %653
+  br i1 %.not.i1488, label %lean_inc.exit1147, label %647
 
-653:                                              ; preds = %652
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+647:                                              ; preds = %646
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1147
 
-lean_inc.exit1147:                                ; preds = %653, %652, %650, %646
+lean_inc.exit1147:                                ; preds = %647, %646, %644, %640
   tail call void @lean_inc_heartbeat() #6
-  %654 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %655 = icmp eq ptr %654, null
-  br i1 %655, label %656, label %lean_alloc_ctor.exit1490
+  %648 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %649 = icmp eq ptr %648, null
+  br i1 %649, label %650, label %lean_alloc_ctor.exit1490
 
-656:                                              ; preds = %lean_inc.exit1147
+650:                                              ; preds = %lean_inc.exit1147
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1490:                         ; preds = %lean_inc.exit1147
-  %657 = getelementptr inbounds nuw i8, ptr %654, i64 4
-  store i32 1, ptr %654, align 4, !tbaa !8
-  store i32 16973856, ptr %657, align 4
-  %658 = getelementptr inbounds nuw i8, ptr %654, i64 8
-  store ptr %277, ptr %658, align 8, !tbaa !4
-  %659 = getelementptr inbounds nuw i8, ptr %654, i64 16
-  store ptr %319, ptr %659, align 8, !tbaa !4
-  %660 = getelementptr inbounds nuw i8, ptr %654, i64 24
-  store ptr %647, ptr %660, align 8, !tbaa !4
-  %661 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1998, label %662, label %lean_inc_n.exit1494
+  %651 = getelementptr inbounds nuw i8, ptr %648, i64 4
+  store i32 1, ptr %648, align 4, !tbaa !8
+  store i32 16973856, ptr %651, align 4
+  %652 = getelementptr inbounds nuw i8, ptr %648, i64 8
+  store ptr %274, ptr %652, align 8, !tbaa !4
+  %653 = getelementptr inbounds nuw i8, ptr %648, i64 16
+  store ptr %316, ptr %653, align 8, !tbaa !4
+  %654 = getelementptr inbounds nuw i8, ptr %648, i64 24
+  store ptr %641, ptr %654, align 8, !tbaa !4
+  %655 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1998, label %656, label %lean_inc_n.exit1494
 
-662:                                              ; preds = %lean_alloc_ctor.exit1490
-  %.val.i.i1492 = load i32, ptr %329, align 4, !tbaa !8
-  %663 = icmp sgt i32 %.val.i.i1492, 0
+656:                                              ; preds = %lean_alloc_ctor.exit1490
+  %.val.i.i1492 = load i32, ptr %326, align 4, !tbaa !8
+  %657 = icmp sgt i32 %.val.i.i1492, 0
+  br i1 %657, label %658, label %660, !prof !13
+
+658:                                              ; preds = %656
+  %659 = add nuw i32 %.val.i.i1492, 3
+  store i32 %659, ptr %326, align 4, !tbaa !8
+  br label %lean_inc_n.exit1494
+
+660:                                              ; preds = %656
+  %.not.i.i1493 = icmp eq i32 %.val.i.i1492, 0
+  br i1 %.not.i.i1493, label %lean_inc_n.exit1494, label %661
+
+661:                                              ; preds = %660
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %326, i32 noundef 3) #6
+  br label %lean_inc_n.exit1494
+
+lean_inc_n.exit1494:                              ; preds = %lean_alloc_ctor.exit1490, %658, %660, %661
+  br i1 %.not1996, label %662, label %lean_inc.exit1146
+
+662:                                              ; preds = %lean_inc_n.exit1494
+  %.val.i1495 = load i32, ptr %274, align 4, !tbaa !8
+  %663 = icmp sgt i32 %.val.i1495, 0
   br i1 %663, label %664, label %666, !prof !13
 
 664:                                              ; preds = %662
-  %665 = add nuw i32 %.val.i.i1492, 3
-  store i32 %665, ptr %329, align 4, !tbaa !8
-  br label %lean_inc_n.exit1494
+  %665 = add nuw i32 %.val.i1495, 1
+  store i32 %665, ptr %274, align 4, !tbaa !8
+  br label %lean_inc.exit1146
 
 666:                                              ; preds = %662
-  %.not.i.i1493 = icmp eq i32 %.val.i.i1492, 0
-  br i1 %.not.i.i1493, label %lean_inc_n.exit1494, label %667
+  %.not.i1496 = icmp eq i32 %.val.i1495, 0
+  br i1 %.not.i1496, label %lean_inc.exit1146, label %667
 
 667:                                              ; preds = %666
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %329, i32 noundef 3) #6
-  br label %lean_inc_n.exit1494
-
-lean_inc_n.exit1494:                              ; preds = %lean_alloc_ctor.exit1490, %664, %666, %667
-  br i1 %.not1996, label %668, label %lean_inc.exit1146
-
-668:                                              ; preds = %lean_inc_n.exit1494
-  %.val.i1495 = load i32, ptr %277, align 4, !tbaa !8
-  %669 = icmp sgt i32 %.val.i1495, 0
-  br i1 %669, label %670, label %672, !prof !13
-
-670:                                              ; preds = %668
-  %671 = add nuw i32 %.val.i1495, 1
-  store i32 %671, ptr %277, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1146
 
-672:                                              ; preds = %668
-  %.not.i1496 = icmp eq i32 %.val.i1495, 0
-  br i1 %.not.i1496, label %lean_inc.exit1146, label %673
+lean_inc.exit1146:                                ; preds = %667, %666, %664, %lean_inc_n.exit1494
+  %668 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %655, ptr noundef nonnull %624, ptr noundef nonnull %648, ptr noundef nonnull %326, ptr noundef nonnull %326, ptr noundef nonnull %326, ptr noundef nonnull %326) #6
+  %669 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %670 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %669, ptr noundef %668, ptr noundef %476) #6
+  %671 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %670, ptr noundef %4, ptr noundef %5, ptr noundef %305) #6
+  br label %2221
 
-673:                                              ; preds = %672
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %lean_inc.exit1146
+672:                                              ; preds = %lean_obj_tag.exit1486
+  %673 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %674 = load ptr, ptr %673, align 8, !tbaa !4
+  %675 = ptrtoint ptr %674 to i64
+  %676 = and i64 %675, 1
+  %.not2002 = icmp eq i64 %676, 0
+  br i1 %.not2002, label %677, label %lean_inc.exit1145
 
-lean_inc.exit1146:                                ; preds = %673, %672, %670, %lean_inc_n.exit1494
-  %674 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %661, ptr noundef nonnull %630, ptr noundef nonnull %654, ptr noundef nonnull %329, ptr noundef nonnull %329, ptr noundef nonnull %329, ptr noundef nonnull %329) #6
-  %675 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %676 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %675, ptr noundef %674, ptr noundef %482) #6
-  %677 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %676, ptr noundef %4, ptr noundef %5, ptr noundef %308) #6
-  br label %2236
+677:                                              ; preds = %672
+  %.val.i1498 = load i32, ptr %674, align 4, !tbaa !8
+  %678 = icmp sgt i32 %.val.i1498, 0
+  br i1 %678, label %679, label %681, !prof !13
 
-678:                                              ; preds = %lean_obj_tag.exit1486
-  %679 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %680 = load ptr, ptr %679, align 8, !tbaa !4
-  %681 = ptrtoint ptr %680 to i64
-  %682 = and i64 %681, 1
-  %.not2002 = icmp eq i64 %682, 0
-  br i1 %.not2002, label %683, label %lean_inc.exit1145
-
-683:                                              ; preds = %678
-  %.val.i1498 = load i32, ptr %680, align 4, !tbaa !8
-  %684 = icmp sgt i32 %.val.i1498, 0
-  br i1 %684, label %685, label %687, !prof !13
-
-685:                                              ; preds = %683
-  %686 = add nuw i32 %.val.i1498, 1
-  store i32 %686, ptr %680, align 4, !tbaa !8
+679:                                              ; preds = %677
+  %680 = add nuw i32 %.val.i1498, 1
+  store i32 %680, ptr %674, align 4, !tbaa !8
   br label %lean_inc.exit1145
 
-687:                                              ; preds = %683
+681:                                              ; preds = %677
   %.not.i1499 = icmp eq i32 %.val.i1498, 0
-  br i1 %.not.i1499, label %lean_inc.exit1145, label %688
+  br i1 %.not.i1499, label %lean_inc.exit1145, label %682
 
-688:                                              ; preds = %687
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %680) #6
+682:                                              ; preds = %681
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %674) #6
   br label %lean_inc.exit1145
 
-lean_inc.exit1145:                                ; preds = %688, %687, %685, %678
-  br i1 %.not.i1483, label %689, label %lean_dec.exit1211
+lean_inc.exit1145:                                ; preds = %682, %681, %679, %672
+  br i1 %.not.i1483, label %683, label %lean_dec.exit1211
 
-689:                                              ; preds = %lean_inc.exit1145
-  %690 = load i32, ptr %3, align 4, !tbaa !8
-  %691 = icmp sgt i32 %690, 1
-  br i1 %691, label %692, label %694, !prof !13
+683:                                              ; preds = %lean_inc.exit1145
+  %684 = load i32, ptr %3, align 4, !tbaa !8
+  %685 = icmp sgt i32 %684, 1
+  br i1 %685, label %686, label %688, !prof !13
 
-692:                                              ; preds = %689
-  %693 = add nsw i32 %690, -1
-  store i32 %693, ptr %3, align 4, !tbaa !8
+686:                                              ; preds = %683
+  %687 = add nsw i32 %684, -1
+  store i32 %687, ptr %3, align 4, !tbaa !8
   br label %lean_dec.exit1211
 
-694:                                              ; preds = %689
-  %.not.i1282 = icmp eq i32 %690, 0
-  br i1 %.not.i1282, label %lean_dec.exit1211, label %695
+688:                                              ; preds = %683
+  %.not.i1282 = icmp eq i32 %684, 0
+  br i1 %.not.i1282, label %lean_dec.exit1211, label %689
 
-695:                                              ; preds = %694
+689:                                              ; preds = %688
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #6
   br label %lean_dec.exit1211
 
-lean_dec.exit1211:                                ; preds = %695, %694, %692, %lean_inc.exit1145
-  %696 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %680) #6
-  %697 = tail call ptr @l_Array_append___rarg(ptr noundef %320, ptr noundef %696) #6
-  %698 = ptrtoint ptr %696 to i64
-  %699 = and i64 %698, 1
-  %.not2004 = icmp eq i64 %699, 0
-  br i1 %.not2004, label %700, label %lean_dec.exit1210
+lean_dec.exit1211:                                ; preds = %689, %688, %686, %lean_inc.exit1145
+  %690 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %674) #6
+  %691 = tail call ptr @l_Array_append___rarg(ptr noundef %317, ptr noundef %690) #6
+  %692 = ptrtoint ptr %690 to i64
+  %693 = and i64 %692, 1
+  %.not2004 = icmp eq i64 %693, 0
+  br i1 %.not2004, label %694, label %lean_dec.exit1210
 
-700:                                              ; preds = %lean_dec.exit1211
-  %701 = load i32, ptr %696, align 4, !tbaa !8
-  %702 = icmp sgt i32 %701, 1
+694:                                              ; preds = %lean_dec.exit1211
+  %695 = load i32, ptr %690, align 4, !tbaa !8
+  %696 = icmp sgt i32 %695, 1
+  br i1 %696, label %697, label %699, !prof !13
+
+697:                                              ; preds = %694
+  %698 = add nsw i32 %695, -1
+  store i32 %698, ptr %690, align 4, !tbaa !8
+  br label %lean_dec.exit1210
+
+699:                                              ; preds = %694
+  %.not.i1284 = icmp eq i32 %695, 0
+  br i1 %.not.i1284, label %lean_dec.exit1210, label %700
+
+700:                                              ; preds = %699
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %690) #6
+  br label %lean_dec.exit1210
+
+lean_dec.exit1210:                                ; preds = %700, %699, %697, %lean_dec.exit1211
+  br i1 %.not1996, label %701, label %lean_inc.exit1144
+
+701:                                              ; preds = %lean_dec.exit1210
+  %.val.i1501 = load i32, ptr %274, align 4, !tbaa !8
+  %702 = icmp sgt i32 %.val.i1501, 0
   br i1 %702, label %703, label %705, !prof !13
 
-703:                                              ; preds = %700
-  %704 = add nsw i32 %701, -1
-  store i32 %704, ptr %696, align 4, !tbaa !8
-  br label %lean_dec.exit1210
+703:                                              ; preds = %701
+  %704 = add nuw i32 %.val.i1501, 1
+  store i32 %704, ptr %274, align 4, !tbaa !8
+  br label %lean_inc.exit1144
 
-705:                                              ; preds = %700
-  %.not.i1284 = icmp eq i32 %701, 0
-  br i1 %.not.i1284, label %lean_dec.exit1210, label %706
+705:                                              ; preds = %701
+  %.not.i1502 = icmp eq i32 %.val.i1501, 0
+  br i1 %.not.i1502, label %lean_inc.exit1144, label %706
 
 706:                                              ; preds = %705
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %696) #6
-  br label %lean_dec.exit1210
-
-lean_dec.exit1210:                                ; preds = %706, %705, %703, %lean_dec.exit1211
-  br i1 %.not1996, label %707, label %lean_inc.exit1144
-
-707:                                              ; preds = %lean_dec.exit1210
-  %.val.i1501 = load i32, ptr %277, align 4, !tbaa !8
-  %708 = icmp sgt i32 %.val.i1501, 0
-  br i1 %708, label %709, label %711, !prof !13
-
-709:                                              ; preds = %707
-  %710 = add nuw i32 %.val.i1501, 1
-  store i32 %710, ptr %277, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1144
 
-711:                                              ; preds = %707
-  %.not.i1502 = icmp eq i32 %.val.i1501, 0
-  br i1 %.not.i1502, label %lean_inc.exit1144, label %712
-
-712:                                              ; preds = %711
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %lean_inc.exit1144
-
-lean_inc.exit1144:                                ; preds = %712, %711, %709, %lean_dec.exit1210
+lean_inc.exit1144:                                ; preds = %706, %705, %703, %lean_dec.exit1210
   tail call void @lean_inc_heartbeat() #6
-  %713 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %714 = icmp eq ptr %713, null
-  br i1 %714, label %715, label %lean_alloc_ctor.exit1504
+  %707 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %708 = icmp eq ptr %707, null
+  br i1 %708, label %709, label %lean_alloc_ctor.exit1504
 
-715:                                              ; preds = %lean_inc.exit1144
+709:                                              ; preds = %lean_inc.exit1144
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1504:                         ; preds = %lean_inc.exit1144
-  %716 = getelementptr inbounds nuw i8, ptr %713, i64 4
-  store i32 1, ptr %713, align 4, !tbaa !8
-  store i32 16973856, ptr %716, align 4
-  %717 = getelementptr inbounds nuw i8, ptr %713, i64 8
-  store ptr %277, ptr %717, align 8, !tbaa !4
-  %718 = getelementptr inbounds nuw i8, ptr %713, i64 16
-  store ptr %319, ptr %718, align 8, !tbaa !4
-  %719 = getelementptr inbounds nuw i8, ptr %713, i64 24
-  store ptr %697, ptr %719, align 8, !tbaa !4
-  %720 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1998, label %721, label %lean_inc_n.exit1508
+  %710 = getelementptr inbounds nuw i8, ptr %707, i64 4
+  store i32 1, ptr %707, align 4, !tbaa !8
+  store i32 16973856, ptr %710, align 4
+  %711 = getelementptr inbounds nuw i8, ptr %707, i64 8
+  store ptr %274, ptr %711, align 8, !tbaa !4
+  %712 = getelementptr inbounds nuw i8, ptr %707, i64 16
+  store ptr %316, ptr %712, align 8, !tbaa !4
+  %713 = getelementptr inbounds nuw i8, ptr %707, i64 24
+  store ptr %691, ptr %713, align 8, !tbaa !4
+  %714 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1998, label %715, label %lean_inc_n.exit1508
 
-721:                                              ; preds = %lean_alloc_ctor.exit1504
-  %.val.i.i1506 = load i32, ptr %329, align 4, !tbaa !8
-  %722 = icmp sgt i32 %.val.i.i1506, 0
+715:                                              ; preds = %lean_alloc_ctor.exit1504
+  %.val.i.i1506 = load i32, ptr %326, align 4, !tbaa !8
+  %716 = icmp sgt i32 %.val.i.i1506, 0
+  br i1 %716, label %717, label %719, !prof !13
+
+717:                                              ; preds = %715
+  %718 = add nuw i32 %.val.i.i1506, 3
+  store i32 %718, ptr %326, align 4, !tbaa !8
+  br label %lean_inc_n.exit1508
+
+719:                                              ; preds = %715
+  %.not.i.i1507 = icmp eq i32 %.val.i.i1506, 0
+  br i1 %.not.i.i1507, label %lean_inc_n.exit1508, label %720
+
+720:                                              ; preds = %719
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %326, i32 noundef 3) #6
+  br label %lean_inc_n.exit1508
+
+lean_inc_n.exit1508:                              ; preds = %lean_alloc_ctor.exit1504, %717, %719, %720
+  br i1 %.not1996, label %721, label %lean_inc.exit1143
+
+721:                                              ; preds = %lean_inc_n.exit1508
+  %.val.i1509 = load i32, ptr %274, align 4, !tbaa !8
+  %722 = icmp sgt i32 %.val.i1509, 0
   br i1 %722, label %723, label %725, !prof !13
 
 723:                                              ; preds = %721
-  %724 = add nuw i32 %.val.i.i1506, 3
-  store i32 %724, ptr %329, align 4, !tbaa !8
-  br label %lean_inc_n.exit1508
+  %724 = add nuw i32 %.val.i1509, 1
+  store i32 %724, ptr %274, align 4, !tbaa !8
+  br label %lean_inc.exit1143
 
 725:                                              ; preds = %721
-  %.not.i.i1507 = icmp eq i32 %.val.i.i1506, 0
-  br i1 %.not.i.i1507, label %lean_inc_n.exit1508, label %726
+  %.not.i1510 = icmp eq i32 %.val.i1509, 0
+  br i1 %.not.i1510, label %lean_inc.exit1143, label %726
 
 726:                                              ; preds = %725
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %329, i32 noundef 3) #6
-  br label %lean_inc_n.exit1508
-
-lean_inc_n.exit1508:                              ; preds = %lean_alloc_ctor.exit1504, %723, %725, %726
-  br i1 %.not1996, label %727, label %lean_inc.exit1143
-
-727:                                              ; preds = %lean_inc_n.exit1508
-  %.val.i1509 = load i32, ptr %277, align 4, !tbaa !8
-  %728 = icmp sgt i32 %.val.i1509, 0
-  br i1 %728, label %729, label %731, !prof !13
-
-729:                                              ; preds = %727
-  %730 = add nuw i32 %.val.i1509, 1
-  store i32 %730, ptr %277, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1143
 
-731:                                              ; preds = %727
-  %.not.i1510 = icmp eq i32 %.val.i1509, 0
-  br i1 %.not.i1510, label %lean_inc.exit1143, label %732
+lean_inc.exit1143:                                ; preds = %726, %725, %723, %lean_inc_n.exit1508
+  %727 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %714, ptr noundef nonnull %624, ptr noundef nonnull %707, ptr noundef nonnull %326, ptr noundef nonnull %326, ptr noundef nonnull %326, ptr noundef nonnull %326) #6
+  %728 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %729 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %728, ptr noundef %727, ptr noundef %476) #6
+  %730 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %729, ptr noundef %4, ptr noundef %5, ptr noundef %305) #6
+  br label %2221
 
-732:                                              ; preds = %731
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %lean_inc.exit1143
+731:                                              ; preds = %lean_dec.exit1218
+  %732 = getelementptr inbounds nuw i8, ptr %300, i64 16
+  %733 = load ptr, ptr %732, align 8, !tbaa !4
+  %734 = ptrtoint ptr %733 to i64
+  %735 = and i64 %734, 1
+  %.not1980 = icmp eq i64 %735, 0
+  br i1 %.not1980, label %736, label %lean_inc.exit1142
 
-lean_inc.exit1143:                                ; preds = %732, %731, %729, %lean_inc_n.exit1508
-  %733 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %720, ptr noundef nonnull %630, ptr noundef nonnull %713, ptr noundef nonnull %329, ptr noundef nonnull %329, ptr noundef nonnull %329, ptr noundef nonnull %329) #6
-  %734 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %735 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %734, ptr noundef %733, ptr noundef %482) #6
-  %736 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %735, ptr noundef %4, ptr noundef %5, ptr noundef %308) #6
-  br label %2236
+736:                                              ; preds = %731
+  %.val.i1512 = load i32, ptr %733, align 4, !tbaa !8
+  %737 = icmp sgt i32 %.val.i1512, 0
+  br i1 %737, label %738, label %740, !prof !13
 
-737:                                              ; preds = %lean_dec.exit1218
-  %738 = getelementptr inbounds nuw i8, ptr %303, i64 16
-  %739 = load ptr, ptr %738, align 8, !tbaa !4
-  %740 = ptrtoint ptr %739 to i64
-  %741 = and i64 %740, 1
-  %.not1980 = icmp eq i64 %741, 0
-  br i1 %.not1980, label %742, label %lean_inc.exit1142
-
-742:                                              ; preds = %737
-  %.val.i1512 = load i32, ptr %739, align 4, !tbaa !8
-  %743 = icmp sgt i32 %.val.i1512, 0
-  br i1 %743, label %744, label %746, !prof !13
-
-744:                                              ; preds = %742
-  %745 = add nuw i32 %.val.i1512, 1
-  store i32 %745, ptr %739, align 4, !tbaa !8
+738:                                              ; preds = %736
+  %739 = add nuw i32 %.val.i1512, 1
+  store i32 %739, ptr %733, align 4, !tbaa !8
   br label %lean_inc.exit1142
 
-746:                                              ; preds = %742
+740:                                              ; preds = %736
   %.not.i1513 = icmp eq i32 %.val.i1512, 0
-  br i1 %.not.i1513, label %lean_inc.exit1142, label %747
+  br i1 %.not.i1513, label %lean_inc.exit1142, label %741
 
-747:                                              ; preds = %746
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %739) #6
+741:                                              ; preds = %740
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %733) #6
   br label %lean_inc.exit1142
 
-lean_inc.exit1142:                                ; preds = %747, %746, %744, %737
-  %748 = ptrtoint ptr %303 to i64
-  %749 = and i64 %748, 1
-  %.not1981 = icmp eq i64 %749, 0
-  br i1 %.not1981, label %750, label %lean_dec.exit1209
+lean_inc.exit1142:                                ; preds = %741, %740, %738, %731
+  %742 = ptrtoint ptr %300 to i64
+  %743 = and i64 %742, 1
+  %.not1981 = icmp eq i64 %743, 0
+  br i1 %.not1981, label %744, label %lean_dec.exit1209
 
-750:                                              ; preds = %lean_inc.exit1142
-  %751 = load i32, ptr %303, align 4, !tbaa !8
-  %752 = icmp sgt i32 %751, 1
-  br i1 %752, label %753, label %755, !prof !13
+744:                                              ; preds = %lean_inc.exit1142
+  %745 = load i32, ptr %300, align 4, !tbaa !8
+  %746 = icmp sgt i32 %745, 1
+  br i1 %746, label %747, label %749, !prof !13
 
-753:                                              ; preds = %750
-  %754 = add nsw i32 %751, -1
-  store i32 %754, ptr %303, align 4, !tbaa !8
+747:                                              ; preds = %744
+  %748 = add nsw i32 %745, -1
+  store i32 %748, ptr %300, align 4, !tbaa !8
   br label %lean_dec.exit1209
 
-755:                                              ; preds = %750
-  %.not.i1286 = icmp eq i32 %751, 0
-  br i1 %.not.i1286, label %lean_dec.exit1209, label %756
+749:                                              ; preds = %744
+  %.not.i1286 = icmp eq i32 %745, 0
+  br i1 %.not.i1286, label %lean_dec.exit1209, label %750
 
-756:                                              ; preds = %755
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %303) #6
+750:                                              ; preds = %749
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %300) #6
   br label %lean_dec.exit1209
 
-lean_dec.exit1209:                                ; preds = %756, %755, %753, %lean_inc.exit1142
-  %757 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__10, align 8, !tbaa !4
-  %758 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__11, align 8, !tbaa !4
-  %759 = ptrtoint ptr %277 to i64
-  %760 = and i64 %759, 1
-  %.not1982 = icmp eq i64 %760, 0
-  br i1 %.not1982, label %761, label %lean_inc.exit1141
+lean_dec.exit1209:                                ; preds = %750, %749, %747, %lean_inc.exit1142
+  %751 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__10, align 8, !tbaa !4
+  %752 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__11, align 8, !tbaa !4
+  %753 = ptrtoint ptr %274 to i64
+  %754 = and i64 %753, 1
+  %.not1982 = icmp eq i64 %754, 0
+  br i1 %.not1982, label %755, label %lean_inc.exit1141
 
-761:                                              ; preds = %lean_dec.exit1209
-  %.val.i1515 = load i32, ptr %277, align 4, !tbaa !8
-  %762 = icmp sgt i32 %.val.i1515, 0
-  br i1 %762, label %763, label %765, !prof !13
+755:                                              ; preds = %lean_dec.exit1209
+  %.val.i1515 = load i32, ptr %274, align 4, !tbaa !8
+  %756 = icmp sgt i32 %.val.i1515, 0
+  br i1 %756, label %757, label %759, !prof !13
 
-763:                                              ; preds = %761
-  %764 = add nuw i32 %.val.i1515, 1
-  store i32 %764, ptr %277, align 4, !tbaa !8
+757:                                              ; preds = %755
+  %758 = add nuw i32 %.val.i1515, 1
+  store i32 %758, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1141
 
-765:                                              ; preds = %761
+759:                                              ; preds = %755
   %.not.i1516 = icmp eq i32 %.val.i1515, 0
-  br i1 %.not.i1516, label %lean_inc.exit1141, label %766
+  br i1 %.not.i1516, label %lean_inc.exit1141, label %760
 
-766:                                              ; preds = %765
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+760:                                              ; preds = %759
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1141
 
-lean_inc.exit1141:                                ; preds = %766, %765, %763, %lean_dec.exit1209
+lean_inc.exit1141:                                ; preds = %760, %759, %757, %lean_dec.exit1209
   tail call void @lean_inc_heartbeat() #6
-  %767 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %768 = icmp eq ptr %767, null
-  br i1 %768, label %769, label %lean_alloc_ctor.exit1518
+  %761 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %762 = icmp eq ptr %761, null
+  br i1 %762, label %763, label %lean_alloc_ctor.exit1518
 
-769:                                              ; preds = %lean_inc.exit1141
+763:                                              ; preds = %lean_inc.exit1141
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1518:                         ; preds = %lean_inc.exit1141
-  %770 = getelementptr inbounds nuw i8, ptr %767, i64 4
-  store i32 1, ptr %767, align 4, !tbaa !8
-  store i32 16973856, ptr %770, align 4
-  %771 = getelementptr inbounds nuw i8, ptr %767, i64 8
-  store ptr %277, ptr %771, align 8, !tbaa !4
-  %772 = getelementptr inbounds nuw i8, ptr %767, i64 16
-  store ptr %757, ptr %772, align 8, !tbaa !4
-  %773 = getelementptr inbounds nuw i8, ptr %767, i64 24
-  store ptr %758, ptr %773, align 8, !tbaa !4
-  %774 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__14, align 8, !tbaa !4
-  br i1 %.not1982, label %775, label %lean_inc.exit1140
+  %764 = getelementptr inbounds nuw i8, ptr %761, i64 4
+  store i32 1, ptr %761, align 4, !tbaa !8
+  store i32 16973856, ptr %764, align 4
+  %765 = getelementptr inbounds nuw i8, ptr %761, i64 8
+  store ptr %274, ptr %765, align 8, !tbaa !4
+  %766 = getelementptr inbounds nuw i8, ptr %761, i64 16
+  store ptr %751, ptr %766, align 8, !tbaa !4
+  %767 = getelementptr inbounds nuw i8, ptr %761, i64 24
+  store ptr %752, ptr %767, align 8, !tbaa !4
+  %768 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__14, align 8, !tbaa !4
+  br i1 %.not1982, label %769, label %lean_inc.exit1140
 
-775:                                              ; preds = %lean_alloc_ctor.exit1518
-  %.val.i1519 = load i32, ptr %277, align 4, !tbaa !8
-  %776 = icmp sgt i32 %.val.i1519, 0
-  br i1 %776, label %777, label %779, !prof !13
+769:                                              ; preds = %lean_alloc_ctor.exit1518
+  %.val.i1519 = load i32, ptr %274, align 4, !tbaa !8
+  %770 = icmp sgt i32 %.val.i1519, 0
+  br i1 %770, label %771, label %773, !prof !13
 
-777:                                              ; preds = %775
-  %778 = add nuw i32 %.val.i1519, 1
-  store i32 %778, ptr %277, align 4, !tbaa !8
+771:                                              ; preds = %769
+  %772 = add nuw i32 %.val.i1519, 1
+  store i32 %772, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1140
 
-779:                                              ; preds = %775
+773:                                              ; preds = %769
   %.not.i1520 = icmp eq i32 %.val.i1519, 0
-  br i1 %.not.i1520, label %lean_inc.exit1140, label %780
+  br i1 %.not.i1520, label %lean_inc.exit1140, label %774
 
-780:                                              ; preds = %779
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+774:                                              ; preds = %773
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1140
 
-lean_inc.exit1140:                                ; preds = %780, %779, %777, %lean_alloc_ctor.exit1518
+lean_inc.exit1140:                                ; preds = %774, %773, %771, %lean_alloc_ctor.exit1518
   tail call void @lean_inc_heartbeat() #6
-  %781 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %782 = icmp eq ptr %781, null
-  br i1 %782, label %783, label %lean_alloc_ctor.exit1522
+  %775 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %776 = icmp eq ptr %775, null
+  br i1 %776, label %777, label %lean_alloc_ctor.exit1522
 
-783:                                              ; preds = %lean_inc.exit1140
+777:                                              ; preds = %lean_inc.exit1140
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1522:                         ; preds = %lean_inc.exit1140
-  %784 = getelementptr inbounds nuw i8, ptr %781, i64 4
-  store i32 1, ptr %781, align 4, !tbaa !8
-  store i32 33685528, ptr %784, align 4
-  %785 = getelementptr inbounds nuw i8, ptr %781, i64 8
-  store ptr %277, ptr %785, align 8, !tbaa !4
-  %786 = getelementptr inbounds nuw i8, ptr %781, i64 16
-  store ptr %774, ptr %786, align 8, !tbaa !4
+  %778 = getelementptr inbounds nuw i8, ptr %775, i64 4
+  store i32 1, ptr %775, align 4, !tbaa !8
+  store i32 33685528, ptr %778, align 4
+  %779 = getelementptr inbounds nuw i8, ptr %775, i64 8
+  store ptr %274, ptr %779, align 8, !tbaa !4
+  %780 = getelementptr inbounds nuw i8, ptr %775, i64 16
+  store ptr %768, ptr %780, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
-  %787 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %788 = icmp eq ptr %787, null
-  br i1 %788, label %789, label %lean_alloc_ctor.exit1523
+  %781 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %782 = icmp eq ptr %781, null
+  br i1 %782, label %783, label %lean_alloc_ctor.exit1523
 
-789:                                              ; preds = %lean_alloc_ctor.exit1522
+783:                                              ; preds = %lean_alloc_ctor.exit1522
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1523:                         ; preds = %lean_alloc_ctor.exit1522
-  %790 = getelementptr inbounds nuw i8, ptr %787, i64 4
-  store i32 1, ptr %787, align 4, !tbaa !8
-  store i32 16973856, ptr %790, align 4
-  %791 = getelementptr inbounds nuw i8, ptr %787, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %791, align 8, !tbaa !4
-  %792 = getelementptr inbounds nuw i8, ptr %787, i64 16
-  store ptr %757, ptr %792, align 8, !tbaa !4
-  %793 = getelementptr inbounds nuw i8, ptr %787, i64 24
-  store ptr %11, ptr %793, align 8, !tbaa !4
-  %794 = tail call ptr @l_Lean_mkIdentFrom(ptr noundef nonnull %787, ptr noundef %262, i8 noundef zeroext 1) #6
-  %795 = ptrtoint ptr %787 to i64
-  %796 = and i64 %795, 1
-  %.not1983 = icmp eq i64 %796, 0
-  br i1 %.not1983, label %797, label %lean_dec.exit1208
+  %784 = getelementptr inbounds nuw i8, ptr %781, i64 4
+  store i32 1, ptr %781, align 4, !tbaa !8
+  store i32 16973856, ptr %784, align 4
+  %785 = getelementptr inbounds nuw i8, ptr %781, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %785, align 8, !tbaa !4
+  %786 = getelementptr inbounds nuw i8, ptr %781, i64 16
+  store ptr %751, ptr %786, align 8, !tbaa !4
+  %787 = getelementptr inbounds nuw i8, ptr %781, i64 24
+  store ptr %11, ptr %787, align 8, !tbaa !4
+  %788 = tail call ptr @l_Lean_mkIdentFrom(ptr noundef nonnull %781, ptr noundef %259, i8 noundef zeroext 1) #6
+  %789 = load i32, ptr %781, align 8, !tbaa !8
+  %790 = icmp sgt i32 %789, 1
+  br i1 %790, label %791, label %793, !prof !13
 
-797:                                              ; preds = %lean_alloc_ctor.exit1523
-  %798 = load i32, ptr %787, align 4, !tbaa !8
-  %799 = icmp sgt i32 %798, 1
+791:                                              ; preds = %lean_alloc_ctor.exit1523
+  %792 = add nsw i32 %789, -1
+  store i32 %792, ptr %781, align 4, !tbaa !8
+  br label %lean_dec.exit1208
+
+793:                                              ; preds = %lean_alloc_ctor.exit1523
+  %.not.i1288 = icmp eq i32 %789, 0
+  br i1 %.not.i1288, label %lean_dec.exit1208, label %794
+
+794:                                              ; preds = %793
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %781) #6
+  br label %lean_dec.exit1208
+
+lean_dec.exit1208:                                ; preds = %794, %793, %791
+  %795 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__16, align 8, !tbaa !4
+  %796 = ptrtoint ptr %761 to i64
+  %797 = and i64 %796, 1
+  %.not1984 = icmp eq i64 %797, 0
+  br i1 %.not1984, label %798, label %lean_inc.exit1139
+
+798:                                              ; preds = %lean_dec.exit1208
+  %.val.i1524 = load i32, ptr %761, align 4, !tbaa !8
+  %799 = icmp sgt i32 %.val.i1524, 0
   br i1 %799, label %800, label %802, !prof !13
 
-800:                                              ; preds = %797
-  %801 = add nsw i32 %798, -1
-  store i32 %801, ptr %787, align 4, !tbaa !8
-  br label %lean_dec.exit1208
+800:                                              ; preds = %798
+  %801 = add nuw i32 %.val.i1524, 1
+  store i32 %801, ptr %761, align 4, !tbaa !8
+  br label %lean_inc.exit1139
 
-802:                                              ; preds = %797
-  %.not.i1288 = icmp eq i32 %798, 0
-  br i1 %.not.i1288, label %lean_dec.exit1208, label %803
+802:                                              ; preds = %798
+  %.not.i1525 = icmp eq i32 %.val.i1524, 0
+  br i1 %.not.i1525, label %lean_inc.exit1139, label %803
 
 803:                                              ; preds = %802
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %787) #6
-  br label %lean_dec.exit1208
-
-lean_dec.exit1208:                                ; preds = %803, %802, %800, %lean_alloc_ctor.exit1523
-  %804 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__16, align 8, !tbaa !4
-  %805 = ptrtoint ptr %767 to i64
-  %806 = and i64 %805, 1
-  %.not1984 = icmp eq i64 %806, 0
-  br i1 %.not1984, label %807, label %lean_inc.exit1139
-
-807:                                              ; preds = %lean_dec.exit1208
-  %.val.i1524 = load i32, ptr %767, align 4, !tbaa !8
-  %808 = icmp sgt i32 %.val.i1524, 0
-  br i1 %808, label %809, label %811, !prof !13
-
-809:                                              ; preds = %807
-  %810 = add nuw i32 %.val.i1524, 1
-  store i32 %810, ptr %767, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %761) #6
   br label %lean_inc.exit1139
 
-811:                                              ; preds = %807
-  %.not.i1525 = icmp eq i32 %.val.i1524, 0
-  br i1 %.not.i1525, label %lean_inc.exit1139, label %812
+lean_inc.exit1139:                                ; preds = %803, %802, %800, %lean_dec.exit1208
+  br i1 %.not1982, label %804, label %lean_inc.exit1138
 
-812:                                              ; preds = %811
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %767) #6
-  br label %lean_inc.exit1139
+804:                                              ; preds = %lean_inc.exit1139
+  %.val.i1527 = load i32, ptr %274, align 4, !tbaa !8
+  %805 = icmp sgt i32 %.val.i1527, 0
+  br i1 %805, label %806, label %808, !prof !13
 
-lean_inc.exit1139:                                ; preds = %812, %811, %809, %lean_dec.exit1208
-  br i1 %.not1982, label %813, label %lean_inc.exit1138
+806:                                              ; preds = %804
+  %807 = add nuw i32 %.val.i1527, 1
+  store i32 %807, ptr %274, align 4, !tbaa !8
+  br label %812
 
-813:                                              ; preds = %lean_inc.exit1139
-  %.val.i1527 = load i32, ptr %277, align 4, !tbaa !8
-  %814 = icmp sgt i32 %.val.i1527, 0
-  br i1 %814, label %815, label %817, !prof !13
-
-815:                                              ; preds = %813
-  %816 = add nuw i32 %.val.i1527, 1
-  store i32 %816, ptr %277, align 4, !tbaa !8
-  br label %821
-
-817:                                              ; preds = %813
+808:                                              ; preds = %804
   %.not.i1528 = icmp eq i32 %.val.i1527, 0
-  br i1 %.not.i1528, label %821, label %818
+  br i1 %.not.i1528, label %812, label %809
 
-818:                                              ; preds = %817
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %821
+809:                                              ; preds = %808
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
+  br label %812
 
 lean_inc.exit1138:                                ; preds = %lean_inc.exit1139
-  %819 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %804, ptr noundef %794, ptr noundef nonnull %767) #6
-  %820 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
+  %810 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %795, ptr noundef %788, ptr noundef nonnull %761) #6
+  %811 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
   br label %lean_inc.exit1137
 
-821:                                              ; preds = %818, %817, %815
-  %822 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %277, ptr noundef %804, ptr noundef %794, ptr noundef nonnull %767) #6
-  %823 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
-  %.val.i1530 = load i32, ptr %277, align 4, !tbaa !8
-  %824 = icmp sgt i32 %.val.i1530, 0
-  br i1 %824, label %825, label %827, !prof !13
+812:                                              ; preds = %809, %808, %806
+  %813 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %274, ptr noundef %795, ptr noundef %788, ptr noundef nonnull %761) #6
+  %814 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
+  %.val.i1530 = load i32, ptr %274, align 4, !tbaa !8
+  %815 = icmp sgt i32 %.val.i1530, 0
+  br i1 %815, label %816, label %818, !prof !13
 
-825:                                              ; preds = %821
-  %826 = add nuw i32 %.val.i1530, 1
-  store i32 %826, ptr %277, align 4, !tbaa !8
+816:                                              ; preds = %812
+  %817 = add nuw i32 %.val.i1530, 1
+  store i32 %817, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1137
 
-827:                                              ; preds = %821
+818:                                              ; preds = %812
   %.not.i1531 = icmp eq i32 %.val.i1530, 0
-  br i1 %.not.i1531, label %lean_inc.exit1137, label %828
+  br i1 %.not.i1531, label %lean_inc.exit1137, label %819
 
-828:                                              ; preds = %827
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+819:                                              ; preds = %818
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1137
 
-lean_inc.exit1137:                                ; preds = %828, %827, %825, %lean_inc.exit1138
-  %829 = phi ptr [ %820, %lean_inc.exit1138 ], [ %823, %825 ], [ %823, %827 ], [ %823, %828 ]
-  %830 = phi ptr [ %819, %lean_inc.exit1138 ], [ %822, %825 ], [ %822, %827 ], [ %822, %828 ]
-  %831 = getelementptr inbounds nuw i8, ptr %287, i64 4
-  %832 = load i32, ptr %831, align 4
-  %833 = and i32 %832, 16777215
-  %834 = or disjoint i32 %833, 33554432
-  store i32 %834, ptr %831, align 4
-  store ptr %829, ptr %291, align 8, !tbaa !4
-  store ptr %277, ptr %290, align 8, !tbaa !4
-  %835 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__20, align 8, !tbaa !4
-  br i1 %.not1982, label %836, label %lean_inc.exit1136
+lean_inc.exit1137:                                ; preds = %819, %818, %816, %lean_inc.exit1138
+  %820 = phi ptr [ %811, %lean_inc.exit1138 ], [ %814, %816 ], [ %814, %818 ], [ %814, %819 ]
+  %821 = phi ptr [ %810, %lean_inc.exit1138 ], [ %813, %816 ], [ %813, %818 ], [ %813, %819 ]
+  %822 = getelementptr inbounds nuw i8, ptr %284, i64 4
+  %823 = load i32, ptr %822, align 4
+  %824 = and i32 %823, 16777215
+  %825 = or disjoint i32 %824, 33554432
+  store i32 %825, ptr %822, align 4
+  store ptr %820, ptr %288, align 8, !tbaa !4
+  store ptr %274, ptr %287, align 8, !tbaa !4
+  %826 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__20, align 8, !tbaa !4
+  br i1 %.not1982, label %827, label %lean_inc.exit1136
 
-836:                                              ; preds = %lean_inc.exit1137
-  %.val.i1533 = load i32, ptr %277, align 4, !tbaa !8
-  %837 = icmp sgt i32 %.val.i1533, 0
-  br i1 %837, label %838, label %840, !prof !13
+827:                                              ; preds = %lean_inc.exit1137
+  %.val.i1533 = load i32, ptr %274, align 4, !tbaa !8
+  %828 = icmp sgt i32 %.val.i1533, 0
+  br i1 %828, label %829, label %831, !prof !13
 
-838:                                              ; preds = %836
-  %839 = add nuw i32 %.val.i1533, 1
-  store i32 %839, ptr %277, align 4, !tbaa !8
-  br label %843
+829:                                              ; preds = %827
+  %830 = add nuw i32 %.val.i1533, 1
+  store i32 %830, ptr %274, align 4, !tbaa !8
+  br label %834
 
-840:                                              ; preds = %836
+831:                                              ; preds = %827
   %.not.i1534 = icmp eq i32 %.val.i1533, 0
-  br i1 %.not.i1534, label %843, label %841
+  br i1 %.not.i1534, label %834, label %832
 
-841:                                              ; preds = %840
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %843
+832:                                              ; preds = %831
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
+  br label %834
 
 lean_inc.exit1136:                                ; preds = %lean_inc.exit1137
-  %842 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %835, ptr noundef nonnull %287, ptr noundef %9) #6
+  %833 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %826, ptr noundef nonnull %284, ptr noundef %9) #6
   br label %lean_inc.exit1135
 
-843:                                              ; preds = %841, %840, %838
-  %844 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %277, ptr noundef %835, ptr noundef nonnull %287, ptr noundef %9) #6
-  %.val.i1536 = load i32, ptr %277, align 4, !tbaa !8
-  %845 = icmp sgt i32 %.val.i1536, 0
+834:                                              ; preds = %832, %831, %829
+  %835 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %274, ptr noundef %826, ptr noundef nonnull %284, ptr noundef %9) #6
+  %.val.i1536 = load i32, ptr %274, align 4, !tbaa !8
+  %836 = icmp sgt i32 %.val.i1536, 0
+  br i1 %836, label %837, label %839, !prof !13
+
+837:                                              ; preds = %834
+  %838 = add nuw i32 %.val.i1536, 1
+  store i32 %838, ptr %274, align 4, !tbaa !8
+  br label %lean_inc.exit1135
+
+839:                                              ; preds = %834
+  %.not.i1537 = icmp eq i32 %.val.i1536, 0
+  br i1 %.not.i1537, label %lean_inc.exit1135, label %840
+
+840:                                              ; preds = %839
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
+  br label %lean_inc.exit1135
+
+lean_inc.exit1135:                                ; preds = %840, %839, %837, %lean_inc.exit1136
+  %841 = phi ptr [ %833, %lean_inc.exit1136 ], [ %835, %837 ], [ %835, %839 ], [ %835, %840 ]
+  %842 = tail call ptr @l_Lean_Syntax_node1(ptr noundef %274, ptr noundef %751, ptr noundef %841) #6
+  %843 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__18, align 8, !tbaa !4
+  br i1 %.not1984, label %844, label %lean_inc.exit1134
+
+844:                                              ; preds = %lean_inc.exit1135
+  %.val.i1539 = load i32, ptr %761, align 4, !tbaa !8
+  %845 = icmp sgt i32 %.val.i1539, 0
   br i1 %845, label %846, label %848, !prof !13
 
-846:                                              ; preds = %843
-  %847 = add nuw i32 %.val.i1536, 1
-  store i32 %847, ptr %277, align 4, !tbaa !8
-  br label %lean_inc.exit1135
+846:                                              ; preds = %844
+  %847 = add nuw i32 %.val.i1539, 1
+  store i32 %847, ptr %761, align 4, !tbaa !8
+  br label %lean_inc.exit1134
 
-848:                                              ; preds = %843
-  %.not.i1537 = icmp eq i32 %.val.i1536, 0
-  br i1 %.not.i1537, label %lean_inc.exit1135, label %849
+848:                                              ; preds = %844
+  %.not.i1540 = icmp eq i32 %.val.i1539, 0
+  br i1 %.not.i1540, label %lean_inc.exit1134, label %849
 
 849:                                              ; preds = %848
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %lean_inc.exit1135
-
-lean_inc.exit1135:                                ; preds = %849, %848, %846, %lean_inc.exit1136
-  %850 = phi ptr [ %842, %lean_inc.exit1136 ], [ %844, %846 ], [ %844, %848 ], [ %844, %849 ]
-  %851 = tail call ptr @l_Lean_Syntax_node1(ptr noundef %277, ptr noundef %757, ptr noundef %850) #6
-  %852 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__18, align 8, !tbaa !4
-  br i1 %.not1984, label %853, label %lean_inc.exit1134
-
-853:                                              ; preds = %lean_inc.exit1135
-  %.val.i1539 = load i32, ptr %767, align 4, !tbaa !8
-  %854 = icmp sgt i32 %.val.i1539, 0
-  br i1 %854, label %855, label %857, !prof !13
-
-855:                                              ; preds = %853
-  %856 = add nuw i32 %.val.i1539, 1
-  store i32 %856, ptr %767, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %761) #6
   br label %lean_inc.exit1134
 
-857:                                              ; preds = %853
-  %.not.i1540 = icmp eq i32 %.val.i1539, 0
-  br i1 %.not.i1540, label %lean_inc.exit1134, label %858
+lean_inc.exit1134:                                ; preds = %849, %848, %846, %lean_inc.exit1135
+  br i1 %.not1982, label %850, label %lean_inc.exit1133
 
-858:                                              ; preds = %857
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %767) #6
-  br label %lean_inc.exit1134
+850:                                              ; preds = %lean_inc.exit1134
+  %.val.i1542 = load i32, ptr %274, align 4, !tbaa !8
+  %851 = icmp sgt i32 %.val.i1542, 0
+  br i1 %851, label %852, label %854, !prof !13
 
-lean_inc.exit1134:                                ; preds = %858, %857, %855, %lean_inc.exit1135
-  br i1 %.not1982, label %859, label %lean_inc.exit1133
+852:                                              ; preds = %850
+  %853 = add nuw i32 %.val.i1542, 1
+  store i32 %853, ptr %274, align 4, !tbaa !8
+  br label %858
 
-859:                                              ; preds = %lean_inc.exit1134
-  %.val.i1542 = load i32, ptr %277, align 4, !tbaa !8
-  %860 = icmp sgt i32 %.val.i1542, 0
-  br i1 %860, label %861, label %863, !prof !13
-
-861:                                              ; preds = %859
-  %862 = add nuw i32 %.val.i1542, 1
-  store i32 %862, ptr %277, align 4, !tbaa !8
-  br label %867
-
-863:                                              ; preds = %859
+854:                                              ; preds = %850
   %.not.i1543 = icmp eq i32 %.val.i1542, 0
-  br i1 %.not.i1543, label %867, label %864
+  br i1 %.not.i1543, label %858, label %855
 
-864:                                              ; preds = %863
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %867
+855:                                              ; preds = %854
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
+  br label %858
 
 lean_inc.exit1133:                                ; preds = %lean_inc.exit1134
-  %865 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %852, ptr noundef nonnull %767, ptr noundef %851) #6
-  %866 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
+  %856 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %843, ptr noundef nonnull %761, ptr noundef %842) #6
+  %857 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
   br label %lean_inc.exit1132
 
-867:                                              ; preds = %864, %863, %861
-  %868 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %277, ptr noundef %852, ptr noundef nonnull %767, ptr noundef %851) #6
-  %869 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
-  %.val.i1545 = load i32, ptr %277, align 4, !tbaa !8
-  %870 = icmp sgt i32 %.val.i1545, 0
-  br i1 %870, label %871, label %873, !prof !13
+858:                                              ; preds = %855, %854, %852
+  %859 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %274, ptr noundef %843, ptr noundef nonnull %761, ptr noundef %842) #6
+  %860 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
+  %.val.i1545 = load i32, ptr %274, align 4, !tbaa !8
+  %861 = icmp sgt i32 %.val.i1545, 0
+  br i1 %861, label %862, label %864, !prof !13
 
-871:                                              ; preds = %867
-  %872 = add nuw i32 %.val.i1545, 1
-  store i32 %872, ptr %277, align 4, !tbaa !8
+862:                                              ; preds = %858
+  %863 = add nuw i32 %.val.i1545, 1
+  store i32 %863, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1132
 
-873:                                              ; preds = %867
+864:                                              ; preds = %858
   %.not.i1546 = icmp eq i32 %.val.i1545, 0
-  br i1 %.not.i1546, label %lean_inc.exit1132, label %874
+  br i1 %.not.i1546, label %lean_inc.exit1132, label %865
 
-874:                                              ; preds = %873
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+865:                                              ; preds = %864
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1132
 
-lean_inc.exit1132:                                ; preds = %874, %873, %871, %lean_inc.exit1133
-  %875 = phi ptr [ %866, %lean_inc.exit1133 ], [ %869, %871 ], [ %869, %873 ], [ %869, %874 ]
-  %876 = phi ptr [ %865, %lean_inc.exit1133 ], [ %868, %871 ], [ %868, %873 ], [ %868, %874 ]
-  %877 = getelementptr inbounds nuw i8, ptr %270, i64 4
-  %878 = load i32, ptr %877, align 4
-  %879 = and i32 %878, 16777215
-  %880 = or disjoint i32 %879, 33554432
-  store i32 %880, ptr %877, align 4
-  store ptr %875, ptr %274, align 8, !tbaa !4
-  store ptr %277, ptr %272, align 8, !tbaa !4
-  %881 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__25, align 8, !tbaa !4
-  br i1 %.not1984, label %882, label %lean_inc_n.exit1551
+lean_inc.exit1132:                                ; preds = %865, %864, %862, %lean_inc.exit1133
+  %866 = phi ptr [ %857, %lean_inc.exit1133 ], [ %860, %862 ], [ %860, %864 ], [ %860, %865 ]
+  %867 = phi ptr [ %856, %lean_inc.exit1133 ], [ %859, %862 ], [ %859, %864 ], [ %859, %865 ]
+  %868 = getelementptr inbounds nuw i8, ptr %267, i64 4
+  %869 = load i32, ptr %868, align 4
+  %870 = and i32 %869, 16777215
+  %871 = or disjoint i32 %870, 33554432
+  store i32 %871, ptr %868, align 4
+  store ptr %866, ptr %271, align 8, !tbaa !4
+  store ptr %274, ptr %269, align 8, !tbaa !4
+  %872 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__25, align 8, !tbaa !4
+  br i1 %.not1984, label %873, label %lean_inc_n.exit1551
 
-882:                                              ; preds = %lean_inc.exit1132
-  %.val.i.i1549 = load i32, ptr %767, align 4, !tbaa !8
-  %883 = icmp sgt i32 %.val.i.i1549, 0
-  br i1 %883, label %884, label %886, !prof !13
+873:                                              ; preds = %lean_inc.exit1132
+  %.val.i.i1549 = load i32, ptr %761, align 4, !tbaa !8
+  %874 = icmp sgt i32 %.val.i.i1549, 0
+  br i1 %874, label %875, label %877, !prof !13
 
-884:                                              ; preds = %882
-  %885 = add nuw i32 %.val.i.i1549, 2
-  store i32 %885, ptr %767, align 4, !tbaa !8
+875:                                              ; preds = %873
+  %876 = add nuw i32 %.val.i.i1549, 2
+  store i32 %876, ptr %761, align 4, !tbaa !8
   br label %lean_inc_n.exit1551
 
-886:                                              ; preds = %882
+877:                                              ; preds = %873
   %.not.i.i1550 = icmp eq i32 %.val.i.i1549, 0
-  br i1 %.not.i.i1550, label %lean_inc_n.exit1551, label %887
+  br i1 %.not.i.i1550, label %lean_inc_n.exit1551, label %878
 
-887:                                              ; preds = %886
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %767, i32 noundef 2) #6
+878:                                              ; preds = %877
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %761, i32 noundef 2) #6
   br label %lean_inc_n.exit1551
 
-lean_inc_n.exit1551:                              ; preds = %lean_inc.exit1132, %884, %886, %887
-  br i1 %.not1982, label %888, label %lean_inc.exit1131
+lean_inc_n.exit1551:                              ; preds = %lean_inc.exit1132, %875, %877, %878
+  br i1 %.not1982, label %879, label %lean_inc.exit1131
 
-888:                                              ; preds = %lean_inc_n.exit1551
-  %.val.i1552 = load i32, ptr %277, align 4, !tbaa !8
-  %889 = icmp sgt i32 %.val.i1552, 0
-  br i1 %889, label %890, label %892, !prof !13
+879:                                              ; preds = %lean_inc_n.exit1551
+  %.val.i1552 = load i32, ptr %274, align 4, !tbaa !8
+  %880 = icmp sgt i32 %.val.i1552, 0
+  br i1 %880, label %881, label %883, !prof !13
 
-890:                                              ; preds = %888
-  %891 = add nuw i32 %.val.i1552, 1
-  store i32 %891, ptr %277, align 4, !tbaa !8
+881:                                              ; preds = %879
+  %882 = add nuw i32 %.val.i1552, 1
+  store i32 %882, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1131
 
-892:                                              ; preds = %888
+883:                                              ; preds = %879
   %.not.i1553 = icmp eq i32 %.val.i1552, 0
-  br i1 %.not.i1553, label %lean_inc.exit1131, label %893
+  br i1 %.not.i1553, label %lean_inc.exit1131, label %884
 
-893:                                              ; preds = %892
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+884:                                              ; preds = %883
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1131
 
-lean_inc.exit1131:                                ; preds = %893, %892, %890, %lean_inc_n.exit1551
-  %894 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %881, ptr noundef nonnull %767, ptr noundef nonnull %767) #6
-  %895 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__22, align 8, !tbaa !4
-  br i1 %.not1984, label %896, label %lean_inc.exit1130
+lean_inc.exit1131:                                ; preds = %884, %883, %881, %lean_inc_n.exit1551
+  %885 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %872, ptr noundef nonnull %761, ptr noundef nonnull %761) #6
+  %886 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__22, align 8, !tbaa !4
+  br i1 %.not1984, label %887, label %lean_inc.exit1130
 
-896:                                              ; preds = %lean_inc.exit1131
-  %.val.i1555 = load i32, ptr %767, align 4, !tbaa !8
-  %897 = icmp sgt i32 %.val.i1555, 0
-  br i1 %897, label %898, label %900, !prof !13
+887:                                              ; preds = %lean_inc.exit1131
+  %.val.i1555 = load i32, ptr %761, align 4, !tbaa !8
+  %888 = icmp sgt i32 %.val.i1555, 0
+  br i1 %888, label %889, label %891, !prof !13
 
-898:                                              ; preds = %896
-  %899 = add nuw i32 %.val.i1555, 1
-  store i32 %899, ptr %767, align 4, !tbaa !8
+889:                                              ; preds = %887
+  %890 = add nuw i32 %.val.i1555, 1
+  store i32 %890, ptr %761, align 4, !tbaa !8
   br label %lean_inc.exit1130
 
-900:                                              ; preds = %896
+891:                                              ; preds = %887
   %.not.i1556 = icmp eq i32 %.val.i1555, 0
-  br i1 %.not.i1556, label %lean_inc.exit1130, label %901
+  br i1 %.not.i1556, label %lean_inc.exit1130, label %892
 
-901:                                              ; preds = %900
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %767) #6
+892:                                              ; preds = %891
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %761) #6
   br label %lean_inc.exit1130
 
-lean_inc.exit1130:                                ; preds = %901, %900, %898, %lean_inc.exit1131
-  br i1 %.not1982, label %902, label %lean_inc.exit1129
+lean_inc.exit1130:                                ; preds = %892, %891, %889, %lean_inc.exit1131
+  br i1 %.not1982, label %893, label %lean_inc.exit1129
 
-902:                                              ; preds = %lean_inc.exit1130
-  %.val.i1558 = load i32, ptr %277, align 4, !tbaa !8
-  %903 = icmp sgt i32 %.val.i1558, 0
-  br i1 %903, label %904, label %906, !prof !13
+893:                                              ; preds = %lean_inc.exit1130
+  %.val.i1558 = load i32, ptr %274, align 4, !tbaa !8
+  %894 = icmp sgt i32 %.val.i1558, 0
+  br i1 %894, label %895, label %897, !prof !13
 
-904:                                              ; preds = %902
-  %905 = add nuw i32 %.val.i1558, 1
-  store i32 %905, ptr %277, align 4, !tbaa !8
+895:                                              ; preds = %893
+  %896 = add nuw i32 %.val.i1558, 1
+  store i32 %896, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1129
 
-906:                                              ; preds = %902
+897:                                              ; preds = %893
   %.not.i1559 = icmp eq i32 %.val.i1558, 0
-  br i1 %.not.i1559, label %lean_inc.exit1129, label %907
+  br i1 %.not.i1559, label %lean_inc.exit1129, label %898
 
-907:                                              ; preds = %906
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+898:                                              ; preds = %897
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1129
 
-lean_inc.exit1129:                                ; preds = %907, %906, %904, %lean_inc.exit1130
-  %908 = tail call ptr @l_Lean_Syntax_node4(ptr noundef %277, ptr noundef %895, ptr noundef nonnull %270, ptr noundef %10, ptr noundef %894, ptr noundef nonnull %767) #6
-  %909 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__13, align 8, !tbaa !4
-  br i1 %.not1984, label %910, label %lean_inc.exit1128
+lean_inc.exit1129:                                ; preds = %898, %897, %895, %lean_inc.exit1130
+  %899 = tail call ptr @l_Lean_Syntax_node4(ptr noundef %274, ptr noundef %886, ptr noundef nonnull %267, ptr noundef %10, ptr noundef %885, ptr noundef nonnull %761) #6
+  %900 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__13, align 8, !tbaa !4
+  br i1 %.not1984, label %901, label %lean_inc.exit1128
 
-910:                                              ; preds = %lean_inc.exit1129
-  %.val.i1561 = load i32, ptr %767, align 4, !tbaa !8
-  %911 = icmp sgt i32 %.val.i1561, 0
-  br i1 %911, label %912, label %914, !prof !13
+901:                                              ; preds = %lean_inc.exit1129
+  %.val.i1561 = load i32, ptr %761, align 4, !tbaa !8
+  %902 = icmp sgt i32 %.val.i1561, 0
+  br i1 %902, label %903, label %905, !prof !13
 
-912:                                              ; preds = %910
-  %913 = add nuw i32 %.val.i1561, 1
-  store i32 %913, ptr %767, align 4, !tbaa !8
+903:                                              ; preds = %901
+  %904 = add nuw i32 %.val.i1561, 1
+  store i32 %904, ptr %761, align 4, !tbaa !8
   br label %lean_inc.exit1128
 
-914:                                              ; preds = %910
+905:                                              ; preds = %901
   %.not.i1562 = icmp eq i32 %.val.i1561, 0
-  br i1 %.not.i1562, label %lean_inc.exit1128, label %915
+  br i1 %.not.i1562, label %lean_inc.exit1128, label %906
 
-915:                                              ; preds = %914
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %767) #6
+906:                                              ; preds = %905
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %761) #6
   br label %lean_inc.exit1128
 
-lean_inc.exit1128:                                ; preds = %915, %914, %912, %lean_inc.exit1129
-  br i1 %.not1982, label %916, label %lean_inc.exit1127
+lean_inc.exit1128:                                ; preds = %906, %905, %903, %lean_inc.exit1129
+  br i1 %.not1982, label %907, label %lean_inc.exit1127
 
-916:                                              ; preds = %lean_inc.exit1128
-  %.val.i1564 = load i32, ptr %277, align 4, !tbaa !8
-  %917 = icmp sgt i32 %.val.i1564, 0
-  br i1 %917, label %918, label %920, !prof !13
+907:                                              ; preds = %lean_inc.exit1128
+  %.val.i1564 = load i32, ptr %274, align 4, !tbaa !8
+  %908 = icmp sgt i32 %.val.i1564, 0
+  br i1 %908, label %909, label %911, !prof !13
 
-918:                                              ; preds = %916
-  %919 = add nuw i32 %.val.i1564, 1
-  store i32 %919, ptr %277, align 4, !tbaa !8
+909:                                              ; preds = %907
+  %910 = add nuw i32 %.val.i1564, 1
+  store i32 %910, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1127
 
-920:                                              ; preds = %916
+911:                                              ; preds = %907
   %.not.i1565 = icmp eq i32 %.val.i1564, 0
-  br i1 %.not.i1565, label %lean_inc.exit1127, label %921
+  br i1 %.not.i1565, label %lean_inc.exit1127, label %912
 
-921:                                              ; preds = %920
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+912:                                              ; preds = %911
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1127
 
-lean_inc.exit1127:                                ; preds = %921, %920, %918, %lean_inc.exit1128
-  %922 = tail call ptr @l_Lean_Syntax_node5(ptr noundef %277, ptr noundef %909, ptr noundef nonnull %781, ptr noundef %830, ptr noundef %876, ptr noundef %908, ptr noundef nonnull %767) #6
-  %923 = ptrtoint ptr %1 to i64
-  %924 = and i64 %923, 1
-  %.not.i1567 = icmp eq i64 %924, 0
-  br i1 %.not.i1567, label %928, label %925
+lean_inc.exit1127:                                ; preds = %912, %911, %909, %lean_inc.exit1128
+  %913 = tail call ptr @l_Lean_Syntax_node5(ptr noundef %274, ptr noundef %900, ptr noundef nonnull %775, ptr noundef %821, ptr noundef %867, ptr noundef %899, ptr noundef nonnull %761) #6
+  %914 = ptrtoint ptr %1 to i64
+  %915 = and i64 %914, 1
+  %.not.i1567 = icmp eq i64 %915, 0
+  br i1 %.not.i1567, label %919, label %916
 
-925:                                              ; preds = %lean_inc.exit1127
-  %926 = lshr i64 %923, 1
-  %927 = trunc i64 %926 to i32
+916:                                              ; preds = %lean_inc.exit1127
+  %917 = lshr i64 %914, 1
+  %918 = trunc i64 %917 to i32
   br label %lean_obj_tag.exit1570
 
-928:                                              ; preds = %lean_inc.exit1127
-  %929 = getelementptr i8, ptr %1, i64 4
-  %.val.i1569 = load i32, ptr %929, align 4
-  %930 = lshr i32 %.val.i1569, 24
+919:                                              ; preds = %lean_inc.exit1127
+  %920 = getelementptr i8, ptr %1, i64 4
+  %.val.i1569 = load i32, ptr %920, align 4
+  %921 = lshr i32 %.val.i1569, 24
   br label %lean_obj_tag.exit1570
 
-lean_obj_tag.exit1570:                            ; preds = %925, %928
-  %.0.i1568 = phi i32 [ %927, %925 ], [ %930, %928 ]
-  %931 = icmp eq i32 %.0.i1568, 0
-  br i1 %931, label %932, label %1035
+lean_obj_tag.exit1570:                            ; preds = %916, %919
+  %.0.i1568 = phi i32 [ %918, %916 ], [ %921, %919 ]
+  %922 = icmp eq i32 %.0.i1568, 0
+  br i1 %922, label %923, label %1026
 
-932:                                              ; preds = %lean_obj_tag.exit1570
-  %933 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
-  br i1 %.not1982, label %934, label %lean_inc.exit1126
+923:                                              ; preds = %lean_obj_tag.exit1570
+  %924 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
+  br i1 %.not1982, label %925, label %lean_inc.exit1126
 
-934:                                              ; preds = %932
-  %.val.i1571 = load i32, ptr %277, align 4, !tbaa !8
-  %935 = icmp sgt i32 %.val.i1571, 0
-  br i1 %935, label %936, label %938, !prof !13
+925:                                              ; preds = %923
+  %.val.i1571 = load i32, ptr %274, align 4, !tbaa !8
+  %926 = icmp sgt i32 %.val.i1571, 0
+  br i1 %926, label %927, label %929, !prof !13
 
-936:                                              ; preds = %934
-  %937 = add nuw i32 %.val.i1571, 1
-  store i32 %937, ptr %277, align 4, !tbaa !8
+927:                                              ; preds = %925
+  %928 = add nuw i32 %.val.i1571, 1
+  store i32 %928, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1126
 
-938:                                              ; preds = %934
+929:                                              ; preds = %925
   %.not.i1572 = icmp eq i32 %.val.i1571, 0
-  br i1 %.not.i1572, label %lean_inc.exit1126, label %939
+  br i1 %.not.i1572, label %lean_inc.exit1126, label %930
 
-939:                                              ; preds = %938
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+930:                                              ; preds = %929
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1126
 
-lean_inc.exit1126:                                ; preds = %939, %938, %936, %932
+lean_inc.exit1126:                                ; preds = %930, %929, %927, %923
   tail call void @lean_inc_heartbeat() #6
-  %940 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %941 = icmp eq ptr %940, null
-  br i1 %941, label %942, label %lean_alloc_ctor.exit1574
+  %931 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %932 = icmp eq ptr %931, null
+  br i1 %932, label %933, label %lean_alloc_ctor.exit1574
 
-942:                                              ; preds = %lean_inc.exit1126
+933:                                              ; preds = %lean_inc.exit1126
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1574:                         ; preds = %lean_inc.exit1126
-  %943 = getelementptr inbounds nuw i8, ptr %940, i64 4
-  store i32 1, ptr %940, align 4, !tbaa !8
-  store i32 16973856, ptr %943, align 4
-  %944 = getelementptr inbounds nuw i8, ptr %940, i64 8
-  store ptr %277, ptr %944, align 8, !tbaa !4
-  %945 = getelementptr inbounds nuw i8, ptr %940, i64 16
-  store ptr %757, ptr %945, align 8, !tbaa !4
-  %946 = getelementptr inbounds nuw i8, ptr %940, i64 24
-  store ptr %933, ptr %946, align 8, !tbaa !4
-  %947 = ptrtoint ptr %3 to i64
-  %948 = and i64 %947, 1
-  %.not.i1575 = icmp eq i64 %948, 0
-  br i1 %.not.i1575, label %952, label %949
+  %934 = getelementptr inbounds nuw i8, ptr %931, i64 4
+  store i32 1, ptr %931, align 4, !tbaa !8
+  store i32 16973856, ptr %934, align 4
+  %935 = getelementptr inbounds nuw i8, ptr %931, i64 8
+  store ptr %274, ptr %935, align 8, !tbaa !4
+  %936 = getelementptr inbounds nuw i8, ptr %931, i64 16
+  store ptr %751, ptr %936, align 8, !tbaa !4
+  %937 = getelementptr inbounds nuw i8, ptr %931, i64 24
+  store ptr %924, ptr %937, align 8, !tbaa !4
+  %938 = ptrtoint ptr %3 to i64
+  %939 = and i64 %938, 1
+  %.not.i1575 = icmp eq i64 %939, 0
+  br i1 %.not.i1575, label %943, label %940
 
-949:                                              ; preds = %lean_alloc_ctor.exit1574
-  %950 = lshr i64 %947, 1
-  %951 = trunc i64 %950 to i32
+940:                                              ; preds = %lean_alloc_ctor.exit1574
+  %941 = lshr i64 %938, 1
+  %942 = trunc i64 %941 to i32
   br label %lean_obj_tag.exit1578
 
-952:                                              ; preds = %lean_alloc_ctor.exit1574
-  %953 = getelementptr i8, ptr %3, i64 4
-  %.val.i1577 = load i32, ptr %953, align 4
-  %954 = lshr i32 %.val.i1577, 24
+943:                                              ; preds = %lean_alloc_ctor.exit1574
+  %944 = getelementptr i8, ptr %3, i64 4
+  %.val.i1577 = load i32, ptr %944, align 4
+  %945 = lshr i32 %.val.i1577, 24
   br label %lean_obj_tag.exit1578
 
-lean_obj_tag.exit1578:                            ; preds = %949, %952
-  %.0.i1576 = phi i32 [ %951, %949 ], [ %954, %952 ]
-  %955 = icmp eq i32 %.0.i1576, 0
-  br i1 %955, label %956, label %976
+lean_obj_tag.exit1578:                            ; preds = %940, %943
+  %.0.i1576 = phi i32 [ %942, %940 ], [ %945, %943 ]
+  %946 = icmp eq i32 %.0.i1576, 0
+  br i1 %946, label %947, label %967
 
-956:                                              ; preds = %lean_obj_tag.exit1578
-  %957 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  tail call fastcc void @lean_inc_n(ptr noundef %767, i64 noundef 3)
-  %958 = ptrtoint ptr %940 to i64
-  %959 = and i64 %958, 1
-  %.not1994 = icmp eq i64 %959, 0
-  br i1 %.not1994, label %960, label %lean_inc.exit1125
+947:                                              ; preds = %lean_obj_tag.exit1578
+  %948 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  tail call fastcc void @lean_inc_n(ptr noundef %761, i64 noundef 3)
+  %949 = ptrtoint ptr %931 to i64
+  %950 = and i64 %949, 1
+  %.not1994 = icmp eq i64 %950, 0
+  br i1 %.not1994, label %951, label %lean_inc.exit1125
 
-960:                                              ; preds = %956
-  %.val.i1579 = load i32, ptr %940, align 4, !tbaa !8
-  %961 = icmp sgt i32 %.val.i1579, 0
-  br i1 %961, label %962, label %964, !prof !13
+951:                                              ; preds = %947
+  %.val.i1579 = load i32, ptr %931, align 4, !tbaa !8
+  %952 = icmp sgt i32 %.val.i1579, 0
+  br i1 %952, label %953, label %955, !prof !13
 
-962:                                              ; preds = %960
-  %963 = add nuw i32 %.val.i1579, 1
-  store i32 %963, ptr %940, align 4, !tbaa !8
+953:                                              ; preds = %951
+  %954 = add nuw i32 %.val.i1579, 1
+  store i32 %954, ptr %931, align 4, !tbaa !8
   br label %lean_inc.exit1125
 
-964:                                              ; preds = %960
+955:                                              ; preds = %951
   %.not.i1580 = icmp eq i32 %.val.i1579, 0
-  br i1 %.not.i1580, label %lean_inc.exit1125, label %965
+  br i1 %.not.i1580, label %lean_inc.exit1125, label %956
 
-965:                                              ; preds = %964
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %940) #6
+956:                                              ; preds = %955
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %931) #6
   br label %lean_inc.exit1125
 
-lean_inc.exit1125:                                ; preds = %965, %964, %962, %956
-  br i1 %.not1982, label %966, label %lean_inc.exit1124
+lean_inc.exit1125:                                ; preds = %956, %955, %953, %947
+  br i1 %.not1982, label %957, label %lean_inc.exit1124
 
-966:                                              ; preds = %lean_inc.exit1125
-  %.val.i1582 = load i32, ptr %277, align 4, !tbaa !8
-  %967 = icmp sgt i32 %.val.i1582, 0
-  br i1 %967, label %968, label %970, !prof !13
+957:                                              ; preds = %lean_inc.exit1125
+  %.val.i1582 = load i32, ptr %274, align 4, !tbaa !8
+  %958 = icmp sgt i32 %.val.i1582, 0
+  br i1 %958, label %959, label %961, !prof !13
 
-968:                                              ; preds = %966
-  %969 = add nuw i32 %.val.i1582, 1
-  store i32 %969, ptr %277, align 4, !tbaa !8
+959:                                              ; preds = %957
+  %960 = add nuw i32 %.val.i1582, 1
+  store i32 %960, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1124
 
-970:                                              ; preds = %966
+961:                                              ; preds = %957
   %.not.i1583 = icmp eq i32 %.val.i1582, 0
-  br i1 %.not.i1583, label %lean_inc.exit1124, label %971
+  br i1 %.not.i1583, label %lean_inc.exit1124, label %962
 
-971:                                              ; preds = %970
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+962:                                              ; preds = %961
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1124
 
-lean_inc.exit1124:                                ; preds = %971, %970, %968, %lean_inc.exit1125
-  %972 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %957, ptr noundef nonnull %940, ptr noundef nonnull %940, ptr noundef nonnull %767, ptr noundef nonnull %767, ptr noundef nonnull %767, ptr noundef nonnull %767) #6
-  %973 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %974 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %973, ptr noundef %972, ptr noundef %922) #6
-  %975 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %974, ptr noundef %4, ptr noundef %5, ptr noundef %739) #6
-  br label %2236
+lean_inc.exit1124:                                ; preds = %962, %961, %959, %lean_inc.exit1125
+  %963 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %948, ptr noundef nonnull %931, ptr noundef nonnull %931, ptr noundef nonnull %761, ptr noundef nonnull %761, ptr noundef nonnull %761, ptr noundef nonnull %761) #6
+  %964 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %965 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %964, ptr noundef %963, ptr noundef %913) #6
+  %966 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %965, ptr noundef %4, ptr noundef %5, ptr noundef %733) #6
+  br label %2221
 
-976:                                              ; preds = %lean_obj_tag.exit1578
-  %977 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %978 = load ptr, ptr %977, align 8, !tbaa !4
-  %979 = ptrtoint ptr %978 to i64
-  %980 = and i64 %979, 1
-  %.not1991 = icmp eq i64 %980, 0
-  br i1 %.not1991, label %981, label %lean_inc.exit1123
+967:                                              ; preds = %lean_obj_tag.exit1578
+  %968 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %969 = load ptr, ptr %968, align 8, !tbaa !4
+  %970 = ptrtoint ptr %969 to i64
+  %971 = and i64 %970, 1
+  %.not1991 = icmp eq i64 %971, 0
+  br i1 %.not1991, label %972, label %lean_inc.exit1123
 
-981:                                              ; preds = %976
-  %.val.i1585 = load i32, ptr %978, align 4, !tbaa !8
-  %982 = icmp sgt i32 %.val.i1585, 0
-  br i1 %982, label %983, label %985, !prof !13
+972:                                              ; preds = %967
+  %.val.i1585 = load i32, ptr %969, align 4, !tbaa !8
+  %973 = icmp sgt i32 %.val.i1585, 0
+  br i1 %973, label %974, label %976, !prof !13
 
-983:                                              ; preds = %981
-  %984 = add nuw i32 %.val.i1585, 1
-  store i32 %984, ptr %978, align 4, !tbaa !8
+974:                                              ; preds = %972
+  %975 = add nuw i32 %.val.i1585, 1
+  store i32 %975, ptr %969, align 4, !tbaa !8
   br label %lean_inc.exit1123
 
-985:                                              ; preds = %981
+976:                                              ; preds = %972
   %.not.i1586 = icmp eq i32 %.val.i1585, 0
-  br i1 %.not.i1586, label %lean_inc.exit1123, label %986
+  br i1 %.not.i1586, label %lean_inc.exit1123, label %977
 
-986:                                              ; preds = %985
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %978) #6
+977:                                              ; preds = %976
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %969) #6
   br label %lean_inc.exit1123
 
-lean_inc.exit1123:                                ; preds = %986, %985, %983, %976
-  br i1 %.not.i1575, label %987, label %lean_dec.exit1207
+lean_inc.exit1123:                                ; preds = %977, %976, %974, %967
+  br i1 %.not.i1575, label %978, label %lean_dec.exit1207
 
-987:                                              ; preds = %lean_inc.exit1123
-  %988 = load i32, ptr %3, align 4, !tbaa !8
-  %989 = icmp sgt i32 %988, 1
-  br i1 %989, label %990, label %992, !prof !13
+978:                                              ; preds = %lean_inc.exit1123
+  %979 = load i32, ptr %3, align 4, !tbaa !8
+  %980 = icmp sgt i32 %979, 1
+  br i1 %980, label %981, label %983, !prof !13
 
-990:                                              ; preds = %987
-  %991 = add nsw i32 %988, -1
-  store i32 %991, ptr %3, align 4, !tbaa !8
+981:                                              ; preds = %978
+  %982 = add nsw i32 %979, -1
+  store i32 %982, ptr %3, align 4, !tbaa !8
   br label %lean_dec.exit1207
 
-992:                                              ; preds = %987
-  %.not.i1290 = icmp eq i32 %988, 0
-  br i1 %.not.i1290, label %lean_dec.exit1207, label %993
+983:                                              ; preds = %978
+  %.not.i1290 = icmp eq i32 %979, 0
+  br i1 %.not.i1290, label %lean_dec.exit1207, label %984
 
-993:                                              ; preds = %992
+984:                                              ; preds = %983
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #6
   br label %lean_dec.exit1207
 
-lean_dec.exit1207:                                ; preds = %993, %992, %990, %lean_inc.exit1123
-  %994 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %978) #6
-  %995 = tail call ptr @l_Array_append___rarg(ptr noundef %758, ptr noundef %994) #6
-  %996 = ptrtoint ptr %994 to i64
-  %997 = and i64 %996, 1
-  %.not1993 = icmp eq i64 %997, 0
-  br i1 %.not1993, label %998, label %lean_dec.exit1206
+lean_dec.exit1207:                                ; preds = %984, %983, %981, %lean_inc.exit1123
+  %985 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %969) #6
+  %986 = tail call ptr @l_Array_append___rarg(ptr noundef %752, ptr noundef %985) #6
+  %987 = ptrtoint ptr %985 to i64
+  %988 = and i64 %987, 1
+  %.not1993 = icmp eq i64 %988, 0
+  br i1 %.not1993, label %989, label %lean_dec.exit1206
 
-998:                                              ; preds = %lean_dec.exit1207
-  %999 = load i32, ptr %994, align 4, !tbaa !8
-  %1000 = icmp sgt i32 %999, 1
-  br i1 %1000, label %1001, label %1003, !prof !13
+989:                                              ; preds = %lean_dec.exit1207
+  %990 = load i32, ptr %985, align 4, !tbaa !8
+  %991 = icmp sgt i32 %990, 1
+  br i1 %991, label %992, label %994, !prof !13
 
-1001:                                             ; preds = %998
-  %1002 = add nsw i32 %999, -1
-  store i32 %1002, ptr %994, align 4, !tbaa !8
+992:                                              ; preds = %989
+  %993 = add nsw i32 %990, -1
+  store i32 %993, ptr %985, align 4, !tbaa !8
   br label %lean_dec.exit1206
 
-1003:                                             ; preds = %998
-  %.not.i1292 = icmp eq i32 %999, 0
-  br i1 %.not.i1292, label %lean_dec.exit1206, label %1004
+994:                                              ; preds = %989
+  %.not.i1292 = icmp eq i32 %990, 0
+  br i1 %.not.i1292, label %lean_dec.exit1206, label %995
 
-1004:                                             ; preds = %1003
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %994) #6
+995:                                              ; preds = %994
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %985) #6
   br label %lean_dec.exit1206
 
-lean_dec.exit1206:                                ; preds = %1004, %1003, %1001, %lean_dec.exit1207
-  br i1 %.not1982, label %1005, label %lean_inc.exit1122
+lean_dec.exit1206:                                ; preds = %995, %994, %992, %lean_dec.exit1207
+  br i1 %.not1982, label %996, label %lean_inc.exit1122
 
-1005:                                             ; preds = %lean_dec.exit1206
-  %.val.i1588 = load i32, ptr %277, align 4, !tbaa !8
-  %1006 = icmp sgt i32 %.val.i1588, 0
-  br i1 %1006, label %1007, label %1009, !prof !13
+996:                                              ; preds = %lean_dec.exit1206
+  %.val.i1588 = load i32, ptr %274, align 4, !tbaa !8
+  %997 = icmp sgt i32 %.val.i1588, 0
+  br i1 %997, label %998, label %1000, !prof !13
 
-1007:                                             ; preds = %1005
-  %1008 = add nuw i32 %.val.i1588, 1
-  store i32 %1008, ptr %277, align 4, !tbaa !8
+998:                                              ; preds = %996
+  %999 = add nuw i32 %.val.i1588, 1
+  store i32 %999, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1122
 
-1009:                                             ; preds = %1005
+1000:                                             ; preds = %996
   %.not.i1589 = icmp eq i32 %.val.i1588, 0
-  br i1 %.not.i1589, label %lean_inc.exit1122, label %1010
+  br i1 %.not.i1589, label %lean_inc.exit1122, label %1001
 
-1010:                                             ; preds = %1009
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1001:                                             ; preds = %1000
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1122
 
-lean_inc.exit1122:                                ; preds = %1010, %1009, %1007, %lean_dec.exit1206
+lean_inc.exit1122:                                ; preds = %1001, %1000, %998, %lean_dec.exit1206
   tail call void @lean_inc_heartbeat() #6
-  %1011 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1012 = icmp eq ptr %1011, null
-  br i1 %1012, label %1013, label %lean_alloc_ctor.exit1591
+  %1002 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1003 = icmp eq ptr %1002, null
+  br i1 %1003, label %1004, label %lean_alloc_ctor.exit1591
 
-1013:                                             ; preds = %lean_inc.exit1122
+1004:                                             ; preds = %lean_inc.exit1122
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1591:                         ; preds = %lean_inc.exit1122
-  %1014 = getelementptr inbounds nuw i8, ptr %1011, i64 4
-  store i32 1, ptr %1011, align 4, !tbaa !8
-  store i32 16973856, ptr %1014, align 4
-  %1015 = getelementptr inbounds nuw i8, ptr %1011, i64 8
-  store ptr %277, ptr %1015, align 8, !tbaa !4
-  %1016 = getelementptr inbounds nuw i8, ptr %1011, i64 16
-  store ptr %757, ptr %1016, align 8, !tbaa !4
-  %1017 = getelementptr inbounds nuw i8, ptr %1011, i64 24
-  store ptr %995, ptr %1017, align 8, !tbaa !4
-  %1018 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1984, label %1019, label %lean_inc_n.exit1595
+  %1005 = getelementptr inbounds nuw i8, ptr %1002, i64 4
+  store i32 1, ptr %1002, align 4, !tbaa !8
+  store i32 16973856, ptr %1005, align 4
+  %1006 = getelementptr inbounds nuw i8, ptr %1002, i64 8
+  store ptr %274, ptr %1006, align 8, !tbaa !4
+  %1007 = getelementptr inbounds nuw i8, ptr %1002, i64 16
+  store ptr %751, ptr %1007, align 8, !tbaa !4
+  %1008 = getelementptr inbounds nuw i8, ptr %1002, i64 24
+  store ptr %986, ptr %1008, align 8, !tbaa !4
+  %1009 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1984, label %1010, label %lean_inc_n.exit1595
 
-1019:                                             ; preds = %lean_alloc_ctor.exit1591
-  %.val.i.i1593 = load i32, ptr %767, align 4, !tbaa !8
-  %1020 = icmp sgt i32 %.val.i.i1593, 0
-  br i1 %1020, label %1021, label %1023, !prof !13
+1010:                                             ; preds = %lean_alloc_ctor.exit1591
+  %.val.i.i1593 = load i32, ptr %761, align 4, !tbaa !8
+  %1011 = icmp sgt i32 %.val.i.i1593, 0
+  br i1 %1011, label %1012, label %1014, !prof !13
 
-1021:                                             ; preds = %1019
-  %1022 = add nuw i32 %.val.i.i1593, 3
-  store i32 %1022, ptr %767, align 4, !tbaa !8
+1012:                                             ; preds = %1010
+  %1013 = add nuw i32 %.val.i.i1593, 3
+  store i32 %1013, ptr %761, align 4, !tbaa !8
   br label %lean_inc_n.exit1595
 
-1023:                                             ; preds = %1019
+1014:                                             ; preds = %1010
   %.not.i.i1594 = icmp eq i32 %.val.i.i1593, 0
-  br i1 %.not.i.i1594, label %lean_inc_n.exit1595, label %1024
+  br i1 %.not.i.i1594, label %lean_inc_n.exit1595, label %1015
 
-1024:                                             ; preds = %1023
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %767, i32 noundef 3) #6
+1015:                                             ; preds = %1014
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %761, i32 noundef 3) #6
   br label %lean_inc_n.exit1595
 
-lean_inc_n.exit1595:                              ; preds = %lean_alloc_ctor.exit1591, %1021, %1023, %1024
-  br i1 %.not1982, label %1025, label %lean_inc.exit1121
+lean_inc_n.exit1595:                              ; preds = %lean_alloc_ctor.exit1591, %1012, %1014, %1015
+  br i1 %.not1982, label %1016, label %lean_inc.exit1121
 
-1025:                                             ; preds = %lean_inc_n.exit1595
-  %.val.i1596 = load i32, ptr %277, align 4, !tbaa !8
-  %1026 = icmp sgt i32 %.val.i1596, 0
-  br i1 %1026, label %1027, label %1029, !prof !13
+1016:                                             ; preds = %lean_inc_n.exit1595
+  %.val.i1596 = load i32, ptr %274, align 4, !tbaa !8
+  %1017 = icmp sgt i32 %.val.i1596, 0
+  br i1 %1017, label %1018, label %1020, !prof !13
 
-1027:                                             ; preds = %1025
-  %1028 = add nuw i32 %.val.i1596, 1
-  store i32 %1028, ptr %277, align 4, !tbaa !8
+1018:                                             ; preds = %1016
+  %1019 = add nuw i32 %.val.i1596, 1
+  store i32 %1019, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1121
 
-1029:                                             ; preds = %1025
+1020:                                             ; preds = %1016
   %.not.i1597 = icmp eq i32 %.val.i1596, 0
-  br i1 %.not.i1597, label %lean_inc.exit1121, label %1030
+  br i1 %.not.i1597, label %lean_inc.exit1121, label %1021
 
-1030:                                             ; preds = %1029
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1021:                                             ; preds = %1020
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1121
 
-lean_inc.exit1121:                                ; preds = %1030, %1029, %1027, %lean_inc_n.exit1595
-  %1031 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %1018, ptr noundef nonnull %940, ptr noundef nonnull %1011, ptr noundef nonnull %767, ptr noundef nonnull %767, ptr noundef nonnull %767, ptr noundef nonnull %767) #6
-  %1032 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %1033 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %1032, ptr noundef %1031, ptr noundef %922) #6
-  %1034 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1033, ptr noundef %4, ptr noundef %5, ptr noundef %739) #6
-  br label %2236
+lean_inc.exit1121:                                ; preds = %1021, %1020, %1018, %lean_inc_n.exit1595
+  %1022 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %1009, ptr noundef nonnull %931, ptr noundef nonnull %1002, ptr noundef nonnull %761, ptr noundef nonnull %761, ptr noundef nonnull %761, ptr noundef nonnull %761) #6
+  %1023 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %1024 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %1023, ptr noundef %1022, ptr noundef %913) #6
+  %1025 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1024, ptr noundef %4, ptr noundef %5, ptr noundef %733) #6
+  br label %2221
 
-1035:                                             ; preds = %lean_obj_tag.exit1570
-  %1036 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1037 = load ptr, ptr %1036, align 8, !tbaa !4
-  %1038 = ptrtoint ptr %1037 to i64
-  %1039 = and i64 %1038, 1
-  %.not1985 = icmp eq i64 %1039, 0
-  br i1 %.not1985, label %1040, label %lean_inc.exit1120
+1026:                                             ; preds = %lean_obj_tag.exit1570
+  %1027 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1028 = load ptr, ptr %1027, align 8, !tbaa !4
+  %1029 = ptrtoint ptr %1028 to i64
+  %1030 = and i64 %1029, 1
+  %.not1985 = icmp eq i64 %1030, 0
+  br i1 %.not1985, label %1031, label %lean_inc.exit1120
 
-1040:                                             ; preds = %1035
-  %.val.i1599 = load i32, ptr %1037, align 4, !tbaa !8
-  %1041 = icmp sgt i32 %.val.i1599, 0
-  br i1 %1041, label %1042, label %1044, !prof !13
+1031:                                             ; preds = %1026
+  %.val.i1599 = load i32, ptr %1028, align 4, !tbaa !8
+  %1032 = icmp sgt i32 %.val.i1599, 0
+  br i1 %1032, label %1033, label %1035, !prof !13
 
-1042:                                             ; preds = %1040
-  %1043 = add nuw i32 %.val.i1599, 1
-  store i32 %1043, ptr %1037, align 4, !tbaa !8
+1033:                                             ; preds = %1031
+  %1034 = add nuw i32 %.val.i1599, 1
+  store i32 %1034, ptr %1028, align 4, !tbaa !8
   br label %lean_inc.exit1120
 
-1044:                                             ; preds = %1040
+1035:                                             ; preds = %1031
   %.not.i1600 = icmp eq i32 %.val.i1599, 0
-  br i1 %.not.i1600, label %lean_inc.exit1120, label %1045
+  br i1 %.not.i1600, label %lean_inc.exit1120, label %1036
 
-1045:                                             ; preds = %1044
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1037) #6
+1036:                                             ; preds = %1035
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1028) #6
   br label %lean_inc.exit1120
 
-lean_inc.exit1120:                                ; preds = %1045, %1044, %1042, %1035
-  br i1 %.not.i1567, label %1046, label %lean_dec.exit1205
+lean_inc.exit1120:                                ; preds = %1036, %1035, %1033, %1026
+  br i1 %.not.i1567, label %1037, label %lean_dec.exit1205
 
-1046:                                             ; preds = %lean_inc.exit1120
-  %1047 = load i32, ptr %1, align 4, !tbaa !8
-  %1048 = icmp sgt i32 %1047, 1
-  br i1 %1048, label %1049, label %1051, !prof !13
+1037:                                             ; preds = %lean_inc.exit1120
+  %1038 = load i32, ptr %1, align 4, !tbaa !8
+  %1039 = icmp sgt i32 %1038, 1
+  br i1 %1039, label %1040, label %1042, !prof !13
 
-1049:                                             ; preds = %1046
-  %1050 = add nsw i32 %1047, -1
-  store i32 %1050, ptr %1, align 4, !tbaa !8
+1040:                                             ; preds = %1037
+  %1041 = add nsw i32 %1038, -1
+  store i32 %1041, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit1205
 
-1051:                                             ; preds = %1046
-  %.not.i1294 = icmp eq i32 %1047, 0
-  br i1 %.not.i1294, label %lean_dec.exit1205, label %1052
+1042:                                             ; preds = %1037
+  %.not.i1294 = icmp eq i32 %1038, 0
+  br i1 %.not.i1294, label %lean_dec.exit1205, label %1043
 
-1052:                                             ; preds = %1051
+1043:                                             ; preds = %1042
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
   br label %lean_dec.exit1205
 
-lean_dec.exit1205:                                ; preds = %1052, %1051, %1049, %lean_inc.exit1120
-  %1053 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %1037) #6
-  %1054 = tail call ptr @l_Array_append___rarg(ptr noundef %758, ptr noundef %1053) #6
-  %1055 = ptrtoint ptr %1053 to i64
-  %1056 = and i64 %1055, 1
-  %.not1987 = icmp eq i64 %1056, 0
-  br i1 %.not1987, label %1057, label %lean_dec.exit1204
+lean_dec.exit1205:                                ; preds = %1043, %1042, %1040, %lean_inc.exit1120
+  %1044 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %1028) #6
+  %1045 = tail call ptr @l_Array_append___rarg(ptr noundef %752, ptr noundef %1044) #6
+  %1046 = ptrtoint ptr %1044 to i64
+  %1047 = and i64 %1046, 1
+  %.not1987 = icmp eq i64 %1047, 0
+  br i1 %.not1987, label %1048, label %lean_dec.exit1204
 
-1057:                                             ; preds = %lean_dec.exit1205
-  %1058 = load i32, ptr %1053, align 4, !tbaa !8
-  %1059 = icmp sgt i32 %1058, 1
-  br i1 %1059, label %1060, label %1062, !prof !13
+1048:                                             ; preds = %lean_dec.exit1205
+  %1049 = load i32, ptr %1044, align 4, !tbaa !8
+  %1050 = icmp sgt i32 %1049, 1
+  br i1 %1050, label %1051, label %1053, !prof !13
 
-1060:                                             ; preds = %1057
-  %1061 = add nsw i32 %1058, -1
-  store i32 %1061, ptr %1053, align 4, !tbaa !8
+1051:                                             ; preds = %1048
+  %1052 = add nsw i32 %1049, -1
+  store i32 %1052, ptr %1044, align 4, !tbaa !8
   br label %lean_dec.exit1204
 
-1062:                                             ; preds = %1057
-  %.not.i1296 = icmp eq i32 %1058, 0
-  br i1 %.not.i1296, label %lean_dec.exit1204, label %1063
+1053:                                             ; preds = %1048
+  %.not.i1296 = icmp eq i32 %1049, 0
+  br i1 %.not.i1296, label %lean_dec.exit1204, label %1054
 
-1063:                                             ; preds = %1062
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1053) #6
+1054:                                             ; preds = %1053
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1044) #6
   br label %lean_dec.exit1204
 
-lean_dec.exit1204:                                ; preds = %1063, %1062, %1060, %lean_dec.exit1205
-  br i1 %.not1982, label %1064, label %lean_inc.exit1119
+lean_dec.exit1204:                                ; preds = %1054, %1053, %1051, %lean_dec.exit1205
+  br i1 %.not1982, label %1055, label %lean_inc.exit1119
 
-1064:                                             ; preds = %lean_dec.exit1204
-  %.val.i1602 = load i32, ptr %277, align 4, !tbaa !8
-  %1065 = icmp sgt i32 %.val.i1602, 0
-  br i1 %1065, label %1066, label %1068, !prof !13
+1055:                                             ; preds = %lean_dec.exit1204
+  %.val.i1602 = load i32, ptr %274, align 4, !tbaa !8
+  %1056 = icmp sgt i32 %.val.i1602, 0
+  br i1 %1056, label %1057, label %1059, !prof !13
 
-1066:                                             ; preds = %1064
-  %1067 = add nuw i32 %.val.i1602, 1
-  store i32 %1067, ptr %277, align 4, !tbaa !8
+1057:                                             ; preds = %1055
+  %1058 = add nuw i32 %.val.i1602, 1
+  store i32 %1058, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1119
 
-1068:                                             ; preds = %1064
+1059:                                             ; preds = %1055
   %.not.i1603 = icmp eq i32 %.val.i1602, 0
-  br i1 %.not.i1603, label %lean_inc.exit1119, label %1069
+  br i1 %.not.i1603, label %lean_inc.exit1119, label %1060
 
-1069:                                             ; preds = %1068
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1060:                                             ; preds = %1059
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1119
 
-lean_inc.exit1119:                                ; preds = %1069, %1068, %1066, %lean_dec.exit1204
+lean_inc.exit1119:                                ; preds = %1060, %1059, %1057, %lean_dec.exit1204
   tail call void @lean_inc_heartbeat() #6
-  %1070 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1071 = icmp eq ptr %1070, null
-  br i1 %1071, label %1072, label %lean_alloc_ctor.exit1605
+  %1061 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1062 = icmp eq ptr %1061, null
+  br i1 %1062, label %1063, label %lean_alloc_ctor.exit1605
 
-1072:                                             ; preds = %lean_inc.exit1119
+1063:                                             ; preds = %lean_inc.exit1119
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1605:                         ; preds = %lean_inc.exit1119
-  %1073 = getelementptr inbounds nuw i8, ptr %1070, i64 4
-  store i32 1, ptr %1070, align 4, !tbaa !8
-  store i32 16973856, ptr %1073, align 4
-  %1074 = getelementptr inbounds nuw i8, ptr %1070, i64 8
-  store ptr %277, ptr %1074, align 8, !tbaa !4
-  %1075 = getelementptr inbounds nuw i8, ptr %1070, i64 16
-  store ptr %757, ptr %1075, align 8, !tbaa !4
-  %1076 = getelementptr inbounds nuw i8, ptr %1070, i64 24
-  store ptr %1054, ptr %1076, align 8, !tbaa !4
-  %1077 = ptrtoint ptr %3 to i64
-  %1078 = and i64 %1077, 1
-  %.not.i1606 = icmp eq i64 %1078, 0
-  br i1 %.not.i1606, label %1082, label %1079
+  %1064 = getelementptr inbounds nuw i8, ptr %1061, i64 4
+  store i32 1, ptr %1061, align 4, !tbaa !8
+  store i32 16973856, ptr %1064, align 4
+  %1065 = getelementptr inbounds nuw i8, ptr %1061, i64 8
+  store ptr %274, ptr %1065, align 8, !tbaa !4
+  %1066 = getelementptr inbounds nuw i8, ptr %1061, i64 16
+  store ptr %751, ptr %1066, align 8, !tbaa !4
+  %1067 = getelementptr inbounds nuw i8, ptr %1061, i64 24
+  store ptr %1045, ptr %1067, align 8, !tbaa !4
+  %1068 = ptrtoint ptr %3 to i64
+  %1069 = and i64 %1068, 1
+  %.not.i1606 = icmp eq i64 %1069, 0
+  br i1 %.not.i1606, label %1073, label %1070
 
-1079:                                             ; preds = %lean_alloc_ctor.exit1605
-  %1080 = lshr i64 %1077, 1
-  %1081 = trunc i64 %1080 to i32
+1070:                                             ; preds = %lean_alloc_ctor.exit1605
+  %1071 = lshr i64 %1068, 1
+  %1072 = trunc i64 %1071 to i32
   br label %lean_obj_tag.exit1609
 
-1082:                                             ; preds = %lean_alloc_ctor.exit1605
-  %1083 = getelementptr i8, ptr %3, i64 4
-  %.val.i1608 = load i32, ptr %1083, align 4
-  %1084 = lshr i32 %.val.i1608, 24
+1073:                                             ; preds = %lean_alloc_ctor.exit1605
+  %1074 = getelementptr i8, ptr %3, i64 4
+  %.val.i1608 = load i32, ptr %1074, align 4
+  %1075 = lshr i32 %.val.i1608, 24
   br label %lean_obj_tag.exit1609
 
-lean_obj_tag.exit1609:                            ; preds = %1079, %1082
-  %.0.i1607 = phi i32 [ %1081, %1079 ], [ %1084, %1082 ]
-  %1085 = icmp eq i32 %.0.i1607, 0
-  br i1 %1085, label %1086, label %1118
+lean_obj_tag.exit1609:                            ; preds = %1070, %1073
+  %.0.i1607 = phi i32 [ %1072, %1070 ], [ %1075, %1073 ]
+  %1076 = icmp eq i32 %.0.i1607, 0
+  br i1 %1076, label %1077, label %1109
 
-1086:                                             ; preds = %lean_obj_tag.exit1609
-  %1087 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
-  br i1 %.not1982, label %1088, label %lean_inc.exit1118
+1077:                                             ; preds = %lean_obj_tag.exit1609
+  %1078 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
+  br i1 %.not1982, label %1079, label %lean_inc.exit1118
 
-1088:                                             ; preds = %1086
-  %.val.i1610 = load i32, ptr %277, align 4, !tbaa !8
-  %1089 = icmp sgt i32 %.val.i1610, 0
-  br i1 %1089, label %1090, label %1092, !prof !13
+1079:                                             ; preds = %1077
+  %.val.i1610 = load i32, ptr %274, align 4, !tbaa !8
+  %1080 = icmp sgt i32 %.val.i1610, 0
+  br i1 %1080, label %1081, label %1083, !prof !13
 
-1090:                                             ; preds = %1088
-  %1091 = add nuw i32 %.val.i1610, 1
-  store i32 %1091, ptr %277, align 4, !tbaa !8
+1081:                                             ; preds = %1079
+  %1082 = add nuw i32 %.val.i1610, 1
+  store i32 %1082, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1118
 
-1092:                                             ; preds = %1088
+1083:                                             ; preds = %1079
   %.not.i1611 = icmp eq i32 %.val.i1610, 0
-  br i1 %.not.i1611, label %lean_inc.exit1118, label %1093
+  br i1 %.not.i1611, label %lean_inc.exit1118, label %1084
 
-1093:                                             ; preds = %1092
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1084:                                             ; preds = %1083
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1118
 
-lean_inc.exit1118:                                ; preds = %1093, %1092, %1090, %1086
+lean_inc.exit1118:                                ; preds = %1084, %1083, %1081, %1077
   tail call void @lean_inc_heartbeat() #6
-  %1094 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1095 = icmp eq ptr %1094, null
-  br i1 %1095, label %1096, label %lean_alloc_ctor.exit1613
+  %1085 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1086 = icmp eq ptr %1085, null
+  br i1 %1086, label %1087, label %lean_alloc_ctor.exit1613
 
-1096:                                             ; preds = %lean_inc.exit1118
+1087:                                             ; preds = %lean_inc.exit1118
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1613:                         ; preds = %lean_inc.exit1118
-  %1097 = getelementptr inbounds nuw i8, ptr %1094, i64 4
-  store i32 1, ptr %1094, align 4, !tbaa !8
-  store i32 16973856, ptr %1097, align 4
-  %1098 = getelementptr inbounds nuw i8, ptr %1094, i64 8
-  store ptr %277, ptr %1098, align 8, !tbaa !4
-  %1099 = getelementptr inbounds nuw i8, ptr %1094, i64 16
-  store ptr %757, ptr %1099, align 8, !tbaa !4
-  %1100 = getelementptr inbounds nuw i8, ptr %1094, i64 24
-  store ptr %1087, ptr %1100, align 8, !tbaa !4
-  %1101 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1984, label %1102, label %lean_inc_n.exit1617
+  %1088 = getelementptr inbounds nuw i8, ptr %1085, i64 4
+  store i32 1, ptr %1085, align 4, !tbaa !8
+  store i32 16973856, ptr %1088, align 4
+  %1089 = getelementptr inbounds nuw i8, ptr %1085, i64 8
+  store ptr %274, ptr %1089, align 8, !tbaa !4
+  %1090 = getelementptr inbounds nuw i8, ptr %1085, i64 16
+  store ptr %751, ptr %1090, align 8, !tbaa !4
+  %1091 = getelementptr inbounds nuw i8, ptr %1085, i64 24
+  store ptr %1078, ptr %1091, align 8, !tbaa !4
+  %1092 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1984, label %1093, label %lean_inc_n.exit1617
 
-1102:                                             ; preds = %lean_alloc_ctor.exit1613
-  %.val.i.i1615 = load i32, ptr %767, align 4, !tbaa !8
-  %1103 = icmp sgt i32 %.val.i.i1615, 0
-  br i1 %1103, label %1104, label %1106, !prof !13
+1093:                                             ; preds = %lean_alloc_ctor.exit1613
+  %.val.i.i1615 = load i32, ptr %761, align 4, !tbaa !8
+  %1094 = icmp sgt i32 %.val.i.i1615, 0
+  br i1 %1094, label %1095, label %1097, !prof !13
 
-1104:                                             ; preds = %1102
-  %1105 = add nuw i32 %.val.i.i1615, 3
-  store i32 %1105, ptr %767, align 4, !tbaa !8
+1095:                                             ; preds = %1093
+  %1096 = add nuw i32 %.val.i.i1615, 3
+  store i32 %1096, ptr %761, align 4, !tbaa !8
   br label %lean_inc_n.exit1617
 
-1106:                                             ; preds = %1102
+1097:                                             ; preds = %1093
   %.not.i.i1616 = icmp eq i32 %.val.i.i1615, 0
-  br i1 %.not.i.i1616, label %lean_inc_n.exit1617, label %1107
+  br i1 %.not.i.i1616, label %lean_inc_n.exit1617, label %1098
 
-1107:                                             ; preds = %1106
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %767, i32 noundef 3) #6
+1098:                                             ; preds = %1097
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %761, i32 noundef 3) #6
   br label %lean_inc_n.exit1617
 
-lean_inc_n.exit1617:                              ; preds = %lean_alloc_ctor.exit1613, %1104, %1106, %1107
-  br i1 %.not1982, label %1108, label %lean_inc.exit1117
+lean_inc_n.exit1617:                              ; preds = %lean_alloc_ctor.exit1613, %1095, %1097, %1098
+  br i1 %.not1982, label %1099, label %lean_inc.exit1117
 
-1108:                                             ; preds = %lean_inc_n.exit1617
-  %.val.i1618 = load i32, ptr %277, align 4, !tbaa !8
-  %1109 = icmp sgt i32 %.val.i1618, 0
-  br i1 %1109, label %1110, label %1112, !prof !13
+1099:                                             ; preds = %lean_inc_n.exit1617
+  %.val.i1618 = load i32, ptr %274, align 4, !tbaa !8
+  %1100 = icmp sgt i32 %.val.i1618, 0
+  br i1 %1100, label %1101, label %1103, !prof !13
 
-1110:                                             ; preds = %1108
-  %1111 = add nuw i32 %.val.i1618, 1
-  store i32 %1111, ptr %277, align 4, !tbaa !8
+1101:                                             ; preds = %1099
+  %1102 = add nuw i32 %.val.i1618, 1
+  store i32 %1102, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1117
 
-1112:                                             ; preds = %1108
+1103:                                             ; preds = %1099
   %.not.i1619 = icmp eq i32 %.val.i1618, 0
-  br i1 %.not.i1619, label %lean_inc.exit1117, label %1113
+  br i1 %.not.i1619, label %lean_inc.exit1117, label %1104
 
-1113:                                             ; preds = %1112
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1104:                                             ; preds = %1103
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1117
 
-lean_inc.exit1117:                                ; preds = %1113, %1112, %1110, %lean_inc_n.exit1617
-  %1114 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %1101, ptr noundef nonnull %1070, ptr noundef nonnull %1094, ptr noundef nonnull %767, ptr noundef nonnull %767, ptr noundef nonnull %767, ptr noundef nonnull %767) #6
-  %1115 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %1116 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %1115, ptr noundef %1114, ptr noundef %922) #6
-  %1117 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1116, ptr noundef %4, ptr noundef %5, ptr noundef %739) #6
-  br label %2236
+lean_inc.exit1117:                                ; preds = %1104, %1103, %1101, %lean_inc_n.exit1617
+  %1105 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %1092, ptr noundef nonnull %1061, ptr noundef nonnull %1085, ptr noundef nonnull %761, ptr noundef nonnull %761, ptr noundef nonnull %761, ptr noundef nonnull %761) #6
+  %1106 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %1107 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %1106, ptr noundef %1105, ptr noundef %913) #6
+  %1108 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1107, ptr noundef %4, ptr noundef %5, ptr noundef %733) #6
+  br label %2221
 
-1118:                                             ; preds = %lean_obj_tag.exit1609
-  %1119 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %1120 = load ptr, ptr %1119, align 8, !tbaa !4
-  %1121 = ptrtoint ptr %1120 to i64
-  %1122 = and i64 %1121, 1
-  %.not1988 = icmp eq i64 %1122, 0
-  br i1 %.not1988, label %1123, label %lean_inc.exit1116
+1109:                                             ; preds = %lean_obj_tag.exit1609
+  %1110 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %1111 = load ptr, ptr %1110, align 8, !tbaa !4
+  %1112 = ptrtoint ptr %1111 to i64
+  %1113 = and i64 %1112, 1
+  %.not1988 = icmp eq i64 %1113, 0
+  br i1 %.not1988, label %1114, label %lean_inc.exit1116
 
-1123:                                             ; preds = %1118
-  %.val.i1621 = load i32, ptr %1120, align 4, !tbaa !8
-  %1124 = icmp sgt i32 %.val.i1621, 0
-  br i1 %1124, label %1125, label %1127, !prof !13
+1114:                                             ; preds = %1109
+  %.val.i1621 = load i32, ptr %1111, align 4, !tbaa !8
+  %1115 = icmp sgt i32 %.val.i1621, 0
+  br i1 %1115, label %1116, label %1118, !prof !13
 
-1125:                                             ; preds = %1123
-  %1126 = add nuw i32 %.val.i1621, 1
-  store i32 %1126, ptr %1120, align 4, !tbaa !8
+1116:                                             ; preds = %1114
+  %1117 = add nuw i32 %.val.i1621, 1
+  store i32 %1117, ptr %1111, align 4, !tbaa !8
   br label %lean_inc.exit1116
 
-1127:                                             ; preds = %1123
+1118:                                             ; preds = %1114
   %.not.i1622 = icmp eq i32 %.val.i1621, 0
-  br i1 %.not.i1622, label %lean_inc.exit1116, label %1128
+  br i1 %.not.i1622, label %lean_inc.exit1116, label %1119
 
-1128:                                             ; preds = %1127
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1120) #6
+1119:                                             ; preds = %1118
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1111) #6
   br label %lean_inc.exit1116
 
-lean_inc.exit1116:                                ; preds = %1128, %1127, %1125, %1118
-  br i1 %.not.i1606, label %1129, label %lean_dec.exit1203
+lean_inc.exit1116:                                ; preds = %1119, %1118, %1116, %1109
+  br i1 %.not.i1606, label %1120, label %lean_dec.exit1203
 
-1129:                                             ; preds = %lean_inc.exit1116
-  %1130 = load i32, ptr %3, align 4, !tbaa !8
-  %1131 = icmp sgt i32 %1130, 1
-  br i1 %1131, label %1132, label %1134, !prof !13
+1120:                                             ; preds = %lean_inc.exit1116
+  %1121 = load i32, ptr %3, align 4, !tbaa !8
+  %1122 = icmp sgt i32 %1121, 1
+  br i1 %1122, label %1123, label %1125, !prof !13
 
-1132:                                             ; preds = %1129
-  %1133 = add nsw i32 %1130, -1
-  store i32 %1133, ptr %3, align 4, !tbaa !8
+1123:                                             ; preds = %1120
+  %1124 = add nsw i32 %1121, -1
+  store i32 %1124, ptr %3, align 4, !tbaa !8
   br label %lean_dec.exit1203
 
-1134:                                             ; preds = %1129
-  %.not.i1298 = icmp eq i32 %1130, 0
-  br i1 %.not.i1298, label %lean_dec.exit1203, label %1135
+1125:                                             ; preds = %1120
+  %.not.i1298 = icmp eq i32 %1121, 0
+  br i1 %.not.i1298, label %lean_dec.exit1203, label %1126
 
-1135:                                             ; preds = %1134
+1126:                                             ; preds = %1125
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #6
   br label %lean_dec.exit1203
 
-lean_dec.exit1203:                                ; preds = %1135, %1134, %1132, %lean_inc.exit1116
-  %1136 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %1120) #6
-  %1137 = tail call ptr @l_Array_append___rarg(ptr noundef %758, ptr noundef %1136) #6
-  %1138 = ptrtoint ptr %1136 to i64
-  %1139 = and i64 %1138, 1
-  %.not1990 = icmp eq i64 %1139, 0
-  br i1 %.not1990, label %1140, label %lean_dec.exit1202
+lean_dec.exit1203:                                ; preds = %1126, %1125, %1123, %lean_inc.exit1116
+  %1127 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %1111) #6
+  %1128 = tail call ptr @l_Array_append___rarg(ptr noundef %752, ptr noundef %1127) #6
+  %1129 = ptrtoint ptr %1127 to i64
+  %1130 = and i64 %1129, 1
+  %.not1990 = icmp eq i64 %1130, 0
+  br i1 %.not1990, label %1131, label %lean_dec.exit1202
 
-1140:                                             ; preds = %lean_dec.exit1203
-  %1141 = load i32, ptr %1136, align 4, !tbaa !8
-  %1142 = icmp sgt i32 %1141, 1
-  br i1 %1142, label %1143, label %1145, !prof !13
+1131:                                             ; preds = %lean_dec.exit1203
+  %1132 = load i32, ptr %1127, align 4, !tbaa !8
+  %1133 = icmp sgt i32 %1132, 1
+  br i1 %1133, label %1134, label %1136, !prof !13
 
-1143:                                             ; preds = %1140
-  %1144 = add nsw i32 %1141, -1
-  store i32 %1144, ptr %1136, align 4, !tbaa !8
+1134:                                             ; preds = %1131
+  %1135 = add nsw i32 %1132, -1
+  store i32 %1135, ptr %1127, align 4, !tbaa !8
   br label %lean_dec.exit1202
 
-1145:                                             ; preds = %1140
-  %.not.i1300 = icmp eq i32 %1141, 0
-  br i1 %.not.i1300, label %lean_dec.exit1202, label %1146
+1136:                                             ; preds = %1131
+  %.not.i1300 = icmp eq i32 %1132, 0
+  br i1 %.not.i1300, label %lean_dec.exit1202, label %1137
 
-1146:                                             ; preds = %1145
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1136) #6
+1137:                                             ; preds = %1136
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1127) #6
   br label %lean_dec.exit1202
 
-lean_dec.exit1202:                                ; preds = %1146, %1145, %1143, %lean_dec.exit1203
-  br i1 %.not1982, label %1147, label %lean_inc.exit1115
+lean_dec.exit1202:                                ; preds = %1137, %1136, %1134, %lean_dec.exit1203
+  br i1 %.not1982, label %1138, label %lean_inc.exit1115
 
-1147:                                             ; preds = %lean_dec.exit1202
-  %.val.i1624 = load i32, ptr %277, align 4, !tbaa !8
-  %1148 = icmp sgt i32 %.val.i1624, 0
-  br i1 %1148, label %1149, label %1151, !prof !13
+1138:                                             ; preds = %lean_dec.exit1202
+  %.val.i1624 = load i32, ptr %274, align 4, !tbaa !8
+  %1139 = icmp sgt i32 %.val.i1624, 0
+  br i1 %1139, label %1140, label %1142, !prof !13
 
-1149:                                             ; preds = %1147
-  %1150 = add nuw i32 %.val.i1624, 1
-  store i32 %1150, ptr %277, align 4, !tbaa !8
+1140:                                             ; preds = %1138
+  %1141 = add nuw i32 %.val.i1624, 1
+  store i32 %1141, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1115
 
-1151:                                             ; preds = %1147
+1142:                                             ; preds = %1138
   %.not.i1625 = icmp eq i32 %.val.i1624, 0
-  br i1 %.not.i1625, label %lean_inc.exit1115, label %1152
+  br i1 %.not.i1625, label %lean_inc.exit1115, label %1143
 
-1152:                                             ; preds = %1151
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1143:                                             ; preds = %1142
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1115
 
-lean_inc.exit1115:                                ; preds = %1152, %1151, %1149, %lean_dec.exit1202
+lean_inc.exit1115:                                ; preds = %1143, %1142, %1140, %lean_dec.exit1202
   tail call void @lean_inc_heartbeat() #6
-  %1153 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1154 = icmp eq ptr %1153, null
-  br i1 %1154, label %1155, label %lean_alloc_ctor.exit1627
+  %1144 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1145 = icmp eq ptr %1144, null
+  br i1 %1145, label %1146, label %lean_alloc_ctor.exit1627
 
-1155:                                             ; preds = %lean_inc.exit1115
+1146:                                             ; preds = %lean_inc.exit1115
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1627:                         ; preds = %lean_inc.exit1115
-  %1156 = getelementptr inbounds nuw i8, ptr %1153, i64 4
-  store i32 1, ptr %1153, align 4, !tbaa !8
-  store i32 16973856, ptr %1156, align 4
-  %1157 = getelementptr inbounds nuw i8, ptr %1153, i64 8
-  store ptr %277, ptr %1157, align 8, !tbaa !4
-  %1158 = getelementptr inbounds nuw i8, ptr %1153, i64 16
-  store ptr %757, ptr %1158, align 8, !tbaa !4
-  %1159 = getelementptr inbounds nuw i8, ptr %1153, i64 24
-  store ptr %1137, ptr %1159, align 8, !tbaa !4
-  %1160 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1984, label %1161, label %lean_inc_n.exit1631
+  %1147 = getelementptr inbounds nuw i8, ptr %1144, i64 4
+  store i32 1, ptr %1144, align 4, !tbaa !8
+  store i32 16973856, ptr %1147, align 4
+  %1148 = getelementptr inbounds nuw i8, ptr %1144, i64 8
+  store ptr %274, ptr %1148, align 8, !tbaa !4
+  %1149 = getelementptr inbounds nuw i8, ptr %1144, i64 16
+  store ptr %751, ptr %1149, align 8, !tbaa !4
+  %1150 = getelementptr inbounds nuw i8, ptr %1144, i64 24
+  store ptr %1128, ptr %1150, align 8, !tbaa !4
+  %1151 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1984, label %1152, label %lean_inc_n.exit1631
 
-1161:                                             ; preds = %lean_alloc_ctor.exit1627
-  %.val.i.i1629 = load i32, ptr %767, align 4, !tbaa !8
-  %1162 = icmp sgt i32 %.val.i.i1629, 0
-  br i1 %1162, label %1163, label %1165, !prof !13
+1152:                                             ; preds = %lean_alloc_ctor.exit1627
+  %.val.i.i1629 = load i32, ptr %761, align 4, !tbaa !8
+  %1153 = icmp sgt i32 %.val.i.i1629, 0
+  br i1 %1153, label %1154, label %1156, !prof !13
 
-1163:                                             ; preds = %1161
-  %1164 = add nuw i32 %.val.i.i1629, 3
-  store i32 %1164, ptr %767, align 4, !tbaa !8
+1154:                                             ; preds = %1152
+  %1155 = add nuw i32 %.val.i.i1629, 3
+  store i32 %1155, ptr %761, align 4, !tbaa !8
   br label %lean_inc_n.exit1631
 
-1165:                                             ; preds = %1161
+1156:                                             ; preds = %1152
   %.not.i.i1630 = icmp eq i32 %.val.i.i1629, 0
-  br i1 %.not.i.i1630, label %lean_inc_n.exit1631, label %1166
+  br i1 %.not.i.i1630, label %lean_inc_n.exit1631, label %1157
 
-1166:                                             ; preds = %1165
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %767, i32 noundef 3) #6
+1157:                                             ; preds = %1156
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %761, i32 noundef 3) #6
   br label %lean_inc_n.exit1631
 
-lean_inc_n.exit1631:                              ; preds = %lean_alloc_ctor.exit1627, %1163, %1165, %1166
-  br i1 %.not1982, label %1167, label %lean_inc.exit1114
+lean_inc_n.exit1631:                              ; preds = %lean_alloc_ctor.exit1627, %1154, %1156, %1157
+  br i1 %.not1982, label %1158, label %lean_inc.exit1114
 
-1167:                                             ; preds = %lean_inc_n.exit1631
-  %.val.i1632 = load i32, ptr %277, align 4, !tbaa !8
-  %1168 = icmp sgt i32 %.val.i1632, 0
-  br i1 %1168, label %1169, label %1171, !prof !13
+1158:                                             ; preds = %lean_inc_n.exit1631
+  %.val.i1632 = load i32, ptr %274, align 4, !tbaa !8
+  %1159 = icmp sgt i32 %.val.i1632, 0
+  br i1 %1159, label %1160, label %1162, !prof !13
 
-1169:                                             ; preds = %1167
-  %1170 = add nuw i32 %.val.i1632, 1
-  store i32 %1170, ptr %277, align 4, !tbaa !8
+1160:                                             ; preds = %1158
+  %1161 = add nuw i32 %.val.i1632, 1
+  store i32 %1161, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1114
 
-1171:                                             ; preds = %1167
+1162:                                             ; preds = %1158
   %.not.i1633 = icmp eq i32 %.val.i1632, 0
-  br i1 %.not.i1633, label %lean_inc.exit1114, label %1172
+  br i1 %.not.i1633, label %lean_inc.exit1114, label %1163
 
-1172:                                             ; preds = %1171
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1163:                                             ; preds = %1162
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1114
 
-lean_inc.exit1114:                                ; preds = %1172, %1171, %1169, %lean_inc_n.exit1631
-  %1173 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %1160, ptr noundef nonnull %1070, ptr noundef nonnull %1153, ptr noundef nonnull %767, ptr noundef nonnull %767, ptr noundef nonnull %767, ptr noundef nonnull %767) #6
-  %1174 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %1175 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %1174, ptr noundef %1173, ptr noundef %922) #6
-  %1176 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1175, ptr noundef %4, ptr noundef %5, ptr noundef %739) #6
-  br label %2236
+lean_inc.exit1114:                                ; preds = %1163, %1162, %1160, %lean_inc_n.exit1631
+  %1164 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %1151, ptr noundef nonnull %1061, ptr noundef nonnull %1144, ptr noundef nonnull %761, ptr noundef nonnull %761, ptr noundef nonnull %761, ptr noundef nonnull %761) #6
+  %1165 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %1166 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %1165, ptr noundef %1164, ptr noundef %913) #6
+  %1167 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1166, ptr noundef %4, ptr noundef %5, ptr noundef %733) #6
+  br label %2221
 
-1177:                                             ; preds = %lean_dec.exit1219
-  %1178 = getelementptr inbounds nuw i8, ptr %287, i64 16
-  %1179 = load ptr, ptr %1178, align 8, !tbaa !4
-  %1180 = ptrtoint ptr %1179 to i64
-  %1181 = and i64 %1180, 1
-  %.not1962 = icmp eq i64 %1181, 0
-  br i1 %.not1962, label %1182, label %lean_inc.exit1113
+1168:                                             ; preds = %lean_dec.exit1219
+  %1169 = getelementptr inbounds nuw i8, ptr %284, i64 16
+  %1170 = load ptr, ptr %1169, align 8, !tbaa !4
+  %1171 = ptrtoint ptr %1170 to i64
+  %1172 = and i64 %1171, 1
+  %.not1962 = icmp eq i64 %1172, 0
+  br i1 %.not1962, label %1173, label %lean_inc.exit1113
 
-1182:                                             ; preds = %1177
-  %.val.i1635 = load i32, ptr %1179, align 4, !tbaa !8
-  %1183 = icmp sgt i32 %.val.i1635, 0
+1173:                                             ; preds = %1168
+  %.val.i1635 = load i32, ptr %1170, align 4, !tbaa !8
+  %1174 = icmp sgt i32 %.val.i1635, 0
+  br i1 %1174, label %1175, label %1177, !prof !13
+
+1175:                                             ; preds = %1173
+  %1176 = add nuw i32 %.val.i1635, 1
+  store i32 %1176, ptr %1170, align 4, !tbaa !8
+  br label %lean_inc.exit1113
+
+1177:                                             ; preds = %1173
+  %.not.i1636 = icmp eq i32 %.val.i1635, 0
+  br i1 %.not.i1636, label %lean_inc.exit1113, label %1178
+
+1178:                                             ; preds = %1177
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1170) #6
+  br label %lean_inc.exit1113
+
+lean_inc.exit1113:                                ; preds = %1178, %1177, %1175, %1168
+  %1179 = ptrtoint ptr %284 to i64
+  %1180 = and i64 %1179, 1
+  %.not1963 = icmp eq i64 %1180, 0
+  br i1 %.not1963, label %1181, label %lean_dec.exit1201
+
+1181:                                             ; preds = %lean_inc.exit1113
+  %1182 = load i32, ptr %284, align 4, !tbaa !8
+  %1183 = icmp sgt i32 %1182, 1
   br i1 %1183, label %1184, label %1186, !prof !13
 
-1184:                                             ; preds = %1182
-  %1185 = add nuw i32 %.val.i1635, 1
-  store i32 %1185, ptr %1179, align 4, !tbaa !8
-  br label %lean_inc.exit1113
+1184:                                             ; preds = %1181
+  %1185 = add nsw i32 %1182, -1
+  store i32 %1185, ptr %284, align 4, !tbaa !8
+  br label %lean_dec.exit1201
 
-1186:                                             ; preds = %1182
-  %.not.i1636 = icmp eq i32 %.val.i1635, 0
-  br i1 %.not.i1636, label %lean_inc.exit1113, label %1187
+1186:                                             ; preds = %1181
+  %.not.i1302 = icmp eq i32 %1182, 0
+  br i1 %.not.i1302, label %lean_dec.exit1201, label %1187
 
 1187:                                             ; preds = %1186
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1179) #6
-  br label %lean_inc.exit1113
-
-lean_inc.exit1113:                                ; preds = %1187, %1186, %1184, %1177
-  %1188 = ptrtoint ptr %287 to i64
-  %1189 = and i64 %1188, 1
-  %.not1963 = icmp eq i64 %1189, 0
-  br i1 %.not1963, label %1190, label %lean_dec.exit1201
-
-1190:                                             ; preds = %lean_inc.exit1113
-  %1191 = load i32, ptr %287, align 4, !tbaa !8
-  %1192 = icmp sgt i32 %1191, 1
-  br i1 %1192, label %1193, label %1195, !prof !13
-
-1193:                                             ; preds = %1190
-  %1194 = add nsw i32 %1191, -1
-  store i32 %1194, ptr %287, align 4, !tbaa !8
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %284) #6
   br label %lean_dec.exit1201
 
-1195:                                             ; preds = %1190
-  %.not.i1302 = icmp eq i32 %1191, 0
-  br i1 %.not.i1302, label %lean_dec.exit1201, label %1196
+lean_dec.exit1201:                                ; preds = %1187, %1186, %1184, %lean_inc.exit1113
+  %1188 = tail call ptr @l_Lean_Elab_Command_getMainModule___rarg(ptr noundef %5, ptr noundef %1170) #6
+  %1189 = getelementptr inbounds nuw i8, ptr %1188, i64 8
+  %1190 = getelementptr inbounds nuw i8, ptr %1188, i64 16
+  %1191 = load ptr, ptr %1190, align 8, !tbaa !4
+  %1192 = ptrtoint ptr %1191 to i64
+  %1193 = and i64 %1192, 1
+  %.not1964 = icmp eq i64 %1193, 0
+  br i1 %.not1964, label %1194, label %lean_inc.exit1112
 
-1196:                                             ; preds = %1195
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %287) #6
-  br label %lean_dec.exit1201
+1194:                                             ; preds = %lean_dec.exit1201
+  %.val.i1638 = load i32, ptr %1191, align 4, !tbaa !8
+  %1195 = icmp sgt i32 %.val.i1638, 0
+  br i1 %1195, label %1196, label %1198, !prof !13
 
-lean_dec.exit1201:                                ; preds = %1196, %1195, %1193, %lean_inc.exit1113
-  %1197 = tail call ptr @l_Lean_Elab_Command_getMainModule___rarg(ptr noundef %5, ptr noundef %1179) #6
-  %1198 = getelementptr inbounds nuw i8, ptr %1197, i64 8
-  %1199 = getelementptr inbounds nuw i8, ptr %1197, i64 16
-  %1200 = load ptr, ptr %1199, align 8, !tbaa !4
-  %1201 = ptrtoint ptr %1200 to i64
-  %1202 = and i64 %1201, 1
-  %.not1964 = icmp eq i64 %1202, 0
-  br i1 %.not1964, label %1203, label %lean_inc.exit1112
-
-1203:                                             ; preds = %lean_dec.exit1201
-  %.val.i1638 = load i32, ptr %1200, align 4, !tbaa !8
-  %1204 = icmp sgt i32 %.val.i1638, 0
-  br i1 %1204, label %1205, label %1207, !prof !13
-
-1205:                                             ; preds = %1203
-  %1206 = add nuw i32 %.val.i1638, 1
-  store i32 %1206, ptr %1200, align 4, !tbaa !8
+1196:                                             ; preds = %1194
+  %1197 = add nuw i32 %.val.i1638, 1
+  store i32 %1197, ptr %1191, align 4, !tbaa !8
   br label %lean_inc.exit1112
 
-1207:                                             ; preds = %1203
+1198:                                             ; preds = %1194
   %.not.i1639 = icmp eq i32 %.val.i1638, 0
-  br i1 %.not.i1639, label %lean_inc.exit1112, label %1208
+  br i1 %.not.i1639, label %lean_inc.exit1112, label %1199
 
-1208:                                             ; preds = %1207
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1200) #6
+1199:                                             ; preds = %1198
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1191) #6
   br label %lean_inc.exit1112
 
-lean_inc.exit1112:                                ; preds = %1208, %1207, %1205, %lean_dec.exit1201
-  %.val1345 = load i32, ptr %1197, align 4, !tbaa !8
-  %1209 = icmp eq i32 %.val1345, 1
-  br i1 %1209, label %1210, label %1231
+lean_inc.exit1112:                                ; preds = %1199, %1198, %1196, %lean_dec.exit1201
+  %.val1345 = load i32, ptr %1188, align 4, !tbaa !8
+  %1200 = icmp eq i32 %.val1345, 1
+  br i1 %1200, label %1201, label %1222
 
-1210:                                             ; preds = %lean_inc.exit1112
-  %1211 = load ptr, ptr %1198, align 8, !tbaa !4
-  %1212 = ptrtoint ptr %1211 to i64
-  %1213 = and i64 %1212, 1
-  %.not.i1641 = icmp eq i64 %1213, 0
-  br i1 %.not.i1641, label %1214, label %lean_ctor_release.exit
+1201:                                             ; preds = %lean_inc.exit1112
+  %1202 = load ptr, ptr %1189, align 8, !tbaa !4
+  %1203 = ptrtoint ptr %1202 to i64
+  %1204 = and i64 %1203, 1
+  %.not.i1641 = icmp eq i64 %1204, 0
+  br i1 %.not.i1641, label %1205, label %lean_ctor_release.exit
 
-1214:                                             ; preds = %1210
-  %1215 = load i32, ptr %1211, align 4, !tbaa !8
-  %1216 = icmp sgt i32 %1215, 1
-  br i1 %1216, label %1217, label %1219, !prof !13
+1205:                                             ; preds = %1201
+  %1206 = load i32, ptr %1202, align 4, !tbaa !8
+  %1207 = icmp sgt i32 %1206, 1
+  br i1 %1207, label %1208, label %1210, !prof !13
 
-1217:                                             ; preds = %1214
-  %1218 = add nsw i32 %1215, -1
-  store i32 %1218, ptr %1211, align 4, !tbaa !8
+1208:                                             ; preds = %1205
+  %1209 = add nsw i32 %1206, -1
+  store i32 %1209, ptr %1202, align 4, !tbaa !8
   br label %lean_ctor_release.exit
 
-1219:                                             ; preds = %1214
-  %.not.i.i1642 = icmp eq i32 %1215, 0
-  br i1 %.not.i.i1642, label %lean_ctor_release.exit, label %1220
+1210:                                             ; preds = %1205
+  %.not.i.i1642 = icmp eq i32 %1206, 0
+  br i1 %.not.i.i1642, label %lean_ctor_release.exit, label %1211
 
-1220:                                             ; preds = %1219
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1211) #6
+1211:                                             ; preds = %1210
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1202) #6
   br label %lean_ctor_release.exit
 
-lean_ctor_release.exit:                           ; preds = %1210, %1217, %1219, %1220
-  store ptr inttoptr (i64 1 to ptr), ptr %1198, align 8, !tbaa !4
-  %1221 = load ptr, ptr %1199, align 8, !tbaa !4
-  %1222 = ptrtoint ptr %1221 to i64
-  %1223 = and i64 %1222, 1
-  %.not.i1643 = icmp eq i64 %1223, 0
-  br i1 %.not.i1643, label %1224, label %lean_ctor_release.exit1645
+lean_ctor_release.exit:                           ; preds = %1201, %1208, %1210, %1211
+  store ptr inttoptr (i64 1 to ptr), ptr %1189, align 8, !tbaa !4
+  %1212 = load ptr, ptr %1190, align 8, !tbaa !4
+  %1213 = ptrtoint ptr %1212 to i64
+  %1214 = and i64 %1213, 1
+  %.not.i1643 = icmp eq i64 %1214, 0
+  br i1 %.not.i1643, label %1215, label %lean_ctor_release.exit1645
 
-1224:                                             ; preds = %lean_ctor_release.exit
-  %1225 = load i32, ptr %1221, align 4, !tbaa !8
-  %1226 = icmp sgt i32 %1225, 1
-  br i1 %1226, label %1227, label %1229, !prof !13
+1215:                                             ; preds = %lean_ctor_release.exit
+  %1216 = load i32, ptr %1212, align 4, !tbaa !8
+  %1217 = icmp sgt i32 %1216, 1
+  br i1 %1217, label %1218, label %1220, !prof !13
 
-1227:                                             ; preds = %1224
-  %1228 = add nsw i32 %1225, -1
-  store i32 %1228, ptr %1221, align 4, !tbaa !8
+1218:                                             ; preds = %1215
+  %1219 = add nsw i32 %1216, -1
+  store i32 %1219, ptr %1212, align 4, !tbaa !8
   br label %lean_ctor_release.exit1645
 
-1229:                                             ; preds = %1224
-  %.not.i.i1644 = icmp eq i32 %1225, 0
-  br i1 %.not.i.i1644, label %lean_ctor_release.exit1645, label %1230
+1220:                                             ; preds = %1215
+  %.not.i.i1644 = icmp eq i32 %1216, 0
+  br i1 %.not.i.i1644, label %lean_ctor_release.exit1645, label %1221
 
-1230:                                             ; preds = %1229
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1221) #6
+1221:                                             ; preds = %1220
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1212) #6
   br label %lean_ctor_release.exit1645
 
-lean_ctor_release.exit1645:                       ; preds = %lean_ctor_release.exit, %1227, %1229, %1230
-  store ptr inttoptr (i64 1 to ptr), ptr %1199, align 8, !tbaa !4
+lean_ctor_release.exit1645:                       ; preds = %lean_ctor_release.exit, %1218, %1220, %1221
+  store ptr inttoptr (i64 1 to ptr), ptr %1190, align 8, !tbaa !4
   br label %lean_dec_ref.exit1337
 
-1231:                                             ; preds = %lean_inc.exit1112
-  %1232 = icmp sgt i32 %.val1345, 1
-  br i1 %1232, label %1233, label %1235, !prof !13
+1222:                                             ; preds = %lean_inc.exit1112
+  %1223 = icmp sgt i32 %.val1345, 1
+  br i1 %1223, label %1224, label %1226, !prof !13
 
-1233:                                             ; preds = %1231
-  %1234 = add nsw i32 %.val1345, -1
-  store i32 %1234, ptr %1197, align 4, !tbaa !8
+1224:                                             ; preds = %1222
+  %1225 = add nsw i32 %.val1345, -1
+  store i32 %1225, ptr %1188, align 4, !tbaa !8
   br label %lean_dec_ref.exit1337
 
-1235:                                             ; preds = %1231
+1226:                                             ; preds = %1222
   %.not.i1336 = icmp eq i32 %.val1345, 0
-  br i1 %.not.i1336, label %lean_dec_ref.exit1337, label %1236
+  br i1 %.not.i1336, label %lean_dec_ref.exit1337, label %1227
 
-1236:                                             ; preds = %1235
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1197) #6
+1227:                                             ; preds = %1226
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1188) #6
   br label %lean_dec_ref.exit1337
 
-lean_dec_ref.exit1337:                            ; preds = %1236, %1235, %1233, %lean_ctor_release.exit1645
-  %.01047 = phi ptr [ %1197, %lean_ctor_release.exit1645 ], [ inttoptr (i64 1 to ptr), %1233 ], [ inttoptr (i64 1 to ptr), %1235 ], [ inttoptr (i64 1 to ptr), %1236 ]
-  %1237 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__10, align 8, !tbaa !4
-  %1238 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__11, align 8, !tbaa !4
-  %1239 = ptrtoint ptr %277 to i64
-  %1240 = and i64 %1239, 1
-  %.not1965 = icmp eq i64 %1240, 0
-  br i1 %.not1965, label %1241, label %lean_inc.exit1111
+lean_dec_ref.exit1337:                            ; preds = %1227, %1226, %1224, %lean_ctor_release.exit1645
+  %.01047 = phi ptr [ %1188, %lean_ctor_release.exit1645 ], [ inttoptr (i64 1 to ptr), %1224 ], [ inttoptr (i64 1 to ptr), %1226 ], [ inttoptr (i64 1 to ptr), %1227 ]
+  %1228 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__10, align 8, !tbaa !4
+  %1229 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__11, align 8, !tbaa !4
+  %1230 = ptrtoint ptr %274 to i64
+  %1231 = and i64 %1230, 1
+  %.not1965 = icmp eq i64 %1231, 0
+  br i1 %.not1965, label %1232, label %lean_inc.exit1111
 
-1241:                                             ; preds = %lean_dec_ref.exit1337
-  %.val.i1646 = load i32, ptr %277, align 4, !tbaa !8
-  %1242 = icmp sgt i32 %.val.i1646, 0
-  br i1 %1242, label %1243, label %1245, !prof !13
+1232:                                             ; preds = %lean_dec_ref.exit1337
+  %.val.i1646 = load i32, ptr %274, align 4, !tbaa !8
+  %1233 = icmp sgt i32 %.val.i1646, 0
+  br i1 %1233, label %1234, label %1236, !prof !13
 
-1243:                                             ; preds = %1241
-  %1244 = add nuw i32 %.val.i1646, 1
-  store i32 %1244, ptr %277, align 4, !tbaa !8
+1234:                                             ; preds = %1232
+  %1235 = add nuw i32 %.val.i1646, 1
+  store i32 %1235, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1111
 
-1245:                                             ; preds = %1241
+1236:                                             ; preds = %1232
   %.not.i1647 = icmp eq i32 %.val.i1646, 0
-  br i1 %.not.i1647, label %lean_inc.exit1111, label %1246
+  br i1 %.not.i1647, label %lean_inc.exit1111, label %1237
 
-1246:                                             ; preds = %1245
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1237:                                             ; preds = %1236
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1111
 
-lean_inc.exit1111:                                ; preds = %1246, %1245, %1243, %lean_dec_ref.exit1337
+lean_inc.exit1111:                                ; preds = %1237, %1236, %1234, %lean_dec_ref.exit1337
   tail call void @lean_inc_heartbeat() #6
-  %1247 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1248 = icmp eq ptr %1247, null
-  br i1 %1248, label %1249, label %lean_alloc_ctor.exit1649
+  %1238 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1239 = icmp eq ptr %1238, null
+  br i1 %1239, label %1240, label %lean_alloc_ctor.exit1649
 
-1249:                                             ; preds = %lean_inc.exit1111
+1240:                                             ; preds = %lean_inc.exit1111
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1649:                         ; preds = %lean_inc.exit1111
-  %1250 = getelementptr inbounds nuw i8, ptr %1247, i64 4
-  store i32 1, ptr %1247, align 4, !tbaa !8
-  store i32 16973856, ptr %1250, align 4
-  %1251 = getelementptr inbounds nuw i8, ptr %1247, i64 8
-  store ptr %277, ptr %1251, align 8, !tbaa !4
-  %1252 = getelementptr inbounds nuw i8, ptr %1247, i64 16
-  store ptr %1237, ptr %1252, align 8, !tbaa !4
-  %1253 = getelementptr inbounds nuw i8, ptr %1247, i64 24
-  store ptr %1238, ptr %1253, align 8, !tbaa !4
-  %1254 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__14, align 8, !tbaa !4
-  br i1 %.not1965, label %1255, label %lean_inc.exit1110
+  %1241 = getelementptr inbounds nuw i8, ptr %1238, i64 4
+  store i32 1, ptr %1238, align 4, !tbaa !8
+  store i32 16973856, ptr %1241, align 4
+  %1242 = getelementptr inbounds nuw i8, ptr %1238, i64 8
+  store ptr %274, ptr %1242, align 8, !tbaa !4
+  %1243 = getelementptr inbounds nuw i8, ptr %1238, i64 16
+  store ptr %1228, ptr %1243, align 8, !tbaa !4
+  %1244 = getelementptr inbounds nuw i8, ptr %1238, i64 24
+  store ptr %1229, ptr %1244, align 8, !tbaa !4
+  %1245 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__14, align 8, !tbaa !4
+  br i1 %.not1965, label %1246, label %lean_inc.exit1110
 
-1255:                                             ; preds = %lean_alloc_ctor.exit1649
-  %.val.i1650 = load i32, ptr %277, align 4, !tbaa !8
-  %1256 = icmp sgt i32 %.val.i1650, 0
-  br i1 %1256, label %1257, label %1259, !prof !13
+1246:                                             ; preds = %lean_alloc_ctor.exit1649
+  %.val.i1650 = load i32, ptr %274, align 4, !tbaa !8
+  %1247 = icmp sgt i32 %.val.i1650, 0
+  br i1 %1247, label %1248, label %1250, !prof !13
 
-1257:                                             ; preds = %1255
-  %1258 = add nuw i32 %.val.i1650, 1
-  store i32 %1258, ptr %277, align 4, !tbaa !8
+1248:                                             ; preds = %1246
+  %1249 = add nuw i32 %.val.i1650, 1
+  store i32 %1249, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1110
 
-1259:                                             ; preds = %1255
+1250:                                             ; preds = %1246
   %.not.i1651 = icmp eq i32 %.val.i1650, 0
-  br i1 %.not.i1651, label %lean_inc.exit1110, label %1260
+  br i1 %.not.i1651, label %lean_inc.exit1110, label %1251
 
-1260:                                             ; preds = %1259
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1251:                                             ; preds = %1250
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1110
 
-lean_inc.exit1110:                                ; preds = %1260, %1259, %1257, %lean_alloc_ctor.exit1649
-  %1261 = ptrtoint ptr %.01047 to i64
-  %1262 = and i64 %1261, 1
-  %.not1966 = icmp eq i64 %1262, 0
-  br i1 %.not1966, label %1268, label %1263
+lean_inc.exit1110:                                ; preds = %1251, %1250, %1248, %lean_alloc_ctor.exit1649
+  %1252 = ptrtoint ptr %.01047 to i64
+  %1253 = and i64 %1252, 1
+  %.not1966 = icmp eq i64 %1253, 0
+  br i1 %.not1966, label %1259, label %1254
 
-1263:                                             ; preds = %lean_inc.exit1110
+1254:                                             ; preds = %lean_inc.exit1110
   tail call void @lean_inc_heartbeat() #6
-  %1264 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %1265 = icmp eq ptr %1264, null
-  br i1 %1265, label %1266, label %lean_alloc_ctor.exit1653
+  %1255 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %1256 = icmp eq ptr %1255, null
+  br i1 %1256, label %1257, label %lean_alloc_ctor.exit1653
 
-1266:                                             ; preds = %1263
+1257:                                             ; preds = %1254
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-lean_alloc_ctor.exit1653:                         ; preds = %1263
-  %1267 = getelementptr inbounds nuw i8, ptr %1264, i64 4
-  store i32 1, ptr %1264, align 4, !tbaa !8
-  store i32 33685528, ptr %1267, align 4
-  br label %1273
+lean_alloc_ctor.exit1653:                         ; preds = %1254
+  %1258 = getelementptr inbounds nuw i8, ptr %1255, i64 4
+  store i32 1, ptr %1255, align 4, !tbaa !8
+  store i32 33685528, ptr %1258, align 4
+  br label %1264
 
-1268:                                             ; preds = %lean_inc.exit1110
-  %1269 = getelementptr inbounds nuw i8, ptr %.01047, i64 4
-  %1270 = load i32, ptr %1269, align 4
-  %1271 = and i32 %1270, 16777215
-  %1272 = or disjoint i32 %1271, 33554432
-  store i32 %1272, ptr %1269, align 4
-  br label %1273
+1259:                                             ; preds = %lean_inc.exit1110
+  %1260 = getelementptr inbounds nuw i8, ptr %.01047, i64 4
+  %1261 = load i32, ptr %1260, align 4
+  %1262 = and i32 %1261, 16777215
+  %1263 = or disjoint i32 %1262, 33554432
+  store i32 %1263, ptr %1260, align 4
+  br label %1264
 
-1273:                                             ; preds = %1268, %lean_alloc_ctor.exit1653
-  %.01048 = phi ptr [ %1264, %lean_alloc_ctor.exit1653 ], [ %.01047, %1268 ]
-  %1274 = getelementptr inbounds nuw i8, ptr %.01048, i64 8
-  store ptr %277, ptr %1274, align 8, !tbaa !4
-  %1275 = getelementptr inbounds nuw i8, ptr %.01048, i64 16
-  store ptr %1254, ptr %1275, align 8, !tbaa !4
+1264:                                             ; preds = %1259, %lean_alloc_ctor.exit1653
+  %.01048 = phi ptr [ %1255, %lean_alloc_ctor.exit1653 ], [ %.01047, %1259 ]
+  %1265 = getelementptr inbounds nuw i8, ptr %.01048, i64 8
+  store ptr %274, ptr %1265, align 8, !tbaa !4
+  %1266 = getelementptr inbounds nuw i8, ptr %.01048, i64 16
+  store ptr %1245, ptr %1266, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #6
-  %1276 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1277 = icmp eq ptr %1276, null
-  br i1 %1277, label %1278, label %lean_alloc_ctor.exit1654
+  %1267 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1268 = icmp eq ptr %1267, null
+  br i1 %1268, label %1269, label %lean_alloc_ctor.exit1654
 
-1278:                                             ; preds = %1273
+1269:                                             ; preds = %1264
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-lean_alloc_ctor.exit1654:                         ; preds = %1273
-  %1279 = getelementptr inbounds nuw i8, ptr %1276, i64 4
-  store i32 1, ptr %1276, align 4, !tbaa !8
-  store i32 16973856, ptr %1279, align 4
-  %1280 = getelementptr inbounds nuw i8, ptr %1276, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %1280, align 8, !tbaa !4
-  %1281 = getelementptr inbounds nuw i8, ptr %1276, i64 16
-  store ptr %1237, ptr %1281, align 8, !tbaa !4
-  %1282 = getelementptr inbounds nuw i8, ptr %1276, i64 24
-  store ptr %11, ptr %1282, align 8, !tbaa !4
-  %1283 = tail call ptr @l_Lean_mkIdentFrom(ptr noundef nonnull %1276, ptr noundef %262, i8 noundef zeroext 1) #6
-  %1284 = ptrtoint ptr %1276 to i64
-  %1285 = and i64 %1284, 1
-  %.not1967 = icmp eq i64 %1285, 0
-  br i1 %.not1967, label %1286, label %lean_dec.exit1200
+lean_alloc_ctor.exit1654:                         ; preds = %1264
+  %1270 = getelementptr inbounds nuw i8, ptr %1267, i64 4
+  store i32 1, ptr %1267, align 4, !tbaa !8
+  store i32 16973856, ptr %1270, align 4
+  %1271 = getelementptr inbounds nuw i8, ptr %1267, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %1271, align 8, !tbaa !4
+  %1272 = getelementptr inbounds nuw i8, ptr %1267, i64 16
+  store ptr %1228, ptr %1272, align 8, !tbaa !4
+  %1273 = getelementptr inbounds nuw i8, ptr %1267, i64 24
+  store ptr %11, ptr %1273, align 8, !tbaa !4
+  %1274 = tail call ptr @l_Lean_mkIdentFrom(ptr noundef nonnull %1267, ptr noundef %259, i8 noundef zeroext 1) #6
+  %1275 = load i32, ptr %1267, align 8, !tbaa !8
+  %1276 = icmp sgt i32 %1275, 1
+  br i1 %1276, label %1277, label %1279, !prof !13
 
-1286:                                             ; preds = %lean_alloc_ctor.exit1654
-  %1287 = load i32, ptr %1276, align 4, !tbaa !8
-  %1288 = icmp sgt i32 %1287, 1
-  br i1 %1288, label %1289, label %1291, !prof !13
-
-1289:                                             ; preds = %1286
-  %1290 = add nsw i32 %1287, -1
-  store i32 %1290, ptr %1276, align 4, !tbaa !8
+1277:                                             ; preds = %lean_alloc_ctor.exit1654
+  %1278 = add nsw i32 %1275, -1
+  store i32 %1278, ptr %1267, align 4, !tbaa !8
   br label %lean_dec.exit1200
 
-1291:                                             ; preds = %1286
-  %.not.i1304 = icmp eq i32 %1287, 0
-  br i1 %.not.i1304, label %lean_dec.exit1200, label %1292
+1279:                                             ; preds = %lean_alloc_ctor.exit1654
+  %.not.i1304 = icmp eq i32 %1275, 0
+  br i1 %.not.i1304, label %lean_dec.exit1200, label %1280
 
-1292:                                             ; preds = %1291
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1276) #6
+1280:                                             ; preds = %1279
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1267) #6
   br label %lean_dec.exit1200
 
-lean_dec.exit1200:                                ; preds = %1292, %1291, %1289, %lean_alloc_ctor.exit1654
-  %1293 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__16, align 8, !tbaa !4
-  %1294 = ptrtoint ptr %1247 to i64
-  %1295 = and i64 %1294, 1
-  %.not1968 = icmp eq i64 %1295, 0
-  br i1 %.not1968, label %1296, label %lean_inc.exit1109
+lean_dec.exit1200:                                ; preds = %1280, %1279, %1277
+  %1281 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__16, align 8, !tbaa !4
+  %1282 = ptrtoint ptr %1238 to i64
+  %1283 = and i64 %1282, 1
+  %.not1968 = icmp eq i64 %1283, 0
+  br i1 %.not1968, label %1284, label %lean_inc.exit1109
 
-1296:                                             ; preds = %lean_dec.exit1200
-  %.val.i1655 = load i32, ptr %1247, align 4, !tbaa !8
-  %1297 = icmp sgt i32 %.val.i1655, 0
-  br i1 %1297, label %1298, label %1300, !prof !13
+1284:                                             ; preds = %lean_dec.exit1200
+  %.val.i1655 = load i32, ptr %1238, align 4, !tbaa !8
+  %1285 = icmp sgt i32 %.val.i1655, 0
+  br i1 %1285, label %1286, label %1288, !prof !13
 
-1298:                                             ; preds = %1296
-  %1299 = add nuw i32 %.val.i1655, 1
-  store i32 %1299, ptr %1247, align 4, !tbaa !8
+1286:                                             ; preds = %1284
+  %1287 = add nuw i32 %.val.i1655, 1
+  store i32 %1287, ptr %1238, align 4, !tbaa !8
   br label %lean_inc.exit1109
 
-1300:                                             ; preds = %1296
+1288:                                             ; preds = %1284
   %.not.i1656 = icmp eq i32 %.val.i1655, 0
-  br i1 %.not.i1656, label %lean_inc.exit1109, label %1301
+  br i1 %.not.i1656, label %lean_inc.exit1109, label %1289
 
-1301:                                             ; preds = %1300
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1247) #6
+1289:                                             ; preds = %1288
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1238) #6
   br label %lean_inc.exit1109
 
-lean_inc.exit1109:                                ; preds = %1301, %1300, %1298, %lean_dec.exit1200
-  br i1 %.not1965, label %1302, label %lean_inc.exit1108
+lean_inc.exit1109:                                ; preds = %1289, %1288, %1286, %lean_dec.exit1200
+  br i1 %.not1965, label %1290, label %lean_inc.exit1108
 
-1302:                                             ; preds = %lean_inc.exit1109
-  %.val.i1658 = load i32, ptr %277, align 4, !tbaa !8
-  %1303 = icmp sgt i32 %.val.i1658, 0
-  br i1 %1303, label %1304, label %1306, !prof !13
+1290:                                             ; preds = %lean_inc.exit1109
+  %.val.i1658 = load i32, ptr %274, align 4, !tbaa !8
+  %1291 = icmp sgt i32 %.val.i1658, 0
+  br i1 %1291, label %1292, label %1294, !prof !13
 
-1304:                                             ; preds = %1302
-  %1305 = add nuw i32 %.val.i1658, 1
-  store i32 %1305, ptr %277, align 4, !tbaa !8
-  br label %1310
+1292:                                             ; preds = %1290
+  %1293 = add nuw i32 %.val.i1658, 1
+  store i32 %1293, ptr %274, align 4, !tbaa !8
+  br label %1298
 
-1306:                                             ; preds = %1302
+1294:                                             ; preds = %1290
   %.not.i1659 = icmp eq i32 %.val.i1658, 0
-  br i1 %.not.i1659, label %1310, label %1307
+  br i1 %.not.i1659, label %1298, label %1295
 
-1307:                                             ; preds = %1306
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %1310
+1295:                                             ; preds = %1294
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
+  br label %1298
 
 lean_inc.exit1108:                                ; preds = %lean_inc.exit1109
-  %1308 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %1293, ptr noundef %1283, ptr noundef nonnull %1247) #6
-  %1309 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
+  %1296 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %1281, ptr noundef %1274, ptr noundef nonnull %1238) #6
+  %1297 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
   br label %lean_inc.exit1107
 
-1310:                                             ; preds = %1307, %1306, %1304
-  %1311 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %277, ptr noundef %1293, ptr noundef %1283, ptr noundef nonnull %1247) #6
-  %1312 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
-  %.val.i1661 = load i32, ptr %277, align 4, !tbaa !8
-  %1313 = icmp sgt i32 %.val.i1661, 0
-  br i1 %1313, label %1314, label %1316, !prof !13
+1298:                                             ; preds = %1295, %1294, %1292
+  %1299 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %274, ptr noundef %1281, ptr noundef %1274, ptr noundef nonnull %1238) #6
+  %1300 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
+  %.val.i1661 = load i32, ptr %274, align 4, !tbaa !8
+  %1301 = icmp sgt i32 %.val.i1661, 0
+  br i1 %1301, label %1302, label %1304, !prof !13
 
-1314:                                             ; preds = %1310
-  %1315 = add nuw i32 %.val.i1661, 1
-  store i32 %1315, ptr %277, align 4, !tbaa !8
+1302:                                             ; preds = %1298
+  %1303 = add nuw i32 %.val.i1661, 1
+  store i32 %1303, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1107
 
-1316:                                             ; preds = %1310
+1304:                                             ; preds = %1298
   %.not.i1662 = icmp eq i32 %.val.i1661, 0
-  br i1 %.not.i1662, label %lean_inc.exit1107, label %1317
+  br i1 %.not.i1662, label %lean_inc.exit1107, label %1305
 
-1317:                                             ; preds = %1316
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1305:                                             ; preds = %1304
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1107
 
-lean_inc.exit1107:                                ; preds = %1317, %1316, %1314, %lean_inc.exit1108
-  %1318 = phi ptr [ %1309, %lean_inc.exit1108 ], [ %1312, %1314 ], [ %1312, %1316 ], [ %1312, %1317 ]
-  %1319 = phi ptr [ %1308, %lean_inc.exit1108 ], [ %1311, %1314 ], [ %1311, %1316 ], [ %1311, %1317 ]
+lean_inc.exit1107:                                ; preds = %1305, %1304, %1302, %lean_inc.exit1108
+  %1306 = phi ptr [ %1297, %lean_inc.exit1108 ], [ %1300, %1302 ], [ %1300, %1304 ], [ %1300, %1305 ]
+  %1307 = phi ptr [ %1296, %lean_inc.exit1108 ], [ %1299, %1302 ], [ %1299, %1304 ], [ %1299, %1305 ]
   tail call void @lean_inc_heartbeat() #6
-  %1320 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %1321 = icmp eq ptr %1320, null
-  br i1 %1321, label %1322, label %lean_alloc_ctor.exit1664
+  %1308 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %1309 = icmp eq ptr %1308, null
+  br i1 %1309, label %1310, label %lean_alloc_ctor.exit1664
 
-1322:                                             ; preds = %lean_inc.exit1107
+1310:                                             ; preds = %lean_inc.exit1107
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1664:                         ; preds = %lean_inc.exit1107
-  %1323 = getelementptr inbounds nuw i8, ptr %1320, i64 4
-  store i32 1, ptr %1320, align 4, !tbaa !8
-  store i32 33685528, ptr %1323, align 4
-  %1324 = getelementptr inbounds nuw i8, ptr %1320, i64 8
-  store ptr %277, ptr %1324, align 8, !tbaa !4
-  %1325 = getelementptr inbounds nuw i8, ptr %1320, i64 16
-  store ptr %1318, ptr %1325, align 8, !tbaa !4
-  %1326 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__20, align 8, !tbaa !4
-  br i1 %.not1965, label %1327, label %lean_inc.exit1106
+  %1311 = getelementptr inbounds nuw i8, ptr %1308, i64 4
+  store i32 1, ptr %1308, align 4, !tbaa !8
+  store i32 33685528, ptr %1311, align 4
+  %1312 = getelementptr inbounds nuw i8, ptr %1308, i64 8
+  store ptr %274, ptr %1312, align 8, !tbaa !4
+  %1313 = getelementptr inbounds nuw i8, ptr %1308, i64 16
+  store ptr %1306, ptr %1313, align 8, !tbaa !4
+  %1314 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__20, align 8, !tbaa !4
+  br i1 %.not1965, label %1315, label %lean_inc.exit1106
 
-1327:                                             ; preds = %lean_alloc_ctor.exit1664
-  %.val.i1665 = load i32, ptr %277, align 4, !tbaa !8
-  %1328 = icmp sgt i32 %.val.i1665, 0
-  br i1 %1328, label %1329, label %1331, !prof !13
+1315:                                             ; preds = %lean_alloc_ctor.exit1664
+  %.val.i1665 = load i32, ptr %274, align 4, !tbaa !8
+  %1316 = icmp sgt i32 %.val.i1665, 0
+  br i1 %1316, label %1317, label %1319, !prof !13
 
-1329:                                             ; preds = %1327
-  %1330 = add nuw i32 %.val.i1665, 1
-  store i32 %1330, ptr %277, align 4, !tbaa !8
-  br label %1334
+1317:                                             ; preds = %1315
+  %1318 = add nuw i32 %.val.i1665, 1
+  store i32 %1318, ptr %274, align 4, !tbaa !8
+  br label %1322
 
-1331:                                             ; preds = %1327
+1319:                                             ; preds = %1315
   %.not.i1666 = icmp eq i32 %.val.i1665, 0
-  br i1 %.not.i1666, label %1334, label %1332
+  br i1 %.not.i1666, label %1322, label %1320
 
-1332:                                             ; preds = %1331
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %1334
+1320:                                             ; preds = %1319
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
+  br label %1322
 
 lean_inc.exit1106:                                ; preds = %lean_alloc_ctor.exit1664
-  %1333 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %1326, ptr noundef nonnull %1320, ptr noundef %9) #6
+  %1321 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %1314, ptr noundef nonnull %1308, ptr noundef %9) #6
   br label %lean_inc.exit1105
 
-1334:                                             ; preds = %1332, %1331, %1329
-  %1335 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %277, ptr noundef %1326, ptr noundef nonnull %1320, ptr noundef %9) #6
-  %.val.i1668 = load i32, ptr %277, align 4, !tbaa !8
-  %1336 = icmp sgt i32 %.val.i1668, 0
-  br i1 %1336, label %1337, label %1339, !prof !13
+1322:                                             ; preds = %1320, %1319, %1317
+  %1323 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %274, ptr noundef %1314, ptr noundef nonnull %1308, ptr noundef %9) #6
+  %.val.i1668 = load i32, ptr %274, align 4, !tbaa !8
+  %1324 = icmp sgt i32 %.val.i1668, 0
+  br i1 %1324, label %1325, label %1327, !prof !13
 
-1337:                                             ; preds = %1334
-  %1338 = add nuw i32 %.val.i1668, 1
-  store i32 %1338, ptr %277, align 4, !tbaa !8
+1325:                                             ; preds = %1322
+  %1326 = add nuw i32 %.val.i1668, 1
+  store i32 %1326, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1105
 
-1339:                                             ; preds = %1334
+1327:                                             ; preds = %1322
   %.not.i1669 = icmp eq i32 %.val.i1668, 0
-  br i1 %.not.i1669, label %lean_inc.exit1105, label %1340
+  br i1 %.not.i1669, label %lean_inc.exit1105, label %1328
 
-1340:                                             ; preds = %1339
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1328:                                             ; preds = %1327
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1105
 
-lean_inc.exit1105:                                ; preds = %1340, %1339, %1337, %lean_inc.exit1106
-  %1341 = phi ptr [ %1333, %lean_inc.exit1106 ], [ %1335, %1337 ], [ %1335, %1339 ], [ %1335, %1340 ]
-  %1342 = tail call ptr @l_Lean_Syntax_node1(ptr noundef %277, ptr noundef %1237, ptr noundef %1341) #6
-  %1343 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__18, align 8, !tbaa !4
-  br i1 %.not1968, label %1344, label %lean_inc.exit1104
+lean_inc.exit1105:                                ; preds = %1328, %1327, %1325, %lean_inc.exit1106
+  %1329 = phi ptr [ %1321, %lean_inc.exit1106 ], [ %1323, %1325 ], [ %1323, %1327 ], [ %1323, %1328 ]
+  %1330 = tail call ptr @l_Lean_Syntax_node1(ptr noundef %274, ptr noundef %1228, ptr noundef %1329) #6
+  %1331 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__18, align 8, !tbaa !4
+  br i1 %.not1968, label %1332, label %lean_inc.exit1104
 
-1344:                                             ; preds = %lean_inc.exit1105
-  %.val.i1671 = load i32, ptr %1247, align 4, !tbaa !8
-  %1345 = icmp sgt i32 %.val.i1671, 0
-  br i1 %1345, label %1346, label %1348, !prof !13
+1332:                                             ; preds = %lean_inc.exit1105
+  %.val.i1671 = load i32, ptr %1238, align 4, !tbaa !8
+  %1333 = icmp sgt i32 %.val.i1671, 0
+  br i1 %1333, label %1334, label %1336, !prof !13
 
-1346:                                             ; preds = %1344
-  %1347 = add nuw i32 %.val.i1671, 1
-  store i32 %1347, ptr %1247, align 4, !tbaa !8
+1334:                                             ; preds = %1332
+  %1335 = add nuw i32 %.val.i1671, 1
+  store i32 %1335, ptr %1238, align 4, !tbaa !8
   br label %lean_inc.exit1104
 
-1348:                                             ; preds = %1344
+1336:                                             ; preds = %1332
   %.not.i1672 = icmp eq i32 %.val.i1671, 0
-  br i1 %.not.i1672, label %lean_inc.exit1104, label %1349
+  br i1 %.not.i1672, label %lean_inc.exit1104, label %1337
 
-1349:                                             ; preds = %1348
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1247) #6
+1337:                                             ; preds = %1336
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1238) #6
   br label %lean_inc.exit1104
 
-lean_inc.exit1104:                                ; preds = %1349, %1348, %1346, %lean_inc.exit1105
-  br i1 %.not1965, label %1350, label %lean_inc.exit1103
+lean_inc.exit1104:                                ; preds = %1337, %1336, %1334, %lean_inc.exit1105
+  br i1 %.not1965, label %1338, label %lean_inc.exit1103
 
-1350:                                             ; preds = %lean_inc.exit1104
-  %.val.i1674 = load i32, ptr %277, align 4, !tbaa !8
-  %1351 = icmp sgt i32 %.val.i1674, 0
-  br i1 %1351, label %1352, label %1354, !prof !13
+1338:                                             ; preds = %lean_inc.exit1104
+  %.val.i1674 = load i32, ptr %274, align 4, !tbaa !8
+  %1339 = icmp sgt i32 %.val.i1674, 0
+  br i1 %1339, label %1340, label %1342, !prof !13
 
-1352:                                             ; preds = %1350
-  %1353 = add nuw i32 %.val.i1674, 1
-  store i32 %1353, ptr %277, align 4, !tbaa !8
-  br label %1358
+1340:                                             ; preds = %1338
+  %1341 = add nuw i32 %.val.i1674, 1
+  store i32 %1341, ptr %274, align 4, !tbaa !8
+  br label %1346
 
-1354:                                             ; preds = %1350
+1342:                                             ; preds = %1338
   %.not.i1675 = icmp eq i32 %.val.i1674, 0
-  br i1 %.not.i1675, label %1358, label %1355
+  br i1 %.not.i1675, label %1346, label %1343
 
-1355:                                             ; preds = %1354
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
-  br label %1358
+1343:                                             ; preds = %1342
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
+  br label %1346
 
 lean_inc.exit1103:                                ; preds = %lean_inc.exit1104
-  %1356 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %1343, ptr noundef nonnull %1247, ptr noundef %1342) #6
-  %1357 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
+  %1344 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %1331, ptr noundef nonnull %1238, ptr noundef %1330) #6
+  %1345 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
   br label %lean_inc.exit1102
 
-1358:                                             ; preds = %1355, %1354, %1352
-  %1359 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %277, ptr noundef %1343, ptr noundef nonnull %1247, ptr noundef %1342) #6
-  %1360 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
-  %.val.i1677 = load i32, ptr %277, align 4, !tbaa !8
-  %1361 = icmp sgt i32 %.val.i1677, 0
-  br i1 %1361, label %1362, label %1364, !prof !13
+1346:                                             ; preds = %1343, %1342, %1340
+  %1347 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %274, ptr noundef %1331, ptr noundef nonnull %1238, ptr noundef %1330) #6
+  %1348 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
+  %.val.i1677 = load i32, ptr %274, align 4, !tbaa !8
+  %1349 = icmp sgt i32 %.val.i1677, 0
+  br i1 %1349, label %1350, label %1352, !prof !13
 
-1362:                                             ; preds = %1358
-  %1363 = add nuw i32 %.val.i1677, 1
-  store i32 %1363, ptr %277, align 4, !tbaa !8
+1350:                                             ; preds = %1346
+  %1351 = add nuw i32 %.val.i1677, 1
+  store i32 %1351, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1102
 
-1364:                                             ; preds = %1358
+1352:                                             ; preds = %1346
   %.not.i1678 = icmp eq i32 %.val.i1677, 0
-  br i1 %.not.i1678, label %lean_inc.exit1102, label %1365
+  br i1 %.not.i1678, label %lean_inc.exit1102, label %1353
 
-1365:                                             ; preds = %1364
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1353:                                             ; preds = %1352
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1102
 
-lean_inc.exit1102:                                ; preds = %1365, %1364, %1362, %lean_inc.exit1103
-  %1366 = phi ptr [ %1357, %lean_inc.exit1103 ], [ %1360, %1362 ], [ %1360, %1364 ], [ %1360, %1365 ]
-  %1367 = phi ptr [ %1356, %lean_inc.exit1103 ], [ %1359, %1362 ], [ %1359, %1364 ], [ %1359, %1365 ]
-  %1368 = getelementptr inbounds nuw i8, ptr %270, i64 4
-  %1369 = load i32, ptr %1368, align 4
-  %1370 = and i32 %1369, 16777215
-  %1371 = or disjoint i32 %1370, 33554432
-  store i32 %1371, ptr %1368, align 4
-  store ptr %1366, ptr %274, align 8, !tbaa !4
-  store ptr %277, ptr %272, align 8, !tbaa !4
-  %1372 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__25, align 8, !tbaa !4
-  br i1 %.not1968, label %1373, label %lean_inc_n.exit1683
+lean_inc.exit1102:                                ; preds = %1353, %1352, %1350, %lean_inc.exit1103
+  %1354 = phi ptr [ %1345, %lean_inc.exit1103 ], [ %1348, %1350 ], [ %1348, %1352 ], [ %1348, %1353 ]
+  %1355 = phi ptr [ %1344, %lean_inc.exit1103 ], [ %1347, %1350 ], [ %1347, %1352 ], [ %1347, %1353 ]
+  %1356 = getelementptr inbounds nuw i8, ptr %267, i64 4
+  %1357 = load i32, ptr %1356, align 4
+  %1358 = and i32 %1357, 16777215
+  %1359 = or disjoint i32 %1358, 33554432
+  store i32 %1359, ptr %1356, align 4
+  store ptr %1354, ptr %271, align 8, !tbaa !4
+  store ptr %274, ptr %269, align 8, !tbaa !4
+  %1360 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__25, align 8, !tbaa !4
+  br i1 %.not1968, label %1361, label %lean_inc_n.exit1683
 
-1373:                                             ; preds = %lean_inc.exit1102
-  %.val.i.i1681 = load i32, ptr %1247, align 4, !tbaa !8
-  %1374 = icmp sgt i32 %.val.i.i1681, 0
-  br i1 %1374, label %1375, label %1377, !prof !13
+1361:                                             ; preds = %lean_inc.exit1102
+  %.val.i.i1681 = load i32, ptr %1238, align 4, !tbaa !8
+  %1362 = icmp sgt i32 %.val.i.i1681, 0
+  br i1 %1362, label %1363, label %1365, !prof !13
 
-1375:                                             ; preds = %1373
-  %1376 = add nuw i32 %.val.i.i1681, 2
-  store i32 %1376, ptr %1247, align 4, !tbaa !8
+1363:                                             ; preds = %1361
+  %1364 = add nuw i32 %.val.i.i1681, 2
+  store i32 %1364, ptr %1238, align 4, !tbaa !8
   br label %lean_inc_n.exit1683
 
-1377:                                             ; preds = %1373
+1365:                                             ; preds = %1361
   %.not.i.i1682 = icmp eq i32 %.val.i.i1681, 0
-  br i1 %.not.i.i1682, label %lean_inc_n.exit1683, label %1378
+  br i1 %.not.i.i1682, label %lean_inc_n.exit1683, label %1366
 
-1378:                                             ; preds = %1377
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1247, i32 noundef 2) #6
+1366:                                             ; preds = %1365
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1238, i32 noundef 2) #6
   br label %lean_inc_n.exit1683
 
-lean_inc_n.exit1683:                              ; preds = %lean_inc.exit1102, %1375, %1377, %1378
-  br i1 %.not1965, label %1379, label %lean_inc.exit1101
+lean_inc_n.exit1683:                              ; preds = %lean_inc.exit1102, %1363, %1365, %1366
+  br i1 %.not1965, label %1367, label %lean_inc.exit1101
 
-1379:                                             ; preds = %lean_inc_n.exit1683
-  %.val.i1684 = load i32, ptr %277, align 4, !tbaa !8
-  %1380 = icmp sgt i32 %.val.i1684, 0
-  br i1 %1380, label %1381, label %1383, !prof !13
+1367:                                             ; preds = %lean_inc_n.exit1683
+  %.val.i1684 = load i32, ptr %274, align 4, !tbaa !8
+  %1368 = icmp sgt i32 %.val.i1684, 0
+  br i1 %1368, label %1369, label %1371, !prof !13
 
-1381:                                             ; preds = %1379
-  %1382 = add nuw i32 %.val.i1684, 1
-  store i32 %1382, ptr %277, align 4, !tbaa !8
+1369:                                             ; preds = %1367
+  %1370 = add nuw i32 %.val.i1684, 1
+  store i32 %1370, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1101
 
-1383:                                             ; preds = %1379
+1371:                                             ; preds = %1367
   %.not.i1685 = icmp eq i32 %.val.i1684, 0
-  br i1 %.not.i1685, label %lean_inc.exit1101, label %1384
+  br i1 %.not.i1685, label %lean_inc.exit1101, label %1372
 
-1384:                                             ; preds = %1383
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1372:                                             ; preds = %1371
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1101
 
-lean_inc.exit1101:                                ; preds = %1384, %1383, %1381, %lean_inc_n.exit1683
-  %1385 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %1372, ptr noundef nonnull %1247, ptr noundef nonnull %1247) #6
-  %1386 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__22, align 8, !tbaa !4
-  br i1 %.not1968, label %1387, label %lean_inc.exit1100
+lean_inc.exit1101:                                ; preds = %1372, %1371, %1369, %lean_inc_n.exit1683
+  %1373 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %1360, ptr noundef nonnull %1238, ptr noundef nonnull %1238) #6
+  %1374 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__22, align 8, !tbaa !4
+  br i1 %.not1968, label %1375, label %lean_inc.exit1100
 
-1387:                                             ; preds = %lean_inc.exit1101
-  %.val.i1687 = load i32, ptr %1247, align 4, !tbaa !8
-  %1388 = icmp sgt i32 %.val.i1687, 0
-  br i1 %1388, label %1389, label %1391, !prof !13
+1375:                                             ; preds = %lean_inc.exit1101
+  %.val.i1687 = load i32, ptr %1238, align 4, !tbaa !8
+  %1376 = icmp sgt i32 %.val.i1687, 0
+  br i1 %1376, label %1377, label %1379, !prof !13
 
-1389:                                             ; preds = %1387
-  %1390 = add nuw i32 %.val.i1687, 1
-  store i32 %1390, ptr %1247, align 4, !tbaa !8
+1377:                                             ; preds = %1375
+  %1378 = add nuw i32 %.val.i1687, 1
+  store i32 %1378, ptr %1238, align 4, !tbaa !8
   br label %lean_inc.exit1100
 
-1391:                                             ; preds = %1387
+1379:                                             ; preds = %1375
   %.not.i1688 = icmp eq i32 %.val.i1687, 0
-  br i1 %.not.i1688, label %lean_inc.exit1100, label %1392
+  br i1 %.not.i1688, label %lean_inc.exit1100, label %1380
 
-1392:                                             ; preds = %1391
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1247) #6
+1380:                                             ; preds = %1379
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1238) #6
   br label %lean_inc.exit1100
 
-lean_inc.exit1100:                                ; preds = %1392, %1391, %1389, %lean_inc.exit1101
-  br i1 %.not1965, label %1393, label %lean_inc.exit1099
+lean_inc.exit1100:                                ; preds = %1380, %1379, %1377, %lean_inc.exit1101
+  br i1 %.not1965, label %1381, label %lean_inc.exit1099
 
-1393:                                             ; preds = %lean_inc.exit1100
-  %.val.i1690 = load i32, ptr %277, align 4, !tbaa !8
-  %1394 = icmp sgt i32 %.val.i1690, 0
-  br i1 %1394, label %1395, label %1397, !prof !13
+1381:                                             ; preds = %lean_inc.exit1100
+  %.val.i1690 = load i32, ptr %274, align 4, !tbaa !8
+  %1382 = icmp sgt i32 %.val.i1690, 0
+  br i1 %1382, label %1383, label %1385, !prof !13
 
-1395:                                             ; preds = %1393
-  %1396 = add nuw i32 %.val.i1690, 1
-  store i32 %1396, ptr %277, align 4, !tbaa !8
+1383:                                             ; preds = %1381
+  %1384 = add nuw i32 %.val.i1690, 1
+  store i32 %1384, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1099
 
-1397:                                             ; preds = %1393
+1385:                                             ; preds = %1381
   %.not.i1691 = icmp eq i32 %.val.i1690, 0
-  br i1 %.not.i1691, label %lean_inc.exit1099, label %1398
+  br i1 %.not.i1691, label %lean_inc.exit1099, label %1386
 
-1398:                                             ; preds = %1397
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1386:                                             ; preds = %1385
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1099
 
-lean_inc.exit1099:                                ; preds = %1398, %1397, %1395, %lean_inc.exit1100
-  %1399 = tail call ptr @l_Lean_Syntax_node4(ptr noundef %277, ptr noundef %1386, ptr noundef nonnull %270, ptr noundef %10, ptr noundef %1385, ptr noundef nonnull %1247) #6
-  %1400 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__13, align 8, !tbaa !4
-  br i1 %.not1968, label %1401, label %lean_inc.exit1098
+lean_inc.exit1099:                                ; preds = %1386, %1385, %1383, %lean_inc.exit1100
+  %1387 = tail call ptr @l_Lean_Syntax_node4(ptr noundef %274, ptr noundef %1374, ptr noundef nonnull %267, ptr noundef %10, ptr noundef %1373, ptr noundef nonnull %1238) #6
+  %1388 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__13, align 8, !tbaa !4
+  br i1 %.not1968, label %1389, label %lean_inc.exit1098
 
-1401:                                             ; preds = %lean_inc.exit1099
-  %.val.i1693 = load i32, ptr %1247, align 4, !tbaa !8
-  %1402 = icmp sgt i32 %.val.i1693, 0
-  br i1 %1402, label %1403, label %1405, !prof !13
+1389:                                             ; preds = %lean_inc.exit1099
+  %.val.i1693 = load i32, ptr %1238, align 4, !tbaa !8
+  %1390 = icmp sgt i32 %.val.i1693, 0
+  br i1 %1390, label %1391, label %1393, !prof !13
 
-1403:                                             ; preds = %1401
-  %1404 = add nuw i32 %.val.i1693, 1
-  store i32 %1404, ptr %1247, align 4, !tbaa !8
+1391:                                             ; preds = %1389
+  %1392 = add nuw i32 %.val.i1693, 1
+  store i32 %1392, ptr %1238, align 4, !tbaa !8
   br label %lean_inc.exit1098
 
-1405:                                             ; preds = %1401
+1393:                                             ; preds = %1389
   %.not.i1694 = icmp eq i32 %.val.i1693, 0
-  br i1 %.not.i1694, label %lean_inc.exit1098, label %1406
+  br i1 %.not.i1694, label %lean_inc.exit1098, label %1394
 
-1406:                                             ; preds = %1405
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1247) #6
+1394:                                             ; preds = %1393
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1238) #6
   br label %lean_inc.exit1098
 
-lean_inc.exit1098:                                ; preds = %1406, %1405, %1403, %lean_inc.exit1099
-  br i1 %.not1965, label %1407, label %lean_inc.exit1097
+lean_inc.exit1098:                                ; preds = %1394, %1393, %1391, %lean_inc.exit1099
+  br i1 %.not1965, label %1395, label %lean_inc.exit1097
 
-1407:                                             ; preds = %lean_inc.exit1098
-  %.val.i1696 = load i32, ptr %277, align 4, !tbaa !8
-  %1408 = icmp sgt i32 %.val.i1696, 0
-  br i1 %1408, label %1409, label %1411, !prof !13
+1395:                                             ; preds = %lean_inc.exit1098
+  %.val.i1696 = load i32, ptr %274, align 4, !tbaa !8
+  %1396 = icmp sgt i32 %.val.i1696, 0
+  br i1 %1396, label %1397, label %1399, !prof !13
 
-1409:                                             ; preds = %1407
-  %1410 = add nuw i32 %.val.i1696, 1
-  store i32 %1410, ptr %277, align 4, !tbaa !8
+1397:                                             ; preds = %1395
+  %1398 = add nuw i32 %.val.i1696, 1
+  store i32 %1398, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1097
 
-1411:                                             ; preds = %1407
+1399:                                             ; preds = %1395
   %.not.i1697 = icmp eq i32 %.val.i1696, 0
-  br i1 %.not.i1697, label %lean_inc.exit1097, label %1412
+  br i1 %.not.i1697, label %lean_inc.exit1097, label %1400
 
-1412:                                             ; preds = %1411
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1400:                                             ; preds = %1399
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1097
 
-lean_inc.exit1097:                                ; preds = %1412, %1411, %1409, %lean_inc.exit1098
-  %1413 = tail call ptr @l_Lean_Syntax_node5(ptr noundef %277, ptr noundef %1400, ptr noundef nonnull %.01048, ptr noundef %1319, ptr noundef %1367, ptr noundef %1399, ptr noundef nonnull %1247) #6
-  %1414 = ptrtoint ptr %1 to i64
-  %1415 = and i64 %1414, 1
-  %.not.i1699 = icmp eq i64 %1415, 0
-  br i1 %.not.i1699, label %1419, label %1416
+lean_inc.exit1097:                                ; preds = %1400, %1399, %1397, %lean_inc.exit1098
+  %1401 = tail call ptr @l_Lean_Syntax_node5(ptr noundef %274, ptr noundef %1388, ptr noundef nonnull %.01048, ptr noundef %1307, ptr noundef %1355, ptr noundef %1387, ptr noundef nonnull %1238) #6
+  %1402 = ptrtoint ptr %1 to i64
+  %1403 = and i64 %1402, 1
+  %.not.i1699 = icmp eq i64 %1403, 0
+  br i1 %.not.i1699, label %1407, label %1404
 
-1416:                                             ; preds = %lean_inc.exit1097
-  %1417 = lshr i64 %1414, 1
-  %1418 = trunc i64 %1417 to i32
+1404:                                             ; preds = %lean_inc.exit1097
+  %1405 = lshr i64 %1402, 1
+  %1406 = trunc i64 %1405 to i32
   br label %lean_obj_tag.exit1702
 
-1419:                                             ; preds = %lean_inc.exit1097
-  %1420 = getelementptr i8, ptr %1, i64 4
-  %.val.i1701 = load i32, ptr %1420, align 4
-  %1421 = lshr i32 %.val.i1701, 24
+1407:                                             ; preds = %lean_inc.exit1097
+  %1408 = getelementptr i8, ptr %1, i64 4
+  %.val.i1701 = load i32, ptr %1408, align 4
+  %1409 = lshr i32 %.val.i1701, 24
   br label %lean_obj_tag.exit1702
 
-lean_obj_tag.exit1702:                            ; preds = %1416, %1419
-  %.0.i1700 = phi i32 [ %1418, %1416 ], [ %1421, %1419 ]
-  %1422 = icmp eq i32 %.0.i1700, 0
-  br i1 %1422, label %1423, label %1532
+lean_obj_tag.exit1702:                            ; preds = %1404, %1407
+  %.0.i1700 = phi i32 [ %1406, %1404 ], [ %1409, %1407 ]
+  %1410 = icmp eq i32 %.0.i1700, 0
+  br i1 %1410, label %1411, label %1520
 
-1423:                                             ; preds = %lean_obj_tag.exit1702
-  %1424 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
-  br i1 %.not1965, label %1425, label %lean_inc.exit1096
+1411:                                             ; preds = %lean_obj_tag.exit1702
+  %1412 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
+  br i1 %.not1965, label %1413, label %lean_inc.exit1096
 
-1425:                                             ; preds = %1423
-  %.val.i1703 = load i32, ptr %277, align 4, !tbaa !8
-  %1426 = icmp sgt i32 %.val.i1703, 0
-  br i1 %1426, label %1427, label %1429, !prof !13
+1413:                                             ; preds = %1411
+  %.val.i1703 = load i32, ptr %274, align 4, !tbaa !8
+  %1414 = icmp sgt i32 %.val.i1703, 0
+  br i1 %1414, label %1415, label %1417, !prof !13
 
-1427:                                             ; preds = %1425
-  %1428 = add nuw i32 %.val.i1703, 1
-  store i32 %1428, ptr %277, align 4, !tbaa !8
+1415:                                             ; preds = %1413
+  %1416 = add nuw i32 %.val.i1703, 1
+  store i32 %1416, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1096
 
-1429:                                             ; preds = %1425
+1417:                                             ; preds = %1413
   %.not.i1704 = icmp eq i32 %.val.i1703, 0
-  br i1 %.not.i1704, label %lean_inc.exit1096, label %1430
+  br i1 %.not.i1704, label %lean_inc.exit1096, label %1418
 
-1430:                                             ; preds = %1429
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1418:                                             ; preds = %1417
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1096
 
-lean_inc.exit1096:                                ; preds = %1430, %1429, %1427, %1423
+lean_inc.exit1096:                                ; preds = %1418, %1417, %1415, %1411
   tail call void @lean_inc_heartbeat() #6
-  %1431 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1432 = icmp eq ptr %1431, null
-  br i1 %1432, label %1433, label %lean_alloc_ctor.exit1706
+  %1419 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1420 = icmp eq ptr %1419, null
+  br i1 %1420, label %1421, label %lean_alloc_ctor.exit1706
 
-1433:                                             ; preds = %lean_inc.exit1096
+1421:                                             ; preds = %lean_inc.exit1096
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1706:                         ; preds = %lean_inc.exit1096
-  %1434 = getelementptr inbounds nuw i8, ptr %1431, i64 4
-  store i32 1, ptr %1431, align 4, !tbaa !8
-  store i32 16973856, ptr %1434, align 4
-  %1435 = getelementptr inbounds nuw i8, ptr %1431, i64 8
-  store ptr %277, ptr %1435, align 8, !tbaa !4
-  %1436 = getelementptr inbounds nuw i8, ptr %1431, i64 16
-  store ptr %1237, ptr %1436, align 8, !tbaa !4
-  %1437 = getelementptr inbounds nuw i8, ptr %1431, i64 24
-  store ptr %1424, ptr %1437, align 8, !tbaa !4
-  %1438 = ptrtoint ptr %3 to i64
-  %1439 = and i64 %1438, 1
-  %.not.i1707 = icmp eq i64 %1439, 0
-  br i1 %.not.i1707, label %1443, label %1440
+  %1422 = getelementptr inbounds nuw i8, ptr %1419, i64 4
+  store i32 1, ptr %1419, align 4, !tbaa !8
+  store i32 16973856, ptr %1422, align 4
+  %1423 = getelementptr inbounds nuw i8, ptr %1419, i64 8
+  store ptr %274, ptr %1423, align 8, !tbaa !4
+  %1424 = getelementptr inbounds nuw i8, ptr %1419, i64 16
+  store ptr %1228, ptr %1424, align 8, !tbaa !4
+  %1425 = getelementptr inbounds nuw i8, ptr %1419, i64 24
+  store ptr %1412, ptr %1425, align 8, !tbaa !4
+  %1426 = ptrtoint ptr %3 to i64
+  %1427 = and i64 %1426, 1
+  %.not.i1707 = icmp eq i64 %1427, 0
+  br i1 %.not.i1707, label %1431, label %1428
 
-1440:                                             ; preds = %lean_alloc_ctor.exit1706
-  %1441 = lshr i64 %1438, 1
-  %1442 = trunc i64 %1441 to i32
+1428:                                             ; preds = %lean_alloc_ctor.exit1706
+  %1429 = lshr i64 %1426, 1
+  %1430 = trunc i64 %1429 to i32
   br label %lean_obj_tag.exit1710
 
-1443:                                             ; preds = %lean_alloc_ctor.exit1706
-  %1444 = getelementptr i8, ptr %3, i64 4
-  %.val.i1709 = load i32, ptr %1444, align 4
-  %1445 = lshr i32 %.val.i1709, 24
+1431:                                             ; preds = %lean_alloc_ctor.exit1706
+  %1432 = getelementptr i8, ptr %3, i64 4
+  %.val.i1709 = load i32, ptr %1432, align 4
+  %1433 = lshr i32 %.val.i1709, 24
   br label %lean_obj_tag.exit1710
 
-lean_obj_tag.exit1710:                            ; preds = %1440, %1443
-  %.0.i1708 = phi i32 [ %1442, %1440 ], [ %1445, %1443 ]
-  %1446 = icmp eq i32 %.0.i1708, 0
-  br i1 %1446, label %1447, label %1473
+lean_obj_tag.exit1710:                            ; preds = %1428, %1431
+  %.0.i1708 = phi i32 [ %1430, %1428 ], [ %1433, %1431 ]
+  %1434 = icmp eq i32 %.0.i1708, 0
+  br i1 %1434, label %1435, label %1461
 
-1447:                                             ; preds = %lean_obj_tag.exit1710
-  %1448 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1968, label %1449, label %lean_inc_n.exit1714
+1435:                                             ; preds = %lean_obj_tag.exit1710
+  %1436 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1968, label %1437, label %lean_inc_n.exit1714
 
-1449:                                             ; preds = %1447
-  %.val.i.i1712 = load i32, ptr %1247, align 4, !tbaa !8
-  %1450 = icmp sgt i32 %.val.i.i1712, 0
-  br i1 %1450, label %1451, label %1453, !prof !13
+1437:                                             ; preds = %1435
+  %.val.i.i1712 = load i32, ptr %1238, align 4, !tbaa !8
+  %1438 = icmp sgt i32 %.val.i.i1712, 0
+  br i1 %1438, label %1439, label %1441, !prof !13
 
-1451:                                             ; preds = %1449
-  %1452 = add nuw i32 %.val.i.i1712, 3
-  store i32 %1452, ptr %1247, align 4, !tbaa !8
+1439:                                             ; preds = %1437
+  %1440 = add nuw i32 %.val.i.i1712, 3
+  store i32 %1440, ptr %1238, align 4, !tbaa !8
   br label %lean_inc_n.exit1714
 
-1453:                                             ; preds = %1449
+1441:                                             ; preds = %1437
   %.not.i.i1713 = icmp eq i32 %.val.i.i1712, 0
-  br i1 %.not.i.i1713, label %lean_inc_n.exit1714, label %1454
+  br i1 %.not.i.i1713, label %lean_inc_n.exit1714, label %1442
 
-1454:                                             ; preds = %1453
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1247, i32 noundef 3) #6
+1442:                                             ; preds = %1441
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1238, i32 noundef 3) #6
   br label %lean_inc_n.exit1714
 
-lean_inc_n.exit1714:                              ; preds = %1447, %1451, %1453, %1454
-  %1455 = ptrtoint ptr %1431 to i64
-  %1456 = and i64 %1455, 1
-  %.not1978 = icmp eq i64 %1456, 0
-  br i1 %.not1978, label %1457, label %lean_inc.exit1095
+lean_inc_n.exit1714:                              ; preds = %1435, %1439, %1441, %1442
+  %1443 = ptrtoint ptr %1419 to i64
+  %1444 = and i64 %1443, 1
+  %.not1978 = icmp eq i64 %1444, 0
+  br i1 %.not1978, label %1445, label %lean_inc.exit1095
 
-1457:                                             ; preds = %lean_inc_n.exit1714
-  %.val.i1715 = load i32, ptr %1431, align 4, !tbaa !8
-  %1458 = icmp sgt i32 %.val.i1715, 0
-  br i1 %1458, label %1459, label %1461, !prof !13
+1445:                                             ; preds = %lean_inc_n.exit1714
+  %.val.i1715 = load i32, ptr %1419, align 4, !tbaa !8
+  %1446 = icmp sgt i32 %.val.i1715, 0
+  br i1 %1446, label %1447, label %1449, !prof !13
 
-1459:                                             ; preds = %1457
-  %1460 = add nuw i32 %.val.i1715, 1
-  store i32 %1460, ptr %1431, align 4, !tbaa !8
+1447:                                             ; preds = %1445
+  %1448 = add nuw i32 %.val.i1715, 1
+  store i32 %1448, ptr %1419, align 4, !tbaa !8
   br label %lean_inc.exit1095
 
-1461:                                             ; preds = %1457
+1449:                                             ; preds = %1445
   %.not.i1716 = icmp eq i32 %.val.i1715, 0
-  br i1 %.not.i1716, label %lean_inc.exit1095, label %1462
+  br i1 %.not.i1716, label %lean_inc.exit1095, label %1450
 
-1462:                                             ; preds = %1461
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1431) #6
+1450:                                             ; preds = %1449
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1419) #6
   br label %lean_inc.exit1095
 
-lean_inc.exit1095:                                ; preds = %1462, %1461, %1459, %lean_inc_n.exit1714
-  br i1 %.not1965, label %1463, label %lean_inc.exit1094
+lean_inc.exit1095:                                ; preds = %1450, %1449, %1447, %lean_inc_n.exit1714
+  br i1 %.not1965, label %1451, label %lean_inc.exit1094
 
-1463:                                             ; preds = %lean_inc.exit1095
-  %.val.i1718 = load i32, ptr %277, align 4, !tbaa !8
-  %1464 = icmp sgt i32 %.val.i1718, 0
-  br i1 %1464, label %1465, label %1467, !prof !13
+1451:                                             ; preds = %lean_inc.exit1095
+  %.val.i1718 = load i32, ptr %274, align 4, !tbaa !8
+  %1452 = icmp sgt i32 %.val.i1718, 0
+  br i1 %1452, label %1453, label %1455, !prof !13
 
-1465:                                             ; preds = %1463
-  %1466 = add nuw i32 %.val.i1718, 1
-  store i32 %1466, ptr %277, align 4, !tbaa !8
+1453:                                             ; preds = %1451
+  %1454 = add nuw i32 %.val.i1718, 1
+  store i32 %1454, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1094
 
-1467:                                             ; preds = %1463
+1455:                                             ; preds = %1451
   %.not.i1719 = icmp eq i32 %.val.i1718, 0
-  br i1 %.not.i1719, label %lean_inc.exit1094, label %1468
+  br i1 %.not.i1719, label %lean_inc.exit1094, label %1456
 
-1468:                                             ; preds = %1467
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1456:                                             ; preds = %1455
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1094
 
-lean_inc.exit1094:                                ; preds = %1468, %1467, %1465, %lean_inc.exit1095
-  %1469 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %1448, ptr noundef nonnull %1431, ptr noundef nonnull %1431, ptr noundef nonnull %1247, ptr noundef nonnull %1247, ptr noundef nonnull %1247, ptr noundef nonnull %1247) #6
-  %1470 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %1471 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %1470, ptr noundef %1469, ptr noundef %1413) #6
-  %1472 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1471, ptr noundef %4, ptr noundef %5, ptr noundef %1200) #6
-  br label %2236
+lean_inc.exit1094:                                ; preds = %1456, %1455, %1453, %lean_inc.exit1095
+  %1457 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %1436, ptr noundef nonnull %1419, ptr noundef nonnull %1419, ptr noundef nonnull %1238, ptr noundef nonnull %1238, ptr noundef nonnull %1238, ptr noundef nonnull %1238) #6
+  %1458 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %1459 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %1458, ptr noundef %1457, ptr noundef %1401) #6
+  %1460 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1459, ptr noundef %4, ptr noundef %5, ptr noundef %1191) #6
+  br label %2221
 
-1473:                                             ; preds = %lean_obj_tag.exit1710
-  %1474 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %1475 = load ptr, ptr %1474, align 8, !tbaa !4
-  %1476 = ptrtoint ptr %1475 to i64
-  %1477 = and i64 %1476, 1
-  %.not1975 = icmp eq i64 %1477, 0
-  br i1 %.not1975, label %1478, label %lean_inc.exit1093
+1461:                                             ; preds = %lean_obj_tag.exit1710
+  %1462 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %1463 = load ptr, ptr %1462, align 8, !tbaa !4
+  %1464 = ptrtoint ptr %1463 to i64
+  %1465 = and i64 %1464, 1
+  %.not1975 = icmp eq i64 %1465, 0
+  br i1 %.not1975, label %1466, label %lean_inc.exit1093
 
-1478:                                             ; preds = %1473
-  %.val.i1721 = load i32, ptr %1475, align 4, !tbaa !8
-  %1479 = icmp sgt i32 %.val.i1721, 0
-  br i1 %1479, label %1480, label %1482, !prof !13
+1466:                                             ; preds = %1461
+  %.val.i1721 = load i32, ptr %1463, align 4, !tbaa !8
+  %1467 = icmp sgt i32 %.val.i1721, 0
+  br i1 %1467, label %1468, label %1470, !prof !13
 
-1480:                                             ; preds = %1478
-  %1481 = add nuw i32 %.val.i1721, 1
-  store i32 %1481, ptr %1475, align 4, !tbaa !8
+1468:                                             ; preds = %1466
+  %1469 = add nuw i32 %.val.i1721, 1
+  store i32 %1469, ptr %1463, align 4, !tbaa !8
   br label %lean_inc.exit1093
 
-1482:                                             ; preds = %1478
+1470:                                             ; preds = %1466
   %.not.i1722 = icmp eq i32 %.val.i1721, 0
-  br i1 %.not.i1722, label %lean_inc.exit1093, label %1483
+  br i1 %.not.i1722, label %lean_inc.exit1093, label %1471
 
-1483:                                             ; preds = %1482
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1475) #6
+1471:                                             ; preds = %1470
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1463) #6
   br label %lean_inc.exit1093
 
-lean_inc.exit1093:                                ; preds = %1483, %1482, %1480, %1473
-  br i1 %.not.i1707, label %1484, label %lean_dec.exit1199
+lean_inc.exit1093:                                ; preds = %1471, %1470, %1468, %1461
+  br i1 %.not.i1707, label %1472, label %lean_dec.exit1199
 
-1484:                                             ; preds = %lean_inc.exit1093
-  %1485 = load i32, ptr %3, align 4, !tbaa !8
-  %1486 = icmp sgt i32 %1485, 1
-  br i1 %1486, label %1487, label %1489, !prof !13
+1472:                                             ; preds = %lean_inc.exit1093
+  %1473 = load i32, ptr %3, align 4, !tbaa !8
+  %1474 = icmp sgt i32 %1473, 1
+  br i1 %1474, label %1475, label %1477, !prof !13
 
-1487:                                             ; preds = %1484
-  %1488 = add nsw i32 %1485, -1
-  store i32 %1488, ptr %3, align 4, !tbaa !8
+1475:                                             ; preds = %1472
+  %1476 = add nsw i32 %1473, -1
+  store i32 %1476, ptr %3, align 4, !tbaa !8
   br label %lean_dec.exit1199
 
-1489:                                             ; preds = %1484
-  %.not.i1306 = icmp eq i32 %1485, 0
-  br i1 %.not.i1306, label %lean_dec.exit1199, label %1490
+1477:                                             ; preds = %1472
+  %.not.i1306 = icmp eq i32 %1473, 0
+  br i1 %.not.i1306, label %lean_dec.exit1199, label %1478
 
-1490:                                             ; preds = %1489
+1478:                                             ; preds = %1477
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #6
   br label %lean_dec.exit1199
 
-lean_dec.exit1199:                                ; preds = %1490, %1489, %1487, %lean_inc.exit1093
-  %1491 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %1475) #6
-  %1492 = tail call ptr @l_Array_append___rarg(ptr noundef %1238, ptr noundef %1491) #6
-  %1493 = ptrtoint ptr %1491 to i64
-  %1494 = and i64 %1493, 1
-  %.not1977 = icmp eq i64 %1494, 0
-  br i1 %.not1977, label %1495, label %lean_dec.exit1198
+lean_dec.exit1199:                                ; preds = %1478, %1477, %1475, %lean_inc.exit1093
+  %1479 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %1463) #6
+  %1480 = tail call ptr @l_Array_append___rarg(ptr noundef %1229, ptr noundef %1479) #6
+  %1481 = ptrtoint ptr %1479 to i64
+  %1482 = and i64 %1481, 1
+  %.not1977 = icmp eq i64 %1482, 0
+  br i1 %.not1977, label %1483, label %lean_dec.exit1198
 
-1495:                                             ; preds = %lean_dec.exit1199
-  %1496 = load i32, ptr %1491, align 4, !tbaa !8
-  %1497 = icmp sgt i32 %1496, 1
-  br i1 %1497, label %1498, label %1500, !prof !13
+1483:                                             ; preds = %lean_dec.exit1199
+  %1484 = load i32, ptr %1479, align 4, !tbaa !8
+  %1485 = icmp sgt i32 %1484, 1
+  br i1 %1485, label %1486, label %1488, !prof !13
 
-1498:                                             ; preds = %1495
-  %1499 = add nsw i32 %1496, -1
-  store i32 %1499, ptr %1491, align 4, !tbaa !8
+1486:                                             ; preds = %1483
+  %1487 = add nsw i32 %1484, -1
+  store i32 %1487, ptr %1479, align 4, !tbaa !8
   br label %lean_dec.exit1198
 
-1500:                                             ; preds = %1495
-  %.not.i1308 = icmp eq i32 %1496, 0
-  br i1 %.not.i1308, label %lean_dec.exit1198, label %1501
+1488:                                             ; preds = %1483
+  %.not.i1308 = icmp eq i32 %1484, 0
+  br i1 %.not.i1308, label %lean_dec.exit1198, label %1489
 
-1501:                                             ; preds = %1500
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1491) #6
+1489:                                             ; preds = %1488
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1479) #6
   br label %lean_dec.exit1198
 
-lean_dec.exit1198:                                ; preds = %1501, %1500, %1498, %lean_dec.exit1199
-  br i1 %.not1965, label %1502, label %lean_inc.exit1092
+lean_dec.exit1198:                                ; preds = %1489, %1488, %1486, %lean_dec.exit1199
+  br i1 %.not1965, label %1490, label %lean_inc.exit1092
 
-1502:                                             ; preds = %lean_dec.exit1198
-  %.val.i1724 = load i32, ptr %277, align 4, !tbaa !8
-  %1503 = icmp sgt i32 %.val.i1724, 0
-  br i1 %1503, label %1504, label %1506, !prof !13
+1490:                                             ; preds = %lean_dec.exit1198
+  %.val.i1724 = load i32, ptr %274, align 4, !tbaa !8
+  %1491 = icmp sgt i32 %.val.i1724, 0
+  br i1 %1491, label %1492, label %1494, !prof !13
 
-1504:                                             ; preds = %1502
-  %1505 = add nuw i32 %.val.i1724, 1
-  store i32 %1505, ptr %277, align 4, !tbaa !8
+1492:                                             ; preds = %1490
+  %1493 = add nuw i32 %.val.i1724, 1
+  store i32 %1493, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1092
 
-1506:                                             ; preds = %1502
+1494:                                             ; preds = %1490
   %.not.i1725 = icmp eq i32 %.val.i1724, 0
-  br i1 %.not.i1725, label %lean_inc.exit1092, label %1507
+  br i1 %.not.i1725, label %lean_inc.exit1092, label %1495
 
-1507:                                             ; preds = %1506
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1495:                                             ; preds = %1494
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1092
 
-lean_inc.exit1092:                                ; preds = %1507, %1506, %1504, %lean_dec.exit1198
+lean_inc.exit1092:                                ; preds = %1495, %1494, %1492, %lean_dec.exit1198
   tail call void @lean_inc_heartbeat() #6
-  %1508 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1509 = icmp eq ptr %1508, null
-  br i1 %1509, label %1510, label %lean_alloc_ctor.exit1727
+  %1496 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1497 = icmp eq ptr %1496, null
+  br i1 %1497, label %1498, label %lean_alloc_ctor.exit1727
 
-1510:                                             ; preds = %lean_inc.exit1092
+1498:                                             ; preds = %lean_inc.exit1092
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1727:                         ; preds = %lean_inc.exit1092
-  %1511 = getelementptr inbounds nuw i8, ptr %1508, i64 4
-  store i32 1, ptr %1508, align 4, !tbaa !8
-  store i32 16973856, ptr %1511, align 4
-  %1512 = getelementptr inbounds nuw i8, ptr %1508, i64 8
-  store ptr %277, ptr %1512, align 8, !tbaa !4
-  %1513 = getelementptr inbounds nuw i8, ptr %1508, i64 16
-  store ptr %1237, ptr %1513, align 8, !tbaa !4
-  %1514 = getelementptr inbounds nuw i8, ptr %1508, i64 24
-  store ptr %1492, ptr %1514, align 8, !tbaa !4
-  %1515 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1968, label %1516, label %lean_inc_n.exit1731
+  %1499 = getelementptr inbounds nuw i8, ptr %1496, i64 4
+  store i32 1, ptr %1496, align 4, !tbaa !8
+  store i32 16973856, ptr %1499, align 4
+  %1500 = getelementptr inbounds nuw i8, ptr %1496, i64 8
+  store ptr %274, ptr %1500, align 8, !tbaa !4
+  %1501 = getelementptr inbounds nuw i8, ptr %1496, i64 16
+  store ptr %1228, ptr %1501, align 8, !tbaa !4
+  %1502 = getelementptr inbounds nuw i8, ptr %1496, i64 24
+  store ptr %1480, ptr %1502, align 8, !tbaa !4
+  %1503 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1968, label %1504, label %lean_inc_n.exit1731
 
-1516:                                             ; preds = %lean_alloc_ctor.exit1727
-  %.val.i.i1729 = load i32, ptr %1247, align 4, !tbaa !8
-  %1517 = icmp sgt i32 %.val.i.i1729, 0
-  br i1 %1517, label %1518, label %1520, !prof !13
+1504:                                             ; preds = %lean_alloc_ctor.exit1727
+  %.val.i.i1729 = load i32, ptr %1238, align 4, !tbaa !8
+  %1505 = icmp sgt i32 %.val.i.i1729, 0
+  br i1 %1505, label %1506, label %1508, !prof !13
 
-1518:                                             ; preds = %1516
-  %1519 = add nuw i32 %.val.i.i1729, 3
-  store i32 %1519, ptr %1247, align 4, !tbaa !8
+1506:                                             ; preds = %1504
+  %1507 = add nuw i32 %.val.i.i1729, 3
+  store i32 %1507, ptr %1238, align 4, !tbaa !8
   br label %lean_inc_n.exit1731
 
-1520:                                             ; preds = %1516
+1508:                                             ; preds = %1504
   %.not.i.i1730 = icmp eq i32 %.val.i.i1729, 0
-  br i1 %.not.i.i1730, label %lean_inc_n.exit1731, label %1521
+  br i1 %.not.i.i1730, label %lean_inc_n.exit1731, label %1509
 
-1521:                                             ; preds = %1520
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1247, i32 noundef 3) #6
+1509:                                             ; preds = %1508
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1238, i32 noundef 3) #6
   br label %lean_inc_n.exit1731
 
-lean_inc_n.exit1731:                              ; preds = %lean_alloc_ctor.exit1727, %1518, %1520, %1521
-  br i1 %.not1965, label %1522, label %lean_inc.exit1091
+lean_inc_n.exit1731:                              ; preds = %lean_alloc_ctor.exit1727, %1506, %1508, %1509
+  br i1 %.not1965, label %1510, label %lean_inc.exit1091
 
-1522:                                             ; preds = %lean_inc_n.exit1731
-  %.val.i1732 = load i32, ptr %277, align 4, !tbaa !8
-  %1523 = icmp sgt i32 %.val.i1732, 0
-  br i1 %1523, label %1524, label %1526, !prof !13
+1510:                                             ; preds = %lean_inc_n.exit1731
+  %.val.i1732 = load i32, ptr %274, align 4, !tbaa !8
+  %1511 = icmp sgt i32 %.val.i1732, 0
+  br i1 %1511, label %1512, label %1514, !prof !13
 
-1524:                                             ; preds = %1522
-  %1525 = add nuw i32 %.val.i1732, 1
-  store i32 %1525, ptr %277, align 4, !tbaa !8
+1512:                                             ; preds = %1510
+  %1513 = add nuw i32 %.val.i1732, 1
+  store i32 %1513, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1091
 
-1526:                                             ; preds = %1522
+1514:                                             ; preds = %1510
   %.not.i1733 = icmp eq i32 %.val.i1732, 0
-  br i1 %.not.i1733, label %lean_inc.exit1091, label %1527
+  br i1 %.not.i1733, label %lean_inc.exit1091, label %1515
 
-1527:                                             ; preds = %1526
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1515:                                             ; preds = %1514
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1091
 
-lean_inc.exit1091:                                ; preds = %1527, %1526, %1524, %lean_inc_n.exit1731
-  %1528 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %1515, ptr noundef nonnull %1431, ptr noundef nonnull %1508, ptr noundef nonnull %1247, ptr noundef nonnull %1247, ptr noundef nonnull %1247, ptr noundef nonnull %1247) #6
-  %1529 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %1530 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %1529, ptr noundef %1528, ptr noundef %1413) #6
-  %1531 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1530, ptr noundef %4, ptr noundef %5, ptr noundef %1200) #6
-  br label %2236
+lean_inc.exit1091:                                ; preds = %1515, %1514, %1512, %lean_inc_n.exit1731
+  %1516 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %1503, ptr noundef nonnull %1419, ptr noundef nonnull %1496, ptr noundef nonnull %1238, ptr noundef nonnull %1238, ptr noundef nonnull %1238, ptr noundef nonnull %1238) #6
+  %1517 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %1518 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %1517, ptr noundef %1516, ptr noundef %1401) #6
+  %1519 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1518, ptr noundef %4, ptr noundef %5, ptr noundef %1191) #6
+  br label %2221
 
-1532:                                             ; preds = %lean_obj_tag.exit1702
-  %1533 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1534 = load ptr, ptr %1533, align 8, !tbaa !4
-  %1535 = ptrtoint ptr %1534 to i64
-  %1536 = and i64 %1535, 1
-  %.not1969 = icmp eq i64 %1536, 0
-  br i1 %.not1969, label %1537, label %lean_inc.exit1090
+1520:                                             ; preds = %lean_obj_tag.exit1702
+  %1521 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1522 = load ptr, ptr %1521, align 8, !tbaa !4
+  %1523 = ptrtoint ptr %1522 to i64
+  %1524 = and i64 %1523, 1
+  %.not1969 = icmp eq i64 %1524, 0
+  br i1 %.not1969, label %1525, label %lean_inc.exit1090
 
-1537:                                             ; preds = %1532
-  %.val.i1735 = load i32, ptr %1534, align 4, !tbaa !8
-  %1538 = icmp sgt i32 %.val.i1735, 0
-  br i1 %1538, label %1539, label %1541, !prof !13
+1525:                                             ; preds = %1520
+  %.val.i1735 = load i32, ptr %1522, align 4, !tbaa !8
+  %1526 = icmp sgt i32 %.val.i1735, 0
+  br i1 %1526, label %1527, label %1529, !prof !13
 
-1539:                                             ; preds = %1537
-  %1540 = add nuw i32 %.val.i1735, 1
-  store i32 %1540, ptr %1534, align 4, !tbaa !8
+1527:                                             ; preds = %1525
+  %1528 = add nuw i32 %.val.i1735, 1
+  store i32 %1528, ptr %1522, align 4, !tbaa !8
   br label %lean_inc.exit1090
 
-1541:                                             ; preds = %1537
+1529:                                             ; preds = %1525
   %.not.i1736 = icmp eq i32 %.val.i1735, 0
-  br i1 %.not.i1736, label %lean_inc.exit1090, label %1542
+  br i1 %.not.i1736, label %lean_inc.exit1090, label %1530
 
-1542:                                             ; preds = %1541
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1534) #6
+1530:                                             ; preds = %1529
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1522) #6
   br label %lean_inc.exit1090
 
-lean_inc.exit1090:                                ; preds = %1542, %1541, %1539, %1532
-  br i1 %.not.i1699, label %1543, label %lean_dec.exit1197
+lean_inc.exit1090:                                ; preds = %1530, %1529, %1527, %1520
+  br i1 %.not.i1699, label %1531, label %lean_dec.exit1197
 
-1543:                                             ; preds = %lean_inc.exit1090
-  %1544 = load i32, ptr %1, align 4, !tbaa !8
-  %1545 = icmp sgt i32 %1544, 1
-  br i1 %1545, label %1546, label %1548, !prof !13
+1531:                                             ; preds = %lean_inc.exit1090
+  %1532 = load i32, ptr %1, align 4, !tbaa !8
+  %1533 = icmp sgt i32 %1532, 1
+  br i1 %1533, label %1534, label %1536, !prof !13
 
-1546:                                             ; preds = %1543
-  %1547 = add nsw i32 %1544, -1
-  store i32 %1547, ptr %1, align 4, !tbaa !8
+1534:                                             ; preds = %1531
+  %1535 = add nsw i32 %1532, -1
+  store i32 %1535, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit1197
 
-1548:                                             ; preds = %1543
-  %.not.i1310 = icmp eq i32 %1544, 0
-  br i1 %.not.i1310, label %lean_dec.exit1197, label %1549
+1536:                                             ; preds = %1531
+  %.not.i1310 = icmp eq i32 %1532, 0
+  br i1 %.not.i1310, label %lean_dec.exit1197, label %1537
 
-1549:                                             ; preds = %1548
+1537:                                             ; preds = %1536
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
   br label %lean_dec.exit1197
 
-lean_dec.exit1197:                                ; preds = %1549, %1548, %1546, %lean_inc.exit1090
-  %1550 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %1534) #6
-  %1551 = tail call ptr @l_Array_append___rarg(ptr noundef %1238, ptr noundef %1550) #6
-  %1552 = ptrtoint ptr %1550 to i64
-  %1553 = and i64 %1552, 1
-  %.not1971 = icmp eq i64 %1553, 0
-  br i1 %.not1971, label %1554, label %lean_dec.exit1196
+lean_dec.exit1197:                                ; preds = %1537, %1536, %1534, %lean_inc.exit1090
+  %1538 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %1522) #6
+  %1539 = tail call ptr @l_Array_append___rarg(ptr noundef %1229, ptr noundef %1538) #6
+  %1540 = ptrtoint ptr %1538 to i64
+  %1541 = and i64 %1540, 1
+  %.not1971 = icmp eq i64 %1541, 0
+  br i1 %.not1971, label %1542, label %lean_dec.exit1196
 
-1554:                                             ; preds = %lean_dec.exit1197
-  %1555 = load i32, ptr %1550, align 4, !tbaa !8
-  %1556 = icmp sgt i32 %1555, 1
-  br i1 %1556, label %1557, label %1559, !prof !13
+1542:                                             ; preds = %lean_dec.exit1197
+  %1543 = load i32, ptr %1538, align 4, !tbaa !8
+  %1544 = icmp sgt i32 %1543, 1
+  br i1 %1544, label %1545, label %1547, !prof !13
 
-1557:                                             ; preds = %1554
-  %1558 = add nsw i32 %1555, -1
-  store i32 %1558, ptr %1550, align 4, !tbaa !8
+1545:                                             ; preds = %1542
+  %1546 = add nsw i32 %1543, -1
+  store i32 %1546, ptr %1538, align 4, !tbaa !8
   br label %lean_dec.exit1196
 
-1559:                                             ; preds = %1554
-  %.not.i1312 = icmp eq i32 %1555, 0
-  br i1 %.not.i1312, label %lean_dec.exit1196, label %1560
+1547:                                             ; preds = %1542
+  %.not.i1312 = icmp eq i32 %1543, 0
+  br i1 %.not.i1312, label %lean_dec.exit1196, label %1548
 
-1560:                                             ; preds = %1559
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1550) #6
+1548:                                             ; preds = %1547
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1538) #6
   br label %lean_dec.exit1196
 
-lean_dec.exit1196:                                ; preds = %1560, %1559, %1557, %lean_dec.exit1197
-  br i1 %.not1965, label %1561, label %lean_inc.exit1089
+lean_dec.exit1196:                                ; preds = %1548, %1547, %1545, %lean_dec.exit1197
+  br i1 %.not1965, label %1549, label %lean_inc.exit1089
 
-1561:                                             ; preds = %lean_dec.exit1196
-  %.val.i1738 = load i32, ptr %277, align 4, !tbaa !8
-  %1562 = icmp sgt i32 %.val.i1738, 0
-  br i1 %1562, label %1563, label %1565, !prof !13
+1549:                                             ; preds = %lean_dec.exit1196
+  %.val.i1738 = load i32, ptr %274, align 4, !tbaa !8
+  %1550 = icmp sgt i32 %.val.i1738, 0
+  br i1 %1550, label %1551, label %1553, !prof !13
 
-1563:                                             ; preds = %1561
-  %1564 = add nuw i32 %.val.i1738, 1
-  store i32 %1564, ptr %277, align 4, !tbaa !8
+1551:                                             ; preds = %1549
+  %1552 = add nuw i32 %.val.i1738, 1
+  store i32 %1552, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1089
 
-1565:                                             ; preds = %1561
+1553:                                             ; preds = %1549
   %.not.i1739 = icmp eq i32 %.val.i1738, 0
-  br i1 %.not.i1739, label %lean_inc.exit1089, label %1566
+  br i1 %.not.i1739, label %lean_inc.exit1089, label %1554
 
-1566:                                             ; preds = %1565
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1554:                                             ; preds = %1553
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1089
 
-lean_inc.exit1089:                                ; preds = %1566, %1565, %1563, %lean_dec.exit1196
+lean_inc.exit1089:                                ; preds = %1554, %1553, %1551, %lean_dec.exit1196
   tail call void @lean_inc_heartbeat() #6
-  %1567 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1568 = icmp eq ptr %1567, null
-  br i1 %1568, label %1569, label %lean_alloc_ctor.exit1741
+  %1555 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1556 = icmp eq ptr %1555, null
+  br i1 %1556, label %1557, label %lean_alloc_ctor.exit1741
 
-1569:                                             ; preds = %lean_inc.exit1089
+1557:                                             ; preds = %lean_inc.exit1089
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1741:                         ; preds = %lean_inc.exit1089
-  %1570 = getelementptr inbounds nuw i8, ptr %1567, i64 4
-  store i32 1, ptr %1567, align 4, !tbaa !8
-  store i32 16973856, ptr %1570, align 4
-  %1571 = getelementptr inbounds nuw i8, ptr %1567, i64 8
-  store ptr %277, ptr %1571, align 8, !tbaa !4
-  %1572 = getelementptr inbounds nuw i8, ptr %1567, i64 16
-  store ptr %1237, ptr %1572, align 8, !tbaa !4
-  %1573 = getelementptr inbounds nuw i8, ptr %1567, i64 24
-  store ptr %1551, ptr %1573, align 8, !tbaa !4
-  %1574 = ptrtoint ptr %3 to i64
-  %1575 = and i64 %1574, 1
-  %.not.i1742 = icmp eq i64 %1575, 0
-  br i1 %.not.i1742, label %1579, label %1576
+  %1558 = getelementptr inbounds nuw i8, ptr %1555, i64 4
+  store i32 1, ptr %1555, align 4, !tbaa !8
+  store i32 16973856, ptr %1558, align 4
+  %1559 = getelementptr inbounds nuw i8, ptr %1555, i64 8
+  store ptr %274, ptr %1559, align 8, !tbaa !4
+  %1560 = getelementptr inbounds nuw i8, ptr %1555, i64 16
+  store ptr %1228, ptr %1560, align 8, !tbaa !4
+  %1561 = getelementptr inbounds nuw i8, ptr %1555, i64 24
+  store ptr %1539, ptr %1561, align 8, !tbaa !4
+  %1562 = ptrtoint ptr %3 to i64
+  %1563 = and i64 %1562, 1
+  %.not.i1742 = icmp eq i64 %1563, 0
+  br i1 %.not.i1742, label %1567, label %1564
 
-1576:                                             ; preds = %lean_alloc_ctor.exit1741
-  %1577 = lshr i64 %1574, 1
-  %1578 = trunc i64 %1577 to i32
+1564:                                             ; preds = %lean_alloc_ctor.exit1741
+  %1565 = lshr i64 %1562, 1
+  %1566 = trunc i64 %1565 to i32
   br label %lean_obj_tag.exit1745
 
-1579:                                             ; preds = %lean_alloc_ctor.exit1741
-  %1580 = getelementptr i8, ptr %3, i64 4
-  %.val.i1744 = load i32, ptr %1580, align 4
-  %1581 = lshr i32 %.val.i1744, 24
+1567:                                             ; preds = %lean_alloc_ctor.exit1741
+  %1568 = getelementptr i8, ptr %3, i64 4
+  %.val.i1744 = load i32, ptr %1568, align 4
+  %1569 = lshr i32 %.val.i1744, 24
   br label %lean_obj_tag.exit1745
 
-lean_obj_tag.exit1745:                            ; preds = %1576, %1579
-  %.0.i1743 = phi i32 [ %1578, %1576 ], [ %1581, %1579 ]
-  %1582 = icmp eq i32 %.0.i1743, 0
-  br i1 %1582, label %1583, label %1615
+lean_obj_tag.exit1745:                            ; preds = %1564, %1567
+  %.0.i1743 = phi i32 [ %1566, %1564 ], [ %1569, %1567 ]
+  %1570 = icmp eq i32 %.0.i1743, 0
+  br i1 %1570, label %1571, label %1603
 
-1583:                                             ; preds = %lean_obj_tag.exit1745
-  %1584 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
-  br i1 %.not1965, label %1585, label %lean_inc.exit1088
+1571:                                             ; preds = %lean_obj_tag.exit1745
+  %1572 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
+  br i1 %.not1965, label %1573, label %lean_inc.exit1088
 
-1585:                                             ; preds = %1583
-  %.val.i1746 = load i32, ptr %277, align 4, !tbaa !8
-  %1586 = icmp sgt i32 %.val.i1746, 0
-  br i1 %1586, label %1587, label %1589, !prof !13
+1573:                                             ; preds = %1571
+  %.val.i1746 = load i32, ptr %274, align 4, !tbaa !8
+  %1574 = icmp sgt i32 %.val.i1746, 0
+  br i1 %1574, label %1575, label %1577, !prof !13
 
-1587:                                             ; preds = %1585
-  %1588 = add nuw i32 %.val.i1746, 1
-  store i32 %1588, ptr %277, align 4, !tbaa !8
+1575:                                             ; preds = %1573
+  %1576 = add nuw i32 %.val.i1746, 1
+  store i32 %1576, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1088
 
-1589:                                             ; preds = %1585
+1577:                                             ; preds = %1573
   %.not.i1747 = icmp eq i32 %.val.i1746, 0
-  br i1 %.not.i1747, label %lean_inc.exit1088, label %1590
+  br i1 %.not.i1747, label %lean_inc.exit1088, label %1578
 
-1590:                                             ; preds = %1589
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1578:                                             ; preds = %1577
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1088
 
-lean_inc.exit1088:                                ; preds = %1590, %1589, %1587, %1583
+lean_inc.exit1088:                                ; preds = %1578, %1577, %1575, %1571
   tail call void @lean_inc_heartbeat() #6
-  %1591 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1592 = icmp eq ptr %1591, null
-  br i1 %1592, label %1593, label %lean_alloc_ctor.exit1749
+  %1579 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1580 = icmp eq ptr %1579, null
+  br i1 %1580, label %1581, label %lean_alloc_ctor.exit1749
 
-1593:                                             ; preds = %lean_inc.exit1088
+1581:                                             ; preds = %lean_inc.exit1088
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1749:                         ; preds = %lean_inc.exit1088
-  %1594 = getelementptr inbounds nuw i8, ptr %1591, i64 4
-  store i32 1, ptr %1591, align 4, !tbaa !8
-  store i32 16973856, ptr %1594, align 4
-  %1595 = getelementptr inbounds nuw i8, ptr %1591, i64 8
-  store ptr %277, ptr %1595, align 8, !tbaa !4
-  %1596 = getelementptr inbounds nuw i8, ptr %1591, i64 16
-  store ptr %1237, ptr %1596, align 8, !tbaa !4
-  %1597 = getelementptr inbounds nuw i8, ptr %1591, i64 24
-  store ptr %1584, ptr %1597, align 8, !tbaa !4
-  %1598 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1968, label %1599, label %lean_inc_n.exit1753
+  %1582 = getelementptr inbounds nuw i8, ptr %1579, i64 4
+  store i32 1, ptr %1579, align 4, !tbaa !8
+  store i32 16973856, ptr %1582, align 4
+  %1583 = getelementptr inbounds nuw i8, ptr %1579, i64 8
+  store ptr %274, ptr %1583, align 8, !tbaa !4
+  %1584 = getelementptr inbounds nuw i8, ptr %1579, i64 16
+  store ptr %1228, ptr %1584, align 8, !tbaa !4
+  %1585 = getelementptr inbounds nuw i8, ptr %1579, i64 24
+  store ptr %1572, ptr %1585, align 8, !tbaa !4
+  %1586 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1968, label %1587, label %lean_inc_n.exit1753
 
-1599:                                             ; preds = %lean_alloc_ctor.exit1749
-  %.val.i.i1751 = load i32, ptr %1247, align 4, !tbaa !8
-  %1600 = icmp sgt i32 %.val.i.i1751, 0
-  br i1 %1600, label %1601, label %1603, !prof !13
+1587:                                             ; preds = %lean_alloc_ctor.exit1749
+  %.val.i.i1751 = load i32, ptr %1238, align 4, !tbaa !8
+  %1588 = icmp sgt i32 %.val.i.i1751, 0
+  br i1 %1588, label %1589, label %1591, !prof !13
 
-1601:                                             ; preds = %1599
-  %1602 = add nuw i32 %.val.i.i1751, 3
-  store i32 %1602, ptr %1247, align 4, !tbaa !8
+1589:                                             ; preds = %1587
+  %1590 = add nuw i32 %.val.i.i1751, 3
+  store i32 %1590, ptr %1238, align 4, !tbaa !8
   br label %lean_inc_n.exit1753
 
-1603:                                             ; preds = %1599
+1591:                                             ; preds = %1587
   %.not.i.i1752 = icmp eq i32 %.val.i.i1751, 0
-  br i1 %.not.i.i1752, label %lean_inc_n.exit1753, label %1604
+  br i1 %.not.i.i1752, label %lean_inc_n.exit1753, label %1592
 
-1604:                                             ; preds = %1603
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1247, i32 noundef 3) #6
+1592:                                             ; preds = %1591
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1238, i32 noundef 3) #6
   br label %lean_inc_n.exit1753
 
-lean_inc_n.exit1753:                              ; preds = %lean_alloc_ctor.exit1749, %1601, %1603, %1604
-  br i1 %.not1965, label %1605, label %lean_inc.exit1087
+lean_inc_n.exit1753:                              ; preds = %lean_alloc_ctor.exit1749, %1589, %1591, %1592
+  br i1 %.not1965, label %1593, label %lean_inc.exit1087
 
-1605:                                             ; preds = %lean_inc_n.exit1753
-  %.val.i1754 = load i32, ptr %277, align 4, !tbaa !8
-  %1606 = icmp sgt i32 %.val.i1754, 0
-  br i1 %1606, label %1607, label %1609, !prof !13
+1593:                                             ; preds = %lean_inc_n.exit1753
+  %.val.i1754 = load i32, ptr %274, align 4, !tbaa !8
+  %1594 = icmp sgt i32 %.val.i1754, 0
+  br i1 %1594, label %1595, label %1597, !prof !13
 
-1607:                                             ; preds = %1605
-  %1608 = add nuw i32 %.val.i1754, 1
-  store i32 %1608, ptr %277, align 4, !tbaa !8
+1595:                                             ; preds = %1593
+  %1596 = add nuw i32 %.val.i1754, 1
+  store i32 %1596, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1087
 
-1609:                                             ; preds = %1605
+1597:                                             ; preds = %1593
   %.not.i1755 = icmp eq i32 %.val.i1754, 0
-  br i1 %.not.i1755, label %lean_inc.exit1087, label %1610
+  br i1 %.not.i1755, label %lean_inc.exit1087, label %1598
 
-1610:                                             ; preds = %1609
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1598:                                             ; preds = %1597
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1087
 
-lean_inc.exit1087:                                ; preds = %1610, %1609, %1607, %lean_inc_n.exit1753
-  %1611 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %1598, ptr noundef nonnull %1567, ptr noundef nonnull %1591, ptr noundef nonnull %1247, ptr noundef nonnull %1247, ptr noundef nonnull %1247, ptr noundef nonnull %1247) #6
-  %1612 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %1613 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %1612, ptr noundef %1611, ptr noundef %1413) #6
-  %1614 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1613, ptr noundef %4, ptr noundef %5, ptr noundef %1200) #6
-  br label %2236
+lean_inc.exit1087:                                ; preds = %1598, %1597, %1595, %lean_inc_n.exit1753
+  %1599 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %1586, ptr noundef nonnull %1555, ptr noundef nonnull %1579, ptr noundef nonnull %1238, ptr noundef nonnull %1238, ptr noundef nonnull %1238, ptr noundef nonnull %1238) #6
+  %1600 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %1601 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %1600, ptr noundef %1599, ptr noundef %1401) #6
+  %1602 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1601, ptr noundef %4, ptr noundef %5, ptr noundef %1191) #6
+  br label %2221
 
-1615:                                             ; preds = %lean_obj_tag.exit1745
-  %1616 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %1617 = load ptr, ptr %1616, align 8, !tbaa !4
-  %1618 = ptrtoint ptr %1617 to i64
-  %1619 = and i64 %1618, 1
-  %.not1972 = icmp eq i64 %1619, 0
-  br i1 %.not1972, label %1620, label %lean_inc.exit1086
+1603:                                             ; preds = %lean_obj_tag.exit1745
+  %1604 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %1605 = load ptr, ptr %1604, align 8, !tbaa !4
+  %1606 = ptrtoint ptr %1605 to i64
+  %1607 = and i64 %1606, 1
+  %.not1972 = icmp eq i64 %1607, 0
+  br i1 %.not1972, label %1608, label %lean_inc.exit1086
 
-1620:                                             ; preds = %1615
-  %.val.i1757 = load i32, ptr %1617, align 4, !tbaa !8
-  %1621 = icmp sgt i32 %.val.i1757, 0
-  br i1 %1621, label %1622, label %1624, !prof !13
+1608:                                             ; preds = %1603
+  %.val.i1757 = load i32, ptr %1605, align 4, !tbaa !8
+  %1609 = icmp sgt i32 %.val.i1757, 0
+  br i1 %1609, label %1610, label %1612, !prof !13
 
-1622:                                             ; preds = %1620
-  %1623 = add nuw i32 %.val.i1757, 1
-  store i32 %1623, ptr %1617, align 4, !tbaa !8
+1610:                                             ; preds = %1608
+  %1611 = add nuw i32 %.val.i1757, 1
+  store i32 %1611, ptr %1605, align 4, !tbaa !8
   br label %lean_inc.exit1086
 
-1624:                                             ; preds = %1620
+1612:                                             ; preds = %1608
   %.not.i1758 = icmp eq i32 %.val.i1757, 0
-  br i1 %.not.i1758, label %lean_inc.exit1086, label %1625
+  br i1 %.not.i1758, label %lean_inc.exit1086, label %1613
 
-1625:                                             ; preds = %1624
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1617) #6
+1613:                                             ; preds = %1612
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1605) #6
   br label %lean_inc.exit1086
 
-lean_inc.exit1086:                                ; preds = %1625, %1624, %1622, %1615
-  br i1 %.not.i1742, label %1626, label %lean_dec.exit1195
+lean_inc.exit1086:                                ; preds = %1613, %1612, %1610, %1603
+  br i1 %.not.i1742, label %1614, label %lean_dec.exit1195
 
-1626:                                             ; preds = %lean_inc.exit1086
-  %1627 = load i32, ptr %3, align 4, !tbaa !8
-  %1628 = icmp sgt i32 %1627, 1
-  br i1 %1628, label %1629, label %1631, !prof !13
+1614:                                             ; preds = %lean_inc.exit1086
+  %1615 = load i32, ptr %3, align 4, !tbaa !8
+  %1616 = icmp sgt i32 %1615, 1
+  br i1 %1616, label %1617, label %1619, !prof !13
 
-1629:                                             ; preds = %1626
-  %1630 = add nsw i32 %1627, -1
-  store i32 %1630, ptr %3, align 4, !tbaa !8
+1617:                                             ; preds = %1614
+  %1618 = add nsw i32 %1615, -1
+  store i32 %1618, ptr %3, align 4, !tbaa !8
   br label %lean_dec.exit1195
 
-1631:                                             ; preds = %1626
-  %.not.i1314 = icmp eq i32 %1627, 0
-  br i1 %.not.i1314, label %lean_dec.exit1195, label %1632
+1619:                                             ; preds = %1614
+  %.not.i1314 = icmp eq i32 %1615, 0
+  br i1 %.not.i1314, label %lean_dec.exit1195, label %1620
 
-1632:                                             ; preds = %1631
+1620:                                             ; preds = %1619
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #6
   br label %lean_dec.exit1195
 
-lean_dec.exit1195:                                ; preds = %1632, %1631, %1629, %lean_inc.exit1086
-  %1633 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %1617) #6
-  %1634 = tail call ptr @l_Array_append___rarg(ptr noundef %1238, ptr noundef %1633) #6
-  %1635 = ptrtoint ptr %1633 to i64
-  %1636 = and i64 %1635, 1
-  %.not1974 = icmp eq i64 %1636, 0
-  br i1 %.not1974, label %1637, label %lean_dec.exit1194
+lean_dec.exit1195:                                ; preds = %1620, %1619, %1617, %lean_inc.exit1086
+  %1621 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %1605) #6
+  %1622 = tail call ptr @l_Array_append___rarg(ptr noundef %1229, ptr noundef %1621) #6
+  %1623 = ptrtoint ptr %1621 to i64
+  %1624 = and i64 %1623, 1
+  %.not1974 = icmp eq i64 %1624, 0
+  br i1 %.not1974, label %1625, label %lean_dec.exit1194
 
-1637:                                             ; preds = %lean_dec.exit1195
-  %1638 = load i32, ptr %1633, align 4, !tbaa !8
-  %1639 = icmp sgt i32 %1638, 1
-  br i1 %1639, label %1640, label %1642, !prof !13
+1625:                                             ; preds = %lean_dec.exit1195
+  %1626 = load i32, ptr %1621, align 4, !tbaa !8
+  %1627 = icmp sgt i32 %1626, 1
+  br i1 %1627, label %1628, label %1630, !prof !13
 
-1640:                                             ; preds = %1637
-  %1641 = add nsw i32 %1638, -1
-  store i32 %1641, ptr %1633, align 4, !tbaa !8
+1628:                                             ; preds = %1625
+  %1629 = add nsw i32 %1626, -1
+  store i32 %1629, ptr %1621, align 4, !tbaa !8
   br label %lean_dec.exit1194
 
-1642:                                             ; preds = %1637
-  %.not.i1316 = icmp eq i32 %1638, 0
-  br i1 %.not.i1316, label %lean_dec.exit1194, label %1643
+1630:                                             ; preds = %1625
+  %.not.i1316 = icmp eq i32 %1626, 0
+  br i1 %.not.i1316, label %lean_dec.exit1194, label %1631
 
-1643:                                             ; preds = %1642
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1633) #6
+1631:                                             ; preds = %1630
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1621) #6
   br label %lean_dec.exit1194
 
-lean_dec.exit1194:                                ; preds = %1643, %1642, %1640, %lean_dec.exit1195
-  br i1 %.not1965, label %1644, label %lean_inc.exit1085
+lean_dec.exit1194:                                ; preds = %1631, %1630, %1628, %lean_dec.exit1195
+  br i1 %.not1965, label %1632, label %lean_inc.exit1085
 
-1644:                                             ; preds = %lean_dec.exit1194
-  %.val.i1760 = load i32, ptr %277, align 4, !tbaa !8
-  %1645 = icmp sgt i32 %.val.i1760, 0
-  br i1 %1645, label %1646, label %1648, !prof !13
+1632:                                             ; preds = %lean_dec.exit1194
+  %.val.i1760 = load i32, ptr %274, align 4, !tbaa !8
+  %1633 = icmp sgt i32 %.val.i1760, 0
+  br i1 %1633, label %1634, label %1636, !prof !13
 
-1646:                                             ; preds = %1644
-  %1647 = add nuw i32 %.val.i1760, 1
-  store i32 %1647, ptr %277, align 4, !tbaa !8
+1634:                                             ; preds = %1632
+  %1635 = add nuw i32 %.val.i1760, 1
+  store i32 %1635, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1085
 
-1648:                                             ; preds = %1644
+1636:                                             ; preds = %1632
   %.not.i1761 = icmp eq i32 %.val.i1760, 0
-  br i1 %.not.i1761, label %lean_inc.exit1085, label %1649
+  br i1 %.not.i1761, label %lean_inc.exit1085, label %1637
 
-1649:                                             ; preds = %1648
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1637:                                             ; preds = %1636
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1085
 
-lean_inc.exit1085:                                ; preds = %1649, %1648, %1646, %lean_dec.exit1194
+lean_inc.exit1085:                                ; preds = %1637, %1636, %1634, %lean_dec.exit1194
   tail call void @lean_inc_heartbeat() #6
-  %1650 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1651 = icmp eq ptr %1650, null
-  br i1 %1651, label %1652, label %lean_alloc_ctor.exit1763
+  %1638 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1639 = icmp eq ptr %1638, null
+  br i1 %1639, label %1640, label %lean_alloc_ctor.exit1763
 
-1652:                                             ; preds = %lean_inc.exit1085
+1640:                                             ; preds = %lean_inc.exit1085
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1763:                         ; preds = %lean_inc.exit1085
-  %1653 = getelementptr inbounds nuw i8, ptr %1650, i64 4
-  store i32 1, ptr %1650, align 4, !tbaa !8
-  store i32 16973856, ptr %1653, align 4
-  %1654 = getelementptr inbounds nuw i8, ptr %1650, i64 8
-  store ptr %277, ptr %1654, align 8, !tbaa !4
-  %1655 = getelementptr inbounds nuw i8, ptr %1650, i64 16
-  store ptr %1237, ptr %1655, align 8, !tbaa !4
-  %1656 = getelementptr inbounds nuw i8, ptr %1650, i64 24
-  store ptr %1634, ptr %1656, align 8, !tbaa !4
-  %1657 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1968, label %1658, label %lean_inc_n.exit1767
+  %1641 = getelementptr inbounds nuw i8, ptr %1638, i64 4
+  store i32 1, ptr %1638, align 4, !tbaa !8
+  store i32 16973856, ptr %1641, align 4
+  %1642 = getelementptr inbounds nuw i8, ptr %1638, i64 8
+  store ptr %274, ptr %1642, align 8, !tbaa !4
+  %1643 = getelementptr inbounds nuw i8, ptr %1638, i64 16
+  store ptr %1228, ptr %1643, align 8, !tbaa !4
+  %1644 = getelementptr inbounds nuw i8, ptr %1638, i64 24
+  store ptr %1622, ptr %1644, align 8, !tbaa !4
+  %1645 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1968, label %1646, label %lean_inc_n.exit1767
 
-1658:                                             ; preds = %lean_alloc_ctor.exit1763
-  %.val.i.i1765 = load i32, ptr %1247, align 4, !tbaa !8
-  %1659 = icmp sgt i32 %.val.i.i1765, 0
-  br i1 %1659, label %1660, label %1662, !prof !13
+1646:                                             ; preds = %lean_alloc_ctor.exit1763
+  %.val.i.i1765 = load i32, ptr %1238, align 4, !tbaa !8
+  %1647 = icmp sgt i32 %.val.i.i1765, 0
+  br i1 %1647, label %1648, label %1650, !prof !13
 
-1660:                                             ; preds = %1658
-  %1661 = add nuw i32 %.val.i.i1765, 3
-  store i32 %1661, ptr %1247, align 4, !tbaa !8
+1648:                                             ; preds = %1646
+  %1649 = add nuw i32 %.val.i.i1765, 3
+  store i32 %1649, ptr %1238, align 4, !tbaa !8
   br label %lean_inc_n.exit1767
 
-1662:                                             ; preds = %1658
+1650:                                             ; preds = %1646
   %.not.i.i1766 = icmp eq i32 %.val.i.i1765, 0
-  br i1 %.not.i.i1766, label %lean_inc_n.exit1767, label %1663
+  br i1 %.not.i.i1766, label %lean_inc_n.exit1767, label %1651
 
-1663:                                             ; preds = %1662
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1247, i32 noundef 3) #6
+1651:                                             ; preds = %1650
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1238, i32 noundef 3) #6
   br label %lean_inc_n.exit1767
 
-lean_inc_n.exit1767:                              ; preds = %lean_alloc_ctor.exit1763, %1660, %1662, %1663
-  br i1 %.not1965, label %1664, label %lean_inc.exit1084
+lean_inc_n.exit1767:                              ; preds = %lean_alloc_ctor.exit1763, %1648, %1650, %1651
+  br i1 %.not1965, label %1652, label %lean_inc.exit1084
 
-1664:                                             ; preds = %lean_inc_n.exit1767
-  %.val.i1768 = load i32, ptr %277, align 4, !tbaa !8
-  %1665 = icmp sgt i32 %.val.i1768, 0
-  br i1 %1665, label %1666, label %1668, !prof !13
+1652:                                             ; preds = %lean_inc_n.exit1767
+  %.val.i1768 = load i32, ptr %274, align 4, !tbaa !8
+  %1653 = icmp sgt i32 %.val.i1768, 0
+  br i1 %1653, label %1654, label %1656, !prof !13
 
-1666:                                             ; preds = %1664
-  %1667 = add nuw i32 %.val.i1768, 1
-  store i32 %1667, ptr %277, align 4, !tbaa !8
+1654:                                             ; preds = %1652
+  %1655 = add nuw i32 %.val.i1768, 1
+  store i32 %1655, ptr %274, align 4, !tbaa !8
   br label %lean_inc.exit1084
 
-1668:                                             ; preds = %1664
+1656:                                             ; preds = %1652
   %.not.i1769 = icmp eq i32 %.val.i1768, 0
-  br i1 %.not.i1769, label %lean_inc.exit1084, label %1669
+  br i1 %.not.i1769, label %lean_inc.exit1084, label %1657
 
-1669:                                             ; preds = %1668
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %277) #6
+1657:                                             ; preds = %1656
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %274) #6
   br label %lean_inc.exit1084
 
-lean_inc.exit1084:                                ; preds = %1669, %1668, %1666, %lean_inc_n.exit1767
-  %1670 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %277, ptr noundef %1657, ptr noundef nonnull %1567, ptr noundef nonnull %1650, ptr noundef nonnull %1247, ptr noundef nonnull %1247, ptr noundef nonnull %1247, ptr noundef nonnull %1247) #6
-  %1671 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %1672 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %277, ptr noundef %1671, ptr noundef %1670, ptr noundef %1413) #6
-  %1673 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1672, ptr noundef %4, ptr noundef %5, ptr noundef %1200) #6
-  br label %2236
+lean_inc.exit1084:                                ; preds = %1657, %1656, %1654, %lean_inc_n.exit1767
+  %1658 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %274, ptr noundef %1645, ptr noundef nonnull %1555, ptr noundef nonnull %1638, ptr noundef nonnull %1238, ptr noundef nonnull %1238, ptr noundef nonnull %1238, ptr noundef nonnull %1238) #6
+  %1659 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %1660 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %274, ptr noundef %1659, ptr noundef %1658, ptr noundef %1401) #6
+  %1661 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %1660, ptr noundef %4, ptr noundef %5, ptr noundef %1191) #6
+  br label %2221
 
-1674:                                             ; preds = %lean_dec.exit1220
-  %1675 = ptrtoint ptr %275 to i64
-  %1676 = and i64 %1675, 1
-  %.not1941 = icmp eq i64 %1676, 0
-  br i1 %.not1941, label %1677, label %lean_inc.exit1083
+1662:                                             ; preds = %lean_dec.exit1220
+  %1663 = ptrtoint ptr %272 to i64
+  %1664 = and i64 %1663, 1
+  %.not1941 = icmp eq i64 %1664, 0
+  br i1 %.not1941, label %1665, label %lean_inc.exit1083
 
-1677:                                             ; preds = %1674
-  %.val.i1771 = load i32, ptr %275, align 4, !tbaa !8
-  %1678 = icmp sgt i32 %.val.i1771, 0
-  br i1 %1678, label %1679, label %1681, !prof !13
+1665:                                             ; preds = %1662
+  %.val.i1771 = load i32, ptr %272, align 4, !tbaa !8
+  %1666 = icmp sgt i32 %.val.i1771, 0
+  br i1 %1666, label %1667, label %1669, !prof !13
 
-1679:                                             ; preds = %1677
-  %1680 = add nuw i32 %.val.i1771, 1
-  store i32 %1680, ptr %275, align 4, !tbaa !8
+1667:                                             ; preds = %1665
+  %1668 = add nuw i32 %.val.i1771, 1
+  store i32 %1668, ptr %272, align 4, !tbaa !8
   br label %lean_inc.exit1083
 
-1681:                                             ; preds = %1677
+1669:                                             ; preds = %1665
   %.not.i1772 = icmp eq i32 %.val.i1771, 0
-  br i1 %.not.i1772, label %lean_inc.exit1083, label %1682
+  br i1 %.not.i1772, label %lean_inc.exit1083, label %1670
 
-1682:                                             ; preds = %1681
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %275) #6
+1670:                                             ; preds = %1669
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %272) #6
   br label %lean_inc.exit1083
 
-lean_inc.exit1083:                                ; preds = %1682, %1681, %1679, %1674
-  %1683 = ptrtoint ptr %273 to i64
-  %1684 = and i64 %1683, 1
-  %.not1942 = icmp eq i64 %1684, 0
-  br i1 %.not1942, label %1685, label %lean_inc.exit1082
+lean_inc.exit1083:                                ; preds = %1670, %1669, %1667, %1662
+  %1671 = ptrtoint ptr %270 to i64
+  %1672 = and i64 %1671, 1
+  %.not1942 = icmp eq i64 %1672, 0
+  br i1 %.not1942, label %1673, label %lean_inc.exit1082
 
-1685:                                             ; preds = %lean_inc.exit1083
-  %.val.i1774 = load i32, ptr %273, align 4, !tbaa !8
-  %1686 = icmp sgt i32 %.val.i1774, 0
-  br i1 %1686, label %1687, label %1689, !prof !13
+1673:                                             ; preds = %lean_inc.exit1083
+  %.val.i1774 = load i32, ptr %270, align 4, !tbaa !8
+  %1674 = icmp sgt i32 %.val.i1774, 0
+  br i1 %1674, label %1675, label %1677, !prof !13
 
-1687:                                             ; preds = %1685
-  %1688 = add nuw i32 %.val.i1774, 1
-  store i32 %1688, ptr %273, align 4, !tbaa !8
+1675:                                             ; preds = %1673
+  %1676 = add nuw i32 %.val.i1774, 1
+  store i32 %1676, ptr %270, align 4, !tbaa !8
   br label %lean_inc.exit1082
 
-1689:                                             ; preds = %1685
+1677:                                             ; preds = %1673
   %.not.i1775 = icmp eq i32 %.val.i1774, 0
-  br i1 %.not.i1775, label %lean_inc.exit1082, label %1690
+  br i1 %.not.i1775, label %lean_inc.exit1082, label %1678
 
-1690:                                             ; preds = %1689
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %273) #6
+1678:                                             ; preds = %1677
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %270) #6
   br label %lean_inc.exit1082
 
-lean_inc.exit1082:                                ; preds = %1690, %1689, %1687, %lean_inc.exit1083
-  %1691 = ptrtoint ptr %270 to i64
-  %1692 = and i64 %1691, 1
-  %.not1943 = icmp eq i64 %1692, 0
-  br i1 %.not1943, label %1693, label %lean_dec.exit1193
+lean_inc.exit1082:                                ; preds = %1678, %1677, %1675, %lean_inc.exit1083
+  %1679 = ptrtoint ptr %267 to i64
+  %1680 = and i64 %1679, 1
+  %.not1943 = icmp eq i64 %1680, 0
+  br i1 %.not1943, label %1681, label %lean_dec.exit1193
 
-1693:                                             ; preds = %lean_inc.exit1082
-  %1694 = load i32, ptr %270, align 4, !tbaa !8
-  %1695 = icmp sgt i32 %1694, 1
-  br i1 %1695, label %1696, label %1698, !prof !13
+1681:                                             ; preds = %lean_inc.exit1082
+  %1682 = load i32, ptr %267, align 4, !tbaa !8
+  %1683 = icmp sgt i32 %1682, 1
+  br i1 %1683, label %1684, label %1686, !prof !13
 
-1696:                                             ; preds = %1693
-  %1697 = add nsw i32 %1694, -1
-  store i32 %1697, ptr %270, align 4, !tbaa !8
+1684:                                             ; preds = %1681
+  %1685 = add nsw i32 %1682, -1
+  store i32 %1685, ptr %267, align 4, !tbaa !8
   br label %lean_dec.exit1193
 
-1698:                                             ; preds = %1693
-  %.not.i1318 = icmp eq i32 %1694, 0
-  br i1 %.not.i1318, label %lean_dec.exit1193, label %1699
+1686:                                             ; preds = %1681
+  %.not.i1318 = icmp eq i32 %1682, 0
+  br i1 %.not.i1318, label %lean_dec.exit1193, label %1687
 
-1699:                                             ; preds = %1698
+1687:                                             ; preds = %1686
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %267) #6
+  br label %lean_dec.exit1193
+
+lean_dec.exit1193:                                ; preds = %1687, %1686, %1684, %lean_inc.exit1082
+  %1688 = tail call ptr @l_Lean_SourceInfo_fromRef(ptr noundef %270, i8 noundef zeroext 0) #6
+  br i1 %.not1942, label %1689, label %lean_dec.exit1192
+
+1689:                                             ; preds = %lean_dec.exit1193
+  %1690 = load i32, ptr %270, align 4, !tbaa !8
+  %1691 = icmp sgt i32 %1690, 1
+  br i1 %1691, label %1692, label %1694, !prof !13
+
+1692:                                             ; preds = %1689
+  %1693 = add nsw i32 %1690, -1
+  store i32 %1693, ptr %270, align 4, !tbaa !8
+  br label %lean_dec.exit1192
+
+1694:                                             ; preds = %1689
+  %.not.i1320 = icmp eq i32 %1690, 0
+  br i1 %.not.i1320, label %lean_dec.exit1192, label %1695
+
+1695:                                             ; preds = %1694
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %270) #6
-  br label %lean_dec.exit1193
+  br label %lean_dec.exit1192
 
-lean_dec.exit1193:                                ; preds = %1699, %1698, %1696, %lean_inc.exit1082
-  %1700 = tail call ptr @l_Lean_SourceInfo_fromRef(ptr noundef %273, i8 noundef zeroext 0) #6
-  br i1 %.not1942, label %1701, label %lean_dec.exit1192
+lean_dec.exit1192:                                ; preds = %1695, %1694, %1692, %lean_dec.exit1193
+  %1696 = tail call ptr @l_Lean_Elab_Command_getCurrMacroScope(ptr noundef %4, ptr noundef %5, ptr noundef %272) #6
+  %1697 = getelementptr inbounds nuw i8, ptr %1696, i64 8
+  %1698 = getelementptr inbounds nuw i8, ptr %1696, i64 16
+  %1699 = load ptr, ptr %1698, align 8, !tbaa !4
+  %1700 = ptrtoint ptr %1699 to i64
+  %1701 = and i64 %1700, 1
+  %.not1944 = icmp eq i64 %1701, 0
+  br i1 %.not1944, label %1702, label %lean_inc.exit1081
 
-1701:                                             ; preds = %lean_dec.exit1193
-  %1702 = load i32, ptr %273, align 4, !tbaa !8
-  %1703 = icmp sgt i32 %1702, 1
+1702:                                             ; preds = %lean_dec.exit1192
+  %.val.i1777 = load i32, ptr %1699, align 4, !tbaa !8
+  %1703 = icmp sgt i32 %.val.i1777, 0
   br i1 %1703, label %1704, label %1706, !prof !13
 
-1704:                                             ; preds = %1701
-  %1705 = add nsw i32 %1702, -1
-  store i32 %1705, ptr %273, align 4, !tbaa !8
-  br label %lean_dec.exit1192
+1704:                                             ; preds = %1702
+  %1705 = add nuw i32 %.val.i1777, 1
+  store i32 %1705, ptr %1699, align 4, !tbaa !8
+  br label %lean_inc.exit1081
 
-1706:                                             ; preds = %1701
-  %.not.i1320 = icmp eq i32 %1702, 0
-  br i1 %.not.i1320, label %lean_dec.exit1192, label %1707
+1706:                                             ; preds = %1702
+  %.not.i1778 = icmp eq i32 %.val.i1777, 0
+  br i1 %.not.i1778, label %lean_inc.exit1081, label %1707
 
 1707:                                             ; preds = %1706
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %273) #6
-  br label %lean_dec.exit1192
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1699) #6
+  br label %lean_inc.exit1081
 
-lean_dec.exit1192:                                ; preds = %1707, %1706, %1704, %lean_dec.exit1193
-  %1708 = tail call ptr @l_Lean_Elab_Command_getCurrMacroScope(ptr noundef %4, ptr noundef %5, ptr noundef %275) #6
-  %1709 = getelementptr inbounds nuw i8, ptr %1708, i64 8
-  %1710 = getelementptr inbounds nuw i8, ptr %1708, i64 16
-  %1711 = load ptr, ptr %1710, align 8, !tbaa !4
-  %1712 = ptrtoint ptr %1711 to i64
-  %1713 = and i64 %1712, 1
-  %.not1944 = icmp eq i64 %1713, 0
-  br i1 %.not1944, label %1714, label %lean_inc.exit1081
+lean_inc.exit1081:                                ; preds = %1707, %1706, %1704, %lean_dec.exit1192
+  %.val1344 = load i32, ptr %1696, align 4, !tbaa !8
+  %1708 = icmp eq i32 %.val1344, 1
+  br i1 %1708, label %1709, label %1730
 
-1714:                                             ; preds = %lean_dec.exit1192
-  %.val.i1777 = load i32, ptr %1711, align 4, !tbaa !8
-  %1715 = icmp sgt i32 %.val.i1777, 0
+1709:                                             ; preds = %lean_inc.exit1081
+  %1710 = load ptr, ptr %1697, align 8, !tbaa !4
+  %1711 = ptrtoint ptr %1710 to i64
+  %1712 = and i64 %1711, 1
+  %.not.i1780 = icmp eq i64 %1712, 0
+  br i1 %.not.i1780, label %1713, label %lean_ctor_release.exit1782
+
+1713:                                             ; preds = %1709
+  %1714 = load i32, ptr %1710, align 4, !tbaa !8
+  %1715 = icmp sgt i32 %1714, 1
   br i1 %1715, label %1716, label %1718, !prof !13
 
-1716:                                             ; preds = %1714
-  %1717 = add nuw i32 %.val.i1777, 1
-  store i32 %1717, ptr %1711, align 4, !tbaa !8
-  br label %lean_inc.exit1081
+1716:                                             ; preds = %1713
+  %1717 = add nsw i32 %1714, -1
+  store i32 %1717, ptr %1710, align 4, !tbaa !8
+  br label %lean_ctor_release.exit1782
 
-1718:                                             ; preds = %1714
-  %.not.i1778 = icmp eq i32 %.val.i1777, 0
-  br i1 %.not.i1778, label %lean_inc.exit1081, label %1719
+1718:                                             ; preds = %1713
+  %.not.i.i1781 = icmp eq i32 %1714, 0
+  br i1 %.not.i.i1781, label %lean_ctor_release.exit1782, label %1719
 
 1719:                                             ; preds = %1718
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1711) #6
-  br label %lean_inc.exit1081
-
-lean_inc.exit1081:                                ; preds = %1719, %1718, %1716, %lean_dec.exit1192
-  %.val1344 = load i32, ptr %1708, align 4, !tbaa !8
-  %1720 = icmp eq i32 %.val1344, 1
-  br i1 %1720, label %1721, label %1742
-
-1721:                                             ; preds = %lean_inc.exit1081
-  %1722 = load ptr, ptr %1709, align 8, !tbaa !4
-  %1723 = ptrtoint ptr %1722 to i64
-  %1724 = and i64 %1723, 1
-  %.not.i1780 = icmp eq i64 %1724, 0
-  br i1 %.not.i1780, label %1725, label %lean_ctor_release.exit1782
-
-1725:                                             ; preds = %1721
-  %1726 = load i32, ptr %1722, align 4, !tbaa !8
-  %1727 = icmp sgt i32 %1726, 1
-  br i1 %1727, label %1728, label %1730, !prof !13
-
-1728:                                             ; preds = %1725
-  %1729 = add nsw i32 %1726, -1
-  store i32 %1729, ptr %1722, align 4, !tbaa !8
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1710) #6
   br label %lean_ctor_release.exit1782
 
-1730:                                             ; preds = %1725
-  %.not.i.i1781 = icmp eq i32 %1726, 0
-  br i1 %.not.i.i1781, label %lean_ctor_release.exit1782, label %1731
+lean_ctor_release.exit1782:                       ; preds = %1709, %1716, %1718, %1719
+  store ptr inttoptr (i64 1 to ptr), ptr %1697, align 8, !tbaa !4
+  %1720 = load ptr, ptr %1698, align 8, !tbaa !4
+  %1721 = ptrtoint ptr %1720 to i64
+  %1722 = and i64 %1721, 1
+  %.not.i1783 = icmp eq i64 %1722, 0
+  br i1 %.not.i1783, label %1723, label %lean_ctor_release.exit1785
 
-1731:                                             ; preds = %1730
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1722) #6
-  br label %lean_ctor_release.exit1782
+1723:                                             ; preds = %lean_ctor_release.exit1782
+  %1724 = load i32, ptr %1720, align 4, !tbaa !8
+  %1725 = icmp sgt i32 %1724, 1
+  br i1 %1725, label %1726, label %1728, !prof !13
 
-lean_ctor_release.exit1782:                       ; preds = %1721, %1728, %1730, %1731
-  store ptr inttoptr (i64 1 to ptr), ptr %1709, align 8, !tbaa !4
-  %1732 = load ptr, ptr %1710, align 8, !tbaa !4
-  %1733 = ptrtoint ptr %1732 to i64
-  %1734 = and i64 %1733, 1
-  %.not.i1783 = icmp eq i64 %1734, 0
-  br i1 %.not.i1783, label %1735, label %lean_ctor_release.exit1785
-
-1735:                                             ; preds = %lean_ctor_release.exit1782
-  %1736 = load i32, ptr %1732, align 4, !tbaa !8
-  %1737 = icmp sgt i32 %1736, 1
-  br i1 %1737, label %1738, label %1740, !prof !13
-
-1738:                                             ; preds = %1735
-  %1739 = add nsw i32 %1736, -1
-  store i32 %1739, ptr %1732, align 4, !tbaa !8
+1726:                                             ; preds = %1723
+  %1727 = add nsw i32 %1724, -1
+  store i32 %1727, ptr %1720, align 4, !tbaa !8
   br label %lean_ctor_release.exit1785
 
-1740:                                             ; preds = %1735
-  %.not.i.i1784 = icmp eq i32 %1736, 0
-  br i1 %.not.i.i1784, label %lean_ctor_release.exit1785, label %1741
+1728:                                             ; preds = %1723
+  %.not.i.i1784 = icmp eq i32 %1724, 0
+  br i1 %.not.i.i1784, label %lean_ctor_release.exit1785, label %1729
 
-1741:                                             ; preds = %1740
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1732) #6
+1729:                                             ; preds = %1728
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1720) #6
   br label %lean_ctor_release.exit1785
 
-lean_ctor_release.exit1785:                       ; preds = %lean_ctor_release.exit1782, %1738, %1740, %1741
-  store ptr inttoptr (i64 1 to ptr), ptr %1710, align 8, !tbaa !4
+lean_ctor_release.exit1785:                       ; preds = %lean_ctor_release.exit1782, %1726, %1728, %1729
+  store ptr inttoptr (i64 1 to ptr), ptr %1698, align 8, !tbaa !4
   br label %lean_dec_ref.exit1339
 
-1742:                                             ; preds = %lean_inc.exit1081
-  %1743 = icmp sgt i32 %.val1344, 1
+1730:                                             ; preds = %lean_inc.exit1081
+  %1731 = icmp sgt i32 %.val1344, 1
+  br i1 %1731, label %1732, label %1734, !prof !13
+
+1732:                                             ; preds = %1730
+  %1733 = add nsw i32 %.val1344, -1
+  store i32 %1733, ptr %1696, align 4, !tbaa !8
+  br label %lean_dec_ref.exit1339
+
+1734:                                             ; preds = %1730
+  %.not.i1338 = icmp eq i32 %.val1344, 0
+  br i1 %.not.i1338, label %lean_dec_ref.exit1339, label %1735
+
+1735:                                             ; preds = %1734
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1696) #6
+  br label %lean_dec_ref.exit1339
+
+lean_dec_ref.exit1339:                            ; preds = %1735, %1734, %1732, %lean_ctor_release.exit1785
+  %.01049 = phi ptr [ %1696, %lean_ctor_release.exit1785 ], [ inttoptr (i64 1 to ptr), %1732 ], [ inttoptr (i64 1 to ptr), %1734 ], [ inttoptr (i64 1 to ptr), %1735 ]
+  %1736 = tail call ptr @l_Lean_Elab_Command_getMainModule___rarg(ptr noundef %5, ptr noundef %1699) #6
+  %1737 = getelementptr inbounds nuw i8, ptr %1736, i64 8
+  %1738 = getelementptr inbounds nuw i8, ptr %1736, i64 16
+  %1739 = load ptr, ptr %1738, align 8, !tbaa !4
+  %1740 = ptrtoint ptr %1739 to i64
+  %1741 = and i64 %1740, 1
+  %.not1945 = icmp eq i64 %1741, 0
+  br i1 %.not1945, label %1742, label %lean_inc.exit1080
+
+1742:                                             ; preds = %lean_dec_ref.exit1339
+  %.val.i1786 = load i32, ptr %1739, align 4, !tbaa !8
+  %1743 = icmp sgt i32 %.val.i1786, 0
   br i1 %1743, label %1744, label %1746, !prof !13
 
 1744:                                             ; preds = %1742
-  %1745 = add nsw i32 %.val1344, -1
-  store i32 %1745, ptr %1708, align 4, !tbaa !8
-  br label %lean_dec_ref.exit1339
+  %1745 = add nuw i32 %.val.i1786, 1
+  store i32 %1745, ptr %1739, align 4, !tbaa !8
+  br label %lean_inc.exit1080
 
 1746:                                             ; preds = %1742
-  %.not.i1338 = icmp eq i32 %.val1344, 0
-  br i1 %.not.i1338, label %lean_dec_ref.exit1339, label %1747
+  %.not.i1787 = icmp eq i32 %.val.i1786, 0
+  br i1 %.not.i1787, label %lean_inc.exit1080, label %1747
 
 1747:                                             ; preds = %1746
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1708) #6
-  br label %lean_dec_ref.exit1339
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1739) #6
+  br label %lean_inc.exit1080
 
-lean_dec_ref.exit1339:                            ; preds = %1747, %1746, %1744, %lean_ctor_release.exit1785
-  %.01049 = phi ptr [ %1708, %lean_ctor_release.exit1785 ], [ inttoptr (i64 1 to ptr), %1744 ], [ inttoptr (i64 1 to ptr), %1746 ], [ inttoptr (i64 1 to ptr), %1747 ]
-  %1748 = tail call ptr @l_Lean_Elab_Command_getMainModule___rarg(ptr noundef %5, ptr noundef %1711) #6
-  %1749 = getelementptr inbounds nuw i8, ptr %1748, i64 8
-  %1750 = getelementptr inbounds nuw i8, ptr %1748, i64 16
-  %1751 = load ptr, ptr %1750, align 8, !tbaa !4
-  %1752 = ptrtoint ptr %1751 to i64
-  %1753 = and i64 %1752, 1
-  %.not1945 = icmp eq i64 %1753, 0
-  br i1 %.not1945, label %1754, label %lean_inc.exit1080
+lean_inc.exit1080:                                ; preds = %1747, %1746, %1744, %lean_dec_ref.exit1339
+  %.val = load i32, ptr %1736, align 4, !tbaa !8
+  %1748 = icmp eq i32 %.val, 1
+  br i1 %1748, label %1749, label %1770
 
-1754:                                             ; preds = %lean_dec_ref.exit1339
-  %.val.i1786 = load i32, ptr %1751, align 4, !tbaa !8
-  %1755 = icmp sgt i32 %.val.i1786, 0
+1749:                                             ; preds = %lean_inc.exit1080
+  %1750 = load ptr, ptr %1737, align 8, !tbaa !4
+  %1751 = ptrtoint ptr %1750 to i64
+  %1752 = and i64 %1751, 1
+  %.not.i1789 = icmp eq i64 %1752, 0
+  br i1 %.not.i1789, label %1753, label %lean_ctor_release.exit1791
+
+1753:                                             ; preds = %1749
+  %1754 = load i32, ptr %1750, align 4, !tbaa !8
+  %1755 = icmp sgt i32 %1754, 1
   br i1 %1755, label %1756, label %1758, !prof !13
 
-1756:                                             ; preds = %1754
-  %1757 = add nuw i32 %.val.i1786, 1
-  store i32 %1757, ptr %1751, align 4, !tbaa !8
-  br label %lean_inc.exit1080
+1756:                                             ; preds = %1753
+  %1757 = add nsw i32 %1754, -1
+  store i32 %1757, ptr %1750, align 4, !tbaa !8
+  br label %lean_ctor_release.exit1791
 
-1758:                                             ; preds = %1754
-  %.not.i1787 = icmp eq i32 %.val.i1786, 0
-  br i1 %.not.i1787, label %lean_inc.exit1080, label %1759
+1758:                                             ; preds = %1753
+  %.not.i.i1790 = icmp eq i32 %1754, 0
+  br i1 %.not.i.i1790, label %lean_ctor_release.exit1791, label %1759
 
 1759:                                             ; preds = %1758
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1751) #6
-  br label %lean_inc.exit1080
-
-lean_inc.exit1080:                                ; preds = %1759, %1758, %1756, %lean_dec_ref.exit1339
-  %.val = load i32, ptr %1748, align 4, !tbaa !8
-  %1760 = icmp eq i32 %.val, 1
-  br i1 %1760, label %1761, label %1782
-
-1761:                                             ; preds = %lean_inc.exit1080
-  %1762 = load ptr, ptr %1749, align 8, !tbaa !4
-  %1763 = ptrtoint ptr %1762 to i64
-  %1764 = and i64 %1763, 1
-  %.not.i1789 = icmp eq i64 %1764, 0
-  br i1 %.not.i1789, label %1765, label %lean_ctor_release.exit1791
-
-1765:                                             ; preds = %1761
-  %1766 = load i32, ptr %1762, align 4, !tbaa !8
-  %1767 = icmp sgt i32 %1766, 1
-  br i1 %1767, label %1768, label %1770, !prof !13
-
-1768:                                             ; preds = %1765
-  %1769 = add nsw i32 %1766, -1
-  store i32 %1769, ptr %1762, align 4, !tbaa !8
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1750) #6
   br label %lean_ctor_release.exit1791
 
-1770:                                             ; preds = %1765
-  %.not.i.i1790 = icmp eq i32 %1766, 0
-  br i1 %.not.i.i1790, label %lean_ctor_release.exit1791, label %1771
+lean_ctor_release.exit1791:                       ; preds = %1749, %1756, %1758, %1759
+  store ptr inttoptr (i64 1 to ptr), ptr %1737, align 8, !tbaa !4
+  %1760 = load ptr, ptr %1738, align 8, !tbaa !4
+  %1761 = ptrtoint ptr %1760 to i64
+  %1762 = and i64 %1761, 1
+  %.not.i1792 = icmp eq i64 %1762, 0
+  br i1 %.not.i1792, label %1763, label %lean_ctor_release.exit1794
 
-1771:                                             ; preds = %1770
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1762) #6
-  br label %lean_ctor_release.exit1791
+1763:                                             ; preds = %lean_ctor_release.exit1791
+  %1764 = load i32, ptr %1760, align 4, !tbaa !8
+  %1765 = icmp sgt i32 %1764, 1
+  br i1 %1765, label %1766, label %1768, !prof !13
 
-lean_ctor_release.exit1791:                       ; preds = %1761, %1768, %1770, %1771
-  store ptr inttoptr (i64 1 to ptr), ptr %1749, align 8, !tbaa !4
-  %1772 = load ptr, ptr %1750, align 8, !tbaa !4
-  %1773 = ptrtoint ptr %1772 to i64
-  %1774 = and i64 %1773, 1
-  %.not.i1792 = icmp eq i64 %1774, 0
-  br i1 %.not.i1792, label %1775, label %lean_ctor_release.exit1794
-
-1775:                                             ; preds = %lean_ctor_release.exit1791
-  %1776 = load i32, ptr %1772, align 4, !tbaa !8
-  %1777 = icmp sgt i32 %1776, 1
-  br i1 %1777, label %1778, label %1780, !prof !13
-
-1778:                                             ; preds = %1775
-  %1779 = add nsw i32 %1776, -1
-  store i32 %1779, ptr %1772, align 4, !tbaa !8
+1766:                                             ; preds = %1763
+  %1767 = add nsw i32 %1764, -1
+  store i32 %1767, ptr %1760, align 4, !tbaa !8
   br label %lean_ctor_release.exit1794
 
-1780:                                             ; preds = %1775
-  %.not.i.i1793 = icmp eq i32 %1776, 0
-  br i1 %.not.i.i1793, label %lean_ctor_release.exit1794, label %1781
+1768:                                             ; preds = %1763
+  %.not.i.i1793 = icmp eq i32 %1764, 0
+  br i1 %.not.i.i1793, label %lean_ctor_release.exit1794, label %1769
 
-1781:                                             ; preds = %1780
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1772) #6
+1769:                                             ; preds = %1768
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1760) #6
   br label %lean_ctor_release.exit1794
 
-lean_ctor_release.exit1794:                       ; preds = %lean_ctor_release.exit1791, %1778, %1780, %1781
-  store ptr inttoptr (i64 1 to ptr), ptr %1750, align 8, !tbaa !4
+lean_ctor_release.exit1794:                       ; preds = %lean_ctor_release.exit1791, %1766, %1768, %1769
+  store ptr inttoptr (i64 1 to ptr), ptr %1738, align 8, !tbaa !4
   br label %lean_dec_ref.exit1341
 
-1782:                                             ; preds = %lean_inc.exit1080
-  %1783 = icmp sgt i32 %.val, 1
-  br i1 %1783, label %1784, label %1786, !prof !13
+1770:                                             ; preds = %lean_inc.exit1080
+  %1771 = icmp sgt i32 %.val, 1
+  br i1 %1771, label %1772, label %1774, !prof !13
 
-1784:                                             ; preds = %1782
-  %1785 = add nsw i32 %.val, -1
-  store i32 %1785, ptr %1748, align 4, !tbaa !8
+1772:                                             ; preds = %1770
+  %1773 = add nsw i32 %.val, -1
+  store i32 %1773, ptr %1736, align 4, !tbaa !8
   br label %lean_dec_ref.exit1341
 
-1786:                                             ; preds = %1782
+1774:                                             ; preds = %1770
   %.not.i1340 = icmp eq i32 %.val, 0
-  br i1 %.not.i1340, label %lean_dec_ref.exit1341, label %1787
+  br i1 %.not.i1340, label %lean_dec_ref.exit1341, label %1775
 
-1787:                                             ; preds = %1786
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1748) #6
+1775:                                             ; preds = %1774
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1736) #6
   br label %lean_dec_ref.exit1341
 
-lean_dec_ref.exit1341:                            ; preds = %1787, %1786, %1784, %lean_ctor_release.exit1794
-  %.01050 = phi ptr [ %1748, %lean_ctor_release.exit1794 ], [ inttoptr (i64 1 to ptr), %1784 ], [ inttoptr (i64 1 to ptr), %1786 ], [ inttoptr (i64 1 to ptr), %1787 ]
-  %1788 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__10, align 8, !tbaa !4
-  %1789 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__11, align 8, !tbaa !4
-  %1790 = ptrtoint ptr %1700 to i64
-  %1791 = and i64 %1790, 1
-  %.not1946 = icmp eq i64 %1791, 0
-  br i1 %.not1946, label %1792, label %lean_inc.exit1079
+lean_dec_ref.exit1341:                            ; preds = %1775, %1774, %1772, %lean_ctor_release.exit1794
+  %.01050 = phi ptr [ %1736, %lean_ctor_release.exit1794 ], [ inttoptr (i64 1 to ptr), %1772 ], [ inttoptr (i64 1 to ptr), %1774 ], [ inttoptr (i64 1 to ptr), %1775 ]
+  %1776 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__10, align 8, !tbaa !4
+  %1777 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__11, align 8, !tbaa !4
+  %1778 = ptrtoint ptr %1688 to i64
+  %1779 = and i64 %1778, 1
+  %.not1946 = icmp eq i64 %1779, 0
+  br i1 %.not1946, label %1780, label %lean_inc.exit1079
 
-1792:                                             ; preds = %lean_dec_ref.exit1341
-  %.val.i1795 = load i32, ptr %1700, align 4, !tbaa !8
-  %1793 = icmp sgt i32 %.val.i1795, 0
-  br i1 %1793, label %1794, label %1796, !prof !13
+1780:                                             ; preds = %lean_dec_ref.exit1341
+  %.val.i1795 = load i32, ptr %1688, align 4, !tbaa !8
+  %1781 = icmp sgt i32 %.val.i1795, 0
+  br i1 %1781, label %1782, label %1784, !prof !13
 
-1794:                                             ; preds = %1792
-  %1795 = add nuw i32 %.val.i1795, 1
-  store i32 %1795, ptr %1700, align 4, !tbaa !8
+1782:                                             ; preds = %1780
+  %1783 = add nuw i32 %.val.i1795, 1
+  store i32 %1783, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1079
 
-1796:                                             ; preds = %1792
+1784:                                             ; preds = %1780
   %.not.i1796 = icmp eq i32 %.val.i1795, 0
-  br i1 %.not.i1796, label %lean_inc.exit1079, label %1797
+  br i1 %.not.i1796, label %lean_inc.exit1079, label %1785
 
-1797:                                             ; preds = %1796
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+1785:                                             ; preds = %1784
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1079
 
-lean_inc.exit1079:                                ; preds = %1797, %1796, %1794, %lean_dec_ref.exit1341
+lean_inc.exit1079:                                ; preds = %1785, %1784, %1782, %lean_dec_ref.exit1341
   tail call void @lean_inc_heartbeat() #6
-  %1798 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1799 = icmp eq ptr %1798, null
-  br i1 %1799, label %1800, label %lean_alloc_ctor.exit1798
+  %1786 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1787 = icmp eq ptr %1786, null
+  br i1 %1787, label %1788, label %lean_alloc_ctor.exit1798
 
-1800:                                             ; preds = %lean_inc.exit1079
+1788:                                             ; preds = %lean_inc.exit1079
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1798:                         ; preds = %lean_inc.exit1079
-  %1801 = getelementptr inbounds nuw i8, ptr %1798, i64 4
-  store i32 1, ptr %1798, align 4, !tbaa !8
-  store i32 16973856, ptr %1801, align 4
-  %1802 = getelementptr inbounds nuw i8, ptr %1798, i64 8
-  store ptr %1700, ptr %1802, align 8, !tbaa !4
-  %1803 = getelementptr inbounds nuw i8, ptr %1798, i64 16
-  store ptr %1788, ptr %1803, align 8, !tbaa !4
-  %1804 = getelementptr inbounds nuw i8, ptr %1798, i64 24
-  store ptr %1789, ptr %1804, align 8, !tbaa !4
-  %1805 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__14, align 8, !tbaa !4
-  br i1 %.not1946, label %1806, label %lean_inc.exit1078
+  %1789 = getelementptr inbounds nuw i8, ptr %1786, i64 4
+  store i32 1, ptr %1786, align 4, !tbaa !8
+  store i32 16973856, ptr %1789, align 4
+  %1790 = getelementptr inbounds nuw i8, ptr %1786, i64 8
+  store ptr %1688, ptr %1790, align 8, !tbaa !4
+  %1791 = getelementptr inbounds nuw i8, ptr %1786, i64 16
+  store ptr %1776, ptr %1791, align 8, !tbaa !4
+  %1792 = getelementptr inbounds nuw i8, ptr %1786, i64 24
+  store ptr %1777, ptr %1792, align 8, !tbaa !4
+  %1793 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__14, align 8, !tbaa !4
+  br i1 %.not1946, label %1794, label %lean_inc.exit1078
 
-1806:                                             ; preds = %lean_alloc_ctor.exit1798
-  %.val.i1799 = load i32, ptr %1700, align 4, !tbaa !8
-  %1807 = icmp sgt i32 %.val.i1799, 0
-  br i1 %1807, label %1808, label %1810, !prof !13
+1794:                                             ; preds = %lean_alloc_ctor.exit1798
+  %.val.i1799 = load i32, ptr %1688, align 4, !tbaa !8
+  %1795 = icmp sgt i32 %.val.i1799, 0
+  br i1 %1795, label %1796, label %1798, !prof !13
 
-1808:                                             ; preds = %1806
-  %1809 = add nuw i32 %.val.i1799, 1
-  store i32 %1809, ptr %1700, align 4, !tbaa !8
+1796:                                             ; preds = %1794
+  %1797 = add nuw i32 %.val.i1799, 1
+  store i32 %1797, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1078
 
-1810:                                             ; preds = %1806
+1798:                                             ; preds = %1794
   %.not.i1800 = icmp eq i32 %.val.i1799, 0
-  br i1 %.not.i1800, label %lean_inc.exit1078, label %1811
+  br i1 %.not.i1800, label %lean_inc.exit1078, label %1799
 
-1811:                                             ; preds = %1810
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+1799:                                             ; preds = %1798
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1078
 
-lean_inc.exit1078:                                ; preds = %1811, %1810, %1808, %lean_alloc_ctor.exit1798
-  %1812 = ptrtoint ptr %.01050 to i64
-  %1813 = and i64 %1812, 1
-  %.not1947 = icmp eq i64 %1813, 0
-  br i1 %.not1947, label %1819, label %1814
+lean_inc.exit1078:                                ; preds = %1799, %1798, %1796, %lean_alloc_ctor.exit1798
+  %1800 = ptrtoint ptr %.01050 to i64
+  %1801 = and i64 %1800, 1
+  %.not1947 = icmp eq i64 %1801, 0
+  br i1 %.not1947, label %1807, label %1802
 
-1814:                                             ; preds = %lean_inc.exit1078
+1802:                                             ; preds = %lean_inc.exit1078
   tail call void @lean_inc_heartbeat() #6
-  %1815 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %1816 = icmp eq ptr %1815, null
-  br i1 %1816, label %1817, label %lean_alloc_ctor.exit1802
+  %1803 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %1804 = icmp eq ptr %1803, null
+  br i1 %1804, label %1805, label %lean_alloc_ctor.exit1802
 
-1817:                                             ; preds = %1814
+1805:                                             ; preds = %1802
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-lean_alloc_ctor.exit1802:                         ; preds = %1814
+lean_alloc_ctor.exit1802:                         ; preds = %1802
+  %1806 = getelementptr inbounds nuw i8, ptr %1803, i64 4
+  store i32 1, ptr %1803, align 4, !tbaa !8
+  store i32 33685528, ptr %1806, align 4
+  br label %1812
+
+1807:                                             ; preds = %lean_inc.exit1078
+  %1808 = getelementptr inbounds nuw i8, ptr %.01050, i64 4
+  %1809 = load i32, ptr %1808, align 4
+  %1810 = and i32 %1809, 16777215
+  %1811 = or disjoint i32 %1810, 33554432
+  store i32 %1811, ptr %1808, align 4
+  br label %1812
+
+1812:                                             ; preds = %1807, %lean_alloc_ctor.exit1802
+  %.01051 = phi ptr [ %1803, %lean_alloc_ctor.exit1802 ], [ %.01050, %1807 ]
+  %1813 = getelementptr inbounds nuw i8, ptr %.01051, i64 8
+  store ptr %1688, ptr %1813, align 8, !tbaa !4
+  %1814 = getelementptr inbounds nuw i8, ptr %.01051, i64 16
+  store ptr %1793, ptr %1814, align 8, !tbaa !4
+  tail call void @lean_inc_heartbeat() #6
+  %1815 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1816 = icmp eq ptr %1815, null
+  br i1 %1816, label %1817, label %lean_alloc_ctor.exit1803
+
+1817:                                             ; preds = %1812
+  tail call void @lean_internal_panic_out_of_memory() #7
+  unreachable
+
+lean_alloc_ctor.exit1803:                         ; preds = %1812
   %1818 = getelementptr inbounds nuw i8, ptr %1815, i64 4
   store i32 1, ptr %1815, align 4, !tbaa !8
-  store i32 33685528, ptr %1818, align 4
-  br label %1824
+  store i32 16973856, ptr %1818, align 4
+  %1819 = getelementptr inbounds nuw i8, ptr %1815, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %1819, align 8, !tbaa !4
+  %1820 = getelementptr inbounds nuw i8, ptr %1815, i64 16
+  store ptr %1776, ptr %1820, align 8, !tbaa !4
+  %1821 = getelementptr inbounds nuw i8, ptr %1815, i64 24
+  store ptr %11, ptr %1821, align 8, !tbaa !4
+  %1822 = tail call ptr @l_Lean_mkIdentFrom(ptr noundef nonnull %1815, ptr noundef %259, i8 noundef zeroext 1) #6
+  %1823 = load i32, ptr %1815, align 8, !tbaa !8
+  %1824 = icmp sgt i32 %1823, 1
+  br i1 %1824, label %1825, label %1827, !prof !13
 
-1819:                                             ; preds = %lean_inc.exit1078
-  %1820 = getelementptr inbounds nuw i8, ptr %.01050, i64 4
-  %1821 = load i32, ptr %1820, align 4
-  %1822 = and i32 %1821, 16777215
-  %1823 = or disjoint i32 %1822, 33554432
-  store i32 %1823, ptr %1820, align 4
-  br label %1824
+1825:                                             ; preds = %lean_alloc_ctor.exit1803
+  %1826 = add nsw i32 %1823, -1
+  store i32 %1826, ptr %1815, align 4, !tbaa !8
+  br label %lean_dec.exit1191
 
-1824:                                             ; preds = %1819, %lean_alloc_ctor.exit1802
-  %.01051 = phi ptr [ %1815, %lean_alloc_ctor.exit1802 ], [ %.01050, %1819 ]
-  %1825 = getelementptr inbounds nuw i8, ptr %.01051, i64 8
-  store ptr %1700, ptr %1825, align 8, !tbaa !4
-  %1826 = getelementptr inbounds nuw i8, ptr %.01051, i64 16
-  store ptr %1805, ptr %1826, align 8, !tbaa !4
-  tail call void @lean_inc_heartbeat() #6
-  %1827 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1828 = icmp eq ptr %1827, null
-  br i1 %1828, label %1829, label %lean_alloc_ctor.exit1803
+1827:                                             ; preds = %lean_alloc_ctor.exit1803
+  %.not.i1322 = icmp eq i32 %1823, 0
+  br i1 %.not.i1322, label %lean_dec.exit1191, label %1828
 
-1829:                                             ; preds = %1824
-  tail call void @lean_internal_panic_out_of_memory() #7
-  unreachable
+1828:                                             ; preds = %1827
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1815) #6
+  br label %lean_dec.exit1191
 
-lean_alloc_ctor.exit1803:                         ; preds = %1824
-  %1830 = getelementptr inbounds nuw i8, ptr %1827, i64 4
-  store i32 1, ptr %1827, align 4, !tbaa !8
-  store i32 16973856, ptr %1830, align 4
-  %1831 = getelementptr inbounds nuw i8, ptr %1827, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %1831, align 8, !tbaa !4
-  %1832 = getelementptr inbounds nuw i8, ptr %1827, i64 16
-  store ptr %1788, ptr %1832, align 8, !tbaa !4
-  %1833 = getelementptr inbounds nuw i8, ptr %1827, i64 24
-  store ptr %11, ptr %1833, align 8, !tbaa !4
-  %1834 = tail call ptr @l_Lean_mkIdentFrom(ptr noundef nonnull %1827, ptr noundef %262, i8 noundef zeroext 1) #6
-  %1835 = ptrtoint ptr %1827 to i64
-  %1836 = and i64 %1835, 1
-  %.not1948 = icmp eq i64 %1836, 0
-  br i1 %.not1948, label %1837, label %lean_dec.exit1191
+lean_dec.exit1191:                                ; preds = %1828, %1827, %1825
+  %1829 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__16, align 8, !tbaa !4
+  %1830 = ptrtoint ptr %1786 to i64
+  %1831 = and i64 %1830, 1
+  %.not1949 = icmp eq i64 %1831, 0
+  br i1 %.not1949, label %1832, label %lean_inc.exit1077
 
-1837:                                             ; preds = %lean_alloc_ctor.exit1803
-  %1838 = load i32, ptr %1827, align 4, !tbaa !8
-  %1839 = icmp sgt i32 %1838, 1
+1832:                                             ; preds = %lean_dec.exit1191
+  %.val.i1804 = load i32, ptr %1786, align 4, !tbaa !8
+  %1833 = icmp sgt i32 %.val.i1804, 0
+  br i1 %1833, label %1834, label %1836, !prof !13
+
+1834:                                             ; preds = %1832
+  %1835 = add nuw i32 %.val.i1804, 1
+  store i32 %1835, ptr %1786, align 4, !tbaa !8
+  br label %lean_inc.exit1077
+
+1836:                                             ; preds = %1832
+  %.not.i1805 = icmp eq i32 %.val.i1804, 0
+  br i1 %.not.i1805, label %lean_inc.exit1077, label %1837
+
+1837:                                             ; preds = %1836
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1786) #6
+  br label %lean_inc.exit1077
+
+lean_inc.exit1077:                                ; preds = %1837, %1836, %1834, %lean_dec.exit1191
+  br i1 %.not1946, label %1838, label %lean_inc.exit1076
+
+1838:                                             ; preds = %lean_inc.exit1077
+  %.val.i1807 = load i32, ptr %1688, align 4, !tbaa !8
+  %1839 = icmp sgt i32 %.val.i1807, 0
   br i1 %1839, label %1840, label %1842, !prof !13
 
-1840:                                             ; preds = %1837
-  %1841 = add nsw i32 %1838, -1
-  store i32 %1841, ptr %1827, align 4, !tbaa !8
-  br label %lean_dec.exit1191
+1840:                                             ; preds = %1838
+  %1841 = add nuw i32 %.val.i1807, 1
+  store i32 %1841, ptr %1688, align 4, !tbaa !8
+  br label %1846
 
-1842:                                             ; preds = %1837
-  %.not.i1322 = icmp eq i32 %1838, 0
-  br i1 %.not.i1322, label %lean_dec.exit1191, label %1843
+1842:                                             ; preds = %1838
+  %.not.i1808 = icmp eq i32 %.val.i1807, 0
+  br i1 %.not.i1808, label %1846, label %1843
 
 1843:                                             ; preds = %1842
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %1827) #6
-  br label %lean_dec.exit1191
-
-lean_dec.exit1191:                                ; preds = %1843, %1842, %1840, %lean_alloc_ctor.exit1803
-  %1844 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__16, align 8, !tbaa !4
-  %1845 = ptrtoint ptr %1798 to i64
-  %1846 = and i64 %1845, 1
-  %.not1949 = icmp eq i64 %1846, 0
-  br i1 %.not1949, label %1847, label %lean_inc.exit1077
-
-1847:                                             ; preds = %lean_dec.exit1191
-  %.val.i1804 = load i32, ptr %1798, align 4, !tbaa !8
-  %1848 = icmp sgt i32 %.val.i1804, 0
-  br i1 %1848, label %1849, label %1851, !prof !13
-
-1849:                                             ; preds = %1847
-  %1850 = add nuw i32 %.val.i1804, 1
-  store i32 %1850, ptr %1798, align 4, !tbaa !8
-  br label %lean_inc.exit1077
-
-1851:                                             ; preds = %1847
-  %.not.i1805 = icmp eq i32 %.val.i1804, 0
-  br i1 %.not.i1805, label %lean_inc.exit1077, label %1852
-
-1852:                                             ; preds = %1851
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1798) #6
-  br label %lean_inc.exit1077
-
-lean_inc.exit1077:                                ; preds = %1852, %1851, %1849, %lean_dec.exit1191
-  br i1 %.not1946, label %1853, label %lean_inc.exit1076
-
-1853:                                             ; preds = %lean_inc.exit1077
-  %.val.i1807 = load i32, ptr %1700, align 4, !tbaa !8
-  %1854 = icmp sgt i32 %.val.i1807, 0
-  br i1 %1854, label %1855, label %1857, !prof !13
-
-1855:                                             ; preds = %1853
-  %1856 = add nuw i32 %.val.i1807, 1
-  store i32 %1856, ptr %1700, align 4, !tbaa !8
-  br label %1861
-
-1857:                                             ; preds = %1853
-  %.not.i1808 = icmp eq i32 %.val.i1807, 0
-  br i1 %.not.i1808, label %1861, label %1858
-
-1858:                                             ; preds = %1857
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
-  br label %1861
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
+  br label %1846
 
 lean_inc.exit1076:                                ; preds = %lean_inc.exit1077
-  %1859 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1700, ptr noundef %1844, ptr noundef %1834, ptr noundef nonnull %1798) #6
-  %1860 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
+  %1844 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1688, ptr noundef %1829, ptr noundef %1822, ptr noundef nonnull %1786) #6
+  %1845 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
   br label %lean_inc.exit1075
 
-1861:                                             ; preds = %1858, %1857, %1855
-  %1862 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %1700, ptr noundef %1844, ptr noundef %1834, ptr noundef nonnull %1798) #6
-  %1863 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
-  %.val.i1810 = load i32, ptr %1700, align 4, !tbaa !8
-  %1864 = icmp sgt i32 %.val.i1810, 0
-  br i1 %1864, label %1865, label %1867, !prof !13
+1846:                                             ; preds = %1843, %1842, %1840
+  %1847 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %1688, ptr noundef %1829, ptr noundef %1822, ptr noundef nonnull %1786) #6
+  %1848 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__30, align 8, !tbaa !4
+  %.val.i1810 = load i32, ptr %1688, align 4, !tbaa !8
+  %1849 = icmp sgt i32 %.val.i1810, 0
+  br i1 %1849, label %1850, label %1852, !prof !13
 
-1865:                                             ; preds = %1861
-  %1866 = add nuw i32 %.val.i1810, 1
-  store i32 %1866, ptr %1700, align 4, !tbaa !8
+1850:                                             ; preds = %1846
+  %1851 = add nuw i32 %.val.i1810, 1
+  store i32 %1851, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1075
 
-1867:                                             ; preds = %1861
+1852:                                             ; preds = %1846
   %.not.i1811 = icmp eq i32 %.val.i1810, 0
-  br i1 %.not.i1811, label %lean_inc.exit1075, label %1868
+  br i1 %.not.i1811, label %lean_inc.exit1075, label %1853
 
-1868:                                             ; preds = %1867
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+1853:                                             ; preds = %1852
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1075
 
-lean_inc.exit1075:                                ; preds = %1868, %1867, %1865, %lean_inc.exit1076
-  %1869 = phi ptr [ %1860, %lean_inc.exit1076 ], [ %1863, %1865 ], [ %1863, %1867 ], [ %1863, %1868 ]
-  %1870 = phi ptr [ %1859, %lean_inc.exit1076 ], [ %1862, %1865 ], [ %1862, %1867 ], [ %1862, %1868 ]
-  %1871 = ptrtoint ptr %.01049 to i64
-  %1872 = and i64 %1871, 1
-  %.not1950 = icmp eq i64 %1872, 0
-  br i1 %.not1950, label %1878, label %1873
+lean_inc.exit1075:                                ; preds = %1853, %1852, %1850, %lean_inc.exit1076
+  %1854 = phi ptr [ %1845, %lean_inc.exit1076 ], [ %1848, %1850 ], [ %1848, %1852 ], [ %1848, %1853 ]
+  %1855 = phi ptr [ %1844, %lean_inc.exit1076 ], [ %1847, %1850 ], [ %1847, %1852 ], [ %1847, %1853 ]
+  %1856 = ptrtoint ptr %.01049 to i64
+  %1857 = and i64 %1856, 1
+  %.not1950 = icmp eq i64 %1857, 0
+  br i1 %.not1950, label %1863, label %1858
 
-1873:                                             ; preds = %lean_inc.exit1075
+1858:                                             ; preds = %lean_inc.exit1075
   tail call void @lean_inc_heartbeat() #6
-  %1874 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %1875 = icmp eq ptr %1874, null
-  br i1 %1875, label %1876, label %lean_alloc_ctor.exit1813
+  %1859 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %1860 = icmp eq ptr %1859, null
+  br i1 %1860, label %1861, label %lean_alloc_ctor.exit1813
 
-1876:                                             ; preds = %1873
+1861:                                             ; preds = %1858
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
-lean_alloc_ctor.exit1813:                         ; preds = %1873
-  %1877 = getelementptr inbounds nuw i8, ptr %1874, i64 4
-  store i32 1, ptr %1874, align 4, !tbaa !8
-  store i32 33685528, ptr %1877, align 4
-  br label %1883
+lean_alloc_ctor.exit1813:                         ; preds = %1858
+  %1862 = getelementptr inbounds nuw i8, ptr %1859, i64 4
+  store i32 1, ptr %1859, align 4, !tbaa !8
+  store i32 33685528, ptr %1862, align 4
+  br label %1868
 
-1878:                                             ; preds = %lean_inc.exit1075
-  %1879 = getelementptr inbounds nuw i8, ptr %.01049, i64 4
-  %1880 = load i32, ptr %1879, align 4
-  %1881 = and i32 %1880, 16777215
-  %1882 = or disjoint i32 %1881, 33554432
-  store i32 %1882, ptr %1879, align 4
-  br label %1883
+1863:                                             ; preds = %lean_inc.exit1075
+  %1864 = getelementptr inbounds nuw i8, ptr %.01049, i64 4
+  %1865 = load i32, ptr %1864, align 4
+  %1866 = and i32 %1865, 16777215
+  %1867 = or disjoint i32 %1866, 33554432
+  store i32 %1867, ptr %1864, align 4
+  br label %1868
 
-1883:                                             ; preds = %1878, %lean_alloc_ctor.exit1813
-  %.01052 = phi ptr [ %1874, %lean_alloc_ctor.exit1813 ], [ %.01049, %1878 ]
-  %1884 = getelementptr inbounds nuw i8, ptr %.01052, i64 8
-  store ptr %1700, ptr %1884, align 8, !tbaa !4
-  %1885 = getelementptr inbounds nuw i8, ptr %.01052, i64 16
-  store ptr %1869, ptr %1885, align 8, !tbaa !4
-  %1886 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__20, align 8, !tbaa !4
-  br i1 %.not1946, label %1887, label %lean_inc.exit1074
+1868:                                             ; preds = %1863, %lean_alloc_ctor.exit1813
+  %.01052 = phi ptr [ %1859, %lean_alloc_ctor.exit1813 ], [ %.01049, %1863 ]
+  %1869 = getelementptr inbounds nuw i8, ptr %.01052, i64 8
+  store ptr %1688, ptr %1869, align 8, !tbaa !4
+  %1870 = getelementptr inbounds nuw i8, ptr %.01052, i64 16
+  store ptr %1854, ptr %1870, align 8, !tbaa !4
+  %1871 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__20, align 8, !tbaa !4
+  br i1 %.not1946, label %1872, label %lean_inc.exit1074
 
-1887:                                             ; preds = %1883
-  %.val.i1814 = load i32, ptr %1700, align 4, !tbaa !8
-  %1888 = icmp sgt i32 %.val.i1814, 0
-  br i1 %1888, label %1889, label %1891, !prof !13
+1872:                                             ; preds = %1868
+  %.val.i1814 = load i32, ptr %1688, align 4, !tbaa !8
+  %1873 = icmp sgt i32 %.val.i1814, 0
+  br i1 %1873, label %1874, label %1876, !prof !13
 
-1889:                                             ; preds = %1887
-  %1890 = add nuw i32 %.val.i1814, 1
-  store i32 %1890, ptr %1700, align 4, !tbaa !8
-  br label %1894
+1874:                                             ; preds = %1872
+  %1875 = add nuw i32 %.val.i1814, 1
+  store i32 %1875, ptr %1688, align 4, !tbaa !8
+  br label %1879
 
-1891:                                             ; preds = %1887
+1876:                                             ; preds = %1872
   %.not.i1815 = icmp eq i32 %.val.i1814, 0
-  br i1 %.not.i1815, label %1894, label %1892
+  br i1 %.not.i1815, label %1879, label %1877
 
-1892:                                             ; preds = %1891
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
-  br label %1894
+1877:                                             ; preds = %1876
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
+  br label %1879
 
-lean_inc.exit1074:                                ; preds = %1883
-  %1893 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1700, ptr noundef %1886, ptr noundef nonnull %.01052, ptr noundef %9) #6
+lean_inc.exit1074:                                ; preds = %1868
+  %1878 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1688, ptr noundef %1871, ptr noundef nonnull %.01052, ptr noundef %9) #6
   br label %lean_inc.exit1073
 
-1894:                                             ; preds = %1892, %1891, %1889
-  %1895 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %1700, ptr noundef %1886, ptr noundef nonnull %.01052, ptr noundef %9) #6
-  %.val.i1817 = load i32, ptr %1700, align 4, !tbaa !8
-  %1896 = icmp sgt i32 %.val.i1817, 0
+1879:                                             ; preds = %1877, %1876, %1874
+  %1880 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %1688, ptr noundef %1871, ptr noundef nonnull %.01052, ptr noundef %9) #6
+  %.val.i1817 = load i32, ptr %1688, align 4, !tbaa !8
+  %1881 = icmp sgt i32 %.val.i1817, 0
+  br i1 %1881, label %1882, label %1884, !prof !13
+
+1882:                                             ; preds = %1879
+  %1883 = add nuw i32 %.val.i1817, 1
+  store i32 %1883, ptr %1688, align 4, !tbaa !8
+  br label %lean_inc.exit1073
+
+1884:                                             ; preds = %1879
+  %.not.i1818 = icmp eq i32 %.val.i1817, 0
+  br i1 %.not.i1818, label %lean_inc.exit1073, label %1885
+
+1885:                                             ; preds = %1884
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
+  br label %lean_inc.exit1073
+
+lean_inc.exit1073:                                ; preds = %1885, %1884, %1882, %lean_inc.exit1074
+  %1886 = phi ptr [ %1878, %lean_inc.exit1074 ], [ %1880, %1882 ], [ %1880, %1884 ], [ %1880, %1885 ]
+  %1887 = tail call ptr @l_Lean_Syntax_node1(ptr noundef %1688, ptr noundef %1776, ptr noundef %1886) #6
+  %1888 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__18, align 8, !tbaa !4
+  br i1 %.not1949, label %1889, label %lean_inc.exit1072
+
+1889:                                             ; preds = %lean_inc.exit1073
+  %.val.i1820 = load i32, ptr %1786, align 4, !tbaa !8
+  %1890 = icmp sgt i32 %.val.i1820, 0
+  br i1 %1890, label %1891, label %1893, !prof !13
+
+1891:                                             ; preds = %1889
+  %1892 = add nuw i32 %.val.i1820, 1
+  store i32 %1892, ptr %1786, align 4, !tbaa !8
+  br label %lean_inc.exit1072
+
+1893:                                             ; preds = %1889
+  %.not.i1821 = icmp eq i32 %.val.i1820, 0
+  br i1 %.not.i1821, label %lean_inc.exit1072, label %1894
+
+1894:                                             ; preds = %1893
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1786) #6
+  br label %lean_inc.exit1072
+
+lean_inc.exit1072:                                ; preds = %1894, %1893, %1891, %lean_inc.exit1073
+  br i1 %.not1946, label %1895, label %lean_inc.exit1071
+
+1895:                                             ; preds = %lean_inc.exit1072
+  %.val.i1823 = load i32, ptr %1688, align 4, !tbaa !8
+  %1896 = icmp sgt i32 %.val.i1823, 0
   br i1 %1896, label %1897, label %1899, !prof !13
 
-1897:                                             ; preds = %1894
-  %1898 = add nuw i32 %.val.i1817, 1
-  store i32 %1898, ptr %1700, align 4, !tbaa !8
-  br label %lean_inc.exit1073
+1897:                                             ; preds = %1895
+  %1898 = add nuw i32 %.val.i1823, 1
+  store i32 %1898, ptr %1688, align 4, !tbaa !8
+  br label %1903
 
-1899:                                             ; preds = %1894
-  %.not.i1818 = icmp eq i32 %.val.i1817, 0
-  br i1 %.not.i1818, label %lean_inc.exit1073, label %1900
+1899:                                             ; preds = %1895
+  %.not.i1824 = icmp eq i32 %.val.i1823, 0
+  br i1 %.not.i1824, label %1903, label %1900
 
 1900:                                             ; preds = %1899
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
-  br label %lean_inc.exit1073
-
-lean_inc.exit1073:                                ; preds = %1900, %1899, %1897, %lean_inc.exit1074
-  %1901 = phi ptr [ %1893, %lean_inc.exit1074 ], [ %1895, %1897 ], [ %1895, %1899 ], [ %1895, %1900 ]
-  %1902 = tail call ptr @l_Lean_Syntax_node1(ptr noundef %1700, ptr noundef %1788, ptr noundef %1901) #6
-  %1903 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__18, align 8, !tbaa !4
-  br i1 %.not1949, label %1904, label %lean_inc.exit1072
-
-1904:                                             ; preds = %lean_inc.exit1073
-  %.val.i1820 = load i32, ptr %1798, align 4, !tbaa !8
-  %1905 = icmp sgt i32 %.val.i1820, 0
-  br i1 %1905, label %1906, label %1908, !prof !13
-
-1906:                                             ; preds = %1904
-  %1907 = add nuw i32 %.val.i1820, 1
-  store i32 %1907, ptr %1798, align 4, !tbaa !8
-  br label %lean_inc.exit1072
-
-1908:                                             ; preds = %1904
-  %.not.i1821 = icmp eq i32 %.val.i1820, 0
-  br i1 %.not.i1821, label %lean_inc.exit1072, label %1909
-
-1909:                                             ; preds = %1908
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1798) #6
-  br label %lean_inc.exit1072
-
-lean_inc.exit1072:                                ; preds = %1909, %1908, %1906, %lean_inc.exit1073
-  br i1 %.not1946, label %1910, label %lean_inc.exit1071
-
-1910:                                             ; preds = %lean_inc.exit1072
-  %.val.i1823 = load i32, ptr %1700, align 4, !tbaa !8
-  %1911 = icmp sgt i32 %.val.i1823, 0
-  br i1 %1911, label %1912, label %1914, !prof !13
-
-1912:                                             ; preds = %1910
-  %1913 = add nuw i32 %.val.i1823, 1
-  store i32 %1913, ptr %1700, align 4, !tbaa !8
-  br label %1918
-
-1914:                                             ; preds = %1910
-  %.not.i1824 = icmp eq i32 %.val.i1823, 0
-  br i1 %.not.i1824, label %1918, label %1915
-
-1915:                                             ; preds = %1914
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
-  br label %1918
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
+  br label %1903
 
 lean_inc.exit1071:                                ; preds = %lean_inc.exit1072
-  %1916 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1700, ptr noundef %1903, ptr noundef nonnull %1798, ptr noundef %1902) #6
-  %1917 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
+  %1901 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1688, ptr noundef %1888, ptr noundef nonnull %1786, ptr noundef %1887) #6
+  %1902 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
   br label %lean_inc.exit1070
 
-1918:                                             ; preds = %1915, %1914, %1912
-  %1919 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %1700, ptr noundef %1903, ptr noundef nonnull %1798, ptr noundef %1902) #6
-  %1920 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
-  %.val.i1826 = load i32, ptr %1700, align 4, !tbaa !8
-  %1921 = icmp sgt i32 %.val.i1826, 0
-  br i1 %1921, label %1922, label %1924, !prof !13
+1903:                                             ; preds = %1900, %1899, %1897
+  %1904 = tail call ptr @l_Lean_Syntax_node2(ptr noundef nonnull %1688, ptr noundef %1888, ptr noundef nonnull %1786, ptr noundef %1887) #6
+  %1905 = load ptr, ptr @l_Lean_Elab_Command_aux__def___closed__37, align 8, !tbaa !4
+  %.val.i1826 = load i32, ptr %1688, align 4, !tbaa !8
+  %1906 = icmp sgt i32 %.val.i1826, 0
+  br i1 %1906, label %1907, label %1909, !prof !13
 
-1922:                                             ; preds = %1918
-  %1923 = add nuw i32 %.val.i1826, 1
-  store i32 %1923, ptr %1700, align 4, !tbaa !8
+1907:                                             ; preds = %1903
+  %1908 = add nuw i32 %.val.i1826, 1
+  store i32 %1908, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1070
 
-1924:                                             ; preds = %1918
+1909:                                             ; preds = %1903
   %.not.i1827 = icmp eq i32 %.val.i1826, 0
-  br i1 %.not.i1827, label %lean_inc.exit1070, label %1925
+  br i1 %.not.i1827, label %lean_inc.exit1070, label %1910
 
-1925:                                             ; preds = %1924
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+1910:                                             ; preds = %1909
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1070
 
-lean_inc.exit1070:                                ; preds = %1925, %1924, %1922, %lean_inc.exit1071
-  %1926 = phi ptr [ %1917, %lean_inc.exit1071 ], [ %1920, %1922 ], [ %1920, %1924 ], [ %1920, %1925 ]
-  %1927 = phi ptr [ %1916, %lean_inc.exit1071 ], [ %1919, %1922 ], [ %1919, %1924 ], [ %1919, %1925 ]
+lean_inc.exit1070:                                ; preds = %1910, %1909, %1907, %lean_inc.exit1071
+  %1911 = phi ptr [ %1902, %lean_inc.exit1071 ], [ %1905, %1907 ], [ %1905, %1909 ], [ %1905, %1910 ]
+  %1912 = phi ptr [ %1901, %lean_inc.exit1071 ], [ %1904, %1907 ], [ %1904, %1909 ], [ %1904, %1910 ]
   tail call void @lean_inc_heartbeat() #6
-  %1928 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %1929 = icmp eq ptr %1928, null
-  br i1 %1929, label %1930, label %lean_alloc_ctor.exit1829
+  %1913 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %1914 = icmp eq ptr %1913, null
+  br i1 %1914, label %1915, label %lean_alloc_ctor.exit1829
 
-1930:                                             ; preds = %lean_inc.exit1070
+1915:                                             ; preds = %lean_inc.exit1070
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1829:                         ; preds = %lean_inc.exit1070
-  %1931 = getelementptr inbounds nuw i8, ptr %1928, i64 4
-  store i32 1, ptr %1928, align 4, !tbaa !8
-  store i32 33685528, ptr %1931, align 4
-  %1932 = getelementptr inbounds nuw i8, ptr %1928, i64 8
-  store ptr %1700, ptr %1932, align 8, !tbaa !4
-  %1933 = getelementptr inbounds nuw i8, ptr %1928, i64 16
-  store ptr %1926, ptr %1933, align 8, !tbaa !4
-  %1934 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__25, align 8, !tbaa !4
-  br i1 %.not1949, label %1935, label %lean_inc_n.exit1833
+  %1916 = getelementptr inbounds nuw i8, ptr %1913, i64 4
+  store i32 1, ptr %1913, align 4, !tbaa !8
+  store i32 33685528, ptr %1916, align 4
+  %1917 = getelementptr inbounds nuw i8, ptr %1913, i64 8
+  store ptr %1688, ptr %1917, align 8, !tbaa !4
+  %1918 = getelementptr inbounds nuw i8, ptr %1913, i64 16
+  store ptr %1911, ptr %1918, align 8, !tbaa !4
+  %1919 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__25, align 8, !tbaa !4
+  br i1 %.not1949, label %1920, label %lean_inc_n.exit1833
 
-1935:                                             ; preds = %lean_alloc_ctor.exit1829
-  %.val.i.i1831 = load i32, ptr %1798, align 4, !tbaa !8
-  %1936 = icmp sgt i32 %.val.i.i1831, 0
-  br i1 %1936, label %1937, label %1939, !prof !13
+1920:                                             ; preds = %lean_alloc_ctor.exit1829
+  %.val.i.i1831 = load i32, ptr %1786, align 4, !tbaa !8
+  %1921 = icmp sgt i32 %.val.i.i1831, 0
+  br i1 %1921, label %1922, label %1924, !prof !13
 
-1937:                                             ; preds = %1935
-  %1938 = add nuw i32 %.val.i.i1831, 2
-  store i32 %1938, ptr %1798, align 4, !tbaa !8
+1922:                                             ; preds = %1920
+  %1923 = add nuw i32 %.val.i.i1831, 2
+  store i32 %1923, ptr %1786, align 4, !tbaa !8
   br label %lean_inc_n.exit1833
 
-1939:                                             ; preds = %1935
+1924:                                             ; preds = %1920
   %.not.i.i1832 = icmp eq i32 %.val.i.i1831, 0
-  br i1 %.not.i.i1832, label %lean_inc_n.exit1833, label %1940
+  br i1 %.not.i.i1832, label %lean_inc_n.exit1833, label %1925
 
-1940:                                             ; preds = %1939
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1798, i32 noundef 2) #6
+1925:                                             ; preds = %1924
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1786, i32 noundef 2) #6
   br label %lean_inc_n.exit1833
 
-lean_inc_n.exit1833:                              ; preds = %lean_alloc_ctor.exit1829, %1937, %1939, %1940
-  br i1 %.not1946, label %1941, label %lean_inc.exit1069
+lean_inc_n.exit1833:                              ; preds = %lean_alloc_ctor.exit1829, %1922, %1924, %1925
+  br i1 %.not1946, label %1926, label %lean_inc.exit1069
 
-1941:                                             ; preds = %lean_inc_n.exit1833
-  %.val.i1834 = load i32, ptr %1700, align 4, !tbaa !8
-  %1942 = icmp sgt i32 %.val.i1834, 0
-  br i1 %1942, label %1943, label %1945, !prof !13
+1926:                                             ; preds = %lean_inc_n.exit1833
+  %.val.i1834 = load i32, ptr %1688, align 4, !tbaa !8
+  %1927 = icmp sgt i32 %.val.i1834, 0
+  br i1 %1927, label %1928, label %1930, !prof !13
 
-1943:                                             ; preds = %1941
-  %1944 = add nuw i32 %.val.i1834, 1
-  store i32 %1944, ptr %1700, align 4, !tbaa !8
+1928:                                             ; preds = %1926
+  %1929 = add nuw i32 %.val.i1834, 1
+  store i32 %1929, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1069
 
-1945:                                             ; preds = %1941
+1930:                                             ; preds = %1926
   %.not.i1835 = icmp eq i32 %.val.i1834, 0
-  br i1 %.not.i1835, label %lean_inc.exit1069, label %1946
+  br i1 %.not.i1835, label %lean_inc.exit1069, label %1931
 
-1946:                                             ; preds = %1945
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+1931:                                             ; preds = %1930
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1069
 
-lean_inc.exit1069:                                ; preds = %1946, %1945, %1943, %lean_inc_n.exit1833
-  %1947 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1700, ptr noundef %1934, ptr noundef nonnull %1798, ptr noundef nonnull %1798) #6
-  %1948 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__22, align 8, !tbaa !4
-  br i1 %.not1949, label %1949, label %lean_inc.exit1068
+lean_inc.exit1069:                                ; preds = %1931, %1930, %1928, %lean_inc_n.exit1833
+  %1932 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1688, ptr noundef %1919, ptr noundef nonnull %1786, ptr noundef nonnull %1786) #6
+  %1933 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__22, align 8, !tbaa !4
+  br i1 %.not1949, label %1934, label %lean_inc.exit1068
 
-1949:                                             ; preds = %lean_inc.exit1069
-  %.val.i1837 = load i32, ptr %1798, align 4, !tbaa !8
-  %1950 = icmp sgt i32 %.val.i1837, 0
-  br i1 %1950, label %1951, label %1953, !prof !13
+1934:                                             ; preds = %lean_inc.exit1069
+  %.val.i1837 = load i32, ptr %1786, align 4, !tbaa !8
+  %1935 = icmp sgt i32 %.val.i1837, 0
+  br i1 %1935, label %1936, label %1938, !prof !13
 
-1951:                                             ; preds = %1949
-  %1952 = add nuw i32 %.val.i1837, 1
-  store i32 %1952, ptr %1798, align 4, !tbaa !8
+1936:                                             ; preds = %1934
+  %1937 = add nuw i32 %.val.i1837, 1
+  store i32 %1937, ptr %1786, align 4, !tbaa !8
   br label %lean_inc.exit1068
 
-1953:                                             ; preds = %1949
+1938:                                             ; preds = %1934
   %.not.i1838 = icmp eq i32 %.val.i1837, 0
-  br i1 %.not.i1838, label %lean_inc.exit1068, label %1954
+  br i1 %.not.i1838, label %lean_inc.exit1068, label %1939
 
-1954:                                             ; preds = %1953
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1798) #6
+1939:                                             ; preds = %1938
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1786) #6
   br label %lean_inc.exit1068
 
-lean_inc.exit1068:                                ; preds = %1954, %1953, %1951, %lean_inc.exit1069
-  br i1 %.not1946, label %1955, label %lean_inc.exit1067
+lean_inc.exit1068:                                ; preds = %1939, %1938, %1936, %lean_inc.exit1069
+  br i1 %.not1946, label %1940, label %lean_inc.exit1067
 
-1955:                                             ; preds = %lean_inc.exit1068
-  %.val.i1840 = load i32, ptr %1700, align 4, !tbaa !8
-  %1956 = icmp sgt i32 %.val.i1840, 0
-  br i1 %1956, label %1957, label %1959, !prof !13
+1940:                                             ; preds = %lean_inc.exit1068
+  %.val.i1840 = load i32, ptr %1688, align 4, !tbaa !8
+  %1941 = icmp sgt i32 %.val.i1840, 0
+  br i1 %1941, label %1942, label %1944, !prof !13
 
-1957:                                             ; preds = %1955
-  %1958 = add nuw i32 %.val.i1840, 1
-  store i32 %1958, ptr %1700, align 4, !tbaa !8
+1942:                                             ; preds = %1940
+  %1943 = add nuw i32 %.val.i1840, 1
+  store i32 %1943, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1067
 
-1959:                                             ; preds = %1955
+1944:                                             ; preds = %1940
   %.not.i1841 = icmp eq i32 %.val.i1840, 0
-  br i1 %.not.i1841, label %lean_inc.exit1067, label %1960
+  br i1 %.not.i1841, label %lean_inc.exit1067, label %1945
 
-1960:                                             ; preds = %1959
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+1945:                                             ; preds = %1944
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1067
 
-lean_inc.exit1067:                                ; preds = %1960, %1959, %1957, %lean_inc.exit1068
-  %1961 = tail call ptr @l_Lean_Syntax_node4(ptr noundef %1700, ptr noundef %1948, ptr noundef nonnull %1928, ptr noundef %10, ptr noundef %1947, ptr noundef nonnull %1798) #6
-  %1962 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__13, align 8, !tbaa !4
-  br i1 %.not1949, label %1963, label %lean_inc.exit1066
+lean_inc.exit1067:                                ; preds = %1945, %1944, %1942, %lean_inc.exit1068
+  %1946 = tail call ptr @l_Lean_Syntax_node4(ptr noundef %1688, ptr noundef %1933, ptr noundef nonnull %1913, ptr noundef %10, ptr noundef %1932, ptr noundef nonnull %1786) #6
+  %1947 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__13, align 8, !tbaa !4
+  br i1 %.not1949, label %1948, label %lean_inc.exit1066
 
-1963:                                             ; preds = %lean_inc.exit1067
-  %.val.i1843 = load i32, ptr %1798, align 4, !tbaa !8
-  %1964 = icmp sgt i32 %.val.i1843, 0
-  br i1 %1964, label %1965, label %1967, !prof !13
+1948:                                             ; preds = %lean_inc.exit1067
+  %.val.i1843 = load i32, ptr %1786, align 4, !tbaa !8
+  %1949 = icmp sgt i32 %.val.i1843, 0
+  br i1 %1949, label %1950, label %1952, !prof !13
 
-1965:                                             ; preds = %1963
-  %1966 = add nuw i32 %.val.i1843, 1
-  store i32 %1966, ptr %1798, align 4, !tbaa !8
+1950:                                             ; preds = %1948
+  %1951 = add nuw i32 %.val.i1843, 1
+  store i32 %1951, ptr %1786, align 4, !tbaa !8
   br label %lean_inc.exit1066
 
-1967:                                             ; preds = %1963
+1952:                                             ; preds = %1948
   %.not.i1844 = icmp eq i32 %.val.i1843, 0
-  br i1 %.not.i1844, label %lean_inc.exit1066, label %1968
+  br i1 %.not.i1844, label %lean_inc.exit1066, label %1953
 
-1968:                                             ; preds = %1967
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1798) #6
+1953:                                             ; preds = %1952
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1786) #6
   br label %lean_inc.exit1066
 
-lean_inc.exit1066:                                ; preds = %1968, %1967, %1965, %lean_inc.exit1067
-  br i1 %.not1946, label %1969, label %lean_inc.exit1065
+lean_inc.exit1066:                                ; preds = %1953, %1952, %1950, %lean_inc.exit1067
+  br i1 %.not1946, label %1954, label %lean_inc.exit1065
 
-1969:                                             ; preds = %lean_inc.exit1066
-  %.val.i1846 = load i32, ptr %1700, align 4, !tbaa !8
-  %1970 = icmp sgt i32 %.val.i1846, 0
-  br i1 %1970, label %1971, label %1973, !prof !13
+1954:                                             ; preds = %lean_inc.exit1066
+  %.val.i1846 = load i32, ptr %1688, align 4, !tbaa !8
+  %1955 = icmp sgt i32 %.val.i1846, 0
+  br i1 %1955, label %1956, label %1958, !prof !13
 
-1971:                                             ; preds = %1969
-  %1972 = add nuw i32 %.val.i1846, 1
-  store i32 %1972, ptr %1700, align 4, !tbaa !8
+1956:                                             ; preds = %1954
+  %1957 = add nuw i32 %.val.i1846, 1
+  store i32 %1957, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1065
 
-1973:                                             ; preds = %1969
+1958:                                             ; preds = %1954
   %.not.i1847 = icmp eq i32 %.val.i1846, 0
-  br i1 %.not.i1847, label %lean_inc.exit1065, label %1974
+  br i1 %.not.i1847, label %lean_inc.exit1065, label %1959
 
-1974:                                             ; preds = %1973
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+1959:                                             ; preds = %1958
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1065
 
-lean_inc.exit1065:                                ; preds = %1974, %1973, %1971, %lean_inc.exit1066
-  %1975 = tail call ptr @l_Lean_Syntax_node5(ptr noundef %1700, ptr noundef %1962, ptr noundef nonnull %.01051, ptr noundef %1870, ptr noundef %1927, ptr noundef %1961, ptr noundef nonnull %1798) #6
-  %1976 = ptrtoint ptr %1 to i64
-  %1977 = and i64 %1976, 1
-  %.not.i1849 = icmp eq i64 %1977, 0
-  br i1 %.not.i1849, label %1981, label %1978
+lean_inc.exit1065:                                ; preds = %1959, %1958, %1956, %lean_inc.exit1066
+  %1960 = tail call ptr @l_Lean_Syntax_node5(ptr noundef %1688, ptr noundef %1947, ptr noundef nonnull %.01051, ptr noundef %1855, ptr noundef %1912, ptr noundef %1946, ptr noundef nonnull %1786) #6
+  %1961 = ptrtoint ptr %1 to i64
+  %1962 = and i64 %1961, 1
+  %.not.i1849 = icmp eq i64 %1962, 0
+  br i1 %.not.i1849, label %1966, label %1963
 
-1978:                                             ; preds = %lean_inc.exit1065
-  %1979 = lshr i64 %1976, 1
-  %1980 = trunc i64 %1979 to i32
+1963:                                             ; preds = %lean_inc.exit1065
+  %1964 = lshr i64 %1961, 1
+  %1965 = trunc i64 %1964 to i32
   br label %lean_obj_tag.exit1852
 
-1981:                                             ; preds = %lean_inc.exit1065
-  %1982 = getelementptr i8, ptr %1, i64 4
-  %.val.i1851 = load i32, ptr %1982, align 4
-  %1983 = lshr i32 %.val.i1851, 24
+1966:                                             ; preds = %lean_inc.exit1065
+  %1967 = getelementptr i8, ptr %1, i64 4
+  %.val.i1851 = load i32, ptr %1967, align 4
+  %1968 = lshr i32 %.val.i1851, 24
   br label %lean_obj_tag.exit1852
 
-lean_obj_tag.exit1852:                            ; preds = %1978, %1981
-  %.0.i1850 = phi i32 [ %1980, %1978 ], [ %1983, %1981 ]
-  %1984 = icmp eq i32 %.0.i1850, 0
-  br i1 %1984, label %1985, label %2094
+lean_obj_tag.exit1852:                            ; preds = %1963, %1966
+  %.0.i1850 = phi i32 [ %1965, %1963 ], [ %1968, %1966 ]
+  %1969 = icmp eq i32 %.0.i1850, 0
+  br i1 %1969, label %1970, label %2079
 
-1985:                                             ; preds = %lean_obj_tag.exit1852
-  %1986 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
-  br i1 %.not1946, label %1987, label %lean_inc.exit1064
+1970:                                             ; preds = %lean_obj_tag.exit1852
+  %1971 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
+  br i1 %.not1946, label %1972, label %lean_inc.exit1064
 
-1987:                                             ; preds = %1985
-  %.val.i1853 = load i32, ptr %1700, align 4, !tbaa !8
-  %1988 = icmp sgt i32 %.val.i1853, 0
-  br i1 %1988, label %1989, label %1991, !prof !13
+1972:                                             ; preds = %1970
+  %.val.i1853 = load i32, ptr %1688, align 4, !tbaa !8
+  %1973 = icmp sgt i32 %.val.i1853, 0
+  br i1 %1973, label %1974, label %1976, !prof !13
 
-1989:                                             ; preds = %1987
-  %1990 = add nuw i32 %.val.i1853, 1
-  store i32 %1990, ptr %1700, align 4, !tbaa !8
+1974:                                             ; preds = %1972
+  %1975 = add nuw i32 %.val.i1853, 1
+  store i32 %1975, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1064
 
-1991:                                             ; preds = %1987
+1976:                                             ; preds = %1972
   %.not.i1854 = icmp eq i32 %.val.i1853, 0
-  br i1 %.not.i1854, label %lean_inc.exit1064, label %1992
+  br i1 %.not.i1854, label %lean_inc.exit1064, label %1977
 
-1992:                                             ; preds = %1991
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+1977:                                             ; preds = %1976
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1064
 
-lean_inc.exit1064:                                ; preds = %1992, %1991, %1989, %1985
+lean_inc.exit1064:                                ; preds = %1977, %1976, %1974, %1970
   tail call void @lean_inc_heartbeat() #6
-  %1993 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %1994 = icmp eq ptr %1993, null
-  br i1 %1994, label %1995, label %lean_alloc_ctor.exit1856
+  %1978 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %1979 = icmp eq ptr %1978, null
+  br i1 %1979, label %1980, label %lean_alloc_ctor.exit1856
 
-1995:                                             ; preds = %lean_inc.exit1064
+1980:                                             ; preds = %lean_inc.exit1064
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1856:                         ; preds = %lean_inc.exit1064
-  %1996 = getelementptr inbounds nuw i8, ptr %1993, i64 4
-  store i32 1, ptr %1993, align 4, !tbaa !8
-  store i32 16973856, ptr %1996, align 4
-  %1997 = getelementptr inbounds nuw i8, ptr %1993, i64 8
-  store ptr %1700, ptr %1997, align 8, !tbaa !4
-  %1998 = getelementptr inbounds nuw i8, ptr %1993, i64 16
-  store ptr %1788, ptr %1998, align 8, !tbaa !4
-  %1999 = getelementptr inbounds nuw i8, ptr %1993, i64 24
-  store ptr %1986, ptr %1999, align 8, !tbaa !4
-  %2000 = ptrtoint ptr %3 to i64
-  %2001 = and i64 %2000, 1
-  %.not.i1857 = icmp eq i64 %2001, 0
-  br i1 %.not.i1857, label %2005, label %2002
+  %1981 = getelementptr inbounds nuw i8, ptr %1978, i64 4
+  store i32 1, ptr %1978, align 4, !tbaa !8
+  store i32 16973856, ptr %1981, align 4
+  %1982 = getelementptr inbounds nuw i8, ptr %1978, i64 8
+  store ptr %1688, ptr %1982, align 8, !tbaa !4
+  %1983 = getelementptr inbounds nuw i8, ptr %1978, i64 16
+  store ptr %1776, ptr %1983, align 8, !tbaa !4
+  %1984 = getelementptr inbounds nuw i8, ptr %1978, i64 24
+  store ptr %1971, ptr %1984, align 8, !tbaa !4
+  %1985 = ptrtoint ptr %3 to i64
+  %1986 = and i64 %1985, 1
+  %.not.i1857 = icmp eq i64 %1986, 0
+  br i1 %.not.i1857, label %1990, label %1987
 
-2002:                                             ; preds = %lean_alloc_ctor.exit1856
-  %2003 = lshr i64 %2000, 1
-  %2004 = trunc i64 %2003 to i32
+1987:                                             ; preds = %lean_alloc_ctor.exit1856
+  %1988 = lshr i64 %1985, 1
+  %1989 = trunc i64 %1988 to i32
   br label %lean_obj_tag.exit1860
 
-2005:                                             ; preds = %lean_alloc_ctor.exit1856
-  %2006 = getelementptr i8, ptr %3, i64 4
-  %.val.i1859 = load i32, ptr %2006, align 4
-  %2007 = lshr i32 %.val.i1859, 24
+1990:                                             ; preds = %lean_alloc_ctor.exit1856
+  %1991 = getelementptr i8, ptr %3, i64 4
+  %.val.i1859 = load i32, ptr %1991, align 4
+  %1992 = lshr i32 %.val.i1859, 24
   br label %lean_obj_tag.exit1860
 
-lean_obj_tag.exit1860:                            ; preds = %2002, %2005
-  %.0.i1858 = phi i32 [ %2004, %2002 ], [ %2007, %2005 ]
-  %2008 = icmp eq i32 %.0.i1858, 0
-  br i1 %2008, label %2009, label %2035
+lean_obj_tag.exit1860:                            ; preds = %1987, %1990
+  %.0.i1858 = phi i32 [ %1989, %1987 ], [ %1992, %1990 ]
+  %1993 = icmp eq i32 %.0.i1858, 0
+  br i1 %1993, label %1994, label %2020
 
-2009:                                             ; preds = %lean_obj_tag.exit1860
-  %2010 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1949, label %2011, label %lean_inc_n.exit1864
+1994:                                             ; preds = %lean_obj_tag.exit1860
+  %1995 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1949, label %1996, label %lean_inc_n.exit1864
 
-2011:                                             ; preds = %2009
-  %.val.i.i1862 = load i32, ptr %1798, align 4, !tbaa !8
-  %2012 = icmp sgt i32 %.val.i.i1862, 0
-  br i1 %2012, label %2013, label %2015, !prof !13
+1996:                                             ; preds = %1994
+  %.val.i.i1862 = load i32, ptr %1786, align 4, !tbaa !8
+  %1997 = icmp sgt i32 %.val.i.i1862, 0
+  br i1 %1997, label %1998, label %2000, !prof !13
 
-2013:                                             ; preds = %2011
-  %2014 = add nuw i32 %.val.i.i1862, 3
-  store i32 %2014, ptr %1798, align 4, !tbaa !8
+1998:                                             ; preds = %1996
+  %1999 = add nuw i32 %.val.i.i1862, 3
+  store i32 %1999, ptr %1786, align 4, !tbaa !8
   br label %lean_inc_n.exit1864
 
-2015:                                             ; preds = %2011
+2000:                                             ; preds = %1996
   %.not.i.i1863 = icmp eq i32 %.val.i.i1862, 0
-  br i1 %.not.i.i1863, label %lean_inc_n.exit1864, label %2016
+  br i1 %.not.i.i1863, label %lean_inc_n.exit1864, label %2001
 
-2016:                                             ; preds = %2015
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1798, i32 noundef 3) #6
+2001:                                             ; preds = %2000
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1786, i32 noundef 3) #6
   br label %lean_inc_n.exit1864
 
-lean_inc_n.exit1864:                              ; preds = %2009, %2013, %2015, %2016
-  %2017 = ptrtoint ptr %1993 to i64
-  %2018 = and i64 %2017, 1
-  %.not1960 = icmp eq i64 %2018, 0
-  br i1 %.not1960, label %2019, label %lean_inc.exit1063
+lean_inc_n.exit1864:                              ; preds = %1994, %1998, %2000, %2001
+  %2002 = ptrtoint ptr %1978 to i64
+  %2003 = and i64 %2002, 1
+  %.not1960 = icmp eq i64 %2003, 0
+  br i1 %.not1960, label %2004, label %lean_inc.exit1063
 
-2019:                                             ; preds = %lean_inc_n.exit1864
-  %.val.i1865 = load i32, ptr %1993, align 4, !tbaa !8
-  %2020 = icmp sgt i32 %.val.i1865, 0
-  br i1 %2020, label %2021, label %2023, !prof !13
+2004:                                             ; preds = %lean_inc_n.exit1864
+  %.val.i1865 = load i32, ptr %1978, align 4, !tbaa !8
+  %2005 = icmp sgt i32 %.val.i1865, 0
+  br i1 %2005, label %2006, label %2008, !prof !13
 
-2021:                                             ; preds = %2019
-  %2022 = add nuw i32 %.val.i1865, 1
-  store i32 %2022, ptr %1993, align 4, !tbaa !8
+2006:                                             ; preds = %2004
+  %2007 = add nuw i32 %.val.i1865, 1
+  store i32 %2007, ptr %1978, align 4, !tbaa !8
   br label %lean_inc.exit1063
 
-2023:                                             ; preds = %2019
+2008:                                             ; preds = %2004
   %.not.i1866 = icmp eq i32 %.val.i1865, 0
-  br i1 %.not.i1866, label %lean_inc.exit1063, label %2024
+  br i1 %.not.i1866, label %lean_inc.exit1063, label %2009
 
-2024:                                             ; preds = %2023
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1993) #6
+2009:                                             ; preds = %2008
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1978) #6
   br label %lean_inc.exit1063
 
-lean_inc.exit1063:                                ; preds = %2024, %2023, %2021, %lean_inc_n.exit1864
-  br i1 %.not1946, label %2025, label %lean_inc.exit1062
+lean_inc.exit1063:                                ; preds = %2009, %2008, %2006, %lean_inc_n.exit1864
+  br i1 %.not1946, label %2010, label %lean_inc.exit1062
 
-2025:                                             ; preds = %lean_inc.exit1063
-  %.val.i1868 = load i32, ptr %1700, align 4, !tbaa !8
-  %2026 = icmp sgt i32 %.val.i1868, 0
+2010:                                             ; preds = %lean_inc.exit1063
+  %.val.i1868 = load i32, ptr %1688, align 4, !tbaa !8
+  %2011 = icmp sgt i32 %.val.i1868, 0
+  br i1 %2011, label %2012, label %2014, !prof !13
+
+2012:                                             ; preds = %2010
+  %2013 = add nuw i32 %.val.i1868, 1
+  store i32 %2013, ptr %1688, align 4, !tbaa !8
+  br label %lean_inc.exit1062
+
+2014:                                             ; preds = %2010
+  %.not.i1869 = icmp eq i32 %.val.i1868, 0
+  br i1 %.not.i1869, label %lean_inc.exit1062, label %2015
+
+2015:                                             ; preds = %2014
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
+  br label %lean_inc.exit1062
+
+lean_inc.exit1062:                                ; preds = %2015, %2014, %2012, %lean_inc.exit1063
+  %2016 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %1688, ptr noundef %1995, ptr noundef nonnull %1978, ptr noundef nonnull %1978, ptr noundef nonnull %1786, ptr noundef nonnull %1786, ptr noundef nonnull %1786, ptr noundef nonnull %1786) #6
+  %2017 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %2018 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1688, ptr noundef %2017, ptr noundef %2016, ptr noundef %1960) #6
+  %2019 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %2018, ptr noundef %4, ptr noundef %5, ptr noundef %1739) #6
+  br label %2221
+
+2020:                                             ; preds = %lean_obj_tag.exit1860
+  %2021 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2022 = load ptr, ptr %2021, align 8, !tbaa !4
+  %2023 = ptrtoint ptr %2022 to i64
+  %2024 = and i64 %2023, 1
+  %.not1957 = icmp eq i64 %2024, 0
+  br i1 %.not1957, label %2025, label %lean_inc.exit1061
+
+2025:                                             ; preds = %2020
+  %.val.i1871 = load i32, ptr %2022, align 4, !tbaa !8
+  %2026 = icmp sgt i32 %.val.i1871, 0
   br i1 %2026, label %2027, label %2029, !prof !13
 
 2027:                                             ; preds = %2025
-  %2028 = add nuw i32 %.val.i1868, 1
-  store i32 %2028, ptr %1700, align 4, !tbaa !8
-  br label %lean_inc.exit1062
+  %2028 = add nuw i32 %.val.i1871, 1
+  store i32 %2028, ptr %2022, align 4, !tbaa !8
+  br label %lean_inc.exit1061
 
 2029:                                             ; preds = %2025
-  %.not.i1869 = icmp eq i32 %.val.i1868, 0
-  br i1 %.not.i1869, label %lean_inc.exit1062, label %2030
+  %.not.i1872 = icmp eq i32 %.val.i1871, 0
+  br i1 %.not.i1872, label %lean_inc.exit1061, label %2030
 
 2030:                                             ; preds = %2029
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
-  br label %lean_inc.exit1062
-
-lean_inc.exit1062:                                ; preds = %2030, %2029, %2027, %lean_inc.exit1063
-  %2031 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %1700, ptr noundef %2010, ptr noundef nonnull %1993, ptr noundef nonnull %1993, ptr noundef nonnull %1798, ptr noundef nonnull %1798, ptr noundef nonnull %1798, ptr noundef nonnull %1798) #6
-  %2032 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %2033 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1700, ptr noundef %2032, ptr noundef %2031, ptr noundef %1975) #6
-  %2034 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %2033, ptr noundef %4, ptr noundef %5, ptr noundef %1751) #6
-  br label %2236
-
-2035:                                             ; preds = %lean_obj_tag.exit1860
-  %2036 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %2037 = load ptr, ptr %2036, align 8, !tbaa !4
-  %2038 = ptrtoint ptr %2037 to i64
-  %2039 = and i64 %2038, 1
-  %.not1957 = icmp eq i64 %2039, 0
-  br i1 %.not1957, label %2040, label %lean_inc.exit1061
-
-2040:                                             ; preds = %2035
-  %.val.i1871 = load i32, ptr %2037, align 4, !tbaa !8
-  %2041 = icmp sgt i32 %.val.i1871, 0
-  br i1 %2041, label %2042, label %2044, !prof !13
-
-2042:                                             ; preds = %2040
-  %2043 = add nuw i32 %.val.i1871, 1
-  store i32 %2043, ptr %2037, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %2022) #6
   br label %lean_inc.exit1061
 
-2044:                                             ; preds = %2040
-  %.not.i1872 = icmp eq i32 %.val.i1871, 0
-  br i1 %.not.i1872, label %lean_inc.exit1061, label %2045
+lean_inc.exit1061:                                ; preds = %2030, %2029, %2027, %2020
+  br i1 %.not.i1857, label %2031, label %lean_dec.exit1190
 
-2045:                                             ; preds = %2044
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %2037) #6
-  br label %lean_inc.exit1061
+2031:                                             ; preds = %lean_inc.exit1061
+  %2032 = load i32, ptr %3, align 4, !tbaa !8
+  %2033 = icmp sgt i32 %2032, 1
+  br i1 %2033, label %2034, label %2036, !prof !13
 
-lean_inc.exit1061:                                ; preds = %2045, %2044, %2042, %2035
-  br i1 %.not.i1857, label %2046, label %lean_dec.exit1190
-
-2046:                                             ; preds = %lean_inc.exit1061
-  %2047 = load i32, ptr %3, align 4, !tbaa !8
-  %2048 = icmp sgt i32 %2047, 1
-  br i1 %2048, label %2049, label %2051, !prof !13
-
-2049:                                             ; preds = %2046
-  %2050 = add nsw i32 %2047, -1
-  store i32 %2050, ptr %3, align 4, !tbaa !8
+2034:                                             ; preds = %2031
+  %2035 = add nsw i32 %2032, -1
+  store i32 %2035, ptr %3, align 4, !tbaa !8
   br label %lean_dec.exit1190
 
-2051:                                             ; preds = %2046
-  %.not.i1324 = icmp eq i32 %2047, 0
-  br i1 %.not.i1324, label %lean_dec.exit1190, label %2052
+2036:                                             ; preds = %2031
+  %.not.i1324 = icmp eq i32 %2032, 0
+  br i1 %.not.i1324, label %lean_dec.exit1190, label %2037
 
-2052:                                             ; preds = %2051
+2037:                                             ; preds = %2036
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #6
   br label %lean_dec.exit1190
 
-lean_dec.exit1190:                                ; preds = %2052, %2051, %2049, %lean_inc.exit1061
-  %2053 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %2037) #6
-  %2054 = tail call ptr @l_Array_append___rarg(ptr noundef %1789, ptr noundef %2053) #6
-  %2055 = ptrtoint ptr %2053 to i64
-  %2056 = and i64 %2055, 1
-  %.not1959 = icmp eq i64 %2056, 0
-  br i1 %.not1959, label %2057, label %lean_dec.exit1189
+lean_dec.exit1190:                                ; preds = %2037, %2036, %2034, %lean_inc.exit1061
+  %2038 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %2022) #6
+  %2039 = tail call ptr @l_Array_append___rarg(ptr noundef %1777, ptr noundef %2038) #6
+  %2040 = ptrtoint ptr %2038 to i64
+  %2041 = and i64 %2040, 1
+  %.not1959 = icmp eq i64 %2041, 0
+  br i1 %.not1959, label %2042, label %lean_dec.exit1189
 
-2057:                                             ; preds = %lean_dec.exit1190
-  %2058 = load i32, ptr %2053, align 4, !tbaa !8
-  %2059 = icmp sgt i32 %2058, 1
-  br i1 %2059, label %2060, label %2062, !prof !13
+2042:                                             ; preds = %lean_dec.exit1190
+  %2043 = load i32, ptr %2038, align 4, !tbaa !8
+  %2044 = icmp sgt i32 %2043, 1
+  br i1 %2044, label %2045, label %2047, !prof !13
 
-2060:                                             ; preds = %2057
-  %2061 = add nsw i32 %2058, -1
-  store i32 %2061, ptr %2053, align 4, !tbaa !8
+2045:                                             ; preds = %2042
+  %2046 = add nsw i32 %2043, -1
+  store i32 %2046, ptr %2038, align 4, !tbaa !8
   br label %lean_dec.exit1189
 
-2062:                                             ; preds = %2057
-  %.not.i1326 = icmp eq i32 %2058, 0
-  br i1 %.not.i1326, label %lean_dec.exit1189, label %2063
+2047:                                             ; preds = %2042
+  %.not.i1326 = icmp eq i32 %2043, 0
+  br i1 %.not.i1326, label %lean_dec.exit1189, label %2048
 
-2063:                                             ; preds = %2062
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2053) #6
+2048:                                             ; preds = %2047
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2038) #6
   br label %lean_dec.exit1189
 
-lean_dec.exit1189:                                ; preds = %2063, %2062, %2060, %lean_dec.exit1190
-  br i1 %.not1946, label %2064, label %lean_inc.exit1060
+lean_dec.exit1189:                                ; preds = %2048, %2047, %2045, %lean_dec.exit1190
+  br i1 %.not1946, label %2049, label %lean_inc.exit1060
 
-2064:                                             ; preds = %lean_dec.exit1189
-  %.val.i1874 = load i32, ptr %1700, align 4, !tbaa !8
-  %2065 = icmp sgt i32 %.val.i1874, 0
-  br i1 %2065, label %2066, label %2068, !prof !13
+2049:                                             ; preds = %lean_dec.exit1189
+  %.val.i1874 = load i32, ptr %1688, align 4, !tbaa !8
+  %2050 = icmp sgt i32 %.val.i1874, 0
+  br i1 %2050, label %2051, label %2053, !prof !13
 
-2066:                                             ; preds = %2064
-  %2067 = add nuw i32 %.val.i1874, 1
-  store i32 %2067, ptr %1700, align 4, !tbaa !8
+2051:                                             ; preds = %2049
+  %2052 = add nuw i32 %.val.i1874, 1
+  store i32 %2052, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1060
 
-2068:                                             ; preds = %2064
+2053:                                             ; preds = %2049
   %.not.i1875 = icmp eq i32 %.val.i1874, 0
-  br i1 %.not.i1875, label %lean_inc.exit1060, label %2069
+  br i1 %.not.i1875, label %lean_inc.exit1060, label %2054
 
-2069:                                             ; preds = %2068
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+2054:                                             ; preds = %2053
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1060
 
-lean_inc.exit1060:                                ; preds = %2069, %2068, %2066, %lean_dec.exit1189
+lean_inc.exit1060:                                ; preds = %2054, %2053, %2051, %lean_dec.exit1189
   tail call void @lean_inc_heartbeat() #6
-  %2070 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %2071 = icmp eq ptr %2070, null
-  br i1 %2071, label %2072, label %lean_alloc_ctor.exit1877
+  %2055 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %2056 = icmp eq ptr %2055, null
+  br i1 %2056, label %2057, label %lean_alloc_ctor.exit1877
 
-2072:                                             ; preds = %lean_inc.exit1060
+2057:                                             ; preds = %lean_inc.exit1060
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1877:                         ; preds = %lean_inc.exit1060
-  %2073 = getelementptr inbounds nuw i8, ptr %2070, i64 4
-  store i32 1, ptr %2070, align 4, !tbaa !8
-  store i32 16973856, ptr %2073, align 4
-  %2074 = getelementptr inbounds nuw i8, ptr %2070, i64 8
-  store ptr %1700, ptr %2074, align 8, !tbaa !4
-  %2075 = getelementptr inbounds nuw i8, ptr %2070, i64 16
-  store ptr %1788, ptr %2075, align 8, !tbaa !4
-  %2076 = getelementptr inbounds nuw i8, ptr %2070, i64 24
-  store ptr %2054, ptr %2076, align 8, !tbaa !4
-  %2077 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1949, label %2078, label %lean_inc_n.exit1881
+  %2058 = getelementptr inbounds nuw i8, ptr %2055, i64 4
+  store i32 1, ptr %2055, align 4, !tbaa !8
+  store i32 16973856, ptr %2058, align 4
+  %2059 = getelementptr inbounds nuw i8, ptr %2055, i64 8
+  store ptr %1688, ptr %2059, align 8, !tbaa !4
+  %2060 = getelementptr inbounds nuw i8, ptr %2055, i64 16
+  store ptr %1776, ptr %2060, align 8, !tbaa !4
+  %2061 = getelementptr inbounds nuw i8, ptr %2055, i64 24
+  store ptr %2039, ptr %2061, align 8, !tbaa !4
+  %2062 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1949, label %2063, label %lean_inc_n.exit1881
 
-2078:                                             ; preds = %lean_alloc_ctor.exit1877
-  %.val.i.i1879 = load i32, ptr %1798, align 4, !tbaa !8
-  %2079 = icmp sgt i32 %.val.i.i1879, 0
-  br i1 %2079, label %2080, label %2082, !prof !13
+2063:                                             ; preds = %lean_alloc_ctor.exit1877
+  %.val.i.i1879 = load i32, ptr %1786, align 4, !tbaa !8
+  %2064 = icmp sgt i32 %.val.i.i1879, 0
+  br i1 %2064, label %2065, label %2067, !prof !13
 
-2080:                                             ; preds = %2078
-  %2081 = add nuw i32 %.val.i.i1879, 3
-  store i32 %2081, ptr %1798, align 4, !tbaa !8
+2065:                                             ; preds = %2063
+  %2066 = add nuw i32 %.val.i.i1879, 3
+  store i32 %2066, ptr %1786, align 4, !tbaa !8
   br label %lean_inc_n.exit1881
 
-2082:                                             ; preds = %2078
+2067:                                             ; preds = %2063
   %.not.i.i1880 = icmp eq i32 %.val.i.i1879, 0
-  br i1 %.not.i.i1880, label %lean_inc_n.exit1881, label %2083
+  br i1 %.not.i.i1880, label %lean_inc_n.exit1881, label %2068
 
-2083:                                             ; preds = %2082
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1798, i32 noundef 3) #6
+2068:                                             ; preds = %2067
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1786, i32 noundef 3) #6
   br label %lean_inc_n.exit1881
 
-lean_inc_n.exit1881:                              ; preds = %lean_alloc_ctor.exit1877, %2080, %2082, %2083
-  br i1 %.not1946, label %2084, label %lean_inc.exit1059
+lean_inc_n.exit1881:                              ; preds = %lean_alloc_ctor.exit1877, %2065, %2067, %2068
+  br i1 %.not1946, label %2069, label %lean_inc.exit1059
 
-2084:                                             ; preds = %lean_inc_n.exit1881
-  %.val.i1882 = load i32, ptr %1700, align 4, !tbaa !8
-  %2085 = icmp sgt i32 %.val.i1882, 0
+2069:                                             ; preds = %lean_inc_n.exit1881
+  %.val.i1882 = load i32, ptr %1688, align 4, !tbaa !8
+  %2070 = icmp sgt i32 %.val.i1882, 0
+  br i1 %2070, label %2071, label %2073, !prof !13
+
+2071:                                             ; preds = %2069
+  %2072 = add nuw i32 %.val.i1882, 1
+  store i32 %2072, ptr %1688, align 4, !tbaa !8
+  br label %lean_inc.exit1059
+
+2073:                                             ; preds = %2069
+  %.not.i1883 = icmp eq i32 %.val.i1882, 0
+  br i1 %.not.i1883, label %lean_inc.exit1059, label %2074
+
+2074:                                             ; preds = %2073
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
+  br label %lean_inc.exit1059
+
+lean_inc.exit1059:                                ; preds = %2074, %2073, %2071, %lean_inc_n.exit1881
+  %2075 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %1688, ptr noundef %2062, ptr noundef nonnull %1978, ptr noundef nonnull %2055, ptr noundef nonnull %1786, ptr noundef nonnull %1786, ptr noundef nonnull %1786, ptr noundef nonnull %1786) #6
+  %2076 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %2077 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1688, ptr noundef %2076, ptr noundef %2075, ptr noundef %1960) #6
+  %2078 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %2077, ptr noundef %4, ptr noundef %5, ptr noundef %1739) #6
+  br label %2221
+
+2079:                                             ; preds = %lean_obj_tag.exit1852
+  %2080 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %2081 = load ptr, ptr %2080, align 8, !tbaa !4
+  %2082 = ptrtoint ptr %2081 to i64
+  %2083 = and i64 %2082, 1
+  %.not1951 = icmp eq i64 %2083, 0
+  br i1 %.not1951, label %2084, label %lean_inc.exit1058
+
+2084:                                             ; preds = %2079
+  %.val.i1885 = load i32, ptr %2081, align 4, !tbaa !8
+  %2085 = icmp sgt i32 %.val.i1885, 0
   br i1 %2085, label %2086, label %2088, !prof !13
 
 2086:                                             ; preds = %2084
-  %2087 = add nuw i32 %.val.i1882, 1
-  store i32 %2087, ptr %1700, align 4, !tbaa !8
-  br label %lean_inc.exit1059
+  %2087 = add nuw i32 %.val.i1885, 1
+  store i32 %2087, ptr %2081, align 4, !tbaa !8
+  br label %lean_inc.exit1058
 
 2088:                                             ; preds = %2084
-  %.not.i1883 = icmp eq i32 %.val.i1882, 0
-  br i1 %.not.i1883, label %lean_inc.exit1059, label %2089
+  %.not.i1886 = icmp eq i32 %.val.i1885, 0
+  br i1 %.not.i1886, label %lean_inc.exit1058, label %2089
 
 2089:                                             ; preds = %2088
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
-  br label %lean_inc.exit1059
-
-lean_inc.exit1059:                                ; preds = %2089, %2088, %2086, %lean_inc_n.exit1881
-  %2090 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %1700, ptr noundef %2077, ptr noundef nonnull %1993, ptr noundef nonnull %2070, ptr noundef nonnull %1798, ptr noundef nonnull %1798, ptr noundef nonnull %1798, ptr noundef nonnull %1798) #6
-  %2091 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %2092 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1700, ptr noundef %2091, ptr noundef %2090, ptr noundef %1975) #6
-  %2093 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %2092, ptr noundef %4, ptr noundef %5, ptr noundef %1751) #6
-  br label %2236
-
-2094:                                             ; preds = %lean_obj_tag.exit1852
-  %2095 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2096 = load ptr, ptr %2095, align 8, !tbaa !4
-  %2097 = ptrtoint ptr %2096 to i64
-  %2098 = and i64 %2097, 1
-  %.not1951 = icmp eq i64 %2098, 0
-  br i1 %.not1951, label %2099, label %lean_inc.exit1058
-
-2099:                                             ; preds = %2094
-  %.val.i1885 = load i32, ptr %2096, align 4, !tbaa !8
-  %2100 = icmp sgt i32 %.val.i1885, 0
-  br i1 %2100, label %2101, label %2103, !prof !13
-
-2101:                                             ; preds = %2099
-  %2102 = add nuw i32 %.val.i1885, 1
-  store i32 %2102, ptr %2096, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %2081) #6
   br label %lean_inc.exit1058
 
-2103:                                             ; preds = %2099
-  %.not.i1886 = icmp eq i32 %.val.i1885, 0
-  br i1 %.not.i1886, label %lean_inc.exit1058, label %2104
+lean_inc.exit1058:                                ; preds = %2089, %2088, %2086, %2079
+  br i1 %.not.i1849, label %2090, label %lean_dec.exit1188
 
-2104:                                             ; preds = %2103
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %2096) #6
-  br label %lean_inc.exit1058
+2090:                                             ; preds = %lean_inc.exit1058
+  %2091 = load i32, ptr %1, align 4, !tbaa !8
+  %2092 = icmp sgt i32 %2091, 1
+  br i1 %2092, label %2093, label %2095, !prof !13
 
-lean_inc.exit1058:                                ; preds = %2104, %2103, %2101, %2094
-  br i1 %.not.i1849, label %2105, label %lean_dec.exit1188
-
-2105:                                             ; preds = %lean_inc.exit1058
-  %2106 = load i32, ptr %1, align 4, !tbaa !8
-  %2107 = icmp sgt i32 %2106, 1
-  br i1 %2107, label %2108, label %2110, !prof !13
-
-2108:                                             ; preds = %2105
-  %2109 = add nsw i32 %2106, -1
-  store i32 %2109, ptr %1, align 4, !tbaa !8
+2093:                                             ; preds = %2090
+  %2094 = add nsw i32 %2091, -1
+  store i32 %2094, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit1188
 
-2110:                                             ; preds = %2105
-  %.not.i1328 = icmp eq i32 %2106, 0
-  br i1 %.not.i1328, label %lean_dec.exit1188, label %2111
+2095:                                             ; preds = %2090
+  %.not.i1328 = icmp eq i32 %2091, 0
+  br i1 %.not.i1328, label %lean_dec.exit1188, label %2096
 
-2111:                                             ; preds = %2110
+2096:                                             ; preds = %2095
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
   br label %lean_dec.exit1188
 
-lean_dec.exit1188:                                ; preds = %2111, %2110, %2108, %lean_inc.exit1058
-  %2112 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %2096) #6
-  %2113 = tail call ptr @l_Array_append___rarg(ptr noundef %1789, ptr noundef %2112) #6
-  %2114 = ptrtoint ptr %2112 to i64
-  %2115 = and i64 %2114, 1
-  %.not1953 = icmp eq i64 %2115, 0
-  br i1 %.not1953, label %2116, label %lean_dec.exit1187
+lean_dec.exit1188:                                ; preds = %2096, %2095, %2093, %lean_inc.exit1058
+  %2097 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %2081) #6
+  %2098 = tail call ptr @l_Array_append___rarg(ptr noundef %1777, ptr noundef %2097) #6
+  %2099 = ptrtoint ptr %2097 to i64
+  %2100 = and i64 %2099, 1
+  %.not1953 = icmp eq i64 %2100, 0
+  br i1 %.not1953, label %2101, label %lean_dec.exit1187
 
-2116:                                             ; preds = %lean_dec.exit1188
-  %2117 = load i32, ptr %2112, align 4, !tbaa !8
-  %2118 = icmp sgt i32 %2117, 1
-  br i1 %2118, label %2119, label %2121, !prof !13
+2101:                                             ; preds = %lean_dec.exit1188
+  %2102 = load i32, ptr %2097, align 4, !tbaa !8
+  %2103 = icmp sgt i32 %2102, 1
+  br i1 %2103, label %2104, label %2106, !prof !13
 
-2119:                                             ; preds = %2116
-  %2120 = add nsw i32 %2117, -1
-  store i32 %2120, ptr %2112, align 4, !tbaa !8
+2104:                                             ; preds = %2101
+  %2105 = add nsw i32 %2102, -1
+  store i32 %2105, ptr %2097, align 4, !tbaa !8
   br label %lean_dec.exit1187
 
-2121:                                             ; preds = %2116
-  %.not.i1330 = icmp eq i32 %2117, 0
-  br i1 %.not.i1330, label %lean_dec.exit1187, label %2122
+2106:                                             ; preds = %2101
+  %.not.i1330 = icmp eq i32 %2102, 0
+  br i1 %.not.i1330, label %lean_dec.exit1187, label %2107
 
-2122:                                             ; preds = %2121
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2112) #6
+2107:                                             ; preds = %2106
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2097) #6
   br label %lean_dec.exit1187
 
-lean_dec.exit1187:                                ; preds = %2122, %2121, %2119, %lean_dec.exit1188
-  br i1 %.not1946, label %2123, label %lean_inc.exit1057
+lean_dec.exit1187:                                ; preds = %2107, %2106, %2104, %lean_dec.exit1188
+  br i1 %.not1946, label %2108, label %lean_inc.exit1057
 
-2123:                                             ; preds = %lean_dec.exit1187
-  %.val.i1888 = load i32, ptr %1700, align 4, !tbaa !8
-  %2124 = icmp sgt i32 %.val.i1888, 0
-  br i1 %2124, label %2125, label %2127, !prof !13
+2108:                                             ; preds = %lean_dec.exit1187
+  %.val.i1888 = load i32, ptr %1688, align 4, !tbaa !8
+  %2109 = icmp sgt i32 %.val.i1888, 0
+  br i1 %2109, label %2110, label %2112, !prof !13
 
-2125:                                             ; preds = %2123
-  %2126 = add nuw i32 %.val.i1888, 1
-  store i32 %2126, ptr %1700, align 4, !tbaa !8
+2110:                                             ; preds = %2108
+  %2111 = add nuw i32 %.val.i1888, 1
+  store i32 %2111, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1057
 
-2127:                                             ; preds = %2123
+2112:                                             ; preds = %2108
   %.not.i1889 = icmp eq i32 %.val.i1888, 0
-  br i1 %.not.i1889, label %lean_inc.exit1057, label %2128
+  br i1 %.not.i1889, label %lean_inc.exit1057, label %2113
 
-2128:                                             ; preds = %2127
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+2113:                                             ; preds = %2112
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1057
 
-lean_inc.exit1057:                                ; preds = %2128, %2127, %2125, %lean_dec.exit1187
+lean_inc.exit1057:                                ; preds = %2113, %2112, %2110, %lean_dec.exit1187
   tail call void @lean_inc_heartbeat() #6
-  %2129 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %2130 = icmp eq ptr %2129, null
-  br i1 %2130, label %2131, label %lean_alloc_ctor.exit1891
+  %2114 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %2115 = icmp eq ptr %2114, null
+  br i1 %2115, label %2116, label %lean_alloc_ctor.exit1891
 
-2131:                                             ; preds = %lean_inc.exit1057
+2116:                                             ; preds = %lean_inc.exit1057
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1891:                         ; preds = %lean_inc.exit1057
-  %2132 = getelementptr inbounds nuw i8, ptr %2129, i64 4
-  store i32 1, ptr %2129, align 4, !tbaa !8
-  store i32 16973856, ptr %2132, align 4
-  %2133 = getelementptr inbounds nuw i8, ptr %2129, i64 8
-  store ptr %1700, ptr %2133, align 8, !tbaa !4
-  %2134 = getelementptr inbounds nuw i8, ptr %2129, i64 16
-  store ptr %1788, ptr %2134, align 8, !tbaa !4
-  %2135 = getelementptr inbounds nuw i8, ptr %2129, i64 24
-  store ptr %2113, ptr %2135, align 8, !tbaa !4
-  %2136 = ptrtoint ptr %3 to i64
-  %2137 = and i64 %2136, 1
-  %.not.i1892 = icmp eq i64 %2137, 0
-  br i1 %.not.i1892, label %2141, label %2138
+  %2117 = getelementptr inbounds nuw i8, ptr %2114, i64 4
+  store i32 1, ptr %2114, align 4, !tbaa !8
+  store i32 16973856, ptr %2117, align 4
+  %2118 = getelementptr inbounds nuw i8, ptr %2114, i64 8
+  store ptr %1688, ptr %2118, align 8, !tbaa !4
+  %2119 = getelementptr inbounds nuw i8, ptr %2114, i64 16
+  store ptr %1776, ptr %2119, align 8, !tbaa !4
+  %2120 = getelementptr inbounds nuw i8, ptr %2114, i64 24
+  store ptr %2098, ptr %2120, align 8, !tbaa !4
+  %2121 = ptrtoint ptr %3 to i64
+  %2122 = and i64 %2121, 1
+  %.not.i1892 = icmp eq i64 %2122, 0
+  br i1 %.not.i1892, label %2126, label %2123
 
-2138:                                             ; preds = %lean_alloc_ctor.exit1891
-  %2139 = lshr i64 %2136, 1
-  %2140 = trunc i64 %2139 to i32
+2123:                                             ; preds = %lean_alloc_ctor.exit1891
+  %2124 = lshr i64 %2121, 1
+  %2125 = trunc i64 %2124 to i32
   br label %lean_obj_tag.exit1895
 
-2141:                                             ; preds = %lean_alloc_ctor.exit1891
-  %2142 = getelementptr i8, ptr %3, i64 4
-  %.val.i1894 = load i32, ptr %2142, align 4
-  %2143 = lshr i32 %.val.i1894, 24
+2126:                                             ; preds = %lean_alloc_ctor.exit1891
+  %2127 = getelementptr i8, ptr %3, i64 4
+  %.val.i1894 = load i32, ptr %2127, align 4
+  %2128 = lshr i32 %.val.i1894, 24
   br label %lean_obj_tag.exit1895
 
-lean_obj_tag.exit1895:                            ; preds = %2138, %2141
-  %.0.i1893 = phi i32 [ %2140, %2138 ], [ %2143, %2141 ]
-  %2144 = icmp eq i32 %.0.i1893, 0
-  br i1 %2144, label %2145, label %2177
+lean_obj_tag.exit1895:                            ; preds = %2123, %2126
+  %.0.i1893 = phi i32 [ %2125, %2123 ], [ %2128, %2126 ]
+  %2129 = icmp eq i32 %.0.i1893, 0
+  br i1 %2129, label %2130, label %2162
 
-2145:                                             ; preds = %lean_obj_tag.exit1895
-  %2146 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
-  br i1 %.not1946, label %2147, label %lean_inc.exit1056
+2130:                                             ; preds = %lean_obj_tag.exit1895
+  %2131 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__26, align 8, !tbaa !4
+  br i1 %.not1946, label %2132, label %lean_inc.exit1056
 
-2147:                                             ; preds = %2145
-  %.val.i1896 = load i32, ptr %1700, align 4, !tbaa !8
-  %2148 = icmp sgt i32 %.val.i1896, 0
-  br i1 %2148, label %2149, label %2151, !prof !13
+2132:                                             ; preds = %2130
+  %.val.i1896 = load i32, ptr %1688, align 4, !tbaa !8
+  %2133 = icmp sgt i32 %.val.i1896, 0
+  br i1 %2133, label %2134, label %2136, !prof !13
 
-2149:                                             ; preds = %2147
-  %2150 = add nuw i32 %.val.i1896, 1
-  store i32 %2150, ptr %1700, align 4, !tbaa !8
+2134:                                             ; preds = %2132
+  %2135 = add nuw i32 %.val.i1896, 1
+  store i32 %2135, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1056
 
-2151:                                             ; preds = %2147
+2136:                                             ; preds = %2132
   %.not.i1897 = icmp eq i32 %.val.i1896, 0
-  br i1 %.not.i1897, label %lean_inc.exit1056, label %2152
+  br i1 %.not.i1897, label %lean_inc.exit1056, label %2137
 
-2152:                                             ; preds = %2151
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+2137:                                             ; preds = %2136
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1056
 
-lean_inc.exit1056:                                ; preds = %2152, %2151, %2149, %2145
+lean_inc.exit1056:                                ; preds = %2137, %2136, %2134, %2130
   tail call void @lean_inc_heartbeat() #6
-  %2153 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %2154 = icmp eq ptr %2153, null
-  br i1 %2154, label %2155, label %lean_alloc_ctor.exit1899
+  %2138 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %2139 = icmp eq ptr %2138, null
+  br i1 %2139, label %2140, label %lean_alloc_ctor.exit1899
 
-2155:                                             ; preds = %lean_inc.exit1056
+2140:                                             ; preds = %lean_inc.exit1056
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1899:                         ; preds = %lean_inc.exit1056
-  %2156 = getelementptr inbounds nuw i8, ptr %2153, i64 4
-  store i32 1, ptr %2153, align 4, !tbaa !8
-  store i32 16973856, ptr %2156, align 4
-  %2157 = getelementptr inbounds nuw i8, ptr %2153, i64 8
-  store ptr %1700, ptr %2157, align 8, !tbaa !4
-  %2158 = getelementptr inbounds nuw i8, ptr %2153, i64 16
-  store ptr %1788, ptr %2158, align 8, !tbaa !4
-  %2159 = getelementptr inbounds nuw i8, ptr %2153, i64 24
-  store ptr %2146, ptr %2159, align 8, !tbaa !4
-  %2160 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1949, label %2161, label %lean_inc_n.exit1903
+  %2141 = getelementptr inbounds nuw i8, ptr %2138, i64 4
+  store i32 1, ptr %2138, align 4, !tbaa !8
+  store i32 16973856, ptr %2141, align 4
+  %2142 = getelementptr inbounds nuw i8, ptr %2138, i64 8
+  store ptr %1688, ptr %2142, align 8, !tbaa !4
+  %2143 = getelementptr inbounds nuw i8, ptr %2138, i64 16
+  store ptr %1776, ptr %2143, align 8, !tbaa !4
+  %2144 = getelementptr inbounds nuw i8, ptr %2138, i64 24
+  store ptr %2131, ptr %2144, align 8, !tbaa !4
+  %2145 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1949, label %2146, label %lean_inc_n.exit1903
 
-2161:                                             ; preds = %lean_alloc_ctor.exit1899
-  %.val.i.i1901 = load i32, ptr %1798, align 4, !tbaa !8
-  %2162 = icmp sgt i32 %.val.i.i1901, 0
-  br i1 %2162, label %2163, label %2165, !prof !13
+2146:                                             ; preds = %lean_alloc_ctor.exit1899
+  %.val.i.i1901 = load i32, ptr %1786, align 4, !tbaa !8
+  %2147 = icmp sgt i32 %.val.i.i1901, 0
+  br i1 %2147, label %2148, label %2150, !prof !13
 
-2163:                                             ; preds = %2161
-  %2164 = add nuw i32 %.val.i.i1901, 3
-  store i32 %2164, ptr %1798, align 4, !tbaa !8
+2148:                                             ; preds = %2146
+  %2149 = add nuw i32 %.val.i.i1901, 3
+  store i32 %2149, ptr %1786, align 4, !tbaa !8
   br label %lean_inc_n.exit1903
 
-2165:                                             ; preds = %2161
+2150:                                             ; preds = %2146
   %.not.i.i1902 = icmp eq i32 %.val.i.i1901, 0
-  br i1 %.not.i.i1902, label %lean_inc_n.exit1903, label %2166
+  br i1 %.not.i.i1902, label %lean_inc_n.exit1903, label %2151
 
-2166:                                             ; preds = %2165
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1798, i32 noundef 3) #6
+2151:                                             ; preds = %2150
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1786, i32 noundef 3) #6
   br label %lean_inc_n.exit1903
 
-lean_inc_n.exit1903:                              ; preds = %lean_alloc_ctor.exit1899, %2163, %2165, %2166
-  br i1 %.not1946, label %2167, label %lean_inc.exit1055
+lean_inc_n.exit1903:                              ; preds = %lean_alloc_ctor.exit1899, %2148, %2150, %2151
+  br i1 %.not1946, label %2152, label %lean_inc.exit1055
 
-2167:                                             ; preds = %lean_inc_n.exit1903
-  %.val.i1904 = load i32, ptr %1700, align 4, !tbaa !8
-  %2168 = icmp sgt i32 %.val.i1904, 0
+2152:                                             ; preds = %lean_inc_n.exit1903
+  %.val.i1904 = load i32, ptr %1688, align 4, !tbaa !8
+  %2153 = icmp sgt i32 %.val.i1904, 0
+  br i1 %2153, label %2154, label %2156, !prof !13
+
+2154:                                             ; preds = %2152
+  %2155 = add nuw i32 %.val.i1904, 1
+  store i32 %2155, ptr %1688, align 4, !tbaa !8
+  br label %lean_inc.exit1055
+
+2156:                                             ; preds = %2152
+  %.not.i1905 = icmp eq i32 %.val.i1904, 0
+  br i1 %.not.i1905, label %lean_inc.exit1055, label %2157
+
+2157:                                             ; preds = %2156
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
+  br label %lean_inc.exit1055
+
+lean_inc.exit1055:                                ; preds = %2157, %2156, %2154, %lean_inc_n.exit1903
+  %2158 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %1688, ptr noundef %2145, ptr noundef nonnull %2114, ptr noundef nonnull %2138, ptr noundef nonnull %1786, ptr noundef nonnull %1786, ptr noundef nonnull %1786, ptr noundef nonnull %1786) #6
+  %2159 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %2160 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1688, ptr noundef %2159, ptr noundef %2158, ptr noundef %1960) #6
+  %2161 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %2160, ptr noundef %4, ptr noundef %5, ptr noundef %1739) #6
+  br label %2221
+
+2162:                                             ; preds = %lean_obj_tag.exit1895
+  %2163 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %2164 = load ptr, ptr %2163, align 8, !tbaa !4
+  %2165 = ptrtoint ptr %2164 to i64
+  %2166 = and i64 %2165, 1
+  %.not1954 = icmp eq i64 %2166, 0
+  br i1 %.not1954, label %2167, label %lean_inc.exit1054
+
+2167:                                             ; preds = %2162
+  %.val.i1907 = load i32, ptr %2164, align 4, !tbaa !8
+  %2168 = icmp sgt i32 %.val.i1907, 0
   br i1 %2168, label %2169, label %2171, !prof !13
 
 2169:                                             ; preds = %2167
-  %2170 = add nuw i32 %.val.i1904, 1
-  store i32 %2170, ptr %1700, align 4, !tbaa !8
-  br label %lean_inc.exit1055
+  %2170 = add nuw i32 %.val.i1907, 1
+  store i32 %2170, ptr %2164, align 4, !tbaa !8
+  br label %lean_inc.exit1054
 
 2171:                                             ; preds = %2167
-  %.not.i1905 = icmp eq i32 %.val.i1904, 0
-  br i1 %.not.i1905, label %lean_inc.exit1055, label %2172
+  %.not.i1908 = icmp eq i32 %.val.i1907, 0
+  br i1 %.not.i1908, label %lean_inc.exit1054, label %2172
 
 2172:                                             ; preds = %2171
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
-  br label %lean_inc.exit1055
-
-lean_inc.exit1055:                                ; preds = %2172, %2171, %2169, %lean_inc_n.exit1903
-  %2173 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %1700, ptr noundef %2160, ptr noundef nonnull %2129, ptr noundef nonnull %2153, ptr noundef nonnull %1798, ptr noundef nonnull %1798, ptr noundef nonnull %1798, ptr noundef nonnull %1798) #6
-  %2174 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %2175 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1700, ptr noundef %2174, ptr noundef %2173, ptr noundef %1975) #6
-  %2176 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %2175, ptr noundef %4, ptr noundef %5, ptr noundef %1751) #6
-  br label %2236
-
-2177:                                             ; preds = %lean_obj_tag.exit1895
-  %2178 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %2179 = load ptr, ptr %2178, align 8, !tbaa !4
-  %2180 = ptrtoint ptr %2179 to i64
-  %2181 = and i64 %2180, 1
-  %.not1954 = icmp eq i64 %2181, 0
-  br i1 %.not1954, label %2182, label %lean_inc.exit1054
-
-2182:                                             ; preds = %2177
-  %.val.i1907 = load i32, ptr %2179, align 4, !tbaa !8
-  %2183 = icmp sgt i32 %.val.i1907, 0
-  br i1 %2183, label %2184, label %2186, !prof !13
-
-2184:                                             ; preds = %2182
-  %2185 = add nuw i32 %.val.i1907, 1
-  store i32 %2185, ptr %2179, align 4, !tbaa !8
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %2164) #6
   br label %lean_inc.exit1054
 
-2186:                                             ; preds = %2182
-  %.not.i1908 = icmp eq i32 %.val.i1907, 0
-  br i1 %.not.i1908, label %lean_inc.exit1054, label %2187
+lean_inc.exit1054:                                ; preds = %2172, %2171, %2169, %2162
+  br i1 %.not.i1892, label %2173, label %lean_dec.exit1186
 
-2187:                                             ; preds = %2186
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %2179) #6
-  br label %lean_inc.exit1054
+2173:                                             ; preds = %lean_inc.exit1054
+  %2174 = load i32, ptr %3, align 4, !tbaa !8
+  %2175 = icmp sgt i32 %2174, 1
+  br i1 %2175, label %2176, label %2178, !prof !13
 
-lean_inc.exit1054:                                ; preds = %2187, %2186, %2184, %2177
-  br i1 %.not.i1892, label %2188, label %lean_dec.exit1186
-
-2188:                                             ; preds = %lean_inc.exit1054
-  %2189 = load i32, ptr %3, align 4, !tbaa !8
-  %2190 = icmp sgt i32 %2189, 1
-  br i1 %2190, label %2191, label %2193, !prof !13
-
-2191:                                             ; preds = %2188
-  %2192 = add nsw i32 %2189, -1
-  store i32 %2192, ptr %3, align 4, !tbaa !8
+2176:                                             ; preds = %2173
+  %2177 = add nsw i32 %2174, -1
+  store i32 %2177, ptr %3, align 4, !tbaa !8
   br label %lean_dec.exit1186
 
-2193:                                             ; preds = %2188
-  %.not.i1332 = icmp eq i32 %2189, 0
-  br i1 %.not.i1332, label %lean_dec.exit1186, label %2194
+2178:                                             ; preds = %2173
+  %.not.i1332 = icmp eq i32 %2174, 0
+  br i1 %.not.i1332, label %lean_dec.exit1186, label %2179
 
-2194:                                             ; preds = %2193
+2179:                                             ; preds = %2178
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %3) #6
   br label %lean_dec.exit1186
 
-lean_dec.exit1186:                                ; preds = %2194, %2193, %2191, %lean_inc.exit1054
-  %2195 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %2179) #6
-  %2196 = tail call ptr @l_Array_append___rarg(ptr noundef %1789, ptr noundef %2195) #6
-  %2197 = ptrtoint ptr %2195 to i64
-  %2198 = and i64 %2197, 1
-  %.not1956 = icmp eq i64 %2198, 0
-  br i1 %.not1956, label %2199, label %lean_dec.exit
+lean_dec.exit1186:                                ; preds = %2179, %2178, %2176, %lean_inc.exit1054
+  %2180 = tail call ptr @l_Array_mkArray1___rarg(ptr noundef %2164) #6
+  %2181 = tail call ptr @l_Array_append___rarg(ptr noundef %1777, ptr noundef %2180) #6
+  %2182 = ptrtoint ptr %2180 to i64
+  %2183 = and i64 %2182, 1
+  %.not1956 = icmp eq i64 %2183, 0
+  br i1 %.not1956, label %2184, label %lean_dec.exit
 
-2199:                                             ; preds = %lean_dec.exit1186
-  %2200 = load i32, ptr %2195, align 4, !tbaa !8
-  %2201 = icmp sgt i32 %2200, 1
-  br i1 %2201, label %2202, label %2204, !prof !13
+2184:                                             ; preds = %lean_dec.exit1186
+  %2185 = load i32, ptr %2180, align 4, !tbaa !8
+  %2186 = icmp sgt i32 %2185, 1
+  br i1 %2186, label %2187, label %2189, !prof !13
 
-2202:                                             ; preds = %2199
-  %2203 = add nsw i32 %2200, -1
-  store i32 %2203, ptr %2195, align 4, !tbaa !8
+2187:                                             ; preds = %2184
+  %2188 = add nsw i32 %2185, -1
+  store i32 %2188, ptr %2180, align 4, !tbaa !8
   br label %lean_dec.exit
 
-2204:                                             ; preds = %2199
-  %.not.i1334 = icmp eq i32 %2200, 0
-  br i1 %.not.i1334, label %lean_dec.exit, label %2205
+2189:                                             ; preds = %2184
+  %.not.i1334 = icmp eq i32 %2185, 0
+  br i1 %.not.i1334, label %lean_dec.exit, label %2190
 
-2205:                                             ; preds = %2204
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2195) #6
+2190:                                             ; preds = %2189
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %2180) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %2205, %2204, %2202, %lean_dec.exit1186
-  br i1 %.not1946, label %2206, label %lean_inc.exit1053
+lean_dec.exit:                                    ; preds = %2190, %2189, %2187, %lean_dec.exit1186
+  br i1 %.not1946, label %2191, label %lean_inc.exit1053
 
-2206:                                             ; preds = %lean_dec.exit
-  %.val.i1910 = load i32, ptr %1700, align 4, !tbaa !8
-  %2207 = icmp sgt i32 %.val.i1910, 0
-  br i1 %2207, label %2208, label %2210, !prof !13
+2191:                                             ; preds = %lean_dec.exit
+  %.val.i1910 = load i32, ptr %1688, align 4, !tbaa !8
+  %2192 = icmp sgt i32 %.val.i1910, 0
+  br i1 %2192, label %2193, label %2195, !prof !13
 
-2208:                                             ; preds = %2206
-  %2209 = add nuw i32 %.val.i1910, 1
-  store i32 %2209, ptr %1700, align 4, !tbaa !8
+2193:                                             ; preds = %2191
+  %2194 = add nuw i32 %.val.i1910, 1
+  store i32 %2194, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit1053
 
-2210:                                             ; preds = %2206
+2195:                                             ; preds = %2191
   %.not.i1911 = icmp eq i32 %.val.i1910, 0
-  br i1 %.not.i1911, label %lean_inc.exit1053, label %2211
+  br i1 %.not.i1911, label %lean_inc.exit1053, label %2196
 
-2211:                                             ; preds = %2210
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+2196:                                             ; preds = %2195
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit1053
 
-lean_inc.exit1053:                                ; preds = %2211, %2210, %2208, %lean_dec.exit
+lean_inc.exit1053:                                ; preds = %2196, %2195, %2193, %lean_dec.exit
   tail call void @lean_inc_heartbeat() #6
-  %2212 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %2213 = icmp eq ptr %2212, null
-  br i1 %2213, label %2214, label %lean_alloc_ctor.exit1913
+  %2197 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %2198 = icmp eq ptr %2197, null
+  br i1 %2198, label %2199, label %lean_alloc_ctor.exit1913
 
-2214:                                             ; preds = %lean_inc.exit1053
+2199:                                             ; preds = %lean_inc.exit1053
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_ctor.exit1913:                         ; preds = %lean_inc.exit1053
-  %2215 = getelementptr inbounds nuw i8, ptr %2212, i64 4
-  store i32 1, ptr %2212, align 4, !tbaa !8
-  store i32 16973856, ptr %2215, align 4
-  %2216 = getelementptr inbounds nuw i8, ptr %2212, i64 8
-  store ptr %1700, ptr %2216, align 8, !tbaa !4
-  %2217 = getelementptr inbounds nuw i8, ptr %2212, i64 16
-  store ptr %1788, ptr %2217, align 8, !tbaa !4
-  %2218 = getelementptr inbounds nuw i8, ptr %2212, i64 24
-  store ptr %2196, ptr %2218, align 8, !tbaa !4
-  %2219 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
-  br i1 %.not1949, label %2220, label %lean_inc_n.exit1917
+  %2200 = getelementptr inbounds nuw i8, ptr %2197, i64 4
+  store i32 1, ptr %2197, align 4, !tbaa !8
+  store i32 16973856, ptr %2200, align 4
+  %2201 = getelementptr inbounds nuw i8, ptr %2197, i64 8
+  store ptr %1688, ptr %2201, align 8, !tbaa !4
+  %2202 = getelementptr inbounds nuw i8, ptr %2197, i64 16
+  store ptr %1776, ptr %2202, align 8, !tbaa !4
+  %2203 = getelementptr inbounds nuw i8, ptr %2197, i64 24
+  store ptr %2181, ptr %2203, align 8, !tbaa !4
+  %2204 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__8, align 8, !tbaa !4
+  br i1 %.not1949, label %2205, label %lean_inc_n.exit1917
 
-2220:                                             ; preds = %lean_alloc_ctor.exit1913
-  %.val.i.i1915 = load i32, ptr %1798, align 4, !tbaa !8
-  %2221 = icmp sgt i32 %.val.i.i1915, 0
-  br i1 %2221, label %2222, label %2224, !prof !13
+2205:                                             ; preds = %lean_alloc_ctor.exit1913
+  %.val.i.i1915 = load i32, ptr %1786, align 4, !tbaa !8
+  %2206 = icmp sgt i32 %.val.i.i1915, 0
+  br i1 %2206, label %2207, label %2209, !prof !13
 
-2222:                                             ; preds = %2220
-  %2223 = add nuw i32 %.val.i.i1915, 3
-  store i32 %2223, ptr %1798, align 4, !tbaa !8
+2207:                                             ; preds = %2205
+  %2208 = add nuw i32 %.val.i.i1915, 3
+  store i32 %2208, ptr %1786, align 4, !tbaa !8
   br label %lean_inc_n.exit1917
 
-2224:                                             ; preds = %2220
+2209:                                             ; preds = %2205
   %.not.i.i1916 = icmp eq i32 %.val.i.i1915, 0
-  br i1 %.not.i.i1916, label %lean_inc_n.exit1917, label %2225
+  br i1 %.not.i.i1916, label %lean_inc_n.exit1917, label %2210
 
-2225:                                             ; preds = %2224
-  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1798, i32 noundef 3) #6
+2210:                                             ; preds = %2209
+  tail call void @lean_inc_ref_n_cold(ptr noundef nonnull %1786, i32 noundef 3) #6
   br label %lean_inc_n.exit1917
 
-lean_inc_n.exit1917:                              ; preds = %lean_alloc_ctor.exit1913, %2222, %2224, %2225
-  br i1 %.not1946, label %2226, label %lean_inc.exit
+lean_inc_n.exit1917:                              ; preds = %lean_alloc_ctor.exit1913, %2207, %2209, %2210
+  br i1 %.not1946, label %2211, label %lean_inc.exit
 
-2226:                                             ; preds = %lean_inc_n.exit1917
-  %.val.i1918 = load i32, ptr %1700, align 4, !tbaa !8
-  %2227 = icmp sgt i32 %.val.i1918, 0
-  br i1 %2227, label %2228, label %2230, !prof !13
+2211:                                             ; preds = %lean_inc_n.exit1917
+  %.val.i1918 = load i32, ptr %1688, align 4, !tbaa !8
+  %2212 = icmp sgt i32 %.val.i1918, 0
+  br i1 %2212, label %2213, label %2215, !prof !13
 
-2228:                                             ; preds = %2226
-  %2229 = add nuw i32 %.val.i1918, 1
-  store i32 %2229, ptr %1700, align 4, !tbaa !8
+2213:                                             ; preds = %2211
+  %2214 = add nuw i32 %.val.i1918, 1
+  store i32 %2214, ptr %1688, align 4, !tbaa !8
   br label %lean_inc.exit
 
-2230:                                             ; preds = %2226
+2215:                                             ; preds = %2211
   %.not.i1919 = icmp eq i32 %.val.i1918, 0
-  br i1 %.not.i1919, label %lean_inc.exit, label %2231
+  br i1 %.not.i1919, label %lean_inc.exit, label %2216
 
-2231:                                             ; preds = %2230
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1700) #6
+2216:                                             ; preds = %2215
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %1688) #6
   br label %lean_inc.exit
 
-lean_inc.exit:                                    ; preds = %2231, %2230, %2228, %lean_inc_n.exit1917
-  %2232 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %1700, ptr noundef %2219, ptr noundef nonnull %2129, ptr noundef nonnull %2212, ptr noundef nonnull %1798, ptr noundef nonnull %1798, ptr noundef nonnull %1798, ptr noundef nonnull %1798) #6
-  %2233 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
-  %2234 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1700, ptr noundef %2233, ptr noundef %2232, ptr noundef %1975) #6
-  %2235 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %2234, ptr noundef %4, ptr noundef %5, ptr noundef %1751) #6
-  br label %2236
+lean_inc.exit:                                    ; preds = %2216, %2215, %2213, %lean_inc_n.exit1917
+  %2217 = tail call ptr @l_Lean_Syntax_node6(ptr noundef %1688, ptr noundef %2204, ptr noundef nonnull %2114, ptr noundef nonnull %2197, ptr noundef nonnull %1786, ptr noundef nonnull %1786, ptr noundef nonnull %1786, ptr noundef nonnull %1786) #6
+  %2218 = load ptr, ptr @l_Lean_Elab_Command_elabAuxDef___lambda__1___closed__6, align 8, !tbaa !4
+  %2219 = tail call ptr @l_Lean_Syntax_node2(ptr noundef %1688, ptr noundef %2218, ptr noundef %2217, ptr noundef %1960) #6
+  %2220 = tail call ptr @l_Lean_Elab_Command_elabCommand(ptr noundef %2219, ptr noundef %4, ptr noundef %5, ptr noundef %1739) #6
+  br label %2221
 
-2236:                                             ; preds = %lean_inc.exit1091, %lean_inc.exit1094, %lean_inc.exit1084, %lean_inc.exit1087, %lean_inc.exit1146, %lean_inc.exit1143, %lean_inc.exit1153, %lean_inc.exit1150, %lean_inc.exit1117, %lean_inc.exit1114, %lean_inc.exit1124, %lean_inc.exit1121, %lean_inc.exit1055, %lean_inc.exit, %lean_inc.exit1062, %lean_inc.exit1059
-  %.12 = phi ptr [ %535, %lean_inc.exit1153 ], [ %594, %lean_inc.exit1150 ], [ %677, %lean_inc.exit1146 ], [ %736, %lean_inc.exit1143 ], [ %975, %lean_inc.exit1124 ], [ %1034, %lean_inc.exit1121 ], [ %1117, %lean_inc.exit1117 ], [ %1176, %lean_inc.exit1114 ], [ %1472, %lean_inc.exit1094 ], [ %1531, %lean_inc.exit1091 ], [ %1614, %lean_inc.exit1087 ], [ %1673, %lean_inc.exit1084 ], [ %2034, %lean_inc.exit1062 ], [ %2093, %lean_inc.exit1059 ], [ %2176, %lean_inc.exit1055 ], [ %2235, %lean_inc.exit ]
+2221:                                             ; preds = %lean_inc.exit1091, %lean_inc.exit1094, %lean_inc.exit1084, %lean_inc.exit1087, %lean_inc.exit1146, %lean_inc.exit1143, %lean_inc.exit1153, %lean_inc.exit1150, %lean_inc.exit1117, %lean_inc.exit1114, %lean_inc.exit1124, %lean_inc.exit1121, %lean_inc.exit1055, %lean_inc.exit, %lean_inc.exit1062, %lean_inc.exit1059
+  %.12 = phi ptr [ %529, %lean_inc.exit1153 ], [ %588, %lean_inc.exit1150 ], [ %671, %lean_inc.exit1146 ], [ %730, %lean_inc.exit1143 ], [ %966, %lean_inc.exit1124 ], [ %1025, %lean_inc.exit1121 ], [ %1108, %lean_inc.exit1117 ], [ %1167, %lean_inc.exit1114 ], [ %1460, %lean_inc.exit1094 ], [ %1519, %lean_inc.exit1091 ], [ %1602, %lean_inc.exit1087 ], [ %1661, %lean_inc.exit1084 ], [ %2019, %lean_inc.exit1062 ], [ %2078, %lean_inc.exit1059 ], [ %2161, %lean_inc.exit1055 ], [ %2220, %lean_inc.exit ]
   ret ptr %.12
 }
 
@@ -7624,181 +7594,157 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Command_elabAuxDef___spec__3___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %4, align 8, !tbaa !14
-  %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit7
+  %5 = load i32, ptr %0, align 8, !tbaa !8
+  %6 = icmp sgt i32 %5, 1
+  br i1 %6, label %7, label %9, !prof !13
 
 7:                                                ; preds = %3
-  %8 = load i32, ptr %0, align 4, !tbaa !8
-  %9 = icmp sgt i32 %8, 1
-  br i1 %9, label %10, label %12, !prof !13
-
-10:                                               ; preds = %7
-  %11 = add nsw i32 %8, -1
-  store i32 %11, ptr %0, align 4, !tbaa !8
+  %8 = add nsw i32 %5, -1
+  store i32 %8, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit7
 
-12:                                               ; preds = %7
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %lean_dec.exit7, label %13
+9:                                                ; preds = %3
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %lean_dec.exit7, label %10
 
-13:                                               ; preds = %12
+10:                                               ; preds = %9
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #6
   br label %lean_dec.exit7
 
-lean_dec.exit7:                                   ; preds = %13, %12, %10, %3
-  %14 = getelementptr i8, ptr %1, i64 8
-  %.val10 = load i64, ptr %14, align 8, !tbaa !14
-  %15 = ptrtoint ptr %1 to i64
-  %16 = and i64 %15, 1
-  %.not11 = icmp eq i64 %16, 0
-  br i1 %.not11, label %17, label %lean_dec.exit
+lean_dec.exit7:                                   ; preds = %10, %9, %7
+  %11 = getelementptr i8, ptr %1, i64 8
+  %.val10 = load i64, ptr %11, align 8, !tbaa !14
+  %12 = load i32, ptr %1, align 8, !tbaa !8
+  %13 = icmp sgt i32 %12, 1
+  br i1 %13, label %14, label %16, !prof !13
 
-17:                                               ; preds = %lean_dec.exit7
-  %18 = load i32, ptr %1, align 4, !tbaa !8
-  %19 = icmp sgt i32 %18, 1
-  br i1 %19, label %20, label %22, !prof !13
-
-20:                                               ; preds = %17
-  %21 = add nsw i32 %18, -1
-  store i32 %21, ptr %1, align 4, !tbaa !8
+14:                                               ; preds = %lean_dec.exit7
+  %15 = add nsw i32 %12, -1
+  store i32 %15, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit
 
-22:                                               ; preds = %17
-  %.not.i8 = icmp eq i32 %18, 0
-  br i1 %.not.i8, label %lean_dec.exit, label %23
+16:                                               ; preds = %lean_dec.exit7
+  %.not.i8 = icmp eq i32 %12, 0
+  br i1 %.not.i8, label %lean_dec.exit, label %17
 
-23:                                               ; preds = %22
+17:                                               ; preds = %16
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %23, %22, %20, %lean_dec.exit7
-  %24 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Command_elabAuxDef___spec__3(i64 noundef %.val, i64 noundef %.val10, ptr noundef %2)
-  ret ptr %24
+lean_dec.exit:                                    ; preds = %17, %16, %14
+  %18 = tail call ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_Command_elabAuxDef___spec__3(i64 noundef %.val, i64 noundef %.val10, ptr noundef %2)
+  ret ptr %18
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
   %.val15 = load i64, ptr %5, align 8, !tbaa !14
-  %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, 1
-  %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %lean_dec.exit10
+  %6 = load i32, ptr %1, align 8, !tbaa !8
+  %7 = icmp sgt i32 %6, 1
+  br i1 %7, label %8, label %10, !prof !13
 
 8:                                                ; preds = %4
-  %9 = load i32, ptr %1, align 4, !tbaa !8
-  %10 = icmp sgt i32 %9, 1
-  br i1 %10, label %11, label %13, !prof !13
-
-11:                                               ; preds = %8
-  %12 = add nsw i32 %9, -1
-  store i32 %12, ptr %1, align 4, !tbaa !8
+  %9 = add nsw i32 %6, -1
+  store i32 %9, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit10
 
-13:                                               ; preds = %8
-  %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %lean_dec.exit10, label %14
+10:                                               ; preds = %4
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %lean_dec.exit10, label %11
 
-14:                                               ; preds = %13
+11:                                               ; preds = %10
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #6
   br label %lean_dec.exit10
 
-lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
-  %15 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %15, align 8, !tbaa !14
-  %16 = ptrtoint ptr %2 to i64
-  %17 = and i64 %16, 1
-  %.not17 = icmp eq i64 %17, 0
-  br i1 %.not17, label %18, label %lean_dec.exit9
+lean_dec.exit10:                                  ; preds = %11, %10, %8
+  %12 = getelementptr i8, ptr %2, i64 8
+  %.val = load i64, ptr %12, align 8, !tbaa !14
+  %13 = load i32, ptr %2, align 8, !tbaa !8
+  %14 = icmp sgt i32 %13, 1
+  br i1 %14, label %15, label %17, !prof !13
 
-18:                                               ; preds = %lean_dec.exit10
-  %19 = load i32, ptr %2, align 4, !tbaa !8
-  %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %23, !prof !13
-
-21:                                               ; preds = %18
-  %22 = add nsw i32 %19, -1
-  store i32 %22, ptr %2, align 4, !tbaa !8
+15:                                               ; preds = %lean_dec.exit10
+  %16 = add nsw i32 %13, -1
+  store i32 %16, ptr %2, align 4, !tbaa !8
   br label %lean_dec.exit9
 
-23:                                               ; preds = %18
-  %.not.i11 = icmp eq i32 %19, 0
-  br i1 %.not.i11, label %lean_dec.exit9, label %24
+17:                                               ; preds = %lean_dec.exit10
+  %.not.i11 = icmp eq i32 %13, 0
+  br i1 %.not.i11, label %lean_dec.exit9, label %18
 
-24:                                               ; preds = %23
+18:                                               ; preds = %17
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #6
   br label %lean_dec.exit9
 
-lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean_dec.exit10
+lean_dec.exit9:                                   ; preds = %18, %17, %15
   %.not23.i = icmp eq i64 %.val15, %.val
   br i1 %.not23.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit9
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %26
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %20
 
-26:                                               ; preds = %37, %.lr.ph.i
-  %.01425.i = phi i64 [ %.val15, %.lr.ph.i ], [ %39, %37 ]
-  %.01624.i = phi ptr [ %3, %.lr.ph.i ], [ %38, %37 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01425.i
-  %28 = load ptr, ptr %27, align 8, !tbaa !4
-  %29 = ptrtoint ptr %28 to i64
-  %30 = and i64 %29, 1
-  %.not.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i, label %31, label %37
+20:                                               ; preds = %31, %.lr.ph.i
+  %.01425.i = phi i64 [ %.val15, %.lr.ph.i ], [ %33, %31 ]
+  %.01624.i = phi ptr [ %3, %.lr.ph.i ], [ %32, %31 ]
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01425.i
+  %22 = load ptr, ptr %21, align 8, !tbaa !4
+  %23 = ptrtoint ptr %22 to i64
+  %24 = and i64 %23, 1
+  %.not.i.i = icmp eq i64 %24, 0
+  br i1 %.not.i.i, label %25, label %31
 
-31:                                               ; preds = %26
-  %.val.i.i.i = load i32, ptr %28, align 4, !tbaa !8
-  %32 = icmp sgt i32 %.val.i.i.i, 0
-  br i1 %32, label %33, label %35, !prof !13
+25:                                               ; preds = %20
+  %.val.i.i.i = load i32, ptr %22, align 4, !tbaa !8
+  %26 = icmp sgt i32 %.val.i.i.i, 0
+  br i1 %26, label %27, label %29, !prof !13
 
-33:                                               ; preds = %31
-  %34 = add nuw i32 %.val.i.i.i, 1
-  store i32 %34, ptr %28, align 4, !tbaa !8
-  br label %37
+27:                                               ; preds = %25
+  %28 = add nuw i32 %.val.i.i.i, 1
+  store i32 %28, ptr %22, align 4, !tbaa !8
+  br label %31
 
-35:                                               ; preds = %31
+29:                                               ; preds = %25
   %.not.i.i.i = icmp eq i32 %.val.i.i.i, 0
-  br i1 %.not.i.i.i, label %37, label %36
+  br i1 %.not.i.i.i, label %31, label %30
 
-36:                                               ; preds = %35
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %28) #6
-  br label %37
+30:                                               ; preds = %29
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %22) #6
+  br label %31
 
-37:                                               ; preds = %36, %35, %33, %26
-  %38 = tail call ptr @l_Lean_Name_append(ptr noundef %.01624.i, ptr noundef %28) #6
-  %39 = add i64 %.01425.i, 1
-  %.not.i16 = icmp eq i64 %39, %.val
-  br i1 %.not.i16, label %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit, label %26
+31:                                               ; preds = %30, %29, %27, %20
+  %32 = tail call ptr @l_Lean_Name_append(ptr noundef %.01624.i, ptr noundef %22) #6
+  %33 = add i64 %.01425.i, 1
+  %.not.i16 = icmp eq i64 %33, %.val
+  br i1 %.not.i16, label %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit, label %20
 
-l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit: ; preds = %37, %lean_dec.exit9
-  %.016.lcssa.i = phi ptr [ %3, %lean_dec.exit9 ], [ %38, %37 ]
-  %40 = ptrtoint ptr %0 to i64
-  %41 = and i64 %40, 1
-  %.not18 = icmp eq i64 %41, 0
-  br i1 %.not18, label %42, label %lean_dec.exit
+l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit: ; preds = %31, %lean_dec.exit9
+  %.016.lcssa.i = phi ptr [ %3, %lean_dec.exit9 ], [ %32, %31 ]
+  %34 = ptrtoint ptr %0 to i64
+  %35 = and i64 %34, 1
+  %.not18 = icmp eq i64 %35, 0
+  br i1 %.not18, label %36, label %lean_dec.exit
 
-42:                                               ; preds = %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit
-  %43 = load i32, ptr %0, align 4, !tbaa !8
-  %44 = icmp sgt i32 %43, 1
-  br i1 %44, label %45, label %47, !prof !13
+36:                                               ; preds = %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit
+  %37 = load i32, ptr %0, align 4, !tbaa !8
+  %38 = icmp sgt i32 %37, 1
+  br i1 %38, label %39, label %41, !prof !13
 
-45:                                               ; preds = %42
-  %46 = add nsw i32 %43, -1
-  store i32 %46, ptr %0, align 4, !tbaa !8
+39:                                               ; preds = %36
+  %40 = add nsw i32 %37, -1
+  store i32 %40, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-47:                                               ; preds = %42
-  %.not.i13 = icmp eq i32 %43, 0
-  br i1 %.not.i13, label %lean_dec.exit, label %48
+41:                                               ; preds = %36
+  %.not.i13 = icmp eq i32 %37, 0
+  br i1 %.not.i13, label %lean_dec.exit, label %42
 
-48:                                               ; preds = %47
+42:                                               ; preds = %41
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %48, %47, %45, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit
+lean_dec.exit:                                    ; preds = %42, %41, %39, %l_Array_foldlMUnsafe_fold___at_Lean_Elab_Command_elabAuxDef___spec__4.exit
   ret ptr %.016.lcssa.i
 }
 

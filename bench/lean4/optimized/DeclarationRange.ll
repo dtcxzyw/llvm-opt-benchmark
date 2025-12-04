@@ -1772,30 +1772,24 @@ lean_alloc_ctor.exit27:                           ; preds = %lean_alloc_ctor.exi
   store ptr %28, ptr %36, align 8, !tbaa !4
   %37 = tail call ptr @l_Lean_Elab_getDeclarationSelectionRef(ptr noundef %0)
   %38 = tail call ptr @l_Lean_Elab_addDeclarationRangesFromSyntax___rarg(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %30, ptr noundef %37)
-  %39 = ptrtoint ptr %30 to i64
-  %40 = and i64 %39, 1
-  %.not28 = icmp eq i64 %40, 0
-  br i1 %.not28, label %41, label %lean_dec.exit
+  %39 = load i32, ptr %30, align 8, !tbaa !8
+  %40 = icmp sgt i32 %39, 1
+  br i1 %40, label %41, label %43, !prof !11
 
 41:                                               ; preds = %lean_alloc_ctor.exit27
-  %42 = load i32, ptr %30, align 4, !tbaa !8
-  %43 = icmp sgt i32 %42, 1
-  br i1 %43, label %44, label %46, !prof !11
-
-44:                                               ; preds = %41
-  %45 = add nsw i32 %42, -1
-  store i32 %45, ptr %30, align 4, !tbaa !8
+  %42 = add nsw i32 %39, -1
+  store i32 %42, ptr %30, align 4, !tbaa !8
   br label %lean_dec.exit
 
-46:                                               ; preds = %41
-  %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %lean_dec.exit, label %47
+43:                                               ; preds = %lean_alloc_ctor.exit27
+  %.not.i = icmp eq i32 %39, 0
+  br i1 %.not.i, label %lean_dec.exit, label %44
 
-47:                                               ; preds = %46
+44:                                               ; preds = %43
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %30) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %47, %46, %44, %lean_alloc_ctor.exit27
+lean_dec.exit:                                    ; preds = %44, %43, %41
   ret ptr %38
 }
 

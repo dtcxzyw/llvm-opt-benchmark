@@ -162,118 +162,106 @@ lean_uint32_log2.exit:                            ; preds = %lean_uint32_log2.ex
 define noalias nonnull ptr @l_UInt64_log2___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %2, align 8, !tbaa !14
-  %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %3 = load i32, ptr %0, align 8, !tbaa !4
+  %4 = icmp sgt i32 %3, 1
+  br i1 %4, label %5, label %7, !prof !9
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !4
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !9
-
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !4
+  %6 = add nsw i32 %3, -1
+  store i32 %6, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+7:                                                ; preds = %1
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %lean_dec.exit, label %8
 
-11:                                               ; preds = %10
+8:                                                ; preds = %7
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8, %1
-  %12 = icmp ugt i64 %.val, 1
-  br i1 %12, label %.lr.ph.i, label %lean_uint64_log2.exit
+lean_dec.exit:                                    ; preds = %8, %7, %5
+  %9 = icmp ugt i64 %.val, 1
+  br i1 %9, label %.lr.ph.i, label %lean_uint64_log2.exit
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit, %.lr.ph.i
-  %.06.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %lean_dec.exit ]
-  %.045.i = phi i64 [ %14, %.lr.ph.i ], [ %.val, %lean_dec.exit ]
-  %13 = add nuw nsw i64 %.06.i, 1
-  %14 = lshr i64 %.045.i, 1
-  %15 = icmp ugt i64 %.045.i, 3
-  br i1 %15, label %.lr.ph.i, label %lean_uint64_log2.exit, !llvm.loop !16
+  %.06.i = phi i64 [ %10, %.lr.ph.i ], [ 0, %lean_dec.exit ]
+  %.045.i = phi i64 [ %11, %.lr.ph.i ], [ %.val, %lean_dec.exit ]
+  %10 = add nuw nsw i64 %.06.i, 1
+  %11 = lshr i64 %.045.i, 1
+  %12 = icmp ugt i64 %.045.i, 3
+  br i1 %12, label %.lr.ph.i, label %lean_uint64_log2.exit, !llvm.loop !16
 
 lean_uint64_log2.exit:                            ; preds = %.lr.ph.i, %lean_dec.exit
-  %.0.lcssa.i = phi i64 [ 0, %lean_dec.exit ], [ %13, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 0, %lean_dec.exit ], [ %10, %.lr.ph.i ]
   tail call void @lean_inc_heartbeat() #3
-  %16 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %lean_box_uint64.exit
+  %13 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %lean_box_uint64.exit
 
-18:                                               ; preds = %lean_uint64_log2.exit
+15:                                               ; preds = %lean_uint64_log2.exit
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
 lean_box_uint64.exit:                             ; preds = %lean_uint64_log2.exit
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 1, ptr %16, align 4, !tbaa !4
-  store i32 16, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %.0.lcssa.i, ptr %20, align 8, !tbaa !14
-  ret ptr %16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 1, ptr %13, align 4, !tbaa !4
+  store i32 16, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %.0.lcssa.i, ptr %17, align 8, !tbaa !14
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_USize_log2___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %2, align 8, !tbaa !14
-  %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %3 = load i32, ptr %0, align 8, !tbaa !4
+  %4 = icmp sgt i32 %3, 1
+  br i1 %4, label %5, label %7, !prof !9
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !4
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !9
-
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !4
+  %6 = add nsw i32 %3, -1
+  store i32 %6, ptr %0, align 4, !tbaa !4
   br label %lean_dec.exit
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+7:                                                ; preds = %1
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %lean_dec.exit, label %8
 
-11:                                               ; preds = %10
+8:                                                ; preds = %7
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8, %1
-  %12 = icmp ugt i64 %.val, 1
-  br i1 %12, label %.lr.ph.i, label %lean_usize_log2.exit
+lean_dec.exit:                                    ; preds = %8, %7, %5
+  %9 = icmp ugt i64 %.val, 1
+  br i1 %9, label %.lr.ph.i, label %lean_usize_log2.exit
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit, %.lr.ph.i
-  %.06.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %lean_dec.exit ]
-  %.045.i = phi i64 [ %14, %.lr.ph.i ], [ %.val, %lean_dec.exit ]
-  %13 = add nuw nsw i64 %.06.i, 1
-  %14 = lshr i64 %.045.i, 1
-  %15 = icmp ugt i64 %.045.i, 3
-  br i1 %15, label %.lr.ph.i, label %lean_usize_log2.exit, !llvm.loop !17
+  %.06.i = phi i64 [ %10, %.lr.ph.i ], [ 0, %lean_dec.exit ]
+  %.045.i = phi i64 [ %11, %.lr.ph.i ], [ %.val, %lean_dec.exit ]
+  %10 = add nuw nsw i64 %.06.i, 1
+  %11 = lshr i64 %.045.i, 1
+  %12 = icmp ugt i64 %.045.i, 3
+  br i1 %12, label %.lr.ph.i, label %lean_usize_log2.exit, !llvm.loop !17
 
 lean_usize_log2.exit:                             ; preds = %.lr.ph.i, %lean_dec.exit
-  %.0.lcssa.i = phi i64 [ 0, %lean_dec.exit ], [ %13, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 0, %lean_dec.exit ], [ %10, %.lr.ph.i ]
   tail call void @lean_inc_heartbeat() #3
-  %16 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %lean_box_usize.exit
+  %13 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %lean_box_usize.exit
 
-18:                                               ; preds = %lean_usize_log2.exit
+15:                                               ; preds = %lean_usize_log2.exit
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
 lean_box_usize.exit:                              ; preds = %lean_usize_log2.exit
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 1, ptr %16, align 4, !tbaa !4
-  store i32 16, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %.0.lcssa.i, ptr %20, align 8, !tbaa !14
-  ret ptr %16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 1, ptr %13, align 4, !tbaa !4
+  store i32 16, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %.0.lcssa.i, ptr %17, align 8, !tbaa !14
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable

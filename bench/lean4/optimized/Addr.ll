@@ -506,59 +506,53 @@ define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddressV4____
   %.val12.i = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
-  %11 = ptrtoint ptr %1 to i64
-  %12 = and i64 %11, 1
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %13, label %lean_dec.exit5
+  %11 = load i32, ptr %1, align 8, !tbaa !8
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %13, label %15, !prof !13
 
 13:                                               ; preds = %2
-  %14 = load i32, ptr %1, align 4, !tbaa !8
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %18, !prof !13
-
-16:                                               ; preds = %13
-  %17 = add nsw i32 %14, -1
-  store i32 %17, ptr %1, align 4, !tbaa !8
+  %14 = add nsw i32 %11, -1
+  store i32 %14, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit5
 
-18:                                               ; preds = %13
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %19
+15:                                               ; preds = %2
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %16
 
-19:                                               ; preds = %18
+16:                                               ; preds = %15
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #7
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %19, %18, %16, %2
-  %20 = ptrtoint ptr %0 to i64
-  %21 = and i64 %20, 1
-  %.not8 = icmp eq i64 %21, 0
-  br i1 %.not8, label %22, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %16, %15, %13
+  %17 = ptrtoint ptr %0 to i64
+  %18 = and i64 %17, 1
+  %.not8 = icmp eq i64 %18, 0
+  br i1 %.not8, label %19, label %lean_dec.exit
 
-22:                                               ; preds = %lean_dec.exit5
-  %23 = load i32, ptr %0, align 4, !tbaa !8
-  %24 = icmp sgt i32 %23, 1
-  br i1 %24, label %25, label %27, !prof !13
+19:                                               ; preds = %lean_dec.exit5
+  %20 = load i32, ptr %0, align 4, !tbaa !8
+  %21 = icmp sgt i32 %20, 1
+  br i1 %21, label %22, label %24, !prof !13
 
-25:                                               ; preds = %22
-  %26 = add nsw i32 %23, -1
-  store i32 %26, ptr %0, align 4, !tbaa !8
+22:                                               ; preds = %19
+  %23 = add nsw i32 %20, -1
+  store i32 %23, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-27:                                               ; preds = %22
-  %.not.i6 = icmp eq i32 %23, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %28
+24:                                               ; preds = %19
+  %.not.i6 = icmp eq i32 %20, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %25
 
-28:                                               ; preds = %27
+25:                                               ; preds = %24
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #7
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %28, %27, %25, %lean_dec.exit5
-  %29 = icmp ne i8 %10, 0
-  %30 = icmp eq i16 %.val.i, %.val12.i
-  %narrow.i = select i1 %29, i1 %30, i1 false
-  %31 = select i1 %narrow.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %31
+lean_dec.exit:                                    ; preds = %25, %24, %22, %lean_dec.exit5
+  %26 = icmp ne i8 %10, 0
+  %27 = icmp eq i16 %.val.i, %.val12.i
+  %narrow.i = select i1 %26, i1 %27, i1 false
+  %28 = select i1 %narrow.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -592,59 +586,53 @@ define nonnull ptr @l_Std_Net_instDecidableEqSocketAddressV4___boxed(ptr noundef
   %.val12.i.i = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqMACAddr____x40_Std_Net_Addr___hyg_29____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
-  %11 = ptrtoint ptr %1 to i64
-  %12 = and i64 %11, 1
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %13, label %lean_dec.exit5
+  %11 = load i32, ptr %1, align 8, !tbaa !8
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %13, label %15, !prof !13
 
 13:                                               ; preds = %2
-  %14 = load i32, ptr %1, align 4, !tbaa !8
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %18, !prof !13
-
-16:                                               ; preds = %13
-  %17 = add nsw i32 %14, -1
-  store i32 %17, ptr %1, align 4, !tbaa !8
+  %14 = add nsw i32 %11, -1
+  store i32 %14, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit5
 
-18:                                               ; preds = %13
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %19
+15:                                               ; preds = %2
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %16
 
-19:                                               ; preds = %18
+16:                                               ; preds = %15
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #7
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %19, %18, %16, %2
-  %20 = ptrtoint ptr %0 to i64
-  %21 = and i64 %20, 1
-  %.not8 = icmp eq i64 %21, 0
-  br i1 %.not8, label %22, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %16, %15, %13
+  %17 = ptrtoint ptr %0 to i64
+  %18 = and i64 %17, 1
+  %.not8 = icmp eq i64 %18, 0
+  br i1 %.not8, label %19, label %lean_dec.exit
 
-22:                                               ; preds = %lean_dec.exit5
-  %23 = load i32, ptr %0, align 4, !tbaa !8
-  %24 = icmp sgt i32 %23, 1
-  br i1 %24, label %25, label %27, !prof !13
+19:                                               ; preds = %lean_dec.exit5
+  %20 = load i32, ptr %0, align 4, !tbaa !8
+  %21 = icmp sgt i32 %20, 1
+  br i1 %21, label %22, label %24, !prof !13
 
-25:                                               ; preds = %22
-  %26 = add nsw i32 %23, -1
-  store i32 %26, ptr %0, align 4, !tbaa !8
+22:                                               ; preds = %19
+  %23 = add nsw i32 %20, -1
+  store i32 %23, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-27:                                               ; preds = %22
-  %.not.i6 = icmp eq i32 %23, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %28
+24:                                               ; preds = %19
+  %.not.i6 = icmp eq i32 %20, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %25
 
-28:                                               ; preds = %27
+25:                                               ; preds = %24
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #7
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %28, %27, %25, %lean_dec.exit5
-  %29 = icmp ne i8 %10, 0
-  %30 = icmp eq i16 %.val.i.i, %.val12.i.i
-  %narrow.i.i = select i1 %29, i1 %30, i1 false
-  %31 = select i1 %narrow.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %31
+lean_dec.exit:                                    ; preds = %25, %24, %22, %lean_dec.exit5
+  %26 = icmp ne i8 %10, 0
+  %27 = icmp eq i16 %.val.i.i, %.val12.i.i
+  %narrow.i.i = select i1 %26, i1 %27, i1 false
+  %28 = select i1 %narrow.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -986,59 +974,53 @@ define nonnull ptr @l___private_Std_Net_Addr_0__Std_Net_decEqSocketAddressV6____
   %.val.i = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
-  %11 = ptrtoint ptr %1 to i64
-  %12 = and i64 %11, 1
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %13, label %lean_dec.exit5
+  %11 = load i32, ptr %1, align 8, !tbaa !8
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %13, label %15, !prof !13
 
 13:                                               ; preds = %2
-  %14 = load i32, ptr %1, align 4, !tbaa !8
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %18, !prof !13
-
-16:                                               ; preds = %13
-  %17 = add nsw i32 %14, -1
-  store i32 %17, ptr %1, align 4, !tbaa !8
+  %14 = add nsw i32 %11, -1
+  store i32 %14, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit5
 
-18:                                               ; preds = %13
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %19
+15:                                               ; preds = %2
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %16
 
-19:                                               ; preds = %18
+16:                                               ; preds = %15
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #7
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %19, %18, %16, %2
-  %20 = ptrtoint ptr %0 to i64
-  %21 = and i64 %20, 1
-  %.not8 = icmp eq i64 %21, 0
-  br i1 %.not8, label %22, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %16, %15, %13
+  %17 = ptrtoint ptr %0 to i64
+  %18 = and i64 %17, 1
+  %.not8 = icmp eq i64 %18, 0
+  br i1 %.not8, label %19, label %lean_dec.exit
 
-22:                                               ; preds = %lean_dec.exit5
-  %23 = load i32, ptr %0, align 4, !tbaa !8
-  %24 = icmp sgt i32 %23, 1
-  br i1 %24, label %25, label %27, !prof !13
+19:                                               ; preds = %lean_dec.exit5
+  %20 = load i32, ptr %0, align 4, !tbaa !8
+  %21 = icmp sgt i32 %20, 1
+  br i1 %21, label %22, label %24, !prof !13
 
-25:                                               ; preds = %22
-  %26 = add nsw i32 %23, -1
-  store i32 %26, ptr %0, align 4, !tbaa !8
+22:                                               ; preds = %19
+  %23 = add nsw i32 %20, -1
+  store i32 %23, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-27:                                               ; preds = %22
-  %.not.i6 = icmp eq i32 %23, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %28
+24:                                               ; preds = %19
+  %.not.i6 = icmp eq i32 %20, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %25
 
-28:                                               ; preds = %27
+25:                                               ; preds = %24
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #7
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %28, %27, %25, %lean_dec.exit5
-  %29 = icmp ne i8 %10, 0
-  %30 = icmp eq i16 %.val12.i, %.val.i
-  %narrow.i = select i1 %29, i1 %30, i1 false
-  %31 = select i1 %narrow.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %31
+lean_dec.exit:                                    ; preds = %25, %24, %22, %lean_dec.exit5
+  %26 = icmp ne i8 %10, 0
+  %27 = icmp eq i16 %.val12.i, %.val.i
+  %narrow.i = select i1 %26, i1 %27, i1 false
+  %28 = select i1 %narrow.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1072,59 +1054,53 @@ define nonnull ptr @l_Std_Net_instDecidableEqSocketAddressV6___boxed(ptr noundef
   %.val.i.i = load i16, ptr %8, align 8, !tbaa !11
   %9 = load ptr, ptr @l___private_Init_Data_Vector_Basic_0__decEqVector____x40_Init_Data_Vector_Basic___hyg_100____at___private_Std_Net_Addr_0__Std_Net_decEqIPv6Addr____x40_Std_Net_Addr___hyg_433____spec__1___rarg___closed__1, align 8, !tbaa !4
   %10 = tail call zeroext i8 @l_Array_instDecidableEq___rarg(ptr noundef %9, ptr noundef %4, ptr noundef %7) #7
-  %11 = ptrtoint ptr %1 to i64
-  %12 = and i64 %11, 1
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %13, label %lean_dec.exit5
+  %11 = load i32, ptr %1, align 8, !tbaa !8
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %13, label %15, !prof !13
 
 13:                                               ; preds = %2
-  %14 = load i32, ptr %1, align 4, !tbaa !8
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %18, !prof !13
-
-16:                                               ; preds = %13
-  %17 = add nsw i32 %14, -1
-  store i32 %17, ptr %1, align 4, !tbaa !8
+  %14 = add nsw i32 %11, -1
+  store i32 %14, ptr %1, align 4, !tbaa !8
   br label %lean_dec.exit5
 
-18:                                               ; preds = %13
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %lean_dec.exit5, label %19
+15:                                               ; preds = %2
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %lean_dec.exit5, label %16
 
-19:                                               ; preds = %18
+16:                                               ; preds = %15
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %1) #7
   br label %lean_dec.exit5
 
-lean_dec.exit5:                                   ; preds = %19, %18, %16, %2
-  %20 = ptrtoint ptr %0 to i64
-  %21 = and i64 %20, 1
-  %.not8 = icmp eq i64 %21, 0
-  br i1 %.not8, label %22, label %lean_dec.exit
+lean_dec.exit5:                                   ; preds = %16, %15, %13
+  %17 = ptrtoint ptr %0 to i64
+  %18 = and i64 %17, 1
+  %.not8 = icmp eq i64 %18, 0
+  br i1 %.not8, label %19, label %lean_dec.exit
 
-22:                                               ; preds = %lean_dec.exit5
-  %23 = load i32, ptr %0, align 4, !tbaa !8
-  %24 = icmp sgt i32 %23, 1
-  br i1 %24, label %25, label %27, !prof !13
+19:                                               ; preds = %lean_dec.exit5
+  %20 = load i32, ptr %0, align 4, !tbaa !8
+  %21 = icmp sgt i32 %20, 1
+  br i1 %21, label %22, label %24, !prof !13
 
-25:                                               ; preds = %22
-  %26 = add nsw i32 %23, -1
-  store i32 %26, ptr %0, align 4, !tbaa !8
+22:                                               ; preds = %19
+  %23 = add nsw i32 %20, -1
+  store i32 %23, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-27:                                               ; preds = %22
-  %.not.i6 = icmp eq i32 %23, 0
-  br i1 %.not.i6, label %lean_dec.exit, label %28
+24:                                               ; preds = %19
+  %.not.i6 = icmp eq i32 %20, 0
+  br i1 %.not.i6, label %lean_dec.exit, label %25
 
-28:                                               ; preds = %27
+25:                                               ; preds = %24
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #7
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %28, %27, %25, %lean_dec.exit5
-  %29 = icmp ne i8 %10, 0
-  %30 = icmp eq i16 %.val12.i.i, %.val.i.i
-  %narrow.i.i = select i1 %29, i1 %30, i1 false
-  %31 = select i1 %narrow.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
-  ret ptr %31
+lean_dec.exit:                                    ; preds = %25, %24, %22, %lean_dec.exit5
+  %26 = icmp ne i8 %10, 0
+  %27 = icmp eq i16 %.val12.i.i, %.val.i.i
+  %narrow.i.i = select i1 %26, i1 %27, i1 false
+  %28 = select i1 %narrow.i.i, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+  ret ptr %28
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3717,35 +3693,29 @@ define nonnull ptr @l_Std_Net_SocketAddress_port___boxed(ptr noundef %0) local_u
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr i8, ptr %3, i64 16
   %.val.i = load i16, ptr %4, align 2, !tbaa !11
-  %5 = ptrtoint ptr %0 to i64
-  %6 = and i64 %5, 1
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %lean_dec.exit
+  %5 = load i32, ptr %0, align 8, !tbaa !8
+  %6 = icmp sgt i32 %5, 1
+  br i1 %6, label %7, label %9, !prof !13
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %0, align 4, !tbaa !8
-  %9 = icmp sgt i32 %8, 1
-  br i1 %9, label %10, label %12, !prof !13
-
-10:                                               ; preds = %7
-  %11 = add nsw i32 %8, -1
-  store i32 %11, ptr %0, align 4, !tbaa !8
+  %8 = add nsw i32 %5, -1
+  store i32 %8, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-12:                                               ; preds = %7
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %lean_dec.exit, label %13
+9:                                                ; preds = %1
+  %.not.i = icmp eq i32 %5, 0
+  br i1 %.not.i, label %lean_dec.exit, label %10
 
-13:                                               ; preds = %12
+10:                                               ; preds = %9
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #7
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %13, %12, %10, %1
-  %14 = zext i16 %.val.i to i64
-  %15 = shl nuw nsw i64 %14, 1
-  %16 = or disjoint i64 %15, 1
-  %17 = inttoptr i64 %16 to ptr
-  ret ptr %17
+lean_dec.exit:                                    ; preds = %10, %9, %7
+  %11 = zext i16 %.val.i to i64
+  %12 = shl nuw nsw i64 %11, 1
+  %13 = or disjoint i64 %12, 1
+  %14 = inttoptr i64 %13 to ptr
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable

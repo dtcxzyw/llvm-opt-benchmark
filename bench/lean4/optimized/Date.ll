@@ -3829,259 +3829,241 @@ lean_inc.exit33:                                  ; preds = %11, %10, %8, %1
   %19 = load ptr, ptr @l_Lake_lpad___closed__1, align 8, !tbaa !13
   %20 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_lpad___spec__1(i32 noundef 48, ptr noundef nonnull %.1.i.i.i, ptr noundef %19)
   %21 = tail call ptr @lean_string_append(ptr noundef %20, ptr noundef nonnull %12) #3
-  %22 = ptrtoint ptr %12 to i64
-  %23 = and i64 %22, 1
-  %.not.i41 = icmp eq i64 %23, 0
-  br i1 %.not.i41, label %24, label %l_Lake_zpad.exit
+  %22 = load i32, ptr %12, align 8, !tbaa !5
+  %23 = icmp sgt i32 %22, 1
+  br i1 %23, label %24, label %26, !prof !10
 
 24:                                               ; preds = %lean_inc.exit33
-  %25 = load i32, ptr %12, align 4, !tbaa !5
-  %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %27, label %29, !prof !10
-
-27:                                               ; preds = %24
-  %28 = add nsw i32 %25, -1
-  store i32 %28, ptr %12, align 4, !tbaa !5
+  %25 = add nsw i32 %22, -1
+  store i32 %25, ptr %12, align 4, !tbaa !5
   br label %l_Lake_zpad.exit
 
-29:                                               ; preds = %24
-  %.not.i.i = icmp eq i32 %25, 0
-  br i1 %.not.i.i, label %l_Lake_zpad.exit, label %30
+26:                                               ; preds = %lean_inc.exit33
+  %.not.i.i = icmp eq i32 %22, 0
+  br i1 %.not.i.i, label %l_Lake_zpad.exit, label %27
 
-30:                                               ; preds = %29
+27:                                               ; preds = %26
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %12) #3
   br label %l_Lake_zpad.exit
 
-l_Lake_zpad.exit:                                 ; preds = %lean_inc.exit33, %27, %29, %30
-  %31 = load ptr, ptr @l_Lake_lpad___closed__1, align 8, !tbaa !13
-  %32 = tail call ptr @lean_string_append(ptr noundef %31, ptr noundef %21) #3
-  %33 = ptrtoint ptr %21 to i64
-  %34 = and i64 %33, 1
-  %.not60 = icmp eq i64 %34, 0
-  br i1 %.not60, label %35, label %lean_dec.exit31
+l_Lake_zpad.exit:                                 ; preds = %24, %26, %27
+  %28 = load ptr, ptr @l_Lake_lpad___closed__1, align 8, !tbaa !13
+  %29 = tail call ptr @lean_string_append(ptr noundef %28, ptr noundef %21) #3
+  %30 = ptrtoint ptr %21 to i64
+  %31 = and i64 %30, 1
+  %.not60 = icmp eq i64 %31, 0
+  br i1 %.not60, label %32, label %lean_dec.exit31
 
-35:                                               ; preds = %l_Lake_zpad.exit
-  %36 = load i32, ptr %21, align 4, !tbaa !5
-  %37 = icmp sgt i32 %36, 1
-  br i1 %37, label %38, label %40, !prof !10
+32:                                               ; preds = %l_Lake_zpad.exit
+  %33 = load i32, ptr %21, align 4, !tbaa !5
+  %34 = icmp sgt i32 %33, 1
+  br i1 %34, label %35, label %37, !prof !10
 
-38:                                               ; preds = %35
-  %39 = add nsw i32 %36, -1
-  store i32 %39, ptr %21, align 4, !tbaa !5
+35:                                               ; preds = %32
+  %36 = add nsw i32 %33, -1
+  store i32 %36, ptr %21, align 4, !tbaa !5
   br label %lean_dec.exit31
 
-40:                                               ; preds = %35
-  %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %lean_dec.exit31, label %41
+37:                                               ; preds = %32
+  %.not.i = icmp eq i32 %33, 0
+  br i1 %.not.i, label %lean_dec.exit31, label %38
 
-41:                                               ; preds = %40
+38:                                               ; preds = %37
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %21) #3
   br label %lean_dec.exit31
 
-lean_dec.exit31:                                  ; preds = %41, %40, %38, %l_Lake_zpad.exit
-  %42 = load ptr, ptr @l_Lake_Date_toString___closed__1, align 8, !tbaa !13
-  %43 = tail call ptr @lean_string_append(ptr noundef %32, ptr noundef %42) #3
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !13
-  %46 = ptrtoint ptr %45 to i64
-  %47 = and i64 %46, 1
-  %.not61 = icmp eq i64 %47, 0
-  br i1 %.not61, label %48, label %lean_inc.exit32
+lean_dec.exit31:                                  ; preds = %38, %37, %35, %l_Lake_zpad.exit
+  %39 = load ptr, ptr @l_Lake_Date_toString___closed__1, align 8, !tbaa !13
+  %40 = tail call ptr @lean_string_append(ptr noundef %29, ptr noundef %39) #3
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !13
+  %43 = ptrtoint ptr %42 to i64
+  %44 = and i64 %43, 1
+  %.not61 = icmp eq i64 %44, 0
+  br i1 %.not61, label %45, label %lean_inc.exit32
 
-48:                                               ; preds = %lean_dec.exit31
-  %.val.i42 = load i32, ptr %45, align 4, !tbaa !5
-  %49 = icmp sgt i32 %.val.i42, 0
-  br i1 %49, label %50, label %52, !prof !10
+45:                                               ; preds = %lean_dec.exit31
+  %.val.i42 = load i32, ptr %42, align 4, !tbaa !5
+  %46 = icmp sgt i32 %.val.i42, 0
+  br i1 %46, label %47, label %49, !prof !10
 
-50:                                               ; preds = %48
-  %51 = add nuw i32 %.val.i42, 1
-  store i32 %51, ptr %45, align 4, !tbaa !5
+47:                                               ; preds = %45
+  %48 = add nuw i32 %.val.i42, 1
+  store i32 %48, ptr %42, align 4, !tbaa !5
   br label %lean_inc.exit32
 
-52:                                               ; preds = %48
+49:                                               ; preds = %45
   %.not.i43 = icmp eq i32 %.val.i42, 0
-  br i1 %.not.i43, label %lean_inc.exit32, label %53
+  br i1 %.not.i43, label %lean_inc.exit32, label %50
 
-53:                                               ; preds = %52
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %45) #3
+50:                                               ; preds = %49
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %42) #3
   br label %lean_inc.exit32
 
-lean_inc.exit32:                                  ; preds = %53, %52, %50, %lean_dec.exit31
-  %54 = tail call ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef %45) #3
-  %55 = getelementptr i8, ptr %54, i64 24
-  %.val.i.i45 = load i64, ptr %55, align 8, !tbaa !11
-  %56 = and i64 %.val.i.i45, 9223372036854775807
-  %57 = icmp samesign ugt i64 %56, 2
-  %58 = shl i64 %.val.i.i45, 1
-  %59 = sub i64 5, %58
-  %60 = inttoptr i64 %59 to ptr
-  %.1.i.i.i47 = select i1 %57, ptr inttoptr (i64 1 to ptr), ptr %60
-  %61 = load ptr, ptr @l_Lake_lpad___closed__1, align 8, !tbaa !13
-  %62 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_lpad___spec__1(i32 noundef 48, ptr noundef nonnull %.1.i.i.i47, ptr noundef %61)
-  %63 = tail call ptr @lean_string_append(ptr noundef %62, ptr noundef nonnull %54) #3
-  %64 = ptrtoint ptr %54 to i64
-  %65 = and i64 %64, 1
-  %.not.i48 = icmp eq i64 %65, 0
-  br i1 %.not.i48, label %66, label %l_Lake_zpad.exit50
+lean_inc.exit32:                                  ; preds = %50, %49, %47, %lean_dec.exit31
+  %51 = tail call ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef %42) #3
+  %52 = getelementptr i8, ptr %51, i64 24
+  %.val.i.i45 = load i64, ptr %52, align 8, !tbaa !11
+  %53 = and i64 %.val.i.i45, 9223372036854775807
+  %54 = icmp samesign ugt i64 %53, 2
+  %55 = shl i64 %.val.i.i45, 1
+  %56 = sub i64 5, %55
+  %57 = inttoptr i64 %56 to ptr
+  %.1.i.i.i47 = select i1 %54, ptr inttoptr (i64 1 to ptr), ptr %57
+  %58 = load ptr, ptr @l_Lake_lpad___closed__1, align 8, !tbaa !13
+  %59 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_lpad___spec__1(i32 noundef 48, ptr noundef nonnull %.1.i.i.i47, ptr noundef %58)
+  %60 = tail call ptr @lean_string_append(ptr noundef %59, ptr noundef nonnull %51) #3
+  %61 = load i32, ptr %51, align 8, !tbaa !5
+  %62 = icmp sgt i32 %61, 1
+  br i1 %62, label %63, label %65, !prof !10
 
-66:                                               ; preds = %lean_inc.exit32
-  %67 = load i32, ptr %54, align 4, !tbaa !5
-  %68 = icmp sgt i32 %67, 1
-  br i1 %68, label %69, label %71, !prof !10
-
-69:                                               ; preds = %66
-  %70 = add nsw i32 %67, -1
-  store i32 %70, ptr %54, align 4, !tbaa !5
+63:                                               ; preds = %lean_inc.exit32
+  %64 = add nsw i32 %61, -1
+  store i32 %64, ptr %51, align 4, !tbaa !5
   br label %l_Lake_zpad.exit50
 
-71:                                               ; preds = %66
-  %.not.i.i49 = icmp eq i32 %67, 0
-  br i1 %.not.i.i49, label %l_Lake_zpad.exit50, label %72
+65:                                               ; preds = %lean_inc.exit32
+  %.not.i.i49 = icmp eq i32 %61, 0
+  br i1 %.not.i.i49, label %l_Lake_zpad.exit50, label %66
 
-72:                                               ; preds = %71
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %54) #3
+66:                                               ; preds = %65
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %51) #3
   br label %l_Lake_zpad.exit50
 
-l_Lake_zpad.exit50:                               ; preds = %lean_inc.exit32, %69, %71, %72
-  %73 = tail call ptr @lean_string_append(ptr noundef %43, ptr noundef %63) #3
-  %74 = ptrtoint ptr %63 to i64
-  %75 = and i64 %74, 1
-  %.not62 = icmp eq i64 %75, 0
-  br i1 %.not62, label %76, label %lean_dec.exit30
+l_Lake_zpad.exit50:                               ; preds = %63, %65, %66
+  %67 = tail call ptr @lean_string_append(ptr noundef %40, ptr noundef %60) #3
+  %68 = ptrtoint ptr %60 to i64
+  %69 = and i64 %68, 1
+  %.not62 = icmp eq i64 %69, 0
+  br i1 %.not62, label %70, label %lean_dec.exit30
 
-76:                                               ; preds = %l_Lake_zpad.exit50
-  %77 = load i32, ptr %63, align 4, !tbaa !5
-  %78 = icmp sgt i32 %77, 1
-  br i1 %78, label %79, label %81, !prof !10
+70:                                               ; preds = %l_Lake_zpad.exit50
+  %71 = load i32, ptr %60, align 4, !tbaa !5
+  %72 = icmp sgt i32 %71, 1
+  br i1 %72, label %73, label %75, !prof !10
 
-79:                                               ; preds = %76
-  %80 = add nsw i32 %77, -1
-  store i32 %80, ptr %63, align 4, !tbaa !5
+73:                                               ; preds = %70
+  %74 = add nsw i32 %71, -1
+  store i32 %74, ptr %60, align 4, !tbaa !5
   br label %lean_dec.exit30
 
-81:                                               ; preds = %76
-  %.not.i34 = icmp eq i32 %77, 0
-  br i1 %.not.i34, label %lean_dec.exit30, label %82
+75:                                               ; preds = %70
+  %.not.i34 = icmp eq i32 %71, 0
+  br i1 %.not.i34, label %lean_dec.exit30, label %76
 
-82:                                               ; preds = %81
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %63) #3
+76:                                               ; preds = %75
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %60) #3
   br label %lean_dec.exit30
 
-lean_dec.exit30:                                  ; preds = %82, %81, %79, %l_Lake_zpad.exit50
-  %83 = tail call ptr @lean_string_append(ptr noundef %73, ptr noundef %42) #3
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %85 = load ptr, ptr %84, align 8, !tbaa !13
-  %86 = ptrtoint ptr %85 to i64
-  %87 = and i64 %86, 1
-  %.not63 = icmp eq i64 %87, 0
-  br i1 %.not63, label %88, label %lean_inc.exit
+lean_dec.exit30:                                  ; preds = %76, %75, %73, %l_Lake_zpad.exit50
+  %77 = tail call ptr @lean_string_append(ptr noundef %67, ptr noundef %39) #3
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !13
+  %80 = ptrtoint ptr %79 to i64
+  %81 = and i64 %80, 1
+  %.not63 = icmp eq i64 %81, 0
+  br i1 %.not63, label %82, label %lean_inc.exit
 
-88:                                               ; preds = %lean_dec.exit30
-  %.val.i51 = load i32, ptr %85, align 4, !tbaa !5
-  %89 = icmp sgt i32 %.val.i51, 0
-  br i1 %89, label %90, label %92, !prof !10
+82:                                               ; preds = %lean_dec.exit30
+  %.val.i51 = load i32, ptr %79, align 4, !tbaa !5
+  %83 = icmp sgt i32 %.val.i51, 0
+  br i1 %83, label %84, label %86, !prof !10
 
-90:                                               ; preds = %88
-  %91 = add nuw i32 %.val.i51, 1
-  store i32 %91, ptr %85, align 4, !tbaa !5
+84:                                               ; preds = %82
+  %85 = add nuw i32 %.val.i51, 1
+  store i32 %85, ptr %79, align 4, !tbaa !5
   br label %lean_inc.exit
 
-92:                                               ; preds = %88
+86:                                               ; preds = %82
   %.not.i52 = icmp eq i32 %.val.i51, 0
-  br i1 %.not.i52, label %lean_inc.exit, label %93
+  br i1 %.not.i52, label %lean_inc.exit, label %87
 
-93:                                               ; preds = %92
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %85) #3
+87:                                               ; preds = %86
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %79) #3
   br label %lean_inc.exit
 
-lean_inc.exit:                                    ; preds = %93, %92, %90, %lean_dec.exit30
-  %94 = ptrtoint ptr %0 to i64
-  %95 = and i64 %94, 1
-  %.not64 = icmp eq i64 %95, 0
-  br i1 %.not64, label %96, label %lean_dec.exit29
+lean_inc.exit:                                    ; preds = %87, %86, %84, %lean_dec.exit30
+  %88 = ptrtoint ptr %0 to i64
+  %89 = and i64 %88, 1
+  %.not64 = icmp eq i64 %89, 0
+  br i1 %.not64, label %90, label %lean_dec.exit29
 
-96:                                               ; preds = %lean_inc.exit
-  %97 = load i32, ptr %0, align 4, !tbaa !5
-  %98 = icmp sgt i32 %97, 1
-  br i1 %98, label %99, label %101, !prof !10
+90:                                               ; preds = %lean_inc.exit
+  %91 = load i32, ptr %0, align 4, !tbaa !5
+  %92 = icmp sgt i32 %91, 1
+  br i1 %92, label %93, label %95, !prof !10
 
-99:                                               ; preds = %96
-  %100 = add nsw i32 %97, -1
-  store i32 %100, ptr %0, align 4, !tbaa !5
+93:                                               ; preds = %90
+  %94 = add nsw i32 %91, -1
+  store i32 %94, ptr %0, align 4, !tbaa !5
   br label %lean_dec.exit29
 
-101:                                              ; preds = %96
-  %.not.i36 = icmp eq i32 %97, 0
-  br i1 %.not.i36, label %lean_dec.exit29, label %102
+95:                                               ; preds = %90
+  %.not.i36 = icmp eq i32 %91, 0
+  br i1 %.not.i36, label %lean_dec.exit29, label %96
 
-102:                                              ; preds = %101
+96:                                               ; preds = %95
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit29
 
-lean_dec.exit29:                                  ; preds = %102, %101, %99, %lean_inc.exit
-  %103 = tail call ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef %85) #3
-  %104 = getelementptr i8, ptr %103, i64 24
-  %.val.i.i54 = load i64, ptr %104, align 8, !tbaa !11
-  %105 = and i64 %.val.i.i54, 9223372036854775807
-  %106 = icmp samesign ugt i64 %105, 2
-  %107 = shl i64 %.val.i.i54, 1
-  %108 = sub i64 5, %107
-  %109 = inttoptr i64 %108 to ptr
-  %.1.i.i.i56 = select i1 %106, ptr inttoptr (i64 1 to ptr), ptr %109
-  %110 = load ptr, ptr @l_Lake_lpad___closed__1, align 8, !tbaa !13
-  %111 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_lpad___spec__1(i32 noundef 48, ptr noundef nonnull %.1.i.i.i56, ptr noundef %110)
-  %112 = tail call ptr @lean_string_append(ptr noundef %111, ptr noundef nonnull %103) #3
-  %113 = ptrtoint ptr %103 to i64
-  %114 = and i64 %113, 1
-  %.not.i57 = icmp eq i64 %114, 0
-  br i1 %.not.i57, label %115, label %l_Lake_zpad.exit59
+lean_dec.exit29:                                  ; preds = %96, %95, %93, %lean_inc.exit
+  %97 = tail call ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef %79) #3
+  %98 = getelementptr i8, ptr %97, i64 24
+  %.val.i.i54 = load i64, ptr %98, align 8, !tbaa !11
+  %99 = and i64 %.val.i.i54, 9223372036854775807
+  %100 = icmp samesign ugt i64 %99, 2
+  %101 = shl i64 %.val.i.i54, 1
+  %102 = sub i64 5, %101
+  %103 = inttoptr i64 %102 to ptr
+  %.1.i.i.i56 = select i1 %100, ptr inttoptr (i64 1 to ptr), ptr %103
+  %104 = load ptr, ptr @l_Lake_lpad___closed__1, align 8, !tbaa !13
+  %105 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_lpad___spec__1(i32 noundef 48, ptr noundef nonnull %.1.i.i.i56, ptr noundef %104)
+  %106 = tail call ptr @lean_string_append(ptr noundef %105, ptr noundef nonnull %97) #3
+  %107 = load i32, ptr %97, align 8, !tbaa !5
+  %108 = icmp sgt i32 %107, 1
+  br i1 %108, label %109, label %111, !prof !10
 
-115:                                              ; preds = %lean_dec.exit29
-  %116 = load i32, ptr %103, align 4, !tbaa !5
-  %117 = icmp sgt i32 %116, 1
-  br i1 %117, label %118, label %120, !prof !10
-
-118:                                              ; preds = %115
-  %119 = add nsw i32 %116, -1
-  store i32 %119, ptr %103, align 4, !tbaa !5
+109:                                              ; preds = %lean_dec.exit29
+  %110 = add nsw i32 %107, -1
+  store i32 %110, ptr %97, align 4, !tbaa !5
   br label %l_Lake_zpad.exit59
 
-120:                                              ; preds = %115
-  %.not.i.i58 = icmp eq i32 %116, 0
-  br i1 %.not.i.i58, label %l_Lake_zpad.exit59, label %121
+111:                                              ; preds = %lean_dec.exit29
+  %.not.i.i58 = icmp eq i32 %107, 0
+  br i1 %.not.i.i58, label %l_Lake_zpad.exit59, label %112
 
-121:                                              ; preds = %120
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %103) #3
+112:                                              ; preds = %111
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %97) #3
   br label %l_Lake_zpad.exit59
 
-l_Lake_zpad.exit59:                               ; preds = %lean_dec.exit29, %118, %120, %121
-  %122 = tail call ptr @lean_string_append(ptr noundef %83, ptr noundef %112) #3
-  %123 = ptrtoint ptr %112 to i64
-  %124 = and i64 %123, 1
-  %.not65 = icmp eq i64 %124, 0
-  br i1 %.not65, label %125, label %lean_dec.exit
+l_Lake_zpad.exit59:                               ; preds = %109, %111, %112
+  %113 = tail call ptr @lean_string_append(ptr noundef %77, ptr noundef %106) #3
+  %114 = ptrtoint ptr %106 to i64
+  %115 = and i64 %114, 1
+  %.not65 = icmp eq i64 %115, 0
+  br i1 %.not65, label %116, label %lean_dec.exit
 
-125:                                              ; preds = %l_Lake_zpad.exit59
-  %126 = load i32, ptr %112, align 4, !tbaa !5
-  %127 = icmp sgt i32 %126, 1
-  br i1 %127, label %128, label %130, !prof !10
+116:                                              ; preds = %l_Lake_zpad.exit59
+  %117 = load i32, ptr %106, align 4, !tbaa !5
+  %118 = icmp sgt i32 %117, 1
+  br i1 %118, label %119, label %121, !prof !10
 
-128:                                              ; preds = %125
-  %129 = add nsw i32 %126, -1
-  store i32 %129, ptr %112, align 4, !tbaa !5
+119:                                              ; preds = %116
+  %120 = add nsw i32 %117, -1
+  store i32 %120, ptr %106, align 4, !tbaa !5
   br label %lean_dec.exit
 
-130:                                              ; preds = %125
-  %.not.i38 = icmp eq i32 %126, 0
-  br i1 %.not.i38, label %lean_dec.exit, label %131
+121:                                              ; preds = %116
+  %.not.i38 = icmp eq i32 %117, 0
+  br i1 %.not.i38, label %lean_dec.exit, label %122
 
-131:                                              ; preds = %130
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %112) #3
+122:                                              ; preds = %121
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %106) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %131, %130, %128, %l_Lake_zpad.exit59
-  %132 = tail call ptr @lean_string_append(ptr noundef %122, ptr noundef %31) #3
-  ret ptr %132
+lean_dec.exit:                                    ; preds = %122, %121, %119, %l_Lake_zpad.exit59
+  %123 = tail call ptr @lean_string_append(ptr noundef %113, ptr noundef %28) #3
+  ret ptr %123
 }
 
 ; Function Attrs: nounwind uwtable

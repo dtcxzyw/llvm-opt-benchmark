@@ -9,267 +9,237 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @l_Float_toInt8___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load double, ptr %2, align 8, !tbaa !4
-  %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %3 = load i32, ptr %0, align 8, !tbaa !8
+  %4 = icmp sgt i32 %3, 1
+  br i1 %4, label %5, label %7, !prof !11
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !8
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !11
-
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !8
+  %6 = add nsw i32 %3, -1
+  store i32 %6, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+7:                                                ; preds = %1
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %lean_dec.exit, label %8
 
-11:                                               ; preds = %10
+8:                                                ; preds = %7
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8, %1
-  %12 = tail call zeroext i8 @lean_float_isnan(double noundef %.val) #3
-  %.not.i4 = icmp eq i8 %12, 0
-  br i1 %.not.i4, label %13, label %lean_float_to_int8.exit
+lean_dec.exit:                                    ; preds = %8, %7, %5
+  %9 = tail call zeroext i8 @lean_float_isnan(double noundef %.val) #3
+  %.not.i4 = icmp eq i8 %9, 0
+  br i1 %.not.i4, label %10, label %lean_float_to_int8.exit
 
-13:                                               ; preds = %lean_dec.exit
-  %14 = fcmp ogt double %.val, -1.290000e+02
-  %15 = fcmp olt double %.val, 1.280000e+02
-  %16 = fptosi double %.val to i8
-  %17 = zext i8 %16 to i64
-  %18 = shl nuw nsw i64 %17, 1
-  %19 = or disjoint i64 %18, 1
-  %20 = select i1 %15, i64 %19, i64 255
-  %21 = select i1 %14, i64 %20, i64 257
+10:                                               ; preds = %lean_dec.exit
+  %11 = fcmp ogt double %.val, -1.290000e+02
+  %12 = fcmp olt double %.val, 1.280000e+02
+  %13 = fptosi double %.val to i8
+  %14 = zext i8 %13 to i64
+  %15 = shl nuw nsw i64 %14, 1
+  %16 = or disjoint i64 %15, 1
+  %17 = select i1 %12, i64 %16, i64 255
+  %18 = select i1 %11, i64 %17, i64 257
   br label %lean_float_to_int8.exit
 
-lean_float_to_int8.exit:                          ; preds = %lean_dec.exit, %13
-  %.0.i = phi i64 [ %21, %13 ], [ 1, %lean_dec.exit ]
-  %22 = inttoptr i64 %.0.i to ptr
-  ret ptr %22
+lean_float_to_int8.exit:                          ; preds = %lean_dec.exit, %10
+  %.0.i = phi i64 [ %18, %10 ], [ 1, %lean_dec.exit ]
+  %19 = inttoptr i64 %.0.i to ptr
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Float_toInt16___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load double, ptr %2, align 8, !tbaa !4
-  %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %3 = load i32, ptr %0, align 8, !tbaa !8
+  %4 = icmp sgt i32 %3, 1
+  br i1 %4, label %5, label %7, !prof !11
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !8
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !11
-
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !8
+  %6 = add nsw i32 %3, -1
+  store i32 %6, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+7:                                                ; preds = %1
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %lean_dec.exit, label %8
 
-11:                                               ; preds = %10
+8:                                                ; preds = %7
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8, %1
-  %12 = tail call zeroext i8 @lean_float_isnan(double noundef %.val) #3
-  %.not.i4 = icmp eq i8 %12, 0
-  br i1 %.not.i4, label %13, label %lean_float_to_int16.exit
+lean_dec.exit:                                    ; preds = %8, %7, %5
+  %9 = tail call zeroext i8 @lean_float_isnan(double noundef %.val) #3
+  %.not.i4 = icmp eq i8 %9, 0
+  br i1 %.not.i4, label %10, label %lean_float_to_int16.exit
 
-13:                                               ; preds = %lean_dec.exit
-  %14 = fcmp ogt double %.val, -3.276900e+04
-  %15 = fcmp olt double %.val, 3.276800e+04
-  %16 = fptosi double %.val to i16
-  %17 = zext i16 %16 to i64
-  %18 = shl nuw nsw i64 %17, 1
-  %19 = or disjoint i64 %18, 1
-  %20 = select i1 %15, i64 %19, i64 65535
-  %21 = select i1 %14, i64 %20, i64 65537
+10:                                               ; preds = %lean_dec.exit
+  %11 = fcmp ogt double %.val, -3.276900e+04
+  %12 = fcmp olt double %.val, 3.276800e+04
+  %13 = fptosi double %.val to i16
+  %14 = zext i16 %13 to i64
+  %15 = shl nuw nsw i64 %14, 1
+  %16 = or disjoint i64 %15, 1
+  %17 = select i1 %12, i64 %16, i64 65535
+  %18 = select i1 %11, i64 %17, i64 65537
   br label %lean_float_to_int16.exit
 
-lean_float_to_int16.exit:                         ; preds = %lean_dec.exit, %13
-  %.0.i = phi i64 [ %21, %13 ], [ 1, %lean_dec.exit ]
-  %22 = inttoptr i64 %.0.i to ptr
-  ret ptr %22
+lean_float_to_int16.exit:                         ; preds = %lean_dec.exit, %10
+  %.0.i = phi i64 [ %18, %10 ], [ 1, %lean_dec.exit ]
+  %19 = inttoptr i64 %.0.i to ptr
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Float_toInt32___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load double, ptr %2, align 8, !tbaa !4
-  %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %3 = load i32, ptr %0, align 8, !tbaa !8
+  %4 = icmp sgt i32 %3, 1
+  br i1 %4, label %5, label %7, !prof !11
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !8
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !11
-
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !8
+  %6 = add nsw i32 %3, -1
+  store i32 %6, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+7:                                                ; preds = %1
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %lean_dec.exit, label %8
 
-11:                                               ; preds = %10
+8:                                                ; preds = %7
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8, %1
-  %12 = tail call zeroext i8 @lean_float_isnan(double noundef %.val) #3
-  %.not.i4 = icmp eq i8 %12, 0
-  br i1 %.not.i4, label %13, label %lean_float_to_int32.exit
+lean_dec.exit:                                    ; preds = %8, %7, %5
+  %9 = tail call zeroext i8 @lean_float_isnan(double noundef %.val) #3
+  %.not.i4 = icmp eq i8 %9, 0
+  br i1 %.not.i4, label %10, label %lean_float_to_int32.exit
 
-13:                                               ; preds = %lean_dec.exit
-  %14 = fcmp ogt double %.val, 0xC1E0000000200000
-  %15 = fcmp olt double %.val, 0x41E0000000000000
-  %16 = fptosi double %.val to i32
-  %17 = zext i32 %16 to i64
-  %18 = shl nuw nsw i64 %17, 1
-  %19 = or disjoint i64 %18, 1
-  %20 = select i1 %15, i64 %19, i64 4294967295
-  %21 = select i1 %14, i64 %20, i64 4294967297
+10:                                               ; preds = %lean_dec.exit
+  %11 = fcmp ogt double %.val, 0xC1E0000000200000
+  %12 = fcmp olt double %.val, 0x41E0000000000000
+  %13 = fptosi double %.val to i32
+  %14 = zext i32 %13 to i64
+  %15 = shl nuw nsw i64 %14, 1
+  %16 = or disjoint i64 %15, 1
+  %17 = select i1 %12, i64 %16, i64 4294967295
+  %18 = select i1 %11, i64 %17, i64 4294967297
   br label %lean_float_to_int32.exit
 
-lean_float_to_int32.exit:                         ; preds = %lean_dec.exit, %13
-  %.0.i = phi i64 [ %21, %13 ], [ 1, %lean_dec.exit ]
-  %22 = inttoptr i64 %.0.i to ptr
-  ret ptr %22
+lean_float_to_int32.exit:                         ; preds = %lean_dec.exit, %10
+  %.0.i = phi i64 [ %18, %10 ], [ 1, %lean_dec.exit ]
+  %19 = inttoptr i64 %.0.i to ptr
+  ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_Float_toInt64___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load double, ptr %2, align 8, !tbaa !4
-  %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %3 = load i32, ptr %0, align 8, !tbaa !8
+  %4 = icmp sgt i32 %3, 1
+  br i1 %4, label %5, label %7, !prof !11
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !8
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !11
-
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !8
+  %6 = add nsw i32 %3, -1
+  store i32 %6, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+7:                                                ; preds = %1
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %lean_dec.exit, label %8
 
-11:                                               ; preds = %10
+8:                                                ; preds = %7
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8, %1
-  %12 = tail call zeroext i8 @lean_float_isnan(double noundef %.val) #3
-  %.not.i4 = icmp eq i8 %12, 0
-  br i1 %.not.i4, label %13, label %lean_float_to_int64.exit
+lean_dec.exit:                                    ; preds = %8, %7, %5
+  %9 = tail call zeroext i8 @lean_float_isnan(double noundef %.val) #3
+  %.not.i4 = icmp eq i8 %9, 0
+  br i1 %.not.i4, label %10, label %lean_float_to_int64.exit
 
-13:                                               ; preds = %lean_dec.exit
-  %14 = fcmp ogt double %.val, 0xC3E0000000000000
-  %15 = fcmp olt double %.val, 0x43E0000000000000
-  %16 = fptosi double %.val to i64
-  %17 = select i1 %15, i64 %16, i64 9223372036854775807
-  %18 = select i1 %14, i64 %17, i64 -9223372036854775808
+10:                                               ; preds = %lean_dec.exit
+  %11 = fcmp ogt double %.val, 0xC3E0000000000000
+  %12 = fcmp olt double %.val, 0x43E0000000000000
+  %13 = fptosi double %.val to i64
+  %14 = select i1 %12, i64 %13, i64 9223372036854775807
+  %15 = select i1 %11, i64 %14, i64 -9223372036854775808
   br label %lean_float_to_int64.exit
 
-lean_float_to_int64.exit:                         ; preds = %lean_dec.exit, %13
-  %.0.i = phi i64 [ %18, %13 ], [ 0, %lean_dec.exit ]
+lean_float_to_int64.exit:                         ; preds = %lean_dec.exit, %10
+  %.0.i = phi i64 [ %15, %10 ], [ 0, %lean_dec.exit ]
   tail call void @lean_inc_heartbeat() #3
-  %19 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %lean_box_uint64.exit
+  %16 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %lean_box_uint64.exit
 
-21:                                               ; preds = %lean_float_to_int64.exit
+18:                                               ; preds = %lean_float_to_int64.exit
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
 lean_box_uint64.exit:                             ; preds = %lean_float_to_int64.exit
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 1, ptr %19, align 4, !tbaa !8
-  store i32 16, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 %.0.i, ptr %23, align 8, !tbaa !12
-  ret ptr %19
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 1, ptr %16, align 4, !tbaa !8
+  store i32 16, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 %.0.i, ptr %20, align 8, !tbaa !12
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_Float_toISize___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load double, ptr %2, align 8, !tbaa !4
-  %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %3 = load i32, ptr %0, align 8, !tbaa !8
+  %4 = icmp sgt i32 %3, 1
+  br i1 %4, label %5, label %7, !prof !11
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !8
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !11
-
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !8
+  %6 = add nsw i32 %3, -1
+  store i32 %6, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+7:                                                ; preds = %1
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %lean_dec.exit, label %8
 
-11:                                               ; preds = %10
+8:                                                ; preds = %7
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8, %1
-  %12 = tail call zeroext i8 @lean_float_isnan(double noundef %.val) #3
-  %.not.i4 = icmp eq i8 %12, 0
-  br i1 %.not.i4, label %13, label %lean_float_to_isize.exit
+lean_dec.exit:                                    ; preds = %8, %7, %5
+  %9 = tail call zeroext i8 @lean_float_isnan(double noundef %.val) #3
+  %.not.i4 = icmp eq i8 %9, 0
+  br i1 %.not.i4, label %10, label %lean_float_to_isize.exit
 
-13:                                               ; preds = %lean_dec.exit
-  %14 = fcmp ogt double %.val, 0xC3E0000000000000
-  %15 = fcmp olt double %.val, 0x43E0000000000000
-  %16 = fptosi double %.val to i64
-  %17 = select i1 %15, i64 %16, i64 9223372036854775807
-  %18 = select i1 %14, i64 %17, i64 -9223372036854775808
+10:                                               ; preds = %lean_dec.exit
+  %11 = fcmp ogt double %.val, 0xC3E0000000000000
+  %12 = fcmp olt double %.val, 0x43E0000000000000
+  %13 = fptosi double %.val to i64
+  %14 = select i1 %12, i64 %13, i64 9223372036854775807
+  %15 = select i1 %11, i64 %14, i64 -9223372036854775808
   br label %lean_float_to_isize.exit
 
-lean_float_to_isize.exit:                         ; preds = %lean_dec.exit, %13
-  %.0.i = phi i64 [ %18, %13 ], [ 0, %lean_dec.exit ]
+lean_float_to_isize.exit:                         ; preds = %lean_dec.exit, %10
+  %.0.i = phi i64 [ %15, %10 ], [ 0, %lean_dec.exit ]
   tail call void @lean_inc_heartbeat() #3
-  %19 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %lean_box_usize.exit
+  %16 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %lean_box_usize.exit
 
-21:                                               ; preds = %lean_float_to_isize.exit
+18:                                               ; preds = %lean_float_to_isize.exit
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
 lean_box_usize.exit:                              ; preds = %lean_float_to_isize.exit
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 1, ptr %19, align 4, !tbaa !8
-  store i32 16, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 %.0.i, ptr %23, align 8, !tbaa !12
-  ret ptr %19
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 1, ptr %16, align 4, !tbaa !8
+  store i32 16, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 %.0.i, ptr %20, align 8, !tbaa !12
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
@@ -417,94 +387,82 @@ lean_box_float.exit:                              ; preds = %lean_dec.exit
 define noalias nonnull ptr @l_Int64_toFloat___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %2, align 8, !tbaa !12
-  %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %3 = load i32, ptr %0, align 8, !tbaa !8
+  %4 = icmp sgt i32 %3, 1
+  br i1 %4, label %5, label %7, !prof !11
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !8
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !11
-
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !8
+  %6 = add nsw i32 %3, -1
+  store i32 %6, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+7:                                                ; preds = %1
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %lean_dec.exit, label %8
 
-11:                                               ; preds = %10
+8:                                                ; preds = %7
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8, %1
+lean_dec.exit:                                    ; preds = %8, %7, %5
   tail call void @lean_inc_heartbeat() #3
-  %12 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %lean_box_float.exit
+  %9 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %lean_box_float.exit
 
-14:                                               ; preds = %lean_dec.exit
+11:                                               ; preds = %lean_dec.exit
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
 lean_box_float.exit:                              ; preds = %lean_dec.exit
-  %15 = sitofp i64 %.val to double
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 1, ptr %12, align 4, !tbaa !8
-  store i32 16, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double %15, ptr %17, align 8, !tbaa !4
-  ret ptr %12
+  %12 = sitofp i64 %.val to double
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 1, ptr %9, align 4, !tbaa !8
+  store i32 16, ptr %13, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store double %12, ptr %14, align 8, !tbaa !4
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_ISize_toFloat___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load i64, ptr %2, align 8, !tbaa !12
-  %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, 1
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %lean_dec.exit
+  %3 = load i32, ptr %0, align 8, !tbaa !8
+  %4 = icmp sgt i32 %3, 1
+  br i1 %4, label %5, label %7, !prof !11
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %0, align 4, !tbaa !8
-  %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !11
-
-8:                                                ; preds = %5
-  %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %0, align 4, !tbaa !8
+  %6 = add nsw i32 %3, -1
+  store i32 %6, ptr %0, align 4, !tbaa !8
   br label %lean_dec.exit
 
-10:                                               ; preds = %5
-  %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %lean_dec.exit, label %11
+7:                                                ; preds = %1
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %lean_dec.exit, label %8
 
-11:                                               ; preds = %10
+8:                                                ; preds = %7
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %11, %10, %8, %1
+lean_dec.exit:                                    ; preds = %8, %7, %5
   tail call void @lean_inc_heartbeat() #3
-  %12 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %lean_box_float.exit
+  %9 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #3
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %lean_box_float.exit
 
-14:                                               ; preds = %lean_dec.exit
+11:                                               ; preds = %lean_dec.exit
   tail call void @lean_internal_panic_out_of_memory() #4
   unreachable
 
 lean_box_float.exit:                              ; preds = %lean_dec.exit
-  %15 = sitofp i64 %.val to double
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 1, ptr %12, align 4, !tbaa !8
-  store i32 16, ptr %16, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store double %15, ptr %17, align 8, !tbaa !4
-  ret ptr %12
+  %12 = sitofp i64 %.val to double
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 1, ptr %9, align 4, !tbaa !8
+  store i32 16, ptr %13, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store double %12, ptr %14, align 8, !tbaa !4
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
