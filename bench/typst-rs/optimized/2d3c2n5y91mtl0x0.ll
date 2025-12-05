@@ -46723,8 +46723,8 @@ common.resume:                                    ; preds = %77, %.body.thread.i
   br label %138
 
 138:                                              ; preds = %133, %128
-  %.sroa.019.034 = phi ptr [ null, %128 ], [ %134, %133 ]
-  store ptr %.sroa.019.034, ptr %0, align 8, !alias.scope !8939, !noalias !8942
+  %.sroa.019.033 = phi ptr [ null, %128 ], [ %134, %133 ]
+  store ptr %.sroa.019.033, ptr %0, align 8, !alias.scope !8939, !noalias !8942
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %25
 
@@ -165507,17 +165507,17 @@ define void @"_ZN81_$LT$typst..text..lang..Region$u20$as$u20$typst..foundations.
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %22
 
-66:                                               ; preds = %29, %.thread30
+66:                                               ; preds = %29, %.thread32
   %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #63
   unreachable
 
-.thread:                                          ; preds = %29, %25, %.thread30
-  %.pn29 = phi { ptr, i32 } [ %14, %.thread30 ], [ %26, %25 ], [ %26, %29 ]
-  resume { ptr, i32 } %.pn29
+.thread:                                          ; preds = %29, %25, %.thread32
+  %.pn31 = phi { ptr, i32 } [ %14, %.thread30 ], [ %26, %25 ], [ %26, %29 ]
+  resume { ptr, i32 } %.pn31
 
-.thread30:                                        ; preds = %13
+.thread32:                                        ; preds = %13
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.3683678558897460461"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #61
           to label %.thread unwind label %66
 }

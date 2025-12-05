@@ -1501,32 +1501,32 @@ print_indent.exit:                                ; preds = %.lr.ph.i
   %31 = call double @io_time_get(ptr noundef %30, i32 noundef 8) #19
   %32 = getelementptr inbounds nuw %struct.minmax, ptr %14, i64 %indvars.iv
   store double %31, ptr %32, align 8, !tbaa !78
-  %.sroa.5117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store double %31, ptr %.sroa.5117.0..sroa_idx, align 8, !tbaa !78
-  %.sroa.6118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store double %31, ptr %.sroa.6118.0..sroa_idx, align 8, !tbaa !78
-  %.sroa.7119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store i64 0, ptr %.sroa.7119.0..sroa_idx, align 8
+  %.sroa.5116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store double %31, ptr %.sroa.5116.0..sroa_idx, align 8, !tbaa !78
+  %.sroa.6117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store double %31, ptr %.sroa.6117.0..sroa_idx, align 8, !tbaa !78
+  %.sroa.7118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 24
+  store i64 0, ptr %.sroa.7118.0..sroa_idx, align 8
   %33 = load ptr, ptr %26, align 8, !tbaa !75
   %34 = call double @io_time_get(ptr noundef %33, i32 noundef 10) #19
   %35 = getelementptr inbounds nuw %struct.minmax, ptr %15, i64 %indvars.iv
   store double %34, ptr %35, align 8, !tbaa !78
-  %.sroa.5113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store double %34, ptr %.sroa.5113.0..sroa_idx, align 8, !tbaa !78
-  %.sroa.6114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store double %34, ptr %.sroa.6114.0..sroa_idx, align 8, !tbaa !78
-  %.sroa.7115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store i64 0, ptr %.sroa.7115.0..sroa_idx, align 8
+  %.sroa.5112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store double %34, ptr %.sroa.5112.0..sroa_idx, align 8, !tbaa !78
+  %.sroa.6113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store double %34, ptr %.sroa.6113.0..sroa_idx, align 8, !tbaa !78
+  %.sroa.7114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store i64 0, ptr %.sroa.7114.0..sroa_idx, align 8
   %36 = load ptr, ptr %26, align 8, !tbaa !75
   %37 = call double @io_time_get(ptr noundef %36, i32 noundef 12) #19
   %38 = getelementptr inbounds nuw %struct.minmax, ptr %16, i64 %indvars.iv
   store double %37, ptr %38, align 8, !tbaa !78
-  %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store double %37, ptr %.sroa.5109.0..sroa_idx, align 8, !tbaa !78
-  %.sroa.6110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store double %37, ptr %.sroa.6110.0..sroa_idx, align 8, !tbaa !78
-  %.sroa.7111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store i64 0, ptr %.sroa.7111.0..sroa_idx, align 8
+  %.sroa.5108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store double %37, ptr %.sroa.5108.0..sroa_idx, align 8, !tbaa !78
+  %.sroa.6109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store double %37, ptr %.sroa.6109.0..sroa_idx, align 8, !tbaa !78
+  %.sroa.7110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 24
+  store i64 0, ptr %.sroa.7110.0..sroa_idx, align 8
   br i1 %.not, label %39, label %52
 
 39:                                               ; preds = %27
@@ -1534,22 +1534,22 @@ print_indent.exit:                                ; preds = %.lr.ph.i
   %41 = call double @io_time_get(ptr noundef %40, i32 noundef 3) #19
   %42 = getelementptr inbounds nuw %struct.minmax, ptr %.065, i64 %indvars.iv
   store double %41, ptr %42, align 8, !tbaa !78
-  %.sroa.5105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store double %41, ptr %.sroa.5105.0..sroa_idx, align 8, !tbaa !78
-  %.sroa.6106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store double %41, ptr %.sroa.6106.0..sroa_idx, align 8, !tbaa !78
-  %.sroa.7107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store i64 0, ptr %.sroa.7107.0..sroa_idx, align 8
+  %.sroa.5104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store double %41, ptr %.sroa.5104.0..sroa_idx, align 8, !tbaa !78
+  %.sroa.6105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store double %41, ptr %.sroa.6105.0..sroa_idx, align 8, !tbaa !78
+  %.sroa.7106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 24
+  store i64 0, ptr %.sroa.7106.0..sroa_idx, align 8
   %43 = load ptr, ptr %26, align 8, !tbaa !75
   %44 = call double @io_time_get(ptr noundef %43, i32 noundef 9) #19
   %45 = getelementptr inbounds nuw %struct.minmax, ptr %.064, i64 %indvars.iv
   store double %44, ptr %45, align 8, !tbaa !78
-  %.sroa.5101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store double %44, ptr %.sroa.5101.0..sroa_idx, align 8, !tbaa !78
-  %.sroa.6102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store double %44, ptr %.sroa.6102.0..sroa_idx, align 8, !tbaa !78
-  %.sroa.7103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i64 0, ptr %.sroa.7103.0..sroa_idx, align 8
+  %.sroa.5100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store double %44, ptr %.sroa.5100.0..sroa_idx, align 8, !tbaa !78
+  %.sroa.6101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store double %44, ptr %.sroa.6101.0..sroa_idx, align 8, !tbaa !78
+  %.sroa.7102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 24
+  store i64 0, ptr %.sroa.7102.0..sroa_idx, align 8
   %46 = load ptr, ptr %26, align 8, !tbaa !75
   %47 = call double @io_time_get(ptr noundef %46, i32 noundef 11) #19
   %48 = getelementptr inbounds nuw %struct.minmax, ptr %.063, i64 %indvars.iv
@@ -1721,8 +1721,8 @@ print_indent.exit89:                              ; preds = %.lr.ph.i87
   br label %.critedge
 
 .critedge:                                        ; preds = %78, %103
-  %.sink128 = phi ptr [ %.064, %103 ], [ %14, %78 ]
-  %.sink127 = phi ptr [ %.063, %103 ], [ %15, %78 ]
+  %.sink127 = phi ptr [ %.064, %103 ], [ %14, %78 ]
+  %.sink126 = phi ptr [ %.063, %103 ], [ %15, %78 ]
   %.sink = phi ptr [ %.0, %103 ], [ %16, %78 ]
   call void @free(ptr noundef %.sink128) #19
   call void @free(ptr noundef %.sink127) #19

@@ -617,8 +617,8 @@ b2SolverSetArray_Push.exit:                       ; preds = %16, %42
   %49 = sext i32 %47 to i64
   %50 = getelementptr inbounds %struct.b2SolverSet, ptr %48, i64 %49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %50, i8 0, i64 80, i1 false)
-  %.sroa.4.0..sroa_idx212 = getelementptr inbounds nuw i8, ptr %50, i64 80
-  store i32 %37, ptr %.sroa.4.0..sroa_idx212, align 8, !tbaa !86
+  %.sroa.4.0..sroa_idx210 = getelementptr inbounds nuw i8, ptr %50, i64 80
+  store i32 %37, ptr %.sroa.4.0..sroa_idx210, align 8, !tbaa !86
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 84
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 4
   %51 = load i32, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !92
@@ -645,10 +645,10 @@ b2SolverSetArray_Push.exit180:                    ; preds = %b2SolverSetArray_Pu
   %64 = sext i32 %62 to i64
   %65 = getelementptr inbounds %struct.b2SolverSet, ptr %63, i64 %64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %65, i8 0, i64 80, i1 false)
-  %.sroa.4214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 80
-  store i32 %53, ptr %.sroa.4214.0..sroa_idx, align 8, !tbaa !86
-  %.sroa.5215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 84
-  store i32 0, ptr %.sroa.5215.0..sroa_idx, align 4
+  %.sroa.4212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 80
+  store i32 %53, ptr %.sroa.4212.0..sroa_idx, align 8, !tbaa !86
+  %.sroa.5213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 84
+  store i32 0, ptr %.sroa.5213.0..sroa_idx, align 4
   %66 = load i32, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !92
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !92
@@ -673,10 +673,10 @@ b2SolverSetArray_Push.exit182:                    ; preds = %b2SolverSetArray_Pu
   %79 = sext i32 %77 to i64
   %80 = getelementptr inbounds %struct.b2SolverSet, ptr %78, i64 %79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %80, i8 0, i64 80, i1 false)
-  %.sroa.4217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 80
-  store i32 %68, ptr %.sroa.4217.0..sroa_idx, align 8, !tbaa !86
-  %.sroa.5218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 84
-  store i32 0, ptr %.sroa.5218.0..sroa_idx, align 4
+  %.sroa.4215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 80
+  store i32 %68, ptr %.sroa.4215.0..sroa_idx, align 8, !tbaa !86
+  %.sroa.5216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 84
+  store i32 0, ptr %.sroa.5216.0..sroa_idx, align 4
   %81 = load i32, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !92
   %82 = add nsw i32 %81, 1
   store i32 %82, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !92
@@ -841,9 +841,9 @@ b2SolverSetArray_Push.exit182:                    ; preds = %b2SolverSetArray_Pu
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %164 = load ptr, ptr %163, align 8, !tbaa !131
   %165 = icmp eq ptr %164, null
-  %.sink228 = select i1 %165, ptr @b2DefaultRestitutionCallback, ptr %164
+  %.sink226 = select i1 %165, ptr @b2DefaultRestitutionCallback, ptr %164
   %166 = getelementptr inbounds nuw i8, ptr %19, i64 1584
-  store ptr %.sink228, ptr %166, align 16, !tbaa !132
+  store ptr %.sink226, ptr %166, align 16, !tbaa !132
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %168 = load i8, ptr %167, align 8, !tbaa !133, !range !77, !noundef !78
   %169 = getelementptr inbounds nuw i8, ptr %19, i64 1782
@@ -927,11 +927,11 @@ b2TaskContextArray_Create.exit:                   ; preds = %196, %189
   %210 = call ptr @b2GrowAlloc(ptr noundef %205, i32 noundef %208, i32 noundef %209) #22
   store ptr %210, ptr %202, align 8, !tbaa !34
   store i32 %.pre, ptr %207, align 4, !tbaa !31
-  %.pre229 = load i32, ptr %203, align 8, !tbaa !145
+  %.pre227 = load i32, ptr %203, align 8, !tbaa !145
   br label %b2TaskContextArray_Resize.exit
 
 b2TaskContextArray_Resize.exit:                   ; preds = %b2TaskContextArray_Create.exit, %206
-  %211 = phi i32 [ %.pre, %b2TaskContextArray_Create.exit ], [ %.pre229, %206 ]
+  %211 = phi i32 [ %.pre, %b2TaskContextArray_Create.exit ], [ %.pre227, %206 ]
   store i32 %.pre, ptr %.sroa.421.0..sroa_idx, align 16, !tbaa !151
   %212 = getelementptr inbounds nuw i8, ptr %19, i64 1320
   %213 = call { ptr, i64 } @b2SensorTaskContextArray_Create(i32 noundef %211) #22
@@ -977,9 +977,9 @@ b2TaskContextArray_Resize.exit:                   ; preds = %b2TaskContextArray_
   br label %.thread
 
 .lr.ph:                                           ; preds = %b2TaskContextArray_Resize.exit, %.lr.ph
-  %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.lr.ph ], [ 0, %b2TaskContextArray_Resize.exit ]
+  %indvars.iv223 = phi i64 [ %indvars.iv.next224, %.lr.ph ], [ 0, %b2TaskContextArray_Resize.exit ]
   %236 = load ptr, ptr %202, align 8, !tbaa !155
-  %237 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %236, i64 %indvars.iv225
+  %237 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %236, i64 %indvars.iv223
   %238 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 1024) #22
   %239 = extractvalue { ptr, i64 } %238, 0
   %240 = extractvalue { ptr, i64 } %238, 1
@@ -987,7 +987,7 @@ b2TaskContextArray_Resize.exit:                   ; preds = %b2TaskContextArray_
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i64 %240, ptr %.sroa.412.0..sroa_idx, align 8
   %241 = load ptr, ptr %202, align 8, !tbaa !155
-  %242 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %241, i64 %indvars.iv225
+  %242 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %241, i64 %indvars.iv223
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %244 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 256) #22
   %245 = extractvalue { ptr, i64 } %244, 0
@@ -996,7 +996,7 @@ b2TaskContextArray_Resize.exit:                   ; preds = %b2TaskContextArray_
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %242, i64 24
   store i64 %246, ptr %.sroa.410.0..sroa_idx, align 8
   %247 = load ptr, ptr %202, align 8, !tbaa !155
-  %248 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %247, i64 %indvars.iv225
+  %248 = getelementptr inbounds nuw %struct.b2TaskContext, ptr %247, i64 %indvars.iv223
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 32
   %250 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 256) #22
   %251 = extractvalue { ptr, i64 } %250, 0
@@ -1005,17 +1005,17 @@ b2TaskContextArray_Resize.exit:                   ; preds = %b2TaskContextArray_
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %248, i64 40
   store i64 %252, ptr %.sroa.48.0..sroa_idx, align 8
   %253 = load ptr, ptr %212, align 8, !tbaa !156
-  %254 = getelementptr inbounds nuw %struct.b2SensorTaskContext, ptr %253, i64 %indvars.iv225
+  %254 = getelementptr inbounds nuw %struct.b2SensorTaskContext, ptr %253, i64 %indvars.iv223
   %255 = call { ptr, i64 } @b2CreateBitSet(i32 noundef 128) #22
   %256 = extractvalue { ptr, i64 } %255, 0
   %257 = extractvalue { ptr, i64 } %255, 1
   store ptr %256, ptr %254, align 8, !tbaa !154
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %254, i64 8
   store i64 %257, ptr %.sroa.46.0..sroa_idx, align 8
-  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
+  %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %258 = load i32, ptr %203, align 8, !tbaa !145
   %259 = sext i32 %258 to i64
-  %260 = icmp slt i64 %indvars.iv.next226, %259
+  %260 = icmp slt i64 %indvars.iv.next224, %259
   br i1 %260, label %.lr.ph, label %._crit_edge, !llvm.loop !157
 
 .thread:                                          ; preds = %15, %._crit_edge
