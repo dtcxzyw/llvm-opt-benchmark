@@ -184,7 +184,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %71) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %131
+  br label %132
 
 72:                                               ; preds = %26
   %73 = landingpad { ptr, i32 }
@@ -269,7 +269,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit52:               ; preds = %76, %_ZNKSt7__cxx11
   %.042 = phi i32 [ 0, %85 ], [ %99, %103 ], [ %99, %87 ]
   %.036 = phi i32 [ %1, %85 ], [ %100, %103 ], [ %100, %87 ]
   %107 = icmp sgt i32 %.036, 0
-  br i1 %107, label %.preheader, label %131
+  br i1 %107, label %.preheader, label %132
 
 .preheader:                                       ; preds = %105
   %108 = icmp samesign ugt i32 %.036, 7
@@ -292,33 +292,34 @@ _ZN5zxing12ErrorHandlerD2Ev.exit52:               ; preds = %76, %_ZNKSt7__cxx11
   %116 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %116, ptr %18, align 8, !tbaa !15
   %117 = add nsw i32 %.157, -8
-  %118 = icmp samesign ugt i32 %117, 7
+  %118 = icmp samesign ugt i32 %.157, 15
   br i1 %118, label %110, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %110
   %.not = icmp eq i32 %117, 0
-  br i1 %.not, label %131, label %._crit_edge.thread
+  br i1 %.not, label %132, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.1.lcssa76 = phi i32 [ %117, %._crit_edge ], [ %.036, %.preheader ]
-  %.244.lcssa75 = phi i32 [ %115, %._crit_edge ], [ %.042, %.preheader ]
+  %.1.lcssa75 = phi i32 [ %117, %._crit_edge ], [ %.036, %.preheader ]
+  %.244.lcssa74 = phi i32 [ %115, %._crit_edge ], [ %.042, %.preheader ]
   %119 = phi i32 [ %116, %._crit_edge ], [ %.promoted, %.preheader ]
-  %120 = sub nuw nsw i32 8, %.1.lcssa76
+  %120 = sub nuw nsw i32 8, %.1.lcssa75
   %121 = shl nsw i32 -1, %120
-  %122 = shl i32 %.244.lcssa75, %.1.lcssa76
-  %123 = sext i32 %119 to i64
-  %124 = getelementptr inbounds nuw i8, ptr %13, i64 %123
-  %125 = load i8, ptr %124, align 1, !tbaa !30
-  %126 = zext i8 %125 to i32
-  %127 = and i32 %121, %126
-  %128 = lshr i32 %127, %120
-  %129 = or i32 %128, %122
-  %130 = add nsw i32 %106, %.1.lcssa76
-  store i32 %130, ptr %22, align 4, !tbaa !17
-  br label %131
+  %122 = and i32 %121, 254
+  %123 = shl i32 %.244.lcssa74, %.1.lcssa75
+  %124 = sext i32 %119 to i64
+  %125 = getelementptr inbounds nuw i8, ptr %13, i64 %124
+  %126 = load i8, ptr %125, align 1, !tbaa !30
+  %127 = zext i8 %126 to i32
+  %128 = and i32 %122, %127
+  %129 = lshr i32 %128, %120
+  %130 = or i32 %129, %123
+  %131 = add nsw i32 %106, %.1.lcssa75
+  store i32 %131, ptr %22, align 4, !tbaa !17
+  br label %132
 
-131:                                              ; preds = %105, %._crit_edge.thread, %._crit_edge, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
-  %.0 = phi i32 [ -1, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %129, %._crit_edge.thread ], [ %115, %._crit_edge ], [ %.042, %105 ]
+132:                                              ; preds = %105, %._crit_edge.thread, %._crit_edge, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
+  %.0 = phi i32 [ -1, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %130, %._crit_edge.thread ], [ %115, %._crit_edge ], [ %.042, %105 ]
   ret i32 %.0
 }
 

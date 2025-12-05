@@ -82708,12 +82708,12 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN9workspace10pa
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 12
   br label %34
 
-.loopexit:                                        ; preds = %45, %48, %54, %56
+.loopexit:                                        ; preds = %45, %48, %53, %55
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %28
 
-.loopexit.split-lp:                               ; preds = %43, %67
+.loopexit.split-lp:                               ; preds = %43, %65
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %28
@@ -82726,29 +82726,29 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN9workspace10pa
 
 31:                                               ; preds = %28
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %11, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit" unwind label %76
+          to label %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit" unwind label %74
 
-._crit_edge:                                      ; preds = %61, %16
+._crit_edge:                                      ; preds = %60, %16
   %32 = cmpxchg ptr %11, i8 1, i8 0 release monotonic, align 1
   %33 = extractvalue { i8, i1 } %32, 1
   br i1 %33, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11", label %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11.sink.split"
 
-34:                                               ; preds = %.lr.ph, %61
-  %.sroa.8.033 = phi i64 [ 0, %.lr.ph ], [ %36, %61 ]
-  %.sroa.018.032 = phi ptr [ %18, %.lr.ph ], [ %35, %61 ]
+34:                                               ; preds = %.lr.ph, %60
+  %.sroa.8.033 = phi i64 [ 0, %.lr.ph ], [ %36, %60 ]
+  %.sroa.018.032 = phi ptr [ %18, %.lr.ph ], [ %35, %60 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.018.032, i64 48
   %36 = add nuw nsw i64 %.sroa.8.033, 1
   %37 = load i64, ptr %23, align 8, !noundef !4
   %38 = icmp ult i64 %.sroa.8.033, %37
   br i1 %38, label %39, label %43
 
-"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11.sink.split": ; preds = %._crit_edge, %73
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1, %73 ], [ null, %._crit_edge ]
+"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11.sink.split": ; preds = %._crit_edge, %71
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.1, %71 ], [ null, %._crit_edge ]
   call void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %11, i1 noundef zeroext false)
   br label %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11"
 
-"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11": ; preds = %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11.sink.split", %73, %._crit_edge
-  %.sroa.0.0 = phi ptr [ null, %._crit_edge ], [ %.sroa.0.1, %73 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11.sink.split" ]
+"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11": ; preds = %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11.sink.split", %71, %._crit_edge
+  %.sroa.0.0 = phi ptr [ null, %._crit_edge ], [ %.sroa.0.1, %71 ], [ %.sroa.0.0.ph, %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11.sink.split" ]
   ret ptr %.sroa.0.0
 
 39:                                               ; preds = %34
@@ -82756,7 +82756,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN9workspace10pa
   %41 = getelementptr inbounds nuw { i32, [4 x i32] }, ptr %40, i64 %.sroa.8.033
   %42 = load i32, ptr %41, align 4, !range !6648, !noundef !4
   %trunc = trunc nuw i32 %42 to i1
-  br i1 %trunc, label %45, label %61
+  br i1 %trunc, label %45, label %60
 
 43:                                               ; preds = %34
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.8.033, i64 noundef %37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.097ddff930e31f50958387626443a3b8.292) #51
@@ -82787,66 +82787,64 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN9workspace10pa
           to label %.noexc14 unwind label %.loopexit
 
 .noexc14:                                         ; preds = %48
-  %53 = add nsw i8 %52, -3
-  %switch.i5.i = icmp samesign ult i8 %53, -2
+  %switch.i5.i = icmp slt i8 %52, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !21309
-  br i1 %switch.i5.i, label %54, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
+  br i1 %switch.i5.i, label %53, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
-54:                                               ; preds = %.noexc14
-  %55 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %26)
+53:                                               ; preds = %.noexc14
+  %54 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %26)
           to label %.noexc15 unwind label %.loopexit
 
-.noexc15:                                         ; preds = %54
-  %switch.i6.i = icmp ult i8 %55, 2
-  br i1 %switch.i6.i, label %56, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
+.noexc15:                                         ; preds = %53
+  %switch.i6.i = icmp ult i8 %54, 2
+  br i1 %switch.i6.i, label %55, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
-56:                                               ; preds = %.noexc15
+55:                                               ; preds = %.noexc15
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !21309
-  %57 = load float, ptr %26, align 4, !alias.scope !21318, !noalias !21314, !noundef !4
-  %58 = load float, ptr %27, align 4, !alias.scope !21321, !noalias !21314, !noundef !4
-  %59 = fadd float %57, %58
-  store float %59, ptr %4, align 4, !noalias !21309
-  %60 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
+  %56 = load float, ptr %26, align 4, !alias.scope !21318, !noalias !21314, !noundef !4
+  %57 = load float, ptr %27, align 4, !alias.scope !21321, !noalias !21314, !noundef !4
+  %58 = fadd float %56, %57
+  store float %58, ptr %4, align 4, !noalias !21309
+  %59 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
           to label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit" unwind label %.loopexit
 
-61:                                               ; preds = %39, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
-  %62 = icmp eq ptr %35, %21
-  br i1 %62, label %._crit_edge, label %34
+60:                                               ; preds = %39, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
+  %61 = icmp eq ptr %35, %21
+  br i1 %61, label %._crit_edge, label %34
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit": ; preds = %56
-  %63 = add nsw i8 %60, -3
-  %switch.i7.i = icmp samesign ult i8 %63, -2
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit": ; preds = %55
+  %switch.i7.i = icmp slt i8 %59, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !21309
-  br i1 %switch.i7.i, label %64, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
+  br i1 %switch.i7.i, label %62, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
 "_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread": ; preds = %.noexc14, %.noexc13, %.noexc15, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %61
+  br label %60
 
-64:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit"
-  %65 = load i64, ptr %.sroa.018.032, align 8, !range !90, !noundef !4
-  %66 = icmp eq i64 %65, -9223372036854775808
-  br i1 %66, label %71, label %67
+62:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit"
+  %63 = load i64, ptr %.sroa.018.032, align 8, !range !90, !noundef !4
+  %64 = icmp eq i64 %63, -9223372036854775808
+  br i1 %64, label %69, label %65
 
-67:                                               ; preds = %64
-  %68 = load float, ptr %7, align 4, !noundef !4
-  %69 = load float, ptr %8, align 4, !noundef !4
-  %70 = invoke noundef align 8 dereferenceable_or_null(32) ptr @_ZN9workspace10pane_group8PaneAxis22pane_at_pixel_position17h98cff1a5eb09f18aE.llvm.4784060810856971783(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.018.032, float noundef %68, float noundef %69)
-          to label %73 unwind label %.loopexit.split-lp
+65:                                               ; preds = %62
+  %66 = load float, ptr %7, align 4, !noundef !4
+  %67 = load float, ptr %8, align 4, !noundef !4
+  %68 = invoke noundef align 8 dereferenceable_or_null(32) ptr @_ZN9workspace10pane_group8PaneAxis22pane_at_pixel_position17h98cff1a5eb09f18aE.llvm.4784060810856971783(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.018.032, float noundef %66, float noundef %67)
+          to label %71 unwind label %.loopexit.split-lp
 
-71:                                               ; preds = %64
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.018.032, i64 8
-  br label %73
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.018.032, i64 8
+  br label %71
 
-73:                                               ; preds = %67, %71
-  %.sroa.0.1 = phi ptr [ %72, %71 ], [ %70, %67 ]
+71:                                               ; preds = %65, %69
+  %.sroa.0.1 = phi ptr [ %70, %69 ], [ %68, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %74 = cmpxchg ptr %11, i8 1, i8 0 release monotonic, align 1
-  %75 = extractvalue { i8, i1 } %74, 1
-  br i1 %75, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11", label %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11.sink.split"
+  %72 = cmpxchg ptr %11, i8 1, i8 0 release monotonic, align 1
+  %73 = extractvalue { i8, i1 } %72, 1
+  br i1 %73, label %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11", label %"_ZN4core3ptr194drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$alloc..vec..Vec$LT$core..option..Option$LT$gpui..geometry..Bounds$LT$gpui..geometry..Pixels$GT$$GT$$GT$$GT$$GT$17ha7dfc3558dd0f618E.exit11.sink.split"
 
-76:                                               ; preds = %31
-  %77 = landingpad { ptr, i32 }
+74:                                               ; preds = %31
+  %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #53
   unreachable

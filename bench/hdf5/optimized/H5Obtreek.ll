@@ -35,7 +35,7 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr readnone captures(no
   %12 = trunc nuw i8 %11 to i1
   %13 = xor i1 %12, true
   %14 = select i1 %10, i1 true, i1 %13
-  br i1 %14, label %15, label %84, !prof !9
+  br i1 %14, label %15, label %83, !prof !9
 
 15:                                               ; preds = %6
   %16 = icmp slt i64 %4, 1
@@ -45,7 +45,7 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr readnone captures(no
   %18 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %19 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
   %20 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__btreek_decode, i32 noundef 86, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.2) #10
-  br label %83
+  br label %82
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -57,7 +57,7 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr readnone captures(no
   %25 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %26 = load i64, ptr @H5E_CANTLOAD_g, align 8, !tbaa !10
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__btreek_decode, i32 noundef 88, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.3) #10
-  br label %83
+  br label %82
 
 28:                                               ; preds = %21
   %29 = tail call noalias dereferenceable_or_null(12) ptr @calloc(i64 noundef 1, i64 noundef 12) #11
@@ -68,7 +68,7 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr readnone captures(no
   %32 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %33 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__btreek_decode, i32 noundef 92, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.4) #10
-  br label %83
+  br label %82
 
 35:                                               ; preds = %28
   %36 = icmp ugt ptr %22, %8
@@ -80,7 +80,7 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr readnone captures(no
   %39 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %40 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
   %41 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__btreek_decode, i32 noundef 96, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.2) #10
-  br label %83
+  br label %82
 
 42:                                               ; preds = %35
   %43 = load i8, ptr %22, align 1, !tbaa !12
@@ -95,14 +95,14 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr readnone captures(no
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %52 = icmp ugt ptr %51, %8
   %53 = icmp samesign ult i64 %4, 5
-  %or.cond55 = or i1 %52, %53
+  %or.cond55 = or i1 %53, %52
   br i1 %or.cond55, label %54, label %58
 
 54:                                               ; preds = %42
   %55 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %56 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
   %57 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__btreek_decode, i32 noundef 99, i64 noundef %55, i64 noundef %56, ptr noundef nonnull @.str.2) #10
-  br label %83
+  br label %82
 
 58:                                               ; preds = %42
   %59 = load i8, ptr %51, align 1, !tbaa !12
@@ -115,36 +115,35 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr readnone captures(no
   store i32 %65, ptr %29, align 4, !tbaa !13
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %67 = icmp ugt ptr %66, %8
-  %68 = add nsw i64 %4, -5
-  %69 = icmp samesign ult i64 %68, 2
-  %or.cond57 = select i1 %67, i1 true, i1 %69
-  br i1 %or.cond57, label %70, label %74
+  %68 = icmp samesign ult i64 %4, 7
+  %or.cond57 = or i1 %68, %67
+  br i1 %or.cond57, label %69, label %73
 
-70:                                               ; preds = %58
-  %71 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
-  %72 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
-  %73 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__btreek_decode, i32 noundef 102, i64 noundef %71, i64 noundef %72, ptr noundef nonnull @.str.2) #10
+69:                                               ; preds = %58
+  %70 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
+  %71 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !10
+  %72 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__btreek_decode, i32 noundef 102, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.2) #10
+  br label %82
+
+73:                                               ; preds = %58
+  %74 = load i8, ptr %66, align 1, !tbaa !12
+  %75 = zext i8 %74 to i32
+  %76 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %78 = load i8, ptr %77, align 1, !tbaa !12
+  %79 = zext i8 %78 to i32
+  %80 = shl nuw nsw i32 %79, 8
+  %81 = or disjoint i32 %80, %75
+  store i32 %81, ptr %76, align 4, !tbaa !15
   br label %83
 
-74:                                               ; preds = %58
-  %75 = load i8, ptr %66, align 1, !tbaa !12
-  %76 = zext i8 %75 to i32
-  %77 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %79 = load i8, ptr %78, align 1, !tbaa !12
-  %80 = zext i8 %79 to i32
-  %81 = shl nuw nsw i32 %80, 8
-  %82 = or disjoint i32 %81, %76
-  store i32 %82, ptr %77, align 4, !tbaa !15
-  br label %84
-
-83:                                               ; preds = %17, %24, %31, %38, %54, %70
-  %.046.ph = phi ptr [ %29, %70 ], [ %29, %54 ], [ %29, %38 ], [ null, %31 ], [ null, %24 ], [ null, %17 ]
+82:                                               ; preds = %17, %24, %31, %38, %54, %69
+  %.046.ph = phi ptr [ %29, %69 ], [ %29, %54 ], [ %29, %38 ], [ null, %31 ], [ null, %24 ], [ null, %17 ]
   tail call void @free(ptr noundef %.046.ph) #10
-  br label %84
+  br label %83
 
-84:                                               ; preds = %74, %83, %6
-  %.0 = phi ptr [ null, %83 ], [ %29, %74 ], [ null, %6 ]
+83:                                               ; preds = %73, %82, %6
+  %.0 = phi ptr [ null, %82 ], [ %29, %73 ], [ null, %6 ]
   ret ptr %.0
 }
 

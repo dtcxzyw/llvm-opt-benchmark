@@ -330,7 +330,7 @@ decode_msg.exit.thread.i:                         ; preds = %140, %133, %43, %de
 
 vwr_get_fpga_version.exit.thread:                 ; preds = %8, %.thread138.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %324
+  br label %323
 
 vwr_get_fpga_version.exit.thread46:               ; preds = %decode_msg.exit.thread.i, %39
   call void @g_free(ptr noundef %12)
@@ -341,12 +341,12 @@ vwr_get_fpga_version.exit:                        ; preds = %.thread138.i, %45, 
   %.0101.i = phi i32 [ %..i, %45 ], [ %.117.i, %50 ], [ %142, %.thread138.i ], [ %.124.i, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   switch i32 %.0101.i, label %156 [
-    i32 -1, label %324
+    i32 -1, label %323
     i32 0, label %155
   ]
 
 155:                                              ; preds = %vwr_get_fpga_version.exit.thread46, %vwr_get_fpga_version.exit
-  br label %324
+  br label %323
 
 156:                                              ; preds = %vwr_get_fpga_version.exit
   %157 = call noalias dereferenceable_or_null(224) ptr @g_malloc0(i64 noundef 224) #8
@@ -698,23 +698,22 @@ setup_defaults.exit:                              ; preds = %156, %161, %204, %2
   ]
 
 319:                                              ; preds = %setup_defaults.exit
-  %320 = add nsw i32 %.0101.i5053, -3
-  %or.cond5 = icmp samesign ult i32 %320, 2
-  br i1 %or.cond5, label %.sink.split, label %323
+  %or.cond5 = icmp samesign ult i32 %.0101.i5053, 5
+  br i1 %or.cond5, label %.sink.split, label %322
 
 .sink.split:                                      ; preds = %319, %setup_defaults.exit, %setup_defaults.exit, %setup_defaults.exit
   %vwr_eth_file_type_subtype.sink = phi ptr [ @vwr_80211_file_type_subtype, %setup_defaults.exit ], [ @vwr_80211_file_type_subtype, %setup_defaults.exit ], [ @vwr_80211_file_type_subtype, %setup_defaults.exit ], [ @vwr_eth_file_type_subtype, %319 ]
-  %321 = load i32, ptr %vwr_eth_file_type_subtype.sink, align 4
-  %322 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %321, ptr %322, align 4
+  %320 = load i32, ptr %vwr_eth_file_type_subtype.sink, align 4
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %320, ptr %321, align 4
+  br label %322
+
+322:                                              ; preds = %.sink.split, %319
+  call void @wtap_add_generated_idb(ptr noundef %0)
   br label %323
 
-323:                                              ; preds = %.sink.split, %319
-  call void @wtap_add_generated_idb(ptr noundef %0)
-  br label %324
-
-324:                                              ; preds = %vwr_get_fpga_version.exit.thread, %vwr_get_fpga_version.exit, %323, %155
-  %.0 = phi i32 [ 0, %155 ], [ 1, %323 ], [ %.0101.i, %vwr_get_fpga_version.exit ], [ -1, %vwr_get_fpga_version.exit.thread ]
+323:                                              ; preds = %vwr_get_fpga_version.exit.thread, %vwr_get_fpga_version.exit, %322, %155
+  %.0 = phi i32 [ 0, %155 ], [ 1, %322 ], [ %.0101.i, %vwr_get_fpga_version.exit ], [ -1, %vwr_get_fpga_version.exit.thread ]
   ret i32 %.0
 }
 

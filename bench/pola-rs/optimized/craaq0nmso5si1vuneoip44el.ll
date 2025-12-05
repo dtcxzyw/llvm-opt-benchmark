@@ -32380,80 +32380,81 @@ define internal fastcc void @_ZN11polars_time7windows8duration8Duration9add_mont
   %25 = trunc nsw i64 %24 to i32
   %26 = add nsw i32 %18, %25
   %27 = icmp sgt i32 %26, 12
-  br i1 %27, label %30, label %28
+  br i1 %27, label %34, label %.thread
 
-28:                                               ; preds = %11
-  %29 = icmp slt i32 %26, 1
-  br i1 %29, label %33, label %36
+.thread:                                          ; preds = %11
+  %28 = icmp slt i32 %26, 1
+  %29 = add nsw i32 %26, 12
+  %.sroa.09.0.ph = select i1 %28, i32 %29, i32 %26
+  %30 = sext i1 %28 to i32
+  %.sroa.04.0.ph = add i32 %23, %30
+  %31 = tail call noundef zeroext i1 @_ZN11polars_time7windows8calendar12is_leap_year17h06cfd5d35de46528E(i32 noundef %.sroa.04.0.ph)
+  %32 = add nsw i32 %.sroa.09.0.ph, -1
+  %33 = zext nneg i32 %32 to i64
+  br label %41
 
-30:                                               ; preds = %11
-  %31 = add i32 %23, 1
-  %32 = add nsw i32 %26, -12
-  br label %36
-
-33:                                               ; preds = %28
-  %34 = add i32 %23, -1
-  %35 = add nsw i32 %26, 12
-  br label %36
-
-36:                                               ; preds = %33, %28, %30
-  %.sroa.09.0 = phi i32 [ %32, %30 ], [ %35, %33 ], [ %26, %28 ]
-  %.sroa.04.0 = phi i32 [ %31, %30 ], [ %34, %33 ], [ %23, %28 ]
-  %37 = tail call noundef zeroext i1 @_ZN11polars_time7windows8calendar12is_leap_year17h06cfd5d35de46528E(i32 noundef %.sroa.04.0)
-  %38 = add nsw i32 %.sroa.09.0, -1
+34:                                               ; preds = %11
+  %35 = add i32 %23, 1
+  %36 = add nsw i32 %26, -12
+  %37 = tail call noundef zeroext i1 @_ZN11polars_time7windows8calendar12is_leap_year17h06cfd5d35de46528E(i32 noundef %35)
+  %38 = add nsw i32 %26, -13
   %39 = zext nneg i32 %38 to i64
-  %40 = icmp samesign ult i32 %38, 12
-  br i1 %40, label %41, label %58
+  %40 = icmp slt i32 %26, 25
+  br i1 %40, label %41, label %60
 
-41:                                               ; preds = %36
-  %.sroa.sel = select i1 %37, ptr getelementptr inbounds nuw (i8, ptr @anon.08503e80502b7d17db57e30bb28af5a1.303, i64 96), ptr @anon.08503e80502b7d17db57e30bb28af5a1.303
-  %42 = getelementptr inbounds nuw i64, ptr %.sroa.sel, i64 %39
-  %43 = load i64, ptr %42, align 8, !noundef !3
-  %44 = trunc i64 %43 to i32
-  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %20, i32 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %46 = load i32, ptr %45, align 4, !noundef !3
-  %47 = urem i32 %46, 60
-  %48 = udiv i32 %46, 60
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = load i32, ptr %49, align 4, !noundef !3
-  %51 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate12from_ymd_opt17h0129a38b384c49f3E(i32 noundef %.sroa.04.0, i32 noundef range(i32 1, 19) %.sroa.09.0, i32 noundef %spec.store.select), !noalias !4223
-  %.not.i = icmp eq i32 %51, 0
-  %52 = icmp ugt i32 %46, 86399
-  %or.cond = or i1 %52, %.not.i
-  br i1 %or.cond, label %66, label %53
+41:                                               ; preds = %.thread, %34
+  %42 = phi i64 [ %33, %.thread ], [ %39, %34 ]
+  %43 = phi i1 [ %31, %.thread ], [ %37, %34 ]
+  %.sroa.04.032 = phi i32 [ %.sroa.04.0.ph, %.thread ], [ %35, %34 ]
+  %.sroa.09.031 = phi i32 [ %.sroa.09.0.ph, %.thread ], [ %36, %34 ]
+  %.sroa.sel = select i1 %43, ptr getelementptr inbounds nuw (i8, ptr @anon.08503e80502b7d17db57e30bb28af5a1.303, i64 96), ptr @anon.08503e80502b7d17db57e30bb28af5a1.303
+  %44 = getelementptr inbounds nuw i64, ptr %.sroa.sel, i64 %42
+  %45 = load i64, ptr %44, align 8, !noundef !3
+  %46 = trunc i64 %45 to i32
+  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %20, i32 %46)
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %48 = load i32, ptr %47, align 4, !noundef !3
+  %49 = urem i32 %48, 60
+  %50 = udiv i32 %48, 60
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %52 = load i32, ptr %51, align 4, !noundef !3
+  %53 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate12from_ymd_opt17h0129a38b384c49f3E(i32 noundef %.sroa.04.032, i32 noundef range(i32 1, 19) %.sroa.09.031, i32 noundef %spec.store.select), !noalias !4223
+  %.not.i = icmp eq i32 %53, 0
+  %54 = icmp ugt i32 %48, 86399
+  %or.cond = or i1 %54, %.not.i
+  br i1 %or.cond, label %68, label %55
 
-53:                                               ; preds = %41
-  %54 = icmp ugt i32 %50, 999999999
-  br i1 %54, label %55, label %59
+55:                                               ; preds = %41
+  %56 = icmp ugt i32 %52, 999999999
+  br i1 %56, label %57, label %61
 
-55:                                               ; preds = %53
-  %56 = icmp ne i32 %47, 59
-  %57 = icmp ugt i32 %50, 1999999999
-  %or.cond2.i = or i1 %56, %57
-  br i1 %or.cond2.i, label %66, label %59
+57:                                               ; preds = %55
+  %58 = icmp ne i32 %49, 59
+  %59 = icmp ugt i32 %52, 1999999999
+  %or.cond2.i = or i1 %58, %59
+  br i1 %or.cond2.i, label %68, label %61
 
-58:                                               ; preds = %36
+60:                                               ; preds = %34
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %39, i64 noundef 12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.08503e80502b7d17db57e30bb28af5a1.304) #28
   unreachable
 
-59:                                               ; preds = %55, %53
-  %.lhs.trunc = trunc nuw i32 %48 to i16
-  %60 = urem i16 %.lhs.trunc, 60
-  %61 = urem i32 %46, 3600
-  %62 = sub nuw nsw i32 %46, %61
-  %narrow = mul nuw nsw i16 %60, 60
-  %63 = zext nneg i16 %narrow to i32
-  %64 = add nuw nsw i32 %62, %47
-  %65 = add nuw nsw i32 %64, %63
-  store i32 %51, ptr %0, align 4
+61:                                               ; preds = %57, %55
+  %.lhs.trunc = trunc nuw i32 %50 to i16
+  %62 = urem i16 %.lhs.trunc, 60
+  %63 = urem i32 %48, 3600
+  %64 = sub nuw nsw i32 %48, %63
+  %narrow = mul nuw nsw i16 %62, 60
+  %65 = zext nneg i16 %narrow to i32
+  %66 = add nuw nsw i32 %64, %49
+  %67 = add nuw nsw i32 %66, %65
+  store i32 %53, ptr %0, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %65, ptr %.sroa.7.0..sroa_idx, align 4
+  store i32 %67, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %50, ptr %.sroa.8.0..sroa_idx, align 4
+  store i32 %52, ptr %.sroa.8.0..sroa_idx, align 4
   ret void
 
-66:                                               ; preds = %41, %55
+68:                                               ; preds = %41, %57
   tail call void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.08503e80502b7d17db57e30bb28af5a1.305, i64 noundef 89, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.08503e80502b7d17db57e30bb28af5a1.306) #28
   unreachable
 }

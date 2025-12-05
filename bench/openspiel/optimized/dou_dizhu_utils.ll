@@ -3173,19 +3173,18 @@ define { i64, i64 } @_ZN10open_spiel9dou_dizhu23GetSingleTrioCombParamsEi(i32 no
   resume { ptr, i32 } %.pn
 
 13:                                               ; preds = %1
-  %14 = add nsw i32 %0, -133
-  %or.cond.i = icmp samesign ult i32 %14, 182
+  %or.cond.i = icmp samesign ult i32 %0, 315
   %.v = select i1 %or.cond.i, i32 123, i32 197
-  %15 = add nuw nsw i32 %0, %.v
+  %14 = add nuw nsw i32 %0, %.v
   %.018.i2429 = select i1 %or.cond.i, i64 1, i64 2
   %.rhs.trunc32 = select i1 %or.cond.i, i8 14, i8 12
-  %.lhs.trunc = trunc i32 %15 to i8
-  %16 = udiv i8 %.lhs.trunc, %.rhs.trunc32
-  %17 = urem i8 %.lhs.trunc, %.rhs.trunc32
-  %.sroa.0.0.insert.ext = zext nneg i8 %16 to i64
+  %.lhs.trunc = trunc i32 %14 to i8
+  %15 = udiv i8 %.lhs.trunc, %.rhs.trunc32
+  %16 = urem i8 %.lhs.trunc, %.rhs.trunc32
+  %.sroa.0.0.insert.ext = zext nneg i8 %15 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, 4294967296
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.insert.insert, 0
-  %.sroa.5.8.insert.ext = zext nneg i8 %17 to i64
+  %.sroa.5.8.insert.ext = zext nneg i8 %16 to i64
   %.sroa.5.8.insert.shift = shl nuw nsw i64 %.sroa.5.8.insert.ext, 32
   %.sroa.3.8.insert.insert = or disjoint i64 %.sroa.5.8.insert.shift, %.018.i2429
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.8.insert.insert, 1

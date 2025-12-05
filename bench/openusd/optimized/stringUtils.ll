@@ -222,8 +222,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongEPKcPb(
   %9 = phi i8 [ %19, %14 ], [ %7, %5 ]
   %.01017.i = phi i64 [ %18, %14 ], [ 0, %5 ]
   %.01116.i = phi ptr [ %16, %14 ], [ %6, %5 ]
-  %narrow.i = add nsw i8 %9, -48
-  %10 = icmp samesign ugt i8 %narrow.i, 8
+  %10 = icmp samesign ugt i8 %9, 56
   %11 = select i1 %10, i64 -922337203685477579, i64 -922337203685477580
   %12 = icmp slt i64 %.01017.i, %11
   br i1 %12, label %13, label %14
@@ -233,6 +232,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongEPKcPb(
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split
 
 14:                                               ; preds = %.lr.ph.i
+  %narrow.i = add nsw i8 %9, -48
   %15 = zext nneg i8 %narrow.i to i64
   %16 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 1
   %17 = mul nsw i64 %.01017.i, 10
@@ -251,8 +251,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongEPKcPb(
   %23 = phi i8 [ %33, %28 ], [ %3, %21 ]
   %.01017.i9 = phi i64 [ %32, %28 ], [ 0, %21 ]
   %.01116.i10 = phi ptr [ %30, %28 ], [ %0, %21 ]
-  %narrow.i11 = add nsw i8 %23, -48
-  %24 = icmp samesign ugt i8 %narrow.i11, 7
+  %24 = icmp samesign ugt i8 %23, 55
   %25 = select i1 %24, i64 922337203685477579, i64 922337203685477580
   %26 = icmp sgt i64 %.01017.i9, %25
   br i1 %26, label %27, label %28
@@ -262,6 +261,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongEPKcPb(
   br i1 %.not.i13, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split
 
 28:                                               ; preds = %.lr.ph.i8
+  %narrow.i11 = add nsw i8 %23, -48
   %29 = zext nneg i8 %narrow.i11 to i64
   %30 = getelementptr inbounds nuw i8, ptr %.01116.i10, i64 1
   %31 = mul nsw i64 %.01017.i9, 10
@@ -299,8 +299,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongERKNSt7
   %10 = phi i8 [ %20, %15 ], [ %8, %6 ]
   %.01017.i.i = phi i64 [ %19, %15 ], [ 0, %6 ]
   %.01116.i.i = phi ptr [ %17, %15 ], [ %7, %6 ]
-  %narrow.i.i = add nsw i8 %10, -48
-  %11 = icmp samesign ugt i8 %narrow.i.i, 8
+  %11 = icmp samesign ugt i8 %10, 56
   %12 = select i1 %11, i64 -922337203685477579, i64 -922337203685477580
   %13 = icmp slt i64 %.01017.i.i, %12
   br i1 %13, label %14, label %15
@@ -310,6 +309,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongERKNSt7
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongEPKcPb.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split.i
 
 15:                                               ; preds = %.lr.ph.i.i
+  %narrow.i.i = add nsw i8 %10, -48
   %16 = zext nneg i8 %narrow.i.i to i64
   %17 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 1
   %18 = mul nsw i64 %.01017.i.i, 10
@@ -328,8 +328,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongERKNSt7
   %24 = phi i8 [ %34, %29 ], [ %4, %22 ]
   %.01017.i9.i = phi i64 [ %33, %29 ], [ 0, %22 ]
   %.01116.i10.i = phi ptr [ %31, %29 ], [ %3, %22 ]
-  %narrow.i11.i = add nsw i8 %24, -48
-  %25 = icmp samesign ugt i8 %narrow.i11.i, 7
+  %25 = icmp samesign ugt i8 %24, 55
   %26 = select i1 %25, i64 922337203685477579, i64 922337203685477580
   %27 = icmp sgt i64 %.01017.i9.i, %26
   br i1 %27, label %28, label %29
@@ -339,6 +338,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongERKNSt7
   br i1 %.not.i13.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfStringToLongEPKcPb.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split.i
 
 29:                                               ; preds = %.lr.ph.i8.i
+  %narrow.i11.i = add nsw i8 %24, -48
   %30 = zext nneg i8 %narrow.i11.i to i64
   %31 = getelementptr inbounds nuw i8, ptr %.01116.i10.i, i64 1
   %32 = mul nsw i64 %.01017.i9.i, 10
@@ -369,8 +369,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToULongEPKcPb
   %5 = phi i8 [ %16, %11 ], [ %3, %2 ]
   %.01017.i = phi i64 [ %15, %11 ], [ 0, %2 ]
   %.01116.i = phi ptr [ %13, %11 ], [ %0, %2 ]
-  %narrow.i = add nsw i8 %5, -48
-  %6 = icmp samesign ugt i8 %narrow.i, 5
+  %6 = icmp samesign ugt i8 %5, 53
   %7 = select i1 %6, i64 1844674407370955160, i64 1844674407370955161
   %8 = icmp ugt i64 %.01017.i, %7
   br i1 %8, label %9, label %11
@@ -384,6 +383,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToULongEPKcPb
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToPositiveImEET_PKcPb.exit
 
 11:                                               ; preds = %.lr.ph.i
+  %narrow.i = add nsw i8 %5, -48
   %12 = zext nneg i8 %narrow.i to i64
   %13 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 1
   %14 = mul nuw i64 %.01017.i, 10
@@ -410,8 +410,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToULongERKNSt
   %6 = phi i8 [ %17, %12 ], [ %4, %2 ]
   %.01017.i.i = phi i64 [ %16, %12 ], [ 0, %2 ]
   %.01116.i.i = phi ptr [ %14, %12 ], [ %3, %2 ]
-  %narrow.i.i = add nsw i8 %6, -48
-  %7 = icmp samesign ugt i8 %narrow.i.i, 5
+  %7 = icmp samesign ugt i8 %6, 53
   %8 = select i1 %7, i64 1844674407370955160, i64 1844674407370955161
   %9 = icmp ugt i64 %.01017.i.i, %8
   br i1 %9, label %10, label %12
@@ -425,6 +424,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToULongERKNSt
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToULongEPKcPb.exit
 
 12:                                               ; preds = %.lr.ph.i.i
+  %narrow.i.i = add nsw i8 %6, -48
   %13 = zext nneg i8 %narrow.i.i to i64
   %14 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 1
   %15 = mul nuw i64 %.01017.i.i, 10
@@ -456,8 +456,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64EPKcPb
   %9 = phi i8 [ %19, %14 ], [ %7, %5 ]
   %.01017.i = phi i64 [ %18, %14 ], [ 0, %5 ]
   %.01116.i = phi ptr [ %16, %14 ], [ %6, %5 ]
-  %narrow.i = add nsw i8 %9, -48
-  %10 = icmp samesign ugt i8 %narrow.i, 8
+  %10 = icmp samesign ugt i8 %9, 56
   %11 = select i1 %10, i64 -922337203685477579, i64 -922337203685477580
   %12 = icmp slt i64 %.01017.i, %11
   br i1 %12, label %13, label %14
@@ -467,6 +466,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64EPKcPb
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split
 
 14:                                               ; preds = %.lr.ph.i
+  %narrow.i = add nsw i8 %9, -48
   %15 = zext nneg i8 %narrow.i to i64
   %16 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 1
   %17 = mul nsw i64 %.01017.i, 10
@@ -485,8 +485,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64EPKcPb
   %23 = phi i8 [ %33, %28 ], [ %3, %21 ]
   %.01017.i9 = phi i64 [ %32, %28 ], [ 0, %21 ]
   %.01116.i10 = phi ptr [ %30, %28 ], [ %0, %21 ]
-  %narrow.i11 = add nsw i8 %23, -48
-  %24 = icmp samesign ugt i8 %narrow.i11, 7
+  %24 = icmp samesign ugt i8 %23, 55
   %25 = select i1 %24, i64 922337203685477579, i64 922337203685477580
   %26 = icmp sgt i64 %.01017.i9, %25
   br i1 %26, label %27, label %28
@@ -496,6 +495,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64EPKcPb
   br i1 %.not.i13, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split
 
 28:                                               ; preds = %.lr.ph.i8
+  %narrow.i11 = add nsw i8 %23, -48
   %29 = zext nneg i8 %narrow.i11 to i64
   %30 = getelementptr inbounds nuw i8, ptr %.01116.i10, i64 1
   %31 = mul nsw i64 %.01017.i9, 10
@@ -533,8 +533,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64ERKNSt
   %10 = phi i8 [ %20, %15 ], [ %8, %6 ]
   %.01017.i.i = phi i64 [ %19, %15 ], [ 0, %6 ]
   %.01116.i.i = phi ptr [ %17, %15 ], [ %7, %6 ]
-  %narrow.i.i = add nsw i8 %10, -48
-  %11 = icmp samesign ugt i8 %narrow.i.i, 8
+  %11 = icmp samesign ugt i8 %10, 56
   %12 = select i1 %11, i64 -922337203685477579, i64 -922337203685477580
   %13 = icmp slt i64 %.01017.i.i, %12
   br i1 %13, label %14, label %15
@@ -544,6 +543,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64ERKNSt
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64EPKcPb.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split.i
 
 15:                                               ; preds = %.lr.ph.i.i
+  %narrow.i.i = add nsw i8 %10, -48
   %16 = zext nneg i8 %narrow.i.i to i64
   %17 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 1
   %18 = mul nsw i64 %.01017.i.i, 10
@@ -562,8 +562,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64ERKNSt
   %24 = phi i8 [ %34, %29 ], [ %4, %22 ]
   %.01017.i9.i = phi i64 [ %33, %29 ], [ 0, %22 ]
   %.01116.i10.i = phi ptr [ %31, %29 ], [ %3, %22 ]
-  %narrow.i11.i = add nsw i8 %24, -48
-  %25 = icmp samesign ugt i8 %narrow.i11.i, 7
+  %25 = icmp samesign ugt i8 %24, 55
   %26 = select i1 %25, i64 922337203685477579, i64 922337203685477580
   %27 = icmp sgt i64 %.01017.i9.i, %26
   br i1 %27, label %28, label %29
@@ -573,6 +572,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64ERKNSt
   br i1 %.not.i13.i, label %_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64EPKcPb.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToNegativeIlEENSt9enable_ifIXsr3std9is_signedIT_EE5valueES2_E4typeEPKcPb.exit.sink.split.i
 
 29:                                               ; preds = %.lr.ph.i8.i
+  %narrow.i11.i = add nsw i8 %24, -48
   %30 = zext nneg i8 %narrow.i11.i to i64
   %31 = getelementptr inbounds nuw i8, ptr %.01116.i10.i, i64 1
   %32 = mul nsw i64 %.01017.i9.i, 10
@@ -603,8 +603,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToUInt64EPKcP
   %5 = phi i8 [ %16, %11 ], [ %3, %2 ]
   %.01017.i = phi i64 [ %15, %11 ], [ 0, %2 ]
   %.01116.i = phi ptr [ %13, %11 ], [ %0, %2 ]
-  %narrow.i = add nsw i8 %5, -48
-  %6 = icmp samesign ugt i8 %narrow.i, 5
+  %6 = icmp samesign ugt i8 %5, 53
   %7 = select i1 %6, i64 1844674407370955160, i64 1844674407370955161
   %8 = icmp ugt i64 %.01017.i, %7
   br i1 %8, label %9, label %11
@@ -618,6 +617,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToUInt64EPKcP
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L17_StringToPositiveImEET_PKcPb.exit
 
 11:                                               ; preds = %.lr.ph.i
+  %narrow.i = add nsw i8 %5, -48
   %12 = zext nneg i8 %narrow.i to i64
   %13 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 1
   %14 = mul nuw i64 %.01017.i, 10
@@ -644,8 +644,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToUInt64ERKNS
   %6 = phi i8 [ %17, %12 ], [ %4, %2 ]
   %.01017.i.i = phi i64 [ %16, %12 ], [ 0, %2 ]
   %.01116.i.i = phi ptr [ %14, %12 ], [ %3, %2 ]
-  %narrow.i.i = add nsw i8 %6, -48
-  %7 = icmp samesign ugt i8 %narrow.i.i, 5
+  %7 = icmp samesign ugt i8 %6, 53
   %8 = select i1 %7, i64 1844674407370955160, i64 1844674407370955161
   %9 = icmp ugt i64 %.01017.i.i, %8
   br i1 %9, label %10, label %12
@@ -659,6 +658,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToUInt64ERKNS
   br label %_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToUInt64EPKcPb.exit
 
 12:                                               ; preds = %.lr.ph.i.i
+  %narrow.i.i = add nsw i8 %6, -48
   %13 = zext nneg i8 %narrow.i.i to i64
   %14 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 1
   %15 = mul nuw i64 %.01017.i.i, 10

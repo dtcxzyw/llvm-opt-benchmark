@@ -170564,13 +170564,12 @@ switch.early.test:                                ; preds = %_ZNK5clang4Type11is
   br label %_ZNK5clang4Type18isOCLExtOpaqueTypeEv.exit
 
 _ZNK5clang4Type35isOCLIntelSubgroupAVCMcePayloadTypeEv.exit.i: ; preds = %switch.early.test
-  %15 = add nsw i32 %11, -18874368
-  %16 = icmp samesign ult i32 %15, 6291456
+  %15 = icmp samesign ult i32 %11, 25165824
   br label %_ZNK5clang4Type18isOCLExtOpaqueTypeEv.exit
 
 _ZNK5clang4Type18isOCLExtOpaqueTypeEv.exit:       ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %_ZNK5clang4Type11isImageTypeEv.exit, %_ZNK5clang4Type10isSamplerTEv.exit, %_ZNK5clang4Type10isSamplerTEv.exit, %13, %_ZNK5clang4Type35isOCLIntelSubgroupAVCMcePayloadTypeEv.exit.i
-  %17 = phi i1 [ true, %switch.early.test ], [ true, %_ZNK5clang4Type10isSamplerTEv.exit ], [ %16, %_ZNK5clang4Type35isOCLIntelSubgroupAVCMcePayloadTypeEv.exit.i ], [ %14, %13 ], [ true, %_ZNK5clang4Type10isSamplerTEv.exit ], [ true, %_ZNK5clang4Type11isImageTypeEv.exit ], [ true, %switch.early.test ], [ true, %switch.early.test ]
-  ret i1 %17
+  %16 = phi i1 [ true, %switch.early.test ], [ true, %_ZNK5clang4Type10isSamplerTEv.exit ], [ %15, %_ZNK5clang4Type35isOCLIntelSubgroupAVCMcePayloadTypeEv.exit.i ], [ %14, %13 ], [ true, %_ZNK5clang4Type10isSamplerTEv.exit ], [ true, %_ZNK5clang4Type11isImageTypeEv.exit ], [ true, %switch.early.test ], [ true, %switch.early.test ]
+  ret i1 %16
 }
 
 declare noundef ptr @_ZNK5clang13CXXRecordDecl31getTemplateInstantiationPatternEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #1

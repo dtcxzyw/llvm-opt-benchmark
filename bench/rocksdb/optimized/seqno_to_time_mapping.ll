@@ -1188,8 +1188,8 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4backEv.exit: ;
   %54 = sub i64 %52, %53
   %55 = ashr exact i64 %54, 3
   %56 = icmp ne ptr %6, null
-  %.neg.i.i1633 = sext i1 %56 to i64
-  %57 = add nsw i64 %55, %.neg.i.i1633
+  %.neg.i.i1632 = sext i1 %56 to i64
+  %57 = add nsw i64 %55, %.neg.i.i1632
   %58 = shl nsw i64 %57, 5
   %59 = ptrtoint ptr %16 to i64
   %60 = ptrtoint ptr %18 to i64
@@ -1209,9 +1209,9 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4backEv.exit: ;
   %71 = phi ptr [ %124, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %8, %50 ]
   %72 = phi ptr [ %123, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %25, %50 ]
   %73 = phi ptr [ %storemerge.i, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %26, %50 ]
-  %.pre2136 = phi ptr [ %.pre, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %6, %50 ]
-  %.pre192335 = phi ptr [ %.pre19, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %16, %50 ]
-  %.pre202534 = phi ptr [ %.pre20, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %18, %50 ]
+  %.pre2135 = phi ptr [ %.pre, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %6, %50 ]
+  %.pre192334 = phi ptr [ %.pre19, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %16, %50 ]
+  %.pre202533 = phi ptr [ %.pre20, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %18, %50 ]
   %74 = load ptr, ptr %51, align 8, !tbaa !19, !noalias !134
   %75 = ptrtoint ptr %74 to i64
   %76 = sub i64 %70, %75
@@ -1253,7 +1253,7 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EEixEm.exit: ; pr
   br i1 %96, label %97, label %103
 
 97:                                               ; preds = %94
-  %98 = icmp samesign ult i64 %95, 32
+  %98 = icmp slt i64 %77, 31
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %97
@@ -1308,9 +1308,9 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EEixEm.exit18: ; 
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit: ; preds = %116, %118
-  %.pre20 = phi ptr [ %.pre202534, %116 ], [ %.pre20.pre, %118 ]
-  %.pre19 = phi ptr [ %.pre192335, %116 ], [ %.pre19.pre, %118 ]
-  %.pre = phi ptr [ %.pre2136, %116 ], [ %.pre.pre, %118 ]
+  %.pre20 = phi ptr [ %.pre202533, %116 ], [ %.pre20.pre, %118 ]
+  %.pre19 = phi ptr [ %.pre192334, %116 ], [ %.pre19.pre, %118 ]
+  %.pre = phi ptr [ %.pre2135, %116 ], [ %.pre.pre, %118 ]
   %123 = phi ptr [ %72, %116 ], [ %122, %118 ]
   %124 = phi ptr [ %71, %116 ], [ %120, %118 ]
   %storemerge.i = phi ptr [ %117, %116 ], [ %121, %118 ]
@@ -1829,7 +1829,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPZN7rocksdb18SeqnoToTimeMapping1
   br i1 %230, label %231, label %237
 
 231:                                              ; preds = %223
-  %232 = icmp samesign ult i64 %229, 32
+  %232 = icmp slt i64 %228, 31
   br i1 %232, label %233, label %235
 
 233:                                              ; preds = %231
@@ -2535,7 +2535,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EppE
   br i1 %107, label %108, label %114
 
 108:                                              ; preds = %._crit_edge
-  %109 = icmp samesign ult i64 %106, 32
+  %109 = icmp slt i64 %105, 31
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %108
@@ -5843,7 +5843,7 @@ define linkonce_odr void @_ZSt22__final_insertion_sortISt15_Deque_iteratorIN7roc
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %36
-  %50 = icmp samesign ult i64 %47, 32
+  %50 = icmp slt i64 %46, 16
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
@@ -5888,7 +5888,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
-  %76 = icmp samesign ult i64 %73, 32
+  %76 = icmp slt i64 %72, 16
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
@@ -6264,7 +6264,7 @@ _ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %67, label %68, label %74
 
 68:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
-  %69 = icmp samesign ult i64 %66, 32
+  %69 = icmp slt i64 %41, 31
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
@@ -6361,7 +6361,7 @@ _ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2
   br i1 %119, label %120, label %126
 
 120:                                              ; preds = %_ZStmiRKSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_El.exit
-  %121 = icmp samesign ult i64 %118, 32
+  %121 = icmp slt i64 %117, 31
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %120
@@ -7382,7 +7382,7 @@ define linkonce_odr void @_ZSt16__insertion_sortISt15_Deque_iteratorIN7rocksdb18
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %11
-  %25 = icmp samesign ult i64 %22, 32
+  %25 = icmp slt i64 %21, 31
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -7465,7 +7465,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTi
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS6_PS6_ES9_EEbT_T0_.exit.thread
-  %70 = icmp samesign ult i64 %67, 32
+  %70 = icmp slt i64 %66, 31
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69

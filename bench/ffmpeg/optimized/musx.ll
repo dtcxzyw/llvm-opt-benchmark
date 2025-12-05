@@ -57,14 +57,14 @@ define internal range(i32 -1163346256, 1) i32 @musx_read_header(ptr noundef %0) 
 
 7:                                                ; preds = %1
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef %6) #4
-  br label %135
+  br label %134
 
 8:                                                ; preds = %1, %1, %1, %1, %1
   %9 = load ptr, ptr %2, align 8, !tbaa !12
   %10 = tail call i64 @avio_skip(ptr noundef %9, i64 noundef 4) #4
   %11 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #4
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %135, label %12
+  br i1 %.not, label %134, label %12
 
 12:                                               ; preds = %8
   switch i32 %6, label %97 [
@@ -88,7 +88,7 @@ define internal range(i32 -1163346256, 1) i32 @musx_read_header(ptr noundef %0) 
   store i32 32000, ptr %22, align 8, !tbaa !39
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 156
   store i32 256, ptr %23, align 4, !tbaa !40
-  br label %127
+  br label %126
 
 24:                                               ; preds = %12
   %25 = load ptr, ptr %2, align 8, !tbaa !12
@@ -132,7 +132,7 @@ define internal range(i32 -1163346256, 1) i32 @musx_read_header(ptr noundef %0) 
   store i32 %40, ptr %42, align 4, !tbaa !38
   %43 = add i32 %40, -67108864
   %or.cond = icmp ult i32 %43, -67108863
-  br i1 %or.cond, label %135, label %44
+  br i1 %or.cond, label %134, label %44
 
 44:                                               ; preds = %36
   %45 = load ptr, ptr %2, align 8, !tbaa !12
@@ -151,7 +151,7 @@ define internal range(i32 -1163346256, 1) i32 @musx_read_header(ptr noundef %0) 
   %54 = shl nsw i32 %53, 5
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 156
   store i32 %54, ptr %55, align 4, !tbaa !40
-  br label %127
+  br label %126
 
 56:                                               ; preds = %24
   %57 = load ptr, ptr %2, align 8, !tbaa !12
@@ -165,7 +165,7 @@ define internal range(i32 -1163346256, 1) i32 @musx_read_header(ptr noundef %0) 
 
 61:                                               ; preds = %56
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i32 noundef %60) #4
-  br label %135
+  br label %134
 
 62:                                               ; preds = %56, %56
   %63 = load ptr, ptr %2, align 8, !tbaa !12
@@ -180,7 +180,7 @@ define internal range(i32 -1163346256, 1) i32 @musx_read_header(ptr noundef %0) 
   store i32 %68, ptr %70, align 4, !tbaa !38
   %71 = add i32 %68, -67108864
   %or.cond124 = icmp ult i32 %71, -67108863
-  br i1 %or.cond124, label %135, label %72
+  br i1 %or.cond124, label %134, label %72
 
 72:                                               ; preds = %62
   %73 = load ptr, ptr %2, align 8, !tbaa !12
@@ -193,7 +193,7 @@ define internal range(i32 -1163346256, 1) i32 @musx_read_header(ptr noundef %0) 
   %79 = shl nsw i32 %78, 5
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 156
   store i32 %79, ptr %80, align 4, !tbaa !40
-  br label %127
+  br label %126
 
 81:                                               ; preds = %24
   %82 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -204,7 +204,7 @@ define internal range(i32 -1163346256, 1) i32 @musx_read_header(ptr noundef %0) 
   store i32 32000, ptr %84, align 8, !tbaa !39
   %85 = getelementptr inbounds nuw i8, ptr %28, i64 156
   store i32 64, ptr %85, align 4, !tbaa !40
-  br label %127
+  br label %126
 
 86:                                               ; preds = %24
   %87 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -215,7 +215,7 @@ define internal range(i32 -1163346256, 1) i32 @musx_read_header(ptr noundef %0) 
   store i32 32768, ptr %89, align 8, !tbaa !39
   %90 = getelementptr inbounds nuw i8, ptr %28, i64 156
   store i32 256, ptr %90, align 4, !tbaa !40
-  br label %127
+  br label %126
 
 91:                                               ; preds = %24
   %92 = getelementptr inbounds nuw i8, ptr %28, i64 4
@@ -226,89 +226,88 @@ define internal range(i32 -1163346256, 1) i32 @musx_read_header(ptr noundef %0) 
   store i32 32000, ptr %94, align 8, !tbaa !39
   %95 = getelementptr inbounds nuw i8, ptr %28, i64 156
   store i32 256, ptr %95, align 4, !tbaa !40
-  br label %127
+  br label %126
 
 96:                                               ; preds = %24
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i32 noundef %26) #4
-  br label %135
+  br label %134
 
 97:                                               ; preds = %12
-  %98 = add nsw i32 %6, -4
-  %or.cond15 = icmp samesign ult i32 %98, 3
-  br i1 %or.cond15, label %99, label %126
+  %or.cond15 = icmp samesign ult i32 %6, 7
+  br i1 %or.cond15, label %98, label %125
 
-99:                                               ; preds = %97
-  %100 = load ptr, ptr %2, align 8, !tbaa !12
-  %101 = tail call i32 @avio_rl32(ptr noundef %100) #4
-  %102 = load ptr, ptr %2, align 8, !tbaa !12
-  %103 = tail call i64 @avio_skip(ptr noundef %102, i64 noundef 20) #4
-  %104 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %105 = load ptr, ptr %104, align 8, !tbaa !27
-  store i32 1, ptr %105, align 8, !tbaa !34
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 132
-  store i32 2, ptr %106, align 4, !tbaa !38
-  switch i32 %101, label %125 [
-    i32 1600078663, label %107
-    i32 1597133648, label %113
-    i32 1600078424, label %119
+98:                                               ; preds = %97
+  %99 = load ptr, ptr %2, align 8, !tbaa !12
+  %100 = tail call i32 @avio_rl32(ptr noundef %99) #4
+  %101 = load ptr, ptr %2, align 8, !tbaa !12
+  %102 = tail call i64 @avio_skip(ptr noundef %101, i64 noundef 20) #4
+  %103 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %104 = load ptr, ptr %103, align 8, !tbaa !27
+  store i32 1, ptr %104, align 8, !tbaa !34
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 132
+  store i32 2, ptr %105, align 4, !tbaa !38
+  switch i32 %100, label %124 [
+    i32 1600078663, label %106
+    i32 1597133648, label %112
+    i32 1600078424, label %118
   ]
 
-107:                                              ; preds = %99
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  store i32 69671, ptr %108, align 4, !tbaa !37
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 156
-  store i32 64, ptr %109, align 4, !tbaa !40
-  %110 = getelementptr inbounds nuw i8, ptr %105, i64 152
-  store i32 32000, ptr %110, align 8, !tbaa !39
-  %111 = load ptr, ptr %2, align 8, !tbaa !12
-  %112 = tail call i32 @avio_rb32(ptr noundef %111) #4
-  br label %127
+106:                                              ; preds = %98
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  store i32 69671, ptr %107, align 4, !tbaa !37
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 156
+  store i32 64, ptr %108, align 4, !tbaa !40
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 152
+  store i32 32000, ptr %109, align 8, !tbaa !39
+  %110 = load ptr, ptr %2, align 8, !tbaa !12
+  %111 = tail call i32 @avio_rb32(ptr noundef %110) #4
+  br label %126
 
-113:                                              ; preds = %99
-  %114 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  store i32 69669, ptr %114, align 4, !tbaa !37
-  %115 = getelementptr inbounds nuw i8, ptr %105, i64 156
-  store i32 256, ptr %115, align 4, !tbaa !40
-  %116 = getelementptr inbounds nuw i8, ptr %105, i64 152
-  store i32 32000, ptr %116, align 8, !tbaa !39
-  %117 = load ptr, ptr %2, align 8, !tbaa !12
-  %118 = tail call i32 @avio_rl32(ptr noundef %117) #4
-  br label %127
+112:                                              ; preds = %98
+  %113 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  store i32 69669, ptr %113, align 4, !tbaa !37
+  %114 = getelementptr inbounds nuw i8, ptr %104, i64 156
+  store i32 256, ptr %114, align 4, !tbaa !40
+  %115 = getelementptr inbounds nuw i8, ptr %104, i64 152
+  store i32 32000, ptr %115, align 8, !tbaa !39
+  %116 = load ptr, ptr %2, align 8, !tbaa !12
+  %117 = tail call i32 @avio_rl32(ptr noundef %116) #4
+  br label %126
 
-119:                                              ; preds = %99
-  %120 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  store i32 69671, ptr %120, align 4, !tbaa !37
-  %121 = getelementptr inbounds nuw i8, ptr %105, i64 156
-  store i32 64, ptr %121, align 4, !tbaa !40
-  %122 = getelementptr inbounds nuw i8, ptr %105, i64 152
-  store i32 44100, ptr %122, align 8, !tbaa !39
-  %123 = load ptr, ptr %2, align 8, !tbaa !12
-  %124 = tail call i32 @avio_rl32(ptr noundef %123) #4
-  br label %127
+118:                                              ; preds = %98
+  %119 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  store i32 69671, ptr %119, align 4, !tbaa !37
+  %120 = getelementptr inbounds nuw i8, ptr %104, i64 156
+  store i32 64, ptr %120, align 4, !tbaa !40
+  %121 = getelementptr inbounds nuw i8, ptr %104, i64 152
+  store i32 44100, ptr %121, align 8, !tbaa !39
+  %122 = load ptr, ptr %2, align 8, !tbaa !12
+  %123 = tail call i32 @avio_rl32(ptr noundef %122) #4
+  br label %126
 
-125:                                              ; preds = %99
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i32 noundef %101) #4
-  br label %135
+124:                                              ; preds = %98
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i32 noundef %100) #4
+  br label %134
 
-126:                                              ; preds = %97
+125:                                              ; preds = %97
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 165) #4
   tail call void @abort() #5
   unreachable
 
-127:                                              ; preds = %91, %86, %81, %72, %49, %107, %113, %119, %13
-  %.0118 = phi i32 [ %17, %13 ], [ 2048, %49 ], [ 2048, %72 ], [ 2048, %81 ], [ 2048, %86 ], [ 2048, %91 ], [ %112, %107 ], [ %118, %113 ], [ %124, %119 ]
-  %128 = load ptr, ptr %2, align 8, !tbaa !12
-  %129 = zext i32 %.0118 to i64
-  %130 = tail call i64 @avio_seek(ptr noundef %128, i64 noundef %129, i32 noundef 0) #4
-  %131 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %132 = load ptr, ptr %131, align 8, !tbaa !27
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 152
-  %134 = load i32, ptr %133, align 8, !tbaa !39
-  tail call void @avpriv_set_pts_info(ptr noundef nonnull %11, i32 noundef 64, i32 noundef 1, i32 noundef %134) #4
-  br label %135
+126:                                              ; preds = %91, %86, %81, %72, %49, %106, %112, %118, %13
+  %.0118 = phi i32 [ %17, %13 ], [ 2048, %49 ], [ 2048, %72 ], [ 2048, %81 ], [ 2048, %86 ], [ 2048, %91 ], [ %111, %106 ], [ %117, %112 ], [ %123, %118 ]
+  %127 = load ptr, ptr %2, align 8, !tbaa !12
+  %128 = zext i32 %.0118 to i64
+  %129 = tail call i64 @avio_seek(ptr noundef %127, i64 noundef %128, i32 noundef 0) #4
+  %130 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %131 = load ptr, ptr %130, align 8, !tbaa !27
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 152
+  %133 = load i32, ptr %132, align 8, !tbaa !39
+  tail call void @avpriv_set_pts_info(ptr noundef nonnull %11, i32 noundef 64, i32 noundef 1, i32 noundef %133) #4
+  br label %134
 
-135:                                              ; preds = %62, %36, %8, %127, %125, %96, %61, %7
-  %.0 = phi i32 [ -1163346256, %7 ], [ 0, %127 ], [ -1163346256, %96 ], [ -1163346256, %61 ], [ -1163346256, %125 ], [ -12, %8 ], [ -1094995529, %36 ], [ -1094995529, %62 ]
+134:                                              ; preds = %62, %36, %8, %126, %124, %96, %61, %7
+  %.0 = phi i32 [ -1163346256, %7 ], [ 0, %126 ], [ -1163346256, %96 ], [ -1163346256, %61 ], [ -1163346256, %124 ], [ -12, %8 ], [ -1094995529, %36 ], [ -1094995529, %62 ]
   ret i32 %.0
 }
 

@@ -2471,18 +2471,18 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thr
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17hea425d4dce6b6d4eE.exit"
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h4f18b93b614d0d49E.exit.i.i.i"
-  %39 = add nsw i64 %.sroa.4.0.i.ph.i9.i, -1
-  %40 = icmp samesign ult i64 %39, 8
+  %39 = icmp samesign ult i64 %.sroa.4.0.i.ph.i9.i, 9
+  %40 = add nsw i64 %.sroa.4.0.i.ph.i9.i, -1
   %41 = lshr i64 %.sroa.4.0.i.ph.i9.i, 3
   %42 = mul nuw nsw i64 %41, 7
-  %.sroa.02.0.i.i.i = select i1 %40, i64 %39, i64 %42
+  %.sroa.02.0.i.i.i = select i1 %39, i64 %40, i64 %42
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %43, i8 -1, i64 %22, i1 false), !noalias !267
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17hea425d4dce6b6d4eE.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17hea425d4dce6b6d4eE.exit": ; preds = %4, %35, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i
   %.sroa.11.0.i = phi i64 [ %.sroa.12.09.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %.sroa.02.0.i.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ %38, %35 ], [ 0, %4 ]
-  %.sroa.8.0.i = phi i64 [ %.sroa.7.010.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %39, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ %37, %35 ], [ 0, %4 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.7.010.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ %37, %35 ], [ 0, %4 ]
   %.sroa.0.0.i = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ null, %35 ], [ @anon.7130e10c019014d9426a2e373df913f8.21, %4 ]
   %44 = icmp ne ptr %.sroa.0.0.i, null
   tail call void @llvm.assume(i1 %44)
@@ -2570,18 +2570,18 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thr
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17he73b4ee49fcb64a4E.exit"
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h4f18b93b614d0d49E.exit.i.i.i"
-  %39 = add nsw i64 %.sroa.4.0.i.ph.i9.i, -1
-  %40 = icmp samesign ult i64 %39, 8
+  %39 = icmp samesign ult i64 %.sroa.4.0.i.ph.i9.i, 9
+  %40 = add nsw i64 %.sroa.4.0.i.ph.i9.i, -1
   %41 = lshr i64 %.sroa.4.0.i.ph.i9.i, 3
   %42 = mul nuw nsw i64 %41, 7
-  %.sroa.02.0.i.i.i = select i1 %40, i64 %39, i64 %42
+  %.sroa.02.0.i.i.i = select i1 %39, i64 %40, i64 %42
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %43, i8 -1, i64 %22, i1 false), !noalias !275
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17he73b4ee49fcb64a4E.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17he73b4ee49fcb64a4E.exit": ; preds = %4, %35, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i
   %.sroa.11.0.i = phi i64 [ %.sroa.12.09.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %.sroa.02.0.i.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ %38, %35 ], [ 0, %4 ]
-  %.sroa.8.0.i = phi i64 [ %.sroa.7.010.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %39, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ %37, %35 ], [ 0, %4 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.7.010.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ %37, %35 ], [ 0, %4 ]
   %.sroa.0.0.i = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %43, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ null, %35 ], [ @anon.7130e10c019014d9426a2e373df913f8.21, %4 ]
   %44 = icmp ne ptr %.sroa.0.0.i, null
   tail call void @llvm.assume(i1 %44)
@@ -2671,18 +2671,18 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thr
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17h4835af52b485784bE.exit"
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i: ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h4f18b93b614d0d49E.exit.i.i.i"
-  %40 = add nsw i64 %.sroa.4.0.i.ph.i10.i, -1
-  %41 = icmp samesign ult i64 %40, 8
+  %40 = icmp samesign ult i64 %.sroa.4.0.i.ph.i10.i, 9
+  %41 = add nsw i64 %.sroa.4.0.i.ph.i10.i, -1
   %42 = lshr i64 %.sroa.4.0.i.ph.i10.i, 3
   %43 = mul nuw nsw i64 %42, 7
-  %.sroa.02.0.i.i.i = select i1 %41, i64 %40, i64 %43
+  %.sroa.02.0.i.i.i = select i1 %40, i64 %41, i64 %43
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %44, i8 -1, i64 %23, i1 false), !noalias !284
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17h4835af52b485784bE.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17h4835af52b485784bE.exit": ; preds = %4, %36, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i
   %.sroa.11.0.i = phi i64 [ %.sroa.12.09.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %.sroa.02.0.i.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ %39, %36 ], [ 0, %4 ]
-  %.sroa.8.0.i = phi i64 [ %.sroa.7.010.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %40, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ %38, %36 ], [ 0, %4 ]
+  %.sroa.8.0.i = phi i64 [ %.sroa.7.010.i.i, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %41, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ %38, %36 ], [ 0, %4 ]
   %.sroa.0.0.i = phi ptr [ null, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.thread.i.i ], [ %44, %_ZN9hashbrown3raw13RawTableInner17new_uninitialized17ha7cd37c413c29956E.exit.i.i ], [ null, %36 ], [ @anon.7130e10c019014d9426a2e373df913f8.21, %4 ]
   %45 = icmp ne ptr %.sroa.0.0.i, null
   tail call void @llvm.assume(i1 %45)
@@ -5687,7 +5687,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h586c7537fb579cfcE.exi
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %57, i8 -1, i64 %42, i1 false), !noalias !668
   %58 = add nsw i64 %.sroa.4.0.i.ph.i43, -1
-  %59 = icmp samesign ult i64 %58, 8
+  %59 = icmp samesign ult i64 %.sroa.4.0.i.ph.i43, 9
   %60 = lshr i64 %.sroa.4.0.i.ph.i43, 3
   %61 = mul nuw nsw i64 %60, 7
   %.sroa.02.0.i.i = select i1 %59, i64 %58, i64 %61
@@ -6001,7 +6001,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h586c7537fb579cfcE.exi
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %56, i8 -1, i64 %41, i1 false), !noalias !705
   %57 = add nsw i64 %.sroa.4.0.i.ph.i42, -1
-  %58 = icmp samesign ult i64 %57, 8
+  %58 = icmp samesign ult i64 %.sroa.4.0.i.ph.i42, 9
   %59 = lshr i64 %.sroa.4.0.i.ph.i42, 3
   %60 = mul nuw nsw i64 %59, 7
   %.sroa.02.0.i.i = select i1 %58, i64 %57, i64 %60
@@ -6315,7 +6315,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h586c7537fb579cfcE.exi
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %56, i8 -1, i64 %41, i1 false), !noalias !742
   %57 = add nsw i64 %.sroa.4.0.i.ph.i42, -1
-  %58 = icmp samesign ult i64 %57, 8
+  %58 = icmp samesign ult i64 %.sroa.4.0.i.ph.i42, 9
   %59 = lshr i64 %.sroa.4.0.i.ph.i42, 3
   %60 = mul nuw nsw i64 %59, 7
   %.sroa.02.0.i.i = select i1 %58, i64 %57, i64 %60
@@ -6631,7 +6631,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h586c7537fb579cfcE.exi
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %57, i8 -1, i64 %42, i1 false), !noalias !779
   %58 = add nsw i64 %.sroa.4.0.i.ph.i43, -1
-  %59 = icmp samesign ult i64 %58, 8
+  %59 = icmp samesign ult i64 %.sroa.4.0.i.ph.i43, 9
   %60 = lshr i64 %.sroa.4.0.i.ph.i43, 3
   %61 = mul nuw nsw i64 %60, 7
   %.sroa.02.0.i.i = select i1 %59, i64 %58, i64 %61
@@ -6949,7 +6949,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h586c7537fb579cfcE.exi
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(1) %59, i8 -1, i64 %44, i1 false), !noalias !816
   %60 = add nsw i64 %.sroa.4.0.i.ph.i, -1
-  %61 = icmp samesign ult i64 %60, 8
+  %61 = icmp samesign ult i64 %.sroa.4.0.i.ph.i, 9
   %62 = lshr i64 %.sroa.4.0.i.ph.i, 3
   %63 = mul nuw nsw i64 %62, 7
   %.sroa.02.0.i.i = select i1 %61, i64 %60, i64 %63
@@ -7292,7 +7292,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h5e6947fe6ce771d7E.exi
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 %43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %67, i8 -1, i64 %44, i1 false), !noalias !850
   %68 = add nsw i64 %.sroa.4.0.i.ph7.i, -1
-  %69 = icmp samesign ult i64 %68, 8
+  %69 = icmp samesign ult i64 %.sroa.4.0.i.ph7.i, 9
   %70 = lshr i64 %.sroa.4.0.i.ph7.i, 3
   %71 = mul nuw nsw i64 %70, 7
   %.sroa.04.0.i.i = select i1 %69, i64 %68, i64 %71
@@ -7931,7 +7931,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h586c7537fb579cfcE.exi
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %56, i8 -1, i64 %41, i1 false), !noalias !931
   %57 = add nsw i64 %.sroa.4.0.i.ph.i42, -1
-  %58 = icmp samesign ult i64 %57, 8
+  %58 = icmp samesign ult i64 %.sroa.4.0.i.ph.i42, 9
   %59 = lshr i64 %.sroa.4.0.i.ph.i42, 3
   %60 = mul nuw nsw i64 %59, 7
   %.sroa.02.0.i.i = select i1 %58, i64 %57, i64 %60

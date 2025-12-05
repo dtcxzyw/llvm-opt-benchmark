@@ -2261,13 +2261,16 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %315 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %314, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
   %316 = load i32, ptr @hf_omron_no_of_link_nodes, align 4
   %317 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %316, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
-  %318 = add nsw i32 %66, -9
-  %319 = icmp samesign ugt i32 %318, 7
-  br i1 %319, label %.lr.ph2657, label %.thread2535
+  %318 = icmp samesign ugt i32 %66, 16
+  br i1 %318, label %.lr.ph2657.preheader, label %.thread2535
 
-.lr.ph2657:                                       ; preds = %307, %.lr.ph2657
-  %.62656 = phi i32 [ %339, %.lr.ph2657 ], [ %318, %307 ]
-  %.1423972655 = phi i32 [ %338, %.lr.ph2657 ], [ 21, %307 ]
+.lr.ph2657.preheader:                             ; preds = %307
+  %319 = add nsw i32 %66, -9
+  br label %.lr.ph2657
+
+.lr.ph2657:                                       ; preds = %.lr.ph2657.preheader, %.lr.ph2657
+  %.62656 = phi i32 [ %339, %.lr.ph2657 ], [ %319, %.lr.ph2657.preheader ]
+  %.1423972655 = phi i32 [ %338, %.lr.ph2657 ], [ 21, %.lr.ph2657.preheader ]
   %320 = load i32, ptr @ett_omron_block_record, align 4
   %321 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef %.1423972655, i32 noundef 8, i32 noundef %320, ptr noundef null, ptr noundef nonnull @.str.934)
   %322 = load i32, ptr @hf_omron_block_record_node_num_status, align 4
@@ -2278,17 +2281,17 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %327 = add nuw nsw i32 %.1423972655, 1
   %328 = call ptr @proto_tree_add_item(ptr noundef %321, i32 noundef %326, ptr noundef %0, i32 noundef %327, i32 noundef 2, i32 noundef 0)
   %329 = load i32, ptr @hf_omron_block_record_kind_of_dm, align 4
-  %330 = add i32 %.1423972655, 3
+  %330 = add nuw i32 %.1423972655, 3
   %331 = call ptr @proto_tree_add_item(ptr noundef %321, i32 noundef %329, ptr noundef %0, i32 noundef %330, i32 noundef 1, i32 noundef 0)
   %332 = load i32, ptr @hf_omron_block_record_dm_area_first_word, align 4
-  %333 = add i32 %.1423972655, 4
+  %333 = add nuw i32 %.1423972655, 4
   %334 = call ptr @proto_tree_add_item(ptr noundef %321, i32 noundef %332, ptr noundef %0, i32 noundef %333, i32 noundef 2, i32 noundef 0)
   %335 = load i32, ptr @hf_omron_block_record_no_of_total_words, align 4
-  %336 = add i32 %.1423972655, 6
+  %336 = add nuw i32 %.1423972655, 6
   %337 = call ptr @proto_tree_add_item(ptr noundef %321, i32 noundef %335, ptr noundef %0, i32 noundef %336, i32 noundef 2, i32 noundef 0)
-  %338 = add i32 %.1423972655, 8
+  %338 = add nuw i32 %.1423972655, 8
   %339 = add nsw i32 %.62656, -8
-  %340 = icmp samesign ugt i32 %339, 7
+  %340 = icmp samesign ugt i32 %.62656, 15
   br i1 %340, label %.lr.ph2657, label %.thread2535, !llvm.loop !9
 
 .loopexit2609:                                    ; preds = %305
