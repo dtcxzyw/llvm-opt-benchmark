@@ -136,8 +136,8 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   br i1 %73, label %.lr.ph136, label %.preheader127
 
 .preheader127:                                    ; preds = %.lr.ph136, %._crit_edge
-  %.0104.lcssa = phi <2 x i64> [ %71, %._crit_edge ], [ %84, %.lr.ph136 ]
-  %.6.lcssa = phi i32 [ %.5.lcssa, %._crit_edge ], [ %85, %.lr.ph136 ]
+  %.0104.lcssa = phi <2 x i64> [ %71, %._crit_edge ], [ %81, %.lr.ph136 ]
+  %.6.lcssa = phi i32 [ %.5.lcssa, %._crit_edge ], [ %82, %.lr.ph136 ]
   %74 = icmp ult i32 %.6.lcssa, %58
   br i1 %74, label %.lr.ph141.preheader, label %._crit_edge142
 
@@ -146,40 +146,37 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   br label %.lr.ph141
 
 .lr.ph136:                                        ; preds = %._crit_edge, %.lr.ph136
-  %.6134 = phi i32 [ %85, %.lr.ph136 ], [ %.5.lcssa, %._crit_edge ]
-  %.0104133 = phi <2 x i64> [ %84, %.lr.ph136 ], [ %71, %._crit_edge ]
+  %.6134 = phi i32 [ %82, %.lr.ph136 ], [ %.5.lcssa, %._crit_edge ]
+  %.0104133 = phi <2 x i64> [ %81, %.lr.ph136 ], [ %71, %._crit_edge ]
   %76 = zext i32 %.6134 to i64
   %77 = getelementptr inbounds nuw i32, ptr %0, i64 %76
-  %78 = load i64, ptr %77, align 1, !tbaa !3
-  %79 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %78, i64 0
-  %80 = bitcast <2 x i64> %79 to <4 x i32>
-  %81 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %80, i1 false)
-  %82 = shufflevector <4 x i32> %81, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
-  %83 = zext <2 x i32> %82 to <2 x i64>
-  %84 = add <2 x i64> %.0104133, %83
-  %85 = add nsw i32 %.6134, 2
-  %86 = icmp slt i32 %85, %72
-  br i1 %86, label %.lr.ph136, label %.preheader127, !llvm.loop !16
+  %78 = load <2 x i32>, ptr %77, align 1, !tbaa !3
+  %79 = tail call <2 x i32> @llvm.abs.v2i32(<2 x i32> %78, i1 false)
+  %80 = zext <2 x i32> %79 to <2 x i64>
+  %81 = add <2 x i64> %.0104133, %80
+  %82 = add nsw i32 %.6134, 2
+  %83 = icmp slt i32 %82, %72
+  br i1 %83, label %.lr.ph136, label %.preheader127, !llvm.loop !16
 
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %.lr.ph141
   %indvars.iv = phi i64 [ %75, %.lr.ph141.preheader ], [ %indvars.iv.next, %.lr.ph141 ]
-  %.1105139 = phi <2 x i64> [ %.0104.lcssa, %.lr.ph141.preheader ], [ %91, %.lr.ph141 ]
-  %87 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %88 = load i32, ptr %87, align 4, !tbaa !9
-  %.scalar220 = tail call i32 @llvm.abs.i32(i32 %88, i1 false)
-  %89 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.scalar220, i64 0
-  %90 = bitcast <4 x i32> %89 to <2 x i64>
-  %91 = add <2 x i64> %.1105139, %90
+  %.1105139 = phi <2 x i64> [ %.0104.lcssa, %.lr.ph141.preheader ], [ %88, %.lr.ph141 ]
+  %84 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %85 = load i32, ptr %84, align 4, !tbaa !9
+  %.scalar220 = tail call i32 @llvm.abs.i32(i32 %85, i1 false)
+  %86 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %.scalar220, i64 0
+  %87 = bitcast <4 x i32> %86 to <2 x i64>
+  %88 = add <2 x i64> %.1105139, %87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %57
   br i1 %exitcond.not, label %._crit_edge142, label %.lr.ph141, !llvm.loop !17
 
 ._crit_edge142:                                   ; preds = %.lr.ph141, %.preheader127
-  %.1105.lcssa = phi <2 x i64> [ %.0104.lcssa, %.preheader127 ], [ %91, %.lr.ph141 ]
+  %.1105.lcssa = phi <2 x i64> [ %.0104.lcssa, %.preheader127 ], [ %88, %.lr.ph141 ]
   %.7.lcssa = phi i32 [ %.6.lcssa, %.preheader127 ], [ %indvars.iv200, %.lr.ph141 ]
-  %92 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv203
-  %93 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %.1105.lcssa)
-  store i64 %93, ptr %92, align 1, !tbaa !3
+  %89 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv203
+  %90 = tail call i64 @llvm.vector.reduce.add.v2i64(<2 x i64> %.1105.lcssa)
+  store i64 %90, ptr %89, align 1, !tbaa !3
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %indvars.iv.next201 = add i32 %indvars.iv200, %9
   %exitcond206.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count217
@@ -190,8 +187,8 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   br i1 %.not.not177, label %.lr.ph183, label %._crit_edge184
 
 .loopexit:                                        ; preds = %.lr.ph173, %.lr.ph183
-  %.196.lcssa = phi i32 [ %.095179, %.lr.ph183 ], [ %106, %.lr.ph173 ]
-  %.1.lcssa = phi i32 [ %.094180, %.lr.ph183 ], [ %103, %.lr.ph173 ]
+  %.196.lcssa = phi i32 [ %.095179, %.lr.ph183 ], [ %103, %.lr.ph173 ]
+  %.1.lcssa = phi i32 [ %.094180, %.lr.ph183 ], [ %100, %.lr.ph173 ]
   %.not.not = icmp sgt i32 %.093181, %4
   br i1 %.not.not, label %.lr.ph183, label %._crit_edge184, !llvm.loop !19
 
@@ -199,31 +196,31 @@ define hidden void @FLAC__precompute_partition_info_sums_intrin_avx2(ptr noundef
   %.093181.in = phi i32 [ %.093181, %.loopexit ], [ %5, %.loopexit126 ]
   %.094180 = phi i32 [ %.1.lcssa, %.loopexit ], [ %10, %.loopexit126 ]
   %.095179 = phi i32 [ %.196.lcssa, %.loopexit ], [ 0, %.loopexit126 ]
-  %.097178 = phi i32 [ %94, %.loopexit ], [ %10, %.loopexit126 ]
+  %.097178 = phi i32 [ %91, %.loopexit ], [ %10, %.loopexit126 ]
   %.093181 = add nsw i32 %.093181.in, -1
-  %94 = lshr i32 %.097178, 1
-  %.not = icmp eq i32 %94, 0
+  %91 = lshr i32 %.097178, 1
+  %.not = icmp eq i32 %91, 0
   br i1 %.not, label %.loopexit, label %.lr.ph173
 
 .lr.ph173:                                        ; preds = %.lr.ph183, %.lr.ph173
-  %.0171 = phi i32 [ %107, %.lr.ph173 ], [ 0, %.lr.ph183 ]
-  %.1170 = phi i32 [ %103, %.lr.ph173 ], [ %.094180, %.lr.ph183 ]
-  %.196169 = phi i32 [ %106, %.lr.ph173 ], [ %.095179, %.lr.ph183 ]
-  %95 = zext i32 %.196169 to i64
-  %96 = getelementptr inbounds nuw i64, ptr %1, i64 %95
-  %97 = load i64, ptr %96, align 8, !tbaa !12
-  %98 = add i32 %.196169, 1
-  %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw i64, ptr %1, i64 %99
-  %101 = load i64, ptr %100, align 8, !tbaa !12
-  %102 = add i64 %101, %97
-  %103 = add i32 %.1170, 1
-  %104 = zext i32 %.1170 to i64
-  %105 = getelementptr inbounds nuw i64, ptr %1, i64 %104
-  store i64 %102, ptr %105, align 8, !tbaa !12
-  %106 = add i32 %.196169, 2
-  %107 = add nuw nsw i32 %.0171, 1
-  %exitcond219.not = icmp eq i32 %107, %94
+  %.0171 = phi i32 [ %104, %.lr.ph173 ], [ 0, %.lr.ph183 ]
+  %.1170 = phi i32 [ %100, %.lr.ph173 ], [ %.094180, %.lr.ph183 ]
+  %.196169 = phi i32 [ %103, %.lr.ph173 ], [ %.095179, %.lr.ph183 ]
+  %92 = zext i32 %.196169 to i64
+  %93 = getelementptr inbounds nuw i64, ptr %1, i64 %92
+  %94 = load i64, ptr %93, align 8, !tbaa !12
+  %95 = add i32 %.196169, 1
+  %96 = zext i32 %95 to i64
+  %97 = getelementptr inbounds nuw i64, ptr %1, i64 %96
+  %98 = load i64, ptr %97, align 8, !tbaa !12
+  %99 = add i64 %98, %94
+  %100 = add i32 %.1170, 1
+  %101 = zext i32 %.1170 to i64
+  %102 = getelementptr inbounds nuw i64, ptr %1, i64 %101
+  store i64 %99, ptr %102, align 8, !tbaa !12
+  %103 = add i32 %.196169, 2
+  %104 = add nuw nsw i32 %.0171, 1
+  %exitcond219.not = icmp eq i32 %104, %91
   br i1 %exitcond219.not, label %.loopexit, label %.lr.ph173, !llvm.loop !20
 
 ._crit_edge184:                                   ; preds = %.loopexit, %.loopexit126
@@ -245,6 +242,9 @@ declare void @llvm.x86.avx.vzeroupper() #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x i32> @llvm.abs.v2i32(<2 x i32>, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.vector.reduce.add.v2i64(<2 x i64>) #3

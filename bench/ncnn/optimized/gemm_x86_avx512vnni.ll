@@ -7326,15 +7326,15 @@ define hidden void @_ZN4ncnn35pack_B_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   %246 = fadd fast <16 x float> %245, %243
   %247 = tail call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> nofpclass(nan inf) %246, <16 x i32> zeroinitializer, i16 -1, i32 4)
   %248 = tail call <16 x i8> @llvm.x86.avx512.mask.pmovs.db.512(<16 x i32> %247, <16 x i8> zeroinitializer, i16 -1)
-  %249 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %248, <16 x i8> splat (i8 -127))
-  %250 = tail call <16 x float> @llvm.copysign.v16f32(<16 x float> splat (float 5.000000e-01), <16 x float> %244)
-  %251 = fadd fast <16 x float> %250, %244
-  %252 = tail call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> nofpclass(nan inf) %251, <16 x i32> zeroinitializer, i16 -1, i32 4)
-  %253 = tail call <16 x i8> @llvm.x86.avx512.mask.pmovs.db.512(<16 x i32> %252, <16 x i8> zeroinitializer, i16 -1)
-  %254 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %253, <16 x i8> splat (i8 -127))
-  %255 = shufflevector <16 x i8> %249, <16 x i8> poison, <16 x i32> <i32 0, i32 4, i32 1, i32 5, i32 2, i32 6, i32 3, i32 7, i32 8, i32 12, i32 9, i32 13, i32 10, i32 14, i32 11, i32 15>
-  %256 = shufflevector <16 x i8> %254, <16 x i8> poison, <16 x i32> <i32 0, i32 4, i32 1, i32 5, i32 2, i32 6, i32 3, i32 7, i32 8, i32 12, i32 9, i32 13, i32 10, i32 14, i32 11, i32 15>
-  store <16 x i8> %255, ptr %.11294.i.us, align 16, !tbaa !15
+  %249 = tail call <16 x float> @llvm.copysign.v16f32(<16 x float> splat (float 5.000000e-01), <16 x float> %244)
+  %250 = fadd fast <16 x float> %249, %244
+  %251 = tail call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> nofpclass(nan inf) %250, <16 x i32> zeroinitializer, i16 -1, i32 4)
+  %252 = tail call <16 x i8> @llvm.x86.avx512.mask.pmovs.db.512(<16 x i32> %251, <16 x i8> zeroinitializer, i16 -1)
+  %253 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %248, <16 x i8> splat (i8 -127))
+  %254 = shufflevector <16 x i8> %253, <16 x i8> poison, <16 x i32> <i32 0, i32 4, i32 1, i32 5, i32 2, i32 6, i32 3, i32 7, i32 8, i32 12, i32 9, i32 13, i32 10, i32 14, i32 11, i32 15>
+  %255 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %252, <16 x i8> splat (i8 -127))
+  %256 = shufflevector <16 x i8> %255, <16 x i8> poison, <16 x i32> <i32 0, i32 4, i32 1, i32 5, i32 2, i32 6, i32 3, i32 7, i32 8, i32 12, i32 9, i32 13, i32 10, i32 14, i32 11, i32 15>
+  store <16 x i8> %254, ptr %.11294.i.us, align 16, !tbaa !15
   %257 = getelementptr inbounds nuw i8, ptr %.11294.i.us, i64 16
   store <16 x i8> %256, ptr %257, align 16, !tbaa !15
   %258 = getelementptr inbounds nuw i8, ptr %.11294.i.us, i64 32
@@ -7458,15 +7458,15 @@ define hidden void @_ZN4ncnn35pack_B_tile_fp32_to_int8_avx512vnniERKNS_3MatERS0_
   %340 = fadd fast <16 x float> %339, %337
   %341 = tail call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> nofpclass(nan inf) %340, <16 x i32> zeroinitializer, i16 -1, i32 4)
   %342 = tail call <16 x i8> @llvm.x86.avx512.mask.pmovs.db.512(<16 x i32> %341, <16 x i8> zeroinitializer, i16 -1)
-  %343 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %342, <16 x i8> splat (i8 -127))
-  %344 = tail call <16 x float> @llvm.copysign.v16f32(<16 x float> splat (float 5.000000e-01), <16 x float> %338)
-  %345 = fadd fast <16 x float> %344, %338
-  %346 = tail call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> nofpclass(nan inf) %345, <16 x i32> zeroinitializer, i16 -1, i32 4)
-  %347 = tail call <16 x i8> @llvm.x86.avx512.mask.pmovs.db.512(<16 x i32> %346, <16 x i8> zeroinitializer, i16 -1)
-  %348 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %347, <16 x i8> splat (i8 -127))
-  %349 = shufflevector <16 x i8> %343, <16 x i8> poison, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %350 = shufflevector <16 x i8> %348, <16 x i8> poison, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x i8> %349, ptr %.7274.i.us, align 16, !tbaa !15
+  %343 = tail call <16 x float> @llvm.copysign.v16f32(<16 x float> splat (float 5.000000e-01), <16 x float> %338)
+  %344 = fadd fast <16 x float> %343, %338
+  %345 = tail call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> nofpclass(nan inf) %344, <16 x i32> zeroinitializer, i16 -1, i32 4)
+  %346 = tail call <16 x i8> @llvm.x86.avx512.mask.pmovs.db.512(<16 x i32> %345, <16 x i8> zeroinitializer, i16 -1)
+  %347 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %342, <16 x i8> splat (i8 -127))
+  %348 = shufflevector <16 x i8> %347, <16 x i8> poison, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  %349 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %346, <16 x i8> splat (i8 -127))
+  %350 = shufflevector <16 x i8> %349, <16 x i8> poison, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
+  store <16 x i8> %348, ptr %.7274.i.us, align 16, !tbaa !15
   %351 = getelementptr inbounds nuw i8, ptr %.7274.i.us, i64 16
   store <16 x i8> %350, ptr %351, align 16, !tbaa !15
   %352 = getelementptr inbounds nuw i8, ptr %.7274.i.us, i64 32
