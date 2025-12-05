@@ -789,9 +789,9 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18sc
   %.sroa.0586.0.vec.insert.us = insertelement <2 x double> poison, double %225, i64 0
   %.sroa.0586.8.vec.insert.us = insertelement <2 x double> %.sroa.0586.0.vec.insert.us, double %228, i64 1
   %231 = fmul <2 x double> %.sroa.0595.8.vec.insert.us, %.sroa.0586.8.vec.insert.us
-  %shift2377 = shufflevector <2 x double> %231, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop2378 = fadd <2 x double> %231, %shift2377
-  %232 = extractelement <2 x double> %foldExtExtBinop2378, i64 0
+  %shift2392 = shufflevector <2 x double> %231, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop2393 = fadd <2 x double> %231, %shift2392
+  %232 = extractelement <2 x double> %foldExtExtBinop2393, i64 0
   %233 = fmul double %221, %230
   %234 = fadd double %233, %232
   %235 = mul nsw i64 %188, %.01721268.us
@@ -985,9 +985,9 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
 
 320:                                              ; preds = %314, %._crit_edge.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.072.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %319, %314 ], [ %313, %._crit_edge.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %shift2380 = shufflevector <2 x double> %.072.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop2381 = fadd <2 x double> %.072.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %shift2380
-  %321 = extractelement <2 x double> %foldExtExtBinop2381, i64 0
+  %shift2395 = shufflevector <2 x double> %.072.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop2396 = fadd <2 x double> %.072.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %shift2395
+  %321 = extractelement <2 x double> %foldExtExtBinop2396, i64 0
   br i1 %279, label %.lr.ph85.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS2_INS_7ProductINS_9TransposeIKNS3_IdLin1ELi1ELi0ELin1ELi1EEEEENS_5BlockINS3_IdLin1ELi3ELi0ELin1ELi3EEELin1ELi3ELb0EEELi1EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.us14.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph85.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %320, %.lr.ph85.i.i.i.i.i.us.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1021,9 +1021,9 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %333 = getelementptr inbounds double, ptr %268, i64 %332
   %334 = load <2 x double>, ptr %333, align 1, !tbaa !92
   %335 = fmul <2 x double> %331, %334
-  %shift2383 = shufflevector <2 x double> %335, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop2384 = fadd <2 x double> %335, %shift2383
-  %336 = extractelement <2 x double> %foldExtExtBinop2384, i64 0
+  %shift2398 = shufflevector <2 x double> %335, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop2399 = fadd <2 x double> %335, %shift2398
+  %336 = extractelement <2 x double> %foldExtExtBinop2399, i64 0
   br label %.lr.ph85.i.i.i.i.i.us17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph85.i.i.i.i.i.us17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph85.i.i.i.i.i.us17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph85.i.i.i.i.i.preheader.us23.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1052,9 +1052,9 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %347 = getelementptr inbounds double, ptr %268, i64 %346
   %348 = load <2 x double>, ptr %347, align 1, !tbaa !92
   %349 = fmul <2 x double> %331, %348
-  %shift2386 = shufflevector <2 x double> %349, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop2387 = fadd <2 x double> %349, %shift2386
-  %350 = extractelement <2 x double> %foldExtExtBinop2387, i64 0
+  %shift2401 = shufflevector <2 x double> %349, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop2402 = fadd <2 x double> %349, %shift2401
+  %350 = extractelement <2 x double> %foldExtExtBinop2402, i64 0
   %351 = getelementptr inbounds nuw double, ptr %11, i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store double %350, ptr %351, align 8, !tbaa !22
   %352 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1

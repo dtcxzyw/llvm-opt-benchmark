@@ -335,11 +335,11 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
   %.not46 = icmp eq i64 %7, 0
   br i1 %.not46, label %8, label %.loopexit
 
-8:                                                ; preds = %3
+8:; preds = %3
   %9 = add i64 %6, %.03652
   %10 = add nuw nsw i64 %.03353, 1
-  %exitcond.not = icmp eq i64 %10, 3
-  br i1 %exitcond.not, label %11, label %3, !llvm.loop !42
+  %.not46 = icmp eq i64 %10, 3
+  br i1 %.not46, label %11, label %3, !llvm.loop !42
 
 11:                                               ; preds = %8
   %12 = lshr exact i64 %9, 1
@@ -392,8 +392,8 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
 ._crit_edge:                                      ; preds = %28, %.preheader
   %.139.lcssa = phi i64 [ %.03857, %.preheader ], [ %32, %28 ]
   %38 = add nuw nsw i64 %.13458, 1
-  %exitcond60.not = icmp eq i64 %38, 3
-  br i1 %exitcond60.not, label %39, label %.preheader, !llvm.loop !45
+  %exitcond61.not = icmp eq i64 %38, 3
+  br i1 %exitcond61.not, label %39, label %.preheader, !llvm.loop !45
 
 39:                                               ; preds = %._crit_edge
   store i64 %12, ptr %1, align 8, !tbaa !21

@@ -3693,7 +3693,7 @@ define internal fastcc noundef ptr @adb_send_and_read(i32 noundef range(i32 0, -
 
 9:                                                ; preds = %4
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 763, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.111, ptr noundef %1)
-  br label %41
+  br label %47
 
 10:                                               ; preds = %4
   %sext = shl i64 %5, 32
@@ -3705,16 +3705,16 @@ define internal fastcc noundef ptr @adb_send_and_read(i32 noundef range(i32 0, -
 13:                                               ; preds = %10
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 769, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.134, ptr noundef %1)
   %.not58 = icmp eq ptr %3, null
-  br i1 %.not58, label %41, label %14
+  br i1 %.not58, label %47, label %14
 
 14:                                               ; preds = %13
   store i64 0, ptr %3, align 8
-  br label %41
+  br label %47
 
 15:                                               ; preds = %.preheader
   %16 = add i64 %21, %.04762
   %17 = icmp slt i64 %16, 4
-  br i1 %17, label %.preheader, label %.lr.ph.preheader, !llvm.loop !60
+  br i1 %17, label %.preheader, label %31, !llvm.loop !60
 
 .preheader:                                       ; preds = %10, %15
   %.04762 = phi i64 [ %16, %15 ], [ 0, %10 ]
@@ -3728,13 +3728,13 @@ define internal fastcc noundef ptr @adb_send_and_read(i32 noundef range(i32 0, -
 
 23:                                               ; preds = %.preheader
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 780, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.112, ptr noundef %1)
-  br label %41
+  br label %47
 
-.lr.ph.preheader:                                 ; preds = %15
+31:                                               ; preds = %15
   %24 = load i32, ptr %2, align 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %31
+.lr.ph:; preds = %31, %31
   %.14863 = phi i64 [ %33, %31 ], [ %16, %.lr.ph.preheader ]
   %25 = getelementptr i8, ptr %2, i64 %.14863
   %26 = shl i64 %.14863, 32
@@ -3746,40 +3746,40 @@ define internal fastcc noundef ptr @adb_send_and_read(i32 noundef range(i32 0, -
 
 30:                                               ; preds = %.lr.ph
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 794, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.114, ptr noundef %1)
-  br label %41
+  br label %47
 
-31:                                               ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %.lr.ph
   %32 = icmp eq i64 %28, 0
   %33 = add i64 %28, %.14863
-  br i1 %32, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %32, label %split, label %.lr.ph, !llvm.loop !61
 
-._crit_edge:                                      ; preds = %31
+split:                                            ; preds = %.lr.ph
   %.not55 = icmp eq ptr %3, null
-  br i1 %.not55, label %36, label %34
+  br i1 %.not55, label %42, label %40
 
-34:                                               ; preds = %._crit_edge
-  %35 = add i64 %.14863, -4
-  store i64 %35, ptr %3, align 8
-  br label %36
+40:                                               ; preds = %split
+  %41 = add i64 %.14863, -4
+  store i64 %41, ptr %3, align 8
+  br label %42
 
-36:                                               ; preds = %34, %._crit_edge
-  %.not2 = icmp eq i32 %24, 1497451343
-  br i1 %.not2, label %39, label %37
+42:                                               ; preds = %40, %split
+  %.not4 = icmp eq i32 %24, 1497451343
+  br i1 %.not4, label %45, label %43
 
-37:                                               ; preds = %36
+43:                                               ; preds = %42
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 808, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.116, ptr noundef %1)
-  br i1 %.not55, label %41, label %38
+  br i1 %.not55, label %47, label %44
 
-38:                                               ; preds = %37
+44:                                               ; preds = %43
   store i64 0, ptr %3, align 8
-  br label %41
+  br label %47
 
-39:                                               ; preds = %36
-  %40 = getelementptr i8, ptr %2, i64 4
-  br label %41
+45:                                               ; preds = %42
+  %46 = getelementptr i8, ptr %2, i64 4
+  br label %47
 
-41:                                               ; preds = %37, %38, %13, %14, %39, %30, %23, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %23 ], [ null, %30 ], [ %40, %39 ], [ null, %14 ], [ null, %13 ], [ null, %38 ], [ null, %37 ]
+47:                                               ; preds = %43, %44, %13, %14, %45, %30, %23, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %23 ], [ null, %30 ], [ %46, %39 ], [ null, %14 ], [ null, %13 ], [ null, %38 ], [ null, %37 ]
   ret ptr %.0
 }
 

@@ -825,11 +825,11 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %197, %.critedge.i.i
   br i1 %258, label %._crit_edge, label %.lr.ph415
 
 StoreAndFindMatchesH10.exit.sink.split:           ; preds = %186, %230
-  %.0102.i410.lcssa667.sink = phi i64 [ %.0102.i410, %230 ], [ %.0102.i.lcssa, %186 ]
+  %.0102.i410.lcssa671.sink = phi i64 [ %.0102.i410, %230 ], [ %.0102.i.lcssa, %186 ]
   %.sink = phi i32 [ %236, %230 ], [ %187, %186 ]
   %.2259.ph = phi i64 [ %.5, %230 ], [ %.4.lcssa, %186 ]
   %.4.i.ph = phi ptr [ %.2.i163, %230 ], [ %.0.i161.lcssa, %186 ]
-  %259 = getelementptr inbounds nuw i32, ptr %171, i64 %.0102.i410.lcssa667.sink
+  %259 = getelementptr inbounds nuw i32, ptr %171, i64 %.0102.i410.lcssa671.sink
   store i32 %.sink, ptr %259, align 4, !tbaa !3, !noalias !90
   br label %StoreAndFindMatchesH10.exit
 
@@ -1028,10 +1028,10 @@ FindAllMatchesH10.exit:                           ; preds = %291, %268, %263
   br i1 %.not.i.i179440, label %.critedge.i.i180, label %.lr.ph444.preheader
 
 .lr.ph444.preheader:                              ; preds = %372, %.preheader333
-  %.022.i.i174.lcssa654 = phi ptr [ %385, %.preheader333 ], [ %373, %372 ]
-  %.025.i.i173.lcssa653 = phi ptr [ %384, %.preheader333 ], [ %266, %372 ]
-  %.027.i.i172.lcssa652 = phi i64 [ %386, %.preheader333 ], [ %361, %372 ]
-  %scevgep589 = getelementptr i8, ptr %.022.i.i174.lcssa654, i64 %.027.i.i172.lcssa652
+  %.022.i.i174.lcssa658 = phi ptr [ %385, %.preheader333 ], [ %373, %372 ]
+  %.025.i.i173.lcssa657 = phi ptr [ %384, %.preheader333 ], [ %266, %372 ]
+  %.027.i.i172.lcssa656 = phi i64 [ %386, %.preheader333 ], [ %361, %372 ]
+  %scevgep589 = getelementptr i8, ptr %.022.i.i174.lcssa658, i64 %.027.i.i172.lcssa656
   br label %.lr.ph444
 
 .lr.ph436:                                        ; preds = %372, %383
@@ -1061,9 +1061,9 @@ FindAllMatchesH10.exit:                           ; preds = %291, %268, %263
   br i1 %387, label %.lr.ph436, label %.preheader333, !llvm.loop !66
 
 .lr.ph444:                                        ; preds = %.lr.ph444.preheader, %391
-  %.224.i.i178443 = phi ptr [ %394, %391 ], [ %.022.i.i174.lcssa654, %.lr.ph444.preheader ]
-  %.126.i.i177442 = phi ptr [ %393, %391 ], [ %.025.i.i173.lcssa653, %.lr.ph444.preheader ]
-  %.128.i.i176441 = phi i64 [ %392, %391 ], [ %.027.i.i172.lcssa652, %.lr.ph444.preheader ]
+  %.224.i.i178443 = phi ptr [ %394, %391 ], [ %.022.i.i174.lcssa658, %.lr.ph444.preheader ]
+  %.126.i.i177442 = phi ptr [ %393, %391 ], [ %.025.i.i173.lcssa657, %.lr.ph444.preheader ]
+  %.128.i.i176441 = phi i64 [ %392, %391 ], [ %.027.i.i172.lcssa656, %.lr.ph444.preheader ]
   %388 = load i8, ptr %.224.i.i178443, align 1, !tbaa !7, !noalias !99
   %389 = load i8, ptr %.126.i.i177442, align 1, !tbaa !7, !alias.scope !99
   %390 = icmp eq i8 %388, %389
@@ -1415,8 +1415,8 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %516, %.critedge.i.i
 
 540:                                              ; preds = %FindMatchLengthWithLimit.exit.i.i
   %541 = and i64 %.093.i.i483, %486
-  %.idx646 = shl nuw nsw i64 %541, 3
-  %542 = getelementptr inbounds nuw i8, ptr %489, i64 %.idx646
+  %.idx650 = shl nuw nsw i64 %541, 3
+  %542 = getelementptr inbounds nuw i8, ptr %489, i64 %.idx650
   %543 = load i32, ptr %542, align 4, !tbaa !3, !noalias !131
   %544 = getelementptr inbounds nuw i32, ptr %489, i64 %.098.i.i481
   store i32 %543, ptr %544, align 4, !tbaa !3, !noalias !131
@@ -1460,9 +1460,9 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %516, %.critedge.i.i
 
 StoreH10.exit:                                    ; preds = %._crit_edge486, %540
   %.0102.i.i.lcssa.sink = phi i64 [ %.0102.i.i.lcssa, %._crit_edge486 ], [ %.0102.i.i480, %540 ]
-  %.sink699 = phi i32 [ %506, %._crit_edge486 ], [ %546, %540 ]
+  %.sink703 = phi i32 [ %506, %._crit_edge486 ], [ %546, %540 ]
   %563 = getelementptr inbounds nuw i32, ptr %489, i64 %.0102.i.i.lcssa.sink
-  store i32 %.sink699, ptr %563, align 4, !tbaa !3, !noalias !131
+  store i32 %.sink703, ptr %563, align 4, !tbaa !3, !noalias !131
   %564 = add i64 %.0.i154492, 8
   %565 = icmp ult i64 %564, %spec.select.i153
   br i1 %565, label %490, label %.loopexit338, !llvm.loop !133
@@ -1606,8 +1606,8 @@ FindMatchLengthWithLimit.exit.i.i210:             ; preds = %597, %.critedge.i.i
 
 621:                                              ; preds = %FindMatchLengthWithLimit.exit.i.i210
   %622 = and i64 %.093.i.i198518, %567
-  %.idx647 = shl nuw nsw i64 %622, 3
-  %623 = getelementptr inbounds nuw i8, ptr %570, i64 %.idx647
+  %.idx651 = shl nuw nsw i64 %622, 3
+  %623 = getelementptr inbounds nuw i8, ptr %570, i64 %.idx651
   %624 = load i32, ptr %623, align 4, !tbaa !3, !noalias !149
   %625 = getelementptr inbounds nuw i32, ptr %570, i64 %.098.i.i197516
   store i32 %624, ptr %625, align 4, !tbaa !3, !noalias !149
@@ -1651,9 +1651,9 @@ FindMatchLengthWithLimit.exit.i.i210:             ; preds = %597, %.critedge.i.i
 
 StoreH10.exit236:                                 ; preds = %._crit_edge521, %621
   %.0102.i.i196.lcssa.sink = phi i64 [ %.0102.i.i196.lcssa, %._crit_edge521 ], [ %.0102.i.i196515, %621 ]
-  %.sink701 = phi i32 [ %587, %._crit_edge521 ], [ %627, %621 ]
+  %.sink705 = phi i32 [ %587, %._crit_edge521 ], [ %627, %621 ]
   %644 = getelementptr inbounds nuw i32, ptr %570, i64 %.0102.i.i196.lcssa.sink
-  store i32 %.sink701, ptr %644, align 4, !tbaa !3, !noalias !149
+  store i32 %.sink705, ptr %644, align 4, !tbaa !3, !noalias !149
   %645 = add nuw i64 %.1.i155527, 1
   %646 = icmp ult i64 %645, %481
   br i1 %646, label %571, label %.lr.ph536.preheader, !llvm.loop !151
@@ -3419,11 +3419,11 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %195, %.critedge.i.i
   br i1 %256, label %._crit_edge, label %.lr.ph511
 
 StoreAndFindMatchesH10.exit.sink.split:           ; preds = %184, %228
-  %.0102.i506.lcssa779.sink = phi i64 [ %.0102.i506, %228 ], [ %.0102.i.lcssa, %184 ]
+  %.0102.i506.lcssa783.sink = phi i64 [ %.0102.i506, %228 ], [ %.0102.i.lcssa, %184 ]
   %.sink = phi i32 [ %234, %228 ], [ %185, %184 ]
   %.2.ph = phi i64 [ %.5, %228 ], [ %.4.lcssa, %184 ]
   %.4.i.ph = phi ptr [ %.2.i244, %228 ], [ %.0.i242.lcssa, %184 ]
-  %257 = getelementptr inbounds nuw i32, ptr %169, i64 %.0102.i506.lcssa779.sink
+  %257 = getelementptr inbounds nuw i32, ptr %169, i64 %.0102.i506.lcssa783.sink
   store i32 %.sink, ptr %257, align 4, !tbaa !3, !noalias !200
   br label %StoreAndFindMatchesH10.exit
 
@@ -3624,10 +3624,10 @@ FindAllMatchesH10.exit:                           ; preds = %289, %266, %261
   br i1 %.not.i.i260536, label %.critedge.i.i261, label %.lr.ph540.preheader
 
 .lr.ph540.preheader:                              ; preds = %372, %.preheader427
-  %.022.i.i255.lcssa762 = phi ptr [ %385, %.preheader427 ], [ %373, %372 ]
-  %.025.i.i254.lcssa761 = phi ptr [ %384, %.preheader427 ], [ %264, %372 ]
-  %.027.i.i253.lcssa760 = phi i64 [ %386, %.preheader427 ], [ %361, %372 ]
-  %scevgep683 = getelementptr i8, ptr %.022.i.i255.lcssa762, i64 %.027.i.i253.lcssa760
+  %.022.i.i255.lcssa766 = phi ptr [ %385, %.preheader427 ], [ %373, %372 ]
+  %.025.i.i254.lcssa765 = phi ptr [ %384, %.preheader427 ], [ %264, %372 ]
+  %.027.i.i253.lcssa764 = phi i64 [ %386, %.preheader427 ], [ %361, %372 ]
+  %scevgep683 = getelementptr i8, ptr %.022.i.i255.lcssa766, i64 %.027.i.i253.lcssa764
   br label %.lr.ph540
 
 .lr.ph532:                                        ; preds = %372, %383
@@ -3657,9 +3657,9 @@ FindAllMatchesH10.exit:                           ; preds = %289, %266, %261
   br i1 %387, label %.lr.ph532, label %.preheader427, !llvm.loop !66
 
 .lr.ph540:                                        ; preds = %.lr.ph540.preheader, %391
-  %.224.i.i259539 = phi ptr [ %394, %391 ], [ %.022.i.i255.lcssa762, %.lr.ph540.preheader ]
-  %.126.i.i258538 = phi ptr [ %393, %391 ], [ %.025.i.i254.lcssa761, %.lr.ph540.preheader ]
-  %.128.i.i257537 = phi i64 [ %392, %391 ], [ %.027.i.i253.lcssa760, %.lr.ph540.preheader ]
+  %.224.i.i259539 = phi ptr [ %394, %391 ], [ %.022.i.i255.lcssa766, %.lr.ph540.preheader ]
+  %.126.i.i258538 = phi ptr [ %393, %391 ], [ %.025.i.i254.lcssa765, %.lr.ph540.preheader ]
+  %.128.i.i257537 = phi i64 [ %392, %391 ], [ %.027.i.i253.lcssa764, %.lr.ph540.preheader ]
   %388 = load i8, ptr %.224.i.i259539, align 1, !tbaa !7, !noalias !205
   %389 = load i8, ptr %.126.i.i258538, align 1, !tbaa !7, !alias.scope !205
   %390 = icmp eq i8 %388, %389
@@ -3991,8 +3991,8 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %507, %.critedge.i.i
 
 531:                                              ; preds = %FindMatchLengthWithLimit.exit.i.i
   %532 = and i64 %.093.i.i579, %477
-  %.idx753 = shl nuw nsw i64 %532, 3
-  %533 = getelementptr inbounds nuw i8, ptr %480, i64 %.idx753
+  %.idx757 = shl nuw nsw i64 %532, 3
+  %533 = getelementptr inbounds nuw i8, ptr %480, i64 %.idx757
   %534 = load i32, ptr %533, align 4, !tbaa !3, !noalias !223
   %535 = getelementptr inbounds nuw i32, ptr %480, i64 %.098.i.i577
   store i32 %534, ptr %535, align 4, !tbaa !3, !noalias !223
@@ -4036,9 +4036,9 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %507, %.critedge.i.i
 
 StoreH10.exit:                                    ; preds = %._crit_edge582, %531
   %.0102.i.i.lcssa.sink = phi i64 [ %.0102.i.i.lcssa, %._crit_edge582 ], [ %.0102.i.i576, %531 ]
-  %.sink809 = phi i32 [ %497, %._crit_edge582 ], [ %537, %531 ]
+  %.sink813 = phi i32 [ %497, %._crit_edge582 ], [ %537, %531 ]
   %554 = getelementptr inbounds nuw i32, ptr %480, i64 %.0102.i.i.lcssa.sink
-  store i32 %.sink809, ptr %554, align 4, !tbaa !3, !noalias !223
+  store i32 %.sink813, ptr %554, align 4, !tbaa !3, !noalias !223
   %555 = add i64 %.0.i235588, 8
   %556 = icmp ult i64 %555, %spec.select.i234
   br i1 %556, label %481, label %.loopexit, !llvm.loop !133
@@ -4177,8 +4177,8 @@ FindMatchLengthWithLimit.exit.i.i291:             ; preds = %588, %.critedge.i.i
 
 612:                                              ; preds = %FindMatchLengthWithLimit.exit.i.i291
   %613 = and i64 %.093.i.i279614, %558
-  %.idx754 = shl nuw nsw i64 %613, 3
-  %614 = getelementptr inbounds nuw i8, ptr %561, i64 %.idx754
+  %.idx758 = shl nuw nsw i64 %613, 3
+  %614 = getelementptr inbounds nuw i8, ptr %561, i64 %.idx758
   %615 = load i32, ptr %614, align 4, !tbaa !3, !noalias !240
   %616 = getelementptr inbounds nuw i32, ptr %561, i64 %.098.i.i278612
   store i32 %615, ptr %616, align 4, !tbaa !3, !noalias !240
@@ -4222,9 +4222,9 @@ FindMatchLengthWithLimit.exit.i.i291:             ; preds = %588, %.critedge.i.i
 
 StoreH10.exit317:                                 ; preds = %._crit_edge617, %612
   %.0102.i.i277.lcssa.sink = phi i64 [ %.0102.i.i277.lcssa, %._crit_edge617 ], [ %.0102.i.i277611, %612 ]
-  %.sink811 = phi i32 [ %578, %._crit_edge617 ], [ %618, %612 ]
+  %.sink815 = phi i32 [ %578, %._crit_edge617 ], [ %618, %612 ]
   %635 = getelementptr inbounds nuw i32, ptr %561, i64 %.0102.i.i277.lcssa.sink
-  store i32 %.sink811, ptr %635, align 4, !tbaa !3, !noalias !240
+  store i32 %.sink815, ptr %635, align 4, !tbaa !3, !noalias !240
   %636 = add nuw i64 %.1.i236623, 1
   %637 = icmp ult i64 %636, %472
   br i1 %637, label %562, label %StoreRangeH10.exit, !llvm.loop !151

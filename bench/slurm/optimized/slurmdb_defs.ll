@@ -4665,7 +4665,7 @@ define dso_local range(i32 0, 32) i32 @str_2_job_flags(ptr noundef %0) local_unn
 
 4:                                                ; preds = %1
   %5 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33) #19
-  br label %22
+  br label %24
 
 6:                                                ; preds = %1
   %7 = tail call ptr @xstrdup(ptr noundef nonnull %0) #19
@@ -4674,7 +4674,7 @@ define dso_local range(i32 0, 32) i32 @str_2_job_flags(ptr noundef %0) local_unn
   %.not1115 = icmp eq ptr %8, null
   br i1 %.not1115, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %_str_2_job_flags.exit.thread
+.lr.ph:                                           ; preds = %6, %22
   %.017 = phi ptr [ %21, %_str_2_job_flags.exit.thread ], [ %8, %6 ]
   %.0816 = phi i32 [ %20, %_str_2_job_flags.exit.thread ], [ 0, %6 ]
   %9 = call ptr @xstrcasestr(ptr noundef nonnull %.017, ptr noundef nonnull @.str.14) #19
@@ -4694,34 +4694,34 @@ define dso_local range(i32 0, 32) i32 @str_2_job_flags(ptr noundef %0) local_unn
 14:                                               ; preds = %12
   %15 = call ptr @xstrcasestr(ptr noundef nonnull %.017, ptr noundef nonnull @.str.31) #19
   %.not7.i = icmp eq ptr %15, null
-  br i1 %.not7.i, label %_str_2_job_flags.exit, label %_str_2_job_flags.exit.thread
+  br i1 %.not7.i, label %16, label %_str_2_job_flags.exit.thread
 
-_str_2_job_flags.exit:                            ; preds = %14
-  %16 = call ptr @xstrcasestr(ptr noundef nonnull %.017, ptr noundef nonnull @.str.215) #19
-  %.not8.i = icmp eq ptr %16, null
+16:                                               ; preds = %14
+  %17 = call ptr @xstrcasestr(ptr noundef nonnull %.017, ptr noundef nonnull @.str.215) #19
+  %.not8.i = icmp eq ptr %17, null
   %..i = select i1 %.not8.i, i32 1, i32 16
   %17 = and i32 %..i, 1
   %.not12 = icmp eq i32 %17, 0
   br i1 %.not12, label %_str_2_job_flags.exit.thread, label %18
 
-18:                                               ; preds = %_str_2_job_flags.exit
+_str_2_job_flags.exit:                            ; preds = %16
   %19 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.str_2_job_flags, ptr noundef nonnull %.017) #19
   call void @slurm_xfree(ptr noundef nonnull %2) #19
-  br label %22
+  br label %24
 
-_str_2_job_flags.exit.thread:                     ; preds = %14, %12, %10, %.lr.ph, %_str_2_job_flags.exit
+22:                                               ; preds = %14, %12, %10, %.lr.ph, %_str_2_job_flags.exit
   %.0.i23 = phi i32 [ %..i, %_str_2_job_flags.exit ], [ 8, %14 ], [ 4, %12 ], [ 2, %10 ], [ 0, %.lr.ph ]
   %20 = or i32 %.0.i23, %.0816
   %21 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #19
   %.not11 = icmp eq ptr %21, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %_str_2_job_flags.exit.thread, %6
+._crit_edge:                                      ; preds = %22, %6
   %.08.lcssa = phi i32 [ 0, %6 ], [ %20, %_str_2_job_flags.exit.thread ]
   call void @slurm_xfree(ptr noundef nonnull %2) #19
-  br label %22
+  br label %24
 
-22:                                               ; preds = %._crit_edge, %18, %4
+24:                                               ; preds = %._crit_edge, %18, %4
   %.09 = phi i32 [ 1, %18 ], [ %.08.lcssa, %._crit_edge ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

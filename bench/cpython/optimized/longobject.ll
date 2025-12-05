@@ -2854,7 +2854,7 @@ define dso_local range(i32 -1, 1) i32 @_PyLong_AsByteArray(ptr noundef readonly 
   br label %.lr.ph139.split.us
 
 .lr.ph139.split.us:                               ; preds = %.lr.ph139.split.us.preheader, %._crit_edge.us
-  %.075137.us = phi i64 [ %44, %._crit_edge.us ], [ 0, %.lr.ph139.split.us.preheader ]
+  %.075137.us = phi i64 [ %45, %._crit_edge.us ], [ 0, %.lr.ph139.split.us.preheader ]
   %.076136.us = phi i64 [ %.177.lcssa.us, %._crit_edge.us ], [ 0, %.lr.ph139.split.us.preheader ]
   %.184135.us = phi ptr [ %.285.lcssa.us, %._crit_edge.us ], [ %.083, %.lr.ph139.split.us.preheader ]
   %.086134.us = phi i64 [ %.187.lcssa.us, %._crit_edge.us ], [ 0, %.lr.ph139.split.us.preheader ]
@@ -2871,34 +2871,34 @@ define dso_local range(i32 -1, 1) i32 @_PyLong_AsByteArray(ptr noundef readonly 
   %30 = shl nuw nsw i64 %28, %29
   %31 = or i64 %30, %.076136.us
   %32 = icmp eq i64 %.075137.us, %21
-  br i1 %32, label %34, label %.loopexit111.us.thread
+  br i1 %32, label %35, label %33
 
-.loopexit111.us.thread:                           ; preds = %.lr.ph139.split.us
-  %33 = add nuw nsw i32 %.093132.us, 30
+33:                                               ; preds = %.lr.ph139.split.us
+  %34 = add nuw nsw i32 %.093132.us, 30
   br label %.lr.ph127.us.preheader
 
-34:                                               ; preds = %.lr.ph139.split.us
+35:                                               ; preds = %.lr.ph139.split.us
   %.not104120.us = icmp eq i32 %27, 1073741823
   br i1 %.not104120.us, label %.loopexit111.us, label %.lr.ph.us.preheader
 
-.lr.ph.us.preheader:                              ; preds = %34
-  %35 = xor i32 %27, 1073741823
+.lr.ph.us.preheader:                              ; preds = %35
+  %36 = xor i32 %27, 1073741823
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
-  %.078122.us = phi i32 [ %36, %.lr.ph.us ], [ %35, %.lr.ph.us.preheader ]
-  %.194121.us = phi i32 [ %37, %.lr.ph.us ], [ %.093132.us, %.lr.ph.us.preheader ]
-  %36 = lshr i32 %.078122.us, 1
-  %37 = add i32 %.194121.us, 1
-  %.not104.us = icmp eq i32 %36, 0
+  %.078122.us = phi i32 [ %37, %.lr.ph.us ], [ %36, %.lr.ph.us.preheader ]
+  %.194121.us = phi i32 [ %38, %.lr.ph.us ], [ %.093132.us, %.lr.ph.us.preheader ]
+  %37 = lshr i32 %.078122.us, 1
+  %38 = add i32 %.194121.us, 1
+  %.not104.us = icmp eq i32 %37, 0
   br i1 %.not104.us, label %.loopexit111.us, label %.lr.ph.us, !llvm.loop !63
 
-.loopexit111.us:                                  ; preds = %.lr.ph.us, %34
-  %.295.us = phi i32 [ %.093132.us, %34 ], [ %37, %.lr.ph.us ]
-  %38 = icmp ugt i32 %.295.us, 7
-  br i1 %38, label %.lr.ph127.us.preheader, label %._crit_edge.us
+.loopexit111.us:                                  ; preds = %.lr.ph.us, %35
+  %.295.us = phi i32 [ %.093132.us, %34 ], [ %38, %.lr.ph.us ]
+  %39 = icmp ugt i32 %.295.us, 7
+  br i1 %39, label %.lr.ph127.us.preheader, label %._crit_edge.us
 
-.lr.ph127.us.preheader:                           ; preds = %.loopexit111.us.thread, %.loopexit111.us
+.lr.ph127.us.preheader:                           ; preds = %33, %.loopexit111.us
   %.295.us196 = phi i32 [ %33, %.loopexit111.us.thread ], [ %.295.us, %.loopexit111.us ]
   %39 = add i32 %.295.us196, -8
   %40 = lshr i32 %39, 3
@@ -2907,51 +2907,51 @@ define dso_local range(i32 -1, 1) i32 @_PyLong_AsByteArray(ptr noundef readonly 
   %43 = add i32 %41, %42
   br label %.lr.ph127.us
 
-._crit_edge.us:                                   ; preds = %45, %.loopexit111.us
-  %.396.lcssa.us = phi i32 [ %.295.us, %.loopexit111.us ], [ %49, %45 ]
-  %.187.lcssa.us = phi i64 [ %.086134.us, %.loopexit111.us ], [ %46, %45 ]
-  %.285.lcssa.us = phi ptr [ %.184135.us, %.loopexit111.us ], [ %48, %45 ]
-  %.177.lcssa.us = phi i64 [ %31, %.loopexit111.us ], [ %50, %45 ]
-  %44 = add nuw nsw i64 %.075137.us, 1
-  %exitcond167.not = icmp eq i64 %44, %8
+._crit_edge.us:                                   ; preds = %46, %.loopexit111.us
+  %.396.lcssa.us = phi i32 [ %.295.us, %.loopexit111.us ], [ %50, %45 ]
+  %.187.lcssa.us = phi i64 [ %.086134.us, %.loopexit111.us ], [ %47, %45 ]
+  %.285.lcssa.us = phi ptr [ %.184135.us, %.loopexit111.us ], [ %49, %45 ]
+  %.177.lcssa.us = phi i64 [ %31, %.loopexit111.us ], [ %51, %45 ]
+  %45 = add nuw nsw i64 %.075137.us, 1
+  %exitcond167.not = icmp eq i64 %45, %8
   br i1 %exitcond167.not, label %._crit_edge140, label %.lr.ph139.split.us, !llvm.loop !64
 
-.lr.ph127.us:                                     ; preds = %.lr.ph127.us.preheader, %45
-  %.177126.us = phi i64 [ %50, %45 ], [ %31, %.lr.ph127.us.preheader ]
-  %.285125.us = phi ptr [ %48, %45 ], [ %.184135.us, %.lr.ph127.us.preheader ]
-  %.187124.us = phi i64 [ %46, %45 ], [ %.086134.us, %.lr.ph127.us.preheader ]
-  %.396123.us = phi i32 [ %49, %45 ], [ %.295.us196, %.lr.ph127.us.preheader ]
+.lr.ph127.us:                                     ; preds = %.lr.ph127.us.preheader, %46
+  %.177126.us = phi i64 [ %51, %45 ], [ %31, %.lr.ph127.us.preheader ]
+  %.285125.us = phi ptr [ %49, %45 ], [ %.184135.us, %.lr.ph127.us.preheader ]
+  %.187124.us = phi i64 [ %47, %45 ], [ %.086134.us, %.lr.ph127.us.preheader ]
+  %.396123.us = phi i32 [ %50, %45 ], [ %.295.us196, %.lr.ph127.us.preheader ]
   %.not105.us = icmp ult i64 %.187124.us, %2
-  br i1 %.not105.us, label %45, label %.loopexit110
+  br i1 %.not105.us, label %46, label %.loopexit110
 
-45:                                               ; preds = %.lr.ph127.us
-  %46 = add nuw i64 %.187124.us, 1
-  %47 = trunc i64 %.177126.us to i8
-  store i8 %47, ptr %.285125.us, align 1, !tbaa !29
-  %48 = getelementptr i8, ptr %.285125.us, i64 %.082
-  %49 = add i32 %.396123.us, -8
-  %50 = lshr i64 %.177126.us, 8
-  %lftr.wideiv165 = trunc i64 %46 to i32
+46:                                               ; preds = %.lr.ph127.us
+  %47 = add nuw i64 %.187124.us, 1
+  %48 = trunc i64 %.177126.us to i8
+  store i8 %48, ptr %.285125.us, align 1, !tbaa !29
+  %49 = getelementptr i8, ptr %.285125.us, i64 %.082
+  %50 = add i32 %.396123.us, -8
+  %51 = lshr i64 %.177126.us, 8
+  %lftr.wideiv165 = trunc i64 %47 to i32
   %exitcond166.not = icmp eq i32 %43, %lftr.wideiv165
   br i1 %exitcond166.not, label %._crit_edge.us, label %.lr.ph127.us, !llvm.loop !65
 
 .lr.ph139.split:                                  ; preds = %.lr.ph139.split.preheader, %._crit_edge
-  %.075137 = phi i64 [ %73, %._crit_edge ], [ 0, %.lr.ph139.split.preheader ]
+  %.075137 = phi i64 [ %76, %._crit_edge ], [ 0, %.lr.ph139.split.preheader ]
   %.076136 = phi i64 [ %.177.lcssa, %._crit_edge ], [ 0, %.lr.ph139.split.preheader ]
   %.184135 = phi ptr [ %.285.lcssa, %._crit_edge ], [ %.083176, %.lr.ph139.split.preheader ]
   %.086134 = phi i64 [ %.187.lcssa, %._crit_edge ], [ 0, %.lr.ph139.split.preheader ]
   %.093132 = phi i32 [ %.396.lcssa, %._crit_edge ], [ 0, %.lr.ph139.split.preheader ]
-  %51 = getelementptr i32, ptr %18, i64 %.075137
-  %52 = load i32, ptr %51, align 4, !tbaa !33
-  %53 = zext i32 %52 to i64
-  %54 = zext nneg i32 %.093132 to i64
-  %55 = shl nuw nsw i64 %53, %54
-  %56 = or i64 %55, %.076136
-  %57 = icmp eq i64 %.075137, %19
-  br i1 %57, label %.loopexit111, label %.loopexit111.thread
+  %52 = getelementptr i32, ptr %18, i64 %.075137
+  %53 = load i32, ptr %52, align 4, !tbaa !33
+  %54 = zext i32 %53 to i64
+  %55 = zext nneg i32 %.093132 to i64
+  %56 = shl nuw nsw i64 %54, %55
+  %57 = or i64 %56, %.076136
+  %58 = icmp eq i64 %.075137, %19
+  br i1 %58, label %59, label %.loopexit111.thread
 
-.loopexit111:                                     ; preds = %.lr.ph139.split
-  %.not104120 = icmp eq i32 %52, 0
+59:                                               ; preds = %.lr.ph139.split
+  %.not104120 = icmp eq i32 %53, 0
   %58 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %52, i1 true)
   %reass.sub = sub i32 %.093132, %58
   %59 = add i32 %reass.sub, 32
@@ -2972,32 +2972,32 @@ define dso_local range(i32 -1, 1) i32 @_PyLong_AsByteArray(ptr noundef readonly 
   %66 = add i32 %64, %65
   br label %.lr.ph127
 
-.lr.ph127:                                        ; preds = %.lr.ph127.preheader, %67
-  %.177126 = phi i64 [ %72, %67 ], [ %56, %.lr.ph127.preheader ]
-  %.285125 = phi ptr [ %70, %67 ], [ %.184135, %.lr.ph127.preheader ]
-  %.187124 = phi i64 [ %68, %67 ], [ %.086134, %.lr.ph127.preheader ]
-  %.396123 = phi i32 [ %71, %67 ], [ %.295198, %.lr.ph127.preheader ]
+.lr.ph127:                                        ; preds = %.lr.ph127.preheader, %70
+  %.177126 = phi i64 [ %75, %67 ], [ %57, %.lr.ph127.preheader ]
+  %.285125 = phi ptr [ %73, %67 ], [ %.184135, %.lr.ph127.preheader ]
+  %.187124 = phi i64 [ %71, %67 ], [ %.086134, %.lr.ph127.preheader ]
+  %.396123 = phi i32 [ %74, %67 ], [ %.295198, %.lr.ph127.preheader ]
   %.not105 = icmp ult i64 %.187124, %2
-  br i1 %.not105, label %67, label %.loopexit110
+  br i1 %.not105, label %70, label %.loopexit110
 
-67:                                               ; preds = %.lr.ph127
-  %68 = add nuw i64 %.187124, 1
-  %69 = trunc i64 %.177126 to i8
-  store i8 %69, ptr %.285125, align 1, !tbaa !29
-  %70 = getelementptr i8, ptr %.285125, i64 %.082178
-  %71 = add i32 %.396123, -8
-  %72 = lshr i64 %.177126, 8
-  %lftr.wideiv = trunc i64 %68 to i32
+70:                                               ; preds = %.lr.ph127
+  %71 = add nuw i64 %.187124, 1
+  %72 = trunc i64 %.177126 to i8
+  store i8 %72, ptr %.285125, align 1, !tbaa !29
+  %73 = getelementptr i8, ptr %.285125, i64 %.082178
+  %74 = add i32 %.396123, -8
+  %75 = lshr i64 %.177126, 8
+  %lftr.wideiv = trunc i64 %71 to i32
   %exitcond.not = icmp eq i32 %66, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph127, !llvm.loop !65
 
-._crit_edge:                                      ; preds = %67, %.loopexit111
-  %.396.lcssa = phi i32 [ %.295, %.loopexit111 ], [ %71, %67 ]
-  %.187.lcssa = phi i64 [ %.086134, %.loopexit111 ], [ %68, %67 ]
-  %.285.lcssa = phi ptr [ %.184135, %.loopexit111 ], [ %70, %67 ]
-  %.177.lcssa = phi i64 [ %56, %.loopexit111 ], [ %72, %67 ]
-  %73 = add nuw nsw i64 %.075137, 1
-  %exitcond164.not = icmp eq i64 %73, %8
+._crit_edge:                                      ; preds = %70, %.loopexit111
+  %.396.lcssa = phi i32 [ %.295, %.loopexit111 ], [ %74, %67 ]
+  %.187.lcssa = phi i64 [ %.086134, %.loopexit111 ], [ %71, %67 ]
+  %.285.lcssa = phi ptr [ %.184135, %.loopexit111 ], [ %73, %67 ]
+  %.177.lcssa = phi i64 [ %57, %.loopexit111 ], [ %75, %67 ]
+  %76 = add nuw nsw i64 %.075137, 1
+  %exitcond164.not = icmp eq i64 %76, %8
   br i1 %exitcond164.not, label %._crit_edge140, label %.lr.ph139.split, !llvm.loop !64
 
 ._crit_edge140:                                   ; preds = %._crit_edge, %._crit_edge.us
@@ -3009,72 +3009,72 @@ define dso_local range(i32 -1, 1) i32 @_PyLong_AsByteArray(ptr noundef readonly 
   %.184.lcssa = phi ptr [ %.285.lcssa.us, %._crit_edge.us ], [ %.285.lcssa, %._crit_edge ]
   %.076.lcssa = phi i64 [ %.177.lcssa.us, %._crit_edge.us ], [ %.177.lcssa, %._crit_edge ]
   %.not101 = icmp eq i32 %.093.lcssa, 0
-  br i1 %.not101, label %._crit_edge140.thread, label %74
+  br i1 %.not101, label %._crit_edge140.thread, label %77
 
-74:                                               ; preds = %._crit_edge140
+77:                                               ; preds = %._crit_edge140
   %.not103 = icmp ult i64 %.086.lcssa, %2
-  br i1 %.not103, label %75, label %.loopexit110
+  br i1 %.not103, label %78, label %.loopexit110
 
-75:                                               ; preds = %74
-  %76 = add nuw i64 %.086.lcssa, 1
-  %77 = zext nneg i32 %.093.lcssa to i64
-  %78 = shl nsw i64 -1, %77
-  %79 = select i1 %10, i64 %78, i64 0
-  %.2 = or i64 %.076.lcssa, %79
-  %80 = trunc i64 %.2 to i8
-  store i8 %80, ptr %.184.lcssa, align 1, !tbaa !29
-  %81 = getelementptr i8, ptr %.184.lcssa, i64 %.082186
-  br label %89
+78:                                               ; preds = %77
+  %79 = add nuw i64 %.086.lcssa, 1
+  %80 = zext nneg i32 %.093.lcssa to i64
+  %81 = shl nsw i64 -1, %80
+  %82 = select i1 %10, i64 %81, i64 0
+  %.2 = or i64 %.076.lcssa, %82
+  %83 = trunc i64 %.2 to i8
+  store i8 %83, ptr %.184.lcssa, align 1, !tbaa !29
+  %84 = getelementptr i8, ptr %.184.lcssa, i64 %.082186
+  br label %92
 
 ._crit_edge140.thread:                            ; preds = %.thread, %13, %._crit_edge140
-  %.184.lcssa212 = phi ptr [ %.184.lcssa, %._crit_edge140 ], [ %.083176, %.thread ], [ %.083, %13 ]
-  %.086.lcssa211 = phi i64 [ %.086.lcssa, %._crit_edge140 ], [ 0, %.thread ], [ 0, %13 ]
-  %.092181210 = phi i32 [ %.092181, %._crit_edge140 ], [ 0, %.thread ], [ 1, %13 ]
-  %.082.neg184209 = phi i64 [ %.082.neg184, %._crit_edge140 ], [ %.082.neg177, %.thread ], [ %.082.neg, %13 ]
-  %.082186208 = phi i64 [ %.082186, %._crit_edge140 ], [ %.082178, %.thread ], [ %.082, %13 ]
-  %82 = icmp eq i64 %.086.lcssa211, %2
-  %83 = icmp ne i64 %2, 0
-  %or.cond = and i1 %83, %82
-  %84 = icmp ne i32 %4, 0
-  %or.cond3 = and i1 %84, %or.cond
-  br i1 %or.cond3, label %85, label %89
+  %.184.lcssa208 = phi ptr [ %.184.lcssa, %._crit_edge140 ], [ %.083176, %.thread ], [ %.083, %13 ]
+  %.086.lcssa207 = phi i64 [ %.086.lcssa, %._crit_edge140 ], [ 0, %.thread ], [ 0, %13 ]
+  %.092181206 = phi i32 [ %.092181, %._crit_edge140 ], [ 0, %.thread ], [ 1, %13 ]
+  %.082.neg184205 = phi i64 [ %.082.neg184, %._crit_edge140 ], [ %.082.neg177, %.thread ], [ %.082.neg, %13 ]
+  %.082186204 = phi i64 [ %.082186, %._crit_edge140 ], [ %.082178, %.thread ], [ %.082, %13 ]
+  %85 = icmp eq i64 %.086.lcssa207, %2
+  %86 = icmp ne i64 %2, 0
+  %or.cond = and i1 %86, %85
+  %87 = icmp ne i32 %4, 0
+  %or.cond3 = and i1 %87, %or.cond
+  br i1 %or.cond3, label %88, label %92
 
-85:                                               ; preds = %._crit_edge140.thread
-  %86 = getelementptr i8, ptr %.184.lcssa212, i64 %.082.neg184209
-  %87 = load i8, ptr %86, align 1, !tbaa !29
-  %.lobit = lshr i8 %87, 7
-  %88 = zext nneg i8 %.lobit to i32
-  %.not102 = icmp eq i32 %.092181210, %88
+88:                                               ; preds = %._crit_edge140.thread
+  %89 = getelementptr i8, ptr %.184.lcssa208, i64 %.082.neg184205
+  %90 = load i8, ptr %89, align 1, !tbaa !29
+  %.lobit = lshr i8 %90, 7
+  %91 = zext nneg i8 %.lobit to i32
+  %.not102 = icmp eq i32 %.092181206, %91
   br i1 %.not102, label %.loopexit, label %.loopexit110
 
-89:                                               ; preds = %._crit_edge140.thread, %75
-  %.082186207 = phi i64 [ %.082186, %75 ], [ %.082186208, %._crit_edge140.thread ]
-  %.288 = phi i64 [ %76, %75 ], [ %.086.lcssa211, %._crit_edge140.thread ]
-  %.3 = phi ptr [ %81, %75 ], [ %.184.lcssa212, %._crit_edge140.thread ]
-  %90 = sext i1 %10 to i8
-  %91 = icmp ult i64 %.288, %2
-  br i1 %91, label %.lr.ph151, label %.loopexit
+92:                                               ; preds = %._crit_edge140.thread, %78
+  %.082186203 = phi i64 [ %.082186, %75 ], [ %.082186204, %._crit_edge140.thread ]
+  %.288 = phi i64 [ %79, %75 ], [ %.086.lcssa207, %._crit_edge140.thread ]
+  %.3 = phi ptr [ %84, %75 ], [ %.184.lcssa208, %._crit_edge140.thread ]
+  %93 = sext i1 %10 to i8
+  %94 = icmp ult i64 %.288, %2
+  br i1 %94, label %.lr.ph151, label %.loopexit
 
-.lr.ph151:                                        ; preds = %89, %.lr.ph151
-  %.4149 = phi ptr [ %93, %.lr.ph151 ], [ %.3, %89 ]
-  %.389148 = phi i64 [ %92, %.lr.ph151 ], [ %.288, %89 ]
-  store i8 %90, ptr %.4149, align 1, !tbaa !29
-  %92 = add nuw i64 %.389148, 1
-  %93 = getelementptr i8, ptr %.4149, i64 %.082186207
-  %exitcond168.not = icmp eq i64 %92, %2
+.lr.ph151:                                        ; preds = %92, %.lr.ph151
+  %.4149 = phi ptr [ %96, %.lr.ph151 ], [ %.3, %89 ]
+  %.389148 = phi i64 [ %95, %.lr.ph151 ], [ %.288, %89 ]
+  store i8 %93, ptr %.4149, align 1, !tbaa !29
+  %95 = add nuw i64 %.389148, 1
+  %96 = getelementptr i8, ptr %.4149, i64 %.082186203
+  %exitcond168.not = icmp eq i64 %95, %2
   br i1 %exitcond168.not, label %.loopexit, label %.lr.ph151, !llvm.loop !66
 
-.loopexit110:                                     ; preds = %.lr.ph127, %.lr.ph127.us, %74, %85
+.loopexit110:                                     ; preds = %.lr.ph127, %.lr.ph127.us, %77, %88
   %.not106 = icmp eq i32 %5, 0
   br i1 %.not106, label %.loopexit, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit110, %12
   %.str.15.sink = phi ptr [ @.str.14, %12 ], [ @.str.15, %.loopexit110 ]
-  %94 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !4
-  tail call void @PyErr_SetString(ptr noundef %94, ptr noundef nonnull %.str.15.sink) #18
+  %97 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !4
+  tail call void @PyErr_SetString(ptr noundef %97, ptr noundef nonnull %.str.15.sink) #18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph151, %.loopexit.sink.split, %89, %.loopexit110, %12, %85
+.loopexit:                                        ; preds = %.lr.ph151, %.loopexit.sink.split, %92, %.loopexit110, %12, %88
   %.0 = phi i32 [ 0, %85 ], [ -1, %12 ], [ -1, %.loopexit110 ], [ 0, %89 ], [ -1, %.loopexit.sink.split ], [ 0, %.lr.ph151 ]
   ret i32 %.0
 }

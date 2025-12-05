@@ -1648,7 +1648,7 @@ define internal fastcc void @bench_aescbc_internal(ptr noundef %0, i32 noundef r
 
 14:                                               ; preds = %.critedge
   %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.128, i32 noundef 4338, i32 noundef %13)
-  br label %112
+  br label %111
 
 16:                                               ; preds = %.critedge
   %17 = call i32 @wc_AesSetKey(ptr noundef nonnull %8, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 0) #17
@@ -1657,7 +1657,7 @@ define internal fastcc void @bench_aescbc_internal(ptr noundef %0, i32 noundef r
 
 18:                                               ; preds = %16
   %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.129, i32 noundef %17)
-  br label %112
+  br label %111
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1700,25 +1700,25 @@ bench_stats_start.exit:                           ; preds = %20
   %.1 = phi i32 [ 0, %bench_stats_start.exit ], [ %.2.lcssa, %bench_stats_check.exit ]
   %46 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.preheader83, label %._crit_edge
+  br i1 %47, label %.preheader84, label %._crit_edge
 
-.preheader83:                                     ; preds = %45, %bench_async_handle.exit
-  %.064107 = phi i32 [ %52, %bench_async_handle.exit ], [ 0, %45 ]
+.preheader84:                                     ; preds = %45, %bench_async_handle.exit
+  %.064108 = phi i32 [ %52, %bench_async_handle.exit ], [ 0, %45 ]
   %48 = load i32, ptr @bench_size, align 4, !tbaa !4
   %49 = call i32 @wc_AesCbcEncrypt(ptr noundef nonnull %8, ptr noundef %12, ptr noundef %10, i32 noundef %48) #17
   %50 = icmp sgt i32 %49, -1
   br i1 %50, label %bench_async_handle.exit, label %.thread
 
-.thread:                                          ; preds = %.preheader83
+.thread:                                          ; preds = %.preheader84
   %51 = load i32, ptr @bench_size, align 4, !tbaa !4
   call fastcc void @bench_stats_sym_finish(ptr noundef %3, i32 noundef %.070, i32 noundef %51, double noundef %35, i32 noundef %49)
-  br label %112
+  br label %111
 
-bench_async_handle.exit:                          ; preds = %.preheader83
-  %52 = add nuw nsw i32 %.064107, 1
+bench_async_handle.exit:                          ; preds = %.preheader84
+  %52 = add nuw nsw i32 %.064108, 1
   %53 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %54 = icmp slt i32 %52, %53
-  br i1 %54, label %.preheader83, label %._crit_edge, !llvm.loop !26
+  br i1 %54, label %.preheader84, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %bench_async_handle.exit, %45
   %.064.lcssa = phi i32 [ 0, %45 ], [ %52, %bench_async_handle.exit ]
@@ -1759,35 +1759,35 @@ bench_stats_check.exit:                           ; preds = %._crit_edge
 
 75:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %76 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #17
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %80, label %bench_stats_start.exit44
+  %73 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %5) #17
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %80, label %bench_stats_start.exit44
 
-78:                                               ; preds = %72
+.preheader83:                                     ; preds = %72
   %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.129, i32 noundef %74)
   br label %112
 
-80:                                               ; preds = %75
+80:; preds = %75
   %81 = tail call ptr @__errno_location() #18
   %82 = load i32, ptr %81, align 4, !tbaa !4
-  %83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %82, ptr noundef nonnull @.str.80)
+  %83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str..preheader83, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %82, ptr noundef nonnull @.str.80)
   %84 = load ptr, ptr @stdout, align 8, !tbaa !14
   %85 = call i32 @fflush(ptr noundef %84)
   call void @_exit(i32 noundef 1) #19
   unreachable
 
 bench_stats_start.exit44:                         ; preds = %75
-  %86 = load i64, ptr %5, align 8, !tbaa !16
-  %87 = sitofp i64 %86 to double
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %89 = load i64, ptr %88, align 8, !tbaa !19
-  %90 = sitofp i64 %89 to double
-  %91 = fdiv double %90, 1.000000e+09
-  %92 = fadd double %91, %87
+  %85 = load i64, ptr %5, align 8, !tbaa !16
+  %86 = sitofp i64 %85 to double
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %88 = load i64, ptr %87, align 8, !tbaa !19
+  %89 = sitofp i64 %88 to double
+  %90 = fdiv double %89, 1.000000e+09
+  %91 = fadd double %90, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %93 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
-  %94 = extractvalue { i32, i32 } %93, 0
-  %95 = extractvalue { i32, i32 } %93, 1
+  %92 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !20
+  %93 = extractvalue { i32, i32 } %92, 0
+  %94 = extractvalue { i32, i32 } %92, 1
   %96 = zext i32 %94 to i64
   %97 = zext i32 %95 to i64
   %98 = shl nuw i64 %97, 32
@@ -1795,14 +1795,14 @@ bench_stats_start.exit44:                         ; preds = %75
   store i64 %99, ptr %43, align 8, !tbaa !21
   br label %100
 
-100:                                              ; preds = %._crit_edge111, %bench_stats_start.exit44
-  %.272 = phi i32 [ 0, %bench_stats_start.exit44 ], [ %109, %._crit_edge111 ]
+100:; preds = %._crit_edge112, %bench_stats_start.exit44
+  %.6 = phi i32 [ 0, %bench_stats_start.exit44 ], [ %109, %._crit_edge111 ]
   %.6 = phi i32 [ 0, %bench_stats_start.exit44 ], [ %.7.lcssa, %._crit_edge111 ]
   %101 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %.preheader, label %._crit_edge111
 
-.preheader:                                       ; preds = %100, %bench_async_handle.exit46
+.preheader: ; preds = %100, %bench_async_handle.exit46
   %.266110 = phi i32 [ %106, %bench_async_handle.exit46 ], [ 0, %100 ]
   %103 = load i32, ptr @bench_size, align 4, !tbaa !4
   %104 = call i32 @wc_AesCbcDecrypt(ptr noundef nonnull %8, ptr noundef %12, ptr noundef %10, i32 noundef %103) #17
@@ -1810,27 +1810,27 @@ bench_stats_start.exit44:                         ; preds = %75
   br i1 %105, label %bench_async_handle.exit46, label %bench_async_handle.exit46.thread
 
 bench_async_handle.exit46:                        ; preds = %.preheader
-  %106 = add nuw nsw i32 %.266110, 1
-  %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.preheader, label %._crit_edge111, !llvm.loop !29
+  %105 = add nuw nsw i32 %.266110, 1
+  %106 = load i32, ptr @numBlocks, align 4, !tbaa !4
+  %107 = icmp slt i32 %105, %106
+  br i1 %107, label %.preheader, label %._crit_edge112, !llvm.loop !29
 
-._crit_edge111:                                   ; preds = %bench_async_handle.exit46, %100
-  %.266.lcssa = phi i32 [ 0, %100 ], [ %106, %bench_async_handle.exit46 ]
+._crit_edge112:                                   ; preds = %bench_async_handle.exit46, %100
+  %.266.lcssa = phi i32 [ 0, %100 ], [ %105, %bench_async_handle.exit46 ]
   %.7.lcssa = phi i32 [ %.6, %100 ], [ %104, %bench_async_handle.exit46 ]
-  %109 = add nsw i32 %.266.lcssa, %.272
-  %110 = call fastcc i32 @bench_stats_check(double noundef %92)
-  %.not37 = icmp eq i32 %110, 0
+  %108 = add nsw i32 %.266.lcssa, %.272
+  %109 = call fastcc i32 @bench_stats_check(double noundef %91)
+  %.not37 = icmp eq i32 %109, 0
   br i1 %.not37, label %bench_async_handle.exit46.thread, label %100, !llvm.loop !30
 
-bench_async_handle.exit46.thread:                 ; preds = %._crit_edge111, %.preheader
-  %.373 = phi i32 [ %.272, %.preheader ], [ %109, %._crit_edge111 ]
+bench_async_handle.exit46.thread:                 ; preds = %._crit_edge112, %.preheader
+  %.373 = phi i32 [ %.272, %.preheader ], [ %108, %._crit_edge111 ]
   %.9 = phi i32 [ %104, %.preheader ], [ %.7.lcssa, %._crit_edge111 ]
-  %111 = load i32, ptr @bench_size, align 4, !tbaa !4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %4, i32 noundef %.373, i32 noundef %111, double noundef %92, i32 noundef %.9)
-  br label %112
+  %110 = load i32, ptr @bench_size, align 4, !tbaa !4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %4, i32 noundef %.373, i32 noundef %110, double noundef %91, i32 noundef %.9)
+  br label %111
 
-112:                                              ; preds = %14, %18, %78, %bench_async_handle.exit46.thread, %.thread
+111:                                              ; preds = %14, %18, %78, %bench_async_handle.exit46.thread, %.thread
   call void @wc_AesFree(ptr noundef nonnull %8) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
@@ -5741,13 +5741,13 @@ define dso_local void @bench_rsa(i32 %0) local_unnamed_addr #0 {
 .preheader228.i:                                  ; preds = %19
   %25 = call ptr @wolfSSL_Malloc(i64 noundef 2048) #17
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.split267.us.thread.i, label %29, !llvm.loop !127
+  br i1 %26, label %.split269.us.thread.i, label %29, !llvm.loop !127
 
 .thread215.i:                                     ; preds = %19
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.135, i32 noundef 8982)
   br label %bench_rsa_helper.exit
 
-.split267.us.thread.i:                            ; preds = %.preheader228.i
+.split269.us.thread.i:                            ; preds = %.preheader228.i
   %28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.135, i32 noundef 8987)
   call void @wolfSSL_Free(ptr noundef nonnull %23) #17
   br label %bench_rsa_helper.exit
@@ -5798,7 +5798,7 @@ bench_stats_start.exit.i:                         ; preds = %30
   br label %.preheader226.i
 
 .preheader226.i:                                  ; preds = %bench_async_handle.exit.i, %55
-  %.0180259.i = phi i32 [ 0, %55 ], [ %59, %bench_async_handle.exit.i ]
+  %.0180261.i = phi i32 [ 0, %55 ], [ %59, %bench_async_handle.exit.i ]
   %56 = call i32 @wc_RsaPublicEncrypt(ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %23, i32 noundef 256, ptr noundef nonnull %8, ptr noundef nonnull %10) #17
   %57 = icmp sgt i32 %56, -1
   br i1 %57, label %bench_async_handle.exit.i, label %.thread.i
@@ -5806,10 +5806,10 @@ bench_stats_start.exit.i:                         ; preds = %30
 .thread.i:                                        ; preds = %.preheader226.i
   %58 = load ptr, ptr %22, align 8, !tbaa !8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %58, i32 noundef %.0172.i, double noundef %45, i32 noundef %56)
-  br label %.split267.us.i
+  br label %.split269.us.i
 
 bench_async_handle.exit.i:                        ; preds = %.preheader226.i
-  %59 = add nuw nsw i32 %.0180259.i, 1
+  %59 = add nuw nsw i32 %.0180261.i, 1
   %exitcond.not.i = icmp eq i32 %59, 100
   br i1 %exitcond.not.i, label %60, label %.preheader226.i, !llvm.loop !128
 
@@ -5882,15 +5882,15 @@ bench_stats_start.exit118.i:                      ; preds = %78
   br label %.preheader223.i
 
 .preheader223.i:                                  ; preds = %bench_async_handle.exit120.i, %102
-  %.2182261.i = phi i32 [ 0, %102 ], [ %105, %bench_async_handle.exit120.i ]
+  %.2182263.i = phi i32 [ 0, %102 ], [ %105, %bench_async_handle.exit120.i ]
   %103 = call i32 @wc_RsaPrivateDecrypt(ptr noundef nonnull %23, i32 noundef 256, ptr noundef nonnull %25, i32 noundef 256, ptr noundef nonnull %8) #17
   %104 = icmp sgt i32 %103, -1
   br i1 %104, label %bench_async_handle.exit120.i, label %bench_async_handle.exit120.thread.i
 
 bench_async_handle.exit120.i:                     ; preds = %.preheader223.i
-  %105 = add nuw nsw i32 %.2182261.i, 1
-  %exitcond289.not.i = icmp eq i32 %105, 100
-  br i1 %exitcond289.not.i, label %106, label %.preheader223.i, !llvm.loop !130
+  %105 = add nuw nsw i32 %.2182263.i, 1
+  %exitcond291.not.i = icmp eq i32 %105, 100
+  br i1 %exitcond291.not.i, label %106, label %.preheader223.i, !llvm.loop !130
 
 106:                                              ; preds = %bench_async_handle.exit120.i
   %107 = add nuw nsw i32 %.2174.i, 100
@@ -5903,7 +5903,7 @@ bench_async_handle.exit120.thread.i:              ; preds = %106, %.preheader223
   %109 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %110 = load ptr, ptr %109, align 8, !tbaa !8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %110, i32 noundef %.3175.i, double noundef %94, i32 noundef %103)
-  br label %.split267.us.i
+  br label %.split269.us.i
 
 111:                                              ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5946,7 +5946,7 @@ bench_stats_start.exit121.i:                      ; preds = %111
   br label %.preheader221.i
 
 .preheader221.i:                                  ; preds = %bench_async_handle.exit123.i, %136
-  %.4184263.i = phi i32 [ 0, %136 ], [ %141, %bench_async_handle.exit123.i ]
+  %.4184265.i = phi i32 [ 0, %136 ], [ %141, %bench_async_handle.exit123.i ]
   %137 = call i32 @wc_RsaSSL_Sign(ptr noundef nonnull %7, i32 noundef 25, ptr noundef nonnull %23, i32 noundef 256, ptr noundef nonnull %8, ptr noundef nonnull %10) #17
   %138 = icmp sgt i32 %137, -1
   br i1 %138, label %bench_async_handle.exit123.i, label %.thread203.i
@@ -5955,12 +5955,12 @@ bench_stats_start.exit121.i:                      ; preds = %111
   %139 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %140 = load ptr, ptr %139, align 8, !tbaa !8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %140, i32 noundef %.4176.i, double noundef %126, i32 noundef %137)
-  br label %.split267.us.i
+  br label %.split269.us.i
 
 bench_async_handle.exit123.i:                     ; preds = %.preheader221.i
-  %141 = add nuw nsw i32 %.4184263.i, 1
-  %exitcond290.not.i = icmp eq i32 %141, 100
-  br i1 %exitcond290.not.i, label %142, label %.preheader221.i, !llvm.loop !132
+  %141 = add nuw nsw i32 %.4184265.i, 1
+  %exitcond292.not.i = icmp eq i32 %141, 100
+  br i1 %exitcond292.not.i, label %142, label %.preheader221.i, !llvm.loop !132
 
 142:                                              ; preds = %bench_async_handle.exit123.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -6032,15 +6032,15 @@ bench_stats_start.exit124.i:                      ; preds = %160
   br label %.preheader218.i
 
 .preheader218.i:                                  ; preds = %bench_async_handle.exit126.i, %185
-  %.6186265.i = phi i32 [ 0, %185 ], [ %188, %bench_async_handle.exit126.i ]
+  %.6186267.i = phi i32 [ 0, %185 ], [ %188, %bench_async_handle.exit126.i ]
   %186 = call i32 @wc_RsaSSL_Verify(ptr noundef nonnull %23, i32 noundef 256, ptr noundef nonnull %25, i32 noundef 256, ptr noundef nonnull %8) #17
   %187 = icmp sgt i32 %186, -1
   br i1 %187, label %bench_async_handle.exit126.i, label %bench_async_handle.exit126.thread.i
 
 bench_async_handle.exit126.i:                     ; preds = %.preheader218.i
-  %188 = add nuw nsw i32 %.6186265.i, 1
-  %exitcond291.not.i = icmp eq i32 %188, 100
-  br i1 %exitcond291.not.i, label %189, label %.preheader218.i, !llvm.loop !134
+  %188 = add nuw nsw i32 %.6186267.i, 1
+  %exitcond293.not.i = icmp eq i32 %188, 100
+  br i1 %exitcond293.not.i, label %189, label %.preheader218.i, !llvm.loop !134
 
 189:                                              ; preds = %bench_async_handle.exit126.i
   %190 = add nuw nsw i32 %.6178.i, 100
@@ -6053,14 +6053,14 @@ bench_async_handle.exit126.thread.i:              ; preds = %189, %.preheader218
   %192 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %193 = load ptr, ptr %192, align 8, !tbaa !8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.136, i32 noundef 2048, ptr noundef %193, i32 noundef %.7179.i, double noundef %177, i32 noundef %186)
-  br label %.split267.us.i
+  br label %.split269.us.i
 
-.split267.us.i:                                   ; preds = %bench_async_handle.exit126.thread.i, %.thread203.i, %bench_async_handle.exit120.thread.i, %.thread.i
+.split269.us.i:                                   ; preds = %bench_async_handle.exit126.thread.i, %.thread203.i, %bench_async_handle.exit120.thread.i, %.thread.i
   call void @wolfSSL_Free(ptr noundef nonnull %23) #17
   call void @wolfSSL_Free(ptr noundef nonnull %25) #17
   br label %bench_rsa_helper.exit
 
-bench_rsa_helper.exit:                            ; preds = %.thread215.i, %.split267.us.thread.i, %.split267.us.i
+bench_rsa_helper.exit:                            ; preds = %.thread215.i, %.split269.us.thread.i, %.split269.us.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 

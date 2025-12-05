@@ -15345,7 +15345,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8H
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %62
 
-62:                                               ; preds = %100, %.lr.ph.i21
+62:                                               ; preds = %98, %.lr.ph.i21
   %.sroa.0.018.i22 = phi ptr [ %.sroa.0.015.i19, %.lr.ph.i21 ], [ %.sroa.0.0.i31, %100 ]
   %.pn17.i23 = phi ptr [ %0, %.lr.ph.i21 ], [ %.sroa.0.018.i22, %100 ]
   %63 = getelementptr inbounds nuw i8, ptr %.pn17.i23, i64 16
@@ -15358,7 +15358,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8H
   %70 = icmp ult i32 %68, %69
   %71 = icmp ult i32 %64, %65
   %.0.i.i.i24 = select i1 %66, i1 %70, i1 %71
-  br i1 %.0.i.i.i24, label %72, label %85
+  br i1 %.0.i.i.i24, label %72, label %83
 
 72:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -15366,71 +15366,71 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8H
   %73 = ptrtoint ptr %.sroa.0.018.i22 to i64
   %74 = sub i64 %73, %6
   %75 = icmp sgt i64 %74, 12
-  br i1 %75, label %76, label %81, !prof !348
+  br i1 %75, label %76, label %79, !prof !348
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %.pn17.i23, i64 24
-  %78 = udiv exact i64 %74, 12
-  %79 = sub nsw i64 0, %78
-  %80 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %77, i64 %79
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %80, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %74, i1 false)
+  %.neg22.i38 = udiv exact i64 %74, 12
+  %.neg22.neg.i39 = sub nsw i64 0, %.neg22.i38
+  %78 = getelementptr inbounds %"struct.igl::geodesic::HalfEdge", ptr %77, i64 %.neg22.neg.i39
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %78, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %74, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i37
 
-81:                                               ; preds = %72
-  %82 = icmp eq i64 %74, 12
-  br i1 %82, label %83, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i37
+79:                                               ; preds = %72
+  %80 = icmp eq i64 %74, 12
+  br i1 %80, label %81, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i37
 
-83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw i8, ptr %.pn17.i23, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !422
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %.pn17.i23, i64 12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %82, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !422
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i37
 
-_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i37: ; preds = %83, %81, %76
+_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i37: ; preds = %81, %79, %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !422
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %100
+  br label %98
 
-85:                                               ; preds = %62
+83:                                               ; preds = %62
   %.sroa.03.0.copyload.i.i25 = load i32, ptr %.sroa.0.018.i22, align 4, !tbaa !24
-  %86 = getelementptr inbounds nuw i8, ptr %.pn17.i23, i64 4
-  %87 = load i32, ptr %86, align 4, !tbaa !429
-  %88 = icmp eq i32 %64, %87
-  %89 = getelementptr inbounds nuw i8, ptr %.pn17.i23, i64 8
-  %90 = load i32, ptr %89, align 4
-  %91 = icmp ult i32 %68, %90
-  %92 = icmp ult i32 %64, %87
-  %.0.i.i12.i.i26 = select i1 %88, i1 %91, i1 %92
+  %84 = getelementptr inbounds nuw i8, ptr %.pn17.i23, i64 4
+  %85 = load i32, ptr %84, align 4, !tbaa !429
+  %86 = icmp eq i32 %64, %85
+  %87 = getelementptr inbounds nuw i8, ptr %.pn17.i23, i64 8
+  %88 = load i32, ptr %87, align 4
+  %89 = icmp ult i32 %68, %88
+  %90 = icmp ult i32 %64, %85
+  %.0.i.i12.i.i26 = select i1 %86, i1 %89, i1 %90
   br i1 %.0.i.i12.i.i26, label %.lr.ph.i.i33, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i27
 
-.lr.ph.i.i33:                                     ; preds = %85, %.lr.ph.i.i33
+.lr.ph.i.i33:                                     ; preds = %83, %.lr.ph.i.i33
   %.sroa.09.013.i.i34 = phi ptr [ %.sroa.0.0.i.i35, %.lr.ph.i.i33 ], [ %.sroa.0.018.i22, %85 ]
   %.sroa.0.0.i.i35 = getelementptr inbounds i8, ptr %.sroa.09.013.i.i34, i64 -12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.09.013.i.i34, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.0.i.i35, i64 12, i1 false), !tbaa.struct !422
-  %93 = getelementptr inbounds i8, ptr %.sroa.09.013.i.i34, i64 -20
-  %94 = load i32, ptr %93, align 4, !tbaa !429
-  %95 = icmp eq i32 %64, %94
-  %96 = getelementptr inbounds i8, ptr %.sroa.09.013.i.i34, i64 -16
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp ult i32 %68, %97
-  %99 = icmp ult i32 %64, %94
-  %.0.i.i.i.i36 = select i1 %95, i1 %98, i1 %99
+  %91 = getelementptr inbounds i8, ptr %.sroa.09.013.i.i34, i64 -20
+  %92 = load i32, ptr %91, align 4, !tbaa !429
+  %93 = icmp eq i32 %64, %92
+  %94 = getelementptr inbounds i8, ptr %.sroa.09.013.i.i34, i64 -16
+  %95 = load i32, ptr %94, align 4
+  %96 = icmp ult i32 %68, %95
+  %97 = icmp ult i32 %64, %92
+  %.0.i.i.i.i36 = select i1 %93, i1 %96, i1 %97
   br i1 %.0.i.i.i.i36, label %.lr.ph.i.i33, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i27, !llvm.loop !473
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i27: ; preds = %.lr.ph.i.i33, %85
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i27: ; preds = %.lr.ph.i.i33, %83
   %.sroa.09.0.lcssa.i.i28 = phi ptr [ %.sroa.0.018.i22, %85 ], [ %.sroa.0.0.i.i35, %.lr.ph.i.i33 ]
   store i32 %.sroa.03.0.copyload.i.i25, ptr %.sroa.09.0.lcssa.i.i28, align 4, !tbaa !24
   %.sroa.4.0..sroa_idx5.i.i29 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.lcssa.i.i28, i64 4
   store i32 %64, ptr %.sroa.4.0..sroa_idx5.i.i29, align 4, !tbaa !24
   %.sroa.5.0..sroa_idx7.i.i30 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.lcssa.i.i28, i64 8
   store i32 %68, ptr %.sroa.5.0..sroa_idx7.i.i30, align 4, !tbaa !24
-  br label %100
+  br label %98
 
-100:                                              ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i27, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i37
+98:                                               ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i27, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i37
   %.sroa.0.0.i31 = getelementptr inbounds nuw i8, ptr %.sroa.0.018.i22, i64 12
   %.not.i32 = icmp eq ptr %.sroa.0.0.i31, %1
   br i1 %.not.i32, label %_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit, label %62, !llvm.loop !474
 
-_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit: ; preds = %100, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i9, %.preheader.i18, %58, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit
+_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit: ; preds = %98, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i9, %.preheader.i18, %58, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3igl8geodesic8HalfEdgeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit
   ret void
 }
 

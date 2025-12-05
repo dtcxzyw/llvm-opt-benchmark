@@ -810,13 +810,13 @@ define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr noundef 
   %11 = icmp samesign ugt i64 %.030, 268435456
   br i1 %11, label %36, label %12
 
-12:                                               ; preds = %10
+13:                                               ; preds = %10
   %13 = shl nuw nsw i64 %.030, 1
   %14 = tail call ptr @realloc(ptr noundef %.132, i64 noundef %13) #24
   %.not39 = icmp eq ptr %14, null
   br i1 %.not39, label %36, label %._crit_edge
 
-._crit_edge:                                      ; preds = %12
+._crit_edge:                                      ; preds = %13
   %.pre = sub i64 %13, %.029.ph
   br label %15
 
@@ -870,7 +870,7 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %25, %21
   store ptr @free, ptr %35, align 8
   br label %hb_blob_create_or_fail.exit
 
-36:                                               ; preds = %15, %12, %10
+36:                                               ; preds = %15, %13, %10
   %.3 = phi ptr [ %.132, %10 ], [ %.132, %12 ], [ %.2, %15 ]
   %37 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %38

@@ -129,13 +129,13 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %. = select i1 %22, i16 1, i16 32767
   br label %.thread98
 
-51:                                               ; preds = %47
+.thread89:                                        ; preds = %47
   %.not61 = icmp ne i64 %48, 0
   %spec.select63 = select i1 %.not61, i1 true, i1 %.054
-  %52 = icmp eq i8 %21, 0
-  br i1 %52, label %.thread98, label %67
+  %61 = icmp eq i8 %21, 0
+  br i1 %61, label %.thread98, label %67
 
-53:                                               ; preds = %47
+62:                                               ; preds = %47
   %54 = add nuw nsw i64 %.sroa.51.0.insert.ext.i, 50
   %55 = lshr i64 %48, %54
   %56 = trunc nuw nsw i64 %55 to i16
@@ -153,7 +153,7 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %66 = add nuw i16 %65, %56
   br i1 %.not, label %.thread98, label %67
 
-67:                                               ; preds = %51, %53
+67:; preds = %51, %53
   %.15596 = phi i1 [ %spec.select64, %53 ], [ %spec.select63, %51 ]
   %.052 = phi i16 [ %66, %53 ], [ %.sroa.0.0.i, %51 ]
   %68 = and i16 %.052, 1

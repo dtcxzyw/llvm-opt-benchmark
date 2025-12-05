@@ -133068,18 +133068,18 @@ define void @"_ZN55_$LT$i64$u20$as$u20$typst..foundations..int..i64Ext$GT$10bit_
   br i1 %4, label %12, label %_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.llvm.12850028421071809815.exit
 
 _ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.llvm.12850028421071809815.exit: ; preds = %3
-  %7 = tail call { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 @anon.53fe85e3a453dfbf0ab1e8743506e67c.1339, i64 noundef 23), !noalias !28115
-  %8 = extractvalue { ptr, i64 } %7, 0
-  %9 = extractvalue { ptr, i64 } %7, 1
-  %10 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %11, align 8
-  br label %12
+  %8 = tail call { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E"(ptr noalias noundef nonnull readonly align 1 @anon.53fe85e3a453dfbf0ab1e8743506e67c.1339, i64 noundef 23), !noalias !28115
+  %9 = extractvalue { ptr, i64 } %8, 0
+  %10 = extractvalue { ptr, i64 } %8, 1
+  %11 = icmp ne ptr %9, null
+  tail call void @llvm.assume(i1 %11)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %9, ptr %12, align 8
+  br label %13
 
-12:                                               ; preds = %3, %_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.llvm.12850028421071809815.exit
+13:                                               ; preds = %3, %_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.llvm.12850028421071809815.exit
   %.sink16 = phi i64 [ 16, %_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.llvm.12850028421071809815.exit ], [ 8, %3 ]
-  %.sink = phi i64 [ %9, %_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.llvm.12850028421071809815.exit ], [ %6, %3 ]
+  %.sink = phi i64 [ %10, %_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.llvm.12850028421071809815.exit ], [ %6, %3 ]
   %storemerge = phi i64 [ 1, %_ZN4ecow7dynamic10DynamicVec10from_slice17h32e0f2ca9ee4cd1cE.llvm.12850028421071809815.exit ], [ 0, %3 ]
   %.sroa.09.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink16
   store i64 %.sink, ptr %.sroa.09.sroa.4.0..sroa_idx, align 8

@@ -8576,11 +8576,11 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i:           ; preds = %_ZN2EA4StdC9Stopwat
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_111TestCopyStdIN9__gnu_cxx17__normal_iteratorIP8LargePODSt6vectorIS3_SaIS3_EEEES8_EEvRN2EA4StdC9StopwatchET_SD_T0_.exit
 
 for.body.preheader.i.i.i.i.i.i:                   ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
-  %sub.ptr.div.i.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 16408
+  %sub.ptr.div10.i.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 16408
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZN8LargePODaSERKS_.exit.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i
-  %__n.09.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i ]
+  %__n.09.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i.i ], [ %sub.ptr.div10.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i ]
   %__result.addr.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i.i ], [ %3, %for.body.preheader.i.i.i.i.i.i ]
   %__first.addr.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i.i ], [ %1, %for.body.preheader.i.i.i.i.i.i ]
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %__first.addr.07.i.i.i.i.i.i, %__result.addr.08.i.i.i.i.i.i
@@ -8655,11 +8655,11 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i72:         ; preds = %_ZN2EA4StdC9Stopwat
   br i1 %cmp6.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i, label %_ZN12_GLOBAL__N_110TestCopyEaIP8LargePODS2_EEvRN2EA4StdC9StopwatchET_S7_T0_.exit
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i72
-  %sub.ptr.div.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 16408
+  %sub.ptr.div10.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 16408
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZN8LargePODaSERKS_.exit.i.i.i.i.i, %for.body.preheader.i.i.i.i.i
-  %n.09.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i75, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
+  %n.09.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i75, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i ], [ %sub.ptr.div10.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i ], [ %13, %for.body.preheader.i.i.i.i.i ]
   %first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i76, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i ], [ %11, %for.body.preheader.i.i.i.i.i ]
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %first.addr.07.i.i.i.i.i, %result.addr.08.i.i.i.i.i
@@ -8921,11 +8921,11 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit:             ; preds = %if.then2.i.i, %_ZN2
   br i1 %cmp4.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i, label %_ZSt13copy_backwardIN9__gnu_cxx17__normal_iteratorIP8LargePODSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit
-  %sub.ptr.div.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 16408
+  %sub.ptr.div8.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 16408
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZN8LargePODaSERKS_.exit.i.i.i.i.i, %for.body.preheader.i.i.i.i.i
-  %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
+  %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i ], [ %sub.ptr.div8.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %__result.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i ], [ %result.coerce, %for.body.preheader.i.i.i.i.i ]
   %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i.i ], [ %last.coerce, %for.body.preheader.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -16408
@@ -9006,11 +9006,11 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit:             ; preds = %if.then2.i.i, %_ZN2
   br i1 %cmp4.i.i.i.i, label %for.body.preheader.i.i.i.i, label %_ZN5eastl13copy_backwardIP8LargePODS2_EET0_T_S4_S3_.exit
 
 for.body.preheader.i.i.i.i:                       ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit
-  %sub.ptr.div.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i, 16408
+  %sub.ptr.div8.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i, 16408
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN8LargePODaSERKS_.exit.i.i.i.i, %for.body.preheader.i.i.i.i
-  %n.07.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i ], [ %sub.ptr.div.i.i.i.i, %for.body.preheader.i.i.i.i ]
+  %n.07.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i ], [ %sub.ptr.div8.i.i.i.i, %for.body.preheader.i.i.i.i ]
   %resultEnd.addr.06.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i ], [ %result, %for.body.preheader.i.i.i.i ]
   %last.addr.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZN8LargePODaSERKS_.exit.i.i.i.i ], [ %last, %for.body.preheader.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %last.addr.05.i.i.i.i, i64 -16408
@@ -14350,13 +14350,13 @@ while.end.i:                                      ; preds = %if.end.i, %_ZN2EA4S
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIP10TestObjectSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit.i
 
 for.body.preheader.i.i.i.i.i.i:                   ; preds = %while.end.i
-  %sub.ptr.div.i.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 24
+  %sub.ptr.div11.i.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 24
   %.pre10.i.i.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i
   %119 = phi i64 [ %123, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i.i ], [ %.pre10.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i ]
-  %__n.09.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i636, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i ]
+  %__n.09.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i636, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i.i.i, %for.body.preheader.i.i.i.i.i.i ]
   %__result.addr.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i.i ], [ %__result.sroa.0.0.lcssa.i, %for.body.preheader.i.i.i.i.i.i ]
   %__first.addr.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i.i ], [ %__first1.sroa.0.0.lcssa.i, %for.body.preheader.i.i.i.i.i.i ]
   %inc.i.i.i.i.i.i.i = add nsw i64 %119, 1
@@ -14400,13 +14400,13 @@ for.body.preheader.i.i.i.i.i22.i:                 ; preds = %_ZSt4copyIN9__gnu_c
   %sub.ptr.rhs.cast.i.i.i.i632 = ptrtoint ptr %__result.sroa.0.0.lcssa.i to i64
   %sub.ptr.sub.i.i.i.i633 = sub i64 %sub.ptr.lhs.cast.i.i.i.i631, %sub.ptr.rhs.cast.i.i.i.i632
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.0.lcssa.i, i64 %sub.ptr.sub.i.i.i.i633
-  %sub.ptr.div.i.i.i.i.i23.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i15.i, 24
+  %sub.ptr.div11.i.i.i.i.i23.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i15.i, 24
   %.pre10.i.i.i.i.i24.i = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body.i.i.i.i.i25.i
 
 for.body.i.i.i.i.i25.i:                           ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i38.i, %for.body.preheader.i.i.i.i.i22.i
   %124 = phi i64 [ %128, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i38.i ], [ %.pre10.i.i.i.i.i24.i, %for.body.preheader.i.i.i.i.i22.i ]
-  %__n.09.i.i.i.i.i26.i = phi i64 [ %dec.i.i.i.i.i41.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i38.i ], [ %sub.ptr.div.i.i.i.i.i23.i, %for.body.preheader.i.i.i.i.i22.i ]
+  %__n.09.i.i.i.i.i26.i = phi i64 [ %dec.i.i.i.i.i41.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i38.i ], [ %sub.ptr.div11.i.i.i.i.i23.i, %for.body.preheader.i.i.i.i.i22.i ]
   %__result.addr.08.i.i.i.i.i27.i = phi ptr [ %incdec.ptr1.i.i.i.i.i40.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i38.i ], [ %add.ptr.i.i.i.i.i, %for.body.preheader.i.i.i.i.i22.i ]
   %__first.addr.07.i.i.i.i.i28.i = phi ptr [ %incdec.ptr.i.i.i.i.i39.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i38.i ], [ %__first2.sroa.0.0.lcssa.i, %for.body.preheader.i.i.i.i.i22.i ]
   %inc.i.i.i.i.i.i29.i = add nsw i64 %124, 1
@@ -14563,13 +14563,13 @@ if.then7.i:                                       ; preds = %while.end.i643
   br i1 %cmp6.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i, label %call.i.i.noexc445
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %if.then7.i
-  %sub.ptr.div.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 24
+  %sub.ptr.div11.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 24
   %.pre10.i.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i, %for.body.preheader.i.i.i.i.i
   %149 = phi i64 [ %153, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i ], [ %.pre10.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
-  %n.09.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i648, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
+  %n.09.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i648, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i ], [ %result.addr.0.lcssa.i, %for.body.preheader.i.i.i.i.i ]
   %first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i649, %_ZN10TestObjectaSERKS_.exit.i.i.i.i.i ], [ %first2.addr.0.lcssa.i, %for.body.preheader.i.i.i.i.i ]
   %inc.i.i.i.i.i.i644 = add nsw i64 %149, 1
@@ -14608,13 +14608,13 @@ if.else9.i:                                       ; preds = %while.end.i643
   br i1 %cmp6.i.i.i.i29.i, label %for.body.preheader.i.i.i.i31.i, label %call.i.i.noexc445
 
 for.body.preheader.i.i.i.i31.i:                   ; preds = %if.else9.i
-  %sub.ptr.div.i.i.i.i32.i = udiv exact i64 %sub.ptr.sub.i.i.i.i28.i, 24
+  %sub.ptr.div11.i.i.i.i32.i = udiv exact i64 %sub.ptr.sub.i.i.i.i28.i, 24
   %.pre10.i.i.i.i33.i = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body.i.i.i.i34.i
 
 for.body.i.i.i.i34.i:                             ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i47.i, %for.body.preheader.i.i.i.i31.i
   %154 = phi i64 [ %158, %_ZN10TestObjectaSERKS_.exit.i.i.i.i47.i ], [ %.pre10.i.i.i.i33.i, %for.body.preheader.i.i.i.i31.i ]
-  %n.09.i.i.i.i35.i = phi i64 [ %dec.i.i.i.i48.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i47.i ], [ %sub.ptr.div.i.i.i.i32.i, %for.body.preheader.i.i.i.i31.i ]
+  %n.09.i.i.i.i35.i = phi i64 [ %dec.i.i.i.i48.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i47.i ], [ %sub.ptr.div11.i.i.i.i32.i, %for.body.preheader.i.i.i.i31.i ]
   %result.addr.08.i.i.i.i36.i = phi ptr [ %incdec.ptr1.i.i.i.i50.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i47.i ], [ %result.addr.0.lcssa.i, %for.body.preheader.i.i.i.i31.i ]
   %first.addr.07.i.i.i.i37.i = phi ptr [ %incdec.ptr.i.i.i.i49.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i47.i ], [ %first1.addr.0.lcssa.i, %for.body.preheader.i.i.i.i31.i ]
   %inc.i.i.i.i.i38.i = add nsw i64 %154, 1
@@ -17096,12 +17096,12 @@ if.then9:                                         ; preds = %for.body
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %if.then9
   %add.ptr.i2 = getelementptr inbounds nuw i8, ptr %__first.coerce.pn27, i64 48
-  %sub.ptr.div.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 24
+  %sub.ptr.div9.i.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i.i.i.i, 24
   br label %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i
 
 _ZN10TestObjectaSEOS_.exit.i.i.i.i.i:             ; preds = %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i, %for.body.preheader.i.i.i.i.i
   %7 = phi i64 [ %.pre.i.i.i.i.i, %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i ], [ %.pre, %for.body.preheader.i.i.i.i.i ]
-  %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
+  %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i ], [ %sub.ptr.div9.i.i.i.i.i, %for.body.preheader.i.i.i.i.i ]
   %__result.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i ], [ %add.ptr.i2, %for.body.preheader.i.i.i.i.i ]
   %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZN10TestObjectaSEOS_.exit.i.i.i.i.i ], [ %__i.sroa.0.028, %for.body.preheader.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -24
@@ -17440,13 +17440,13 @@ if.then24:                                        ; preds = %if.else
   br i1 %cmp6.i.i.i.i, label %for.body.preheader.i.i.i.i, label %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit
 
 for.body.preheader.i.i.i.i:                       ; preds = %if.then24
-  %sub.ptr.div.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i, 24
+  %sub.ptr.div11.i.i.i.i = udiv exact i64 %sub.ptr.sub.i.i, 24
   %.pre10.i.i.i.i = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body.i.i.i.i15
 
 for.body.i.i.i.i15:                               ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i, %for.body.preheader.i.i.i.i
   %13 = phi i64 [ %17, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %.pre10.i.i.i.i, %for.body.preheader.i.i.i.i ]
-  %n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %sub.ptr.div.i.i.i.i, %for.body.preheader.i.i.i.i ]
+  %n.09.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %sub.ptr.div11.i.i.i.i, %for.body.preheader.i.i.i.i ]
   %result.addr.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i21, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %1, %for.body.preheader.i.i.i.i ]
   %first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i20, %_ZN10TestObjectaSERKS_.exit.i.i.i.i ], [ %first, %for.body.preheader.i.i.i.i ]
   %inc.i.i.i.i.i16 = add nsw i64 %13, 1
@@ -17532,13 +17532,13 @@ if.else29:                                        ; preds = %if.else
   br i1 %cmp6.i.i.i.i47, label %for.body.preheader.i.i.i.i49, label %_ZN5eastl4copyIP10TestObjectS2_EET0_T_S4_S3_.exit70
 
 for.body.preheader.i.i.i.i49:                     ; preds = %if.else29
-  %sub.ptr.div.i.i.i.i50 = udiv exact i64 %sub.ptr.sub21, 24
+  %sub.ptr.div11.i.i.i.i50 = udiv exact i64 %sub.ptr.sub21, 24
   %.pre10.i.i.i.i51 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body.i.i.i.i52
 
 for.body.i.i.i.i52:                               ; preds = %_ZN10TestObjectaSERKS_.exit.i.i.i.i65, %for.body.preheader.i.i.i.i49
   %20 = phi i64 [ %24, %_ZN10TestObjectaSERKS_.exit.i.i.i.i65 ], [ %.pre10.i.i.i.i51, %for.body.preheader.i.i.i.i49 ]
-  %n.09.i.i.i.i53 = phi i64 [ %dec.i.i.i.i66, %_ZN10TestObjectaSERKS_.exit.i.i.i.i65 ], [ %sub.ptr.div.i.i.i.i50, %for.body.preheader.i.i.i.i49 ]
+  %n.09.i.i.i.i53 = phi i64 [ %dec.i.i.i.i66, %_ZN10TestObjectaSERKS_.exit.i.i.i.i65 ], [ %sub.ptr.div11.i.i.i.i50, %for.body.preheader.i.i.i.i49 ]
   %result.addr.08.i.i.i.i54 = phi ptr [ %incdec.ptr1.i.i.i.i68, %_ZN10TestObjectaSERKS_.exit.i.i.i.i65 ], [ %1, %for.body.preheader.i.i.i.i49 ]
   %first.addr.07.i.i.i.i55 = phi ptr [ %incdec.ptr.i.i.i.i67, %_ZN10TestObjectaSERKS_.exit.i.i.i.i65 ], [ %first, %for.body.preheader.i.i.i.i49 ]
   %inc.i.i.i.i.i56 = add nsw i64 %20, 1

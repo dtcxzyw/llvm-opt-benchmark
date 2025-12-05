@@ -42916,7 +42916,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler20mangleTemplatePr
 10:                                               ; preds = %2
   %11 = ptrtoint ptr %9 to i64
   call fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler20mangleTemplatePrefixEN5clang10GlobalDeclEb(ptr noundef nonnull align 8 dereferenceable(280) %0, i64 %11, i1 noundef zeroext false)
-  br label %93
+  br label %94
 
 12:                                               ; preds = %2
   %13 = call noundef ptr @_ZNK5clang12TemplateName26getAsDependentTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #30
@@ -42948,12 +42948,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler20mangleTemplatePr
   store i64 %25, ptr %7, align 8
   %26 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEm(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, i64 noundef %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %26, label %93, label %28
+  br i1 %26, label %94, label %28
 
 _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit: ; preds = %19
   %27 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEPKN5clang9NamedDeclE(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %27, label %93, label %28
+  br i1 %27, label %94, label %28
 
 28:                                               ; preds = %21, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit, %12
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -42987,20 +42987,20 @@ _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exi
   store i64 %40, ptr %6, align 8
   %41 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEm(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, i64 noundef %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %41, label %93, label %43
+  br i1 %41, label %94, label %43
 
 _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit24: ; preds = %34
   %42 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEPKN5clang9NamedDeclE(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %42, label %93, label %43
+  br i1 %42, label %94, label %43
 
 43:                                               ; preds = %36, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit24, %33
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %45 = load ptr, ptr %44, align 8
   %.not18 = icmp eq ptr %45, null
-  br i1 %.not18, label %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit, label %46
+  br i1 %.not18, label %71, label %46
 
-46:                                               ; preds = %43
+47:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val20 = load ptr, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -43022,11 +43022,11 @@ _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exi
   %64 = icmp ugt i64 %56, %63
   br i1 %64, label %65, label %67
 
-65:                                               ; preds = %46
+65:                                               ; preds = %47
   %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull %54, i64 noundef %56) #30
   br label %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit
 
-67:                                               ; preds = %46
+67:                                               ; preds = %47
   %.not.i.i = icmp eq i64 %56, 0
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit, label %68
 
@@ -43037,56 +43037,56 @@ _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exi
   store ptr %70, ptr %59, align 8, !tbaa !529
   br label %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit
 
-_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit: ; preds = %43, %68, %67, %65
+71:                                               ; preds = %43, %68, %67, %65
   %.sroa.0.0.copyload = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8
-  %71 = call noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext false) #30
-  %.not.not.i25 = icmp eq ptr %71, null
-  br i1 %.not.not.i25, label %83, label %72
+  %72 = call noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext false) #30
+  %.not.not.i25 = icmp eq ptr %72, null
+  br i1 %.not.not.i25, label %84, label %73
 
-72:                                               ; preds = %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit
-  %73 = load ptr, ptr %71, align 8, !tbaa !22
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %75 = load ptr, ptr %74, align 8
-  %76 = call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(33) %71) #30
-  %77 = ptrtoint ptr %76 to i64
+73:                                               ; preds = %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit
+  %74 = load ptr, ptr %72, align 8, !tbaa !22
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %76 = load ptr, ptr %75, align 8
+  %77 = call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(33) %72) #30
+  %78 = ptrtoint ptr %77 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %77, ptr %4, align 8, !tbaa !105
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %79 = load i32, ptr %78, align 8, !tbaa !542
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %78, align 8, !tbaa !542
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %82 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_EixERKm(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i32 %79, ptr %82, align 4, !tbaa !487
+  store i64 %78, ptr %4, align 8, !tbaa !105
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %80 = load i32, ptr %79, align 8, !tbaa !542
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %79, align 8, !tbaa !542
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %83 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_EixERKm(ptr noundef nonnull align 1 dereferenceable(1) %82, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store i32 %80, ptr %83, align 4, !tbaa !487
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN12_GLOBAL__N_114CXXNameMangler15addSubstitutionEN5clang12TemplateNameE.exit
 
-83:                                               ; preds = %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit
-  %84 = load ptr, ptr %0, align 8, !tbaa !541
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %86 = load ptr, ptr %85, align 8, !tbaa !128
+84:                                               ; preds = %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit
+  %85 = load ptr, ptr %0, align 8, !tbaa !541
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !128
   %.sroa.0.0.copyload.i26 = load i64, ptr %5, align 8
-  %87 = call i64 @_ZNK5clang10ASTContext24getCanonicalTemplateNameENS_12TemplateNameEb(ptr noundef nonnull align 8 dereferenceable(23216) %86, i64 %.sroa.0.0.copyload.i26, i1 noundef zeroext false) #30
-  store i64 %87, ptr %5, align 8
+  %88 = call i64 @_ZNK5clang10ASTContext24getCanonicalTemplateNameENS_12TemplateNameEb(ptr noundef nonnull align 8 dereferenceable(23216) %87, i64 %.sroa.0.0.copyload.i26, i1 noundef zeroext false) #30
+  store i64 %88, ptr %5, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %87, ptr %3, align 8, !tbaa !105
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %89 = load i32, ptr %88, align 8, !tbaa !542
-  %90 = add i32 %89, 1
-  store i32 %90, ptr %88, align 8, !tbaa !542
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %92 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_EixERKm(ptr noundef nonnull align 1 dereferenceable(1) %91, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store i32 %89, ptr %92, align 4, !tbaa !487
+  store i64 %88, ptr %3, align 8, !tbaa !105
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %90 = load i32, ptr %89, align 8, !tbaa !542
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %89, align 8, !tbaa !542
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %93 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImjNS_12DenseMapInfoImvEENS_6detail12DenseMapPairImjEEEEmjS3_S6_EixERKm(ptr noundef nonnull align 1 dereferenceable(1) %92, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store i32 %90, ptr %93, align 4, !tbaa !487
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_114CXXNameMangler15addSubstitutionEN5clang12TemplateNameE.exit
 
-_ZN12_GLOBAL__N_114CXXNameMangler15addSubstitutionEN5clang12TemplateNameE.exit: ; preds = %72, %83
+_ZN12_GLOBAL__N_114CXXNameMangler15addSubstitutionEN5clang12TemplateNameE.exit: ; preds = %73, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %93
+  br label %94
 
-93:                                               ; preds = %36, %21, %10, %_ZN12_GLOBAL__N_114CXXNameMangler15addSubstitutionEN5clang12TemplateNameE.exit, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit24
+94:                                               ; preds = %36, %21, %10, %_ZN12_GLOBAL__N_114CXXNameMangler15addSubstitutionEN5clang12TemplateNameE.exit, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit24
   ret void
 }
 

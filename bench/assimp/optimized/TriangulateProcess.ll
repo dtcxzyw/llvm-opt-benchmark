@@ -4242,16 +4242,16 @@ define linkonce_odr hidden void @_ZN6mapbox6detail6EarcutIjE10indexCurveEPNS2_4N
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
   store ptr null, ptr %60, align 8
   store ptr null, ptr %58, align 8
-  br label %.lr.ph.us.preheader.i
+  br label %.lr.ph80.i
 
-.lr.ph.us.preheader.i:                            ; preds = %._crit_edge81.i, %57
+.lr.ph80.i:                                       ; preds = %._crit_edge81.i, %57
   %.058.i = phi ptr [ %55, %57 ], [ %.260.us.i, %._crit_edge81.i ]
   %.0.i = phi i32 [ 1, %57 ], [ %103, %._crit_edge81.i ]
   %.not74.i = icmp ne ptr %.058.i, null
   tail call void @llvm.assume(i1 %.not74.i)
   br label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %.loopexit.us.i, %.lr.ph.us.preheader.i
+.lr.ph.us.i:                                      ; preds = %.loopexit.us.i, %.lr.ph80.i
   %.04678.us.i = phi i32 [ %61, %.loopexit.us.i ], [ 0, %.lr.ph.us.preheader.i ]
   %.04877.us.i = phi ptr [ %.149.us.i, %.loopexit.us.i ], [ null, %.lr.ph.us.preheader.i ]
   %.05576.us.i = phi ptr [ %.253.us.i, %.loopexit.us.i ], [ %.058.i, %.lr.ph.us.preheader.i ]
@@ -4363,7 +4363,7 @@ define linkonce_odr hidden void @_ZN6mapbox6detail6EarcutIjE10indexCurveEPNS2_4N
   store ptr null, ptr %101, align 8
   %102 = icmp eq i32 %.04678.us.i, 0
   %103 = shl nsw i32 %.0.i, 1
-  br i1 %102, label %_ZN6mapbox6detail6EarcutIjE10sortLinkedEPNS2_4NodeE.exit, label %.lr.ph.us.preheader.i, !llvm.loop !52
+  br i1 %102, label %_ZN6mapbox6detail6EarcutIjE10sortLinkedEPNS2_4NodeE.exit, label %.lr.ph80.i, !llvm.loop !52
 
 _ZN6mapbox6detail6EarcutIjE10sortLinkedEPNS2_4NodeE.exit: ; preds = %._crit_edge81.i
   ret void

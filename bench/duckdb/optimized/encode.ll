@@ -2656,7 +2656,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   %314 = load ptr, ptr %175, align 8, !tbaa !65, !noalias !151
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store ptr %314, ptr %315, align 8, !tbaa !156, !alias.scope !151
-  br label %.thread530
+  br label %.thread532
 
 316:                                              ; preds = %310
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 1712
@@ -2665,7 +2665,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   %318 = load ptr, ptr %175, align 8, !tbaa !65, !noalias !157
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store ptr %318, ptr %319, align 8, !tbaa !162, !alias.scope !157
-  br label %.thread530
+  br label %.thread532
 
 320:                                              ; preds = %310
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 1712
@@ -2674,17 +2674,17 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   %322 = load ptr, ptr %175, align 8, !tbaa !65, !noalias !163
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store ptr %322, ptr %323, align 8, !tbaa !168, !alias.scope !163
-  br label %.thread530
+  br label %.thread532
 
 324:                                              ; preds = %310
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   tail call fastcc void @_ZN13duckdb_brotliL12InitializeH5EPNS_12HasherCommonEPNS_2H5EPK19BrotliEncoderParams(ptr noundef nonnull %175, ptr noundef nonnull %325)
-  br label %.thread530
+  br label %.thread532
 
 326:                                              ; preds = %310
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   tail call fastcc void @_ZN13duckdb_brotliL12InitializeH6EPNS_12HasherCommonEPNS_2H6EPK19BrotliEncoderParams(ptr noundef nonnull %175, ptr noundef nonnull %327)
-  br label %.thread530
+  br label %.thread532
 
 328:                                              ; preds = %310
   %.val318 = load i32, ptr %30, align 4, !tbaa !49
@@ -2705,7 +2705,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   %338 = zext i32 %337 to i64
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store i64 %338, ptr %339, align 8, !tbaa !174, !alias.scope !169
-  br label %.thread530
+  br label %.thread532
 
 340:                                              ; preds = %310
   %.val319 = load i32, ptr %30, align 4, !tbaa !49
@@ -2726,7 +2726,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   %350 = zext i32 %349 to i64
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store i64 %350, ptr %351, align 8, !tbaa !180, !alias.scope !175
-  br label %.thread530
+  br label %.thread532
 
 352:                                              ; preds = %310
   %.val320 = load i32, ptr %30, align 4, !tbaa !49
@@ -2747,7 +2747,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   %362 = zext i32 %361 to i64
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 2736
   store i64 %362, ptr %363, align 8, !tbaa !186, !alias.scope !181
-  br label %.thread530
+  br label %.thread532
 
 364:                                              ; preds = %310
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 1712
@@ -2756,7 +2756,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   %366 = load ptr, ptr %175, align 8, !tbaa !65, !noalias !187
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store ptr %366, ptr %367, align 8, !tbaa !192, !alias.scope !187
-  br label %.thread530
+  br label %.thread532
 
 368:                                              ; preds = %310
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 1928
@@ -2769,7 +2769,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   store i32 1, ptr %372, align 8, !tbaa !201, !alias.scope !197
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   store ptr %0, ptr %373, align 8, !tbaa !202, !alias.scope !197
-  br label %.thread530
+  br label %.thread532
 
 374:                                              ; preds = %310
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 1928
@@ -2782,7 +2782,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   store i32 1, ptr %378, align 8, !tbaa !208, !alias.scope !205
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   store ptr %0, ptr %379, align 8, !tbaa !209, !alias.scope !205
-  br label %.thread530
+  br label %.thread532
 
 380:                                              ; preds = %310
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 1976
@@ -2795,7 +2795,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   store i32 1, ptr %384, align 8, !tbaa !217, !alias.scope !214
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 1992
   store ptr %0, ptr %385, align 8, !tbaa !218, !alias.scope !214
-  br label %.thread530
+  br label %.thread532
 
 386:                                              ; preds = %310
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 1712
@@ -2814,9 +2814,9 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   store i64 %392, ptr %387, align 8, !tbaa !225, !alias.scope !221
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   store i32 %.neg.i, ptr %393, align 8, !tbaa !226, !alias.scope !221
-  br label %.thread530
+  br label %.thread532
 
-.thread530:                                       ; preds = %310, %312, %316, %320, %324, %326, %328, %340, %352, %364, %368, %374, %380, %386
+.thread532:                                       ; preds = %310, %312, %316, %320, %324, %326, %328, %340, %352, %364, %368, %374, %380, %386
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   store i32 0, ptr %394, align 8, !tbaa !227
   store i32 1, ptr %183, align 8, !tbaa !140
@@ -2831,7 +2831,7 @@ _ZN13duckdb_brotliL10HasherSizeEPK19BrotliEncoderParamsimPm.exit.i: ; preds = %2
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   br i1 %397, label %399, label %_ZN13duckdb_brotliL11HasherSetupEPNS_13MemoryManagerEPNS_6HasherEP19BrotliEncoderParamsPKhmmi.exit
 
-399:                                              ; preds = %.thread530, %396
+399:                                              ; preds = %.thread532, %396
   %400 = phi ptr [ %395, %.thread530 ], [ %398, %396 ]
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %402 = load i32, ptr %401, align 8, !tbaa !150

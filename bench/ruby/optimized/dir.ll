@@ -2978,16 +2978,16 @@ ruby_nonempty_memcpy.exit47.i:                    ; preds = %81, %78
   br i1 %.not.i, label %join_path_from_pattern.exit, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %85, %.thread
-  %.053.i.be = phi ptr [ %.0.i, %85 ], [ %.0.i653, %.thread ]
+  %.053.i.be = phi ptr [ %.0.i, %85 ], [ %.0.i654, %.thread ]
   %.03152.i.be = phi ptr [ %.1.i, %85 ], [ null, %.thread ]
   %.03351.i.be = phi i64 [ %.134.i, %85 ], [ %66, %.thread ]
   br label %.lr.ph.i, !llvm.loop !126
 
 .thread:                                          ; preds = %glob_alloc_n.exit.i
   %87 = getelementptr inbounds nuw i8, ptr %.053.i, i64 16
-  %.0.i653 = load ptr, ptr %87, align 8, !tbaa !28
-  %.not.i654 = icmp eq ptr %.0.i653, null
-  br i1 %.not.i654, label %join_path_from_pattern.exit.thread, label %.lr.ph.i.backedge
+  %.0.i654 = load ptr, ptr %87, align 8, !tbaa !28
+  %.not.i655 = icmp eq ptr %.0.i654, null
+  br i1 %.not.i655, label %join_path_from_pattern.exit.thread, label %.lr.ph.i.backedge
 
 join_path_from_pattern.exit:                      ; preds = %85
   %.not360 = icmp eq ptr %.1.i, null
@@ -3022,18 +3022,18 @@ join_path_from_pattern.exit.thread:               ; preds = %.thread, %59, %join
   br label %.thread451
 
 ._crit_edge.thread:                               ; preds = %12, %._crit_edge
-  %.0294.lcssa650 = phi i1 [ %58, %._crit_edge ], [ true, %12 ]
-  %.0298.lcssa649 = phi i1 [ %57, %._crit_edge ], [ false, %12 ]
-  %.0300.lcssa648 = phi i1 [ %56, %._crit_edge ], [ false, %12 ]
-  %.0302.lcssa647 = phi i1 [ %53, %._crit_edge ], [ false, %12 ]
-  %.0304.lcssa646 = phi i1 [ %54, %._crit_edge ], [ false, %12 ]
+  %.0294.lcssa651 = phi i1 [ %58, %._crit_edge ], [ true, %12 ]
+  %.0298.lcssa650 = phi i1 [ %57, %._crit_edge ], [ false, %12 ]
+  %.0300.lcssa649 = phi i1 [ %56, %._crit_edge ], [ false, %12 ]
+  %.0302.lcssa648 = phi i1 [ %53, %._crit_edge ], [ false, %12 ]
+  %.0304.lcssa647 = phi i1 [ %54, %._crit_edge ], [ false, %12 ]
   %99 = load i8, ptr %1, align 1, !tbaa !19
   %.not333 = icmp eq i8 %99, 0
   br i1 %.not333, label %187, label %100
 
 100:                                              ; preds = %._crit_edge.thread
   %101 = icmp eq i32 %5, -2
-  %or.cond = and i1 %101, %.0302.lcssa647
+  %or.cond = and i1 %101, %.0302.lcssa648
   br i1 %or.cond, label %102, label %124
 
 102:                                              ; preds = %100
@@ -3093,7 +3093,7 @@ do_lstat.exit:                                    ; preds = %102
 
 124:                                              ; preds = %do_lstat.exit.thread, %do_lstat.exit, %119, %100
   %.1275 = phi i32 [ %123, %119 ], [ %5, %100 ], [ -1, %do_lstat.exit ], [ -1, %do_lstat.exit.thread ]
-  br i1 %.0304.lcssa646, label %125, label %148
+  br i1 %.0304.lcssa647, label %125, label %148
 
 125:                                              ; preds = %124
   switch i32 %.1275, label %148 [
@@ -3159,7 +3159,7 @@ do_stat.exit:                                     ; preds = %126
 148:                                              ; preds = %125, %143, %124
   %.2276 = phi i32 [ %147, %143 ], [ %.1275, %125 ], [ %.1275, %124 ]
   %149 = icmp sgt i32 %.2276, -1
-  %or.cond8 = select i1 %.0302.lcssa647, i1 %149, i1 false
+  %or.cond8 = select i1 %.0302.lcssa648, i1 %149, i1 false
   br i1 %or.cond8, label %150, label %161
 
 150:                                              ; preds = %148
@@ -3183,7 +3183,7 @@ do_stat.exit:                                     ; preds = %126
 
 161:                                              ; preds = %156, %148
   %162 = icmp eq i32 %.2276, 4
-  %or.cond10 = select i1 %.0304.lcssa646, i1 %162, i1 false
+  %or.cond10 = select i1 %.0304.lcssa647, i1 %162, i1 false
   br i1 %or.cond10, label %163, label %187
 
 163:                                              ; preds = %161
@@ -3250,7 +3250,7 @@ ruby_nonempty_memcpy.exit.i374:                   ; preds = %180, %179
   br i1 %188, label %.thread451, label %.thread455
 
 .thread455:                                       ; preds = %183, %187
-  br i1 %.0298.lcssa649, label %189, label %456
+  br i1 %.0298.lcssa650, label %189, label %456
 
 189:                                              ; preds = %.thread455
   %190 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3564,7 +3564,7 @@ glob_opendir.exit:                                ; preds = %272, %219
   %302 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %303 = and i32 %8, 4
   %.not351 = icmp eq i32 %303, 0
-  %or.cond363 = and i1 %.not351, %.0300.lcssa648
+  %or.cond363 = and i1 %.not351, %.0300.lcssa649
   %.not352 = icmp ne i32 %298, 0
   %or.cond368.not = or i1 %.not352, %or.cond363
   %.not.i384 = icmp ne i32 %4, 0
@@ -3705,7 +3705,7 @@ ruby_nonempty_memcpy.exit.i388:                   ; preds = %356, %355
   %.not354 = icmp eq i8 %367, 0
   %368 = zext i8 %367 to i32
   %spec.select = select i1 %.not354, i32 %.0285, i32 %368
-  br i1 %.0300.lcssa648, label %369, label %387
+  br i1 %.0300.lcssa649, label %369, label %387
 
 369:                                              ; preds = %362
   %370 = icmp samesign ult i32 %.0284, %307
@@ -3887,22 +3887,22 @@ glob_alloc_n.exit:                                ; preds = %387
   %427 = load ptr, ptr %.0283, align 8, !tbaa !32
   %428 = call fastcc i32 @ruby_brace_expand(ptr noundef %427, i32 noundef %299, ptr noundef nonnull @dirent_match_brace, i64 noundef %322, ptr noundef %11, i64 noundef 0)
   %429 = icmp sgt i32 %428, 0
-  br i1 %429, label %.sink.split672, label %436
+  br i1 %429, label %.sink.split673, label %436
 
 430:                                              ; preds = %424, %424, %424
   %431 = load ptr, ptr %.0283, align 8, !tbaa !32
   %432 = call fastcc i32 @fnmatch(ptr noundef %431, ptr noundef %11, ptr noundef %365, i32 noundef %299)
   %.not359.not = icmp eq i32 %432, 0
-  br i1 %.not359.not, label %.sink.split672, label %436
+  br i1 %.not359.not, label %.sink.split673, label %436
 
-.sink.split672:                                   ; preds = %430, %426
+.sink.split673:                                   ; preds = %430, %426
   %433 = getelementptr inbounds nuw i8, ptr %.0283, i64 16
   %434 = load ptr, ptr %433, align 8, !tbaa !30
   %435 = getelementptr i8, ptr %.0288555, i64 8
   store ptr %434, ptr %.0288555, align 8, !tbaa !28
   br label %436
 
-436:                                              ; preds = %.sink.split672, %424, %430, %426
+436:                                              ; preds = %.sink.split673, %424, %430, %426
   %.3291 = phi ptr [ %.0288555, %424 ], [ %.0288555, %426 ], [ %.0288555, %430 ], [ %435, %.sink.split672 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %437 = getelementptr i8, ptr %.1280556, i64 8
@@ -3979,7 +3979,7 @@ glob_getent.exit.thread.thread500:                ; preds = %324, %glob_getent.e
   br label %.thread451
 
 456:                                              ; preds = %.thread455
-  br i1 %.0294.lcssa650, label %.thread451, label %457
+  br i1 %.0294.lcssa651, label %.thread451, label %457
 
 457:                                              ; preds = %456
   %458 = ptrtoint ptr %7 to i64
@@ -4229,8 +4229,8 @@ ruby_nonempty_memcpy.exit.i417:                   ; preds = %527, %526
   br i1 %542, label %474, label %.thread493, !llvm.loop !173
 
 .thread493.sink.split:                            ; preds = %glob_alloc_n.exit412, %533
-  %.lcssa663.sink = phi ptr [ %504, %533 ], [ %481, %glob_alloc_n.exit412 ]
-  call void @free(ptr noundef %.lcssa663.sink) #22
+  %.lcssa664.sink = phi ptr [ %504, %533 ], [ %481, %glob_alloc_n.exit412 ]
+  call void @free(ptr noundef %.lcssa664.sink) #22
   br label %.thread493
 
 .thread493:                                       ; preds = %540, %534, %glob_alloc_n.exit403, %.thread493.sink.split, %.preheader505, %.preheader504

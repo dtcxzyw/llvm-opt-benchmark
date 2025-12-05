@@ -5356,7 +5356,7 @@ define internal fastcc noundef ptr @read_into_scalar_list(ptr noundef %0, ptr no
   store i32 %10, ptr %8, align 16
   %11 = tail call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #11
   %12 = icmp eq i32 %11, 44
-  br i1 %12, label %.lr.ph, label %._crit_edge
+  br i1 %12, label %.lr.ph, label %.lr.ph72.preheader
 
 .lr.ph:                                           ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5446,9 +5446,9 @@ NameOfDatum.exit:                                 ; preds = %36, %38
 
 ._crit_edge.loopexit:                             ; preds = %NameOfDatum.exit
   %53 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %._crit_edge
+  br label %.lr.ph72.preheader
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
+.lr.ph72.preheader:                               ; preds = %._crit_edge.loopexit, %6
   %.0.lcssa = phi i32 [ 1, %6 ], [ %53, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %11, %6 ], [ %46, %._crit_edge.loopexit ]
   tail call void @plpgsql_push_back_token(i32 noundef %.lcssa, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) #11
@@ -5474,7 +5474,7 @@ NameOfDatum.exit:                                 ; preds = %36, %38
   store ptr %65, ptr %66, align 8
   br label %67
 
-67:                                               ; preds = %._crit_edge, %67
+67:; preds = %.lr.ph72.preheader, %67
   %indvars.iv75 = phi i64 [ %60, %._crit_edge ], [ %indvars.iv.next76, %67 ]
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, -1
   %68 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next76
@@ -5490,7 +5490,7 @@ NameOfDatum.exit:                                 ; preds = %36, %38
   %76 = icmp samesign ugt i64 %indvars.iv75, 1
   br i1 %76, label %67, label %77, !llvm.loop !17
 
-77:                                               ; preds = %67
+77:   ; preds = %67
   tail call void @plpgsql_adddatum(ptr noundef nonnull %54) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

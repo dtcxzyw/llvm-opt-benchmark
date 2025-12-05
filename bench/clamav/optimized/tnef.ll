@@ -81,9 +81,9 @@ define range(i32 0, 27) i32 @cli_tnef(ptr noundef %0, ptr noundef readonly captu
   %or.cond44.not.i232 = icmp ugt i64 %29, 6
   br i1 %or.cond44.not.i232, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %155
-  %30 = phi ptr [ %157, %155 ], [ %28, %.preheader ]
-  %31 = phi ptr [ %156, %155 ], [ %27, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %156
+  %30 = phi ptr [ %158, %155 ], [ %28, %.preheader ]
+  %31 = phi ptr [ %157, %155 ], [ %27, %.preheader ]
   %.0106234 = phi i64 [ %.1107, %155 ], [ 6, %.preheader ]
   %.0109233 = phi ptr [ %.1110, %155 ], [ null, %.preheader ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
@@ -155,7 +155,7 @@ fmap_readn.exit35.i:                              ; preds = %54
   %.not25.i = icmp ugt i64 %55, 3
   br i1 %.not25.i, label %58, label %.loopexit181
 
-.loopexit:                                        ; preds = %.lr.ph, %155, %fmap_readn.exit.i, %.preheader, %48
+.loopexit:                                        ; preds = %.lr.ph, %156, %fmap_readn.exit.i, %.preheader, %48
   %.0109196 = phi ptr [ %.0109233, %48 ], [ null, %.preheader ], [ %.0109233, %.lr.ph ], [ %.1110, %155 ], [ %.0109233, %fmap_readn.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread169
@@ -172,7 +172,7 @@ fmap_readn.exit35.i:                              ; preds = %54
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i32 noundef %60, i32 noundef %52, i32 noundef %.0..0..0..0..0.36.i) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %61 = icmp eq i32 %.0..0..0..0..0.36.i, 0
-  br i1 %61, label %155, label %62
+  br i1 %61, label %156, label %62
 
 62:                                               ; preds = %58
   %63 = icmp slt i32 %.0..0..0..0..0.36.i, 0
@@ -221,7 +221,7 @@ fmap_readn.exit35.i:                              ; preds = %54
 
 tnef_message.exit.thread:                         ; preds = %73
   %75 = add nuw nsw i64 %74, 2
-  br label %155
+  br label %156
 
 76:                                               ; preds = %73, %71
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15) #7
@@ -252,8 +252,8 @@ tnef_message.exit.thread:                         ; preds = %73
   %86 = zext nneg i32 %.0..0..0..0..0.36.i to i64
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 88
   %88 = load i64, ptr %87, align 8, !tbaa !23
-  %or.cond.not.i = icmp ult i64 %59, %88
-  br i1 %or.cond.not.i, label %89, label %.critedge.i
+  %or.cond84.not.i = icmp ult i64 %59, %88
+  br i1 %or.cond84.not.i, label %89, label %.critedge.i
 
 89:                                               ; preds = %85
   %90 = sub nuw i64 %88, %59
@@ -313,14 +313,14 @@ fmap_readn.exit.i62:                              ; preds = %89
 
 111:                                              ; preds = %fmap_readn.exit78.i, %.lr.ph.i
   %.6 = phi i64 [ %59, %.lr.ph.i ], [ %119, %fmap_readn.exit78.i ]
-  %.06285.i = phi i32 [ %.0..0..0..0..0.36.i, %.lr.ph.i ], [ %122, %fmap_readn.exit78.i ]
+  %.06286.i = phi i32 [ %.0..0..0..0..0.36.i, %.lr.ph.i ], [ %122, %fmap_readn.exit78.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %112 = load i64, ptr %109, align 8, !tbaa !23
   %or.cond83.not.i = icmp ult i64 %.6, %112
   br i1 %or.cond83.not.i, label %113, label %.thread.i
 
 113:                                              ; preds = %111
-  %114 = call i32 @llvm.umin.i32(i32 %.06285.i, i32 8192)
+  %114 = call i32 @llvm.umin.i32(i32 %.06286.i, i32 8192)
   %115 = zext nneg i32 %114 to i64
   %116 = sub nuw i64 %112, %.6
   %spec.select.i75.i = call i64 @llvm.umin.i64(i64 range(i64 1, 4294967296) %115, i64 %116)
@@ -334,7 +334,7 @@ fmap_readn.exit78.i:                              ; preds = %113
   %119 = add nsw i64 %spec.select.i75.i, %.6
   %120 = call i32 @fileblobAddData(ptr noundef nonnull %.2111, ptr noundef nonnull %3, i64 noundef %spec.select.i75.i) #7
   %121 = trunc nuw nsw i64 %spec.select.i75.i to i32
-  %122 = sub i32 %.06285.i, %121
+  %122 = sub i32 %.06286.i, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i60 = icmp eq i32 %122, 0
   br i1 %.not.i60, label %.loopexit.i, label %111
@@ -366,7 +366,7 @@ fmap_readn.exit78.i:                              ; preds = %113
 
 tnef_attachment.exit:                             ; preds = %125
   %128 = add nuw nsw i64 %126, 2
-  br label %155
+  br label %156
 
 .loopexit182:                                     ; preds = %106, %127, %84, %.critedge.i, %102
   %.5114.ph = phi ptr [ null, %102 ], [ %.0109233, %.critedge.i ], [ %.0109233, %84 ], [ %.3112, %127 ], [ null, %106 ]
@@ -424,7 +424,7 @@ fmap_readn.exit67:                                ; preds = %.lr.ph240
   br i1 %or.cond180.not, label %.lr.ph240, label %fmap_readn.exit67.thread
 
 fmap_readn.exit67.thread:                         ; preds = %fmap_readn.exit67, %.lr.ph240, %139
-  %154 = call i32 @close(i32 noundef %137) #7
+  %155 = call i32 @close(i32 noundef %137) #7
   br label %.thread165
 
 .thread165:                                       ; preds = %132, %fmap_readn.exit67.thread, %136
@@ -432,42 +432,42 @@ fmap_readn.exit67.thread:                         ; preds = %fmap_readn.exit67, 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread169
 
-155:                                              ; preds = %tnef_attachment.exit, %tnef_message.exit.thread, %58
+156:                                              ; preds = %tnef_attachment.exit, %tnef_message.exit.thread, %58
   %.1110 = phi ptr [ %.0109233, %58 ], [ %.3112, %tnef_attachment.exit ], [ %69, %tnef_message.exit.thread ]
   %.1107 = phi i64 [ %59, %58 ], [ %128, %tnef_attachment.exit ], [ %75, %tnef_message.exit.thread ]
-  %156 = load ptr, ptr %6, align 8, !tbaa !3
+  %157 = load ptr, ptr %6, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 88
-  %158 = load i64, ptr %157, align 8, !tbaa !23
-  %or.cond44.not.i = icmp ult i64 %.1107, %158
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 88
+  %159 = load i64, ptr %158, align 8, !tbaa !23
+  %or.cond44.not.i = icmp ult i64 %.1107, %159
   br i1 %or.cond44.not.i, label %.lr.ph, label %.loopexit
 
 .thread169:                                       ; preds = %.loopexit, %.loopexit181, %129, %.thread165, %.loopexit182, %76, %64
   %.2178 = phi i32 [ 26, %129 ], [ 26, %.thread165 ], [ 26, %.loopexit182 ], [ 26, %76 ], [ 26, %64 ], [ 0, %.loopexit ], [ 0, %.loopexit181 ]
   %.1110177 = phi ptr [ %.0109233, %129 ], [ %.0109233, %.thread165 ], [ %.5114.ph, %.loopexit182 ], [ %69, %76 ], [ %.0109233, %64 ], [ %.0109196, %.loopexit ], [ %.0109233, %.loopexit181 ]
   %.not49 = icmp eq ptr %.1110177, null
-  br i1 %.not49, label %164, label %159
+  br i1 %.not49, label %165, label %160
 
-159:                                              ; preds = %.thread169
+160:                                              ; preds = %.thread169
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #7
-  %160 = call ptr @fileblobGetFilename(ptr noundef nonnull %.1110177) #7
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %162, label %163
+  %161 = call ptr @fileblobGetFilename(ptr noundef nonnull %.1110177) #7
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %163, label %164
 
-162:                                              ; preds = %159
+163:                                              ; preds = %160
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #7
   call void @fileblobSetFilename(ptr noundef nonnull %.1110177, ptr noundef %0, ptr noundef nonnull @.str.11) #7
-  br label %163
-
-163:                                              ; preds = %162, %159
-  call void @fileblobDestroy(ptr noundef nonnull %.1110177) #7
   br label %164
 
-164:                                              ; preds = %163, %.thread169
+164:                                              ; preds = %163, %160
+  call void @fileblobDestroy(ptr noundef nonnull %.1110177) #7
+  br label %165
+
+165:                                              ; preds = %164, %.thread169
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i32 noundef %.2178) #7
   br label %fmap_readn.exit
 
-fmap_readn.exit:                                  ; preds = %22, %18, %12, %16, %164, %11
+fmap_readn.exit:                                  ; preds = %22, %18, %12, %16, %165, %11
   %.0 = phi i32 [ 0, %11 ], [ %.2178, %164 ], [ 26, %16 ], [ 12, %12 ], [ 12, %18 ], [ 12, %22 ]
   ret i32 %.0
 }

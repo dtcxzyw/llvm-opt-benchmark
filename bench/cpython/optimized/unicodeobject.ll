@@ -47930,7 +47930,7 @@ define hidden void @_PyUnicode_ClearInterned(ptr noundef captures(address) %0) l
   %5 = getelementptr i8, ptr %0, i64 224392
   %.val = load ptr, ptr %5, align 8, !tbaa !21
   %6 = icmp eq ptr %.val, null
-  br i1 %6, label %60, label %7
+  br i1 %6, label %61, label %7
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !511
@@ -47961,7 +47961,7 @@ has_shared_intern_dict.exit:                      ; preds = %7
 
 clear_interned_dict.exit:                         ; preds = %12, %13, %16
   store ptr null, ptr %5, align 8, !tbaa !21
-  br label %60
+  br label %61
 
 has_shared_intern_dict.exit.thread:               ; preds = %7, %has_shared_intern_dict.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -47972,7 +47972,7 @@ has_shared_intern_dict.exit.thread:               ; preds = %7, %has_shared_inte
   %.not39 = icmp eq i32 %17, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %has_shared_intern_dict.exit.thread, %27
+.lr.ph:                                           ; preds = %has_shared_intern_dict.exit.thread, %28
   %18 = load ptr, ptr %3, align 8, !tbaa !183
   %19 = getelementptr i8, ptr %18, i64 32
   %.val20 = load i16, ptr %19, align 8, !tbaa !184
@@ -47985,7 +47985,7 @@ has_shared_intern_dict.exit.thread:               ; preds = %7, %has_shared_inte
 20:                                               ; preds = %.lr.ph
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !511
   %.not37 = icmp eq ptr %0, %21
-  br i1 %.not37, label %.critedge, label %27
+  br i1 %.not37, label %.critedge, label %28
 
 22:                                               ; preds = %.lr.ph
   %.val21 = load i32, ptr %18, align 8, !tbaa !195
@@ -47993,127 +47993,127 @@ has_shared_intern_dict.exit.thread:               ; preds = %7, %has_shared_inte
   br i1 %.not.i24, label %23, label %.critedge
 
 23:                                               ; preds = %22
-  %narrow = add nuw i32 %.val21, 2
+  %24 = add nuw i32 %.val21, 2
   br label %.critedge.sink.split
 
-24:                                               ; preds = %.lr.ph
+25:                                               ; preds = %.lr.ph
   unreachable
 
 .critedge.sink.split:                             ; preds = %.lr.ph, %23
-  %narrow.sink = phi i32 [ %narrow, %23 ], [ 2, %.lr.ph ]
-  store i32 %narrow.sink, ptr %18, align 8, !tbaa !195
+  %.sink = phi i32 [ %24, %23 ], [ 2, %.lr.ph ]
+  store i32 %.sink, ptr %18, align 8, !tbaa !195
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %22, %20
-  %25 = load ptr, ptr %3, align 8, !tbaa !183
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i16 0, ptr %26, align 8, !tbaa !184
-  br label %27
+  %26 = load ptr, ptr %3, align 8, !tbaa !183
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store i16 0, ptr %27, align 8, !tbaa !184
+  br label %28
 
-27:                                               ; preds = %.critedge, %20
-  %28 = call i32 @PyDict_Next(ptr noundef nonnull %.val, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #42
-  %.not = icmp eq i32 %28, 0
+28:                                               ; preds = %.critedge, %20
+  %29 = call i32 @PyDict_Next(ptr noundef nonnull %.val, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #42
+  %.not = icmp eq i32 %29, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !522
 
-._crit_edge:                                      ; preds = %27, %has_shared_intern_dict.exit.thread
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 11640
-  %30 = load i64, ptr %29, align 8, !tbaa !235
-  %31 = icmp sgt i64 %30, 0
-  br i1 %31, label %.lr.ph42, label %._crit_edge43
+._crit_edge:                                      ; preds = %28, %has_shared_intern_dict.exit.thread
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 11640
+  %31 = load i64, ptr %30, align 8, !tbaa !235
+  %32 = icmp sgt i64 %31, 0
+  br i1 %32, label %.lr.ph42, label %._crit_edge43
 
 .lr.ph42:                                         ; preds = %._crit_edge
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 11648
-  br label %44
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 11648
+  br label %45
 
 ._crit_edge43:                                    ; preds = %Py_XINCREF.exit, %._crit_edge
   %.val.i25 = load ptr, ptr %5, align 8, !tbaa !21
   %.not.i26 = icmp eq ptr %.val.i25, null
   %.pre46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !511
-  br i1 %.not.i26, label %clear_interned_dict.exit33, label %33
+  br i1 %.not.i26, label %clear_interned_dict.exit33, label %34
 
-33:                                               ; preds = %._crit_edge43
+34:                                               ; preds = %._crit_edge43
   %.not.i6.i27 = icmp eq ptr %0, %.pre46
   br i1 %.not.i6.i27, label %has_shared_intern_dict.exit.thread.i32, label %has_shared_intern_dict.exit.i28
 
-has_shared_intern_dict.exit.i28:                  ; preds = %33
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8440
-  %35 = load i64, ptr %34, align 8, !tbaa !521
-  %36 = and i64 %35, 32
-  %.not7.i29 = icmp eq i64 %36, 0
-  br i1 %.not7.i29, label %has_shared_intern_dict.exit.thread.i32, label %37
+has_shared_intern_dict.exit.i28:                  ; preds = %34
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8440
+  %36 = load i64, ptr %35, align 8, !tbaa !521
+  %37 = and i64 %36, 32
+  %.not7.i29 = icmp eq i64 %37, 0
+  br i1 %.not7.i29, label %has_shared_intern_dict.exit.thread.i32, label %38
 
-has_shared_intern_dict.exit.thread.i32:           ; preds = %has_shared_intern_dict.exit.i28, %33
+has_shared_intern_dict.exit.thread.i32:           ; preds = %has_shared_intern_dict.exit.i28, %34
   call void @PyDict_Clear(ptr noundef nonnull %.val.i25) #42
-  br label %37
+  br label %38
 
-37:                                               ; preds = %has_shared_intern_dict.exit.thread.i32, %has_shared_intern_dict.exit.i28
-  %38 = load i32, ptr %.val.i25, align 8, !tbaa !195
-  %.not.i.i30 = icmp sgt i32 %38, -1
-  br i1 %.not.i.i30, label %39, label %Py_DECREF.exit.i31
+38:                                               ; preds = %has_shared_intern_dict.exit.thread.i32, %has_shared_intern_dict.exit.i28
+  %39 = load i32, ptr %.val.i25, align 8, !tbaa !195
+  %.not.i.i30 = icmp sgt i32 %39, -1
+  br i1 %.not.i.i30, label %40, label %Py_DECREF.exit.i31
 
-39:                                               ; preds = %37
-  %40 = add nsw i32 %38, -1
-  store i32 %40, ptr %.val.i25, align 8, !tbaa !195
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %Py_DECREF.exit.i31
+40:                                               ; preds = %38
+  %41 = add nsw i32 %39, -1
+  store i32 %41, ptr %.val.i25, align 8, !tbaa !195
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %Py_DECREF.exit.i31
 
-42:                                               ; preds = %39
+43:                                               ; preds = %40
   call void @_Py_Dealloc(ptr noundef nonnull %.val.i25) #42
   br label %Py_DECREF.exit.i31
 
-Py_DECREF.exit.i31:                               ; preds = %42, %39, %37
+Py_DECREF.exit.i31:                               ; preds = %43, %40, %38
   store ptr null, ptr %5, align 8, !tbaa !21
   %.pre45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !511
   br label %clear_interned_dict.exit33
 
 clear_interned_dict.exit33:                       ; preds = %._crit_edge43, %Py_DECREF.exit.i31
-  %43 = phi ptr [ %.pre46, %._crit_edge43 ], [ %.pre45, %Py_DECREF.exit.i31 ]
-  %.not38 = icmp eq ptr %0, %43
-  br i1 %.not38, label %57, label %clear_global_interned_strings.exit
+  %44 = phi ptr [ %.pre46, %._crit_edge43 ], [ %.pre45, %Py_DECREF.exit.i31 ]
+  %.not38 = icmp eq ptr %0, %44
+  br i1 %.not38, label %58, label %clear_global_interned_strings.exit
 
-44:                                               ; preds = %.lr.ph42, %Py_XINCREF.exit
-  %45 = phi i64 [ %30, %.lr.ph42 ], [ %54, %Py_XINCREF.exit ]
-  %.040 = phi i64 [ 0, %.lr.ph42 ], [ %55, %Py_XINCREF.exit ]
-  %46 = load ptr, ptr %32, align 8, !tbaa !236
-  %47 = getelementptr ptr, ptr %46, i64 %.040
-  %48 = load ptr, ptr %47, align 8, !tbaa !183
-  %.not.i34 = icmp eq ptr %48, null
-  br i1 %.not.i34, label %Py_XINCREF.exit, label %49
+45:                                               ; preds = %.lr.ph42, %Py_XINCREF.exit
+  %46 = phi i64 [ %31, %.lr.ph42 ], [ %55, %Py_XINCREF.exit ]
+  %.040 = phi i64 [ 0, %.lr.ph42 ], [ %56, %Py_XINCREF.exit ]
+  %47 = load ptr, ptr %33, align 8, !tbaa !236
+  %48 = getelementptr ptr, ptr %47, i64 %.040
+  %49 = load ptr, ptr %48, align 8, !tbaa !183
+  %.not.i34 = icmp eq ptr %49, null
+  br i1 %.not.i34, label %Py_XINCREF.exit, label %50
 
-49:                                               ; preds = %44
-  %50 = load i32, ptr %48, align 8, !tbaa !195
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %Py_XINCREF.exit, label %52
+50:                                               ; preds = %45
+  %51 = load i32, ptr %49, align 8, !tbaa !195
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %Py_XINCREF.exit, label %53
 
-52:                                               ; preds = %49
-  %53 = add nuw i32 %50, 1
-  store i32 %53, ptr %48, align 8, !tbaa !195
-  %.pre44 = load i64, ptr %29, align 8, !tbaa !235
+53:                                               ; preds = %50
+  %54 = add nuw i32 %51, 1
+  store i32 %54, ptr %49, align 8, !tbaa !195
+  %.pre44 = load i64, ptr %30, align 8, !tbaa !235
   br label %Py_XINCREF.exit
 
-Py_XINCREF.exit:                                  ; preds = %44, %49, %52
-  %54 = phi i64 [ %45, %44 ], [ %45, %49 ], [ %.pre44, %52 ]
-  %55 = add nuw nsw i64 %.040, 1
-  %56 = icmp slt i64 %55, %54
-  br i1 %56, label %44, label %._crit_edge43, !llvm.loop !523
+Py_XINCREF.exit:                                  ; preds = %45, %50, %53
+  %55 = phi i64 [ %46, %44 ], [ %46, %49 ], [ %.pre44, %52 ]
+  %56 = add nuw nsw i64 %.040, 1
+  %57 = icmp slt i64 %56, %55
+  br i1 %57, label %45, label %._crit_edge43, !llvm.loop !523
 
-57:                                               ; preds = %clear_interned_dict.exit33
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 13904), align 8, !tbaa !93
-  %.not.i35 = icmp eq ptr %58, null
-  br i1 %.not.i35, label %clear_global_interned_strings.exit, label %59
+58:                                               ; preds = %clear_interned_dict.exit33
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 13904), align 8, !tbaa !93
+  %.not.i35 = icmp eq ptr %59, null
+  br i1 %.not.i35, label %clear_global_interned_strings.exit, label %60
 
-59:                                               ; preds = %57
-  call void @_Py_hashtable_destroy(ptr noundef nonnull %58) #42
+60:                                               ; preds = %58
+  call void @_Py_hashtable_destroy(ptr noundef nonnull %59) #42
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 13904), align 8, !tbaa !93
   br label %clear_global_interned_strings.exit
 
-clear_global_interned_strings.exit:               ; preds = %59, %57, %clear_interned_dict.exit33
+clear_global_interned_strings.exit:               ; preds = %60, %58, %clear_interned_dict.exit33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %60
+  br label %61
 
-60:                                               ; preds = %1, %clear_global_interned_strings.exit, %clear_interned_dict.exit
+61:                                               ; preds = %1, %clear_global_interned_strings.exit, %clear_interned_dict.exit
   ret void
 }
 

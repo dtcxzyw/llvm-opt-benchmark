@@ -530,7 +530,7 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %sqrt.i110 = call noundef float @llvm.sqrt.f32(float %101)
   %102 = fadd float %92, %sqrt.i110
   %103 = fcmp oeq float %102, 0.000000e+00
-  br i1 %103, label %180, label %104
+  br i1 %103, label %181, label %104
 
 104:                                              ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -589,13 +589,13 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %.sroa.9136.0..sroa_idx137 = getelementptr inbounds nuw i8, ptr %21, i64 12
   br label %134
 
-134:                                              ; preds = %.lr.ph, %173
-  %.0186 = phi float [ %114, %.lr.ph ], [ %175, %173 ]
-  %.070185 = phi i32 [ 0, %.lr.ph ], [ %174, %173 ]
-  %.075184 = phi float [ 0.000000e+00, %.lr.ph ], [ %148, %173 ]
-  %.sroa.12142.0183 = phi float [ %.sroa.12142.0.copyload, %.lr.ph ], [ %.sroa.12142.0.copyload144, %173 ]
-  %.sroa.9136.0182 = phi float [ %.sroa.9136.0.copyload, %.lr.ph ], [ %.sroa.9136.0.copyload138, %173 ]
-  %.sroa.0132.0181 = phi float [ %.sroa.0132.0.copyload, %.lr.ph ], [ %.sroa.0132.0.copyload134, %173 ]
+134:                                              ; preds = %.lr.ph, %174
+  %.0189 = phi float [ %114, %.lr.ph ], [ %176, %173 ]
+  %.070188 = phi i32 [ 0, %.lr.ph ], [ %175, %173 ]
+  %.075187 = phi float [ 0.000000e+00, %.lr.ph ], [ %148, %173 ]
+  %.sroa.12142.0186 = phi float [ %.sroa.12142.0.copyload, %.lr.ph ], [ %.sroa.12142.0.copyload144, %173 ]
+  %.sroa.9136.0185 = phi float [ %.sroa.9136.0.copyload, %.lr.ph ], [ %.sroa.9136.0.copyload138, %173 ]
+  %.sroa.0132.0184 = phi float [ %.sroa.0132.0.copyload, %.lr.ph ], [ %.sroa.0132.0.copyload134, %173 ]
   %135 = load ptr, ptr %122, align 8, !tbaa !48
   %.not86 = icmp eq ptr %135, null
   br i1 %.not86, label %140, label %136
@@ -614,111 +614,111 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   br label %140
 
 140:                                              ; preds = %136, %134
-  %141 = fmul float %96, %.sroa.9136.0182
-  %142 = call float @llvm.fmuladd.f32(float %93, float %.sroa.0132.0181, float %141)
-  %143 = call noundef float @llvm.fmuladd.f32(float %98, float %.sroa.12142.0183, float %142)
+  %141 = fmul float %96, %.sroa.9136.0185
+  %142 = call float @llvm.fmuladd.f32(float %93, float %.sroa.0132.0184, float %141)
+  %143 = call noundef float @llvm.fmuladd.f32(float %98, float %.sroa.12142.0186, float %142)
   %144 = fadd float %92, %143
   %145 = fcmp ugt float %144, 0x3E80000000000000
   br i1 %145, label %146, label %.critedge
 
 146:                                              ; preds = %140
-  %147 = fdiv float %.0186, %144
-  %148 = fadd float %.075184, %147
+  %147 = fdiv float %.0189, %144
+  %148 = fadd float %.075187, %147
   %149 = fcmp ule float %148, 1.000000e+00
   %150 = fcmp ugt float %148, %.075184
-  %or.cond94 = and i1 %149, %150
-  br i1 %or.cond94, label %151, label %.critedge
+  %or.cond.not165 = and i1 %149, %150
+  br i1 %or.cond94, label %152, label %.critedge
 
-151:                                              ; preds = %146
+152:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_(ptr noundef nonnull align 4 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %12, float noundef %148, ptr noundef nonnull align 4 dereferenceable(64) %18)
   call void @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_(ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %14, float noundef %148, ptr noundef nonnull align 4 dereferenceable(64) %19)
-  %152 = load ptr, ptr %122, align 8, !tbaa !48
-  %.not87 = icmp eq ptr %152, null
-  br i1 %.not87, label %157, label %153
+  %153 = load ptr, ptr %122, align 8, !tbaa !48
+  %.not87 = icmp eq ptr %153, null
+  br i1 %.not87, label %158, label %154
 
-153:                                              ; preds = %151
+154:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float 1.000000e+00, ptr %20, align 4, !tbaa !31
   store float 0.000000e+00, ptr %127, align 4, !tbaa !31
   store float 0.000000e+00, ptr %128, align 4, !tbaa !31
   store float 0.000000e+00, ptr %129, align 4, !tbaa !31
-  %154 = load ptr, ptr %152, align 8, !tbaa !4
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 56
-  %156 = load ptr, ptr %155, align 8
-  call void %156(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull align 4 dereferenceable(16) %126, float noundef 0x3FC99999A0000000, ptr noundef nonnull align 4 dereferenceable(16) %20)
+  %155 = load ptr, ptr %153, align 8, !tbaa !4
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 56
+  %157 = load ptr, ptr %156, align 8
+  call void %156(ptr noundef nonnull align 8 dereferenceable(8) %153, ptr noundef nonnull align 4 dereferenceable(16) %126, float noundef 0x3FC99999A0000000, ptr noundef nonnull align 4 dereferenceable(16) %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %157
+  br label %158
 
-157:                                              ; preds = %153, %151
-  %158 = load ptr, ptr %5, align 8, !tbaa !4
-  %159 = load ptr, ptr %158, align 8
+158:                                              ; preds = %154, %152
+  %159 = load ptr, ptr %5, align 8, !tbaa !4
+  %160 = load ptr, ptr %159, align 8
   call void %159(ptr noundef nonnull align 8 dereferenceable(196) %5, float noundef %148)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV16btPointCollector, i64 16), ptr %21, align 8, !tbaa !4
   store float 0x43ABC16D60000000, ptr %130, align 8, !tbaa !38
   store i8 0, ptr %131, align 4, !tbaa !42
   call void @_ZN27btContinuousConvexCollision20computeClosestPointsERK11btTransformS2_R16btPointCollector(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(64) %18, ptr noundef nonnull align 4 dereferenceable(64) %19, ptr noundef nonnull align 8 dereferenceable(45) %21)
-  %160 = load i8, ptr %131, align 4, !tbaa !42, !range !43, !noundef !44
-  %161 = trunc nuw i8 %160 to i1
-  br i1 %161, label %162, label %165
+  %161 = load i8, ptr %131, align 4, !tbaa !42, !range !43, !noundef !44
+  %162 = trunc nuw i8 %161 to i1
+  br i1 %162, label %163, label %166
 
-162:                                              ; preds = %157
-  %163 = load float, ptr %130, align 8, !tbaa !38
-  %164 = load float, ptr %112, align 8, !tbaa !45
+163:                                              ; preds = %158
+  %164 = load float, ptr %130, align 8, !tbaa !38
+  %165 = load float, ptr %112, align 8, !tbaa !45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !29
-  %exitcond = icmp eq i32 %.070185, 64
-  br i1 %exitcond, label %169, label %173
+  %exitcond = icmp eq i32 %.070188, 64
+  br i1 %exitcond, label %170, label %174
 
-165:                                              ; preds = %157
-  %166 = load ptr, ptr %5, align 8, !tbaa !4
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  %168 = load ptr, ptr %167, align 8
-  call void %168(ptr noundef nonnull align 8 dereferenceable(196) %5, i32 noundef -1, i32 noundef %.070185)
+166:                                              ; preds = %158
+  %167 = load ptr, ptr %5, align 8, !tbaa !4
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %169 = load ptr, ptr %168, align 8
+  call void %168(ptr noundef nonnull align 8 dereferenceable(196) %5, i32 noundef -1, i32 noundef %.070188)
   br label %.critedge.critedge
 
-169:                                              ; preds = %162
-  %170 = load ptr, ptr %5, align 8, !tbaa !4
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %172 = load ptr, ptr %171, align 8
+170:                                              ; preds = %163
+  %171 = load ptr, ptr %5, align 8, !tbaa !4
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  %173 = load ptr, ptr %172, align 8
   call void %172(ptr noundef nonnull align 8 dereferenceable(196) %5, i32 noundef -2, i32 noundef 65)
   br label %.critedge.critedge
 
-173:                                              ; preds = %162
-  %174 = add nuw nsw i32 %.070185, 1
+174:                                              ; preds = %163
+  %175 = add nuw nsw i32 %.070188, 1
   %.sroa.15148.0.copyload150 = load float, ptr %.sroa.15148.0..sroa_idx149, align 4, !tbaa !30
   %.sroa.12142.0.copyload144 = load float, ptr %.sroa.12142.0..sroa_idx143, align 8
   %.sroa.9136.0.copyload138 = load float, ptr %.sroa.9136.0..sroa_idx137, align 4
   %.sroa.0132.0.copyload134 = load float, ptr %133, align 8
-  %175 = fadd float %163, %164
+  %176 = fadd float %164, %165
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %176 = fcmp ogt float %175, 0x3F50624DE0000000
-  br i1 %176, label %134, label %._crit_edge, !llvm.loop !49
+  %177 = fcmp ogt float %176, 0x3F50624DE0000000
+  br i1 %177, label %134, label %._crit_edge, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %173, %.preheader
+._crit_edge:                                      ; preds = %174, %.preheader
   %.sroa.0132.0.lcssa = phi float [ %.sroa.0132.0.copyload, %.preheader ], [ %.sroa.0132.0.copyload134, %173 ]
   %.sroa.9136.0.lcssa = phi float [ %.sroa.9136.0.copyload, %.preheader ], [ %.sroa.9136.0.copyload138, %173 ]
   %.sroa.12142.0.lcssa = phi float [ %.sroa.12142.0.copyload, %.preheader ], [ %.sroa.12142.0.copyload144, %173 ]
   %.sroa.15148.0.lcssa = phi float [ %.sroa.15148.0.copyload, %.preheader ], [ %.sroa.15148.0.copyload150, %173 ]
   %.075.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %148, %173 ]
-  %177 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  store float %.075.lcssa, ptr %177, align 8, !tbaa !51
-  %178 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  store float %.sroa.0132.0.lcssa, ptr %178, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  store float %.075.lcssa, ptr %178, align 8, !tbaa !51
+  %179 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  store float %.sroa.0132.0.lcssa, ptr %179, align 8
   %.sroa.9136.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %5, i64 140
   store float %.sroa.9136.0.lcssa, ptr %.sroa.9136.0..sroa_idx139, align 4
   %.sroa.12142.0..sroa_idx145 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store float %.sroa.12142.0.lcssa, ptr %.sroa.12142.0..sroa_idx145, align 8
   %.sroa.15148.0..sroa_idx151 = getelementptr inbounds nuw i8, ptr %5, i64 148
   store float %.sroa.15148.0.lcssa, ptr %.sroa.15148.0..sroa_idx151, align 4, !tbaa !30
-  %179 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !29
+  %180 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !29
   br label %.critedge
 
-.critedge.critedge:                               ; preds = %165, %169
+.critedge.critedge:                               ; preds = %166, %170
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -728,9 +728,9 @@ define dso_local noundef zeroext i1 @_ZN27btContinuousConvexCollision16calcTimeO
   %.569 = phi i1 [ true, %._crit_edge ], [ false, %110 ], [ false, %104 ], [ false, %.critedge.critedge ], [ false, %140 ], [ false, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %180
+  br label %181
 
-180:                                              ; preds = %83, %.critedge
+181:                                              ; preds = %83, %.critedge
   %.064 = phi i1 [ %.569, %.critedge ], [ false, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

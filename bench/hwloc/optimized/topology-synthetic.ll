@@ -1538,9 +1538,9 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %99 = load i8, ptr %.1.i, align 1, !tbaa !56
   %100 = add i8 %99, -58
   %or.cond367.i = icmp ult i8 %100, -10
-  br i1 %or.cond367.i, label %104, label %.thread523.i
+  br i1 %or.cond367.i, label %104, label %.thread524.i
 
-.thread523.i:                                     ; preds = %95
+.thread524.i:                                     ; preds = %95
   %101 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i32 -1, ptr %101, align 8, !tbaa !90
   %102 = getelementptr inbounds nuw i8, ptr %46, i64 20
@@ -1640,12 +1640,12 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   store i32 %140, ptr %130, align 4, !tbaa !101
   br label %141
 
-141:                                              ; preds = %139, %137, %134, %.thread523.i
+141:                                              ; preds = %139, %137, %134, %.thread524.i
   %142 = phi ptr [ %129, %137 ], [ %129, %139 ], [ %129, %134 ], [ %101, %.thread523.i ]
-  %.2521.i = phi ptr [ %128, %137 ], [ %128, %139 ], [ %128, %134 ], [ %.1.i, %.thread523.i ]
-  %143 = call i64 @strtoul(ptr noundef nonnull %.2521.i, ptr noundef nonnull %8, i32 noundef 0) #25
+  %.2522.i = phi ptr [ %128, %137 ], [ %128, %139 ], [ %128, %134 ], [ %.1.i, %.thread523.i ]
+  %143 = call i64 @strtoul(ptr noundef nonnull %.2522.i, ptr noundef nonnull %8, i32 noundef 0) #25
   %144 = load ptr, ptr %8, align 8, !tbaa !81
-  %145 = icmp eq ptr %144, %.2521.i
+  %145 = icmp eq ptr %144, %.2522.i
   br i1 %145, label %146, label %150
 
 146:                                              ; preds = %141
@@ -1654,7 +1654,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 
 147:                                              ; preds = %146
   %148 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.14, ptr noundef nonnull %.2521.i) #29
+  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.14, ptr noundef nonnull %.2522.i) #29
   br label %.thread374.sink.split.i
 
 150:                                              ; preds = %141
@@ -1667,7 +1667,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 
 152:                                              ; preds = %151
   %153 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef nonnull @.str.15, ptr noundef nonnull %.2521.i) #29
+  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef nonnull @.str.15, ptr noundef nonnull %.2522.i) #29
   br label %.thread374.sink.split.i
 
 155:                                              ; preds = %150
@@ -1918,7 +1918,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 
 .preheader.i:                                     ; preds = %256
   %260 = icmp ugt i64 %182, 1
-  br i1 %260, label %.lr.ph435.i, label %.thread531.i
+  br i1 %260, label %.lr.ph435.i, label %.thread532.i
 
 261:                                              ; preds = %256
   %.not358.i = icmp eq i32 %.0292.i, 0
@@ -1972,7 +1972,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   br label %477
 
 284:                                              ; preds = %._crit_edge436.i
-  br i1 %.not347.i, label %.thread531.i, label %285
+  br i1 %.not347.i, label %.thread532.i, label %285
 
 285:                                              ; preds = %284
   %286 = trunc i64 %.0283419.i to i32
@@ -2092,13 +2092,13 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   br i1 %.not393.i, label %.thread391.i, label %.thread391.sink.split.i
 
 .thread391.sink.split.i:                          ; preds = %332, %326
-  %.sink571.i = phi i32 [ %325, %326 ], [ %333, %332 ]
-  %.sink567.i = phi i32 [ 5, %326 ], [ 10, %332 ]
+  %.sink572.i = phi i32 [ %325, %326 ], [ %333, %332 ]
+  %.sink568.i = phi i32 [ 5, %326 ], [ 10, %332 ]
   %.sink.i = phi i32 [ 1, %326 ], [ 2, %332 ]
-  %349 = zext i32 %.sink571.i to i64
+  %349 = zext i32 %.sink572.i to i64
   %350 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %349
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 16
-  store i32 %.sink567.i, ptr %351, align 8, !tbaa !90
+  store i32 %.sink568.i, ptr %351, align 8, !tbaa !90
   %352 = getelementptr inbounds nuw i8, ptr %350, i64 20
   store i32 1, ptr %352, align 4, !tbaa !101
   %353 = getelementptr inbounds nuw i8, ptr %350, i64 24
@@ -2106,7 +2106,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   br label %.thread391.i
 
 .thread391.i:                                     ; preds = %.thread391.sink.split.i, %332, %326, %316
-  br i1 %294, label %354, label %.thread531.i
+  br i1 %294, label %354, label %.thread532.i
 
 354:                                              ; preds = %.thread391.i
   %355 = add i32 %297, 1
@@ -2117,14 +2117,14 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %360 = getelementptr inbounds nuw %struct.hwloc_synthetic_level_data_s, ptr %28, i64 %359
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
   store i32 3, ptr %361, align 8, !tbaa !90
-  br label %.thread531.i
+  br label %.thread532.i
 
-.thread531.i:                                     ; preds = %354, %.thread391.i, %284, %.preheader.i
+.thread532.i:                                     ; preds = %354, %.thread391.i, %284, %.preheader.i
   %362 = phi i32 [ %317, %.thread391.i ], [ %317, %354 ], [ %239, %284 ], [ %239, %.preheader.i ]
   %.not353.i = icmp eq i32 %362, 0
   br i1 %.not353.i, label %363, label %.lr.ph452.i
 
-363:                                              ; preds = %.thread531.i
+363:                                              ; preds = %.thread532.i
   %364 = load i64, ptr %25, align 8, !tbaa !82
   %.not354.i = icmp eq i64 %364, 0
   br i1 %.not354.i, label %365, label %.lr.ph452.i
@@ -2158,7 +2158,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
   %379 = add nuw nsw i64 %.0283419.i, 1
   br label %.lr.ph452.i
 
-.lr.ph452.i:                                      ; preds = %369, %363, %.thread531.i
+.lr.ph452.i:                                      ; preds = %369, %363, %.thread532.i
   %.3.i = phi i64 [ %.0283419.i, %.thread531.i ], [ %.0283419.i, %363 ], [ %379, %369 ]
   %380 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %.promoted454.i = load i32, ptr %380, align 4

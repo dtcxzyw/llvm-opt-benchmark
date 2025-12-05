@@ -2059,14 +2059,14 @@ define internal fastcc ptr @scsi_get_vpd_buf(ptr noundef %0, i8 noundef zeroext 
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %12 = zext i8 %1 to i32
-  %narrow8 = add nuw nsw i32 %4, 24
-  %13 = zext nneg i32 %narrow8 to i64
+  %narrow = add nuw nsw i32 %4, 24
+  %13 = zext nneg i32 %narrow to i64
   %14 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %13, i32 noundef 3264) #18
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %42
-  %16 = phi ptr [ %44, %42 ], [ %14, %6 ]
+  %16 = phi ptr [ %45, %42 ], [ %14, %6 ]
   %17 = phi i32 [ %37, %42 ], [ %4, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !14
@@ -2110,7 +2110,7 @@ define internal fastcc ptr @scsi_get_vpd_buf(ptr noundef %0, i8 noundef zeroext 
   %37 = add nuw nsw i32 %36, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = icmp samesign ugt i32 %37, %17
-  br i1 %38, label %39, label %46
+  br i1 %38, label %39, label %47
 
 39:                                               ; preds = %34
   %40 = load i1, ptr @scsi_get_vpd_buf.__print_once, align 1
@@ -2125,18 +2125,18 @@ define internal fastcc ptr @scsi_get_vpd_buf(ptr noundef %0, i8 noundef zeroext 
   call void @kfree(ptr noundef nonnull %16) #15
   %narrow = add nuw nsw i32 %36, 28
   %43 = zext nneg i32 %narrow to i64
-  %44 = call noalias align 8 ptr @__kmalloc(i64 noundef %43, i32 noundef 3264) #18
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %.loopexit, label %.lr.ph
+  %45 = call noalias align 8 ptr @__kmalloc(i64 noundef %43, i32 noundef 3264) #18
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %.loopexit, label %.lr.ph
 
-46:                                               ; preds = %34
-  %47 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 %37, ptr %47, align 8
+47:                                               ; preds = %34
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 %37, ptr %48, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %6, %46, %.thread, %2
-  %48 = phi ptr [ null, %.thread ], [ %16, %46 ], [ null, %2 ], [ null, %6 ], [ null, %42 ]
-  ret ptr %48
+.loopexit:                                        ; preds = %42, %6, %47, %.thread, %2
+  %49 = phi ptr [ null, %.thread ], [ %16, %46 ], [ null, %2 ], [ null, %6 ], [ null, %42 ]
+  ret ptr %49
 }
 
 ; Function Attrs: null_pointer_is_valid

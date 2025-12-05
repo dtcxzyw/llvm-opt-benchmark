@@ -10406,11 +10406,11 @@ define linkonce_odr hidden void @_ZN5boost9unit_test5utils13print_escapedERSoNS0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !8
   %22 = icmp eq ptr %19, %21
-  br i1 %22, label %._crit_edge, label %.lr.ph
+  br i1 %22, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %76
-  %.sroa.028.032 = phi ptr [ %77, %76 ], [ %19, %18 ]
-  %23 = load i8, ptr %.sroa.028.032, align 1, !tbaa !9
+  %.sroa.028.033 = phi ptr [ %77, %76 ], [ %19, %18 ]
+  %23 = load i8, ptr %.sroa.028.033, align 1, !tbaa !9
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test5utils13print_escapedERSoNS0_13basic_cstringIKcEEE9char_type, i64 16), align 8, !tbaa !13
   %.not10.i.i.i = icmp eq ptr %24, null
   br i1 %.not10.i.i.i, label %select.unfold, label %.lr.ph.i.i.i
@@ -10531,11 +10531,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit18: ; preds = %72, %74
   br label %76
 
 76:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit18, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit15
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.028.032, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.028.033, i64 1
   %78 = icmp eq ptr %77, %21
-  br i1 %78, label %._crit_edge, label %.lr.ph, !llvm.loop !299
+  br i1 %78, label %.critedge, label %.lr.ph, !llvm.loop !299
 
-._crit_edge:                                      ; preds = %76, %18
+.critedge:                                        ; preds = %76, %18
   ret void
 }
 
