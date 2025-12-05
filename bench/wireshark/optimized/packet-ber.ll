@@ -4742,14 +4742,14 @@ define internal fastcc i32 @dissect_ber_any_oid(i1 noundef zeroext %0, ptr nound
   %28 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %22, ptr noundef nonnull @ei_ber_expected_object_identifier, ptr noundef %3, i32 noundef %4, i32 noundef %21, ptr noundef nonnull @.str.351, ptr noundef %24, i32 noundef %23, ptr noundef %27, i32 noundef %.pre)
   %29 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
   %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %31, label %70
+  br i1 %30, label %31, label %69
 
 31:                                               ; preds = %20
   %32 = load i32, ptr @ett_ber_unknown, align 4
   %33 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %32)
   %34 = load ptr, ptr %14, align 8
   %35 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %34, ptr noundef %3, i32 noundef %4, ptr noundef %33, i32 noundef 1)
-  br label %70
+  br label %69
 
 36:                                               ; preds = %8
   %37 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
@@ -4765,78 +4765,64 @@ define internal fastcc i32 @dissect_ber_any_oid(i1 noundef zeroext %0, ptr nound
   %42 = call ptr @proto_registrar_get_nth(i32 noundef %5)
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i32, ptr %43, align 8
-  br i1 %7, label %45, label %.critedge
+  switch i32 %44, label %63 [
+    i32 37, label %45
+    i32 26, label %47
+    i32 27, label %47
+    i32 43, label %47
+    i32 45, label %47
+    i32 28, label %47
+    i32 39, label %47
+  ]
 
 45:                                               ; preds = %39
-  switch i32 %44, label %64 [
-    i32 37, label %46
-    i32 26, label %48
-    i32 27, label %48
-    i32 43, label %48
-    i32 45, label %48
-    i32 28, label %48
-    i32 39, label %48
-  ]
+  %46 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.073, i32 noundef %40, i32 noundef 0)
+  store ptr %46, ptr %41, align 8
+  br label %64
 
-.critedge:                                        ; preds = %39
-  switch i32 %44, label %64 [
-    i32 41, label %46
-    i32 26, label %48
-    i32 27, label %48
-    i32 43, label %48
-    i32 45, label %48
-    i32 28, label %48
-    i32 39, label %48
-  ]
+47:                                               ; preds = %39, %39, %39, %39, %39, %39
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 408
+  %51 = load ptr, ptr %50, align 8
+  %52 = call ptr @tvb_get_ptr(ptr noundef %3, i32 noundef %.073, i32 noundef %40)
+  %53 = call ptr @oid_encoded2string(ptr noundef %51, ptr noundef %52, i32 noundef %40)
+  %54 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.073, i32 noundef %40, ptr noundef %53)
+  store ptr %54, ptr %41, align 8
+  %.not = icmp eq ptr %54, null
+  br i1 %.not, label %64, label %55
 
-46:                                               ; preds = %45, %.critedge
-  %47 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.073, i32 noundef %40, i32 noundef 0)
-  store ptr %47, ptr %41, align 8
-  br label %65
+55:                                               ; preds = %47
+  %56 = load ptr, ptr %48, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 408
+  %58 = load ptr, ptr %57, align 8
+  %59 = call ptr @tvb_get_ptr(ptr noundef %3, i32 noundef %.073, i32 noundef %40)
+  %60 = call ptr @oid_resolved_from_encoded(ptr noundef %58, ptr noundef %59, i32 noundef %40)
+  %.not80 = icmp eq ptr %60, null
+  br i1 %.not80, label %64, label %61
 
-48:                                               ; preds = %45, %45, %45, %45, %45, %45, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 408
-  %52 = load ptr, ptr %51, align 8
-  %53 = call ptr @tvb_get_ptr(ptr noundef %3, i32 noundef %.073, i32 noundef %40)
-  %54 = call ptr @oid_encoded2string(ptr noundef %52, ptr noundef %53, i32 noundef %40)
-  %55 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.073, i32 noundef %40, ptr noundef %54)
-  store ptr %55, ptr %41, align 8
-  %.not = icmp eq ptr %55, null
-  br i1 %.not, label %65, label %56
+61:                                               ; preds = %55
+  %62 = load ptr, ptr %41, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %62, ptr noundef nonnull @.str.352, ptr noundef nonnull %60)
+  br label %64
 
-56:                                               ; preds = %48
-  %57 = load ptr, ptr %49, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 408
-  %59 = load ptr, ptr %58, align 8
-  %60 = call ptr @tvb_get_ptr(ptr noundef %3, i32 noundef %.073, i32 noundef %40)
-  %61 = call ptr @oid_resolved_from_encoded(ptr noundef %59, ptr noundef %60, i32 noundef %40)
-  %.not80 = icmp eq ptr %61, null
-  br i1 %.not80, label %65, label %62
-
-62:                                               ; preds = %56
-  %63 = load ptr, ptr %41, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull @.str.352, ptr noundef nonnull %61)
-  br label %65
-
-64:                                               ; preds = %45, %.critedge
+63:                                               ; preds = %39
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 3283) #14
   unreachable
 
-65:                                               ; preds = %56, %62, %48, %46
+64:                                               ; preds = %55, %61, %47, %45
   %.not81 = icmp eq ptr %6, null
-  br i1 %.not81, label %70, label %66
+  br i1 %.not81, label %69, label %65
 
-66:                                               ; preds = %65
-  %67 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.073)
-  %68 = call i32 @llvm.smin.i32(i32 %67, i32 %40)
-  %69 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.073, i32 noundef %68)
-  store ptr %69, ptr %6, align 8
-  br label %70
+65:                                               ; preds = %64
+  %66 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.073)
+  %67 = call i32 @llvm.smin.i32(i32 %66, i32 %40)
+  %68 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.073, i32 noundef %67)
+  store ptr %68, ptr %6, align 8
+  br label %69
 
-70:                                               ; preds = %65, %66, %20, %31
-  %.0 = phi i32 [ %18, %31 ], [ %18, %20 ], [ %.074, %66 ], [ %.074, %65 ]
+69:                                               ; preds = %64, %65, %20, %31
+  %.0 = phi i32 [ %18, %31 ], [ %18, %20 ], [ %.074, %65 ], [ %.074, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

@@ -4129,139 +4129,128 @@ GetAfterTriggersTableData.exit:                   ; preds = %54, %._crit_edge.i
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @TriggerEnabled(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
-  %9 = load i32, ptr @SessionReplicationRole, align 4
-  %10 = icmp eq i32 %9, 1
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 22
-  %12 = load i8, ptr %11, align 2
-  br i1 %10, label %13, label %14
-
-13:                                               ; preds = %7
-  switch i8 %12, label %15 [
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 22
+  %10 = load i8, ptr %9, align 2
+  switch i8 %10, label %11 [
     i8 79, label %.loopexit
     i8 68, label %.loopexit
   ]
 
-14:                                               ; preds = %7
-  switch i8 %12, label %15 [
-    i8 82, label %.loopexit
-    i8 68, label %.loopexit
-  ]
-
-15:                                               ; preds = %14, %13
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %17 = load i16, ptr %16, align 4
-  %18 = icmp sgt i16 %17, 0
-  %19 = and i32 %3, 3
-  %20 = icmp eq i32 %19, 2
-  %or.cond = and i1 %20, %18
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %13 = load i16, ptr %12, align 4
+  %14 = icmp sgt i16 %13, 0
+  %15 = and i32 %3, 3
+  %16 = icmp eq i32 %15, 2
+  %or.cond = and i1 %16, %14
   br i1 %or.cond, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %15
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  br label %25
+.lr.ph:                                           ; preds = %11
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  br label %21
 
-22:                                               ; preds = %25
+18:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = load i16, ptr %16, align 4
-  %24 = sext i16 %23 to i64
-  %.not54 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %.not54, label %25, label %.loopexit, !llvm.loop !29
+  %19 = load i16, ptr %12, align 4
+  %20 = sext i16 %19 to i64
+  %.not54 = icmp slt i64 %indvars.iv.next, %20
+  br i1 %.not54, label %21, label %.loopexit, !llvm.loop !29
 
-25:                                               ; preds = %.lr.ph, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %26 = load ptr, ptr %21, align 8
-  %27 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
-  %28 = load i16, ptr %27, align 2
-  %29 = sext i16 %28 to i32
-  %30 = add nsw i32 %29, 7
-  %31 = tail call zeroext i1 @bms_is_member(i32 noundef %30, ptr noundef %4) #16
-  br i1 %31, label %.thread, label %22
+21:                                               ; preds = %.lr.ph, %18
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
+  %22 = load ptr, ptr %17, align 8
+  %23 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
+  %24 = load i16, ptr %23, align 2
+  %25 = sext i16 %24 to i32
+  %26 = add nsw i32 %25, 7
+  %27 = tail call zeroext i1 @bms_is_member(i32 noundef %26, ptr noundef %4) #16
+  br i1 %27, label %.thread, label %18
 
-.thread:                                          ; preds = %25, %15
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 64
+.thread:                                          ; preds = %21, %11
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %29 = load ptr, ptr %28, align 8
+  %.not = icmp eq ptr %29, null
+  br i1 %.not, label %73, label %30
+
+30:                                               ; preds = %.thread
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %.not = icmp eq ptr %33, null
-  br i1 %.not, label %77, label %34
+  %34 = ptrtoint ptr %2 to i64
+  %35 = ptrtoint ptr %33 to i64
+  %36 = sub i64 %34, %35
+  %37 = sdiv exact i64 %36, 88
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %39 = load ptr, ptr %38, align 8
+  %sext = shl i64 %37, 32
+  %40 = ashr exact i64 %sext, 29
+  %41 = getelementptr inbounds i8, ptr %39, i64 %40
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %56
 
-34:                                               ; preds = %.thread
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = ptrtoint ptr %2 to i64
-  %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %38, %39
-  %41 = sdiv exact i64 %40, 88
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %43 = load ptr, ptr %42, align 8
-  %sext = shl i64 %41, 32
-  %44 = ashr exact i64 %sext, 29
-  %45 = getelementptr inbounds i8, ptr %43, i64 %44
+44:                                               ; preds = %30
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %46 = load ptr, ptr %45, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %60
-
-48:                                               ; preds = %34
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %47 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %46, ptr @CurrentMemoryContext, align 8
+  %48 = tail call ptr @stringToNode(ptr noundef nonnull %29) #16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %50, ptr @CurrentMemoryContext, align 8
-  %52 = tail call ptr @stringToNode(ptr noundef nonnull %33) #16
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr @expand_generated_columns_in_expr(ptr noundef %52, ptr noundef %54, i32 noundef 1) #16
-  %56 = load ptr, ptr %53, align 8
-  %57 = tail call ptr @expand_generated_columns_in_expr(ptr noundef %55, ptr noundef %56, i32 noundef 2) #16
-  tail call void @ChangeVarNodes(ptr noundef %57, i32 noundef 1, i32 noundef -1, i32 noundef 0) #16
-  tail call void @ChangeVarNodes(ptr noundef %57, i32 noundef 2, i32 noundef -2, i32 noundef 0) #16
-  %58 = tail call ptr @make_ands_implicit(ptr noundef %57) #16
-  %59 = tail call ptr @ExecPrepareQual(ptr noundef %58, ptr noundef %0) #16
-  store ptr %59, ptr %45, align 8
-  store ptr %51, ptr @CurrentMemoryContext, align 8
-  br label %60
+  %51 = tail call ptr @expand_generated_columns_in_expr(ptr noundef %48, ptr noundef %50, i32 noundef 1) #16
+  %52 = load ptr, ptr %49, align 8
+  %53 = tail call ptr @expand_generated_columns_in_expr(ptr noundef %51, ptr noundef %52, i32 noundef 2) #16
+  tail call void @ChangeVarNodes(ptr noundef %53, i32 noundef 1, i32 noundef -1, i32 noundef 0) #16
+  tail call void @ChangeVarNodes(ptr noundef %53, i32 noundef 2, i32 noundef -2, i32 noundef 0) #16
+  %54 = tail call ptr @make_ands_implicit(ptr noundef %53) #16
+  %55 = tail call ptr @ExecPrepareQual(ptr noundef %54, ptr noundef %0) #16
+  store ptr %55, ptr %41, align 8
+  store ptr %47, ptr @CurrentMemoryContext, align 8
+  br label %56
 
-60:                                               ; preds = %48, %34
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %62 = load ptr, ptr %61, align 8
-  %.not50 = icmp eq ptr %62, null
-  br i1 %.not50, label %63, label %65
+56:                                               ; preds = %44, %30
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %58 = load ptr, ptr %57, align 8
+  %.not50 = icmp eq ptr %58, null
+  br i1 %.not50, label %59, label %61
 
-63:                                               ; preds = %60
-  %64 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %0) #16
-  br label %65
+59:                                               ; preds = %56
+  %60 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %0) #16
+  br label %61
 
-65:                                               ; preds = %60, %63
-  %66 = phi ptr [ %64, %63 ], [ %62, %60 ]
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store ptr %5, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store ptr %6, ptr %68, align 8
-  %69 = load ptr, ptr %45, align 8
+61:                                               ; preds = %56, %59
+  %62 = phi ptr [ %60, %59 ], [ %58, %56 ]
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  store ptr %5, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  store ptr %6, ptr %64, align 8
+  %65 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %ExecQual.exit.thread, label %ExecQual.exit
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %ExecQual.exit.thread, label %ExecQual.exit
 
-ExecQual.exit.thread:                             ; preds = %65
+ExecQual.exit.thread:                             ; preds = %61
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %77
+  br label %73
 
-ExecQual.exit:                                    ; preds = %65
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %72, ptr @CurrentMemoryContext, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %75 = load ptr, ptr %74, align 8
-  %76 = call i64 %75(ptr noundef nonnull %69, ptr noundef nonnull %66, ptr noundef nonnull %8) #16
-  store ptr %73, ptr @CurrentMemoryContext, align 8
-  %.not55 = icmp eq i64 %76, 0
+ExecQual.exit:                                    ; preds = %61
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %68, ptr @CurrentMemoryContext, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %71 = load ptr, ptr %70, align 8
+  %72 = call i64 %71(ptr noundef nonnull %65, ptr noundef nonnull %62, ptr noundef nonnull %8) #16
+  store ptr %69, ptr @CurrentMemoryContext, align 8
+  %.not55 = icmp eq i64 %72, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not55, label %.loopexit, label %77
+  br i1 %.not55, label %.loopexit, label %73
 
-77:                                               ; preds = %ExecQual.exit.thread, %ExecQual.exit, %.thread
+73:                                               ; preds = %ExecQual.exit.thread, %ExecQual.exit, %.thread
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %ExecQual.exit, %14, %14, %13, %13, %77
-  %.0 = phi i1 [ true, %77 ], [ false, %ExecQual.exit ], [ false, %13 ], [ false, %13 ], [ false, %14 ], [ false, %14 ], [ false, %22 ]
+.loopexit:                                        ; preds = %18, %7, %7, %ExecQual.exit, %73
+  %.0 = phi i1 [ true, %73 ], [ false, %ExecQual.exit ], [ false, %7 ], [ false, %7 ], [ false, %18 ]
   ret i1 %.0
 }
 

@@ -83,7 +83,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.61 = private unnamed_addr constant [14 x i8] c"cannot happen\00", align 1
 @.str.62 = private unnamed_addr constant [41 x i8] c"cannot set value in column %d to DEFAULT\00", align 1
 @__func__.rewriteValuesRTE = private unnamed_addr constant [17 x i8] c"rewriteValuesRTE\00", align 1
-@SessionReplicationRole = external local_unnamed_addr global i32, align 4
 @.str.63 = private unnamed_addr constant [38 x i8] c"cannot execute MERGE on relation \22%s\22\00", align 1
 @.str.64 = private unnamed_addr constant [49 x i8] c"MERGE is not supported for relations with rules.\00", align 1
 @__func__.matchLocks = private unnamed_addr constant [11 x i8] c"matchLocks\00", align 1
@@ -6274,9 +6273,9 @@ define internal fastcc ptr @matchLocks(i32 noundef range(i32 2, 1) %0, ptr nound
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %19
 
-19:                                               ; preds = %.lr.ph, %55
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %.02937 = phi ptr [ null, %.lr.ph ], [ %.1, %55 ]
+19:                                               ; preds = %.lr.ph, %51
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
+  %.02937 = phi ptr [ null, %.lr.ph ], [ %.1, %51 ]
   %20 = load ptr, ptr %18, align 8
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
@@ -6293,68 +6292,57 @@ define internal fastcc ptr @matchLocks(i32 noundef range(i32 2, 1) %0, ptr nound
 27:                                               ; preds = %26, %19
   %28 = phi i32 [ %.pr, %26 ], [ %24, %19 ]
   %.not34 = icmp eq i32 %28, 1
-  br i1 %.not34, label %47, label %29
+  br i1 %.not34, label %43, label %29
 
 29:                                               ; preds = %27
-  %30 = load i32, ptr @SessionReplicationRole, align 4
-  %31 = icmp eq i32 %30, 1
-  %32 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %33 = load i8, ptr %32, align 8
-  br i1 %31, label %34, label %35
-
-34:                                               ; preds = %29
-  switch i8 %33, label %36 [
-    i8 79, label %55
-    i8 68, label %55
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %31 = load i8, ptr %30, align 8
+  switch i8 %31, label %32 [
+    i8 79, label %51
+    i8 68, label %51
   ]
 
-35:                                               ; preds = %29
-  switch i8 %33, label %36 [
-    i8 82, label %55
-    i8 68, label %55
-  ]
+32:                                               ; preds = %29
+  %33 = load i32, ptr %10, align 4
+  %34 = icmp eq i32 %33, 5
+  br i1 %34, label %35, label %43
 
-36:                                               ; preds = %35, %34
-  %37 = load i32, ptr %10, align 4
-  %38 = icmp eq i32 %37, 5
-  br i1 %38, label %39, label %47
-
-39:                                               ; preds = %36
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  %41 = tail call i32 @errcode(i32 noundef 1088) #9
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull %44) #9
-  %46 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.64) #9
+35:                                               ; preds = %32
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %37 = tail call i32 @errcode(i32 noundef 1088) #9
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull %40) #9
+  %42 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.64) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1691, ptr noundef nonnull @__func__.matchLocks) #9
   unreachable
 
-47:                                               ; preds = %36, %27
-  %48 = icmp eq i32 %28, %0
-  br i1 %48, label %49, label %55
+43:                                               ; preds = %32, %27
+  %44 = icmp eq i32 %28, %0
+  br i1 %44, label %45, label %51
 
-49:                                               ; preds = %47
-  %50 = load i32, ptr %10, align 4
-  %.not35 = icmp eq i32 %50, 1
-  br i1 %.not35, label %51, label %53
+45:                                               ; preds = %43
+  %46 = load i32, ptr %10, align 4
+  %.not35 = icmp eq i32 %46, 1
+  br i1 %.not35, label %47, label %49
 
-51:                                               ; preds = %49
-  %52 = tail call zeroext i1 @rangeTableEntry_used(ptr noundef nonnull %3, i32 noundef %2, i32 noundef 0) #9
-  br i1 %52, label %53, label %55
+47:                                               ; preds = %45
+  %48 = tail call zeroext i1 @rangeTableEntry_used(ptr noundef nonnull %3, i32 noundef %2, i32 noundef 0) #9
+  br i1 %48, label %49, label %51
 
-53:                                               ; preds = %51, %49
-  %54 = tail call ptr @lappend(ptr noundef %.02937, ptr noundef nonnull %22) #9
-  br label %55
+49:                                               ; preds = %47, %45
+  %50 = tail call ptr @lappend(ptr noundef %.02937, ptr noundef nonnull %22) #9
+  br label %51
 
-55:                                               ; preds = %47, %53, %51, %35, %35, %34, %34
-  %.1 = phi ptr [ %.02937, %34 ], [ %.02937, %34 ], [ %.02937, %35 ], [ %.02937, %35 ], [ %54, %53 ], [ %.02937, %51 ], [ %.02937, %47 ]
+51:                                               ; preds = %29, %29, %43, %49, %47
+  %.1 = phi ptr [ %50, %49 ], [ %.02937, %47 ], [ %.02937, %43 ], [ %.02937, %29 ], [ %.02937, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !21
 
-.loopexit:                                        ; preds = %55, %15, %12, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %12 ], [ null, %15 ], [ %.1, %55 ]
+.loopexit:                                        ; preds = %51, %15, %12, %5
+  %.0 = phi ptr [ null, %5 ], [ null, %12 ], [ null, %15 ], [ %.1, %51 ]
   ret ptr %.0
 }
 

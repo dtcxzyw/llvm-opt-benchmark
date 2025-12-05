@@ -4568,424 +4568,410 @@ define dso_local void @hba_getauthmethod(ptr noundef %0) local_unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %20 = getelementptr i8, ptr %0, i64 156
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %19 = getelementptr i8, ptr %0, i64 156
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %.not.i.i45.i = icmp eq i32 %7, 0
-  %22 = load i32, ptr %9, align 4
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph, label %.critedge.i
+  %21 = load i32, ptr %9, align 4
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.lr.ph, label %.critedge.i
 
 .lr.ph:                                           ; preds = %.lr.ph62.i, %check_ip.exit.i
   %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i, %check_ip.exit.i ], [ 0, %.lr.ph62.i ]
-  %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv.i3
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, 0
-  %30 = load i16, ptr %11, align 8
-  %.not40.i = icmp eq i16 %30, 1
-  br i1 %29, label %31, label %32
+  %23 = load ptr, ptr %10, align 8
+  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv.i3
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = load i32, ptr %26, align 8
+  %28 = icmp eq i32 %27, 0
+  %29 = load i16, ptr %11, align 8
+  %.not40.i = icmp eq i16 %29, 1
+  br i1 %28, label %30, label %31
 
-31:                                               ; preds = %.lr.ph
+30:                                               ; preds = %.lr.ph
   br i1 %.not40.i, label %check_ip.exit.thread.i, label %check_ip.exit.i
 
-32:                                               ; preds = %.lr.ph
-  br i1 %.not40.i, label %check_ip.exit.i, label %33
-
-33:                                               ; preds = %32
-  %34 = load i8, ptr %12, align 8, !range !12, !noundef !13
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %37
-
-36:                                               ; preds = %33
-  %.off.i = add i32 %28, -3
+31:                                               ; preds = %.lr.ph
+  %.off.i = add i32 %27, -3
   %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %check_ip.exit.i, label %38
+  %or.cond.i = or i1 %switch.i, %.not40.i
+  br i1 %or.cond.i, label %check_ip.exit.i, label %32
 
-37:                                               ; preds = %33
-  switch i32 %28, label %38 [
-    i32 2, label %check_ip.exit.i
-    i32 4, label %check_ip.exit.i
-  ]
-
-38:                                               ; preds = %37, %36
-  %39 = getelementptr inbounds nuw i8, ptr %26, i64 316
-  %40 = load i32, ptr %39, align 4
-  switch i32 %40, label %check_ip.exit.i [
-    i32 0, label %41
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 316
+  %34 = load i32, ptr %33, align 4
+  switch i32 %34, label %check_ip.exit.i [
+    i32 0, label %35
     i32 3, label %check_ip.exit.thread.i
-    i32 1, label %107
-    i32 2, label %107
+    i32 1, label %101
+    i32 2, label %101
   ]
+
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 320
+  %37 = load ptr, ptr %36, align 8
+  %.not39.i = icmp eq ptr %37, null
+  br i1 %.not39.i, label %94, label %38
+
+38:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %39 = load i32, ptr %14, align 8
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %check_hostname.exit.thread.i, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %26, i64 320
-  %43 = load ptr, ptr %42, align 8
-  %.not39.i = icmp eq ptr %43, null
-  br i1 %.not39.i, label %100, label %44
+  %42 = load ptr, ptr %15, align 8
+  %.not.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i, label %43, label %48
 
-44:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %45 = load i32, ptr %15, align 8
-  %46 = icmp slt i32 %45, 0
-  br i1 %46, label %check_hostname.exit.thread.i, label %47
-
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %16, align 8
-  %.not.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i, label %49, label %54
-
-49:                                               ; preds = %47
+43:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %50 = load i32, ptr %17, align 8
-  %51 = call i32 @pg_getnameinfo_all(ptr noundef nonnull %11, i32 noundef %50, ptr noundef nonnull %4, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 8) #13
-  %.not40.i.i = icmp eq i32 %51, 0
-  br i1 %.not40.i.i, label %.thread.i.i, label %53
+  %44 = load i32, ptr %16, align 8
+  %45 = call i32 @pg_getnameinfo_all(ptr noundef nonnull %11, i32 noundef %44, ptr noundef nonnull %4, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 8) #13
+  %.not40.i.i = icmp eq i32 %45, 0
+  br i1 %.not40.i.i, label %.thread.i.i, label %47
 
-.thread.i.i:                                      ; preds = %49
-  %52 = call ptr @pstrdup(ptr noundef nonnull %4) #13
-  store ptr %52, ptr %16, align 8
+.thread.i.i:                                      ; preds = %43
+  %46 = call ptr @pstrdup(ptr noundef nonnull %4) #13
+  store ptr %46, ptr %15, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %54
+  br label %48
 
-53:                                               ; preds = %49
-  store i32 -2, ptr %15, align 8
-  store i32 %51, ptr %18, align 4
+47:                                               ; preds = %43
+  store i32 -2, ptr %14, align 8
+  store i32 %45, ptr %17, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %check_hostname.exit.thread.i
 
-54:                                               ; preds = %.thread.i.i, %47
-  %55 = phi ptr [ %52, %.thread.i.i ], [ %48, %47 ]
-  %56 = load i8, ptr %43, align 1
-  %57 = icmp eq i8 %56, 46
-  br i1 %57, label %58, label %hostname_match.exit.i.i
+48:                                               ; preds = %.thread.i.i, %41
+  %49 = phi ptr [ %46, %.thread.i.i ], [ %42, %41 ]
+  %50 = load i8, ptr %37, align 1
+  %51 = icmp eq i8 %50, 46
+  br i1 %51, label %52, label %hostname_match.exit.i.i
 
-58:                                               ; preds = %54
-  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #15
-  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #15
-  %61 = icmp ult i64 %60, %59
-  br i1 %61, label %check_hostname.exit.thread.i, label %62
+52:                                               ; preds = %48
+  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #15
+  %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #15
+  %55 = icmp ult i64 %54, %53
+  br i1 %55, label %check_hostname.exit.thread.i, label %56
 
-62:                                               ; preds = %58
-  %63 = sub nuw i64 %60, %59
-  %64 = getelementptr inbounds nuw i8, ptr %55, i64 %63
+56:                                               ; preds = %52
+  %57 = sub nuw i64 %54, %53
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 %57
   br label %hostname_match.exit.i.i
 
-hostname_match.exit.i.i:                          ; preds = %62, %54
-  %.sink14.i.i.i = phi ptr [ %64, %62 ], [ %55, %54 ]
-  %65 = call i32 @pg_strcasecmp(ptr noundef nonnull %43, ptr noundef %.sink14.i.i.i) #13
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %check_hostname.exit.thread.i
+hostname_match.exit.i.i:                          ; preds = %56, %48
+  %.sink14.i.i.i = phi ptr [ %58, %56 ], [ %49, %48 ]
+  %59 = call i32 @pg_strcasecmp(ptr noundef nonnull %37, ptr noundef %.sink14.i.i.i) #13
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %check_hostname.exit.thread.i
 
-67:                                               ; preds = %hostname_match.exit.i.i
-  %68 = load i32, ptr %15, align 8
-  %69 = icmp eq i32 %68, 1
-  br i1 %69, label %check_ip.exit.thread.sink.split.i, label %70
+61:                                               ; preds = %hostname_match.exit.i.i
+  %62 = load i32, ptr %14, align 8
+  %63 = icmp eq i32 %62, 1
+  br i1 %63, label %check_ip.exit.thread.sink.split.i, label %64
 
-70:                                               ; preds = %67
-  %71 = load ptr, ptr %16, align 8
-  %72 = call i32 @getaddrinfo(ptr noundef %71, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #13
-  %.not41.i.i = icmp eq i32 %72, 0
-  br i1 %.not41.i.i, label %.preheader.i.i, label %96
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %15, align 8
+  %66 = call i32 @getaddrinfo(ptr noundef %65, ptr noundef null, ptr noundef null, ptr noundef nonnull %3) #13
+  %.not41.i.i = icmp eq i32 %66, 0
+  br i1 %.not41.i.i, label %.preheader.i.i, label %90
 
-.preheader.i.i:                                   ; preds = %70
+.preheader.i.i:                                   ; preds = %64
   %.03446.i.i = load ptr, ptr %3, align 8
   %.not4247.not.i.i = icmp eq ptr %.03446.i.i, null
   br i1 %.not4247.not.i.i, label %.thread60.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %73 = load i16, ptr %11, align 8
-  %.fr.i = freeze i16 %73
+  %67 = load i16, ptr %11, align 8
+  %.fr.i = freeze i16 %67
   switch i16 %.fr.i, label %ipv6eq.exit._crit_edge.thread64.i.i [
     i16 2, label %.lr.ph.i.split.us.i
     i16 10, label %.lr.ph.i.split.us56.i
   ]
 
-.lr.ph.i.split.us.i:                              ; preds = %.lr.ph.i.i, %81
-  %.03448.i.us.i = phi ptr [ %.034.i.us.i, %81 ], [ %.03446.i.i, %.lr.ph.i.i ]
-  %74 = getelementptr inbounds nuw i8, ptr %.03448.i.us.i, i64 24
-  %75 = load ptr, ptr %74, align 8
-  %76 = load i16, ptr %75, align 2
-  %77 = icmp eq i16 %76, 2
-  br i1 %77, label %78, label %81
+.lr.ph.i.split.us.i:                              ; preds = %.lr.ph.i.i, %75
+  %.03448.i.us.i = phi ptr [ %.034.i.us.i, %75 ], [ %.03446.i.i, %.lr.ph.i.i ]
+  %68 = getelementptr inbounds nuw i8, ptr %.03448.i.us.i, i64 24
+  %69 = load ptr, ptr %68, align 8
+  %70 = load i16, ptr %69, align 2
+  %71 = icmp eq i16 %70, 2
+  br i1 %71, label %72, label %75
 
-78:                                               ; preds = %.lr.ph.i.split.us.i
-  %79 = getelementptr i8, ptr %75, i64 4
-  %.val.i.us.i = load i32, ptr %79, align 4
-  %.val44.i.us.i = load i32, ptr %20, align 4
-  %80 = icmp eq i32 %.val.i.us.i, %.val44.i.us.i
-  br i1 %80, label %check_hostname.exit.i, label %81
+72:                                               ; preds = %.lr.ph.i.split.us.i
+  %73 = getelementptr i8, ptr %69, i64 4
+  %.val.i.us.i = load i32, ptr %73, align 4
+  %.val44.i.us.i = load i32, ptr %19, align 4
+  %74 = icmp eq i32 %.val.i.us.i, %.val44.i.us.i
+  br i1 %74, label %check_hostname.exit.i, label %75
 
-81:                                               ; preds = %78, %.lr.ph.i.split.us.i
-  %82 = getelementptr inbounds nuw i8, ptr %.03448.i.us.i, i64 40
-  %.034.i.us.i = load ptr, ptr %82, align 8
+75:                                               ; preds = %72, %.lr.ph.i.split.us.i
+  %76 = getelementptr inbounds nuw i8, ptr %.03448.i.us.i, i64 40
+  %.034.i.us.i = load ptr, ptr %76, align 8
   %.not42.not.i.us.i = icmp eq ptr %.034.i.us.i, null
   br i1 %.not42.not.i.us.i, label %ipv6eq.exit._crit_edge.thread64.i.i, label %.lr.ph.i.split.us.i, !llvm.loop !15
 
-.lr.ph.i.split.us56.i:                            ; preds = %.lr.ph.i.i, %94
-  %.03448.i.us57.i = phi ptr [ %.034.i.us58.i, %94 ], [ %.03446.i.i, %.lr.ph.i.i ]
-  %83 = getelementptr inbounds nuw i8, ptr %.03448.i.us57.i, i64 24
-  %84 = load ptr, ptr %83, align 8
-  %85 = load i16, ptr %84, align 2
-  %86 = icmp eq i16 %85, 10
-  br i1 %86, label %87, label %94
+.lr.ph.i.split.us56.i:                            ; preds = %.lr.ph.i.i, %88
+  %.03448.i.us57.i = phi ptr [ %.034.i.us58.i, %88 ], [ %.03446.i.i, %.lr.ph.i.i ]
+  %77 = getelementptr inbounds nuw i8, ptr %.03448.i.us57.i, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %79 = load i16, ptr %78, align 2
+  %80 = icmp eq i16 %79, 10
+  br i1 %80, label %81, label %88
 
-87:                                               ; preds = %.lr.ph.i.split.us56.i
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  br label %89
+81:                                               ; preds = %.lr.ph.i.split.us56.i
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  br label %83
 
-89:                                               ; preds = %89, %87
-  %indvars.iv.i.i.us.i = phi i64 [ 0, %87 ], [ %indvars.iv.next.i.i.us.i, %89 ]
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv.i.i.us.i
-  %91 = load i8, ptr %90, align 1
-  %92 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.i.i.us.i
-  %93 = load i8, ptr %92, align 1
-  %.not.i.i.us.i = icmp eq i8 %91, %93
+83:                                               ; preds = %83, %81
+  %indvars.iv.i.i.us.i = phi i64 [ 0, %81 ], [ %indvars.iv.next.i.i.us.i, %83 ]
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 %indvars.iv.i.i.us.i
+  %85 = load i8, ptr %84, align 1
+  %86 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i.i.us.i
+  %87 = load i8, ptr %86, align 1
+  %.not.i.i.us.i = icmp eq i8 %85, %87
   %indvars.iv.next.i.i.us.i = add nuw nsw i64 %indvars.iv.i.i.us.i, 1
   %exitcond.i.i.us.i = icmp ne i64 %indvars.iv.next.i.i.us.i, 16
   %or.cond.not.i.i.us.i = select i1 %.not.i.i.us.i, i1 %exitcond.i.i.us.i, i1 false
-  br i1 %or.cond.not.i.i.us.i, label %89, label %ipv6eq.exit.i.us.i, !llvm.loop !16
+  br i1 %or.cond.not.i.i.us.i, label %83, label %ipv6eq.exit.i.us.i, !llvm.loop !16
 
-ipv6eq.exit.i.us.i:                               ; preds = %89
-  br i1 %.not.i.i.us.i, label %check_hostname.exit.i, label %94
+ipv6eq.exit.i.us.i:                               ; preds = %83
+  br i1 %.not.i.i.us.i, label %check_hostname.exit.i, label %88
 
-94:                                               ; preds = %ipv6eq.exit.i.us.i, %.lr.ph.i.split.us56.i
-  %95 = getelementptr inbounds nuw i8, ptr %.03448.i.us57.i, i64 40
-  %.034.i.us58.i = load ptr, ptr %95, align 8
+88:                                               ; preds = %ipv6eq.exit.i.us.i, %.lr.ph.i.split.us56.i
+  %89 = getelementptr inbounds nuw i8, ptr %.03448.i.us57.i, i64 40
+  %.034.i.us58.i = load ptr, ptr %89, align 8
   %.not42.not.i.us59.i = icmp eq ptr %.034.i.us58.i, null
   br i1 %.not42.not.i.us59.i, label %ipv6eq.exit._crit_edge.thread64.i.i, label %.lr.ph.i.split.us56.i, !llvm.loop !15
 
-96:                                               ; preds = %70
-  store i32 -2, ptr %15, align 8
-  store i32 %72, ptr %18, align 4
+90:                                               ; preds = %64
+  store i32 -2, ptr %14, align 8
+  store i32 %66, ptr %17, align 4
   br label %check_hostname.exit.thread.i
 
-ipv6eq.exit._crit_edge.thread64.i.i:              ; preds = %94, %81, %.lr.ph.i.i
+ipv6eq.exit._crit_edge.thread64.i.i:              ; preds = %88, %75, %.lr.ph.i.i
   call void @freeaddrinfo(ptr noundef nonnull %.03446.i.i) #13
   br label %.thread60.i.i
 
 .thread60.i.i:                                    ; preds = %ipv6eq.exit._crit_edge.thread64.i.i, %.preheader.i.i
-  %97 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #13
-  br i1 %97, label %98, label %check_hostname.exit.thread51.i
+  %91 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #13
+  br i1 %91, label %92, label %check_hostname.exit.thread51.i
 
-98:                                               ; preds = %.thread60.i.i
-  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.132, ptr noundef nonnull %43) #13
+92:                                               ; preds = %.thread60.i.i
+  %93 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.132, ptr noundef nonnull %37) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1156, ptr noundef nonnull @__func__.check_hostname) #13
   br label %check_hostname.exit.thread51.i
 
-check_hostname.exit.thread.i:                     ; preds = %96, %hostname_match.exit.i.i, %58, %53, %44
+check_hostname.exit.thread.i:                     ; preds = %90, %hostname_match.exit.i.i, %52, %47, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %check_ip.exit.i
 
-check_hostname.exit.thread51.i:                   ; preds = %98, %.thread60.i.i
-  store i32 -1, ptr %15, align 8
+check_hostname.exit.thread51.i:                   ; preds = %92, %.thread60.i.i
+  store i32 -1, ptr %14, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %check_ip.exit.i
 
-check_hostname.exit.i:                            ; preds = %ipv6eq.exit.i.us.i, %78
+check_hostname.exit.i:                            ; preds = %ipv6eq.exit.i.us.i, %72
   call void @freeaddrinfo(ptr noundef nonnull %.03446.i.i) #13
-  store i32 1, ptr %15, align 8
+  store i32 1, ptr %14, align 8
   br label %check_ip.exit.thread.sink.split.i
 
-100:                                              ; preds = %41
-  %101 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %102 = load i16, ptr %101, align 2
-  %103 = icmp eq i16 %30, %102
-  br i1 %103, label %104, label %check_ip.exit.i
+94:                                               ; preds = %35
+  %95 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %96 = load i16, ptr %95, align 2
+  %97 = icmp eq i16 %29, %96
+  br i1 %97, label %98, label %check_ip.exit.i
 
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds nuw i8, ptr %26, i64 184
-  %106 = call i32 @pg_range_sockaddr(ptr noundef nonnull %11, ptr noundef nonnull %101, ptr noundef nonnull %105) #13
-  %.not.i42.i = icmp eq i32 %106, 0
+98:                                               ; preds = %94
+  %99 = getelementptr inbounds nuw i8, ptr %25, i64 184
+  %100 = call i32 @pg_range_sockaddr(ptr noundef nonnull %11, ptr noundef nonnull %95, ptr noundef nonnull %99) #13
+  %.not.i42.i = icmp eq i32 %100, 0
   br i1 %.not.i42.i, label %check_ip.exit.i, label %check_ip.exit.thread.i
 
-107:                                              ; preds = %38, %38
+101:                                              ; preds = %32, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i32 %40, ptr %2, align 8
-  store ptr %11, ptr %13, align 8
-  store i8 0, ptr %14, align 8
-  %108 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %108, align 4
-  %109 = call i32 @pg_foreach_ifaddr(ptr noundef nonnull @check_network_callback, ptr noundef nonnull %2) #13
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %111, label %check_same_host_or_net.exit.i
+  store i32 %34, ptr %2, align 8
+  store ptr %11, ptr %12, align 8
+  store i8 0, ptr %13, align 8
+  %102 = tail call ptr @__errno_location() #14
+  store i32 0, ptr %102, align 4
+  %103 = call i32 @pg_foreach_ifaddr(ptr noundef nonnull @check_network_callback, ptr noundef nonnull %2) #13
+  %104 = icmp slt i32 %103, 0
+  br i1 %104, label %105, label %check_same_host_or_net.exit.i
 
-111:                                              ; preds = %107
-  %112 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %112, label %113, label %check_same_host_or_net.exit.thread.i
+105:                                              ; preds = %101
+  %106 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
+  br i1 %106, label %107, label %check_same_host_or_net.exit.thread.i
 
-113:                                              ; preds = %111
-  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.133) #13
+107:                                              ; preds = %105
+  %108 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.133) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1220, ptr noundef nonnull @__func__.check_same_host_or_net) #13
   br label %check_same_host_or_net.exit.thread.i
 
-check_same_host_or_net.exit.thread.i:             ; preds = %113, %111
+check_same_host_or_net.exit.thread.i:             ; preds = %107, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %check_ip.exit.i
 
-check_same_host_or_net.exit.i:                    ; preds = %107
-  %115 = load i8, ptr %14, align 8, !range !12, !noundef !13
-  %116 = trunc nuw i8 %115 to i1
+check_same_host_or_net.exit.i:                    ; preds = %101
+  %109 = load i8, ptr %13, align 8, !range !12, !noundef !13
+  %110 = trunc nuw i8 %109 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %116, label %check_ip.exit.thread.i, label %check_ip.exit.i
+  br i1 %110, label %check_ip.exit.thread.i, label %check_ip.exit.i
 
-check_ip.exit.thread.sink.split.i:                ; preds = %check_hostname.exit.i, %67
+check_ip.exit.thread.sink.split.i:                ; preds = %check_hostname.exit.i, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %check_ip.exit.thread.i
 
-check_ip.exit.thread.i:                           ; preds = %check_ip.exit.thread.sink.split.i, %check_same_host_or_net.exit.i, %104, %38, %31
-  %117 = load ptr, ptr %21, align 8
-  %118 = load ptr, ptr %5, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  %.not32.i.i = icmp eq ptr %120, null
+check_ip.exit.thread.i:                           ; preds = %check_ip.exit.thread.sink.split.i, %check_same_host_or_net.exit.i, %98, %32, %30
+  %111 = load ptr, ptr %20, align 8
+  %112 = load ptr, ptr %5, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  %.not32.i.i = icmp eq ptr %114, null
   br i1 %.not32.i.i, label %check_ip.exit.i, label %.lr.ph.i44.i
 
 .lr.ph.i44.i:                                     ; preds = %check_ip.exit.thread.i
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %123 = load i32, ptr %121, align 4
-  %124 = icmp sgt i32 %123, 0
-  br i1 %124, label %.lr.ph.i, label %check_ip.exit.i
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %117 = load i32, ptr %115, align 4
+  %118 = icmp sgt i32 %117, 0
+  br i1 %118, label %.lr.ph.i, label %check_ip.exit.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i44.i, %is_member.exit.thread.i.i
   %indvars.iv.i60.i = phi i64 [ %indvars.iv.next.i.i, %is_member.exit.thread.i.i ], [ 0, %.lr.ph.i44.i ]
-  %125 = load ptr, ptr %122, align 8
-  %126 = getelementptr inbounds nuw %union.ListCell, ptr %125, i64 %indvars.iv.i60.i
-  %127 = load ptr, ptr %126, align 8
-  %128 = load i8, ptr @am_walsender, align 1, !range !12, !noundef !13
-  %129 = trunc nuw i8 %128 to i1
-  %.not.i46.i = xor i1 %129, true
-  %130 = load i8, ptr @am_db_walsender, align 1, !range !12
-  %131 = trunc nuw i8 %130 to i1
-  %or.cond.i.i = select i1 %.not.i46.i, i1 true, i1 %131
-  %132 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %133 = load i8, ptr %132, align 8, !range !12, !noundef !13
-  %134 = trunc nuw i8 %133 to i1
-  br i1 %or.cond.i.i, label %140, label %135
+  %119 = load ptr, ptr %116, align 8
+  %120 = getelementptr inbounds nuw %union.ListCell, ptr %119, i64 %indvars.iv.i60.i
+  %121 = load ptr, ptr %120, align 8
+  %122 = load i8, ptr @am_walsender, align 1, !range !12, !noundef !13
+  %123 = trunc nuw i8 %122 to i1
+  %.not.i46.i = xor i1 %123, true
+  %124 = load i8, ptr @am_db_walsender, align 1, !range !12
+  %125 = trunc nuw i8 %124 to i1
+  %or.cond.i.i = select i1 %.not.i46.i, i1 true, i1 %125
+  %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %127 = load i8, ptr %126, align 8, !range !12, !noundef !13
+  %128 = trunc nuw i8 %127 to i1
+  br i1 %or.cond.i.i, label %134, label %129
 
-135:                                              ; preds = %.lr.ph.i
-  br i1 %134, label %is_member.exit.thread.i.i, label %136
+129:                                              ; preds = %.lr.ph.i
+  br i1 %128, label %is_member.exit.thread.i.i, label %130
 
-136:                                              ; preds = %135
-  %137 = load ptr, ptr %127, align 8
-  %138 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %137, ptr noundef nonnull dereferenceable(12) @.str.134) #15
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %185, label %is_member.exit.thread.i.i
+130:                                              ; preds = %129
+  %131 = load ptr, ptr %121, align 8
+  %132 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %131, ptr noundef nonnull dereferenceable(12) @.str.134) #15
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %179, label %is_member.exit.thread.i.i
 
-140:                                              ; preds = %.lr.ph.i
-  br i1 %134, label %.thread42.i.i, label %141
+134:                                              ; preds = %.lr.ph.i
+  br i1 %128, label %.thread42.i.i, label %135
 
-141:                                              ; preds = %140
-  %142 = load ptr, ptr %127, align 8
-  %143 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(4) @.str.27) #15
+135:                                              ; preds = %134
+  %136 = load ptr, ptr %121, align 8
+  %137 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(4) @.str.27) #15
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %179, label %139
+
+139:                                              ; preds = %135
+  %140 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(9) @.str.135) #15
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %142, label %145
+
+142:                                              ; preds = %139
+  %143 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull readonly dereferenceable(1) %112) #15
   %144 = icmp eq i32 %143, 0
-  br i1 %144, label %185, label %145
+  br i1 %144, label %179, label %is_member.exit.thread.i.i
 
-145:                                              ; preds = %141
-  %146 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(9) @.str.135) #15
+145:                                              ; preds = %139
+  %146 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(10) @.str.136) #15
   %147 = icmp eq i32 %146, 0
-  br i1 %147, label %148, label %151
+  br i1 %147, label %151, label %148
 
 148:                                              ; preds = %145
-  %149 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %117, ptr noundef nonnull readonly dereferenceable(1) %118) #15
+  %149 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(9) @.str.137) #15
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %185, label %is_member.exit.thread.i.i
+  br i1 %150, label %151, label %155
 
-151:                                              ; preds = %145
-  %152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(10) @.str.136) #15
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %157, label %154
+151:                                              ; preds = %148, %145
+  br i1 %.not.i.i45.i, label %is_member.exit.thread.i.i, label %152
 
-154:                                              ; preds = %151
-  %155 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(9) @.str.137) #15
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %157, label %161
-
-157:                                              ; preds = %154, %151
-  br i1 %.not.i.i45.i, label %is_member.exit.thread.i.i, label %158
-
-158:                                              ; preds = %157
-  %159 = call i32 @get_role_oid(ptr noundef %117, i1 noundef zeroext true) #13
-  %.not7.i.i.i = icmp eq i32 %159, 0
+152:                                              ; preds = %151
+  %153 = call i32 @get_role_oid(ptr noundef %111, i1 noundef zeroext true) #13
+  %.not7.i.i.i = icmp eq i32 %153, 0
   br i1 %.not7.i.i.i, label %is_member.exit.thread.i.i, label %is_member.exit.i.i
 
-is_member.exit.i.i:                               ; preds = %158
-  %160 = call zeroext i1 @is_member_of_role_nosuper(i32 noundef %7, i32 noundef %159) #13
-  br i1 %160, label %185, label %is_member.exit.thread.i.i
+is_member.exit.i.i:                               ; preds = %152
+  %154 = call zeroext i1 @is_member_of_role_nosuper(i32 noundef %7, i32 noundef %153) #13
+  br i1 %154, label %179, label %is_member.exit.thread.i.i
 
-161:                                              ; preds = %154
-  %162 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %142, ptr noundef nonnull dereferenceable(12) @.str.134) #15
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %is_member.exit.thread.i.i, label %.thread42.i.i
+155:                                              ; preds = %148
+  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %136, ptr noundef nonnull dereferenceable(12) @.str.134) #15
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %is_member.exit.thread.i.i, label %.thread42.i.i
 
-.thread42.i.i:                                    ; preds = %161, %140
-  %164 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %165 = load ptr, ptr %164, align 8
-  %.not34.i.i = icmp eq ptr %165, null
-  br i1 %.not34.i.i, label %178, label %166
+.thread42.i.i:                                    ; preds = %155, %134
+  %158 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %159 = load ptr, ptr %158, align 8
+  %.not34.i.i = icmp eq ptr %159, null
+  br i1 %.not34.i.i, label %172, label %160
 
-166:                                              ; preds = %.thread42.i.i
-  %167 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %117) #15
-  %168 = shl i64 %167, 2
-  %169 = add i64 %168, 4
-  %170 = call ptr @palloc(i64 noundef %169) #13
-  %171 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %117) #15
-  %172 = trunc i64 %171 to i32
-  %173 = call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %117, ptr noundef %170, i32 noundef %172) #13
-  %174 = load ptr, ptr %164, align 8
-  %175 = sext i32 %173 to i64
-  %176 = call i32 @pg_regexec(ptr noundef %174, ptr noundef %170, i64 noundef %175, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i32 noundef 0) #13
-  call void @pfree(ptr noundef %170) #13
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %185, label %is_member.exit.thread.i.i
+160:                                              ; preds = %.thread42.i.i
+  %161 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #15
+  %162 = shl i64 %161, 2
+  %163 = add i64 %162, 4
+  %164 = call ptr @palloc(i64 noundef %163) #13
+  %165 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #15
+  %166 = trunc i64 %165 to i32
+  %167 = call i32 @pg_mb2wchar_with_len(ptr noundef nonnull %111, ptr noundef %164, i32 noundef %166) #13
+  %168 = load ptr, ptr %158, align 8
+  %169 = sext i32 %167 to i64
+  %170 = call i32 @pg_regexec(ptr noundef %168, ptr noundef %164, i64 noundef %169, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i32 noundef 0) #13
+  call void @pfree(ptr noundef %164) #13
+  %171 = icmp eq i32 %170, 0
+  br i1 %171, label %179, label %is_member.exit.thread.i.i
 
-178:                                              ; preds = %.thread42.i.i
-  %179 = load ptr, ptr %127, align 8
-  %180 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(1) %117) #15
-  %181 = icmp eq i32 %180, 0
-  br i1 %181, label %185, label %is_member.exit.thread.i.i
+172:                                              ; preds = %.thread42.i.i
+  %173 = load ptr, ptr %121, align 8
+  %174 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %173, ptr noundef nonnull dereferenceable(1) %111) #15
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %179, label %is_member.exit.thread.i.i
 
-is_member.exit.thread.i.i:                        ; preds = %178, %166, %161, %is_member.exit.i.i, %158, %157, %148, %136, %135
+is_member.exit.thread.i.i:                        ; preds = %172, %160, %155, %is_member.exit.i.i, %152, %151, %142, %130, %129
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i60.i, 1
-  %182 = load i32, ptr %121, align 4
-  %183 = sext i32 %182 to i64
-  %184 = icmp slt i64 %indvars.iv.next.i.i, %183
-  br i1 %184, label %.lr.ph.i, label %check_ip.exit.i
+  %176 = load i32, ptr %115, align 4
+  %177 = sext i32 %176 to i64
+  %178 = icmp slt i64 %indvars.iv.next.i.i, %177
+  br i1 %178, label %.lr.ph.i, label %check_ip.exit.i
 
-185:                                              ; preds = %178, %166, %is_member.exit.i.i, %148, %141, %136
-  %186 = load ptr, ptr %5, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %188 = load ptr, ptr %187, align 8
-  %189 = call fastcc zeroext i1 @check_role(ptr noundef %186, i32 noundef %7, ptr noundef %188, i1 noundef zeroext false)
-  br i1 %189, label %check_hba.exit, label %check_ip.exit.i
+179:                                              ; preds = %172, %160, %is_member.exit.i.i, %142, %135, %130
+  %180 = load ptr, ptr %5, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %182 = load ptr, ptr %181, align 8
+  %183 = call fastcc zeroext i1 @check_role(ptr noundef %180, i32 noundef %7, ptr noundef %182, i1 noundef zeroext false)
+  br i1 %183, label %check_hba.exit, label %check_ip.exit.i
 
-check_ip.exit.i:                                  ; preds = %is_member.exit.thread.i.i, %185, %.lr.ph.i44.i, %check_ip.exit.thread.i, %check_same_host_or_net.exit.i, %check_same_host_or_net.exit.thread.i, %104, %100, %check_hostname.exit.thread51.i, %check_hostname.exit.thread.i, %38, %37, %37, %36, %32, %31
+check_ip.exit.i:                                  ; preds = %is_member.exit.thread.i.i, %179, %.lr.ph.i44.i, %check_ip.exit.thread.i, %check_same_host_or_net.exit.i, %check_same_host_or_net.exit.thread.i, %98, %94, %check_hostname.exit.thread51.i, %check_hostname.exit.thread.i, %32, %31, %30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i3, 1
-  %190 = load i32, ptr %9, align 4
-  %191 = sext i32 %190 to i64
-  %192 = icmp slt i64 %indvars.iv.next.i, %191
-  br i1 %192, label %.lr.ph, label %.critedge.i
+  %184 = load i32, ptr %9, align 4
+  %185 = sext i32 %184 to i64
+  %186 = icmp slt i64 %indvars.iv.next.i, %185
+  br i1 %186, label %.lr.ph, label %.critedge.i
 
 .critedge.i:                                      ; preds = %check_ip.exit.i, %.lr.ph62.i, %1
-  %193 = call ptr @palloc0(i64 noundef 536) #13
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 328
-  store i32 1, ptr %194, align 8
+  %187 = call ptr @palloc0(i64 noundef 536) #13
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 328
+  store i32 1, ptr %188, align 8
   br label %check_hba.exit
 
-check_hba.exit:                                   ; preds = %185, %.critedge.i
-  %.lcssa.sink.i = phi ptr [ %193, %.critedge.i ], [ %26, %185 ]
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store ptr %.lcssa.sink.i, ptr %195, align 8
+check_hba.exit:                                   ; preds = %179, %.critedge.i
+  %.lcssa.sink.i = phi ptr [ %187, %.critedge.i ], [ %25, %179 ]
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store ptr %.lcssa.sink.i, ptr %189, align 8
   ret void
 }
 
