@@ -16918,7 +16918,7 @@ for.body532.preheader:                            ; preds = %for.end527
   %add.i.i = add nsw i64 %it.sroa.24.2, -2
   %storemerge.i.i = select i1 %cmp.i.i1393, i64 %sub12.i.i, i64 %add.i.i
   %div7.i.i.pn = sext i1 %cmp.i.i1393 to i64
-  %add.ptr10.sink.i.i = getelementptr inbounds i64, ptr %it.sroa.0.2, i64 %div7.i.i.pn
+  %add.ptr10.i.i = getelementptr inbounds i64, ptr %it.sroa.0.2, i64 %div7.i.i.pn
   br label %for.body532
 
 for.body532:                                      ; preds = %for.body532.preheader, %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1415

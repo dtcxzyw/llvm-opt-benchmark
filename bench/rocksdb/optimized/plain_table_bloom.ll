@@ -80,12 +80,12 @@ define void @_ZN7rocksdb17PlainTableBloomV112SetTotalBitsEPNS_9AllocatorEjjmPNS_
   %10 = or disjoint i32 %9, 512
   br label %14
 
-11:                                               ; preds = %6
+11:; preds = %6
   %12 = add i32 %2, 7
   %13 = and i32 %12, -8
   br label %14
 
-14:                                               ; preds = %11, %7
+14:; preds = %11, %7
   %15 = phi i32 [ %10, %7 ], [ %13, %11 ]
   store i32 %15, ptr %0, align 8, !tbaa !11
   %16 = lshr i32 %15, 9
@@ -94,25 +94,25 @@ define void @_ZN7rocksdb17PlainTableBloomV112SetTotalBitsEPNS_9AllocatorEjjmPNS_
   store i32 %spec.select, ptr %17, align 4, !tbaa !15
   %18 = lshr i32 %15, 3
   %.not19 = icmp eq i32 %spec.select, 0
-  %19 = add nuw nsw i32 %18, 63
-  %.0 = select i1 %.not19, i32 %18, i32 %19
-  %20 = zext nneg i32 %.0 to i64
-  %21 = load ptr, ptr %1, align 8, !tbaa !18
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %20, i64 noundef %4, ptr noundef %5)
-  tail call void @llvm.memset.p0.i64(ptr align 1 %24, i8 0, i64 %20, i1 false)
-  %25 = ptrtoint ptr %24 to i64
-  %26 = and i64 %25, 63
-  %27 = load i32, ptr %17, align 4, !tbaa !15
-  %28 = icmp ne i32 %27, 0
-  %29 = icmp ne i64 %26, 0
-  %or.cond = and i1 %28, %29
-  %30 = sub nuw nsw i64 64, %26
-  %.017.idx = select i1 %or.cond, i64 %30, i64 0
-  %.017 = getelementptr inbounds nuw i8, ptr %24, i64 %.017.idx
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.017, ptr %31, align 8, !tbaa !17
+  %20 = add nuw nsw i32 %18, 63
+  %.0 = select i1 %.not19, i32 %18, i32 %20
+  %21 = zext nneg i32 %.0 to i64
+  %22 = load ptr, ptr %1, align 8, !tbaa !18
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %21, i64 noundef %4, ptr noundef %5)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %21, i1 false)
+  %26 = ptrtoint ptr %25 to i64
+  %27 = and i64 %26, 63
+  %28 = load i32, ptr %17, align 4, !tbaa !15
+  %29 = icmp ne i32 %28, 0
+  %30 = icmp ne i64 %27, 0
+  %or.cond = and i1 %29, %30
+  %31 = sub nuw nsw i64 64, %27
+  %.017.idx = select i1 %or.cond, i64 %31, i64 0
+  %.017 = getelementptr inbounds nuw i8, ptr %25, i64 %.017.idx
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.017, ptr %32, align 8, !tbaa !17
   ret void
 }
 

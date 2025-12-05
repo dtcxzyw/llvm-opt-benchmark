@@ -14950,15 +14950,15 @@ switch.lookup:                                    ; preds = %5
   %switch.shiftamt13 = shl nuw nsw i32 %switch.cast12, 3
   %switch.downshift14 = lshr i32 589373984, %switch.shiftamt13
   %switch.masked15 = trunc i32 %switch.downshift14 to i8
-  %15 = and i32 %4, 8256
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit.thread, label %17
+  %16 = and i32 %4, 8256
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %_ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit.thread, label %18
 
 _ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.8621876355426791832.exit.thread: ; preds = %5, %switch.lookup
   store i64 -9223372036854775808, ptr %0, align 8
   br label %_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832.exit
 
-17:                                               ; preds = %switch.lookup
+18:                                               ; preds = %switch.lookup
   %18 = and i8 %switch.tableidx, 15
   %switch.masked = icmp eq i8 %18, 3
   %19 = and i32 %4, 8192
@@ -14966,7 +14966,7 @@ _ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.
   %or.cond = and i1 %20, %switch.masked
   br i1 %or.cond, label %44, label %21
 
-21:                                               ; preds = %17
+21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %.sroa.05.0.copyload = load i40, ptr %22, align 1
   %23 = and i32 %4, 16384
@@ -15045,7 +15045,7 @@ _ZN8terminal8mappings5mouse15AlacMouseButton9from_move17h887c872c2f018585E.llvm.
   tail call fastcc void @_ZN8terminal8mappings5mouse19normal_mouse_report17h75f9472bc4b71626E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i64 noundef %1, i32 noundef %2, i8 noundef %35, i1 noundef zeroext %24)
   br label %_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832.exit
 
-44:                                               ; preds = %17
+44:                                               ; preds = %18
   store i64 -9223372036854775808, ptr %0, align 8
   br label %_ZN8terminal8mappings5mouse12mouse_report17h8dc5b20e6b65dee7E.llvm.8621876355426791832.exit
 

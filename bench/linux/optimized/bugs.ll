@@ -963,7 +963,7 @@ define internal fastcc void @l1tf_select_mitigation() unnamed_addr #3 section ".
   %1 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %2 = and i64 %1, 1125899906842624
   %3 = icmp eq i64 %2, 0
-  br i1 %3, label %40, label %4
+  br i1 %3, label %39, label %4
 
 4:                                                ; preds = %0
   %5 = tail call zeroext i1 @cpu_mitigations_off() #15
@@ -1038,19 +1038,19 @@ switch.lookup:                                    ; preds = %19
   %33 = tail call zeroext i1 @e820__mapped_any(i64 noundef %29, i64 noundef %32, i32 noundef 1) #15
   br i1 %33, label %34, label %39
 
-34:                                               ; preds = %31
+22:                                               ; preds = %31
   %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.108) #17
   %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.109, i64 noundef %29) #17
   %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.110) #17
   %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.111) #17
   br label %40
 
-39:                                               ; preds = %31, %23
+38:                                               ; preds = %31, %23
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 71), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 71)) #15, !srcloc !12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 31), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 31)) #15, !srcloc !12
-  br label %40
+  br label %39
 
-40:                                               ; preds = %39, %34, %0
+39:                                               ; preds = %38, %34, %0
   ret void
 }
 

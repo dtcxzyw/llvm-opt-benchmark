@@ -3746,26 +3746,26 @@ define hidden range(i64 1, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$i
   %or.cond4 = or i1 %or.cond, %.not
   br i1 %or.cond4, label %6, label %13, !prof !301
 
-6:                                                ; preds = %1
-  %7 = sext i32 %0 to i64
+5:                                                ; preds = %1
+  %6 = sext i32 %0 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %7, ptr %8, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %6, ptr %7, align 8
   store i8 2, ptr %3, align 8
-  %9 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.3ad9ebd857cb0b454a8dc2c2c5ba4fc7.19)
+  %8 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.3ad9ebd857cb0b454a8dc2c2c5ba4fc7.19)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %10 = zext i32 %9 to i64
-  %11 = shl nuw i64 %10, 32
-  %12 = or disjoint i64 %11, 1
-  br label %16
+  %9 = zext i32 %8 to i64
+  %10 = shl nuw i64 %9, 32
+  %11 = or disjoint i64 %10, 1
+  br label %15
 
-13:                                               ; preds = %1
-  %14 = shl nuw i32 %0, 16
-  %15 = zext i32 %14 to i64
-  br label %16
+12:                                               ; preds = %1
+  %13 = shl nuw i32 %0, 16
+  %14 = zext i32 %13 to i64
+  br label %15
 
-16:                                               ; preds = %13, %6
-  %.sroa.3.0.insert.insert = phi i64 [ %15, %13 ], [ %12, %6 ]
+15:                                               ; preds = %12, %5
+  %.sroa.3.0.insert.insert = phi i64 [ %14, %13 ], [ %11, %6 ]
   ret i64 %.sroa.3.0.insert.insert
 }
 
@@ -3836,26 +3836,26 @@ define hidden range(i64 1, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$i
   %or.cond = or i1 %4, %.not
   br i1 %or.cond, label %6, label %13, !prof !299
 
-6:                                                ; preds = %1
-  %7 = zext i32 %0 to i64
+5:                                                ; preds = %1
+  %6 = zext i32 %0 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %7, ptr %8, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %6, ptr %7, align 8
   store i8 1, ptr %3, align 8
-  %9 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.3ad9ebd857cb0b454a8dc2c2c5ba4fc7.19)
+  %8 = call noundef i32 @_ZN5serde2de5Error13invalid_value17h5ba90cabc392878dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.3ad9ebd857cb0b454a8dc2c2c5ba4fc7.19)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %10 = zext i32 %9 to i64
-  %11 = shl nuw i64 %10, 32
-  %12 = or disjoint i64 %11, 1
-  br label %16
+  %9 = zext i32 %8 to i64
+  %10 = shl nuw i64 %9, 32
+  %11 = or disjoint i64 %10, 1
+  br label %15
 
-13:                                               ; preds = %1
-  %14 = shl nuw i32 %0, 16
-  %15 = zext i32 %14 to i64
-  br label %16
+12:                                               ; preds = %1
+  %13 = shl nuw i32 %0, 16
+  %14 = zext i32 %13 to i64
+  br label %15
 
-16:                                               ; preds = %13, %6
-  %.sroa.3.0.insert.insert = phi i64 [ %15, %13 ], [ %12, %6 ]
+15:                                               ; preds = %12, %5
+  %.sroa.3.0.insert.insert = phi i64 [ %14, %13 ], [ %11, %6 ]
   ret i64 %.sroa.3.0.insert.insert
 }
 

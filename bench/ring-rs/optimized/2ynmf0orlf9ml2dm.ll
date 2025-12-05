@@ -1000,16 +1000,16 @@ define hidden noundef i64 @_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i64 @_ZN4ring4limb18limbs_minimal_bits17h84e600d603dbb9cfE(ptr noalias noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #5 {
-  %.not.i34 = icmp eq i64 %1, 0
-  br i1 %.not.i34, label %.loopexit32, label %.lr.ph
+  %.not.i35 = icmp eq i64 %1, 0
+  br i1 %.not.i35, label %.loopexit32, label %.lr.ph
 
 .loopexit:                                        ; preds = %10
   br i1 %3, label %.loopexit32, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.loopexit
-  %.sroa.5.035 = phi i64 [ %.sroa.5.1, %.loopexit ], [ %1, %2 ]
-  %3 = icmp ult i64 %.sroa.5.035, 2
-  %.sroa.5.1 = add i64 %.sroa.5.035, -1
+  %.sroa.5.036 = phi i64 [ %.sroa.5.1, %.loopexit ], [ %1, %2 ]
+  %3 = icmp ult i64 %.sroa.5.036, 2
+  %4 = add i64 %.sroa.5.036, -1
   %4 = add i64 %.sroa.5.035, -1
   %5 = icmp ult i64 %4, %1
   br i1 %5, label %6, label %9, !prof !177
@@ -1042,7 +1042,7 @@ define hidden noundef i64 @_ZN4ring4limb18limbs_minimal_bits17h84e600d603dbb9cfE
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %10, label %17
 
-17:                                               ; preds = %11
+17:; preds = %11
   %18 = shl i64 %4, 6
   %19 = add i64 %.sroa.3.0.i16, %18
   br label %.loopexit32

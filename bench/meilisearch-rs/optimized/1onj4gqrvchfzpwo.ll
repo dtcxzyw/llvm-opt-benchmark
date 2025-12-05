@@ -1950,7 +1950,7 @@ define internal fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c73
   store i64 9999, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %.sroa.7.0..sroa_idx, align 8
-  br label %29
+  br label %28
 
 7:                                                ; preds = %3
   %8 = add i16 %2, -1
@@ -1969,18 +1969,18 @@ define internal fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c73
   %15 = zext nneg i16 %2 to i32
   %16 = or i32 %14, %15
   store i32 %16, ptr %0, align 8
-  br label %29
+  br label %28
 
 17:                                               ; preds = %9
   br i1 %12, label %..thread_crit_edge, label %26
 
-..thread_crit_edge:                               ; preds = %17
+18:                                               ; preds = %17
   %.pre = trunc nsw i32 %1 to i16
   %.pre26 = srem i16 %.pre, 25
   %18 = icmp ne i16 %.pre26, 0
   br label %.thread
 
-19:                                               ; preds = %9
+.thread.thread:                                   ; preds = %9
   %.lhs.trunc = trunc nsw i32 %1 to i16
   %20 = srem i16 %.lhs.trunc, 25
   %21 = icmp ne i16 %20, 0
@@ -1999,9 +1999,9 @@ define internal fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c73
 26:                                               ; preds = %.thread, %17
   br label %27
 
-27:                                               ; preds = %.thread, %26
+26:                                               ; preds = %.thread, %26
   %.sroa.017.0 = phi i64 [ 365, %26 ], [ 366, %.thread ]
-  %28 = zext i16 %2 to i64
+  %27 = zext i16 %2 to i64
   store ptr @anon.ab0b1bcdb75b4776f289f303628990b2.49, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 7, ptr %.sroa.411.0..sroa_idx, align 8
@@ -2010,10 +2010,10 @@ define internal fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c73
   %.sroa.613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.017.0, ptr %.sroa.613.0..sroa_idx, align 8
   %.sroa.714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %28, ptr %.sroa.714.0..sroa_idx, align 8
-  br label %29
+  store i64 %27, ptr %.sroa.714.0..sroa_idx, align 8
+  br label %28
 
-29:                                               ; preds = %27, %13, %5
+28:                                               ; preds = %26, %13, %5
   %.sink = phi i8 [ 1, %27 ], [ 2, %13 ], [ 0, %5 ]
   %.sroa.815.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %.sink, ptr %.sroa.815.0..sroa_idx, align 8

@@ -3111,7 +3111,7 @@ define dso_local void @lua_pushcclosure(ptr noundef %0, ptr noundef %1, i32 noun
   %9 = load ptr, ptr %6, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %10, ptr %6, align 8, !tbaa !20
-  br label %40
+  br label %42
 
 11:                                               ; preds = %3
   %12 = tail call ptr @luaF_newCclosure(ptr noundef %0, i32 noundef %2) #13
@@ -3161,18 +3161,18 @@ define dso_local void @lua_pushcclosure(ptr noundef %0, ptr noundef %1, i32 noun
   %32 = load ptr, ptr %28, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %33, ptr %28, align 8, !tbaa !20
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !44
   %38 = icmp slt i64 %37, 1
   br i1 %38, label %39, label %40
 
-39:                                               ; preds = %._crit_edge
+39:; preds = %._crit_edge
   tail call void @luaC_step(ptr noundef nonnull %0) #13
-  br label %40
+  br label %42
 
-40:                                               ; preds = %._crit_edge, %39, %5
+42:                                               ; preds = %._crit_edge, %39, %5
   ret void
 }
 

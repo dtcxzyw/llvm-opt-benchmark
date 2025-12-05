@@ -1303,15 +1303,15 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyB
 10:                                               ; preds = %4
   %11 = zext nneg i8 %.5.val to i64
   %12 = shl nuw nsw i64 %11, 35
-  %.sroa.0.0.insert.insert = add nuw nsw i64 %12, 343613831169
+  %13 = add nuw nsw i64 %12, 343613831169
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3, i64 %.sroa.0.0.insert.insert)
   %.not = icmp eq i8 %.5.val, 64
-  br i1 %.not, label %47, label %13
+  br i1 %.not, label %47, label %14
 
-13:                                               ; preds = %10
-  %14 = and i8 %3, 7
-  %15 = icmp eq i8 %14, 5
-  %16 = select i1 %15, i32 3, i32 1
+14:                                               ; preds = %10
+  %15 = and i8 %3, 7
+  %16 = icmp eq i8 %15, 5
+  %17 = select i1 %16, i32 3, i32 1
   %17 = zext nneg i8 %.5.val to i32
   %18 = shl i32 %16, %17
   %19 = load i32, ptr %1, align 4, !tbaa !37
@@ -1368,7 +1368,7 @@ _ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit:
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3, i64 %.sroa.1015.0.i)
   br label %47
 
-47:                                               ; preds = %10, %13, %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
+47:                                               ; preds = %10, %14, %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 41
   store i8 0, ptr %48, align 1, !tbaa !85
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 42

@@ -937,13 +937,13 @@ hwloc_internal_distances_restrict.exit:           ; preds = %37
   br i1 %67, label %.lr.ph, label %._crit_edge
 
 68:                                               ; preds = %.lr.ph
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %exitcond127.not = icmp eq i64 %indvars.iv.next124, %.pre-phi
-  br i1 %exitcond127.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
+  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %exitcond124.not = icmp eq i64 %indvars.iv.next121, %.pre-phi
+  br i1 %exitcond124.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 .lr.ph:                                           ; preds = %64, %68
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %68 ], [ 1, %64 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv123
+  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %68 ], [ 1, %64 ]
+  %69 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv120
   %70 = load ptr, ptr %69, align 8, !tbaa !72
   %71 = load i32, ptr %70, align 8, !tbaa !79
   %.not97 = icmp eq i32 %71, %66
@@ -957,18 +957,18 @@ hwloc_internal_distances_restrict.exit:           ; preds = %37
   %73 = shl nuw nsw i64 %.pre-phi, 2
   %74 = tail call noalias ptr @malloc(i64 noundef %73) #31
   %.not98 = icmp eq ptr %74, null
-  br i1 %.not98, label %101, label %.lr.ph112
+  br i1 %.not98, label %101, label %.lr.ph112.preheader
 
-.lr.ph112:                                        ; preds = %.thread, %.lr.ph112
+.lr.ph112.preheader:                              ; preds = %.thread, %.lr.ph112
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %.lr.ph112 ], [ 0, %.thread ]
   %75 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv128
   %76 = load ptr, ptr %75, align 8, !tbaa !72
   %77 = load i32, ptr %76, align 8, !tbaa !79
   %78 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv128
   store i32 %77, ptr %78, align 4, !tbaa !3
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next129, %.pre-phi
-  br i1 %exitcond132.not, label %.loopexit106, label %.lr.ph112, !llvm.loop !83
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv128, 1
+  %exitcond129.not = icmp eq i64 %indvars.iv.next126, %.pre-phi
+  br i1 %exitcond129.not, label %.loopexit106, label %.lr.ph112, !llvm.loop !83
 
 .loopexit106:                                     ; preds = %.lr.ph112, %._crit_edge
   %.082102 = phi i32 [ %66, %._crit_edge ], [ -1, %.lr.ph112 ]
@@ -1006,29 +1006,29 @@ hwloc_internal_distances_restrict.exit:           ; preds = %37
   br label %.lr.ph115
 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %.lr.ph115
-  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %.lr.ph115 ], [ 0, %.lr.ph115.preheader ]
-  %90 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv133
+  %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.lr.ph115 ], [ 0, %.lr.ph115.preheader ]
+  %90 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv130
   %91 = load ptr, ptr %90, align 8, !tbaa !72
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load i32, ptr %92, align 8, !tbaa !84
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv133
+  %95 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv130
   store i64 %94, ptr %95, align 8, !tbaa !76
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond137.not = icmp eq i64 %indvars.iv.next134, %.pre-phi
-  br i1 %exitcond137.not, label %.loopexit, label %.lr.ph115, !llvm.loop !85
+  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next131, %.pre-phi
+  br i1 %exitcond135.not, label %.loopexit, label %.lr.ph115, !llvm.loop !85
 
 .lr.ph117:                                        ; preds = %89, %.lr.ph117
-  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.lr.ph117 ], [ 0, %89 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv138
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph117 ], [ 0, %89 ]
+  %96 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv136
   %97 = load ptr, ptr %96, align 8, !tbaa !72
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 240
   %99 = load i64, ptr %98, align 8, !tbaa !86
-  %100 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv138
+  %100 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv136
   store i64 %99, ptr %100, align 8, !tbaa !76
-  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
-  %exitcond142.not = icmp eq i64 %indvars.iv.next139, %.pre-phi
-  br i1 %exitcond142.not, label %.loopexit, label %.lr.ph117, !llvm.loop !87
+  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
+  %exitcond141.not = icmp eq i64 %indvars.iv.next137, %.pre-phi
+  br i1 %exitcond141.not, label %.loopexit, label %.lr.ph117, !llvm.loop !87
 
 101:                                              ; preds = %.thread
   tail call void @free(ptr noundef %63) #29

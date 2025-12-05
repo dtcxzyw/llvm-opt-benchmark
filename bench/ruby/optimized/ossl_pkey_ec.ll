@@ -331,48 +331,48 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_long2int_inline.
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %11, label %13
 
-11:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  %12 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.56) #10
+12:                                               ; preds = %rbimpl_size_mul_or_raise.exit
+  %13 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.56) #10
   unreachable
 
-13:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  %14 = call i64 @rb_ary_new_capa(i64 noundef %2) #8
+14:                                               ; preds = %rbimpl_size_mul_or_raise.exit
+  %15 = call i64 @rb_ary_new_capa(i64 noundef %2) #8
   %.not26 = icmp eq i64 %2, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %13
+.lr.ph.preheader:                                 ; preds = %14
   %smax = call i32 @llvm.smax.i32(i32 %5, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
-  %15 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %9, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 16, !tbaa !11
-  %17 = call ptr @OBJ_nid2sn(i32 noundef %16) #8
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !16
-  %20 = call i64 @rb_ary_new_capa(i64 noundef 2) #8
-  %21 = call i64 @rb_str_new_cstr(ptr noundef %17) #8
-  %22 = call i64 @rb_ary_push(i64 noundef %20, i64 noundef %21) #8
-  %.not22 = icmp eq ptr %19, null
-  br i1 %.not22, label %25, label %23
+  %16 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %9, i64 %indvars.iv
+  %17 = load i32, ptr %16, align 16, !tbaa !11
+  %18 = call ptr @OBJ_nid2sn(i32 noundef %17) #8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !16
+  %21 = call i64 @rb_ary_new_capa(i64 noundef 2) #8
+  %22 = call i64 @rb_str_new_cstr(ptr noundef %18) #8
+  %23 = call i64 @rb_ary_push(i64 noundef %21, i64 noundef %22) #8
+  %.not22 = icmp eq ptr %20, null
+  br i1 %.not22, label %26, label %24
 
-23:                                               ; preds = %.lr.ph
-  %24 = call i64 @rb_str_new_cstr(ptr noundef nonnull %19) #8
-  br label %25
+24:                                               ; preds = %.lr.ph
+  %25 = call i64 @rb_str_new_cstr(ptr noundef nonnull %20) #8
+  br label %26
 
-25:                                               ; preds = %.lr.ph, %23
-  %26 = phi i64 [ %24, %23 ], [ 4, %.lr.ph ]
-  %27 = call i64 @rb_ary_push(i64 noundef %20, i64 noundef %26) #8
-  %28 = call i64 @rb_ary_push(i64 noundef %14, i64 noundef %20) #8
+26:                                               ; preds = %.lr.ph, %24
+  %27 = phi i64 [ %25, %23 ], [ 4, %.lr.ph ]
+  %28 = call i64 @rb_ary_push(i64 noundef %21, i64 noundef %27) #8
+  %29 = call i64 @rb_ary_push(i64 noundef %15, i64 noundef %21) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %25, %13
-  ret i64 %14
+._crit_edge:                                      ; preds = %26, %14
+  ret i64 %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

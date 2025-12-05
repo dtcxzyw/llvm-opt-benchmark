@@ -1016,11 +1016,11 @@ define void @_ZN6LibRaw12simple_coeffEi(ptr noundef nonnull align 8 captures(non
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.preheader.us
   %indvar = phi i64 [ 0, %.preheader.us.preheader ], [ %indvar.next, %.preheader.us ]
-  %18 = shl nuw nsw i64 %indvar, 4
-  %19 = getelementptr nuw i8, ptr %0, i64 %18
-  %scevgep = getelementptr nuw i8, ptr %19, i64 153304
-  %20 = mul nuw nsw i64 %indvar, %12
-  %scevgep17 = getelementptr i8, ptr %17, i64 %20
+  %17 = shl nuw nsw i64 %indvar, 4
+  %18 = getelementptr nuw i8, ptr %0, i64 %17
+  %scevgep = getelementptr nuw i8, ptr %18, i64 153304
+  %19 = mul nuw nsw i64 %indvar, %12
+  %scevgep17 = getelementptr i8, ptr %17, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 4 dereferenceable(1) %scevgep17, i64 %16, i1 false), !tbaa !83
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, 3

@@ -38,75 +38,75 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   %or.cond186 = icmp ult i8 %19, -2
   br i1 %or.cond186, label %176, label %20
 
-20:                                               ; preds = %15
+20: ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %22 = load i8, ptr %21, align 1, !tbaa !11
   %23 = icmp ugt i8 %22, 1
   br i1 %23, label %176, label %24
 
-24:                                               ; preds = %20
+24:; preds = %20
   %25 = udiv i32 400000000, %9
   %.not = icmp ult i32 %13, %25
   br i1 %.not, label %26, label %176
 
-26:                                               ; preds = %24
+26:; preds = %24
   %27 = mul i32 %13, %9
   %28 = add nuw nsw i32 %18, 1
-  %29 = mul i32 %28, %27
-  %30 = add i32 %29, 22
-  %31 = sext i32 %30 to i64
-  %32 = tail call noalias ptr @malloc(i64 noundef %31) #8
-  %.not185 = icmp eq ptr %32, null
-  br i1 %.not185, label %176, label %33
+  %28 = mul i32 %28, %27
+  %29 = add i32 %28, 22
+  %30 = sext i32 %29 to i64
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #8
+  %.not185 = icmp eq ptr %31, null
+  br i1 %.not185, label %176, label %32
 
-33:                                               ; preds = %26
-  store i8 113, ptr %32, align 1, !tbaa !12
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store i8 111, ptr %34, align 1, !tbaa !12
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 2
-  store i8 105, ptr %35, align 1, !tbaa !12
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 3
-  store i8 102, ptr %36, align 1, !tbaa !12
-  %37 = lshr i32 %9, 24
-  %38 = trunc nuw i32 %37 to i8
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i8 %38, ptr %39, align 1, !tbaa !12
-  %40 = lshr i32 %9, 16
-  %41 = trunc i32 %40 to i8
-  %42 = getelementptr inbounds nuw i8, ptr %32, i64 5
-  store i8 %41, ptr %42, align 1, !tbaa !12
-  %43 = lshr i32 %9, 8
-  %44 = trunc i32 %43 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %32, i64 6
-  store i8 %44, ptr %45, align 1, !tbaa !12
-  %46 = trunc i32 %9 to i8
-  %47 = getelementptr inbounds nuw i8, ptr %32, i64 7
-  store i8 %46, ptr %47, align 1, !tbaa !12
-  %48 = lshr i32 %13, 24
-  %49 = trunc nuw nsw i32 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i8 %49, ptr %50, align 1, !tbaa !12
-  %51 = lshr i32 %13, 16
-  %52 = trunc i32 %51 to i8
-  %53 = getelementptr inbounds nuw i8, ptr %32, i64 9
-  store i8 %52, ptr %53, align 1, !tbaa !12
-  %54 = lshr i32 %13, 8
-  %55 = trunc i32 %54 to i8
-  %56 = getelementptr inbounds nuw i8, ptr %32, i64 10
-  store i8 %55, ptr %56, align 1, !tbaa !12
-  %57 = trunc i32 %13 to i8
-  %58 = getelementptr inbounds nuw i8, ptr %32, i64 11
-  store i8 %57, ptr %58, align 1, !tbaa !12
-  %59 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  store i8 %17, ptr %59, align 1, !tbaa !12
-  %60 = getelementptr inbounds nuw i8, ptr %32, i64 13
-  store i8 %22, ptr %60, align 1, !tbaa !12
+32:                                               ; preds = %26
+  store i8 113, ptr %31, align 1, !tbaa !12
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store i8 111, ptr %33, align 1, !tbaa !12
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 2
+  store i8 105, ptr %34, align 1, !tbaa !12
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 3
+  store i8 102, ptr %35, align 1, !tbaa !12
+  %36 = lshr i32 %9, 24
+  %37 = trunc nuw i32 %36 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i8 %37, ptr %38, align 1, !tbaa !12
+  %39 = lshr i32 %9, 16
+  %40 = trunc i32 %39 to i8
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 5
+  store i8 %40, ptr %41, align 1, !tbaa !12
+  %42 = lshr i32 %9, 8
+  %43 = trunc i32 %42 to i8
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 6
+  store i8 %43, ptr %44, align 1, !tbaa !12
+  %45 = trunc i32 %9 to i8
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 7
+  store i8 %45, ptr %46, align 1, !tbaa !12
+  %47 = lshr i32 %13, 24
+  %48 = trunc nuw nsw i32 %47 to i8
+  %49 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i8 %48, ptr %49, align 1, !tbaa !12
+  %50 = lshr i32 %13, 16
+  %51 = trunc i32 %50 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %31, i64 9
+  store i8 %51, ptr %52, align 1, !tbaa !12
+  %53 = lshr i32 %13, 8
+  %54 = trunc i32 %53 to i8
+  %55 = getelementptr inbounds nuw i8, ptr %31, i64 10
+  store i8 %54, ptr %55, align 1, !tbaa !12
+  %56 = trunc i32 %13 to i8
+  %57 = getelementptr inbounds nuw i8, ptr %31, i64 11
+  store i8 %56, ptr %57, align 1, !tbaa !12
+  %58 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  store i8 %17, ptr %58, align 1, !tbaa !12
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 13
+  store i8 %22, ptr %59, align 1, !tbaa !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %61 = mul i32 %27, %18
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.lr.ph, label %.preheader
 
-.lr.ph:                                           ; preds = %33
+.lr.ph:                                           ; preds = %32
   %63 = sub nsw i32 %61, %18
   %64 = icmp eq i8 %17, 4
   %65 = zext nneg i8 %17 to i64
@@ -118,9 +118,9 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   %68 = sext i32 %.1211 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit, %33
+.preheader:                                       ; preds = %.preheader.loopexit, %32
   %.0210.lcssa = phi i64 [ 14, %33 ], [ %68, %.preheader.loopexit ]
-  %scevgep = getelementptr i8, ptr %32, i64 %.0210.lcssa
+  %scevgep = getelementptr i8, ptr %31, i64 %.0210.lcssa
   store i64 72057594037927936, ptr %scevgep, align 1, !tbaa !12
   %69 = trunc nsw i64 %.0210.lcssa to i32
   %70 = add i32 %69, 8
@@ -185,7 +185,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   %89 = or i8 %88, -64
   %90 = add nsw i32 %.0210213, 1
   %91 = sext i32 %.0210213 to i64
-  %92 = getelementptr inbounds i8, ptr %32, i64 %91
+  %92 = getelementptr inbounds i8, ptr %31, i64 %91
   store i8 %89, ptr %92, align 1, !tbaa !12
   br label %174
 
@@ -199,7 +199,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   %98 = or i8 %97, -64
   %99 = add nsw i32 %.0210213, 1
   %100 = sext i32 %.0210213 to i64
-  %101 = getelementptr inbounds i8, ptr %32, i64 %100
+  %101 = getelementptr inbounds i8, ptr %31, i64 %100
   store i8 %98, ptr %101, align 1, !tbaa !12
   br label %102
 
@@ -224,7 +224,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   %116 = trunc nuw nsw i32 %110 to i8
   %117 = add nsw i32 %.2212, 1
   %118 = sext i32 %.2212 to i64
-  %119 = getelementptr inbounds i8, ptr %32, i64 %118
+  %119 = getelementptr inbounds i8, ptr %31, i64 %118
   store i8 %116, ptr %119, align 1, !tbaa !12
   br label %174
 
@@ -263,7 +263,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   %138 = or i8 %137, 64
   %139 = add nsw i32 %.2212, 1
   %140 = sext i32 %.2212 to i64
-  %141 = getelementptr inbounds i8, ptr %32, i64 %140
+  %141 = getelementptr inbounds i8, ptr %31, i64 %140
   store i8 %138, ptr %141, align 1, !tbaa !12
   br label %174
 
@@ -283,7 +283,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
 150:                                              ; preds = %142
   %151 = or disjoint i8 %146, -128
   %152 = sext i32 %.2212 to i64
-  %153 = getelementptr i8, ptr %32, i64 %152
+  %153 = getelementptr i8, ptr %31, i64 %152
   store i8 %151, ptr %153, align 1, !tbaa !12
   %154 = shl nsw i8 %144, 4
   %155 = or disjoint i8 %148, %154
@@ -295,7 +295,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
 
 159:                                              ; preds = %142
   %160 = sext i32 %.2212 to i64
-  %161 = getelementptr i8, ptr %32, i64 %160
+  %161 = getelementptr i8, ptr %31, i64 %160
   store i8 -2, ptr %161, align 1, !tbaa !12
   %162 = getelementptr i8, ptr %161, i64 1
   store i8 %73, ptr %162, align 1, !tbaa !12
@@ -308,7 +308,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
 
 166:                                              ; preds = %120
   %167 = sext i32 %.2212 to i64
-  %168 = getelementptr i8, ptr %32, i64 %167
+  %168 = getelementptr i8, ptr %31, i64 %167
   store i8 -1, ptr %168, align 1, !tbaa !12
   %169 = getelementptr i8, ptr %168, i64 1
   store i8 %73, ptr %169, align 1, !tbaa !12
@@ -329,7 +329,7 @@ define dso_local noalias noundef ptr @qoi_encode(ptr noundef readonly captures(a
   br i1 %175, label %71, label %.preheader.loopexit, !llvm.loop !14
 
 176:                                              ; preds = %26, %3, %8, %11, %15, %20, %24, %.preheader
-  %.0 = phi ptr [ %32, %.preheader ], [ null, %24 ], [ null, %20 ], [ null, %15 ], [ null, %11 ], [ null, %8 ], [ null, %3 ], [ null, %26 ]
+  %.0 = phi ptr [ %31, %.preheader ], [ null, %24 ], [ null, %20 ], [ null, %15 ], [ null, %11 ], [ null, %8 ], [ null, %3 ], [ null, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

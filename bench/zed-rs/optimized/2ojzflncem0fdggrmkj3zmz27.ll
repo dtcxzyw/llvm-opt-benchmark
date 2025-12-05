@@ -42954,7 +42954,7 @@ tailrecurse.backedge.i:                           ; preds = %.lr.ph.i, %.lr.ph.i
   %or.cond7 = and i1 %or.cond, %200
   br i1 %or.cond7, label %"_ZN60_$LT$vim..motion..Motion$u20$as$u20$core..cmp..PartialEq$GT$2eq17h33d1c085b8b3dd57E.exit", label %201
 
-201:                                              ; preds = %197
+201:; preds = %197
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %203 = load i8, ptr %202, align 1, !range !36, !noundef !5
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 1

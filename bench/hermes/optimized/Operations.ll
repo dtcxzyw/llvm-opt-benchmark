@@ -1486,7 +1486,7 @@ cond.true.i:                                      ; preds = %if.then.i84
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit
 
 cond.false.i:                                     ; preds = %_ZNK6hermes2vm10StringView14const_iteratoreqERKS2_.exit
-  %15 = load i16, ptr %itr.sroa.5.0, align 2
+  %16 = load i16, ptr %itr.sroa.5.0, align 2
   %16 = trunc i16 %15 to i8
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit
 
@@ -1497,13 +1497,13 @@ _ZNK6hermes2vm10StringView14const_iteratordeEv.exit: ; preds = %cond.true.i, %co
   br i1 %or.cond, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit
-  %18 = and i8 %cond.i, 15
-  %conv20 = zext nneg i8 %18 to i64
+  %conv.mask = and i8 %cond.i, 15
+  %conv13 = zext nneg i8 %conv.mask to i64
   br label %if.end24
 
 if.else:                                          ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit
-  %19 = or i8 %cond.i, 32
-  %conv21 = sext i8 %19 to i64
+  %18 = or i8 %cond.i, 32
+  %conv21 = sext i8 %18 to i64
   %add = add nsw i64 %conv21, -87
   br label %if.end24
 
@@ -1581,8 +1581,8 @@ for.end:                                          ; preds = %if.then.i84, %_ZNK6
 
 sw.bb56:                                          ; preds = %for.end
   %tobool57 = trunc nuw i8 %lowestExponentBit.0 to i1
-  %20 = uitofp nneg i8 %lastMantissaBit.0 to double
-  %conv60 = select i1 %tobool57, double %20, double 0.000000e+00
+  %19 = uitofp nneg i8 %lastMantissaBit.0 to double
+  %conv60 = select i1 %tobool57, double %19, double 0.000000e+00
   %add61 = fadd double %conv60, %13
   %mul62 = fmul double %expFactor.0, %add61
   br label %return

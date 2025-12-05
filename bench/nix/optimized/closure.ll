@@ -3321,8 +3321,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %2
   %bcmp.fr = freeze i32 %bcmp
   %.not.i = icmp ne i32 %bcmp.fr, 0
   %7 = icmp ult i64 %4, 8
-  %or.cond = or i1 %7, %.not.i
-  br i1 %or.cond, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, label %8
+  %or.cond10 = or i1 %7, %.not.i
+  br i1 %or.cond10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, label %8
 
 8:                                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
   %9 = add i64 %4, -7
@@ -3428,11 +3428,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   store ptr %41, ptr %0, align 8
   %48 = load i64, ptr %42, align 8
   store i64 %48, ptr %40, align 8
-  %.pre14 = load i64, ptr %3, align 8
+  %.pre15 = load i64, ptr %3, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %49 = phi i64 [ %45, %44 ], [ %.pre14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+  %49 = phi i64 [ %45, %44 ], [ %.pre15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %49, ptr %50, align 8
   store ptr %42, ptr %1, align 8

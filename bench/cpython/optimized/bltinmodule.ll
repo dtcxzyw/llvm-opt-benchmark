@@ -1837,8 +1837,8 @@ _PyObject_VectorcallTstate.exit:                  ; preds = %26, %42, %_PyVector
 
 Py_DECREF.exit:                                   ; preds = %.lr.ph99, %49, %52
   %53 = add nuw nsw i64 %.15298, 1
-  %exitcond109.not = icmp eq i64 %53, %.05893
-  br i1 %exitcond109.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !51
+  %exitcond110.not = icmp eq i64 %53, %.05893
+  br i1 %exitcond110.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !51
 
 ._crit_edge100:                                   ; preds = %93, %Py_DECREF.exit, %.preheader, %_PyObject_VectorcallTstate.exit
   %.055127 = phi ptr [ %.055, %_PyObject_VectorcallTstate.exit ], [ null, %.preheader ], [ %.055, %Py_DECREF.exit ], [ null, %93 ]
@@ -1870,8 +1870,8 @@ Py_DECREF.exit:                                   ; preds = %.lr.ph99, %49, %52
   br i1 %.not68, label %.preheader, label %62
 
 .preheader:                                       ; preds = %61
-  %.not118 = icmp eq i64 %.val, 1
-  br i1 %.not118, label %._crit_edge100, label %.lr.ph97
+  %.not101 = icmp eq i64 %.val, 1
+  br i1 %.not101, label %._crit_edge100, label %.lr.ph97
 
 62:                                               ; preds = %61
   %63 = icmp eq i64 %.05195, 1
@@ -1935,8 +1935,8 @@ Py_DECREF.exit74:                                 ; preds = %76, %78, %81
 
 93:                                               ; preds = %92, %87
   %94 = add nuw nsw i64 %.25396, 1
-  %exitcond108.not = icmp eq i64 %94, %.val
-  br i1 %exitcond108.not, label %._crit_edge100, label %.lr.ph97, !llvm.loop !52
+  %exitcond109.not = icmp eq i64 %94, %.val
+  br i1 %exitcond109.not, label %._crit_edge100, label %.lr.ph97, !llvm.loop !52
 
 .loopexit:                                        ; preds = %89, %Py_DECREF.exit74, %62, %54, %._crit_edge100, %57, %13
   %.0 = phi ptr [ null, %13 ], [ %67, %62 ], [ %.055127, %54 ], [ %.055127, %._crit_edge100 ], [ null, %57 ], [ %86, %Py_DECREF.exit74 ], [ null, %89 ]
@@ -4757,7 +4757,7 @@ define internal ptr @builtin_eval(ptr readnone captures(none) %0, ptr noundef %1
   %20 = phi ptr [ %18, %16 ], [ %1, %11 ]
   %21 = load ptr, ptr %20, align 8, !tbaa !39
   %.not35 = icmp eq i64 %19, 0
-  br i1 %.not35, label %.thread38, label %22
+  br i1 %.not35, label %.thread39, label %22
 
 22:                                               ; preds = %.thread
   %23 = getelementptr i8, ptr %20, i64 8
@@ -4766,10 +4766,10 @@ define internal ptr @builtin_eval(ptr readnone captures(none) %0, ptr noundef %1
   br i1 %.not36, label %26, label %25
 
 25:                                               ; preds = %22
-  %.not49 = icmp eq i64 %19, 1
-  br i1 %.not49, label %.thread38, label %26
+  %.not37 = icmp eq i64 %19, 1
+  br i1 %.not37, label %.thread39, label %26
 
-.thread38:                                        ; preds = %25, %.thread
+.thread39:                                        ; preds = %25, %.thread
   %.027.ph = phi ptr [ @_Py_NoneStruct, %.thread ], [ %24, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %33
@@ -4792,9 +4792,9 @@ define internal ptr @builtin_eval(ptr readnone captures(none) %0, ptr noundef %1
   call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.130) #10
   br label %builtin_eval_impl.exit
 
-33:                                               ; preds = %.thread38, %26
-  %.02743 = phi ptr [ %.027.ph, %.thread38 ], [ %.1, %26 ]
-  %.not51.i = icmp eq ptr %.02743, @_Py_NoneStruct
+33:                                               ; preds = %.thread39, %26
+  %.02744 = phi ptr [ %.027.ph, %.thread38 ], [ %.1, %26 ]
+  %.not51.i = icmp eq ptr %.02744, @_Py_NoneStruct
   br i1 %.not51.i, label %45, label %34
 
 .thread1.i:                                       ; preds = %29
@@ -4802,7 +4802,7 @@ define internal ptr @builtin_eval(ptr readnone captures(none) %0, ptr noundef %1
   br i1 %.not512.i, label %49, label %.thread4.i
 
 34:                                               ; preds = %33
-  %35 = getelementptr i8, ptr %.02743, i64 8
+  %35 = getelementptr i8, ptr %.02744, i64 8
   %.val.i = load ptr, ptr %35, align 8, !tbaa !20
   %36 = getelementptr i8, ptr %.val.i, i64 168
   %.val56.i = load i64, ptr %36, align 8, !tbaa !49
@@ -4820,9 +4820,9 @@ define internal ptr @builtin_eval(ptr readnone captures(none) %0, ptr noundef %1
   br i1 %.not527.i, label %41, label %56
 
 41:                                               ; preds = %.thread4.i, %34
-  %.02742 = phi ptr [ %.1, %.thread4.i ], [ %.02743, %34 ]
+  %.02743 = phi ptr [ %.1, %.thread4.i ], [ %.02744, %34 ]
   %42 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !39
-  %43 = call i32 @PyMapping_Check(ptr noundef %.02742) #10
+  %43 = call i32 @PyMapping_Check(ptr noundef %.02743) #10
   %.not53.i = icmp eq i32 %43, 0
   %44 = select i1 %.not53.i, ptr @.str.132, ptr @.str.131
   call void @PyErr_SetString(ptr noundef %42, ptr noundef nonnull %44) #10
@@ -4841,7 +4841,7 @@ define internal ptr @builtin_eval(ptr readnone captures(none) %0, ptr noundef %1
   br i1 %52, label %Py_INCREF.exit55.i, label %Py_INCREF.exit55.sink.split.i
 
 53:                                               ; preds = %34
-  %54 = load i32, ptr %.02743, align 8, !tbaa !33
+  %54 = load i32, ptr %.02744, align 8, !tbaa !33
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %Py_INCREF.exit55.i.thread, label %Py_INCREF.exit55.sink.split.i
 
@@ -4852,8 +4852,8 @@ define internal ptr @builtin_eval(ptr readnone captures(none) %0, ptr noundef %1
 
 Py_INCREF.exit55.sink.split.i:                    ; preds = %56, %53, %49
   %.sink23.i = phi i32 [ %51, %49 ], [ %54, %53 ], [ %57, %56 ]
-  %.sink22.i = phi ptr [ %28, %49 ], [ %.02743, %53 ], [ %28, %56 ]
-  %.040.ph.i = phi ptr [ %50, %49 ], [ %.02743, %53 ], [ %.1, %56 ]
+  %.sink22.i = phi ptr [ %28, %49 ], [ %.02744, %53 ], [ %28, %56 ]
+  %.040.ph.i = phi ptr [ %50, %49 ], [ %.02744, %53 ], [ %.1, %56 ]
   %59 = add nuw i32 %.sink23.i, 1
   store i32 %59, ptr %.sink22.i, align 8, !tbaa !33
   br label %Py_INCREF.exit55.i
@@ -4870,15 +4870,15 @@ Py_INCREF.exit55.i:                               ; preds = %Py_INCREF.exit55.si
   br label %97
 
 Py_INCREF.exit55.i.thread:                        ; preds = %56, %53, %Py_INCREF.exit55.i
-  %.039.i47 = phi ptr [ %.039.i, %Py_INCREF.exit55.i ], [ %28, %56 ], [ %.02743, %53 ]
-  %.040.i46 = phi ptr [ %.040.i, %Py_INCREF.exit55.i ], [ %.1, %56 ], [ %.02743, %53 ]
-  %63 = call i32 @PyDict_Contains(ptr noundef nonnull %.040.i46, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37432)) #10
+  %.039.i48 = phi ptr [ %.039.i, %Py_INCREF.exit55.i ], [ %28, %56 ], [ %.02744, %53 ]
+  %.040.i47 = phi ptr [ %.040.i, %Py_INCREF.exit55.i ], [ %.1, %56 ], [ %.02744, %53 ]
+  %63 = call i32 @PyDict_Contains(ptr noundef nonnull %.040.i47, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37432)) #10
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %Py_INCREF.exit55.i.thread
   %66 = call ptr @PyEval_GetBuiltins() #10
-  %67 = call i32 @PyDict_SetItem(ptr noundef nonnull %.040.i46, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37432), ptr noundef %66) #10
+  %67 = call i32 @PyDict_SetItem(ptr noundef nonnull %.040.i47, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37432), ptr noundef %66) #10
   br label %68
 
 68:                                               ; preds = %65, %Py_INCREF.exit55.i.thread
@@ -4909,7 +4909,7 @@ Py_INCREF.exit55.i.thread:                        ; preds = %56, %53, %Py_INCREF
   br label %97
 
 80:                                               ; preds = %75
-  %81 = call ptr @PyEval_EvalCode(ptr noundef nonnull %21, ptr noundef nonnull %.040.i46, ptr noundef nonnull %.039.i47) #10
+  %81 = call ptr @PyEval_EvalCode(ptr noundef nonnull %21, ptr noundef nonnull %.040.i47, ptr noundef nonnull %.039.i48) #10
   br label %97
 
 82:                                               ; preds = %70
@@ -4933,7 +4933,7 @@ Py_INCREF.exit55.i.thread:                        ; preds = %56, %53, %Py_INCREF
 
 87:                                               ; preds = %.preheader.i
   %88 = call i32 @PyEval_MergeCompilerFlags(ptr noundef nonnull %6) #10
-  %89 = call ptr @PyRun_StringFlags(ptr noundef nonnull %.037.i, i32 noundef 258, ptr noundef nonnull %.040.i46, ptr noundef nonnull %.039.i47, ptr noundef nonnull %6) #10
+  %89 = call ptr @PyRun_StringFlags(ptr noundef nonnull %.037.i, i32 noundef 258, ptr noundef nonnull %.040.i47, ptr noundef nonnull %.039.i48, ptr noundef nonnull %6) #10
   %90 = load ptr, ptr %5, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i, label %Py_XDECREF.exit.i, label %91
@@ -4959,20 +4959,20 @@ Py_XDECREF.exit.i:                                ; preds = %96, %93, %91, %87, 
   br label %97
 
 97:                                               ; preds = %Py_XDECREF.exit.i, %80, %78, %72, %68, %61
-  %.039.i48 = phi ptr [ %.039.i, %61 ], [ %.039.i47, %68 ], [ %.039.i47, %72 ], [ %.039.i47, %78 ], [ %.039.i47, %80 ], [ %.039.i47, %Py_XDECREF.exit.i ]
+  %.039.i49 = phi ptr [ %.039.i, %61 ], [ %.039.i48, %68 ], [ %.039.i48, %72 ], [ %.039.i48, %78 ], [ %.039.i48, %80 ], [ %.039.i48, %Py_XDECREF.exit.i ]
   %.038.i = phi ptr [ null, %61 ], [ null, %68 ], [ null, %72 ], [ null, %78 ], [ %81, %80 ], [ %.1.i, %Py_XDECREF.exit.i ]
-  %98 = load i32, ptr %.039.i48, align 8, !tbaa !33
+  %98 = load i32, ptr %.039.i49, align 8, !tbaa !33
   %.not.i.i60.i = icmp sgt i32 %98, -1
   br i1 %.not.i.i60.i, label %99, label %builtin_eval_impl.exit
 
 99:                                               ; preds = %97
   %100 = add nsw i32 %98, -1
-  store i32 %100, ptr %.039.i48, align 8, !tbaa !33
+  store i32 %100, ptr %.039.i49, align 8, !tbaa !33
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %builtin_eval_impl.exit
 
 102:                                              ; preds = %99
-  call void @_Py_Dealloc(ptr noundef nonnull %.039.i48) #10
+  call void @_Py_Dealloc(ptr noundef nonnull %.039.i49) #10
   br label %builtin_eval_impl.exit
 
 builtin_eval_impl.exit:                           ; preds = %31, %41, %45, %97, %99, %102

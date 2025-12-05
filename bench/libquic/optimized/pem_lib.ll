@@ -1403,7 +1403,7 @@ define internal fastcc range(i32 0, 2) i32 @load_iv(ptr noundef nonnull captures
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   br label %.lr.ph40
 
-.lr.ph40:                                         ; preds = %.lr.ph40.preheader, %16
+.lr.ph40:                                         ; preds = %.lr.ph40.preheader, %23
   %.038 = phi ptr [ %18, %16 ], [ %4, %.lr.ph40.preheader ]
   %.137 = phi i32 [ %29, %16 ], [ 0, %.lr.ph40.preheader ]
   %8 = load i8, ptr %.038, align 1, !tbaa !6
@@ -1412,23 +1412,23 @@ define internal fastcc range(i32 0, 2) i32 @load_iv(ptr noundef nonnull captures
   %or.cond = icmp ult i8 %10, 10
   br i1 %or.cond, label %16, label %11
 
-11:                                               ; preds = %.lr.ph40
+11:; preds = %.lr.ph40
   %12 = add i8 %8, -65
   %or.cond33 = icmp ult i8 %12, 6
   br i1 %or.cond33, label %16, label %13
 
-13:                                               ; preds = %11
+13:; preds = %11
   %14 = add i8 %8, -97
   %or.cond34 = icmp ult i8 %14, 6
   br i1 %or.cond34, label %16, label %15
 
-15:                                               ; preds = %13
+15:; preds = %13
   tail call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 103, ptr noundef nonnull @.str.8, i32 noundef 492) #12
-  br label %30
+  br label %36
 
-16:                                               ; preds = %13, %11, %.lr.ph40
-  %.sink = phi i32 [ -48, %.lr.ph40 ], [ -55, %11 ], [ -87, %13 ]
-  %17 = add nsw i32 %.sink, %9
+23:                                               ; preds = %13, %11, %.lr.ph40
+  %.027 = phi i32 [ -48, %.lr.ph40 ], [ -55, %11 ], [ -87, %13 ]
+  %17 = add nsw i32 %.027, %9
   %18 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   %19 = shl i32 %.137, 2
   %20 = and i32 %19, 4
@@ -1445,12 +1445,12 @@ define internal fastcc range(i32 0, 2) i32 @load_iv(ptr noundef nonnull captures
   %exitcond.not = icmp eq i32 %29, %smax
   br i1 %exitcond.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !29
 
-._crit_edge41:                                    ; preds = %16, %3
+._crit_edge41:                                    ; preds = %23, %3
   %.0.lcssa = phi ptr [ %4, %3 ], [ %18, %16 ]
   store ptr %.0.lcssa, ptr %0, align 8, !tbaa !11
-  br label %30
+  br label %36
 
-30:                                               ; preds = %._crit_edge41, %15
+36:                                               ; preds = %._crit_edge41, %15
   %.028 = phi i32 [ 0, %15 ], [ 1, %._crit_edge41 ]
   ret i32 %.028
 }

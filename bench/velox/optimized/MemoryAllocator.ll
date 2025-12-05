@@ -808,8 +808,8 @@ land.rhs:                                         ; preds = %land.lhs.true5
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.lhs.true5, %land.rhs, %entry
-  %2 = phi i1 [ true, %entry ], [ false, %land.lhs.true5 ], [ false, %lor.rhs ], [ %cmp10, %land.rhs ]
-  ret i1 %2
+  %3 = phi i1 [ true, %entry ], [ false, %land.lhs.true5 ], [ false, %lor.rhs ], [ %cmp10, %land.rhs ]
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind memory(inaccessiblemem: write) uwtable
@@ -832,7 +832,7 @@ land.lhs.true5.i:                                 ; preds = %lor.rhs.i
   %or.cond = select i1 %cmp7.i, i1 %cmp10.i, i1 false
   br i1 %or.cond, label %if.end, label %if.then
 
-if.then:                                          ; preds = %lor.rhs.i, %land.lhs.true5.i
+_ZN8facebook5velox6memory15MemoryAllocator16isAlignmentValidEmt.exit: ; preds = %lor.rhs.i, %land.lhs.true5.i
   tail call void @llvm.trap()
   unreachable
 

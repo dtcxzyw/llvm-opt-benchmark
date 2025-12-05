@@ -13160,11 +13160,11 @@ switch.lookup:                                    ; preds = %73
   %switch.shiftamt8 = shl nuw nsw i32 %switch.cast7, 3
   %switch.downshift9 = lshr i32 589373984, %switch.shiftamt8
   %switch.masked10 = trunc i32 %switch.downshift9 to i8
-  %78 = and i32 %74, 8256
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit.thread, label %80
+  %79 = and i32 %74, 8256
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit.thread, label %81
 
-80:                                               ; preds = %switch.lookup
+81:                                               ; preds = %switch.lookup
   %81 = and i8 %switch.tableidx, 15
   %switch.masked = icmp eq i8 %81, 3
   %82 = and i32 %74, 8192
@@ -13172,7 +13172,7 @@ switch.lookup:                                    ; preds = %73
   %or.cond.i2 = and i1 %83, %switch.masked
   br i1 %or.cond.i2, label %_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit.thread, label %_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit
 
-_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit: ; preds = %80
+_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit: ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %.sroa.05.0.copyload.i = load i40, ptr %84, align 1, !alias.scope !2654, !noalias !2661
   %85 = and i32 %74, 32
@@ -13192,7 +13192,7 @@ _ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit: ; pred
   call void @"_ZN94_$LT$alacritty_terminal..event_loop..Notifier$u20$as$u20$alacritty_terminal..event..Notify$GT$6notify17h06bb544605ae546fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %90, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
   br label %_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit.thread
 
-_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit.thread: ; preds = %73, %80, %switch.lookup, %_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit, %89
+_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit.thread: ; preds = %73, %81, %switch.lookup, %_ZN8terminal8mappings5mouse18mouse_moved_report17h2aedc570aa8cc579E.exit, %89
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN8terminal8Terminal13mouse_changed17hd9bf37046025433fE.exit
 }

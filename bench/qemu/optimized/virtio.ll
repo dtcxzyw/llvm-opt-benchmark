@@ -10666,10 +10666,10 @@ define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_imp
   br i1 %exitcond74.not, label %.loopexit.sink.split, label %.preheader50, !llvm.loop !65
 
 .lr.ph:                                           ; preds = %.preheader, %33
-  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %33 ], [ %indvars.iv, %.preheader ]
-  %indvars.iv.next64 = add nsw i64 %indvars.iv63, -1
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %33 ], [ %indvars.iv, %.preheader ]
+  %indvars.iv.next63 = add nsw i64 %indvars.iv62, -1
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds nuw %struct.VirtQueue, ptr %24, i64 %indvars.iv.next64
+  %25 = getelementptr inbounds nuw %struct.VirtQueue, ptr %24, i64 %indvars.iv.next63
   %26 = load i32, ptr %25, align 8
   %.not45 = icmp eq i32 %26, 0
   br i1 %.not45, label %33, label %27, !llvm.loop !66
@@ -10677,7 +10677,7 @@ define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_imp
 27:                                               ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 116
   tail call void @event_notifier_set_handler(ptr noundef nonnull %28, ptr noundef null) #24
-  %29 = trunc nuw nsw i64 %indvars.iv.next64 to i32
+  %29 = trunc nuw nsw i64 %indvars.iv.next63 to i32
   %30 = tail call i32 @virtio_bus_set_host_notifier(ptr noundef %4, i32 noundef %29, i1 noundef zeroext false) #24
   %31 = icmp sgt i32 %30, -1
   br i1 %31, label %33, label %32
@@ -10687,7 +10687,7 @@ define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_imp
   unreachable
 
 33:                                               ; preds = %27, %.lr.ph
-  %34 = icmp sgt i64 %indvars.iv63, 1
+  %34 = icmp sgt i64 %indvars.iv62, 1
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %33
@@ -10703,7 +10703,7 @@ define internal range(i32 -2147483648, 1) i32 @virtio_device_start_ioeventfd_imp
   %.not44 = icmp eq i32 %37, 0
   br i1 %.not44, label %.backedge, label %38
 
-38:                                               ; preds = %.lr.ph56
+38:; preds = %.lr.ph56
   %39 = trunc nuw nsw i64 %indvars.iv.next69 to i32
   tail call void @virtio_bus_cleanup_host_notifier(ptr noundef %4, i32 noundef %39) #24
   br label %.backedge

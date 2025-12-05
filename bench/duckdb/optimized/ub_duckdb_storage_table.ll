@@ -65913,17 +65913,17 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %64, %71
   %73 = load ptr, ptr %17, align 8, !tbaa !1826
   %74 = load ptr, ptr %15, align 8, !tbaa !1829
   %.not84 = icmp eq ptr %73, %74
-  br i1 %.not84, label %.loopexit, label %.lr.ph81
+  br i1 %.not84, label %.loopexit, label %.lr.ph82
 
-.lr.ph81:                                         ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
+.lr.ph82:                                         ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %76
 
-76:                                               ; preds = %.lr.ph81, %_ZN6duckdb15ColumnScanState10InitializeERKNS_11LogicalTypeENS_12optional_ptrINS_16TableScanOptionsELb1EEE.exit
-  %.080 = phi i64 [ 0, %.lr.ph81 ], [ %77, %_ZN6duckdb15ColumnScanState10InitializeERKNS_11LogicalTypeENS_12optional_ptrINS_16TableScanOptionsELb1EEE.exit ]
-  %77 = add nuw i64 %.080, 1
+76:                                               ; preds = %.lr.ph82, %_ZN6duckdb15ColumnScanState10InitializeERKNS_11LogicalTypeENS_12optional_ptrINS_16TableScanOptionsELb1EEE.exit
+  %.081 = phi i64 [ 0, %.lr.ph81 ], [ %77, %_ZN6duckdb15ColumnScanState10InitializeERKNS_11LogicalTypeENS_12optional_ptrINS_16TableScanOptionsELb1EEE.exit ]
+  %77 = add nuw i64 %.081, 1
   %78 = call noundef nonnull align 8 dereferenceable(152) ptr @_ZN6duckdb6vectorINS_15ColumnScanStateELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %77)
-  %79 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %.080)
+  %79 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %.081)
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -66006,8 +66006,8 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit41:            ; preds = %97, %104
   br i1 %.not83, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit41, %.lr.ph
-  %.03779 = phi i64 [ %120, %.lr.ph ], [ 0, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit41 ]
-  %108 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb6vectorINS_12StorageIndexELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.03779)
+  %.03780 = phi i64 [ %120, %.lr.ph ], [ 0, %_ZNSt6vectorIbSaIbEE6resizeEmb.exit41 ]
+  %108 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6duckdb6vectorINS_12StorageIndexELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.03780)
   %109 = load i64, ptr %108, align 8, !tbaa !1815
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %111 = tail call { ptr, i64 } @_ZN6duckdb6vectorIbLb1EE3getILb1EEESt14_Bit_referencem(ptr noundef nonnull align 8 dereferenceable(40) %44, i64 noundef %109)
@@ -66021,7 +66021,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit41:            ; preds = %97, %104
   %118 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6duckdb6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11LogicalTypeEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %109)
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
   tail call void @_ZN6duckdb15ColumnScanState10InitializeERKNS_11LogicalTypeERKNS_6vectorINS_12StorageIndexELb1EEENS_12optional_ptrINS_16TableScanOptionsELb1EEE(ptr noundef nonnull align 8 dereferenceable(152) %117, ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %110, ptr %3)
-  %120 = add nuw i64 %.03779, 1
+  %120 = add nuw i64 %.03780, 1
   %121 = load ptr, ptr %41, align 8, !tbaa !1609
   %122 = load ptr, ptr %2, align 8, !tbaa !1606
   %123 = ptrtoint ptr %121 to i64
@@ -66055,8 +66055,8 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit41:            ; preds = %97, %104
   br label %_ZNSt6vectorIN6duckdb15ColumnScanStateESaIS1_EE6resizeEm.exit47
 
 142:                                              ; preds = %130
-  %.not82 = icmp eq i64 %137, 304
-  br i1 %.not82, label %_ZNSt6vectorIN6duckdb15ColumnScanStateESaIS1_EE6resizeEm.exit47, label %143
+  %.not78 = icmp eq i64 %137, 304
+  br i1 %.not78, label %_ZNSt6vectorIN6duckdb15ColumnScanStateESaIS1_EE6resizeEm.exit47, label %143
 
 143:                                              ; preds = %142
   %144 = getelementptr inbounds nuw i8, ptr %134, i64 304

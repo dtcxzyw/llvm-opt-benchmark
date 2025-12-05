@@ -4940,7 +4940,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %
   %43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #19
           to label %.lr.ph unwind label %102
 
-.lr.ph:                                           ; preds = %_ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvRT_T0_.exit.lr.ph: ; preds = %_ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %43, ptr %5, align 8
   store ptr %43, ptr %44, align 8
@@ -4952,7 +4952,7 @@ _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvRT_T0_.exit
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvRT_T0_.exit: ; preds = %.lr.ph, %_ZNSt6vectorIlSaIlEED2Ev.exit
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvRT_T0_.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvRT_T0_.exit.lr.ph, %_ZNSt6vectorIlSaIlEED2Ev.exit
   %.019102 = phi i32 [ 0, %.lr.ph ], [ %101, %_ZNSt6vectorIlSaIlEED2Ev.exit ]
   %.sroa.0.0101 = phi ptr [ %29, %.lr.ph ], [ %50, %_ZNSt6vectorIlSaIlEED2Ev.exit ]
   %.sroa.070.0100 = phi ptr [ %29, %.lr.ph ], [ %94, %_ZNSt6vectorIlSaIlEED2Ev.exit ]
@@ -4999,16 +4999,16 @@ _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i34: ; preds = %_ZNSt6v
 60:                                               ; preds = %55
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  %.pre = load ptr, ptr %6, align 8
-  %.not.i.i6.i31 = icmp eq ptr %.pre, null
+  %.pre109 = load ptr, ptr %6, align 8
+  %.not.i.i6.i31 = icmp eq ptr %.pre109, null
   br i1 %.not.i.i6.i31, label %.body36, label %61
 
 61:                                               ; preds = %60
   %62 = load ptr, ptr %47, align 8
   %63 = ptrtoint ptr %62 to i64
-  %64 = ptrtoint ptr %.pre to i64
+  %64 = ptrtoint ptr %.pre109 to i64
   %65 = sub i64 %63, %64
-  call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %65) #21
+  call void @_ZdlPvm(ptr noundef nonnull %.pre109, i64 noundef %65) #21
   br label %.body36
 
 66:                                               ; preds = %.noexc5.i33, %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.thread.i.i34

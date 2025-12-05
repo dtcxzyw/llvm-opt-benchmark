@@ -2463,17 +2463,17 @@ define void @pcp_rotate(i32 noundef %0, i32 noundef %1, ptr noundef captures(non
 .preheader99.us:                                  ; preds = %.preheader99.us.preheader, %._crit_edge.us116
   %indvars.iv148 = phi i64 [ 0, %.preheader99.us.preheader ], [ %indvars.iv.next149, %._crit_edge.us116 ]
   %23 = mul nuw nsw i64 %indvars.iv148, %22
-  %invariant.gep187 = getelementptr inbounds nuw double, ptr %2, i64 %23
+  %invariant.gep188 = getelementptr inbounds nuw double, ptr %2, i64 %23
   br label %24
 
 24:                                               ; preds = %.preheader99.us, %24
   %indvars.iv143 = phi i64 [ 0, %.preheader99.us ], [ %indvars.iv.next144, %24 ]
-  %gep188 = getelementptr inbounds nuw double, ptr %invariant.gep187, i64 %indvars.iv143
-  %25 = load double, ptr %gep188, align 8, !tbaa !39
+  %gep189 = getelementptr inbounds nuw double, ptr %invariant.gep188, i64 %indvars.iv143
+  %25 = load double, ptr %gep189, align 8, !tbaa !39
   %26 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv143
   %27 = load double, ptr %26, align 8, !tbaa !39
   %28 = fsub double %25, %27
-  store double %28, ptr %gep188, align 8, !tbaa !39
+  store double %28, ptr %gep189, align 8, !tbaa !39
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
   br i1 %exitcond147.not, label %._crit_edge.us116, label %24, !llvm.loop !93
@@ -2505,26 +2505,26 @@ define void @pcp_rotate(i32 noundef %0, i32 noundef %1, ptr noundef captures(non
 .preheader97.us:                                  ; preds = %.preheader97.us.preheader, %._crit_edge120.split.us.us
   %indvars.iv163 = phi i64 [ 0, %.preheader97.us.preheader ], [ %indvars.iv.next164, %._crit_edge120.split.us.us ]
   %34 = mul nuw nsw i64 %indvars.iv163, %33
-  %invariant.gep193 = getelementptr inbounds nuw double, ptr %2, i64 %34
-  %invariant.gep189 = getelementptr inbounds nuw double, ptr %2, i64 %34
+  %invariant.gep194 = getelementptr inbounds nuw double, ptr %2, i64 %34
+  %invariant.gep190 = getelementptr inbounds nuw double, ptr %2, i64 %34
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %._crit_edge.us121.us, %.preheader97.us
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %._crit_edge.us121.us ], [ 0, %.preheader97.us ]
-  %gep194 = getelementptr inbounds nuw double, ptr %invariant.gep193, i64 %indvars.iv158
-  %35 = load double, ptr %gep194, align 8, !tbaa !39
+  %gep195 = getelementptr inbounds nuw double, ptr %invariant.gep194, i64 %indvars.iv158
+  %35 = load double, ptr %gep195, align 8, !tbaa !39
   %36 = mul nuw nsw i64 %indvars.iv158, %33
-  %invariant.gep191 = getelementptr inbounds nuw double, ptr %4, i64 %36
+  %invariant.gep192 = getelementptr inbounds nuw double, ptr %4, i64 %36
   br label %37
 
 37:                                               ; preds = %37, %.preheader.us.us
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %37 ], [ 0, %.preheader.us.us ]
-  %gep190 = getelementptr inbounds nuw double, ptr %invariant.gep189, i64 %indvars.iv153
-  %38 = load double, ptr %gep190, align 8, !tbaa !39
-  %gep192 = getelementptr inbounds nuw double, ptr %invariant.gep191, i64 %indvars.iv153
-  %39 = load double, ptr %gep192, align 8, !tbaa !39
+  %gep191 = getelementptr inbounds nuw double, ptr %invariant.gep190, i64 %indvars.iv153
+  %38 = load double, ptr %gep191, align 8, !tbaa !39
+  %gep193 = getelementptr inbounds nuw double, ptr %invariant.gep192, i64 %indvars.iv153
+  %39 = load double, ptr %gep193, align 8, !tbaa !39
   %40 = tail call double @llvm.fmuladd.f64(double %35, double %38, double %39)
-  store double %40, ptr %gep192, align 8, !tbaa !39
+  store double %40, ptr %gep193, align 8, !tbaa !39
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count161
   br i1 %exitcond157.not, label %._crit_edge.us121.us, label %37, !llvm.loop !96

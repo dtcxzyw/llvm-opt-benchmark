@@ -11572,8 +11572,8 @@ for.end:                                          ; preds = %if.then7
 
 sw.bb53:                                          ; preds = %for.end
   %tobool54 = trunc nuw i8 %lowestExponentBit.0 to i1
-  %7 = uitofp nneg i8 %lastMantissaBit.0 to double
-  %conv57 = select i1 %tobool54, double %7, double 0.000000e+00
+  %8 = uitofp nneg i8 %lastMantissaBit.0 to double
+  %conv57 = select i1 %tobool54, double %8, double 0.000000e+00
   %add58 = fadd double %result.1, %conv57
   %mul59 = fmul double %expFactor.0, %add58
   br label %return

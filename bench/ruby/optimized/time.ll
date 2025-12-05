@@ -1432,8 +1432,8 @@ RSTRING_PTR.exit:                                 ; preds = %4, %9
   %10 = tail call ptr @rb_enc_get(i64 noundef %2) #22
   %11 = getelementptr i8, ptr %10, i64 20
   %.val.i.i = load i32, ptr %11, align 4, !tbaa !48
-  %.not.i.i80 = icmp eq i32 %.val.i.i, 1
-  br i1 %.not.i.i80, label %rb_enc_str_asciicompat_p.exit, label %rb_enc_str_asciicompat_p.exit.thread
+  %.not.i.i82 = icmp eq i32 %.val.i.i, 1
+  br i1 %.not.i.i82, label %rb_enc_str_asciicompat_p.exit, label %rb_enc_str_asciicompat_p.exit.thread
 
 rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
   %12 = tail call i32 @rb_enc_dummy_p(ptr noundef nonnull readonly %10) #25
@@ -1458,19 +1458,19 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
   %19 = icmp eq i8 %17, 90
   br i1 %19, label %rb_enc_str_asciicompat_p.exit.thread, label %20
 
-20:                                               ; preds = %16
-  %21 = add i8 %17, -65
-  %or.cond = icmp ult i8 %21, 9
-  br i1 %or.cond, label %22, label %24
+19:                                               ; preds = %16
+  %20 = add i8 %17, -65
+  %or.cond = icmp ult i8 %20, 9
+  br i1 %or.cond, label %21, label %24
 
-22:                                               ; preds = %20
+21:                                               ; preds = %19
   %23 = add nsw i64 %18, -64
   br label %32
 
-24:                                               ; preds = %20
+24:                                               ; preds = %19
   %25 = add i8 %17, -75
-  %or.cond76 = icmp ult i8 %25, 3
-  br i1 %or.cond76, label %26, label %28
+  %or.cond78 = icmp ult i8 %25, 3
+  br i1 %or.cond78, label %26, label %28
 
 26:                                               ; preds = %24
   %27 = add nsw i64 %18, -65
@@ -1478,14 +1478,14 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
 
 28:                                               ; preds = %24
   %29 = add i8 %17, -78
-  %or.cond77 = icmp ult i8 %29, 12
-  br i1 %or.cond77, label %30, label %rb_enc_str_asciicompat_p.exit.thread
+  %or.cond79 = icmp ult i8 %29, 12
+  br i1 %or.cond79, label %30, label %rb_enc_str_asciicompat_p.exit.thread
 
 30:                                               ; preds = %28
-  %31 = sub nsw i64 77, %18
+  %narrow = sub nsw i64 77, %18
   br label %32
 
-32:                                               ; preds = %26, %30, %22
+32:                                               ; preds = %26, %30, %21
   %.055 = phi i64 [ %23, %22 ], [ %27, %26 ], [ %31, %30 ]
   %33 = mul nsw i64 %.055, 7200
   %34 = or disjoint i64 %33, 1
@@ -1494,7 +1494,7 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
 35:                                               ; preds = %13
   %36 = tail call i32 @rb_st_locale_insensitive_strncasecmp(ptr noundef nonnull @.str.33, ptr noundef %.sroa.2.0.i, i64 noundef 3) #25
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %rb_enc_str_asciicompat_p.exit.thread, label %.thread86
+  br i1 %37, label %rb_enc_str_asciicompat_p.exit.thread, label %.thread88
 
 38:                                               ; preds = %13
   %39 = getelementptr i8, ptr %.sroa.2.0.i, i64 5
@@ -1538,10 +1538,10 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
   %59 = add nsw i32 %58, -58
   %60 = icmp ult i32 %59, -10
   %61 = icmp sgt i8 %51, 53
-  %or.cond78 = or i1 %61, %60
-  br i1 %or.cond78, label %rb_enc_str_asciicompat_p.exit.thread, label %.thread90
+  %or.cond80 = or i1 %61, %60
+  br i1 %or.cond80, label %rb_enc_str_asciicompat_p.exit.thread, label %.thread92
 
-.thread90:                                        ; preds = %55
+.thread92:                                        ; preds = %55
   %62 = mul nuw nsw i32 %52, 10
   %63 = add nsw i32 %62, -528
   %64 = add nsw i32 %63, %58
@@ -1552,10 +1552,10 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
 
 67:                                               ; preds = %48
   %.not69 = icmp eq ptr %49, null
-  br i1 %.not69, label %.thread86, label %68
+  br i1 %.not69, label %.thread88, label %68
 
-68:                                               ; preds = %.thread90, %67
-  %.15695 = phi i32 [ %66, %.thread90 ], [ -31680, %67 ]
+68:                                               ; preds = %.thread92, %67
+  %.15697 = phi i32 [ %66, %.thread90 ], [ -31680, %67 ]
   %69 = load i8, ptr %49, align 1, !tbaa !53
   %70 = sext i8 %69 to i32
   %71 = add nsw i32 %70, -58
@@ -1569,18 +1569,18 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
   %77 = add nsw i32 %76, -58
   %78 = icmp ult i32 %77, -10
   %79 = icmp sgt i8 %69, 53
-  %or.cond79 = or i1 %79, %78
-  br i1 %or.cond79, label %rb_enc_str_asciicompat_p.exit.thread, label %80
+  %or.cond81 = or i1 %79, %78
+  br i1 %or.cond81, label %rb_enc_str_asciicompat_p.exit.thread, label %80
 
 80:                                               ; preds = %73
   %81 = mul nuw nsw i32 %70, 10
   %82 = add nuw nsw i32 %81, %76
   %83 = mul nuw nsw i32 %82, 60
-  %84 = add nsw i32 %.15695, %83
+  %84 = add nsw i32 %.15697, %83
   %85 = add nuw nsw i32 %84, -1900800
-  br label %.thread86
+  br label %.thread88
 
-.thread86:                                        ; preds = %35, %80, %67
+.thread88:                                        ; preds = %35, %80, %67
   %.257 = phi i32 [ %85, %80 ], [ -1900800, %67 ], [ -1900800, %35 ]
   %86 = load i8, ptr %.sroa.2.0.i, align 1, !tbaa !53
   switch i8 %86, label %rb_enc_str_asciicompat_p.exit.thread [
@@ -1588,7 +1588,7 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
     i8 45, label %87
   ]
 
-87:                                               ; preds = %.thread86, %.thread86
+87:                                               ; preds = %.thread88, %.thread88
   %88 = getelementptr i8, ptr %.sroa.2.0.i, i64 1
   %89 = load i8, ptr %88, align 1, !tbaa !53
   %90 = sext i8 %89 to i32
@@ -1631,7 +1631,7 @@ rb_enc_str_asciicompat_p.exit:                    ; preds = %RSTRING_PTR.exit
   %114 = tail call fastcc i64 @num_exact(i64 noundef %0)
   br label %rb_enc_str_asciicompat_p.exit.thread
 
-rb_enc_str_asciicompat_p.exit.thread:             ; preds = %RSTRING_PTR.exit, %105, %35, %16, %109, %32, %rb_enc_str_asciicompat_p.exit, %28, %40, %45, %13, %55, %50, %73, %68, %.thread86, %93, %87, %113
+rb_enc_str_asciicompat_p.exit.thread:             ; preds = %RSTRING_PTR.exit, %105, %35, %16, %109, %32, %rb_enc_str_asciicompat_p.exit, %28, %40, %45, %13, %55, %50, %73, %68, %.thread88, %93, %87, %113
   %.154 = phi i64 [ %114, %113 ], [ %34, %32 ], [ %112, %109 ], [ 36, %16 ], [ 36, %35 ], [ 36, %105 ], [ 4, %rb_enc_str_asciicompat_p.exit ], [ 4, %28 ], [ 4, %40 ], [ 4, %45 ], [ 4, %13 ], [ 4, %55 ], [ 4, %50 ], [ 4, %73 ], [ 4, %68 ], [ 4, %.thread86 ], [ 4, %93 ], [ 4, %87 ], [ 4, %RSTRING_PTR.exit ]
   ret i64 %.154
 }

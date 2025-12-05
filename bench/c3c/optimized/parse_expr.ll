@@ -122,7 +122,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr noundef cap
   %23 = load i16, ptr %22, align 8
   %24 = and i16 %23, 255
   %.not = icmp eq i16 %24, 0
-  br i1 %.not, label %79, label %.split
+  br i1 %.not, label %80, label %.split
 
 .split:                                           ; preds = %21
   %25 = ptrtoint ptr %19 to i64
@@ -153,7 +153,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr noundef cap
 36:                                               ; preds = %34
   %37 = and i8 %.pre, -9
   store i8 %37, ptr %1, align 4
-  br label %79
+  br label %80
 
 38:                                               ; preds = %34, %.critedge
   %39 = phi i8 [ %.pre, %34 ], [ %33, %.critedge ]
@@ -185,7 +185,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr noundef cap
   %56 = load i16, ptr %55, align 8
   %57 = and i16 %56, 255
   %.not49 = icmp eq i16 %57, 0
-  br i1 %.not49, label %79, label %.split42
+  br i1 %.not49, label %80, label %.split42
 
 .split42:                                         ; preds = %54
   %58 = ptrtoint ptr %52 to i64
@@ -200,7 +200,7 @@ define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr noundef cap
   %phi.call44 = trunc i64 %phi.call44.in to i32
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %phi.call44, ptr %61, align 4
-  br label %79
+  br label %80
 
 62:                                               ; preds = %46
   %63 = and i8 %42, 4
@@ -236,7 +236,7 @@ extend_span_with_token.exit:                      ; preds = %67, %68
   %76 = and i64 %.sroa.06.0.copyload, -16711681
   %.sroa.010.0.insert.insert.i = or disjoint i64 %.sroa.311.0.insert.shift.i, %76
   tail call void (i64, ptr, ...) @sema_error_at(i64 %.sroa.010.0.insert.insert.i, ptr noundef nonnull @.str) #8
-  br label %79
+  br label %80
 
 77:                                               ; preds = %62
   store i8 %44, ptr %1, align 4
@@ -244,7 +244,7 @@ extend_span_with_token.exit:                      ; preds = %67, %68
   store i32 0, ptr %78, align 4
   br label %79
 
-79:                                               ; preds = %54, %21, %77, %extend_span_with_token.exit, %.critedge2, %36
+80:                                               ; preds = %54, %21, %77, %extend_span_with_token.exit, %.critedge2, %36
   %.0 = phi i1 [ true, %.critedge2 ], [ false, %extend_span_with_token.exit ], [ true, %77 ], [ true, %36 ], [ false, %21 ], [ false, %54 ]
   ret i1 %.0
 }

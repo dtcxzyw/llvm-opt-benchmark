@@ -4291,9 +4291,9 @@ lpad:                                             ; preds = %_ZN10LogMessageC2EP
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noundef zeroext i1 @_ZN3re216CharClassBuilder8AddRangeEii(ptr noundef nonnull align 8 dereferenceable(64) %cc, i32 noundef %lo, i32 noundef %hi)
-  %cmp5.not47 = icmp sle i32 %lo, %hi
-  %or.cond49.not = and i1 %cmp5.not47, %call2
-  br i1 %or.cond49.not, label %while.body.lr.ph, label %while.end
+  %cmp5.not46 = icmp sle i32 %lo, %hi
+  %or.cond48.not = and i1 %cmp5.not46, %call2
+  br i1 %or.cond48.not, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
   %2 = load i32, ptr @_ZN3re220num_unicode_casefoldE, align 4
@@ -4305,7 +4305,7 @@ while.body.lr.ph:                                 ; preds = %if.end
   br i1 %cmp21.i, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %lo.addr.048 = phi i32 [ %lo.addr.0.be, %while.cond.backedge ], [ %lo, %while.body.lr.ph ]
+  %lo.addr.047 = phi i32 [ %lo.addr.0.be, %while.cond.backedge ], [ %lo, %while.body.lr.ph ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body, %if.end.i
@@ -4315,13 +4315,13 @@ while.body.i:                                     ; preds = %while.body, %if.end
   %idxprom.i = zext nneg i32 %div19.i to i64
   %arrayidx.i = getelementptr inbounds nuw %"struct.re2::CaseFold", ptr %f.addr.023.i, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
-  %cmp1.not.i = icmp sgt i32 %3, %lo.addr.048
+  %cmp1.not.i = icmp sgt i32 %3, %lo.addr.047
   br i1 %cmp1.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
   %hi.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %4 = load i32, ptr %hi.i, align 4
-  %cmp4.not.i = icmp sgt i32 %lo.addr.048, %4
+  %cmp4.not.i = icmp sgt i32 %lo.addr.047, %4
   br i1 %cmp4.not.i, label %if.end.i, label %if.end9
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %while.body.i
@@ -4345,7 +4345,7 @@ while.end.i.if.end9_crit_edge:                    ; preds = %while.end.i
 if.end9:                                          ; preds = %land.lhs.true.i, %while.end.i.if.end9_crit_edge
   %5 = phi i32 [ %.pre, %while.end.i.if.end9_crit_edge ], [ %3, %land.lhs.true.i ]
   %retval.0.i37 = phi ptr [ %f.addr.1.i, %while.end.i.if.end9_crit_edge ], [ %arrayidx.i, %land.lhs.true.i ]
-  %cmp11 = icmp slt i32 %lo.addr.048, %5
+  %cmp11 = icmp slt i32 %lo.addr.047, %5
   br i1 %cmp11, label %while.cond.backedge, label %if.end14
 
 if.end14:                                         ; preds = %if.end9
@@ -4360,7 +4360,7 @@ if.end14:                                         ; preds = %if.end9
   ]
 
 sw.bb:                                            ; preds = %if.end14
-  %8 = and i32 %lo.addr.048, -2147483647
+  %8 = and i32 %lo.addr.047, -2147483647
   %cmp20 = icmp eq i32 %8, 1
   %dec = sext i1 %cmp20 to i32
   %9 = and i32 %.sroa.speculated, 1
@@ -4368,21 +4368,21 @@ sw.bb:                                            ; preds = %if.end14
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end14
-  %11 = and i32 %lo.addr.048, 1
-  %sext = add nsw i32 %11, -1
-  %12 = and i32 %.sroa.speculated, -2147483647
-  %cmp34 = icmp eq i32 %12, 1
+  %9 = and i32 %lo.addr.047, 1
+  %sext = add nsw i32 %9, -1
+  %10 = and i32 %.sroa.speculated, -2147483647
+  %cmp34 = icmp eq i32 %10, 1
   %inc36 = zext i1 %cmp34 to i32
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end14, %sw.bb27, %sw.bb
   %.pn = phi i32 [ %dec, %sw.bb ], [ %sext, %sw.bb27 ], [ %7, %if.end14 ]
-  %.pn44 = phi i32 [ %10, %sw.bb ], [ %inc36, %sw.bb27 ], [ %7, %if.end14 ]
-  %hi1.0 = add nsw i32 %.pn44, %.sroa.speculated
+  %hi1.0 = phi i32 [ %10, %sw.bb ], [ %inc36, %sw.bb27 ], [ %7, %if.end14 ]
+  %lo1.0 = add nsw i32 %.pn44, %.sroa.speculated
   %lo1.0 = add nsw i32 %.pn, %lo.addr.048
   tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %cc, i32 noundef %lo1.0, i32 noundef %hi1.0, i32 noundef %add38)
-  %13 = load i32, ptr %hi15, align 4
-  %add40 = add nsw i32 %13, 1
+  %11 = load i32, ptr %hi15, align 4
+  %add40 = add nsw i32 %11, 1
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %sw.epilog, %if.end9

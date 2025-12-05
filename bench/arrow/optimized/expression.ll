@@ -47169,22 +47169,22 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal31StringToSignedIntCon
   %19 = shl i32 %.03145.i, 4
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.03046.i
   %21 = load i8, ptr %20, align 1, !tbaa !84
-  %22 = sext i8 %21 to i32
+  %22 = sext i8 %21 to i38
   %23 = add i8 %21, -48
   %or.cond.i = icmp ult i8 %23, 10
   br i1 %or.cond.i, label %28, label %24
 
-24:                                               ; preds = %.lr.ph.i
+23:                                               ; preds = %.lr.ph.i
   %25 = add i8 %21, -65
   %or.cond39.i = icmp ult i8 %25, 6
   br i1 %or.cond39.i, label %28, label %26
 
-26:                                               ; preds = %24
-  %27 = add i8 %21, -97
-  %or.cond40.i = icmp ult i8 %27, 6
-  br i1 %or.cond40.i, label %28, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, !prof !1133
+25:                                               ; preds = %24
+  %26 = add i8 %21, -97
+  %or.cond39.i = icmp ult i8 %26, 6
+  br i1 %or.cond39.i, label %27, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, !prof !1133
 
-28:                                               ; preds = %26, %24, %.lr.ph.i
+27:                                               ; preds = %25, %24, %.lr.ph.i
   %.sink.i = phi i32 [ -48, %.lr.ph.i ], [ -55, %24 ], [ -87, %26 ]
   %29 = add nsw i32 %.sink.i, %22
   %.2.i = or i32 %29, %19
@@ -47193,46 +47193,46 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal31StringToSignedIntCon
   br i1 %exitcond.not.i, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, label %.lr.ph.i, !llvm.loop !1134
 
 thread-pre-split:                                 ; preds = %8
-  %31 = icmp eq i8 %10, 45
-  br i1 %31, label %32, label %.thread
+  %37 = icmp eq i8 %10, 45
+  br i1 %37, label %38, label %.thread
 
-32:                                               ; preds = %thread-pre-split
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %34 = add i64 %3, -1
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, label %.thread
+38:                                               ; preds = %thread-pre-split
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %40 = add i64 %3, -1
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, label %.thread
 
-.thread:                                          ; preds = %12, %32, %thread-pre-split
-  %36 = phi i1 [ true, %32 ], [ false, %thread-pre-split ], [ false, %12 ]
-  %.024 = phi ptr [ %33, %32 ], [ %2, %thread-pre-split ], [ %2, %12 ]
-  %.023 = phi i64 [ %34, %32 ], [ %3, %thread-pre-split ], [ %3, %12 ]
+.thread:                                          ; preds = %12, %38, %thread-pre-split
+  %42 = phi i1 [ true, %32 ], [ false, %thread-pre-split ], [ false, %12 ]
+  %.024 = phi ptr [ %39, %32 ], [ %2, %thread-pre-split ], [ %2, %12 ]
+  %.023 = phi i64 [ %40, %32 ], [ %3, %thread-pre-split ], [ %3, %12 ]
   %scevgep = getelementptr i8, ptr %.024, i64 %.023
-  br label %37
+  br label %43
 
-37:                                               ; preds = %.thread, %40
-  %.133 = phi i64 [ %.023, %.thread ], [ %41, %40 ]
-  %.12532 = phi ptr [ %.024, %.thread ], [ %42, %40 ]
-  %38 = load i8, ptr %.12532, align 1, !tbaa !84
-  %39 = icmp eq i8 %38, 48
-  br i1 %39, label %40, label %.critedge
+43:                                               ; preds = %.thread, %46
+  %.133 = phi i64 [ %.023, %.thread ], [ %47, %40 ]
+  %.12532 = phi ptr [ %.024, %.thread ], [ %48, %40 ]
+  %44 = load i8, ptr %.12532, align 1, !tbaa !84
+  %45 = icmp eq i8 %44, 48
+  br i1 %45, label %46, label %.critedge
 
-40:                                               ; preds = %37
-  %41 = add i64 %.133, -1
-  %42 = getelementptr inbounds nuw i8, ptr %.12532, i64 1
-  %.not = icmp eq i64 %41, 0
-  br i1 %.not, label %.critedge, label %37, !llvm.loop !1135
+46:                                               ; preds = %43
+  %47 = add i64 %.133, -1
+  %48 = getelementptr inbounds nuw i8, ptr %.12532, i64 1
+  %.not = icmp eq i64 %47, 0
+  br i1 %.not, label %.critedge, label %43, !llvm.loop !1135
 
-.critedge:                                        ; preds = %40, %37
+.critedge:                                        ; preds = %46, %43
   %.125.lcssa = phi ptr [ %scevgep, %40 ], [ %.12532, %37 ]
   %.1.lcssa = phi i64 [ 0, %40 ], [ %.133, %37 ]
-  %43 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %.125.lcssa, i64 noundef %.1.lcssa, ptr noundef nonnull %6)
-  br i1 %43, label %44, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, !prof !282
+  %49 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef nonnull %.125.lcssa, i64 noundef %.1.lcssa, ptr noundef nonnull %6)
+  br i1 %49, label %50, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, !prof !282
 
-44:                                               ; preds = %.critedge
-  %45 = load i32, ptr %6, align 4, !tbaa !85
-  br i1 %36, label %46, label %50
+50:                                               ; preds = %.critedge
+  %51 = load i32, ptr %6, align 4, !tbaa !85
+  br i1 %42, label %54, label %56
 
-46:                                               ; preds = %44
+54:                                               ; preds = %50
   %47 = icmp ugt i32 %45, -2147483648
   br i1 %47, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, label %48, !prof !86
 
@@ -47240,16 +47240,16 @@ thread-pre-split:                                 ; preds = %8
   %49 = sub i32 0, %45
   br label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split
 
-50:                                               ; preds = %44
-  %51 = icmp slt i32 %45, 0
-  br i1 %51, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, !prof !86
+56:                                               ; preds = %50
+  %57 = icmp slt i32 %51, 0
+  br i1 %57, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, !prof !86
 
-_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split: ; preds = %28, %48, %50
-  %storemerge.sink = phi i32 [ %49, %48 ], [ %45, %50 ], [ %.2.i, %28 ]
+_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split: ; preds = %28, %48, %56
+  %storemerge.sink = phi i32 [ %49, %48 ], [ %51, %50 ], [ %.2.i, %28 ]
   store i32 %storemerge.sink, ptr %4, align 4, !tbaa !85
   br label %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread
 
-_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread: ; preds = %26, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, %15, %50, %46, %.critedge, %32, %5
+_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread: ; preds = %26, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split, %15, %56, %54, %.critedge, %38, %5
   %.022 = phi i1 [ false, %5 ], [ false, %32 ], [ false, %.critedge ], [ false, %46 ], [ false, %50 ], [ false, %15 ], [ true, %_ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread.sink.split ], [ false, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.022

@@ -2574,9 +2574,9 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   br label %.critedge
 
 .lr.ph:                                           ; preds = %154, %132, %133
-  br i1 %.not153167, label %.critedge, label %.lr.ph.split
+  br i1 %.not153167, label %.critedge, label %.lr.ph.split.preheader
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
+.lr.ph.split.preheader:                           ; preds = %.lr.ph, %.lr.ph.split
   %.0172 = phi i32 [ %200, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.0141171 = phi i32 [ %198, %.lr.ph.split ], [ %123, %.lr.ph ]
   %.0142170 = phi ptr [ %199, %.lr.ph.split ], [ %124, %.lr.ph ]

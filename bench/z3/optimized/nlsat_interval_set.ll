@@ -2930,7 +2930,7 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %24 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %19, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %.noexc unwind label %.loopexit186
+          to label %.noexc unwind label %.loopexit188
 
 .noexc:                                           ; preds = %22
   %25 = icmp slt i32 %24, 0
@@ -2953,7 +2953,7 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %34 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %19, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %.noexc97 unwind label %.loopexit.split-lp187
+          to label %.noexc97 unwind label %.loopexit.split-lp189
 
 .noexc97:                                         ; preds = %32
   %35 = icmp sgt i32 %34, 0
@@ -2969,13 +2969,13 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
   %.not21.i = icmp eq i8 %40, 0
   br i1 %.not21.i, label %._crit_edge.thread, label %.critedge137
 
-.loopexit186:                                     ; preds = %22
-  %lpad.loopexit188 = landingpad { ptr, i32 }
+.loopexit188:                                     ; preds = %22
+  %lpad.loopexit190 = landingpad { ptr, i32 }
           cleanup
   br label %.split
 
-.loopexit.split-lp187:                            ; preds = %32
-  %lpad.loopexit.split-lp189 = landingpad { ptr, i32 }
+.loopexit.split-lp189:                            ; preds = %32
+  %lpad.loopexit.split-lp191 = landingpad { ptr, i32 }
           cleanup
   br label %.split
 
@@ -3021,8 +3021,8 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
           to label %59 unwind label %42
 
 59:                                               ; preds = %56
-  %.not88114.not174 = icmp ne i32 %10, 1
-  %or.cond.not = select i1 %4, i1 %.not88114.not174, i1 false
+  %.not88114.not176 = icmp ne i32 %10, 1
+  %or.cond.not = select i1 %4, i1 %.not88114.not176, i1 false
   br i1 %or.cond.not, label %.lr.ph118.thread, label %.thread
 
 60:                                               ; preds = %53
@@ -3040,12 +3040,12 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
 
 .lr.ph118.split.us.preheader:                     ; preds = %.lr.ph118.thread, %.lr.ph118
   %64 = phi ptr [ %62, %.lr.ph118.thread ], [ %63, %.lr.ph118 ]
-  %.170175181 = phi i32 [ %61, %.lr.ph118.thread ], [ %.069, %.lr.ph118 ]
+  %.170177183 = phi i32 [ %61, %.lr.ph118.thread ], [ %.069, %.lr.ph118 ]
   br label %.lr.ph118.split.us
 
 .lr.ph118.split.us:                               ; preds = %.lr.ph118.split.us.preheader, %85
   %indvars.iv151 = phi i64 [ 1, %.lr.ph118.split.us.preheader ], [ %indvars.iv.next152, %85 ]
-  %.2115.us = phi i32 [ %.170175181, %.lr.ph118.split.us.preheader ], [ %.4.us, %85 ]
+  %.2115.us = phi i32 [ %.170177183, %.lr.ph118.split.us.preheader ], [ %.4.us, %85 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !23
   %66 = getelementptr %"struct.nlsat::interval", ptr %13, i64 %indvars.iv151
   %67 = getelementptr i8, ptr %66, i64 -8
@@ -3081,8 +3081,8 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
 85:                                               ; preds = %75, %83, %71
   %.4.us = phi i32 [ %.2115.us, %71 ], [ %73, %83 ], [ %73, %75 ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
-  %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count
-  br i1 %exitcond155.not, label %._crit_edge119, label %.lr.ph118.split.us, !llvm.loop !69
+  %exitcond156.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count
+  br i1 %exitcond156.not, label %._crit_edge119, label %.lr.ph118.split.us, !llvm.loop !69
 
 .split.us:                                        ; preds = %83, %.lr.ph118.split.us
   %86 = landingpad { ptr, i32 }
@@ -3136,18 +3136,18 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
   br i1 %exitcond150.not, label %._crit_edge119, label %.lr.ph118.split, !llvm.loop !69
 
 ._crit_edge119:                                   ; preds = %104, %85, %60
-  %.not88114.not177 = phi i1 [ true, %60 ], [ false, %85 ], [ false, %104 ]
+  %.not88114.not179 = phi i1 [ true, %60 ], [ false, %85 ], [ false, %104 ]
   %.2.lcssa = phi i32 [ %.069, %60 ], [ %.4.us, %85 ], [ %.069, %104 ]
   %.not89 = icmp eq i32 %.2.lcssa, 0
   br i1 %.not89, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %._crit_edge119
-  br i1 %.not88114.not177, label %.critedge, label %.lr.ph135
+  br i1 %.not88114.not179, label %.critedge, label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %.preheader, %123
-  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %123 ], [ 1, %.preheader ]
+  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %123 ], [ 1, %.preheader ]
   %.067133 = phi i32 [ %.1, %123 ], [ -1, %.preheader ]
-  %105 = add nsw i64 %indvars.iv156, -1
+  %105 = add nsw i64 %indvars.iv157, -1
   %106 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %105
   %107 = load i8, ptr %106, align 8
   %108 = and i8 %107, 2
@@ -3155,7 +3155,7 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
   br i1 %.not90, label %123, label %109
 
 109:                                              ; preds = %.lr.ph135
-  %110 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %indvars.iv156
+  %110 = getelementptr inbounds nuw %"struct.nlsat::interval", ptr %13, i64 %indvars.iv157
   %111 = load i8, ptr %110, align 8
   %112 = and i8 %111, 1
   %.not91 = icmp eq i8 %112, 0
@@ -3193,9 +3193,9 @@ _ZNK5nlsat20interval_set_manager13num_intervalsEPKNS_12interval_setE.exit: ; pre
 
 123:                                              ; preds = %120, %.lr.ph135, %109
   %.1 = phi i32 [ %.067133, %109 ], [ %.067133, %.lr.ph135 ], [ %spec.select, %120 ]
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count
-  br i1 %exitcond160.not, label %.critedge.loopexit, label %.lr.ph135, !llvm.loop !70
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %exitcond162.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
+  br i1 %exitcond162.not, label %.critedge.loopexit, label %.lr.ph135, !llvm.loop !70
 
 .critedge.loopexit:                               ; preds = %123
   %124 = zext i32 %.1 to i64
@@ -3233,8 +3233,8 @@ _ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev.exit: ; preds = %.thread
           cleanup
   br label %.split
 
-.split:                                           ; preds = %.loopexit186, %.loopexit.split-lp187, %.loopexit, %.loopexit.split-lp, %.split.us, %.split.loopexit.split-lp, %.split.loopexit, %42, %133, %15
-  %.pn94.pn = phi { ptr, i32 } [ %16, %15 ], [ %43, %42 ], [ %134, %133 ], [ %86, %.split.us ], [ %lpad.loopexit129, %.split.loopexit ], [ %lpad.loopexit.split-lp130, %.split.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit188, %.loopexit186 ], [ %lpad.loopexit.split-lp189, %.loopexit.split-lp187 ]
+.split:                                           ; preds = %.loopexit188, %.loopexit.split-lp189, %.loopexit, %.loopexit.split-lp, %.split.us, %.split.loopexit.split-lp, %.split.loopexit, %42, %133, %15
+  %.pn94.pn = phi { ptr, i32 } [ %16, %15 ], [ %43, %42 ], [ %134, %133 ], [ %86, %.split.us ], [ %lpad.loopexit129, %.split.loopexit ], [ %lpad.loopexit.split-lp130, %.split.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit190, %.loopexit186 ], [ %lpad.loopexit.split-lp189, %.loopexit.split-lp187 ]
   call void @_ZN15_scoped_numeralIN17algebraic_numbers7managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn94.pn

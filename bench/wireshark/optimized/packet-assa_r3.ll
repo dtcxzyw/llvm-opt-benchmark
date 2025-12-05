@@ -5833,8 +5833,8 @@ define internal void @dissect_r3_upstreammfgfield_iopins(ptr noundef %0, i32 nou
   %.02935 = phi i32 [ %30, %.lr.ph ], [ 0, %.thread ]
   %18 = load i32, ptr @ett_r3iopins, align 4
   %19 = icmp eq i8 %.036, 73
-  %.1 = select i1 %19, i8 74, i8 %.036
-  %20 = sext i8 %.1 to i32
+  %narrow = select i1 %19, i8 74, i8 %.036
+  %20 = sext i8 %narrow to i32
   %21 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %.02935, i32 noundef 3, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.2030, i32 noundef %20)
   %22 = load i32, ptr @hf_r3_iopins_lat, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %.02935, i32 noundef 1, i32 noundef -2147483648)

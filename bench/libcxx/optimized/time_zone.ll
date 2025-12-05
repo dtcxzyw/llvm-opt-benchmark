@@ -9368,10 +9368,10 @@ _ZNSt3__111__formatter6__copyB8ne210000ITkNS_19contiguous_iteratorEPcTkNS_15__fm
   br label %158
 
 155:                                              ; preds = %148
-  %156 = and i64 %2, 4294903552
-  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11103.0.insert.shift, %156
-  %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.10.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
-  %157 = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %33, ptr %.sroa.0.0.copyload.i69, i64 %.sroa.0.sroa.0.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
+  %.sroa.0.sroa.11.0.insert.ext = and i64 %2, 4294903552
+  %.sroa.0.sroa.11.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11103.0.insert.shift, %.sroa.0.sroa.11.0.insert.ext
+  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
+  %.sroa.0.sroa.11.0.insert.ext = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %33, ptr %.sroa.0.0.copyload.i69, i64 %.sroa.0.sroa.10.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
   br label %158
 
 158:                                              ; preds = %150, %155, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66
@@ -13068,10 +13068,10 @@ _ZNSt3__111__formatter6__copyB8ne210000ITkNS_19contiguous_iteratorEPcTkNS_15__fm
   br label %158
 
 155:                                              ; preds = %148
-  %156 = and i64 %2, 4294903552
-  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11103.0.insert.shift, %156
-  %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.10.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
-  %157 = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %33, ptr %.sroa.0.0.copyload.i69, i64 %.sroa.0.sroa.0.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
+  %.sroa.0.sroa.11.0.insert.ext = and i64 %2, 4294903552
+  %.sroa.0.sroa.11.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11103.0.insert.shift, %.sroa.0.sroa.11.0.insert.ext
+  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
+  %.sroa.0.sroa.11.0.insert.ext = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %33, ptr %.sroa.0.0.copyload.i69, i64 %.sroa.0.sroa.10.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
   br label %158
 
 158:                                              ; preds = %150, %155, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66
@@ -13951,10 +13951,10 @@ _ZNSt3__111__formatter6__copyB8ne210000ITkNS_19contiguous_iteratorEPcTkNS_15__fm
   br label %159
 
 156:                                              ; preds = %149
-  %157 = and i64 %3, 4294903552
-  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11107.0.insert.shift, %157
-  %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.10.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
-  %158 = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %34, ptr %.sroa.0.0.copyload.i73, i64 %.sroa.0.sroa.0.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
+  %.sroa.0.sroa.11.0.insert.ext = and i64 %3, 4294903552
+  %.sroa.0.sroa.11.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11107.0.insert.shift, %.sroa.0.sroa.11.0.insert.ext
+  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
+  %158 = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %34, ptr %.sroa.0.0.copyload.i73, i64 %.sroa.0.sroa.10.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
   br label %159
 
 159:                                              ; preds = %151, %156, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit70

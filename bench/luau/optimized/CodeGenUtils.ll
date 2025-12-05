@@ -1692,20 +1692,20 @@ define dso_local void @_ZN4Luau7CodeGen24executeGETVARARGSMultRetEP9lua_StatePKj
   %wide.trip.count = zext nneg i32 %21 to i64
   br label %43
 
-._crit_edge:                                      ; preds = %43, %.._crit_edge_crit_edge
+._crit_edge:                                      ; preds = %44, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %39, %43 ]
-  %42 = getelementptr inbounds %struct.lua_TValue, ptr %37, i64 %.pre-phi
-  store ptr %42, ptr %25, align 8, !tbaa !37
+  %43 = getelementptr inbounds %struct.lua_TValue, ptr %37, i64 %.pre-phi
+  store ptr %43, ptr %25, align 8, !tbaa !37
   ret void
 
-43:                                               ; preds = %.lr.ph, %43
+44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds nuw %struct.lua_TValue, ptr %41, i64 %indvars.iv
-  %45 = getelementptr inbounds nuw %struct.lua_TValue, ptr %37, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !27
+  %45 = getelementptr inbounds nuw %struct.lua_TValue, ptr %41, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %struct.lua_TValue, ptr %37, i64 %indvars.iv
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !91
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable

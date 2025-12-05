@@ -860,7 +860,7 @@ define noundef zeroext i1 @_ZN7rocksdb20ConsumeDecimalNumberEPNS_5SliceEPm(ptr n
   %or.cond5 = select i1 %14, i1 %16, i1 false
   br i1 %or.cond5, label %.thread, label %17
 
-17:                                               ; preds = %13
+17:; preds = %13
   %18 = zext nneg i8 %15 to i64
   %19 = mul nuw i64 %.02442, 10
   %20 = add i64 %19, %18
@@ -871,8 +871,8 @@ define noundef zeroext i1 @_ZN7rocksdb20ConsumeDecimalNumberEPNS_5SliceEPm(ptr n
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %.thread35.loopexit, label %5
 
-.thread35.loopexit:                               ; preds = %5, %17
-  %.028.lcssa.ph = phi i32 [ 1, %17 ], [ %.02841, %5 ]
+.thread35.loopexit:; preds = %5, %17
+  %.024.lcssa.ph = phi i32 [ 1, %17 ], [ %.02841, %5 ]
   %.024.lcssa.ph = phi i64 [ %20, %17 ], [ %.02442, %5 ]
   %24 = icmp ne i32 %.028.lcssa.ph, 0
   br label %.thread35

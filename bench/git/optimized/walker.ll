@@ -81,7 +81,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @walker_targets_stdin(p
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %8
 
-8:                                                ; preds = %.lr.ph, %29
+8:                                                ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %.02539 = phi i32 [ 0, %.lr.ph ], [ %.2, %29 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !14
@@ -98,13 +98,13 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @walker_targets_stdin(p
   %.024 = phi ptr [ %12, %11 ], [ null, %8 ]
   %14 = sext i32 %.02539 to i64
   %.not29 = icmp slt i64 %indvars.iv, %14
-  br i1 %.not29, label %23, label %st_mult.exit33
+  br i1 %.not29, label %23, label %15
 
-st_mult.exit33:                                   ; preds = %13
+15:                                               ; preds = %13
   %.not30 = icmp eq i32 %.02539, 0
-  %15 = shl nuw nsw i32 %.02539, 1
-  %16 = select i1 %.not30, i32 64, i32 %15
-  %17 = zext nneg i32 %16 to i64
+  %16 = shl nuw nsw i32 %.02539, 1
+  %17 = select i1 %.not30, i32 64, i32 %16
+  %18 = zext nneg i32 %17 to i64
   %18 = load ptr, ptr %0, align 8, !tbaa !12
   %19 = shl nuw nsw i64 %17, 3
   %20 = call ptr @xrealloc(ptr noundef %18, i64 noundef %19) #15
@@ -114,36 +114,36 @@ st_mult.exit33:                                   ; preds = %13
   store ptr %22, ptr %1, align 8, !tbaa !12
   br label %23
 
-23:                                               ; preds = %st_mult.exit33, %13
+23:; preds = %st_mult.exit33, %13
   %.2 = phi i32 [ %16, %st_mult.exit33 ], [ %.02539, %13 ]
   %24 = call ptr @xstrdup(ptr noundef nonnull %9) #15
-  %25 = load ptr, ptr %0, align 8, !tbaa !12
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %23 = load ptr, ptr %0, align 8, !tbaa !12
+  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   store ptr %24, ptr %26, align 8, !tbaa !19
   %.not.i = icmp eq ptr %.024, null
-  br i1 %.not.i, label %29, label %27
+  br i1 %.not.i, label %31, label %29
 
-27:                                               ; preds = %23
-  %28 = call ptr @xstrdup(ptr noundef nonnull %.024) #15
-  br label %29
+29:                                               ; preds = %23
+  %30 = call ptr @xstrdup(ptr noundef nonnull %.024) #15
+  br label %31
 
-29:                                               ; preds = %27, %23
-  %30 = phi ptr [ %28, %27 ], [ null, %23 ]
-  %31 = load ptr, ptr %1, align 8, !tbaa !12
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
-  store ptr %30, ptr %32, align 8, !tbaa !19
+31:                                               ; preds = %29, %23
+  %32 = phi ptr [ %30, %27 ], [ null, %23 ]
+  %33 = load ptr, ptr %1, align 8, !tbaa !12
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  store ptr %32, ptr %34, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = load ptr, ptr @stdin, align 8, !tbaa !10
-  %34 = call i32 @strbuf_getline_lf(ptr noundef nonnull %3, ptr noundef %33) #15
-  %35 = icmp eq i32 %34, -1
-  br i1 %35, label %._crit_edge.loopexit, label %8
+  %35 = load ptr, ptr @stdin, align 8, !tbaa !10
+  %36 = call i32 @strbuf_getline_lf(ptr noundef nonnull %3, ptr noundef %35) #15
+  %37 = icmp eq i32 %36, -1
+  br i1 %37, label %._crit_edge.loopexit, label %8
 
-._crit_edge.loopexit:                             ; preds = %29
-  %36 = trunc nuw i64 %indvars.iv.next to i32
+._crit_edge.loopexit:                             ; preds = %31
+  %38 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.023.lcssa = phi i32 [ 0, %2 ], [ %36, %._crit_edge.loopexit ]
+  %.023.lcssa = phi i32 [ 0, %2 ], [ %38, %._crit_edge.loopexit ]
   call void @strbuf_release(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.023.lcssa

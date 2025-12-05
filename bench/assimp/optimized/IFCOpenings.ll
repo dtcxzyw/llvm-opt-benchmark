@@ -1663,8 +1663,8 @@ define hidden void @_ZN6Assimp3IFC20InsertWindowContoursERKSt6vectorINS0_22Proje
   ret void
 
 20:                                               ; preds = %.lr.ph313, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit
-  %21 = phi ptr [ %9, %.lr.ph313 ], [ %366, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit ]
-  %.0311 = phi i64 [ 0, %.lr.ph313 ], [ %364, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit ]
+  %21 = phi ptr [ %9, %.lr.ph313 ], [ %367, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit ]
+  %.0311 = phi i64 [ 0, %.lr.ph313 ], [ %365, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit ]
   %22 = getelementptr inbounds nuw %"struct.Assimp::IFC::ProjectedWindowContour", ptr %21, i64 %.0311
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %22, align 8
@@ -2441,9 +2441,9 @@ _ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIP10aiVector3tId
   br i1 %363, label %._crit_edge, label %173, !llvm.loop !76
 
 _ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit: ; preds = %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS4_SaIS4_EEEEEEvT_SB_.exit, %._crit_edge, %170, %_ZNSt3setI10aiVector2tIdEN6Assimp3IFC8XYSorterESaIS1_EED2Ev.exit204, %20
-  %364 = add nuw i64 %.0311, 1
-  %365 = load ptr, ptr %7, align 8
-  %366 = load ptr, ptr %0, align 8
+  %365 = add nuw i64 %.0311, 1
+  %366 = load ptr, ptr %7, align 8
+  %367 = load ptr, ptr %0, align 8
   %367 = ptrtoint ptr %365 to i64
   %368 = ptrtoint ptr %366 to i64
   %369 = sub i64 %367, %368

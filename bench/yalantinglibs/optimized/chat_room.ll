@@ -22130,15 +22130,15 @@ if.end41.i.i:                                     ; preds = %if.else.i.i, %if.th
 
 _ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i: ; preds = %if.end41.i.i, %if.else.i.i, %if.then.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %add.i.i.i.i, %if.end41.i.i ], [ 9223372036854775807, %if.then.i.i ], [ -9223372036854775808, %if.else.i.i ]
-  %16 = load i8, ptr %might_have_pending_waits.i.i, align 8
-  %tobool.i.i.i = trunc i8 %16 to i1
+  %17 = load i8, ptr %might_have_pending_waits.i.i, align 8
+  %tobool.i.i.i = trunc i8 %17 to i1
   br i1 %tobool.i.i.i, label %if.end.i.i.i, label %invoke.cont8
 
 if.end.i.i.i:                                     ; preds = %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i
   %scheduler_.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %17 = load ptr, ptr %scheduler_.i.i.i, align 8
+  %18 = load ptr, ptr %scheduler_.i.i.i, align 8
   %timer_queue_.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %call2.i.i.i2 = invoke noundef i64 @_ZN4asio6detail13epoll_reactor12cancel_timerINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEmRNS0_11timer_queueIT_EERNSC_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(216) %17, ptr noundef nonnull align 8 dereferenceable(48) %timer_queue_.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %timer_data.i.i, i64 noundef -1)
+  %call2.i.i.i2 = invoke noundef i64 @_ZN4asio6detail13epoll_reactor12cancel_timerINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEEmRNS0_11timer_queueIT_EERNSC_14per_timer_dataEm(ptr noundef nonnull align 8 dereferenceable(216) %18, ptr noundef nonnull align 8 dereferenceable(48) %timer_queue_.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %timer_data.i.i, i64 noundef -1)
           to label %call2.i.i.i.noexc unwind label %lpad.body
 
 call2.i.i.i.noexc:                                ; preds = %if.end.i.i.i
@@ -22150,10 +22150,10 @@ invoke.cont8:                                     ; preds = %call2.i.i.i.noexc, 
   ret void
 
 lpad.body:                                        ; preds = %if.end.i.i.i
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4asio6detail14io_object_implINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEENS_15any_io_executorEED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #34
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -56538,7 +56538,7 @@ if.end33.i.i:                                     ; preds = %if.end28.i.i
 if.end90.i:                                       ; preds = %if.end33.i.i
   %conv34.i.i = zext nneg i8 %17 to i32
   %incdec.ptr41.i.i = getelementptr inbounds nuw i8, ptr %buf.addr.2.i, i64 9
-  %sub.i.i = add nsw i32 %conv34.i.i, -48
+  %narrow.i.i = add nsw i32 %conv34.i.i, -48
   store i32 %sub.i.i, ptr %minor_version, align 4
   %19 = load i8, ptr %incdec.ptr41.i.i, align 1
   switch i8 %19, label %return [

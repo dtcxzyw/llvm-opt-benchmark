@@ -60495,12 +60495,12 @@ if.end.i.i.i:                                     ; preds = %if.then6
   br i1 %cmp15.not66.i.i.i, label %for.end.i.i.i, label %for.body.i.preheader.i.i
 
 for.body.i.preheader.i.i:                         ; preds = %if.end.i.i.i
-  %4 = add nsw i32 %3, -64
-  %5 = lshr i32 %4, 3
-  %6 = and i32 %5, 536870904
-  %narrow.i.i = add nuw nsw i32 %6, 8
-  %7 = zext nneg i32 %narrow.i.i to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, i8 0, i64 %7, i1 false)
+  %5 = add nsw i32 %3, -64
+  %6 = lshr i32 %5, 3
+  %7 = and i32 %6, 536870904
+  %narrow.i.i = add nuw nsw i32 %7, 8
+  %8 = zext nneg i32 %narrow.i.i to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %2, i8 0, i64 %8, i1 false)
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.body.i.preheader.i.i, %if.end.i.i.i
@@ -61334,9 +61334,9 @@ if.then26.i.i.i:                                  ; preds = %for.end.i.i.i
   %12 = load i64, ptr %arrayidx.i53.i.i.i, align 8
   %and.i54.i.i.i = and i64 %12, %sub.i51.i.i.i
   %tobool.not.i55.i.i.i = icmp eq i64 %and.i54.i.i.i, 0
-  br i1 %tobool.not.i55.i.i.i, label %if.then.i7, label %if.end.i
+  br i1 %tobool.not.i55.i.i.i, label %if.then.i7, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread.i
 
-_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i: ; preds = %for.body.i.i.i
+_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread.i: ; preds = %for.body.i.i.i
   %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %if.end.i
 
@@ -61349,7 +61349,7 @@ if.then.i7:                                       ; preds = %if.then26.i.i.i, %f
   store i16 256, ptr %allSelected_.i, align 4
   br label %_ZN8facebook5velox17SelectivityVector12updateBoundsEv.exit
 
-if.end.i:                                         ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i, %if.then26.i.i.i
+if.end.i:; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i, %if.then26.i.i.i
   %and.i54.sink.i.i.i = phi i64 [ %and.i54.i.i.i, %if.then26.i.i.i ], [ %11, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %.sink.i.i.i = phi i32 [ %8, %if.then26.i.i.i ], [ %13, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i ]
   %14 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i.i, i1 true)
@@ -61384,11 +61384,11 @@ if.end.i:                                         ; preds = %_ZN8facebook5velox4
   %tobool.i.i.i.i = trunc i8 %20 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZN8facebook5velox17SelectivityVector12updateBoundsEv.exit
 
-if.then.i.i.i.i:                                  ; preds = %if.end.i
+if.then.i.i.i.i:                                  ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread.i
   store i8 0, ptr %_M_engaged.i.i.i.i, align 1
   br label %_ZN8facebook5velox17SelectivityVector12updateBoundsEv.exit
 
-_ZN8facebook5velox17SelectivityVector12updateBoundsEv.exit: ; preds = %if.then.i7, %if.end.i, %if.then.i.i.i.i
+_ZN8facebook5velox17SelectivityVector12updateBoundsEv.exit: ; preds = %if.then.i7, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.loopexit.i, %if.then.i.i.i.i
   ret void
 }
 

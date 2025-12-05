@@ -7298,7 +7298,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp12PbrtExporter19TextureHasAlphaMaskE
   %10 = load i64, ptr %9, align 8
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef %8, i64 noundef %10)
   %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.67, i64 noundef 115)
-  br label %56
+  br label %57
 
 13:                                               ; preds = %1
   %14 = load i32, ptr %4, align 4
@@ -7353,86 +7353,86 @@ define hidden noundef zeroext i1 @_ZN6Assimp12PbrtExporter19TextureHasAlphaMaskE
   br i1 %exitcond68.not, label %.loopexit, label %.preheader39.us, !llvm.loop !80
 
 .preheader37:                                     ; preds = %13
-  %28 = load i32, ptr %3, align 4
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.preheader36.lr.ph, label %.loopexit
+  %29 = load i32, ptr %3, align 4
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %.preheader36.lr.ph, label %.loopexit
 
 .preheader36.lr.ph:                               ; preds = %.preheader37
-  %30 = load i32, ptr %2, align 4
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.preheader36.us.preheader, label %.loopexit
+  %31 = load i32, ptr %2, align 4
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.preheader36.us.preheader, label %.loopexit
 
 .preheader36.us.preheader:                        ; preds = %.preheader36.lr.ph
-  %32 = zext nneg i32 %30 to i64
-  %wide.trip.count76 = zext nneg i32 %28 to i64
+  %33 = zext nneg i32 %31 to i64
+  %wide.trip.count76 = zext nneg i32 %29 to i64
   %wide.trip.count72 = zext nneg i32 %30 to i64
   br label %.preheader36.us
 
 .preheader36.us:                                  ; preds = %.preheader36.us.preheader, %._crit_edge.us54
   %indvars.iv74 = phi i64 [ 0, %.preheader36.us.preheader ], [ %indvars.iv.next75, %._crit_edge.us54 ]
   %.251.us = phi i1 [ false, %.preheader36.us.preheader ], [ %.3.us, %._crit_edge.us54 ]
-  %33 = mul nuw nsw i64 %indvars.iv74, %32
-  br label %35
+  %34 = mul nuw nsw i64 %indvars.iv74, %33
+  br label %36
 
-34:                                               ; preds = %35
+35:                                               ; preds = %36
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
-  br i1 %exitcond73.not, label %._crit_edge.us54, label %35, !llvm.loop !81
+  br i1 %exitcond73.not, label %._crit_edge.us54, label %36, !llvm.loop !81
 
-35:                                               ; preds = %.preheader36.us, %34
+36:                                               ; preds = %.preheader36.us, %35
   %indvars.iv69 = phi i64 [ 0, %.preheader36.us ], [ %indvars.iv.next70, %34 ]
-  %36 = add nuw nsw i64 %33, %indvars.iv69
-  %37 = shl nuw nsw i64 %36, 1
-  %38 = getelementptr i8, ptr %6, i64 %37
-  %39 = getelementptr i8, ptr %38, i64 1
-  %40 = load i8, ptr %39, align 1
-  %.not34.us = icmp eq i8 %40, -1
-  br i1 %.not34.us, label %34, label %._crit_edge.us54
+  %37 = add nuw nsw i64 %34, %indvars.iv69
+  %38 = shl nuw nsw i64 %37, 1
+  %39 = getelementptr i8, ptr %6, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 1
+  %41 = load i8, ptr %40, align 1
+  %.not34.us = icmp eq i8 %41, -1
+  br i1 %.not34.us, label %35, label %._crit_edge.us54
 
-._crit_edge.us54:                                 ; preds = %34, %35
+._crit_edge.us54:                                 ; preds = %35, %36
   %.3.us = phi i1 [ true, %35 ], [ %.251.us, %34 ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count76
   br i1 %exitcond77.not, label %.loopexit, label %.preheader36.us, !llvm.loop !82
 
 .preheader:                                       ; preds = %13
-  %41 = load i32, ptr %2, align 4
-  %42 = load i32, ptr %3, align 4
-  %43 = mul nsw i32 %42, %41
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph.preheader, label %.loopexit
+  %42 = load i32, ptr %2, align 4
+  %43 = load i32, ptr %3, align 4
+  %44 = mul nsw i32 %43, %42
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count81 = zext nneg i32 %43 to i64
+  %wide.trip.count81 = zext nneg i32 %44 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv78 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next79, %.lr.ph ]
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv78
-  %46 = load i8, ptr %45, align 1
-  %.not35.not = icmp ne i8 %46, -1
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv78
+  %47 = load i8, ptr %46, align 1
+  %.not35.not = icmp ne i8 %47, -1
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
   %or.cond = select i1 %.not35.not, i1 true, i1 %exitcond82.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !83
 
-47:                                               ; preds = %13
-  %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load i64, ptr %49, align 8
-  %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef %48, i64 noundef %50)
-  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.68, i64 noundef 39)
-  %53 = load i32, ptr %4, align 4
-  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %51, i32 noundef %53)
-  %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull @.str.69, i64 noundef 2)
+48:                                               ; preds = %13
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = load i64, ptr %50, align 8
+  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef %49, i64 noundef %51)
+  %53 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull @.str.68, i64 noundef 39)
+  %54 = load i32, ptr %4, align 4
+  %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %52, i32 noundef %54)
+  %56 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull @.str.69, i64 noundef 2)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us54, %.lr.ph, %.preheader36.lr.ph, %.preheader39.lr.ph, %.preheader40, %.preheader37, %.preheader, %47, %13
+.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us54, %.lr.ph, %.preheader36.lr.ph, %.preheader39.lr.ph, %.preheader40, %.preheader37, %.preheader, %48, %13
   %.028 = phi i1 [ false, %47 ], [ false, %13 ], [ false, %.preheader ], [ false, %.preheader37 ], [ false, %.preheader40 ], [ false, %.preheader39.lr.ph ], [ false, %.preheader36.lr.ph ], [ %.not35.not, %.lr.ph ], [ %.3.us, %._crit_edge.us54 ], [ %.5.us, %._crit_edge.us ]
   call void @assimp_stbi_image_free(ptr noundef nonnull %6)
-  br label %56
+  br label %57
 
-56:                                               ; preds = %.loopexit, %7
+57:                                               ; preds = %.loopexit, %7
   %.029 = phi i1 [ %.028, %.loopexit ], [ false, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

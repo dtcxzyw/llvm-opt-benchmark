@@ -275,7 +275,7 @@ select_ncolors.exit.i:                            ; preds = %._crit_edge.us73.i.
   br label %.lr.ph71.i
 
 .lr.ph71.i:                                       ; preds = %._crit_edge.i, %.lr.ph71.preheader.i
-  %130 = phi i32 [ %127, %.lr.ph71.preheader.i ], [ %154, %._crit_edge.i ]
+  %130 = phi i32 [ %127, %.lr.ph71.preheader.i ], [ %155, %._crit_edge.i ]
   %indvars.iv87.i = phi i64 [ 0, %.lr.ph71.preheader.i ], [ %indvars.iv.next88.i, %._crit_edge.i ]
   %.06068.i = phi i32 [ %.us-phi76.i.i, %.lr.ph71.preheader.i ], [ %133, %._crit_edge.i ]
   %131 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv87.i
@@ -314,83 +314,83 @@ select_ncolors.exit.i:                            ; preds = %._crit_edge.us73.i.
   br i1 %exitcond86.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !62
 
 .preheader.lr.ph.us.i:                            ; preds = %.lr.ph.split.us.i
-  %145 = mul nuw nsw i64 %indvars.iv82.i, 255
-  %146 = add nuw nsw i64 %145, %137
-  %147 = udiv i64 %146, %138
-  %148 = trunc i64 %147 to i8
+  %146 = mul nuw nsw i64 %indvars.iv82.i, 255
+  %147 = add nuw nsw i64 %146, %137
+  %148 = udiv i64 %147, %138
+  %149 = trunc i64 %148 to i8
   br label %.preheader.us.us.i
 
 .preheader.us.us.i:                               ; preds = %._crit_edge.us.us.i, %.preheader.lr.ph.us.i
   %indvars.iv79.i = phi i64 [ %indvars.iv.next80.i, %._crit_edge.us.us.i ], [ %indvars.iv77.i, %.preheader.lr.ph.us.i ]
-  br label %149
+  br label %150
 
-149:                                              ; preds = %149, %.preheader.us.us.i
+150:                                              ; preds = %150, %.preheader.us.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %149 ], [ 0, %.preheader.us.us.i ]
-  %150 = load ptr, ptr %140, align 8, !tbaa !63
-  %151 = getelementptr i8, ptr %150, i64 %indvars.iv.i
-  %152 = getelementptr i8, ptr %151, i64 %indvars.iv79.i
-  store i8 %148, ptr %152, align 1, !tbaa !34
+  %151 = load ptr, ptr %140, align 8, !tbaa !63
+  %152 = getelementptr i8, ptr %151, i64 %indvars.iv.i
+  %153 = getelementptr i8, ptr %152, i64 %indvars.iv79.i
+  store i8 %149, ptr %153, align 1, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %141
-  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %149, !llvm.loop !64
+  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %150, !llvm.loop !64
 
-._crit_edge.us.us.i:                              ; preds = %149
+._crit_edge.us.us.i:                              ; preds = %150
   %indvars.iv.next80.i = add nsw i64 %indvars.iv79.i, %142
-  %153 = icmp slt i64 %indvars.iv.next80.i, %129
-  br i1 %153, label %.preheader.us.us.i, label %._crit_edge66.split.us.us.i, !llvm.loop !65
+  %154 = icmp slt i64 %indvars.iv.next80.i, %129
+  br i1 %154, label %.preheader.us.us.i, label %._crit_edge66.split.us.us.i, !llvm.loop !65
 
 ._crit_edge.loopexit.i:                           ; preds = %._crit_edge66.split.us.us.i
   %.pre.i = load i32, ptr %30, align 8, !tbaa !51
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i, %.lr.ph71.i
-  %154 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %130, %.lr.ph71.i ], [ %130, %.lr.ph.i ]
+  %155 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %130, %.lr.ph71.i ], [ %130, %.lr.ph.i ]
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
-  %155 = sext i32 %154 to i64
-  %156 = icmp slt i64 %indvars.iv.next88.i, %155
-  br i1 %156, label %.lr.ph71.i, label %create_colormap.exit, !llvm.loop !66
+  %156 = sext i32 %155 to i64
+  %157 = icmp slt i64 %indvars.iv.next88.i, %156
+  br i1 %157, label %.lr.ph71.i, label %create_colormap.exit, !llvm.loop !66
 
 create_colormap.exit:                             ; preds = %._crit_edge.i, %118
-  %157 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  store ptr %126, ptr %157, align 8, !tbaa !67
-  %158 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  store i32 %.us-phi76.i.i, ptr %158, align 8, !tbaa !68
+  %158 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  store ptr %126, ptr %158, align 8, !tbaa !67
+  %159 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  store i32 %.us-phi76.i.i, ptr %159, align 8, !tbaa !68
   tail call fastcc void @create_colorindex(ptr noundef nonnull %0)
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %160 = load i32, ptr %159, align 8, !tbaa !69
-  %161 = icmp eq i32 %160, 2
-  br i1 %161, label %162, label %alloc_fs_workspace.exit
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %161 = load i32, ptr %160, align 8, !tbaa !69
+  %162 = icmp eq i32 %161, 2
+  br i1 %162, label %163, label %alloc_fs_workspace.exit
 
-162:                                              ; preds = %create_colormap.exit
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %164 = load i32, ptr %163, align 8, !tbaa !70
-  %165 = add i32 %164, 2
-  %166 = zext i32 %165 to i64
-  %167 = shl nuw nsw i64 %166, 1
-  %168 = load i32, ptr %30, align 8, !tbaa !51
-  %169 = icmp sgt i32 %168, 0
-  br i1 %169, label %.lr.ph.i35, label %alloc_fs_workspace.exit
+163:                                              ; preds = %create_colormap.exit
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %165 = load i32, ptr %164, align 8, !tbaa !70
+  %166 = add i32 %165, 2
+  %167 = zext i32 %166 to i64
+  %168 = shl nuw nsw i64 %167, 1
+  %169 = load i32, ptr %30, align 8, !tbaa !51
+  %170 = icmp sgt i32 %169, 0
+  br i1 %170, label %.lr.ph.i35, label %alloc_fs_workspace.exit
 
-.lr.ph.i35:                                       ; preds = %162
-  %170 = load ptr, ptr %25, align 8, !tbaa !42
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 120
-  br label %172
+.lr.ph.i35:                                       ; preds = %163
+  %171 = load ptr, ptr %25, align 8, !tbaa !42
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 120
+  br label %173
 
-172:                                              ; preds = %172, %.lr.ph.i35
+173:                                              ; preds = %173, %.lr.ph.i35
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.i35 ], [ %indvars.iv.next.i37, %172 ]
-  %173 = load ptr, ptr %21, align 8, !tbaa !39
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8, !tbaa !71
-  %176 = tail call ptr %175(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %167) #7
-  %177 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv.i36
-  store ptr %176, ptr %177, align 8, !tbaa !48
+  %174 = load ptr, ptr %21, align 8, !tbaa !39
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %176 = load ptr, ptr %175, align 8, !tbaa !71
+  %177 = tail call ptr %175(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %168) #7
+  %178 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv.i36
+  store ptr %177, ptr %178, align 8, !tbaa !48
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
-  %178 = load i32, ptr %30, align 8, !tbaa !51
-  %179 = sext i32 %178 to i64
-  %180 = icmp slt i64 %indvars.iv.next.i37, %179
-  br i1 %180, label %172, label %alloc_fs_workspace.exit, !llvm.loop !72
+  %179 = load i32, ptr %30, align 8, !tbaa !51
+  %180 = sext i32 %179 to i64
+  %181 = icmp slt i64 %indvars.iv.next.i37, %180
+  br i1 %181, label %173, label %alloc_fs_workspace.exit, !llvm.loop !72
 
-alloc_fs_workspace.exit:                          ; preds = %172, %162, %create_colormap.exit
+alloc_fs_workspace.exit:                          ; preds = %173, %163, %create_colormap.exit
   ret void
 }
 

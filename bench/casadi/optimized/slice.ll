@@ -4545,8 +4545,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
   %132 = add nsw i64 %124, %131
   %.not66 = icmp eq i64 %130, %132
   %133 = add nuw i64 %.0139, 1
-  %exitcond153.not = icmp ne i64 %133, %20
-  %or.cond.not = select i1 %.not66, i1 %exitcond153.not, i1 false
+  %exitcond154.not = icmp ne i64 %133, %20
+  %or.cond.not = select i1 %.not66, i1 %exitcond154.not, i1 false
   br i1 %or.cond.not, label %.lr.ph140, label %.critedge78, !llvm.loop !87
 
 .critedge78:                                      ; preds = %.lr.ph.split, %24, %.lr.ph140, %2, %.critedge, %120
@@ -4613,8 +4613,8 @@ define noundef zeroext i1 @_ZN6casadi9is_slice2ERKSt6vectorIxSaIxEE(ptr noundef 
 
 31:                                               ; preds = %.lr.ph140.i
   %32 = add nuw i64 %.0139.i, 1
-  %exitcond153.not.i = icmp eq i64 %32, %18
-  br i1 %exitcond153.not.i, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %.lr.ph140.i, !llvm.loop !87
+  %exitcond154.not.i = icmp eq i64 %32, %18
+  br i1 %exitcond154.not.i, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %.lr.ph140.i, !llvm.loop !87
 
 .lr.ph140.i:                                      ; preds = %31, %.lr.ph140.preheader.i
   %.0139.i = phi i64 [ %32, %31 ], [ 2, %.lr.ph140.preheader.i ]
@@ -5246,8 +5246,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZN
 
 101:                                              ; preds = %.lr.ph140.i
   %102 = add nuw i64 %.0139.i, 1
-  %exitcond153.not.i = icmp eq i64 %102, %89
-  br i1 %exitcond153.not.i, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %.lr.ph140.i, !llvm.loop !87
+  %exitcond154.not.i = icmp eq i64 %102, %89
+  br i1 %exitcond154.not.i, label %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread, label %.lr.ph140.i, !llvm.loop !87
 
 .lr.ph140.i:                                      ; preds = %101, %.lr.ph140.preheader.i
   %.0139.i = phi i64 [ %102, %101 ], [ 2, %.lr.ph140.preheader.i ]

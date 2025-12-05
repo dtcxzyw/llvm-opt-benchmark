@@ -2056,9 +2056,9 @@ flat_mval.exit.i.i:                               ; preds = %.sink.split.i.i.i, 
   %.184.i.i = phi i1 [ %371, %flat_mval.exit.i.i ], [ %.083106.i.i, %286 ], [ %.083106.i.i, %.lr.ph108.i.i ]
   %indvars.iv.next120.i.i = add nuw nsw i64 %indvars.iv119.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next120.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.preheader18.lr.ph.i.i, label %.lr.ph108.i.i, !llvm.loop !133
+  br i1 %exitcond.not.i.i, label %medians.exit.i, label %.lr.ph108.i.i, !llvm.loop !133
 
-.preheader18.lr.ph.i.i:                           ; preds = %372
+medians.exit.i:                                   ; preds = %372
   %373 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %374 = load ptr, ptr %373, align 8, !tbaa !37
   %375 = getelementptr inbounds nuw ptr, ptr %374, i64 %wide.trip.count.i.i
@@ -2070,7 +2070,7 @@ flat_mval.exit.i.i:                               ; preds = %.sink.split.i.i.i, 
   %spec.select72.idx.i.i = select i1 %or.cond3.i.i, i64 0, i64 -8
   br label %.preheader18.i.i
 
-.preheader18.i.i:                                 ; preds = %.critedge.thread.i.i, %.preheader18.lr.ph.i.i
+.preheader18.i.i:                                 ; preds = %.critedge.thread.i.i, %medians.exit.i
   %.05339.in.i.i = phi i32 [ %276, %.preheader18.lr.ph.i.i ], [ %.05339.i.i, %.critedge.thread.i.i ]
   %.038.i.i = phi i32 [ 0, %.preheader18.lr.ph.i.i ], [ %.126.i.i, %.critedge.thread.i.i ]
   %.05836.i.i = phi ptr [ %375, %.preheader18.lr.ph.i.i ], [ %spec.select72.i.i, %.critedge.thread.i.i ]
