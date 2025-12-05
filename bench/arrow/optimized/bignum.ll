@@ -87,9 +87,9 @@ define void @_ZN14arrow_vendored17double_conversion6Bignum12AssignBignumERKS1_(p
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %wide.trip.count = zext nneg i16 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %wide.trip.count = zext nneg i16 %6 to i64
   br label %10
 
 ._crit_edge:                                      ; preds = %10, %2
@@ -461,9 +461,9 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i32.thread:
   br label %_ZN14arrow_vendored17double_conversion6Bignum9ShiftLeftEi.exit
 
 .lr.ph.i19:                                       ; preds = %68
-  %wide.trip.count.i20 = zext nneg i16 %.pr to i64
   %75 = zext i32 %66 to i64
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %wide.trip.count.i20 = zext nneg i16 %.pr to i64
   br label %77
 
 .preheader.i25:                                   ; preds = %77
@@ -530,9 +530,9 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i32: ; pred
   br i1 %103, label %.lr.ph.i.i, label %_ZN14arrow_vendored17double_conversion6Bignum9ShiftLeftEi.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i32
-  %wide.trip.count.i.i = zext nneg i16 %94 to i64
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %105 = sub nsw i32 28, %100
+  %wide.trip.count.i.i = zext nneg i16 %94 to i64
   br label %106
 
 ._crit_edge.i.i:                                  ; preds = %106
@@ -1194,9 +1194,9 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = 
   br i1 %14, label %.lr.ph.i, label %_ZN14arrow_vendored17double_conversion6Bignum15BigitsShiftLeftEi.exit
 
 .lr.ph.i:                                         ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
-  %wide.trip.count.i = zext nneg i16 %3 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = sub nsw i32 28, %11
+  %wide.trip.count.i = zext nneg i16 %3 to i64
   br label %17
 
 ._crit_edge.i:                                    ; preds = %17
@@ -1235,9 +1235,9 @@ define void @_ZN14arrow_vendored17double_conversion6Bignum15BigitsShiftLeftEi(pt
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %2
-  %wide.trip.count = zext nneg i16 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = sub nsw i32 28, %1
+  %wide.trip.count = zext nneg i16 %3 to i64
   br label %7
 
 ._crit_edge:                                      ; preds = %7
@@ -1290,9 +1290,9 @@ define void @_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej(p
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %wide.trip.count = zext nneg i16 %6 to i64
   %8 = zext i32 %1 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %wide.trip.count = zext nneg i16 %6 to i64
   br label %11
 
 .preheader:                                       ; preds = %11
@@ -1369,10 +1369,10 @@ define void @_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt64Em(p
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8
-  %wide.trip.count = zext nneg i16 %6 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = lshr i64 %1, 28
   %13 = and i64 %12, 68719476720
+  %wide.trip.count = zext nneg i16 %6 to i64
   br label %15
 
 .preheader:                                       ; preds = %15
@@ -1444,7 +1444,8 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader: 
 
 .lr.ph:                                           ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = zext nneg i32 %3 to i64
+  %8 = zext nneg i16 %2 to i64
+  %wide.trip.count = zext nneg i32 %3 to i64
   %invariant.gep = getelementptr inbounds nuw i32, ptr %7, i64 %8
   br label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
 
@@ -1454,7 +1455,8 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.preheader: 
 
 .preheader51.lr.ph:                               ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = zext nneg i32 %3 to i64
+  %11 = zext nneg i16 %2 to i64
+  %wide.trip.count93 = zext nneg i32 %3 to i64
   %invariant.gep117 = getelementptr i32, ptr %10, i64 %11
   %invariant.gep119 = getelementptr inbounds nuw i32, ptr %10, i64 %11
   br label %.lr.ph57.preheader
@@ -1466,7 +1468,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = 
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   store i32 %13, ptr %gep, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %8
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader51.lr.ph, label %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit, !llvm.loop !31
 
 .lr.ph57.preheader:                               ; preds = %._crit_edge, %.preheader51.lr.ph
@@ -1517,7 +1519,7 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = 
   %28 = lshr i64 %24, 28
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond94.not = icmp eq i64 %indvars.iv.next76, %11
+  %exitcond94.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count93
   br i1 %exitcond94.not, label %.preheader, label %.lr.ph57.preheader, !llvm.loop !33
 
 ._crit_edge71:                                    ; preds = %._crit_edge66, %.preheader
@@ -1741,8 +1743,8 @@ _ZN14arrow_vendored17double_conversion6Bignum12AssignUInt64Em.exit: ; preds = %.
   br i1 %52, label %.lr.ph.i54, label %_ZN14arrow_vendored17double_conversion6Bignum16MultiplyByUInt32Ej.exit
 
 .lr.ph.i54:                                       ; preds = %51
-  %wide.trip.count.i = zext nneg i16 %48 to i64
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %wide.trip.count.i = zext nneg i16 %48 to i64
   br label %54
 
 .preheader.i:                                     ; preds = %54
@@ -1886,9 +1888,9 @@ _ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i71: ; pred
   br i1 %102, label %.lr.ph.i.i, label %_ZN14arrow_vendored17double_conversion6Bignum9ShiftLeftEi.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZN14arrow_vendored17double_conversion6Bignum14EnsureCapacityEi.exit.i71
-  %wide.trip.count.i.i = zext nneg i16 %92 to i64
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %104 = sub nsw i32 28, %99
+  %wide.trip.count.i.i = zext nneg i16 %92 to i64
   br label %105
 
 ._crit_edge.i.i:                                  ; preds = %105

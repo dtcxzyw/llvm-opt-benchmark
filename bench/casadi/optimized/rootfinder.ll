@@ -3901,7 +3901,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i126, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i132
   %.0.i.i.i.i.i129 = phi i32 [ %164, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i126 ], [ %.0.i6.i.i.i.i.i135, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i132 ]
   %166 = icmp slt i32 %.0.i.i.i.i.i129, 0
-  %spec.select.i.i130 = select i1 %166, ptr %39, ptr %.19.i.i.i119
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %166, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSERKSE_.exit, label %._crit_edge.i.i144
 
@@ -3918,7 +3917,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %_Z
           to label %171 unwind label %178
 
 171:                                              ; preds = %._crit_edge.i.i144
-  %172 = getelementptr inbounds nuw i8, ptr %spec.select.i.i130, i64 64
+  %172 = getelementptr inbounds nuw i8, ptr %.19.i.i.i119, i64 64
   %173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %170, ptr noundef nonnull align 8 dereferenceable(8) %172)
           to label %_ZN6casadi11GenericTypeaSERKS0_.exit unwind label %178
 
@@ -4938,7 +4937,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i131, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i137
   %.0.i.i.i.i.i134 = phi i32 [ %163, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i131 ], [ %.0.i6.i.i.i.i.i140, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i137 ]
   %165 = icmp slt i32 %.0.i.i.i.i.i134, 0
-  %spec.select.i.i135 = select i1 %165, ptr %39, ptr %.19.i.i.i124
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %165, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEEaSERKSE_.exit, label %._crit_edge.i.i149
 
@@ -4955,7 +4953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %_Z
           to label %170 unwind label %177
 
 170:                                              ; preds = %._crit_edge.i.i149
-  %171 = getelementptr inbounds nuw i8, ptr %spec.select.i.i135, i64 64
+  %171 = getelementptr inbounds nuw i8, ptr %.19.i.i.i124, i64 64
   %172 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %169, ptr noundef nonnull align 8 dereferenceable(8) %171)
           to label %_ZN6casadi11GenericTypeaSERKS0_.exit unwind label %177
 
@@ -14043,7 +14041,7 @@ define linkonce_odr void @_ZNK6casadi16FunctionInternal15symbolicAdjSeedINS_2MXE
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %.not125 = icmp eq i64 %2, 1
+  %.not134 = icmp eq i64 %2, 1
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -14166,7 +14164,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit: ; preds = 
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %87
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit
-  br i1 %.not125, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32, label %84
+  br i1 %.not134, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32, label %84
 
 84:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %85 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %.015121)

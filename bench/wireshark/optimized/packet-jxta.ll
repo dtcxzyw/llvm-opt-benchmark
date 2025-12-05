@@ -2574,16 +2574,12 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   br label %.critedge
 
 .lr.ph:                                           ; preds = %154, %132, %133
-  br i1 %.not153167, label %.critedge, label %.lr.ph.split.preheader
+  br i1 %.not153167, label %.critedge, label %.lr.ph.split
 
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %smax = call i32 @llvm.smax.i32(i32 %indvars.iv, i32 1)
-  br label %.lr.ph.split
-
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %.0172 = phi i32 [ %200, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
-  %.0141171 = phi i32 [ %198, %.lr.ph.split ], [ %123, %.lr.ph.split.preheader ]
-  %.0142170 = phi ptr [ %199, %.lr.ph.split ], [ %124, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
+  %.0172 = phi i32 [ %200, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.0141171 = phi i32 [ %198, %.lr.ph.split ], [ %123, %.lr.ph ]
+  %.0142170 = phi ptr [ %199, %.lr.ph.split ], [ %124, %.lr.ph ]
   %186 = icmp slt i32 %.0172, %.0138168
   %187 = load i32, ptr @hf_jxta_welcome_variable, align 4
   %188 = load i32, ptr @hf_jxta_welcome_version, align 4
@@ -2600,7 +2596,7 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   %198 = add i32 %197, %196
   %199 = getelementptr i8, ptr %.0142170, i64 8
   %200 = add nuw nsw i32 %.0172, 1
-  %exitcond.not = icmp eq i32 %200, %smax
+  %exitcond.not = icmp eq i32 %200, %indvars.iv
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !14
 
 201:                                              ; preds = %118
@@ -3390,9 +3386,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #14

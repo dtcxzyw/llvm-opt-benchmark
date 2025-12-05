@@ -554,7 +554,6 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit55.thread: ; preds = %_ZNK
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit55: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i
   %.0.i.i.i.i.i = phi i32 [ %89, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i ]
   %96 = icmp slt i32 %.0.i.i.i.i.i, 0
-  %spec.select.i.i = select i1 %96, ptr %73, ptr %.19.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %97 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -570,7 +569,7 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit55: ; preds = %_ZNSt11char
   br i1 %96, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEEaSERKSF_.exit, label %102
 
 102:                                              ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit55
-  %103 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 112
+  %103 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 112
   %104 = load i8, ptr %103, align 8, !tbaa !21
   switch i8 %104, label %108 [
     i8 -1, label %105
@@ -603,7 +602,7 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit55: ; preds = %_ZNSt11char
   br label %157
 
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit64: ; preds = %102
-  %113 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
+  %113 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %114 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EEaSERKSH_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %113)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEEaSERKSF_.exit unwind label %111
 

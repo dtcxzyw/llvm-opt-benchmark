@@ -694,7 +694,7 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
 
 25:                                               ; preds = %_ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread, %_ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit, %_ZL29ImGui_ImplGlfw_GetBackendDatav.exit
   %or.cond = icmp ugt i32 %3, 1
-  br i1 %or.cond, label %60, label %26
+  br i1 %or.cond, label %59, label %26
 
 26:                                               ; preds = %25
   tail call fastcc void @_ZL33ImGui_ImplGlfw_UpdateKeyModifiersP10GLFWwindow(ptr noundef %0)
@@ -730,46 +730,45 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
   %42 = add i8 %34, -65
   %or.cond33.i = icmp ult i8 %42, 26
   %or.cond35.i = or i1 %or.cond32.i, %or.cond33.i
-  br i1 %or.cond35.i, label %56, label %43
+  br i1 %or.cond35.i, label %55, label %43
 
 43:                                               ; preds = %39
   %44 = add i8 %34, -97
   %or.cond34.i = icmp ult i8 %44, 26
-  br i1 %or.cond34.i, label %45, label %48
+  br i1 %or.cond34.i, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = zext nneg i8 %34 to i32
-  %47 = add nsw i32 %46, -32
-  br label %56
+  %46 = add nsw i32 %40, -32
+  br label %55
 
-48:                                               ; preds = %43
-  %49 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef %40) #8
-  %.not31.i = icmp eq ptr %49, null
-  br i1 %.not31.i, label %56, label %50
+47:                                               ; preds = %43
+  %48 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef %40) #8
+  %.not31.i = icmp eq ptr %48, null
+  br i1 %.not31.i, label %55, label %49
 
-50:                                               ; preds = %48
-  %51 = ptrtoint ptr %49 to i64
-  %52 = ptrtoint ptr %5 to i64
-  %53 = sub i64 %51, %52
-  %54 = getelementptr inbounds i32, ptr @__const._ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.char_keys, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !33
-  br label %56
+49:                                               ; preds = %47
+  %50 = ptrtoint ptr %48 to i64
+  %51 = ptrtoint ptr %5 to i64
+  %52 = sub i64 %50, %51
+  %53 = getelementptr inbounds i32, ptr @__const._ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.char_keys, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !33
+  br label %55
 
-56:                                               ; preds = %50, %48, %45, %39
-  %.1.i = phi i32 [ %47, %45 ], [ %40, %39 ], [ %55, %50 ], [ %1, %48 ]
+55:                                               ; preds = %49, %47, %45, %39
+  %.1.i = phi i32 [ %46, %45 ], [ %40, %39 ], [ %54, %49 ], [ %1, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.exit
 
-_ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.exit: ; preds = %26, %28, %33, %35, %56
-  %.0.i = phi i32 [ %1, %26 ], [ %.1.i, %56 ], [ %1, %35 ], [ %1, %33 ], [ %1, %28 ]
-  %57 = call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
-  %58 = call noundef i32 @_Z28ImGui_ImplGlfw_KeyToImGuiKeyii(i32 noundef %.0.i, i32 poison)
-  %59 = icmp eq i32 %3, 1
-  call void @_ZN7ImGuiIO11AddKeyEventE8ImGuiKeyb(ptr noundef nonnull align 8 dereferenceable(2944) %57, i32 noundef %58, i1 noundef zeroext %59)
-  call void @_ZN7ImGuiIO21SetKeyEventNativeDataE8ImGuiKeyiii(ptr noundef nonnull align 8 dereferenceable(2944) %57, i32 noundef %58, i32 noundef %.0.i, i32 noundef %2, i32 noundef -1)
-  br label %60
+_ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.exit: ; preds = %26, %28, %33, %35, %55
+  %.0.i = phi i32 [ %1, %26 ], [ %.1.i, %55 ], [ %1, %35 ], [ %1, %33 ], [ %1, %28 ]
+  %56 = call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
+  %57 = call noundef i32 @_Z28ImGui_ImplGlfw_KeyToImGuiKeyii(i32 noundef %.0.i, i32 poison)
+  %58 = icmp eq i32 %3, 1
+  call void @_ZN7ImGuiIO11AddKeyEventE8ImGuiKeyb(ptr noundef nonnull align 8 dereferenceable(2944) %56, i32 noundef %57, i1 noundef zeroext %58)
+  call void @_ZN7ImGuiIO21SetKeyEventNativeDataE8ImGuiKeyiii(ptr noundef nonnull align 8 dereferenceable(2944) %56, i32 noundef %57, i32 noundef %.0.i, i32 noundef %2, i32 noundef -1)
+  br label %59
 
-60:                                               ; preds = %25, %_ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.exit
+59:                                               ; preds = %25, %_ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.exit
   ret void
 }
 

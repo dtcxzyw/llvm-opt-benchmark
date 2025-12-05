@@ -812,11 +812,12 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %22
   br i1 %27, label %zend_parse_arg_bool_ex.exit.thread, label %.thread, !prof !50
 
 switch.lookup:                                    ; preds = %22
-  %28 = shl nuw nsw i8 %switch.tableidx, 3
-  %switch.shiftamt = zext nneg i8 %28 to i24
+  %switch.cast = zext i8 %switch.tableidx to i24
+  %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 65536, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
-  %switch.masked150 = icmp eq i8 %switch.tableidx, 0
+  %28 = and i8 %switch.tableidx, 7
+  %switch.masked150 = icmp eq i8 %28, 0
   store i8 %switch.masked, ptr %4, align 1, !tbaa !52
   br label %zend_parse_arg_bool_ex.exit.thread
 

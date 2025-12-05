@@ -34076,7 +34076,10 @@ switch.hole_check:                                ; preds = %14
   %switch.maskindex = zext nneg i16 %switch.tableidx to i64
   %switch.shifted = lshr i64 288232575174967313, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread, label %17
+  %20 = and i16 %5, -2
+  %21 = icmp eq i16 %20, 166
+  %or.cond = or i1 %21, %switch.lobit
+  br i1 %or.cond, label %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread, label %17
 
 _ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread: ; preds = %2, %switch.hole_check, %17, %17, %17, %17, %17, %18, %10, %10, %10, %18, %18, %16, %11, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit, %19
   %.0 = phi i1 [ true, %18 ], [ false, %19 ], [ true, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit ], [ true, %10 ], [ true, %11 ], [ true, %16 ], [ true, %17 ], [ true, %17 ], [ true, %18 ], [ true, %10 ], [ true, %10 ], [ true, %17 ], [ true, %17 ], [ true, %18 ], [ true, %17 ], [ true, %switch.hole_check ], [ true, %2 ]

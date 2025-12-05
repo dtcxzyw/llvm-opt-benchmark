@@ -7170,6 +7170,7 @@ define void @_ZNK5faiss15LinearTransform16print_if_verboseEPKcRKSt6vectorIdSaIdE
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %23 = zext nneg i32 %4 to i64
   %wide.trip.count34 = zext nneg i32 %3 to i64
+  %wide.trip.count = zext nneg i32 %4 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -7185,7 +7186,7 @@ define void @_ZNK5faiss15LinearTransform16print_if_verboseEPKcRKSt6vectorIdSaIdE
   %29 = load double, ptr %28, align 8, !tbaa !64
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, double noundef %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond30.not = icmp eq i64 %indvars.iv.next, %23
+  %exitcond30.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond30.not, label %._crit_edge.us, label %25, !llvm.loop !145
 
 ._crit_edge.us:                                   ; preds = %25
@@ -7371,6 +7372,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %34, %36, %38, %40
 .preheader.us.preheader:                          ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit22
   %47 = zext nneg i32 %44 to i64
   %48 = zext nneg i32 %.pre40 to i64
+  %wide.trip.count34 = zext nneg i32 %44 to i64
+  %wide.trip.count = zext nneg i32 %.pre40 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -7388,12 +7391,12 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %34, %36, %38, %40
   %54 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv
   store float %53, ptr %54, align 4, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %48
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %52, !llvm.loop !147
 
 ._crit_edge.us:                                   ; preds = %52
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %47
+  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
   br i1 %exitcond35.not, label %._crit_edge27, label %.preheader.us, !llvm.loop !148
 
 ._crit_edge27:                                    ; preds = %._crit_edge.us, %_ZNSt6vectorIfSaIfEE6resizeEm.exit22
@@ -8308,6 +8311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %24
 
 .lr.ph175.preheader:                              ; preds = %270
   %280 = zext nneg i32 %278 to i64
+  %wide.trip.count203 = zext nneg i32 %278 to i64
   %invariant.gep = getelementptr inbounds nuw float, ptr %267, i64 %indvars.iv205
   br label %.lr.ph175
 
@@ -8330,7 +8334,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %24
   %286 = fmul float %285, %277
   store float %286, ptr %gep, align 4, !tbaa !32
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %exitcond204.not = icmp eq i64 %indvars.iv.next201, %280
+  %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %._crit_edge176.loopexit, label %.lr.ph175, !llvm.loop !164
 
 .loopexit:                                        ; preds = %._crit_edge176, %259
@@ -8486,6 +8490,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit119:            ; preds = %_ZNSt6vectorIfSaIfE
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
   %349 = zext nneg i32 %340 to i64
   %wide.trip.count219 = zext nneg i32 %.pre225 to i64
+  %wide.trip.count214 = zext nneg i32 %340 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge182.us
@@ -8504,7 +8509,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit119:            ; preds = %_ZNSt6vectorIfSaIfE
   %357 = fneg float %354
   %358 = call float @llvm.fmuladd.f32(float %357, float %356, float %.051179.us)
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %exitcond215.not = icmp eq i64 %indvars.iv.next212, %349
+  %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
   br i1 %exitcond215.not, label %._crit_edge182.us, label %352, !llvm.loop !165
 
 ._crit_edge182.us:                                ; preds = %352

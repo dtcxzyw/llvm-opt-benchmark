@@ -863,55 +863,53 @@ define internal fastcc i32 @pmix_convert_string_to_time(ptr noundef %0) unnamed_
   br i1 %9, label %10, label %.thread32
 
 10:                                               ; preds = %1
-  %11 = zext nneg i32 %3 to i64
-  %12 = getelementptr ptr, ptr %2, i64 %11
-  %13 = getelementptr i8, ptr %12, i64 -16
-  %14 = load ptr, ptr %13, align 8, !tbaa !48
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %19, label %15
+  %11 = getelementptr i8, ptr %5, i64 -16
+  %12 = load ptr, ptr %11, align 8, !tbaa !48
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %17, label %13
 
-15:                                               ; preds = %10
-  %16 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 10) #8
-  %17 = mul i64 %16, 60
-  %18 = add i64 %17, %8
-  br label %19
+13:                                               ; preds = %10
+  %14 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #8
+  %15 = mul i64 %14, 60
+  %16 = add i64 %15, %8
+  br label %17
 
-19:                                               ; preds = %15, %10
-  %.0.in = phi i64 [ %18, %15 ], [ %8, %10 ]
+17:                                               ; preds = %13, %10
+  %.0.in = phi i64 [ %16, %13 ], [ %8, %10 ]
   %.not34 = icmp eq i32 %3, 2
-  br i1 %.not34, label %.thread32, label %20
+  br i1 %.not34, label %.thread32, label %18
 
-20:                                               ; preds = %19
-  %21 = getelementptr i8, ptr %12, i64 -24
-  %22 = load ptr, ptr %21, align 8, !tbaa !48
-  %.not29 = icmp eq ptr %22, null
-  br i1 %.not29, label %27, label %23
+18:                                               ; preds = %17
+  %19 = getelementptr i8, ptr %5, i64 -24
+  %20 = load ptr, ptr %19, align 8, !tbaa !48
+  %.not29 = icmp eq ptr %20, null
+  br i1 %.not29, label %25, label %21
 
-23:                                               ; preds = %20
-  %24 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %22, ptr noundef null, i32 noundef 10) #8
-  %25 = mul i64 %24, 3600
-  %26 = add i64 %25, %.0.in
-  br label %27
+21:                                               ; preds = %18
+  %22 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %20, ptr noundef null, i32 noundef 10) #8
+  %23 = mul i64 %22, 3600
+  %24 = add i64 %23, %.0.in
+  br label %25
 
-27:                                               ; preds = %23, %20
-  %.1.in = phi i64 [ %26, %23 ], [ %.0.in, %20 ]
-  %28 = icmp samesign ugt i32 %3, 3
-  br i1 %28, label %29, label %.thread32
+25:                                               ; preds = %21, %18
+  %.1.in = phi i64 [ %24, %21 ], [ %.0.in, %18 ]
+  %26 = icmp samesign ugt i32 %3, 3
+  br i1 %26, label %27, label %.thread32
 
-29:                                               ; preds = %27
-  %30 = getelementptr i8, ptr %12, i64 -32
-  %31 = load ptr, ptr %30, align 8, !tbaa !48
-  %.not30 = icmp eq ptr %31, null
-  br i1 %.not30, label %.thread32, label %32
+27:                                               ; preds = %25
+  %28 = getelementptr i8, ptr %5, i64 -32
+  %29 = load ptr, ptr %28, align 8, !tbaa !48
+  %.not30 = icmp eq ptr %29, null
+  br i1 %.not30, label %.thread32, label %30
 
-32:                                               ; preds = %29
-  %33 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %31, ptr noundef null, i32 noundef 10) #8
-  %34 = mul i64 %33, 86400
-  %35 = add i64 %34, %.1.in
+30:                                               ; preds = %27
+  %31 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %29, ptr noundef null, i32 noundef 10) #8
+  %32 = mul i64 %31, 86400
+  %33 = add i64 %32, %.1.in
   br label %.thread32
 
-.thread32:                                        ; preds = %1, %19, %32, %29, %27
-  %.2.in = phi i64 [ %35, %32 ], [ %.1.in, %29 ], [ %.1.in, %27 ], [ %.0.in, %19 ], [ %8, %1 ]
+.thread32:                                        ; preds = %1, %17, %30, %27, %25
+  %.2.in = phi i64 [ %33, %30 ], [ %.1.in, %27 ], [ %.1.in, %25 ], [ %.0.in, %17 ], [ %8, %1 ]
   %.2 = trunc i64 %.2.in to i32
   tail call void @PMIx_Argv_free(ptr noundef nonnull %2) #8
   ret i32 %.2

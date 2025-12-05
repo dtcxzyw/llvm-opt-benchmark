@@ -42653,8 +42653,8 @@ define internal fastcc noundef zeroext i1 @"_ZN70_$LT$vim..surrounds..SurroundsT
     i64 2, label %"_ZN60_$LT$vim..motion..Motion$u20$as$u20$core..cmp..PartialEq$GT$2eq17h33d1c085b8b3dd57E.exit"
   ]
 
-"_ZN60_$LT$vim..motion..Motion$u20$as$u20$core..cmp..PartialEq$GT$2eq17h33d1c085b8b3dd57E.exit": ; preds = %tailrecurse.backedge.i, %.lr.ph.i, %181, %177, %171, %169, %167, %155, %149, %140, %134, %128, %122, %116, %110, %104, %98, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %17, %197, %187, %14, %16, %2, %199
-  %.sroa.0.0.shrunk = phi i1 [ %204, %199 ], [ false, %2 ], [ true, %16 ], [ true, %14 ], [ false, %187 ], [ false, %197 ], [ %25, %20 ], [ %31, %26 ], [ %37, %32 ], [ %43, %38 ], [ %49, %44 ], [ %55, %50 ], [ %61, %56 ], [ %67, %62 ], [ %73, %68 ], [ %79, %74 ], [ %85, %80 ], [ %91, %86 ], [ %97, %92 ], [ %121, %116 ], [ %145, %140 ], [ %160, %155 ], [ %186, %181 ], [ false, %110 ], [ false, %104 ], [ false, %98 ], [ false, %134 ], [ false, %128 ], [ false, %122 ], [ false, %149 ], [ false, %169 ], [ false, %171 ], [ false, %167 ], [ false, %177 ], [ false, %17 ], [ true, %.lr.ph.i ], [ false, %tailrecurse.backedge.i ]
+"_ZN60_$LT$vim..motion..Motion$u20$as$u20$core..cmp..PartialEq$GT$2eq17h33d1c085b8b3dd57E.exit": ; preds = %tailrecurse.backedge.i, %.lr.ph.i, %181, %177, %171, %169, %167, %155, %149, %140, %134, %128, %122, %116, %110, %104, %98, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %17, %197, %187, %14, %16, %2, %201
+  %.sroa.0.0.shrunk = phi i1 [ %206, %201 ], [ false, %2 ], [ true, %16 ], [ true, %14 ], [ false, %187 ], [ false, %197 ], [ %25, %20 ], [ %31, %26 ], [ %37, %32 ], [ %43, %38 ], [ %49, %44 ], [ %55, %50 ], [ %61, %56 ], [ %67, %62 ], [ %73, %68 ], [ %79, %74 ], [ %85, %80 ], [ %91, %86 ], [ %97, %92 ], [ %121, %116 ], [ %145, %140 ], [ %160, %155 ], [ %186, %181 ], [ false, %110 ], [ false, %104 ], [ false, %98 ], [ false, %134 ], [ false, %128 ], [ false, %122 ], [ false, %149 ], [ false, %169 ], [ false, %171 ], [ false, %167 ], [ false, %177 ], [ false, %17 ], [ true, %.lr.ph.i ], [ false, %tailrecurse.backedge.i ]
   ret i1 %.sroa.0.0.shrunk
 
 15:                                               ; preds = %14
@@ -42948,16 +42948,18 @@ tailrecurse.backedge.i:                           ; preds = %.lr.ph.i, %.lr.ph.i
 
 197:                                              ; preds = %187
   %198 = or i8 %192, %189
-  %or.cond = icmp samesign ugt i8 %198, 1
-  %or.cond6 = or i1 %194, %or.cond
-  br i1 %or.cond6, label %199, label %"_ZN60_$LT$vim..motion..Motion$u20$as$u20$core..cmp..PartialEq$GT$2eq17h33d1c085b8b3dd57E.exit"
+  %or.cond = icmp samesign ult i8 %198, 2
+  %199 = xor i8 %192, %189
+  %200 = trunc i8 %199 to i1
+  %or.cond7 = and i1 %or.cond, %200
+  br i1 %or.cond7, label %"_ZN60_$LT$vim..motion..Motion$u20$as$u20$core..cmp..PartialEq$GT$2eq17h33d1c085b8b3dd57E.exit", label %201
 
-199:                                              ; preds = %197
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %201 = load i8, ptr %200, align 1, !range !36, !noundef !5
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 1
+201:                                              ; preds = %197
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %203 = load i8, ptr %202, align 1, !range !36, !noundef !5
-  %204 = icmp eq i8 %201, %203
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %205 = load i8, ptr %204, align 1, !range !36, !noundef !5
+  %206 = icmp eq i8 %203, %205
   br label %"_ZN60_$LT$vim..motion..Motion$u20$as$u20$core..cmp..PartialEq$GT$2eq17h33d1c085b8b3dd57E.exit"
 }
 

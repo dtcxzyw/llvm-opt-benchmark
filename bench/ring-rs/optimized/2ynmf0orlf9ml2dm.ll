@@ -1000,24 +1000,22 @@ define hidden noundef i64 @_ZN4ring4limb31limbs_less_than_limbs_consttime17he68b
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i64 @_ZN4ring4limb18limbs_minimal_bits17h84e600d603dbb9cfE(ptr noalias noundef nonnull readonly align 8 captures(none) %0, i64 noundef %1) unnamed_addr #5 {
-  %.not.i35 = icmp eq i64 %1, 0
-  br i1 %.not.i35, label %.loopexit32, label %.lr.ph
+  %.not.i34 = icmp eq i64 %1, 0
+  br i1 %.not.i34, label %.loopexit32, label %.lr.ph
 
 .loopexit:                                        ; preds = %10
-  %.not.i = icmp eq i64 %.sroa.5.1, 0
-  %or.cond = or i1 %3, %.not.i
-  br i1 %or.cond, label %.loopexit32, label %.lr.ph
+  br i1 %3, label %.loopexit32, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.loopexit
-  %.sroa.5.036 = phi i64 [ %.sroa.5.1, %.loopexit ], [ %1, %2 ]
-  %3 = icmp eq i64 %.sroa.5.036, 1
-  %4 = add i64 %.sroa.5.036, -1
-  %.sroa.5.1 = select i1 %3, i64 1, i64 %4
+  %.sroa.5.035 = phi i64 [ %.sroa.5.1, %.loopexit ], [ %1, %2 ]
+  %3 = icmp ult i64 %.sroa.5.035, 2
+  %.sroa.5.1 = add i64 %.sroa.5.035, -1
+  %4 = add i64 %.sroa.5.035, -1
   %5 = icmp ult i64 %4, %1
   br i1 %5, label %6, label %9, !prof !177
 
-.loopexit32:                                      ; preds = %.loopexit, %2, %16
-  %.0 = phi i64 [ %18, %16 ], [ 0, %2 ], [ 0, %.loopexit ]
+.loopexit32:                                      ; preds = %.loopexit, %2, %17
+  %.0 = phi i64 [ %19, %17 ], [ 0, %2 ], [ 0, %.loopexit ]
   ret i64 %.0
 
 6:                                                ; preds = %.lr.ph
@@ -1032,21 +1030,21 @@ define hidden noundef i64 @_ZN4ring4limb18limbs_minimal_bits17h84e600d603dbb9cfE
 10:                                               ; preds = %11, %6
   %.sroa.520.0 = phi i64 [ 64, %6 ], [ %.sroa.520.1, %11 ]
   %.sroa.821.0 = phi i1 [ false, %6 ], [ %12, %11 ]
-  %.not.i15 = icmp eq i64 %.sroa.520.0, 0
-  %or.cond31 = select i1 %.sroa.821.0, i1 true, i1 %.not.i15
-  br i1 %or.cond31, label %.loopexit, label %11
+  br i1 %.sroa.821.0, label %.loopexit, label %11
 
 11:                                               ; preds = %10
-  %12 = icmp eq i64 %.sroa.520.0, 1
-  %13 = add i64 %.sroa.520.0, -1
-  %.sroa.520.1 = select i1 %12, i64 1, i64 %13
-  %14 = tail call noundef i64 @ring_core_0_17_8__LIMB_shr(i64 noundef %8, i64 noundef %13)
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %10, label %16
+  %12 = icmp ult i64 %.sroa.520.0, 2
+  %13 = tail call i64 @llvm.umax.i64(i64 %.sroa.520.0, i64 2)
+  %.sroa.520.1 = add i64 %13, -1
+  %.sroa.3.0.i16 = select i1 %12, i64 1, i64 %.sroa.520.0
+  %14 = add i64 %.sroa.3.0.i16, -1
+  %15 = tail call noundef i64 @ring_core_0_17_8__LIMB_shr(i64 noundef %8, i64 noundef %14)
+  %16 = icmp eq i64 %15, 0
+  br i1 %16, label %10, label %17
 
-16:                                               ; preds = %11
-  %17 = shl i64 %4, 6
-  %18 = add i64 %.sroa.520.0, %17
+17:                                               ; preds = %11
+  %18 = shl i64 %4, 6
+  %19 = add i64 %.sroa.3.0.i16, %18
   br label %.loopexit32
 }
 
@@ -3423,6 +3421,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #23
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

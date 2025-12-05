@@ -5032,6 +5032,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_010TIFFOutput18contig_to_separateEiiPK
   %19 = zext nneg i32 %15 to i64
   %20 = zext nneg i32 %1 to i64
   %21 = zext nneg i32 %2 to i64
+  %wide.trip.count48 = zext nneg i32 %1 to i64
+  %wide.trip.count43 = zext nneg i32 %2 to i64
+  %wide.trip.count = zext nneg i32 %15 to i64
   br label %.preheader26.us.us
 
 .preheader26.us.us:                               ; preds = %.preheader26.us.us.preheader, %._crit_edge29.split.us.us.us
@@ -5057,17 +5060,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_010TIFFOutput18contig_to_separateEiiPK
   %gep53 = getelementptr inbounds nuw i8, ptr %invariant.gep52, i64 %indvars.iv
   store i8 %29, ptr %gep53, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %19
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %28, !llvm.loop !182
 
 ._crit_edge.us.us.us:                             ; preds = %28
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond44.not = icmp eq i64 %indvars.iv.next41, %21
+  %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
   br i1 %exitcond44.not, label %._crit_edge29.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !183
 
 ._crit_edge29.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next46, %20
+  %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
   br i1 %exitcond49.not, label %._crit_edge, label %.preheader26.us.us, !llvm.loop !184
 
 ._crit_edge:                                      ; preds = %._crit_edge29.split.us.us.us, %5

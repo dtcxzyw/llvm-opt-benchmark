@@ -1004,23 +1004,24 @@ define void @_ZN6LibRaw12simple_coeffEi(ptr noundef nonnull align 8 captures(non
   %7 = sext i32 %1 to i64
   %8 = tail call i32 @llvm.umin.i32(i32 %5, i32 4)
   %9 = mul nsw i64 %7, 48
-  %10 = shl nuw nsw i32 %8, 2
-  %11 = zext nneg i32 %10 to i64
-  %12 = add nsw i32 %8, -1
-  %13 = zext nneg i32 %12 to i64
-  %14 = shl nuw nsw i64 %13, 2
-  %15 = add nuw nsw i64 %14, 4
-  %16 = getelementptr i8, ptr @_ZZN6LibRaw12simple_coeffEiE5table, i64 %9
+  %10 = tail call i32 @llvm.umin.i32(i32 %5, i32 4)
+  %11 = shl nuw nsw i32 %10, 2
+  %12 = zext nneg i32 %11 to i64
+  %13 = add nsw i32 %8, -1
+  %14 = zext nneg i32 %13 to i64
+  %15 = shl nuw nsw i64 %14, 2
+  %16 = add nuw nsw i64 %15, 4
+  %17 = getelementptr i8, ptr @_ZZN6LibRaw12simple_coeffEiE5table, i64 %9
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.preheader.us
   %indvar = phi i64 [ 0, %.preheader.us.preheader ], [ %indvar.next, %.preheader.us ]
-  %17 = shl nuw nsw i64 %indvar, 4
-  %18 = getelementptr nuw i8, ptr %0, i64 %17
-  %scevgep = getelementptr nuw i8, ptr %18, i64 153304
-  %19 = mul nuw nsw i64 %indvar, %11
-  %scevgep17 = getelementptr i8, ptr %16, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 4 dereferenceable(1) %scevgep17, i64 %15, i1 false), !tbaa !83
+  %18 = shl nuw nsw i64 %indvar, 4
+  %19 = getelementptr nuw i8, ptr %0, i64 %18
+  %scevgep = getelementptr nuw i8, ptr %19, i64 153304
+  %20 = mul nuw nsw i64 %indvar, %12
+  %scevgep17 = getelementptr i8, ptr %17, i64 %20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 4 dereferenceable(1) %scevgep17, i64 %16, i1 false), !tbaa !83
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, 3
   br i1 %exitcond.not, label %.split15.us, label %.preheader.us, !llvm.loop !87

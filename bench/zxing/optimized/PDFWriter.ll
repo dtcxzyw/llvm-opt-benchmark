@@ -605,7 +605,6 @@ _ZNSt6vectorIS_IbSaIbEESaIS1_EE6resizeEm.exit:    ; preds = %22, %24, %26, %_ZSt
   br i1 %46, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIS_IbSaIbEESaIS1_EE6resizeEm.exit
-  %47 = and i64 %44, 2147483647
   %wide.trip.count = and i64 %44, 2147483647
   br label %.lr.ph
 
@@ -614,16 +613,18 @@ _ZNSt6vectorIS_IbSaIbEESaIS1_EE6resizeEm.exit:    ; preds = %22, %24, %26, %_ZSt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %48 = trunc nuw nsw i64 %indvars.iv to i32
-  %49 = sdiv i32 %48, %2
-  %50 = sext i32 %49 to i64
-  %51 = load ptr, ptr %0, align 8, !tbaa !32
-  %52 = getelementptr inbounds nuw %"class.ZXing::Pdf417::BarcodeRow", ptr %51, i64 %50
-  %53 = xor i64 %indvars.iv, -1
-  %54 = load ptr, ptr %3, align 8, !tbaa !18
-  %55 = getelementptr %"class.std::vector.15", ptr %54, i64 %47
-  %56 = getelementptr %"class.std::vector.15", ptr %55, i64 %53
-  tail call void @_ZNK5ZXing6Pdf41710BarcodeRow12getScaledRowEiRSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(44) %52, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %56)
+  %47 = trunc nuw nsw i64 %indvars.iv to i32
+  %48 = sdiv i32 %47, %2
+  %49 = sext i32 %48 to i64
+  %50 = load ptr, ptr %0, align 8, !tbaa !32
+  %51 = getelementptr inbounds nuw %"class.ZXing::Pdf417::BarcodeRow", ptr %50, i64 %49
+  %52 = xor i64 %indvars.iv, -1
+  %53 = add i64 %44, %52
+  %sext = shl i64 %53, 32
+  %54 = ashr exact i64 %sext, 32
+  %55 = load ptr, ptr %3, align 8, !tbaa !18
+  %56 = getelementptr inbounds nuw %"class.std::vector.15", ptr %55, i64 %54
+  tail call void @_ZNK5ZXing6Pdf41710BarcodeRow12getScaledRowEiRSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(44) %51, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %56)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38

@@ -3111,20 +3111,26 @@ define dso_local void @lua_pushcclosure(ptr noundef %0, ptr noundef %1, i32 noun
   %9 = load ptr, ptr %6, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %10, ptr %6, align 8, !tbaa !20
-  br label %42
+  br label %40
 
 11:                                               ; preds = %3
   %12 = tail call ptr @luaF_newCclosure(ptr noundef %0, i32 noundef %2) #13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %1, ptr %13, align 8, !tbaa !51
   %14 = icmp sgt i32 %2, 0
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %.._crit_edge_crit_edge
+
+.._crit_edge_crit_edge:                           ; preds = %11
+  %.pre = sext i32 %2 to i64
+  %.pre34 = sub nsw i64 0, %.pre
+  br label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = zext nneg i32 %2 to i64
   %18 = sub nsw i64 0, %17
+  %wide.trip.count = zext nneg i32 %2 to i64
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
@@ -3140,34 +3146,33 @@ define dso_local void @lua_pushcclosure(ptr noundef %0, ptr noundef %1, i32 noun
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i8 %26, ptr %27, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %17
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %19
 
-._crit_edge:                                      ; preds = %19, %11
+._crit_edge:                                      ; preds = %19, %.._crit_edge_crit_edge
+  %.pre-phi35 = phi i64 [ %.pre34, %.._crit_edge_crit_edge ], [ %18, %19 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !20
-  %30 = sext i32 %2 to i64
-  %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds %union.StackValue, ptr %29, i64 %31
-  store ptr %32, ptr %28, align 8, !tbaa !20
-  store ptr %12, ptr %32, align 8, !tbaa !20
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i8 102, ptr %33, align 8, !tbaa !21
-  %34 = load ptr, ptr %28, align 8, !tbaa !20
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %35, ptr %28, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = load i64, ptr %38, align 8, !tbaa !44
-  %40 = icmp slt i64 %39, 1
-  br i1 %40, label %41, label %42
+  %30 = getelementptr inbounds %union.StackValue, ptr %29, i64 %.pre-phi35
+  store ptr %30, ptr %28, align 8, !tbaa !20
+  store ptr %12, ptr %30, align 8, !tbaa !20
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i8 102, ptr %31, align 8, !tbaa !21
+  %32 = load ptr, ptr %28, align 8, !tbaa !20
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store ptr %33, ptr %28, align 8, !tbaa !20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %35 = load ptr, ptr %34, align 8, !tbaa !23
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %37 = load i64, ptr %36, align 8, !tbaa !44
+  %38 = icmp slt i64 %37, 1
+  br i1 %38, label %39, label %40
 
-41:                                               ; preds = %._crit_edge
+39:                                               ; preds = %._crit_edge
   tail call void @luaC_step(ptr noundef nonnull %0) #13
-  br label %42
+  br label %40
 
-42:                                               ; preds = %._crit_edge, %41, %5
+40:                                               ; preds = %._crit_edge, %39, %5
   ret void
 }
 

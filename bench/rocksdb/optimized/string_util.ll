@@ -838,11 +838,11 @@ define noundef zeroext i1 @_ZN7rocksdb20ConsumeDecimalNumberEPNS_5SliceEPm(ptr n
   %.promoted47 = load ptr, ptr %0, align 8, !tbaa !39
   br label %5
 
-5:                                                ; preds = %.lr.ph, %16
-  %6 = phi ptr [ %.promoted47, %.lr.ph ], [ %20, %16 ]
-  %.02442 = phi i64 [ 0, %.lr.ph ], [ %19, %16 ]
-  %.02841 = phi i32 [ 0, %.lr.ph ], [ %11, %16 ]
-  %7 = phi i64 [ %.promoted, %.lr.ph ], [ %21, %16 ]
+5:                                                ; preds = %.lr.ph, %17
+  %6 = phi ptr [ %.promoted47, %.lr.ph ], [ %21, %17 ]
+  %.02442 = phi i64 [ 0, %.lr.ph ], [ %20, %17 ]
+  %.02841 = phi i32 [ 0, %.lr.ph ], [ %11, %17 ]
+  %7 = phi i64 [ %.promoted, %.lr.ph ], [ %22, %17 ]
   %8 = load i8, ptr %6, align 1, !tbaa !13
   %9 = add i8 %8, -48
   %or.cond = icmp ult i8 %9, 10
@@ -855,29 +855,30 @@ define noundef zeroext i1 @_ZN7rocksdb20ConsumeDecimalNumberEPNS_5SliceEPm(ptr n
 
 13:                                               ; preds = %10
   %14 = icmp eq i64 %.02442, 1844674407370955161
-  %15 = icmp samesign ugt i8 %9, 5
-  %or.cond5 = select i1 %14, i1 %15, i1 false
-  br i1 %or.cond5, label %.thread, label %16
+  %15 = and i8 %8, 15
+  %16 = icmp samesign ugt i8 %15, 5
+  %or.cond5 = select i1 %14, i1 %16, i1 false
+  br i1 %or.cond5, label %.thread, label %17
 
-16:                                               ; preds = %13
-  %17 = zext nneg i8 %9 to i64
-  %18 = mul nuw i64 %.02442, 10
-  %19 = add i64 %18, %17
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %20, ptr %0, align 8, !tbaa !39
-  %21 = add i64 %7, -1
-  store i64 %21, ptr %3, align 8, !tbaa !37
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %.thread35.loopexit, label %5
+17:                                               ; preds = %13
+  %18 = zext nneg i8 %15 to i64
+  %19 = mul nuw i64 %.02442, 10
+  %20 = add i64 %19, %18
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store ptr %21, ptr %0, align 8, !tbaa !39
+  %22 = add i64 %7, -1
+  store i64 %22, ptr %3, align 8, !tbaa !37
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %.thread35.loopexit, label %5
 
-.thread35.loopexit:                               ; preds = %5, %16
-  %.028.lcssa.ph = phi i32 [ 1, %16 ], [ %.02841, %5 ]
-  %.024.lcssa.ph = phi i64 [ %19, %16 ], [ %.02442, %5 ]
-  %23 = icmp ne i32 %.028.lcssa.ph, 0
+.thread35.loopexit:                               ; preds = %5, %17
+  %.028.lcssa.ph = phi i32 [ 1, %17 ], [ %.02841, %5 ]
+  %.024.lcssa.ph = phi i64 [ %20, %17 ], [ %.02442, %5 ]
+  %24 = icmp ne i32 %.028.lcssa.ph, 0
   br label %.thread35
 
 .thread35:                                        ; preds = %.thread35.loopexit, %2
-  %.028.lcssa = phi i1 [ false, %2 ], [ %23, %.thread35.loopexit ]
+  %.028.lcssa = phi i1 [ false, %2 ], [ %24, %.thread35.loopexit ]
   %.024.lcssa = phi i64 [ 0, %2 ], [ %.024.lcssa.ph, %.thread35.loopexit ]
   store i64 %.024.lcssa, ptr %1, align 8, !tbaa !31
   br label %.thread

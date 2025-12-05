@@ -9252,7 +9252,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit64: ; pr
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66: ; preds = %100, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %cond, label %107, label %157
+  br i1 %cond, label %107, label %158
 
 106:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit64, %81
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit64 ], [ %82, %81 ]
@@ -9365,18 +9365,17 @@ _ZNSt3__111__formatter6__copyB8ne210000ITkNS_19contiguous_iteratorEPcTkNS_15__fm
   %152 = ptrtoint ptr %.2 to i64
   %153 = sub i64 %30, %152
   %154 = call ptr @_ZNSt3__111__formatter7__writeB8ne210000IccTkNS_15output_iteratorIRKT_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp0_ENS_17basic_string_viewIS3_NS_11char_traitsIS3_EEEET1_NS_13__format_spec23__parsed_specificationsIT0_EEl(ptr %.2, i64 %153, ptr %.sroa.0.0.copyload.i69, i64 %.sroa.0.sroa.0.0.insert.insert83, i64 %.sroa.15.0, i64 noundef %153)
-  br label %157
+  br label %158
 
 155:                                              ; preds = %148
-  %.sroa.0.sroa.11.0.insert.ext = and i64 %2, 4294901760
-  %.sroa.0.sroa.11.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11103.0.insert.shift, %.sroa.0.sroa.11.0.insert.ext
-  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
-  %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.10.0.insert.insert, 1792
-  %156 = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %33, ptr %.sroa.0.0.copyload.i69, i64 %.sroa.0.sroa.0.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
-  br label %157
+  %156 = and i64 %2, 4294903552
+  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11103.0.insert.shift, %156
+  %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.10.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
+  %157 = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %33, ptr %.sroa.0.0.copyload.i69, i64 %.sroa.0.sroa.0.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
+  br label %158
 
-157:                                              ; preds = %150, %155, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66
-  %.sroa.044.1 = phi ptr [ %.sroa.044.0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66 ], [ %154, %150 ], [ %156, %155 ]
+158:                                              ; preds = %150, %155, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66
+  %.sroa.044.1 = phi ptr [ %.sroa.044.0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66 ], [ %154, %150 ], [ %157, %155 ]
   ret ptr %.sroa.044.1
 }
 
@@ -12953,7 +12952,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit64: ; pr
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66: ; preds = %100, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %cond, label %107, label %157
+  br i1 %cond, label %107, label %158
 
 106:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit64, %81
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit64 ], [ %82, %81 ]
@@ -13066,18 +13065,17 @@ _ZNSt3__111__formatter6__copyB8ne210000ITkNS_19contiguous_iteratorEPcTkNS_15__fm
   %152 = ptrtoint ptr %.2 to i64
   %153 = sub i64 %30, %152
   %154 = call ptr @_ZNSt3__111__formatter7__writeB8ne210000IccTkNS_15output_iteratorIRKT_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp0_ENS_17basic_string_viewIS3_NS_11char_traitsIS3_EEEET1_NS_13__format_spec23__parsed_specificationsIT0_EEl(ptr %.2, i64 %153, ptr %.sroa.0.0.copyload.i69, i64 %.sroa.0.sroa.0.0.insert.insert83, i64 %.sroa.15.0, i64 noundef %153)
-  br label %157
+  br label %158
 
 155:                                              ; preds = %148
-  %.sroa.0.sroa.11.0.insert.ext = and i64 %2, 4294901760
-  %.sroa.0.sroa.11.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11103.0.insert.shift, %.sroa.0.sroa.11.0.insert.ext
-  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
-  %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.10.0.insert.insert, 1792
-  %156 = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %33, ptr %.sroa.0.0.copyload.i69, i64 %.sroa.0.sroa.0.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
-  br label %157
+  %156 = and i64 %2, 4294903552
+  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11103.0.insert.shift, %156
+  %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.10.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
+  %157 = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %33, ptr %.sroa.0.0.copyload.i69, i64 %.sroa.0.sroa.0.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
+  br label %158
 
-157:                                              ; preds = %150, %155, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66
-  %.sroa.044.1 = phi ptr [ %.sroa.044.0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66 ], [ %154, %150 ], [ %156, %155 ]
+158:                                              ; preds = %150, %155, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66
+  %.sroa.044.1 = phi ptr [ %.sroa.044.0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit66 ], [ %154, %150 ], [ %157, %155 ]
   ret ptr %.sroa.044.1
 }
 
@@ -13837,7 +13835,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit68: ; pr
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit70: ; preds = %101, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %cond, label %108, label %158
+  br i1 %cond, label %108, label %159
 
 107:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit68, %82
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit68 ], [ %83, %82 ]
@@ -13950,18 +13948,17 @@ _ZNSt3__111__formatter6__copyB8ne210000ITkNS_19contiguous_iteratorEPcTkNS_15__fm
   %153 = ptrtoint ptr %.2 to i64
   %154 = sub i64 %31, %153
   %155 = call ptr @_ZNSt3__111__formatter7__writeB8ne210000IccTkNS_15output_iteratorIRKT_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp0_ENS_17basic_string_viewIS3_NS_11char_traitsIS3_EEEET1_NS_13__format_spec23__parsed_specificationsIT0_EEl(ptr %.2, i64 %154, ptr %.sroa.0.0.copyload.i73, i64 %.sroa.0.sroa.0.0.insert.insert87, i64 %.sroa.15.0, i64 noundef %154)
-  br label %158
+  br label %159
 
 156:                                              ; preds = %149
-  %.sroa.0.sroa.11.0.insert.ext = and i64 %3, 4294901760
-  %.sroa.0.sroa.11.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11107.0.insert.shift, %.sroa.0.sroa.11.0.insert.ext
-  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
-  %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.10.0.insert.insert, 1792
-  %157 = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %34, ptr %.sroa.0.0.copyload.i73, i64 %.sroa.0.sroa.0.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
-  br label %158
+  %157 = and i64 %3, 4294903552
+  %.sroa.0.sroa.10.0.insert.insert = or disjoint i64 %.sroa.0.sroa.11107.0.insert.shift, %157
+  %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.10.0.insert.insert, %.sroa.0.sroa.0.0.insert.ext
+  %158 = call ptr @_ZNSt3__111__formatter19__write_transformedB8ne210000ITkNS_19contiguous_iteratorEPcccPFccETkNS_15output_iteratorIRKT0_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp1_ET_SF_T3_NS_13__format_spec23__parsed_specificationsIT1_EET2_(ptr noundef %.2, ptr noundef %34, ptr %.sroa.0.0.copyload.i73, i64 %.sroa.0.sroa.0.0.insert.insert, i64 %.sroa.15.0, ptr noundef nonnull @_ZNSt3__114__hex_to_upperB8ne210000Ec)
+  br label %159
 
-158:                                              ; preds = %151, %156, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit70
-  %.sroa.048.1 = phi ptr [ %.sroa.048.0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit70 ], [ %155, %151 ], [ %157, %156 ]
+159:                                              ; preds = %151, %156, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit70
+  %.sroa.048.1 = phi ptr [ %.sroa.048.0, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit70 ], [ %155, %151 ], [ %158, %156 ]
   ret ptr %.sroa.048.1
 }
 

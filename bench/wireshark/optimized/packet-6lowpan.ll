@@ -1738,13 +1738,14 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %624 = load i32, ptr @hf_6lowpan_6lorhe_type, align 4
   %625 = call ptr @proto_tree_add_uint(ptr noundef %538, i32 noundef %624, ptr noundef %.2, i32 noundef %.1241.i, i32 noundef 2, i32 noundef %551)
   %626 = add i32 %.1241.i, 2
+  %trunc.i = trunc i16 %.0197240.i to i8
   %627 = zext nneg i16 %547 to i32
-  switch i16 %550, label %default.unreachable [
-    i16 0, label %.preheader.i
-    i16 1, label %.preheader201.i
-    i16 2, label %.preheader202.i
-    i16 3, label %.preheader203.i
-    i16 4, label %.preheader204.i
+  switch i8 %trunc.i, label %default.unreachable.i [
+    i8 0, label %.preheader.i
+    i8 1, label %.preheader201.i
+    i8 2, label %.preheader202.i
+    i8 3, label %.preheader203.i
+    i8 4, label %.preheader204.i
   ]
 
 .preheader.i:                                     ; preds = %621, %.preheader.i
@@ -1857,7 +1858,10 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %664, label %669, !llvm.loop !25
 
-default.unreachable:                              ; preds = %621, %592
+default.unreachable:                              ; preds = %592
+  unreachable
+
+default.unreachable.i:                            ; preds = %621
   unreachable
 
 select.unfold.i:                                  ; preds = %664, %654, %644, %633, %.preheader.i, %563, %619, %614, %609, %603, %597, %588, %568, %555, %536

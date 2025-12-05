@@ -1213,7 +1213,7 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
 
 17:                                               ; preds = %15
   %18 = zext nneg i8 %11 to i64
-  br label %85
+  br label %84
 
 19:                                               ; preds = %15
   %20 = and i8 %11, 127
@@ -1362,45 +1362,44 @@ define hidden range(i32 0, 2) i32 @BIO_read_asn1(ptr noundef %0, ptr noundef cap
   br i1 %79, label %bio_read_all.exit.thread, label %bio_read_all.exit
 
 bio_read_all.exit:                                ; preds = %._crit_edge
-  %80 = shl i8 %11, 3
-  %81 = zext i8 %80 to i32
-  %82 = add nsw i32 %81, -8
-  %83 = lshr i32 %78, %82
-  %.not77 = icmp eq i32 %83, 0
-  %84 = zext i32 %78 to i64
-  br i1 %.not77, label %bio_read_all.exit.thread, label %85
+  %80 = shl nuw nsw i32 %21, 3
+  %81 = add nsw i32 %80, -8
+  %82 = lshr i32 %78, %81
+  %.not77 = icmp eq i32 %82, 0
+  %83 = zext i32 %78 to i64
+  br i1 %.not77, label %bio_read_all.exit.thread, label %84
 
-85:                                               ; preds = %bio_read_all.exit, %17
-  %.061 = phi i64 [ %18, %17 ], [ %84, %bio_read_all.exit ]
+84:                                               ; preds = %bio_read_all.exit, %17
+  %.061 = phi i64 [ %18, %17 ], [ %83, %bio_read_all.exit ]
   %.059 = phi i64 [ 2, %17 ], [ %72, %bio_read_all.exit ]
-  %86 = add nuw nsw i64 %.059, %.061
-  %87 = icmp ugt i64 %86, %3
-  %88 = icmp samesign ugt i64 %.061, 2147483647
-  %or.cond5 = or i1 %88, %87
-  br i1 %or.cond5, label %bio_read_all.exit.thread, label %89
+  %85 = add nuw nsw i64 %.059, %.061
+  %86 = icmp ugt i64 %85, %3
+  %87 = icmp samesign ugt i64 %.061, 2147483647
+  %or.cond5 = or i1 %87, %86
+  br i1 %or.cond5, label %bio_read_all.exit.thread, label %88
 
-89:                                               ; preds = %85
-  store i64 %86, ptr %2, align 8, !tbaa !27
-  %90 = call noalias ptr @malloc(i64 noundef %86) #17
-  store ptr %90, ptr %1, align 8, !tbaa !29
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %bio_read_all.exit.thread, label %92
+88:                                               ; preds = %84
+  store i64 %85, ptr %2, align 8, !tbaa !27
+  %89 = call noalias ptr @malloc(i64 noundef %85) #17
+  store ptr %89, ptr %1, align 8, !tbaa !29
+  %90 = icmp eq ptr %89, null
+  br i1 %90, label %bio_read_all.exit.thread, label %91
 
-92:                                               ; preds = %89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 2 dereferenceable(1) %5, i64 %.059, i1 false)
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %.059
-  %94 = trunc nuw nsw i64 %.061 to i32
-  %95 = call fastcc i32 @bio_io(ptr noundef nonnull %0, ptr noundef nonnull %93, i32 noundef %94, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %6)
-  %.not71 = icmp eq i32 %95, %94
-  br i1 %.not71, label %bio_read_all.exit.thread, label %96
+91:                                               ; preds = %88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %89, ptr noundef nonnull align 2 dereferenceable(1) %5, i64 %.059, i1 false)
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 %.059
+  %93 = trunc nuw nsw i64 %.061 to i32
+  %94 = call fastcc i32 @bio_io(ptr noundef nonnull %0, ptr noundef nonnull %92, i32 noundef %93, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %6)
+  %.not71 = icmp eq i32 %94, %93
+  br i1 %.not71, label %bio_read_all.exit.thread, label %95
 
-96:                                               ; preds = %92
-  %97 = load ptr, ptr %1, align 8, !tbaa !29
-  call void @free(ptr noundef %97) #18
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %1, align 8, !tbaa !29
+  call void @free(ptr noundef %96) #18
   br label %bio_read_all.exit.thread
 
-bio_read_all.exit.thread:                         ; preds = %.thread72.i, %.split81.us.i, %.split79.us.i, %.split.us.i, %28, %26, %._crit_edge, %69, %67, %8, %92, %89, %85, %bio_read_all.exit, %96, %4
-  %.058 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %96 ], [ 0, %bio_read_all.exit ], [ 0, %85 ], [ 0, %89 ], [ 1, %92 ], [ 1, %.split79.us.i ], [ 0, %.split81.us.i ], [ 0, %.thread72.i ], [ 0, %.split.us.i ], [ 0, %28 ], [ 0, %26 ], [ 0, %._crit_edge ], [ 0, %69 ], [ 0, %67 ]
+bio_read_all.exit.thread:                         ; preds = %.thread72.i, %.split81.us.i, %.split79.us.i, %.split.us.i, %28, %26, %._crit_edge, %69, %67, %8, %91, %88, %84, %bio_read_all.exit, %95, %4
+  %.058 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 0, %95 ], [ 0, %bio_read_all.exit ], [ 0, %84 ], [ 0, %88 ], [ 1, %91 ], [ 1, %.split79.us.i ], [ 0, %.split81.us.i ], [ 0, %.thread72.i ], [ 0, %.split.us.i ], [ 0, %28 ], [ 0, %26 ], [ 0, %._crit_edge ], [ 0, %69 ], [ 0, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.058
 }

@@ -63243,8 +63243,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i34: ; preds = %105
   %107 = lshr i32 %14, 1
   %108 = add nuw nsw i32 %107, %14
   %109 = zext nneg i32 %108 to i64
-  %.not.i.i.i.i35 = icmp eq i32 %108, 0
-  br i1 %.not.i.i.i.i35, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit40, label %110
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit40, label %110
 
 110:                                              ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i34
   %111 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %109) #45

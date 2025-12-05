@@ -7161,9 +7161,9 @@ define void @_ZNK5folly11IPAddressV616toFullyQualifiedB5cxx11Ev(ptr dead_on_unwi
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !272
   br label %5
 
-5:                                                ; preds = %18, %2
-  %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %18 ]
-  %.0910.i.i = phi ptr [ %4, %2 ], [ %19, %18 ]
+5:                                                ; preds = %16, %2
+  %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %16 ]
+  %.0910.i.i = phi ptr [ %4, %2 ], [ %17, %16 ]
   %6 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i.i
   %7 = load i16, ptr %6, align 2, !tbaa !62, !noalias !272
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %7)
@@ -7171,75 +7171,74 @@ define void @_ZNK5folly11IPAddressV616toFullyQualifiedB5cxx11Ev(ptr dead_on_unwi
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %5
-  %.12234.i.i.i = phi i16 [ %17, %.lr.ph.i.i.i ], [ 4096, %5 ]
-  %.02333.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i ], [ %.0910.i.i, %5 ]
-  %.02532.i.i.i = phi i16 [ %15, %.lr.ph.i.i.i ], [ %rev.i.i.i, %5 ]
+  %.12234.i.i.i = phi i16 [ %15, %.lr.ph.i.i.i ], [ 4096, %5 ]
+  %.02333.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i ], [ %.0910.i.i, %5 ]
+  %.02532.i.i.i = phi i16 [ %13, %.lr.ph.i.i.i ], [ %rev.i.i.i, %5 ]
   %8 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.12234.i.i.i, i1 true)
   %9 = lshr i16 %.02532.i.i.i, %8
   %10 = icmp ult i16 %9, 10
-  %11 = or disjoint i16 %9, 48
-  %12 = add i16 %9, 87
-  %.0.i.i.i = select i1 %10, i16 %11, i16 %12
-  %13 = trunc i16 %.0.i.i.i to i8
-  store i8 %13, ptr %.02333.i.i.i, align 1, !tbaa !9, !noalias !272
-  %14 = add nsw i16 %.12234.i.i.i, -1
-  %15 = and i16 %.02532.i.i.i, %14
-  %16 = getelementptr inbounds nuw i8, ptr %.02333.i.i.i, i64 1
-  %17 = lshr i16 %.12234.i.i.i, 4
+  %.0.v.i.i.i = select i1 %10, i16 48, i16 87
+  %.0.i.i.i = add i16 %.0.v.i.i.i, %9
+  %11 = trunc i16 %.0.i.i.i to i8
+  store i8 %11, ptr %.02333.i.i.i, align 1, !tbaa !9, !noalias !272
+  %12 = add nsw i16 %.12234.i.i.i, -1
+  %13 = and i16 %.02532.i.i.i, %12
+  %14 = getelementptr inbounds nuw i8, ptr %.02333.i.i.i, i64 1
+  %15 = lshr i16 %.12234.i.i.i, 4
   %exitcond.i = icmp eq ptr %.02333.i.i.i, %scevgep.i
   br i1 %exitcond.i, label %_ZN5folly6detail18writeIntegerStringItTnT_Lt4ETnS2_Lt16ELb1EbEEvS2_PPc.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !275
 
 _ZN5folly6detail18writeIntegerStringItTnT_Lt4ETnS2_Lt16ELb1EbEEvS2_PPc.exit.i.i: ; preds = %.lr.ph.i.i.i
   %.not.i.i = icmp eq i64 %indvars.iv.i.i, 7
-  br i1 %.not.i.i, label %_ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i, label %18
+  br i1 %.not.i.i, label %_ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i, label %16
 
-18:                                               ; preds = %_ZN5folly6detail18writeIntegerStringItTnT_Lt4ETnS2_Lt16ELb1EbEEvS2_PPc.exit.i.i
-  %19 = getelementptr i8, ptr %.0910.i.i, i64 5
-  store i8 58, ptr %16, align 1, !tbaa !9, !noalias !272
+16:                                               ; preds = %_ZN5folly6detail18writeIntegerStringItTnT_Lt4ETnS2_Lt16ELb1EbEEvS2_PPc.exit.i.i
+  %17 = getelementptr i8, ptr %.0910.i.i, i64 5
+  store i8 58, ptr %14, align 1, !tbaa !9, !noalias !272
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   br label %5
 
 _ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i: ; preds = %_ZN5folly6detail18writeIntegerStringItTnT_Lt4ETnS2_Lt16ELb1EbEEvS2_PPc.exit.i.i
-  %20 = ptrtoint ptr %16 to i64
-  %21 = ptrtoint ptr %4 to i64
-  %22 = sub i64 %20, %21
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %23, ptr %0, align 8, !tbaa !34, !alias.scope !272
+  %18 = ptrtoint ptr %14 to i64
+  %19 = ptrtoint ptr %4 to i64
+  %20 = sub i64 %18, %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %21, ptr %0, align 8, !tbaa !34, !alias.scope !272
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !272
-  store i64 %22, ptr %3, align 8, !tbaa !13, !noalias !272
-  %24 = icmp ugt i64 %22, 15
-  br i1 %24, label %.noexc.i.i, label %._crit_edge.i.i.i
+  store i64 %20, ptr %3, align 8, !tbaa !13, !noalias !272
+  %22 = icmp ugt i64 %20, 15
+  br i1 %22, label %.noexc.i.i, label %._crit_edge.i.i.i
 
 .noexc.i.i:                                       ; preds = %_ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i
-  %25 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %25, ptr %0, align 8, !tbaa !15, !alias.scope !272
-  %26 = load i64, ptr %3, align 8, !tbaa !13, !noalias !272
-  store i64 %26, ptr %23, align 8, !tbaa !9, !alias.scope !272
+  %23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+  store ptr %23, ptr %0, align 8, !tbaa !15, !alias.scope !272
+  %24 = load i64, ptr %3, align 8, !tbaa !13, !noalias !272
+  store i64 %24, ptr %21, align 8, !tbaa !9, !alias.scope !272
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %_ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i
-  %27 = phi ptr [ %25, %.noexc.i.i ], [ %23, %_ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i ]
-  switch i64 %22, label %30 [
-    i64 1, label %28
+  %25 = phi ptr [ %23, %.noexc.i.i ], [ %21, %_ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i ]
+  switch i64 %20, label %28 [
+    i64 1, label %26
     i64 0, label %_ZN5folly6detail16fastIpv6ToStringB5cxx11ERK8in6_addr.exit
   ]
 
+26:                                               ; preds = %._crit_edge.i.i.i
+  %27 = load i8, ptr %4, align 16, !tbaa !9, !noalias !272
+  store i8 %27, ptr %25, align 1, !tbaa !9
+  br label %_ZN5folly6detail16fastIpv6ToStringB5cxx11ERK8in6_addr.exit
+
 28:                                               ; preds = %._crit_edge.i.i.i
-  %29 = load i8, ptr %4, align 16, !tbaa !9, !noalias !272
-  store i8 %29, ptr %27, align 1, !tbaa !9
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr nonnull align 16 %4, i64 %20, i1 false)
   br label %_ZN5folly6detail16fastIpv6ToStringB5cxx11ERK8in6_addr.exit
 
-30:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull align 16 %4, i64 %22, i1 false)
-  br label %_ZN5folly6detail16fastIpv6ToStringB5cxx11ERK8in6_addr.exit
-
-_ZN5folly6detail16fastIpv6ToStringB5cxx11ERK8in6_addr.exit: ; preds = %._crit_edge.i.i.i, %28, %30
-  %31 = load i64, ptr %3, align 8, !tbaa !13, !noalias !272
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %31, ptr %32, align 8, !tbaa !20, !alias.scope !272
-  %33 = load ptr, ptr %0, align 8, !tbaa !15, !alias.scope !272
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %31
-  store i8 0, ptr %34, align 1, !tbaa !9
+_ZN5folly6detail16fastIpv6ToStringB5cxx11ERK8in6_addr.exit: ; preds = %._crit_edge.i.i.i, %26, %28
+  %29 = load i64, ptr %3, align 8, !tbaa !13, !noalias !272
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %29, ptr %30, align 8, !tbaa !20, !alias.scope !272
+  %31 = load ptr, ptr %0, align 8, !tbaa !15, !alias.scope !272
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %29
+  store i8 0, ptr %32, align 1, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !272
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !272
   ret void
@@ -7251,9 +7250,9 @@ define void @_ZNK5folly11IPAddressV622toFullyQualifiedAppendERNSt7__cxx1112basic
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
-4:                                                ; preds = %17, %2
-  %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %17 ]
-  %.0910.i.i = phi ptr [ %3, %2 ], [ %18, %17 ]
+4:                                                ; preds = %15, %2
+  %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %15 ]
+  %.0910.i.i = phi ptr [ %3, %2 ], [ %16, %15 ]
   %5 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %6 = load i16, ptr %5, align 2, !tbaa !62
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %6)
@@ -7261,50 +7260,49 @@ define void @_ZNK5folly11IPAddressV622toFullyQualifiedAppendERNSt7__cxx1112basic
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %4
-  %.12234.i.i.i = phi i16 [ %16, %.lr.ph.i.i.i ], [ 4096, %4 ]
-  %.02333.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %.0910.i.i, %4 ]
-  %.02532.i.i.i = phi i16 [ %14, %.lr.ph.i.i.i ], [ %rev.i.i.i, %4 ]
+  %.12234.i.i.i = phi i16 [ %14, %.lr.ph.i.i.i ], [ 4096, %4 ]
+  %.02333.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %.0910.i.i, %4 ]
+  %.02532.i.i.i = phi i16 [ %12, %.lr.ph.i.i.i ], [ %rev.i.i.i, %4 ]
   %7 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.12234.i.i.i, i1 true)
   %8 = lshr i16 %.02532.i.i.i, %7
   %9 = icmp ult i16 %8, 10
-  %10 = or disjoint i16 %8, 48
-  %11 = add i16 %8, 87
-  %.0.i.i.i = select i1 %9, i16 %10, i16 %11
-  %12 = trunc i16 %.0.i.i.i to i8
-  store i8 %12, ptr %.02333.i.i.i, align 1, !tbaa !9
-  %13 = add nsw i16 %.12234.i.i.i, -1
-  %14 = and i16 %.02532.i.i.i, %13
-  %15 = getelementptr inbounds nuw i8, ptr %.02333.i.i.i, i64 1
-  %16 = lshr i16 %.12234.i.i.i, 4
+  %.0.v.i.i.i = select i1 %9, i16 48, i16 87
+  %.0.i.i.i = add i16 %.0.v.i.i.i, %8
+  %10 = trunc i16 %.0.i.i.i to i8
+  store i8 %10, ptr %.02333.i.i.i, align 1, !tbaa !9
+  %11 = add nsw i16 %.12234.i.i.i, -1
+  %12 = and i16 %.02532.i.i.i, %11
+  %13 = getelementptr inbounds nuw i8, ptr %.02333.i.i.i, i64 1
+  %14 = lshr i16 %.12234.i.i.i, 4
   %exitcond.i = icmp eq ptr %.02333.i.i.i, %scevgep.i
   br i1 %exitcond.i, label %_ZN5folly6detail18writeIntegerStringItTnT_Lt4ETnS2_Lt16ELb1EbEEvS2_PPc.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !275
 
 _ZN5folly6detail18writeIntegerStringItTnT_Lt4ETnS2_Lt16ELb1EbEEvS2_PPc.exit.i.i: ; preds = %.lr.ph.i.i.i
   %.not.i.i = icmp eq i64 %indvars.iv.i.i, 7
-  br i1 %.not.i.i, label %_ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i, label %17
+  br i1 %.not.i.i, label %_ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i, label %15
 
-17:                                               ; preds = %_ZN5folly6detail18writeIntegerStringItTnT_Lt4ETnS2_Lt16ELb1EbEEvS2_PPc.exit.i.i
-  %18 = getelementptr i8, ptr %.0910.i.i, i64 5
-  store i8 58, ptr %15, align 1, !tbaa !9
+15:                                               ; preds = %_ZN5folly6detail18writeIntegerStringItTnT_Lt4ETnS2_Lt16ELb1EbEEvS2_PPc.exit.i.i
+  %16 = getelementptr i8, ptr %.0910.i.i, i64 5
+  store i8 58, ptr %13, align 1, !tbaa !9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   br label %4
 
 _ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i: ; preds = %_ZN5folly6detail18writeIntegerStringItTnT_Lt4ETnS2_Lt16ELb1EbEEvS2_PPc.exit.i.i
-  %19 = ptrtoint ptr %15 to i64
-  %20 = ptrtoint ptr %3 to i64
-  %21 = sub i64 %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !20
-  %24 = sub i64 4611686018427387903, %23
-  %25 = icmp ult i64 %24, %21
-  br i1 %25, label %26, label %_ZN5folly6detail22fastIpv6AppendToStringERK8in6_addrRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %17 = ptrtoint ptr %13 to i64
+  %18 = ptrtoint ptr %3 to i64
+  %19 = sub i64 %17, %18
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = load i64, ptr %20, align 8, !tbaa !20
+  %22 = sub i64 4611686018427387903, %21
+  %23 = icmp ult i64 %22, %19
+  br i1 %23, label %24, label %_ZN5folly6detail22fastIpv6AppendToStringERK8in6_addrRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-26:                                               ; preds = %_ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i
+24:                                               ; preds = %_ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #41
   unreachable
 
 _ZN5folly6detail22fastIpv6AppendToStringERK8in6_addrRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZN5folly6detail22fastIpv6ToBufferUnsafeERK8in6_addrPc.exit.i
-  %27 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3, i64 noundef %21)
+  %25 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3, i64 noundef %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

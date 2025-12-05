@@ -549,19 +549,17 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
   %69 = mul i32 %9, %indvars125
   %70 = mul i32 %7, %indvars125
   %71 = add i32 %68, %70
-  %72 = add i32 %28, %indvars125
-  %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %.lr.ph87.split.us.us.us.split.us, label %.lr.ph85.us.us.us.preheader
-
-.lr.ph85.us.us.us.preheader:                      ; preds = %.preheader.us.us
-  %74 = zext i32 %69 to i64
-  br label %._crit_edge88.split.us.us.us.sink.split
+  %72 = sext i32 %69 to i64
+  %73 = mul i64 %62, %72
+  %scevgep115 = getelementptr i8, ptr %0, i64 %73
+  %74 = add i32 %28, %indvars125
+  %75 = icmp sgt i32 %74, -1
+  br i1 %75, label %.lr.ph87.split.us.us.us.split.us, label %._crit_edge88.split.us.us.us.sink.split
 
 .lr.ph87.split.us.us.us.split.us:                 ; preds = %.preheader.us.us
-  %75 = sext i32 %69 to i64
   %76 = load i32, ptr %61, align 4, !tbaa !20
   %.fr103 = freeze i32 %76
-  %77 = icmp slt i32 %72, %.fr103
+  %77 = icmp slt i32 %74, %.fr103
   br i1 %77, label %.lr.ph85.us.us.us.us, label %._crit_edge88.split.us.us.us.sink.split
 
 .lr.ph85.us.us.us.us:                             ; preds = %.lr.ph87.split.us.us.us.split.us, %._crit_edge.us.us.us.us
@@ -594,11 +592,8 @@ define void @dt_iop_copy_image_roi(ptr noalias noundef writeonly captures(none) 
   %exitcond122.not = icmp eq i64 %indvars.iv.next, %63
   br i1 %exitcond122.not, label %._crit_edge88.split.us.us.us, label %.lr.ph85.us.us.us.us
 
-._crit_edge88.split.us.us.us.sink.split:          ; preds = %.lr.ph87.split.us.us.us.split.us, %.lr.ph85.us.us.us.preheader
-  %.pn136 = phi i64 [ %74, %.lr.ph85.us.us.us.preheader ], [ %75, %.lr.ph87.split.us.us.us.split.us ]
-  %.pn = mul i64 %62, %.pn136
-  %scevgep112.sink = getelementptr i8, ptr %0, i64 %.pn
-  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep112.sink, i8 0, i64 %65, i1 false), !tbaa !32
+._crit_edge88.split.us.us.us.sink.split:          ; preds = %.lr.ph87.split.us.us.us.split.us, %.preheader.us.us
+  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep115, i8 0, i64 %65, i1 false), !tbaa !32
   br label %._crit_edge88.split.us.us.us
 
 ._crit_edge88.split.us.us.us:                     ; preds = %._crit_edge.us.us.us.us, %._crit_edge88.split.us.us.us.sink.split

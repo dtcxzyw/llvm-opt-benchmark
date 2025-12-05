@@ -9245,13 +9245,13 @@ define hidden void @FT_CMap_Done(ptr noundef %0) local_unnamed_addr #0 {
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %11
 
-11:                                               ; preds = %.lr.ph, %60
-  %indvars.iv59 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next60, %60 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
+11:                                               ; preds = %.lr.ph, %61
+  %indvars.iv59 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next60, %61 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !338
   %14 = icmp eq ptr %13, %0
-  br i1 %14, label %15, label %60
+  br i1 %14, label %15, label %61
 
 15:                                               ; preds = %11
   %16 = trunc nuw nsw i64 %indvars.iv to i32
@@ -9259,111 +9259,112 @@ define hidden void @FT_CMap_Done(ptr noundef %0) local_unnamed_addr #0 {
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds nuw ptr, ptr %10, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !338
-  %21 = icmp eq i32 %17, 0
-  br i1 %21, label %22, label %25
+  %21 = zext nneg i32 %7 to i64
+  %22 = icmp eq i32 %17, 0
+  br i1 %22, label %23, label %26
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !61
-  tail call void %24(ptr noundef %5, ptr noundef nonnull %10) #35
+23:                                               ; preds = %15
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = load ptr, ptr %24, align 8, !tbaa !61
+  tail call void %25(ptr noundef %5, ptr noundef nonnull %10) #35
   br label %ft_mem_qrealloc.exit
 
-25:                                               ; preds = %15
-  %26 = icmp sgt i32 %7, 268435456
-  br i1 %26, label %ft_mem_qrealloc.exit.thread, label %27
+26:                                               ; preds = %15
+  %27 = icmp sgt i32 %7, 268435456
+  br i1 %27, label %ft_mem_qrealloc.exit.thread, label %28
 
-27:                                               ; preds = %25
-  %28 = shl nuw nsw i64 %wide.trip.count, 3
-  %29 = shl nuw nsw i64 %18, 3
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !205
-  %32 = tail call ptr %31(ptr noundef %5, i64 noundef %28, i64 noundef %29, ptr noundef nonnull %10) #35
-  %.not.i = icmp eq ptr %32, null
+28:                                               ; preds = %26
+  %29 = shl nuw nsw i64 %21, 3
+  %30 = shl nuw nsw i64 %18, 3
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !205
+  %33 = tail call ptr %32(ptr noundef %5, i64 noundef %29, i64 noundef %30, ptr noundef nonnull %10) #35
+  %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %ft_mem_qrealloc.exit.thread, label %ft_mem_qrealloc.exit
 
-ft_mem_qrealloc.exit.thread:                      ; preds = %25, %27
+ft_mem_qrealloc.exit.thread:                      ; preds = %26, %28
   store ptr %10, ptr %9, align 8, !tbaa !337
   br label %.critedge
 
-ft_mem_qrealloc.exit:                             ; preds = %27, %22
-  %.0.i = phi ptr [ %32, %27 ], [ null, %22 ]
+ft_mem_qrealloc.exit:                             ; preds = %28, %23
+  %.0.i = phi ptr [ %33, %28 ], [ null, %23 ]
   store ptr %.0.i, ptr %9, align 8, !tbaa !337
-  %33 = load i32, ptr %6, align 8, !tbaa !336
+  %34 = load i32, ptr %6, align 8, !tbaa !336
   %.03553 = add nuw nsw i32 %16, 1
-  %34 = icmp slt i32 %.03553, %33
-  br i1 %34, label %.lr.ph56, label %ft_mem_qrealloc.exit.._crit_edge_crit_edge
+  %35 = icmp slt i32 %.03553, %34
+  br i1 %35, label %.lr.ph56, label %ft_mem_qrealloc.exit.._crit_edge_crit_edge
 
 ft_mem_qrealloc.exit.._crit_edge_crit_edge:       ; preds = %ft_mem_qrealloc.exit
-  %.pre = add nsw i32 %33, -1
+  %.pre = add nsw i32 %34, -1
   br label %._crit_edge
 
 .lr.ph56:                                         ; preds = %ft_mem_qrealloc.exit
-  %35 = add i32 %33, -2
-  %36 = zext i32 %35 to i64
-  %37 = add nsw i32 %33, -1
-  %wide.trip.count70 = zext i32 %37 to i64
-  br label %38
+  %36 = add i32 %34, -2
+  %37 = zext i32 %36 to i64
+  %38 = add nsw i32 %34, -1
+  %wide.trip.count70 = zext i32 %38 to i64
+  br label %39
 
-38:                                               ; preds = %.lr.ph56, %43
-  %indvars.iv65 = phi i64 [ %indvars.iv, %.lr.ph56 ], [ %indvars.iv.next66, %43 ]
-  %indvars.iv62 = phi i64 [ %indvars.iv59, %.lr.ph56 ], [ %indvars.iv.next63, %43 ]
-  %39 = icmp eq i64 %indvars.iv65, %36
-  br i1 %39, label %43, label %40
+39:                                               ; preds = %.lr.ph56, %44
+  %indvars.iv65 = phi i64 [ %indvars.iv, %.lr.ph56 ], [ %indvars.iv.next66, %44 ]
+  %indvars.iv62 = phi i64 [ %indvars.iv59, %.lr.ph56 ], [ %indvars.iv.next63, %44 ]
+  %40 = icmp eq i64 %indvars.iv65, %37
+  br i1 %40, label %44, label %41
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv62
-  %42 = load ptr, ptr %41, align 8, !tbaa !338
-  br label %43
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv62
+  %43 = load ptr, ptr %42, align 8, !tbaa !338
+  br label %44
 
-43:                                               ; preds = %38, %40
-  %.sink = phi ptr [ %42, %40 ], [ %20, %38 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv65
-  store ptr %.sink, ptr %44, align 8, !tbaa !338
+44:                                               ; preds = %39, %41
+  %.sink = phi ptr [ %43, %41 ], [ %20, %39 ]
+  %45 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv65
+  store ptr %.sink, ptr %45, align 8, !tbaa !338
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count70
-  br i1 %exitcond71.not, label %._crit_edge, label %38, !llvm.loop !392
+  br i1 %exitcond71.not, label %._crit_edge, label %39, !llvm.loop !392
 
-._crit_edge:                                      ; preds = %43, %ft_mem_qrealloc.exit.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre, %ft_mem_qrealloc.exit.._crit_edge_crit_edge ], [ %37, %43 ]
+._crit_edge:                                      ; preds = %44, %ft_mem_qrealloc.exit.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre, %ft_mem_qrealloc.exit.._crit_edge_crit_edge ], [ %38, %44 ]
   store i32 %.pre-phi, ptr %6, align 8, !tbaa !336
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %46 = load ptr, ptr %45, align 8, !tbaa !291
-  %47 = icmp eq ptr %46, %0
-  br i1 %47, label %48, label %49
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  %47 = load ptr, ptr %46, align 8, !tbaa !291
+  %48 = icmp eq ptr %47, %0
+  br i1 %48, label %49, label %50
 
-48:                                               ; preds = %._crit_edge
-  store ptr null, ptr %45, align 8, !tbaa !291
-  br label %49
+49:                                               ; preds = %._crit_edge
+  store ptr null, ptr %46, align 8, !tbaa !291
+  br label %50
 
-49:                                               ; preds = %48, %._crit_edge
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !292
-  %52 = load ptr, ptr %0, align 8, !tbaa !339
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 184
-  %54 = load ptr, ptr %53, align 8, !tbaa !60
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !340
-  %.not.i40 = icmp eq ptr %56, null
-  br i1 %.not.i40, label %ft_cmap_done_internal.exit, label %57
+50:                                               ; preds = %49, %._crit_edge
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !292
+  %53 = load ptr, ptr %0, align 8, !tbaa !339
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
+  %55 = load ptr, ptr %54, align 8, !tbaa !60
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %57 = load ptr, ptr %56, align 8, !tbaa !340
+  %.not.i40 = icmp eq ptr %57, null
+  br i1 %.not.i40, label %ft_cmap_done_internal.exit, label %58
 
-57:                                               ; preds = %49
-  tail call void %56(ptr noundef nonnull %0) #35
+58:                                               ; preds = %50
+  tail call void %57(ptr noundef nonnull %0) #35
   br label %ft_cmap_done_internal.exit
 
-ft_cmap_done_internal.exit:                       ; preds = %49, %57
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !61
-  tail call void %59(ptr noundef %54, ptr noundef nonnull %0) #35
+ft_cmap_done_internal.exit:                       ; preds = %50, %58
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %60 = load ptr, ptr %59, align 8, !tbaa !61
+  tail call void %60(ptr noundef %55, ptr noundef nonnull %0) #35
   br label %.critedge
 
-60:                                               ; preds = %11
+61:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !393
 
-.critedge:                                        ; preds = %60, %2, %ft_cmap_done_internal.exit, %ft_mem_qrealloc.exit.thread, %1
+.critedge:                                        ; preds = %61, %2, %ft_cmap_done_internal.exit, %ft_mem_qrealloc.exit.thread, %1
   ret void
 }
 

@@ -7340,54 +7340,55 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
 .lr.ph.i:                                         ; preds = %11
   %39 = lshr i64 %36, 1
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %41 = and i64 %36, 2147483647
   %wide.trip.count.i = and i64 %39, 1073741823
-  br label %42
+  br label %41
 
-42:                                               ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit27.i, %.lr.ph.i
+41:                                               ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit27.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit27.i ]
-  %43 = load ptr, ptr %7, align 8, !noalias !146
-  %44 = load ptr, ptr %40, align 8, !noalias !146
-  %45 = load ptr, ptr %14, align 8, !noalias !146
+  %42 = load ptr, ptr %7, align 8, !noalias !146
+  %43 = load ptr, ptr %40, align 8, !noalias !146
+  %44 = load ptr, ptr %14, align 8, !noalias !146
+  %45 = ptrtoint ptr %42 to i64
   %46 = ptrtoint ptr %43 to i64
-  %47 = ptrtoint ptr %44 to i64
-  %48 = sub i64 %46, %47
-  %49 = ashr exact i64 %48, 3
-  %50 = add nsw i64 %49, %indvars.iv.i
-  %51 = icmp sgt i64 %50, -1
-  br i1 %51, label %52, label %58
+  %47 = sub i64 %45, %46
+  %48 = ashr exact i64 %47, 3
+  %49 = add nsw i64 %48, %indvars.iv.i
+  %50 = icmp sgt i64 %49, -1
+  br i1 %50, label %51, label %57
 
-52:                                               ; preds = %42
-  %53 = icmp samesign ult i64 %50, 64
-  br i1 %53, label %54, label %56
+51:                                               ; preds = %41
+  %52 = icmp samesign ult i64 %49, 64
+  br i1 %52, label %53, label %55
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i
 
-56:                                               ; preds = %52
-  %57 = lshr i64 %50, 6
-  br label %60
+55:                                               ; preds = %51
+  %56 = lshr i64 %49, 6
+  br label %59
 
-58:                                               ; preds = %42
-  %59 = ashr i64 %50, 6
-  br label %60
+57:                                               ; preds = %41
+  %58 = ashr i64 %49, 6
+  br label %59
 
-60:                                               ; preds = %58, %56
-  %61 = phi i64 [ %57, %56 ], [ %59, %58 ]
-  %62 = getelementptr inbounds ptr, ptr %45, i64 %61
-  %63 = load ptr, ptr %62, align 8, !noalias !146
-  %64 = shl nsw i64 %61, 6
-  %65 = sub nsw i64 %50, %64
-  %66 = getelementptr inbounds ptr, ptr %63, i64 %65
+59:                                               ; preds = %57, %55
+  %60 = phi i64 [ %56, %55 ], [ %58, %57 ]
+  %61 = getelementptr inbounds ptr, ptr %44, i64 %60
+  %62 = load ptr, ptr %61, align 8, !noalias !146
+  %63 = shl nsw i64 %60, 6
+  %64 = sub nsw i64 %49, %63
+  %65 = getelementptr inbounds ptr, ptr %62, i64 %64
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i
 
-_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %60, %54
-  %storemerge.i.i.i.i.i = phi ptr [ %66, %60 ], [ %55, %54 ]
-  %67 = load ptr, ptr %storemerge.i.i.i.i.i, align 8
-  %68 = xor i64 %indvars.iv.i, -1
-  %69 = add nsw i64 %41, %68
-  %70 = add nsw i64 %49, %69
+_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %59, %53
+  %storemerge.i.i.i.i.i = phi ptr [ %65, %59 ], [ %54, %53 ]
+  %66 = load ptr, ptr %storemerge.i.i.i.i.i, align 8
+  %67 = xor i64 %indvars.iv.i, -1
+  %68 = add i64 %36, %67
+  %sext.i = shl i64 %68, 32
+  %69 = ashr exact i64 %sext.i, 32
+  %70 = add nsw i64 %48, %69
   %71 = icmp sgt i64 %70, -1
   br i1 %71, label %72, label %78
 
@@ -7396,7 +7397,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %60, %54
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds ptr, ptr %43, i64 %69
+  %75 = getelementptr inbounds ptr, ptr %42, i64 %69
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit23.i
 
 76:                                               ; preds = %72
@@ -7409,7 +7410,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %60, %54
 
 80:                                               ; preds = %78, %76
   %81 = phi i64 [ %77, %76 ], [ %79, %78 ]
-  %82 = getelementptr inbounds ptr, ptr %45, i64 %81
+  %82 = getelementptr inbounds ptr, ptr %44, i64 %81
   %83 = load ptr, ptr %82, align 8, !noalias !149
   %84 = shl nsw i64 %81, 6
   %85 = sub nsw i64 %70, %84
@@ -7419,30 +7420,30 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit.i: ; preds = %60, %54
 _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit23.i: ; preds = %80, %74
   %storemerge.i.i.i.i22.i = phi ptr [ %86, %80 ], [ %75, %74 ]
   %87 = load ptr, ptr %storemerge.i.i.i.i22.i, align 8
-  br i1 %51, label %88, label %94
+  br i1 %50, label %88, label %94
 
 88:                                               ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit23.i
-  %89 = icmp samesign ult i64 %50, 64
+  %89 = icmp samesign ult i64 %49, 64
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i
 
 92:                                               ; preds = %88
-  %93 = lshr i64 %50, 6
+  %93 = lshr i64 %49, 6
   br label %96
 
 94:                                               ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit23.i
-  %95 = ashr i64 %50, 6
+  %95 = ashr i64 %49, 6
   br label %96
 
 96:                                               ; preds = %94, %92
   %97 = phi i64 [ %93, %92 ], [ %95, %94 ]
-  %98 = getelementptr inbounds ptr, ptr %45, i64 %97
+  %98 = getelementptr inbounds ptr, ptr %44, i64 %97
   %99 = load ptr, ptr %98, align 8, !noalias !152
   %100 = shl nsw i64 %97, 6
-  %101 = sub nsw i64 %50, %100
+  %101 = sub nsw i64 %49, %100
   %102 = getelementptr inbounds ptr, ptr %99, i64 %101
   br label %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i
 
@@ -7487,10 +7488,10 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit25.i: ; preds = %96, %90
 
 _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit27.i: ; preds = %120, %114
   %storemerge.i.i.i.i26.i = phi ptr [ %126, %120 ], [ %115, %114 ]
-  store ptr %67, ptr %storemerge.i.i.i.i26.i, align 8
+  store ptr %66, ptr %storemerge.i.i.i.i26.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit", label %42, !llvm.loop !158
+  br i1 %exitcond.not.i, label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit", label %41, !llvm.loop !158
 
 "_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_21clES2_NS_8ArgsViewE.exit": ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit27.i, %3, %11
   %.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 264520

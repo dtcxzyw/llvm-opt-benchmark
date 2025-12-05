@@ -15242,24 +15242,35 @@ select.unfold.us:                                 ; preds = %69, %65
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %45, label %34
 
-.preheader:                                       ; preds = %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit, %80
-  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %80 ], [ 0, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit ]
+.preheader:                                       ; preds = %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit, %86
+  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %86 ], [ 0, %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit ]
   %77 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv134
   %78 = load i32, ptr %77, align 4, !tbaa !108
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %78, i32 0)
-  %79 = add i32 %spec.select, %8
-  %.not152.not = icmp ule i32 %79, %3
-  br i1 %.not152.not, label %80, label %.critedge
+  %79 = icmp sgt i32 %78, -1
+  br i1 %79, label %84, label %80
 
 80:                                               ; preds = %.preheader
-  %81 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv134
-  store i32 %spec.select, ptr %81, align 4, !tbaa !108
+  %81 = and i64 %indvars.iv134, 4294967295
+  %82 = getelementptr inbounds nuw i32, ptr %0, i64 %81
+  %83 = load i32, ptr %82, align 4, !tbaa !108
+  %. = tail call i32 @llvm.smax.i32(i32 %83, i32 0)
+  br label %84
+
+84:                                               ; preds = %80, %.preheader
+  %.0 = phi i32 [ %78, %.preheader ], [ %., %80 ]
+  %85 = add i32 %.0, %8
+  %.not152.not = icmp ule i32 %85, %3
+  br i1 %.not152.not, label %86, label %.critedge
+
+86:                                               ; preds = %84
+  %87 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv134
+  store i32 %.0, ptr %87, align 4, !tbaa !108
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next135, %13
   br i1 %exitcond139.not, label %.critedge, label %.preheader, !llvm.loop !326
 
-.critedge:                                        ; preds = %49, %45, %69, %51, %80, %.preheader, %9, %5
-  %.063 = phi i1 [ false, %5 ], [ false, %9 ], [ %.not152.not, %.preheader ], [ %.not152.not, %80 ], [ false, %51 ], [ false, %69 ], [ %or.cond94.us.not, %45 ], [ %or.cond94.us.not, %49 ]
+.critedge:                                        ; preds = %49, %45, %69, %51, %86, %84, %9, %5
+  %.063 = phi i1 [ false, %5 ], [ false, %9 ], [ %.not152.not, %84 ], [ %.not152.not, %86 ], [ false, %51 ], [ false, %69 ], [ %or.cond94.us.not, %45 ], [ %or.cond94.us.not, %49 ]
   ret i1 %.063
 }
 

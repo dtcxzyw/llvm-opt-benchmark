@@ -7070,73 +7070,59 @@ define internal fastcc range(i32 0, 2) i32 @_parse_box_range(ptr noundef nonnull
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %17 = load i8, ptr %16, align 1
   %.not64 = icmp eq i8 %17, 0
-  br i1 %.not64, label %.preheader70.preheader, label %.loopexit
+  br i1 %.not64, label %.preheader68.preheader, label %.loopexit
 
-.preheader70.preheader:                           ; preds = %12
+.preheader68.preheader:                           ; preds = %12
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 %6
-  br label %.preheader70
+  br label %.preheader68
 
-.preheader70:                                     ; preds = %.preheader70.preheader, %40
-  %indvars.iv = phi i64 [ 0, %.preheader70.preheader ], [ %indvars.iv.next, %40 ]
+.preheader68:                                     ; preds = %.preheader68.preheader, %33
+  %indvars.iv = phi i64 [ 0, %.preheader68.preheader ], [ %indvars.iv.next, %33 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1
-  %20 = add i8 %19, -48
-  %or.cond = icmp ult i8 %20, 10
-  br i1 %or.cond, label %21, label %23
+  %20 = sext i8 %19 to i32
+  %21 = add i8 %19, -48
+  %or.cond = icmp ult i8 %21, 10
+  br i1 %or.cond, label %24, label %22
 
-21:                                               ; preds = %.preheader70
-  %22 = zext nneg i8 %20 to i32
-  br label %28
+22:                                               ; preds = %.preheader68
+  %23 = add i8 %19, -65
+  %or.cond65 = icmp ult i8 %23, 26
+  br i1 %or.cond65, label %24, label %.loopexit
 
-23:                                               ; preds = %.preheader70
-  %24 = add i8 %19, -65
-  %or.cond67 = icmp ult i8 %24, 26
-  br i1 %or.cond67, label %25, label %.loopexit
-
-25:                                               ; preds = %23
-  %26 = zext nneg i8 %19 to i32
-  %27 = add nsw i32 %26, -55
-  br label %28
-
-28:                                               ; preds = %25, %21
-  %.sink = phi i32 [ %27, %25 ], [ %22, %21 ]
-  %29 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
-  store i32 %.sink, ptr %29, align 4
+24:                                               ; preds = %22, %.preheader68
+  %.sink72 = phi i32 [ -48, %.preheader68 ], [ -55, %22 ]
+  %25 = add nsw i32 %.sink72, %20
+  %26 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  store i32 %25, ptr %26, align 4
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw i8, ptr %gep, i64 1
-  %31 = load i8, ptr %30, align 1
-  %32 = add i8 %31, -48
-  %or.cond68 = icmp ult i8 %32, 10
-  br i1 %or.cond68, label %33, label %35
+  %27 = getelementptr inbounds nuw i8, ptr %gep, i64 1
+  %28 = load i8, ptr %27, align 1
+  %29 = sext i8 %28 to i32
+  %30 = add i8 %28, -48
+  %or.cond66 = icmp ult i8 %30, 10
+  br i1 %or.cond66, label %33, label %31
 
-33:                                               ; preds = %28
-  %34 = zext nneg i8 %32 to i32
-  br label %40
+31:                                               ; preds = %24
+  %32 = add i8 %28, -65
+  %or.cond67 = icmp ult i8 %32, 26
+  br i1 %or.cond67, label %33, label %.loopexit
 
-35:                                               ; preds = %28
-  %36 = add i8 %31, -65
-  %or.cond69 = icmp ult i8 %36, 26
-  br i1 %or.cond69, label %37, label %.loopexit
-
-37:                                               ; preds = %35
-  %38 = zext nneg i8 %31 to i32
-  %39 = add nsw i32 %38, -55
-  br label %40
-
-40:                                               ; preds = %33, %37
-  %.sink76 = phi i32 [ %34, %33 ], [ %39, %37 ]
-  %41 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
-  store i32 %.sink76, ptr %41, align 4
+33:                                               ; preds = %31, %24
+  %.sink74 = phi i32 [ -48, %24 ], [ -55, %31 ]
+  %34 = add nsw i32 %.sink74, %29
+  %35 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  store i32 %34, ptr %35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.preheader.preheader, label %.preheader70, !llvm.loop !75
+  br i1 %exitcond.not, label %.preheader.preheader, label %.preheader68, !llvm.loop !75
 
-.preheader.preheader:                             ; preds = %40
-  %42 = call fastcc i32 @_add_box_ranges(i32 noundef 0, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+.preheader.preheader:                             ; preds = %33
+  %36 = call fastcc i32 @_add_box_ranges(i32 noundef 0, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %23, %5, %12, %.preheader.preheader
-  %.0 = phi i32 [ %42, %.preheader.preheader ], [ 0, %12 ], [ 0, %5 ], [ 0, %23 ], [ 0, %35 ]
+.loopexit:                                        ; preds = %31, %22, %5, %12, %.preheader.preheader
+  %.0 = phi i32 [ %36, %.preheader.preheader ], [ 0, %12 ], [ 0, %5 ], [ 0, %22 ], [ 0, %31 ]
   ret i32 %.0
 }
 

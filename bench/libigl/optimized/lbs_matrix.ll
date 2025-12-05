@@ -113,6 +113,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %35 = and i64 %.fr, 2147483647
   %36 = zext nneg i32 %15 to i64
   %wide.trip.count99 = and i64 %12, 2147483647
+  %wide.trip.count = zext nneg i32 %15 to i64
   br label %.lr.ph
 
 .lr.ph88.split.us.preheader:                      ; preds = %.lr.ph88
@@ -330,7 +331,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i: ; p
 
 _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEaSINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS1_IdLin1ELi1ELi0ELin1ELi1EEEKNS0_IKS2_Lin1ELi1ELb1EEEEEEERS3_RKNS_9DenseBaseIT_EE.exit: ; preds = %.split.us.i.i.i.i.i.i.i.i.i, %.lr.ph49.i.i.i.i.i.i.i.i, %.lr.ph.i17.i.i.i.i.i.i.i.i.i.i, %105, %.preheader.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %36
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !45
 }
 
@@ -371,6 +372,7 @@ define dso_local void @_ZN3igl17lbs_matrix_columnERKN5Eigen6MatrixIdLin1ELin1ELi
   %24 = add nuw nsw i64 %7, 1
   %25 = and i64 %5, 2147483647
   %wide.trip.count89 = and i64 %7, 2147483647
+  %wide.trip.count84 = and i64 %5, 2147483647
   %wide.trip.count79 = and i64 %10, 2147483647
   %wide.trip.count = and i64 %24, 4294967295
   br label %.preheader50.us.us
@@ -431,7 +433,7 @@ define dso_local void @_ZN3igl17lbs_matrix_columnERKN5Eigen6MatrixIdLin1ELin1ELi
 
 ._crit_edge54.split.us59.us.us:                   ; preds = %._crit_edge.us.us.us
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %25
+  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
   br i1 %exitcond85.not, label %._crit_edge56.split.us.split.us70.us, label %.preheader49.us.us68.us, !llvm.loop !48
 
 ._crit_edge56.split.us.split.us70.us:             ; preds = %._crit_edge54.split.us59.us.us
@@ -963,6 +965,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %33 = add nuw nsw i64 %8, 1
   %34 = and i64 %5, 2147483647
   %wide.trip.count88 = and i64 %8, 2147483647
+  %wide.trip.count83 = and i64 %5, 2147483647
   %wide.trip.count78 = and i64 %11, 2147483647
   %wide.trip.count = and i64 %33, 4294967295
   br label %.preheader49.us.us
@@ -1027,7 +1030,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 ._crit_edge53.split.us58.us.us:                   ; preds = %._crit_edge.us.us.us
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %34
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %._crit_edge55.split.us.split.us69.us, label %.preheader48.us.us67.us, !llvm.loop !83
 
 ._crit_edge55.split.us.split.us69.us:             ; preds = %._crit_edge53.split.us58.us.us
@@ -1190,6 +1193,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; 
   %84 = and i64 %10, 2147483647
   %85 = and i64 %7, 2147483647
   %wide.trip.count99 = and i64 %10, 2147483647
+  %wide.trip.count94 = and i64 %7, 2147483647
   %wide.trip.count89 = and i64 %72, 2147483647
   %wide.trip.count = zext i32 %76 to i64
   br label %.preheader52.us.us
@@ -1264,7 +1268,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; 
 
 ._crit_edge60.split.us65.us.us:                   ; preds = %._crit_edge.us.us.us
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %exitcond95.not = icmp eq i64 %indvars.iv.next92, %85
+  %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
   br i1 %exitcond95.not, label %._crit_edge62.split.us.split.us76.us, label %.preheader51.us.us74.us, !llvm.loop !96
 
 ._crit_edge62.split.us.split.us76.us:             ; preds = %._crit_edge60.split.us65.us.us

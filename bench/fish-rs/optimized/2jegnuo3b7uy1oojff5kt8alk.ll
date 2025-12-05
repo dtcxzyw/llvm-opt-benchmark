@@ -24759,8 +24759,10 @@ define hidden void @_ZN4fish8builtins4echo22parse_numeric_sequence17he186494eebb
   %.sroa.014.073.us = phi i8 [ 0, %.lr.ph.split.us ], [ %48, %45 ]
   %.sroa.010.172.us = phi i64 [ 0, %.lr.ph.split.us ], [ %49, %45 ]
   %32 = add nsw i64 %31, -1
-  %.not25.us = icmp eq i32 %30, 1114113
-  br i1 %.not25.us, label %33, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit.us"
+  switch i32 %30, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit.us" [
+    i32 1114113, label %33
+    i32 1114112, label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit.thread"
+  ]
 
 33:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !2442)
@@ -24781,7 +24783,7 @@ define hidden void @_ZN4fish8builtins4echo22parse_numeric_sequence17he186494eebb
   call void @llvm.assume(i1 %41)
   br label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit.us"
 
-"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit.us": ; preds = %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit.thread64.us", %28
+"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit.us": ; preds = %28, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit.thread64.us"
   %42 = phi ptr [ %40, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit.thread64.us" ], [ %29, %28 ]
   %.sroa.019.167.us = phi i32 [ %36, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit.thread64.us" ], [ %30, %28 ]
   %43 = add nsw i32 %.sroa.019.167.us, -48
@@ -24920,9 +24922,9 @@ define hidden void @_ZN4fish8builtins4echo22parse_numeric_sequence17he186494eebb
   %90 = icmp ult i32 %.sroa.02.0.i, %83
   br i1 %90, label %94, label %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit.thread"
 
-"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit.thread": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit", %94, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit", %57, %64, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit.us", %33
-  %.sroa.010.1.lcssa = phi i64 [ %.sroa.010.172.us, %33 ], [ %.sroa.010.172.us, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit.us" ], [ %.sroa.010.172, %64 ], [ %.sroa.010.172, %57 ], [ %.sroa.010.172, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit" ], [ %99, %94 ], [ %.sroa.010.172, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit" ]
-  %.sroa.014.0.lcssa = phi i8 [ %.sroa.014.073.us, %33 ], [ %.sroa.014.073.us, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit.us" ], [ %.sroa.014.073, %64 ], [ %.sroa.014.073, %57 ], [ %.sroa.014.073, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit" ], [ %98, %94 ], [ %.sroa.014.073, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit" ]
+"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit.thread": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit", %94, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit", %57, %64, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit.us", %33, %28
+  %.sroa.010.1.lcssa = phi i64 [ %.sroa.010.172.us, %28 ], [ %.sroa.010.172.us, %33 ], [ %.sroa.010.172.us, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit.us" ], [ %.sroa.010.172, %64 ], [ %.sroa.010.172, %57 ], [ %.sroa.010.172, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit" ], [ %99, %94 ], [ %.sroa.010.172, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit" ]
+  %.sroa.014.0.lcssa = phi i8 [ %.sroa.014.073.us, %28 ], [ %.sroa.014.073.us, %33 ], [ %.sroa.014.073.us, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit.us" ], [ %.sroa.014.073, %64 ], [ %.sroa.014.073, %57 ], [ %.sroa.014.073, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h9da004937bbede99E.exit" ], [ %98, %94 ], [ %.sroa.014.073, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17h1da3f9d2e7986b83E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not28 = icmp eq i64 %.sroa.010.1.lcssa, 0
   br i1 %.not28, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h2034fecd13a384eaE.exit.thread", label %91

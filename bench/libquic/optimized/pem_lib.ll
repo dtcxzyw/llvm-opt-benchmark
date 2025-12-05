@@ -1403,67 +1403,55 @@ define internal fastcc range(i32 0, 2) i32 @load_iv(ptr noundef nonnull captures
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   br label %.lr.ph40
 
-.lr.ph40:                                         ; preds = %.lr.ph40.preheader, %23
-  %.038 = phi ptr [ %24, %23 ], [ %4, %.lr.ph40.preheader ]
-  %.137 = phi i32 [ %35, %23 ], [ 0, %.lr.ph40.preheader ]
+.lr.ph40:                                         ; preds = %.lr.ph40.preheader, %16
+  %.038 = phi ptr [ %18, %16 ], [ %4, %.lr.ph40.preheader ]
+  %.137 = phi i32 [ %29, %16 ], [ 0, %.lr.ph40.preheader ]
   %8 = load i8, ptr %.038, align 1, !tbaa !6
-  %9 = add i8 %8, -48
-  %or.cond = icmp ult i8 %9, 10
-  br i1 %or.cond, label %10, label %12
+  %9 = zext i8 %8 to i32
+  %10 = add i8 %8, -48
+  %or.cond = icmp ult i8 %10, 10
+  br i1 %or.cond, label %16, label %11
 
-10:                                               ; preds = %.lr.ph40
-  %11 = zext nneg i8 %9 to i32
-  br label %23
+11:                                               ; preds = %.lr.ph40
+  %12 = add i8 %8, -65
+  %or.cond33 = icmp ult i8 %12, 6
+  br i1 %or.cond33, label %16, label %13
 
-12:                                               ; preds = %.lr.ph40
-  %13 = add i8 %8, -65
-  %or.cond33 = icmp ult i8 %13, 6
-  br i1 %or.cond33, label %14, label %17
+13:                                               ; preds = %11
+  %14 = add i8 %8, -97
+  %or.cond34 = icmp ult i8 %14, 6
+  br i1 %or.cond34, label %16, label %15
 
-14:                                               ; preds = %12
-  %15 = zext nneg i8 %8 to i32
-  %16 = add nsw i32 %15, -55
-  br label %23
-
-17:                                               ; preds = %12
-  %18 = add i8 %8, -97
-  %or.cond34 = icmp ult i8 %18, 6
-  br i1 %or.cond34, label %19, label %22
-
-19:                                               ; preds = %17
-  %20 = zext nneg i8 %8 to i32
-  %21 = add nsw i32 %20, -87
-  br label %23
-
-22:                                               ; preds = %17
+15:                                               ; preds = %13
   tail call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 103, ptr noundef nonnull @.str.8, i32 noundef 492) #12
-  br label %36
+  br label %30
 
-23:                                               ; preds = %14, %19, %10
-  %.027 = phi i32 [ %11, %10 ], [ %16, %14 ], [ %21, %19 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.038, i64 1
-  %25 = shl i32 %.137, 2
-  %26 = and i32 %25, 4
-  %27 = xor i32 %26, 4
-  %28 = shl nuw nsw i32 %.027, %27
-  %29 = lshr i32 %.137, 1
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !6
-  %33 = trunc i32 %28 to i8
-  %34 = or i8 %32, %33
-  store i8 %34, ptr %31, align 1, !tbaa !6
-  %35 = add nuw nsw i32 %.137, 1
-  %exitcond.not = icmp eq i32 %35, %smax
+16:                                               ; preds = %13, %11, %.lr.ph40
+  %.sink = phi i32 [ -48, %.lr.ph40 ], [ -55, %11 ], [ -87, %13 ]
+  %17 = add nsw i32 %.sink, %9
+  %18 = getelementptr inbounds nuw i8, ptr %.038, i64 1
+  %19 = shl i32 %.137, 2
+  %20 = and i32 %19, 4
+  %21 = xor i32 %20, 4
+  %22 = shl nsw i32 %17, %21
+  %23 = lshr i32 %.137, 1
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !6
+  %27 = trunc i32 %22 to i8
+  %28 = or i8 %26, %27
+  store i8 %28, ptr %25, align 1, !tbaa !6
+  %29 = add nuw nsw i32 %.137, 1
+  %exitcond.not = icmp eq i32 %29, %smax
   br i1 %exitcond.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !29
 
-._crit_edge41:                                    ; preds = %23, %3
-  %.0.lcssa = phi ptr [ %4, %3 ], [ %24, %23 ]
+._crit_edge41:                                    ; preds = %16, %3
+  %.0.lcssa = phi ptr [ %4, %3 ], [ %18, %16 ]
   store ptr %.0.lcssa, ptr %0, align 8, !tbaa !11
-  br label %36
+  br label %30
 
-36:                                               ; preds = %._crit_edge41, %22
-  %.028 = phi i32 [ 0, %22 ], [ 1, %._crit_edge41 ]
+30:                                               ; preds = %._crit_edge41, %15
+  %.028 = phi i32 [ 0, %15 ], [ 1, %._crit_edge41 ]
   ret i32 %.028
 }
 

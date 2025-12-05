@@ -297,8 +297,9 @@ define hidden noundef zeroext i1 @_ZNK11mpn_manager3mulEPKjjS1_jPj(ptr noundef n
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53.split.preheader, %.lr.ph53.split
   %indvars.iv65 = phi i64 [ 0, %.lr.ph53.split.preheader ], [ %indvars.iv.next66, %.lr.ph53.split ]
-  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv65
-  store i32 0, ptr %32, align 4, !tbaa !3
+  %32 = and i64 %indvars.iv65, 4294967295
+  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %32
+  store i32 0, ptr %33, align 4, !tbaa !3
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge54, label %.lr.ph53.split, !llvm.loop !13

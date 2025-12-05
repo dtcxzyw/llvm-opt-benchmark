@@ -5829,12 +5829,12 @@ define internal void @dissect_r3_upstreammfgfield_iopins(ptr noundef %0, i32 nou
   br i1 %or.cond, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
-  %.036 = phi i8 [ %32, %.lr.ph ], [ 65, %.thread ]
+  %.036 = phi i8 [ %31, %.lr.ph ], [ 65, %.thread ]
   %.02935 = phi i32 [ %30, %.lr.ph ], [ 0, %.thread ]
   %18 = load i32, ptr @ett_r3iopins, align 4
   %19 = icmp eq i8 %.036, 73
-  %narrow = select i1 %19, i8 74, i8 %.036
-  %20 = sext i8 %narrow to i32
+  %.1 = select i1 %19, i8 74, i8 %.036
+  %20 = sext i8 %.1 to i32
   %21 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %.02935, i32 noundef 3, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.2030, i32 noundef %20)
   %22 = load i32, ptr @hf_r3_iopins_lat, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %.02935, i32 noundef 1, i32 noundef -2147483648)
@@ -5845,10 +5845,9 @@ define internal void @dissect_r3_upstreammfgfield_iopins(ptr noundef %0, i32 nou
   %28 = add i32 %.02935, 2
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef -2147483648)
   %30 = add i32 %.02935, 3
-  %31 = add i8 %.036, 1
-  %32 = select i1 %19, i8 75, i8 %31
-  %33 = icmp slt i32 %30, %12
-  br i1 %33, label %.lr.ph, label %.critedge, !llvm.loop !18
+  %31 = add i8 %.1, 1
+  %32 = icmp slt i32 %30, %12
+  br i1 %32, label %.lr.ph, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph, %8, %.thread, %14
   ret void

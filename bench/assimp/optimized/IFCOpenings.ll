@@ -1663,8 +1663,8 @@ define hidden void @_ZN6Assimp3IFC20InsertWindowContoursERKSt6vectorINS0_22Proje
   ret void
 
 20:                                               ; preds = %.lr.ph313, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit
-  %21 = phi ptr [ %9, %.lr.ph313 ], [ %367, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit ]
-  %.0311 = phi i64 [ 0, %.lr.ph313 ], [ %365, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit ]
+  %21 = phi ptr [ %9, %.lr.ph313 ], [ %366, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit ]
+  %.0311 = phi i64 [ 0, %.lr.ph313 ], [ %364, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit ]
   %22 = getelementptr inbounds nuw %"struct.Assimp::IFC::ProjectedWindowContour", ptr %21, i64 %.0311
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %22, align 8
@@ -2030,14 +2030,13 @@ _ZNSt3setI10aiVector2tIdEN6Assimp3IFC8XYSorterESaIS1_EED2Ev.exit204: ; preds = %
 
 173:                                              ; preds = %.lr.ph, %.thread
   %.0131310 = phi i64 [ -1, %.lr.ph ], [ %.2133282, %.thread ]
-  %.0134309 = phi i64 [ 0, %.lr.ph ], [ %363, %.thread ]
-  %.0135308 = phi i64 [ 0, %.lr.ph ], [ %362, %.thread ]
+  %.0134309 = phi i64 [ 0, %.lr.ph ], [ %362, %.thread ]
+  %.0135308 = phi i64 [ 0, %.lr.ph ], [ %361, %.thread ]
   %.0136307 = phi i64 [ -1, %.lr.ph ], [ %.2138281, %.thread ]
   %.sroa.0243.2306 = phi double [ 0.000000e+00, %.lr.ph ], [ %.sroa.0243.4, %.thread ]
   %.sroa.8.2305 = phi double [ 0.000000e+00, %.lr.ph ], [ %.sroa.8.5280, %.thread ]
-  %.0135308.fr = freeze i64 %.0135308
   %174 = load ptr, ptr %22, align 8
-  %175 = getelementptr inbounds nuw %class.aiVector2t, ptr %174, i64 %.0135308.fr
+  %175 = getelementptr inbounds nuw %class.aiVector2t, ptr %174, i64 %.0135308
   %176 = load double, ptr %175, align 8
   %177 = load double, ptr %23, align 8
   %178 = fsub double %176, %177
@@ -2087,8 +2086,8 @@ _ZNSt3setI10aiVector2tIdEN6Assimp3IFC8XYSorterESaIS1_EED2Ev.exit204: ; preds = %
   %203 = ptrtoint ptr %201 to i64
   %204 = sub i64 %202, %203
   %205 = sdiv exact i64 %204, 24
-  %206 = icmp ugt i64 %.0131310, %.0135308.fr
-  %.neg = sub i64 %.0135308.fr, %.0131310
+  %206 = icmp ugt i64 %.0131310, %.0135308
+  %.neg = sub i64 %.0135308, %.0131310
   %207 = select i1 %206, i64 %165, i64 0
   %208 = add i64 %207, %.neg
   br label %218
@@ -2428,30 +2427,29 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %331, %_ZNSt6vectorI
   br i1 %359, label %.lr.ph.i.i, label %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS4_SaIS4_EEEEEEvT_SB_.exit, !llvm.loop !75
 
 _ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS4_SaIS4_EEEEEEvT_SB_.exit: ; preds = %.lr.ph.i.i, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE12emplace_backIJRdS5_fEEERS1_DpOT_.exit
-  %.not151 = icmp eq i64 %.0135308.fr, %.0136307
+  %.not151 = icmp eq i64 %.0135308, %.0136307
   br i1 %.not151, label %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit, label %.thread
 
 .thread:                                          ; preds = %194, %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS4_SaIS4_EEEEEEvT_SB_.exit, %.critedge157
-  %.2133282 = phi i64 [ %.0135308.fr, %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS4_SaIS4_EEEEEEvT_SB_.exit ], [ %.0135308.fr, %.critedge157 ], [ %.0131310, %194 ]
-  %.2138281 = phi i64 [ %.0136307, %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS4_SaIS4_EEEEEEvT_SB_.exit ], [ %.0135308.fr, %.critedge157 ], [ %.0136307, %194 ]
+  %.2133282 = phi i64 [ %.0135308, %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS4_SaIS4_EEEEEEvT_SB_.exit ], [ %.0135308, %.critedge157 ], [ %.0131310, %194 ]
+  %.2138281 = phi i64 [ %.0136307, %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS4_SaIS4_EEEEEEvT_SB_.exit ], [ %.0135308, %.critedge157 ], [ %.0136307, %194 ]
   %.sroa.8.5280 = phi double [ %.sroa.8.4, %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS4_SaIS4_EEEEEEvT_SB_.exit ], [ %.sroa.8.4, %.critedge157 ], [ %.sroa.8.2305, %194 ]
-  %360 = add i64 %.0135308.fr, 1
-  %361 = icmp eq i64 %360, %165
-  %362 = select i1 %361, i64 0, i64 %360
-  %363 = add i64 %.0134309, 1
-  %364 = icmp eq i64 %363, %166
-  br i1 %364, label %._crit_edge, label %173, !llvm.loop !76
+  %360 = add i64 %.0135308, 1
+  %361 = urem i64 %360, %165
+  %362 = add i64 %.0134309, 1
+  %363 = icmp eq i64 %362, %166
+  br i1 %363, label %._crit_edge, label %173, !llvm.loop !76
 
 _ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA64_KcEEEvDpOT_.exit: ; preds = %_ZSt7reverseISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS4_SaIS4_EEEEEEvT_SB_.exit, %._crit_edge, %170, %_ZNSt3setI10aiVector2tIdEN6Assimp3IFC8XYSorterESaIS1_EED2Ev.exit204, %20
-  %365 = add nuw i64 %.0311, 1
-  %366 = load ptr, ptr %7, align 8
-  %367 = load ptr, ptr %0, align 8
+  %364 = add nuw i64 %.0311, 1
+  %365 = load ptr, ptr %7, align 8
+  %366 = load ptr, ptr %0, align 8
+  %367 = ptrtoint ptr %365 to i64
   %368 = ptrtoint ptr %366 to i64
-  %369 = ptrtoint ptr %367 to i64
-  %370 = sub i64 %368, %369
-  %371 = sdiv exact i64 %370, 104
-  %372 = icmp ult i64 %365, %371
-  br i1 %372, label %20, label %._crit_edge314, !llvm.loop !77
+  %369 = sub i64 %367, %368
+  %370 = sdiv exact i64 %369, 104
+  %371 = icmp ult i64 %364, %370
+  br i1 %371, label %20, label %._crit_edge314, !llvm.loop !77
 }
 
 declare i32 @__gxx_personality_v0(...)

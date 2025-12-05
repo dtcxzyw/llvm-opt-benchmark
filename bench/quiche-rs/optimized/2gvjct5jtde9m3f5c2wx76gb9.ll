@@ -960,15 +960,15 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hc858d67e48720e79E.exit4: ; pre
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc void @_ZN21intrusive_collections6rbtree11post_insert17h4237a17a8ca6845fE(ptr noundef nonnull %0, ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 16
-  %.sroa.0.0.val18 = load i64, ptr %3, align 8, !noundef !3
-  %4 = and i64 %.sroa.0.0.val18, -2
-  %.not19 = icmp eq i64 %4, 0
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %.sroa.0.0.val17 = load i64, ptr %3, align 8, !noundef !3
+  %4 = and i64 %.sroa.0.0.val17, -2
+  %.not18 = icmp eq i64 %4, 0
+  br i1 %.not18, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %26
-  %.sroa.0.2.val.pre = phi i64 [ %.sroa.0.0.val, %26 ], [ %.sroa.0.0.val18, %2 ]
+  %.sroa.0.2.val.pre = phi i64 [ %.sroa.0.0.val, %26 ], [ %.sroa.0.0.val17, %2 ]
   %5 = phi i64 [ %28, %26 ], [ %4, %2 ]
-  %.sroa.0.020 = phi ptr [ %10, %26 ], [ %0, %2 ]
+  %.sroa.0.019 = phi ptr [ %10, %26 ], [ %0, %2 ]
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr i8, ptr %6, i64 16
   %.val61 = load i64, ptr %7, align 8, !noundef !3
@@ -1006,7 +1006,7 @@ define internal fastcc void @_ZN21intrusive_collections6rbtree11post_insert17h42
 
 .critedge.thread:                                 ; preds = %9, %.critedge
   %.val63 = load ptr, ptr %6, align 8, !noundef !3
-  %18 = icmp eq ptr %.val63, %.sroa.0.020
+  %18 = icmp eq ptr %.val63, %.sroa.0.019
   br i1 %18, label %29, label %.critedge.thread..critedge51_crit_edge
 
 .critedge.thread..critedge51_crit_edge:           ; preds = %.critedge.thread
@@ -1019,8 +1019,10 @@ define internal fastcc void @_ZN21intrusive_collections6rbtree11post_insert17h42
   %22 = getelementptr i8, ptr %10, i64 16
   %.val57 = load i64, ptr %22, align 8, !noundef !3
   %23 = and i64 %.val57, -2
-  %. = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
-  store i64 %., ptr %22, align 8
+  %.not46 = icmp eq i64 %23, 0
+  %masksel = zext i1 %.not46 to i64
+  %storemerge = or disjoint i64 %23, %masksel
+  store i64 %storemerge, ptr %22, align 8
   %24 = load i64, ptr %16, align 8, !noundef !3
   %25 = or i64 %24, 1
   store i64 %25, ptr %16, align 8
@@ -1086,7 +1088,7 @@ _ZN21intrusive_collections6rbtree12rotate_right17hf681ea4ff92585b0E.exit: ; pred
   store ptr %6, ptr %30, align 8, !noalias !228
   %49 = load i64, ptr %7, align 8, !noalias !228, !noundef !3
   %50 = and i64 %49, 1
-  %51 = ptrtoint ptr %.sroa.0.020 to i64
+  %51 = ptrtoint ptr %.sroa.0.019 to i64
   %52 = and i64 %51, -2
   %53 = or disjoint i64 %50, %52
   store i64 %53, ptr %7, align 8, !noalias !228
@@ -1175,7 +1177,7 @@ _ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit: ; preds
 
 91:                                               ; preds = %88, %14
   %.val62 = load ptr, ptr %6, align 8, !noundef !3
-  %92 = icmp eq ptr %.val62, %.sroa.0.020
+  %92 = icmp eq ptr %.val62, %.sroa.0.019
   br i1 %92, label %._crit_edge, label %.critedge53
 
 ._crit_edge:                                      ; preds = %91
@@ -1188,8 +1190,10 @@ _ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit: ; preds
   %96 = getelementptr i8, ptr %10, i64 16
   %.val55 = load i64, ptr %96, align 8, !noundef !3
   %97 = and i64 %.val55, -2
-  %.8 = tail call i64 @llvm.umax.i64(i64 %97, i64 1)
-  store i64 %.8, ptr %96, align 8
+  %.not49 = icmp eq i64 %97, 0
+  %masksel21 = zext i1 %.not49 to i64
+  %storemerge7 = or disjoint i64 %97, %masksel21
+  store i64 %storemerge7, ptr %96, align 8
   %98 = load i64, ptr %89, align 8, !noundef !3
   %99 = or i64 %98, 1
   store i64 %99, ptr %89, align 8

@@ -11439,7 +11439,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %1 = or i8 %0, 32
   %2 = add i8 %0, -48
   %or.cond.i = icmp ult i8 %2, 10
-  %conv.i = zext nneg i8 %0 to i32
+  %conv.i = sext i8 %0 to i32
   %cmp8.i = icmp sgt i32 %add.i, %conv.i
   %or.cond10.i = select i1 %or.cond.i, i1 %cmp8.i, i1 false
   br i1 %or.cond10.i, label %for.inc.i, label %if.else.i
@@ -11500,8 +11500,9 @@ if.end10:                                         ; preds = %if.then7
   %5 = or i8 %4, 32
   %6 = add i8 %4, -48
   %or.cond = icmp ult i8 %6, 10
-  %7 = and i8 %4, 15
-  %conv18 = zext nneg i8 %7 to i64
+  %conv = sext i8 %4 to i64
+  %sub = add nsw i64 %conv, 4294967248
+  %conv18 = and i64 %sub, 4294967295
   %conv19 = sext i8 %5 to i64
   %add = add nsw i64 %conv19, -87
   %curDigit.2 = select i1 %or.cond, i64 %conv18, i64 %add
@@ -11571,8 +11572,8 @@ for.end:                                          ; preds = %if.then7
 
 sw.bb53:                                          ; preds = %for.end
   %tobool54 = trunc nuw i8 %lowestExponentBit.0 to i1
-  %8 = uitofp nneg i8 %lastMantissaBit.0 to double
-  %conv57 = select i1 %tobool54, double %8, double 0.000000e+00
+  %7 = uitofp nneg i8 %lastMantissaBit.0 to double
+  %conv57 = select i1 %tobool54, double %7, double 0.000000e+00
   %add58 = fadd double %result.1, %conv57
   %mul59 = fmul double %expFactor.0, %add58
   br label %return

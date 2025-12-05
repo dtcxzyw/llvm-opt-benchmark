@@ -31885,9 +31885,9 @@ _ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit.i.i.i.i.i.i.i: ; 
   %305 = mul i128 %300, %156
   %306 = add i128 %305, %296
   %307 = icmp ult i64 %.sroa.161909.0.i.i.i.i.i, 16
-  %extract.t2362.i.i.i.i.i = trunc i128 %306 to i64
-  %extract2366.i.i.i.i.i = lshr i128 %306, 64
-  %extract.t2367.i.i.i.i.i = trunc nuw i128 %extract2366.i.i.i.i.i to i64
+  %extract.t2366.i.i.i.i.i = trunc i128 %306 to i64
+  %extract2370.i.i.i.i.i = lshr i128 %306, 64
+  %extract.t2371.i.i.i.i.i = trunc nuw i128 %extract2370.i.i.i.i.i to i64
   br i1 %307, label %349, label %308
 
 308:                                              ; preds = %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit.i.i.i.i.i"
@@ -32054,19 +32054,19 @@ _ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i.i.i.i.i.i: ; preds = %"
   br i1 %or.cond2.i.i.i.i.i.i.i, label %1436, label %.preheader22.i1343.i.i.i.i.i.preheader
 
 _ZN9atoi_simd8fallback16parse_fb_128_pos17h43aa57b8ac1bb910E.exit.i.thread.i.i.i.i.i: ; preds = %.lr.ph.i1338.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1359.i.i.i.i.i", %349, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit273.i.i.i.i.i, %164, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i.i, %94, %79
-  %.sroa.19.sroa.171868.12008.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.171868.0.extract.trunc1872.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1359.i.i.i.i.i" ], [ %extract.t2367.i.i.i.i.i, %349 ], [ 0, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i.i ], [ %215, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit273.i.i.i.i.i ], [ 0, %164 ], [ 0, %79 ], [ 0, %94 ], [ %extract.t2367.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i1338.i.i.i.i.i ]
-  %.sroa.19.sroa.01862.12007.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.01862.0.extract.trunc1864.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1359.i.i.i.i.i" ], [ %extract.t2362.i.i.i.i.i, %349 ], [ %157, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i.i ], [ %157, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit273.i.i.i.i.i ], [ %166, %164 ], [ %93, %79 ], [ %95, %94 ], [ %extract.t2362.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i.i.i.i.i.i ], [ %.sroa.01.017.i.i.i.i.i.i, %.lr.ph.i1338.i.i.i.i.i ]
+  %.sroa.19.sroa.171868.12008.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.171868.0.extract.trunc1872.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1359.i.i.i.i.i" ], [ %extract.t2371.i.i.i.i.i, %349 ], [ 0, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i.i ], [ %215, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit273.i.i.i.i.i ], [ 0, %164 ], [ 0, %79 ], [ 0, %94 ], [ %extract.t2371.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i1338.i.i.i.i.i ]
+  %.sroa.19.sroa.01862.12007.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.01862.0.extract.trunc1864.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1359.i.i.i.i.i" ], [ %extract.t2366.i.i.i.i.i, %349 ], [ %157, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i.i ], [ %157, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit273.i.i.i.i.i ], [ %166, %164 ], [ %93, %79 ], [ %95, %94 ], [ %extract.t2366.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i.i.i.i.i.i ], [ %.sroa.01.017.i.i.i.i.i.i, %.lr.ph.i1338.i.i.i.i.i ]
   %.sroa.31.12006.i.i.i.i.i = phi i64 [ %381, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1359.i.i.i.i.i" ], [ %350, %349 ], [ %136, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i.i ], [ 16, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit273.i.i.i.i.i ], [ 1, %164 ], [ %78, %79 ], [ 1, %94 ], [ 32, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i.i.i.i.i.i ], [ %.sroa.04.018.i.i.i.i.i.i, %.lr.ph.i1338.i.i.i.i.i ]
   %.not78.i.i.i.i.i.i = icmp eq i64 %.sroa.31.12006.i.i.i.i.i, %49
   br i1 %.not78.i.i.i.i.i.i, label %_ZN9atoi_simd8fallback16parse_fb_128_pos17h43aa57b8ac1bb910E.exit.i.thread.thread.i.i.i.i.i, label %1436
 
 _ZN9atoi_simd8fallback16parse_fb_128_pos17h43aa57b8ac1bb910E.exit.i.thread.thread.i.i.i.i.i: ; preds = %170, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h43aa57b8ac1bb910E.exit.i.thread.i.i.i.i.i
-  %.sroa.19.sroa.01862.120072276.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.01862.12007.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h43aa57b8ac1bb910E.exit.i.thread.i.i.i.i.i ], [ %174, %170 ]
-  %.sroa.19.sroa.171868.120082275.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.171868.12008.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h43aa57b8ac1bb910E.exit.i.thread.i.i.i.i.i ], [ 0, %170 ]
-  %.sroa.19.sroa.171868.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.19.sroa.171868.120082275.i.i.i.i.i to i128
+  %.sroa.19.sroa.01862.120072280.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.01862.12007.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h43aa57b8ac1bb910E.exit.i.thread.i.i.i.i.i ], [ %174, %170 ]
+  %.sroa.19.sroa.171868.120082279.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.171868.12008.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h43aa57b8ac1bb910E.exit.i.thread.i.i.i.i.i ], [ 0, %170 ]
+  %.sroa.19.sroa.171868.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.19.sroa.171868.120082279.i.i.i.i.i to i128
   %.sroa.19.sroa.171868.0.insert.shift.i.i.i.i.i = shl nuw i128 %.sroa.19.sroa.171868.0.insert.ext.i.i.i.i.i, 64
   %385 = icmp slt i128 %.sroa.19.sroa.171868.0.insert.shift.i.i.i.i.i, 0
-  %.sroa.19.sroa.01862.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.19.sroa.01862.120072276.i.i.i.i.i to i128
+  %.sroa.19.sroa.01862.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.19.sroa.01862.120072280.i.i.i.i.i to i128
   %.sroa.19.sroa.01862.0.insert.insert.i.i.i.i.i = or disjoint i128 %.sroa.19.sroa.171868.0.insert.shift.i.i.i.i.i, %.sroa.19.sroa.01862.0.insert.ext.i.i.i.i.i
   %386 = sub nsw i128 0, %.sroa.19.sroa.01862.0.insert.insert.i.i.i.i.i
   %.sroa.715.0.i.i.i.i.i.i = select i1 %385, i128 -170141183460469231731687303715884105728, i128 %386
@@ -32572,9 +32572,9 @@ _ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit.i195.i.i.i.i.i: ;
   %633 = mul i128 %628, %491
   %634 = add i128 %633, %624
   %635 = icmp ult i64 %.sroa.161792.0.i.i.i.i.i, 16
-  %extract.t2354.i.i.i.i.i = trunc i128 %634 to i64
-  %extract2358.i.i.i.i.i = lshr i128 %634, 64
-  %extract.t2359.i.i.i.i.i = trunc nuw i128 %extract2358.i.i.i.i.i to i64
+  %extract.t2358.i.i.i.i.i = trunc i128 %634 to i64
+  %extract2362.i.i.i.i.i = lshr i128 %634, 64
+  %extract.t2363.i.i.i.i.i = trunc nuw i128 %extract2362.i.i.i.i.i to i64
   br i1 %635, label %675, label %636
 
 636:                                              ; preds = %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1388.i.i.i.i.i"
@@ -32741,8 +32741,8 @@ _ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1185.i.i.i.i.i: ; preds 
 
 _ZN9atoi_simd8fallback16parse_fb_128_pos17h9e1d4e8622d1384bE.exit.thread.i.i.i.i.i: ; preds = %.lr.ph.i1363.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1405.i.i.i.i.i", %675, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1185.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit533.i.i.i.i.i, %496, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i194.i.i.i.i.i, %430, %415
   %.sroa.301637.42056.i.i.i.i.i = phi i64 [ %707, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1405.i.i.i.i.i" ], [ %676, %675 ], [ %471, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i194.i.i.i.i.i ], [ 16, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit533.i.i.i.i.i ], [ 1, %496 ], [ 1, %430 ], [ %414, %415 ], [ 32, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1185.i.i.i.i.i ], [ %.sroa.04.018.i1364.i.i.i.i.i, %.lr.ph.i1363.i.i.i.i.i ]
-  %.sroa.19.sroa.0.42055.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.0.0.extract.trunc1665.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1405.i.i.i.i.i" ], [ %extract.t2354.i.i.i.i.i, %675 ], [ %492, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i194.i.i.i.i.i ], [ %492, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit533.i.i.i.i.i ], [ %498, %496 ], [ %431, %430 ], [ %429, %415 ], [ %extract.t2354.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1185.i.i.i.i.i ], [ %.sroa.01.017.i1365.i.i.i.i.i, %.lr.ph.i1363.i.i.i.i.i ]
-  %.sroa.19.sroa.17.42054.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.17.0.extract.trunc1676.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1405.i.i.i.i.i" ], [ %extract.t2359.i.i.i.i.i, %675 ], [ 0, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i194.i.i.i.i.i ], [ %545, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit533.i.i.i.i.i ], [ 0, %496 ], [ 0, %430 ], [ 0, %415 ], [ %extract.t2359.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1185.i.i.i.i.i ], [ 0, %.lr.ph.i1363.i.i.i.i.i ]
+  %.sroa.19.sroa.0.42055.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.0.0.extract.trunc1665.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1405.i.i.i.i.i" ], [ %extract.t2358.i.i.i.i.i, %675 ], [ %492, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i194.i.i.i.i.i ], [ %492, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit533.i.i.i.i.i ], [ %498, %496 ], [ %431, %430 ], [ %429, %415 ], [ %extract.t2358.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1185.i.i.i.i.i ], [ %.sroa.01.017.i1365.i.i.i.i.i, %.lr.ph.i1363.i.i.i.i.i ]
+  %.sroa.19.sroa.17.42054.i.i.i.i.i = phi i64 [ %.sroa.19.sroa.17.0.extract.trunc1676.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1405.i.i.i.i.i" ], [ %extract.t2363.i.i.i.i.i, %675 ], [ 0, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i194.i.i.i.i.i ], [ %545, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit533.i.i.i.i.i ], [ 0, %496 ], [ 0, %430 ], [ 0, %415 ], [ %extract.t2363.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1185.i.i.i.i.i ], [ 0, %.lr.ph.i1363.i.i.i.i.i ]
   %.not55.i.i.i.i.i.i = icmp eq i64 %.sroa.301637.42056.i.i.i.i.i, %.sroa.0.0.i1335.i.i.i.i.i
   br i1 %.not55.i.i.i.i.i.i, label %_ZN9atoi_simd6linker22atoi_simd_parse_signed17hc33ca630bade6f2eE.exit.thread2081.i.i.i.i.i, label %1436
 
@@ -33013,7 +33013,7 @@ _ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i: ; 
   br i1 %exitcond.not.i1416.i.i.i.i.i, label %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit.thread.thread.i.i.i.i.i, label %.lr.ph.i1409.i.i.i.i.i
 
 _ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit.thread.thread.i.i.i.i.i: ; preds = %841
-  %.sroa.181513.sroa.0.0.insert.ext2298.i.i.i.i.i = zext i64 %845 to i128
+  %.sroa.181513.sroa.0.0.insert.ext2302.i.i.i.i.i = zext i64 %845 to i128
   br label %1050
 
 847:                                              ; preds = %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i
@@ -33279,9 +33279,9 @@ _ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit.i.i.i.i.i.i: ; pr
   %972 = mul i128 %967, %829
   %973 = add i128 %972, %963
   %974 = icmp ult i64 %.sroa.161696.0.i.i.i.i.i, 16
-  %extract.t2340.i.i.i.i.i = trunc i128 %973 to i64
-  %extract2342.i.i.i.i.i = lshr i128 %973, 64
-  %extract.t2343.i.i.i.i.i = trunc nuw i128 %extract2342.i.i.i.i.i to i64
+  %extract.t2344.i.i.i.i.i = trunc i128 %973 to i64
+  %extract2346.i.i.i.i.i = lshr i128 %973, 64
+  %extract.t2347.i.i.i.i.i = trunc nuw i128 %extract2346.i.i.i.i.i to i64
   br i1 %974, label %1014, label %975
 
 975:                                              ; preds = %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1434.i.i.i.i.i"
@@ -33447,7 +33447,7 @@ _ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1285.i.i.i.i.i: ; preds 
   br i1 %or.cond2.i.i.i.i.i.i, label %1436, label %.preheader22.i1435.i.i.i.i.i.preheader
 
 1050:                                             ; preds = %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit.thread.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit.thread.thread.i.i.i.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2adaa803eeb4cf01E.exit.i.i.i.i.i"
-  %.sroa.045.0.i.i.i.i.i = phi i128 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2adaa803eeb4cf01E.exit.i.i.i.i.i" ], [ %.sroa.181513.sroa.0.0.insert.insert.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit.thread.i.i.i.i.i ], [ %.sroa.181513.sroa.0.0.insert.ext2298.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit.thread.thread.i.i.i.i.i ]
+  %.sroa.045.0.i.i.i.i.i = phi i128 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h2adaa803eeb4cf01E.exit.i.i.i.i.i" ], [ %.sroa.181513.sroa.0.0.insert.insert.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit.thread.i.i.i.i.i ], [ %.sroa.181513.sroa.0.0.insert.ext2302.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit.thread.thread.i.i.i.i.i ]
   %1051 = icmp samesign ult i64 %.sroa.7150.0.i.i.i.i.i, 5
   br i1 %1051, label %1158, label %1052
 
@@ -33456,10 +33456,11 @@ _ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1285.i.i.i.i.i: ; preds 
   br i1 %1053, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h502b63619879f69eE.exit.i920.i.i.i.i.i", label %1054
 
 1054:                                             ; preds = %1052
-  switch i64 %.sroa.7150.0.i.i.i.i.i, label %default.unreachable [
-    i64 7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit74.i916.i.i.i.i.i"
-    i64 6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit72.i901.i.i.i.i.i"
-    i64 5, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit71.i887.i.i.i.i.i"
+  %trunc.i.i.i.i.i = trunc nuw nsw i64 %.sroa.7150.0.i.i.i.i.i to i8
+  switch i8 %trunc.i.i.i.i.i, label %default.unreachable [
+    i8 7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit74.i916.i.i.i.i.i"
+    i8 6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit72.i901.i.i.i.i.i"
+    i8 5, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit71.i887.i.i.i.i.i"
   ]
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit74.i916.i.i.i.i.i": ; preds = %1054
@@ -33542,15 +33543,16 @@ _ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit923.i.i.i.i.i: ; preds = %
   br i1 %.not2192.i.i.i.i.i, label %1099, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h502b63619879f69eE.exit.i855.i.i.i.i.i"
 
 1099:                                             ; preds = %1096
-  switch i64 %.sroa.7150.0.i.i.i.i.i, label %default.unreachable.i854.i.i.i.i.i [
-    i64 15, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit74.i851.i.i.i.i.i"
-    i64 14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit72.i836.i.i.i.i.i"
-    i64 13, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit71.i822.i.i.i.i.i"
-    i64 12, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit.i815.i.i.i.i.i"
-    i64 11, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit70.i807.i.i.i.i.i"
-    i64 10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit.i800.i.i.i.i.i"
-    i64 9, label %1124
-    i64 8, label %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i181.i.i.i.i.i
+  %trunc2220.i.i.i.i.i = trunc nuw i64 %.sroa.7150.0.i.i.i.i.i to i8
+  switch i8 %trunc2220.i.i.i.i.i, label %default.unreachable.i854.i.i.i.i.i [
+    i8 15, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit74.i851.i.i.i.i.i"
+    i8 14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit72.i836.i.i.i.i.i"
+    i8 13, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit71.i822.i.i.i.i.i"
+    i8 12, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit.i815.i.i.i.i.i"
+    i8 11, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit70.i807.i.i.i.i.i"
+    i8 10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit.i800.i.i.i.i.i"
+    i8 9, label %1124
+    i8 8, label %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i181.i.i.i.i.i
   ]
 
 default.unreachable.i854.i.i.i.i.i:               ; preds = %1099
@@ -33685,7 +33687,7 @@ _ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i181.i.i.i.i.i:
   br i1 %exitcond.not.i1462.i.i.i.i.i, label %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.thread.i.i.i.i.i, label %.lr.ph.i1455.i.i.i.i.i
 
 _ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.thread.i.i.i.i.i: ; preds = %1169
-  %.sroa.181572.sroa.0.0.insert.ext2306.i.i.i.i.i = zext i64 %1173 to i128
+  %.sroa.181572.sroa.0.0.insert.ext2310.i.i.i.i.i = zext i64 %1173 to i128
   br label %1378
 
 1175:                                             ; preds = %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i181.i.i.i.i.i
@@ -33694,15 +33696,16 @@ _ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.thre
   br i1 %.not2193.i.i.i.i.i, label %1177, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h502b63619879f69eE.exit.i790.i.i.i.i.i"
 
 1177:                                             ; preds = %1175
-  switch i64 %.sroa.7150.0.i.i.i.i.i, label %default.unreachable.i789.i.i.i.i.i [
-    i64 23, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit74.i786.i.i.i.i.i"
-    i64 22, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit72.i771.i.i.i.i.i"
-    i64 21, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit71.i757.i.i.i.i.i"
-    i64 20, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit.i750.i.i.i.i.i"
-    i64 19, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit70.i742.i.i.i.i.i"
-    i64 18, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit.i735.i.i.i.i.i"
-    i64 17, label %1202
-    i64 16, label %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit793.i.i.i.i.i
+  %trunc2221.i.i.i.i.i = trunc nuw i64 %.sroa.7150.0.i.i.i.i.i to i8
+  switch i8 %trunc2221.i.i.i.i.i, label %default.unreachable.i789.i.i.i.i.i [
+    i8 23, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit74.i786.i.i.i.i.i"
+    i8 22, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit72.i771.i.i.i.i.i"
+    i8 21, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit71.i757.i.i.i.i.i"
+    i8 20, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit.i750.i.i.i.i.i"
+    i8 19, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit70.i742.i.i.i.i.i"
+    i8 18, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit.i735.i.i.i.i.i"
+    i8 17, label %1202
+    i8 16, label %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit793.i.i.i.i.i
   ]
 
 default.unreachable.i789.i.i.i.i.i:               ; preds = %1177
@@ -33812,15 +33815,16 @@ _ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit793.i.i.i.i.i: ; preds = %
   br i1 %.not2194.i.i.i.i.i, label %1232, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h502b63619879f69eE.exit.i725.i.i.i.i.i"
 
 1232:                                             ; preds = %1230
-  switch i64 %.sroa.7150.0.i.i.i.i.i, label %default.unreachable.i724.i.i.i.i.i [
-    i64 31, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit74.i721.i.i.i.i.i"
-    i64 30, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit72.i706.i.i.i.i.i"
-    i64 29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit71.i692.i.i.i.i.i"
-    i64 28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit.i685.i.i.i.i.i"
-    i64 27, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit70.i677.i.i.i.i.i"
-    i64 26, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit.i670.i.i.i.i.i"
-    i64 25, label %1257
-    i64 24, label %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit728.i.i.i.i.i
+  %trunc2222.i.i.i.i.i = trunc nuw i64 %.sroa.7150.0.i.i.i.i.i to i8
+  switch i8 %trunc2222.i.i.i.i.i, label %default.unreachable.i724.i.i.i.i.i [
+    i8 31, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit74.i721.i.i.i.i.i"
+    i8 30, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit72.i706.i.i.i.i.i"
+    i8 29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit71.i692.i.i.i.i.i"
+    i8 28, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit.i685.i.i.i.i.i"
+    i8 27, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit70.i677.i.i.i.i.i"
+    i8 26, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit.i670.i.i.i.i.i"
+    i8 25, label %1257
+    i8 24, label %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit728.i.i.i.i.i
   ]
 
 default.unreachable.i724.i.i.i.i.i:               ; preds = %1232
@@ -33951,9 +33955,9 @@ _ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit.i182.i.i.i.i.i: ;
   %1300 = mul i128 %1295, %1155
   %1301 = add i128 %1300, %1291
   %1302 = icmp ult i64 %.sroa.161744.0.i.i.i.i.i, 16
-  %extract.t2346.i.i.i.i.i = trunc i128 %1301 to i64
-  %extract2350.i.i.i.i.i = lshr i128 %1301, 64
-  %extract.t2351.i.i.i.i.i = trunc nuw i128 %extract2350.i.i.i.i.i to i64
+  %extract.t2350.i.i.i.i.i = trunc i128 %1301 to i64
+  %extract2354.i.i.i.i.i = lshr i128 %1301, 64
+  %extract.t2355.i.i.i.i.i = trunc nuw i128 %extract2354.i.i.i.i.i to i64
   br i1 %1302, label %1342, label %1303
 
 1303:                                             ; preds = %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1480.i.i.i.i.i"
@@ -33962,15 +33966,16 @@ _ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit.i182.i.i.i.i.i: ;
   br i1 %.not2195.i.i.i.i.i, label %1305, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h502b63619879f69eE.exit.i.i1282.i.i.i.i.i"
 
 1305:                                             ; preds = %1303
-  switch i64 %.sroa.7150.0.i.i.i.i.i, label %default.unreachable.i.i1280.i.i.i.i.i [
-    i64 39, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit74.i.i1279.i.i.i.i.i"
-    i64 38, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit72.i.i1269.i.i.i.i.i"
-    i64 37, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit71.i.i1258.i.i.i.i.i"
-    i64 36, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit.i.i1253.i.i.i.i.i"
-    i64 35, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit70.i.i1247.i.i.i.i.i"
-    i64 34, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit.i.i1242.i.i.i.i.i"
-    i64 33, label %1330
-    i64 32, label %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1235.i.i.i.i.i
+  %trunc2223.i.i.i.i.i = trunc nuw i64 %.sroa.7150.0.i.i.i.i.i to i8
+  switch i8 %trunc2223.i.i.i.i.i, label %default.unreachable.i.i1280.i.i.i.i.i [
+    i8 39, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit74.i.i1279.i.i.i.i.i"
+    i8 38, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit72.i.i1269.i.i.i.i.i"
+    i8 37, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit71.i.i1258.i.i.i.i.i"
+    i8 36, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had6340e3a7a13f97E.exit.i.i1253.i.i.i.i.i"
+    i8 35, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit70.i.i1247.i.i.i.i.i"
+    i8 34, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h32cfc477ae962cb9E.exit.i.i1242.i.i.i.i.i"
+    i8 33, label %1330
+    i8 32, label %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1235.i.i.i.i.i
   ]
 
 default.unreachable.i.i1280.i.i.i.i.i:            ; preds = %1305
@@ -34120,8 +34125,8 @@ _ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1235.i.i.i.i.i: ; preds 
 
 _ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit.thread.i.i.i.i.i: ; preds = %.lr.ph.i1409.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1451.i.i.i.i.i", %1014, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1285.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit1053.i.i.i.i.i, %835, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i, %768, %753
   %.sroa.30.42123.i.i.i.i.i = phi i64 [ %1046, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1451.i.i.i.i.i" ], [ %1015, %1014 ], [ %809, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i ], [ 16, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit1053.i.i.i.i.i ], [ 1, %835 ], [ 1, %768 ], [ %752, %753 ], [ 32, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1285.i.i.i.i.i ], [ %.sroa.04.018.i1410.i.i.i.i.i, %.lr.ph.i1409.i.i.i.i.i ]
-  %.sroa.181513.sroa.0.42122.i.i.i.i.i = phi i64 [ %.sroa.181513.sroa.0.0.extract.trunc1545.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1451.i.i.i.i.i" ], [ %extract.t2340.i.i.i.i.i, %1014 ], [ %830, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i ], [ %830, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit1053.i.i.i.i.i ], [ %837, %835 ], [ %769, %768 ], [ %767, %753 ], [ %extract.t2340.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1285.i.i.i.i.i ], [ %.sroa.01.017.i1411.i.i.i.i.i, %.lr.ph.i1409.i.i.i.i.i ]
-  %.sroa.181513.sroa.17.42121.i.i.i.i.i = phi i64 [ %.sroa.181513.sroa.17.0.extract.trunc1552.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1451.i.i.i.i.i" ], [ %extract.t2343.i.i.i.i.i, %1014 ], [ 0, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i ], [ %884, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit1053.i.i.i.i.i ], [ 0, %835 ], [ 0, %768 ], [ 0, %753 ], [ %extract.t2343.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1285.i.i.i.i.i ], [ 0, %.lr.ph.i1409.i.i.i.i.i ]
+  %.sroa.181513.sroa.0.42122.i.i.i.i.i = phi i64 [ %.sroa.181513.sroa.0.0.extract.trunc1545.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1451.i.i.i.i.i" ], [ %extract.t2344.i.i.i.i.i, %1014 ], [ %830, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i ], [ %830, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit1053.i.i.i.i.i ], [ %837, %835 ], [ %769, %768 ], [ %767, %753 ], [ %extract.t2344.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1285.i.i.i.i.i ], [ %.sroa.01.017.i1411.i.i.i.i.i, %.lr.ph.i1409.i.i.i.i.i ]
+  %.sroa.181513.sroa.17.42121.i.i.i.i.i = phi i64 [ %.sroa.181513.sroa.17.0.extract.trunc1552.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1451.i.i.i.i.i" ], [ %extract.t2347.i.i.i.i.i, %1014 ], [ 0, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i.i.i.i.i.i ], [ %884, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit1053.i.i.i.i.i ], [ 0, %835 ], [ 0, %768 ], [ 0, %753 ], [ %extract.t2347.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1285.i.i.i.i.i ], [ 0, %.lr.ph.i1409.i.i.i.i.i ]
   %.sroa.181513.sroa.17.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.181513.sroa.17.42121.i.i.i.i.i to i128
   %.sroa.181513.sroa.17.0.insert.shift.i.i.i.i.i = shl nuw i128 %.sroa.181513.sroa.17.0.insert.ext.i.i.i.i.i, 64
   %.sroa.181513.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.181513.sroa.0.42122.i.i.i.i.i to i128
@@ -34131,8 +34136,8 @@ _ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit.thread.i.i.i.i
 
 _ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.i.i.i.i.i: ; preds = %.lr.ph.i1455.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1497.i.i.i.i.i", %1342, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1235.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit793.i.i.i.i.i, %1163, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i181.i.i.i.i.i, %1094, %1079
   %.sroa.301580.42164.i.i.i.i.i = phi i64 [ %1374, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1497.i.i.i.i.i" ], [ %1343, %1342 ], [ %1135, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i181.i.i.i.i.i ], [ 16, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit793.i.i.i.i.i ], [ 1, %1163 ], [ 1, %1094 ], [ %1078, %1079 ], [ 32, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1235.i.i.i.i.i ], [ %.sroa.04.018.i1456.i.i.i.i.i, %.lr.ph.i1455.i.i.i.i.i ]
-  %.sroa.181572.sroa.0.42163.i.i.i.i.i = phi i64 [ %.sroa.181572.sroa.0.0.extract.trunc1606.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1497.i.i.i.i.i" ], [ %extract.t2346.i.i.i.i.i, %1342 ], [ %1156, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i181.i.i.i.i.i ], [ %1156, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit793.i.i.i.i.i ], [ %1165, %1163 ], [ %1095, %1094 ], [ %1093, %1079 ], [ %extract.t2346.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1235.i.i.i.i.i ], [ %.sroa.01.017.i1457.i.i.i.i.i, %.lr.ph.i1455.i.i.i.i.i ]
-  %.sroa.181572.sroa.17.42162.i.i.i.i.i = phi i64 [ %.sroa.181572.sroa.17.0.extract.trunc1613.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1497.i.i.i.i.i" ], [ %extract.t2351.i.i.i.i.i, %1342 ], [ 0, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i181.i.i.i.i.i ], [ %1212, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit793.i.i.i.i.i ], [ 0, %1163 ], [ 0, %1094 ], [ 0, %1079 ], [ %extract.t2351.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1235.i.i.i.i.i ], [ 0, %.lr.ph.i1455.i.i.i.i.i ]
+  %.sroa.181572.sroa.0.42163.i.i.i.i.i = phi i64 [ %.sroa.181572.sroa.0.0.extract.trunc1606.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1497.i.i.i.i.i" ], [ %extract.t2350.i.i.i.i.i, %1342 ], [ %1156, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i181.i.i.i.i.i ], [ %1156, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit793.i.i.i.i.i ], [ %1165, %1163 ], [ %1095, %1094 ], [ %1093, %1079 ], [ %extract.t2350.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1235.i.i.i.i.i ], [ %.sroa.01.017.i1457.i.i.i.i.i, %.lr.ph.i1455.i.i.i.i.i ]
+  %.sroa.181572.sroa.17.42162.i.i.i.i.i = phi i64 [ %.sroa.181572.sroa.17.0.extract.trunc1613.i.i.i.i.i, %"_ZN4core3num22_$LT$impl$u20$u128$GT$3pow17h1c6e7cc262f2d876E.exit1497.i.i.i.i.i" ], [ %extract.t2355.i.i.i.i.i, %1342 ], [ 0, %_ZN9atoi_simd8fallback13parse_16_by_817h77d067d8bf641f1eE.exit22.i181.i.i.i.i.i ], [ %1212, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit793.i.i.i.i.i ], [ 0, %1163 ], [ 0, %1094 ], [ 0, %1079 ], [ %extract.t2355.i.i.i.i.i, %_ZN9atoi_simd8fallback6load_817hd428cca9e0a822a1E.exit.i1235.i.i.i.i.i ], [ 0, %.lr.ph.i1455.i.i.i.i.i ]
   %.sroa.181572.sroa.17.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.181572.sroa.17.42162.i.i.i.i.i to i128
   %.sroa.181572.sroa.17.0.insert.shift.i.i.i.i.i = shl nuw i128 %.sroa.181572.sroa.17.0.insert.ext.i.i.i.i.i, 64
   %.sroa.181572.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.181572.sroa.0.42163.i.i.i.i.i to i128
@@ -34141,7 +34146,7 @@ _ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.i.i.
   br i1 %.not170.not.i.i.i.i.i, label %1378, label %1436
 
 1378:                                             ; preds = %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.thread.i.i.i.i.i
-  %.sroa.181572.sroa.0.0.insert.insert2309.i.i.i.i.i = phi i128 [ %.sroa.181572.sroa.0.0.insert.ext2306.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.thread.i.i.i.i.i ], [ %.sroa.181572.sroa.0.0.insert.insert.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.i.i.i.i.i ]
+  %.sroa.181572.sroa.0.0.insert.insert2313.i.i.i.i.i = phi i128 [ %.sroa.181572.sroa.0.0.insert.ext2310.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.thread.i.i.i.i.i ], [ %.sroa.181572.sroa.0.0.insert.insert.i.i.i.i.i, %_ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.i.i.i.i.i ]
   %1379 = getelementptr inbounds nuw i128, ptr @anon.75689163f666b026f1841a5f1fdb3acc.20, i64 %28
   %1380 = load i128, ptr %1379, align 16, !noalias !5396, !noundef !3
   %1381 = tail call { i128, i1 } @llvm.umul.with.overflow.i128(i128 %.sroa.045.0.i.i.i.i.i, i128 %1380)
@@ -34152,7 +34157,7 @@ _ZN9atoi_simd8fallback16parse_fb_128_pos17h5f41d87debb8aed2E.exit193.thread.i.i.
 1384:                                             ; preds = %1378
   %1385 = getelementptr inbounds nuw i128, ptr @anon.75689163f666b026f1841a5f1fdb3acc.20, i64 %.sroa.050.0.i.i.i.i.i
   %1386 = load i128, ptr %1385, align 16, !noalias !5396, !noundef !3
-  %1387 = tail call { i128, i1 } @llvm.umul.with.overflow.i128(i128 %.sroa.181572.sroa.0.0.insert.insert2309.i.i.i.i.i, i128 %1386)
+  %1387 = tail call { i128, i1 } @llvm.umul.with.overflow.i128(i128 %.sroa.181572.sroa.0.0.insert.insert2313.i.i.i.i.i, i128 %1386)
   %1388 = extractvalue { i128, i1 } %1387, 1
   br i1 %1388, label %1436, label %1389
 
@@ -34211,7 +34216,7 @@ _ZN9atoi_simd6linker22atoi_simd_parse_signed17hc33ca630bade6f2eE.exit.thread2081
   br i1 %.not173.i.i.i.i.i, label %1414, label %1436
 
 1414:                                             ; preds = %1411, %1410, %1403, %1399
-  %.sink2338.i.i.i.i.i = phi i128 [ %1404, %1403 ], [ %1393, %1399 ], [ %1409, %1411 ], [ %1409, %1410 ]
+  %.sink2342.i.i.i.i.i = phi i128 [ %1404, %1403 ], [ %1393, %1399 ], [ %1409, %1411 ], [ %1409, %1410 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5241
   %.val.i.i = load ptr, ptr %11, align 8, !alias.scope !5397, !noalias !5398, !nonnull !3, !noundef !3
   %1415 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
@@ -34289,7 +34294,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap14push_unchecked17hbc60471f52ae1e
 1459:                                             ; preds = %_ZN12polars_arrow6bitmap7mutable13MutableBitmap14push_unchecked17hbc60471f52ae1ec2E.exit9.i.i.i, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap14push_unchecked17hbc60471f52ae1ec2E.exit.i.i.i
   %1460 = phi ptr [ %1437, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap14push_unchecked17hbc60471f52ae1ec2E.exit9.i.i.i ], [ %1415, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap14push_unchecked17hbc60471f52ae1ec2E.exit.i.i.i ]
   %.sink1.i.i.i = phi i64 [ %1440, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap14push_unchecked17hbc60471f52ae1ec2E.exit9.i.i.i ], [ %1418, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap14push_unchecked17hbc60471f52ae1ec2E.exit.i.i.i ]
-  %.sroa.04.0.i.i.i = phi i128 [ 0, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap14push_unchecked17hbc60471f52ae1ec2E.exit9.i.i.i ], [ %.sink2338.i.i.i.i.i, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap14push_unchecked17hbc60471f52ae1ec2E.exit.i.i.i ]
+  %.sroa.04.0.i.i.i = phi i128 [ 0, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap14push_unchecked17hbc60471f52ae1ec2E.exit9.i.i.i ], [ %.sink2342.i.i.i.i.i, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap14push_unchecked17hbc60471f52ae1ec2E.exit.i.i.i ]
   %1461 = add i64 %.sink1.i.i.i, 1
   store i64 %1461, ptr %1460, align 8, !noalias !5402
   %1462 = load i64, ptr %12, align 8, !alias.scope !5224, !noalias !5227, !noundef !3

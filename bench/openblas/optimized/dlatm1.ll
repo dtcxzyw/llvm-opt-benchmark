@@ -288,25 +288,26 @@ thread-pre-split143:                              ; preds = %92, %thread-pre-spl
 .lr.ph169:                                        ; preds = %104
   %106 = lshr i32 %105, 1
   %107 = add nuw nsw i32 %105, 1
-  %108 = zext nneg i32 %107 to i64
-  %109 = add nuw nsw i32 %106, 1
-  %wide.trip.count201 = zext nneg i32 %109 to i64
-  br label %110
+  %108 = add nuw nsw i32 %106, 1
+  %wide.trip.count201 = zext nneg i32 %108 to i64
+  br label %109
 
-110:                                              ; preds = %.lr.ph169, %110
-  %indvars.iv198 = phi i64 [ 1, %.lr.ph169 ], [ %indvars.iv.next199, %110 ]
-  %111 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv198
-  %112 = load double, ptr %111, align 8, !tbaa !7
-  %113 = sub nsw i64 %108, %indvars.iv198
-  %114 = getelementptr inbounds double, ptr %10, i64 %113
-  %115 = load double, ptr %114, align 8, !tbaa !7
-  store double %115, ptr %111, align 8, !tbaa !7
-  store double %112, ptr %114, align 8, !tbaa !7
+109:                                              ; preds = %.lr.ph169, %109
+  %indvars.iv198 = phi i64 [ 1, %.lr.ph169 ], [ %indvars.iv.next199, %109 ]
+  %110 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv198
+  %111 = load double, ptr %110, align 8, !tbaa !7
+  %112 = trunc nuw nsw i64 %indvars.iv198 to i32
+  %113 = sub i32 %107, %112
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds double, ptr %10, i64 %114
+  %116 = load double, ptr %115, align 8, !tbaa !7
+  store double %116, ptr %110, align 8, !tbaa !7
+  store double %111, ptr %115, align 8, !tbaa !7
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
-  br i1 %exitcond202.not, label %.loopexit, label %110, !llvm.loop !16
+  br i1 %exitcond202.not, label %.loopexit, label %109, !llvm.loop !16
 
-.loopexit:                                        ; preds = %110, %104, %30, %thread-pre-split143, %8, %.thread
+.loopexit:                                        ; preds = %109, %104, %30, %thread-pre-split143, %8, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }

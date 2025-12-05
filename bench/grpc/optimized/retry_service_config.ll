@@ -722,7 +722,6 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit58.thread: ; preds = %_ZNK
 _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit58: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i
   %.0.i.i.i.i.i = phi i32 [ %58, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ], [ %.0.i6.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i ]
   %60 = icmp slt i32 %.0.i.i.i.i.i, 0
-  %spec.select.i.i = select i1 %60, ptr %42, ptr %.19.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %60, label %.invoke140, label %63
 
@@ -732,8 +731,8 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit58: ; preds = %_ZNSt11char
   br label %113
 
 63:                                               ; preds = %_ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit58
-  %64 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
-  %65 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 112
   %66 = load i8, ptr %65, align 8, !tbaa !11
   %.not.i.i.i62 = icmp eq i8 %66, -1
   br i1 %.not.i.i.i62, label %67, label %70
@@ -767,7 +766,7 @@ _ZNK9grpc_core12experimental4Json6objectB5cxx11Ev.exit58: ; preds = %_ZNSt11char
 
 _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit: ; preds = %70
   %74 = load ptr, ptr %64, align 8, !tbaa !35
-  %75 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 72
   %76 = load i64, ptr %75, align 8, !tbaa !27
   %.not126 = icmp eq i64 %76, 0
   br i1 %.not126, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i

@@ -11957,10 +11957,11 @@ _ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv
 
 .noexc4.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %32, ptr %12, align 8
-  %33 = getelementptr i8, ptr %32, i64 %.idx
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %33, ptr %34, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %32, ptr align 16 %25, i64 %.idx, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %32, i64 %.idx
   br label %37
 
 35:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %29
@@ -11969,7 +11970,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv
   br label %.body
 
 37:                                               ; preds = %.noexc4.i, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %33, %.noexc4.i ], [ null, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i, %.noexc4.i ], [ null, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i ]
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %38, align 8
   %39 = load ptr, ptr %6, align 8
@@ -12677,10 +12678,11 @@ _ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv
 
 .noexc4.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %30, ptr %13, align 8
-  %31 = getelementptr i8, ptr %30, i64 %.idx
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %31, ptr %32, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %30, ptr align 16 %23, i64 %.idx, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %30, i64 %.idx
   br label %35
 
 33:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %27
@@ -12689,7 +12691,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv
   br label %.body
 
 35:                                               ; preds = %.noexc4.i, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %31, %.noexc4.i ], [ null, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i, %.noexc4.i ], [ null, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %36, align 8
   %37 = load ptr, ptr %7, align 8
@@ -13337,10 +13339,11 @@ _ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv
 
 .noexc4.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %27, ptr %11, align 8
-  %28 = getelementptr i8, ptr %27, i64 %.idx
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %28, ptr %29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %27, ptr align 16 %20, i64 %.idx, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %27, i64 %.idx
   br label %32
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %24
@@ -13349,7 +13352,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv
   br label %.body
 
 32:                                               ; preds = %.noexc4.i, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %28, %.noexc4.i ], [ null, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i, %.noexc4.i ], [ null, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %33, align 8
   %34 = load ptr, ptr %6, align 8
@@ -15663,10 +15666,11 @@ _ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv
 
 .noexc4.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %24, ptr %11, align 8
-  %25 = getelementptr i8, ptr %24, i64 %.idx
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %25, ptr %26, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %24, ptr align 16 %4, i64 %.idx, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %24, i64 %.idx
   br label %29
 
 27:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %21
@@ -15675,7 +15679,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv
   br label %.body
 
 29:                                               ; preds = %.noexc4.i, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %25, %.noexc4.i ], [ null, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i, %.noexc4.i ], [ null, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i ]
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %30, align 8
   %31 = load ptr, ptr %6, align 8
@@ -16331,10 +16335,11 @@ _ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv
 
 .noexc4.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
   store ptr %38, ptr %15, align 8
-  %39 = getelementptr i8, ptr %38, i64 %.idx
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %39, ptr %40, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %38, ptr align 16 %31, i64 %.idx, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %38, i64 %.idx
   br label %43
 
 41:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %35
@@ -16343,7 +16348,7 @@ _ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv
   br label %.body
 
 43:                                               ; preds = %.noexc4.i, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %39, %.noexc4.i ], [ null, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i, %.noexc4.i ], [ null, %_ZNSt12_Vector_baseIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE11_M_allocateEm.exit.thread.i.i ]
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %44, align 8
   %45 = load ptr, ptr %7, align 8

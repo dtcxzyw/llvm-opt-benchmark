@@ -72,49 +72,47 @@ define void @_ZN7rocksdb17PlainTableBloomV110SetRawDataEPcjj(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb17PlainTableBloomV112SetTotalBitsEPNS_9AllocatorEjjmPNS_6LoggerE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8), (16, 24)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #4 align 2 {
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %12, label %7
+  br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %6
   %8 = add i32 %2, 511
-  %9 = and i32 %8, -512
-  %10 = and i32 %8, 512
-  %11 = xor i32 %10, 512
-  %spec.select.i = or disjoint i32 %11, %9
-  br label %15
+  %9 = and i32 %8, -1024
+  %10 = or disjoint i32 %9, 512
+  br label %14
 
-12:                                               ; preds = %6
-  %13 = add i32 %2, 7
-  %14 = and i32 %13, -8
-  br label %15
+11:                                               ; preds = %6
+  %12 = add i32 %2, 7
+  %13 = and i32 %12, -8
+  br label %14
 
-15:                                               ; preds = %12, %7
-  %16 = phi i32 [ %spec.select.i, %7 ], [ %14, %12 ]
-  store i32 %16, ptr %0, align 8, !tbaa !11
-  %17 = lshr i32 %16, 9
-  %spec.select = select i1 %.not, i32 0, i32 %17
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %spec.select, ptr %18, align 4, !tbaa !15
-  %19 = lshr i32 %16, 3
+14:                                               ; preds = %11, %7
+  %15 = phi i32 [ %10, %7 ], [ %13, %11 ]
+  store i32 %15, ptr %0, align 8, !tbaa !11
+  %16 = lshr i32 %15, 9
+  %spec.select = select i1 %.not, i32 0, i32 %16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %spec.select, ptr %17, align 4, !tbaa !15
+  %18 = lshr i32 %15, 3
   %.not19 = icmp eq i32 %spec.select, 0
-  %20 = add nuw nsw i32 %19, 63
-  %.0 = select i1 %.not19, i32 %19, i32 %20
-  %21 = zext nneg i32 %.0 to i64
-  %22 = load ptr, ptr %1, align 8, !tbaa !18
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %21, i64 noundef %4, ptr noundef %5)
-  tail call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %21, i1 false)
-  %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, 63
-  %28 = load i32, ptr %18, align 4, !tbaa !15
-  %29 = icmp ne i32 %28, 0
-  %30 = icmp ne i64 %27, 0
-  %or.cond = and i1 %29, %30
-  %31 = sub nuw nsw i64 64, %27
-  %.017.idx = select i1 %or.cond, i64 %31, i64 0
-  %.017 = getelementptr inbounds nuw i8, ptr %25, i64 %.017.idx
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.017, ptr %32, align 8, !tbaa !17
+  %19 = add nuw nsw i32 %18, 63
+  %.0 = select i1 %.not19, i32 %18, i32 %19
+  %20 = zext nneg i32 %.0 to i64
+  %21 = load ptr, ptr %1, align 8, !tbaa !18
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %20, i64 noundef %4, ptr noundef %5)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %24, i8 0, i64 %20, i1 false)
+  %25 = ptrtoint ptr %24 to i64
+  %26 = and i64 %25, 63
+  %27 = load i32, ptr %17, align 4, !tbaa !15
+  %28 = icmp ne i32 %27, 0
+  %29 = icmp ne i64 %26, 0
+  %or.cond = and i1 %28, %29
+  %30 = sub nuw nsw i64 64, %26
+  %.017.idx = select i1 %or.cond, i64 %30, i64 0
+  %.017 = getelementptr inbounds nuw i8, ptr %24, i64 %.017.idx
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.017, ptr %31, align 8, !tbaa !17
   ret void
 }
 

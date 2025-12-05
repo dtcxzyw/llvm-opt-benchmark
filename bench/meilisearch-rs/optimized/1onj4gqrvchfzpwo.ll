@@ -1950,7 +1950,7 @@ define internal fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c73
   store i64 9999, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %.sroa.7.0..sroa_idx, align 8
-  br label %28
+  br label %29
 
 7:                                                ; preds = %3
   %8 = add i16 %2, -1
@@ -1962,42 +1962,46 @@ define internal fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c73
   %11 = and i32 %1, 3
   %12 = icmp eq i32 %11, 0
   %or.cond3 = and i1 %10, %12
-  br i1 %or.cond3, label %18, label %17
+  br i1 %or.cond3, label %19, label %17
 
-13:                                               ; preds = %18, %7
+13:                                               ; preds = %19, %7
   %14 = shl nsw i32 %1, 9
   %15 = zext nneg i16 %2 to i32
   %16 = or i32 %14, %15
   store i32 %16, ptr %0, align 8
-  br label %28
+  br label %29
 
 17:                                               ; preds = %9
-  br i1 %12, label %.thread, label %.thread.thread
+  br i1 %12, label %..thread_crit_edge, label %26
 
-18:                                               ; preds = %9
-  %.lhs.trunc = trunc nsw i32 %1 to i16
-  %19 = srem i16 %.lhs.trunc, 25
-  %20 = icmp ne i16 %19, 0
-  %21 = and i32 %1, 12
-  %22 = icmp eq i32 %21, 0
-  %or.cond5 = or i1 %22, %20
-  br i1 %or.cond5, label %13, label %.thread.thread
-
-.thread:                                          ; preds = %17
+..thread_crit_edge:                               ; preds = %17
   %.pre = trunc nsw i32 %1 to i16
   %.pre26 = srem i16 %.pre, 25
-  %.pre27 = and i32 %1, 12
-  %23 = icmp ne i16 %.pre26, 0
-  %24 = icmp eq i32 %.pre27, 0
-  %25 = or i1 %24, %23
-  br i1 %25, label %26, label %.thread.thread
+  %18 = icmp ne i16 %.pre26, 0
+  br label %.thread
 
-.thread.thread:                                   ; preds = %18, %.thread, %17
-  br label %26
+19:                                               ; preds = %9
+  %.lhs.trunc = trunc nsw i32 %1 to i16
+  %20 = srem i16 %.lhs.trunc, 25
+  %21 = icmp ne i16 %20, 0
+  %22 = and i32 %1, 12
+  %23 = icmp eq i32 %22, 0
+  %or.cond5 = or i1 %23, %21
+  br i1 %or.cond5, label %13, label %.thread
 
-26:                                               ; preds = %.thread, %.thread.thread
-  %.sroa.017.0 = phi i64 [ 365, %.thread.thread ], [ 366, %.thread ]
-  %27 = zext i16 %2 to i64
+.thread:                                          ; preds = %..thread_crit_edge, %19
+  %.pre-phi = phi i1 [ %18, %..thread_crit_edge ], [ false, %19 ]
+  %24 = and i32 %1, 15
+  %25 = icmp eq i32 %24, 0
+  %or.cond7 = or i1 %25, %.pre-phi
+  br i1 %or.cond7, label %27, label %26
+
+26:                                               ; preds = %.thread, %17
+  br label %27
+
+27:                                               ; preds = %.thread, %26
+  %.sroa.017.0 = phi i64 [ 365, %26 ], [ 366, %.thread ]
+  %28 = zext i16 %2 to i64
   store ptr @anon.ab0b1bcdb75b4776f289f303628990b2.49, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 7, ptr %.sroa.411.0..sroa_idx, align 8
@@ -2006,11 +2010,11 @@ define internal fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c73
   %.sroa.613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.017.0, ptr %.sroa.613.0..sroa_idx, align 8
   %.sroa.714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %27, ptr %.sroa.714.0..sroa_idx, align 8
-  br label %28
+  store i64 %28, ptr %.sroa.714.0..sroa_idx, align 8
+  br label %29
 
-28:                                               ; preds = %26, %13, %5
-  %.sink = phi i8 [ 1, %26 ], [ 2, %13 ], [ 0, %5 ]
+29:                                               ; preds = %27, %13, %5
+  %.sink = phi i8 [ 1, %27 ], [ 2, %13 ], [ 0, %5 ]
   %.sroa.815.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %.sink, ptr %.sroa.815.0..sroa_idx, align 8
   ret void

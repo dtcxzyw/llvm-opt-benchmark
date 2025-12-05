@@ -16,8 +16,8 @@ define signext range(i8 0, 2) i8 @uprv_isASCIILetter_77(i8 noundef signext %0) l
 define signext range(i8 123, 97) i8 @uprv_toupper_77(i8 noundef signext %0) local_unnamed_addr #0 {
   %2 = add i8 %0, -97
   %or.cond = icmp ult i8 %2, 26
-  %narrow = add nsw i8 %0, -32
-  %spec.select = select i1 %or.cond, i8 %narrow, i8 %0
+  %3 = add nsw i8 %0, -32
+  %spec.select = select i1 %or.cond, i8 %3, i8 %0
   ret i8 %spec.select
 }
 
@@ -25,7 +25,7 @@ define signext range(i8 123, 97) i8 @uprv_toupper_77(i8 noundef signext %0) loca
 define signext i8 @uprv_asciitolower_77(i8 noundef signext %0) local_unnamed_addr #0 {
   %2 = add i8 %0, -65
   %or.cond = icmp ult i8 %2, 26
-  %3 = or disjoint i8 %0, 32
+  %3 = add nuw nsw i8 %0, 32
   %spec.select = select i1 %or.cond, i8 %3, i8 %0
   ret i8 %spec.select
 }
@@ -53,7 +53,7 @@ define noundef ptr @T_CString_toLowerCase_77(ptr noundef returned captures(addre
   %2 = load i8, ptr %.0, align 1, !tbaa !3
   %3 = add i8 %2, -65
   %or.cond.i = icmp ult i8 %3, 26
-  %4 = or disjoint i8 %2, 32
+  %4 = add nuw nsw i8 %2, 32
   %spec.select.i = select i1 %or.cond.i, i8 %4, i8 %2
   store i8 %spec.select.i, ptr %.0, align 1, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 1
@@ -70,14 +70,14 @@ define noundef ptr @T_CString_toUpperCase_77(ptr noundef returned captures(addre
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %.preheader
-  %.0 = phi ptr [ %4, %.preheader ], [ %0, %1 ]
+  %.0 = phi ptr [ %5, %.preheader ], [ %0, %1 ]
   %2 = load i8, ptr %.0, align 1, !tbaa !3
   %3 = add i8 %2, -97
   %or.cond.i = icmp ult i8 %3, 26
-  %narrow.i = add nsw i8 %2, -32
-  %spec.select.i = select i1 %or.cond.i, i8 %narrow.i, i8 %2
+  %4 = add nsw i8 %2, -32
+  %spec.select.i = select i1 %or.cond.i, i8 %4, i8 %2
   store i8 %spec.select.i, ptr %.0, align 1, !tbaa !3
-  %4 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %.not7 = icmp eq i8 %spec.select.i, 0
   br i1 %.not7, label %.loopexit, label %.preheader, !llvm.loop !8
 
@@ -108,31 +108,30 @@ define i32 @T_CString_integerToString_77(ptr noundef %0, i32 noundef %1, i32 nou
 
 11:                                               ; preds = %11, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 29, %9 ]
-  %.1 = phi i32 [ %20, %11 ], [ %.0, %9 ]
+  %.1 = phi i32 [ %18, %11 ], [ %.0, %9 ]
   %12 = urem i32 %.1, %2
   %13 = and i32 %12, 254
   %14 = icmp samesign ult i32 %13, 10
-  %15 = or i32 %12, 48
-  %16 = add i32 %12, 55
-  %17 = select i1 %14, i32 %15, i32 %16
-  %18 = trunc i32 %17 to i8
+  %.v = select i1 %14, i32 48, i32 55
+  %15 = add i32 %.v, %12
+  %16 = trunc i32 %15 to i8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %19 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
-  store i8 %18, ptr %19, align 1, !tbaa !3
-  %20 = udiv i32 %.1, %2
+  %17 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
+  store i8 %16, ptr %17, align 1, !tbaa !3
+  %18 = udiv i32 %.1, %2
   %.not = icmp ugt i32 %2, %.1
-  br i1 %.not, label %21, label %11, !llvm.loop !9
+  br i1 %.not, label %19, label %11, !llvm.loop !9
 
-21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
-  %23 = trunc nsw i64 %indvars.iv to i32
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.022
-  %25 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %22) #12
-  %26 = trunc nuw nsw i64 %.022 to i32
-  %27 = sub i32 %26, %23
-  %28 = add i32 %27, 30
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
+  %21 = trunc nsw i64 %indvars.iv to i32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %.022
+  %23 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %20) #12
+  %24 = trunc nuw nsw i64 %.022 to i32
+  %25 = sub i32 %24, %21
+  %26 = add i32 %25, 30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %28
+  ret i32 %26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -162,32 +161,31 @@ define i32 @T_CString_int64ToString_77(ptr noundef %0, i64 noundef %1, i32 nound
 
 12:                                               ; preds = %12, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 29, %9 ]
-  %.1 = phi i64 [ %22, %12 ], [ %.0, %9 ]
+  %.1 = phi i64 [ %20, %12 ], [ %.0, %9 ]
   %13 = urem i64 %.1, %11
   %14 = trunc nuw i64 %13 to i32
   %15 = and i32 %14, 254
   %16 = icmp samesign ult i32 %15, 10
-  %17 = or i32 %14, 48
-  %18 = add i32 %14, 55
-  %19 = select i1 %16, i32 %17, i32 %18
-  %20 = trunc i32 %19 to i8
+  %.v = select i1 %16, i32 48, i32 55
+  %17 = add i32 %.v, %14
+  %18 = trunc i32 %17 to i8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %21 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
-  store i8 %20, ptr %21, align 1, !tbaa !3
-  %22 = udiv i64 %.1, %11
+  %19 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
+  store i8 %18, ptr %19, align 1, !tbaa !3
+  %20 = udiv i64 %.1, %11
   %.not = icmp ult i64 %.1, %11
-  br i1 %.not, label %23, label %12, !llvm.loop !10
+  br i1 %.not, label %21, label %12, !llvm.loop !10
 
-23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
-  %25 = trunc nsw i64 %indvars.iv to i32
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.022
-  %27 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %24) #12
-  %28 = trunc nuw nsw i64 %.022 to i32
-  %29 = sub i32 %28, %25
-  %30 = add i32 %29, 30
+21:                                               ; preds = %12
+  %22 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.next
+  %23 = trunc nsw i64 %indvars.iv to i32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %.022
+  %25 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %22) #12
+  %26 = trunc nuw nsw i64 %.022 to i32
+  %27 = sub i32 %26, %23
+  %28 = add i32 %27, 30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %30
+  ret i32 %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
@@ -240,12 +238,12 @@ define range(i32 -254, 255) i32 @uprv_stricmp_77(ptr noundef readonly captures(a
 15:                                               ; preds = %.lr.ph
   %16 = add i8 %13, -65
   %or.cond.i = icmp ult i8 %16, 26
-  %17 = or disjoint i8 %13, 32
+  %17 = add nuw nsw i8 %13, 32
   %spec.select.i = select i1 %or.cond.i, i8 %17, i8 %13
   %18 = zext i8 %spec.select.i to i32
   %19 = add i8 %12, -65
   %or.cond.i20 = icmp ult i8 %19, 26
-  %20 = or disjoint i8 %12, 32
+  %20 = add nuw nsw i8 %12, 32
   %spec.select.i21 = select i1 %or.cond.i20, i8 %20, i8 %12
   %21 = zext i8 %spec.select.i21 to i32
   %22 = sub nsw i32 %18, %21
@@ -305,12 +303,12 @@ define range(i32 -254, 255) i32 @uprv_strnicmp_77(ptr noundef readonly captures(
 17:                                               ; preds = %15
   %18 = add i8 %10, -65
   %or.cond.i = icmp ult i8 %18, 26
-  %19 = or disjoint i8 %10, 32
+  %19 = add nuw nsw i8 %10, 32
   %spec.select.i = select i1 %or.cond.i, i8 %19, i8 %10
   %20 = zext i8 %spec.select.i to i32
   %21 = add i8 %11, -65
   %or.cond.i25 = icmp ult i8 %21, 26
-  %22 = or disjoint i8 %11, 32
+  %22 = add nuw nsw i8 %11, 32
   %spec.select.i26 = select i1 %or.cond.i25, i8 %22, i8 %11
   %23 = zext i8 %spec.select.i26 to i32
   %24 = sub nsw i32 %20, %23

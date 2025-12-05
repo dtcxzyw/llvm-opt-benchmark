@@ -604,6 +604,7 @@ define void @dt_imageio_flip_buffers_ui8_to_float(ptr noundef writeonly captures
 
 .preheader85.us.us.preheader:                     ; preds = %.preheader85.lr.ph
   %wide.trip.count136 = zext nneg i32 %6 to i64
+  %wide.trip.count131 = zext nneg i32 %5 to i64
   %wide.trip.count126 = zext nneg i32 %4 to i64
   br label %.preheader85.us.us
 
@@ -611,14 +612,14 @@ define void @dt_imageio_flip_buffers_ui8_to_float(ptr noundef writeonly captures
   %indvars.iv133 = phi i64 [ 0, %.preheader85.us.us.preheader ], [ %indvars.iv.next134, %._crit_edge104.split.us.us.us ]
   %20 = mul nsw i64 %indvars.iv133, %16
   %21 = getelementptr i8, ptr %1, i64 %20
-  %22 = mul nuw nsw i64 %indvars.iv133, %18
+  %22 = mul i64 %indvars.iv133, %18
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us110, %.preheader85.us.us
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %._crit_edge.us.us.us110 ], [ 0, %.preheader85.us.us ]
   %23 = mul nuw nsw i64 %indvars.iv128, %17
   %24 = getelementptr i8, ptr %21, i64 %23
-  %25 = add nuw nsw i64 %22, %indvars.iv128
+  %25 = add i64 %22, %indvars.iv128
   %.idx.us.us.us = shl i64 %25, 4
   %26 = getelementptr i8, ptr %0, i64 %.idx.us.us.us
   br label %27
@@ -638,7 +639,7 @@ define void @dt_imageio_flip_buffers_ui8_to_float(ptr noundef writeonly captures
 
 ._crit_edge.us.us.us110:                          ; preds = %27
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next129, %18
+  %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
   br i1 %exitcond132.not, label %._crit_edge104.split.us.us.us, label %.preheader.us.us.us
 
 ._crit_edge104.split.us.us.us:                    ; preds = %._crit_edge.us.us.us110
@@ -683,8 +684,8 @@ define void @dt_imageio_flip_buffers_ui8_to_float(ptr noundef writeonly captures
   %54 = icmp sgt i32 %5, 0
   %55 = sext i32 %4 to i64
   %56 = icmp sgt i32 %4, 0
-  %or.cond145 = and i1 %54, %56
-  br i1 %or.cond145, label %.preheader87.lr.ph.us.us.preheader, label %.loopexit
+  %or.cond146 = and i1 %54, %56
+  br i1 %or.cond146, label %.preheader87.lr.ph.us.us.preheader, label %.loopexit
 
 .preheader87.lr.ph.us.us.preheader:               ; preds = %.lr.ph
   %57 = sext i32 %.1 to i64
@@ -1683,8 +1684,8 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
   br label %._crit_edge486.thread
 
 ._crit_edge486.thread:                            ; preds = %371, %361, %._crit_edge486
-  %.not418557 = phi i1 [ false, %._crit_edge486 ], [ true, %361 ], [ true, %371 ]
-  %.1374556 = phi ptr [ %365, %._crit_edge486 ], [ null, %361 ], [ null, %371 ]
+  %.not418558 = phi i1 [ false, %._crit_edge486 ], [ true, %361 ], [ true, %371 ]
+  %.1374557 = phi ptr [ %365, %._crit_edge486 ], [ null, %361 ], [ null, %371 ]
   %375 = icmp eq i32 %333, 8
   %376 = fptrunc reassoc nsz arcp contract afn double %.0371 to float
   br i1 %375, label %377, label %379
@@ -1698,10 +1699,10 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
   br label %381
 
 381:                                              ; preds = %379, %377
-  br i1 %.not418557, label %384, label %382
+  br i1 %.not418558, label %384, label %382
 
 382:                                              ; preds = %381
-  %383 = getelementptr inbounds nuw i8, ptr %.1374556, i64 32
+  %383 = getelementptr inbounds nuw i8, ptr %.1374557, i64 32
   store i32 1, ptr %383, align 16, !tbaa !179
   br label %384
 
@@ -1740,22 +1741,23 @@ dt_get_perf_times.exit443:                        ; preds = %330, %336
 
 .preheader470.us.preheader:                       ; preds = %.preheader470.lr.ph
   %wide.trip.count518 = zext nneg i32 %316 to i64
+  %wide.trip.count = zext nneg i32 %312 to i64
   br label %.preheader470.us
 
 .preheader470.us:                                 ; preds = %.preheader470.us.preheader, %._crit_edge492.us
   %indvars.iv515 = phi i64 [ 0, %.preheader470.us.preheader ], [ %indvars.iv.next516, %._crit_edge492.us ]
-  %397 = mul nuw nsw i64 %indvars.iv515, %396
+  %397 = mul i64 %indvars.iv515, %396
   br label %398
 
 398:                                              ; preds = %.preheader470.us, %401
   %indvars.iv511 = phi i64 [ 0, %.preheader470.us ], [ %indvars.iv.next512, %401 ]
-  %399 = add nuw nsw i64 %397, %indvars.iv511
+  %399 = add i64 %397, %indvars.iv511
   %400 = shl i64 %399, 2
   br label %402
 
 401:                                              ; preds = %413
   %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
-  %exitcond514.not = icmp eq i64 %indvars.iv.next512, %396
+  %exitcond514.not = icmp eq i64 %indvars.iv.next512, %wide.trip.count
   br i1 %exitcond514.not, label %._crit_edge492.us, label %398
 
 402:                                              ; preds = %413, %398

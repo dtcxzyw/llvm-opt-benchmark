@@ -645,13 +645,12 @@ if.end:                                           ; preds = %entry
   %bf.load5 = load i32, ptr %flags_, align 4
   %bf.value = shl i32 %inc.i, 8
   %bf.clear = and i32 %bf.load5, 255
-  %bf.set = or disjoint i32 %bf.clear, %bf.value
   %bf.lshr8 = and i32 %inc.i, 16777215
   %tobool9.not = icmp eq i32 %bf.lshr8, 0
-  %bf.set18 = or i32 %bf.load5, -256
-  %spec.select = select i1 %tobool9.not, i32 %bf.set18, i32 %bf.set
-  store i32 %spec.select, ptr %flags_, align 4
-  %bf.lshr22 = lshr i32 %spec.select, 8
+  %bf.value15.pn = select i1 %tobool9.not, i32 -256, i32 %bf.value
+  %storemerge = or disjoint i32 %bf.value15.pn, %bf.clear
+  store i32 %storemerge, ptr %flags_, align 4
+  %bf.lshr22 = lshr exact i32 %bf.value15.pn, 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end

@@ -18377,6 +18377,7 @@ define linkonce_odr void @_ZZN7xgboost3gbm8GBLinear20PredictBatchInternalEPNS_7D
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us
   %55 = load ptr, ptr %19, align 8, !tbaa !527
+  %wide.trip.count30 = zext nneg i32 %9 to i64
   br label %_ZNK7xgboost18HostSparsePageViewixEm.exit.us.us.us
 
 _ZNK7xgboost18HostSparsePageViewixEm.exit.us.us.us: ; preds = %_ZNK7xgboost18HostSparsePageViewixEm.exit.us.us.us, %.lr.ph.split.us.split.us.split.us
@@ -18388,7 +18389,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit.us.us.us: ; preds = %_ZNK7xgboost18Hos
   %60 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv27
   store float %59, ptr %60, align 4, !tbaa !164
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %39
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
   br i1 %exitcond31.not, label %._crit_edge, label %_ZNK7xgboost18HostSparsePageViewixEm.exit.us.us.us, !llvm.loop !530
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us
@@ -18397,6 +18398,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit.us.us.us: ; preds = %_ZNK7xgboost18Hos
   %63 = load i64, ptr %15, align 8, !tbaa !17
   %64 = load ptr, ptr %16, align 8, !tbaa !363
   %65 = getelementptr float, ptr %64, i64 %62
+  %wide.trip.count25 = zext nneg i32 %9 to i64
   br label %_ZNK7xgboost18HostSparsePageViewixEm.exit.us.us
 
 _ZNK7xgboost18HostSparsePageViewixEm.exit.us.us:  ; preds = %_ZNK7xgboost18HostSparsePageViewixEm.exit.us.us, %.lr.ph.split.us.split.us.split
@@ -18410,7 +18412,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit.us.us:  ; preds = %_ZNK7xgboost18HostS
   %72 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv22
   store float %71, ptr %72, align 4, !tbaa !164
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond26.not = icmp eq i64 %indvars.iv.next23, %39
+  %exitcond26.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count25
   br i1 %exitcond26.not, label %._crit_edge, label %_ZNK7xgboost18HostSparsePageViewixEm.exit.us.us, !llvm.loop !530
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
@@ -18418,6 +18420,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit.us.us:  ; preds = %_ZNK7xgboost18HostS
 
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split
   %73 = load ptr, ptr %19, align 8, !tbaa !527
+  %wide.trip.count20 = zext nneg i32 %9 to i64
   br label %_ZNK7xgboost18HostSparsePageViewixEm.exit.us.us10
 
 _ZNK7xgboost18HostSparsePageViewixEm.exit.us.us10: ; preds = %_ZN7xgboost3gbm8GBLinear4PredERKNS_6common4SpanIKNS_5EntryELm18446744073709551615EEEPfif.exit.loopexit.us.us, %.lr.ph.split.us.split.split.us
@@ -18457,7 +18460,7 @@ _ZN7xgboost3gbm8GBLinear4PredERKNS_6common4SpanIKNS_5EntryELm1844674407370955161
   %88 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv17
   store float %.1.i.us.us, ptr %88, align 4, !tbaa !164
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %exitcond21.not = icmp eq i64 %indvars.iv.next18, %39
+  %exitcond21.not = icmp eq i64 %indvars.iv.next18, %wide.trip.count20
   br i1 %exitcond21.not, label %._crit_edge, label %_ZNK7xgboost18HostSparsePageViewixEm.exit.us.us10, !llvm.loop !530
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split
@@ -18466,6 +18469,7 @@ _ZN7xgboost3gbm8GBLinear4PredERKNS_6common4SpanIKNS_5EntryELm1844674407370955161
   %91 = load i64, ptr %15, align 8, !tbaa !17
   %92 = load ptr, ptr %16, align 8, !tbaa !363
   %93 = getelementptr float, ptr %92, i64 %90
+  %wide.trip.count = zext nneg i32 %9 to i64
   br label %_ZNK7xgboost18HostSparsePageViewixEm.exit.us
 
 _ZNK7xgboost18HostSparsePageViewixEm.exit.us:     ; preds = %_ZN7xgboost3gbm8GBLinear4PredERKNS_6common4SpanIKNS_5EntryELm18446744073709551615EEEPfif.exit.loopexit.us, %.lr.ph.split.us.split.split
@@ -18507,7 +18511,7 @@ _ZN7xgboost3gbm8GBLinear4PredERKNS_6common4SpanIKNS_5EntryELm1844674407370955161
   %110 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
   store float %.1.i.us, ptr %110, align 4, !tbaa !164
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %39
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK7xgboost18HostSparsePageViewixEm.exit.us, !llvm.loop !530
 
 ._crit_edge:                                      ; preds = %_ZN7xgboost3gbm8GBLinear4PredERKNS_6common4SpanIKNS_5EntryELm18446744073709551615EEEPfif.exit.loopexit.us, %_ZN7xgboost3gbm8GBLinear4PredERKNS_6common4SpanIKNS_5EntryELm18446744073709551615EEEPfif.exit.loopexit.us.us, %_ZNK7xgboost18HostSparsePageViewixEm.exit.us.us, %_ZNK7xgboost18HostSparsePageViewixEm.exit.us.us.us, %2
@@ -19213,6 +19217,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit:        ; preds = %2
 
 .split.lr.ph.split.us.split.us:                   ; preds = %.split.lr.ph.split.us
   %58 = load ptr, ptr %57, align 8, !tbaa !527
+  %wide.trip.count54 = zext nneg i32 %28 to i64
   br label %.split.us.us
 
 .split.us.us:                                     ; preds = %.split.us.us, %.split.lr.ph.split.us.split.us
@@ -19227,7 +19232,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit:        ; preds = %2
   %65 = getelementptr i8, ptr %gep.us, i64 -4
   store float %64, ptr %65, align 4, !tbaa !164
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %32
+  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
   br i1 %exitcond55.not, label %._crit_edge33, label %.split.us.us, !llvm.loop !557
 
 .split.lr.ph.split.us.split:                      ; preds = %.split.lr.ph.split.us
@@ -19236,6 +19241,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit:        ; preds = %2
   %68 = load i64, ptr %53, align 8, !tbaa !17
   %69 = load ptr, ptr %54, align 8, !tbaa !363
   %70 = getelementptr float, ptr %69, i64 %67
+  %wide.trip.count49 = zext nneg i32 %28 to i64
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us, %.split.lr.ph.split.us.split
@@ -19252,7 +19258,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit:        ; preds = %2
   %79 = getelementptr i8, ptr %gep, i64 -4
   store float %78, ptr %79, align 4, !tbaa !164
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %32
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
   br i1 %exitcond50.not, label %._crit_edge33, label %.split.us, !llvm.loop !557
 
 .split.lr.ph.split:                               ; preds = %.split.lr.ph
@@ -19260,6 +19266,7 @@ _ZNK7xgboost18HostSparsePageViewixEm.exit:        ; preds = %2
 
 .split.lr.ph.split.split.us:                      ; preds = %.split.lr.ph.split
   %80 = load ptr, ptr %57, align 8, !tbaa !527
+  %wide.trip.count44 = zext nneg i32 %28 to i64
   br label %.split.us34
 
 .split.us34:                                      ; preds = %._crit_edge.us, %.split.lr.ph.split.split.us
@@ -19307,7 +19314,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551
   %104 = getelementptr i8, ptr %103, i64 -4
   store float %102, ptr %104, align 4, !tbaa !164
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond45.not = icmp eq i64 %indvars.iv.next42, %32
+  %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
   br i1 %exitcond45.not, label %._crit_edge33, label %.split.us34, !llvm.loop !557
 
 .split.lr.ph.split.split:                         ; preds = %.split.lr.ph.split
@@ -19316,6 +19323,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551
   %107 = load i64, ptr %53, align 8, !tbaa !17
   %108 = load ptr, ptr %54, align 8, !tbaa !363
   %109 = getelementptr float, ptr %108, i64 %106
+  %wide.trip.count = zext nneg i32 %28 to i64
   br label %.split
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %._crit_edge.us, %.split.us, %.split.us.us, %_ZNK7xgboost18HostSparsePageViewixEm.exit
@@ -19340,7 +19348,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551
   %120 = getelementptr i8, ptr %119, i64 -4
   store float %118, ptr %120, align 4, !tbaa !164
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %32
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge33, label %.split, !llvm.loop !557
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEdeEv.exit: ; preds = %.split, %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKNS_5EntryELm18446744073709551615EEELb0EEppEv.exit

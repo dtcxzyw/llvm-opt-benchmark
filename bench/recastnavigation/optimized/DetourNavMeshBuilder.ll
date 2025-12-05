@@ -293,6 +293,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 .lr.ph554.us.preheader:                           ; preds = %.lr.ph564
   %142 = zext nneg i32 %5 to i64
   %wide.trip.count656 = zext nneg i32 %133 to i64
+  %wide.trip.count651 = zext nneg i32 %5 to i64
   br label %.lr.ph554.us
 
 .lr.ph554.us:                                     ; preds = %.lr.ph554.us.preheader, %._crit_edge.us
@@ -327,7 +328,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %156 = zext i1 %or.cond497.not.us to i32
   %.2449.us = add nsw i32 %.1448552.us, %156
   %indvars.iv.next649 = add nuw nsw i64 %indvars.iv648, 1
-  %exitcond652.not = icmp eq i64 %indvars.iv.next649, %142
+  %exitcond652.not = icmp eq i64 %indvars.iv.next649, %wide.trip.count651
   br i1 %exitcond652.not, label %._crit_edge.us, label %148, !llvm.loop !8
 
 ._crit_edge.us:                                   ; preds = %148, %152
@@ -718,7 +719,8 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %385 = icmp sgt i32 %5, 0
   %386 = shl nsw i32 %5, 1
   %387 = sext i32 %386 to i64
-  %388 = zext i32 %5 to i64
+  %388 = sext i32 %5 to i64
+  %wide.trip.count691 = zext nneg i32 %5 to i64
   br label %393
 
 .preheader526.loopexit:                           ; preds = %._crit_edge602
@@ -757,7 +759,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 .lr.ph601:                                        ; preds = %393
   %405 = getelementptr inbounds nuw i8, ptr %394, i64 4
   %406 = getelementptr inbounds nuw i8, ptr %394, i64 16
-  %invariant.gep760 = getelementptr inbounds nuw i16, ptr %.0453604, i64 %388
+  %invariant.gep760 = getelementptr i16, ptr %.0453604, i64 %388
   br label %407
 
 407:                                              ; preds = %.lr.ph601, %423
@@ -770,7 +772,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
 411:                                              ; preds = %407
   %412 = getelementptr inbounds nuw i16, ptr %405, i64 %indvars.iv688
   store i16 %409, ptr %412, align 2
-  %gep761 = getelementptr inbounds nuw i16, ptr %invariant.gep760, i64 %indvars.iv688
+  %gep761 = getelementptr i16, ptr %invariant.gep760, i64 %indvars.iv688
   %413 = load i16, ptr %gep761, align 2
   %.not493 = icmp sgt i16 %413, -1
   br i1 %.not493, label %420, label %414
@@ -812,7 +814,7 @@ _ZL20classifyOffMeshPointPKfS0_S0_.exit512:       ; preds = %_ZL20classifyOffMes
   %425 = add i8 %424, 1
   store i8 %425, ptr %395, align 2
   %indvars.iv.next689 = add nuw nsw i64 %indvars.iv688, 1
-  %exitcond692.not = icmp eq i64 %indvars.iv.next689, %388
+  %exitcond692.not = icmp eq i64 %indvars.iv.next689, %wide.trip.count691
   br i1 %exitcond692.not, label %._crit_edge602, label %407, !llvm.loop !16
 
 ._crit_edge602:                                   ; preds = %423, %407, %393

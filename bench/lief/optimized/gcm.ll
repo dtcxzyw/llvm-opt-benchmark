@@ -169,14 +169,15 @@ gcm_set_acceleration.exit.i:                      ; preds = %19
 
 .lr.ph54.i:                                       ; preds = %.preheader48.i, %._crit_edge.i
   %.255.i = phi i32 [ %77, %._crit_edge.i ], [ 2, %.preheader48.i ]
-  %69 = zext i32 %.255.i to i64
-  %70 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 %69
+  %69 = sext i32 %.255.i to i64
+  %70 = getelementptr inbounds [2 x i64], ptr %29, i64 %69
+  %wide.trip.count.i = zext i32 %.255.i to i64
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   br label %mbedtls_xor_no_simd.exit.i.critedge
 
 mbedtls_xor_no_simd.exit.i.critedge:              ; preds = %mbedtls_xor_no_simd.exit.i.critedge, %.lr.ph54.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph54.i ], [ %indvars.iv.next.i, %mbedtls_xor_no_simd.exit.i.critedge ]
-  %gep.i = getelementptr inbounds nuw [2 x i64], ptr %70, i64 %indvars.iv.i
+  %gep.i = getelementptr [2 x i64], ptr %70, i64 %indvars.iv.i
   %72 = getelementptr inbounds nuw [2 x i64], ptr %29, i64 %indvars.iv.i
   %.0.copyload.i44.i = load i64, ptr %70, align 1
   %.0.copyload.i.i = load i64, ptr %72, align 1
@@ -189,7 +190,7 @@ mbedtls_xor_no_simd.exit.i.critedge:              ; preds = %mbedtls_xor_no_simd
   %76 = getelementptr inbounds nuw i8, ptr %gep.i, i64 8
   store i64 %75, ptr %76, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %69
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %mbedtls_xor_no_simd.exit.i.critedge, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %mbedtls_xor_no_simd.exit.i.critedge

@@ -1151,9 +1151,9 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %wide.trip.count = zext nneg i16 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !44
+  %wide.trip.count = zext nneg i16 %10 to i64
   br label %36
 
 ._crit_edge:                                      ; preds = %36, %2
@@ -1173,6 +1173,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
 .lr.ph141.us.preheader:                           ; preds = %.preheader123
   %17 = zext nneg i32 %4 to i64
   %wide.trip.count192 = zext nneg i32 %6 to i64
+  %wide.trip.count187 = zext nneg i32 %4 to i64
   br label %.lr.ph141.us
 
 .lr.ph141.us:                                     ; preds = %.lr.ph141.us.preheader, %._crit_edge142.us
@@ -1194,7 +1195,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
   %24 = sub nsw i32 %22, %.090138.us
   store i32 %24, ptr %21, align 4, !tbaa !40
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
-  %exitcond188.not = icmp eq i64 %indvars.iv.next185, %17
+  %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
   br i1 %exitcond188.not, label %._crit_edge142.us, label %20, !llvm.loop !83
 
 ._crit_edge142.us:                                ; preds = %23
@@ -1210,6 +1211,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
 .lr.ph158.us.preheader:                           ; preds = %.preheader
   %27 = zext nneg i32 %4 to i64
   %wide.trip.count202 = zext nneg i32 %6 to i64
+  %wide.trip.count197 = zext nneg i32 %4 to i64
   br label %.lr.ph158.us
 
 .lr.ph158.us:                                     ; preds = %.lr.ph158.us.preheader, %._crit_edge159.us
@@ -1221,7 +1223,7 @@ define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %0, ptr noun
 
 30:                                               ; preds = %31
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
-  %exitcond198.not = icmp eq i64 %indvars.iv.next195, %27
+  %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
   br i1 %exitcond198.not, label %._crit_edge159.us, label %31, !llvm.loop !85
 
 31:                                               ; preds = %.lr.ph158.us, %30

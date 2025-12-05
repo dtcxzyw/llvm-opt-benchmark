@@ -6722,9 +6722,9 @@ define internal fastcc void @af_cjk_metrics_scale_dim(ptr noundef captures(none)
   %21 = ashr exact i64 %sext66, 32
   br label %22
 
-22:                                               ; preds = %.lr.ph, %82
-  %23 = phi i32 [ %19, %.lr.ph ], [ %83, %82 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
+22:                                               ; preds = %.lr.ph, %84
+  %23 = phi i32 [ %19, %.lr.ph ], [ %85, %84 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
   %24 = getelementptr inbounds nuw %struct.AF_CJKBlueRec_, ptr %20, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !377
   %sext = shl i64 %25, 32
@@ -6770,7 +6770,7 @@ define internal fastcc void @af_cjk_metrics_scale_dim(ptr noundef captures(none)
   %58 = trunc i64 %57 to i32
   %59 = add i32 %58, 48
   %or.cond = icmp ult i32 %59, 97
-  br i1 %or.cond, label %60, label %82
+  br i1 %or.cond, label %60, label %84
 
 60:                                               ; preds = %22
   %61 = add nsw i64 %33, 32
@@ -6790,28 +6790,30 @@ define internal fastcc void @af_cjk_metrics_scale_dim(ptr noundef captures(none)
   %72 = lshr i64 %71, 16
   %73 = trunc i64 %72 to i32
   %74 = icmp slt i32 %73, 32
-  %narrow = add nuw nsw i64 %72, 32
-  %75 = and i64 %narrow, 4294967232
-  %.1 = select i1 %74, i64 0, i64 %75
-  %76 = sub nsw i64 0, %.1
-  %77 = select i1 %66, i64 %.1, i64 %76
-  %78 = load i64, ptr %35, align 8, !tbaa !380
-  %79 = add i64 %77, %78
-  store i64 %79, ptr %47, align 8, !tbaa !383
-  %80 = load i32, ptr %48, align 8, !tbaa !384
-  %81 = or i32 %80, 1
-  store i32 %81, ptr %48, align 8, !tbaa !384
+  %sext72 = shl i64 %72, 32
+  %75 = ashr exact i64 %sext72, 32
+  %76 = add nuw nsw i64 %75, 32
+  %77 = and i64 %76, -64
+  %.1 = select i1 %74, i64 0, i64 %77
+  %78 = sub nsw i64 0, %.1
+  %79 = select i1 %66, i64 %.1, i64 %78
+  %80 = load i64, ptr %35, align 8, !tbaa !380
+  %81 = add i64 %79, %80
+  store i64 %81, ptr %47, align 8, !tbaa !383
+  %82 = load i32, ptr %48, align 8, !tbaa !384
+  %83 = or i32 %82, 1
+  store i32 %83, ptr %48, align 8, !tbaa !384
   %.pre = load i32, ptr %18, align 4, !tbaa !63
-  br label %82
+  br label %84
 
-82:                                               ; preds = %60, %22
-  %83 = phi i32 [ %.pre, %60 ], [ %23, %22 ]
+84:                                               ; preds = %60, %22
+  %85 = phi i32 [ %.pre, %60 ], [ %23, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %84 = zext i32 %83 to i64
-  %85 = icmp samesign ult i64 %indvars.iv.next, %84
-  br i1 %85, label %22, label %.loopexit, !llvm.loop !385
+  %86 = zext i32 %85 to i64
+  %87 = icmp samesign ult i64 %indvars.iv.next, %86
+  br i1 %87, label %22, label %.loopexit, !llvm.loop !385
 
-.loopexit:                                        ; preds = %82, %15, %11
+.loopexit:                                        ; preds = %84, %15, %11
   ret void
 }
 

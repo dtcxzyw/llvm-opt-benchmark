@@ -803,14 +803,13 @@ land.lhs.true5:                                   ; preds = %lor.rhs
   br i1 %cmp7, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %land.lhs.true5
-  %1 = add nuw nsw i16 %alignmentBytes, 127
-  %2 = and i16 %1, %alignmentBytes
-  %cmp10 = icmp eq i16 %2, 0
+  %1 = tail call range(i16 0, 8) i16 @llvm.ctpop.i16(i16 %alignmentBytes)
+  %cmp10 = icmp samesign ult i16 %1, 2
   br label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs, %land.lhs.true5, %land.rhs, %entry
-  %3 = phi i1 [ true, %entry ], [ false, %land.lhs.true5 ], [ false, %lor.rhs ], [ %cmp10, %land.rhs ]
-  ret i1 %3
+  %2 = phi i1 [ true, %entry ], [ false, %land.lhs.true5 ], [ false, %lor.rhs ], [ %cmp10, %land.rhs ]
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nounwind memory(inaccessiblemem: write) uwtable
@@ -828,19 +827,16 @@ land.lhs.true5.i:                                 ; preds = %lor.rhs.i
   %conv6.i = zext nneg i16 %alignmentBytes to i64
   %rem.i = urem i64 %allocateBytes, %conv6.i
   %cmp7.i = icmp eq i64 %rem.i, 0
-  br i1 %cmp7.i, label %_ZN8facebook5velox6memory15MemoryAllocator16isAlignmentValidEmt.exit, label %if.then
+  %1 = tail call range(i16 0, 8) i16 @llvm.ctpop.i16(i16 %alignmentBytes)
+  %cmp10.i = icmp samesign ult i16 %1, 2
+  %or.cond = select i1 %cmp7.i, i1 %cmp10.i, i1 false
+  br i1 %or.cond, label %if.end, label %if.then
 
-_ZN8facebook5velox6memory15MemoryAllocator16isAlignmentValidEmt.exit: ; preds = %land.lhs.true5.i
-  %1 = add nuw nsw i16 %alignmentBytes, 127
-  %2 = and i16 %1, %alignmentBytes
-  %cmp10.i = icmp eq i16 %2, 0
-  br i1 %cmp10.i, label %if.end, label %if.then
-
-if.then:                                          ; preds = %lor.rhs.i, %land.lhs.true5.i, %_ZN8facebook5velox6memory15MemoryAllocator16isAlignmentValidEmt.exit
+if.then:                                          ; preds = %lor.rhs.i, %land.lhs.true5.i
   tail call void @llvm.trap()
   unreachable
 
-if.end:                                           ; preds = %entry, %_ZN8facebook5velox6memory15MemoryAllocator16isAlignmentValidEmt.exit
+if.end:                                           ; preds = %land.lhs.true5.i, %entry
   ret void
 }
 
@@ -3907,6 +3903,9 @@ entry:
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.ctpop.i16(i16) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #25

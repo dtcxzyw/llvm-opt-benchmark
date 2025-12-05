@@ -6577,17 +6577,15 @@ sdslen.exit:                                      ; preds = %.lr.ph, %33, %36, %
   br label %.lr.ph72.preheader
 
 .lr.ph72.preheader:                               ; preds = %56, %57
-  %smax = tail call i32 @llvm.smax.i32(i32 %26, i32 1)
-  %wide.trip.count79 = zext nneg i32 %smax to i64
   br label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next77, %.lr.ph72 ]
+  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %.lr.ph72 ], [ 0, %.lr.ph72.preheader ]
   %59 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv76
   %60 = load ptr, ptr %59, align 8, !tbaa !29
   tail call void @sdsfree(ptr noundef %60) #26
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
+  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count
   br i1 %exitcond80.not, label %.sink.split, label %.lr.ph72, !llvm.loop !203
 
 61:                                               ; preds = %sdslen.exit, %53
@@ -10375,9 +10373,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #25
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #23
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

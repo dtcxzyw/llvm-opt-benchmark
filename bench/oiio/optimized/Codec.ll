@@ -806,6 +806,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = add i32 %15, 1
   %35 = sub i32 %34, %17
   %wide.trip.count54 = zext i32 %35 to i64
+  %wide.trip.count = zext nneg i32 %13 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -837,7 +838,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = trunc i16 %54 to i8
   store i8 %55, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next, %33
+  %exitcond50.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond50.not, label %._crit_edge.us, label %51, !llvm.loop !25
 
 ._crit_edge.us:                                   ; preds = %51
@@ -920,6 +921,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -951,7 +953,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %56 = trunc nuw i16 %55 to i8
   store i8 %56, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %52
@@ -1103,6 +1105,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -1134,7 +1137,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %56 = trunc nuw i32 %55 to i8
   store i8 %56, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !32
 
 ._crit_edge.us:                                   ; preds = %52
@@ -1217,6 +1220,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -1247,7 +1251,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui float %54 to i8
   store i8 %55, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !35
 
 ._crit_edge.us:                                   ; preds = %52
@@ -1330,6 +1334,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -1360,7 +1365,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui double %54 to i8
   store i8 %55, ptr %gep, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !39
 
 ._crit_edge.us:                                   ; preds = %52
@@ -1533,8 +1538,8 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %.lr.ph.split
-  %99 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv73
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
+  %99 = getelementptr i8, ptr %58, i64 %indvars.iv73
+  %100 = getelementptr i8, ptr %99, i64 1
   %101 = load i8, ptr %100, align 1, !tbaa !24
   store i8 %101, ptr %93, align 1, !tbaa !24
   store i8 %95, ptr %100, align 1, !tbaa !24
@@ -1687,8 +1692,8 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %.lr.ph.split
-  %97 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv73
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
+  %97 = getelementptr i8, ptr %58, i64 %indvars.iv73
+  %98 = getelementptr i8, ptr %97, i64 1
   %99 = load i8, ptr %98, align 1, !tbaa !24
   store i8 %99, ptr %91, align 1, !tbaa !24
   store i8 %93, ptr %98, align 1, !tbaa !24
@@ -2086,6 +2091,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = add i32 %15, 1
   %35 = sub i32 %34, %17
   %wide.trip.count54 = zext i32 %35 to i64
+  %wide.trip.count = zext nneg i32 %13 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -2118,7 +2124,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
   store i16 %56, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next, %33
+  %exitcond50.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond50.not, label %._crit_edge.us, label %51, !llvm.loop !49
 
 ._crit_edge.us:                                   ; preds = %51
@@ -2270,6 +2276,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -2302,7 +2309,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %57 = or disjoint i16 %56, %55
   store i16 %57, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !52
 
 ._crit_edge.us:                                   ; preds = %52
@@ -2385,6 +2392,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -2416,7 +2424,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %56 = trunc nuw i32 %55 to i16
   store i16 %56, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !54
 
 ._crit_edge.us:                                   ; preds = %52
@@ -2499,6 +2507,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -2529,7 +2538,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui float %54 to i16
   store i16 %55, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !56
 
 ._crit_edge.us:                                   ; preds = %52
@@ -2612,6 +2621,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -2642,7 +2652,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui double %54 to i16
   store i16 %55, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !58
 
 ._crit_edge.us:                                   ; preds = %52
@@ -2823,8 +2833,8 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %.lr.ph.split
-  %105 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv73
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 2
+  %105 = getelementptr i16, ptr %58, i64 %indvars.iv73
+  %106 = getelementptr i8, ptr %105, i64 2
   %107 = load i16, ptr %106, align 2, !tbaa !23
   store i16 %107, ptr %101, align 2, !tbaa !23
   store i16 %100, ptr %106, align 2, !tbaa !23
@@ -2985,8 +2995,8 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %.lr.ph.split
-  %103 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv73
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 2
+  %103 = getelementptr i16, ptr %58, i64 %indvars.iv73
+  %104 = getelementptr i8, ptr %103, i64 2
   %105 = load i16, ptr %104, align 2, !tbaa !23
   store i16 %105, ptr %99, align 2, !tbaa !23
   store i16 %98, ptr %104, align 2, !tbaa !23
@@ -3390,6 +3400,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = add i32 %15, 1
   %35 = sub i32 %34, %17
   %wide.trip.count54 = zext i32 %35 to i64
+  %wide.trip.count = zext nneg i32 %13 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -3424,7 +3435,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %58 = mul nuw i32 %57, 65537
   store i32 %58, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next, %33
+  %exitcond50.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond50.not, label %._crit_edge.us, label %51, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %51
@@ -3507,6 +3518,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -3539,7 +3551,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %57 = or disjoint i32 %56, %55
   store i32 %57, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !70
 
 ._crit_edge.us:                                   ; preds = %52
@@ -3622,6 +3634,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -3658,7 +3671,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %61 = or disjoint i32 %60, %55
   store i32 %61, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !72
 
 ._crit_edge.us:                                   ; preds = %52
@@ -3810,6 +3823,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -3840,7 +3854,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui float %54 to i32
   store i32 %55, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %52
@@ -3923,6 +3937,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -3953,7 +3968,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptoui double %54 to i32
   store i32 %55, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !77
 
 ._crit_edge.us:                                   ; preds = %52
@@ -4136,8 +4151,8 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %.lr.ph.split
-  %109 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv73
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  %109 = getelementptr i32, ptr %58, i64 %indvars.iv73
+  %110 = getelementptr i8, ptr %109, i64 4
   %111 = load i32, ptr %110, align 4, !tbaa !31
   store i32 %111, ptr %103, align 4, !tbaa !31
   store i32 %105, ptr %110, align 4, !tbaa !31
@@ -4300,8 +4315,8 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %.lr.ph.split
-  %107 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv73
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
+  %107 = getelementptr i32, ptr %58, i64 %indvars.iv73
+  %108 = getelementptr i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4, !tbaa !31
   store i32 %109, ptr %101, align 4, !tbaa !31
   store i32 %103, ptr %108, align 4, !tbaa !31
@@ -4711,6 +4726,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = add i32 %15, 1
   %35 = sub i32 %34, %17
   %wide.trip.count54 = zext i32 %35 to i64
+  %wide.trip.count = zext nneg i32 %13 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -4744,7 +4760,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %57 = uitofp i16 %56 to float
   store float %57, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next, %33
+  %exitcond50.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond50.not, label %._crit_edge.us, label %51, !llvm.loop !87
 
 ._crit_edge.us:                                   ; preds = %51
@@ -4827,6 +4843,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -4857,7 +4874,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i16 %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !89
 
 ._crit_edge.us:                                   ; preds = %52
@@ -4940,6 +4957,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -4970,7 +4988,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i8 %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !91
 
 ._crit_edge.us:                                   ; preds = %52
@@ -5053,6 +5071,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -5083,7 +5102,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i32 %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %52
@@ -5235,6 +5254,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -5265,7 +5285,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fptrunc double %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !96
 
 ._crit_edge.us:                                   ; preds = %52
@@ -5448,8 +5468,8 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %.lr.ph.split
-  %107 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv73
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
+  %107 = getelementptr float, ptr %58, i64 %indvars.iv73
+  %108 = getelementptr i8, ptr %107, i64 4
   %109 = load float, ptr %108, align 4, !tbaa !34
   store float %109, ptr %102, align 4, !tbaa !34
   store float %103, ptr %108, align 4, !tbaa !34
@@ -5612,8 +5632,8 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %.lr.ph.split
-  %105 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv73
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %105 = getelementptr float, ptr %58, i64 %indvars.iv73
+  %106 = getelementptr i8, ptr %105, i64 4
   %107 = load float, ptr %106, align 4, !tbaa !34
   store float %107, ptr %100, align 4, !tbaa !34
   store float %101, ptr %106, align 4, !tbaa !34
@@ -6023,6 +6043,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %34 = add i32 %15, 1
   %35 = sub i32 %34, %17
   %wide.trip.count54 = zext i32 %35 to i64
+  %wide.trip.count = zext nneg i32 %13 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -6056,7 +6077,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %57 = uitofp i16 %56 to double
   store double %57, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next, %33
+  %exitcond50.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond50.not, label %._crit_edge.us, label %51, !llvm.loop !106
 
 ._crit_edge.us:                                   ; preds = %51
@@ -6139,6 +6160,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -6169,7 +6191,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i16 %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !108
 
 ._crit_edge.us:                                   ; preds = %52
@@ -6252,6 +6274,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -6282,7 +6305,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i8 %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !110
 
 ._crit_edge.us:                                   ; preds = %52
@@ -6365,6 +6388,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -6395,7 +6419,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = uitofp i32 %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !112
 
 ._crit_edge.us:                                   ; preds = %52
@@ -6478,6 +6502,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %35 = add i32 %16, 1
   %36 = sub i32 %35, %18
   %wide.trip.count58 = zext i32 %36 to i64
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
@@ -6508,7 +6533,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %55 = fpext float %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, %34
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond54.not, label %._crit_edge.us, label %52, !llvm.loop !114
 
 ._crit_edge.us:                                   ; preds = %52
@@ -6760,8 +6785,8 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %.lr.ph.split
-  %107 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv73
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %107 = getelementptr double, ptr %58, i64 %indvars.iv73
+  %108 = getelementptr i8, ptr %107, i64 8
   %109 = load double, ptr %108, align 8, !tbaa !37
   store double %109, ptr %102, align 8, !tbaa !37
   store double %103, ptr %108, align 8, !tbaa !37
@@ -6924,8 +6949,8 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %.lr.ph.split
-  %105 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv73
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %105 = getelementptr double, ptr %58, i64 %indvars.iv73
+  %106 = getelementptr i8, ptr %105, i64 8
   %107 = load double, ptr %106, align 8, !tbaa !37
   store double %107, ptr %100, align 8, !tbaa !37
   store double %101, ptr %106, align 8, !tbaa !37
