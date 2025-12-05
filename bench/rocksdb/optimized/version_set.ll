@@ -29100,22 +29100,22 @@ define noundef ptr @_ZNK7rocksdb18VersionStorageInfo16LevelFileSummaryEPNS0_18Fi
   %9 = load ptr, ptr %8, align 8, !tbaa !652
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !652
-  %.not3637 = icmp eq ptr %9, %11
-  br i1 %.not3637, label %._crit_edge, label %.lr.ph
+  %.not3638 = icmp eq ptr %9, %11
+  br i1 %.not3638, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %31
-  %.039 = phi i32 [ %32, %31 ], [ 11, %3 ]
-  %.sroa.033.038 = phi ptr [ %33, %31 ], [ %9, %3 ]
-  %12 = zext nneg i32 %.039 to i64
-  %13 = sub nsw i32 3000, %.039
+  %.040 = phi i32 [ %32, %31 ], [ 11, %3 ]
+  %.sroa.033.039 = phi ptr [ %33, %31 ], [ %9, %3 ]
+  %12 = zext nneg i32 %.040 to i64
+  %13 = sub nsw i32 3000, %.040
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %14 = load ptr, ptr %.sroa.033.038, align 8, !tbaa !410
+  %14 = load ptr, ptr %.sroa.033.039, align 8, !tbaa !410
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !598
   %17 = call noundef i32 @_ZN7rocksdb16AppendHumanBytesEmPci(i64 noundef %16, ptr noundef nonnull %4, i32 noundef 16)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %12
   %19 = sext i32 %13 to i64
-  %20 = load ptr, ptr %.sroa.033.038, align 8, !tbaa !410
+  %20 = load ptr, ptr %.sroa.033.039, align 8, !tbaa !410
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !556
   %23 = and i64 %22, 4611686018427387903
@@ -29132,19 +29132,19 @@ define noundef ptr @_ZNK7rocksdb18VersionStorageInfo16LevelFileSummaryEPNS0_18Fi
   br i1 %or.cond30, label %31, label %._crit_edge.loopexit
 
 31:                                               ; preds = %.lr.ph
-  %32 = add nuw nsw i32 %29, %.039
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.033.038, i64 8
+  %32 = add nuw nsw i32 %29, %.040
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.033.039, i64 8
   %.not36 = icmp eq ptr %33, %11
   br i1 %.not36, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %31, %.lr.ph
-  %.0.lcssa.ph = phi i32 [ %.039, %.lr.ph ], [ %32, %31 ]
+  %.0.lcssa.ph = phi i32 [ %.040, %.lr.ph ], [ %32, %31 ]
   %.pre = load ptr, ptr %5, align 8, !tbaa !360
   %.phi.trans.insert = getelementptr inbounds %"class.std::vector.296", ptr %.pre, i64 %7
-  %.phi.trans.insert42 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
-  %.pre43 = load ptr, ptr %.phi.trans.insert42, align 8, !tbaa !408
-  %.pre44 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !361
-  %34 = icmp ne ptr %.pre43, %.pre44
+  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
+  %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8, !tbaa !408
+  %.pre45 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !361
+  %34 = icmp ne ptr %.pre44, %.pre45
   %35 = sext i1 %34 to i32
   %36 = add nsw i32 %.0.lcssa.ph, %35
   %37 = sext i32 %36 to i64

@@ -323,25 +323,25 @@ declare ptr @OPENSSL_hexstr2buf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
-  br label %5
+  br label %3
 
-3:                                                ; preds = %5
-  %4 = add nuw nsw i64 %.03353, 1
-  %exitcond.not = icmp eq i64 %4, 3
-  br i1 %exitcond.not, label %11, label %5, !llvm.loop !41
+3:                                                ; preds = %2, %8
+  %.03353 = phi i64 [ 0, %2 ], [ %10, %8 ]
+  %.03652 = phi i64 [ 0, %2 ], [ %9, %8 ]
+  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %.03353
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #6
+  %7 = and i64 %6, 1
+  %.not46 = icmp eq i64 %7, 0
+  br i1 %.not46, label %8, label %.loopexit
 
-5:                                                ; preds = %2, %3
-  %.03353 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %.03652 = phi i64 [ 0, %2 ], [ %9, %3 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %.03353
-  %7 = load ptr, ptr %6, align 8, !tbaa !42
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #6
-  %9 = add i64 %8, %.03652
-  %10 = and i64 %9, 1
-  %.not46 = icmp eq i64 %10, 0
-  br i1 %.not46, label %3, label %.loopexit
+8:                                                ; preds = %3
+  %9 = add i64 %6, %.03652
+  %10 = add nuw nsw i64 %.03353, 1
+  %exitcond.not = icmp eq i64 %10, 3
+  br i1 %exitcond.not, label %11, label %3, !llvm.loop !42
 
-11:                                               ; preds = %3
+11:                                               ; preds = %8
   %12 = lshr exact i64 %9, 1
   %13 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %12, ptr noundef nonnull @.str.1, i32 noundef 218) #5
   %14 = icmp eq ptr %13, null
@@ -351,7 +351,7 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
   %.13458 = phi i64 [ %38, %._crit_edge ], [ 0, %11 ]
   %.03857 = phi i64 [ %.139.lcssa, %._crit_edge ], [ 0, %11 ]
   %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %.13458
-  %16 = load ptr, ptr %15, align 8, !tbaa !42
+  %16 = load ptr, ptr %15, align 8, !tbaa !41
   %17 = load i8, ptr %16, align 1, !tbaa !43
   %.not54 = icmp eq i8 %17, 0
   br i1 %.not54, label %._crit_edge, label %.lr.ph
@@ -361,7 +361,7 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
   %.03756 = phi i64 [ %34, %28 ], [ 0, %.preheader ]
   %.13955 = phi i64 [ %32, %28 ], [ %.03857, %.preheader ]
   %19 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %18) #5
-  %20 = load ptr, ptr %15, align 8, !tbaa !42
+  %20 = load ptr, ptr %15, align 8, !tbaa !41
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.03756
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !43
@@ -383,7 +383,7 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 %.13955
   store i8 %31, ptr %33, align 1, !tbaa !43
   %34 = add i64 %.03756, 2
-  %35 = load ptr, ptr %15, align 8, !tbaa !42
+  %35 = load ptr, ptr %15, align 8, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
   %37 = load i8, ptr %36, align 1, !tbaa !43
   %.not = icmp eq i8 %37, 0
@@ -392,15 +392,15 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
 ._crit_edge:                                      ; preds = %28, %.preheader
   %.139.lcssa = phi i64 [ %.03857, %.preheader ], [ %32, %28 ]
   %38 = add nuw nsw i64 %.13458, 1
-  %exitcond61.not = icmp eq i64 %38, 3
-  br i1 %exitcond61.not, label %39, label %.preheader, !llvm.loop !45
+  %exitcond60.not = icmp eq i64 %38, 3
+  br i1 %exitcond60.not, label %39, label %.preheader, !llvm.loop !45
 
 39:                                               ; preds = %._crit_edge
   store i64 %12, ptr %1, align 8, !tbaa !21
   br label %.loopexit
 
-.loopexit:                                        ; preds = %5, %27, %11, %39
-  %.0 = phi ptr [ null, %27 ], [ %13, %39 ], [ null, %11 ], [ null, %5 ]
+.loopexit:                                        ; preds = %3, %27, %11, %39
+  %.0 = phi ptr [ null, %27 ], [ %13, %39 ], [ null, %11 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -472,8 +472,8 @@ attributes #6 = { nounwind willreturn memory(read) }
 !38 = !{!"record_functions_st", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136}
 !39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40}
-!42 = !{!13, !13, i64 0}
+!41 = !{!13, !13, i64 0}
+!42 = distinct !{!42, !40}
 !43 = !{!7, !7, i64 0}
 !44 = distinct !{!44, !40}
 !45 = distinct !{!45, !40}

@@ -20977,9 +20977,9 @@ _ZN10LogicMTask19moveAllVerticesFromEPS_.exit:    ; preds = %143, %148, %149
 
 _ZN10LogicMTask19moveAllVerticesFromEPS_.exit._crit_edge: ; preds = %_ZN10LogicMTask19moveAllVerticesFromEPS_.exit
   %.pre = trunc i8 %.fca.1.extract40 to i1
-  %.sroa.044.0.extract.trunc46189 = trunc i64 %.fca.0.extract39 to i32
+  %.sroa.044.0.extract.trunc46200 = trunc i64 %.fca.0.extract39 to i32
   %163 = getelementptr inbounds nuw i8, ptr %.0109..0, i64 100
-  store i32 %.sroa.044.0.extract.trunc46189, ptr %163, align 4, !tbaa !71
+  store i32 %.sroa.044.0.extract.trunc46200, ptr %163, align 4, !tbaa !71
   br i1 %.pre, label %214, label %216
 
 164:                                              ; preds = %_ZN10LogicMTask19moveAllVerticesFromEPS_.exit
@@ -21222,53 +21222,57 @@ _ZL22partCheckCriticalPathsR7V3Graph.exit:        ; preds = %.lr.ph.i, %249, %_Z
   call void @_ZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertex(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull %.0109..0)
   call void @_ZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertex(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull %.0109..0)
   %255 = getelementptr inbounds nuw i8, ptr %.0109..0, i64 24
-  br label %256
+  %.sroa.0161.0169 = load ptr, ptr %255, align 8, !tbaa !193
+  %.not170 = icmp eq ptr %.sroa.0161.0169, null
+  br i1 %.not170, label %._crit_edge, label %.lr.ph
 
-256:                                              ; preds = %257, %_ZL22partCheckCriticalPathsR7V3Graph.exit
-  %.sroa.0161.0.in = phi ptr [ %255, %_ZL22partCheckCriticalPathsR7V3Graph.exit ], [ %258, %257 ]
-  %.0114 = phi i32 [ 0, %_ZL22partCheckCriticalPathsR7V3Graph.exit ], [ %263, %257 ]
-  %.sroa.0161.0 = load ptr, ptr %.sroa.0161.0.in, align 8, !tbaa !193
+256:                                              ; preds = %.lr.ph
+  %257 = add nuw nsw i32 %.0114171, 1
+  %.sroa.0161.0 = load ptr, ptr %258, align 8, !tbaa !193
   %.not = icmp eq ptr %.sroa.0161.0, null
-  br i1 %.not, label %264, label %257
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-257:                                              ; preds = %256
-  %258 = getelementptr inbounds nuw i8, ptr %.sroa.0161.0, i64 8
+.lr.ph:                                           ; preds = %_ZL22partCheckCriticalPathsR7V3Graph.exit, %256
+  %.sroa.0161.0172 = phi ptr [ %.sroa.0161.0, %256 ], [ %.sroa.0161.0169, %_ZL22partCheckCriticalPathsR7V3Graph.exit ]
+  %.0114171 = phi i32 [ %257, %256 ], [ 0, %_ZL22partCheckCriticalPathsR7V3Graph.exit ]
+  %258 = getelementptr inbounds nuw i8, ptr %.sroa.0161.0172, i64 8
   %259 = load ptr, ptr %258, align 8, !tbaa !128
   %.not.i = icmp eq ptr %259, null
-  %260 = select i1 %.not.i, ptr %.sroa.0161.0, ptr %259
+  %260 = select i1 %.not.i, ptr %.sroa.0161.0172, ptr %259
   call void @llvm.prefetch.p0(ptr nonnull %260, i32 1, i32 3, i32 1)
-  %261 = getelementptr inbounds nuw i8, ptr %.sroa.0161.0, i64 48
+  %261 = getelementptr inbounds nuw i8, ptr %.sroa.0161.0172, i64 48
   %262 = load ptr, ptr %261, align 8, !tbaa !30
   call void @_ZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertex(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %262)
-  %263 = add nuw nsw i32 %.0114, 1
-  %exitcond.not = icmp eq i32 %263, 26
-  br i1 %exitcond.not, label %264, label %256
+  %exitcond.not = icmp eq i32 %.0114171, 25
+  br i1 %exitcond.not, label %._crit_edge, label %256
 
-264:                                              ; preds = %256, %257
-  %265 = getelementptr inbounds nuw i8, ptr %.0109..0, i64 40
-  br label %266
+._crit_edge:                                      ; preds = %.lr.ph, %256, %_ZL22partCheckCriticalPathsR7V3Graph.exit
+  %263 = getelementptr inbounds nuw i8, ptr %.0109..0, i64 40
+  %.sroa.0155.0174 = load ptr, ptr %263, align 8, !tbaa !193
+  %.not168175 = icmp eq ptr %.sroa.0155.0174, null
+  br i1 %.not168175, label %._crit_edge180, label %.lr.ph179
 
-266:                                              ; preds = %267, %264
-  %.sroa.0155.0.in = phi ptr [ %265, %264 ], [ %268, %267 ]
-  %.1115 = phi i32 [ 0, %264 ], [ %273, %267 ]
-  %.sroa.0155.0 = load ptr, ptr %.sroa.0155.0.in, align 8, !tbaa !193
+264:                                              ; preds = %.lr.ph179
+  %265 = add nuw nsw i32 %.1115176, 1
+  %.sroa.0155.0 = load ptr, ptr %266, align 8, !tbaa !193
   %.not168 = icmp eq ptr %.sroa.0155.0, null
-  br i1 %.not168, label %274, label %267
+  br i1 %.not168, label %._crit_edge180, label %.lr.ph179
 
-267:                                              ; preds = %266
-  %268 = getelementptr inbounds nuw i8, ptr %.sroa.0155.0, i64 24
-  %269 = load ptr, ptr %268, align 8, !tbaa !128
-  %.not.i118 = icmp eq ptr %269, null
-  %270 = select i1 %.not.i118, ptr %.sroa.0155.0, ptr %269
-  call void @llvm.prefetch.p0(ptr nonnull %270, i32 1, i32 3, i32 1)
-  %271 = getelementptr inbounds nuw i8, ptr %.sroa.0155.0, i64 40
-  %272 = load ptr, ptr %271, align 8, !tbaa !24
-  call void @_ZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertex(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %272)
-  %273 = add nuw nsw i32 %.1115, 1
-  %exitcond169.not = icmp eq i32 %273, 26
-  br i1 %exitcond169.not, label %274, label %266
+.lr.ph179:                                        ; preds = %._crit_edge, %264
+  %.sroa.0155.0177 = phi ptr [ %.sroa.0155.0, %264 ], [ %.sroa.0155.0174, %._crit_edge ]
+  %.1115176 = phi i32 [ %265, %264 ], [ 0, %._crit_edge ]
+  %266 = getelementptr inbounds nuw i8, ptr %.sroa.0155.0177, i64 24
+  %267 = load ptr, ptr %266, align 8, !tbaa !128
+  %.not.i118 = icmp eq ptr %267, null
+  %268 = select i1 %.not.i118, ptr %.sroa.0155.0177, ptr %267
+  call void @llvm.prefetch.p0(ptr nonnull %268, i32 1, i32 3, i32 1)
+  %269 = getelementptr inbounds nuw i8, ptr %.sroa.0155.0177, i64 40
+  %270 = load ptr, ptr %269, align 8, !tbaa !24
+  call void @_ZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertex(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %270)
+  %exitcond182.not = icmp eq i32 %.1115176, 25
+  br i1 %exitcond182.not, label %._crit_edge180, label %264
 
-274:                                              ; preds = %266, %267
+._crit_edge180:                                   ; preds = %.lr.ph179, %264, %._crit_edge
   ret void
 }
 

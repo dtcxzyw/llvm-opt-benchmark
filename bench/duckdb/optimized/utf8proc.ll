@@ -1482,7 +1482,7 @@ define noundef range(i64 -9223372036854775808, 1152921504606846976) i64 @_ZN6duc
 .split.split.us:                                  ; preds = %.split, %53
   %.064.us97 = phi i64 [ %38, %53 ], [ 0, %.split ]
   %.061.us98 = phi i64 [ %54, %53 ], [ 0, %.split ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 %.064.us97
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.064.us97
   %37 = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %36, i64 noundef -1, ptr noundef nonnull %8)
   %38 = add nsw i64 %37, %.064.us97
   %39 = load i32, ptr %8, align 4, !tbaa !3
@@ -1515,7 +1515,7 @@ define noundef range(i64 -9223372036854775808, 1152921504606846976) i64 @_ZN6duc
 .split.split:                                     ; preds = %.split, %74
   %.064 = phi i64 [ %58, %74 ], [ 0, %.split ]
   %.061 = phi i64 [ %75, %74 ], [ 0, %.split ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 %.064
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.064
   %57 = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %56, i64 noundef -1, ptr noundef nonnull %8)
   %58 = add nsw i64 %57, %.064
   %59 = load i32, ptr %8, align 4, !tbaa !3

@@ -411,9 +411,8 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
   br i1 %or.cond, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %parse_fcall_arguments.exit
-  %sext79 = shl i32 %108, 16
-  %192 = ashr exact i32 %sext79, 16
-  %wide.trip.count = zext i32 %192 to i64
+  %192 = and i32 %108, 32767
+  %wide.trip.count = zext nneg i32 %192 to i64
   br label %.lr.ph
 
 193:                                              ; preds = %.lr.ph

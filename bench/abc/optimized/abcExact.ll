@@ -11857,9 +11857,9 @@ Ses_CheckGatesConsistency.exit._crit_edge:        ; preds = %Ses_CheckGatesConsi
   br i1 %96, label %.lr.ph81.i, label %Ses_ManDeriveTruth.exit
 
 .lr.ph81.i:                                       ; preds = %90
-  %wide.trip.count96.i = zext nneg i8 %93 to i64
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 3
   %98 = load i32, ptr %56, align 4, !tbaa !96
+  %wide.trip.count96.i = zext nneg i8 %93 to i64
   br label %99
 
 99:                                               ; preds = %.loopexit.i, %.lr.ph81.i

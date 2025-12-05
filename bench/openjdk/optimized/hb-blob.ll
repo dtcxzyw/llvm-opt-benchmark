@@ -807,23 +807,23 @@ define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr noundef 
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %7
-  %11 = shl i64 %.030, 1
-  %12 = icmp ugt i64 %11, 536870912
-  br i1 %12, label %36, label %13
+  %11 = icmp samesign ugt i64 %.030, 268435456
+  br i1 %11, label %36, label %12
 
-13:                                               ; preds = %10
-  %14 = tail call ptr @realloc(ptr noundef %.132, i64 noundef %11) #24
+12:                                               ; preds = %10
+  %13 = shl nuw nsw i64 %.030, 1
+  %14 = tail call ptr @realloc(ptr noundef %.132, i64 noundef %13) #24
   %.not39 = icmp eq ptr %14, null
   br i1 %.not39, label %36, label %._crit_edge
 
-._crit_edge:                                      ; preds = %13
-  %.pre = sub i64 %11, %.029.ph
+._crit_edge:                                      ; preds = %12
+  %.pre = sub i64 %13, %.029.ph
   br label %15
 
 15:                                               ; preds = %._crit_edge, %7
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %8, %7 ]
   %.2 = phi ptr [ %14, %._crit_edge ], [ %.132, %7 ]
-  %.1 = phi i64 [ %11, %._crit_edge ], [ %.030, %7 ]
+  %.1 = phi i64 [ %13, %._crit_edge ], [ %.030, %7 ]
   %16 = getelementptr inbounds i8, ptr %.2, i64 %.029.ph
   %17 = tail call i64 @fread(ptr noundef %16, i64 noundef 1, i64 noundef %.pre-phi, ptr noundef nonnull %4)
   %18 = tail call i32 @ferror(ptr noundef nonnull %4) #21
@@ -870,8 +870,8 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %25, %21
   store ptr @free, ptr %35, align 8
   br label %hb_blob_create_or_fail.exit
 
-36:                                               ; preds = %15, %13, %10
-  %.3 = phi ptr [ %.132, %10 ], [ %.132, %13 ], [ %.2, %15 ]
+36:                                               ; preds = %15, %12, %10
+  %.3 = phi ptr [ %.132, %10 ], [ %.132, %12 ], [ %.2, %15 ]
   %37 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %38
 

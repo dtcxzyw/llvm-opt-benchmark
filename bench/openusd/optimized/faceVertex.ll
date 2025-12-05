@@ -1535,8 +1535,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEPKi.exit.thread: ;
   br i1 %69, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.preheader, label %.loopexit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.preheader: ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEPKi.exit.thread
-  %wide.trip.count = zext nneg i16 %68 to i64
   %70 = sext i16 %50 to i64
+  %wide.trip.count = zext nneg i16 %68 to i64
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us.preheader: ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEPKi.exit
@@ -2274,10 +2274,10 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20createUnOrderedEdge
 
 .lr.ph65:                                         ; preds = %22
   %29 = shl nuw i16 %13, 1
-  %wide.trip.count71 = zext i16 %29 to i64
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load float, ptr @_ZN10OpenSubdiv6v3_6_03Sdc6Crease18SHARPNESS_INFINITEE, align 4
+  %wide.trip.count71 = zext i16 %29 to i64
   br label %33
 
 33:                                               ; preds = %.lr.ph65, %_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex4Edge7AddFaceEib.exit
@@ -2750,8 +2750,8 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex28assignUnOrderedFaceNeighbor
 
 .lr.ph:                                           ; preds = %3
   %7 = shl nuw i16 %5, 1
-  %wide.trip.count = zext i16 %7 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %wide.trip.count = zext i16 %7 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph, %20

@@ -1636,7 +1636,7 @@ _ZL18stbiw__zlib_flushfPhPjPi.exit.thread:        ; preds = %9, %19, %24
   %65 = getelementptr inbounds i8, ptr %63, i64 -4
   %66 = load i32, ptr %65, align 4
   %67 = icmp sgt i32 %66, 0
-  br i1 %67, label %.lr.ph, label %._crit_edge.thread812
+  br i1 %67, label %.lr.ph, label %._crit_edge.thread813
 
 .lr.ph:                                           ; preds = %64
   %68 = add nsw i32 %.1157655, -32768
@@ -1688,24 +1688,24 @@ _ZL18stbiw__zlib_countmPhS_i.exit:                ; preds = %81, %._crit_edge.lo
   %.1164 = phi ptr [ %.0163645, %71 ], [ %spec.select601, %_ZL18stbiw__zlib_countmPhS_i.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread812, label %71, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.thread813, label %71, !llvm.loop !21
 
-._crit_edge.thread812:                            ; preds = %83, %64
-  %.0163.lcssa816 = phi ptr [ null, %64 ], [ %.1164, %83 ]
-  %.0166.lcssa815 = phi i32 [ 3, %64 ], [ %.1167, %83 ]
+._crit_edge.thread813:                            ; preds = %83, %64
+  %.0163.lcssa817 = phi ptr [ null, %64 ], [ %.1164, %83 ]
+  %.0166.lcssa816 = phi i32 [ 3, %64 ], [ %.1167, %83 ]
   %84 = getelementptr inbounds i8, ptr %63, i64 -4
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, %35
   br i1 %86, label %87, label %89
 
-87:                                               ; preds = %._crit_edge.thread812
+87:                                               ; preds = %._crit_edge.thread813
   %88 = getelementptr inbounds nuw ptr, ptr %63, i64 %36
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(1) %88, i64 %37, i1 false)
   store i32 %spec.store.select, ptr %84, align 4
   br label %89
 
-89:                                               ; preds = %87, %._crit_edge.thread812
-  %90 = phi i32 [ %spec.store.select, %87 ], [ %85, %._crit_edge.thread812 ]
+89:                                               ; preds = %87, %._crit_edge.thread813
+  %90 = phi i32 [ %spec.store.select, %87 ], [ %85, %._crit_edge.thread813 ]
   %91 = getelementptr inbounds i8, ptr %63, i64 -8
   %92 = add nsw i32 %90, 1
   %93 = load i32, ptr %91, align 4
@@ -1718,8 +1718,8 @@ _ZL18stbiw__zlib_countmPhS_i.exit:                ; preds = %81, %._crit_edge.lo
   br label %.thread595
 
 .thread595:                                       ; preds = %40, %94
-  %.0163.lcssa811 = phi ptr [ %.0163.lcssa816, %94 ], [ null, %40 ]
-  %.0166.lcssa809 = phi i32 [ %.0166.lcssa815, %94 ], [ 3, %40 ]
+  %.0163.lcssa812 = phi ptr [ %.0163.lcssa817, %94 ], [ null, %40 ]
+  %.0166.lcssa810 = phi i32 [ %.0166.lcssa816, %94 ], [ 3, %40 ]
   %97 = phi i32 [ %96, %94 ], [ 2, %40 ]
   %98 = getelementptr inbounds i8, ptr %63, i64 -8
   %spec.select.i230 = select i1 %.not196, ptr null, ptr %98
@@ -1745,8 +1745,8 @@ _ZL18stbiw__zlib_countmPhS_i.exit:                ; preds = %81, %._crit_edge.lo
   br label %_ZL14stbiw__sbgrowfPPvii.exit234
 
 _ZL14stbiw__sbgrowfPPvii.exit234:                 ; preds = %106, %.thread595, %89
-  %.0163.lcssa810 = phi ptr [ %.0163.lcssa811, %106 ], [ %.0163.lcssa811, %.thread595 ], [ %.0163.lcssa816, %89 ]
-  %.0166.lcssa808 = phi i32 [ %.0166.lcssa809, %106 ], [ %.0166.lcssa809, %.thread595 ], [ %.0166.lcssa815, %89 ]
+  %.0163.lcssa811 = phi ptr [ %.0163.lcssa812, %106 ], [ %.0163.lcssa812, %.thread595 ], [ %.0163.lcssa817, %89 ]
+  %.0166.lcssa809 = phi i32 [ %.0166.lcssa810, %106 ], [ %.0166.lcssa810, %.thread595 ], [ %.0166.lcssa816, %89 ]
   %108 = phi ptr [ %107, %106 ], [ %63, %.thread595 ], [ %63, %89 ]
   %109 = getelementptr inbounds i8, ptr %108, i64 -4
   %110 = load i32, ptr %109, align 4
@@ -1755,7 +1755,7 @@ _ZL14stbiw__sbgrowfPPvii.exit234:                 ; preds = %106, %.thread595, %
   %112 = sext i32 %110 to i64
   %113 = getelementptr inbounds ptr, ptr %108, i64 %112
   store ptr %42, ptr %113, align 8
-  %.not199 = icmp eq ptr %.0163.lcssa810, null
+  %.not199 = icmp eq ptr %.0163.lcssa811, null
   br i1 %.not199, label %.thread597, label %114
 
 114:                                              ; preds = %_ZL14stbiw__sbgrowfPPvii.exit234
@@ -1833,7 +1833,7 @@ _ZL14stbiw__sbgrowfPPvii.exit234:                 ; preds = %106, %.thread595, %
 
 _ZL18stbiw__zlib_countmPhS_i.exit245:             ; preds = %157, %152, %._crit_edge.loopexit.split.loop.exit.i242
   %.0.lcssa.i236 = phi i32 [ 0, %152 ], [ %158, %._crit_edge.loopexit.split.loop.exit.i242 ], [ %invariant.smin.i235, %157 ]
-  %159 = icmp sgt i32 %.0.lcssa.i236, %.0166.lcssa808
+  %159 = icmp sgt i32 %.0.lcssa.i236, %.0166.lcssa809
   br i1 %159, label %.thread597, label %160
 
 160:                                              ; preds = %146, %_ZL18stbiw__zlib_countmPhS_i.exit245
@@ -1850,12 +1850,12 @@ _ZL18stbiw__zlib_countmPhS_i.exit245:             ; preds = %157, %152, %._crit_
   %161 = getelementptr inbounds nuw i16, ptr @_ZZ18stbi_zlib_compressPhiPiiE7lengthc, i64 %indvars.iv.next737
   %162 = load i16, ptr %161, align 2
   %163 = zext i16 %162 to i32
-  %.not203 = icmp slt i32 %.0166.lcssa808, %163
+  %.not203 = icmp slt i32 %.0166.lcssa809, %163
   br i1 %.not203, label %164, label %._crit_edge651, !llvm.loop !23
 
 164:                                              ; preds = %._crit_edge651
   %165 = ptrtoint ptr %42 to i64
-  %166 = ptrtoint ptr %.0163.lcssa810 to i64
+  %166 = ptrtoint ptr %.0163.lcssa811 to i64
   %167 = sub i64 %165, %166
   %168 = trunc i64 %167 to i32
   %169 = trunc nuw nsw i64 %indvars.iv736 to i32
@@ -2040,7 +2040,7 @@ _ZL18stbiw__zlib_flushfPhPjPi.exit257:            ; preds = %_ZL14stbiw__sbgrowf
   %255 = getelementptr inbounds nuw i16, ptr @_ZZ18stbi_zlib_compressPhiPiiE7lengthc, i64 %253
   %256 = load i16, ptr %255, align 2
   %257 = zext i16 %256 to i32
-  %258 = sub nsw i32 %.0166.lcssa808, %257
+  %258 = sub nsw i32 %.0166.lcssa809, %257
   %259 = shl i32 %258, %.1543
   %260 = or i32 %259, %.1559
   %261 = load i8, ptr %254, align 1
@@ -2460,7 +2460,7 @@ _ZL18stbiw__zlib_flushfPhPjPi.exit311:            ; preds = %_ZL14stbiw__sbgrowf
   %.3561 = phi i32 [ %.19577, %_ZL18stbiw__zlib_flushfPhPjPi.exit300 ], [ %346, %338 ], [ %392, %_ZL18stbiw__zlib_bitrevii.exit316 ], [ %433, %_ZL18stbiw__zlib_bitrevii.exit332 ], [ %421, %_ZL14stbiw__sbgrowfPPvii.exit.i325 ], [ %462, %_ZL14stbiw__sbgrowfPPvii.exit.i341 ], [ %377, %_ZL14stbiw__sbgrowfPPvii.exit.i309 ]
   %.3545 = phi i32 [ %.19, %_ZL18stbiw__zlib_flushfPhPjPi.exit300 ], [ %349, %338 ], [ %393, %_ZL18stbiw__zlib_bitrevii.exit316 ], [ %434, %_ZL18stbiw__zlib_bitrevii.exit332 ], [ %422, %_ZL14stbiw__sbgrowfPPvii.exit.i325 ], [ %463, %_ZL14stbiw__sbgrowfPPvii.exit.i341 ], [ %378, %_ZL14stbiw__sbgrowfPPvii.exit.i309 ]
   %.4540 = phi ptr [ %.0.lcssa.i291, %_ZL18stbiw__zlib_flushfPhPjPi.exit300 ], [ %.0.lcssa.i291, %338 ], [ %.1537654, %_ZL18stbiw__zlib_bitrevii.exit316 ], [ %.1537654, %_ZL18stbiw__zlib_bitrevii.exit332 ], [ %.1.i326, %_ZL14stbiw__sbgrowfPPvii.exit.i325 ], [ %.1.i342, %_ZL14stbiw__sbgrowfPPvii.exit.i341 ], [ %.1.i310, %_ZL14stbiw__sbgrowfPPvii.exit.i309 ]
-  %.0166.pn = phi i32 [ %.0166.lcssa808, %_ZL18stbiw__zlib_flushfPhPjPi.exit300 ], [ %.0166.lcssa808, %338 ], [ 1, %_ZL18stbiw__zlib_bitrevii.exit316 ], [ 1, %_ZL18stbiw__zlib_bitrevii.exit332 ], [ 1, %_ZL14stbiw__sbgrowfPPvii.exit.i325 ], [ 1, %_ZL14stbiw__sbgrowfPPvii.exit.i341 ], [ %.0166.lcssa808, %_ZL14stbiw__sbgrowfPPvii.exit.i309 ]
+  %.0166.pn = phi i32 [ %.0166.lcssa809, %_ZL18stbiw__zlib_flushfPhPjPi.exit300 ], [ %.0166.lcssa809, %338 ], [ 1, %_ZL18stbiw__zlib_bitrevii.exit316 ], [ 1, %_ZL18stbiw__zlib_bitrevii.exit332 ], [ 1, %_ZL14stbiw__sbgrowfPPvii.exit.i325 ], [ 1, %_ZL14stbiw__sbgrowfPPvii.exit.i341 ], [ %.0166.lcssa809, %_ZL14stbiw__sbgrowfPPvii.exit.i309 ]
   %.2 = add nsw i32 %.0166.pn, %.1157655
   %465 = icmp slt i32 %.2, %32
   br i1 %465, label %40, label %.preheader605, !llvm.loop !27
@@ -2831,20 +2831,20 @@ _ZL18stbiw__zlib_flushfPhPjPi.exit402:            ; preds = %_ZL14stbiw__sbgrowf
   %.0153685 = phi i32 [ %.1.lcssa, %._crit_edge680 ], [ 0, %.preheader.preheader ]
   %.0154684 = phi i32 [ %.1155.lcssa, %._crit_edge680 ], [ 1, %.preheader.preheader ]
   %.4162683 = phi i32 [ %630, %._crit_edge680 ], [ 0, %.preheader.preheader ]
-  %.not854 = icmp eq i32 %.0686, 0
-  br i1 %.not854, label %._crit_edge680, label %.lr.ph679.preheader
+  %.not806 = icmp eq i32 %.0686, 0
+  br i1 %.not806, label %._crit_edge680, label %.lr.ph679.preheader
 
 .lr.ph679.preheader:                              ; preds = %.preheader
   %623 = zext nneg i32 %.4162683 to i64
   %wide.trip.count754 = zext nneg i32 %.0686 to i64
-  %invariant.gep = getelementptr i8, ptr %0, i64 %623
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 %623
   br label %.lr.ph679
 
 .lr.ph679:                                        ; preds = %.lr.ph679.preheader, %.lr.ph679
   %indvars.iv751 = phi i64 [ 0, %.lr.ph679.preheader ], [ %indvars.iv.next752, %.lr.ph679 ]
   %.1678 = phi i32 [ %.0153685, %.lr.ph679.preheader ], [ %627, %.lr.ph679 ]
   %.1155677 = phi i32 [ %.0154684, %.lr.ph679.preheader ], [ %626, %.lr.ph679 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv751
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv751
   %624 = load i8, ptr %gep, align 1
   %625 = zext i8 %624 to i32
   %626 = add i32 %.1155677, %625

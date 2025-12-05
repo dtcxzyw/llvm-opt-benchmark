@@ -249,50 +249,50 @@ define internal range(i32 0, 2) i32 @ssl3_prf(ptr readnone captures(none) %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @EVP_MD_CTX_init(ptr noundef nonnull %12) #6
   call void @EVP_MD_CTX_init(ptr noundef nonnull %13) #6
-  %.not49 = icmp eq i64 %2, 0
-  br i1 %.not49, label %._crit_edge48, label %.lr.ph47
+  %.not47 = icmp eq i64 %2, 0
+  br i1 %.not47, label %._crit_edge, label %.lr.ph
 
-.lr.ph47:                                         ; preds = %11
-  %.not38 = icmp eq i64 %8, 0
-  %.not39 = icmp eq i64 %10, 0
+.lr.ph:                                           ; preds = %11
+  %.not39 = icmp eq i64 %8, 0
+  %.not40 = icmp eq i64 %10, 0
   br label %16
 
-16:                                               ; preds = %.lr.ph47, %46
-  %.045 = phi i64 [ 0, %.lr.ph47 ], [ %17, %46 ]
-  %.03044 = phi i64 [ 0, %.lr.ph47 ], [ %39, %46 ]
-  %.03143 = phi i8 [ 65, %.lr.ph47 ], [ %19, %46 ]
-  %.03342 = phi ptr [ %1, %.lr.ph47 ], [ %47, %46 ]
-  %17 = add nuw nsw i64 %.045, 1
-  %exitcond = icmp eq i64 %.045, 16
-  br i1 %exitcond, label %18, label %._crit_edge
+16:                                               ; preds = %.lr.ph, %46
+  %.046 = phi i64 [ 0, %.lr.ph ], [ %17, %46 ]
+  %.03045 = phi i64 [ 0, %.lr.ph ], [ %39, %46 ]
+  %.03144 = phi i8 [ 65, %.lr.ph ], [ %18, %46 ]
+  %.03343 = phi ptr [ %1, %.lr.ph ], [ %47, %46 ]
+  %17 = add nuw nsw i64 %.046, 1
+  %exitcond = icmp eq i64 %.046, 16
+  br i1 %exitcond, label %21, label %.preheader.preheader
 
-18:                                               ; preds = %16
+.preheader.preheader:                             ; preds = %16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %14, i8 %.03144, i64 %17, i1 false), !tbaa !54
+  %18 = add nuw nsw i8 %.03144, 1
+  %19 = call ptr @EVP_sha1() #6
+  %20 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %13, ptr noundef %19, ptr noundef null) #6
+  %.not38 = icmp eq i32 %20, 0
+  br i1 %.not38, label %22, label %23
+
+21:                                               ; preds = %16
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 170) #6
   br label %51
 
-._crit_edge:                                      ; preds = %16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %14, i8 %.03143, i64 %17, i1 false), !tbaa !54
-  %19 = add nuw nsw i8 %.03143, 1
-  %20 = call ptr @EVP_sha1() #6
-  %21 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %13, ptr noundef %20, ptr noundef null) #6
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %22, label %23
-
-22:                                               ; preds = %._crit_edge
+22:                                               ; preds = %.preheader.preheader
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 6, ptr noundef nonnull @.str, i32 noundef 179) #6
   br label %51
 
-23:                                               ; preds = %._crit_edge
+23:                                               ; preds = %.preheader.preheader
   %24 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %13, ptr noundef nonnull %14, i64 noundef %17) #6
   %25 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %13, ptr noundef %3, i64 noundef %4) #6
-  br i1 %.not38, label %28, label %26
+  br i1 %.not39, label %28, label %26
 
 26:                                               ; preds = %23
   %27 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %13, ptr noundef %7, i64 noundef %8) #6
   br label %28
 
 28:                                               ; preds = %26, %23
-  br i1 %.not39, label %31, label %29
+  br i1 %.not40, label %31, label %29
 
 29:                                               ; preds = %28
   %30 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %13, ptr noundef %9, i64 noundef %10) #6
@@ -302,8 +302,8 @@ define internal range(i32 0, 2) i32 @ssl3_prf(ptr readnone captures(none) %0, pt
   %32 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef null) #6
   %33 = call ptr @EVP_md5() #6
   %34 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %12, ptr noundef %33, ptr noundef null) #6
-  %.not40 = icmp eq i32 %34, 0
-  br i1 %.not40, label %35, label %36
+  %.not41 = icmp eq i32 %34, 0
+  br i1 %.not41, label %35, label %36
 
 35:                                               ; preds = %31
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 6, ptr noundef nonnull @.str, i32 noundef 194) #6
@@ -312,33 +312,33 @@ define internal range(i32 0, 2) i32 @ssl3_prf(ptr readnone captures(none) %0, pt
 36:                                               ; preds = %31
   %37 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %12, ptr noundef %3, i64 noundef %4) #6
   %38 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef 20) #6
-  %39 = add nuw nsw i64 %.03044, 16
+  %39 = add nuw nsw i64 %.03045, 16
   %40 = icmp ugt i64 %39, %2
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %36
   %42 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef null) #6
-  %43 = sub i64 %2, %.03044
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03342, ptr nonnull align 16 %15, i64 %43, i1 false)
+  %43 = sub i64 %2, %.03045
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03343, ptr nonnull align 16 %15, i64 %43, i1 false)
   br label %46
 
 44:                                               ; preds = %36
-  %45 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %12, ptr noundef %.03342, ptr noundef null) #6
+  %45 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %12, ptr noundef %.03343, ptr noundef null) #6
   br label %46
 
 46:                                               ; preds = %44, %41
-  %47 = getelementptr inbounds nuw i8, ptr %.03342, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.03343, i64 16
   %48 = icmp ult i64 %39, %2
-  br i1 %48, label %16, label %._crit_edge48, !llvm.loop !55
+  br i1 %48, label %16, label %._crit_edge, !llvm.loop !55
 
-._crit_edge48:                                    ; preds = %46, %11
+._crit_edge:                                      ; preds = %46, %11
   call void @OPENSSL_cleanse(ptr noundef nonnull %15, i64 noundef 20) #6
   %49 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %12) #6
   %50 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %13) #6
   br label %51
 
-51:                                               ; preds = %._crit_edge48, %35, %22, %18
-  %.032 = phi i32 [ 0, %18 ], [ 0, %35 ], [ 0, %22 ], [ 1, %._crit_edge48 ]
+51:                                               ; preds = %._crit_edge, %35, %22, %21
+  %.032 = phi i32 [ 0, %21 ], [ 0, %35 ], [ 0, %22 ], [ 1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

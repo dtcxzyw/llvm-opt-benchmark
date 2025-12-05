@@ -175739,8 +175739,8 @@ define hidden void @_ZN4gpui8platform5linux7wayland6window21WaylandWindowStatePt
   store i64 %33, ptr %16, align 8, !noalias !45425
   br label %34
 
-34:                                               ; preds = %122, %30
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %122 ], [ %31, %30 ]
+34:                                               ; preds = %120, %30
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm, %120 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn
 
 35:                                               ; preds = %19, %"._ZN89_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..FnMut$LT$Args$GT$$GT$8call_mut17he945896eb4cb0123E.exit_crit_edge"
@@ -175793,12 +175793,12 @@ define hidden void @_ZN4gpui8platform5linux7wayland6window21WaylandWindowStatePt
   br i1 %45, label %53, label %52
 
 52:                                               ; preds = %42
-  br i1 %brmerge1.not, label %54, label %84
+  br i1 %brmerge1.not, label %54, label %82
 
 53:                                               ; preds = %42
-  br i1 %brmerge1.not, label %70, label %84
+  br i1 %brmerge1.not, label %70, label %82
 
-54:                                               ; preds = %52, %70
+54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 2672
   %56 = load i32, ptr %55, align 8, !range !6848, !noundef !4
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 2676
@@ -175831,36 +175831,32 @@ define hidden void @_ZN4gpui8platform5linux7wayland6window21WaylandWindowStatePt
   br label %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread
 
 70:                                               ; preds = %53
-  %71 = trunc i8 %.sroa.7.0.copyload to i1
-  br i1 %71, label %54, label %72
-
-72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 4088
-  %74 = load float, ptr %73, align 8, !noundef !4
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 4092
-  %76 = load float, ptr %75, align 4, !noundef !4
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 4088
+  %72 = load float, ptr %71, align 8, !noundef !4
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 4092
+  %74 = load float, ptr %73, align 4, !noundef !4
   br label %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread
 
-_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread: ; preds = %72, %"_ZN4gpui8platform5linux7wayland6window18compute_outer_size28_$u7b$$u7b$closure$u7d$$u7d$17h766a8caf81276d99E.exit.i"
-  %.sroa.7.0.ph = phi float [ %.sroa.0.1.i.i, %"_ZN4gpui8platform5linux7wayland6window18compute_outer_size28_$u7b$$u7b$closure$u7d$$u7d$17h766a8caf81276d99E.exit.i" ], [ %74, %72 ]
-  %.sroa.9.0.ph = phi float [ %.sroa.6.1.i.i, %"_ZN4gpui8platform5linux7wayland6window18compute_outer_size28_$u7b$$u7b$closure$u7d$$u7d$17h766a8caf81276d99E.exit.i" ], [ %76, %72 ]
-  %77 = bitcast float %.sroa.7.0.ph to i32
-  %78 = bitcast float %.sroa.9.0.ph to i32
+_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread: ; preds = %70, %"_ZN4gpui8platform5linux7wayland6window18compute_outer_size28_$u7b$$u7b$closure$u7d$$u7d$17h766a8caf81276d99E.exit.i"
+  %.sroa.7.0.ph = phi float [ %.sroa.0.1.i.i, %"_ZN4gpui8platform5linux7wayland6window18compute_outer_size28_$u7b$$u7b$closure$u7d$$u7d$17h766a8caf81276d99E.exit.i" ], [ %72, %70 ]
+  %.sroa.9.0.ph = phi float [ %.sroa.6.1.i.i, %"_ZN4gpui8platform5linux7wayland6window18compute_outer_size28_$u7b$$u7b$closure$u7d$$u7d$17h766a8caf81276d99E.exit.i" ], [ %74, %70 ]
+  %75 = bitcast float %.sroa.7.0.ph to i32
+  %76 = bitcast float %.sroa.9.0.ph to i32
   br label %.thread164
 
 _ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit: ; preds = %54
-  %79 = bitcast i32 %.sroa.510.sroa.0.0.copyload131 to float
-  %80 = bitcast i32 %.sroa.510.sroa.0.0.copyload132 to float
+  %77 = bitcast i32 %.sroa.510.sroa.0.0.copyload131 to float
+  %78 = bitcast i32 %.sroa.510.sroa.0.0.copyload132 to float
   %trunc = trunc nuw i32 %.sroa.08.0.copyload to i1
   br i1 %trunc, label %.thread164, label %.thread179.sink.split
 
 .thread164:                                       ; preds = %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit
-  %81 = phi i32 [ %78, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread ], [ %.sroa.510.sroa.0.0.copyload132, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit ]
-  %82 = phi i32 [ %77, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread ], [ %.sroa.510.sroa.0.0.copyload131, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit ]
-  %.sroa.9.0153 = phi float [ %.sroa.9.0.ph, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread ], [ %80, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit ]
-  %.sroa.7.0151 = phi float [ %.sroa.7.0.ph, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread ], [ %79, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit ]
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 4080
-  store float 0.000000e+00, ptr %83, align 8
+  %79 = phi i32 [ %76, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread ], [ %.sroa.510.sroa.0.0.copyload132, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit ]
+  %80 = phi i32 [ %75, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread ], [ %.sroa.510.sroa.0.0.copyload131, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit ]
+  %.sroa.9.0153 = phi float [ %.sroa.9.0.ph, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread ], [ %78, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit ]
+  %.sroa.7.0151 = phi float [ %.sroa.7.0.ph, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit.thread ], [ %77, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit ]
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 4080
+  store float 0.000000e+00, ptr %81, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4084
   store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4088
@@ -175868,110 +175864,110 @@ _ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.e
   %.sroa.617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4092
   store float %.sroa.9.0153, ptr %.sroa.617.0..sroa_idx, align 4
   store i64 0, ptr %5, align 8, !noalias !45439
-  br label %85
+  br label %83
 
-84:                                               ; preds = %52, %53
+82:                                               ; preds = %52, %53
   store i64 0, ptr %5, align 8, !noalias !45446
   %trunc70 = trunc nuw i32 %.sroa.08.0.copyload to i1
-  br i1 %trunc70, label %85, label %.thread179
+  br i1 %trunc70, label %83, label %.thread179
 
-85:                                               ; preds = %84, %.thread164
-  %.sroa.12.0170 = phi i32 [ %81, %.thread164 ], [ %.sroa.510.sroa.0.0.copyload132, %84 ]
-  %.sroa.6137.0169 = phi i32 [ %82, %.thread164 ], [ %.sroa.510.sroa.0.0.copyload131, %84 ]
+83:                                               ; preds = %82, %.thread164
+  %.sroa.12.0170 = phi i32 [ %79, %.thread164 ], [ %.sroa.510.sroa.0.0.copyload132, %82 ]
+  %.sroa.6137.0169 = phi i32 [ %80, %.thread164 ], [ %.sroa.510.sroa.0.0.copyload131, %82 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !45450
-  %86 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %.sroa.6137.0169, ptr %86, align 4, !noalias !45450
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %.sroa.12.0170, ptr %87, align 4, !noalias !45450
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %.sroa.6137.0169, ptr %84, align 4, !noalias !45450
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %.sroa.12.0170, ptr %85, align 4, !noalias !45450
   store i32 1, ptr %3, align 4, !noalias !45450
   call void @_ZN4gpui8platform5linux7wayland6window21WaylandWindowStatePtr18set_size_and_scale17h3f6717d3c0cbc6ccE.llvm.6689388785225190856(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %3, i32 noundef 0, float undef)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !45450
   %.pr171 = load i64, ptr %5, align 8
-  %88 = icmp eq i64 %.pr171, 0
-  br i1 %88, label %.thread179, label %90
+  %86 = icmp eq i64 %.pr171, 0
+  br i1 %86, label %.thread179, label %88
 
 .thread179.sink.split:                            ; preds = %38, %59, %_ZN4gpui8platform5linux7wayland6window18compute_outer_size17hcc15f31872b93849E.exit
   store i64 0, ptr %5, align 8, !noalias !4
   br label %.thread179
 
-.thread179:                                       ; preds = %.thread179.sink.split, %84, %85
+.thread179:                                       ; preds = %.thread179.sink.split, %82, %83
   store i64 -1, ptr %5, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 2680
-  invoke void @_ZN17wayland_protocols3xdg5shell9generated6client11xdg_surface10XdgSurface13ack_configure17h9f07ed30af10763bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %89, i32 noundef %1)
-          to label %91 unwind label %122
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 2680
+  invoke void @_ZN17wayland_protocols3xdg5shell9generated6client11xdg_surface10XdgSurface13ack_configure17h9f07ed30af10763bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %87, i32 noundef %1)
+          to label %89 unwind label %120
 
-90:                                               ; preds = %85
+88:                                               ; preds = %83
   tail call void @_ZN4core4cell22panic_already_borrowed17h47d80d4a02d76176E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7523ee657f2e5dc230e124b7b1f1e478.880) #55
   unreachable
 
-91:                                               ; preds = %.thread179
+89:                                               ; preds = %.thread179
   %.sroa.3127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 3992
   %.sroa.3127.0.copyload = load float, ptr %.sroa.3127.0..sroa_idx, align 8
   %.sroa.4128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 3996
   %.sroa.4128.0.copyload = load float, ptr %.sroa.4128.0..sroa_idx, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %4, i64 2672
-  %93 = load i32, ptr %92, align 8, !range !6848, !noundef !4
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 2676
-  %95 = load float, ptr %94, align 4
-  %trunc71 = trunc nuw i32 %93 to i1
-  %.sroa.061.0 = select i1 %trunc71, float %95, float 0.000000e+00
-  %96 = getelementptr inbounds nuw i8, ptr %4, i64 4116
-  %.sroa.020.0.copyload = load i32, ptr %96, align 4
-  %97 = trunc i32 %.sroa.020.0.copyload to i1
-  %98 = fadd float %.sroa.061.0, 0.000000e+00
-  %99 = fsub float %.sroa.4128.0.copyload, %.sroa.061.0
-  %.sroa.16.0 = select i1 %97, float %.sroa.4128.0.copyload, float %99
-  %100 = and i32 %.sroa.020.0.copyload, 16777216
-  %.not.i77 = icmp eq i32 %100, 0
-  %101 = fsub float %.sroa.16.0, %.sroa.061.0
-  %.sroa.16.1 = select i1 %.not.i77, float %101, float %.sroa.16.0
-  %102 = and i32 %.sroa.020.0.copyload, 256
-  %.not3.i = icmp eq i32 %102, 0
-  %103 = fsub float %.sroa.3127.0.copyload, %.sroa.061.0
-  %.sroa.10123.0 = select i1 %.not3.i, float %103, float %.sroa.3127.0.copyload
-  %104 = and i32 %.sroa.020.0.copyload, 65536
-  %.not4.i = icmp eq i32 %104, 0
-  %105 = fsub float %.sroa.10123.0, %.sroa.061.0
-  %.sroa.10123.1 = select i1 %.not4.i, float %105, float %.sroa.10123.0
-  %106 = tail call i32 @llvm.fptosi.sat.i32.f32(float %98)
-  %107 = select i1 %.not3.i, i32 %106, i32 0
-  %108 = select i1 %97, i32 0, i32 %106
-  %109 = tail call noundef i32 @llvm.fptosi.sat.i32.f32(float %.sroa.10123.1)
-  %110 = tail call noundef i32 @llvm.fptosi.sat.i32.f32(float %.sroa.16.1)
-  %..i.i.i = tail call noundef i32 @llvm.smax.i32(i32 %109, i32 1)
-  %..i2.i.i = tail call noundef i32 @llvm.smax.i32(i32 %110, i32 1)
-  invoke void @_ZN17wayland_protocols3xdg5shell9generated6client11xdg_surface10XdgSurface19set_window_geometry17hc2720b7099082ac1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %89, i32 noundef %107, i32 noundef %108, i32 noundef %..i.i.i, i32 noundef %..i2.i.i)
-          to label %111 unwind label %122
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 2672
+  %91 = load i32, ptr %90, align 8, !range !6848, !noundef !4
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 2676
+  %93 = load float, ptr %92, align 4
+  %trunc71 = trunc nuw i32 %91 to i1
+  %.sroa.061.0 = select i1 %trunc71, float %93, float 0.000000e+00
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 4116
+  %.sroa.020.0.copyload = load i32, ptr %94, align 4
+  %95 = trunc i32 %.sroa.020.0.copyload to i1
+  %96 = fadd float %.sroa.061.0, 0.000000e+00
+  %97 = fsub float %.sroa.4128.0.copyload, %.sroa.061.0
+  %.sroa.16.0 = select i1 %95, float %.sroa.4128.0.copyload, float %97
+  %98 = and i32 %.sroa.020.0.copyload, 16777216
+  %.not.i77 = icmp eq i32 %98, 0
+  %99 = fsub float %.sroa.16.0, %.sroa.061.0
+  %.sroa.16.1 = select i1 %.not.i77, float %99, float %.sroa.16.0
+  %100 = and i32 %.sroa.020.0.copyload, 256
+  %.not3.i = icmp eq i32 %100, 0
+  %101 = fsub float %.sroa.3127.0.copyload, %.sroa.061.0
+  %.sroa.10123.0 = select i1 %.not3.i, float %101, float %.sroa.3127.0.copyload
+  %102 = and i32 %.sroa.020.0.copyload, 65536
+  %.not4.i = icmp eq i32 %102, 0
+  %103 = fsub float %.sroa.10123.0, %.sroa.061.0
+  %.sroa.10123.1 = select i1 %.not4.i, float %103, float %.sroa.10123.0
+  %104 = tail call i32 @llvm.fptosi.sat.i32.f32(float %96)
+  %105 = select i1 %.not3.i, i32 %104, i32 0
+  %106 = select i1 %95, i32 0, i32 %104
+  %107 = tail call noundef i32 @llvm.fptosi.sat.i32.f32(float %.sroa.10123.1)
+  %108 = tail call noundef i32 @llvm.fptosi.sat.i32.f32(float %.sroa.16.1)
+  %..i.i.i = tail call noundef i32 @llvm.smax.i32(i32 %107, i32 1)
+  %..i2.i.i = tail call noundef i32 @llvm.smax.i32(i32 %108, i32 1)
+  invoke void @_ZN17wayland_protocols3xdg5shell9generated6client11xdg_surface10XdgSurface19set_window_geometry17hc2720b7099082ac1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %87, i32 noundef %105, i32 noundef %106, i32 noundef %..i.i.i, i32 noundef %..i2.i.i)
+          to label %109 unwind label %120
 
-111:                                              ; preds = %91
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 4132
-  %113 = load i8, ptr %112, align 4, !range !232, !noundef !4
-  %114 = trunc nuw i8 %113 to i1
-  br i1 %114, label %115, label %119
+109:                                              ; preds = %89
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 4132
+  %111 = load i8, ptr %110, align 4, !range !232, !noundef !4
+  %112 = trunc nuw i8 %111 to i1
+  br i1 %112, label %113, label %117
 
-115:                                              ; preds = %111
-  %116 = load i64, ptr %5, align 8, !noalias !45453, !noundef !4
-  %117 = add i64 %116, 1
-  store i64 %117, ptr %5, align 8, !noalias !45453
-  br label %118
+113:                                              ; preds = %109
+  %114 = load i64, ptr %5, align 8, !noalias !45453, !noundef !4
+  %115 = add i64 %114, 1
+  store i64 %115, ptr %5, align 8, !noalias !45453
+  br label %116
 
-118:                                              ; preds = %119, %115
+116:                                              ; preds = %117, %113
   ret void
 
-119:                                              ; preds = %111
-  store i8 1, ptr %112, align 4
-  %120 = load i64, ptr %5, align 8, !noalias !45460, !noundef !4
-  %121 = add i64 %120, 1
-  store i64 %121, ptr %5, align 8, !noalias !45460
+117:                                              ; preds = %109
+  store i8 1, ptr %110, align 4
+  %118 = load i64, ptr %5, align 8, !noalias !45460, !noundef !4
+  %119 = add i64 %118, 1
+  store i64 %119, ptr %5, align 8, !noalias !45460
   tail call void @_ZN4gpui8platform5linux7wayland6window21WaylandWindowStatePtr5frame17hc749f47bd235e760E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
-  br label %118
+  br label %116
 
-122:                                              ; preds = %91, %.thread179
+120:                                              ; preds = %89, %.thread179
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %123 = load i64, ptr %5, align 8, !noalias !45467, !noundef !4
-  %124 = add i64 %123, 1
-  store i64 %124, ptr %5, align 8, !noalias !45467
+  %121 = load i64, ptr %5, align 8, !noalias !45467, !noundef !4
+  %122 = add i64 %121, 1
+  store i64 %122, ptr %5, align 8, !noalias !45467
   br label %34
 }
 

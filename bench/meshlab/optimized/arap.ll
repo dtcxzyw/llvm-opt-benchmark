@@ -17677,14 +17677,15 @@ define linkonce_odr void @_ZN5Eigen8internal12SparseLUImplIdiE7countnzElRlS3_RNS
   br i1 %or.cond, label %.loopexit28, label %.lr.ph33
 
 .lr.ph33:                                         ; preds = %5
-  %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %narrow = add nuw i32 %14, 1
+  %17 = zext i32 %narrow to i64
   %.pre = load ptr, ptr %4, align 8
   br label %19
 
 .loopexit:                                        ; preds = %35, %19
   %18 = phi ptr [ %20, %19 ], [ %43, %35 ]
-  %exitcond.not = icmp eq i64 %.02732, %16
+  %exitcond.not = icmp eq i64 %23, %17
   br i1 %exitcond.not, label %.loopexit28, label %19, !llvm.loop !309
 
 19:                                               ; preds = %.lr.ph33, %.loopexit
@@ -17700,7 +17701,7 @@ define linkonce_odr void @_ZN5Eigen8internal12SparseLUImplIdiE7countnzElRlS3_RNS
 
 .lr.ph:                                           ; preds = %19
   %27 = sext i32 %22 to i64
-  %28 = load ptr, ptr %17, align 8
+  %28 = load ptr, ptr %16, align 8
   %29 = getelementptr i32, ptr %28, i64 %27
   %30 = getelementptr i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
@@ -17743,15 +17744,16 @@ define linkonce_odr void @_ZN5Eigen8internal12SparseLUImplIdiE6fixupLElRKNS_6Mat
   br i1 %.not43, label %._crit_edge, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %4
-  %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %narrow = add nuw i32 %8, 1
+  %11 = zext i32 %narrow to i64
   %.pre = load ptr, ptr %3, align 8
   br label %13
 
 .loopexit:                                        ; preds = %.lr.ph41, %.preheader
   %12 = phi ptr [ %30, %.preheader ], [ %52, %.lr.ph41 ]
-  %exitcond.not = icmp eq i64 %.045, %9
+  %exitcond.not = icmp eq i64 %29, %11
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !311
 
 13:                                               ; preds = %.lr.ph46, %.loopexit
@@ -17761,12 +17763,12 @@ define linkonce_odr void @_ZN5Eigen8internal12SparseLUImplIdiE6fixupLElRKNS_6Mat
   %15 = getelementptr inbounds nuw i32, ptr %14, i64 %.045
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %9, align 8
   %19 = getelementptr inbounds i32, ptr %18, i64 %17
   %20 = load i32, ptr %19, align 4
   store i32 %.03344, ptr %19, align 4
   %21 = add nsw i64 %17, 1
-  %22 = load ptr, ptr %10, align 8
+  %22 = load ptr, ptr %9, align 8
   %23 = getelementptr inbounds i32, ptr %22, i64 %21
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %20, %24
@@ -17794,7 +17796,7 @@ define linkonce_odr void @_ZN5Eigen8internal12SparseLUImplIdiE6fixupLElRKNS_6Mat
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03437 = phi i64 [ %26, %.lr.ph.preheader ], [ %43, %.lr.ph ]
-  %35 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %10, align 8
   %36 = getelementptr inbounds i32, ptr %35, i64 %.03437
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
@@ -17805,7 +17807,7 @@ define linkonce_odr void @_ZN5Eigen8internal12SparseLUImplIdiE6fixupLElRKNS_6Mat
   store i32 %41, ptr %42, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %43 = add nsw i64 %.03437, 1
-  %44 = load ptr, ptr %10, align 8
+  %44 = load ptr, ptr %9, align 8
   %45 = getelementptr inbounds i32, ptr %44, i64 %21
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
@@ -17814,7 +17816,7 @@ define linkonce_odr void @_ZN5Eigen8internal12SparseLUImplIdiE6fixupLElRKNS_6Mat
 
 .lr.ph41:                                         ; preds = %.preheader, %.lr.ph41
   %.03540 = phi i64 [ %51, %.lr.ph41 ], [ %21, %.preheader ]
-  %49 = load ptr, ptr %10, align 8
+  %49 = load ptr, ptr %9, align 8
   %50 = getelementptr inbounds i32, ptr %49, i64 %.03540
   store i32 %.1.lcssa, ptr %50, align 4
   %51 = add nsw i64 %.03540, 1

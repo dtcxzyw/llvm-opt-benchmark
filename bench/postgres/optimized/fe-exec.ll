@@ -246,7 +246,6 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captu
   br i1 %.not, label %32, label %.preheader44
 
 .preheader44:                                     ; preds = %5, %25
-  %indvars.iv52 = phi i32 [ %indvars.iv.next53, %25 ], [ -1, %5 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %5 ]
   %.03747 = phi i64 [ %28, %25 ], [ %7, %5 ]
   %9 = getelementptr inbounds nuw %struct.PGEvent, ptr %0, i64 %indvars.iv
@@ -270,22 +269,18 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captu
   br i1 %.not43, label %.preheader, label %25
 
 .preheader:                                       ; preds = %.preheader44
-  %.not49 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not49, label %._crit_edge, label %.lr.ph.preheader
+  %.not50 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not50, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %21 = zext i32 %indvars.iv52 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv55 = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next56, %.lr.ph ]
-  %22 = getelementptr inbounds nuw %struct.PGEvent, ptr %8, i64 %indvars.iv55
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8
-  tail call void @free(ptr noundef %24) #28
-  %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %.not61 = icmp eq i64 %indvars.iv55, 0
-  br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !3
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph ], [ %indvars.iv, %.preheader ]
+  %indvars.iv.next55 = add nsw i64 %indvars.iv54, -1
+  %21 = getelementptr inbounds nuw %struct.PGEvent, ptr %8, i64 %indvars.iv.next55
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  tail call void @free(ptr noundef %23) #28
+  %24 = icmp sgt i64 %indvars.iv54, 1
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call void @free(ptr noundef nonnull %8) #28
@@ -297,7 +292,6 @@ define internal fastcc noalias noundef ptr @dupEvents(ptr noundef readonly captu
   %28 = add i64 %27, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  %indvars.iv.next53 = add nsw i32 %indvars.iv52, 1
   br i1 %exitcond.not, label %29, label %.preheader44, !llvm.loop !5
 
 29:                                               ; preds = %25

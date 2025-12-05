@@ -18532,7 +18532,7 @@ define internal fastcc void @_ZN5salsa5table4memo21MemoTableWithTypesMut4drop17h
   br i1 %23, label %.preheader.i.i.i.i, label %27
 
 24:                                               ; preds = %.loopexit.i.i.i.i
-  %25 = add nuw nsw i64 %.sroa.4.1, 1
+  %25 = add i64 %.sroa.4.1, 1
   %26 = shl nuw i64 64, %.sroa.4.1
   br label %.lr.ph.i.i.i.i
 
@@ -34567,44 +34567,44 @@ define hidden void @_ZN5salsa5views5Views14downcaster_for17h47776f98913b60f5E(pt
 .lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %38
   %.sroa.5.034 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %.sroa.5.1, %38 ]
   %.sroa.9.033 = phi i64 [ 32, %.lr.ph.i.lr.ph ], [ %.sroa.9.1, %38 ]
-  %.sroa.12.032 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %18, %38 ]
+  %.sroa.12.032 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %17, %38 ]
   %.sroa.16.031 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %25, %38 ]
   br label %9
 
-9:                                                ; preds = %22, %.lr.ph.i
-  %.sroa.12.1 = phi i64 [ %.sroa.12.032, %.lr.ph.i ], [ 0, %22 ]
-  %.sroa.9.1 = phi i64 [ %.sroa.9.033, %.lr.ph.i ], [ %23, %22 ]
-  %.sroa.5.1 = phi i64 [ %.sroa.5.034, %.lr.ph.i ], [ %13, %22 ]
+9:                                                ; preds = %21, %.lr.ph.i
+  %.sroa.12.1 = phi i64 [ %.sroa.12.032, %.lr.ph.i ], [ 0, %21 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.033, %.lr.ph.i ], [ %23, %21 ]
+  %.sroa.5.1 = phi i64 [ %.sroa.5.034, %.lr.ph.i ], [ %22, %21 ]
   %10 = getelementptr inbounds nuw { { ptr } }, ptr %8, i64 %.sroa.5.1
   %11 = load atomic ptr, ptr %10 acquire, align 8, !noalias !1887
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %9
-  %13 = add i64 %.sroa.5.1, 1
-  %14 = icmp ult i64 %13, 59
-  br i1 %14, label %22, label %.loopexit
+  %13 = icmp ult i64 %.sroa.5.1, 58
+  br i1 %13, label %21, label %.loopexit
 
-.preheader.i:                                     ; preds = %9, %16
-  %.sroa.12.2 = phi i64 [ %18, %16 ], [ %.sroa.12.1, %9 ]
-  %15 = icmp ult i64 %.sroa.12.2, %.sroa.9.1
-  br i1 %15, label %16, label %.loopexit.i
+.preheader.i:                                     ; preds = %9, %15
+  %.sroa.12.2 = phi i64 [ %17, %15 ], [ %.sroa.12.1, %9 ]
+  %14 = icmp ult i64 %.sroa.12.2, %.sroa.9.1
+  br i1 %14, label %15, label %.loopexit.i
 
-16:                                               ; preds = %.preheader.i
-  %17 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %11, i64 %.sroa.12.2
-  %18 = add nuw i64 %.sroa.12.2, 1
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %20 = load atomic i8, ptr %19 acquire, align 1, !noalias !1887
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %.preheader.i, label %24
+15:                                               ; preds = %.preheader.i
+  %16 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %11, i64 %.sroa.12.2
+  %17 = add nuw i64 %.sroa.12.2, 1
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %19 = load atomic i8, ptr %18 acquire, align 1, !noalias !1887
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %.preheader.i, label %24
 
-22:                                               ; preds = %.loopexit.i
+21:                                               ; preds = %.loopexit.i
+  %22 = add nuw nsw i64 %.sroa.5.1, 1
   %23 = shl nuw i64 64, %.sroa.5.1
   br label %9
 
-24:                                               ; preds = %16
+24:                                               ; preds = %15
   %25 = add i64 %.sroa.16.031, 1
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %27 = load i64, ptr %26, align 8, !noundef !4
   %28 = icmp eq i64 %27, 3326566396564680275
   br i1 %28, label %34, label %38
@@ -34632,7 +34632,7 @@ define hidden void @_ZN5salsa5views5Views14downcaster_for17h47776f98913b60f5E(pt
   unreachable
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %36 = load i64, ptr %35, align 8, !noundef !4
   %37 = icmp eq i64 %36, 7469766667972927328
   br i1 %37, label %40, label %38
@@ -34646,7 +34646,7 @@ define hidden void @_ZN5salsa5views5Views14downcaster_for17h47776f98913b60f5E(pt
   %41 = load i64, ptr %1, align 8, !noundef !4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i64, ptr %42, align 8, !noundef !4
-  %44 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %41, ptr %46, align 8
@@ -46719,44 +46719,44 @@ define void @"_ZN104_$LT$ty_python_semantic..suppression..suppressions..Configur
 .lr.ph.i.i:                                       ; preds = %136, %.lr.ph.i.lr.ph.i
   %.sroa.5.034.i = phi i64 [ 0, %.lr.ph.i.lr.ph.i ], [ %.sroa.5.1.i, %136 ]
   %.sroa.9.033.i = phi i64 [ 32, %.lr.ph.i.lr.ph.i ], [ %.sroa.9.1.i, %136 ]
-  %.sroa.12.032.i = phi i64 [ 0, %.lr.ph.i.lr.ph.i ], [ %116, %136 ]
+  %.sroa.12.032.i = phi i64 [ 0, %.lr.ph.i.lr.ph.i ], [ %115, %136 ]
   %.sroa.16.031.i = phi i64 [ 0, %.lr.ph.i.lr.ph.i ], [ %123, %136 ]
   br label %107
 
-107:                                              ; preds = %120, %.lr.ph.i.i
-  %.sroa.12.1.i = phi i64 [ %.sroa.12.032.i, %.lr.ph.i.i ], [ 0, %120 ]
-  %.sroa.9.1.i = phi i64 [ %.sroa.9.033.i, %.lr.ph.i.i ], [ %121, %120 ]
-  %.sroa.5.1.i = phi i64 [ %.sroa.5.034.i, %.lr.ph.i.i ], [ %111, %120 ]
+107:                                              ; preds = %119, %.lr.ph.i.i
+  %.sroa.12.1.i = phi i64 [ %.sroa.12.032.i, %.lr.ph.i.i ], [ 0, %119 ]
+  %.sroa.9.1.i = phi i64 [ %.sroa.9.033.i, %.lr.ph.i.i ], [ %121, %119 ]
+  %.sroa.5.1.i = phi i64 [ %.sroa.5.034.i, %.lr.ph.i.i ], [ %120, %119 ]
   %108 = getelementptr inbounds nuw { { ptr } }, ptr %106, i64 %.sroa.5.1.i
   %109 = load atomic ptr, ptr %108 acquire, align 8, !noalias !2853
   %110 = icmp eq ptr %109, null
   br i1 %110, label %.loopexit.i.i, label %.preheader.i.i
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %107
-  %111 = add i64 %.sroa.5.1.i, 1
-  %112 = icmp ult i64 %111, 59
-  br i1 %112, label %120, label %.loopexit.i
+  %111 = icmp ult i64 %.sroa.5.1.i, 58
+  br i1 %111, label %119, label %.loopexit.i
 
-.preheader.i.i:                                   ; preds = %107, %114
-  %.sroa.12.2.i = phi i64 [ %116, %114 ], [ %.sroa.12.1.i, %107 ]
-  %113 = icmp ult i64 %.sroa.12.2.i, %.sroa.9.1.i
-  br i1 %113, label %114, label %.loopexit.i.i
+.preheader.i.i:                                   ; preds = %107, %113
+  %.sroa.12.2.i = phi i64 [ %115, %113 ], [ %.sroa.12.1.i, %107 ]
+  %112 = icmp ult i64 %.sroa.12.2.i, %.sroa.9.1.i
+  br i1 %112, label %113, label %.loopexit.i.i
 
-114:                                              ; preds = %.preheader.i.i
-  %115 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %109, i64 %.sroa.12.2.i
-  %116 = add nuw i64 %.sroa.12.2.i, 1
-  %117 = getelementptr inbounds nuw i8, ptr %115, i64 40
-  %118 = load atomic i8, ptr %117 acquire, align 1, !noalias !2853
-  %119 = icmp eq i8 %118, 0
-  br i1 %119, label %.preheader.i.i, label %122
+113:                                              ; preds = %.preheader.i.i
+  %114 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %109, i64 %.sroa.12.2.i
+  %115 = add nuw i64 %.sroa.12.2.i, 1
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 40
+  %117 = load atomic i8, ptr %116 acquire, align 1, !noalias !2853
+  %118 = icmp eq i8 %117, 0
+  br i1 %118, label %.preheader.i.i, label %122
 
-120:                                              ; preds = %.loopexit.i.i
+119:                                              ; preds = %.loopexit.i.i
+  %120 = add nuw nsw i64 %.sroa.5.1.i, 1
   %121 = shl nuw i64 64, %.sroa.5.1.i
   br label %107
 
-122:                                              ; preds = %114
+122:                                              ; preds = %113
   %123 = add i64 %.sroa.16.031.i, 1
-  %124 = getelementptr inbounds nuw i8, ptr %115, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %125 = load i64, ptr %124, align 8, !noalias !2866, !noundef !4
   %126 = icmp eq i64 %125, 3326566396564680275
   br i1 %126, label %132, label %136
@@ -46784,7 +46784,7 @@ define void @"_ZN104_$LT$ty_python_semantic..suppression..suppressions..Configur
   unreachable
 
 132:                                              ; preds = %122
-  %133 = getelementptr inbounds nuw i8, ptr %115, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %134 = load i64, ptr %133, align 8, !noalias !2866, !noundef !4
   %135 = icmp eq i64 %134, 7469766667972927328
   br i1 %135, label %139, label %136
@@ -46802,7 +46802,7 @@ define void @"_ZN104_$LT$ty_python_semantic..suppression..suppressions..Configur
   %140 = load i64, ptr %94, align 8, !noalias !2866, !noundef !4
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 672
   %142 = load i64, ptr %141, align 8, !noalias !2866, !noundef !4
-  %143 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %144 = load ptr, ptr %143, align 8, !noalias !2866, !nonnull !4, !noundef !4
   %.sroa.015.sroa.4.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.015.sroa.4, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.015.sroa.4.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) @anon.bd069b0397abcbf5d72b25326b9d08c3.479, i64 32, i1 false)

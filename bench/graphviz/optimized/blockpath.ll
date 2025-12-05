@@ -337,9 +337,9 @@ clone_graph.exit.i:                               ; preds = %._crit_edge67.i.i, 
 
 147:                                              ; preds = %.lr.ph.i44.i
   %148 = icmp eq i64 %spec.select.i.i10.i.i, 0
-  %149 = shl i64 %spec.select.i.i10.i.i, 1
+  %149 = shl nuw nsw i64 %spec.select.i.i10.i.i, 1
   %spec.select.i.i.i.i = select i1 %148, i64 1, i64 %149
-  %mul.ov.i.i.i.i = icmp ugt i64 %spec.select.i.i.i.i, 2305843009213693951
+  %mul.ov.i.i.i.i = icmp samesign ugt i64 %spec.select.i.i.i.i, 2305843009213693951
   br i1 %mul.ov.i.i.i.i, label %166, label %150
 
 150:                                              ; preds = %147
@@ -1317,9 +1317,9 @@ measure_distance.exit.i:                          ; preds = %tailrecurse.i.i, %5
 
 583:                                              ; preds = %577
   %584 = icmp eq i64 %578, 0
-  %585 = shl i64 %578, 1
+  %585 = shl nuw nsw i64 %578, 1
   %spec.select.i.i59.i = select i1 %584, i64 1, i64 %585
-  %mul.ov.i.i60.i = icmp ugt i64 %spec.select.i.i59.i, 2305843009213693951
+  %mul.ov.i.i60.i = icmp samesign ugt i64 %spec.select.i.i59.i, 2305843009213693951
   br i1 %mul.ov.i.i60.i, label %604, label %586
 
 586:                                              ; preds = %583

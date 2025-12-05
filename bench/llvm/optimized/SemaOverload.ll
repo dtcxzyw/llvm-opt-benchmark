@@ -90997,33 +90997,32 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %7, %13, %2
 .lr.ph:                                           ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %42 = and i64 %38, 7
-  %43 = add nuw nsw i64 %42, 1
-  br label %44
+  br label %43
 
-44:                                               ; preds = %.lr.ph, %52
-  %indvars.iv = phi i64 [ %43, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %45 = trunc nuw nsw i64 %indvars.iv to i32
-  %46 = or i32 %40, %45
-  %47 = zext i32 %46 to i64
-  %.not = icmp eq i64 %indvars.iv, %47
-  br i1 %.not, label %_ZNK5clang10ASTContext19getCVRQualifiedTypeENS_8QualTypeEj.exit, label %52
-
-_ZNK5clang10ASTContext19getCVRQualifiedTypeENS_8QualTypeEj.exit: ; preds = %44
-  %48 = or i64 %.sroa.0.0.copyload.i, %indvars.iv
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %49 = load ptr, ptr %41, align 8, !tbaa !1912
-  %50 = call i64 @_ZNK5clang10ASTContext20getMemberPointerTypeENS_8QualTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %49, i64 %48, ptr noundef %36) #30
-  store i64 %50, ptr %4, align 8
-  %51 = call noundef zeroext i1 @_ZN4llvm9SetVectorIN5clang8QualTypeENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE6insertERKS2_(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %52
-
-52:                                               ; preds = %44, %_ZNK5clang10ASTContext19getCVRQualifiedTypeENS_8QualTypeEj.exit
+43:                                               ; preds = %.lr.ph, %51
+  %indvars.iv = phi i64 [ %42, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !2293
+  %44 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %45 = or i32 %40, %44
+  %46 = zext i32 %45 to i64
+  %.not = icmp eq i64 %indvars.iv.next, %46
+  br i1 %.not, label %_ZNK5clang10ASTContext19getCVRQualifiedTypeENS_8QualTypeEj.exit, label %51
 
-.loopexit:                                        ; preds = %52, %34, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit, %2
+_ZNK5clang10ASTContext19getCVRQualifiedTypeENS_8QualTypeEj.exit: ; preds = %43
+  %47 = or i64 %.sroa.0.0.copyload.i, %indvars.iv.next
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %48 = load ptr, ptr %41, align 8, !tbaa !1912
+  %49 = call i64 @_ZNK5clang10ASTContext20getMemberPointerTypeENS_8QualTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %48, i64 %47, ptr noundef %36) #30
+  store i64 %49, ptr %4, align 8
+  %50 = call noundef zeroext i1 @_ZN4llvm9SetVectorIN5clang8QualTypeENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE6insertERKS2_(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %51
+
+51:                                               ; preds = %43, %_ZNK5clang10ASTContext19getCVRQualifiedTypeENS_8QualTypeEj.exit
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !2293
+
+.loopexit:                                        ; preds = %51, %34, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit, %2
   ret void
 }
 

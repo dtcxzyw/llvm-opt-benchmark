@@ -5393,8 +5393,8 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 17:                                               ; preds = %14, %17
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %17 ]
-  %.079108 = phi i64 [ 0, %14 ], [ %22, %17 ]
-  %18 = shl i64 %.079108, 8
+  %.079107 = phi i64 [ 0, %14 ], [ %22, %17 ]
+  %18 = shl i64 %.079107, 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1, !tbaa !25
   %21 = zext i8 %20 to i64
@@ -5432,23 +5432,23 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
   %40 = icmp slt i64 %34, 1075
   %41 = and i64 %.1, 1
   %42 = icmp eq i64 %41, 0
-  %or.cond97109 = select i1 %40, i1 %42, i1 false
-  br i1 %or.cond97109, label %.lr.ph113, label %.critedge
+  %or.cond108 = select i1 %40, i1 %42, i1 false
+  br i1 %or.cond108, label %.lr.ph112, label %.critedge
 
-.lr.ph113:                                        ; preds = %33, %.lr.ph113
-  %.2111 = phi i64 [ %43, %.lr.ph113 ], [ %.1, %33 ]
-  %.185110 = phi i32 [ %44, %.lr.ph113 ], [ %35, %33 ]
-  %43 = lshr exact i64 %.2111, 1
-  %44 = add nsw i32 %.185110, 1
-  %45 = icmp slt i32 %.185110, 1074
-  %46 = and i64 %.2111, 2
+.lr.ph112:                                        ; preds = %33, %.lr.ph112
+  %.2110 = phi i64 [ %43, %.lr.ph112 ], [ %.1, %33 ]
+  %.185109 = phi i32 [ %44, %.lr.ph112 ], [ %35, %33 ]
+  %43 = lshr exact i64 %.2110, 1
+  %44 = add nsw i32 %.185109, 1
+  %45 = icmp slt i32 %.185109, 1074
+  %46 = and i64 %.2110, 2
   %47 = icmp eq i64 %46, 0
-  %or.cond97 = select i1 %45, i1 %47, i1 false
-  br i1 %or.cond97, label %.lr.ph113, label %.critedge, !llvm.loop !93
+  %or.cond = select i1 %45, i1 %47, i1 false
+  br i1 %or.cond, label %.lr.ph112, label %.critedge, !llvm.loop !93
 
-.critedge:                                        ; preds = %.lr.ph113, %33
-  %.185.lcssa = phi i32 [ %35, %33 ], [ %44, %.lr.ph113 ]
-  %.2.lcssa = phi i64 [ %.1, %33 ], [ %43, %.lr.ph113 ]
+.critedge:                                        ; preds = %.lr.ph112, %33
+  %.185.lcssa = phi i32 [ %35, %33 ], [ %44, %.lr.ph112 ]
+  %.2.lcssa = phi i64 [ %.1, %33 ], [ %43, %.lr.ph112 ]
   br i1 %29, label %50, label %48
 
 48:                                               ; preds = %.critedge
@@ -5513,36 +5513,36 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 74:                                               ; preds = %67, %69
   %.075 = phi i64 [ %68, %67 ], [ %62, %69 ]
-  %.not98 = icmp samesign ult i64 %.075, 9007199254740992
-  br i1 %.not98, label %.preheader, label %.lr.ph
+  %.not97 = icmp samesign ult i64 %.075, 9007199254740992
+  br i1 %.not97, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %74
   %.176.lcssa = phi i64 [ %.075, %74 ], [ %77, %.lr.ph ]
   %.173.lcssa = phi i64 [ %.072, %74 ], [ %78, %.lr.ph ]
   %75 = add nsw i64 %.176.lcssa, -1
   %76 = icmp ult i64 %75, 4503599627370495
-  br i1 %76, label %.lr.ph104, label %._crit_edge
+  br i1 %76, label %.lr.ph103, label %._crit_edge
 
 .lr.ph:                                           ; preds = %74, %.lr.ph
-  %.173100 = phi i64 [ %78, %.lr.ph ], [ %.072, %74 ]
-  %.17699 = phi i64 [ %77, %.lr.ph ], [ %.075, %74 ]
-  %77 = lshr i64 %.17699, 1
-  %78 = add nsw i64 %.173100, 1
-  %.not = icmp ult i64 %.17699, 18014398509481984
+  %.17399 = phi i64 [ %78, %.lr.ph ], [ %.072, %74 ]
+  %.17698 = phi i64 [ %77, %.lr.ph ], [ %.075, %74 ]
+  %77 = lshr i64 %.17698, 1
+  %78 = add nsw i64 %.17399, 1
+  %.not = icmp ult i64 %.17698, 18014398509481984
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !94
 
-.lr.ph104:                                        ; preds = %.preheader, %.lr.ph104
-  %.274103 = phi i64 [ %80, %.lr.ph104 ], [ %.173.lcssa, %.preheader ]
-  %.277102 = phi i64 [ %79, %.lr.ph104 ], [ %.176.lcssa, %.preheader ]
-  %79 = shl nuw nsw i64 %.277102, 1
-  %80 = add nsw i64 %.274103, -1
+.lr.ph103:                                        ; preds = %.preheader, %.lr.ph103
+  %.274102 = phi i64 [ %80, %.lr.ph103 ], [ %.173.lcssa, %.preheader ]
+  %.277101 = phi i64 [ %79, %.lr.ph103 ], [ %.176.lcssa, %.preheader ]
+  %79 = shl nuw nsw i64 %.277101, 1
+  %80 = add nsw i64 %.274102, -1
   %81 = add nsw i64 %79, -1
   %82 = icmp samesign ult i64 %81, 4503599627370495
-  br i1 %82, label %.lr.ph104, label %._crit_edge, !llvm.loop !95
+  br i1 %82, label %.lr.ph103, label %._crit_edge, !llvm.loop !95
 
-._crit_edge:                                      ; preds = %.lr.ph104, %.preheader
-  %.277.lcssa = phi i64 [ %.176.lcssa, %.preheader ], [ %79, %.lr.ph104 ]
-  %.274.lcssa = phi i64 [ %.173.lcssa, %.preheader ], [ %80, %.lr.ph104 ]
+._crit_edge:                                      ; preds = %.lr.ph103, %.preheader
+  %.277.lcssa = phi i64 [ %.176.lcssa, %.preheader ], [ %79, %.lr.ph103 ]
+  %.274.lcssa = phi i64 [ %.173.lcssa, %.preheader ], [ %80, %.lr.ph103 ]
   %83 = icmp slt i64 %.274.lcssa, -1074
   br i1 %83, label %84, label %88
 
@@ -33877,19 +33877,19 @@ define internal fastcc ptr @decimalFromDouble(double noundef %0) unnamed_addr #1
   %14 = icmp slt i64 %8, 1075
   %15 = and i64 %.129, 1
   %16 = icmp eq i64 %15, 0
-  %or.cond3536 = select i1 %14, i1 %16, i1 false
-  br i1 %or.cond3536, label %.lr.ph, label %.critedge
+  %or.cond35 = select i1 %14, i1 %16, i1 false
+  br i1 %or.cond35, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.138 = phi i32 [ %18, %.lr.ph ], [ %9, %7 ]
-  %.237 = phi i64 [ %17, %.lr.ph ], [ %.129, %7 ]
-  %17 = lshr exact i64 %.237, 1
-  %18 = add nsw i32 %.138, 1
-  %19 = icmp slt i32 %.138, 1074
-  %20 = and i64 %.237, 2
+  %.137 = phi i32 [ %18, %.lr.ph ], [ %9, %7 ]
+  %.236 = phi i64 [ %17, %.lr.ph ], [ %.129, %7 ]
+  %17 = lshr exact i64 %.236, 1
+  %18 = add nsw i32 %.137, 1
+  %19 = icmp slt i32 %.137, 1074
+  %20 = and i64 %.236, 2
   %21 = icmp eq i64 %20, 0
-  %or.cond35 = select i1 %19, i1 %21, i1 false
-  br i1 %or.cond35, label %.lr.ph, label %.critedge, !llvm.loop !704
+  %or.cond = select i1 %19, i1 %21, i1 false
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !704
 
 .critedge:                                        ; preds = %.lr.ph, %7
   %.2.lcssa = phi i64 [ %.129, %7 ], [ %17, %.lr.ph ]

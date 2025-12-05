@@ -2398,8 +2398,8 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit218.i
 194:                                              ; preds = %194, %.lr.ph256.split.us.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %194 ], [ 0, %.lr.ph256.split.us.i ]
   %195 = add nuw nsw i64 %indvars.iv, %192
-  %.idx164 = shl i64 %195, 3
-  %196 = getelementptr i8, ptr %190, i64 %.idx164
+  %.idx163 = shl i64 %195, 3
+  %196 = getelementptr i8, ptr %190, i64 %.idx163
   store float 0.000000e+00, ptr %196, align 4, !tbaa !71
   %197 = getelementptr i8, ptr %196, i64 4
   store float 0.000000e+00, ptr %197, align 4, !tbaa !71
@@ -3314,9 +3314,9 @@ _ZN3gmxL15sc_iClusterSizeENS_15NbnxmKernelTypeE.exit: ; preds = %_ZN3gmxL28kerne
 ._ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit_crit_edge: ; preds = %590
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !181
-  %.phi.trans.insert90 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %.pre91 = load i32, ptr %.phi.trans.insert90, align 4, !tbaa !182
-  %592 = icmp eq i32 %.pre91, 1
+  %.phi.trans.insert89 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %.pre90 = load i32, ptr %.phi.trans.insert89, align 4, !tbaa !182
+  %592 = icmp eq i32 %.pre90, 1
   %593 = select i1 %592, i32 4, i32 3
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit
 

@@ -3299,11 +3299,10 @@ bytestream2_get_byte.exit.i394:                   ; preds = %.lr.ph51.i, %1013
   br i1 %1032, label %.lr.ph.i389, label %.loopexit.i
 
 .lr.ph.i389:                                      ; preds = %.preheader47.i
-  %1033 = lshr i32 %.0.i495, 1
+  %1033 = lshr i64 %188, 1
   %notmask.i.i = shl nsw i32 -1, %1030
   %1034 = xor i32 %notmask.i.i, -1
   %1035 = icmp sgt i32 %1030, 8
-  %wide.trip.count58.i = zext nneg i32 %1033 to i64
   br i1 %1035, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i389
@@ -3332,7 +3331,7 @@ bytestream2_get_be16.exit.us.i:                   ; preds = %.lr.ph.split.us.i, 
   %1046 = getelementptr inbounds nuw i8, ptr %58, i64 %1045
   store i16 %.0.i46.us.i, ptr %1046, align 1, !tbaa !4
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
+  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %1033
   br i1 %exitcond59.not.i, label %.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !182
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i389, %bytestream2_get_be16.exit.i
@@ -3358,7 +3357,7 @@ bytestream2_get_be16.exit.i:                      ; preds = %.lr.ph.split.i, %10
   %1057 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv.i390
   store i8 %.0.i46.i, ptr %1057, align 1, !tbaa !4
   %indvars.iv.next.i391 = add nuw nsw i64 %indvars.iv.i390, 1
-  %exitcond.not.i392 = icmp eq i64 %indvars.iv.next.i391, %wide.trip.count58.i
+  %exitcond.not.i392 = icmp eq i64 %indvars.iv.next.i391, %1033
   br i1 %exitcond.not.i392, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !182
 
 .loopexit.i:                                      ; preds = %bytestream2_get_be16.exit.i, %bytestream2_get_be16.exit.us.i, %bytestream2_get_byte.exit.i394, %.preheader47.i, %.preheader.i393

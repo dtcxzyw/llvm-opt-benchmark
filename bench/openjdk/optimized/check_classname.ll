@@ -5,91 +5,94 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden zeroext range(i8 0, 2) i8 @verifyClassname(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
   %4 = trunc i64 %3 to i32
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %31, label %5
+  br i1 %.not, label %29, label %5
 
 5:                                                ; preds = %2
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 91
-  br i1 %7, label %8, label %31
+  br i1 %7, label %8, label %29
 
 8:                                                ; preds = %5
   %.not15 = icmp eq i8 %1, 0
-  br i1 %.not15, label %39, label %9
+  br i1 %.not15, label %37, label %.preheader
 
-9:                                                ; preds = %8
-  %10 = add i32 %4, -1
-  %umin.i = tail call i32 @llvm.umin.i32(i32 %10, i32 255)
-  br label %11
+thread-pre-split:                                 ; preds = %27
+  %9 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 1
+  %10 = add nuw nsw i32 %.01531.i, 1
+  %.pr = load i8, ptr %9, align 1
+  br label %.preheader
 
-11:                                               ; preds = %27, %9
-  %.01531.i = phi i32 [ 0, %9 ], [ %28, %27 ]
-  %.01630.i = phi i32 [ %4, %9 ], [ %30, %27 ]
-  %.01829.i = phi ptr [ %0, %9 ], [ %29, %27 ]
-  %12 = load i8, ptr %.01829.i, align 1
-  switch i8 %12, label %skip_over_field_signature.exit [
-    i8 91, label %27
-    i8 90, label %13
-    i8 66, label %13
-    i8 67, label %13
-    i8 83, label %13
-    i8 73, label %13
-    i8 70, label %13
-    i8 74, label %13
-    i8 68, label %13
-    i8 76, label %15
+.preheader:                                       ; preds = %8, %thread-pre-split
+  %11 = phi i8 [ %.pr, %thread-pre-split ], [ 91, %8 ]
+  %.01531.i = phi i32 [ %10, %thread-pre-split ], [ 0, %8 ]
+  %.01630.i = phi i32 [ %28, %thread-pre-split ], [ %4, %8 ]
+  %.01829.i = phi ptr [ %9, %thread-pre-split ], [ %0, %8 ]
+  switch i8 %11, label %skip_over_field_signature.exit [
+    i8 91, label %26
+    i8 90, label %12
+    i8 66, label %12
+    i8 67, label %12
+    i8 83, label %12
+    i8 73, label %12
+    i8 70, label %12
+    i8 74, label %12
+    i8 68, label %12
+    i8 76, label %14
   ]
 
-13:                                               ; preds = %11, %11, %11, %11, %11, %11, %11, %11
-  %14 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 1
+12:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
+  %13 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 1
   br label %skip_over_field_signature.exit
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 1
-  %17 = add i32 %.01630.i, -1
-  %18 = tail call fastcc ptr @skip_over_fieldname(ptr noundef nonnull %16, i32 noundef %17)
-  %.not21.i = icmp ne ptr %18, null
-  %19 = ptrtoint ptr %18 to i64
-  %20 = ptrtoint ptr %.01829.i to i64
-  %21 = sub i64 %20, %19
-  %22 = icmp slt i64 %21, -1
-  %or.cond.i = and i1 %.not21.i, %22
-  br i1 %or.cond.i, label %23, label %skip_over_field_signature.exit
+14:                                               ; preds = %.preheader
+  %15 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 1
+  %16 = add i32 %.01630.i, -1
+  %17 = tail call fastcc ptr @skip_over_fieldname(ptr noundef nonnull %15, i32 noundef %16)
+  %.not21.i = icmp ne ptr %17, null
+  %18 = ptrtoint ptr %17 to i64
+  %19 = ptrtoint ptr %.01829.i to i64
+  %20 = sub i64 %19, %18
+  %21 = icmp slt i64 %20, -1
+  %or.cond.i = and i1 %.not21.i, %21
+  br i1 %or.cond.i, label %22, label %skip_over_field_signature.exit
 
-23:                                               ; preds = %15
-  %24 = load i8, ptr %18, align 1
-  %25 = icmp eq i8 %24, 59
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %spec.select.i = select i1 %25, ptr %26, ptr null
+22:                                               ; preds = %14
+  %23 = load i8, ptr %17, align 1
+  %24 = icmp eq i8 %23, 59
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  %spec.select.i = select i1 %24, ptr %25, ptr null
   br label %skip_over_field_signature.exit
 
-27:                                               ; preds = %11
-  %28 = add nuw nsw i32 %.01531.i, 1
-  %29 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 1
-  %30 = add i32 %.01630.i, -1
-  %exitcond.i = icmp eq i32 %.01531.i, %umin.i
-  br i1 %exitcond.i, label %skip_over_field_signature.exit, label %11, !llvm.loop !6
+26:                                               ; preds = %.preheader
+  %exitcond.i = icmp eq i32 %.01531.i, 255
+  br i1 %exitcond.i, label %skip_over_field_signature.exit, label %27
 
-31:                                               ; preds = %5, %2
-  %32 = tail call fastcc ptr @skip_over_fieldname(ptr noundef nonnull %0, i32 noundef %4)
+27:                                               ; preds = %26
+  %28 = add i32 %.01630.i, -1
+  %.not.i = icmp eq i32 %28, 0
+  br i1 %.not.i, label %skip_over_field_signature.exit, label %thread-pre-split, !llvm.loop !6
+
+29:                                               ; preds = %5, %2
+  %30 = tail call fastcc ptr @skip_over_fieldname(ptr noundef nonnull %0, i32 noundef %4)
   br label %skip_over_field_signature.exit
 
-skip_over_field_signature.exit:                   ; preds = %27, %11, %23, %15, %13, %31
-  %.0 = phi ptr [ %32, %31 ], [ %14, %13 ], [ null, %15 ], [ %spec.select.i, %23 ], [ null, %11 ], [ null, %27 ]
+skip_over_field_signature.exit:                   ; preds = %27, %26, %.preheader, %22, %14, %12, %29
+  %.0 = phi ptr [ %30, %29 ], [ %13, %12 ], [ null, %14 ], [ %spec.select.i, %22 ], [ null, %.preheader ], [ null, %26 ], [ null, %27 ]
   %.not16 = icmp ne ptr %.0, null
-  %33 = ptrtoint ptr %.0 to i64
-  %34 = ptrtoint ptr %0 to i64
-  %35 = sub i64 %33, %34
-  %36 = and i64 %3, 4294967295
-  %37 = icmp eq i64 %35, %36
-  %narrow = select i1 %.not16, i1 %37, i1 false
-  %38 = zext i1 %narrow to i8
-  br label %39
+  %31 = ptrtoint ptr %.0 to i64
+  %32 = ptrtoint ptr %0 to i64
+  %33 = sub i64 %31, %32
+  %34 = and i64 %3, 4294967295
+  %35 = icmp eq i64 %33, %34
+  %narrow = select i1 %.not16, i1 %35, i1 false
+  %36 = zext i1 %narrow to i8
+  br label %37
 
-39:                                               ; preds = %8, %skip_over_field_signature.exit
-  %.013 = phi i8 [ %38, %skip_over_field_signature.exit ], [ 0, %8 ]
+37:                                               ; preds = %8, %skip_over_field_signature.exit
+  %.013 = phi i8 [ %36, %skip_over_field_signature.exit ], [ 0, %8 ]
   ret i8 %.013
 }
 
@@ -382,15 +385,11 @@ next_utf2unicode.exit:                            ; preds = %3, %13, %5, %9
   ret void
 }
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #4
-
 attributes #0 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #4 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

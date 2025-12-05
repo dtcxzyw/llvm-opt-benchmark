@@ -1626,8 +1626,8 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
   br i1 %.not393.i, label %1006, label %939
 
 939:                                              ; preds = %.thread101
-  %940 = add i64 %938, %.0332.i
-  %941 = icmp ult i64 %940, 1048577
+  %940 = add nuw nsw i64 %938, %.0332.i
+  %941 = icmp samesign ult i64 %940, 1048577
   br i1 %941, label %942, label %1006
 
 942:                                              ; preds = %939
@@ -3634,8 +3634,8 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
   br i1 %.not393.i, label %1006, label %939
 
 939:                                              ; preds = %.thread101
-  %940 = add i64 %938, %.0332.i
-  %941 = icmp ult i64 %940, 1048577
+  %940 = add nuw nsw i64 %938, %.0332.i
+  %941 = icmp samesign ult i64 %940, 1048577
   br i1 %941, label %942, label %1006
 
 942:                                              ; preds = %939
@@ -5642,8 +5642,8 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
   br i1 %.not393.i, label %1006, label %939
 
 939:                                              ; preds = %.thread101
-  %940 = add i64 %938, %.0332.i
-  %941 = icmp ult i64 %940, 1048577
+  %940 = add nuw nsw i64 %938, %.0332.i
+  %941 = icmp samesign ult i64 %940, 1048577
   br i1 %941, label %942, label %1006
 
 942:                                              ; preds = %939
@@ -7650,8 +7650,8 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
   br i1 %.not393.i, label %1006, label %939
 
 939:                                              ; preds = %.thread101
-  %940 = add i64 %938, %.0332.i
-  %941 = icmp ult i64 %940, 1048577
+  %940 = add nuw nsw i64 %938, %.0332.i
+  %941 = icmp samesign ult i64 %940, 1048577
   br i1 %941, label %942, label %1006
 
 942:                                              ; preds = %939

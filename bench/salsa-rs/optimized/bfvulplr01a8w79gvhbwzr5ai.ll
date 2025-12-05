@@ -1120,44 +1120,44 @@ define noundef range(i64 1, 0) i64 @_ZN5salsa5zalsa5Zalsa12new_revision17h4e6ba7
 .lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %42
   %.sroa.4.039 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %.sroa.4.1, %42 ]
   %.sroa.8.038 = phi i64 [ 32, %.lr.ph.i.lr.ph ], [ %.sroa.8.1, %42 ]
-  %.sroa.11.037 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %19, %42 ]
+  %.sroa.11.037 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %18, %42 ]
   %.sroa.15.036 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %26, %42 ]
   br label %10
 
-10:                                               ; preds = %23, %.lr.ph.i
-  %.sroa.11.1 = phi i64 [ %.sroa.11.037, %.lr.ph.i ], [ 0, %23 ]
-  %.sroa.8.1 = phi i64 [ %.sroa.8.038, %.lr.ph.i ], [ %24, %23 ]
-  %.sroa.4.1 = phi i64 [ %.sroa.4.039, %.lr.ph.i ], [ %14, %23 ]
+10:                                               ; preds = %22, %.lr.ph.i
+  %.sroa.11.1 = phi i64 [ %.sroa.11.037, %.lr.ph.i ], [ 0, %22 ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.038, %.lr.ph.i ], [ %24, %22 ]
+  %.sroa.4.1 = phi i64 [ %.sroa.4.039, %.lr.ph.i ], [ %23, %22 ]
   %11 = getelementptr inbounds nuw { { ptr } }, ptr %8, i64 %.sroa.4.1
   %12 = load atomic ptr, ptr %11 acquire, align 8, !noalias !67
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %10
-  %14 = add i64 %.sroa.4.1, 1
-  %15 = icmp ult i64 %14, 59
-  br i1 %15, label %23, label %.loopexit
+  %14 = icmp ult i64 %.sroa.4.1, 58
+  br i1 %14, label %22, label %.loopexit
 
-.preheader.i:                                     ; preds = %10, %17
-  %.sroa.11.2 = phi i64 [ %19, %17 ], [ %.sroa.11.1, %10 ]
-  %16 = icmp ult i64 %.sroa.11.2, %.sroa.8.1
-  br i1 %16, label %17, label %.loopexit.i
+.preheader.i:                                     ; preds = %10, %16
+  %.sroa.11.2 = phi i64 [ %18, %16 ], [ %.sroa.11.1, %10 ]
+  %15 = icmp ult i64 %.sroa.11.2, %.sroa.8.1
+  br i1 %15, label %16, label %.loopexit.i
 
-17:                                               ; preds = %.preheader.i
-  %18 = getelementptr inbounds nuw { i32, { i8 }, [3 x i8] }, ptr %12, i64 %.sroa.11.2
-  %19 = add nuw i64 %.sroa.11.2, 1
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %21 = load atomic i8, ptr %20 acquire, align 1, !noalias !67
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %.preheader.i, label %25
+16:                                               ; preds = %.preheader.i
+  %17 = getelementptr inbounds nuw { i32, { i8 }, [3 x i8] }, ptr %12, i64 %.sroa.11.2
+  %18 = add nuw i64 %.sroa.11.2, 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %20 = load atomic i8, ptr %19 acquire, align 1, !noalias !67
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %.preheader.i, label %25
 
-23:                                               ; preds = %.loopexit.i
+22:                                               ; preds = %.loopexit.i
+  %23 = add nuw nsw i64 %.sroa.4.1, 1
   %24 = shl nuw i64 64, %.sroa.4.1
   br label %10
 
-25:                                               ; preds = %17
+25:                                               ; preds = %16
   %26 = add i64 %.sroa.15.036, 1
-  %27 = load i32, ptr %18, align 4, !noundef !3
+  %27 = load i32, ptr %17, align 4, !noundef !3
   %28 = zext i32 %27 to i64
   store i64 %28, ptr %4, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
@@ -1233,44 +1233,44 @@ define void @_ZN5salsa5zalsa5Zalsa9evict_lru17hcfd9028e204423afE(ptr noalias nou
 .lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %41
   %.sroa.4.039 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %.sroa.4.1, %41 ]
   %.sroa.8.038 = phi i64 [ 32, %.lr.ph.i.lr.ph ], [ %.sroa.8.1, %41 ]
-  %.sroa.11.037 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %18, %41 ]
+  %.sroa.11.037 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %17, %41 ]
   %.sroa.15.036 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %25, %41 ]
   br label %9
 
-9:                                                ; preds = %22, %.lr.ph.i
-  %.sroa.11.1 = phi i64 [ %.sroa.11.037, %.lr.ph.i ], [ 0, %22 ]
-  %.sroa.8.1 = phi i64 [ %.sroa.8.038, %.lr.ph.i ], [ %23, %22 ]
-  %.sroa.4.1 = phi i64 [ %.sroa.4.039, %.lr.ph.i ], [ %13, %22 ]
+9:                                                ; preds = %21, %.lr.ph.i
+  %.sroa.11.1 = phi i64 [ %.sroa.11.037, %.lr.ph.i ], [ 0, %21 ]
+  %.sroa.8.1 = phi i64 [ %.sroa.8.038, %.lr.ph.i ], [ %23, %21 ]
+  %.sroa.4.1 = phi i64 [ %.sroa.4.039, %.lr.ph.i ], [ %22, %21 ]
   %10 = getelementptr inbounds nuw { { ptr } }, ptr %7, i64 %.sroa.4.1
   %11 = load atomic ptr, ptr %10 acquire, align 8, !noalias !75
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %9
-  %13 = add i64 %.sroa.4.1, 1
-  %14 = icmp ult i64 %13, 59
-  br i1 %14, label %22, label %.loopexit
+  %13 = icmp ult i64 %.sroa.4.1, 58
+  br i1 %13, label %21, label %.loopexit
 
-.preheader.i:                                     ; preds = %9, %16
-  %.sroa.11.2 = phi i64 [ %18, %16 ], [ %.sroa.11.1, %9 ]
-  %15 = icmp ult i64 %.sroa.11.2, %.sroa.8.1
-  br i1 %15, label %16, label %.loopexit.i
+.preheader.i:                                     ; preds = %9, %15
+  %.sroa.11.2 = phi i64 [ %17, %15 ], [ %.sroa.11.1, %9 ]
+  %14 = icmp ult i64 %.sroa.11.2, %.sroa.8.1
+  br i1 %14, label %15, label %.loopexit.i
 
-16:                                               ; preds = %.preheader.i
-  %17 = getelementptr inbounds nuw { i32, { i8 }, [3 x i8] }, ptr %11, i64 %.sroa.11.2
-  %18 = add nuw i64 %.sroa.11.2, 1
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %20 = load atomic i8, ptr %19 acquire, align 1, !noalias !75
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %.preheader.i, label %24
+15:                                               ; preds = %.preheader.i
+  %16 = getelementptr inbounds nuw { i32, { i8 }, [3 x i8] }, ptr %11, i64 %.sroa.11.2
+  %17 = add nuw i64 %.sroa.11.2, 1
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %19 = load atomic i8, ptr %18 acquire, align 1, !noalias !75
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %.preheader.i, label %24
 
-22:                                               ; preds = %.loopexit.i
+21:                                               ; preds = %.loopexit.i
+  %22 = add nuw nsw i64 %.sroa.4.1, 1
   %23 = shl nuw i64 64, %.sroa.4.1
   br label %9
 
-24:                                               ; preds = %16
+24:                                               ; preds = %15
   %25 = add i64 %.sroa.15.036, 1
-  %26 = load i32, ptr %17, align 4, !noundef !3
+  %26 = load i32, ptr %16, align 4, !noundef !3
   %27 = zext i32 %26 to i64
   store i64 %27, ptr %4, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)

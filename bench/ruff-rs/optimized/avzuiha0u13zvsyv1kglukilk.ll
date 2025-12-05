@@ -3144,44 +3144,44 @@ define hidden void @_ZN5salsa5views5Views14downcaster_for17he7e1709de615a35aE(pt
 .lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %38
   %.sroa.5.034 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %.sroa.5.1, %38 ]
   %.sroa.9.033 = phi i64 [ 32, %.lr.ph.i.lr.ph ], [ %.sroa.9.1, %38 ]
-  %.sroa.12.032 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %18, %38 ]
+  %.sroa.12.032 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %17, %38 ]
   %.sroa.16.031 = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %25, %38 ]
   br label %9
 
-9:                                                ; preds = %22, %.lr.ph.i
-  %.sroa.12.1 = phi i64 [ %.sroa.12.032, %.lr.ph.i ], [ 0, %22 ]
-  %.sroa.9.1 = phi i64 [ %.sroa.9.033, %.lr.ph.i ], [ %23, %22 ]
-  %.sroa.5.1 = phi i64 [ %.sroa.5.034, %.lr.ph.i ], [ %13, %22 ]
+9:                                                ; preds = %21, %.lr.ph.i
+  %.sroa.12.1 = phi i64 [ %.sroa.12.032, %.lr.ph.i ], [ 0, %21 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.033, %.lr.ph.i ], [ %23, %21 ]
+  %.sroa.5.1 = phi i64 [ %.sroa.5.034, %.lr.ph.i ], [ %22, %21 ]
   %10 = getelementptr inbounds nuw { { ptr } }, ptr %8, i64 %.sroa.5.1
   %11 = load atomic ptr, ptr %10 acquire, align 8, !noalias !207
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %9
-  %13 = add i64 %.sroa.5.1, 1
-  %14 = icmp ult i64 %13, 59
-  br i1 %14, label %22, label %.loopexit
+  %13 = icmp ult i64 %.sroa.5.1, 58
+  br i1 %13, label %21, label %.loopexit
 
-.preheader.i:                                     ; preds = %9, %16
-  %.sroa.12.2 = phi i64 [ %18, %16 ], [ %.sroa.12.1, %9 ]
-  %15 = icmp ult i64 %.sroa.12.2, %.sroa.9.1
-  br i1 %15, label %16, label %.loopexit.i
+.preheader.i:                                     ; preds = %9, %15
+  %.sroa.12.2 = phi i64 [ %17, %15 ], [ %.sroa.12.1, %9 ]
+  %14 = icmp ult i64 %.sroa.12.2, %.sroa.9.1
+  br i1 %14, label %15, label %.loopexit.i
 
-16:                                               ; preds = %.preheader.i
-  %17 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %11, i64 %.sroa.12.2
-  %18 = add nuw i64 %.sroa.12.2, 1
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %20 = load atomic i8, ptr %19 acquire, align 1, !noalias !207
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %.preheader.i, label %24
+15:                                               ; preds = %.preheader.i
+  %16 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %11, i64 %.sroa.12.2
+  %17 = add nuw i64 %.sroa.12.2, 1
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %19 = load atomic i8, ptr %18 acquire, align 1, !noalias !207
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %.preheader.i, label %24
 
-22:                                               ; preds = %.loopexit.i
+21:                                               ; preds = %.loopexit.i
+  %22 = add nuw nsw i64 %.sroa.5.1, 1
   %23 = shl nuw i64 64, %.sroa.5.1
   br label %9
 
-24:                                               ; preds = %16
+24:                                               ; preds = %15
   %25 = add i64 %.sroa.16.031, 1
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %27 = load i64, ptr %26, align 8, !noundef !9
   %28 = icmp eq i64 %27, -8506588598177062506
   br i1 %28, label %34, label %38
@@ -3209,7 +3209,7 @@ define hidden void @_ZN5salsa5views5Views14downcaster_for17he7e1709de615a35aE(pt
   unreachable
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %36 = load i64, ptr %35, align 8, !noundef !9
   %37 = icmp eq i64 %36, 637409720492316309
   br i1 %37, label %40, label %38
@@ -3223,7 +3223,7 @@ define hidden void @_ZN5salsa5views5Views14downcaster_for17he7e1709de615a35aE(pt
   %41 = load i64, ptr %1, align 8, !noundef !9
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i64, ptr %42, align 8, !noundef !9
-  %44 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !9, !noundef !9
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %41, ptr %46, align 8

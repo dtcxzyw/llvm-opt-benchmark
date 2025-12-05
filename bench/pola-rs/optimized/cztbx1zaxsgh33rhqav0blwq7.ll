@@ -4722,7 +4722,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 44:                                               ; preds = %.lr.ph.split.us
   %45 = icmp ult i64 %42, %34
-  %46 = add nuw i64 %42, 1
+  %46 = add nuw nsw i64 %42, 1
   br i1 %45, label %.lr.ph.split.us, label %.outer._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -4764,7 +4764,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 67:                                               ; preds = %63, %57, %50
   %68 = icmp ult i64 %48, %34
-  %69 = add nuw i64 %48, 1
+  %69 = add nuw nsw i64 %48, 1
   br i1 %68, label %.lr.ph.split.split.us, label %.outer._crit_edge
 
 .split121.us:                                     ; preds = %63
@@ -5148,7 +5148,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h9456782672c51bbb
   %.sroa.019.3 = phi i64 [ %.sroa.015.0, %250 ], [ %.sroa.019.0.ph164, %242 ], [ %.sroa.019.0.ph164, %234 ], [ %.sroa.019.0.ph164, %231 ]
   %.sroa.06.5 = phi i1 [ true, %250 ], [ %.sroa.06.0.ph165, %242 ], [ %.sroa.06.0.ph165, %234 ], [ %.sroa.06.0.ph165, %231 ]
   %238 = icmp ult i64 %48, %34
-  %239 = add nuw i64 %48, 1
+  %239 = add nuw nsw i64 %48, 1
   br i1 %238, label %.lr.ph, label %.outer._crit_edge
 
 240:                                              ; preds = %234
@@ -5176,7 +5176,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h9456782672c51bbb
 
 251:                                              ; preds = %216, %209
   %252 = icmp ult i64 %70, %34
-  %253 = add nuw i64 %70, 1
+  %253 = add nuw nsw i64 %70, 1
   br i1 %252, label %.lr.ph.split.split, label %.outer._crit_edge
 }
 
@@ -5245,7 +5245,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 43:                                               ; preds = %.lr.ph.split.us
   %44 = icmp ult i64 %41, %33
-  %45 = add nuw i64 %41, 1
+  %45 = add nuw nsw i64 %41, 1
   br i1 %44, label %.lr.ph.split.us, label %.outer._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -5287,7 +5287,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 66:                                               ; preds = %62, %56, %49
   %67 = icmp ult i64 %47, %33
-  %68 = add nuw i64 %47, 1
+  %68 = add nuw nsw i64 %47, 1
   br i1 %67, label %.lr.ph.split.split.us, label %.outer._crit_edge
 
 .split129.us:                                     ; preds = %62
@@ -5707,7 +5707,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hf23f2f33b224d140
   %.sroa.019.3 = phi i64 [ %.sroa.015.0, %267 ], [ %.sroa.019.0.ph172, %259 ], [ %.sroa.019.0.ph172, %251 ], [ %.sroa.019.0.ph172, %248 ]
   %.sroa.06.5 = phi i1 [ true, %267 ], [ %.sroa.06.0.ph173, %259 ], [ %.sroa.06.0.ph173, %251 ], [ %.sroa.06.0.ph173, %248 ]
   %255 = icmp ult i64 %47, %33
-  %256 = add nuw i64 %47, 1
+  %256 = add nuw nsw i64 %47, 1
   br i1 %255, label %.lr.ph, label %.outer._crit_edge
 
 257:                                              ; preds = %251
@@ -5735,7 +5735,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hf23f2f33b224d140
 
 268:                                              ; preds = %233, %226
   %269 = icmp ult i64 %69, %33
-  %270 = add nuw i64 %69, 1
+  %270 = add nuw nsw i64 %69, 1
   br i1 %269, label %.lr.ph.split.split, label %.outer._crit_edge
 }
 
@@ -5805,7 +5805,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 44:                                               ; preds = %.lr.ph.split.us
   %45 = icmp ult i64 %42, %34
-  %46 = add nuw i64 %42, 1
+  %46 = add nuw nsw i64 %42, 1
   br i1 %45, label %.lr.ph.split.us, label %.outer._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -5847,7 +5847,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 67:                                               ; preds = %63, %57, %50
   %68 = icmp ult i64 %48, %34
-  %69 = add nuw i64 %48, 1
+  %69 = add nuw nsw i64 %48, 1
   br i1 %68, label %.lr.ph.split.split.us, label %.outer._crit_edge
 
 .split129.us:                                     ; preds = %63
@@ -6283,7 +6283,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h3d68b55b5fabe7ec
   %.sroa.019.3 = phi i64 [ %.sroa.015.0, %276 ], [ %.sroa.019.0.ph172, %268 ], [ %.sroa.019.0.ph172, %260 ], [ %.sroa.019.0.ph172, %257 ]
   %.sroa.06.5 = phi i1 [ true, %276 ], [ %.sroa.06.0.ph173, %268 ], [ %.sroa.06.0.ph173, %260 ], [ %.sroa.06.0.ph173, %257 ]
   %264 = icmp ult i64 %48, %34
-  %265 = add nuw i64 %48, 1
+  %265 = add nuw nsw i64 %48, 1
   br i1 %264, label %.lr.ph, label %.outer._crit_edge
 
 266:                                              ; preds = %260
@@ -6311,7 +6311,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h3d68b55b5fabe7ec
 
 277:                                              ; preds = %242, %235
   %278 = icmp ult i64 %70, %34
-  %279 = add nuw i64 %70, 1
+  %279 = add nuw nsw i64 %70, 1
   br i1 %278, label %.lr.ph.split.split, label %.outer._crit_edge
 }
 
@@ -6381,7 +6381,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 44:                                               ; preds = %.lr.ph.split.us
   %45 = icmp ult i64 %42, %34
-  %46 = add nuw i64 %42, 1
+  %46 = add nuw nsw i64 %42, 1
   br i1 %45, label %.lr.ph.split.us, label %.outer._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -6423,7 +6423,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 67:                                               ; preds = %63, %57, %50
   %68 = icmp ult i64 %48, %34
-  %69 = add nuw i64 %48, 1
+  %69 = add nuw nsw i64 %48, 1
   br i1 %68, label %.lr.ph.split.split.us, label %.outer._crit_edge
 
 .split121.us:                                     ; preds = %63
@@ -6807,7 +6807,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hc6004f41a3b2239b
   %.sroa.019.3 = phi i64 [ %.sroa.015.0, %250 ], [ %.sroa.019.0.ph164, %242 ], [ %.sroa.019.0.ph164, %234 ], [ %.sroa.019.0.ph164, %231 ]
   %.sroa.06.5 = phi i1 [ true, %250 ], [ %.sroa.06.0.ph165, %242 ], [ %.sroa.06.0.ph165, %234 ], [ %.sroa.06.0.ph165, %231 ]
   %238 = icmp ult i64 %48, %34
-  %239 = add nuw i64 %48, 1
+  %239 = add nuw nsw i64 %48, 1
   br i1 %238, label %.lr.ph, label %.outer._crit_edge
 
 240:                                              ; preds = %234
@@ -6835,7 +6835,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hc6004f41a3b2239b
 
 251:                                              ; preds = %216, %209
   %252 = icmp ult i64 %70, %34
-  %253 = add nuw i64 %70, 1
+  %253 = add nuw nsw i64 %70, 1
   br i1 %252, label %.lr.ph.split.split, label %.outer._crit_edge
 }
 
@@ -21690,7 +21690,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h5627fedb8b598f9bE.exit2
   store i32 1, ptr %708, align 4, !noalias !1167
   %709 = icmp samesign ult i64 %.sroa.0128.1769.i.i, %.sroa.0.0.sroa.speculated.i361.i.i
   %710 = zext i1 %709 to i64
-  %.sroa.0128.1.i.i = add nuw i64 %.sroa.0128.1769.i.i, %710
+  %.sroa.0128.1.i.i = add nuw nsw i64 %.sroa.0128.1769.i.i, %710
   br i1 %709, label %.lr.ph770.i.i, label %._crit_edge771.i.i
 
 .lr.ph.i112.i:                                    ; preds = %719, %.lr.ph.preheader.i.i
@@ -24246,7 +24246,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hce70b9dbdc8b1214E.exit2
   store i32 1, ptr %1608, align 4, !noalias !1355
   %1609 = icmp samesign ult i64 %.sroa.0128.1769.i.i317, %.sroa.0.0.sroa.speculated.i361.i.i315
   %1610 = zext i1 %1609 to i64
-  %.sroa.0128.1.i.i333 = add nuw i64 %.sroa.0128.1769.i.i317, %1610
+  %.sroa.0128.1.i.i333 = add nuw nsw i64 %.sroa.0128.1769.i.i317, %1610
   br i1 %1609, label %.lr.ph770.i.i316, label %._crit_edge771.i.i334
 
 .lr.ph.i112.i322:                                 ; preds = %1619, %.lr.ph.preheader.i.i321
@@ -26798,7 +26798,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17he69cc7e364323581E.exit2
   store i32 1, ptr %2506, align 4, !noalias !1543
   %2507 = icmp samesign ult i64 %.sroa.0128.1769.i.i821, %.sroa.0.0.sroa.speculated.i361.i.i819
   %2508 = zext i1 %2507 to i64
-  %.sroa.0128.1.i.i843 = add nuw i64 %.sroa.0128.1769.i.i821, %2508
+  %.sroa.0128.1.i.i843 = add nuw nsw i64 %.sroa.0128.1769.i.i821, %2508
   br i1 %2507, label %.lr.ph770.i.i820, label %._crit_edge771.i.i844
 
 .lr.ph.i112.i828:                                 ; preds = %2517, %.lr.ph.preheader.i.i827
@@ -28525,7 +28525,7 @@ default.unreachable:                              ; preds = %.thread288
   br i1 %.not256, label %335, label %332
 
 332:                                              ; preds = %329
-  %333 = add i64 %.sroa.0.0.sroa.speculated.i265, %.sroa.0162.0
+  %333 = add nuw nsw i64 %.sroa.0.0.sroa.speculated.i265, %.sroa.0162.0
   %334 = icmp ult i64 %333, 1048577
   br i1 %334, label %337, label %335
 
