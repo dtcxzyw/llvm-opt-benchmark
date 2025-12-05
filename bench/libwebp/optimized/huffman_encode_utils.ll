@@ -41,13 +41,13 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr noundef readonly captures
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.next
   %19 = load i8, ptr %18, align 1, !tbaa !12
   %20 = icmp eq i8 %19, %12
-  br i1 %20, label %15, label %.critedge.split.loop.exit86, !llvm.loop !13
+  br i1 %20, label %15, label %.critedge.split.loop.exit90, !llvm.loop !13
 
-.critedge.split.loop.exit86:                      ; preds = %17
+.critedge.split.loop.exit90:                      ; preds = %17
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %.critedge.split.loop.exit86
+.critedge:                                        ; preds = %15, %.critedge.split.loop.exit90
   %.028.lcssa = phi i32 [ %21, %.critedge.split.loop.exit86 ], [ %smax, %15 ]
   %22 = sub nsw i32 %.028.lcssa, %.03157
   %23 = icmp eq i8 %12, 0

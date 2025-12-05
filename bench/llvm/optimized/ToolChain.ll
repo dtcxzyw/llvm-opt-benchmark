@@ -21410,9 +21410,9 @@ define linkonce_odr hidden void @_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_
   %or.cond = icmp ult i64 %12, -2147483648
   br i1 %or.cond, label %_ZN4llvm12PowerOf2CeilEm.exit.thread, label %13
 
-13:                                               ; preds = %3
-  %14 = add nsw i64 %11, -1
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 false)
+_ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %3
+  %12 = add nsw i64 %11, -1
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 false)
   %16 = sub nuw nsw i64 64, %15
   %17 = shl nuw nsw i64 1, %16
   %18 = trunc nuw i64 %17 to i32

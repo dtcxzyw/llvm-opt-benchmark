@@ -6959,9 +6959,9 @@ define internal fastcc noundef range(i32 0, 131073) i32 @ieee80211_rx_h_mgmt(ptr
   %14 = add nsw i32 %13, -16
   %15 = lshr exact i32 %14, 4
   switch i32 %15, label %82 [
-    i32 10, label %51
-    i32 7, label %51
-    i32 4, label %51
+    i32 10, label %53
+    i32 7, label %53
+    i32 4, label %53
     i32 11, label %16
     i32 0, label %33
     i32 2, label %33
@@ -6992,14 +6992,14 @@ define internal fastcc noundef range(i32 0, 131073) i32 @ieee80211_rx_h_mgmt(ptr
   %32 = icmp samesign ult i32 %9, 3
   br i1 %32, label %51, label %82
 
-33:                                               ; preds = %10, %10, %10
+33:; preds = %10, %10, %10
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 1
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %48, label %38
 
-38:                                               ; preds = %33
+38:; preds = %33
   %39 = lshr i32 %35, 16
   %40 = and i32 %39, %35
   %41 = trunc nuw i32 %40 to i16
@@ -7011,47 +7011,47 @@ define internal fastcc noundef range(i32 0, 131073) i32 @ieee80211_rx_h_mgmt(ptr
   %47 = and i1 %46, %45
   br i1 %47, label %51, label %82
 
-48:                                               ; preds = %33
+48:; preds = %33
   %49 = icmp eq i32 %9, 2
   br i1 %49, label %51, label %82
 
-50:                                               ; preds = %10
+50:; preds = %10
   switch i32 %9, label %82 [
     i32 1, label %51
     i32 7, label %51
   ]
 
-51:                                               ; preds = %50, %50, %48, %38, %31, %21, %10, %10, %10
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  store i16 0, ptr %56, align 8
-  %57 = icmp sgt i32 %53, -1
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 86
-  %59 = load i8, ptr %58, align 2
-  br i1 %57, label %60, label %67
+53:                                               ; preds = %50, %50, %48, %38, %31, %21, %10, %10, %10
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  store i16 0, ptr %58, align 8
+  %59 = icmp sgt i32 %55, -1
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 86
+  %61 = load i8, ptr %60, align 2
+  br i1 %59, label %62, label %69
 
-60:                                               ; preds = %51
-  %61 = trunc i32 %53 to i8
-  %62 = shl i8 %61, 1
-  %63 = and i8 %62, 30
-  %64 = and i8 %59, -32
-  %65 = or disjoint i8 %63, %64
-  %66 = or disjoint i8 %65, 1
-  br label %69
+62:                                               ; preds = %53
+  %63 = trunc i32 %55 to i8
+  %64 = shl i8 %63, 1
+  %65 = and i8 %64, 30
+  %66 = and i8 %61, -32
+  %67 = or disjoint i8 %65, %66
+  %68 = or disjoint i8 %67, 1
+  br label %71
 
-67:                                               ; preds = %51
-  %68 = and i8 %59, -2
-  br label %69
+69:                                               ; preds = %53
+  %70 = and i8 %61, -2
+  br label %71
 
-69:                                               ; preds = %67, %60
-  %70 = phi i8 [ %68, %67 ], [ %66, %60 ]
-  store i8 %70, ptr %58, align 2
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 1624
-  tail call void @skb_queue_tail(ptr noundef nonnull %71, ptr noundef %5) #18
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 1256
+71:                                               ; preds = %69, %62
+  %72 = phi i8 [ %70, %67 ], [ %68, %60 ]
+  store i8 %72, ptr %60, align 2
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 1624
+  tail call void @skb_queue_tail(ptr noundef nonnull %73, ptr noundef %5) #18
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 1256
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %75 = load ptr, ptr %74, align 8
@@ -7060,16 +7060,16 @@ define internal fastcc noundef range(i32 0, 131073) i32 @ieee80211_rx_h_mgmt(ptr
   %77 = icmp eq ptr %55, null
   br i1 %77, label %82, label %78
 
-78:                                               ; preds = %69
+78:; preds = %69
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 1744
   %80 = load i64, ptr %79, align 8
   %81 = add i64 %80, 1
   store i64 %81, ptr %79, align 8
   br label %82
 
-82:                                               ; preds = %78, %69, %50, %48, %38, %31, %21, %10, %1
-  %83 = phi i32 [ 131072, %1 ], [ 131072, %21 ], [ 131072, %31 ], [ 131072, %38 ], [ 131072, %48 ], [ 131072, %50 ], [ 131072, %10 ], [ 0, %69 ], [ 0, %78 ]
-  ret i32 %83
+84:                                               ; preds = %78, %71, %50, %48, %38, %31, %21, %10, %1
+  %85 = phi i32 [ 131072, %1 ], [ 131072, %21 ], [ 131072, %31 ], [ 131072, %38 ], [ 131072, %48 ], [ 131072, %50 ], [ 131072, %10 ], [ 0, %69 ], [ 0, %78 ]
+  ret i32 %85
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

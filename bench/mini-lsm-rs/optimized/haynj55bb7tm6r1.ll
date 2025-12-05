@@ -3187,15 +3187,15 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.0.i.i.i.i.i = select i1 %24, i1 %26, i1 %25
   %27 = add nuw i64 %11, 1
   %.022.i = select i1 %.0.i.i.i.i.i, i64 %27, i64 %.01925.i
-  %.021.i = select i1 %.0.i.i.i.i.i, i64 %.02024.i, i64 %11
-  %28 = sub i64 %.021.i, %.022.i
-  %29 = icmp ult i64 %.022.i, %.021.i
+  %.022.i = select i1 %.0.i.i.i.i.i, i64 %.02024.i, i64 %11
+  %28 = sub i64 %.022.i, %.022.i
+  %29 = icmp ult i64 %.022.i, %.022.i
   br i1 %29, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5ebb02aca1a2ae04E.llvm.15192800734258360407.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5ebb02aca1a2ae04E.llvm.15192800734258360407.exit": ; preds = %9, %3
   %.019.lcssa.i = phi i64 [ 0, %3 ], [ %.022.i, %9 ]
-  %30 = icmp ule i64 %.019.lcssa.i, %1
-  tail call void @llvm.assume(i1 %30)
+  %29 = icmp ule i64 %.019.lcssa.i, %1
+  tail call void @llvm.assume(i1 %29)
   ret i64 %.019.lcssa.i
 }
 
@@ -3240,15 +3240,15 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.0.i.i.i.i.i = select i1 %24, i1 %26, i1 %25
   %27 = add nuw i64 %11, 1
   %.022.i = select i1 %.0.i.i.i.i.i, i64 %27, i64 %.01924.i
-  %.021.i = select i1 %.0.i.i.i.i.i, i64 %.02023.i, i64 %11
-  %28 = sub i64 %.021.i, %.022.i
-  %29 = icmp ult i64 %.022.i, %.021.i
+  %.022.i = select i1 %.0.i.i.i.i.i, i64 %.02023.i, i64 %11
+  %28 = sub i64 %.022.i, %.022.i
+  %29 = icmp ult i64 %.022.i, %.022.i
   br i1 %29, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h8d152a2a152d4dd3E.llvm.15192800734258360407.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h8d152a2a152d4dd3E.llvm.15192800734258360407.exit": ; preds = %9, %3
   %.019.lcssa.i = phi i64 [ 0, %3 ], [ %.022.i, %9 ]
-  %30 = icmp ule i64 %.019.lcssa.i, %1
-  tail call void @llvm.assume(i1 %30)
+  %29 = icmp ule i64 %.019.lcssa.i, %1
+  tail call void @llvm.assume(i1 %29)
   ret i64 %.019.lcssa.i
 }
 
@@ -3265,10 +3265,10 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %7 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   br label %8
 
-8:                                                ; preds = %.lr.ph, %30
-  %.026 = phi i64 [ %1, %.lr.ph ], [ %32, %30 ]
-  %.01925 = phi i64 [ 0, %.lr.ph ], [ %.022, %30 ]
-  %.02024 = phi i64 [ %1, %.lr.ph ], [ %.021, %30 ]
+8:                                                ; preds = %.lr.ph, %29
+  %.026 = phi i64 [ %1, %.lr.ph ], [ %32, %29 ]
+  %.01925 = phi i64 [ 0, %.lr.ph ], [ %.022, %29 ]
+  %.02024 = phi i64 [ %1, %.lr.ph ], [ %.021, %29 ]
   %9 = lshr i64 %.026, 1
   %10 = add i64 %9, %.01925
   %11 = icmp ult i64 %10, %1
@@ -3292,25 +3292,25 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %24 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 1
   br i1 %23, label %25, label %30
 
-25:                                               ; preds = %8
+25:; preds = %8
   %26 = load i64, ptr %7, align 8, !alias.scope !776, !noalias !771, !noundef !4
   %27 = icmp ule i64 %26, %18
   br label %30
 
-._crit_edge:                                      ; preds = %30, %3
+._crit_edge:; preds = %30, %3
   %.019.lcssa = phi i64 [ 0, %3 ], [ %.022, %30 ]
   %28 = icmp ule i64 %.019.lcssa, %1
   tail call void @llvm.assume(i1 %28)
   %29 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.019.lcssa, 1
   ret { i64, i64 } %29
 
-30:                                               ; preds = %25, %8
+30:; preds = %25, %8
   %.0.i.i.i.i = phi i1 [ %27, %25 ], [ %24, %8 ]
   %31 = add nuw i64 %10, 1
   %.022 = select i1 %.0.i.i.i.i, i64 %31, i64 %.01925
-  %.021 = select i1 %.0.i.i.i.i, i64 %.02024, i64 %10
+  %.022 = select i1 %.0.i.i.i.i, i64 %.02024, i64 %10
   %32 = sub i64 %.021, %.022
-  %33 = icmp ult i64 %.022, %.021
+  %33 = icmp ult i64 %.022, %.022
   br i1 %33, label %8, label %._crit_edge
 }
 
@@ -3327,10 +3327,10 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %7 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   br label %8
 
-8:                                                ; preds = %.lr.ph, %30
-  %.025 = phi i64 [ %1, %.lr.ph ], [ %32, %30 ]
-  %.01924 = phi i64 [ 0, %.lr.ph ], [ %.022, %30 ]
-  %.02023 = phi i64 [ %1, %.lr.ph ], [ %.021, %30 ]
+8:                                                ; preds = %.lr.ph, %29
+  %.025 = phi i64 [ %1, %.lr.ph ], [ %32, %29 ]
+  %.01924 = phi i64 [ 0, %.lr.ph ], [ %.022, %29 ]
+  %.02023 = phi i64 [ %1, %.lr.ph ], [ %.021, %29 ]
   %9 = lshr i64 %.025, 1
   %10 = add i64 %9, %.01924
   %11 = icmp ult i64 %10, %1
@@ -3353,25 +3353,25 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %24 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 1
   br i1 %23, label %25, label %30
 
-25:                                               ; preds = %8
+25:; preds = %8
   %26 = load i64, ptr %7, align 8, !alias.scope !804, !noalias !799, !noundef !4
   %27 = icmp ule i64 %26, %18
   br label %30
 
-._crit_edge:                                      ; preds = %30, %3
+._crit_edge:; preds = %30, %3
   %.019.lcssa = phi i64 [ 0, %3 ], [ %.022, %30 ]
   %28 = icmp ule i64 %.019.lcssa, %1
   tail call void @llvm.assume(i1 %28)
   %29 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.019.lcssa, 1
   ret { i64, i64 } %29
 
-30:                                               ; preds = %25, %8
+30:; preds = %25, %8
   %.0.i.i.i.i = phi i1 [ %27, %25 ], [ %24, %8 ]
   %31 = add nuw i64 %10, 1
   %.022 = select i1 %.0.i.i.i.i, i64 %31, i64 %.01924
-  %.021 = select i1 %.0.i.i.i.i, i64 %.02023, i64 %10
+  %.022 = select i1 %.0.i.i.i.i, i64 %.02023, i64 %10
   %32 = sub i64 %.021, %.022
-  %33 = icmp ult i64 %.022, %.021
+  %33 = icmp ult i64 %.022, %.022
   br i1 %33, label %8, label %._crit_edge
 }
 

@@ -2896,9 +2896,9 @@ define internal fastcc void @process_mdelete_command(ptr noundef %0, ptr noundef
   %31 = load ptr, ptr %14, align 8, !tbaa !66
   %32 = load i64, ptr %15, align 8, !tbaa !68
   %33 = icmp sgt i64 %2, 3
-  br i1 %33, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %33, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %25
+.lr.ph:                                           ; preds = %25
   %34 = add nsw i64 %2, -2
   br label %.lr.ph
 
@@ -3528,8 +3528,8 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   br i1 %148, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %147
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %150 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %151 = add nsw i64 %2, -2
   br label %152
 
@@ -3595,7 +3595,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   br label %214
 
 183:                                              ; preds = %152
-  %184 = load i32, ptr %150, align 4, !tbaa !89
+  %184 = load i32, ptr %151, align 4, !tbaa !89
   %185 = load ptr, ptr %6, align 8, !tbaa !113
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 28
   store i32 %184, ptr %186, align 4, !tbaa !27
@@ -3605,7 +3605,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   br i1 %.0145186, label %188, label %214
 
 188:                                              ; preds = %187
-  %189 = load i32, ptr %149, align 8, !tbaa !90
+  %189 = load i32, ptr %150, align 8, !tbaa !90
   %190 = load ptr, ptr %6, align 8, !tbaa !113
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 28
   store i32 %189, ptr %191, align 4, !tbaa !27

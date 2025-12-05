@@ -6391,8 +6391,8 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp62.not, label %while.end, label %while.body, !llvm.loop !108
 
 while.end:                                        ; preds = %while.body
-  %cmp66.not.not = icmp eq i64 %pCurrent.0.idx141, -2
-  br i1 %cmp66.not.not, label %if.then67, label %if.end69
+  %cmp66.not = icmp eq i64 %pCurrent.0.idx141, -2
+  br i1 %cmp66.not, label %if.then67, label %if.end69
 
 if.then67:                                        ; preds = %EContinuation.thread, %EContinuation, %while.end
   %pCurrent.0.idx.lcssa190 = phi i64 [ %pCurrent.0.add, %while.end ], [ -2, %EContinuation ], [ -2, %EContinuation.thread ]
@@ -8369,8 +8369,8 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp62.not, label %while.end, label %while.body, !llvm.loop !142
 
 while.end:                                        ; preds = %while.body
-  %cmp65.not.not = icmp eq i64 %pCurrent.0.idx141, -4
-  br i1 %cmp65.not.not, label %if.then66, label %if.end68
+  %cmp65.not = icmp eq i64 %pCurrent.0.idx141, -4
+  br i1 %cmp65.not, label %if.then66, label %if.end68
 
 if.then66:                                        ; preds = %EContinuation.thread, %EContinuation, %while.end
   %pCurrent.0.idx.lcssa190 = phi i64 [ %pCurrent.0.add, %while.end ], [ -4, %EContinuation ], [ -4, %EContinuation.thread ]

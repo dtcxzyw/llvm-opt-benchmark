@@ -1063,7 +1063,7 @@ value_eq.exit.us.us.i.i.i:                        ; preds = %130
   %138 = load ptr, ptr %118, align 8, !tbaa !90
   %bcmp.i.i28.us.us.i.i.i = call i32 @bcmp(ptr readonly %137, ptr readonly %138, i64 %133)
   %.not32.us.us.i.i.i = icmp eq i32 %bcmp.i.i28.us.us.i.i.i, 0
-  br i1 %.not32.us.us.i.i.i, label %search_hd_table.exit.thread147.i, label %name_eq.exit.thread.us.us.i.i.i
+  br i1 %.not32.us.us.i.i.i, label %search_hd_table.exit.thread149.i, label %name_eq.exit.thread.us.us.i.i.i
 
 name_eq.exit.thread.us.us.i.i.i:                  ; preds = %value_eq.exit.us.us.i.i.i, %130, %name_eq.exit.us.us.i.i.i, %124, %121, %.lr.ph.split.us.split.us.i.i.i
   %.2.us.us.i.i.i = phi ptr [ %.036.us.us.i.i.i, %.lr.ph.split.us.split.us.i.i.i ], [ %.036.us.us.i.i.i, %121 ], [ %spec.select.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %.036.us.us.i.i.i, %name_eq.exit.us.us.i.i.i ], [ %.036.us.us.i.i.i, %124 ], [ %spec.select.i.i.i, %130 ]
@@ -1133,7 +1133,7 @@ value_eq.exit.us48.i.i.i:                         ; preds = %154
   %162 = load ptr, ptr %118, align 8, !tbaa !90
   %bcmp.i.i28.us49.i.i.i = call i32 @bcmp(ptr readonly %161, ptr readonly %162, i64 %157)
   %.not32.us50.i.i.i = icmp eq i32 %bcmp.i.i28.us49.i.i.i, 0
-  br i1 %.not32.us50.i.i.i, label %search_hd_table.exit.thread147.i, label %name_eq.exit.thread.us51.i.i.i
+  br i1 %.not32.us50.i.i.i, label %search_hd_table.exit.thread149.i, label %name_eq.exit.thread.us51.i.i.i
 
 name_eq.exit.thread.us51.i.i.i:                   ; preds = %value_eq.exit.us48.i.i.i, %154, %.lr.ph.split.split.us.i.i.i
   %.2.us52.i.i.i = phi ptr [ %.036.us43.i.i.i, %.lr.ph.split.split.us.i.i.i ], [ %spec.select65.i.i.i, %value_eq.exit.us48.i.i.i ], [ %spec.select65.i.i.i, %154 ]
@@ -1201,7 +1201,7 @@ hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread
   %189 = icmp eq ptr %.1.i.i.i, null
   br i1 %189, label %search_hd_table.exit.thread.thread104.i, label %search_hd_table.exit.i
 
-search_hd_table.exit.thread147.i:                 ; preds = %value_eq.exit.us48.i.i.i, %value_eq.exit.us.us.i.i.i
+search_hd_table.exit.thread149.i:                 ; preds = %value_eq.exit.us48.i.i.i, %value_eq.exit.us.us.i.i.i
   %.1.i3134.i.ph.i = phi ptr [ %.01937.us.us.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %.01937.us42.i.i.i, %value_eq.exit.us48.i.i.i ]
   %190 = load i32, ptr %65, align 8, !tbaa !43
   %191 = getelementptr inbounds nuw i8, ptr %.1.i3134.i.ph.i, i64 72
@@ -1222,7 +1222,7 @@ search_hd_table.exit.i:                           ; preds = %188
   %203 = zext i32 %202 to i64
   br label %search_hd_table.exit.thread.i
 
-search_hd_table.exit.thread93.i:                  ; preds = %182, %search_hd_table.exit.thread147.i
+search_hd_table.exit.thread93.i:                  ; preds = %182, %search_hd_table.exit.thread149.i
   %.sroa.024.0.i99.i = phi i64 [ %196, %search_hd_table.exit.thread147.i ], [ %indvars.iv.i.i.i, %182 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %204 = icmp slt i64 %.sroa.024.0.i99.i, 126
@@ -1276,7 +1276,7 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i78.i
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.loopexit.i, %216
-  %.011.i131624.i.i = phi i64 [ 2, %216 ], [ %221, %._crit_edge.i.i.loopexit.i ]
+  %.011.i131626.i.i = phi i64 [ 2, %216 ], [ %221, %._crit_edge.i.i.loopexit.i ]
   %.025.lcssa.i.i.i = phi i64 [ %206, %216 ], [ %219, %._crit_edge.i.i.loopexit.i ]
   %.024.lcssa.i.i.i = phi ptr [ %.02428.i.i.i, %216 ], [ %.024.i.i.i, %._crit_edge.i.i.loopexit.i ]
   %222 = trunc nuw nsw i64 %.025.lcssa.i.i.i to i8
@@ -1284,7 +1284,7 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i78.i
   br label %encode_length.exit.i.i
 
 encode_length.exit.i.i:                           ; preds = %._crit_edge.i.i.i, %212
-  %.011.i1315.i.i = phi i64 [ 1, %212 ], [ %.011.i131624.i.i, %._crit_edge.i.i.i ]
+  %.011.i1315.i.i = phi i64 [ 1, %212 ], [ %.011.i131626.i.i, %._crit_edge.i.i.i ]
   %223 = call i32 @nghttp2_bufs_add(ptr noundef %1, ptr noundef nonnull %5, i64 noundef %.011.i1315.i.i) #12
   br label %emit_indexed_block.exit.i
 

@@ -1468,9 +1468,9 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeAlphaImageStream(ptr noundef readon
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %25 = load i32, ptr %24, align 8, !tbaa !90
   %26 = icmp slt i32 %18, %23
-  br i1 %26, label %28, label %.thread270.i
+  br i1 %26, label %28, label %.thread271.i
 
-.thread270.i:                                     ; preds = %.thread
+.thread271.i:                                     ; preds = %.thread
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 76
   br label %._crit_edge235.i
 
@@ -2048,9 +2048,9 @@ GetHtreeGroupForPos.exit180.i:                    ; preds = %311, %308
   %.1107.i = phi i32 [ %121, %ExtractPalettedAlphaRows.exit.i ], [ %121, %120 ], [ %.0106232.i, %114 ], [ %.3109.lcssa.i, %._crit_edge.i ], [ %.3109.lcssa.i, %GetHtreeGroupForPos.exit180.i ]
   %324 = load i32, ptr %46, align 4, !tbaa !51
   %.not.i181.i = icmp eq i32 %324, 0
-  br i1 %.not.i181.i, label %325, label %.thread272.i
+  br i1 %.not.i181.i, label %325, label %.thread273.i
 
-.thread272.i:                                     ; preds = %.thread.i
+.thread273.i:                                     ; preds = %.thread.i
   store i32 1, ptr %46, align 4, !tbaa !51
   br label %._crit_edge235.i
 
@@ -2074,7 +2074,7 @@ GetHtreeGroupForPos.exit180.i:                    ; preds = %311, %308
   %336 = select i1 %.not.i, i1 %335, i1 false
   br i1 %336, label %59, label %._crit_edge235.i
 
-._crit_edge235.i:                                 ; preds = %333, %.thread272.i, %45, %.thread270.i
+._crit_edge235.i:                                 ; preds = %333, %.thread273.i, %45, %.thread271.i
   %337 = phi ptr [ %46, %45 ], [ %27, %.thread270.i ], [ %46, %.thread272.i ], [ %46, %333 ]
   %.0116.lcssa.i = phi i32 [ %18, %45 ], [ %18, %.thread270.i ], [ %.1117.i, %.thread272.i ], [ %.1117.i, %333 ]
   %.0106.lcssa.i = phi i32 [ %19, %45 ], [ %19, %.thread270.i ], [ %.1107.i, %.thread272.i ], [ %.1107.i, %333 ]
@@ -2414,7 +2414,7 @@ VP8LIsEndOfStream.exit:                           ; preds = %119
 
 VP8LIsEndOfStream.exit.thread:                    ; preds = %119, %VP8LIsEndOfStream.exit
   %125 = icmp eq i32 %.0.i, 0
-  br i1 %125, label %285, label %.thread443
+  br i1 %125, label %285, label %.thread444
 
 126:                                              ; preds = %VP8LFillBitWindow.exit
   %127 = load ptr, ptr %.1191, align 8, !tbaa !31
@@ -2461,23 +2461,23 @@ VP8LIsEndOfStream.exit.thread:                    ; preds = %119, %VP8LIsEndOfSt
   %158 = zext i16 %157 to i32
   %.pre = load i32, ptr %60, align 4, !tbaa !51
   %159 = icmp eq i32 %.pre, 0
-  br i1 %159, label %.thread443, label %.thread318
+  br i1 %159, label %.thread444, label %.thread318
 
-.thread443:                                       ; preds = %VP8LIsEndOfStream.exit.thread, %151
-  %.0196448 = phi i32 [ %158, %151 ], [ %.0.i, %VP8LIsEndOfStream.exit.thread ]
-  %.val18.i250447 = phi i64 [ %.val18.i, %151 ], [ %.val.i, %VP8LIsEndOfStream.exit.thread ]
+.thread444:                                       ; preds = %VP8LIsEndOfStream.exit.thread, %151
+  %.0196449 = phi i32 [ %158, %151 ], [ %.0.i, %VP8LIsEndOfStream.exit.thread ]
+  %.val18.i250448 = phi i64 [ %.val18.i, %151 ], [ %.val.i, %VP8LIsEndOfStream.exit.thread ]
   %160 = load i64, ptr %61, align 8, !tbaa !103
   %161 = load i64, ptr %62, align 8, !tbaa !104
   %162 = icmp eq i64 %160, %161
   br i1 %162, label %VP8LIsEndOfStream.exit249, label %VP8LIsEndOfStream.exit249.thread
 
-VP8LIsEndOfStream.exit249:                        ; preds = %.thread443
+VP8LIsEndOfStream.exit249:                        ; preds = %.thread444
   %163 = load i32, ptr %59, align 8, !tbaa !47
   %164 = icmp slt i32 %163, 65
   br i1 %164, label %VP8LIsEndOfStream.exit249.thread, label %.thread318
 
-VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread443, %VP8LIsEndOfStream.exit249
-  %165 = icmp slt i32 %.0196448, 256
+VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread444, %VP8LIsEndOfStream.exit249
+  %165 = icmp slt i32 %.0196449, 256
   br i1 %165, label %166, label %303
 
 166:                                              ; preds = %VP8LIsEndOfStream.exit249.thread
@@ -2489,7 +2489,7 @@ VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread443, %VP8LIs
 169:                                              ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %.1191, i64 44
   %171 = load i32, ptr %170, align 4, !tbaa !39
-  %172 = shl i32 %.0196448, 8
+  %172 = shl i32 %.0196449, 8
   %173 = or i32 %171, %172
   br label %.sink.split
 
@@ -2499,7 +2499,7 @@ VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread443, %VP8LIs
   %.val19.i251 = load i32, ptr %59, align 8, !tbaa !47
   %177 = and i32 %.val19.i251, 63
   %178 = zext nneg i32 %177 to i64
-  %179 = lshr i64 %.val18.i250447, %178
+  %179 = lshr i64 %.val18.i250448, %178
   %180 = and i64 %179, 255
   %181 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %176, i64 %180
   %182 = load i8, ptr %181, align 2, !tbaa !32
@@ -2512,7 +2512,7 @@ VP8LIsEndOfStream.exit249.thread:                 ; preds = %.thread443, %VP8LIs
   %187 = add nsw i32 %.val19.i251, 8
   %188 = and i32 %187, 63
   %189 = zext nneg i32 %188 to i64
-  %190 = lshr i64 %.val18.i250447, %189
+  %190 = lshr i64 %.val18.i250448, %189
   %191 = trunc i64 %190 to i32
   %192 = getelementptr inbounds nuw i8, ptr %181, i64 2
   %193 = load i16, ptr %192, align 2, !tbaa !38
@@ -2547,7 +2547,7 @@ ReadSymbol.exit255:                               ; preds = %174, %184
 
 VP8LFillBitWindow.exit256:                        ; preds = %ReadSymbol.exit255, %208
   %.val19.i258 = phi i32 [ %203, %ReadSymbol.exit255 ], [ %.val19.i258.pre, %208 ]
-  %.val18.i257 = phi i64 [ %.val18.i250447, %ReadSymbol.exit255 ], [ %.val18.i257.pre, %208 ]
+  %.val18.i257 = phi i64 [ %.val18.i250448, %ReadSymbol.exit255 ], [ %.val18.i257.pre, %208 ]
   %209 = getelementptr inbounds nuw i8, ptr %.1191, i64 16
   %210 = load ptr, ptr %209, align 8, !tbaa !31
   %211 = and i32 %.val19.i258, 63
@@ -2644,7 +2644,7 @@ ReadSymbol.exit268:                               ; preds = %ReadSymbol.exit262,
 VP8LIsEndOfStream.exit270.thread:                 ; preds = %274
   %279 = shl i32 %272, 24
   %280 = shl nuw i32 %206, 16
-  %281 = shl i32 %.0196448, 8
+  %281 = shl i32 %.0196449, 8
   %282 = or i32 %280, %281
   %283 = or i32 %282, %240
   %284 = or i32 %283, %279
@@ -2699,18 +2699,18 @@ VP8LIsEndOfStream.exit270.thread:                 ; preds = %274
   br i1 %302, label %295, label %.thread304, !llvm.loop !114
 
 303:                                              ; preds = %VP8LIsEndOfStream.exit249.thread
-  %304 = icmp samesign ult i32 %.0196448, 280
+  %304 = icmp samesign ult i32 %.0196449, 280
   br i1 %304, label %305, label %428
 
 305:                                              ; preds = %303
-  %306 = add nsw i32 %.0196448, -256
+  %306 = add nsw i32 %.0196449, -256
   %307 = icmp samesign ult i32 %.0196448, 260
   br i1 %307, label %GetCopyLength.exit, label %308
 
 308:                                              ; preds = %305
-  %309 = add nsw i32 %.0196448, -258
+  %309 = add nsw i32 %.0196449, -258
   %310 = lshr i32 %309, 1
-  %311 = and i32 %.0196448, 1
+  %311 = and i32 %.0196449, 1
   %312 = or disjoint i32 %311, 2
   %313 = shl nuw nsw i32 %312, %310
   %314 = tail call i32 @VP8LReadBits(ptr noundef nonnull %11, i32 noundef %310) #8
@@ -2719,7 +2719,7 @@ VP8LIsEndOfStream.exit270.thread:                 ; preds = %274
   br label %GetCopyLength.exit
 
 GetCopyLength.exit:                               ; preds = %305, %308
-  %.val18.i272 = phi i64 [ %.val18.i272.pre, %308 ], [ %.val18.i250447, %305 ]
+  %.val18.i272 = phi i64 [ %.val18.i272.pre, %308 ], [ %.val18.i250448, %305 ]
   %.0.in.i.i = phi i32 [ %315, %308 ], [ %306, %305 ]
   %.0.i.i271 = add i32 %.0.in.i.i, 1
   %316 = getelementptr inbounds nuw i8, ptr %.1191, i64 32
@@ -2933,7 +2933,7 @@ GetHtreeGroupForPos.exit284:                      ; preds = %402, %405
   br i1 %427, label %420, label %.thread304, !llvm.loop !116
 
 428:                                              ; preds = %303
-  %429 = icmp slt i32 %.0196448, %22
+  %429 = icmp slt i32 %.0196449, %22
   br i1 %429, label %.preheader349, label %.thread325
 
 .preheader349:                                    ; preds = %428
@@ -2956,7 +2956,7 @@ GetHtreeGroupForPos.exit284:                      ; preds = %402, %405
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader349
   %.8.lcssa = phi ptr [ %.0182370, %.preheader349 ], [ %431, %.lr.ph ]
-  %438 = zext nneg i32 %.0196448 to i64
+  %438 = zext nneg i32 %.0196449 to i64
   %439 = getelementptr i32, ptr %.val244.pre, i64 %438
   %440 = getelementptr i8, ptr %439, i64 -1120
   %441 = load i32, ptr %440, align 4, !tbaa !6

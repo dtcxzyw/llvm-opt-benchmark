@@ -4645,21 +4645,21 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_partial_transport_str
   %14 = mul nuw nsw i32 %10, 400
   %15 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %3, i32 noundef %11, ptr noundef %0, i32 noundef %13, i32 noundef 22, i32 noundef %10, i32 noundef 0, ptr noundef nonnull @.str.760, i32 noundef %14)
   %16 = icmp samesign ult i32 %2, 6
-  br i1 %16, label %45, label %17
+  br i1 %16, label %45, label %33
 
-17:                                               ; preds = %6
-  %18 = add i32 %1, 3
-  %19 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_reserved_future_use2, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 3, i32 noundef 0)
-  %21 = tail call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %18, i32 noundef 0)
-  %22 = and i32 %21, 4194303
+33:                                               ; preds = %6
+  %34 = add i32 %1, 3
+  %35 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_reserved_future_use2, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 3, i32 noundef 0)
+  %37 = tail call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %34, i32 noundef 0)
+  %38 = and i32 %37, 4194303
   %23 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_minimum_overall_smoothing_rate, align 4
   %24 = shl i32 %18, 3
   %25 = or disjoint i32 %24, 2
   %26 = icmp eq i32 %22, 4194303
   %27 = select i1 %26, ptr @.str.761, ptr @.str.760
   %28 = mul nuw nsw i32 %22, 400
-  %29 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %3, i32 noundef %23, ptr noundef %0, i32 noundef %25, i32 noundef 22, i32 noundef %22, i32 noundef 0, ptr noundef nonnull %27, i32 noundef %28)
+  %45 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %3, i32 noundef %23, ptr noundef %0, i32 noundef %25, i32 noundef 22, i32 noundef %22, i32 noundef 0, ptr noundef nonnull %27, i32 noundef %28)
   %30 = and i32 %2, 254
   %31 = icmp eq i32 %30, 6
   br i1 %31, label %45, label %32

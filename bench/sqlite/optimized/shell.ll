@@ -5483,7 +5483,7 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 59:                                               ; preds = %57, %56, %53, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %95
+  br label %96
 
 60:                                               ; preds = %3
   %61 = load ptr, ptr %2, align 8, !tbaa !18
@@ -5509,7 +5509,7 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 73:                                               ; preds = %69
   tail call void @sqlite3_result_double(ptr noundef %0, double noundef 0.000000e+00) #44
-  br label %95
+  br label %96
 
 74:                                               ; preds = %67, %69
   %.075 = phi i64 [ %68, %67 ], [ %62, %69 ]
@@ -5542,34 +5542,34 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
 ._crit_edge:                                      ; preds = %.lr.ph104, %.preheader
   %.277.lcssa = phi i64 [ %.176.lcssa, %.preheader ], [ %79, %.lr.ph104 ]
   %.274.lcssa = phi i64 [ %.173.lcssa, %.preheader ], [ %80, %.lr.ph104 ]
-  %82 = icmp slt i64 %.274.lcssa, -1074
-  br i1 %82, label %83, label %87
+  %83 = icmp slt i64 %.274.lcssa, -1074
+  br i1 %83, label %84, label %88
 
-83:                                               ; preds = %._crit_edge
-  %84 = icmp samesign ult i64 %.274.lcssa, -1137
-  %85 = sub nuw nsw i64 -1074, %.274.lcssa
-  %86 = lshr i64 %.277.lcssa, %85
-  %.378 = select i1 %84, i64 0, i64 %86
-  br label %90
+84:                                               ; preds = %._crit_edge
+  %85 = icmp samesign ult i64 %.274.lcssa, -1137
+  %86 = sub nuw nsw i64 -1074, %.274.lcssa
+  %87 = lshr i64 %.277.lcssa, %86
+  %.378 = select i1 %85, i64 0, i64 %87
+  br label %91
 
-87:                                               ; preds = %._crit_edge
-  %88 = tail call i64 @llvm.smin.i64(i64 %.274.lcssa, i64 972)
-  %spec.store.select6 = shl nsw i64 %88, 52
-  %89 = add nsw i64 %spec.store.select6, 4841369599423283200
-  br label %90
+88:                                               ; preds = %._crit_edge
+  %89 = tail call i64 @llvm.smin.i64(i64 %.274.lcssa, i64 972)
+  %spec.store.select6 = shl nsw i64 %89, 52
+  %90 = add nsw i64 %spec.store.select6, 4841369599423283200
+  br label %91
 
-90:                                               ; preds = %87, %83
+91:                                               ; preds = %88, %84
   %.4 = phi i64 [ %.378, %83 ], [ %.277.lcssa, %87 ]
-  %.3 = phi i64 [ 0, %83 ], [ %89, %87 ]
-  %91 = and i64 %.4, 4503599627370495
-  %92 = and i64 %62, -9223372036854775808
-  %93 = or i64 %.3, %92
-  %spec.select = or i64 %93, %91
-  %94 = bitcast i64 %spec.select to double
-  tail call void @sqlite3_result_double(ptr noundef %0, double noundef %94) #44
-  br label %95
+  %.3 = phi i64 [ 0, %83 ], [ %90, %87 ]
+  %92 = and i64 %.4, 4503599627370495
+  %93 = and i64 %62, -9223372036854775808
+  %94 = or i64 %.3, %93
+  %spec.select = or i64 %94, %92
+  %95 = bitcast i64 %spec.select to double
+  tail call void @sqlite3_result_double(ptr noundef %0, double noundef %95) #44
+  br label %96
 
-95:                                               ; preds = %73, %90, %59
+96:                                               ; preds = %73, %91, %59
   ret void
 }
 

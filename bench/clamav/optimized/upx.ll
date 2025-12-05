@@ -184,16 +184,16 @@ doubleebx.exit184:                                ; preds = %63, %76
 
 81:                                               ; preds = %doubleebx.exit184
   %82 = icmp sgt i32 %65, 2
-  br i1 %82, label %83, label %96
+  br i1 %82, label %85, label %96
 
-83:                                               ; preds = %81
+84:                                               ; preds = %81
   %.not154 = icmp uge i32 %.10, %1
-  %84 = icmp samesign ugt i32 %65, 16777218
-  %or.cond168 = select i1 %.not154, i1 true, i1 %84
-  br i1 %or.cond168, label %doubleebx.exit.thread, label %85
+  %85 = icmp samesign ugt i32 %65, 16777218
+  %or.cond168 = select i1 %.not154, i1 true, i1 %85
+  br i1 %or.cond168, label %doubleebx.exit.thread, label %86
 
-85:                                               ; preds = %83
-  %86 = shl i32 %65, 8
+86:                                               ; preds = %84
+  %87 = shl i32 %65, 8
   %87 = add i32 %86, -768
   %88 = zext i32 %.10 to i64
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 %88
@@ -203,7 +203,7 @@ doubleebx.exit184:                                ; preds = %63, %76
   %.not155 = icmp eq i32 %92, -1
   br i1 %.not155, label %208, label %93
 
-93:                                               ; preds = %85
+93:                                               ; preds = %86
   %94 = add nuw i32 %.10, 1
   %95 = xor i32 %92, -1
   br label %96
@@ -433,11 +433,11 @@ doubleebx.exit212:                                ; preds = %149, %162
   %207 = add i32 %172, %31
   br label %13
 
-208:                                              ; preds = %85
+208:                                              ; preds = %86
   %209 = tail call fastcc i32 @pefromupx(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef @__const.upx_inflate2b.magic, i32 noundef %31)
   br label %doubleebx.exit.thread
 
-doubleebx.exit.thread:                            ; preds = %114, %115, %98, %99, %169, %178, %183, %190, %194, %83, %18, %19, %32, %33, %68, %69, %45, %46, %doubleebx.exit177, %154, %155, %133, %134, %doubleebx.exit205, %208
+doubleebx.exit.thread:                            ; preds = %114, %115, %98, %99, %169, %178, %183, %190, %194, %84, %18, %19, %32, %33, %68, %69, %45, %46, %doubleebx.exit177, %154, %155, %133, %134, %doubleebx.exit205, %208
   %.0130 = phi i32 [ %209, %208 ], [ -1, %doubleebx.exit205 ], [ -1, %134 ], [ -1, %133 ], [ -1, %155 ], [ -1, %154 ], [ -1, %doubleebx.exit177 ], [ -1, %46 ], [ -1, %45 ], [ -1, %69 ], [ -1, %68 ], [ -1, %33 ], [ -1, %32 ], [ -1, %19 ], [ -1, %18 ], [ -1, %83 ], [ -1, %194 ], [ -1, %190 ], [ -1, %183 ], [ -1, %178 ], [ -1, %169 ], [ -1, %99 ], [ -1, %98 ], [ -1, %115 ], [ -1, %114 ]
   ret i32 %.0130
 }
@@ -1411,14 +1411,14 @@ doubleebx.exit201:                                ; preds = %81, %93
   %107 = icmp sgt i32 %65, 2
   br i1 %107, label %108, label %123
 
-108:                                              ; preds = %106
+109:                                              ; preds = %106
   %.not164 = icmp uge i32 %.10, %1
-  %109 = icmp samesign ugt i32 %65, 16777218
-  %or.cond178 = select i1 %.not164, i1 true, i1 %109
-  br i1 %or.cond178, label %doubleebx.exit.thread, label %110
+  %110 = icmp samesign ugt i32 %65, 16777218
+  %or.cond178 = select i1 %.not164, i1 true, i1 %110
+  br i1 %or.cond178, label %doubleebx.exit.thread, label %111
 
-110:                                              ; preds = %108
-  %111 = shl i32 %65, 8
+111:                                              ; preds = %109
+  %112 = shl i32 %65, 8
   %112 = add i32 %111, -768
   %113 = zext i32 %.10 to i64
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 %113
@@ -1428,7 +1428,7 @@ doubleebx.exit201:                                ; preds = %81, %93
   %.not165 = icmp eq i32 %117, -1
   br i1 %.not165, label %234, label %118
 
-118:                                              ; preds = %110
+118:                                              ; preds = %111
   %119 = add nuw i32 %.10, 1
   %120 = xor i32 %117, -1
   %121 = and i32 %120, 1
@@ -1664,11 +1664,11 @@ doubleebx.exit229:                                ; preds = %175, %188
   %233 = add i32 %198, %31
   br label %13
 
-234:                                              ; preds = %110
+234:                                              ; preds = %111
   %235 = tail call fastcc i32 @pefromupx(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef @__const.upx_inflate2d.magic, i32 noundef %31)
   br label %doubleebx.exit.thread
 
-doubleebx.exit.thread:                            ; preds = %143, %144, %126, %127, %195, %204, %209, %216, %220, %108, %18, %19, %32, %33, %85, %86, %68, %69, %45, %46, %doubleebx.exit201, %doubleebx.exit187, %180, %181, %159, %160, %doubleebx.exit222, %234
+doubleebx.exit.thread:                            ; preds = %143, %144, %126, %127, %195, %204, %209, %216, %220, %109, %18, %19, %32, %33, %85, %86, %68, %69, %45, %46, %doubleebx.exit201, %doubleebx.exit187, %180, %181, %159, %160, %doubleebx.exit222, %234
   %.0139 = phi i32 [ %235, %234 ], [ -1, %doubleebx.exit222 ], [ -1, %160 ], [ -1, %159 ], [ -1, %181 ], [ -1, %180 ], [ -1, %doubleebx.exit187 ], [ -1, %doubleebx.exit201 ], [ -1, %46 ], [ -1, %45 ], [ -1, %69 ], [ -1, %68 ], [ -1, %86 ], [ -1, %85 ], [ -1, %33 ], [ -1, %32 ], [ -1, %19 ], [ -1, %18 ], [ -1, %108 ], [ -1, %220 ], [ -1, %216 ], [ -1, %209 ], [ -1, %204 ], [ -1, %195 ], [ -1, %127 ], [ -1, %126 ], [ -1, %144 ], [ -1, %143 ]
   ret i32 %.0139
 }
@@ -1886,14 +1886,14 @@ doubleebx.exit207:                                ; preds = %93, %105
   %121 = icmp sgt i32 %75, 2
   br i1 %121, label %122, label %137
 
-122:                                              ; preds = %120
+123:                                              ; preds = %120
   %.not169 = icmp uge i32 %91, %1
-  %123 = icmp samesign ugt i32 %75, 16777218
-  %or.cond184 = select i1 %.not169, i1 true, i1 %123
-  br i1 %or.cond184, label %doubleebx.exit.thread, label %124
+  %124 = icmp samesign ugt i32 %75, 16777218
+  %or.cond184 = select i1 %.not169, i1 true, i1 %124
+  br i1 %or.cond184, label %doubleebx.exit.thread, label %125
 
-124:                                              ; preds = %122
-  %125 = shl i32 %75, 8
+125:                                              ; preds = %123
+  %126 = shl i32 %75, 8
   %126 = add i32 %125, -768
   %127 = add nuw i32 %91, 1
   store i32 %127, ptr %9, align 4, !tbaa !6
@@ -1905,7 +1905,7 @@ doubleebx.exit207:                                ; preds = %93, %105
   %.not170 = icmp eq i32 %132, -1
   br i1 %.not170, label %268, label %133
 
-133:                                              ; preds = %124
+133:                                              ; preds = %125
   %134 = xor i32 %132, -1
   %135 = and i32 %134, 1
   %136 = ashr i32 %134, 1
@@ -2175,11 +2175,11 @@ doubleebx.exit235:                                ; preds = %206, %219
   %.promoted260.pre = load i32, ptr %9, align 4
   br label %15
 
-268:                                              ; preds = %124
+268:                                              ; preds = %125
   %269 = tail call fastcc i32 @pefromupx(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6, i32 noundef %4, i32 noundef %5, ptr noundef @__const.upx_inflate2e.magic, i32 noundef %37)
   br label %doubleebx.exit.thread
 
-doubleebx.exit.thread:                            ; preds = %162, %163, %140, %141, %228, %238, %243, %250, %254, %178, %176, %122, %22, %23, %38, %39, %97, %98, %78, %79, %53, %54, %doubleebx.exit207, %doubleebx.exit193, %211, %212, %188, %189, %doubleebx.exit228, %268
+doubleebx.exit.thread:                            ; preds = %162, %163, %140, %141, %228, %238, %243, %250, %254, %178, %176, %123, %22, %23, %38, %39, %97, %98, %78, %79, %53, %54, %doubleebx.exit207, %doubleebx.exit193, %211, %212, %188, %189, %doubleebx.exit228, %268
   %.0143 = phi i32 [ %269, %268 ], [ -1, %doubleebx.exit228 ], [ -1, %189 ], [ -1, %188 ], [ -1, %212 ], [ -1, %211 ], [ -1, %doubleebx.exit193 ], [ -1, %doubleebx.exit207 ], [ -1, %54 ], [ -1, %53 ], [ -1, %79 ], [ -1, %78 ], [ -1, %98 ], [ -1, %97 ], [ -1, %39 ], [ -1, %38 ], [ -1, %23 ], [ -1, %22 ], [ -1, %162 ], [ -1, %163 ], [ -1, %140 ], [ -1, %141 ], [ -1, %228 ], [ -1, %238 ], [ -1, %243 ], [ -1, %250 ], [ -1, %254 ], [ -1, %178 ], [ %177, %176 ], [ -1, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

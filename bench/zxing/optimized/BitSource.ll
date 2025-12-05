@@ -107,10 +107,10 @@ define internal fastcc noundef i32 @_ZN5ZXingL12ReadBitsImplEiRKNS_9ByteArrayEiR
   br i1 %36, label %.preheader, label %60
 
 .preheader:                                       ; preds = %12, %35
-  %.011 = phi i32 [ %29, %35 ], [ %0, %12 ]
-  %.04710 = phi i32 [ %28, %35 ], [ 0, %12 ]
+  %.012 = phi i32 [ %29, %35 ], [ %0, %12 ]
+  %.04711 = phi i32 [ %28, %35 ], [ 0, %12 ]
   %.promoted = load i32, ptr %2, align 4
-  %37 = icmp samesign ugt i32 %.011, 7
+  %37 = icmp samesign ugt i32 %.012, 7
   br i1 %37, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -119,8 +119,8 @@ define internal fastcc noundef i32 @_ZN5ZXingL12ReadBitsImplEiRKNS_9ByteArrayEiR
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.12 = phi i32 [ %.011, %.lr.ph.preheader ], [ %45, %.lr.ph ]
-  %.21 = phi i32 [ %.04710, %.lr.ph.preheader ], [ %43, %.lr.ph ]
+  %.12 = phi i32 [ %.012, %.lr.ph.preheader ], [ %45, %.lr.ph ]
+  %.21 = phi i32 [ %.04711, %.lr.ph.preheader ], [ %43, %.lr.ph ]
   %39 = shl i32 %.21, 8
   %40 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %indvars.iv
   %41 = load i8, ptr %40, align 1, !tbaa !17
@@ -138,12 +138,12 @@ define internal fastcc noundef i32 @_ZN5ZXingL12ReadBitsImplEiRKNS_9ByteArrayEiR
   br i1 %.not, label %60, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.1.lcssa16 = phi i32 [ %45, %._crit_edge ], [ %.011, %.preheader ]
-  %.2.lcssa15 = phi i32 [ %43, %._crit_edge ], [ %.04710, %.preheader ]
+  %.1.lcssa17 = phi i32 [ %45, %._crit_edge ], [ %.012, %.preheader ]
+  %.2.lcssa16 = phi i32 [ %43, %._crit_edge ], [ %.04711, %.preheader ]
   %47 = phi i32 [ %44, %._crit_edge ], [ %.promoted, %.preheader ]
-  %48 = sub nuw nsw i32 8, %.1.lcssa16
+  %48 = sub nuw nsw i32 8, %.1.lcssa17
   %49 = shl nsw i32 -1, %48
-  %50 = shl i32 %.2.lcssa15, %.1.lcssa16
+  %50 = shl i32 %.2.lcssa16, %.1.lcssa17
   %51 = sext i32 %47 to i64
   %52 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !17
@@ -152,7 +152,7 @@ define internal fastcc noundef i32 @_ZN5ZXingL12ReadBitsImplEiRKNS_9ByteArrayEiR
   %56 = lshr i32 %55, %48
   %57 = or i32 %56, %50
   %58 = load i32, ptr %3, align 4, !tbaa !16
-  %59 = add nsw i32 %58, %.1.lcssa16
+  %59 = add nsw i32 %58, %.1.lcssa17
   store i32 %59, ptr %3, align 4, !tbaa !16
   br label %60
 

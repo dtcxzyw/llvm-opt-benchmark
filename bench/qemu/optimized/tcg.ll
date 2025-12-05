@@ -22996,77 +22996,77 @@ define internal fastcc void @tcg_out_helper_load_common_args(ptr noundef capture
   br label %tcg_out_modrm_offset.exit.i.i
 
 tcg_out_modrm_offset.exit.i.i:                    ; preds = %18, %31
-  %35 = phi i32 [ %24, %31 ], [ %20, %18 ]
-  %36 = shl nuw nsw i32 %35, 3
-  %37 = add nsw i32 %36, -48
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store ptr %40, ptr %38, align 8
-  store i8 -57, ptr %39, align 1
-  %.not3.i = icmp eq i32 %37, 0
-  %41 = icmp samesign ugt i32 %35, 21
-  %42 = add nsw i32 %36, -49
-  %43 = icmp ult i32 %42, 127
-  %44 = select i1 %41, i8 -124, i8 68
-  %45 = select i1 %.not3.i, i8 4, i8 %44
-  %46 = load ptr, ptr %38, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  store ptr %47, ptr %38, align 8
-  store i8 %45, ptr %46, align 1
-  %48 = load ptr, ptr %38, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
-  store ptr %49, ptr %38, align 8
-  store i8 36, ptr %48, align 1
-  br i1 %43, label %50, label %54
+  %.in = phi i32 [ %24, %31 ], [ %20, %18 ]
+  %35 = shl nuw nsw i32 %.in, 3
+  %36 = add nsw i32 %35, -48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  store ptr %39, ptr %37, align 8
+  store i8 -57, ptr %38, align 1
+  %.not3.i = icmp eq i32 %36, 0
+  %40 = icmp samesign ugt i32 %35, 21
+  %41 = add nsw i32 %35, -49
+  %42 = icmp ult i32 %41, 127
+  %43 = select i1 %40, i8 -124, i8 68
+  %44 = select i1 %.not3.i, i8 4, i8 %43
+  %45 = load ptr, ptr %37, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  store ptr %46, ptr %37, align 8
+  store i8 %44, ptr %45, align 1
+  %47 = load ptr, ptr %37, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  store ptr %48, ptr %37, align 8
+  store i8 36, ptr %47, align 1
+  br i1 %42, label %49, label %53
 
-50:                                               ; preds = %tcg_out_modrm_offset.exit.i.i
-  %51 = trunc i32 %37 to i8
-  %52 = load ptr, ptr %38, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  store ptr %53, ptr %38, align 8
-  store i8 %51, ptr %52, align 1
-  %.pre.i = load ptr, ptr %38, align 8
+49:                                               ; preds = %tcg_out_modrm_offset.exit.i.i
+  %50 = trunc i32 %36 to i8
+  %51 = load ptr, ptr %37, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
+  store ptr %52, ptr %37, align 8
+  store i8 %50, ptr %51, align 1
+  %.pre.i = load ptr, ptr %37, align 8
   br label %tcg_out_sib_offset.exit.i
 
-54:                                               ; preds = %tcg_out_modrm_offset.exit.i.i
-  %.pre4.i = load ptr, ptr %38, align 8
-  br i1 %41, label %55, label %tcg_out_sib_offset.exit.i
+53:                                               ; preds = %tcg_out_modrm_offset.exit.i.i
+  %.pre4.i = load ptr, ptr %37, align 8
+  br i1 %40, label %54, label %tcg_out_sib_offset.exit.i
 
-55:                                               ; preds = %54
-  store i32 %37, ptr %.pre4.i, align 1
-  %56 = getelementptr inbounds nuw i8, ptr %.pre4.i, i64 4
+54:                                               ; preds = %53
+  store i32 %36, ptr %.pre4.i, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %.pre4.i, i64 4
   br label %tcg_out_sib_offset.exit.i
 
-tcg_out_sib_offset.exit.i:                        ; preds = %55, %54, %50
-  %57 = phi ptr [ %.pre.i, %50 ], [ %.pre4.i, %54 ], [ %56, %55 ]
-  store i32 %12, ptr %57, align 1
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store ptr %58, ptr %38, align 8
+tcg_out_sib_offset.exit.i:                        ; preds = %54, %53, %49
+  %56 = phi ptr [ %.pre.i, %50 ], [ %.pre4.i, %54 ], [ %55, %55 ]
+  store i32 %12, ptr %56, align 1
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  store ptr %57, ptr %37, align 8
   br label %tcg_out_helper_load_imm.exit
 
 tcg_out_helper_load_imm.exit:                     ; preds = %26, %tcg_out_sib_offset.exit.i
-  %59 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %60 = load i32, ptr %59, align 4
-  %61 = lshr i32 %60, 8
-  %62 = and i32 %61, 255
-  %63 = icmp samesign ult i32 %62, 6
-  br i1 %63, label %64, label %69
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = lshr i32 %59, 8
+  %61 = and i32 %60, 255
+  %62 = icmp samesign ult i32 %61, 6
+  br i1 %62, label %63, label %68
 
-64:                                               ; preds = %tcg_out_helper_load_imm.exit
-  %65 = zext nneg i32 %62 to i64
-  %66 = getelementptr inbounds nuw i32, ptr @tcg_target_call_iarg_regs, i64 %65
-  %67 = load i32, ptr %66, align 4
-  %68 = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
-  br label %69
+63:                                               ; preds = %tcg_out_helper_load_imm.exit
+  %64 = zext nneg i32 %61 to i64
+  %65 = getelementptr inbounds nuw i32, ptr @tcg_target_call_iarg_regs, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 0)
+  br label %68
 
-69:                                               ; preds = %64, %tcg_out_helper_load_imm.exit
-  %.0 = phi i32 [ %68, %64 ], [ 0, %tcg_out_helper_load_imm.exit ]
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %71 = load ptr, ptr %70, align 8
-  %72 = ptrtoint ptr %71 to i64
-  tail call fastcc void @tcg_out_movi(ptr noundef %0, i32 noundef 1, i32 noundef %.0, i64 noundef %72)
-  store i32 %62, ptr %5, align 4
+68:                                               ; preds = %63, %tcg_out_helper_load_imm.exit
+  %.0 = phi i32 [ %67, %64 ], [ 0, %tcg_out_helper_load_imm.exit ]
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %70 = load ptr, ptr %69, align 8
+  %71 = ptrtoint ptr %70 to i64
+  tail call fastcc void @tcg_out_movi(ptr noundef %0, i32 noundef 1, i32 noundef %.0, i64 noundef %71)
+  store i32 %61, ptr %5, align 4
   store i32 %.0, ptr %10, align 4
   call fastcc void @tcg_out_helper_load_slots(ptr noundef %0, i32 noundef 1, ptr noundef %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

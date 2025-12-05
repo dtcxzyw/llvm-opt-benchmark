@@ -3409,7 +3409,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1293 = icmp ult i32 %1288, 33
   br i1 %1293, label %.preheader377, label %1294
 
-1294:                                             ; preds = %1292
+1296:                                             ; preds = %1292
   %1295 = mul nuw nsw i64 %1289, 12
   %1296 = add nsw i64 %1295, -12
   %1297 = udiv i64 %1296, 12
@@ -3422,7 +3422,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1304 = getelementptr i8, ptr %1286, i64 288
   br label %1305
 
-1305:                                             ; preds = %1305, %1294
+1305:                                             ; preds = %1305, %1296
   %1306 = phi i64 [ 0, %1294 ], [ %1336, %1305 ]
   %1307 = phi <8 x i32> [ zeroinitializer, %1294 ], [ %1332, %1305 ]
   %1308 = phi <8 x i32> [ zeroinitializer, %1294 ], [ %1333, %1305 ]

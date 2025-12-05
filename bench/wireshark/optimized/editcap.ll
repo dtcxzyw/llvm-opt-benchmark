@@ -4576,7 +4576,7 @@ find_dct2000_real_data.exit:                      ; preds = %.preheader.i
   br label %55
 
 55:                                               ; preds = %.lr.ph70, %.critedge
-  %.04469 = phi i32 [ %52, %.lr.ph70 ], [ %102, %.critedge ]
+  %.04469 = phi i32 [ %52, %.lr.ph70 ], [ %106, %.critedge ]
   %56 = tail call i32 @rand() #21
   %57 = sitofp i32 %56 to double
   %58 = load double, ptr @err_prob, align 8
@@ -4606,15 +4606,15 @@ find_dct2000_real_data.exit:                      ; preds = %.preheader.i
   br i1 %73, label %.thread54, label %79
 
 .thread54:                                        ; preds = %72
-  %74 = tail call i32 @rand() #21
-  %75 = sdiv i32 %74, 8421505
-  %76 = trunc i32 %75 to i8
-  %77 = zext i32 %.04469 to i64
-  %78 = getelementptr i8, ptr %1, i64 %77
-  store i8 %76, ptr %78, align 1
+  %76 = tail call i32 @rand() #21
+  %77 = sdiv i32 %76, 8421505
+  %78 = trunc i32 %77 to i8
+  %79 = zext i32 %.04469 to i64
+  %80 = getelementptr i8, ptr %1, i64 %79
+  store i8 %78, ptr %80, align 1
   br label %.critedge
 
-79:                                               ; preds = %72
+81:                                               ; preds = %72
   %80 = icmp samesign ult i32 %62, 1789569720
   br i1 %80, label %.thread59, label %88
 
@@ -4629,39 +4629,39 @@ find_dct2000_real_data.exit:                      ; preds = %.preheader.i
   store i8 %85, ptr %87, align 1
   br label %.critedge
 
-88:                                               ; preds = %79
+91:                                               ; preds = %81
   %89 = icmp samesign ult i32 %62, 2028179016
   br i1 %89, label %96, label %.preheader
 
-.preheader:                                       ; preds = %88
-  %90 = icmp ult i32 %.04469, %.048
-  br i1 %90, label %.lr.ph.preheader, label %.critedge
+.preheader:                                       ; preds = %91
+  %94 = icmp ult i32 %.04469, %.048
+  br i1 %94, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %91 = zext i32 %.04469 to i64
-  %scevgep = getelementptr i8, ptr %1, i64 %91
-  %92 = xor i32 %.04469, -1
-  %93 = add i32 %.048, %92
-  %94 = zext i32 %93 to i64
-  %95 = add nuw nsw i64 %94, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %scevgep, i8 -86, i64 %95, i1 false)
+  %95 = zext i32 %.04469 to i64
+  %scevgep = getelementptr i8, ptr %1, i64 %95
+  %96 = xor i32 %.04469, -1
+  %97 = add i32 %.048, %96
+  %98 = zext i32 %97 to i64
+  %99 = add nuw nsw i64 %98, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %scevgep, i8 -86, i64 %99, i1 false)
   br label %.critedge
 
-96:                                               ; preds = %88
-  %97 = icmp ult i32 %.04469, %54
-  br i1 %97, label %98, label %.critedge
+100:                                              ; preds = %91
+  %101 = icmp ult i32 %.04469, %54
+  br i1 %101, label %102, label %.critedge
 
-98:                                               ; preds = %96
-  %99 = zext i32 %.04469 to i64
-  %100 = getelementptr i8, ptr %1, i64 %99
-  %101 = tail call i64 @g_strlcpy(ptr noundef %100, ptr noundef nonnull @.str.62, i64 noundef 2)
+102:                                              ; preds = %100
+  %103 = zext i32 %.04469 to i64
+  %104 = getelementptr i8, ptr %1, i64 %103
+  %105 = tail call i64 @g_strlcpy(ptr noundef %104, ptr noundef nonnull @.str.62, i64 noundef 2)
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph.preheader, %.preheader, %.thread57, %.thread54, %.thread59, %96, %98, %55
+.critedge:                                        ; preds = %.lr.ph.preheader, %.preheader, %.thread57, %.thread54, %.thread59, %100, %102, %55
   %.246 = phi i32 [ %.04469, %55 ], [ %.04469, %96 ], [ %.04469, %98 ], [ %.04469, %.thread59 ], [ %.04469, %.thread54 ], [ %.04469, %.thread57 ], [ %.048, %.preheader ], [ %.048, %.lr.ph.preheader ]
-  %102 = add i32 %.246, 1
-  %103 = icmp ult i32 %102, %.048
-  br i1 %103, label %55, label %.loopexit, !llvm.loop !50
+  %106 = add i32 %.246, 1
+  %107 = icmp ult i32 %106, %.048
+  br i1 %107, label %55, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.critedge, %51, %4, %48
   ret void

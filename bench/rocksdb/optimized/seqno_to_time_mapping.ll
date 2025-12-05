@@ -1188,8 +1188,8 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4backEv.exit: ;
   %54 = sub i64 %52, %53
   %55 = ashr exact i64 %54, 3
   %56 = icmp ne ptr %6, null
-  %.neg.i.i1632 = sext i1 %56 to i64
-  %57 = add nsw i64 %55, %.neg.i.i1632
+  %.neg.i.i1633 = sext i1 %56 to i64
+  %57 = add nsw i64 %55, %.neg.i.i1633
   %58 = shl nsw i64 %57, 5
   %59 = ptrtoint ptr %16 to i64
   %60 = ptrtoint ptr %18 to i64
@@ -1209,9 +1209,9 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE4backEv.exit: ;
   %71 = phi ptr [ %124, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %8, %50 ]
   %72 = phi ptr [ %123, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %25, %50 ]
   %73 = phi ptr [ %storemerge.i, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %26, %50 ]
-  %.pre2135 = phi ptr [ %.pre, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %6, %50 ]
-  %.pre192334 = phi ptr [ %.pre19, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %16, %50 ]
-  %.pre202533 = phi ptr [ %.pre20, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %18, %50 ]
+  %.pre2136 = phi ptr [ %.pre, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %6, %50 ]
+  %.pre192335 = phi ptr [ %.pre19, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %16, %50 ]
+  %.pre202534 = phi ptr [ %.pre20, %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit ], [ %18, %50 ]
   %74 = load ptr, ptr %51, align 8, !tbaa !19, !noalias !134
   %75 = ptrtoint ptr %74 to i64
   %76 = sub i64 %70, %75
@@ -1308,9 +1308,9 @@ _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EEixEm.exit18: ; 
   br label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE9pop_frontEv.exit: ; preds = %116, %118
-  %.pre20 = phi ptr [ %.pre202533, %116 ], [ %.pre20.pre, %118 ]
-  %.pre19 = phi ptr [ %.pre192334, %116 ], [ %.pre19.pre, %118 ]
-  %.pre = phi ptr [ %.pre2135, %116 ], [ %.pre.pre, %118 ]
+  %.pre20 = phi ptr [ %.pre202534, %116 ], [ %.pre20.pre, %118 ]
+  %.pre19 = phi ptr [ %.pre192335, %116 ], [ %.pre19.pre, %118 ]
+  %.pre = phi ptr [ %.pre2136, %116 ], [ %.pre.pre, %118 ]
   %123 = phi ptr [ %72, %116 ], [ %122, %118 ]
   %124 = phi ptr [ %71, %116 ], [ %120, %118 ]
   %storemerge.i = phi ptr [ %117, %116 ], [ %121, %118 ]

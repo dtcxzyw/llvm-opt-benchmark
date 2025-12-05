@@ -7377,7 +7377,7 @@ land.lhs.true3.i.i:                               ; preds = %land.lhs.true.i.i
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv5.i.i = sext i8 %3 to i32
   %4 = add nsw i32 %conv5.i.i, -58
-  %isdigit.i.i = icmp ult i32 %4, -10
+  %or.cond.i = icmp ult i32 %4, -10
   %cmp.i = icmp slt i8 %3, 56
   %or.cond.i = or i1 %cmp.i, %isdigit.i.i
   br i1 %or.cond.i, label %return, label %if.end.i
@@ -7474,7 +7474,7 @@ land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %conv5.i = sext i8 %3 to i32
   %4 = add nsw i32 %conv5.i, -58
-  %isdigit.i = icmp ult i32 %4, -10
+  %or.cond = icmp ult i32 %4, -10
   %cmp = icmp slt i8 %3, 56
   %or.cond = or i1 %cmp, %isdigit.i
   br i1 %or.cond, label %return, label %if.end
