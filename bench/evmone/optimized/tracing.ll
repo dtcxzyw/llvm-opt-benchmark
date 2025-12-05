@@ -3203,11 +3203,11 @@ define linkonce_odr hidden void @_ZN4intx8internal13udivrem_knuthEPmS1_iPKmi(ptr
   %invariant.gep = getelementptr i64, ptr %1, i64 %wide.trip.count.i
   br label %22
 
-._crit_edge:                                      ; preds = %98, %5
+._crit_edge:                                      ; preds = %96, %5
   ret void
 
-22:                                               ; preds = %.lr.ph, %98
-  %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %indvars.iv.next, %98 ]
+22:                                               ; preds = %.lr.ph, %96
+  %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
   %23 = load i64, ptr %gep, align 8, !tbaa !45
   %24 = getelementptr i8, ptr %gep, i64 -8
@@ -3250,7 +3250,7 @@ define linkonce_odr hidden void @_ZN4intx8internal13udivrem_knuthEPmS1_iPKmi(ptr
 _ZN4intx8internal6submulEPmPKmS3_im.exit:         ; preds = %32
   %50 = sub i64 %15, %49
   store i64 %50, ptr %gep, align 8, !tbaa !45
-  br label %98
+  br label %96
 
 51:                                               ; preds = %22
   %52 = load i64, ptr %26, align 8, !tbaa !45
@@ -3290,53 +3290,51 @@ _ZN4intx8internal6submulEPmPKmS3_im.exit:         ; preds = %32
   br i1 %exitcond.not.i70, label %_ZN4intx8internal6submulEPmPKmS3_im.exit71, label %56, !llvm.loop !249
 
 _ZN4intx8internal6submulEPmPKmS3_im.exit71:       ; preds = %56
-  %74 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %.sroa.0.0.copyload, i64 %73)
-  %75 = extractvalue { i64, i1 } %74, 1
-  %76 = extractvalue { i64, i1 } %74, 0
-  store i64 %76, ptr %26, align 8, !tbaa !45
-  %77 = zext i1 %75 to i64
-  %78 = call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %.sroa.5.0.copyload, i64 %77)
-  %79 = extractvalue { i64, i1 } %78, 1
-  %80 = extractvalue { i64, i1 } %78, 0
-  store i64 %80, ptr %24, align 8, !tbaa !45
-  br i1 %79, label %.preheader, label %98, !prof !248
+  %74 = sub i64 %.sroa.0.0.copyload, %73
+  %75 = icmp ult i64 %.sroa.0.0.copyload, %73
+  store i64 %74, ptr %26, align 8, !tbaa !45
+  %76 = zext i1 %75 to i64
+  %77 = sub i64 %.sroa.5.0.copyload, %76
+  %78 = icmp ult i64 %.sroa.5.0.copyload, %76
+  store i64 %77, ptr %24, align 8, !tbaa !45
+  br i1 %78, label %.preheader, label %96, !prof !248
 
 .preheader:                                       ; preds = %_ZN4intx8internal6submulEPmPKmS3_im.exit71, %.preheader
   %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i76, %.preheader ], [ 0, %_ZN4intx8internal6submulEPmPKmS3_im.exit71 ]
-  %.01314.i = phi i1 [ %92, %.preheader ], [ false, %_ZN4intx8internal6submulEPmPKmS3_im.exit71 ]
-  %81 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i75
+  %.01314.i = phi i1 [ %90, %.preheader ], [ false, %_ZN4intx8internal6submulEPmPKmS3_im.exit71 ]
+  %79 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.i75
+  %80 = load i64, ptr %79, align 8, !tbaa !45
+  %81 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i75
   %82 = load i64, ptr %81, align 8, !tbaa !45
-  %83 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i75
-  %84 = load i64, ptr %83, align 8, !tbaa !45
-  %85 = zext i1 %.01314.i to i64
-  %86 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %82, i64 %84)
-  %87 = extractvalue { i64, i1 } %86, 1
-  %88 = extractvalue { i64, i1 } %86, 0
-  %89 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %88, i64 %85)
-  %90 = extractvalue { i64, i1 } %89, 1
-  %91 = extractvalue { i64, i1 } %89, 0
-  %92 = or i1 %87, %90
-  store i64 %91, ptr %81, align 8, !tbaa !45
+  %83 = zext i1 %.01314.i to i64
+  %84 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %80, i64 %82)
+  %85 = extractvalue { i64, i1 } %84, 1
+  %86 = extractvalue { i64, i1 } %84, 0
+  %87 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %86, i64 %83)
+  %88 = extractvalue { i64, i1 } %87, 1
+  %89 = extractvalue { i64, i1 } %87, 0
+  %90 = or i1 %85, %88
+  store i64 %89, ptr %79, align 8, !tbaa !45
   %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i77 = icmp eq i64 %indvars.iv.next.i76, %13
   br i1 %exitcond.not.i77, label %_ZN4intx8internal3addEPmPKmS3_i.exit, label %.preheader, !llvm.loop !250
 
 _ZN4intx8internal3addEPmPKmS3_i.exit:             ; preds = %.preheader
-  %93 = add i64 %53, -1
-  %94 = zext i1 %92 to i64
-  %95 = add i64 %15, %94
-  %96 = load i64, ptr %24, align 8, !tbaa !45
-  %97 = add i64 %95, %96
-  store i64 %97, ptr %24, align 8, !tbaa !45
-  br label %98
+  %91 = add i64 %53, -1
+  %92 = zext i1 %90 to i64
+  %93 = add i64 %15, %92
+  %94 = load i64, ptr %24, align 8, !tbaa !45
+  %95 = add i64 %93, %94
+  store i64 %95, ptr %24, align 8, !tbaa !45
+  br label %96
 
-98:                                               ; preds = %_ZN4intx8internal6submulEPmPKmS3_im.exit71, %_ZN4intx8internal3addEPmPKmS3_i.exit, %_ZN4intx8internal6submulEPmPKmS3_im.exit
-  %.0103 = phi i64 [ -1, %_ZN4intx8internal6submulEPmPKmS3_im.exit ], [ %93, %_ZN4intx8internal3addEPmPKmS3_i.exit ], [ %53, %_ZN4intx8internal6submulEPmPKmS3_im.exit71 ]
-  %99 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
-  store i64 %.0103, ptr %99, align 8, !tbaa !45
+96:                                               ; preds = %_ZN4intx8internal6submulEPmPKmS3_im.exit71, %_ZN4intx8internal3addEPmPKmS3_i.exit, %_ZN4intx8internal6submulEPmPKmS3_im.exit
+  %.0103 = phi i64 [ -1, %_ZN4intx8internal6submulEPmPKmS3_im.exit ], [ %91, %_ZN4intx8internal3addEPmPKmS3_i.exit ], [ %53, %_ZN4intx8internal6submulEPmPKmS3_im.exit71 ]
+  %97 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  store i64 %.0103, ptr %97, align 8, !tbaa !45
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %100 = icmp sgt i64 %indvars.iv, 0
-  br i1 %100, label %22, label %._crit_edge, !llvm.loop !251
+  %98 = icmp sgt i64 %indvars.iv, 0
+  br i1 %98, label %22, label %._crit_edge, !llvm.loop !251
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -3500,20 +3498,18 @@ define linkonce_odr hidden void @_ZN4intx12udivrem_3by2EmmmNS_4uintILj128EEEm(pt
   br label %22
 
 22:                                               ; preds = %22, %7
-  %.0.in11.i.i = phi i1 [ false, %7 ], [ %31, %22 ]
+  %.0.in11.i.i = phi i1 [ false, %7 ], [ %29, %22 ]
   %23 = phi i1 [ true, %7 ], [ false, %22 ]
   %.0910.i.sroa.phi.sroa.speculated.i = phi i64 [ %19, %7 ], [ %21, %22 ]
   %.0910.i.sroa.phi.sroa.speculated8.i = phi i64 [ %3, %7 ], [ %15, %22 ]
   %.0910.i.sroa.phi.i = phi ptr [ %.sroa.011.i, %7 ], [ %.sroa.512.i, %22 ]
   %24 = zext i1 %.0.in11.i.i to i64
-  %25 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %.0910.i.sroa.phi.sroa.speculated8.i, i64 %.0910.i.sroa.phi.sroa.speculated.i)
-  %26 = extractvalue { i64, i1 } %25, 1
-  %27 = extractvalue { i64, i1 } %25, 0
-  %28 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %27, i64 %24)
-  %29 = extractvalue { i64, i1 } %28, 1
-  %30 = extractvalue { i64, i1 } %28, 0
-  %31 = or i1 %26, %29
-  store i64 %30, ptr %.0910.i.sroa.phi.i, align 8, !tbaa !45, !noalias !255
+  %25 = sub i64 %.0910.i.sroa.phi.sroa.speculated8.i, %.0910.i.sroa.phi.sroa.speculated.i
+  %26 = icmp ult i64 %.0910.i.sroa.phi.sroa.speculated8.i, %.0910.i.sroa.phi.sroa.speculated.i
+  %27 = sub i64 %25, %24
+  %28 = icmp ult i64 %25, %24
+  %29 = or i1 %26, %28
+  store i64 %27, ptr %.0910.i.sroa.phi.i, align 8, !tbaa !45, !noalias !255
   br i1 %23, label %22, label %_ZN4intxmiENS_4uintILj128EEES1_.exit, !llvm.loop !258
 
 _ZN4intxmiENS_4uintILj128EEES1_.exit:             ; preds = %22
@@ -3525,126 +3521,119 @@ _ZN4intxmiENS_4uintILj128EEES1_.exit:             ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512.i32)
   store i64 0, ptr %.sroa.011.i31, align 8, !tbaa !45, !noalias !259
   store i64 0, ptr %.sroa.512.i32, align 8, !tbaa !45, !noalias !259
-  br label %32
+  br label %30
 
-32:                                               ; preds = %32, %_ZN4intxmiENS_4uintILj128EEES1_.exit
-  %.0.in11.i.i33 = phi i1 [ false, %_ZN4intxmiENS_4uintILj128EEES1_.exit ], [ %41, %32 ]
-  %33 = phi i1 [ true, %_ZN4intxmiENS_4uintILj128EEES1_.exit ], [ false, %32 ]
-  %.0910.i.sroa.phi.sroa.speculated.i34 = phi i64 [ %4, %_ZN4intxmiENS_4uintILj128EEES1_.exit ], [ %5, %32 ]
-  %.0910.i.sroa.phi.sroa.speculated8.i35 = phi i64 [ %.sroa.011.i.0..sroa.011.i.0..sroa.011.i.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i, %_ZN4intxmiENS_4uintILj128EEES1_.exit ], [ %.sroa.512.i.0..sroa.512.i.0..sroa.512.i.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i, %32 ]
-  %.0910.i.sroa.phi.i36 = phi ptr [ %.sroa.011.i31, %_ZN4intxmiENS_4uintILj128EEES1_.exit ], [ %.sroa.512.i32, %32 ]
-  %34 = zext i1 %.0.in11.i.i33 to i64
-  %35 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %.0910.i.sroa.phi.sroa.speculated8.i35, i64 %.0910.i.sroa.phi.sroa.speculated.i34)
-  %36 = extractvalue { i64, i1 } %35, 1
-  %37 = extractvalue { i64, i1 } %35, 0
-  %38 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %37, i64 %34)
-  %39 = extractvalue { i64, i1 } %38, 1
-  %40 = extractvalue { i64, i1 } %38, 0
-  %41 = or i1 %36, %39
-  store i64 %40, ptr %.0910.i.sroa.phi.i36, align 8, !tbaa !45, !noalias !259
-  br i1 %33, label %32, label %_ZN4intxmiENS_4uintILj128EEES1_.exit41, !llvm.loop !258
+30:                                               ; preds = %30, %_ZN4intxmiENS_4uintILj128EEES1_.exit
+  %.0.in11.i.i33 = phi i1 [ false, %_ZN4intxmiENS_4uintILj128EEES1_.exit ], [ %37, %30 ]
+  %31 = phi i1 [ true, %_ZN4intxmiENS_4uintILj128EEES1_.exit ], [ false, %30 ]
+  %.0910.i.sroa.phi.sroa.speculated.i34 = phi i64 [ %4, %_ZN4intxmiENS_4uintILj128EEES1_.exit ], [ %5, %30 ]
+  %.0910.i.sroa.phi.sroa.speculated8.i35 = phi i64 [ %.sroa.011.i.0..sroa.011.i.0..sroa.011.i.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i, %_ZN4intxmiENS_4uintILj128EEES1_.exit ], [ %.sroa.512.i.0..sroa.512.i.0..sroa.512.i.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i, %30 ]
+  %.0910.i.sroa.phi.i36 = phi ptr [ %.sroa.011.i31, %_ZN4intxmiENS_4uintILj128EEES1_.exit ], [ %.sroa.512.i32, %30 ]
+  %32 = zext i1 %.0.in11.i.i33 to i64
+  %33 = sub i64 %.0910.i.sroa.phi.sroa.speculated8.i35, %.0910.i.sroa.phi.sroa.speculated.i34
+  %34 = icmp ult i64 %.0910.i.sroa.phi.sroa.speculated8.i35, %.0910.i.sroa.phi.sroa.speculated.i34
+  %35 = sub i64 %33, %32
+  %36 = icmp ult i64 %33, %32
+  %37 = or i1 %34, %36
+  store i64 %35, ptr %.0910.i.sroa.phi.i36, align 8, !tbaa !45, !noalias !259
+  br i1 %31, label %30, label %_ZN4intxmiENS_4uintILj128EEES1_.exit41, !llvm.loop !258
 
-_ZN4intxmiENS_4uintILj128EEES1_.exit41:           ; preds = %32
-  %42 = trunc i128 %12 to i64
+_ZN4intxmiENS_4uintILj128EEES1_.exit41:           ; preds = %30
+  %38 = trunc i128 %12 to i64
   %.sroa.011.i31.0..sroa.011.i31.0..sroa.011.i31.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i37 = load i64, ptr %.sroa.011.i31, align 8
   %.sroa.512.i32.0..sroa.512.i32.0..sroa.512.i32.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i38 = load i64, ptr %.sroa.512.i32, align 8, !tbaa !88
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.011.i31)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512.i32)
-  %43 = add i64 %.narrow.i, 1
-  %.not = icmp ult i64 %.sroa.512.i32.0..sroa.512.i32.0..sroa.512.i32.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i38, %42
-  br i1 %.not, label %55, label %44
+  %39 = add i64 %.narrow.i, 1
+  %.not = icmp ult i64 %.sroa.512.i32.0..sroa.512.i32.0..sroa.512.i32.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i38, %38
+  br i1 %.not, label %51, label %40
 
-44:                                               ; preds = %_ZN4intxmiENS_4uintILj128EEES1_.exit41
+40:                                               ; preds = %_ZN4intxmiENS_4uintILj128EEES1_.exit41
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.011.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512.i.i)
   store i64 0, ptr %.sroa.011.i.i, align 8, !tbaa !45, !noalias !262
   store i64 0, ptr %.sroa.512.i.i, align 8, !tbaa !45, !noalias !262
-  br label %45
+  br label %41
 
-45:                                               ; preds = %45, %44
-  %.0.in11.i.i.i = phi i1 [ false, %44 ], [ %54, %45 ]
-  %46 = phi i1 [ true, %44 ], [ false, %45 ]
-  %.0910.i.sroa.phi.sroa.speculated.i.i = phi i64 [ %4, %44 ], [ %5, %45 ]
-  %.0910.i.sroa.phi.sroa.speculated8.i.i = phi i64 [ %.sroa.011.i31.0..sroa.011.i31.0..sroa.011.i31.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i37, %44 ], [ %.sroa.512.i32.0..sroa.512.i32.0..sroa.512.i32.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i38, %45 ]
-  %.0910.i.sroa.phi.i.i = phi ptr [ %.sroa.011.i.i, %44 ], [ %.sroa.512.i.i, %45 ]
-  %47 = zext i1 %.0.in11.i.i.i to i64
-  %48 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0910.i.sroa.phi.sroa.speculated8.i.i, i64 %.0910.i.sroa.phi.sroa.speculated.i.i)
-  %49 = extractvalue { i64, i1 } %48, 1
-  %50 = extractvalue { i64, i1 } %48, 0
-  %51 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %50, i64 %47)
-  %52 = extractvalue { i64, i1 } %51, 1
-  %53 = extractvalue { i64, i1 } %51, 0
-  %54 = or i1 %49, %52
-  store i64 %53, ptr %.0910.i.sroa.phi.i.i, align 8, !tbaa !45, !noalias !262
-  br i1 %46, label %45, label %_ZN4intx4uintILj128EEpLES1_.exit, !llvm.loop !246
+41:                                               ; preds = %41, %40
+  %.0.in11.i.i.i = phi i1 [ false, %40 ], [ %50, %41 ]
+  %42 = phi i1 [ true, %40 ], [ false, %41 ]
+  %.0910.i.sroa.phi.sroa.speculated.i.i = phi i64 [ %4, %40 ], [ %5, %41 ]
+  %.0910.i.sroa.phi.sroa.speculated8.i.i = phi i64 [ %.sroa.011.i31.0..sroa.011.i31.0..sroa.011.i31.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i37, %40 ], [ %.sroa.512.i32.0..sroa.512.i32.0..sroa.512.i32.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i38, %41 ]
+  %.0910.i.sroa.phi.i.i = phi ptr [ %.sroa.011.i.i, %40 ], [ %.sroa.512.i.i, %41 ]
+  %43 = zext i1 %.0.in11.i.i.i to i64
+  %44 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0910.i.sroa.phi.sroa.speculated8.i.i, i64 %.0910.i.sroa.phi.sroa.speculated.i.i)
+  %45 = extractvalue { i64, i1 } %44, 1
+  %46 = extractvalue { i64, i1 } %44, 0
+  %47 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %46, i64 %43)
+  %48 = extractvalue { i64, i1 } %47, 1
+  %49 = extractvalue { i64, i1 } %47, 0
+  %50 = or i1 %45, %48
+  store i64 %49, ptr %.0910.i.sroa.phi.i.i, align 8, !tbaa !45, !noalias !262
+  br i1 %42, label %41, label %_ZN4intx4uintILj128EEpLES1_.exit, !llvm.loop !246
 
-_ZN4intx4uintILj128EEpLES1_.exit:                 ; preds = %45
+_ZN4intx4uintILj128EEpLES1_.exit:                 ; preds = %41
   %.sroa.011.i.i.0..sroa.011.i.i.0..sroa.011.i.i.0..sroa.011.i.0..sroa.011.i.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i.i = load i64, ptr %.sroa.011.i.i, align 8
   %.sroa.512.i.i.0..sroa.512.i.i.0..sroa.512.i.i.0..sroa.512.i.0..sroa.512.i.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i.i = load i64, ptr %.sroa.512.i.i, align 8, !tbaa !88
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.011.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512.i.i)
-  br label %55
+  br label %51
 
-55:                                               ; preds = %_ZN4intx4uintILj128EEpLES1_.exit, %_ZN4intxmiENS_4uintILj128EEES1_.exit41
+51:                                               ; preds = %_ZN4intx4uintILj128EEpLES1_.exit, %_ZN4intxmiENS_4uintILj128EEES1_.exit41
   %.sroa.9.0 = phi i64 [ %.sroa.512.i32.0..sroa.512.i32.0..sroa.512.i32.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i38, %_ZN4intxmiENS_4uintILj128EEES1_.exit41 ], [ %.sroa.512.i.i.0..sroa.512.i.i.0..sroa.512.i.i.0..sroa.512.i.0..sroa.512.i.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i.i, %_ZN4intx4uintILj128EEpLES1_.exit ]
   %.sroa.053.0 = phi i64 [ %.sroa.011.i31.0..sroa.011.i31.0..sroa.011.i31.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i37, %_ZN4intxmiENS_4uintILj128EEES1_.exit41 ], [ %.sroa.011.i.i.0..sroa.011.i.i.0..sroa.011.i.i.0..sroa.011.i.0..sroa.011.i.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i.i, %_ZN4intx4uintILj128EEpLES1_.exit ]
-  %.sroa.5.0 = phi i64 [ %43, %_ZN4intxmiENS_4uintILj128EEES1_.exit41 ], [ %.narrow.i, %_ZN4intx4uintILj128EEpLES1_.exit ]
-  %56 = zext i64 %.sroa.9.0 to i128
+  %.sroa.5.0 = phi i64 [ %39, %_ZN4intxmiENS_4uintILj128EEES1_.exit41 ], [ %.narrow.i, %_ZN4intx4uintILj128EEpLES1_.exit ]
+  %52 = zext i64 %.sroa.9.0 to i128
+  %53 = shl nuw i128 %52, 64
+  %54 = zext i64 %.sroa.053.0 to i128
+  %55 = or disjoint i128 %53, %54
+  %56 = zext i64 %5 to i128
   %57 = shl nuw i128 %56, 64
-  %58 = zext i64 %.sroa.053.0 to i128
-  %59 = or disjoint i128 %57, %58
-  %60 = zext i64 %5 to i128
-  %61 = shl nuw i128 %60, 64
-  %62 = or disjoint i128 %61, %16
-  %.not74 = icmp ult i128 %59, %62
-  br i1 %.not74, label %75, label %63
+  %58 = or disjoint i128 %57, %16
+  %.not74 = icmp ult i128 %55, %58
+  br i1 %.not74, label %69, label %59
 
-63:                                               ; preds = %55
+59:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.011.i.i42)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.512.i.i43)
   store i64 0, ptr %.sroa.011.i.i42, align 8, !tbaa !45, !noalias !265
   store i64 0, ptr %.sroa.512.i.i43, align 8, !tbaa !45, !noalias !265
-  br label %64
+  br label %60
 
-64:                                               ; preds = %64, %63
-  %.0.in11.i.i.i47 = phi i1 [ false, %63 ], [ %73, %64 ]
-  %65 = phi i1 [ true, %63 ], [ false, %64 ]
-  %.0910.i.sroa.phi.sroa.speculated.i.i48 = phi i64 [ %4, %63 ], [ %5, %64 ]
-  %.0910.i.sroa.phi.sroa.speculated8.i.i49 = phi i64 [ %.sroa.053.0, %63 ], [ %.sroa.9.0, %64 ]
-  %.0910.i.sroa.phi.i.i50 = phi ptr [ %.sroa.011.i.i42, %63 ], [ %.sroa.512.i.i43, %64 ]
-  %66 = zext i1 %.0.in11.i.i.i47 to i64
-  %67 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %.0910.i.sroa.phi.sroa.speculated8.i.i49, i64 %.0910.i.sroa.phi.sroa.speculated.i.i48)
-  %68 = extractvalue { i64, i1 } %67, 1
-  %69 = extractvalue { i64, i1 } %67, 0
-  %70 = tail call { i64, i1 } @llvm.usub.with.overflow.i64(i64 %69, i64 %66)
-  %71 = extractvalue { i64, i1 } %70, 1
-  %72 = extractvalue { i64, i1 } %70, 0
-  %73 = or i1 %68, %71
-  store i64 %72, ptr %.0910.i.sroa.phi.i.i50, align 8, !tbaa !45, !noalias !265
-  br i1 %65, label %64, label %_ZN4intx4uintILj128EEmIES1_.exit, !llvm.loop !258
+60:                                               ; preds = %60, %59
+  %.0.in11.i.i.i47 = phi i1 [ false, %59 ], [ %67, %60 ]
+  %61 = phi i1 [ true, %59 ], [ false, %60 ]
+  %.0910.i.sroa.phi.sroa.speculated.i.i48 = phi i64 [ %4, %59 ], [ %5, %60 ]
+  %.0910.i.sroa.phi.sroa.speculated8.i.i49 = phi i64 [ %.sroa.053.0, %59 ], [ %.sroa.9.0, %60 ]
+  %.0910.i.sroa.phi.i.i50 = phi ptr [ %.sroa.011.i.i42, %59 ], [ %.sroa.512.i.i43, %60 ]
+  %62 = zext i1 %.0.in11.i.i.i47 to i64
+  %63 = sub i64 %.0910.i.sroa.phi.sroa.speculated8.i.i49, %.0910.i.sroa.phi.sroa.speculated.i.i48
+  %64 = icmp ult i64 %.0910.i.sroa.phi.sroa.speculated8.i.i49, %.0910.i.sroa.phi.sroa.speculated.i.i48
+  %65 = sub i64 %63, %62
+  %66 = icmp ult i64 %63, %62
+  %67 = or i1 %64, %66
+  store i64 %65, ptr %.0910.i.sroa.phi.i.i50, align 8, !tbaa !45, !noalias !265
+  br i1 %61, label %60, label %_ZN4intx4uintILj128EEmIES1_.exit, !llvm.loop !258
 
-_ZN4intx4uintILj128EEmIES1_.exit:                 ; preds = %64
-  %74 = add i64 %.sroa.5.0, 1
+_ZN4intx4uintILj128EEmIES1_.exit:                 ; preds = %60
+  %68 = add i64 %.sroa.5.0, 1
   %.sroa.011.i.i42.0..sroa.011.i.i42.0..sroa.011.i.i42.0..sroa.011.i.0..sroa.011.i.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i.i51 = load i64, ptr %.sroa.011.i.i42, align 8
   %.sroa.512.i.i43.0..sroa.512.i.i43.0..sroa.512.i.i43.0..sroa.512.i.0..sroa.512.i.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i.i52 = load i64, ptr %.sroa.512.i.i43, align 8, !tbaa !88
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.011.i.i42)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.512.i.i43)
-  br label %75
+  br label %69
 
-75:                                               ; preds = %_ZN4intx4uintILj128EEmIES1_.exit, %55
-  %.sroa.9.1 = phi i64 [ %.sroa.512.i.i43.0..sroa.512.i.i43.0..sroa.512.i.i43.0..sroa.512.i.0..sroa.512.i.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i.i52, %_ZN4intx4uintILj128EEmIES1_.exit ], [ %.sroa.9.0, %55 ]
-  %.sroa.053.1 = phi i64 [ %.sroa.011.i.i42.0..sroa.011.i.i42.0..sroa.011.i.i42.0..sroa.011.i.0..sroa.011.i.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i.i51, %_ZN4intx4uintILj128EEmIES1_.exit ], [ %.sroa.053.0, %55 ]
-  %.sroa.5.1 = phi i64 [ %74, %_ZN4intx4uintILj128EEmIES1_.exit ], [ %.sroa.5.0, %55 ]
+69:                                               ; preds = %_ZN4intx4uintILj128EEmIES1_.exit, %51
+  %.sroa.9.1 = phi i64 [ %.sroa.512.i.i43.0..sroa.512.i.i43.0..sroa.512.i.i43.0..sroa.512.i.0..sroa.512.i.0..sroa.512.0..sroa.512.0..sroa.512.8..sroa.4.0.copyload.i.i52, %_ZN4intx4uintILj128EEmIES1_.exit ], [ %.sroa.9.0, %51 ]
+  %.sroa.053.1 = phi i64 [ %.sroa.011.i.i42.0..sroa.011.i.i42.0..sroa.011.i.i42.0..sroa.011.i.0..sroa.011.i.0..sroa.011.0..sroa.011.0..sroa.011.0..sroa.0.0.copyload1.i.i51, %_ZN4intx4uintILj128EEmIES1_.exit ], [ %.sroa.053.0, %51 ]
+  %.sroa.5.1 = phi i64 [ %68, %_ZN4intx4uintILj128EEmIES1_.exit ], [ %.sroa.5.0, %51 ]
   store i64 %.sroa.5.1, ptr %0, align 8, !tbaa !268
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.053.1, ptr %76, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.053.1, ptr %70, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !88
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.usub.with.overflow.i64(i64, i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
