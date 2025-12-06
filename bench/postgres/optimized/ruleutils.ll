@@ -20579,86 +20579,95 @@ define internal fastcc void @get_json_agg_constructor(ptr noundef nonnull readon
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @get_json_constructor_options(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %8 [
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = load i8, ptr %3, align 8, !range !7, !noundef !8
+  %5 = trunc nuw i8 %4 to i1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = load i32, ptr %6, align 4
+  br i1 %5, label %8, label %9
+
+8:                                                ; preds = %2
+  switch i32 %7, label %10 [
     i32 1, label %.sink.split
     i32 3, label %.sink.split
   ]
 
-.sink.split:                                      ; preds = %2, %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load i8, ptr %5, align 8, !range !7, !noundef !8
-  %7 = trunc nuw i8 %6 to i1
-  %.str.282..str.283 = select i1 %7, ptr @.str.282, ptr @.str.283
-  tail call void @appendStringInfoString(ptr noundef %1, ptr noundef nonnull %.str.282..str.283) #11
-  br label %8
+9:                                                ; preds = %2
+  switch i32 %7, label %10 [
+    i32 2, label %.sink.split
+    i32 4, label %.sink.split
+  ]
 
-8:                                                ; preds = %2, %.sink.split
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %10 = load i8, ptr %9, align 1, !range !7, !noundef !8
-  %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %13
+.sink.split:                                      ; preds = %9, %9, %8, %8
+  %.str.283.sink = phi ptr [ @.str.282, %8 ], [ @.str.282, %8 ], [ @.str.283, %9 ], [ @.str.283, %9 ]
+  tail call void @appendStringInfoString(ptr noundef %1, ptr noundef nonnull %.str.283.sink) #11
+  br label %10
 
-12:                                               ; preds = %8
+10:                                               ; preds = %.sink.split, %9, %8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  %12 = load i8, ptr %11, align 1, !range !7, !noundef !8
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %10
   tail call void @appendStringInfoString(ptr noundef %1, ptr noundef nonnull @.str.171) #11
-  br label %13
+  br label %15
 
-13:                                               ; preds = %12, %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %15 = load i32, ptr %14, align 4
-  %.off = add i32 %15, -5
+15:                                               ; preds = %14, %10
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %17 = load i32, ptr %16, align 4
+  %.off = add i32 %17, -5
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %get_json_returning.exit, label %16
+  br i1 %switch, label %get_json_returning.exit, label %18
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load i32, ptr %19, align 8
-  %.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i, label %get_json_returning.exit, label %21
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load i32, ptr %21, align 8
+  %.not.i = icmp eq i32 %22, 0
+  br i1 %.not.i, label %get_json_returning.exit, label %23
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  %23 = load i32, ptr %22, align 4
-  %24 = tail call ptr @format_type_with_typemod(i32 noundef %20, i32 noundef %23) #11
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1, ptr noundef nonnull @.str.284, ptr noundef %24) #11
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %28 = load i32, ptr %27, align 4
-  %29 = load i32, ptr %19, align 8
-  %30 = icmp eq i32 %29, 3802
-  %31 = select i1 %30, i32 -3, i32 -2
-  %32 = and i32 %31, %28
-  %or.cond = icmp eq i32 %32, 0
-  br i1 %or.cond, label %get_json_returning.exit, label %33
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  %25 = load i32, ptr %24, align 4
+  %26 = tail call ptr @format_type_with_typemod(i32 noundef %22, i32 noundef %25) #11
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1, ptr noundef nonnull @.str.284, ptr noundef %26) #11
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = load i32, ptr %21, align 8
+  %32 = icmp eq i32 %31, 3802
+  %33 = select i1 %32, i32 -3, i32 -2
+  %34 = and i32 %33, %30
+  %or.cond = icmp eq i32 %34, 0
+  br i1 %or.cond, label %get_json_returning.exit, label %35
 
-33:                                               ; preds = %21
-  %34 = icmp eq i32 %28, 2
-  %35 = select i1 %34, ptr @.str.267, ptr @.str.268
-  tail call void @appendStringInfoString(ptr noundef %1, ptr noundef nonnull %35) #11
-  %36 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %37 = load i32, ptr %36, align 4
-  switch i32 %37, label %38 [
+35:                                               ; preds = %23
+  %36 = icmp eq i32 %30, 2
+  %37 = select i1 %36, ptr @.str.267, ptr @.str.268
+  tail call void @appendStringInfoString(ptr noundef %1, ptr noundef nonnull %37) #11
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %39 = load i32, ptr %38, align 4
+  switch i32 %39, label %40 [
     i32 0, label %get_json_returning.exit
-    i32 2, label %39
+    i32 2, label %41
     i32 3, label %switch.edge.i.i
   ]
 
-switch.edge.i.i:                                  ; preds = %33
-  br label %39
+switch.edge.i.i:                                  ; preds = %35
+  br label %41
 
-38:                                               ; preds = %33
-  br label %39
+40:                                               ; preds = %35
+  br label %41
 
-39:                                               ; preds = %38, %switch.edge.i.i, %33
-  %40 = phi ptr [ @.str.271, %38 ], [ @.str.269, %33 ], [ @.str.270, %switch.edge.i.i ]
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1, ptr noundef nonnull @.str.272, ptr noundef nonnull %40) #11
+41:                                               ; preds = %40, %switch.edge.i.i, %35
+  %42 = phi ptr [ @.str.271, %40 ], [ @.str.269, %35 ], [ @.str.270, %switch.edge.i.i ]
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1, ptr noundef nonnull @.str.272, ptr noundef nonnull %42) #11
   br label %get_json_returning.exit
 
-get_json_returning.exit:                          ; preds = %39, %33, %21, %16, %13
+get_json_returning.exit:                          ; preds = %41, %35, %23, %18, %15
   ret void
 }
 
