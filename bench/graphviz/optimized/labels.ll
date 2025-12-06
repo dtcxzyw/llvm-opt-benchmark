@@ -159,6 +159,8 @@ agxbputc.exit51:                                  ; preds = %43, %48
 
 54:                                               ; preds = %53
   %55 = load i8, ptr %16, align 1, !tbaa !13
+  %.val.i.i54 = load i8, ptr %11, align 1, !tbaa !13
+  %.not.i.i55 = icmp eq i8 %.val.i.i54, -1
   switch i8 %55, label %agxbsizeof.exit.i57 [
     i8 110, label %56
     i8 108, label %56
@@ -166,12 +168,10 @@ agxbputc.exit51:                                  ; preds = %43, %48
   ]
 
 56:                                               ; preds = %54, %54, %54
-  %.val.i = load i8, ptr %11, align 1, !tbaa !13
-  %.not.i52 = icmp eq i8 %.val.i, -1
-  br i1 %.not.i52, label %agxbsizeof.exit.i.i, label %agxblen.exit.i53
+  br i1 %.not.i.i55, label %agxbsizeof.exit.i.i, label %agxblen.exit.i53
 
 agxblen.exit.i53:                                 ; preds = %56
-  %57 = zext i8 %.val.i to i64
+  %57 = zext i8 %.val.i.i54 to i64
   %58 = call noalias ptr @strndup(ptr noundef nonnull readonly %3, i64 noundef %57) #16
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %agxbdisown.exit
@@ -224,8 +224,6 @@ agxbdisown.exit:                                  ; preds = %agxblen.exit.i53, %
   br label %agxbputc.exit64
 
 agxbsizeof.exit.i57:                              ; preds = %54
-  %.val.i.i54 = load i8, ptr %11, align 1, !tbaa !13
-  %.not.i.i55 = icmp eq i8 %.val.i.i54, -1
   %75 = load i64, ptr %12, align 8
   %76 = load i64, ptr %13, align 8
   %77 = zext i8 %.val.i.i54 to i64

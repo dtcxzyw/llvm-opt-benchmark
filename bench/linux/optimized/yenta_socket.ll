@@ -3419,7 +3419,7 @@ define internal noundef i32 @ti12xx_power_hook(ptr noundef readonly captures(non
   %7 = getelementptr i8, ptr %0, i64 -64
   %8 = add i32 %1, -3
   %9 = icmp ult i32 %8, -2
-  br i1 %9, label %77, label %10
+  br i1 %9, label %76, label %10
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3447,12 +3447,12 @@ define internal noundef i32 @ti12xx_power_hook(ptr noundef readonly captures(non
 22:                                               ; preds = %10
   %23 = load i8, ptr @pwr_irqs_off, align 1, !range !11, !noundef !12
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %77
+  br i1 %24, label %25, label %76
 
 25:                                               ; preds = %22
   %26 = call fastcc i32 @ti12xx_2nd_slot_empty(ptr noundef %7), !range !10
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %77
+  br i1 %27, label %28, label %76
 
 28:                                               ; preds = %25, %10
   %29 = load ptr, ptr %7, align 8
@@ -3501,7 +3501,7 @@ define internal noundef i32 @ti12xx_power_hook(ptr noundef readonly captures(non
   %53 = select i1 %50, i8 %52, i8 %51
   %54 = load ptr, ptr %7, align 8
   %55 = call i32 @pci_write_config_byte(ptr noundef %54, i32 noundef 139, i8 noundef zeroext %53) #11
-  br label %77
+  br label %76
 
 56:                                               ; preds = %43
   %57 = icmp eq i32 %1, 1
@@ -3509,35 +3509,34 @@ define internal noundef i32 @ti12xx_power_hook(ptr noundef readonly captures(non
   %59 = or i32 %19, 2
   %60 = select i1 %57, i32 %58, i32 %59
   %61 = call i32 @pci_write_config_dword(ptr noundef %44, i32 noundef 140, i32 noundef %60) #11
-  br label %77
+  br label %76
 
 ._crit_edge:                                      ; preds = %40, %34
   %62 = phi ptr [ %29, %34 ], [ %.pre1, %40 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 62
   %64 = load i16, ptr %63, align 2
+  %65 = icmp eq i32 %1, 1
   switch i16 %64, label %71 [
-    i16 -21475, label %65
-    i16 -21473, label %65
-    i16 -21477, label %65
+    i16 -21475, label %66
+    i16 -21473, label %66
+    i16 -21477, label %66
   ]
 
-65:                                               ; preds = %._crit_edge, %._crit_edge, %._crit_edge
-  %66 = icmp eq i32 %1, 1
+66:                                               ; preds = %._crit_edge, %._crit_edge, %._crit_edge
   %67 = and i32 %19, -16
   %68 = or i32 %19, 1
-  %69 = select i1 %66, i32 %67, i32 %68
+  %69 = select i1 %65, i32 %67, i32 %68
   %70 = call i32 @pci_write_config_dword(ptr noundef %62, i32 noundef 140, i32 noundef %69) #11
-  br label %77
+  br label %76
 
 71:                                               ; preds = %._crit_edge
-  %72 = icmp eq i32 %1, 1
-  %73 = and i32 %19, -241
-  %74 = or i32 %19, 32
-  %75 = select i1 %72, i32 %73, i32 %74
-  %76 = call i32 @pci_write_config_dword(ptr noundef %62, i32 noundef 140, i32 noundef %75) #11
-  br label %77
+  %72 = and i32 %19, -241
+  %73 = or i32 %19, 32
+  %74 = select i1 %65, i32 %72, i32 %73
+  %75 = call i32 @pci_write_config_dword(ptr noundef %62, i32 noundef 140, i32 noundef %74) #11
+  br label %76
 
-77:                                               ; preds = %71, %65, %56, %47, %25, %22, %2
+76:                                               ; preds = %71, %66, %56, %47, %25, %22, %2
   ret i32 0
 }
 

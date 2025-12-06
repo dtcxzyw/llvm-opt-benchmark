@@ -102,10 +102,10 @@ define internal range(i32 -1163346256, 1) i32 @threedostr_read_header(ptr nounde
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %1, %76
-  %.077 = phi ptr [ %.1, %76 ], [ undef, %1 ]
-  %.05976 = phi i32 [ %.160, %76 ], [ -1, %1 ]
-  %.06275 = phi i32 [ %.163, %76 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %74
+  %.077 = phi ptr [ %.1, %74 ], [ undef, %1 ]
+  %.05976 = phi i32 [ %.160, %74 ], [ -1, %1 ]
+  %.06275 = phi i32 [ %.163, %74 ], [ 0, %1 ]
   %6 = load ptr, ptr %2, align 8, !tbaa !15
   %7 = tail call i32 @avio_rl32(ptr noundef %6) #4
   %8 = load ptr, ptr %2, align 8, !tbaa !15
@@ -115,10 +115,10 @@ define internal range(i32 -1163346256, 1) i32 @threedostr_read_header(ptr nounde
 
 11:                                               ; preds = %.lr.ph
   %12 = add i32 %9, -8
-  switch i32 %7, label %75 [
-    i32 1280463939, label %76
+  switch i32 %7, label %73 [
+    i32 1280463939, label %74
     i32 1396985427, label %13
-    i32 1380206675, label %61
+    i32 1380206675, label %59
   ]
 
 13:                                               ; preds = %11
@@ -168,92 +168,90 @@ define internal range(i32 -1163346256, 1) i32 @threedostr_read_header(ptr nounde
   %42 = tail call i32 @avio_rl32(ptr noundef %41) #4
   %43 = load ptr, ptr %2, align 8, !tbaa !15
   %44 = tail call i64 @avio_skip(ptr noundef %43, i64 noundef 4) #4
-  switch i32 %.05976, label %49 [
-    i32 -1, label %45
-    i32 20, label %45
-    i32 3, label %45
+  %45 = load ptr, ptr %2, align 8, !tbaa !15
+  %46 = tail call i32 @avio_rb32(ptr noundef %45) #4
+  %47 = load ptr, ptr %25, align 8, !tbaa !30
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 132
+  %49 = load i32, ptr %48, align 4, !tbaa !41
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 48
+  switch i32 %.05976, label %53 [
+    i32 -1, label %51
+    i32 20, label %51
+    i32 3, label %51
   ]
 
-45:                                               ; preds = %40, %40, %40
-  %46 = load ptr, ptr %2, align 8, !tbaa !15
-  %47 = tail call i32 @avio_rb32(ptr noundef %46) #4
-  %48 = add i32 %47, -1
-  br label %53
+51:                                               ; preds = %40, %40, %40
+  %52 = add i32 %46, -1
+  br label %55
 
-49:                                               ; preds = %40
-  %50 = load ptr, ptr %2, align 8, !tbaa !15
-  %51 = tail call i32 @avio_rb32(ptr noundef %50) #4
-  %52 = shl i32 %51, 4
-  br label %53
+53:                                               ; preds = %40
+  %54 = shl i32 %46, 4
+  br label %55
 
-53:                                               ; preds = %49, %45
-  %.sink = phi i32 [ %52, %49 ], [ %48, %45 ]
-  %54 = load ptr, ptr %25, align 8, !tbaa !30
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 132
-  %56 = load i32, ptr %55, align 4, !tbaa !41
-  %57 = udiv i32 %.sink, %56
-  %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store i64 %58, ptr %59, align 8, !tbaa !42
-  %60 = add i32 %9, -64
-  br label %76
+55:                                               ; preds = %53, %51
+  %.sink = phi i32 [ %54, %53 ], [ %52, %51 ]
+  %56 = udiv i32 %.sink, %49
+  %57 = zext i32 %56 to i64
+  store i64 %57, ptr %50, align 8, !tbaa !42
+  %58 = add i32 %9, -64
+  br label %74
 
-61:                                               ; preds = %11
-  %62 = icmp ugt i32 %12, 120
-  br i1 %62, label %63, label %76
+59:                                               ; preds = %11
+  %60 = icmp ugt i32 %12, 120
+  br i1 %60, label %61, label %74
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %2, align 8, !tbaa !15
-  %65 = tail call i64 @avio_skip(ptr noundef %64, i64 noundef 116) #4
-  %66 = add i32 %9, -128
-  %67 = load ptr, ptr %2, align 8, !tbaa !15
-  %68 = tail call i32 @avio_rl32(ptr noundef %67) #4
-  %69 = icmp eq i32 %68, 1280463939
-  %70 = icmp ugt i32 %66, 4
-  %or.cond5 = and i1 %70, %69
-  br i1 %or.cond5, label %71, label %76
+61:                                               ; preds = %59
+  %62 = load ptr, ptr %2, align 8, !tbaa !15
+  %63 = tail call i64 @avio_skip(ptr noundef %62, i64 noundef 116) #4
+  %64 = add i32 %9, -128
+  %65 = load ptr, ptr %2, align 8, !tbaa !15
+  %66 = tail call i32 @avio_rl32(ptr noundef %65) #4
+  %67 = icmp eq i32 %66, 1280463939
+  %68 = icmp ugt i32 %64, 4
+  %or.cond5 = and i1 %68, %67
+  br i1 %or.cond5, label %69, label %74
 
-71:                                               ; preds = %63
-  %72 = load ptr, ptr %2, align 8, !tbaa !15
-  %73 = tail call i32 @avio_rb32(ptr noundef %72) #4
-  %74 = add i32 %9, -132
-  br label %76
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %2, align 8, !tbaa !15
+  %71 = tail call i32 @avio_rb32(ptr noundef %70) #4
+  %72 = add i32 %9, -132
+  br label %74
 
-75:                                               ; preds = %11
+73:                                               ; preds = %11
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.3, i32 noundef %7) #4
-  br label %76
+  br label %74
 
-76:                                               ; preds = %11, %61, %71, %63, %75, %53
-  %.163 = phi i32 [ %.06275, %75 ], [ %42, %53 ], [ %.06275, %71 ], [ %.06275, %63 ], [ %.06275, %61 ], [ %.06275, %11 ]
-  %.061 = phi i32 [ %12, %75 ], [ %60, %53 ], [ %74, %71 ], [ %66, %63 ], [ %12, %61 ], [ %12, %11 ]
-  %.160 = phi i32 [ %.05976, %75 ], [ %.05976, %53 ], [ %73, %71 ], [ %.05976, %63 ], [ %.05976, %61 ], [ %12, %11 ]
-  %.158 = phi i32 [ 0, %75 ], [ 1, %53 ], [ 0, %71 ], [ 0, %63 ], [ 0, %61 ], [ 0, %11 ]
-  %.1 = phi ptr [ %.077, %75 ], [ %23, %53 ], [ %.077, %71 ], [ %.077, %63 ], [ %.077, %61 ], [ %.077, %11 ]
-  %77 = load ptr, ptr %2, align 8, !tbaa !15
-  %78 = zext i32 %.061 to i64
-  %79 = tail call i64 @avio_skip(ptr noundef %77, i64 noundef %78) #4
-  %80 = load ptr, ptr %2, align 8, !tbaa !15
-  %81 = tail call i32 @avio_feof(ptr noundef %80) #4
-  %82 = or i32 %81, %.158
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+74:                                               ; preds = %11, %59, %69, %61, %73, %55
+  %.163 = phi i32 [ %.06275, %73 ], [ %42, %55 ], [ %.06275, %69 ], [ %.06275, %61 ], [ %.06275, %59 ], [ %.06275, %11 ]
+  %.061 = phi i32 [ %12, %73 ], [ %58, %55 ], [ %72, %69 ], [ %64, %61 ], [ %12, %59 ], [ %12, %11 ]
+  %.160 = phi i32 [ %.05976, %73 ], [ %.05976, %55 ], [ %71, %69 ], [ %.05976, %61 ], [ %.05976, %59 ], [ %12, %11 ]
+  %.158 = phi i32 [ 0, %73 ], [ 1, %55 ], [ 0, %69 ], [ 0, %61 ], [ 0, %59 ], [ 0, %11 ]
+  %.1 = phi ptr [ %.077, %73 ], [ %23, %55 ], [ %.077, %69 ], [ %.077, %61 ], [ %.077, %59 ], [ %.077, %11 ]
+  %75 = load ptr, ptr %2, align 8, !tbaa !15
+  %76 = zext i32 %.061 to i64
+  %77 = tail call i64 @avio_skip(ptr noundef %75, i64 noundef %76) #4
+  %78 = load ptr, ptr %2, align 8, !tbaa !15
+  %79 = tail call i32 @avio_feof(ptr noundef %78) #4
+  %80 = or i32 %79, %.158
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %76
+._crit_edge:                                      ; preds = %74
   %cond = icmp eq i32 %.163, 844645459
-  br i1 %cond, label %84, label %._crit_edge.thread
+  br i1 %cond, label %82, label %._crit_edge.thread
 
-84:                                               ; preds = %._crit_edge
-  %85 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !30
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  store i32 81924, ptr %87, align 4, !tbaa !44
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 132
-  %89 = load i32, ptr %88, align 4, !tbaa !41
-  %90 = getelementptr inbounds nuw i8, ptr %86, i64 156
-  store i32 %89, ptr %90, align 4, !tbaa !45
-  %91 = getelementptr inbounds nuw i8, ptr %86, i64 152
-  %92 = load i32, ptr %91, align 8, !tbaa !40
-  tail call void @avpriv_set_pts_info(ptr noundef %.1, i32 noundef 64, i32 noundef 1, i32 noundef %92) #4
+82:                                               ; preds = %._crit_edge
+  %83 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %84 = load ptr, ptr %83, align 8, !tbaa !30
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store i32 81924, ptr %85, align 4, !tbaa !44
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 132
+  %87 = load i32, ptr %86, align 4, !tbaa !41
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 156
+  store i32 %87, ptr %88, align 4, !tbaa !45
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 152
+  %90 = load i32, ptr %89, align 8, !tbaa !40
+  tail call void @avpriv_set_pts_info(ptr noundef %.1, i32 noundef 64, i32 noundef 1, i32 noundef %90) #4
   br label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
@@ -261,8 +259,8 @@ define internal range(i32 -1163346256, 1) i32 @threedostr_read_header(ptr nounde
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i32 noundef %.062.lcssa84) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %36, %20, %15, %13, %.lr.ph, %84, %._crit_edge.thread
-  %.064 = phi i32 [ 0, %84 ], [ -1163346256, %._crit_edge.thread ], [ -1094995529, %24 ], [ -1094995529, %36 ], [ -12, %20 ], [ -1094995529, %15 ], [ -1094995529, %13 ], [ -1094995529, %.lr.ph ]
+.loopexit:                                        ; preds = %24, %36, %20, %15, %13, %.lr.ph, %82, %._crit_edge.thread
+  %.064 = phi i32 [ 0, %82 ], [ -1163346256, %._crit_edge.thread ], [ -1094995529, %24 ], [ -1094995529, %36 ], [ -12, %20 ], [ -1094995529, %15 ], [ -1094995529, %13 ], [ -1094995529, %.lr.ph ]
   ret i32 %.064
 }
 

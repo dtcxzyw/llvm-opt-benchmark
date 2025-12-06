@@ -770,21 +770,21 @@ define internal i32 @dissect_lane(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.160)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %8 = load i8, ptr %7, align 2
-  switch i8 %8, label %139 [
-    i8 1, label %9
+  %9 = load ptr, ptr %5, align 8
+  switch i8 %8, label %137 [
+    i8 1, label %10
     i8 2, label %115
     i8 4, label %115
-    i8 3, label %127
-    i8 5, label %127
+    i8 3, label %126
+    i8 5, label %126
   ]
 
-9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.291)
+10:                                               ; preds = %4
+  tail call void @col_set_str(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.291)
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %.thread111.critedge.i, label %.critedge.i
 
-.critedge.i:                                      ; preds = %9
+.critedge.i:                                      ; preds = %10
   %11 = load i32, ptr @proto_atm_lane, align 4
   %12 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 108, ptr noundef nonnull @.str.160)
   %13 = load i32, ptr @ett_atm_lane, align 4
@@ -942,7 +942,7 @@ define internal i32 @dissect_lane(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %110 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %109, ptr noundef %0, i32 noundef 76, i32 noundef 32, i32 noundef 0)
   br label %dissect_le_control.exit
 
-.thread111.critedge.i:                            ; preds = %9
+.thread111.critedge.i:                            ; preds = %10
   %111 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
   %112 = load ptr, ptr %5, align 8
   %113 = zext i16 %111 to i32
@@ -951,57 +951,54 @@ define internal i32 @dissect_lane(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_le_control.exit
 
 115:                                              ; preds = %4, %4
-  %116 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %116, i32 noundef 25, ptr noundef nonnull @.str.346)
+  tail call void @col_set_str(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.346)
   %.not.i26 = icmp eq ptr %2, null
-  br i1 %.not.i26, label %dissect_le_client.exit, label %117
+  br i1 %.not.i26, label %dissect_le_client.exit, label %116
 
-117:                                              ; preds = %115
-  %118 = load i32, ptr @proto_atm_lane, align 4
-  %119 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %118, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.160)
-  %120 = load i32, ptr @ett_atm_lane, align 4
-  %121 = tail call ptr @proto_item_add_subtree(ptr noundef %119, i32 noundef %120)
-  %122 = load i32, ptr @hf_atm_le_client_client, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+116:                                              ; preds = %115
+  %117 = load i32, ptr @proto_atm_lane, align 4
+  %118 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %117, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.160)
+  %119 = load i32, ptr @ett_atm_lane, align 4
+  %120 = tail call ptr @proto_item_add_subtree(ptr noundef %118, i32 noundef %119)
+  %121 = load i32, ptr @hf_atm_le_client_client, align 4
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   br label %dissect_le_client.exit
 
-dissect_le_client.exit:                           ; preds = %115, %117
-  %124 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
-  %125 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %126 = tail call i32 @call_dissector(ptr noundef %125, ptr noundef %124, ptr noundef %1, ptr noundef %2)
+dissect_le_client.exit:                           ; preds = %115, %116
+  %123 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
+  %124 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %125 = tail call i32 @call_dissector(ptr noundef %124, ptr noundef %123, ptr noundef %1, ptr noundef %2)
   br label %dissect_le_control.exit
 
-127:                                              ; preds = %4, %4
-  %128 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.347)
+126:                                              ; preds = %4, %4
+  tail call void @col_set_str(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.347)
   %.not.i27 = icmp eq ptr %2, null
-  br i1 %.not.i27, label %dissect_le_client.exit28, label %129
+  br i1 %.not.i27, label %dissect_le_client.exit28, label %127
 
-129:                                              ; preds = %127
-  %130 = load i32, ptr @proto_atm_lane, align 4
-  %131 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %130, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.160)
-  %132 = load i32, ptr @ett_atm_lane, align 4
-  %133 = tail call ptr @proto_item_add_subtree(ptr noundef %131, i32 noundef %132)
-  %134 = load i32, ptr @hf_atm_le_client_client, align 4
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+127:                                              ; preds = %126
+  %128 = load i32, ptr @proto_atm_lane, align 4
+  %129 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %128, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.160)
+  %130 = load i32, ptr @ett_atm_lane, align 4
+  %131 = tail call ptr @proto_item_add_subtree(ptr noundef %129, i32 noundef %130)
+  %132 = load i32, ptr @hf_atm_le_client_client, align 4
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %132, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   br label %dissect_le_client.exit28
 
-dissect_le_client.exit28:                         ; preds = %127, %129
-  %136 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
-  %137 = load ptr, ptr @tr_handle, align 8
-  %138 = tail call i32 @call_dissector(ptr noundef %137, ptr noundef %136, ptr noundef %1, ptr noundef %2)
+dissect_le_client.exit28:                         ; preds = %126, %127
+  %134 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
+  %135 = load ptr, ptr @tr_handle, align 8
+  %136 = tail call i32 @call_dissector(ptr noundef %135, ptr noundef %134, ptr noundef %1, ptr noundef %2)
   br label %dissect_le_control.exit
 
-139:                                              ; preds = %4
-  %140 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %140, i32 noundef 25, ptr noundef nonnull @.str.290)
-  %141 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0)
-  %142 = tail call i32 @call_data_dissector(ptr noundef %141, ptr noundef %1, ptr noundef %2)
+137:                                              ; preds = %4
+  tail call void @col_set_str(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.290)
+  %138 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 0)
+  %139 = tail call i32 @call_data_dissector(ptr noundef %138, ptr noundef %1, ptr noundef %2)
   br label %dissect_le_control.exit
 
-dissect_le_control.exit:                          ; preds = %.thread111.critedge.i, %102, %89, %84, %69, %55, %45, %42, %33, %.critedge.i, %139, %dissect_le_client.exit28, %dissect_le_client.exit
-  %143 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %143
+dissect_le_control.exit:                          ; preds = %.thread111.critedge.i, %102, %89, %84, %69, %55, %45, %42, %33, %.critedge.i, %137, %dissect_le_client.exit28, %dissect_le_client.exit
+  %140 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %140
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

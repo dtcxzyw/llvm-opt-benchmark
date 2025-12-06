@@ -2727,49 +2727,50 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit:     ; preds = %2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %16 = load i32, ptr %15, align 8
   switch i32 %9, label %22 [
-    i32 42, label %15
-    i32 41, label %15
-    i32 26, label %15
-    i32 25, label %15
+    i32 42, label %17
+    i32 41, label %17
+    i32 26, label %17
+    i32 25, label %17
   ]
 
-15:                                               ; preds = %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i32, ptr %16, align 8
-  %18 = and i32 %17, -49
+17:                                               ; preds = %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit
+  %18 = and i32 %16, -49
   %19 = or disjoint i32 %18, 32
-  store i32 %19, ptr %16, align 8
-  %20 = and i32 %17, 15
+  store i32 %19, ptr %15, align 8
+  %20 = and i32 %16, 15
   %.not = icmp eq i32 %20, 9
   br i1 %.not, label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i: ; preds = %15
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i: ; preds = %17
   %21 = or i32 %18, 16416
-  store i32 %21, ptr %16, align 8
-  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split
 
 22:                                               ; preds = %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %24 = load i32, ptr %23, align 8
-  %25 = and i32 %24, 15
-  %26 = add nsw i32 %25, -7
-  %spec.select.i = icmp ult i32 %26, 2
+  %23 = and i32 %16, 15
+  %24 = add nsw i32 %23, -7
+  %spec.select.i = icmp ult i32 %24, 2
   br i1 %spec.select.i, label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i6
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i6: ; preds = %22
-  %27 = and i32 %24, -49
-  %28 = or disjoint i32 %27, 16
-  store i32 %28, ptr %23, align 8
-  %.not10 = icmp eq i32 %25, 9
+  %25 = and i32 %16, -49
+  %26 = or disjoint i32 %25, 16
+  store i32 %26, ptr %15, align 8
+  %.not10 = icmp eq i32 %23, 9
   br i1 %.not10, label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i8
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i8: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i6
-  %29 = or i32 %27, 16400
-  store i32 %29, ptr %23, align 8
+  %27 = or i32 %25, 16400
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split
+
+_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i8
+  %.sink = phi i32 [ %27, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i8 ], [ %21, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i ]
+  store i32 %.sink, ptr %15, align 8
   br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit
 
-_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %15, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i8, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i6, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i, %22
+_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split, %17, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i6, %22
   ret void
 }
 
@@ -2883,49 +2884,50 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit.i:   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %49 = load i32, ptr %48, align 8
   switch i32 %42, label %55 [
-    i32 42, label %48
-    i32 41, label %48
-    i32 26, label %48
-    i32 25, label %48
+    i32 42, label %50
+    i32 41, label %50
+    i32 26, label %50
+    i32 25, label %50
   ]
 
-48:                                               ; preds = %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit.i, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit.i, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit.i, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit.i
-  %49 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %50 = load i32, ptr %49, align 8
-  %51 = and i32 %50, -49
+50:                                               ; preds = %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit.i, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit.i, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit.i, %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit.i
+  %51 = and i32 %49, -49
   %52 = or disjoint i32 %51, 32
-  store i32 %52, ptr %49, align 8
-  %53 = and i32 %50, 15
+  store i32 %52, ptr %48, align 8
+  %53 = and i32 %49, 15
   %.not.i = icmp eq i32 %53, 9
   br i1 %.not.i, label %_ZN4llvm20setPGOFuncVisibilityERNS_6ModuleEPNS_14GlobalVariableE.exit, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i
 
-_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i: ; preds = %48
+_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i: ; preds = %50
   %54 = or i32 %51, 16416
-  store i32 %54, ptr %49, align 8
-  br label %_ZN4llvm20setPGOFuncVisibilityERNS_6ModuleEPNS_14GlobalVariableE.exit
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i
 
 55:                                               ; preds = %_ZN4llvm15isGPUProfTargetERKNS_6ModuleE.exit.i
-  %56 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %57 = load i32, ptr %56, align 8
-  %58 = and i32 %57, 15
-  %59 = add nsw i32 %58, -7
-  %spec.select.i.i19 = icmp ult i32 %59, 2
+  %56 = and i32 %49, 15
+  %57 = add nsw i32 %56, -7
+  %spec.select.i.i19 = icmp ult i32 %57, 2
   br i1 %spec.select.i.i19, label %_ZN4llvm20setPGOFuncVisibilityERNS_6ModuleEPNS_14GlobalVariableE.exit, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i6.i
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i6.i: ; preds = %55
-  %60 = and i32 %57, -49
-  %61 = or disjoint i32 %60, 16
-  store i32 %61, ptr %56, align 8
-  %.not10.i = icmp eq i32 %58, 9
+  %58 = and i32 %49, -49
+  %59 = or disjoint i32 %58, 16
+  store i32 %59, ptr %48, align 8
+  %.not10.i = icmp eq i32 %56, 9
   br i1 %.not10.i, label %_ZN4llvm20setPGOFuncVisibilityERNS_6ModuleEPNS_14GlobalVariableE.exit, label %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i8.i
 
 _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i8.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i6.i
-  %62 = or i32 %60, 16400
-  store i32 %62, ptr %56, align 8
+  %60 = or i32 %58, 16400
+  br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i
+
+_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i8.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i
+  %.sink.i = phi i32 [ %60, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i8.i ], [ %54, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i ]
+  store i32 %.sink.i, ptr %48, align 8
   br label %_ZN4llvm20setPGOFuncVisibilityERNS_6ModuleEPNS_14GlobalVariableE.exit
 
-_ZN4llvm20setPGOFuncVisibilityERNS_6ModuleEPNS_14GlobalVariableE.exit: ; preds = %48, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i, %55, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i6.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i8.i
+_ZN4llvm20setPGOFuncVisibilityERNS_6ModuleEPNS_14GlobalVariableE.exit: ; preds = %50, %55, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i6.i, %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.sink.split.i
   ret ptr %29
 }
 

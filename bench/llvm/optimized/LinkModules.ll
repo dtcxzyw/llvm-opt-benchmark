@@ -3209,7 +3209,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112ModuleLinker20shou
 
 12:                                               ; preds = %4
   store i8 1, ptr %1, align 1, !tbaa !266
-  br label %93
+  br label %91
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -3227,7 +3227,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112ModuleLinker20shou
 
 23:                                               ; preds = %18, %13
   store i8 1, ptr %1, align 1, !tbaa !266
-  br label %93
+  br label %91
 
 24:                                               ; preds = %18
   %25 = icmp eq i32 %16, 1
@@ -3265,7 +3265,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit46.thread.thread: ; preds =
 36:                                               ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit46.thread.thread
   %37 = zext i1 %.shrunk to i8
   store i8 %37, ptr %1, align 1, !tbaa !266
-  br label %93
+  br label %91
 
 38:                                               ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit46.thread.thread
   %39 = load i32, ptr %19, align 8
@@ -3275,7 +3275,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit46.thread.thread: ; preds =
 
 42:                                               ; preds = %38
   store i8 1, ptr %1, align 1, !tbaa !266
-  br label %93
+  br label %91
 
 43:                                               ; preds = %38
   %44 = tail call noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #15
@@ -3289,20 +3289,21 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit46.thread.thread: ; preds =
 48:                                               ; preds = %45, %43
   %49 = phi i8 [ 0, %43 ], [ %47, %45 ]
   store i8 %49, ptr %1, align 1, !tbaa !266
-  br label %93
+  br label %91
 
 50:                                               ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit46
   br i1 %32, label %.thread, label %51
 
 .thread:                                          ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit46.thread, %50
   store i8 1, ptr %1, align 1, !tbaa !266
-  br label %93
+  br label %91
 
 51:                                               ; preds = %50
   %52 = load i32, ptr %14, align 8
   %53 = and i32 %52, 15
+  %54 = load i32, ptr %19, align 8
   switch i32 %53, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit [
-    i32 10, label %54
+    i32 10, label %55
     i32 9, label %74
     i32 5, label %74
     i32 4, label %74
@@ -3310,26 +3311,25 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit46.thread.thread: ; preds =
     i32 2, label %74
   ]
 
-54:                                               ; preds = %51
-  %55 = load i32, ptr %19, align 8
-  %56 = and i32 %55, 14
+55:                                               ; preds = %51
+  %56 = and i32 %54, 14
   switch i32 %56, label %58 [
     i32 2, label %57
     i32 4, label %57
   ]
 
-57:                                               ; preds = %54, %54
+57:                                               ; preds = %55, %55
   store i8 1, ptr %1, align 1, !tbaa !266
-  br label %93
+  br label %91
 
-58:                                               ; preds = %54
-  %59 = and i32 %55, 15
+58:                                               ; preds = %55
+  %59 = and i32 %54, 15
   %60 = icmp eq i32 %59, 10
   br i1 %60, label %62, label %61
 
 61:                                               ; preds = %58
   store i8 0, ptr %1, align 1, !tbaa !266
-  br label %93
+  br label %91
 
 62:                                               ; preds = %58
   %63 = tail call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm11GlobalValue13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #15
@@ -3358,74 +3358,72 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit46.thread.thread: ; preds =
   %72 = icmp ugt i64 %71, %67
   %73 = zext i1 %72 to i8
   store i8 %73, ptr %1, align 1, !tbaa !266
-  br label %93
+  br label %91
 
 74:                                               ; preds = %51, %51, %51, %51, %51
-  %75 = load i32, ptr %19, align 8
-  %76 = and i32 %75, 14
-  %spec.select.i.i48 = icmp eq i32 %76, 2
-  %77 = and i32 %52, 14
-  %spec.select.i.i49 = icmp eq i32 %77, 4
+  %75 = and i32 %54, 14
+  %spec.select.i.i48 = icmp eq i32 %75, 2
+  %76 = and i32 %52, 14
+  %spec.select.i.i49 = icmp eq i32 %76, 4
   %or.cond = and i1 %spec.select.i.i49, %spec.select.i.i48
-  br i1 %or.cond, label %78, label %79
+  br i1 %or.cond, label %77, label %78
+
+77:                                               ; preds = %74
+  store i8 1, ptr %1, align 1, !tbaa !266
+  br label %91
 
 78:                                               ; preds = %74
-  store i8 1, ptr %1, align 1, !tbaa !266
-  br label %93
-
-79:                                               ; preds = %74
   store i8 0, ptr %1, align 1, !tbaa !266
-  br label %93
+  br label %91
 
 _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit:   ; preds = %51
-  %80 = load i32, ptr %19, align 8
-  %81 = and i32 %80, 15
-  switch i32 %81, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit50 [
-    i32 10, label %82
-    i32 5, label %82
-    i32 4, label %82
-    i32 3, label %82
-    i32 2, label %82
-    i32 9, label %82
+  %79 = and i32 %54, 15
+  switch i32 %79, label %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit50 [
+    i32 10, label %80
+    i32 5, label %80
+    i32 4, label %80
+    i32 3, label %80
+    i32 2, label %80
+    i32 9, label %80
   ]
 
-82:                                               ; preds = %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
+80:                                               ; preds = %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
   store i8 1, ptr %1, align 1, !tbaa !266
-  br label %93
+  br label %91
 
 _ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit50: ; preds = %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %83 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
-  %84 = extractvalue { ptr, i64 } %83, 0
-  %85 = extractvalue { ptr, i64 } %83, 1
-  %86 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 3, ptr %86, align 8, !tbaa !82, !alias.scope !337
-  %87 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 5, ptr %87, align 1, !tbaa !88, !alias.scope !337
+  %81 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
+  %82 = extractvalue { ptr, i64 } %81, 0
+  %83 = extractvalue { ptr, i64 } %81, 1
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 3, ptr %84, align 8, !tbaa !82, !alias.scope !337
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 5, ptr %85, align 1, !tbaa !88, !alias.scope !337
   store ptr @.str.10, ptr %8, align 8, !tbaa !13, !alias.scope !337
-  %88 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %84, ptr %88, align 8, !tbaa !13, !alias.scope !337
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %85, ptr %89, align 8, !tbaa !13, !alias.scope !337
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %82, ptr %86, align 8, !tbaa !13, !alias.scope !337
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 %83, ptr %87, align 8, !tbaa !13, !alias.scope !337
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %90 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %91 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %91, align 1, !tbaa !88
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 1, ptr %89, align 1, !tbaa !88
   store ptr @.str.11, ptr %9, align 8, !tbaa !13
-  store i8 3, ptr %90, align 8, !tbaa !82
+  store i8 3, ptr %88, align 8, !tbaa !82
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %7, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr noundef nonnull align 8 dereferenceable(34) %9)
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val = load ptr, ptr %92, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val = load ptr, ptr %90, align 8, !tbaa !3
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !94
   call fastcc void @_ZN12_GLOBAL__N_112ModuleLinker9emitErrorERKN4llvm5TwineE(ptr %.val.val, ptr noundef nonnull align 8 dereferenceable(34) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %93
+  br label %91
 
-93:                                               ; preds = %36, %42, %48, %.thread, %57, %61, %62, %78, %79, %82, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit50, %23, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %23 ], [ false, %36 ], [ false, %42 ], [ false, %48 ], [ false, %.thread ], [ false, %57 ], [ false, %62 ], [ false, %61 ], [ false, %78 ], [ false, %79 ], [ false, %82 ], [ true, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit50 ]
+91:                                               ; preds = %36, %42, %48, %.thread, %57, %61, %62, %77, %78, %80, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit50, %23, %12
+  %.0 = phi i1 [ false, %12 ], [ false, %23 ], [ false, %36 ], [ false, %42 ], [ false, %48 ], [ false, %.thread ], [ false, %57 ], [ false, %62 ], [ false, %61 ], [ false, %77 ], [ false, %78 ], [ false, %80 ], [ true, %_ZNK4llvm11GlobalValue15isWeakForLinkerEv.exit50 ]
   ret i1 %.0
 }
 

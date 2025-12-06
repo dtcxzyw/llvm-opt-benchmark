@@ -3043,20 +3043,18 @@ if.end61:                                         ; preds = %if.else52, %if.end4
 while.body.i90:                                   ; preds = %if.end61, %if.end10.i
   %15 = phi ptr [ %incdec.ptr12.i, %if.end10.i ], [ %arrayidx63, %if.end61 ]
   %16 = load i8, ptr %15, align 1, !tbaa !13
+  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %15, i64 1
+  store ptr %incdec.ptr12.i, ptr %P, align 8, !tbaa !203
   switch i8 %16, label %if.end10.i [
     i8 10, label %if.then8.i
     i8 13, label %if.then8.i
   ]
 
 if.then8.i:                                       ; preds = %while.body.i90, %while.body.i90
-  %incdec.ptr.i91 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  store ptr %incdec.ptr.i91, ptr %P, align 8, !tbaa !203
   store i32 2, ptr %Line, align 4, !tbaa !195
   br label %cleanup
 
 if.end10.i:                                       ; preds = %while.body.i90
-  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %15, i64 1
-  store ptr %incdec.ptr12.i, ptr %P, align 8, !tbaa !203
   %exitcond.not.i = icmp eq ptr %incdec.ptr12.i, %add.ptr
   br i1 %exitcond.not.i, label %cleanup, label %while.body.i90, !llvm.loop !204
 
@@ -3407,14 +3405,14 @@ while.cond.preheader:                             ; preds = %entry
 while.body:                                       ; preds = %while.cond.preheader, %if.end10
   %2 = phi ptr [ %incdec.ptr12, %if.end10 ], [ %P.promoted, %while.cond.preheader ]
   %3 = load i8, ptr %2, align 1, !tbaa !13
+  %incdec.ptr12 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store ptr %incdec.ptr12, ptr %P, align 8, !tbaa !203
   switch i8 %3, label %if.end10 [
     i8 10, label %if.then8
     i8 13, label %if.then8
   ]
 
 if.then8:                                         ; preds = %while.body, %while.body
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store ptr %incdec.ptr, ptr %P, align 8, !tbaa !203
   %Line = getelementptr inbounds nuw i8, ptr %this, i64 44
   %4 = load i32, ptr %Line, align 4, !tbaa !195
   %inc = add i32 %4, 1
@@ -3422,8 +3420,6 @@ if.then8:                                         ; preds = %while.body, %while.
   br label %while.end
 
 if.end10:                                         ; preds = %while.body
-  %incdec.ptr12 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store ptr %incdec.ptr12, ptr %P, align 8, !tbaa !203
   %exitcond.not = icmp eq ptr %incdec.ptr12, %1
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !204
 
@@ -4010,33 +4006,31 @@ while.body.i.i.preheader:                         ; preds = %land.lhs.true.i, %l
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end10.i.i
   %31 = phi ptr [ %incdec.ptr12.i.i, %if.end10.i.i ], [ %incdec.ptr.i42.i, %while.body.i.i.preheader ]
   %32 = load i8, ptr %31, align 1, !tbaa !13
+  %incdec.ptr12.i.i = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store ptr %incdec.ptr12.i.i, ptr %P.i147, align 8, !tbaa !203
   switch i8 %32, label %if.end10.i.i [
     i8 10, label %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i
     i8 13, label %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i
   ]
 
 if.end10.i.i:                                     ; preds = %while.body.i.i
-  %incdec.ptr12.i.i = getelementptr inbounds nuw i8, ptr %31, i64 1
-  store ptr %incdec.ptr12.i.i, ptr %P.i147, align 8, !tbaa !203
   %exitcond.not.i.i = icmp eq ptr %incdec.ptr12.i.i, %26
   br i1 %exitcond.not.i.i, label %if.then58, label %while.body.i.i, !llvm.loop !204
 
 _ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i: ; preds = %while.body.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %31, i64 1
-  store ptr %incdec.ptr.i.i, ptr %P.i147, align 8, !tbaa !203
   %inc.i.i = add i32 %Line.promoted50.i, 1
   store i32 %inc.i.i, ptr %Line.i, align 4, !tbaa !195
-  %cmp39.i = icmp ult ptr %incdec.ptr.i.i, %26
+  %cmp39.i = icmp ult ptr %incdec.ptr12.i.i, %26
   br i1 %cmp39.i, label %land.rhs.i.backedge, label %_ZN3irr5scene16CXMeshFileLoader22findNextNoneWhiteSpaceEv.exit
 
 land.rhs.i.backedge:                              ; preds = %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i, %if.end9.i
   %Line.promoted50.i.be = phi i32 [ %Line.promoted48.i, %if.end9.i ], [ %inc.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ]
-  %incdec.ptr.i42.i.be = phi ptr [ %incdec.ptr.i, %if.end9.i ], [ %incdec.ptr.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ]
+  %incdec.ptr.i42.i.be = phi ptr [ %incdec.ptr.i, %if.end9.i ], [ %incdec.ptr12.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ]
   %.be = phi i32 [ %29, %if.end9.i ], [ %inc.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ]
   br label %land.rhs.i, !llvm.loop !211
 
 _ZN3irr5scene16CXMeshFileLoader22findNextNoneWhiteSpaceEv.exit: ; preds = %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i, %land.lhs.true.i, %if.end9.i, %land.rhs.i, %while.body.preheader.i
-  %33 = phi ptr [ %P.promoted40.i, %while.body.preheader.i ], [ %incdec.ptr.i, %if.end9.i ], [ %incdec.ptr.i42.i, %land.rhs.i ], [ %incdec.ptr.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i42.i, %land.lhs.true.i ]
+  %33 = phi ptr [ %P.promoted40.i, %while.body.preheader.i ], [ %incdec.ptr.i, %if.end9.i ], [ %incdec.ptr.i42.i, %land.rhs.i ], [ %incdec.ptr12.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i42.i, %land.lhs.true.i ]
   %cmp.not = icmp ult ptr %33, %26
   br i1 %cmp.not, label %land.rhs, label %if.then58
 
@@ -5215,21 +5209,19 @@ while.body.i.i.i.us.preheader:                    ; preds = %land.lhs.true16.i.i
 while.body.i.i.i.us:                              ; preds = %while.body.i.i.i.us.preheader, %if.end10.i.i.i.us
   %54 = phi ptr [ %incdec.ptr12.i.i.i.us, %if.end10.i.i.i.us ], [ %incdec.ptr.i3134.i.i.us, %while.body.i.i.i.us.preheader ]
   %55 = load i8, ptr %54, align 1, !tbaa !13
+  %incdec.ptr12.i.i.i.us = getelementptr inbounds nuw i8, ptr %54, i64 1
+  store ptr %incdec.ptr12.i.i.i.us, ptr %P.i.i, align 8, !tbaa !203
   switch i8 %55, label %if.end10.i.i.i.us [
     i8 10, label %if.then8.i.i.i.us
     i8 13, label %if.then8.i.i.i.us
   ]
 
 if.then8.i.i.i.us:                                ; preds = %while.body.i.i.i.us, %while.body.i.i.i.us
-  %incdec.ptr.i.i.i.us = getelementptr inbounds nuw i8, ptr %54, i64 1
-  store ptr %incdec.ptr.i.i.i.us, ptr %P.i.i, align 8, !tbaa !203
   %inc.i.i.i.us = add i32 %inc.i36.i.i.us, 1
   store i32 %inc.i.i.i.us, ptr %Line.i.i.i, align 4, !tbaa !195
   br label %if.end27.i.i.us
 
 if.end10.i.i.i.us:                                ; preds = %while.body.i.i.i.us
-  %incdec.ptr12.i.i.i.us = getelementptr inbounds nuw i8, ptr %54, i64 1
-  store ptr %incdec.ptr12.i.i.i.us, ptr %P.i.i, align 8, !tbaa !203
   %exitcond.not.i.i.i.us = icmp eq ptr %incdec.ptr12.i.i.i.us, %49
   br i1 %exitcond.not.i.i.i.us, label %_ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv.exit.i.us, label %while.body.i.i.i.us, !llvm.loop !204
 
@@ -5245,7 +5237,7 @@ if.else.i.i699.us:                                ; preds = %land.lhs.true16.i.i
 
 if.end27.i.i.us:                                  ; preds = %if.else.i.i699.us, %if.then8.i.i.i.us
   %inc.i35.i.i.us = phi i32 [ %inc.i.i.i.us, %if.then8.i.i.i.us ], [ %inc.i36.i.i.us, %if.else.i.i699.us ]
-  %incdec.ptr.i32.i.i.us = phi ptr [ %incdec.ptr.i.i.i.us, %if.then8.i.i.i.us ], [ %incdec.ptr.i.i.us, %if.else.i.i699.us ]
+  %incdec.ptr.i32.i.i.us = phi ptr [ %incdec.ptr12.i.i.i.us, %if.then8.i.i.i.us ], [ %incdec.ptr.i.i.us, %if.else.i.i699.us ]
   %cmp.i.i698.us = icmp ult ptr %incdec.ptr.i32.i.i.us, %49
   br i1 %cmp.i.i698.us, label %land.lhs.true.i.i.us, label %while.cond.preheader.i30.i.us, !llvm.loop !227
 
@@ -7884,21 +7876,19 @@ while.body.i.i.preheader:                         ; preds = %land.lhs.true16.i, 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end10.i.i
   %14 = phi ptr [ %incdec.ptr12.i.i, %if.end10.i.i ], [ %incdec.ptr.i3134.i, %while.body.i.i.preheader ]
   %15 = load i8, ptr %14, align 1, !tbaa !13
+  %incdec.ptr12.i.i = getelementptr inbounds nuw i8, ptr %14, i64 1
+  store ptr %incdec.ptr12.i.i, ptr %P.i27, align 8, !tbaa !203
   switch i8 %15, label %if.end10.i.i [
     i8 10, label %if.then8.i.i
     i8 13, label %if.then8.i.i
   ]
 
 if.then8.i.i:                                     ; preds = %while.body.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %14, i64 1
-  store ptr %incdec.ptr.i.i, ptr %P.i27, align 8, !tbaa !203
   %inc.i.i = add i32 %inc.i36.i, 1
   store i32 %inc.i.i, ptr %Line.i.i, align 4, !tbaa !195
   br label %if.end27.i
 
 if.end10.i.i:                                     ; preds = %while.body.i.i
-  %incdec.ptr12.i.i = getelementptr inbounds nuw i8, ptr %14, i64 1
-  store ptr %incdec.ptr12.i.i, ptr %P.i27, align 8, !tbaa !203
   %exitcond.not.i.i = icmp eq ptr %incdec.ptr12.i.i, %9
   br i1 %exitcond.not.i.i, label %_ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv.exit, label %while.body.i.i, !llvm.loop !204
 
@@ -7909,7 +7899,7 @@ if.else.i:                                        ; preds = %land.lhs.true16.i, 
 
 if.end27.i:                                       ; preds = %if.else.i, %if.then8.i.i
   %inc.i35.i = phi i32 [ %inc.i.i, %if.then8.i.i ], [ %inc.i36.i, %if.else.i ]
-  %incdec.ptr.i32.i = phi ptr [ %incdec.ptr.i.i, %if.then8.i.i ], [ %incdec.ptr.i, %if.else.i ]
+  %incdec.ptr.i32.i = phi ptr [ %incdec.ptr12.i.i, %if.then8.i.i ], [ %incdec.ptr.i, %if.else.i ]
   %cmp.i = icmp ult ptr %incdec.ptr.i32.i, %9
   br i1 %cmp.i, label %land.lhs.true.i, label %while.cond.preheader.i30, !llvm.loop !227
 
@@ -8420,21 +8410,19 @@ while.body.i.i.i.preheader:                       ; preds = %land.lhs.true16.i.i
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i.preheader, %if.end10.i.i.i
   %55 = phi ptr [ %incdec.ptr12.i.i.i, %if.end10.i.i.i ], [ %incdec.ptr.i3134.i.i, %while.body.i.i.i.preheader ]
   %56 = load i8, ptr %55, align 1, !tbaa !13
+  %incdec.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 1
+  store ptr %incdec.ptr12.i.i.i, ptr %P.i.i206, align 8, !tbaa !203
   switch i8 %56, label %if.end10.i.i.i [
     i8 10, label %if.then8.i.i.i
     i8 13, label %if.then8.i.i.i
   ]
 
 if.then8.i.i.i:                                   ; preds = %while.body.i.i.i, %while.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 1
-  store ptr %incdec.ptr.i.i.i, ptr %P.i.i206, align 8, !tbaa !203
   %inc.i.i.i = add i32 %inc.i36.i.i, 1
   store i32 %inc.i.i.i, ptr %Line.i.i.i252, align 4, !tbaa !195
   br label %if.end27.i.i
 
 if.end10.i.i.i:                                   ; preds = %while.body.i.i.i
-  %incdec.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 1
-  store ptr %incdec.ptr12.i.i.i, ptr %P.i.i206, align 8, !tbaa !203
   %exitcond.not.i.i.i = icmp eq ptr %incdec.ptr12.i.i.i, %44
   br i1 %exitcond.not.i.i.i, label %_ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv.exit.i, label %while.body.i.i.i, !llvm.loop !204
 
@@ -8446,7 +8434,7 @@ if.else.i.i176:                                   ; preds = %land.lhs.true16.i.i
 if.end27.i.i:                                     ; preds = %if.else.i.i176, %if.then8.i.i.i
   %inc.i.i.i455 = phi i32 [ %inc.i.i.i, %if.then8.i.i.i ], [ %inc.i.i.i457, %if.else.i.i176 ]
   %inc.i35.i.i = phi i32 [ %inc.i.i.i, %if.then8.i.i.i ], [ %inc.i36.i.i, %if.else.i.i176 ]
-  %incdec.ptr.i32.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then8.i.i.i ], [ %incdec.ptr.i.i, %if.else.i.i176 ]
+  %incdec.ptr.i32.i.i = phi ptr [ %incdec.ptr12.i.i.i, %if.then8.i.i.i ], [ %incdec.ptr.i.i, %if.else.i.i176 ]
   %cmp.i.i175 = icmp ult ptr %incdec.ptr.i32.i.i, %44
   br i1 %cmp.i.i175, label %land.lhs.true.i.i, label %while.cond.preheader.i30.i, !llvm.loop !227
 
@@ -8591,21 +8579,19 @@ while.body.i.i.i.1.preheader:                     ; preds = %land.lhs.true16.i.i
 while.body.i.i.i.1:                               ; preds = %while.body.i.i.i.1.preheader, %if.end10.i.i.i.1
   %80 = phi ptr [ %incdec.ptr12.i.i.i.1, %if.end10.i.i.i.1 ], [ %incdec.ptr.i3134.i.i.1, %while.body.i.i.i.1.preheader ]
   %81 = load i8, ptr %80, align 1, !tbaa !13
+  %incdec.ptr12.i.i.i.1 = getelementptr inbounds nuw i8, ptr %80, i64 1
+  store ptr %incdec.ptr12.i.i.i.1, ptr %P.i.i206, align 8, !tbaa !203
   switch i8 %81, label %if.end10.i.i.i.1 [
     i8 10, label %if.then8.i.i.i.1
     i8 13, label %if.then8.i.i.i.1
   ]
 
 if.then8.i.i.i.1:                                 ; preds = %while.body.i.i.i.1, %while.body.i.i.i.1
-  %incdec.ptr.i.i.i.1 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  store ptr %incdec.ptr.i.i.i.1, ptr %P.i.i206, align 8, !tbaa !203
   %inc.i.i.i.1 = add i32 %inc.i36.i.i.1, 1
   store i32 %inc.i.i.i.1, ptr %Line.i.i.i252, align 4, !tbaa !195
   br label %if.end27.i.i.1
 
 if.end10.i.i.i.1:                                 ; preds = %while.body.i.i.i.1
-  %incdec.ptr12.i.i.i.1 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  store ptr %incdec.ptr12.i.i.i.1, ptr %P.i.i206, align 8, !tbaa !203
   %exitcond.not.i.i.i.1 = icmp eq ptr %incdec.ptr12.i.i.i.1, %44
   br i1 %exitcond.not.i.i.i.1, label %_ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv.exit.i.1, label %while.body.i.i.i.1, !llvm.loop !204
 
@@ -8623,7 +8609,7 @@ if.else.i.i176.1:                                 ; preds = %land.lhs.true16.i.i
 if.end27.i.i.1:                                   ; preds = %if.else.i.i176.1, %if.then8.i.i.i.1
   %inc.i.i.i455.1 = phi i32 [ %inc.i.i.i.1, %if.then8.i.i.i.1 ], [ %inc.i.i.i457.1, %if.else.i.i176.1 ]
   %inc.i35.i.i.1 = phi i32 [ %inc.i.i.i.1, %if.then8.i.i.i.1 ], [ %inc.i36.i.i.1, %if.else.i.i176.1 ]
-  %incdec.ptr.i32.i.i.1 = phi ptr [ %incdec.ptr.i.i.i.1, %if.then8.i.i.i.1 ], [ %incdec.ptr.i.i.1, %if.else.i.i176.1 ]
+  %incdec.ptr.i32.i.i.1 = phi ptr [ %incdec.ptr12.i.i.i.1, %if.then8.i.i.i.1 ], [ %incdec.ptr.i.i.1, %if.else.i.i176.1 ]
   %cmp.i.i175.1 = icmp ult ptr %incdec.ptr.i32.i.i.1, %44
   br i1 %cmp.i.i175.1, label %land.lhs.true.i.i.1, label %while.cond.preheader.i30.i.1, !llvm.loop !227
 
@@ -8762,21 +8748,19 @@ while.body.i.i.i.2.preheader:                     ; preds = %land.lhs.true16.i.i
 while.body.i.i.i.2:                               ; preds = %while.body.i.i.i.2.preheader, %if.end10.i.i.i.2
   %104 = phi ptr [ %incdec.ptr12.i.i.i.2, %if.end10.i.i.i.2 ], [ %incdec.ptr.i3134.i.i.2, %while.body.i.i.i.2.preheader ]
   %105 = load i8, ptr %104, align 1, !tbaa !13
+  %incdec.ptr12.i.i.i.2 = getelementptr inbounds nuw i8, ptr %104, i64 1
+  store ptr %incdec.ptr12.i.i.i.2, ptr %P.i.i206, align 8, !tbaa !203
   switch i8 %105, label %if.end10.i.i.i.2 [
     i8 10, label %if.then8.i.i.i.2
     i8 13, label %if.then8.i.i.i.2
   ]
 
 if.then8.i.i.i.2:                                 ; preds = %while.body.i.i.i.2, %while.body.i.i.i.2
-  %incdec.ptr.i.i.i.2 = getelementptr inbounds nuw i8, ptr %104, i64 1
-  store ptr %incdec.ptr.i.i.i.2, ptr %P.i.i206, align 8, !tbaa !203
   %inc.i.i.i.2 = add i32 %inc.i36.i.i.2, 1
   store i32 %inc.i.i.i.2, ptr %Line.i.i.i252, align 4, !tbaa !195
   br label %if.end27.i.i.2
 
 if.end10.i.i.i.2:                                 ; preds = %while.body.i.i.i.2
-  %incdec.ptr12.i.i.i.2 = getelementptr inbounds nuw i8, ptr %104, i64 1
-  store ptr %incdec.ptr12.i.i.i.2, ptr %P.i.i206, align 8, !tbaa !203
   %exitcond.not.i.i.i.2 = icmp eq ptr %incdec.ptr12.i.i.i.2, %44
   br i1 %exitcond.not.i.i.i.2, label %_ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv.exit.i.2, label %while.body.i.i.i.2, !llvm.loop !204
 
@@ -8792,7 +8776,7 @@ if.else.i.i176.2:                                 ; preds = %land.lhs.true16.i.i
 
 if.end27.i.i.2:                                   ; preds = %if.else.i.i176.2, %if.then8.i.i.i.2
   %inc.i35.i.i.2 = phi i32 [ %inc.i.i.i.2, %if.then8.i.i.i.2 ], [ %inc.i36.i.i.2, %if.else.i.i176.2 ]
-  %incdec.ptr.i32.i.i.2 = phi ptr [ %incdec.ptr.i.i.i.2, %if.then8.i.i.i.2 ], [ %incdec.ptr.i.i.2, %if.else.i.i176.2 ]
+  %incdec.ptr.i32.i.i.2 = phi ptr [ %incdec.ptr12.i.i.i.2, %if.then8.i.i.i.2 ], [ %incdec.ptr.i.i.2, %if.else.i.i176.2 ]
   %cmp.i.i175.2 = icmp ult ptr %incdec.ptr.i32.i.i.2, %44
   br i1 %cmp.i.i175.2, label %land.lhs.true.i.i.2, label %while.cond.preheader.i30.i.2, !llvm.loop !227
 
@@ -8983,21 +8967,19 @@ while.body.i.i.i263.us.preheader:                 ; preds = %land.lhs.true16.i.i
 while.body.i.i.i263.us:                           ; preds = %while.body.i.i.i263.us.preheader, %if.end10.i.i.i271.us
   %128 = phi ptr [ %incdec.ptr12.i.i.i272.us, %if.end10.i.i.i271.us ], [ %incdec.ptr.i3134.i.i256.us, %while.body.i.i.i263.us.preheader ]
   %129 = load i8, ptr %128, align 1, !tbaa !13
+  %incdec.ptr12.i.i.i272.us = getelementptr inbounds nuw i8, ptr %128, i64 1
+  store ptr %incdec.ptr12.i.i.i272.us, ptr %P.i.i206, align 8, !tbaa !203
   switch i8 %129, label %if.end10.i.i.i271.us [
     i8 10, label %if.then8.i.i.i264.us
     i8 13, label %if.then8.i.i.i264.us
   ]
 
 if.then8.i.i.i264.us:                             ; preds = %while.body.i.i.i263.us, %while.body.i.i.i263.us
-  %incdec.ptr.i.i.i265.us = getelementptr inbounds nuw i8, ptr %128, i64 1
-  store ptr %incdec.ptr.i.i.i265.us, ptr %P.i.i206, align 8, !tbaa !203
   %inc.i.i.i266.us = add i32 %inc.i36.i.i255.us, 1
   store i32 %inc.i.i.i266.us, ptr %Line.i.i.i252, align 4, !tbaa !195
   br label %if.end27.i.i267.us
 
 if.end10.i.i.i271.us:                             ; preds = %while.body.i.i.i263.us
-  %incdec.ptr12.i.i.i272.us = getelementptr inbounds nuw i8, ptr %128, i64 1
-  store ptr %incdec.ptr12.i.i.i272.us, ptr %P.i.i206, align 8, !tbaa !203
   %exitcond.not.i.i.i273.us = icmp eq ptr %incdec.ptr12.i.i.i272.us, %123
   br i1 %exitcond.not.i.i.i273.us, label %_ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv.exit.i229.us, label %while.body.i.i.i263.us, !llvm.loop !204
 
@@ -9013,7 +8995,7 @@ if.else.i.i277.us:                                ; preds = %land.lhs.true16.i.i
 
 if.end27.i.i267.us:                               ; preds = %if.else.i.i277.us, %if.then8.i.i.i264.us
   %inc.i35.i.i268.us = phi i32 [ %inc.i.i.i266.us, %if.then8.i.i.i264.us ], [ %inc.i36.i.i255.us, %if.else.i.i277.us ]
-  %incdec.ptr.i32.i.i269.us = phi ptr [ %incdec.ptr.i.i.i265.us, %if.then8.i.i.i264.us ], [ %incdec.ptr.i.i278.us, %if.else.i.i277.us ]
+  %incdec.ptr.i32.i.i269.us = phi ptr [ %incdec.ptr12.i.i.i272.us, %if.then8.i.i.i264.us ], [ %incdec.ptr.i.i278.us, %if.else.i.i277.us ]
   %cmp.i.i270.us = icmp ult ptr %incdec.ptr.i32.i.i269.us, %123
   br i1 %cmp.i.i270.us, label %land.lhs.true.i.i254.us, label %while.cond.preheader.i30.i231.us, !llvm.loop !227
 
@@ -11819,33 +11801,31 @@ while.body.i.i.preheader:                         ; preds = %land.lhs.true.i, %l
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end10.i.i
   %8 = phi ptr [ %incdec.ptr12.i.i, %if.end10.i.i ], [ %incdec.ptr.i42.i, %while.body.i.i.preheader ]
   %9 = load i8, ptr %8, align 1, !tbaa !13
+  %incdec.ptr12.i.i = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store ptr %incdec.ptr12.i.i, ptr %P.i, align 8, !tbaa !203
   switch i8 %9, label %if.end10.i.i [
     i8 10, label %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i
     i8 13, label %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i
   ]
 
 if.end10.i.i:                                     ; preds = %while.body.i.i
-  %incdec.ptr12.i.i = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store ptr %incdec.ptr12.i.i, ptr %P.i, align 8, !tbaa !203
   %exitcond.not.i.i = icmp eq ptr %incdec.ptr12.i.i, %3
   br i1 %exitcond.not.i.i, label %return, label %while.body.i.i, !llvm.loop !204
 
 _ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i: ; preds = %while.body.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store ptr %incdec.ptr.i.i, ptr %P.i, align 8, !tbaa !203
   %inc.i.i = add i32 %Line.promoted50.i, 1
   store i32 %inc.i.i, ptr %Line.i, align 4, !tbaa !195
-  %cmp39.i = icmp ult ptr %incdec.ptr.i.i, %3
+  %cmp39.i = icmp ult ptr %incdec.ptr12.i.i, %3
   br i1 %cmp39.i, label %land.rhs.i.backedge, label %_ZN3irr5scene16CXMeshFileLoader22findNextNoneWhiteSpaceEv.exit
 
 land.rhs.i.backedge:                              ; preds = %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i, %if.end9.i
   %Line.promoted50.i.be = phi i32 [ %Line.promoted48.i, %if.end9.i ], [ %inc.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ]
-  %incdec.ptr.i42.i.be = phi ptr [ %incdec.ptr.i, %if.end9.i ], [ %incdec.ptr.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ]
+  %incdec.ptr.i42.i.be = phi ptr [ %incdec.ptr.i, %if.end9.i ], [ %incdec.ptr12.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ]
   %.be = phi i32 [ %6, %if.end9.i ], [ %inc.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ]
   br label %land.rhs.i, !llvm.loop !211
 
 _ZN3irr5scene16CXMeshFileLoader22findNextNoneWhiteSpaceEv.exit: ; preds = %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i, %land.lhs.true.i, %if.end9.i, %land.rhs.i, %while.body.preheader.i
-  %10 = phi ptr [ %P.promoted40.i, %while.body.preheader.i ], [ %incdec.ptr.i, %if.end9.i ], [ %incdec.ptr.i42.i, %land.rhs.i ], [ %incdec.ptr.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i42.i, %land.lhs.true.i ]
+  %10 = phi ptr [ %P.promoted40.i, %while.body.preheader.i ], [ %incdec.ptr.i, %if.end9.i ], [ %incdec.ptr.i42.i, %land.rhs.i ], [ %incdec.ptr12.i.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit.i ], [ %incdec.ptr.i42.i, %land.lhs.true.i ]
   %cmp.not = icmp ult ptr %10, %3
   br i1 %cmp.not, label %if.end3, label %return
 
@@ -12010,21 +11990,19 @@ while.body.i.i.preheader:                         ; preds = %land.lhs.true16.i, 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end10.i.i
   %16 = phi ptr [ %incdec.ptr12.i.i, %if.end10.i.i ], [ %incdec.ptr.i3134.i, %while.body.i.i.preheader ]
   %17 = load i8, ptr %16, align 1, !tbaa !13
+  %incdec.ptr12.i.i = getelementptr inbounds nuw i8, ptr %16, i64 1
+  store ptr %incdec.ptr12.i.i, ptr %P.i31, align 8, !tbaa !203
   switch i8 %17, label %if.end10.i.i [
     i8 10, label %if.then8.i.i
     i8 13, label %if.then8.i.i
   ]
 
 if.then8.i.i:                                     ; preds = %while.body.i.i, %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %16, i64 1
-  store ptr %incdec.ptr.i.i, ptr %P.i31, align 8, !tbaa !203
   %inc.i.i = add i32 %inc.i36.i, 1
   store i32 %inc.i.i, ptr %Line.i.i, align 4, !tbaa !195
   br label %if.end27.i
 
 if.end10.i.i:                                     ; preds = %while.body.i.i
-  %incdec.ptr12.i.i = getelementptr inbounds nuw i8, ptr %16, i64 1
-  store ptr %incdec.ptr12.i.i, ptr %P.i31, align 8, !tbaa !203
   %exitcond.not.i.i = icmp eq ptr %incdec.ptr12.i.i, %11
   br i1 %exitcond.not.i.i, label %_ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv.exit, label %while.body.i.i, !llvm.loop !204
 
@@ -12035,7 +12013,7 @@ if.else.i:                                        ; preds = %land.lhs.true16.i, 
 
 if.end27.i:                                       ; preds = %if.else.i, %if.then8.i.i
   %inc.i35.i = phi i32 [ %inc.i.i, %if.then8.i.i ], [ %inc.i36.i, %if.else.i ]
-  %incdec.ptr.i32.i = phi ptr [ %incdec.ptr.i.i, %if.then8.i.i ], [ %incdec.ptr.i, %if.else.i ]
+  %incdec.ptr.i32.i = phi ptr [ %incdec.ptr12.i.i, %if.then8.i.i ], [ %incdec.ptr.i, %if.else.i ]
   %cmp.i = icmp ult ptr %incdec.ptr.i32.i, %11
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN3irr5scene16CXMeshFileLoader28findNextNoneWhiteSpaceNumberEv.exit, !llvm.loop !227
 
@@ -14494,28 +14472,26 @@ while.body.i.preheader:                           ; preds = %land.lhs.true, %lan
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end10.i
   %6 = phi ptr [ %incdec.ptr12.i, %if.end10.i ], [ %incdec.ptr.i42, %while.body.i.preheader ]
   %7 = load i8, ptr %6, align 1, !tbaa !13
+  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store ptr %incdec.ptr12.i, ptr %P, align 8, !tbaa !203
   switch i8 %7, label %if.end10.i [
     i8 10, label %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit
     i8 13, label %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit
   ]
 
 if.end10.i:                                       ; preds = %while.body.i
-  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %incdec.ptr12.i, ptr %P, align 8, !tbaa !203
   %exitcond.not.i = icmp eq ptr %incdec.ptr12.i, %1
   br i1 %exitcond.not.i, label %while.end30, label %while.body.i, !llvm.loop !204
 
 _ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit: ; preds = %while.body.i, %while.body.i
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %incdec.ptr.i, ptr %P, align 8, !tbaa !203
   %inc.i = add i32 %Line.promoted50, 1
   store i32 %inc.i, ptr %Line, align 4, !tbaa !195
-  %cmp39 = icmp ult ptr %incdec.ptr.i, %1
+  %cmp39 = icmp ult ptr %incdec.ptr12.i, %1
   br i1 %cmp39, label %land.rhs.backedge, label %while.end30
 
 land.rhs.backedge:                                ; preds = %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit, %if.end9
   %Line.promoted50.be = phi i32 [ %Line.promoted48, %if.end9 ], [ %inc.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit ]
-  %incdec.ptr.i42.be = phi ptr [ %incdec.ptr, %if.end9 ], [ %incdec.ptr.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit ]
+  %incdec.ptr.i42.be = phi ptr [ %incdec.ptr, %if.end9 ], [ %incdec.ptr12.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit ]
   %.be = phi i32 [ %4, %if.end9 ], [ %inc.i, %_ZN3irr5scene16CXMeshFileLoader18readUntilEndOfLineEv.exit ]
   br label %land.rhs, !llvm.loop !211
 
@@ -14574,21 +14550,19 @@ while.body.i.preheader:                           ; preds = %land.lhs.true16, %w
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end10.i
   %6 = phi ptr [ %incdec.ptr12.i, %if.end10.i ], [ %incdec.ptr.i3134, %while.body.i.preheader ]
   %7 = load i8, ptr %6, align 1, !tbaa !13
+  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store ptr %incdec.ptr12.i, ptr %P, align 8, !tbaa !203
   switch i8 %7, label %if.end10.i [
     i8 10, label %if.then8.i
     i8 13, label %if.then8.i
   ]
 
 if.then8.i:                                       ; preds = %while.body.i, %while.body.i
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %incdec.ptr.i, ptr %P, align 8, !tbaa !203
   %inc.i = add i32 %inc.i36, 1
   store i32 %inc.i, ptr %Line.i, align 4, !tbaa !195
   br label %if.end27
 
 if.end10.i:                                       ; preds = %while.body.i
-  %incdec.ptr12.i = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %incdec.ptr12.i, ptr %P, align 8, !tbaa !203
   %exitcond.not.i = icmp eq ptr %incdec.ptr12.i, %1
   br i1 %exitcond.not.i, label %while.end, label %while.body.i, !llvm.loop !204
 
@@ -14599,7 +14573,7 @@ if.else:                                          ; preds = %land.lhs.true16, %w
 
 if.end27:                                         ; preds = %if.else, %if.then8.i
   %inc.i35 = phi i32 [ %inc.i, %if.then8.i ], [ %inc.i36, %if.else ]
-  %incdec.ptr.i32 = phi ptr [ %incdec.ptr.i, %if.then8.i ], [ %incdec.ptr, %if.else ]
+  %incdec.ptr.i32 = phi ptr [ %incdec.ptr12.i, %if.then8.i ], [ %incdec.ptr, %if.else ]
   %cmp = icmp ult ptr %incdec.ptr.i32, %1
   br i1 %cmp, label %land.lhs.true, label %while.end, !llvm.loop !227
 

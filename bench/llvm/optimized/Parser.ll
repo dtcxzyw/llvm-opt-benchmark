@@ -1716,7 +1716,7 @@ _ZN5clang6Parser12ConsumeParenEv.exit:            ; preds = %10, %.sink.split.i
   %41 = load ptr, ptr %40, align 8, !tbaa !86
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %41, ptr noundef nonnull align 8 dereferenceable(20) %37) #22
   %.sroa.01.0.copyload.i = load i32, ptr %39, align 8, !tbaa !1021
-  br label %145
+  br label %143
 
 42:                                               ; preds = %2
   %43 = icmp eq i16 %4, 20
@@ -1806,7 +1806,7 @@ _ZN5clang6Parser14ConsumeBracketEv.exit:          ; preds = %46, %.sink.split.i1
   %77 = load ptr, ptr %76, align 8, !tbaa !86
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %77, ptr noundef nonnull align 8 dereferenceable(20) %73) #22
   %.sroa.01.0.copyload.i17 = load i32, ptr %75, align 8, !tbaa !1021
-  br label %145
+  br label %143
 
 78:                                               ; preds = %2
   %79 = icmp eq i16 %4, 24
@@ -1896,78 +1896,74 @@ _ZN5clang6Parser12ConsumeBraceEv.exit:            ; preds = %82, %.sink.split.i3
   %113 = load ptr, ptr %112, align 8, !tbaa !86
   tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %113, ptr noundef nonnull align 8 dereferenceable(20) %109) #22
   %.sroa.01.0.copyload.i39 = load i32, ptr %111, align 8, !tbaa !1021
-  br label %145
+  br label %143
 
 114:                                              ; preds = %2
-  switch i16 %4, label %_ZNK5clang6Parser20isTokenStringLiteralEv.exit [
-    i16 18, label %115
-    i16 17, label %115
-    i16 15, label %115
-    i16 14, label %115
-    i16 19, label %115
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  switch i16 %4, label %129 [
+    i16 18, label %116
+    i16 17, label %116
+    i16 15, label %116
+    i16 14, label %116
+    i16 19, label %116
+    i16 3, label %121
   ]
 
-115:                                              ; preds = %114, %114, %114, %114, %114
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %117 = load i32, ptr %116, align 8, !tbaa !971
+116:                                              ; preds = %114, %114, %114, %114, %114
+  %117 = load i32, ptr %115, align 8, !tbaa !971
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %117, ptr %118, align 8, !tbaa !1021
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !86
-  tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %120, ptr noundef nonnull align 8 dereferenceable(20) %116) #22
+  tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %120, ptr noundef nonnull align 8 dereferenceable(20) %115) #22
   %.sroa.01.0.copyload.i45 = load i32, ptr %118, align 8, !tbaa !1021
-  br label %145
+  br label %143
 
-_ZNK5clang6Parser20isTokenStringLiteralEv.exit:   ; preds = %114
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %122 = icmp eq i16 %4, 3
-  br i1 %122, label %123, label %131
+121:                                              ; preds = %114
+  br i1 %1, label %122, label %127
 
-123:                                              ; preds = %_ZNK5clang6Parser20isTokenStringLiteralEv.exit
-  br i1 %1, label %124, label %129
+122:                                              ; preds = %121
+  %123 = load i32, ptr %115, align 8, !tbaa !971
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %123, ptr %124, align 8, !tbaa !1021
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %126 = load ptr, ptr %125, align 8, !tbaa !86
+  tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %126, ptr noundef nonnull align 8 dereferenceable(20) %115) #22
+  %.sroa.01.0.copyload.i46 = load i32, ptr %124, align 8, !tbaa !1021
+  br label %143
 
-124:                                              ; preds = %123
-  %125 = load i32, ptr %121, align 8, !tbaa !971
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %125, ptr %126, align 8, !tbaa !1021
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !86
-  tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %128, ptr noundef nonnull align 8 dereferenceable(20) %121) #22
-  %.sroa.01.0.copyload.i46 = load i32, ptr %126, align 8, !tbaa !1021
-  br label %145
+127:                                              ; preds = %121
+  %128 = tail call i32 @_ZN5clang6Parser35handleUnexpectedCodeCompletionTokenEv(ptr noundef nonnull align 8 dereferenceable(2936) %0)
+  br label %143
 
-129:                                              ; preds = %123
-  %130 = tail call i32 @_ZN5clang6Parser35handleUnexpectedCodeCompletionTokenEv(ptr noundef nonnull align 8 dereferenceable(2936) %0)
-  br label %145
+129:                                              ; preds = %114
+  %130 = tail call noundef zeroext i1 @_ZN5clang3tok12isAnnotationENS0_9TokenKindE(i16 noundef zeroext %4) #22
+  %131 = load i32, ptr %115, align 8, !tbaa !971
+  br i1 %130, label %132, label %139
 
-131:                                              ; preds = %_ZNK5clang6Parser20isTokenStringLiteralEv.exit
-  %132 = tail call noundef zeroext i1 @_ZN5clang3tok12isAnnotationENS0_9TokenKindE(i16 noundef zeroext %4) #22
-  %133 = load i32, ptr %121, align 8, !tbaa !971
-  br i1 %132, label %134, label %141
+132:                                              ; preds = %129
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %134 = load i32, ptr %133, align 4, !tbaa !1041
+  %.not.i.i = icmp eq i32 %134, 0
+  %135 = select i1 %.not.i.i, i32 %131, i32 %134
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %135, ptr %136, align 8, !tbaa !1021
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %138 = load ptr, ptr %137, align 8, !tbaa !86
+  tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %138, ptr noundef nonnull align 8 dereferenceable(20) %115) #22
+  br label %143
 
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %136 = load i32, ptr %135, align 4, !tbaa !1041
-  %.not.i.i = icmp eq i32 %136, 0
-  %137 = select i1 %.not.i.i, i32 %133, i32 %136
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %137, ptr %138, align 8, !tbaa !1021
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %140 = load ptr, ptr %139, align 8, !tbaa !86
-  tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %140, ptr noundef nonnull align 8 dereferenceable(20) %121) #22
-  br label %145
+139:                                              ; preds = %129
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %131, ptr %140, align 8, !tbaa !1021
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %142 = load ptr, ptr %141, align 8, !tbaa !86
+  tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %142, ptr noundef nonnull align 8 dereferenceable(20) %115) #22
+  %.sroa.01.0.copyload.i47 = load i32, ptr %140, align 8, !tbaa !1021
+  br label %143
 
-141:                                              ; preds = %131
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %133, ptr %142, align 8, !tbaa !1021
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %144 = load ptr, ptr %143, align 8, !tbaa !86
-  tail call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %144, ptr noundef nonnull align 8 dereferenceable(20) %121) #22
-  %.sroa.01.0.copyload.i47 = load i32, ptr %142, align 8, !tbaa !1021
-  br label %145
-
-145:                                              ; preds = %124, %129, %141, %134, %115, %_ZN5clang6Parser12ConsumeBraceEv.exit, %_ZN5clang6Parser14ConsumeBracketEv.exit, %_ZN5clang6Parser12ConsumeParenEv.exit
-  %.sroa.0.0 = phi i32 [ %.sroa.01.0.copyload.i, %_ZN5clang6Parser12ConsumeParenEv.exit ], [ %.sroa.01.0.copyload.i17, %_ZN5clang6Parser14ConsumeBracketEv.exit ], [ %.sroa.01.0.copyload.i39, %_ZN5clang6Parser12ConsumeBraceEv.exit ], [ %.sroa.01.0.copyload.i45, %115 ], [ %.sroa.01.0.copyload.i46, %124 ], [ %130, %129 ], [ %133, %134 ], [ %.sroa.01.0.copyload.i47, %141 ]
+143:                                              ; preds = %122, %127, %139, %132, %116, %_ZN5clang6Parser12ConsumeBraceEv.exit, %_ZN5clang6Parser14ConsumeBracketEv.exit, %_ZN5clang6Parser12ConsumeParenEv.exit
+  %.sroa.0.0 = phi i32 [ %.sroa.01.0.copyload.i, %_ZN5clang6Parser12ConsumeParenEv.exit ], [ %.sroa.01.0.copyload.i17, %_ZN5clang6Parser14ConsumeBracketEv.exit ], [ %.sroa.01.0.copyload.i39, %_ZN5clang6Parser12ConsumeBraceEv.exit ], [ %.sroa.01.0.copyload.i45, %116 ], [ %.sroa.01.0.copyload.i46, %122 ], [ %128, %127 ], [ %131, %132 ], [ %.sroa.01.0.copyload.i47, %139 ]
   ret i32 %.sroa.0.0
 }
 

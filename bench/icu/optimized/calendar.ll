@@ -11018,7 +11018,7 @@ define noundef i32 @_ZNK6icu_778Calendar19handleGetYearLengthEiR10UErrorCode(ptr
 define noundef i32 @_ZNK6icu_778Calendar16getActualMaximumE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #1 align 2 {
   %4 = load i32, ptr %2, align 4, !tbaa !13
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %6, label %79
+  br i1 %5, label %6, label %75
 
 6:                                                ; preds = %3
   %or.cond = icmp ugt i32 %1, 23
@@ -11026,40 +11026,40 @@ define noundef i32 @_ZNK6icu_778Calendar16getActualMaximumE19UCalendarDateFields
 
 7:                                                ; preds = %6
   store i32 1, ptr %2, align 4, !tbaa !13
-  br label %79
+  br label %75
 
 8:                                                ; preds = %6
-  switch i32 %1, label %69 [
-    i32 5, label %9
+  %9 = load ptr, ptr %0, align 8, !tbaa !15
+  switch i32 %1, label %66 [
+    i32 5, label %10
     i32 6, label %30
-    i32 7, label %50
-    i32 9, label %50
-    i32 10, label %50
-    i32 11, label %50
-    i32 12, label %50
-    i32 13, label %50
-    i32 14, label %50
-    i32 15, label %50
-    i32 16, label %50
-    i32 18, label %50
-    i32 20, label %50
-    i32 21, label %50
-    i32 23, label %55
+    i32 7, label %49
+    i32 9, label %49
+    i32 10, label %49
+    i32 11, label %49
+    i32 12, label %49
+    i32 13, label %49
+    i32 14, label %49
+    i32 15, label %49
+    i32 16, label %49
+    i32 18, label %49
+    i32 20, label %49
+    i32 21, label %49
+    i32 23, label %53
   ]
 
-9:                                                ; preds = %8
-  %10 = load ptr, ptr %0, align 8, !tbaa !15
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %.not48.not = icmp eq ptr %13, null
   br i1 %.not48.not, label %.thread, label %14
 
-.thread:                                          ; preds = %9
+.thread:                                          ; preds = %10
   store i32 7, ptr %2, align 4, !tbaa !13
-  br label %79
+  br label %75
 
-14:                                               ; preds = %9
+14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %16 = load i8, ptr %15, align 8
   %17 = or i8 %16, 16
@@ -11078,81 +11078,77 @@ define noundef i32 @_ZNK6icu_778Calendar16getActualMaximumE19UCalendarDateFields
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(192) %13) #25
-  br label %79
+  br label %75
 
 30:                                               ; preds = %8
-  %31 = load ptr, ptr %0, align 8, !tbaa !15
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(192) %0)
-  %.not47.not = icmp eq ptr %34, null
-  br i1 %.not47.not, label %.thread50, label %35
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(192) %0)
+  %.not47.not = icmp eq ptr %33, null
+  br i1 %.not47.not, label %.thread50, label %34
 
 .thread50:                                        ; preds = %30
   store i32 7, ptr %2, align 4, !tbaa !13
-  br label %79
+  br label %75
 
-35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 152
-  %37 = load i8, ptr %36, align 8
-  %38 = or i8 %37, 16
-  store i8 %38, ptr %36, align 8
-  %39 = load ptr, ptr %34, align 8, !tbaa !15
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 288
-  %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(192) %34, i32 noundef 6, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %42 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %34, i32 noundef 19, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %43 = load ptr, ptr %0, align 8, !tbaa !15
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 328
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %42, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %47 = load ptr, ptr %34, align 8, !tbaa !15
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr noundef nonnull align 8 dereferenceable(192) %34) #25
-  br label %79
+34:                                               ; preds = %30
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 152
+  %36 = load i8, ptr %35, align 8
+  %37 = or i8 %36, 16
+  store i8 %37, ptr %35, align 8
+  %38 = load ptr, ptr %33, align 8, !tbaa !15
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 288
+  %40 = load ptr, ptr %39, align 8
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(192) %33, i32 noundef 6, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %41 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %33, i32 noundef 19, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %42 = load ptr, ptr %0, align 8, !tbaa !15
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 328
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %41, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %46 = load ptr, ptr %33, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load ptr, ptr %47, align 8
+  tail call void %48(ptr noundef nonnull align 8 dereferenceable(192) %33) #25
+  br label %75
 
-50:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
-  %51 = load ptr, ptr %0, align 8, !tbaa !15
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 128
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1)
-  br label %79
+49:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1)
+  br label %75
 
-55:                                               ; preds = %8
-  %56 = load ptr, ptr %0, align 8, !tbaa !15
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 224
-  %58 = load ptr, ptr %57, align 8
-  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %60 = load ptr, ptr %0, align 8, !tbaa !15
-  br i1 %59, label %61, label %65
+53:                                               ; preds = %8
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 224
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %57 = load ptr, ptr %0, align 8, !tbaa !15
+  br i1 %56, label %58, label %62
 
-61:                                               ; preds = %55
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 128
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef i32 %63(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 23)
-  br label %79
+58:                                               ; preds = %53
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 128
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 23)
+  br label %75
 
-65:                                               ; preds = %55
-  %66 = getelementptr inbounds nuw i8, ptr %60, i64 160
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call noundef i32 %67(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 23)
-  br label %79
+62:                                               ; preds = %53
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 160
+  %64 = load ptr, ptr %63, align 8
+  %65 = tail call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 23)
+  br label %75
 
-69:                                               ; preds = %8
+66:                                               ; preds = %8
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 160
+  %68 = load ptr, ptr %67, align 8
+  %69 = tail call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1)
   %70 = load ptr, ptr %0, align 8, !tbaa !15
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 160
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 128
   %72 = load ptr, ptr %71, align 8
   %73 = tail call noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1)
-  %74 = load ptr, ptr %0, align 8, !tbaa !15
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 128
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call noundef i32 %76(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1)
-  %78 = tail call noundef i32 @_ZNK6icu_778Calendar15getActualHelperE19UCalendarDateFieldsiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i32 noundef %73, i32 noundef %77, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  br label %79
+  %74 = tail call noundef i32 @_ZNK6icu_778Calendar15getActualHelperE19UCalendarDateFieldsiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i32 noundef %69, i32 noundef %73, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  br label %75
 
-79:                                               ; preds = %50, %69, %65, %61, %14, %35, %.thread50, %.thread, %3, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %.thread ], [ 0, %.thread50 ], [ %78, %69 ], [ %26, %14 ], [ %46, %35 ], [ %54, %50 ], [ %64, %61 ], [ %68, %65 ]
+75:                                               ; preds = %49, %66, %62, %58, %14, %34, %.thread50, %.thread, %3, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %3 ], [ 0, %.thread ], [ 0, %.thread50 ], [ %74, %66 ], [ %26, %14 ], [ %45, %34 ], [ %52, %49 ], [ %61, %58 ], [ %65, %62 ]
   ret i32 %.0
 }
 

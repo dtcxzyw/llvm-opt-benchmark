@@ -5199,20 +5199,20 @@ _ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_4DeclEEEDaPT0_.exit: ; preds = %2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang12threadSafety12SExprBuilder17translateCastExprEPKNS_8CastExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %1, align 8
-  %5 = and i32 %4, 66584576
-  %cond = icmp eq i32 %5, 2097152
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !460
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !460
+  %7 = and i32 %4, 66584576
+  %cond = icmp eq i32 %7, 2097152
   br i1 %cond, label %8, label %.sink.split
 
 8:                                                ; preds = %3
-  %9 = load i16, ptr %7, align 8
+  %9 = load i16, ptr %6, align 8
   %10 = and i16 %9, 511
   %.not = icmp eq i16 %10, 73
   br i1 %.not, label %11, label %.sink.split
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !403
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !264
@@ -5279,7 +5279,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEjNS_12DenseMapInfoIS5_vE
   br i1 %.not23, label %.sink.split, label %55
 
 .sink.split:                                      ; preds = %3, %43, %8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i
-  %54 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder9translateEPKNS_4StmtEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %7, ptr noundef %2)
+  %54 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder9translateEPKNS_4StmtEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %6, ptr noundef %2)
   br label %55
 
 55:                                               ; preds = %.sink.split, %43

@@ -160041,32 +160041,32 @@ zval_get_tmp_string.exit:                         ; preds = %8, %10
   %.0.i = phi ptr [ %9, %8 ], [ %11, %10 ]
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %13 = load i8, ptr %12, align 4, !tbaa !124
-  switch i8 %13, label %15 [
-    i8 -124, label %16
-    i8 -123, label %16
-    i8 -122, label %16
-    i8 -121, label %16
-    i8 85, label %14
-    i8 88, label %14
-    i8 94, label %14
-    i8 32, label %14
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  %15 = tail call ptr @zend_zval_value_name(ptr noundef %0) #32
+  switch i8 %13, label %17 [
+    i8 -124, label %18
+    i8 -123, label %18
+    i8 -122, label %18
+    i8 -121, label %18
+    i8 85, label %16
+    i8 88, label %16
+    i8 94, label %16
+    i8 32, label %16
   ]
 
-14:                                               ; preds = %zval_get_tmp_string.exit, %zval_get_tmp_string.exit, %zval_get_tmp_string.exit, %zval_get_tmp_string.exit
-  br label %16
+16:                                               ; preds = %zval_get_tmp_string.exit, %zval_get_tmp_string.exit, %zval_get_tmp_string.exit, %zval_get_tmp_string.exit
+  br label %18
 
-15:                                               ; preds = %zval_get_tmp_string.exit
-  br label %16
+17:                                               ; preds = %zval_get_tmp_string.exit
+  br label %18
 
-16:                                               ; preds = %zval_get_tmp_string.exit, %zval_get_tmp_string.exit, %zval_get_tmp_string.exit, %zval_get_tmp_string.exit, %14, %15
-  %.str.79.sink = phi ptr [ @.str.79, %14 ], [ @.str.80, %15 ], [ @.str.78, %zval_get_tmp_string.exit ], [ @.str.78, %zval_get_tmp_string.exit ], [ @.str.78, %zval_get_tmp_string.exit ], [ @.str.78, %zval_get_tmp_string.exit ]
-  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %18 = tail call ptr @zend_zval_value_name(ptr noundef %0) #32
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull %.str.79.sink, ptr noundef nonnull %17, ptr noundef %18) #32
+18:                                               ; preds = %zval_get_tmp_string.exit, %zval_get_tmp_string.exit, %zval_get_tmp_string.exit, %zval_get_tmp_string.exit, %16, %17
+  %.str.79.sink = phi ptr [ @.str.79, %16 ], [ @.str.80, %17 ], [ @.str.78, %zval_get_tmp_string.exit ], [ @.str.78, %zval_get_tmp_string.exit ], [ @.str.78, %zval_get_tmp_string.exit ], [ @.str.78, %zval_get_tmp_string.exit ]
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull %.str.79.sink, ptr noundef nonnull %14, ptr noundef %15) #32
   %.not.i = icmp eq ptr %.0, null
   br i1 %.not.i, label %zend_tmp_string_release.exit, label %19, !prof !49
 
-19:                                               ; preds = %16
+19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !55
   %22 = and i32 %21, 64
@@ -160086,7 +160086,7 @@ zval_get_tmp_string.exit:                         ; preds = %8, %10
   tail call void @_efree(ptr noundef nonnull %.0) #32
   br label %zend_tmp_string_release.exit
 
-zend_tmp_string_release.exit:                     ; preds = %19, %23, %28, %16
+zend_tmp_string_release.exit:                     ; preds = %19, %23, %28, %18
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 31
   %30 = load i8, ptr %29, align 1, !tbaa !212
   %.not = icmp eq i8 %30, 0

@@ -585,10 +585,10 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev27GammaMoncurveMirrorOpCPURevELN9__gnu
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %cond = icmp eq i32 %22, 0
   %63 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %64 = load ptr, ptr %63, align 8, !tbaa !100, !noalias !97
   %65 = load double, ptr %64, align 8, !tbaa !101, !noalias !97
+  %cond = icmp eq i32 %22, 0
   br i1 %cond, label %82, label %.thread
 
 .thread:                                          ; preds = %59
@@ -631,8 +631,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev27GammaMoncurveMirrorOpCPURevELN9__gnu
   %94 = load double, ptr %93, align 8, !tbaa !101, !noalias !97
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18GammaBasicOpCPUSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18GammaBasicOpCPUSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.thread, %82
-  %95 = phi double [ %94, %82 ], [ %81, %.thread ]
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18GammaBasicOpCPUSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %82, %.thread
+  %95 = phi double [ %81, %.thread ], [ %94, %82 ]
   %96 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %97 = getelementptr inbounds nuw i8, ptr %56, i64 36
   %98 = fptrunc double %95 to float
@@ -650,11 +650,11 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18GammaBasicOpCPUSSEELN9__gnu_cxx12_Lo
   %102 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %103 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %104 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %cond103 = icmp eq i32 %22, 0
   %105 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %106 = load ptr, ptr %105, align 8, !tbaa !100, !noalias !110
   %107 = load double, ptr %106, align 8, !tbaa !101, !noalias !110
-  br i1 %cond103, label %124, label %.thread93
+  %cond111 = icmp eq i32 %22, 0
+  br i1 %cond111, label %124, label %.thread93
 
 .thread93:                                        ; preds = %100
   %108 = fdiv double 1.000000e+00, %107
@@ -696,8 +696,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev18GammaBasicOpCPUSSEELN9__gnu_cxx12_Lo
   %136 = load double, ptr %135, align 8, !tbaa !101, !noalias !110
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GammaBasicOpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GammaBasicOpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.thread93, %124
-  %137 = phi double [ %136, %124 ], [ %123, %.thread93 ]
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GammaBasicOpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %124, %.thread93
+  %137 = phi double [ %123, %.thread93 ], [ %136, %124 ]
   %138 = getelementptr inbounds nuw i8, ptr %56, i64 36
   %139 = fptrunc double %137 to float
   store float %139, ptr %138, align 4, !tbaa !109, !noalias !110
@@ -715,13 +715,12 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15GammaBasicOpCPUELN9__gnu_cxx12_Lock_
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 28
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  %cond105 = icmp eq i32 %22, 2
   %148 = getelementptr inbounds nuw i8, ptr %20, i64 176
-  %cond106 = icmp eq i32 %22, 2
+  %cond113 = icmp eq i32 %22, 2
   %149 = getelementptr inbounds nuw i8, ptr %20, i64 200
-  %cond107 = icmp eq i32 %22, 2
+  %cond114 = icmp eq i32 %22, 2
   %150 = getelementptr inbounds nuw i8, ptr %20, i64 224
-  %cond108 = icmp eq i32 %22, 2
+  %cond115 = icmp eq i32 %22, 2
   %151 = getelementptr inbounds nuw i8, ptr %20, i64 248
   br i1 %2, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24GammaBasicMirrorOpCPUSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21GammaBasicMirrorOpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -730,25 +729,26 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24GammaBasicMirrorOpCPUSSEELN9__gnu_cx
   %152 = load ptr, ptr %148, align 8, !tbaa !100, !noalias !113
   %153 = load double, ptr %152, align 8, !tbaa !101, !noalias !113
   %154 = fdiv double 1.000000e+00, %153
-  %155 = select i1 %cond105, double %153, double %154
+  %155 = select i1 %cond113, double %153, double %154
   %156 = fptrunc double %155 to float
   store float %156, ptr %145, align 8, !tbaa !103, !noalias !113
   %157 = load ptr, ptr %149, align 8, !tbaa !100, !noalias !113
   %158 = load double, ptr %157, align 8, !tbaa !101, !noalias !113
   %159 = fdiv double 1.000000e+00, %158
-  %160 = select i1 %cond106, double %158, double %159
+  %160 = select i1 %cond114, double %158, double %159
   %161 = fptrunc double %160 to float
   store float %161, ptr %146, align 4, !tbaa !107, !noalias !113
   %162 = load ptr, ptr %150, align 8, !tbaa !100, !noalias !113
   %163 = load double, ptr %162, align 8, !tbaa !101, !noalias !113
   %164 = fdiv double 1.000000e+00, %163
-  %165 = select i1 %cond107, double %163, double %164
+  %165 = select i1 %cond115, double %163, double %164
   %166 = fptrunc double %165 to float
   store float %166, ptr %147, align 8, !tbaa !108, !noalias !113
   %167 = load ptr, ptr %151, align 8, !tbaa !100, !noalias !113
   %168 = load double, ptr %167, align 8, !tbaa !101, !noalias !113
+  %cond116 = icmp eq i32 %22, 2
   %169 = fdiv double 1.000000e+00, %168
-  %170 = select i1 %cond108, double %168, double %169
+  %170 = select i1 %cond116, double %168, double %169
   %171 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %172 = getelementptr inbounds nuw i8, ptr %142, i64 36
   %173 = fptrunc double %170 to float
@@ -764,25 +764,26 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21GammaBasicMirrorOpCPUELN9__gnu_cxx12
   %175 = load ptr, ptr %148, align 8, !tbaa !100, !noalias !116
   %176 = load double, ptr %175, align 8, !tbaa !101, !noalias !116
   %177 = fdiv double 1.000000e+00, %176
-  %178 = select i1 %cond105, double %176, double %177
+  %178 = select i1 %cond113, double %176, double %177
   %179 = fptrunc double %178 to float
   store float %179, ptr %145, align 8, !tbaa !103, !noalias !116
   %180 = load ptr, ptr %149, align 8, !tbaa !100, !noalias !116
   %181 = load double, ptr %180, align 8, !tbaa !101, !noalias !116
   %182 = fdiv double 1.000000e+00, %181
-  %183 = select i1 %cond106, double %181, double %182
+  %183 = select i1 %cond114, double %181, double %182
   %184 = fptrunc double %183 to float
   store float %184, ptr %146, align 4, !tbaa !107, !noalias !116
   %185 = load ptr, ptr %150, align 8, !tbaa !100, !noalias !116
   %186 = load double, ptr %185, align 8, !tbaa !101, !noalias !116
   %187 = fdiv double 1.000000e+00, %186
-  %188 = select i1 %cond107, double %186, double %187
+  %188 = select i1 %cond115, double %186, double %187
   %189 = fptrunc double %188 to float
   store float %189, ptr %147, align 8, !tbaa !108, !noalias !116
   %190 = load ptr, ptr %151, align 8, !tbaa !100, !noalias !116
   %191 = load double, ptr %190, align 8, !tbaa !101, !noalias !116
+  %cond120 = icmp eq i32 %22, 2
   %192 = fdiv double 1.000000e+00, %191
-  %193 = select i1 %cond108, double %191, double %192
+  %193 = select i1 %cond120, double %191, double %192
   %194 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %195 = getelementptr inbounds nuw i8, ptr %142, i64 36
   %196 = fptrunc double %193 to float
@@ -802,15 +803,15 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21GammaBasicMirrorOpCPUELN9__gnu_cxx12
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 24
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 28
   %204 = getelementptr inbounds nuw i8, ptr %199, i64 32
-  %cond113 = icmp eq i32 %22, 4
   %205 = getelementptr inbounds nuw i8, ptr %20, i64 176
+  %cond121 = icmp eq i32 %22, 4
   br i1 %2, label %206, label %243
 
 206:                                              ; preds = %198
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev26GammaBasicPassThruOpCPUSSEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %199, align 8, !tbaa !95, !noalias !119
   %207 = load ptr, ptr %205, align 8, !tbaa !100, !noalias !119
   %208 = load double, ptr %207, align 8, !tbaa !101, !noalias !119
-  br i1 %cond113, label %.thread96, label %221
+  br i1 %cond121, label %.thread96, label %221
 
 .thread96:                                        ; preds = %206
   %209 = fptrunc double %208 to float
@@ -852,8 +853,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev21GammaBasicMirrorOpCPUELN9__gnu_cxx12
   %237 = fdiv double 1.000000e+00, %236
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev26GammaBasicPassThruOpCPUSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev26GammaBasicPassThruOpCPUSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %221, %.thread96
-  %238 = phi double [ %220, %.thread96 ], [ %237, %221 ]
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev26GammaBasicPassThruOpCPUSSEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.thread96, %221
+  %238 = phi double [ %237, %221 ], [ %220, %.thread96 ]
   %239 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %240 = getelementptr inbounds nuw i8, ptr %199, i64 36
   %241 = fptrunc double %238 to float
@@ -868,9 +869,9 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev26GammaBasicPassThruOpCPUSSEELN9__gnu_
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev23GammaBasicPassThruOpCPUESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %199, align 8, !tbaa !95, !noalias !122
   %244 = load ptr, ptr %205, align 8, !tbaa !100, !noalias !122
   %245 = load double, ptr %244, align 8, !tbaa !101, !noalias !122
-  br i1 %cond113, label %.thread99, label %258
+  br i1 %cond121, label %.thread103, label %258
 
-.thread99:                                        ; preds = %243
+.thread103:                                       ; preds = %243
   %246 = fptrunc double %245 to float
   store float %246, ptr %202, align 8, !tbaa !103, !noalias !122
   %247 = getelementptr inbounds nuw i8, ptr %20, i64 200
@@ -910,8 +911,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev26GammaBasicPassThruOpCPUSSEELN9__gnu_
   %274 = fdiv double 1.000000e+00, %273
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev23GammaBasicPassThruOpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev23GammaBasicPassThruOpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %258, %.thread99
-  %275 = phi double [ %257, %.thread99 ], [ %274, %258 ]
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev23GammaBasicPassThruOpCPUELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.thread103, %258
+  %275 = phi double [ %274, %258 ], [ %257, %.thread103 ]
   %276 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %277 = getelementptr inbounds nuw i8, ptr %199, i64 36
   %278 = fptrunc double %275 to float
@@ -965,99 +966,75 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrI
   %6 = load ptr, ptr %1, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load i32, ptr %7, align 8, !tbaa !11
-  switch i32 %8, label %13 [
-    i32 4, label %9
-    i32 2, label %9
-    i32 0, label %9
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %10 = load ptr, ptr %9, align 8, !tbaa !100
+  %11 = load double, ptr %10, align 8, !tbaa !101
+  switch i32 %8, label %12 [
+    i32 4, label %14
+    i32 2, label %14
+    i32 0, label %14
   ]
 
-9:                                                ; preds = %2, %2, %2
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %11 = load ptr, ptr %10, align 8, !tbaa !100
-  %12 = load double, ptr %11, align 8, !tbaa !101
-  br label %18
+12:                                               ; preds = %2
+  %13 = fdiv double 1.000000e+00, %11
+  br label %14
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %15 = load ptr, ptr %14, align 8, !tbaa !100
-  %16 = load double, ptr %15, align 8, !tbaa !101
-  %17 = fdiv double 1.000000e+00, %16
-  br label %18
-
-18:                                               ; preds = %13, %9
-  %19 = phi double [ %12, %9 ], [ %17, %13 ]
-  %20 = fptrunc double %19 to float
-  store float %20, ptr %3, align 8, !tbaa !103
-  switch i32 %8, label %25 [
-    i32 4, label %21
-    i32 2, label %21
-    i32 0, label %21
+14:                                               ; preds = %12, %2, %2, %2
+  %15 = phi double [ %13, %12 ], [ %11, %2 ], [ %11, %2 ], [ %11, %2 ]
+  %16 = fptrunc double %15 to float
+  store float %16, ptr %3, align 8, !tbaa !103
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %18 = load ptr, ptr %17, align 8, !tbaa !100
+  %19 = load double, ptr %18, align 8, !tbaa !101
+  switch i32 %8, label %20 [
+    i32 4, label %22
+    i32 2, label %22
+    i32 0, label %22
   ]
 
-21:                                               ; preds = %18, %18, %18
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %23 = load ptr, ptr %22, align 8, !tbaa !100
-  %24 = load double, ptr %23, align 8, !tbaa !101
+20:                                               ; preds = %14
+  %21 = fdiv double 1.000000e+00, %19
+  br label %22
+
+22:                                               ; preds = %20, %14, %14, %14
+  %23 = phi double [ %21, %20 ], [ %19, %14 ], [ %19, %14 ], [ %19, %14 ]
+  %24 = fptrunc double %23 to float
+  store float %24, ptr %4, align 4, !tbaa !107
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 224
+  %26 = load ptr, ptr %25, align 8, !tbaa !100
+  %27 = load double, ptr %26, align 8, !tbaa !101
+  switch i32 %8, label %28 [
+    i32 4, label %30
+    i32 2, label %30
+    i32 0, label %30
+  ]
+
+28:                                               ; preds = %22
+  %29 = fdiv double 1.000000e+00, %27
   br label %30
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %27 = load ptr, ptr %26, align 8, !tbaa !100
-  %28 = load double, ptr %27, align 8, !tbaa !101
-  %29 = fdiv double 1.000000e+00, %28
-  br label %30
-
-30:                                               ; preds = %25, %21
-  %31 = phi double [ %24, %21 ], [ %29, %25 ]
+30:                                               ; preds = %28, %22, %22, %22
+  %31 = phi double [ %29, %28 ], [ %27, %22 ], [ %27, %22 ], [ %27, %22 ]
   %32 = fptrunc double %31 to float
-  store float %32, ptr %4, align 4, !tbaa !107
-  switch i32 %8, label %37 [
-    i32 4, label %33
-    i32 2, label %33
-    i32 0, label %33
+  store float %32, ptr %5, align 8, !tbaa !108
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 248
+  %34 = load ptr, ptr %33, align 8, !tbaa !100
+  %35 = load double, ptr %34, align 8, !tbaa !101
+  switch i32 %8, label %36 [
+    i32 4, label %38
+    i32 2, label %38
+    i32 0, label %38
   ]
 
-33:                                               ; preds = %30, %30, %30
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %35 = load ptr, ptr %34, align 8, !tbaa !100
-  %36 = load double, ptr %35, align 8, !tbaa !101
-  br label %42
+36:                                               ; preds = %30
+  %37 = fdiv double 1.000000e+00, %35
+  br label %38
 
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %39 = load ptr, ptr %38, align 8, !tbaa !100
-  %40 = load double, ptr %39, align 8, !tbaa !101
-  %41 = fdiv double 1.000000e+00, %40
-  br label %42
-
-42:                                               ; preds = %37, %33
-  %43 = phi double [ %36, %33 ], [ %41, %37 ]
-  %44 = fptrunc double %43 to float
-  store float %44, ptr %5, align 8, !tbaa !108
-  switch i32 %8, label %49 [
-    i32 4, label %45
-    i32 2, label %45
-    i32 0, label %45
-  ]
-
-45:                                               ; preds = %42, %42, %42
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
-  %48 = load double, ptr %47, align 8, !tbaa !101
-  br label %54
-
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  %51 = load ptr, ptr %50, align 8, !tbaa !100
-  %52 = load double, ptr %51, align 8, !tbaa !101
-  %53 = fdiv double 1.000000e+00, %52
-  br label %54
-
-54:                                               ; preds = %49, %45
-  %55 = phi double [ %48, %45 ], [ %53, %49 ]
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %57 = fptrunc double %55 to float
-  store float %57, ptr %56, align 4, !tbaa !109
+38:                                               ; preds = %36, %30, %30, %30
+  %39 = phi double [ %37, %36 ], [ %35, %30 ], [ %35, %30 ], [ %35, %30 ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %41 = fptrunc double %39 to float
+  store float %41, ptr %40, align 4, !tbaa !109
   ret void
 }
 
@@ -1069,102 +1046,78 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPU6updateERSt10shared
   %3 = load ptr, ptr %1, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load i32, ptr %4, align 8, !tbaa !11
-  switch i32 %5, label %10 [
-    i32 4, label %6
-    i32 2, label %6
-    i32 0, label %6
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 176
+  %7 = load ptr, ptr %6, align 8, !tbaa !100
+  %8 = load double, ptr %7, align 8, !tbaa !101
+  switch i32 %5, label %9 [
+    i32 4, label %11
+    i32 2, label %11
+    i32 0, label %11
   ]
 
-6:                                                ; preds = %2, %2, %2
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %8 = load ptr, ptr %7, align 8, !tbaa !100
-  %9 = load double, ptr %8, align 8, !tbaa !101
-  br label %15
+9:                                                ; preds = %2
+  %10 = fdiv double 1.000000e+00, %8
+  br label %11
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %12 = load ptr, ptr %11, align 8, !tbaa !100
-  %13 = load double, ptr %12, align 8, !tbaa !101
-  %14 = fdiv double 1.000000e+00, %13
-  br label %15
-
-15:                                               ; preds = %10, %6
-  %16 = phi double [ %9, %6 ], [ %14, %10 ]
-  %17 = fptrunc double %16 to float
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %17, ptr %18, align 8, !tbaa !103
-  switch i32 %5, label %23 [
-    i32 4, label %19
-    i32 2, label %19
-    i32 0, label %19
+11:                                               ; preds = %2, %2, %2, %9
+  %12 = phi double [ %10, %9 ], [ %8, %2 ], [ %8, %2 ], [ %8, %2 ]
+  %13 = fptrunc double %12 to float
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float %13, ptr %14, align 8, !tbaa !103
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %16 = load ptr, ptr %15, align 8, !tbaa !100
+  %17 = load double, ptr %16, align 8, !tbaa !101
+  switch i32 %5, label %18 [
+    i32 4, label %20
+    i32 2, label %20
+    i32 0, label %20
   ]
 
-19:                                               ; preds = %15, %15, %15
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %21 = load ptr, ptr %20, align 8, !tbaa !100
-  %22 = load double, ptr %21, align 8, !tbaa !101
-  br label %28
+18:                                               ; preds = %11
+  %19 = fdiv double 1.000000e+00, %17
+  br label %20
 
-23:                                               ; preds = %15
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 200
+20:                                               ; preds = %11, %11, %11, %18
+  %21 = phi double [ %19, %18 ], [ %17, %11 ], [ %17, %11 ], [ %17, %11 ]
+  %22 = fptrunc double %21 to float
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %22, ptr %23, align 4, !tbaa !107
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %25 = load ptr, ptr %24, align 8, !tbaa !100
   %26 = load double, ptr %25, align 8, !tbaa !101
-  %27 = fdiv double 1.000000e+00, %26
-  br label %28
-
-28:                                               ; preds = %23, %19
-  %29 = phi double [ %22, %19 ], [ %27, %23 ]
-  %30 = fptrunc double %29 to float
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %30, ptr %31, align 4, !tbaa !107
-  switch i32 %5, label %36 [
-    i32 4, label %32
-    i32 2, label %32
-    i32 0, label %32
+  switch i32 %5, label %27 [
+    i32 4, label %29
+    i32 2, label %29
+    i32 0, label %29
   ]
 
-32:                                               ; preds = %28, %28, %28
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 224
+27:                                               ; preds = %20
+  %28 = fdiv double 1.000000e+00, %26
+  br label %29
+
+29:                                               ; preds = %20, %20, %20, %27
+  %30 = phi double [ %28, %27 ], [ %26, %20 ], [ %26, %20 ], [ %26, %20 ]
+  %31 = fptrunc double %30 to float
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %31, ptr %32, align 8, !tbaa !108
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %34 = load ptr, ptr %33, align 8, !tbaa !100
   %35 = load double, ptr %34, align 8, !tbaa !101
-  br label %41
-
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %38 = load ptr, ptr %37, align 8, !tbaa !100
-  %39 = load double, ptr %38, align 8, !tbaa !101
-  %40 = fdiv double 1.000000e+00, %39
-  br label %41
-
-41:                                               ; preds = %36, %32
-  %42 = phi double [ %35, %32 ], [ %40, %36 ]
-  %43 = fptrunc double %42 to float
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %43, ptr %44, align 8, !tbaa !108
-  switch i32 %5, label %49 [
-    i32 4, label %45
-    i32 2, label %45
-    i32 0, label %45
+  switch i32 %5, label %36 [
+    i32 4, label %38
+    i32 2, label %38
+    i32 0, label %38
   ]
 
-45:                                               ; preds = %41, %41, %41
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
-  %48 = load double, ptr %47, align 8, !tbaa !101
-  br label %54
+36:                                               ; preds = %29
+  %37 = fdiv double 1.000000e+00, %35
+  br label %38
 
-49:                                               ; preds = %41
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  %51 = load ptr, ptr %50, align 8, !tbaa !100
-  %52 = load double, ptr %51, align 8, !tbaa !101
-  %53 = fdiv double 1.000000e+00, %52
-  br label %54
-
-54:                                               ; preds = %49, %45
-  %55 = phi double [ %48, %45 ], [ %53, %49 ]
-  %56 = fptrunc double %55 to float
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %56, ptr %57, align 4, !tbaa !109
+38:                                               ; preds = %29, %29, %29, %36
+  %39 = phi double [ %37, %36 ], [ %35, %29 ], [ %35, %29 ], [ %35, %29 ]
+  %40 = fptrunc double %39 to float
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %40, ptr %41, align 4, !tbaa !109
   ret void
 }
 
@@ -1319,99 +1272,75 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21GammaBasicMirrorOpCPUC2ERSt10share
   %6 = load ptr, ptr %1, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load i32, ptr %7, align 8, !tbaa !11
-  switch i32 %8, label %13 [
-    i32 4, label %9
-    i32 2, label %9
-    i32 0, label %9
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %10 = load ptr, ptr %9, align 8, !tbaa !100
+  %11 = load double, ptr %10, align 8, !tbaa !101
+  switch i32 %8, label %12 [
+    i32 4, label %14
+    i32 2, label %14
+    i32 0, label %14
   ]
 
-9:                                                ; preds = %2, %2, %2
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %11 = load ptr, ptr %10, align 8, !tbaa !100
-  %12 = load double, ptr %11, align 8, !tbaa !101
-  br label %18
+12:                                               ; preds = %2
+  %13 = fdiv double 1.000000e+00, %11
+  br label %14
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %15 = load ptr, ptr %14, align 8, !tbaa !100
-  %16 = load double, ptr %15, align 8, !tbaa !101
-  %17 = fdiv double 1.000000e+00, %16
-  br label %18
-
-18:                                               ; preds = %13, %9
-  %19 = phi double [ %12, %9 ], [ %17, %13 ]
-  %20 = fptrunc double %19 to float
-  store float %20, ptr %3, align 8, !tbaa !103
-  switch i32 %8, label %25 [
-    i32 4, label %21
-    i32 2, label %21
-    i32 0, label %21
+14:                                               ; preds = %12, %2, %2, %2
+  %15 = phi double [ %13, %12 ], [ %11, %2 ], [ %11, %2 ], [ %11, %2 ]
+  %16 = fptrunc double %15 to float
+  store float %16, ptr %3, align 8, !tbaa !103
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %18 = load ptr, ptr %17, align 8, !tbaa !100
+  %19 = load double, ptr %18, align 8, !tbaa !101
+  switch i32 %8, label %20 [
+    i32 4, label %22
+    i32 2, label %22
+    i32 0, label %22
   ]
 
-21:                                               ; preds = %18, %18, %18
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %23 = load ptr, ptr %22, align 8, !tbaa !100
-  %24 = load double, ptr %23, align 8, !tbaa !101
+20:                                               ; preds = %14
+  %21 = fdiv double 1.000000e+00, %19
+  br label %22
+
+22:                                               ; preds = %20, %14, %14, %14
+  %23 = phi double [ %21, %20 ], [ %19, %14 ], [ %19, %14 ], [ %19, %14 ]
+  %24 = fptrunc double %23 to float
+  store float %24, ptr %4, align 4, !tbaa !107
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 224
+  %26 = load ptr, ptr %25, align 8, !tbaa !100
+  %27 = load double, ptr %26, align 8, !tbaa !101
+  switch i32 %8, label %28 [
+    i32 4, label %30
+    i32 2, label %30
+    i32 0, label %30
+  ]
+
+28:                                               ; preds = %22
+  %29 = fdiv double 1.000000e+00, %27
   br label %30
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %27 = load ptr, ptr %26, align 8, !tbaa !100
-  %28 = load double, ptr %27, align 8, !tbaa !101
-  %29 = fdiv double 1.000000e+00, %28
-  br label %30
-
-30:                                               ; preds = %25, %21
-  %31 = phi double [ %24, %21 ], [ %29, %25 ]
+30:                                               ; preds = %28, %22, %22, %22
+  %31 = phi double [ %29, %28 ], [ %27, %22 ], [ %27, %22 ], [ %27, %22 ]
   %32 = fptrunc double %31 to float
-  store float %32, ptr %4, align 4, !tbaa !107
-  switch i32 %8, label %37 [
-    i32 4, label %33
-    i32 2, label %33
-    i32 0, label %33
+  store float %32, ptr %5, align 8, !tbaa !108
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 248
+  %34 = load ptr, ptr %33, align 8, !tbaa !100
+  %35 = load double, ptr %34, align 8, !tbaa !101
+  switch i32 %8, label %36 [
+    i32 4, label %_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
+    i32 2, label %_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
+    i32 0, label %_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
   ]
 
-33:                                               ; preds = %30, %30, %30
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %35 = load ptr, ptr %34, align 8, !tbaa !100
-  %36 = load double, ptr %35, align 8, !tbaa !101
-  br label %42
-
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %39 = load ptr, ptr %38, align 8, !tbaa !100
-  %40 = load double, ptr %39, align 8, !tbaa !101
-  %41 = fdiv double 1.000000e+00, %40
-  br label %42
-
-42:                                               ; preds = %37, %33
-  %43 = phi double [ %36, %33 ], [ %41, %37 ]
-  %44 = fptrunc double %43 to float
-  store float %44, ptr %5, align 8, !tbaa !108
-  switch i32 %8, label %49 [
-    i32 4, label %45
-    i32 2, label %45
-    i32 0, label %45
-  ]
-
-45:                                               ; preds = %42, %42, %42
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
-  %48 = load double, ptr %47, align 8, !tbaa !101
+36:                                               ; preds = %30
+  %37 = fdiv double 1.000000e+00, %35
   br label %_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  %51 = load ptr, ptr %50, align 8, !tbaa !100
-  %52 = load double, ptr %51, align 8, !tbaa !101
-  %53 = fdiv double 1.000000e+00, %52
-  br label %_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
-
-_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit: ; preds = %45, %49
-  %54 = phi double [ %48, %45 ], [ %53, %49 ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %56 = fptrunc double %54 to float
-  store float %56, ptr %55, align 4, !tbaa !109
+_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit: ; preds = %30, %30, %30, %36
+  %38 = phi double [ %37, %36 ], [ %35, %30 ], [ %35, %30 ], [ %35, %30 ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %40 = fptrunc double %38 to float
+  store float %40, ptr %39, align 4, !tbaa !109
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev21GammaBasicMirrorOpCPUE, i64 16), ptr %0, align 8, !tbaa !95
   ret void
 }
@@ -1575,99 +1504,75 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GammaBasicPassThruOpCPUC2ERSt10sha
   %6 = load ptr, ptr %1, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load i32, ptr %7, align 8, !tbaa !11
-  switch i32 %8, label %13 [
-    i32 4, label %9
-    i32 2, label %9
-    i32 0, label %9
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %10 = load ptr, ptr %9, align 8, !tbaa !100
+  %11 = load double, ptr %10, align 8, !tbaa !101
+  switch i32 %8, label %12 [
+    i32 4, label %14
+    i32 2, label %14
+    i32 0, label %14
   ]
 
-9:                                                ; preds = %2, %2, %2
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %11 = load ptr, ptr %10, align 8, !tbaa !100
-  %12 = load double, ptr %11, align 8, !tbaa !101
-  br label %18
+12:                                               ; preds = %2
+  %13 = fdiv double 1.000000e+00, %11
+  br label %14
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %15 = load ptr, ptr %14, align 8, !tbaa !100
-  %16 = load double, ptr %15, align 8, !tbaa !101
-  %17 = fdiv double 1.000000e+00, %16
-  br label %18
-
-18:                                               ; preds = %13, %9
-  %19 = phi double [ %12, %9 ], [ %17, %13 ]
-  %20 = fptrunc double %19 to float
-  store float %20, ptr %3, align 8, !tbaa !103
-  switch i32 %8, label %25 [
-    i32 4, label %21
-    i32 2, label %21
-    i32 0, label %21
+14:                                               ; preds = %12, %2, %2, %2
+  %15 = phi double [ %13, %12 ], [ %11, %2 ], [ %11, %2 ], [ %11, %2 ]
+  %16 = fptrunc double %15 to float
+  store float %16, ptr %3, align 8, !tbaa !103
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %18 = load ptr, ptr %17, align 8, !tbaa !100
+  %19 = load double, ptr %18, align 8, !tbaa !101
+  switch i32 %8, label %20 [
+    i32 4, label %22
+    i32 2, label %22
+    i32 0, label %22
   ]
 
-21:                                               ; preds = %18, %18, %18
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %23 = load ptr, ptr %22, align 8, !tbaa !100
-  %24 = load double, ptr %23, align 8, !tbaa !101
+20:                                               ; preds = %14
+  %21 = fdiv double 1.000000e+00, %19
+  br label %22
+
+22:                                               ; preds = %20, %14, %14, %14
+  %23 = phi double [ %21, %20 ], [ %19, %14 ], [ %19, %14 ], [ %19, %14 ]
+  %24 = fptrunc double %23 to float
+  store float %24, ptr %4, align 4, !tbaa !107
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 224
+  %26 = load ptr, ptr %25, align 8, !tbaa !100
+  %27 = load double, ptr %26, align 8, !tbaa !101
+  switch i32 %8, label %28 [
+    i32 4, label %30
+    i32 2, label %30
+    i32 0, label %30
+  ]
+
+28:                                               ; preds = %22
+  %29 = fdiv double 1.000000e+00, %27
   br label %30
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %27 = load ptr, ptr %26, align 8, !tbaa !100
-  %28 = load double, ptr %27, align 8, !tbaa !101
-  %29 = fdiv double 1.000000e+00, %28
-  br label %30
-
-30:                                               ; preds = %25, %21
-  %31 = phi double [ %24, %21 ], [ %29, %25 ]
+30:                                               ; preds = %28, %22, %22, %22
+  %31 = phi double [ %29, %28 ], [ %27, %22 ], [ %27, %22 ], [ %27, %22 ]
   %32 = fptrunc double %31 to float
-  store float %32, ptr %4, align 4, !tbaa !107
-  switch i32 %8, label %37 [
-    i32 4, label %33
-    i32 2, label %33
-    i32 0, label %33
+  store float %32, ptr %5, align 8, !tbaa !108
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 248
+  %34 = load ptr, ptr %33, align 8, !tbaa !100
+  %35 = load double, ptr %34, align 8, !tbaa !101
+  switch i32 %8, label %36 [
+    i32 4, label %_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
+    i32 2, label %_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
+    i32 0, label %_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
   ]
 
-33:                                               ; preds = %30, %30, %30
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %35 = load ptr, ptr %34, align 8, !tbaa !100
-  %36 = load double, ptr %35, align 8, !tbaa !101
-  br label %42
-
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %39 = load ptr, ptr %38, align 8, !tbaa !100
-  %40 = load double, ptr %39, align 8, !tbaa !101
-  %41 = fdiv double 1.000000e+00, %40
-  br label %42
-
-42:                                               ; preds = %37, %33
-  %43 = phi double [ %36, %33 ], [ %41, %37 ]
-  %44 = fptrunc double %43 to float
-  store float %44, ptr %5, align 8, !tbaa !108
-  switch i32 %8, label %49 [
-    i32 4, label %45
-    i32 2, label %45
-    i32 0, label %45
-  ]
-
-45:                                               ; preds = %42, %42, %42
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
-  %48 = load double, ptr %47, align 8, !tbaa !101
+36:                                               ; preds = %30
+  %37 = fdiv double 1.000000e+00, %35
   br label %_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  %51 = load ptr, ptr %50, align 8, !tbaa !100
-  %52 = load double, ptr %51, align 8, !tbaa !101
-  %53 = fdiv double 1.000000e+00, %52
-  br label %_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit
-
-_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit: ; preds = %45, %49
-  %54 = phi double [ %48, %45 ], [ %53, %49 ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %56 = fptrunc double %54 to float
-  store float %56, ptr %55, align 4, !tbaa !109
+_ZN19OpenColorIO_v2_5dev15GammaBasicOpCPUC2ERSt10shared_ptrIKNS_11GammaOpDataEE.exit: ; preds = %30, %30, %30, %36
+  %38 = phi double [ %37, %36 ], [ %35, %30 ], [ %35, %30 ], [ %35, %30 ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %40 = fptrunc double %38 to float
+  store float %40, ptr %39, align 4, !tbaa !109
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev23GammaBasicPassThruOpCPUE, i64 16), ptr %0, align 8, !tbaa !95
   ret void
 }

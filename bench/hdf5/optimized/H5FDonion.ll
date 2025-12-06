@@ -2812,7 +2812,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_parse_config_str(ptr no
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %119, !prof !9
+  br i1 %8, label %9, label %117, !prof !9
 
 9:                                                ; preds = %2
   %strcmpload = load i8, ptr %0, align 1
@@ -2870,208 +2870,207 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_parse_config_str(ptr no
   %38 = select i1 %34, i1 true, i1 %37
   br i1 %38, label %.preheader.i, label %H5FD__onion_remove_unused_symbols.exit, !prof !9
 
-.preheader.i:                                     ; preds = %32, %42
-  %.07.i = phi ptr [ %44, %42 ], [ %26, %32 ]
-  %.0.i = phi ptr [ %43, %42 ], [ %26, %32 ]
-  br label %39
+.preheader.i:                                     ; preds = %32, %41
+  %.07.i = phi ptr [ %42, %41 ], [ %26, %32 ]
+  %.0.i = phi ptr [ %40, %41 ], [ %26, %32 ]
+  br label %.critedge.i
 
-39:                                               ; preds = %.critedge.i, %.preheader.i
-  %.1.i = phi ptr [ %.0.i, %.preheader.i ], [ %41, %.critedge.i ]
-  %40 = load i8, ptr %.1.i, align 1, !tbaa !41
-  switch i8 %40, label %42 [
-    i8 123, label %.critedge.i
-    i8 125, label %.critedge.i
-    i8 32, label %.critedge.i
+.critedge.i:                                      ; preds = %.critedge.i.backedge, %.preheader.i
+  %.1.i = phi ptr [ %.0.i, %.preheader.i ], [ %40, %.critedge.i.backedge ]
+  %39 = load i8, ptr %.1.i, align 1, !tbaa !41
+  %40 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
+  switch i8 %39, label %41 [
+    i8 123, label %.critedge.i.backedge
+    i8 125, label %.critedge.i.backedge
+    i8 32, label %.critedge.i.backedge
   ]
 
-.critedge.i:                                      ; preds = %39, %39, %39
-  %41 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  br label %39, !llvm.loop !102
+.critedge.i.backedge:                             ; preds = %.critedge.i, %.critedge.i, %.critedge.i
+  br label %.critedge.i, !llvm.loop !102
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  %44 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
-  store i8 %40, ptr %.07.i, align 1, !tbaa !41
-  %.not.i = icmp eq i8 %40, 0
+41:                                               ; preds = %.critedge.i
+  %42 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
+  store i8 %39, ptr %.07.i, align 1, !tbaa !41
+  %.not.i = icmp eq i8 %39, 0
   br i1 %.not.i, label %H5FD__onion_remove_unused_symbols.exit, label %.preheader.i, !llvm.loop !103
 
-H5FD__onion_remove_unused_symbols.exit:           ; preds = %42, %32
+H5FD__onion_remove_unused_symbols.exit:           ; preds = %41, %32
   %strcmpload74 = load i8, ptr %26, align 1
   %.not75 = icmp eq i8 %strcmpload74, 0
-  br i1 %.not75, label %45, label %49
+  br i1 %.not75, label %43, label %47
 
-45:                                               ; preds = %H5FD__onion_remove_unused_symbols.exit
-  %46 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %47 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %48 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_parse_config_str, i32 noundef 818, i64 noundef %46, i64 noundef %47, ptr noundef nonnull @.str.67) #18
+43:                                               ; preds = %H5FD__onion_remove_unused_symbols.exit
+  %44 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %45 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
+  %46 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_parse_config_str, i32 noundef 818, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.67) #18
   br label %.thread
 
-49:                                               ; preds = %H5FD__onion_remove_unused_symbols.exit
-  %50 = tail call ptr @strtok(ptr noundef nonnull %26, ptr noundef nonnull @.str.70) #18
-  %51 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.71) #18
-  br label %52
+47:                                               ; preds = %H5FD__onion_remove_unused_symbols.exit
+  %48 = tail call ptr @strtok(ptr noundef nonnull %26, ptr noundef nonnull @.str.70) #18
+  %49 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.71) #18
+  br label %50
 
-52:                                               ; preds = %100, %49
-  %.064 = phi ptr [ %50, %49 ], [ %101, %100 ]
-  %.063 = phi ptr [ %51, %49 ], [ %102, %100 ]
-  %53 = icmp ne ptr %.064, null
-  %54 = icmp ne ptr %.063, null
-  %or.cond = select i1 %53, i1 %54, i1 false
-  br i1 %or.cond, label %55, label %100
+50:                                               ; preds = %98, %47
+  %.064 = phi ptr [ %48, %47 ], [ %99, %98 ]
+  %.063 = phi ptr [ %49, %47 ], [ %100, %98 ]
+  %51 = icmp ne ptr %.064, null
+  %52 = icmp ne ptr %.063, null
+  %or.cond = select i1 %51, i1 %52, i1 false
+  br i1 %or.cond, label %53, label %98
 
-55:                                               ; preds = %52
-  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(8) @.str.72) #20
-  %.not76 = icmp eq i32 %56, 0
-  br i1 %.not76, label %57, label %60
+53:                                               ; preds = %50
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(8) @.str.72) #20
+  %.not76 = icmp eq i32 %54, 0
+  br i1 %.not76, label %55, label %58
+
+55:                                               ; preds = %53
+  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(34) @.str.73) #20
+  %.not77 = icmp eq i32 %56, 0
+  br i1 %.not77, label %57, label %98
 
 57:                                               ; preds = %55
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(34) @.str.73) #20
-  %.not77 = icmp eq i32 %58, 0
-  br i1 %.not77, label %59, label %100
-
-59:                                               ; preds = %57
   store i8 1, ptr %1, align 8, !tbaa !16
-  br label %100
+  br label %98
 
-60:                                               ; preds = %55
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(16) @.str.74) #20
-  %.not78 = icmp eq i32 %61, 0
-  br i1 %.not78, label %62, label %70
+58:                                               ; preds = %53
+  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(16) @.str.74) #20
+  %.not78 = icmp eq i32 %59, 0
+  br i1 %.not78, label %60, label %68
+
+60:                                               ; preds = %58
+  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(12) @.str.75) #20
+  %.not79 = icmp eq i32 %61, 0
+  br i1 %.not79, label %62, label %63
 
 62:                                               ; preds = %60
-  %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(12) @.str.75) #20
-  %.not79 = icmp eq i32 %63, 0
-  br i1 %.not79, label %64, label %65
-
-64:                                               ; preds = %62
   store i64 0, ptr %15, align 8, !tbaa !20
-  br label %100
+  br label %98
 
-65:                                               ; preds = %62
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(16) @.str.76) #20
-  %.not80 = icmp eq i32 %66, 0
-  br i1 %.not80, label %67, label %68
+63:                                               ; preds = %60
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(16) @.str.76) #20
+  %.not80 = icmp eq i32 %64, 0
+  br i1 %.not80, label %65, label %66
 
-67:                                               ; preds = %65
+65:                                               ; preds = %63
   store i64 -1, ptr %15, align 8, !tbaa !20
-  br label %100
+  br label %98
 
-68:                                               ; preds = %65
-  %69 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #18
-  store i64 %69, ptr %15, align 8, !tbaa !20
-  br label %100
+66:                                               ; preds = %63
+  %67 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #18
+  store i64 %67, ptr %15, align 8, !tbaa !20
+  br label %98
 
-70:                                               ; preds = %60
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(10) @.str.77) #20
-  %.not81 = icmp eq i32 %71, 0
-  br i1 %.not81, label %72, label %75
+68:                                               ; preds = %58
+  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(10) @.str.77) #20
+  %.not81 = icmp eq i32 %69, 0
+  br i1 %.not81, label %70, label %73
 
-72:                                               ; preds = %70
-  %73 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #18
-  %74 = trunc i64 %73 to i32
-  store i32 %74, ptr %16, align 8, !tbaa !19
-  br label %100
+70:                                               ; preds = %68
+  %71 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #18
+  %72 = trunc i64 %71 to i32
+  store i32 %72, ptr %16, align 8, !tbaa !19
+  br label %98
 
-75:                                               ; preds = %70
-  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(13) @.str.78) #20
-  %.not82 = icmp eq i32 %76, 0
-  br i1 %.not82, label %77, label %82
+73:                                               ; preds = %68
+  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(13) @.str.78) #20
+  %.not82 = icmp eq i32 %74, 0
+  br i1 %.not82, label %75, label %80
+
+75:                                               ; preds = %73
+  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(40) @.str.79) #20
+  %.not83 = icmp eq i32 %76, 0
+  br i1 %.not83, label %77, label %78
 
 77:                                               ; preds = %75
-  %78 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(40) @.str.79) #20
-  %.not83 = icmp eq i32 %78, 0
-  br i1 %.not83, label %79, label %80
-
-79:                                               ; preds = %77
   store i64 -1, ptr %18, align 8, !tbaa !67
-  br label %100
+  br label %98
 
-80:                                               ; preds = %77
-  %81 = tail call i64 @strtoull(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #18
-  store i64 %81, ptr %18, align 8, !tbaa !67
-  br label %100
+78:                                               ; preds = %75
+  %79 = tail call i64 @strtoull(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #18
+  store i64 %79, ptr %18, align 8, !tbaa !67
+  br label %98
 
-82:                                               ; preds = %75
-  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(17) @.str.80) #20
-  %.not84 = icmp eq i32 %83, 0
-  br i1 %.not84, label %84, label %87
+80:                                               ; preds = %73
+  %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(17) @.str.80) #20
+  %.not84 = icmp eq i32 %81, 0
+  br i1 %.not84, label %82, label %85
 
-84:                                               ; preds = %82
-  %85 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #18
-  %86 = trunc i64 %85 to i8
-  store i8 %86, ptr %19, align 8, !tbaa !101
-  br label %100
+82:                                               ; preds = %80
+  %83 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #18
+  %84 = trunc i64 %83 to i8
+  store i8 %84, ptr %19, align 8, !tbaa !101
+  br label %98
 
-87:                                               ; preds = %82
-  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(15) @.str.81) #20
-  %.not85 = icmp eq i32 %88, 0
-  br i1 %.not85, label %89, label %92
+85:                                               ; preds = %80
+  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(15) @.str.81) #20
+  %.not85 = icmp eq i32 %86, 0
+  br i1 %.not85, label %87, label %90
 
-89:                                               ; preds = %87
-  %90 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #18
-  %91 = trunc i64 %90 to i8
-  store i8 %91, ptr %20, align 1, !tbaa !53
-  br label %100
+87:                                               ; preds = %85
+  %88 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #18
+  %89 = trunc i64 %88 to i8
+  store i8 %89, ptr %20, align 1, !tbaa !53
+  br label %98
 
-92:                                               ; preds = %87
-  %93 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(8) @.str.82) #20
-  %.not86 = icmp eq i32 %93, 0
-  br i1 %.not86, label %94, label %96
+90:                                               ; preds = %85
+  %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.064, ptr noundef nonnull dereferenceable(8) @.str.82) #20
+  %.not86 = icmp eq i32 %91, 0
+  br i1 %.not86, label %92, label %94
 
-94:                                               ; preds = %92
-  %95 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %.063) #18
-  br label %100
+92:                                               ; preds = %90
+  %93 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %.063) #18
+  br label %98
 
-96:                                               ; preds = %92
-  %97 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %98 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
-  %99 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_parse_config_str, i32 noundef 857, i64 noundef %97, i64 noundef %98, ptr noundef nonnull @.str.83, ptr noundef nonnull %.064) #18
+94:                                               ; preds = %90
+  %95 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %96 = load i64, ptr @H5E_BADVALUE_g, align 8, !tbaa !10
+  %97 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_parse_config_str, i32 noundef 857, i64 noundef %95, i64 noundef %96, ptr noundef nonnull @.str.83, ptr noundef nonnull %.064) #18
   br label %.thread
 
-100:                                              ; preds = %59, %57, %72, %84, %94, %89, %79, %80, %64, %68, %67, %52
-  %101 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.70) #18
-  %102 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.71) #18
-  %.not87 = icmp eq ptr %101, null
-  br i1 %.not87, label %.loopexit, label %52, !llvm.loop !104
+98:                                               ; preds = %57, %55, %70, %82, %92, %87, %77, %78, %62, %66, %65, %50
+  %99 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.70) #18
+  %100 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.71) #18
+  %.not87 = icmp eq ptr %99, null
+  br i1 %.not87, label %.loopexit, label %50, !llvm.loop !104
 
-.loopexit:                                        ; preds = %100, %23
-  %.168 = phi ptr [ null, %23 ], [ %26, %100 ]
-  %103 = load i64, ptr %15, align 8, !tbaa !20
-  %.off = add i64 %103, -1
+.loopexit:                                        ; preds = %98, %23
+  %.168 = phi ptr [ null, %23 ], [ %26, %98 ]
+  %101 = load i64, ptr %15, align 8, !tbaa !20
+  %.off = add i64 %101, -1
   %switch = icmp ult i64 %.off, -2
-  br i1 %switch, label %.thread, label %104
+  br i1 %switch, label %.thread, label %102
 
-104:                                              ; preds = %.loopexit
-  %105 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !10
-  %106 = tail call ptr @H5I_object_verify(i64 noundef %105, i32 noundef 10) #18
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %108, label %112
+102:                                              ; preds = %.loopexit
+  %103 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8, !tbaa !10
+  %104 = tail call ptr @H5I_object_verify(i64 noundef %103, i32 noundef 10) #18
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %106, label %110
 
-108:                                              ; preds = %104
-  %109 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %110 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
-  %111 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_parse_config_str, i32 noundef 869, i64 noundef %109, i64 noundef %110, ptr noundef nonnull @.str.84) #18
+106:                                              ; preds = %102
+  %107 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %108 = load i64, ptr @H5E_BADTYPE_g, align 8, !tbaa !10
+  %109 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_parse_config_str, i32 noundef 869, i64 noundef %107, i64 noundef %108, ptr noundef nonnull @.str.84) #18
   br label %.thread
 
-112:                                              ; preds = %104
-  %113 = tail call i64 @H5P_create_id(ptr noundef nonnull %106, i1 noundef zeroext true) #18
-  store i64 %113, ptr %15, align 8, !tbaa !20
-  %114 = icmp slt i64 %113, 0
-  br i1 %114, label %115, label %.thread
+110:                                              ; preds = %102
+  %111 = tail call i64 @H5P_create_id(ptr noundef nonnull %104, i1 noundef zeroext true) #18
+  store i64 %111, ptr %15, align 8, !tbaa !20
+  %112 = icmp slt i64 %111, 0
+  br i1 %112, label %113, label %.thread
 
-115:                                              ; preds = %112
-  %116 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %117 = load i64, ptr @H5E_CANTCREATE_g, align 8, !tbaa !10
-  %118 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_parse_config_str, i32 noundef 873, i64 noundef %116, i64 noundef %117, ptr noundef nonnull @.str.85) #18
+113:                                              ; preds = %110
+  %114 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %115 = load i64, ptr @H5E_CANTCREATE_g, align 8, !tbaa !10
+  %116 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__onion_parse_config_str, i32 noundef 873, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.85) #18
   br label %.thread
 
-.thread:                                          ; preds = %45, %96, %28, %.loopexit, %108, %115, %112, %10
-  %.067 = phi ptr [ null, %10 ], [ %.168, %.loopexit ], [ %.168, %112 ], [ %.168, %115 ], [ %.168, %108 ], [ null, %28 ], [ %26, %96 ], [ %26, %45 ]
-  %.166 = phi i32 [ -1, %10 ], [ 0, %.loopexit ], [ 0, %112 ], [ -1, %115 ], [ -1, %108 ], [ -1, %28 ], [ -1, %96 ], [ -1, %45 ]
+.thread:                                          ; preds = %43, %94, %28, %.loopexit, %106, %113, %110, %10
+  %.067 = phi ptr [ null, %10 ], [ %.168, %.loopexit ], [ %.168, %110 ], [ %.168, %113 ], [ %.168, %106 ], [ null, %28 ], [ %26, %94 ], [ %26, %43 ]
+  %.166 = phi i32 [ -1, %10 ], [ 0, %.loopexit ], [ 0, %110 ], [ -1, %113 ], [ -1, %106 ], [ -1, %28 ], [ -1, %94 ], [ -1, %43 ]
   tail call void @free(ptr noundef %.067) #18
-  br label %119
+  br label %117
 
-119:                                              ; preds = %2, %.thread
+117:                                              ; preds = %2, %.thread
   %.065 = phi i32 [ %.166, %.thread ], [ 0, %2 ]
   ret i32 %.065
 }

@@ -3384,69 +3384,65 @@ define internal fastcc i32 @string_to_context_struct(ptr noundef %0, ptr noundef
   store i32 %29, ptr %30, align 4
   br label %31
 
-31:                                               ; preds = %34, %28
-  %32 = phi ptr [ %24, %28 ], [ %35, %34 ]
+31:                                               ; preds = %31, %28
+  %32 = phi ptr [ %24, %28 ], [ %34, %31 ]
   %33 = load i8, ptr %32, align 1
-  switch i8 %33, label %34 [
-    i8 0, label %36
-    i8 58, label %36
-  ]
+  %34 = getelementptr i8, ptr %32, i64 1
+  switch i8 %33, label %31 [
+    i8 0, label %35
+    i8 58, label %35
+  ], !llvm.loop !53
 
-34:                                               ; preds = %31
-  %35 = getelementptr i8, ptr %32, i64 1
-  br label %31, !llvm.loop !53
-
-36:                                               ; preds = %31, %31
-  %37 = getelementptr i8, ptr %32, i64 1
+35:                                               ; preds = %31, %31
   store i8 0, ptr %32, align 1
-  %38 = getelementptr i8, ptr %0, i64 80
-  %39 = tail call ptr @symtab_search(ptr noundef %38, ptr noundef %24) #19
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %select.unfold, label %41
+  %36 = getelementptr i8, ptr %0, i64 80
+  %37 = tail call ptr @symtab_search(ptr noundef %36, ptr noundef %24) #19
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %select.unfold, label %39
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 9
-  %43 = load i8, ptr %42, align 1
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %select.unfold
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 9
+  %41 = load i8, ptr %40, align 1
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %43, label %select.unfold
 
-45:                                               ; preds = %41
-  %46 = load i32, ptr %39, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %46, ptr %47, align 8
-  %48 = tail call i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %33, ptr noundef %37, ptr noundef %3, ptr noundef %1, i32 noundef %4) #19
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %select.unfold
+43:                                               ; preds = %39
+  %44 = load i32, ptr %37, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %44, ptr %45, align 8
+  %46 = tail call i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %33, ptr noundef %34, ptr noundef %3, ptr noundef %1, i32 noundef %4) #19
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %select.unfold
 
-50:                                               ; preds = %45
-  %51 = tail call i32 @policydb_context_isvalid(ptr noundef %0, ptr noundef %3) #19
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %select.unfold, label %61
+48:                                               ; preds = %43
+  %49 = tail call i32 @policydb_context_isvalid(ptr noundef %0, ptr noundef %3) #19
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %select.unfold, label %59
 
-select.unfold:                                    ; preds = %6, %18, %50, %41, %45, %36, %23, %11
-  %.ph = phi i32 [ -22, %11 ], [ -22, %23 ], [ -22, %36 ], [ %48, %45 ], [ -22, %41 ], [ -22, %50 ], [ -22, %18 ], [ -22, %6 ]
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 0, ptr %54, align 4
+select.unfold:                                    ; preds = %6, %18, %48, %39, %43, %35, %23, %11
+  %.ph = phi i32 [ -22, %11 ], [ -22, %23 ], [ -22, %35 ], [ %46, %43 ], [ -22, %39 ], [ -22, %48 ], [ -22, %18 ], [ -22, %6 ]
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 0, ptr %52, align 4
   store i32 0, ptr %3, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %56 = load ptr, ptr %55, align 8
-  tail call void @kfree(ptr noundef %56) #19
-  store ptr null, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  tail call void @ebitmap_destroy(ptr noundef nonnull %58) #19
-  %59 = getelementptr i8, ptr %3, i64 48
-  tail call void @ebitmap_destroy(ptr noundef %59) #19
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %60, i8 0, i64 48, i1 false)
-  br label %61
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %54 = load ptr, ptr %53, align 8
+  tail call void @kfree(ptr noundef %54) #19
+  store ptr null, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  tail call void @ebitmap_destroy(ptr noundef nonnull %56) #19
+  %57 = getelementptr i8, ptr %3, i64 48
+  tail call void @ebitmap_destroy(ptr noundef %57) #19
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %58, i8 0, i64 48, i1 false)
+  br label %59
 
-61:                                               ; preds = %50, %select.unfold
-  %62 = phi i32 [ %.ph, %select.unfold ], [ 0, %50 ]
-  ret i32 %62
+59:                                               ; preds = %48, %select.unfold
+  %60 = phi i32 [ %.ph, %select.unfold ], [ 0, %48 ]
+  ret i32 %60
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

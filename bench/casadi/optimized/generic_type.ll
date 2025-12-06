@@ -873,26 +873,26 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6casadi11GenericType11can_cast_toENS_6TypeIDE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  switch i32 %1, label %165 [
-    i32 1, label %3
+  %3 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  switch i32 %1, label %157 [
+    i32 1, label %4
     i32 7, label %19
-    i32 2, label %35
-    i32 3, label %35
-    i32 5, label %51
-    i32 8, label %51
-    i32 6, label %67
-    i32 9, label %67
-    i32 10, label %83
-    i32 19, label %101
-    i32 18, label %131
-    i32 14, label %149
+    i32 2, label %34
+    i32 3, label %34
+    i32 5, label %49
+    i32 8, label %49
+    i32 6, label %64
+    i32 9, label %64
+    i32 10, label %79
+    i32 19, label %96
+    i32 18, label %125
+    i32 14, label %142
   ]
 
-3:                                                ; preds = %2
-  %4 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %4, label %_ZNK6casadi11GenericType7is_boolEv.exit.thread, label %_ZNK6casadi11GenericType7is_boolEv.exit
+4:                                                ; preds = %2
+  br i1 %3, label %_ZNK6casadi11GenericType7is_boolEv.exit.thread, label %_ZNK6casadi11GenericType7is_boolEv.exit
 
-_ZNK6casadi11GenericType7is_boolEv.exit:          ; preds = %3
+_ZNK6casadi11GenericType7is_boolEv.exit:          ; preds = %4
   %5 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -901,7 +901,7 @@ _ZNK6casadi11GenericType7is_boolEv.exit:          ; preds = %3
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType7is_boolEv.exit.thread
 
-_ZNK6casadi11GenericType7is_boolEv.exit.thread:   ; preds = %3, %_ZNK6casadi11GenericType7is_boolEv.exit
+_ZNK6casadi11GenericType7is_boolEv.exit.thread:   ; preds = %4, %_ZNK6casadi11GenericType7is_boolEv.exit
   %11 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %11, label %_ZNK6casadi11GenericType6is_intEv.exit.thread, label %_ZNK6casadi11GenericType6is_intEv.exit
 
@@ -919,280 +919,271 @@ _ZNK6casadi11GenericType6is_intEv.exit.thread:    ; preds = %_ZNK6casadi11Generi
   br label %_ZNK6casadi11GenericType16is_double_vectorEv.exit
 
 19:                                               ; preds = %2
-  %20 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %20, label %_ZNK6casadi11GenericType13is_int_vectorEv.exit.thread, label %_ZNK6casadi11GenericType13is_int_vectorEv.exit
+  br i1 %3, label %_ZNK6casadi11GenericType13is_int_vectorEv.exit.thread, label %_ZNK6casadi11GenericType13is_int_vectorEv.exit
 
 _ZNK6casadi11GenericType13is_int_vectorEv.exit:   ; preds = %19
-  %21 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %22 = load ptr, ptr %21, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(24) %21)
-  %26 = icmp eq i32 %25, 5
-  br i1 %26, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType13is_int_vectorEv.exit.thread
+  %20 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(24) %20)
+  %25 = icmp eq i32 %24, 5
+  br i1 %25, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType13is_int_vectorEv.exit.thread
 
 _ZNK6casadi11GenericType13is_int_vectorEv.exit.thread: ; preds = %19, %_ZNK6casadi11GenericType13is_int_vectorEv.exit
-  %27 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %27, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %28
+  %26 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %26, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %27
 
-28:                                               ; preds = %_ZNK6casadi11GenericType13is_int_vectorEv.exit.thread
-  %29 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %30 = load ptr, ptr %29, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(24) %29)
-  %34 = icmp eq i32 %33, 8
+27:                                               ; preds = %_ZNK6casadi11GenericType13is_int_vectorEv.exit.thread
+  %28 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %29 = load ptr, ptr %28, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(24) %28)
+  %33 = icmp eq i32 %32, 8
   br label %_ZNK6casadi11GenericType16is_double_vectorEv.exit
 
-35:                                               ; preds = %2, %2
-  %36 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %36, label %_ZNK6casadi11GenericType6is_intEv.exit7.thread, label %_ZNK6casadi11GenericType6is_intEv.exit7
+34:                                               ; preds = %2, %2
+  br i1 %3, label %_ZNK6casadi11GenericType6is_intEv.exit7.thread, label %_ZNK6casadi11GenericType6is_intEv.exit7
 
-_ZNK6casadi11GenericType6is_intEv.exit7:          ; preds = %35
-  %37 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %38 = load ptr, ptr %37, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(24) %37)
-  %42 = icmp eq i32 %41, 2
-  br i1 %42, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType6is_intEv.exit7.thread
+_ZNK6casadi11GenericType6is_intEv.exit7:          ; preds = %34
+  %35 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %36 = load ptr, ptr %35, align 8, !tbaa !3
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(24) %35)
+  %40 = icmp eq i32 %39, 2
+  br i1 %40, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType6is_intEv.exit7.thread
 
-_ZNK6casadi11GenericType6is_intEv.exit7.thread:   ; preds = %35, %_ZNK6casadi11GenericType6is_intEv.exit7
-  %43 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %43, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %44
+_ZNK6casadi11GenericType6is_intEv.exit7.thread:   ; preds = %34, %_ZNK6casadi11GenericType6is_intEv.exit7
+  %41 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %41, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %42
 
-44:                                               ; preds = %_ZNK6casadi11GenericType6is_intEv.exit7.thread
-  %45 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %46 = load ptr, ptr %45, align 8, !tbaa !3
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(24) %45)
-  %50 = icmp eq i32 %49, 3
+42:                                               ; preds = %_ZNK6casadi11GenericType6is_intEv.exit7.thread
+  %43 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %44 = load ptr, ptr %43, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(24) %43)
+  %48 = icmp eq i32 %47, 3
   br label %_ZNK6casadi11GenericType16is_double_vectorEv.exit
 
-51:                                               ; preds = %2, %2
-  %52 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %52, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit10
+49:                                               ; preds = %2, %2
+  br i1 %3, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit10
 
-_ZNK6casadi11GenericType16is_double_vectorEv.exit10: ; preds = %51
-  %53 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %54 = load ptr, ptr %53, align 8, !tbaa !3
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef i32 %56(ptr noundef nonnull align 8 dereferenceable(24) %53)
-  %58 = icmp eq i32 %57, 8
-  br i1 %58, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread
+_ZNK6casadi11GenericType16is_double_vectorEv.exit10: ; preds = %49
+  %50 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %51 = load ptr, ptr %50, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(24) %50)
+  %55 = icmp eq i32 %54, 8
+  br i1 %55, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread
 
-_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread: ; preds = %51, %_ZNK6casadi11GenericType16is_double_vectorEv.exit10
-  %59 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %59, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %60
+_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread: ; preds = %49, %_ZNK6casadi11GenericType16is_double_vectorEv.exit10
+  %56 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %56, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %57
 
-60:                                               ; preds = %_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread
-  %61 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %62 = load ptr, ptr %61, align 8, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(24) %61)
-  %66 = icmp eq i32 %65, 5
+57:                                               ; preds = %_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread
+  %58 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %59 = load ptr, ptr %58, align 8, !tbaa !3
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %61 = load ptr, ptr %60, align 8
+  %62 = tail call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable(24) %58)
+  %63 = icmp eq i32 %62, 5
   br label %_ZNK6casadi11GenericType16is_double_vectorEv.exit
 
-67:                                               ; preds = %2, %2
-  %68 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %68, label %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread, label %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit
+64:                                               ; preds = %2, %2
+  br i1 %3, label %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread, label %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit
 
-_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit: ; preds = %67
-  %69 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %70 = load ptr, ptr %69, align 8, !tbaa !3
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  %72 = load ptr, ptr %71, align 8
-  %73 = tail call noundef i32 %72(ptr noundef nonnull align 8 dereferenceable(24) %69)
-  %74 = icmp eq i32 %73, 9
-  br i1 %74, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread
+_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit: ; preds = %64
+  %65 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %66 = load ptr, ptr %65, align 8, !tbaa !3
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  %68 = load ptr, ptr %67, align 8
+  %69 = tail call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(24) %65)
+  %70 = icmp eq i32 %69, 9
+  br i1 %70, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread
 
-_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread: ; preds = %67, %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit
-  %75 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %75, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %76
+_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread: ; preds = %64, %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit
+  %71 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %71, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %72
 
-76:                                               ; preds = %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread
-  %77 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %78 = load ptr, ptr %77, align 8, !tbaa !3
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  %80 = load ptr, ptr %79, align 8
-  %81 = tail call noundef i32 %80(ptr noundef nonnull align 8 dereferenceable(24) %77)
-  %82 = icmp eq i32 %81, 6
+72:                                               ; preds = %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread
+  %73 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %74 = load ptr, ptr %73, align 8, !tbaa !3
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call noundef i32 %76(ptr noundef nonnull align 8 dereferenceable(24) %73)
+  %78 = icmp eq i32 %77, 6
   br label %_ZNK6casadi11GenericType16is_double_vectorEv.exit
 
-83:                                               ; preds = %2
-  %84 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %84, label %_ZNK6casadi11GenericType16is_string_vectorEv.exit.thread, label %_ZNK6casadi11GenericType16is_string_vectorEv.exit
+79:                                               ; preds = %2
+  br i1 %3, label %_ZNK6casadi11GenericType16is_string_vectorEv.exit.thread, label %_ZNK6casadi11GenericType16is_string_vectorEv.exit
 
-_ZNK6casadi11GenericType16is_string_vectorEv.exit: ; preds = %83
-  %85 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %86 = load ptr, ptr %85, align 8, !tbaa !3
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %88 = load ptr, ptr %87, align 8
-  %89 = tail call noundef i32 %88(ptr noundef nonnull align 8 dereferenceable(24) %85)
-  %90 = icmp eq i32 %89, 10
-  br i1 %90, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType16is_string_vectorEv.exit.thread
+_ZNK6casadi11GenericType16is_string_vectorEv.exit: ; preds = %79
+  %80 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %81 = load ptr, ptr %80, align 8, !tbaa !3
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  %83 = load ptr, ptr %82, align 8
+  %84 = tail call noundef i32 %83(ptr noundef nonnull align 8 dereferenceable(24) %80)
+  %85 = icmp eq i32 %84, 10
+  br i1 %85, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType16is_string_vectorEv.exit.thread
 
-_ZNK6casadi11GenericType16is_string_vectorEv.exit.thread: ; preds = %83, %_ZNK6casadi11GenericType16is_string_vectorEv.exit
-  %91 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %91, label %_ZNK6casadi11GenericType9is_stringEv.exit.thread, label %_ZNK6casadi11GenericType9is_stringEv.exit
+_ZNK6casadi11GenericType16is_string_vectorEv.exit.thread: ; preds = %79, %_ZNK6casadi11GenericType16is_string_vectorEv.exit
+  %86 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %86, label %_ZNK6casadi11GenericType9is_stringEv.exit.thread, label %_ZNK6casadi11GenericType9is_stringEv.exit
 
 _ZNK6casadi11GenericType9is_stringEv.exit:        ; preds = %_ZNK6casadi11GenericType16is_string_vectorEv.exit.thread
-  %92 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %93 = load ptr, ptr %92, align 8, !tbaa !3
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call noundef i32 %95(ptr noundef nonnull align 8 dereferenceable(24) %92)
-  %97 = icmp eq i32 %96, 4
-  br i1 %97, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType9is_stringEv.exit.thread
+  %87 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %88 = load ptr, ptr %87, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %90 = load ptr, ptr %89, align 8
+  %91 = tail call noundef i32 %90(ptr noundef nonnull align 8 dereferenceable(24) %87)
+  %92 = icmp eq i32 %91, 4
+  br i1 %92, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType9is_stringEv.exit.thread
 
 _ZNK6casadi11GenericType9is_stringEv.exit.thread: ; preds = %_ZNK6casadi11GenericType16is_string_vectorEv.exit.thread, %_ZNK6casadi11GenericType9is_stringEv.exit
-  %98 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType16is_double_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %98, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %99
+  %93 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType16is_double_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %93, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %94
 
-99:                                               ; preds = %_ZNK6casadi11GenericType9is_stringEv.exit.thread
-  %100 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType13is_int_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+94:                                               ; preds = %_ZNK6casadi11GenericType9is_stringEv.exit.thread
+  %95 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType13is_int_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %_ZNK6casadi11GenericType16is_double_vectorEv.exit
 
-101:                                              ; preds = %2
-  %102 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %102, label %_ZNK6casadi11GenericType9is_vectorEv.exit.thread, label %_ZNK6casadi11GenericType9is_vectorEv.exit
+96:                                               ; preds = %2
+  br i1 %3, label %_ZNK6casadi11GenericType9is_vectorEv.exit.thread, label %_ZNK6casadi11GenericType9is_vectorEv.exit
 
-_ZNK6casadi11GenericType9is_vectorEv.exit:        ; preds = %101
-  %103 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %104 = load ptr, ptr %103, align 8, !tbaa !3
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef i32 %106(ptr noundef nonnull align 8 dereferenceable(24) %103)
-  %108 = icmp eq i32 %107, 19
-  br i1 %108, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType9is_vectorEv.exit.thread
+_ZNK6casadi11GenericType9is_vectorEv.exit:        ; preds = %96
+  %97 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %98 = load ptr, ptr %97, align 8, !tbaa !3
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
+  %100 = load ptr, ptr %99, align 8
+  %101 = tail call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(24) %97)
+  %102 = icmp eq i32 %101, 19
+  br i1 %102, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType9is_vectorEv.exit.thread
 
-_ZNK6casadi11GenericType9is_vectorEv.exit.thread: ; preds = %101, %_ZNK6casadi11GenericType9is_vectorEv.exit
-  %109 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %109, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit19.thread, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit19
+_ZNK6casadi11GenericType9is_vectorEv.exit.thread: ; preds = %96, %_ZNK6casadi11GenericType9is_vectorEv.exit
+  %103 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %103, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit19.thread, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit19
 
 _ZNK6casadi11GenericType16is_double_vectorEv.exit19: ; preds = %_ZNK6casadi11GenericType9is_vectorEv.exit.thread
-  %110 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %111 = load ptr, ptr %110, align 8, !tbaa !3
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  %113 = load ptr, ptr %112, align 8
-  %114 = tail call noundef i32 %113(ptr noundef nonnull align 8 dereferenceable(24) %110)
-  %115 = icmp eq i32 %114, 8
-  br i1 %115, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit19.thread
+  %104 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %105 = load ptr, ptr %104, align 8, !tbaa !3
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 32
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call noundef i32 %107(ptr noundef nonnull align 8 dereferenceable(24) %104)
+  %109 = icmp eq i32 %108, 8
+  br i1 %109, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit19.thread
 
 _ZNK6casadi11GenericType16is_double_vectorEv.exit19.thread: ; preds = %_ZNK6casadi11GenericType9is_vectorEv.exit.thread, %_ZNK6casadi11GenericType16is_double_vectorEv.exit19
-  %116 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType13is_int_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %110 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType13is_int_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %110, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %111
+
+111:                                              ; preds = %_ZNK6casadi11GenericType16is_double_vectorEv.exit19.thread
+  %112 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType16is_string_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %112, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %113
+
+113:                                              ; preds = %111
+  %114 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType18is_function_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %114, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %115
+
+115:                                              ; preds = %113
+  %116 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType20is_int_vector_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %116, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %117
 
-117:                                              ; preds = %_ZNK6casadi11GenericType16is_double_vectorEv.exit19.thread
-  %118 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType16is_string_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+117:                                              ; preds = %115
+  %118 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType23is_double_vector_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %118, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %119
 
 119:                                              ; preds = %117
-  %120 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType18is_function_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %120 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType23is_string_vector_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %120, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %121
 
 121:                                              ; preds = %119
-  %122 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType20is_int_vector_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %122 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType14is_bool_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br i1 %122, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %123
 
 123:                                              ; preds = %121
-  %124 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType23is_double_vector_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %124, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %125
-
-125:                                              ; preds = %123
-  %126 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType23is_string_vector_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %126, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %127
-
-127:                                              ; preds = %125
-  %128 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType14is_bool_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %128, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %129
-
-129:                                              ; preds = %127
-  %130 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType14is_dict_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %124 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType14is_dict_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %_ZNK6casadi11GenericType16is_double_vectorEv.exit
 
-131:                                              ; preds = %2
-  %132 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %132, label %_ZNK6casadi11GenericType16is_vector_vectorEv.exit.thread, label %_ZNK6casadi11GenericType16is_vector_vectorEv.exit
+125:                                              ; preds = %2
+  br i1 %3, label %_ZNK6casadi11GenericType16is_vector_vectorEv.exit.thread, label %_ZNK6casadi11GenericType16is_vector_vectorEv.exit
 
-_ZNK6casadi11GenericType16is_vector_vectorEv.exit: ; preds = %131
+_ZNK6casadi11GenericType16is_vector_vectorEv.exit: ; preds = %125
+  %126 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %127 = load ptr, ptr %126, align 8, !tbaa !3
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
+  %129 = load ptr, ptr %128, align 8
+  %130 = tail call noundef i32 %129(ptr noundef nonnull align 8 dereferenceable(24) %126)
+  %131 = icmp eq i32 %130, 18
+  br i1 %131, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType16is_vector_vectorEv.exit.thread
+
+_ZNK6casadi11GenericType16is_vector_vectorEv.exit.thread: ; preds = %125, %_ZNK6casadi11GenericType16is_vector_vectorEv.exit
+  %132 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %132, label %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22.thread, label %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22
+
+_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22: ; preds = %_ZNK6casadi11GenericType16is_vector_vectorEv.exit.thread
   %133 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %134 = load ptr, ptr %133, align 8, !tbaa !3
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %136 = load ptr, ptr %135, align 8
   %137 = tail call noundef i32 %136(ptr noundef nonnull align 8 dereferenceable(24) %133)
-  %138 = icmp eq i32 %137, 18
-  br i1 %138, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType16is_vector_vectorEv.exit.thread
-
-_ZNK6casadi11GenericType16is_vector_vectorEv.exit.thread: ; preds = %131, %_ZNK6casadi11GenericType16is_vector_vectorEv.exit
-  %139 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %139, label %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22.thread, label %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22
-
-_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22: ; preds = %_ZNK6casadi11GenericType16is_vector_vectorEv.exit.thread
-  %140 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %141 = load ptr, ptr %140, align 8, !tbaa !3
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
-  %143 = load ptr, ptr %142, align 8
-  %144 = tail call noundef i32 %143(ptr noundef nonnull align 8 dereferenceable(24) %140)
-  %145 = icmp eq i32 %144, 6
-  br i1 %145, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22.thread
+  %138 = icmp eq i32 %137, 6
+  br i1 %138, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22.thread
 
 _ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22.thread: ; preds = %_ZNK6casadi11GenericType16is_vector_vectorEv.exit.thread, %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22
-  %146 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType23is_double_vector_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %146, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %147
+  %139 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType23is_double_vector_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %139, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %140
 
-147:                                              ; preds = %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22.thread
-  %148 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType23is_string_vector_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+140:                                              ; preds = %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22.thread
+  %141 = tail call noundef zeroext i1 @_ZNK6casadi11GenericType23is_string_vector_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %_ZNK6casadi11GenericType16is_double_vectorEv.exit
 
-149:                                              ; preds = %2
-  %150 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %150, label %_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread, label %_ZNK6casadi11GenericType15is_void_pointerEv.exit
+142:                                              ; preds = %2
+  br i1 %3, label %_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread, label %_ZNK6casadi11GenericType15is_void_pointerEv.exit
 
-_ZNK6casadi11GenericType15is_void_pointerEv.exit: ; preds = %149
+_ZNK6casadi11GenericType15is_void_pointerEv.exit: ; preds = %142
+  %143 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  %144 = load ptr, ptr %143, align 8, !tbaa !3
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
+  %146 = load ptr, ptr %145, align 8
+  %147 = tail call noundef i32 %146(ptr noundef nonnull align 8 dereferenceable(24) %143)
+  %148 = icmp eq i32 %147, 14
+  br i1 %148, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread
+
+_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread: ; preds = %142, %_ZNK6casadi11GenericType15is_void_pointerEv.exit
+  %149 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %149, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %150
+
+150:                                              ; preds = %_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread
   %151 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %152 = load ptr, ptr %151, align 8, !tbaa !3
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %154 = load ptr, ptr %153, align 8
   %155 = tail call noundef i32 %154(ptr noundef nonnull align 8 dereferenceable(24) %151)
-  %156 = icmp eq i32 %155, 14
-  br i1 %156, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread
+  %156 = icmp eq i32 %155, 2
+  br label %_ZNK6casadi11GenericType16is_double_vectorEv.exit
 
-_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread: ; preds = %149, %_ZNK6casadi11GenericType15is_void_pointerEv.exit
-  %157 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %157, label %_ZNK6casadi11GenericType16is_double_vectorEv.exit, label %158
+157:                                              ; preds = %2
+  br i1 %3, label %_ZNK6casadi11GenericType7getTypeEv.exit, label %158
 
-158:                                              ; preds = %_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread
+158:                                              ; preds = %157
   %159 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %160 = load ptr, ptr %159, align 8, !tbaa !3
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 32
   %162 = load ptr, ptr %161, align 8
   %163 = tail call noundef i32 %162(ptr noundef nonnull align 8 dereferenceable(24) %159)
-  %164 = icmp eq i32 %163, 2
-  br label %_ZNK6casadi11GenericType16is_double_vectorEv.exit
-
-165:                                              ; preds = %2
-  %166 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %166, label %_ZNK6casadi11GenericType7getTypeEv.exit, label %167
-
-167:                                              ; preds = %165
-  %168 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %169 = load ptr, ptr %168, align 8, !tbaa !3
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 32
-  %171 = load ptr, ptr %170, align 8
-  %172 = tail call noundef i32 %171(ptr noundef nonnull align 8 dereferenceable(24) %168)
   br label %_ZNK6casadi11GenericType7getTypeEv.exit
 
-_ZNK6casadi11GenericType7getTypeEv.exit:          ; preds = %165, %167
-  %.0.i = phi i32 [ %172, %167 ], [ 0, %165 ]
-  %173 = icmp eq i32 %.0.i, %1
+_ZNK6casadi11GenericType7getTypeEv.exit:          ; preds = %157, %158
+  %.0.i = phi i32 [ %163, %158 ], [ 0, %157 ]
+  %164 = icmp eq i32 %.0.i, %1
   br label %_ZNK6casadi11GenericType16is_double_vectorEv.exit
 
-_ZNK6casadi11GenericType16is_double_vectorEv.exit: ; preds = %158, %_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread, %76, %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread, %60, %_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread, %44, %_ZNK6casadi11GenericType6is_intEv.exit7.thread, %28, %_ZNK6casadi11GenericType13is_int_vectorEv.exit.thread, %_ZNK6casadi11GenericType15is_void_pointerEv.exit, %_ZNK6casadi11GenericType16is_vector_vectorEv.exit, %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22, %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22.thread, %147, %_ZNK6casadi11GenericType9is_vectorEv.exit, %_ZNK6casadi11GenericType16is_double_vectorEv.exit19, %_ZNK6casadi11GenericType16is_double_vectorEv.exit19.thread, %117, %119, %121, %123, %125, %127, %129, %_ZNK6casadi11GenericType16is_string_vectorEv.exit, %_ZNK6casadi11GenericType9is_stringEv.exit, %_ZNK6casadi11GenericType9is_stringEv.exit.thread, %99, %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit, %_ZNK6casadi11GenericType16is_double_vectorEv.exit10, %_ZNK6casadi11GenericType6is_intEv.exit7, %_ZNK6casadi11GenericType13is_int_vectorEv.exit, %_ZNK6casadi11GenericType7is_boolEv.exit, %_ZNK6casadi11GenericType6is_intEv.exit, %_ZNK6casadi11GenericType6is_intEv.exit.thread, %_ZNK6casadi11GenericType7getTypeEv.exit
-  %.0 = phi i1 [ %173, %_ZNK6casadi11GenericType7getTypeEv.exit ], [ true, %_ZNK6casadi11GenericType6is_intEv.exit ], [ true, %_ZNK6casadi11GenericType7is_boolEv.exit ], [ %18, %_ZNK6casadi11GenericType6is_intEv.exit.thread ], [ true, %_ZNK6casadi11GenericType13is_int_vectorEv.exit ], [ true, %_ZNK6casadi11GenericType6is_intEv.exit7 ], [ true, %_ZNK6casadi11GenericType16is_double_vectorEv.exit10 ], [ true, %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit ], [ true, %_ZNK6casadi11GenericType9is_stringEv.exit.thread ], [ true, %_ZNK6casadi11GenericType9is_stringEv.exit ], [ true, %_ZNK6casadi11GenericType16is_string_vectorEv.exit ], [ %100, %99 ], [ true, %127 ], [ true, %125 ], [ true, %123 ], [ true, %121 ], [ true, %119 ], [ true, %117 ], [ true, %_ZNK6casadi11GenericType16is_double_vectorEv.exit19.thread ], [ true, %_ZNK6casadi11GenericType16is_double_vectorEv.exit19 ], [ true, %_ZNK6casadi11GenericType9is_vectorEv.exit ], [ %130, %129 ], [ true, %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22.thread ], [ true, %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22 ], [ true, %_ZNK6casadi11GenericType16is_vector_vectorEv.exit ], [ %148, %147 ], [ true, %_ZNK6casadi11GenericType15is_void_pointerEv.exit ], [ %34, %28 ], [ false, %_ZNK6casadi11GenericType13is_int_vectorEv.exit.thread ], [ %50, %44 ], [ false, %_ZNK6casadi11GenericType6is_intEv.exit7.thread ], [ %66, %60 ], [ false, %_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread ], [ %82, %76 ], [ false, %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread ], [ %164, %158 ], [ false, %_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread ]
+_ZNK6casadi11GenericType16is_double_vectorEv.exit: ; preds = %150, %_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread, %72, %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread, %57, %_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread, %42, %_ZNK6casadi11GenericType6is_intEv.exit7.thread, %27, %_ZNK6casadi11GenericType13is_int_vectorEv.exit.thread, %_ZNK6casadi11GenericType15is_void_pointerEv.exit, %_ZNK6casadi11GenericType16is_vector_vectorEv.exit, %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22, %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22.thread, %140, %_ZNK6casadi11GenericType9is_vectorEv.exit, %_ZNK6casadi11GenericType16is_double_vectorEv.exit19, %_ZNK6casadi11GenericType16is_double_vectorEv.exit19.thread, %111, %113, %115, %117, %119, %121, %123, %_ZNK6casadi11GenericType16is_string_vectorEv.exit, %_ZNK6casadi11GenericType9is_stringEv.exit, %_ZNK6casadi11GenericType9is_stringEv.exit.thread, %94, %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit, %_ZNK6casadi11GenericType16is_double_vectorEv.exit10, %_ZNK6casadi11GenericType6is_intEv.exit7, %_ZNK6casadi11GenericType13is_int_vectorEv.exit, %_ZNK6casadi11GenericType7is_boolEv.exit, %_ZNK6casadi11GenericType6is_intEv.exit, %_ZNK6casadi11GenericType6is_intEv.exit.thread, %_ZNK6casadi11GenericType7getTypeEv.exit
+  %.0 = phi i1 [ %164, %_ZNK6casadi11GenericType7getTypeEv.exit ], [ true, %_ZNK6casadi11GenericType6is_intEv.exit ], [ true, %_ZNK6casadi11GenericType7is_boolEv.exit ], [ %18, %_ZNK6casadi11GenericType6is_intEv.exit.thread ], [ true, %_ZNK6casadi11GenericType13is_int_vectorEv.exit ], [ true, %_ZNK6casadi11GenericType6is_intEv.exit7 ], [ true, %_ZNK6casadi11GenericType16is_double_vectorEv.exit10 ], [ true, %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit ], [ true, %_ZNK6casadi11GenericType9is_stringEv.exit.thread ], [ true, %_ZNK6casadi11GenericType9is_stringEv.exit ], [ true, %_ZNK6casadi11GenericType16is_string_vectorEv.exit ], [ %95, %94 ], [ true, %121 ], [ true, %119 ], [ true, %117 ], [ true, %115 ], [ true, %113 ], [ true, %111 ], [ true, %_ZNK6casadi11GenericType16is_double_vectorEv.exit19.thread ], [ true, %_ZNK6casadi11GenericType16is_double_vectorEv.exit19 ], [ true, %_ZNK6casadi11GenericType9is_vectorEv.exit ], [ %124, %123 ], [ true, %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22.thread ], [ true, %_ZNK6casadi11GenericType20is_int_vector_vectorEv.exit22 ], [ true, %_ZNK6casadi11GenericType16is_vector_vectorEv.exit ], [ %141, %140 ], [ true, %_ZNK6casadi11GenericType15is_void_pointerEv.exit ], [ %33, %27 ], [ false, %_ZNK6casadi11GenericType13is_int_vectorEv.exit.thread ], [ %48, %42 ], [ false, %_ZNK6casadi11GenericType6is_intEv.exit7.thread ], [ %63, %57 ], [ false, %_ZNK6casadi11GenericType16is_double_vectorEv.exit10.thread ], [ %78, %72 ], [ false, %_ZNK6casadi11GenericType23is_double_vector_vectorEv.exit.thread ], [ %156, %150 ], [ false, %_ZNK6casadi11GenericType15is_void_pointerEv.exit.thread ]
   ret i1 %.0
 }
 

@@ -34760,12 +34760,13 @@ _ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbR
 
 .loopexit:                                        ; preds = %50, %42, %1, %10, %28, %34, %32, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i
   %54 = call noundef zeroext i1 @_ZN5boost6detail27lexical_ostream_limited_srcIcSt11char_traitsIcEE20shr_using_base_classIdEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %54, label %55, label %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3
+  br i1 %54, label %55, label %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit
 
 55:                                               ; preds = %.loopexit
   %56 = load ptr, ptr %8, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 -1
   %58 = load i8, ptr %57, align 1
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i8 %58, label %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread5 [
     i8 101, label %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3
     i8 69, label %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3
@@ -34774,12 +34775,14 @@ _ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbR
   ]
 
 _ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread5: ; preds = %55
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load double, ptr %4, align 8
   br label %64
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3: ; preds = %.loopexit, %55, %55, %55, %55
+_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit: ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3
+
+_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread3: ; preds = %55, %55, %55, %55, %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5boost16bad_lexical_castE, i64 16), ptr %2, align 8
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8

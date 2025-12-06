@@ -3685,53 +3685,53 @@ dt_draw_curve_calc_values.exit460:                ; preds = %427, %dt_draw_curve
   call void @pango_cairo_show_layout(ptr noundef %63, ptr noundef %622) #21
   call void @cairo_restore(ptr noundef %63) #21
   %643 = load i32, ptr %17, align 4, !tbaa !183
-  %644 = icmp ult i32 %643, 5
-  br i1 %644, label %switch.lookup, label %647
+  %644 = fmul reassoc nsz arcp contract afn double %106, 8.000000e-02
+  %645 = fmul reassoc nsz arcp contract afn double %106, 0x3FEF5C28F5C28F5C
+  %646 = icmp ult i32 %643, 5
+  br i1 %646, label %switch.lookup, label %649
 
 switch.lookup:                                    ; preds = %615
-  %645 = zext nneg i32 %643 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.area_draw, i64 %645
+  %647 = zext nneg i32 %643 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.area_draw, i64 %647
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %646 = zext nneg i32 %643 to i64
-  %switch.gep550 = getelementptr inbounds nuw ptr, ptr @switch.table.area_draw.5, i64 %646
-  %switch.load551 = load ptr, ptr %switch.gep550, align 8
-  br label %647
+  %648 = zext nneg i32 %643 to i64
+  %switch.gep548 = getelementptr inbounds nuw ptr, ptr @switch.table.area_draw.5, i64 %648
+  %switch.load549 = load ptr, ptr %switch.gep548, align 8
+  br label %649
 
-647:                                              ; preds = %615, %switch.lookup
+649:                                              ; preds = %615, %switch.lookup
   %.str.82.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.82, %615 ]
-  %.str.83.sink = phi ptr [ %switch.load551, %switch.lookup ], [ @.str.83, %615 ]
-  %648 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.82.sink, i32 noundef 5) #21
-  call void @pango_layout_set_text(ptr noundef %622, ptr noundef %648, i32 noundef -1) #21
+  %.str.83.sink = phi ptr [ %switch.load549, %switch.lookup ], [ @.str.83, %615 ]
+  %650 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.82.sink, i32 noundef 5) #21
+  call void @pango_layout_set_text(ptr noundef %622, ptr noundef %650, i32 noundef -1) #21
   call void @pango_layout_get_pixel_extents(ptr noundef %622, ptr noundef nonnull %8, ptr noundef null) #21
-  %649 = load i32, ptr %630, align 4, !tbaa !214
-  %650 = sub nsw i32 %100, %649
-  %651 = sitofp i32 %650 to double
-  %652 = fmul reassoc nsz arcp contract afn double %651, 5.000000e-01
-  %653 = fmul reassoc nsz arcp contract afn double %106, 8.000000e-02
-  %654 = load i32, ptr %636, align 4, !tbaa !215
-  %655 = sitofp i32 %654 to double
-  %656 = fsub reassoc nsz arcp contract afn double %653, %655
-  call void @cairo_move_to(ptr noundef %63, double noundef %652, double noundef %656) #21
+  %651 = load i32, ptr %630, align 4, !tbaa !214
+  %652 = sub nsw i32 %100, %651
+  %653 = sitofp i32 %652 to double
+  %654 = fmul reassoc nsz arcp contract afn double %653, 5.000000e-01
+  %655 = load i32, ptr %636, align 4, !tbaa !215
+  %656 = sitofp i32 %655 to double
+  %657 = fsub reassoc nsz arcp contract afn double %644, %656
+  call void @cairo_move_to(ptr noundef %63, double noundef %654, double noundef %657) #21
   call void @pango_cairo_show_layout(ptr noundef %63, ptr noundef %622) #21
-  %657 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.83.sink, i32 noundef 5) #21
-  call void @pango_layout_set_text(ptr noundef %622, ptr noundef %657, i32 noundef -1) #21
+  %658 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.83.sink, i32 noundef 5) #21
+  call void @pango_layout_set_text(ptr noundef %622, ptr noundef %658, i32 noundef -1) #21
   call void @pango_layout_get_pixel_extents(ptr noundef %622, ptr noundef nonnull %8, ptr noundef null) #21
-  %658 = load i32, ptr %630, align 4, !tbaa !214
-  %659 = sub nsw i32 %100, %658
-  %660 = sitofp i32 %659 to double
-  %661 = fmul reassoc nsz arcp contract afn double %660, 5.000000e-01
-  %662 = fmul reassoc nsz arcp contract afn double %106, 0x3FEF5C28F5C28F5C
+  %659 = load i32, ptr %630, align 4, !tbaa !214
+  %660 = sub nsw i32 %100, %659
+  %661 = sitofp i32 %660 to double
+  %662 = fmul reassoc nsz arcp contract afn double %661, 5.000000e-01
   %663 = load i32, ptr %636, align 4, !tbaa !215
   %664 = sitofp i32 %663 to double
-  %665 = fsub reassoc nsz arcp contract afn double %662, %664
-  call void @cairo_move_to(ptr noundef %63, double noundef %661, double noundef %665) #21
+  %665 = fsub reassoc nsz arcp contract afn double %645, %664
+  call void @cairo_move_to(ptr noundef %63, double noundef %662, double noundef %665) #21
   call void @pango_cairo_show_layout(ptr noundef %63, ptr noundef %622) #21
   call void @pango_font_description_free(ptr noundef %619) #21
   call void @g_object_unref(ptr noundef %622) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %666
 
-666:                                              ; preds = %647, %612
+666:                                              ; preds = %649, %612
   call void @cairo_destroy(ptr noundef %63) #21
   call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %59, double noundef 0.000000e+00, double noundef 0.000000e+00) #21
   call void @cairo_paint(ptr noundef %1) #21

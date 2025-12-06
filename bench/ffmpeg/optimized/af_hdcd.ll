@@ -1021,134 +1021,129 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !74
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 300
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !68
   switch i32 %7, label %._crit_edge [
     i32 1, label %8
     i32 6, label %8
   ]
 
-._crit_edge:                                      ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 300
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !68
-  br label %12
-
 8:                                                ; preds = %1, %1
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 300
-  %10 = load i32, ptr %9, align 4, !tbaa !68
-  %.not = icmp eq i32 %10, 16
-  br i1 %.not, label %12, label %.thread
+  %.not = icmp eq i32 %.pre, 16
+  br i1 %.not, label %._crit_edge, label %.thread
 
 .thread:                                          ; preds = %8
-  %11 = tail call ptr @av_get_sample_fmt_name(i32 noundef %7) #10
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 24, ptr noundef nonnull @.str.13, i32 noundef %10, ptr noundef %11) #10
-  store i32 16, ptr %9, align 4, !tbaa !68
-  br label %18
+  %9 = tail call ptr @av_get_sample_fmt_name(i32 noundef %7) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 24, ptr noundef nonnull @.str.13, i32 noundef %.pre, ptr noundef %9) #10
+  store i32 16, ptr %.phi.trans.insert, align 4, !tbaa !68
+  br label %15
 
-12:                                               ; preds = %8, %._crit_edge
-  %13 = phi i32 [ %.pre, %._crit_edge ], [ 16, %8 ]
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 300
-  %15 = tail call ptr @av_get_sample_fmt_name(i32 noundef %7) #10
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 40, ptr noundef nonnull @.str.14, i32 noundef %13, ptr noundef %15) #10
-  %.pre49 = load i32, ptr %14, align 4, !tbaa !68
-  %16 = icmp eq i32 %.pre49, 16
-  br i1 %16, label %18, label %17
+._crit_edge:                                      ; preds = %1, %8
+  %10 = phi i32 [ 16, %8 ], [ %.pre, %1 ]
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 300
+  %12 = tail call ptr @av_get_sample_fmt_name(i32 noundef %7) #10
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 40, ptr noundef nonnull @.str.14, i32 noundef %10, ptr noundef %12) #10
+  %.pre49 = load i32, ptr %11, align 4, !tbaa !68
+  %13 = icmp eq i32 %.pre49, 16
+  br i1 %13, label %15, label %14
 
-17:                                               ; preds = %12
+14:                                               ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 24, ptr noundef nonnull @.str.15) #10
-  br label %18
+  br label %15
 
-18:                                               ; preds = %.thread, %17, %12
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load i32, ptr %19, align 8, !tbaa !107
-  %.not41 = icmp eq i32 %20, 44100
-  br i1 %.not41, label %22, label %21
+15:                                               ; preds = %.thread, %14, %._crit_edge
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = load i32, ptr %16, align 8, !tbaa !107
+  %.not41 = icmp eq i32 %17, 44100
+  br i1 %.not41, label %19, label %18
 
-21:                                               ; preds = %18
+18:                                               ; preds = %15
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 24, ptr noundef nonnull @.str.16) #10
-  br label %22
+  br label %19
 
-22:                                               ; preds = %21, %18
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 328
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 356
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %23, i8 0, i64 28, i1 false)
-  store i32 -1, ptr %24, align 4, !tbaa !91
-  %25 = getelementptr inbounds nuw i8, ptr %5, i64 360
-  store i32 0, ptr %25, align 4, !tbaa !90
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 292
-  %.pre50 = load i32, ptr %27, align 4, !tbaa !108
-  %28 = zext i32 %.pre50 to i64
-  br label %29
+19:                                               ; preds = %18, %15
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 328
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 356
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %20, i8 0, i64 28, i1 false)
+  store i32 -1, ptr %21, align 4, !tbaa !91
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 360
+  store i32 0, ptr %22, align 4, !tbaa !90
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 292
+  %.pre50 = load i32, ptr %24, align 4, !tbaa !108
+  %25 = zext i32 %.pre50 to i64
+  br label %26
 
-29:                                               ; preds = %22, %29
-  %30 = phi i1 [ true, %22 ], [ false, %29 ]
-  %indvars.iv = phi i64 [ 0, %22 ], [ 1, %29 ]
-  %31 = getelementptr inbounds nuw %struct.hdcd_state, ptr %26, i64 %indvars.iv
-  %32 = load i32, ptr %19, align 8, !tbaa !107
-  %33 = zext i32 %32 to i64
-  %34 = mul nuw i64 %28, %33
-  %35 = udiv i64 %34, 1000
-  store i64 0, ptr %31, align 8, !tbaa !109
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i8 32, ptr %36, align 8, !tbaa !110
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 9
-  store i8 0, ptr %37, align 1, !tbaa !111
-  %38 = getelementptr inbounds nuw i8, ptr %31, i64 10
-  store i8 0, ptr %38, align 2, !tbaa !101
-  %39 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  store i32 0, ptr %39, align 4, !tbaa !92
-  %40 = trunc i64 %35 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i32 %40, ptr %41, align 8, !tbaa !112
-  %42 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  store i32 0, ptr %42, align 4, !tbaa !98
-  %43 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %44 = getelementptr inbounds nuw i8, ptr %31, i64 124
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %43, i8 0, i64 100, i1 false)
-  store i32 -1, ptr %44, align 4, !tbaa !39
-  %45 = getelementptr inbounds nuw i8, ptr %31, i64 128
-  store i32 %32, ptr %45, align 8, !tbaa !94
-  %46 = getelementptr inbounds nuw i8, ptr %31, i64 132
-  store i32 0, ptr %46, align 4, !tbaa !95
-  br i1 %30, label %29, label %47, !llvm.loop !113
+26:                                               ; preds = %19, %26
+  %27 = phi i1 [ true, %19 ], [ false, %26 ]
+  %indvars.iv = phi i64 [ 0, %19 ], [ 1, %26 ]
+  %28 = getelementptr inbounds nuw %struct.hdcd_state, ptr %23, i64 %indvars.iv
+  %29 = load i32, ptr %16, align 8, !tbaa !107
+  %30 = zext i32 %29 to i64
+  %31 = mul nuw i64 %25, %30
+  %32 = udiv i64 %31, 1000
+  store i64 0, ptr %28, align 8, !tbaa !109
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i8 32, ptr %33, align 8, !tbaa !110
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 9
+  store i8 0, ptr %34, align 1, !tbaa !111
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 10
+  store i8 0, ptr %35, align 2, !tbaa !101
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 20
+  store i32 0, ptr %36, align 4, !tbaa !92
+  %37 = trunc i64 %32 to i32
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store i32 %37, ptr %38, align 8, !tbaa !112
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  store i32 0, ptr %39, align 4, !tbaa !98
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 124
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %40, i8 0, i64 100, i1 false)
+  store i32 -1, ptr %41, align 4, !tbaa !39
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  store i32 %29, ptr %42, align 8, !tbaa !94
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 132
+  store i32 0, ptr %43, align 4, !tbaa !95
+  br i1 %27, label %26, label %44, !llvm.loop !113
 
-47:                                               ; preds = %29
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %49 = load i32, ptr %48, align 8, !tbaa !112
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 40, ptr noundef nonnull @.str.17, i32 noundef %.pre50, i32 noundef %49) #10
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %51 = load i32, ptr %50, align 4, !tbaa !114
-  %.not42 = icmp eq i32 %51, 2
+44:                                               ; preds = %26
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %46 = load i32, ptr %45, align 8, !tbaa !112
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 40, ptr noundef nonnull @.str.17, i32 noundef %.pre50, i32 noundef %46) #10
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %48 = load i32, ptr %47, align 4, !tbaa !114
+  %.not42 = icmp eq i32 %48, 2
   %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %.pre53 = load i32, ptr %.phi.trans.insert52, align 8, !tbaa !87
-  %52 = icmp eq i32 %.pre53, 0
-  br i1 %.not42, label %._crit_edge51, label %54
+  %49 = icmp eq i32 %.pre53, 0
+  br i1 %.not42, label %._crit_edge51, label %51
 
-._crit_edge51:                                    ; preds = %47
-  %53 = select i1 %52, ptr @.str.21, ptr @.str.20
-  br label %56
+._crit_edge51:                                    ; preds = %44
+  %50 = select i1 %49, ptr @.str.21, ptr @.str.20
+  br label %53
 
-54:                                               ; preds = %47
-  br i1 %52, label %56, label %55
+51:                                               ; preds = %44
+  br i1 %49, label %53, label %52
 
-55:                                               ; preds = %54
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 24, ptr noundef nonnull @.str.18, i32 noundef %51) #10
+52:                                               ; preds = %51
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 24, ptr noundef nonnull @.str.18, i32 noundef %48) #10
   store i32 0, ptr %.phi.trans.insert52, align 8, !tbaa !87
-  br label %56
+  br label %53
 
-56:                                               ; preds = %._crit_edge51, %55, %54
-  %.not44 = phi ptr [ %53, %._crit_edge51 ], [ @.str.21, %55 ], [ @.str.21, %54 ]
+53:                                               ; preds = %._crit_edge51, %52, %51
+  %.not44 = phi ptr [ %50, %._crit_edge51 ], [ @.str.21, %52 ], [ @.str.21, %51 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 40, ptr noundef nonnull @.str.19, ptr noundef nonnull %.not44) #10
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 284
-  %58 = load i32, ptr %57, align 4, !tbaa !102
-  %.not45 = icmp eq i32 %58, 0
-  %59 = select i1 %.not45, ptr @.str.24, ptr @.str.23
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 40, ptr noundef nonnull @.str.22, ptr noundef nonnull %59) #10
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 288
-  %61 = load i32, ptr %60, align 8, !tbaa !93
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds ptr, ptr @ana_mode_str, i64 %62
-  %64 = load ptr, ptr %63, align 8, !tbaa !46
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 40, ptr noundef nonnull @.str.25, i32 noundef %61, ptr noundef %64) #10
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 284
+  %55 = load i32, ptr %54, align 4, !tbaa !102
+  %.not45 = icmp eq i32 %55, 0
+  %56 = select i1 %.not45, ptr @.str.24, ptr @.str.23
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 40, ptr noundef nonnull @.str.22, ptr noundef nonnull %56) #10
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 288
+  %58 = load i32, ptr %57, align 8, !tbaa !93
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds ptr, ptr @ana_mode_str, i64 %59
+  %61 = load ptr, ptr %60, align 8, !tbaa !46
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %3, i32 noundef 40, ptr noundef nonnull @.str.25, i32 noundef %58, ptr noundef %61) #10
   ret i32 0
 }
 

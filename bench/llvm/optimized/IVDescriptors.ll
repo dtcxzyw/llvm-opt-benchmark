@@ -5274,6 +5274,8 @@ _ZNK4llvm20RecurrenceDescriptor9getOpcodeEv.exit: ; preds = %4, %15, %16, %17, %
   %54 = call { i64, i8 } @_ZN4llvm18matchSelectPatternEPNS_5ValueERS1_S2_PNS_11Instruction7CastOpsEj(ptr noundef %.134, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef null, i32 noundef 0) #15
   %.fca.0.extract.i = extractvalue { i64, i8 } %54, 0
   %.sroa.01.0.extract.trunc.i = trunc i64 %.fca.0.extract.i to i32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   switch i32 %.sroa.01.0.extract.trunc.i, label %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i.thread [
     i32 7, label %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i
     i32 0, label %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i
@@ -5281,15 +5283,8 @@ _ZNK4llvm20RecurrenceDescriptor9getOpcodeEv.exit: ; preds = %4, %15, %16, %17, %
   ]
 
 _ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i.thread: ; preds = %53
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load ptr, ptr %25, align 8, !tbaa !154
   br label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit.thread"
-
-_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i: ; preds = %53, %53, %53
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %77
 
 55:                                               ; preds = %52
   %56 = load i8, ptr %.134, align 8, !tbaa !21
@@ -5326,261 +5321,253 @@ _ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.i: ; 
   %72 = getelementptr inbounds nuw i8, ptr %60, i64 36
   %73 = load i32, ptr %72, align 4, !tbaa !89
   %74 = icmp eq i32 %73, 174
-  br i1 %74, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit.thread", label %77
+  br i1 %74, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit.thread", label %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i
 
 "_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit": ; preds = %55, %58, %61, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm3isaINS_13IntrinsicInstEPNS_11InstructionEEEbRKT0_.exit.i.i
   %.old = zext i8 %56 to i32
   %.old77 = add nsw i32 %.old, -29
   %.old78 = icmp eq i32 %.old77, %.0.i.i
-  br i1 %.old78, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit.thread", label %77
+  br i1 %.old78, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit.thread", label %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i
 
 "_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit.thread": ; preds = %_ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.i, %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i.thread, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit"
   %75 = phi ptr [ %26, %_ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.i ], [ %.pre, %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i.thread ], [ %26, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit" ]
   %76 = call noundef zeroext i1 @_ZNK4llvm5Value8hasNUsesEj(ptr noundef nonnull align 8 dereferenceable(24) %75, i32 noundef 2) #15
-  br i1 %76, label %81, label %77
+  br i1 %76, label %80, label %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i
 
-77:                                               ; preds = %_ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.i, %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit.thread", %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit"
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %78, ptr %0, align 8, !tbaa !64
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %79, align 8, !tbaa !66
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 4, ptr %80, align 4, !tbaa !67
+_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i: ; preds = %53, %53, %53, %_ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.i, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit.thread", %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit"
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %77, ptr %0, align 8, !tbaa !64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %78, align 8, !tbaa !66
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 4, ptr %79, align 4, !tbaa !67
   br label %.critedge
 
-81:                                               ; preds = %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit.thread"
-  %82 = add nuw nsw i32 %.1, %spec.store.select
-  %83 = call noundef zeroext i1 @_ZNK4llvm5Value8hasNUsesEj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %82) #15
-  br i1 %83, label %88, label %84
+80:                                               ; preds = %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit.thread"
+  %81 = add nuw nsw i32 %.1, %spec.store.select
+  %82 = call noundef zeroext i1 @_ZNK4llvm5Value8hasNUsesEj(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %81) #15
+  br i1 %82, label %87, label %83
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %85, ptr %0, align 8, !tbaa !64
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %86, align 8, !tbaa !66
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 4, ptr %87, align 4, !tbaa !67
+83:                                               ; preds = %80
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %84, ptr %0, align 8, !tbaa !64
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %85, align 8, !tbaa !66
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 4, ptr %86, align 4, !tbaa !67
   br label %.critedge
 
-88:                                               ; preds = %81
-  %89 = getelementptr i8, ptr %2, i64 16
-  %.val45 = load ptr, ptr %89, align 8, !tbaa !75
+87:                                               ; preds = %80
+  %88 = getelementptr i8, ptr %2, i64 16
+  %.val45 = load ptr, ptr %88, align 8, !tbaa !75
   %.not16.i = icmp eq ptr %.val45, null
   br i1 %.not16.i, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit", label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %88
+.lr.ph.i.preheader:                               ; preds = %87
   br i1 %switch.i49, label %.lr.ph.i.us, label %.lr.ph.i
 
-.lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader, %94
-  %.sroa.04.017.i.us = phi ptr [ %96, %94 ], [ %.val45, %.lr.ph.i.preheader ]
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i.us, i64 24
-  %91 = load ptr, ptr %90, align 8, !tbaa !79
-  %92 = load i8, ptr %91, align 8, !tbaa !21
-  %93 = icmp eq i8 %92, 84
-  br i1 %93, label %94, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit"
+.lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader, %93
+  %.sroa.04.017.i.us = phi ptr [ %95, %93 ], [ %.val45, %.lr.ph.i.preheader ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i.us, i64 24
+  %90 = load ptr, ptr %89, align 8, !tbaa !79
+  %91 = load i8, ptr %90, align 8, !tbaa !21
+  %92 = icmp eq i8 %91, 84
+  br i1 %92, label %93, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit"
 
-94:                                               ; preds = %.lr.ph.i.us
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i.us, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !97
-  %.not.i.us = icmp eq ptr %96, null
+93:                                               ; preds = %.lr.ph.i.us
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i.us, i64 8
+  %95 = load ptr, ptr %94, align 8, !tbaa !97
+  %.not.i.us = icmp eq ptr %95, null
   br i1 %.not.i.us, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit", label %.lr.ph.i.us
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %100
-  %.sroa.04.017.i = phi ptr [ %102, %100 ], [ %.val45, %.lr.ph.i.preheader ]
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i, i64 24
-  %98 = load ptr, ptr %97, align 8, !tbaa !79
-  %99 = load i8, ptr %98, align 8, !tbaa !21
-  %cond = icmp eq i8 %99, 86
-  br i1 %cond, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit", label %100
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %99
+  %.sroa.04.017.i = phi ptr [ %101, %99 ], [ %.val45, %.lr.ph.i.preheader ]
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i, i64 24
+  %97 = load ptr, ptr %96, align 8, !tbaa !79
+  %98 = load i8, ptr %97, align 8, !tbaa !21
+  %cond = icmp eq i8 %98, 86
+  br i1 %cond, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit", label %99
 
-100:                                              ; preds = %.lr.ph.i
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !97
-  %.not.i = icmp eq ptr %102, null
+99:                                               ; preds = %.lr.ph.i
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i, i64 8
+  %101 = load ptr, ptr %100, align 8, !tbaa !97
+  %.not.i = icmp eq ptr %101, null
   br i1 %.not.i, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit", label %.lr.ph.i
 
-"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit": ; preds = %.lr.ph.i, %100, %94, %.lr.ph.i.us, %88
-  %103 = phi ptr [ null, %88 ], [ %91, %.lr.ph.i.us ], [ null, %94 ], [ null, %100 ], [ %98, %.lr.ph.i ]
-  %.not4092 = icmp eq ptr %103, %.134
+"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit": ; preds = %.lr.ph.i, %99, %93, %.lr.ph.i.us, %87
+  %102 = phi ptr [ null, %87 ], [ %90, %.lr.ph.i.us ], [ null, %93 ], [ null, %99 ], [ %97, %.lr.ph.i ]
+  %.not4092 = icmp eq ptr %102, %.134
   br i1 %.not4092, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit", %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69"
-  %.093 = phi ptr [ %158, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69" ], [ %103, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit" ]
+  %.093 = phi ptr [ %157, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69" ], [ %102, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit" ]
   %.not41 = icmp eq ptr %.093, null
-  br i1 %.not41, label %.loopexit, label %104
+  br i1 %.not41, label %.loopexit, label %103
 
-104:                                              ; preds = %.lr.ph
-  br i1 %or.cond, label %105, label %107
+103:                                              ; preds = %.lr.ph
+  br i1 %or.cond, label %104, label %106
 
-105:                                              ; preds = %104
+104:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %106 = call { i64, i8 } @_ZN4llvm18matchSelectPatternEPNS_5ValueERS1_S2_PNS_11Instruction7CastOpsEj(ptr noundef nonnull %.093, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null, i32 noundef 0) #15
-  %.fca.0.extract.i59 = extractvalue { i64, i8 } %106, 0
+  %105 = call { i64, i8 } @_ZN4llvm18matchSelectPatternEPNS_5ValueERS1_S2_PNS_11Instruction7CastOpsEj(ptr noundef nonnull %.093, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null, i32 noundef 0) #15
+  %.fca.0.extract.i59 = extractvalue { i64, i8 } %105, 0
   %.sroa.01.0.extract.trunc.i60 = trunc i64 %.fca.0.extract.i59 to i32
-  switch i32 %.sroa.01.0.extract.trunc.i60, label %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i61.thread [
-    i32 7, label %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i61
-    i32 0, label %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i61
-    i32 8, label %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i61
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  switch i32 %.sroa.01.0.extract.trunc.i60, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62.thread" [
+    i32 7, label %.loopexit
+    i32 0, label %.loopexit
+    i32 8, label %.loopexit
   ]
 
-_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i61.thread: ; preds = %105
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62.thread"
+106:                                              ; preds = %103
+  %107 = load i8, ptr %.093, align 8, !tbaa !21
+  %108 = icmp eq i8 %107, 85
+  br i1 %108, label %109, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62"
 
-_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i61: ; preds = %105, %105, %105
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.loopexit
+109:                                              ; preds = %106
+  %110 = getelementptr inbounds i8, ptr %.093, i64 -32
+  %111 = load ptr, ptr %110, align 8, !tbaa !16
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i54 = icmp eq ptr %111, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i54, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62", label %112
 
-107:                                              ; preds = %104
-  %108 = load i8, ptr %.093, align 8, !tbaa !21
-  %109 = icmp eq i8 %108, 85
-  br i1 %109, label %110, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62"
+112:                                              ; preds = %109
+  %113 = load i8, ptr %111, align 8, !tbaa !21
+  %114 = icmp eq i8 %113, 0
+  br i1 %114, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i55, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62"
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %.093, i64 -32
-  %112 = load ptr, ptr %111, align 8, !tbaa !16
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i54 = icmp eq ptr %112, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i54, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62", label %113
-
-113:                                              ; preds = %110
-  %114 = load i8, ptr %112, align 8, !tbaa !21
-  %115 = icmp eq i8 %114, 0
-  br i1 %115, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i55, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62"
-
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i55: ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %117 = load ptr, ptr %116, align 8, !tbaa !80
-  %118 = getelementptr inbounds nuw i8, ptr %.093, i64 80
-  %119 = load ptr, ptr %118, align 8, !tbaa !84
-  %120 = icmp eq ptr %117, %119
-  br i1 %120, label %_ZN4llvm3isaINS_13IntrinsicInstEPNS_11InstructionEEEbRKT0_.exit.i.i56, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62"
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i55: ; preds = %112
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 24
+  %116 = load ptr, ptr %115, align 8, !tbaa !80
+  %117 = getelementptr inbounds nuw i8, ptr %.093, i64 80
+  %118 = load ptr, ptr %117, align 8, !tbaa !84
+  %119 = icmp eq ptr %116, %118
+  br i1 %119, label %_ZN4llvm3isaINS_13IntrinsicInstEPNS_11InstructionEEEbRKT0_.exit.i.i56, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62"
 
 _ZN4llvm3isaINS_13IntrinsicInstEPNS_11InstructionEEEbRKT0_.exit.i.i56: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i55
-  %121 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %122 = load i32, ptr %121, align 8
-  %123 = and i32 %122, 8192
-  %.not.i.i57 = icmp eq i32 %123, 0
+  %120 = getelementptr inbounds nuw i8, ptr %111, i64 32
+  %121 = load i32, ptr %120, align 8
+  %122 = and i32 %121, 8192
+  %.not.i.i57 = icmp eq i32 %122, 0
   br i1 %.not.i.i57, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62", label %_ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.i58
 
 _ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.i58: ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPNS_11InstructionEEEbRKT0_.exit.i.i56
-  %124 = getelementptr inbounds nuw i8, ptr %112, i64 36
-  %125 = load i32, ptr %124, align 4, !tbaa !89
-  %126 = icmp eq i32 %125, 174
-  br i1 %126, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62.thread", label %.loopexit
+  %123 = getelementptr inbounds nuw i8, ptr %111, i64 36
+  %124 = load i32, ptr %123, align 4, !tbaa !89
+  %125 = icmp eq i32 %124, 174
+  br i1 %125, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62.thread", label %.loopexit
 
-"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62": ; preds = %107, %110, %113, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i55, %_ZN4llvm3isaINS_13IntrinsicInstEPNS_11InstructionEEEbRKT0_.exit.i.i56
-  %.old80 = zext i8 %108 to i32
+"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62": ; preds = %106, %109, %112, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i55, %_ZN4llvm3isaINS_13IntrinsicInstEPNS_11InstructionEEEbRKT0_.exit.i.i56
+  %.old80 = zext i8 %107 to i32
   %.old81 = add nsw i32 %.old80, -29
   %.old82 = icmp eq i32 %.old81, %.0.i.i
   br i1 %.old82, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62.thread", label %.loopexit
 
-"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62.thread": ; preds = %_ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.i58, %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i61.thread, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62"
-  %127 = call noundef zeroext i1 @_ZNK4llvm5Value8hasNUsesEj(ptr noundef nonnull align 8 dereferenceable(24) %.093, i32 noundef %spec.store.select) #15
-  br i1 %127, label %131, label %.loopexit
+"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62.thread": ; preds = %104, %_ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.i58, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62"
+  %126 = call noundef zeroext i1 @_ZNK4llvm5Value8hasNUsesEj(ptr noundef nonnull align 8 dereferenceable(24) %.093, i32 noundef %spec.store.select) #15
+  br i1 %126, label %130, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.i58, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62.thread", %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62", %.lr.ph, %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i61
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %128, ptr %0, align 8, !tbaa !64
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %129, align 8, !tbaa !66
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 4, ptr %130, align 4, !tbaa !67
+.loopexit:                                        ; preds = %_ZN4llvm20RecurrenceDescriptor18isFMulAddIntrinsicEPNS_11InstructionE.exit.i58, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62.thread", %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62", %.lr.ph, %104, %104, %104
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %127, ptr %0, align 8, !tbaa !64
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %128, align 8, !tbaa !66
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 4, ptr %129, align 4, !tbaa !67
   br label %.critedge
 
-131:                                              ; preds = %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62.thread"
-  %132 = load i32, ptr %11, align 8, !tbaa !66
-  %133 = load i32, ptr %12, align 4, !tbaa !67
-  %.not.i.i.not.i = icmp ult i32 %132, %133
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit, label %134, !prof !94
+130:                                              ; preds = %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_1clEPNS_11InstructionE.exit62.thread"
+  %131 = load i32, ptr %11, align 8, !tbaa !66
+  %132 = load i32, ptr %12, align 4, !tbaa !67
+  %.not.i.i.not.i = icmp ult i32 %131, %132
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit, label %133, !prof !94
 
-134:                                              ; preds = %131
-  %135 = zext i32 %132 to i64
-  %136 = add nuw nsw i64 %135, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef %136, i64 noundef 8) #15
+133:                                              ; preds = %130
+  %134 = zext i32 %131 to i64
+  %135 = add nuw nsw i64 %134, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef %135, i64 noundef 8) #15
   %.pre.i = load i32, ptr %11, align 8, !tbaa !66
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; preds = %131, %134
-  %137 = phi i32 [ %132, %131 ], [ %.pre.i, %134 ]
-  %138 = load ptr, ptr %9, align 8, !tbaa !64
-  %139 = zext i32 %137 to i64
-  %140 = getelementptr inbounds nuw ptr, ptr %138, i64 %139
-  %141 = ptrtoint ptr %.093 to i64
-  store i64 %141, ptr %140, align 1
-  %142 = load i32, ptr %11, align 8, !tbaa !66
-  %143 = add i32 %142, 1
-  store i32 %143, ptr %11, align 8, !tbaa !66
-  %144 = getelementptr i8, ptr %.093, i64 16
-  %.0.val = load ptr, ptr %144, align 8, !tbaa !75
+_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit: ; preds = %130, %133
+  %136 = phi i32 [ %131, %130 ], [ %.pre.i, %133 ]
+  %137 = load ptr, ptr %9, align 8, !tbaa !64
+  %138 = zext i32 %136 to i64
+  %139 = getelementptr inbounds nuw ptr, ptr %137, i64 %138
+  %140 = ptrtoint ptr %.093 to i64
+  store i64 %140, ptr %139, align 1
+  %141 = load i32, ptr %11, align 8, !tbaa !66
+  %142 = add i32 %141, 1
+  store i32 %142, ptr %11, align 8, !tbaa !66
+  %143 = getelementptr i8, ptr %.093, i64 16
+  %.0.val = load ptr, ptr %143, align 8, !tbaa !75
   %.not16.i63 = icmp eq ptr %.0.val, null
   br i1 %.not16.i63, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69", label %.lr.ph.i64.preheader
 
 .lr.ph.i64.preheader:                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
   br i1 %switch.i49, label %.lr.ph.i64.us, label %.lr.ph.i64
 
-.lr.ph.i64.us:                                    ; preds = %.lr.ph.i64.preheader, %149
-  %.sroa.04.017.i65.us = phi ptr [ %151, %149 ], [ %.0.val, %.lr.ph.i64.preheader ]
-  %145 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i65.us, i64 24
-  %146 = load ptr, ptr %145, align 8, !tbaa !79
-  %147 = load i8, ptr %146, align 8, !tbaa !21
-  %148 = icmp eq i8 %147, 84
-  br i1 %148, label %149, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69"
+.lr.ph.i64.us:                                    ; preds = %.lr.ph.i64.preheader, %148
+  %.sroa.04.017.i65.us = phi ptr [ %150, %148 ], [ %.0.val, %.lr.ph.i64.preheader ]
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i65.us, i64 24
+  %145 = load ptr, ptr %144, align 8, !tbaa !79
+  %146 = load i8, ptr %145, align 8, !tbaa !21
+  %147 = icmp eq i8 %146, 84
+  br i1 %147, label %148, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69"
 
-149:                                              ; preds = %.lr.ph.i64.us
-  %150 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i65.us, i64 8
-  %151 = load ptr, ptr %150, align 8, !tbaa !97
-  %.not.i68.us = icmp eq ptr %151, null
+148:                                              ; preds = %.lr.ph.i64.us
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i65.us, i64 8
+  %150 = load ptr, ptr %149, align 8, !tbaa !97
+  %.not.i68.us = icmp eq ptr %150, null
   br i1 %.not.i68.us, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69", label %.lr.ph.i64.us
 
-.lr.ph.i64:                                       ; preds = %.lr.ph.i64.preheader, %155
-  %.sroa.04.017.i65 = phi ptr [ %157, %155 ], [ %.0.val, %.lr.ph.i64.preheader ]
-  %152 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i65, i64 24
-  %153 = load ptr, ptr %152, align 8, !tbaa !79
-  %154 = load i8, ptr %153, align 8, !tbaa !21
-  %cond94 = icmp eq i8 %154, 86
-  br i1 %cond94, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69", label %155
+.lr.ph.i64:                                       ; preds = %.lr.ph.i64.preheader, %154
+  %.sroa.04.017.i65 = phi ptr [ %156, %154 ], [ %.0.val, %.lr.ph.i64.preheader ]
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i65, i64 24
+  %152 = load ptr, ptr %151, align 8, !tbaa !79
+  %153 = load i8, ptr %152, align 8, !tbaa !21
+  %cond94 = icmp eq i8 %153, 86
+  br i1 %cond94, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69", label %154
 
-155:                                              ; preds = %.lr.ph.i64
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i65, i64 8
-  %157 = load ptr, ptr %156, align 8, !tbaa !97
-  %.not.i68 = icmp eq ptr %157, null
+154:                                              ; preds = %.lr.ph.i64
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.04.017.i65, i64 8
+  %156 = load ptr, ptr %155, align 8, !tbaa !97
+  %.not.i68 = icmp eq ptr %156, null
   br i1 %.not.i68, label %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69", label %.lr.ph.i64
 
-"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69": ; preds = %.lr.ph.i64, %155, %149, %.lr.ph.i64.us, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
-  %158 = phi ptr [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit ], [ %146, %.lr.ph.i64.us ], [ null, %149 ], [ null, %155 ], [ %153, %.lr.ph.i64 ]
-  %.not40 = icmp eq ptr %158, %.134
+"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69": ; preds = %.lr.ph.i64, %154, %148, %.lr.ph.i64.us, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
+  %157 = phi ptr [ null, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit ], [ %145, %.lr.ph.i64.us ], [ null, %148 ], [ null, %154 ], [ %152, %.lr.ph.i64 ]
+  %.not40 = icmp eq ptr %157, %.134
   br i1 %.not40, label %._crit_edge, label %.lr.ph, !llvm.loop !210
 
 ._crit_edge:                                      ; preds = %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69", %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit"
-  %.0.lcssa = phi ptr [ %103, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit" ], [ %158, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69" ]
+  %.0.lcssa = phi ptr [ %102, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit" ], [ %157, %"_ZZNK4llvm20RecurrenceDescriptor19getReductionOpChainEPNS_7PHINodeEPNS_4LoopEENK3$_0clEPNS_11InstructionE.exit69" ]
   call void @_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %.0.lcssa)
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %159, ptr %0, align 8, !tbaa !64
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %160, align 8, !tbaa !66
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 4, ptr %161, align 4, !tbaa !67
-  %162 = load i32, ptr %11, align 8, !tbaa !66
-  %.not.i.i70 = icmp eq i32 %162, 0
-  br i1 %.not.i.i70, label %.critedge, label %163
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %158, ptr %0, align 8, !tbaa !64
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %159, align 8, !tbaa !66
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 4, ptr %160, align 4, !tbaa !67
+  %161 = load i32, ptr %11, align 8, !tbaa !66
+  %.not.i.i70 = icmp eq i32 %161, 0
+  br i1 %.not.i.i70, label %.critedge, label %162
 
-163:                                              ; preds = %._crit_edge
-  %164 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_11InstructionEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %9)
+162:                                              ; preds = %._crit_edge
+  %163 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIPNS_11InstructionEEaSEOS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %9)
   br label %.critedge
 
-.critedge:                                        ; preds = %163, %._crit_edge, %.critedge.critedge, %32, %.loopexit, %84, %77
-  %165 = load ptr, ptr %9, align 8, !tbaa !64
-  %166 = icmp eq ptr %165, %10
-  br i1 %166, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit, label %167
+.critedge:                                        ; preds = %162, %._crit_edge, %.critedge.critedge, %32, %.loopexit, %83, %_ZN4llvm19SelectPatternResult10isMinOrMaxENS_19SelectPatternFlavorE.exit.i
+  %164 = load ptr, ptr %9, align 8, !tbaa !64
+  %165 = icmp eq ptr %164, %10
+  br i1 %165, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit, label %166
 
-167:                                              ; preds = %.critedge
-  call void @free(ptr noundef %165) #15
+166:                                              ; preds = %.critedge
+  call void @free(ptr noundef %164) #15
   br label %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit: ; preds = %.critedge, %167
+_ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit: ; preds = %.critedge, %166
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }

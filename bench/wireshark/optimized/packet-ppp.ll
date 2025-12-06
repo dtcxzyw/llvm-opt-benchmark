@@ -7357,6 +7357,7 @@ define internal i32 @dissect_chap(ptr noundef %0, ptr noundef readonly captures(
   %26 = load i32, ptr @hf_chap_length, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %26, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %28 = add nsw i32 %20, -4
+  %.not108 = icmp eq i32 %28, 0
   switch i8 %5, label %74 [
     i8 1, label %29
     i8 2, label %29
@@ -7365,8 +7366,7 @@ define internal i32 @dissect_chap(ptr noundef %0, ptr noundef readonly captures(
   ]
 
 29:                                               ; preds = %25, %25
-  %.not103 = icmp eq i32 %28, 0
-  br i1 %.not103, label %.thread, label %30
+  br i1 %.not108, label %.thread, label %30
 
 30:                                               ; preds = %29
   %31 = load i32, ptr @hf_chap_data, align 4
@@ -7428,8 +7428,7 @@ define internal i32 @dissect_chap(ptr noundef %0, ptr noundef readonly captures(
   br label %79
 
 65:                                               ; preds = %25, %25
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %69, label %66
+  br i1 %.not108, label %69, label %66
 
 66:                                               ; preds = %65
   %67 = load i32, ptr @hf_chap_message, align 4
@@ -7445,7 +7444,6 @@ define internal i32 @dissect_chap(ptr noundef %0, ptr noundef readonly captures(
   br label %.thread
 
 74:                                               ; preds = %25
-  %.not108 = icmp eq i32 %28, 0
   br i1 %.not108, label %.thread, label %75
 
 75:                                               ; preds = %74

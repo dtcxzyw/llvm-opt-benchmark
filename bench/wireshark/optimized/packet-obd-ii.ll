@@ -861,7 +861,7 @@ define internal fastcc i32 @dissect_obdii_response(ptr noundef %0, ptr noundef %
 
 19:                                               ; preds = %3
   %20 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %923
+  br label %915
 
 ._crit_edge:                                      ; preds = %3
   %21 = add i8 %17, -2
@@ -2200,58 +2200,50 @@ dissect_obdii_mode_07.exit:                       ; preds = %835, %844, %852, %.
   %893 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %892, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %890)
   %894 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 2, ptr %894, align 8
-  switch i8 %886, label %917 [
-    i8 0, label %895
+  %895 = load i8, ptr %22, align 2
+  %896 = zext i8 %895 to i32
+  switch i8 %886, label %911 [
+    i8 0, label %897
     i8 2, label %900
-    i8 4, label %906
-    i8 6, label %906
-    i8 8, label %906
-    i8 10, label %911
+    i8 4, label %904
+    i8 6, label %904
+    i8 8, label %904
+    i8 10, label %907
   ]
 
-895:                                              ; preds = %885
-  %896 = load i32, ptr @hf_obdii_raw_value, align 4
-  %897 = load i8, ptr %22, align 2
-  %898 = zext i8 %897 to i32
-  %899 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %896, ptr noundef %0, i32 noundef 2, i32 noundef %898, i32 noundef 0)
+897:                                              ; preds = %885
+  %898 = load i32, ptr @hf_obdii_raw_value, align 4
+  %899 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %898, ptr noundef %0, i32 noundef 2, i32 noundef %896, i32 noundef 0)
   br label %dissect_obdii_mode_01.exit
 
 900:                                              ; preds = %885
   %901 = load i32, ptr @hf_obdii_vin, align 4
-  %902 = load i8, ptr %22, align 2
-  %903 = zext i8 %902 to i32
-  %904 = add nsw i32 %903, -1
-  %905 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %901, ptr noundef %0, i32 noundef 3, i32 noundef %904, i32 noundef 0)
+  %902 = add nsw i32 %896, -1
+  %903 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %901, ptr noundef %0, i32 noundef 3, i32 noundef %902, i32 noundef 0)
   br label %dissect_obdii_mode_01.exit
 
-906:                                              ; preds = %885, %885, %885
-  %907 = load i32, ptr @hf_obdii_raw_value, align 4
-  %908 = load i8, ptr %22, align 2
-  %909 = zext i8 %908 to i32
-  %910 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %907, ptr noundef %0, i32 noundef 2, i32 noundef %909, i32 noundef 0)
+904:                                              ; preds = %885, %885, %885
+  %905 = load i32, ptr @hf_obdii_raw_value, align 4
+  %906 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %905, ptr noundef %0, i32 noundef 2, i32 noundef %896, i32 noundef 0)
+  br label %dissect_obdii_mode_01.exit
+
+907:                                              ; preds = %885
+  %908 = load i32, ptr @hf_obdii_ecu_name, align 4
+  %909 = add nsw i32 %896, -1
+  %910 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %908, ptr noundef %0, i32 noundef 3, i32 noundef %909, i32 noundef 0)
   br label %dissect_obdii_mode_01.exit
 
 911:                                              ; preds = %885
-  %912 = load i32, ptr @hf_obdii_ecu_name, align 4
-  %913 = load i8, ptr %22, align 2
-  %914 = zext i8 %913 to i32
-  %915 = add nsw i32 %914, -1
-  %916 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %912, ptr noundef %0, i32 noundef 3, i32 noundef %915, i32 noundef 0)
+  %912 = load i32, ptr @hf_obdii_raw_value, align 4
+  %913 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %912, ptr noundef %0, i32 noundef 2, i32 noundef %896, i32 noundef 0)
   br label %dissect_obdii_mode_01.exit
 
-917:                                              ; preds = %885
-  %918 = load i32, ptr @hf_obdii_raw_value, align 4
-  %919 = load i8, ptr %22, align 2
-  %920 = zext i8 %919 to i32
-  %921 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %918, ptr noundef %0, i32 noundef 2, i32 noundef %920, i32 noundef 0)
-  br label %dissect_obdii_mode_01.exit
+dissect_obdii_mode_01.exit:                       ; preds = %911, %907, %904, %900, %897, %.thread530.i, %795, %779, %773, %755, %733, %727, %724, %721, %705, %684, %678, %666, %660, %657, %654, %651, %648, %645, %642, %639, %636, %633, %630, %627, %609, %587, %566, %543, %501, %495, %492, %474, %460, %454, %451, %448, %445, %409, %403, %400, %382, %363, %348, %337, %278, %248, %233, %227, %209, %203, %189, %175, %154, %139, %133, %130, %127, %124, %121, %118, %99, %95, %dissect_obdii_mode_07.exit, %.thread42
+  %914 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %915
 
-dissect_obdii_mode_01.exit:                       ; preds = %917, %911, %906, %900, %895, %.thread530.i, %795, %779, %773, %755, %733, %727, %724, %721, %705, %684, %678, %666, %660, %657, %654, %651, %648, %645, %642, %639, %636, %633, %630, %627, %609, %587, %566, %543, %501, %495, %492, %474, %460, %454, %451, %448, %445, %409, %403, %400, %382, %363, %348, %337, %278, %248, %233, %227, %209, %203, %189, %175, %154, %139, %133, %130, %127, %124, %121, %118, %99, %95, %dissect_obdii_mode_07.exit, %.thread42
-  %922 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %923
-
-923:                                              ; preds = %dissect_obdii_mode_01.exit, %19
-  %.0 = phi i32 [ %20, %19 ], [ %922, %dissect_obdii_mode_01.exit ]
+915:                                              ; preds = %dissect_obdii_mode_01.exit, %19
+  %.0 = phi i32 [ %20, %19 ], [ %914, %dissect_obdii_mode_01.exit ]
   ret i32 %.0
 }
 

@@ -3629,12 +3629,14 @@ tailrecurse.outer:                                ; preds = %tailrecurse.outer.b
   %pattern.tr.ph = phi ptr [ %pattern, %entry ], [ %pattern.tr.ph.be, %tailrecurse.outer.backedge ]
   %str.tr.ph = phi ptr [ %str, %entry ], [ %add.ptr9, %tailrecurse.outer.backedge ]
   %add.ptr9 = getelementptr inbounds nuw i8, ptr %str.tr.ph, i64 1
+  %0 = load i8, ptr %str.tr.ph, align 1
+  %cmp8.not = icmp eq i8 %0, 0
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.outer, %lor.rhs
   %pattern.tr = phi ptr [ %add.ptr11, %lor.rhs ], [ %pattern.tr.ph, %tailrecurse.outer ]
-  %0 = load i8, ptr %pattern.tr, align 1
-  switch i8 %0, label %sw.default [
+  %1 = load i8, ptr %pattern.tr, align 1
+  switch i8 %1, label %sw.default [
     i8 0, label %sw.bb
     i8 58, label %sw.bb
     i8 63, label %sw.bb2
@@ -3642,13 +3644,11 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   ]
 
 sw.bb:                                            ; preds = %tailrecurse, %tailrecurse
-  %1 = load i8, ptr %str.tr.ph, align 1
-  %cmp = icmp eq i8 %1, 0
+  %cmp = icmp eq i8 %0, 0
   br label %return
 
 sw.bb2:                                           ; preds = %tailrecurse
-  %2 = load i8, ptr %str.tr.ph, align 1
-  %cmp4.not = icmp eq i8 %2, 0
+  %cmp4.not = icmp eq i8 %0, 0
   br i1 %cmp4.not, label %return, label %tailrecurse.outer.backedge
 
 tailrecurse.outer.backedge:                       ; preds = %sw.default, %sw.bb2
@@ -3656,8 +3656,6 @@ tailrecurse.outer.backedge:                       ; preds = %sw.default, %sw.bb2
   br label %tailrecurse.outer
 
 sw.bb6:                                           ; preds = %tailrecurse
-  %3 = load i8, ptr %str.tr.ph, align 1
-  %cmp8.not = icmp eq i8 %3, 0
   br i1 %cmp8.not, label %lor.rhs, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb6
@@ -3669,8 +3667,7 @@ lor.rhs:                                          ; preds = %land.lhs.true, %sw.
   br label %tailrecurse
 
 sw.default:                                       ; preds = %tailrecurse
-  %4 = load i8, ptr %str.tr.ph, align 1
-  %cmp15 = icmp eq i8 %0, %4
+  %cmp15 = icmp eq i8 %1, %0
   br i1 %cmp15, label %tailrecurse.outer.backedge, label %return
 
 return:                                           ; preds = %sw.default, %sw.bb2, %land.lhs.true, %sw.bb

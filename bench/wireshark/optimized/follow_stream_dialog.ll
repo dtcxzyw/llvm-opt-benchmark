@@ -4421,15 +4421,15 @@ _ZNK8QVariant5valueI15bytes_show_typeEET_v.exit:  ; preds = %.noexc5, %_ZNK8QVar
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 56), align 8
-  %53 = icmp ult i32 %52, 11
+  %53 = load ptr, ptr %9, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 72
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp ult i32 %52, 11
   %switch.cast = trunc i32 %52 to i11
   %switch.downshift = lshr i11 -1015, %switch.cast
   %switch.masked = trunc i11 %switch.downshift to i1
-  %.sink8 = select i1 %53, i1 %switch.masked, i1 false
-  %54 = load ptr, ptr %9, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 72
-  %56 = load ptr, ptr %55, align 8
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %56, i1 noundef zeroext %.sink8)
+  %.sink = select i1 %56, i1 %switch.masked, i1 false
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %55, i1 noundef zeroext %.sink)
   call void @_ZN18FollowStreamDialog10readStreamEv(ptr noundef align 8 dereferenceable_or_null(452) %0)
   br label %59
 
@@ -7773,21 +7773,21 @@ _ZN11QBasicMutex6unlockEv.exit:                   ; preds = %_ZN11QBasicMutex4lo
   %33 = load ptr, ptr %32, align 8
   tail call void @_ZN16FollowStreamText5clearEv(ptr noundef align 8 dereferenceable_or_null(72) %33)
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 56), align 8
-  switch i32 %34, label %35 [
-    i32 2, label %36
-    i32 4, label %36
-    i32 11, label %36
+  %35 = load ptr, ptr %8, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8
+  switch i32 %34, label %38 [
+    i32 2, label %39
+    i32 4, label %39
+    i32 11, label %39
   ]
 
-35:                                               ; preds = %30
-  br label %36
+38:                                               ; preds = %30
+  br label %39
 
-36:                                               ; preds = %30, %30, %30, %35
-  %.sink6 = phi i32 [ 3, %35 ], [ 4, %30 ], [ 4, %30 ], [ 4, %30 ]
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8
-  tail call void @_ZN14QPlainTextEdit15setWordWrapModeEN11QTextOption8WrapModeE(ptr noundef align 8 dereferenceable_or_null(40) %39, i32 noundef %.sink6)
+39:                                               ; preds = %30, %30, %30, %38
+  %.sink = phi i32 [ 3, %38 ], [ 4, %30 ], [ 4, %30 ], [ 4, %30 ]
+  tail call void @_ZN14QPlainTextEdit15setWordWrapModeEN11QTextOption8WrapModeE(ptr noundef align 8 dereferenceable_or_null(40) %37, i32 noundef %.sink)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i32 0, ptr %41, align 8
@@ -7797,11 +7797,11 @@ _ZN11QBasicMutex6unlockEv.exit:                   ; preds = %_ZN11QBasicMutex4lo
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %44, label %45
 
-44:                                               ; preds = %36
+44:                                               ; preds = %39
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1, i32 noundef 7, ptr noundef nonnull @.str.2, i64 noundef 595, ptr noundef nonnull @__func__._ZN18FollowStreamDialog10readStreamEv, ptr noundef nonnull @.str.3) #30
   unreachable
 
-45:                                               ; preds = %36
+45:                                               ; preds = %39
   tail call void @_ZN18FollowStreamDialog16readFollowStreamEv(ptr noundef align 8 dereferenceable_or_null(452) %0)
   %46 = load ptr, ptr %8, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8

@@ -395,11 +395,11 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
   %12 = and i64 %11, -4
   %13 = inttoptr i64 %12 to ptr
   %14 = icmp eq i64 %12, 0
-  br i1 %14, label %48, label %15
+  br i1 %14, label %46, label %15
 
 15:                                               ; preds = %4
   %16 = icmp samesign ugt i32 %10, 2
-  br i1 %16, label %41, label %17
+  br i1 %16, label %39, label %17
 
 17:                                               ; preds = %15
   switch i32 %9, label %18 [
@@ -418,83 +418,81 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @mnt_want_write(ptr noundef %20) #8
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %41
+  br i1 %22, label %23, label %39
 
 23:                                               ; preds = %18, %17, %17, %17, %17, %17, %17, %17, %17
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
-  switch i32 %9, label %28 [
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 112
+  switch i32 %9, label %29 [
     i32 8388611, label %30
     i32 8388610, label %30
     i32 22529, label %30
     i32 22530, label %30
   ]
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 112
-  tail call void @down_read(ptr noundef nonnull %29) #8
-  br label %32
+29:                                               ; preds = %23
+  tail call void @down_read(ptr noundef nonnull %28) #8
+  br label %31
 
 30:                                               ; preds = %23, %23, %23, %23
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 112
-  tail call void @down_write(ptr noundef nonnull %31) #8
-  br label %32
+  tail call void @down_write(ptr noundef nonnull %28) #8
+  br label %31
 
-32:                                               ; preds = %30, %28
-  %33 = tail call fastcc i32 @do_quotactl(ptr noundef %27, i32 noundef %10, i32 noundef %9, i32 noundef %7, ptr noundef %8, ptr noundef nonnull inttoptr (i64 -22 to ptr))
+31:                                               ; preds = %30, %29
+  %32 = tail call fastcc i32 @do_quotactl(ptr noundef %27, i32 noundef %10, i32 noundef %9, i32 noundef %7, ptr noundef %8, ptr noundef nonnull inttoptr (i64 -22 to ptr))
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 112
   switch i32 %9, label %34 [
-    i32 8388611, label %36
-    i32 8388610, label %36
-    i32 22529, label %36
-    i32 22530, label %36
+    i32 8388611, label %35
+    i32 8388610, label %35
+    i32 22529, label %35
+    i32 22530, label %35
   ]
 
-34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 112
-  tail call void @up_read(ptr noundef nonnull %35) #8
-  br label %38
+34:                                               ; preds = %31
+  tail call void @up_read(ptr noundef nonnull %33) #8
+  br label %36
 
-36:                                               ; preds = %32, %32, %32, %32
-  %37 = getelementptr inbounds nuw i8, ptr %27, i64 112
-  tail call void @up_write(ptr noundef nonnull %37) #8
-  br label %38
+35:                                               ; preds = %31, %31, %31, %31
+  tail call void @up_write(ptr noundef nonnull %33) #8
+  br label %36
 
-38:                                               ; preds = %36, %34
-  switch i32 %9, label %39 [
-    i32 8388612, label %41
-    i32 8388613, label %41
-    i32 8388609, label %41
-    i32 22533, label %41
-    i32 22536, label %41
-    i32 22531, label %41
-    i32 22537, label %41
-    i32 22535, label %41
+36:                                               ; preds = %35, %34
+  switch i32 %9, label %37 [
+    i32 8388612, label %39
+    i32 8388613, label %39
+    i32 8388609, label %39
+    i32 22533, label %39
+    i32 22536, label %39
+    i32 22531, label %39
+    i32 22537, label %39
+    i32 22535, label %39
   ]
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %24, align 8
-  tail call void @mnt_drop_write(ptr noundef %40) #8
-  br label %41
+37:                                               ; preds = %36
+  %38 = load ptr, ptr %24, align 8
+  tail call void @mnt_drop_write(ptr noundef %38) #8
+  br label %39
 
-41:                                               ; preds = %39, %38, %38, %38, %38, %38, %38, %38, %38, %18, %15
-  %42 = phi i32 [ -22, %15 ], [ %21, %18 ], [ %33, %39 ], [ %33, %38 ], [ %33, %38 ], [ %33, %38 ], [ %33, %38 ], [ %33, %38 ], [ %33, %38 ], [ %33, %38 ], [ %33, %38 ]
-  %43 = and i64 %11, 1
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %46, label %45
+39:                                               ; preds = %37, %36, %36, %36, %36, %36, %36, %36, %36, %18, %15
+  %40 = phi i32 [ -22, %15 ], [ %21, %18 ], [ %32, %37 ], [ %32, %36 ], [ %32, %36 ], [ %32, %36 ], [ %32, %36 ], [ %32, %36 ], [ %32, %36 ], [ %32, %36 ], [ %32, %36 ]
+  %41 = and i64 %11, 1
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %44, label %43
 
-45:                                               ; preds = %41
+43:                                               ; preds = %39
   tail call void @fput(ptr noundef nonnull %13) #8
+  br label %44
+
+44:                                               ; preds = %43, %39
+  %45 = sext i32 %40 to i64
   br label %46
 
-46:                                               ; preds = %45, %41
-  %47 = sext i32 %42 to i64
-  br label %48
-
-48:                                               ; preds = %46, %4
-  %49 = phi i64 [ %47, %46 ], [ -9, %4 ]
-  ret i64 %49
+46:                                               ; preds = %44, %4
+  %47 = phi i64 [ %45, %44 ], [ -9, %4 ]
+  ret i64 %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

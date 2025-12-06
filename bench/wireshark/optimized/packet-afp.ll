@@ -2840,59 +2840,52 @@ define internal i32 @dissect_spotlight(ptr noundef %0, ptr noundef %1, ptr nound
   %.not = icmp eq i32 %56, 1
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %70, %108
-  %.0133143 = phi i32 [ %.0133, %108 ], [ %.0133141, %70 ]
-  %.0132142 = phi i32 [ %.pre-phi, %108 ], [ 0, %70 ]
+.lr.ph:                                           ; preds = %70, %102
+  %.0133143 = phi i32 [ %.0133, %102 ], [ %.0133141, %70 ]
+  %.0132142 = phi i32 [ %84, %102 ], [ 0, %70 ]
   %80 = call i64 @tvb_get_uint64(ptr noundef %0, i32 noundef %.0133143, i32 noundef %.)
   %81 = lshr i64 %80, 16
   %82 = and i64 %81, 65535
   %trunc = trunc i64 %81 to i16
-  switch i16 %trunc, label %100 [
-    i16 2560, label %83
-    i16 3328, label %83
+  %83 = load i32, ptr @hf_afp_toc_entry, align 4
+  %84 = add nuw nsw i32 %.0132142, 1
+  %85 = lshr i64 %80, 32
+  switch i16 %trunc, label %97 [
+    i16 2560, label %86
+    i16 3328, label %86
     i16 3072, label %91
     i16 7168, label %91
   ]
 
-83:                                               ; preds = %.lr.ph, %.lr.ph
-  %84 = load i32, ptr @hf_afp_toc_entry, align 4
-  %85 = add nuw nsw i32 %.0132142, 1
-  %86 = lshr i64 %80, 32
+86:                                               ; preds = %.lr.ph, %.lr.ph
   %87 = call ptr @val64_to_str_const(i64 noundef %82, ptr noundef nonnull @cpx_qtype_string_values, ptr noundef nonnull @.str.1111)
   %88 = shl i64 %80, 3
   %89 = and i64 %88, 524280
-  %90 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %65, i32 noundef %84, ptr noundef %0, i32 noundef %.0133143, i32 noundef 8, i64 noundef %80, ptr noundef nonnull @.str.1110, i32 noundef %85, i64 noundef %86, ptr noundef %87, i64 noundef %89)
-  br label %108
+  %90 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %65, i32 noundef %83, ptr noundef %0, i32 noundef %.0133143, i32 noundef 8, i64 noundef %80, ptr noundef nonnull @.str.1110, i32 noundef %84, i64 noundef %85, ptr noundef %87, i64 noundef %89)
+  br label %102
 
 91:                                               ; preds = %.lr.ph, %.lr.ph
-  %92 = load i32, ptr @hf_afp_toc_entry, align 4
-  %93 = add nuw nsw i32 %.0132142, 1
-  %94 = lshr i64 %80, 32
-  %95 = sub nsw i64 8, %94
-  %96 = call ptr @val64_to_str_const(i64 noundef %82, ptr noundef nonnull @cpx_qtype_string_values, ptr noundef nonnull @.str.1111)
-  %97 = shl i64 %80, 3
-  %98 = and i64 %97, 524280
-  %99 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %65, i32 noundef %92, ptr noundef %0, i32 noundef %.0133143, i32 noundef 8, i64 noundef %80, ptr noundef nonnull @.str.1112, i32 noundef %93, i64 noundef %95, ptr noundef %96, i64 noundef %98)
-  br label %108
+  %92 = sub nsw i64 8, %85
+  %93 = call ptr @val64_to_str_const(i64 noundef %82, ptr noundef nonnull @cpx_qtype_string_values, ptr noundef nonnull @.str.1111)
+  %94 = shl i64 %80, 3
+  %95 = and i64 %94, 524280
+  %96 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %65, i32 noundef %83, ptr noundef %0, i32 noundef %.0133143, i32 noundef 8, i64 noundef %80, ptr noundef nonnull @.str.1112, i32 noundef %84, i64 noundef %92, ptr noundef %93, i64 noundef %95)
+  br label %102
 
-100:                                              ; preds = %.lr.ph
-  %101 = load i32, ptr @hf_afp_toc_entry, align 4
-  %102 = add nuw nsw i32 %.0132142, 1
-  %103 = lshr i64 %80, 32
-  %104 = call ptr @val64_to_str_const(i64 noundef %82, ptr noundef nonnull @cpx_qtype_string_values, ptr noundef nonnull @.str.1111)
-  %105 = shl i64 %80, 3
-  %106 = and i64 %105, 524280
-  %107 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %65, i32 noundef %101, ptr noundef %0, i32 noundef %.0133143, i32 noundef 8, i64 noundef %80, ptr noundef nonnull @.str.1113, i32 noundef %102, i64 noundef %103, ptr noundef %104, i64 noundef %106)
-  br label %108
+97:                                               ; preds = %.lr.ph
+  %98 = call ptr @val64_to_str_const(i64 noundef %82, ptr noundef nonnull @cpx_qtype_string_values, ptr noundef nonnull @.str.1111)
+  %99 = shl i64 %80, 3
+  %100 = and i64 %99, 524280
+  %101 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %65, i32 noundef %83, ptr noundef %0, i32 noundef %.0133143, i32 noundef 8, i64 noundef %80, ptr noundef nonnull @.str.1113, i32 noundef %84, i64 noundef %85, ptr noundef %98, i64 noundef %100)
+  br label %102
 
-108:                                              ; preds = %83, %91, %100
-  %.pre-phi = phi i32 [ %85, %83 ], [ %93, %91 ], [ %102, %100 ]
+102:                                              ; preds = %86, %91, %97
   %.0133 = add i32 %.0133143, 8
-  %exitcond.not = icmp eq i32 %.pre-phi, %71
+  %exitcond.not = icmp eq i32 %84, %71
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
-.loopexit:                                        ; preds = %108, %70, %68, %46, %36, %26, %18
-  %.0 = phi i32 [ %22, %18 ], [ %30, %26 ], [ %40, %36 ], [ %48, %46 ], [ %69, %68 ], [ %.0133141, %70 ], [ %.0133, %108 ]
+.loopexit:                                        ; preds = %102, %70, %68, %46, %36, %26, %18
+  %.0 = phi i32 [ %22, %18 ], [ %30, %26 ], [ %40, %36 ], [ %48, %46 ], [ %69, %68 ], [ %.0133141, %70 ], [ %.0133, %102 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

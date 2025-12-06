@@ -1257,11 +1257,11 @@ switch.lookup.preheader:                          ; preds = %190, %149
 
 switch.lookup:                                    ; preds = %switch.lookup.preheader, %.noexc
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc ], [ 0, %switch.lookup.preheader ]
-  %213 = and i64 %indvars.iv.i, 4294967295
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7714TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 %213
+  %213 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr84, i64 %indvars.iv.i
+  %214 = and i64 %indvars.iv.i, 4294967295
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7714TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 %214
   %switch.load = load i32, ptr %switch.gep, align 4
-  %214 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr84, i64 %indvars.iv.i
-  %215 = invoke noundef ptr @_ZN6icu_7714TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %214, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %215 = invoke noundef ptr @_ZN6icu_7714TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %213, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %.noexc unwind label %.loopexit.split-lp137
 
 .noexc:                                           ; preds = %switch.lookup
@@ -1941,13 +1941,13 @@ define void @_ZN6icu_7714TimeZoneFormat21initGMTOffsetPatternsER10UErrorCode(ptr
 
 switch.lookup:                                    ; preds = %2, %switch.lookup
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %switch.lookup ]
-  %8 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7714TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 %8
+  %8 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %10 = and i64 %indvars.iv, 4294967295
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7714TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
-  %9 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %3, i64 %indvars.iv
-  %10 = tail call noundef ptr @_ZN6icu_7714TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  store ptr %10, ptr %11, align 8, !tbaa !38
+  %11 = tail call noundef ptr @_ZN6icu_7714TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %1)
+  store ptr %11, ptr %9, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %5, label %switch.lookup, !llvm.loop !45
@@ -2244,13 +2244,13 @@ define noundef nonnull align 8 dereferenceable(1024) ptr @_ZN6icu_7714TimeZoneFo
 
 switch.lookup:                                    ; preds = %106, %switch.lookup
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %switch.lookup ], [ 0, %106 ]
-  %65 = and i64 %indvars.iv.i, 4294967295
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7714TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 %65
+  %65 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %60, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
+  %67 = and i64 %indvars.iv.i, 4294967295
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7714TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 %67
   %switch.load = load i32, ptr %switch.gep, align 4
-  %66 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %60, i64 %indvars.iv.i
-  %67 = call noundef ptr @_ZN6icu_7714TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %66, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %68 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
-  store ptr %67, ptr %68, align 8, !tbaa !38
+  %68 = call noundef ptr @_ZN6icu_7714TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %65, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  store ptr %68, ptr %66, align 8, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %62, label %switch.lookup, !llvm.loop !45

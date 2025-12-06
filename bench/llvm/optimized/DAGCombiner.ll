@@ -76776,29 +76776,29 @@ _ZN12_GLOBAL__N_111DAGCombiner13AddToWorklistEPN4llvm6SDNodeEbb.exit.i.i589: ; p
   %2944 = load ptr, ptr %0, align 8, !tbaa !97
   %2945 = getelementptr inbounds nuw i8, ptr %2571, i64 24
   %2946 = load i32, ptr %2945, align 8, !tbaa !79
-  switch i32 %2946, label %2948 [
+  %2947 = getelementptr inbounds nuw i8, ptr %2571, i64 40
+  %2948 = load ptr, ptr %2947, align 8, !tbaa !218
+  switch i32 %2946, label %2950 [
     i32 297, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i
     i32 337, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i
     i32 461, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i
     i32 361, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i
     i32 463, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i
     i32 462, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i
-    i32 362, label %2947
-    i32 363, label %2947
-    i32 493, label %2947
+    i32 362, label %2949
+    i32 363, label %2949
+    i32 493, label %2949
   ]
 
-2947:                                             ; preds = %2943, %2943, %2943
+2949:                                             ; preds = %2943, %2943, %2943
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i
 
-2948:                                             ; preds = %2943
+2950:                                             ; preds = %2943
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i
 
-_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i:       ; preds = %2948, %2947, %2943, %2943, %2943, %2943, %2943, %2943
-  %.sink2.i.i.i = phi i64 [ 40, %2948 ], [ 120, %2947 ], [ 80, %2943 ], [ 80, %2943 ], [ 80, %2943 ], [ 80, %2943 ], [ 80, %2943 ], [ 80, %2943 ]
-  %2949 = getelementptr inbounds nuw i8, ptr %2571, i64 40
-  %2950 = load ptr, ptr %2949, align 8, !tbaa !218
-  %2951 = getelementptr inbounds nuw i8, ptr %2950, i64 %.sink2.i.i.i
+_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i:       ; preds = %2950, %2949, %2943, %2943, %2943, %2943, %2943, %2943
+  %.sink.i.i.i = phi i64 [ 40, %2950 ], [ 120, %2949 ], [ 80, %2943 ], [ 80, %2943 ], [ 80, %2943 ], [ 80, %2943 ], [ 80, %2943 ], [ 80, %2943 ]
+  %2951 = getelementptr inbounds nuw i8, ptr %2948, i64 %.sink.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %2951, i64 16, i1 false), !tbaa.struct !232
   br i1 %.not.lcssa.i.i.i, label %2952, label %2954
 
@@ -76850,29 +76850,29 @@ _ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i:       ; preds = %2948, %2947, %2943,
   %2973 = load ptr, ptr %0, align 8, !tbaa !97
   %2974 = getelementptr inbounds nuw i8, ptr %2571, i64 24
   %2975 = load i32, ptr %2974, align 8, !tbaa !79
-  switch i32 %2975, label %2977 [
+  %2976 = getelementptr inbounds nuw i8, ptr %2571, i64 40
+  %2977 = load ptr, ptr %2976, align 8, !tbaa !218
+  switch i32 %2975, label %2979 [
     i32 297, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit543.i.i
     i32 337, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit543.i.i
     i32 461, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit543.i.i
     i32 361, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit543.i.i
     i32 463, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit543.i.i
     i32 462, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit543.i.i
-    i32 362, label %2976
-    i32 363, label %2976
-    i32 493, label %2976
+    i32 362, label %2978
+    i32 363, label %2978
+    i32 493, label %2978
   ]
 
-2976:                                             ; preds = %2957, %2957, %2957
+2978:                                             ; preds = %2957, %2957, %2957
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit543.i.i
 
-2977:                                             ; preds = %2957
+2979:                                             ; preds = %2957
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit543.i.i
 
-_ZNK4llvm9MemSDNode10getBasePtrEv.exit543.i.i:    ; preds = %2977, %2976, %2957, %2957, %2957, %2957, %2957, %2957
-  %.sink2.i542.i.i = phi i64 [ 40, %2977 ], [ 120, %2976 ], [ 80, %2957 ], [ 80, %2957 ], [ 80, %2957 ], [ 80, %2957 ], [ 80, %2957 ], [ 80, %2957 ]
-  %2978 = getelementptr inbounds nuw i8, ptr %2571, i64 40
-  %2979 = load ptr, ptr %2978, align 8, !tbaa !218
-  %2980 = getelementptr inbounds nuw i8, ptr %2979, i64 %.sink2.i542.i.i
+_ZNK4llvm9MemSDNode10getBasePtrEv.exit543.i.i:    ; preds = %2979, %2978, %2957, %2957, %2957, %2957, %2957, %2957
+  %.sink.i542.i.i = phi i64 [ 40, %2979 ], [ 120, %2978 ], [ 80, %2957 ], [ 80, %2957 ], [ 80, %2957 ], [ 80, %2957 ], [ 80, %2957 ], [ 80, %2957 ]
+  %2980 = getelementptr inbounds nuw i8, ptr %2977, i64 %.sink.i542.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %2980, i64 16, i1 false), !tbaa.struct !232
   br i1 %.not.lcssa.i.i.i, label %2981, label %2983
 
@@ -119821,29 +119821,29 @@ _ZNK4llvm3EVT18getFixedSizeInBitsEv.exit:         ; preds = %40, %44
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %101 = load i32, ptr %100, align 8, !tbaa !79
-  switch i32 %101, label %103 [
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 40
+  %103 = load ptr, ptr %102, align 8, !tbaa !218
+  switch i32 %101, label %105 [
     i32 297, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i.i.i.i.i.i
     i32 337, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i.i.i.i.i.i
     i32 461, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i.i.i.i.i.i
     i32 361, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i.i.i.i.i.i
     i32 463, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i.i.i.i.i.i
     i32 462, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i.i.i.i.i.i
-    i32 362, label %102
-    i32 363, label %102
-    i32 493, label %102
+    i32 362, label %104
+    i32 363, label %104
+    i32 493, label %104
   ]
 
-102:                                              ; preds = %99, %99, %99
+104:                                              ; preds = %99, %99, %99
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i.i.i.i.i.i
 
-103:                                              ; preds = %99
+105:                                              ; preds = %99
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i.i.i.i.i.i
 
-_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i.i.i.i.i.i: ; preds = %103, %102, %99, %99, %99, %99, %99, %99
-  %.sink2.i.i.i.i.i.i.i.i = phi i64 [ 40, %103 ], [ 120, %102 ], [ 80, %99 ], [ 80, %99 ], [ 80, %99 ], [ 80, %99 ], [ 80, %99 ], [ 80, %99 ]
-  %104 = getelementptr inbounds nuw i8, ptr %97, i64 40
-  %105 = load ptr, ptr %104, align 8, !tbaa !218
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %.sink2.i.i.i.i.i.i.i.i
+_ZNK4llvm9MemSDNode10getBasePtrEv.exit.i.i.i.i.i.i.i: ; preds = %105, %104, %99, %99, %99, %99, %99, %99
+  %.sink.i.i.i.i.i.i.i.i = phi i64 [ 40, %105 ], [ 120, %104 ], [ 80, %99 ], [ 80, %99 ], [ 80, %99 ], [ 80, %99 ], [ 80, %99 ], [ 80, %99 ]
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 %.sink.i.i.i.i.i.i.i.i
   %107 = load ptr, ptr %106, align 8, !tbaa !206
   %108 = icmp eq ptr %107, %2
   br i1 %108, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_111DAGCombiner42reassociationCanBreakAddressingModePatternEjRKN4llvm5SDLocEPNS4_6SDNodeENS4_7SDValueESA_E3$_0EclINS8_13user_iteratorEEEbT_.exit.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_6SDNode13user_iteratorEEEZN12_GLOBAL__N_111DAGCombiner42reassociationCanBreakAddressingModePatternEjRKNS_5SDLocEPS2_NS_7SDValueESB_E3$_0EEbOT_T0_.exit"
@@ -150516,29 +150516,29 @@ _ZNK4llvm3EVT6bitsLTES0_.exit.thread:             ; preds = %57, %_ZNK4llvm3EVT6
 106:                                              ; preds = %77, %_ZNK4llvm3EVT6bitsLTES0_.exit.thread
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %108 = load i32, ptr %107, align 8, !tbaa !79
-  switch i32 %108, label %110 [
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %110 = load ptr, ptr %109, align 8, !tbaa !218
+  switch i32 %108, label %112 [
     i32 297, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
     i32 337, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
     i32 461, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
     i32 361, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
     i32 463, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
     i32 462, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
-    i32 362, label %109
-    i32 363, label %109
-    i32 493, label %109
+    i32 362, label %111
+    i32 363, label %111
+    i32 493, label %111
   ]
 
-109:                                              ; preds = %106, %106, %106
+111:                                              ; preds = %106, %106, %106
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
 
-110:                                              ; preds = %106
+112:                                              ; preds = %106
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
 
-_ZNK4llvm9MemSDNode10getBasePtrEv.exit:           ; preds = %106, %106, %106, %106, %106, %106, %109, %110
-  %.sink2.i = phi i64 [ 40, %110 ], [ 120, %109 ], [ 80, %106 ], [ 80, %106 ], [ 80, %106 ], [ 80, %106 ], [ 80, %106 ], [ 80, %106 ]
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %112 = load ptr, ptr %111, align 8, !tbaa !218
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %.sink2.i
+_ZNK4llvm9MemSDNode10getBasePtrEv.exit:           ; preds = %106, %106, %106, %106, %106, %106, %111, %112
+  %.sink.i = phi i64 [ 40, %112 ], [ 120, %111 ], [ 80, %106 ], [ 80, %106 ], [ 80, %106 ], [ 80, %106 ], [ 80, %106 ], [ 80, %106 ]
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 %.sink.i
   %114 = load ptr, ptr %113, align 8, !tbaa !206
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %116 = load i32, ptr %115, align 8, !tbaa !226
@@ -150770,7 +150770,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit130:           ; preds = %189, %193
 203:                                              ; preds = %199
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %205 = load ptr, ptr %204, align 8, !tbaa !438
-  %206 = load ptr, ptr %111, align 8, !tbaa !218
+  %206 = load ptr, ptr %109, align 8, !tbaa !218
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 40
   %208 = load ptr, ptr %207, align 8, !tbaa !206
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 48
@@ -156682,17 +156682,16 @@ _ZL17stripConstantMaskRKN4llvm12SelectionDAGENS_7SDValueERS3_.exit.i397: ; preds
   %.sroa.02.0.in.sroa.speculated.i.i398 = phi ptr [ %.sroa.02.0.in.sroa.speculate.load..i.i407, %219 ], [ %3, %213 ], [ %3, %_ZL15matchRotateHalfRKN4llvm12SelectionDAGENS_7SDValueERS3_S4_.exit ]
   %222 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.in.sroa.speculated.i.i398, i64 24
   %223 = load i32, ptr %222, align 8, !tbaa !79
+  %.not679 = icmp eq ptr %.sroa.0502.3, null
   switch i32 %223, label %_ZL15matchRotateHalfRKN4llvm12SelectionDAGENS_7SDValueERS3_S4_.exit408.thread [
     i32 192, label %_ZL15matchRotateHalfRKN4llvm12SelectionDAGENS_7SDValueERS3_S4_.exit408
     i32 190, label %_ZL15matchRotateHalfRKN4llvm12SelectionDAGENS_7SDValueERS3_S4_.exit408
   ]
 
 _ZL15matchRotateHalfRKN4llvm12SelectionDAGENS_7SDValueERS3_S4_.exit408: ; preds = %_ZL17stripConstantMaskRKN4llvm12SelectionDAGENS_7SDValueERS3_.exit.i397, %_ZL17stripConstantMaskRKN4llvm12SelectionDAGENS_7SDValueERS3_.exit.i397
-  %.not678 = icmp eq ptr %.sroa.0502.3, null
-  br i1 %.not678, label %.thread647, label %.thread641
+  br i1 %.not679, label %.thread647, label %.thread641
 
 _ZL15matchRotateHalfRKN4llvm12SelectionDAGENS_7SDValueERS3_S4_.exit408.thread: ; preds = %_ZL17stripConstantMaskRKN4llvm12SelectionDAGENS_7SDValueERS3_.exit.i397
-  %.not679 = icmp eq ptr %.sroa.0502.3, null
   br i1 %.not679, label %.thread653, label %.thread641
 
 .thread641:                                       ; preds = %_ZL15matchRotateHalfRKN4llvm12SelectionDAGENS_7SDValueERS3_S4_.exit408.thread, %_ZL15matchRotateHalfRKN4llvm12SelectionDAGENS_7SDValueERS3_S4_.exit408
@@ -205054,29 +205053,29 @@ _ZN12_GLOBAL__N_111DAGCombiner20hasSameUnderlyingObjEN4llvm8ArrayRefINS0_9MemOpL
   %537 = load ptr, ptr %0, align 8, !tbaa !97
   %538 = getelementptr inbounds nuw i8, ptr %521, i64 24
   %539 = load i32, ptr %538, align 8, !tbaa !79
-  switch i32 %539, label %541 [
+  %540 = getelementptr inbounds nuw i8, ptr %521, i64 40
+  %541 = load ptr, ptr %540, align 8, !tbaa !218
+  switch i32 %539, label %543 [
     i32 297, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
     i32 337, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
     i32 461, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
     i32 361, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
     i32 463, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
     i32 462, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
-    i32 362, label %540
-    i32 363, label %540
-    i32 493, label %540
+    i32 362, label %542
+    i32 363, label %542
+    i32 493, label %542
   ]
 
-540:                                              ; preds = %536, %536, %536
+542:                                              ; preds = %536, %536, %536
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
 
-541:                                              ; preds = %536
+543:                                              ; preds = %536
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
 
-_ZNK4llvm9MemSDNode10getBasePtrEv.exit:           ; preds = %536, %536, %536, %536, %536, %536, %540, %541
-  %.sink2.i = phi i64 [ 40, %541 ], [ 120, %540 ], [ 80, %536 ], [ 80, %536 ], [ 80, %536 ], [ 80, %536 ], [ 80, %536 ], [ 80, %536 ]
-  %542 = getelementptr inbounds nuw i8, ptr %521, i64 40
-  %543 = load ptr, ptr %542, align 8, !tbaa !218
-  %544 = getelementptr inbounds nuw i8, ptr %543, i64 %.sink2.i
+_ZNK4llvm9MemSDNode10getBasePtrEv.exit:           ; preds = %536, %536, %536, %536, %536, %536, %542, %543
+  %.sink.i = phi i64 [ 40, %543 ], [ 120, %542 ], [ 80, %536 ], [ 80, %536 ], [ 80, %536 ], [ 80, %536 ], [ 80, %536 ], [ 80, %536 ]
+  %544 = getelementptr inbounds nuw i8, ptr %541, i64 %.sink.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %544, i64 16, i1 false), !tbaa.struct !232
   %545 = getelementptr inbounds nuw i8, ptr %521, i64 104
   %546 = load ptr, ptr %545, align 8, !tbaa !444
@@ -205184,29 +205183,29 @@ _ZN4llvm5APIntD2Ev.exit469:                       ; preds = %_ZNK4llvm3EVT13getS
   %593 = load ptr, ptr %0, align 8, !tbaa !97
   %594 = getelementptr inbounds nuw i8, ptr %521, i64 24
   %595 = load i32, ptr %594, align 8, !tbaa !79
-  switch i32 %595, label %597 [
+  %596 = getelementptr inbounds nuw i8, ptr %521, i64 40
+  %597 = load ptr, ptr %596, align 8, !tbaa !218
+  switch i32 %595, label %599 [
     i32 297, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit471
     i32 337, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit471
     i32 461, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit471
     i32 361, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit471
     i32 463, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit471
     i32 462, label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit471
-    i32 362, label %596
-    i32 363, label %596
-    i32 493, label %596
+    i32 362, label %598
+    i32 363, label %598
+    i32 493, label %598
   ]
 
-596:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469
+598:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit471
 
-597:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit469
+599:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit469
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit471
 
-_ZNK4llvm9MemSDNode10getBasePtrEv.exit471:        ; preds = %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %596, %597
-  %.sink2.i470 = phi i64 [ 40, %597 ], [ 120, %596 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ]
-  %598 = getelementptr inbounds nuw i8, ptr %521, i64 40
-  %599 = load ptr, ptr %598, align 8, !tbaa !218
-  %600 = getelementptr inbounds nuw i8, ptr %599, i64 %.sink2.i470
+_ZNK4llvm9MemSDNode10getBasePtrEv.exit471:        ; preds = %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %_ZN4llvm5APIntD2Ev.exit469, %598, %599
+  %.sink.i470 = phi i64 [ 40, %599 ], [ 120, %598 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ], [ 80, %_ZN4llvm5APIntD2Ev.exit469 ]
+  %600 = getelementptr inbounds nuw i8, ptr %597, i64 %.sink.i470
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %600, i64 16, i1 false), !tbaa.struct !232
   %601 = getelementptr inbounds nuw i8, ptr %521, i64 104
   %602 = load ptr, ptr %601, align 8, !tbaa !444

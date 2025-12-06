@@ -1473,13 +1473,14 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal i32 @test_cmp_pkimessage_create(i32 noundef %0) #0 {
   %2 = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.44)
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %53, label %4
+  br i1 %3, label %51, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %0, ptr %5, align 8, !tbaa !17
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   switch i32 %0, label %.thread.thread [
-    i32 4, label %6
+    i32 4, label %7
     i32 0, label %.thread.thread26
     i32 1, label %.thread.thread26
     i32 2, label %.thread.thread26
@@ -1497,9 +1498,8 @@ define internal i32 @test_cmp_pkimessage_create(i32 noundef %0) #0 {
     i32 26, label %.thread.thread26
   ]
 
-6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 1, ptr %7, align 8, !tbaa !24
+7:                                                ; preds = %4
+  store i32 1, ptr %6, align 8, !tbaa !24
   %8 = load ptr, ptr @pkcs10_f, align 8, !tbaa !15
   %9 = load ptr, ptr @libctx, align 8, !tbaa !13
   %10 = tail call ptr @load_csr_der(ptr noundef %8, ptr noundef %9) #4
@@ -1512,79 +1512,77 @@ define internal i32 @test_cmp_pkimessage_create(i32 noundef %0) #0 {
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.thread21, label %.thread
 
-.thread21:                                        ; preds = %6
+.thread21:                                        ; preds = %7
   tail call fastcc void @tear_down(ptr noundef nonnull %2)
   tail call void @X509_REQ_free(ptr noundef %10) #4
-  br label %53
+  br label %51
 
 .thread.thread26:                                 ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 1, ptr %17, align 8, !tbaa !24
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !25
-  %20 = tail call ptr @ossl_cmp_msg_create(ptr noundef %19, i32 noundef %0) #4
-  br label %29
+  store i32 1, ptr %6, align 8, !tbaa !24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !25
+  %19 = tail call ptr @ossl_cmp_msg_create(ptr noundef %18, i32 noundef %0) #4
+  br label %27
 
 .thread.thread:                                   ; preds = %4
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %21, align 8, !tbaa !24
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !25
-  %24 = tail call ptr @ossl_cmp_msg_create(ptr noundef %23, i32 noundef %0) #4
-  br label %40
+  store i32 0, ptr %6, align 8, !tbaa !24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  %22 = tail call ptr @ossl_cmp_msg_create(ptr noundef %21, i32 noundef %0) #4
+  br label %38
 
-.thread:                                          ; preds = %6
+.thread:                                          ; preds = %7
   tail call void @X509_REQ_free(ptr noundef %10) #4
-  %.pre = load i32, ptr %7, align 8, !tbaa !24
+  %.pre = load i32, ptr %6, align 8, !tbaa !24
   %.pre24 = load i32, ptr %5, align 8, !tbaa !17
-  %25 = icmp eq i32 %.pre, 0
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !25
-  %28 = tail call ptr @ossl_cmp_msg_create(ptr noundef %27, i32 noundef %.pre24) #4
-  br i1 %25, label %40, label %29
+  %23 = icmp eq i32 %.pre, 0
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !25
+  %26 = tail call ptr @ossl_cmp_msg_create(ptr noundef %25, i32 noundef %.pre24) #4
+  br i1 %23, label %38, label %27
 
-29:                                               ; preds = %.thread.thread26, %.thread
-  %30 = phi ptr [ %20, %.thread.thread26 ], [ %28, %.thread ]
-  %31 = phi ptr [ %18, %.thread.thread26 ], [ %26, %.thread ]
-  %32 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 127, ptr noundef nonnull @.str.84, ptr noundef %30) #4
-  %.not7.i = icmp eq i32 %32, 0
-  br i1 %.not7.i, label %execute_pkimessage_create_test.exit, label %33
+27:                                               ; preds = %.thread.thread26, %.thread
+  %28 = phi ptr [ %19, %.thread.thread26 ], [ %26, %.thread ]
+  %29 = phi ptr [ %17, %.thread.thread26 ], [ %24, %.thread ]
+  %30 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 127, ptr noundef nonnull @.str.84, ptr noundef %28) #4
+  %.not7.i = icmp eq i32 %30, 0
+  br i1 %.not7.i, label %execute_pkimessage_create_test.exit, label %31
 
-33:                                               ; preds = %29
-  %34 = tail call i32 @valid_asn1_encoding(ptr noundef %30) #4
-  %35 = icmp ne i32 %34, 0
-  %36 = zext i1 %35 to i32
-  %37 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 127, ptr noundef nonnull @.str.51, i32 noundef %36) #4
-  %38 = icmp ne i32 %37, 0
-  %39 = zext i1 %38 to i32
+31:                                               ; preds = %27
+  %32 = tail call i32 @valid_asn1_encoding(ptr noundef %28) #4
+  %33 = icmp ne i32 %32, 0
+  %34 = zext i1 %33 to i32
+  %35 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 127, ptr noundef nonnull @.str.51, i32 noundef %34) #4
+  %36 = icmp ne i32 %35, 0
+  %37 = zext i1 %36 to i32
   br label %execute_pkimessage_create_test.exit
 
-40:                                               ; preds = %.thread.thread, %.thread
-  %41 = phi ptr [ %24, %.thread.thread ], [ %28, %.thread ]
-  %42 = phi ptr [ %22, %.thread.thread ], [ %26, %.thread ]
-  %43 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 127, ptr noundef nonnull @.str.84, ptr noundef %41) #4
+38:                                               ; preds = %.thread.thread, %.thread
+  %39 = phi ptr [ %22, %.thread.thread ], [ %26, %.thread ]
+  %40 = phi ptr [ %20, %.thread.thread ], [ %24, %.thread ]
+  %41 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.14, i32 noundef 127, ptr noundef nonnull @.str.84, ptr noundef %39) #4
   br label %execute_pkimessage_create_test.exit
 
-execute_pkimessage_create_test.exit:              ; preds = %29, %33, %40
-  %44 = phi ptr [ %41, %40 ], [ %30, %33 ], [ %30, %29 ]
-  %45 = phi ptr [ %42, %40 ], [ %31, %33 ], [ %31, %29 ]
-  %46 = phi i32 [ %43, %40 ], [ %39, %33 ], [ 0, %29 ]
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %44) #4
-  %47 = load ptr, ptr @stderr, align 8, !tbaa !28
-  tail call void @ERR_print_errors_fp(ptr noundef %47) #4
-  %48 = load ptr, ptr %45, align 8, !tbaa !25
-  tail call void @OSSL_CMP_CTX_free(ptr noundef %48) #4
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !26
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %50) #4
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %52 = load ptr, ptr %51, align 8, !tbaa !27
-  tail call void @OSSL_CMP_PKISI_free(ptr noundef %52) #4
+execute_pkimessage_create_test.exit:              ; preds = %27, %31, %38
+  %42 = phi ptr [ %39, %38 ], [ %28, %31 ], [ %28, %27 ]
+  %43 = phi ptr [ %40, %38 ], [ %29, %31 ], [ %29, %27 ]
+  %44 = phi i32 [ %41, %38 ], [ %37, %31 ], [ 0, %27 ]
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %42) #4
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !28
+  tail call void @ERR_print_errors_fp(ptr noundef %45) #4
+  %46 = load ptr, ptr %43, align 8, !tbaa !25
+  tail call void @OSSL_CMP_CTX_free(ptr noundef %46) #4
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %48 = load ptr, ptr %47, align 8, !tbaa !26
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %48) #4
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %50 = load ptr, ptr %49, align 8, !tbaa !27
+  tail call void @OSSL_CMP_PKISI_free(ptr noundef %50) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %2, ptr noundef nonnull @.str.14, i32 noundef 43) #4
-  br label %53
+  br label %51
 
-53:                                               ; preds = %.thread21, %execute_pkimessage_create_test.exit, %1
-  %.015 = phi i32 [ 0, %1 ], [ %46, %execute_pkimessage_create_test.exit ], [ 0, %.thread21 ]
+51:                                               ; preds = %.thread21, %execute_pkimessage_create_test.exit, %1
+  %.015 = phi i32 [ 0, %1 ], [ %44, %execute_pkimessage_create_test.exit ], [ 0, %.thread21 ]
   ret i32 %.015
 }
 

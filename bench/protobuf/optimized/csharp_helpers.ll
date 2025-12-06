@@ -1674,6 +1674,10 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %if.then.i, %lor.lhs.false.i.i.i, %if.then.i.i.i, %if.then5.i.i.i
   %type_.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 2
   %5 = load i8, ptr %type_.i, align 2
+  %label_.i.i89 = getelementptr inbounds nuw i8, ptr %descriptor, i64 1
+  %bf.load.i.i90 = load i8, ptr %label_.i.i89, align 1
+  %6 = and i8 %bf.load.i.i90, 96
+  %cmp.i91 = icmp eq i8 %6, 96
   switch i8 %5, label %sw.default [
     i8 10, label %sw.bb
     i8 11, label %sw.bb
@@ -1681,11 +1685,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %if.then.i,
   ]
 
 sw.bb:                                            ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  %label_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 1
-  %bf.load.i.i = load i8, ptr %label_.i.i, align 1
-  %6 = and i8 %bf.load.i.i, 96
-  %cmp.i = icmp eq i8 %6, 96
-  br i1 %cmp.i, label %if.then, label %if.else8
+  br i1 %cmp.i91, label %if.then, label %if.else8
 
 if.then:                                          ; preds = %sw.bb
   %7 = load ptr, ptr %type_once_.i, align 8
@@ -1748,7 +1748,7 @@ lpad6:                                            ; preds = %if.else
 
 if.else8:                                         ; preds = %sw.bb
   %call9 = tail call noundef zeroext i1 @_ZN6google8protobuf8compiler6csharp13IsWrapperTypeEPKNS0_15FieldDescriptorE(ptr noundef nonnull %descriptor)
-  %bf.load.i.i48 = load i8, ptr %label_.i.i, align 1
+  %bf.load.i.i48 = load i8, ptr %label_.i.i89, align 1
   %15 = and i8 %bf.load.i.i48, 16
   %bf.cast.not.i.i = icmp eq i8 %15, 0
   %scope_.i.i = getelementptr inbounds nuw i8, ptr %descriptor, i64 40
@@ -1836,11 +1836,7 @@ lpad29:                                           ; preds = %if.else27
   br label %eh.resume
 
 sw.bb31:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  %label_.i.i68 = getelementptr inbounds nuw i8, ptr %descriptor, i64 1
-  %bf.load.i.i69 = load i8, ptr %label_.i.i68, align 1
-  %27 = and i8 %bf.load.i.i69, 96
-  %cmp.i70 = icmp eq i8 %27, 96
-  br i1 %cmp.i70, label %if.then33, label %if.else37
+  br i1 %cmp.i91, label %if.then33, label %if.else37
 
 if.then33:                                        ; preds = %sw.bb31
   %call34 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #26
@@ -1848,33 +1844,33 @@ if.then33:                                        ; preds = %sw.bb31
           to label %return unwind label %lpad35
 
 lpad35:                                           ; preds = %if.then33
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.else37:                                        ; preds = %sw.bb31
-  %29 = and i8 %bf.load.i.i69, 16
-  %bf.cast.not.i.i73 = icmp eq i8 %29, 0
+  %28 = and i8 %bf.load.i.i90, 16
+  %bf.cast.not.i.i73 = icmp eq i8 %28, 0
   %scope_.i.i74 = getelementptr inbounds nuw i8, ptr %descriptor, i64 40
-  %30 = load ptr, ptr %scope_.i.i74, align 8
-  %tobool.not5.i75 = icmp eq ptr %30, null
+  %29 = load ptr, ptr %scope_.i.i74, align 8
+  %tobool.not5.i75 = icmp eq ptr %29, null
   %tobool.not.i76 = select i1 %bf.cast.not.i.i73, i1 true, i1 %tobool.not5.i75
   br i1 %tobool.not.i76, label %if.else44, label %land.lhs.true.i77
 
 land.lhs.true.i77:                                ; preds = %if.else37
-  %field_count_.i.i.i78 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %31 = load i32, ptr %field_count_.i.i.i78, align 4
-  %cmp.i.i79 = icmp eq i32 %31, 1
+  %field_count_.i.i.i78 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %30 = load i32, ptr %field_count_.i.i.i78, align 4
+  %cmp.i.i79 = icmp eq i32 %30, 1
   br i1 %cmp.i.i79, label %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i81, label %if.then40
 
 _ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i81: ; preds = %land.lhs.true.i77
-  %fields_.i.i.i82 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %32 = load ptr, ptr %fields_.i.i.i82, align 8
-  %proto3_optional_.i.i83 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  %fields_.i.i.i82 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %31 = load ptr, ptr %fields_.i.i.i82, align 8
+  %proto3_optional_.i.i83 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %bf.load.i3.i84 = load i8, ptr %proto3_optional_.i.i83, align 1
   %bf.load.i3.fr.i85 = freeze i8 %bf.load.i3.i84
-  %33 = and i8 %bf.load.i3.fr.i85, 2
-  %bf.cast.i.not.i86 = icmp eq i8 %33, 0
+  %32 = and i8 %bf.load.i3.fr.i85, 2
+  %bf.cast.i.not.i86 = icmp eq i8 %32, 0
   br i1 %bf.cast.i.not.i86, label %if.then40, label %if.else44
 
 if.then40:                                        ; preds = %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i81, %land.lhs.true.i77
@@ -1883,7 +1879,7 @@ if.then40:                                        ; preds = %_ZNK6google8protobu
           to label %return unwind label %lpad42
 
 lpad42:                                           ; preds = %if.then40
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1893,15 +1889,11 @@ if.else44:                                        ; preds = %if.else37, %_ZNK6go
           to label %return unwind label %lpad46
 
 lpad46:                                           ; preds = %if.else44
-  %35 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 sw.default:                                       ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  %label_.i.i89 = getelementptr inbounds nuw i8, ptr %descriptor, i64 1
-  %bf.load.i.i90 = load i8, ptr %label_.i.i89, align 1
-  %36 = and i8 %bf.load.i.i90, 96
-  %cmp.i91 = icmp eq i8 %36, 96
   br i1 %cmp.i91, label %if.then49, label %if.else53
 
 if.then49:                                        ; preds = %sw.default
@@ -1910,33 +1902,33 @@ if.then49:                                        ; preds = %sw.default
           to label %return unwind label %lpad51
 
 lpad51:                                           ; preds = %if.then49
-  %37 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 if.else53:                                        ; preds = %sw.default
-  %38 = and i8 %bf.load.i.i90, 16
-  %bf.cast.not.i.i94 = icmp eq i8 %38, 0
+  %36 = and i8 %bf.load.i.i90, 16
+  %bf.cast.not.i.i94 = icmp eq i8 %36, 0
   %scope_.i.i95 = getelementptr inbounds nuw i8, ptr %descriptor, i64 40
-  %39 = load ptr, ptr %scope_.i.i95, align 8
-  %tobool.not5.i96 = icmp eq ptr %39, null
+  %37 = load ptr, ptr %scope_.i.i95, align 8
+  %tobool.not5.i96 = icmp eq ptr %37, null
   %tobool.not.i97 = select i1 %bf.cast.not.i.i94, i1 true, i1 %tobool.not5.i96
   br i1 %tobool.not.i97, label %if.else60, label %land.lhs.true.i98
 
 land.lhs.true.i98:                                ; preds = %if.else53
-  %field_count_.i.i.i99 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %40 = load i32, ptr %field_count_.i.i.i99, align 4
-  %cmp.i.i100 = icmp eq i32 %40, 1
+  %field_count_.i.i.i99 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %38 = load i32, ptr %field_count_.i.i.i99, align 4
+  %cmp.i.i100 = icmp eq i32 %38, 1
   br i1 %cmp.i.i100, label %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i102, label %if.then56
 
 _ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i102: ; preds = %land.lhs.true.i98
-  %fields_.i.i.i103 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %41 = load ptr, ptr %fields_.i.i.i103, align 8
-  %proto3_optional_.i.i104 = getelementptr inbounds nuw i8, ptr %41, i64 1
+  %fields_.i.i.i103 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  %39 = load ptr, ptr %fields_.i.i.i103, align 8
+  %proto3_optional_.i.i104 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %bf.load.i3.i105 = load i8, ptr %proto3_optional_.i.i104, align 1
   %bf.load.i3.fr.i106 = freeze i8 %bf.load.i3.i105
-  %42 = and i8 %bf.load.i3.fr.i106, 2
-  %bf.cast.i.not.i107 = icmp eq i8 %42, 0
+  %40 = and i8 %bf.load.i3.fr.i106, 2
+  %bf.cast.i.not.i107 = icmp eq i8 %40, 0
   br i1 %bf.cast.i.not.i107, label %if.then56, label %if.else60
 
 if.then56:                                        ; preds = %_ZNK6google8protobuf15OneofDescriptor12is_syntheticEv.exit.i102, %land.lhs.true.i98
@@ -1945,7 +1937,7 @@ if.then56:                                        ; preds = %_ZNK6google8protobu
           to label %return unwind label %lpad58
 
 lpad58:                                           ; preds = %if.then56
-  %43 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1955,7 +1947,7 @@ if.else60:                                        ; preds = %if.else53, %_ZNK6go
           to label %return unwind label %lpad62
 
 lpad62:                                           ; preds = %if.else60
-  %44 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -1965,7 +1957,7 @@ return:                                           ; preds = %if.else60, %if.then
 
 eh.resume:                                        ; preds = %lpad62, %lpad58, %lpad51, %lpad46, %lpad42, %lpad35, %lpad29, %lpad25, %lpad18, %lpad14, %lpad6, %lpad
   %call61.sink = phi ptr [ %call61, %lpad62 ], [ %call57, %lpad58 ], [ %call50, %lpad51 ], [ %call45, %lpad46 ], [ %call41, %lpad42 ], [ %call34, %lpad35 ], [ %call28, %lpad29 ], [ %call24, %lpad25 ], [ %call17, %lpad18 ], [ %call13, %lpad14 ], [ %call5, %lpad6 ], [ %call4, %lpad ]
-  %.pn = phi { ptr, i32 } [ %44, %lpad62 ], [ %43, %lpad58 ], [ %37, %lpad51 ], [ %35, %lpad46 ], [ %34, %lpad42 ], [ %28, %lpad35 ], [ %26, %lpad29 ], [ %25, %lpad25 ], [ %21, %lpad18 ], [ %20, %lpad14 ], [ %14, %lpad6 ], [ %13, %lpad ]
+  %.pn = phi { ptr, i32 } [ %42, %lpad62 ], [ %41, %lpad58 ], [ %35, %lpad51 ], [ %34, %lpad46 ], [ %33, %lpad42 ], [ %27, %lpad35 ], [ %26, %lpad29 ], [ %25, %lpad25 ], [ %21, %lpad18 ], [ %20, %lpad14 ], [ %14, %lpad6 ], [ %13, %lpad ]
   tail call void @_ZdlPv(ptr noundef nonnull %call61.sink) #27
   resume { ptr, i32 } %.pn
 }

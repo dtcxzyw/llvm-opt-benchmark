@@ -1348,6 +1348,8 @@ block_len.exit240:                                ; preds = %block_len.exit238.t
   br label %.sink.split
 
 89:                                               ; preds = %36
+  %.sroa.454.0.copyload328 = load ptr, ptr %.sroa.5161.0..sroa_idx, align 8, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   switch i8 %.sroa.0159.0.copyload, label %default.unreachable374 [
     i8 9, label %block_len.exit242.thread
     i8 8, label %block_len.exit242
@@ -1361,32 +1363,24 @@ block_len.exit242.thread:                         ; preds = %89
   %90 = sub nsw i32 144, %.0194272
   %91 = zext i32 %90 to i64
   %92 = getelementptr i8, ptr %1, i64 %91
-  %.sroa.454.0.copyload328 = load ptr, ptr %.sroa.5161.0..sroa_idx, align 8, !tbaa !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   br label %block_len.exit244
 
 block_len.exit242.thread330:                      ; preds = %89
   %93 = sub nsw i32 104, %.0194272
   %94 = zext i32 %93 to i64
   %95 = getelementptr i8, ptr %1, i64 %94
-  %.sroa.454.0.copyload332 = load ptr, ptr %.sroa.5161.0..sroa_idx, align 8, !tbaa !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   br label %block_len.exit244
 
 block_len.exit242.thread334:                      ; preds = %89
   %96 = sub nsw i32 72, %.0194272
   %97 = zext i32 %96 to i64
   %98 = getelementptr i8, ptr %1, i64 %97
-  %.sroa.454.0.copyload336 = load ptr, ptr %.sroa.5161.0..sroa_idx, align 8, !tbaa !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   br label %block_len.exit244
 
 block_len.exit242.thread338:                      ; preds = %89
   %99 = sub nuw nsw i32 168, %.0194272
   %100 = zext nneg i32 %99 to i64
   %101 = getelementptr i8, ptr %1, i64 %100
-  %.sroa.454.0.copyload340 = load ptr, ptr %.sroa.5161.0..sroa_idx, align 8, !tbaa !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   br label %block_len.exit244
 
 default.unreachable374:                           ; preds = %89
@@ -1396,8 +1390,6 @@ block_len.exit242:                                ; preds = %89, %89
   %102 = sub nsw i32 136, %.0194272
   %103 = zext i32 %102 to i64
   %104 = getelementptr i8, ptr %1, i64 %103
-  %.sroa.454.0.copyload = load ptr, ptr %.sroa.5161.0..sroa_idx, align 8, !tbaa !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   switch i8 %.sroa.0159.0.copyload, label %default.unreachable389 [
     i8 9, label %block_len.exit244
     i8 8, label %105
@@ -1423,7 +1415,6 @@ default.unreachable389:                           ; preds = %block_len.exit242
   unreachable
 
 block_len.exit244:                                ; preds = %block_len.exit242.thread338, %block_len.exit242.thread334, %block_len.exit242.thread330, %block_len.exit242.thread, %block_len.exit242, %105, %106, %107, %108
-  %.sroa.454.0.copyload329 = phi ptr [ %.sroa.454.0.copyload, %105 ], [ %.sroa.454.0.copyload, %block_len.exit242 ], [ %.sroa.454.0.copyload328, %block_len.exit242.thread ], [ %.sroa.454.0.copyload332, %block_len.exit242.thread330 ], [ %.sroa.454.0.copyload, %106 ], [ %.sroa.454.0.copyload336, %block_len.exit242.thread334 ], [ %.sroa.454.0.copyload, %107 ], [ %.sroa.454.0.copyload340, %block_len.exit242.thread338 ], [ %.sroa.454.0.copyload, %108 ]
   %109 = phi ptr [ %104, %105 ], [ %104, %block_len.exit242 ], [ %92, %block_len.exit242.thread ], [ %95, %block_len.exit242.thread330 ], [ %104, %106 ], [ %98, %block_len.exit242.thread334 ], [ %104, %107 ], [ %101, %block_len.exit242.thread338 ], [ %104, %108 ]
   %110 = phi i64 [ %103, %105 ], [ %103, %block_len.exit242 ], [ %91, %block_len.exit242.thread ], [ %94, %block_len.exit242.thread330 ], [ %103, %106 ], [ %97, %block_len.exit242.thread334 ], [ %103, %107 ], [ %100, %block_len.exit242.thread338 ], [ %103, %108 ]
   %111 = phi i32 [ %102, %105 ], [ %102, %block_len.exit242 ], [ %90, %block_len.exit242.thread ], [ %93, %block_len.exit242.thread330 ], [ %102, %106 ], [ %96, %block_len.exit242.thread334 ], [ %102, %107 ], [ %99, %block_len.exit242.thread338 ], [ %102, %108 ]
@@ -1448,11 +1439,11 @@ switch.lookup434:                                 ; preds = %block_len.exit244
 
 block_len.exit246:                                ; preds = %switch.lookup430, %switch.lookup434
   %.0198 = phi i64 [ %115, %switch.lookup434 ], [ %switch.load432, %switch.lookup430 ]
-  %116 = getelementptr i8, ptr %.sroa.454.0.copyload329, i64 %.0198
+  %116 = getelementptr i8, ptr %.sroa.454.0.copyload328, i64 %.0198
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr align 1 %1, i64 %110, i1 false)
   %117 = add i64 %110, %.sroa.5162.0.copyload
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
-  store ptr %.sroa.454.0.copyload329, ptr %.sroa.5161.0..sroa_idx, align 8, !tbaa !22
+  store ptr %.sroa.454.0.copyload328, ptr %.sroa.5161.0..sroa_idx, align 8, !tbaa !22
   store i64 %117, ptr %.sroa.5162.0..sroa_idx, align 8, !tbaa !10
   %.sroa.0.0.copyload = load i8, ptr %0, align 8, !tbaa !18
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -1500,7 +1491,7 @@ switch.lookup460:                                 ; preds = %block_len.exit252
   %switch.masked464 = trunc i48 %switch.downshift463 to i8
   %134 = udiv i8 %switch.masked, %switch.masked464
   %.zext381 = zext nneg i8 %134 to i32
-  tail call void @python_hashlib_Hacl_Hash_SHA3_update_multi_sha3(i8 noundef zeroext %.sroa.0.0.copyload, ptr noundef %.sroa.5.0.copyload, ptr noundef %.sroa.454.0.copyload329, i32 noundef %.zext381)
+  tail call void @python_hashlib_Hacl_Hash_SHA3_update_multi_sha3(i8 noundef zeroext %.sroa.0.0.copyload, ptr noundef %.sroa.5.0.copyload, ptr noundef %.sroa.454.0.copyload328, i32 noundef %.zext381)
   br label %switch.lookup448
 
 switch.lookup448:                                 ; preds = %switch.lookup460, %switch.lookup442
@@ -1638,7 +1629,7 @@ switch.lookup456:                                 ; preds = %block_len.exit268
   %169 = udiv i32 %164, %switch.load458
   tail call void @python_hashlib_Hacl_Hash_SHA3_update_multi_sha3(i8 noundef zeroext %.sroa.0.0.copyload, ptr noundef %.sroa.5.0.copyload, ptr noundef %109, i32 noundef %169)
   %170 = zext i32 %167 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.454.0.copyload329, ptr align 1 %166, i64 %170, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.454.0.copyload328, ptr align 1 %166, i64 %170, i1 false)
   %171 = add i64 %117, %136
   store i8 %.sroa.0.0.copyload, ptr %0, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4160.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %118, i64 7, i1 false)
@@ -1646,7 +1637,7 @@ switch.lookup456:                                 ; preds = %block_len.exit268
   br label %.sink.split
 
 .sink.split:                                      ; preds = %block_len.exit240, %switch.lookup456, %block_len.exit216
-  %.sroa.4119.0.copyload.sink = phi ptr [ %.sroa.4119.0.copyload, %block_len.exit216 ], [ %.sroa.454.0.copyload329, %switch.lookup456 ], [ %.sroa.6104.0.copyload, %block_len.exit240 ]
+  %.sroa.4119.0.copyload.sink = phi ptr [ %.sroa.4119.0.copyload, %block_len.exit216 ], [ %.sroa.454.0.copyload328, %switch.lookup456 ], [ %.sroa.6104.0.copyload, %block_len.exit240 ]
   %.sink = phi i64 [ %35, %block_len.exit216 ], [ %171, %switch.lookup456 ], [ %88, %block_len.exit240 ]
   store ptr %.sroa.4119.0.copyload.sink, ptr %.sroa.5161.0..sroa_idx, align 8, !tbaa !22
   store i64 %.sink, ptr %.sroa.5162.0..sroa_idx, align 8, !tbaa !10

@@ -214,12 +214,12 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool3.not, label %if.end15, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
+  %vtable12 = load ptr, ptr %1, align 8
   %2 = add i8 %0, -6
   %switch.and = and i8 %2, -3
   %switch.selectcmp = icmp eq i8 %switch.and, 0
   %3 = select i1 %switch.selectcmp, i64 40, i64 32
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 %3
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable12, i64 %3
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef zeroext %type)
   br label %if.end15

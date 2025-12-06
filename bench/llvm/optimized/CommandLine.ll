@@ -5218,6 +5218,7 @@ define dso_local void @_ZN4llvm2cl18tokenizeConfigFileENS_9StringRefERNS_11Strin
   store i64 0, ptr %9, align 8, !tbaa !231
   store i64 128, ptr %10, align 8, !tbaa !232
   %12 = load i8, ptr %.083, align 1, !tbaa !16
+  %.not4173 = icmp eq ptr %.083, %7
   switch i8 %12, label %.preheader [
     i8 32, label %_ZL12isWhitespacec.exit
     i8 13, label %_ZL12isWhitespacec.exit
@@ -5227,16 +5228,13 @@ define dso_local void @_ZN4llvm2cl18tokenizeConfigFileENS_9StringRefERNS_11Strin
   ]
 
 .preheader61:                                     ; preds = %11
-  %.not4463 = icmp eq ptr %.083, %7
-  br i1 %.not4463, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %.lr.ph, !llvm.loop !246
+  br i1 %.not4173, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %.lr.ph, !llvm.loop !246
 
 .preheader:                                       ; preds = %11
-  %.not4173 = icmp eq ptr %.083, %7
   br i1 %.not4173, label %._crit_edge, label %.lr.ph76
 
 _ZL12isWhitespacec.exit:                          ; preds = %11, %11, %11, %11
-  %.not4667 = icmp eq ptr %.083, %7
-  br i1 %.not4667, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %.lr.ph69, !llvm.loop !246
+  br i1 %.not4173, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %.lr.ph69, !llvm.loop !246
 
 .lr.ph69:                                         ; preds = %_ZL12isWhitespacec.exit
   br label %13, !llvm.loop !246

@@ -50,269 +50,267 @@ define hidden noundef ptr @_ZN12PhaseChaitin18get_spillcopy_wideEN17MachSpillCop
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(52) %2) #9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8
   switch i32 %9, label %15 [
-    i32 15, label %10
-    i32 0, label %10
+    i32 15, label %12
+    i32 0, label %12
   ]
 
-10:                                               ; preds = %5, %5
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 352
+12:                                               ; preds = %5, %5
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 352
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZN5ciEnv28record_method_not_compilableEPKcb(ptr noundef nonnull align 8 dereferenceable(1265) %14, ptr noundef nonnull @.str, i1 noundef zeroext false) #9
-  tail call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %12, ptr noundef nonnull @.str) #9
+  tail call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %11, ptr noundef nonnull @.str) #9
   br label %_ZN7Compile16check_node_countEjPKc.exit.thread
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 2088
-  %19 = load i8, ptr %18, align 8
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %22
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 2088
+  %17 = load i8, ptr %16, align 8
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %20
 
-21:                                               ; preds = %15
-  tail call void @_ZN7Compile32record_method_not_compilable_oomEv(ptr noundef nonnull align 8 dereferenceable(2316) %17) #9
+19:                                               ; preds = %15
+  tail call void @_ZN7Compile32record_method_not_compilable_oomEv(ptr noundef nonnull align 8 dereferenceable(2316) %11) #9
   br label %_ZN7Compile16check_node_countEjPKc.exit.thread
 
-22:                                               ; preds = %15
-  %23 = load i64, ptr @NodeLimitFudgeFactor, align 8
-  %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds nuw i8, ptr %17, i64 592
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 596
-  %28 = load i32, ptr %27, align 4
-  %29 = add i32 %26, %24
-  %30 = sub i32 %29, %28
-  %31 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  %32 = load i64, ptr %31, align 8
-  %33 = trunc i64 %32 to i32
-  %34 = icmp ugt i32 %30, %33
-  br i1 %34, label %35, label %_ZN7Compile16check_node_countEjPKc.exit
+20:                                               ; preds = %15
+  %21 = load i64, ptr @NodeLimitFudgeFactor, align 8
+  %22 = trunc i64 %21 to i32
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 592
+  %24 = load i32, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 596
+  %26 = load i32, ptr %25, align 4
+  %27 = add i32 %24, %22
+  %28 = sub i32 %27, %26
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 104
+  %30 = load i64, ptr %29, align 8
+  %31 = trunc i64 %30 to i32
+  %32 = icmp ugt i32 %28, %31
+  br i1 %32, label %33, label %_ZN7Compile16check_node_countEjPKc.exit
 
-35:                                               ; preds = %22
-  %36 = getelementptr inbounds nuw i8, ptr %17, i64 352
-  %37 = load ptr, ptr %36, align 8
-  tail call void @_ZN5ciEnv28record_method_not_compilableEPKcb(ptr noundef nonnull align 8 dereferenceable(1265) %37, ptr noundef nonnull @_ZL12out_of_nodes, i1 noundef zeroext false) #9
-  tail call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %17, ptr noundef nonnull @_ZL12out_of_nodes) #9
+33:                                               ; preds = %20
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 352
+  %35 = load ptr, ptr %34, align 8
+  tail call void @_ZN5ciEnv28record_method_not_compilableEPKcb(ptr noundef nonnull align 8 dereferenceable(1265) %35, ptr noundef nonnull @_ZL12out_of_nodes, i1 noundef zeroext false) #9
+  tail call void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316) %11, ptr noundef nonnull @_ZL12out_of_nodes) #9
   br label %_ZN7Compile16check_node_countEjPKc.exit.thread
 
-_ZN7Compile16check_node_countEjPKc.exit:          ; preds = %22
-  %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 128
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef nonnull align 8 dereferenceable(96) ptr %40(ptr noundef nonnull align 8 dereferenceable(52) %2) #9
-  %42 = load ptr, ptr %16, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 2152
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 328
-  %46 = zext i32 %9 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
-  %48 = load ptr, ptr %47, align 8
+_ZN7Compile16check_node_countEjPKc.exit:          ; preds = %20
+  %36 = load ptr, ptr %2, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call noundef nonnull align 8 dereferenceable(96) ptr %38(ptr noundef nonnull align 8 dereferenceable(52) %2) #9
+  %40 = load ptr, ptr %10, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2152
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 328
+  %44 = zext i32 %9 to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %46 = load ptr, ptr %45, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %54, label %49
+  br i1 %.not, label %52, label %47
 
-49:                                               ; preds = %_ZN7Compile16check_node_countEjPKc.exit
-  %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 136
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef nonnull align 8 dereferenceable(96) ptr %52(ptr noundef nonnull align 8 dereferenceable(52) %3, i32 noundef %4) #9
-  br label %54
+47:                                               ; preds = %_ZN7Compile16check_node_countEjPKc.exit
+  %48 = load ptr, ptr %3, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 136
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef nonnull align 8 dereferenceable(96) ptr %50(ptr noundef nonnull align 8 dereferenceable(52) %3, i32 noundef %4) #9
+  br label %52
 
-54:                                               ; preds = %_ZN7Compile16check_node_countEjPKc.exit, %49
-  %55 = phi ptr [ %53, %49 ], [ %48, %_ZN7Compile16check_node_countEjPKc.exit ]
-  %56 = getelementptr inbounds nuw i8, ptr %48, i64 92
+52:                                               ; preds = %_ZN7Compile16check_node_countEjPKc.exit, %47
+  %53 = phi ptr [ %51, %47 ], [ %46, %_ZN7Compile16check_node_countEjPKc.exit ]
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 92
+  %55 = load i32, ptr %54, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %39, i64 92
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %41, i64 92
-  %59 = load i32, ptr %58, align 4
-  %60 = tail call noundef i32 @llvm.umin.i32(i32 %57, i32 %59)
-  %61 = getelementptr inbounds nuw i8, ptr %48, i64 88
+  %58 = tail call noundef i32 @llvm.umin.i32(i32 %55, i32 %57)
+  %59 = getelementptr inbounds nuw i8, ptr %46, i64 88
+  %60 = load i32, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %39, i64 88
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %41, i64 88
-  %64 = load i32, ptr %63, align 8
-  %65 = tail call noundef i32 @llvm.umax.i32(i32 %62, i32 %64)
-  %.not12.i = icmp ugt i32 %65, %60
+  %63 = tail call noundef i32 @llvm.umax.i32(i32 %60, i32 %62)
+  %.not12.i = icmp ugt i32 %63, %58
   br i1 %.not12.i, label %_ZNK7RegMask7overlapERKS_.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %54, %.lr.ph.i
-  %.014.i = phi i32 [ %73, %.lr.ph.i ], [ %65, %54 ]
-  %.01113.i = phi i64 [ %72, %.lr.ph.i ], [ 0, %54 ]
-  %66 = zext i32 %.014.i to i64
-  %67 = getelementptr inbounds nuw i64, ptr %48, i64 %66
+.lr.ph.i:                                         ; preds = %52, %.lr.ph.i
+  %.014.i = phi i32 [ %71, %.lr.ph.i ], [ %63, %52 ]
+  %.01113.i = phi i64 [ %70, %.lr.ph.i ], [ 0, %52 ]
+  %64 = zext i32 %.014.i to i64
+  %65 = getelementptr inbounds nuw i64, ptr %46, i64 %64
+  %66 = load i64, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i64, ptr %39, i64 %64
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i64, ptr %41, i64 %66
-  %70 = load i64, ptr %69, align 8
-  %.fr = freeze i64 %70
-  %.fr61 = freeze i64 %68
-  %71 = and i64 %.fr, %.fr61
-  %72 = or i64 %71, %.01113.i
-  %73 = add i32 %.014.i, 1
-  %.not.i = icmp ugt i32 %73, %60
+  %.fr = freeze i64 %68
+  %.fr61 = freeze i64 %66
+  %69 = and i64 %.fr, %.fr61
+  %70 = or i64 %69, %.01113.i
+  %71 = add i32 %.014.i, 1
+  %.not.i = icmp ugt i32 %71, %58
   br i1 %.not.i, label %_ZNK7RegMask7overlapERKS_.exit, label %.lr.ph.i, !llvm.loop !6
 
 _ZNK7RegMask7overlapERKS_.exit:                   ; preds = %.lr.ph.i
-  %.not62 = icmp eq i64 %72, 0
-  %spec.select = select i1 %.not62, ptr %41, ptr %48
+  %.not62 = icmp eq i64 %70, 0
+  %spec.select = select i1 %.not62, ptr %39, ptr %46
   br label %_ZNK7RegMask7overlapERKS_.exit.thread
 
-_ZNK7RegMask7overlapERKS_.exit.thread:            ; preds = %_ZNK7RegMask7overlapERKS_.exit, %54
-  %74 = phi ptr [ %41, %54 ], [ %spec.select, %_ZNK7RegMask7overlapERKS_.exit ]
-  %75 = tail call noundef i32 @_ZN7RegMask13num_registersEj(i32 noundef %9) #9
-  %76 = tail call noundef zeroext i1 @_ZN7RegMask9is_vectorEj(i32 noundef %9) #9
-  %77 = load i32, ptr %56, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %55, i64 92
-  %79 = load i32, ptr %78, align 4
-  %80 = tail call noundef i32 @llvm.umin.i32(i32 %77, i32 %79)
-  %81 = load i32, ptr %61, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %55, i64 88
-  %83 = load i32, ptr %82, align 8
-  %84 = tail call noundef i32 @llvm.umax.i32(i32 %81, i32 %83)
-  %.not12.i40 = icmp ugt i32 %84, %80
+_ZNK7RegMask7overlapERKS_.exit.thread:            ; preds = %_ZNK7RegMask7overlapERKS_.exit, %52
+  %72 = phi ptr [ %39, %52 ], [ %spec.select, %_ZNK7RegMask7overlapERKS_.exit ]
+  %73 = tail call noundef i32 @_ZN7RegMask13num_registersEj(i32 noundef %9) #9
+  %74 = tail call noundef zeroext i1 @_ZN7RegMask9is_vectorEj(i32 noundef %9) #9
+  %75 = load i32, ptr %54, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %53, i64 92
+  %77 = load i32, ptr %76, align 4
+  %78 = tail call noundef i32 @llvm.umin.i32(i32 %75, i32 %77)
+  %79 = load i32, ptr %59, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %53, i64 88
+  %81 = load i32, ptr %80, align 8
+  %82 = tail call noundef i32 @llvm.umax.i32(i32 %79, i32 %81)
+  %.not12.i40 = icmp ugt i32 %82, %78
   br i1 %.not12.i40, label %_ZNK7RegMask7overlapERKS_.exit47.thread, label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %_ZNK7RegMask7overlapERKS_.exit.thread, %.lr.ph.i41
-  %.014.i42 = phi i32 [ %92, %.lr.ph.i41 ], [ %84, %_ZNK7RegMask7overlapERKS_.exit.thread ]
-  %.01113.i43 = phi i64 [ %91, %.lr.ph.i41 ], [ 0, %_ZNK7RegMask7overlapERKS_.exit.thread ]
-  %85 = zext i32 %.014.i42 to i64
-  %86 = getelementptr inbounds nuw i64, ptr %48, i64 %85
+  %.014.i42 = phi i32 [ %90, %.lr.ph.i41 ], [ %82, %_ZNK7RegMask7overlapERKS_.exit.thread ]
+  %.01113.i43 = phi i64 [ %89, %.lr.ph.i41 ], [ 0, %_ZNK7RegMask7overlapERKS_.exit.thread ]
+  %83 = zext i32 %.014.i42 to i64
+  %84 = getelementptr inbounds nuw i64, ptr %46, i64 %83
+  %85 = load i64, ptr %84, align 8
+  %86 = getelementptr inbounds nuw i64, ptr %53, i64 %83
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i64, ptr %55, i64 %85
-  %89 = load i64, ptr %88, align 8
-  %90 = and i64 %89, %87
-  %91 = or i64 %90, %.01113.i43
-  %92 = add i32 %.014.i42, 1
-  %.not.i44 = icmp ugt i32 %92, %80
+  %88 = and i64 %87, %85
+  %89 = or i64 %88, %.01113.i43
+  %90 = add i32 %.014.i42, 1
+  %.not.i44 = icmp ugt i32 %90, %78
   br i1 %.not.i44, label %_ZNK7RegMask7overlapERKS_.exit47, label %.lr.ph.i41, !llvm.loop !6
 
 _ZNK7RegMask7overlapERKS_.exit47:                 ; preds = %.lr.ph.i41
-  %.not63 = icmp eq i64 %91, 0
-  br i1 %.not63, label %_ZNK7RegMask7overlapERKS_.exit47.thread, label %93
+  %.not63 = icmp eq i64 %89, 0
+  br i1 %.not63, label %_ZNK7RegMask7overlapERKS_.exit47.thread, label %91
 
-93:                                               ; preds = %_ZNK7RegMask7overlapERKS_.exit47
-  %94 = icmp eq i32 %75, 1
-  %or.cond3 = or i1 %94, %76
-  br i1 %or.cond3, label %119, label %95
+91:                                               ; preds = %_ZNK7RegMask7overlapERKS_.exit47
+  %92 = icmp eq i32 %73, 1
+  %or.cond3 = or i1 %92, %74
+  br i1 %or.cond3, label %117, label %93
 
-95:                                               ; preds = %93
-  %96 = tail call noundef zeroext i1 @_ZNK7RegMask16is_aligned_pairsEv(ptr noundef nonnull align 8 dereferenceable(96) %55) #9
-  br i1 %96, label %119, label %._ZNK7RegMask7overlapERKS_.exit47.thread_crit_edge
+93:                                               ; preds = %91
+  %94 = tail call noundef zeroext i1 @_ZNK7RegMask16is_aligned_pairsEv(ptr noundef nonnull align 8 dereferenceable(96) %53) #9
+  br i1 %94, label %117, label %._ZNK7RegMask7overlapERKS_.exit47.thread_crit_edge
 
-._ZNK7RegMask7overlapERKS_.exit47.thread_crit_edge: ; preds = %95
-  %.pre = load i32, ptr %78, align 4
-  %.pre69 = load i32, ptr %82, align 8
+._ZNK7RegMask7overlapERKS_.exit47.thread_crit_edge: ; preds = %93
+  %.pre = load i32, ptr %76, align 4
+  %.pre69 = load i32, ptr %80, align 8
   br label %_ZNK7RegMask7overlapERKS_.exit47.thread
 
 _ZNK7RegMask7overlapERKS_.exit47.thread:          ; preds = %._ZNK7RegMask7overlapERKS_.exit47.thread_crit_edge, %_ZNK7RegMask7overlapERKS_.exit.thread, %_ZNK7RegMask7overlapERKS_.exit47
-  %97 = phi i32 [ %.pre69, %._ZNK7RegMask7overlapERKS_.exit47.thread_crit_edge ], [ %83, %_ZNK7RegMask7overlapERKS_.exit.thread ], [ %83, %_ZNK7RegMask7overlapERKS_.exit47 ]
-  %98 = phi i32 [ %.pre, %._ZNK7RegMask7overlapERKS_.exit47.thread_crit_edge ], [ %79, %_ZNK7RegMask7overlapERKS_.exit.thread ], [ %79, %_ZNK7RegMask7overlapERKS_.exit47 ]
-  %99 = getelementptr inbounds nuw ptr, ptr @_ZN7Matcher16idealreg2regmaskE, i64 %46
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 92
-  %102 = load i32, ptr %101, align 4
-  %103 = tail call noundef i32 @llvm.umin.i32(i32 %102, i32 %98)
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 88
-  %105 = load i32, ptr %104, align 8
-  %106 = tail call noundef i32 @llvm.umax.i32(i32 %105, i32 %97)
-  %.not12.i48 = icmp ugt i32 %106, %103
+  %95 = phi i32 [ %.pre69, %._ZNK7RegMask7overlapERKS_.exit47.thread_crit_edge ], [ %81, %_ZNK7RegMask7overlapERKS_.exit.thread ], [ %81, %_ZNK7RegMask7overlapERKS_.exit47 ]
+  %96 = phi i32 [ %.pre, %._ZNK7RegMask7overlapERKS_.exit47.thread_crit_edge ], [ %77, %_ZNK7RegMask7overlapERKS_.exit.thread ], [ %77, %_ZNK7RegMask7overlapERKS_.exit47 ]
+  %97 = getelementptr inbounds nuw ptr, ptr @_ZN7Matcher16idealreg2regmaskE, i64 %44
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 92
+  %100 = load i32, ptr %99, align 4
+  %101 = tail call noundef i32 @llvm.umin.i32(i32 %100, i32 %96)
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 88
+  %103 = load i32, ptr %102, align 8
+  %104 = tail call noundef i32 @llvm.umax.i32(i32 %103, i32 %95)
+  %.not12.i48 = icmp ugt i32 %104, %101
   br i1 %.not12.i48, label %_ZNK7RegMask7overlapERKS_.exit55.thread, label %.lr.ph.i49
 
 .lr.ph.i49:                                       ; preds = %_ZNK7RegMask7overlapERKS_.exit47.thread, %.lr.ph.i49
-  %.014.i50 = phi i32 [ %114, %.lr.ph.i49 ], [ %106, %_ZNK7RegMask7overlapERKS_.exit47.thread ]
-  %.01113.i51 = phi i64 [ %113, %.lr.ph.i49 ], [ 0, %_ZNK7RegMask7overlapERKS_.exit47.thread ]
-  %107 = zext i32 %.014.i50 to i64
-  %108 = getelementptr inbounds nuw i64, ptr %100, i64 %107
+  %.014.i50 = phi i32 [ %112, %.lr.ph.i49 ], [ %104, %_ZNK7RegMask7overlapERKS_.exit47.thread ]
+  %.01113.i51 = phi i64 [ %111, %.lr.ph.i49 ], [ 0, %_ZNK7RegMask7overlapERKS_.exit47.thread ]
+  %105 = zext i32 %.014.i50 to i64
+  %106 = getelementptr inbounds nuw i64, ptr %98, i64 %105
+  %107 = load i64, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i64, ptr %53, i64 %105
   %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i64, ptr %55, i64 %107
-  %111 = load i64, ptr %110, align 8
-  %112 = and i64 %111, %109
-  %113 = or i64 %112, %.01113.i51
-  %114 = add i32 %.014.i50, 1
-  %.not.i52 = icmp ugt i32 %114, %103
+  %110 = and i64 %109, %107
+  %111 = or i64 %110, %.01113.i51
+  %112 = add i32 %.014.i50, 1
+  %.not.i52 = icmp ugt i32 %112, %101
   br i1 %.not.i52, label %_ZNK7RegMask7overlapERKS_.exit55, label %.lr.ph.i49, !llvm.loop !6
 
 _ZNK7RegMask7overlapERKS_.exit55:                 ; preds = %.lr.ph.i49
-  %.not64 = icmp eq i64 %113, 0
-  br i1 %.not64, label %_ZNK7RegMask7overlapERKS_.exit55.thread, label %119
+  %.not64 = icmp eq i64 %111, 0
+  br i1 %.not64, label %_ZNK7RegMask7overlapERKS_.exit55.thread, label %117
 
 _ZNK7RegMask7overlapERKS_.exit55.thread:          ; preds = %_ZNK7RegMask7overlapERKS_.exit47.thread, %_ZNK7RegMask7overlapERKS_.exit55
-  %115 = tail call noundef zeroext i1 @_ZNK7RegMask5is_UPEv(ptr noundef nonnull align 8 dereferenceable(96) %55) #9
-  br i1 %115, label %116, label %119
+  %113 = tail call noundef zeroext i1 @_ZNK7RegMask5is_UPEv(ptr noundef nonnull align 8 dereferenceable(96) %53) #9
+  br i1 %113, label %114, label %117
 
-116:                                              ; preds = %_ZNK7RegMask7overlapERKS_.exit55.thread
-  %117 = load ptr, ptr %16, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 2168
-  br label %119
+114:                                              ; preds = %_ZNK7RegMask7overlapERKS_.exit55.thread
+  %115 = load ptr, ptr %10, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 2168
+  br label %117
 
-119:                                              ; preds = %93, %95, %_ZNK7RegMask7overlapERKS_.exit55, %_ZNK7RegMask7overlapERKS_.exit55.thread, %116
-  %.035 = phi ptr [ %55, %_ZNK7RegMask7overlapERKS_.exit55 ], [ %55, %116 ], [ %55, %_ZNK7RegMask7overlapERKS_.exit55.thread ], [ %48, %95 ], [ %48, %93 ]
-  %.034 = phi ptr [ %74, %_ZNK7RegMask7overlapERKS_.exit55 ], [ %118, %116 ], [ %74, %_ZNK7RegMask7overlapERKS_.exit55.thread ], [ %74, %95 ], [ %74, %93 ]
-  %120 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+117:                                              ; preds = %91, %93, %_ZNK7RegMask7overlapERKS_.exit55, %_ZNK7RegMask7overlapERKS_.exit55.thread, %114
+  %.035 = phi ptr [ %53, %_ZNK7RegMask7overlapERKS_.exit55 ], [ %53, %114 ], [ %53, %_ZNK7RegMask7overlapERKS_.exit55.thread ], [ %46, %93 ], [ %46, %91 ]
+  %.034 = phi ptr [ %72, %_ZNK7RegMask7overlapERKS_.exit55 ], [ %116, %114 ], [ %72, %_ZNK7RegMask7overlapERKS_.exit55.thread ], [ %72, %93 ], [ %72, %91 ]
+  %118 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1808
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 1808
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 128
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 128
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 728
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 728
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %127, i64 32
-  %131 = load ptr, ptr %130, align 8
-  %132 = ptrtoint ptr %129 to i64
-  %133 = ptrtoint ptr %131 to i64
-  %134 = sub i64 %132, %133
-  %.not.i.i.i = icmp ult i64 %134, 96
-  br i1 %.not.i.i.i, label %137, label %135
+  %130 = ptrtoint ptr %127 to i64
+  %131 = ptrtoint ptr %129 to i64
+  %132 = sub i64 %130, %131
+  %.not.i.i.i = icmp ult i64 %132, 96
+  br i1 %.not.i.i.i, label %135, label %133
 
-135:                                              ; preds = %119
-  %136 = getelementptr inbounds nuw i8, ptr %131, i64 96
-  store ptr %136, ptr %130, align 8
+133:                                              ; preds = %117
+  %134 = getelementptr inbounds nuw i8, ptr %129, i64 96
+  store ptr %134, ptr %128, align 8
   br label %_ZN4NodenwEm.exit
 
-137:                                              ; preds = %119
-  %138 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %127, i64 noundef 96, i32 noundef 0) #9
+135:                                              ; preds = %117
+  %136 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %125, i64 noundef 96, i32 noundef 0) #9
   br label %_ZN4NodenwEm.exit
 
-_ZN4NodenwEm.exit:                                ; preds = %135, %137
-  %.0.i.i.i = phi ptr [ %131, %135 ], [ %138, %137 ]
-  %139 = icmp eq ptr %.0.i.i.i, null
-  br i1 %139, label %_ZN7Compile16check_node_countEjPKc.exit.thread, label %140
+_ZN4NodenwEm.exit:                                ; preds = %133, %135
+  %.0.i.i.i = phi ptr [ %129, %133 ], [ %136, %135 ]
+  %137 = icmp eq ptr %.0.i.i.i, null
+  br i1 %137, label %_ZN7Compile16check_node_countEjPKc.exit.thread, label %138
 
-140:                                              ; preds = %_ZN4NodenwEm.exit
+138:                                              ; preds = %_ZN4NodenwEm.exit
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i, i32 noundef 0) #9
-  %141 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
-  store i8 0, ptr %141, align 4
-  %142 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
-  store i16 0, ptr %142, align 2
-  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  store ptr null, ptr %143, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store i32 2, ptr %144, align 4
+  %139 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
+  store i8 0, ptr %139, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
+  store i16 0, ptr %140, align 2
+  %141 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  store ptr null, ptr %141, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
+  store i32 2, ptr %142, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV17MachSpillCopyNode, i64 16), ptr %.0.i.i.i, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  store ptr %.034, ptr %145, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
-  store ptr %.035, ptr %146, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
-  %148 = load ptr, ptr %2, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 40
-  %150 = load ptr, ptr %149, align 8
-  %151 = tail call noundef ptr %150(ptr noundef nonnull align 8 dereferenceable(52) %2) #9
-  store ptr %151, ptr %147, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
-  store i32 %1, ptr %152, align 8
-  store i32 18, ptr %144, align 4
-  %153 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
-  %154 = load i32, ptr %153, align 8
-  %155 = or i32 %154, 1
-  store i32 %155, ptr %153, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
+  store ptr %.034, ptr %143, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
+  store ptr %.035, ptr %144, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
+  %146 = load ptr, ptr %2, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 40
+  %148 = load ptr, ptr %147, align 8
+  %149 = tail call noundef ptr %148(ptr noundef nonnull align 8 dereferenceable(52) %2) #9
+  store ptr %149, ptr %145, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
+  store i32 %1, ptr %150, align 8
+  store i32 18, ptr %142, align 4
+  %151 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
+  %152 = load i32, ptr %151, align 8
+  %153 = or i32 %152, 1
+  store i32 %153, ptr %151, align 8
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i, ptr noundef null) #9
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(92) %.0.i.i.i, ptr noundef nonnull %2) #9
   br label %_ZN7Compile16check_node_countEjPKc.exit.thread
 
-_ZN7Compile16check_node_countEjPKc.exit.thread:   ; preds = %35, %21, %_ZN4NodenwEm.exit, %140, %10
-  %.0 = phi ptr [ null, %10 ], [ %.0.i.i.i, %140 ], [ null, %_ZN4NodenwEm.exit ], [ null, %21 ], [ null, %35 ]
+_ZN7Compile16check_node_countEjPKc.exit.thread:   ; preds = %33, %19, %_ZN4NodenwEm.exit, %138, %12
+  %.0 = phi ptr [ null, %12 ], [ %.0.i.i.i, %138 ], [ null, %_ZN4NodenwEm.exit ], [ null, %19 ], [ null, %33 ]
   ret ptr %.0
 }
 

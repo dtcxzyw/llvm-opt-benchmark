@@ -15593,8 +15593,8 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %5, %47
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
 
 _ZNK4llvm9MemSDNode10getBasePtrEv.exit:           ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %62, %63
-  %.sink2.i = phi i64 [ 40, %63 ], [ 120, %62 ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ]
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 %.sink2.i
+  %.sink.i = phi i64 [ 40, %63 ], [ 120, %62 ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ], [ 80, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit ]
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 %.sink.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !157
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %.not201 = icmp eq i32 %61, 362
@@ -29662,8 +29662,8 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9
   br label %_ZNK4llvm9MemSDNode10getBasePtrEv.exit
 
 _ZNK4llvm9MemSDNode10getBasePtrEv.exit:           ; preds = %3, %3, %3, %3, %3, %3, %43, %44
-  %.sink2.i = phi i64 [ 40, %44 ], [ 120, %43 ], [ 80, %3 ], [ 80, %3 ], [ 80, %3 ], [ 80, %3 ], [ 80, %3 ], [ 80, %3 ]
-  %45 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink2.i
+  %.sink.i = phi i64 [ 40, %44 ], [ 120, %43 ], [ 80, %3 ], [ 80, %3 ], [ 80, %3 ], [ 80, %3 ], [ 80, %3 ], [ 80, %3 ]
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 %.sink.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !157
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 88

@@ -5888,34 +5888,34 @@ define internal range(i32 -1, 1) i32 @scformat(ptr noundef writeonly captures(no
 
 5:                                                ; preds = %2
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.44) #25
-  br label %91
+  br label %88
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !112
-  switch i32 %10, label %71 [
-    i32 102, label %11
-    i32 103, label %11
+  %11 = load i64, ptr %8, align 8, !tbaa !6
+  switch i32 %10, label %69 [
+    i32 102, label %12
+    i32 103, label %12
     i32 115, label %24
     i32 91, label %24
-    i32 99, label %58
+    i32 99, label %57
   ]
 
-11:                                               ; preds = %6, %6
-  %12 = load i64, ptr %8, align 8, !tbaa !6
-  %.not43 = icmp eq i64 %12, 262
+12:                                               ; preds = %6, %6
+  %.not43 = icmp eq i64 %11, 262
   br i1 %.not43, label %17, label %13
 
-13:                                               ; preds = %11
+13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.45, ptr noundef nonnull %16) #25
-  br label %91
+  br label %88
 
-17:                                               ; preds = %11
+17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 8, ptr %18, align 8, !tbaa !115
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -5924,120 +5924,117 @@ define internal range(i32 -1, 1) i32 @scformat(ptr noundef writeonly captures(no
   %22 = load ptr, ptr %21, align 8, !tbaa !37
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %23, ptr %0, align 8, !tbaa !35
-  br label %84
+  br label %81
 
 24:                                               ; preds = %6, %6
-  %25 = load i64, ptr %8, align 8, !tbaa !6
-  %.not42 = icmp eq i64 %25, 263
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !3
-  br i1 %.not42, label %30, label %28
+  %.not42 = icmp eq i64 %11, 263
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %26 = load ptr, ptr %25, align 8, !tbaa !3
+  br i1 %.not42, label %29, label %27
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.46, ptr noundef nonnull %29) #25
-  br label %91
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.46, ptr noundef nonnull %28) #25
+  br label %88
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !37
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !3
-  %35 = icmp eq ptr %34, getelementptr inbounds nuw (i8, ptr @expr, i64 128)
-  br i1 %35, label %36, label %37
+29:                                               ; preds = %24
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %31 = load ptr, ptr %30, align 8, !tbaa !37
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %33 = load ptr, ptr %32, align 8, !tbaa !3
+  %34 = icmp eq ptr %33, getelementptr inbounds nuw (i8, ptr @expr, i64 128)
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %30
-  store ptr null, ptr %33, align 8, !tbaa !3
-  br label %37
+35:                                               ; preds = %29
+  store ptr null, ptr %32, align 8, !tbaa !3
+  br label %36
 
-37:                                               ; preds = %36, %30
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 1024, ptr %38, align 8, !tbaa !115
-  %39 = load ptr, ptr %26, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !37
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !3
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %45 = load ptr, ptr %44, align 8, !tbaa !86
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
-  %47 = load ptr, ptr %46, align 8, !tbaa !36
-  tail call void @vmfree(ptr noundef %47, ptr noundef %43) #25
-  %48 = load ptr, ptr %44, align 8, !tbaa !86
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
-  %50 = load ptr, ptr %49, align 8, !tbaa !36
-  %51 = load i64, ptr %38, align 8, !tbaa !115
-  %52 = tail call ptr @vmalloc(ptr noundef %50, i64 noundef %51) #25
-  %53 = load i64, ptr %38, align 8, !tbaa !115
-  tail call void @llvm.memset.p0.i64(ptr align 1 %52, i8 0, i64 %53, i1 false)
-  store ptr %52, ptr %0, align 8, !tbaa !35
-  %54 = load ptr, ptr %26, align 8, !tbaa !3
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %56 = load ptr, ptr %55, align 8, !tbaa !37
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  store ptr %52, ptr %57, align 8, !tbaa !3
-  br label %84
+36:                                               ; preds = %35, %29
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 1024, ptr %37, align 8, !tbaa !115
+  %38 = load ptr, ptr %25, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %40 = load ptr, ptr %39, align 8, !tbaa !37
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %42 = load ptr, ptr %41, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %44 = load ptr, ptr %43, align 8, !tbaa !86
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
+  %46 = load ptr, ptr %45, align 8, !tbaa !36
+  tail call void @vmfree(ptr noundef %46, ptr noundef %42) #25
+  %47 = load ptr, ptr %43, align 8, !tbaa !86
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 96
+  %49 = load ptr, ptr %48, align 8, !tbaa !36
+  %50 = load i64, ptr %37, align 8, !tbaa !115
+  %51 = tail call ptr @vmalloc(ptr noundef %49, i64 noundef %50) #25
+  %52 = load i64, ptr %37, align 8, !tbaa !115
+  tail call void @llvm.memset.p0.i64(ptr align 1 %51, i8 0, i64 %52, i1 false)
+  store ptr %51, ptr %0, align 8, !tbaa !35
+  %53 = load ptr, ptr %25, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %55 = load ptr, ptr %54, align 8, !tbaa !37
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  store ptr %51, ptr %56, align 8, !tbaa !3
+  br label %81
 
-58:                                               ; preds = %6
-  %59 = load i64, ptr %8, align 8, !tbaa !6
-  %.not41 = icmp eq i64 %59, 261
-  br i1 %.not41, label %64, label %60
+57:                                               ; preds = %6
+  %.not41 = icmp eq i64 %11, 261
+  br i1 %.not41, label %62, label %58
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.47, ptr noundef nonnull %63) #25
-  br label %91
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %60 = load ptr, ptr %59, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 64
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.47, ptr noundef nonnull %61) #25
+  br label %88
 
-64:                                               ; preds = %58
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 8, ptr %65, align 8, !tbaa !115
-  %66 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %67 = load ptr, ptr %66, align 8, !tbaa !3
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
-  %69 = load ptr, ptr %68, align 8, !tbaa !37
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  store ptr %70, ptr %0, align 8, !tbaa !35
-  br label %84
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 8, ptr %63, align 8, !tbaa !115
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %65 = load ptr, ptr %64, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
+  %67 = load ptr, ptr %66, align 8, !tbaa !37
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  store ptr %68, ptr %0, align 8, !tbaa !35
+  br label %81
 
-71:                                               ; preds = %6
-  %72 = load i64, ptr %8, align 8, !tbaa !6
-  %.off = add i64 %72, -259
+69:                                               ; preds = %6
+  %.off = add i64 %11, -259
   %switch = icmp ult i64 %.off, 2
-  br i1 %switch, label %77, label %73
+  br i1 %switch, label %74, label %70
 
-73:                                               ; preds = %71
-  %74 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %75 = load ptr, ptr %74, align 8, !tbaa !3
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
-  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.48, ptr noundef nonnull %76) #25
-  br label %91
+70:                                               ; preds = %69
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %72 = load ptr, ptr %71, align 8, !tbaa !3
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
+  tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.48, ptr noundef nonnull %73) #25
+  br label %88
 
-77:                                               ; preds = %71
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 8, ptr %78, align 8, !tbaa !113
-  %79 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %80 = load ptr, ptr %79, align 8, !tbaa !3
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %82 = load ptr, ptr %81, align 8, !tbaa !37
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  store ptr %83, ptr %0, align 8, !tbaa !35
-  br label %84
+74:                                               ; preds = %69
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 8, ptr %75, align 8, !tbaa !113
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %77 = load ptr, ptr %76, align 8, !tbaa !3
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  %79 = load ptr, ptr %78, align 8, !tbaa !37
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  store ptr %80, ptr %0, align 8, !tbaa !35
+  br label %81
 
-84:                                               ; preds = %77, %64, %37, %17
-  %85 = load ptr, ptr %3, align 8, !tbaa !95
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  %87 = load ptr, ptr %86, align 8, !tbaa !3
-  store ptr %87, ptr %3, align 8, !tbaa !95
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %89 = load i32, ptr %88, align 8, !tbaa !111
-  %90 = or i32 %89, 131072
-  store i32 %90, ptr %88, align 8, !tbaa !111
-  br label %91
+81:                                               ; preds = %74, %62, %36, %17
+  %82 = load ptr, ptr %3, align 8, !tbaa !95
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
+  %84 = load ptr, ptr %83, align 8, !tbaa !3
+  store ptr %84, ptr %3, align 8, !tbaa !95
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %86 = load i32, ptr %85, align 8, !tbaa !111
+  %87 = or i32 %86, 131072
+  store i32 %87, ptr %85, align 8, !tbaa !111
+  br label %88
 
-91:                                               ; preds = %84, %73, %60, %28, %13, %5
-  %.0 = phi i32 [ -1, %73 ], [ 0, %84 ], [ -1, %13 ], [ -1, %28 ], [ -1, %60 ], [ -1, %5 ]
+88:                                               ; preds = %81, %70, %58, %27, %13, %5
+  %.0 = phi i32 [ -1, %70 ], [ 0, %81 ], [ -1, %13 ], [ -1, %27 ], [ -1, %58 ], [ -1, %5 ]
   ret i32 %.0
 }
 

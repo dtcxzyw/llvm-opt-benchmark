@@ -589,61 +589,57 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
 
 186:                                              ; preds = %178
   %187 = and i32 %116, 12
-  switch i32 %187, label %190 [
-    i32 4, label %188
-    i32 8, label %188
+  %188 = getelementptr inbounds nuw i8, ptr %4, i64 904
+  switch i32 %187, label %189 [
+    i32 4, label %197
+    i32 8, label %197
   ]
 
-188:                                              ; preds = %186, %186
-  %189 = getelementptr inbounds nuw i8, ptr %4, i64 904
-  store i32 3, ptr %189, align 8
-  br label %199
+189:                                              ; preds = %186
+  store i32 2, ptr %188, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %8, i64 82
+  %191 = load i16, ptr %190, align 2
+  %192 = and i16 %191, 8192
+  %193 = icmp eq i16 %192, 0
+  %194 = icmp ult i32 %47, 1073741824
+  %195 = select i1 %193, i1 true, i1 %194
+  %196 = select i1 %195, i32 2, i32 3
+  br label %197
 
-190:                                              ; preds = %186
-  %191 = getelementptr inbounds nuw i8, ptr %4, i64 904
-  store i32 2, ptr %191, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %8, i64 82
-  %193 = load i16, ptr %192, align 2
-  %194 = and i16 %193, 8192
-  %195 = icmp eq i16 %194, 0
-  %196 = icmp ult i32 %47, 1073741824
-  %197 = select i1 %195, i1 true, i1 %196
-  %198 = select i1 %197, i32 2, i32 3
-  store i32 %198, ptr %191, align 8
-  br label %199
+197:                                              ; preds = %186, %186, %189
+  %.sink = phi i32 [ %196, %189 ], [ 3, %186 ], [ 3, %186 ]
+  store i32 %.sink, ptr %188, align 8
+  %198 = tail call i32 @ieee80211_sta_cur_vht_bw(ptr noundef %4)
+  %199 = load ptr, ptr %7, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 232
+  store i32 %198, ptr %200, align 8
+  %201 = load i32, ptr %48, align 4
+  %202 = and i32 %201, 3
+  %203 = icmp eq ptr %3, null
+  br i1 %203, label %208, label %204
 
-199:                                              ; preds = %190, %188
-  %200 = tail call i32 @ieee80211_sta_cur_vht_bw(ptr noundef %4)
-  %201 = load ptr, ptr %7, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 232
-  store i32 %200, ptr %202, align 8
-  %203 = load i32, ptr %48, align 4
-  %204 = and i32 %203, 3
-  %205 = icmp eq ptr %3, null
-  br i1 %205, label %210, label %206
+204:                                              ; preds = %197
+  %205 = load i32, ptr %3, align 1
+  %206 = and i32 %205, 3
+  %207 = tail call i32 @llvm.umin.i32(i32 %202, i32 %206)
+  br label %208
 
-206:                                              ; preds = %199
-  %207 = load i32, ptr %3, align 1
-  %208 = and i32 %207, 3
-  %209 = tail call i32 @llvm.umin.i32(i32 %204, i32 %208)
-  br label %210
-
-210:                                              ; preds = %206, %199
-  %211 = phi i32 [ %209, %206 ], [ %204, %199 ]
-  %212 = load ptr, ptr %7, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 194
-  %214 = icmp eq i32 %211, 1
-  %215 = select i1 %214, i16 7991, i16 3895
-  %216 = icmp eq i32 %211, 2
-  %217 = select i1 %216, i16 11454, i16 %215
-  store i16 %217, ptr %213, align 2
-  %218 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 2680
-  tail call void @ieee80211_sta_recalc_aggregates(ptr noundef nonnull %220) #13
+208:                                              ; preds = %204, %197
+  %209 = phi i32 [ %207, %204 ], [ %202, %197 ]
+  %210 = load ptr, ptr %7, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 194
+  %212 = icmp eq i32 %209, 1
+  %213 = select i1 %212, i16 7991, i16 3895
+  %214 = icmp eq i32 %209, 2
+  %215 = select i1 %214, i16 11454, i16 %213
+  store i16 %215, ptr %211, align 2
+  %216 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %217 = load ptr, ptr %216, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 2680
+  tail call void @ieee80211_sta_recalc_aggregates(ptr noundef nonnull %218) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %210, %180, %20, %16, %5
+.loopexit:                                        ; preds = %27, %208, %180, %20, %16, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

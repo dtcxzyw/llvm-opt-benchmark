@@ -46223,13 +46223,13 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit.i: ; pre
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = getelementptr i8, ptr %2, i64 20
   %.val.i = load i32, ptr %81, align 4, !tbaa !3009
+  %82 = getelementptr inbounds nuw i8, ptr %18, i64 200
+  %83 = load ptr, ptr %82, align 8, !tbaa !783
   %switch.selectcmp.case1.i = icmp eq i32 %.val.i, 3
   %switch.selectcmp.case2.i = icmp eq i32 %.val.i, 0
   %switch.selectcmp.i = or i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
-  %82 = select i1 %switch.selectcmp.i, i32 126, i32 127
-  %83 = getelementptr inbounds nuw i8, ptr %18, i64 200
-  %84 = load ptr, ptr %83, align 8, !tbaa !783
-  %85 = call { ptr, ptr } @_ZN4llvm15OpenMPIRBuilder26getOrCreateRuntimeFunctionERNS_6ModuleENS_3omp15RuntimeFunctionE(ptr noundef nonnull align 8 dereferenceable(3104) %80, ptr noundef nonnull align 8 dereferenceable(841) %84, i32 noundef %82) #30
+  %84 = select i1 %switch.selectcmp.i, i32 126, i32 127
+  %85 = call { ptr, ptr } @_ZN4llvm15OpenMPIRBuilder26getOrCreateRuntimeFunctionERNS_6ModuleENS_3omp15RuntimeFunctionE(ptr noundef nonnull align 8 dereferenceable(3104) %80, ptr noundef nonnull align 8 dereferenceable(841) %83, i32 noundef %84) #30
   %.sroa.055.0.i = extractvalue { ptr, ptr } %85, 0
   %.sroa.6.0.i = extractvalue { ptr, ptr } %85, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -64201,61 +64201,38 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %_ZN4llvm11raw_ostre
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL25addAArch64AdvSIMDNDSNamesjN4llvm9StringRefES0_cS0_S0_bPNS_8FunctionE(i32 noundef %0, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext range(i8 110, 116) %5, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %6, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %7, i1 noundef zeroext %8, ptr noundef %9) unnamed_addr #0 {
   %11 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %0, i1 true)
-  switch i32 %11, label %16 [
-    i32 3, label %12
-    i32 4, label %13
-    i32 5, label %14
-    i32 6, label %15
-    i32 7, label %15
-  ]
-
-12:                                               ; preds = %10
   %.sroa.0113.0.copyload = load ptr, ptr %6, align 8, !tbaa !2928
   %.sroa.2114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2114.0.copyload = load i64, ptr %.sroa.2114.0..sroa_idx, align 8, !tbaa !28
   %.sroa.0111.0.copyload = load ptr, ptr %7, align 8, !tbaa !2928
   %.sroa.2112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2112.0.copyload = load i64, ptr %.sroa.2112.0..sroa_idx, align 8, !tbaa !28
-  tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 8, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.0113.0.copyload, i64 %.sroa.2114.0.copyload, ptr %.sroa.0111.0.copyload, i64 %.sroa.2112.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
-  tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 16, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.0113.0.copyload, i64 %.sroa.2114.0.copyload, ptr %.sroa.0111.0.copyload, i64 %.sroa.2112.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
-  br label %17
+  switch i32 %11, label %14 [
+    i32 3, label %.sink.split
+    i32 4, label %12
+    i32 5, label %13
+    i32 6, label %15
+    i32 7, label %15
+  ]
+
+12:                                               ; preds = %10
+  br label %.sink.split
 
 13:                                               ; preds = %10
-  %.sroa.0105.0.copyload = load ptr, ptr %6, align 8, !tbaa !2928
-  %.sroa.2106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2106.0.copyload = load i64, ptr %.sroa.2106.0..sroa_idx, align 8, !tbaa !28
-  %.sroa.0103.0.copyload = load ptr, ptr %7, align 8, !tbaa !2928
-  %.sroa.2104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2104.0.copyload = load i64, ptr %.sroa.2104.0..sroa_idx, align 8, !tbaa !28
-  tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 4, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.0105.0.copyload, i64 %.sroa.2106.0.copyload, ptr %.sroa.0103.0.copyload, i64 %.sroa.2104.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
-  tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 8, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.0105.0.copyload, i64 %.sroa.2106.0.copyload, ptr %.sroa.0103.0.copyload, i64 %.sroa.2104.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
-  br label %17
+  br label %.sink.split
 
 14:                                               ; preds = %10
-  %.sroa.097.0.copyload = load ptr, ptr %6, align 8, !tbaa !2928
-  %.sroa.298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.298.0.copyload = load i64, ptr %.sroa.298.0..sroa_idx, align 8, !tbaa !28
-  %.sroa.095.0.copyload = load ptr, ptr %7, align 8, !tbaa !2928
-  %.sroa.296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.296.0.copyload = load i64, ptr %.sroa.296.0..sroa_idx, align 8, !tbaa !28
-  tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 2, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.097.0.copyload, i64 %.sroa.298.0.copyload, ptr %.sroa.095.0.copyload, i64 %.sroa.296.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
-  tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 4, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.097.0.copyload, i64 %.sroa.298.0.copyload, ptr %.sroa.095.0.copyload, i64 %.sroa.296.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
-  br label %17
-
-15:                                               ; preds = %10, %10
-  %.sroa.089.0.copyload = load ptr, ptr %6, align 8, !tbaa !2928
-  %.sroa.290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.290.0.copyload = load i64, ptr %.sroa.290.0..sroa_idx, align 8, !tbaa !28
-  %.sroa.0.0.copyload = load ptr, ptr %7, align 8, !tbaa !2928
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !28
-  tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef 2, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.089.0.copyload, i64 %.sroa.290.0.copyload, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
-  br label %17
-
-16:                                               ; preds = %10
   unreachable
 
-17:                                               ; preds = %15, %14, %13, %12
+.sink.split:                                      ; preds = %10, %12, %13
+  %.sink115 = phi i32 [ 2, %13 ], [ 4, %12 ], [ 8, %10 ]
+  %.sink.ph = phi i32 [ 4, %13 ], [ 8, %12 ], [ 16, %10 ]
+  tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef %.sink115, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.0113.0.copyload, i64 %.sroa.2114.0.copyload, ptr %.sroa.0111.0.copyload, i64 %.sroa.2112.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
+  br label %15
+
+15:                                               ; preds = %.sink.split, %10, %10
+  %.sink = phi i32 [ 2, %10 ], [ 2, %10 ], [ %.sink.ph, %.sink.split ]
+  tail call fastcc void @_ZL20addAArch64VectorNameIiEvT_N4llvm9StringRefES2_cS2_S2_bPNS1_8FunctionE(i32 noundef %.sink, ptr %1, i64 %2, ptr %3, i64 %4, i8 noundef signext %5, ptr %.sroa.0113.0.copyload, i64 %.sroa.2114.0.copyload, ptr %.sroa.0111.0.copyload, i64 %.sroa.2112.0.copyload, i1 noundef zeroext %8, ptr noundef %9)
   ret void
 }
 

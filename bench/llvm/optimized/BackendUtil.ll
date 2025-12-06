@@ -6331,11 +6331,11 @@ _ZN4llvm12StringSwitchINS_8FloatABI7ABITypeES2_E4CaseENS_13StringLiteralES2_.exi
   store i32 %.sroa.1048.2, ptr %38, align 4, !tbaa !461
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 192
   %40 = load i64, ptr %39, align 8
-  %41 = and i64 %40, 108086391056891904
-  %42 = icmp ne i64 %41, 72057594037927936
-  %. = zext i1 %42 to i32
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i32 %., ptr %43, align 8, !tbaa !462
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %42 = and i64 %40, 108086391056891904
+  %43 = icmp ne i64 %42, 72057594037927936
+  %. = zext i1 %43 to i32
+  store i32 %., ptr %41, align 8, !tbaa !462
   %44 = getelementptr inbounds nuw i8, ptr %18, i64 168
   %45 = load ptr, ptr %44, align 8, !tbaa !73
   %46 = getelementptr inbounds nuw i8, ptr %18, i64 176
@@ -6939,14 +6939,14 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
   %367 = trunc nuw nsw i64 %366 to i32
   %368 = and i32 %367, 3
   %369 = icmp eq i32 %368, 3
-  br i1 %369, label %371, label %.sink.split153
+  br i1 %369, label %371, label %.sink.split152
 
-.sink.split153:                                   ; preds = %242
+.sink.split152:                                   ; preds = %242
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %368, ptr %370, align 8, !tbaa !458
   br label %371
 
-371:                                              ; preds = %242, %.sink.split153
+371:                                              ; preds = %242, %.sink.split152
   %372 = getelementptr inbounds nuw i8, ptr %18, i64 728
   %373 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 216

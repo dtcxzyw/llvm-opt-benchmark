@@ -476,7 +476,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit114:         ; preds = %_ZNSt7__cxx1112basi
 144:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit114, %_ZN4llvmneENS_9StringRefES0_.exit, %94
   %.not53 = icmp eq i32 %.2, %.046
   %or.cond = or i1 %.not52, %.not53
-  br i1 %or.cond, label %260, label %145
+  br i1 %or.cond, label %258, label %145
 
 145:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -680,11 +680,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i123: ; preds = %
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit127:         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i123, %233, %236
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %260
+  br label %258
 
 .critedge:                                        ; preds = %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit81.thread
   %237 = icmp eq i64 %.sroa.6.0, 0
-  br i1 %237, label %238, label %260
+  br i1 %237, label %238, label %258
 
 238:                                              ; preds = %.critedge
   switch i32 %.046, label %248 [
@@ -696,46 +696,44 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit127:         ; preds = %_ZNSt7__cxx1112basi
 239:                                              ; preds = %238
   %240 = select i1 %15, ptr @.str.4, ptr @.str.5
   %241 = select i1 %15, i64 6, i64 5
-  br label %260
+  br label %258
 
 242:                                              ; preds = %238
   %243 = select i1 %15, ptr @.str.6, ptr @.str.7
   %244 = select i1 %15, i64 6, i64 5
-  br label %260
+  br label %258
 
 245:                                              ; preds = %238
   %246 = select i1 %15, ptr @.str.8, ptr @.str.9
   %247 = select i1 %15, i64 6, i64 5
-  br label %260
+  br label %258
 
 248:                                              ; preds = %238
   %249 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %250 = load i32, ptr %249, align 8, !tbaa !145
-  switch i32 %250, label %257 [
-    i32 11, label %251
-    i32 24, label %251
+  %251 = select i1 %15, i64 6, i64 5
+  switch i32 %250, label %256 [
+    i32 11, label %252
+    i32 24, label %252
     i32 9, label %254
     i32 23, label %254
   ]
 
-251:                                              ; preds = %248, %248
-  %252 = select i1 %15, ptr @.str.8, ptr @.str.9
-  %253 = select i1 %15, i64 6, i64 5
-  br label %260
+252:                                              ; preds = %248, %248
+  %253 = select i1 %15, ptr @.str.8, ptr @.str.9
+  br label %258
 
 254:                                              ; preds = %248, %248
   %255 = select i1 %15, ptr @.str.6, ptr @.str.7
-  %256 = select i1 %15, i64 6, i64 5
-  br label %260
+  br label %258
 
-257:                                              ; preds = %248
-  %258 = select i1 %15, ptr @.str.4, ptr @.str.5
-  %259 = select i1 %15, i64 6, i64 5
-  br label %260
+256:                                              ; preds = %248
+  %257 = select i1 %15, ptr @.str.4, ptr @.str.5
+  br label %258
 
-260:                                              ; preds = %.critedge, %144, %_ZN5clang17DiagnosticBuilderD2Ev.exit127, %257, %254, %251, %245, %242, %239
-  %.sroa.14.3 = phi i64 [ %259, %257 ], [ %253, %251 ], [ %256, %254 ], [ %241, %239 ], [ %244, %242 ], [ %247, %245 ], [ %.sroa.14.2, %_ZN5clang17DiagnosticBuilderD2Ev.exit127 ], [ %.sroa.14.2, %144 ], [ %.sroa.6.0, %.critedge ]
-  %.sroa.0161.3 = phi ptr [ %258, %257 ], [ %252, %251 ], [ %255, %254 ], [ %240, %239 ], [ %243, %242 ], [ %246, %245 ], [ %.sroa.0161.2, %_ZN5clang17DiagnosticBuilderD2Ev.exit127 ], [ %.sroa.0161.2, %144 ], [ %.sroa.0158.0, %.critedge ]
+258:                                              ; preds = %.critedge, %144, %_ZN5clang17DiagnosticBuilderD2Ev.exit127, %256, %254, %252, %245, %242, %239
+  %.sroa.14.3 = phi i64 [ %251, %256 ], [ %251, %252 ], [ %251, %254 ], [ %241, %239 ], [ %244, %242 ], [ %247, %245 ], [ %.sroa.14.2, %_ZN5clang17DiagnosticBuilderD2Ev.exit127 ], [ %.sroa.14.2, %144 ], [ %.sroa.6.0, %.critedge ]
+  %.sroa.0161.3 = phi ptr [ %257, %256 ], [ %253, %252 ], [ %255, %254 ], [ %240, %239 ], [ %243, %242 ], [ %246, %245 ], [ %.sroa.0161.2, %_ZN5clang17DiagnosticBuilderD2Ev.exit127 ], [ %.sroa.0161.2, %144 ], [ %.sroa.0158.0, %.critedge ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0161.3, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.14.3, 1
   ret { ptr, i64 } %.fca.1.insert

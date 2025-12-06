@@ -678,18 +678,18 @@ getEGLErrorString.exit:                           ; preds = %22, %switch.lookup
 29:                                               ; preds = %27
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133616), align 8, !tbaa !99
   %31 = tail call i32 %30() #4
-  %switch.tableidx171 = add i32 %31, -12288
-  %32 = icmp ult i32 %switch.tableidx171, 15
-  br i1 %32, label %switch.lookup172, label %getEGLErrorString.exit138
+  %switch.tableidx169 = add i32 %31, -12288
+  %32 = icmp ult i32 %switch.tableidx169, 15
+  br i1 %32, label %switch.lookup170, label %getEGLErrorString.exit138
 
-switch.lookup172:                                 ; preds = %29
-  %33 = zext nneg i32 %switch.tableidx171 to i64
-  %switch.gep173 = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %33
-  %switch.load174 = load ptr, ptr %switch.gep173, align 8
+switch.lookup170:                                 ; preds = %29
+  %33 = zext nneg i32 %switch.tableidx169 to i64
+  %switch.gep171 = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %33
+  %switch.load172 = load ptr, ptr %switch.gep171, align 8
   br label %getEGLErrorString.exit138
 
-getEGLErrorString.exit138:                        ; preds = %29, %switch.lookup172
-  %.0.i137 = phi ptr [ %switch.load174, %switch.lookup172 ], [ @.str.65, %29 ]
+getEGLErrorString.exit138:                        ; preds = %29, %switch.lookup170
+  %.0.i137 = phi ptr [ %switch.load172, %switch.lookup170 ], [ @.str.65, %29 ]
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65542, ptr noundef nonnull @.str.40, ptr noundef nonnull %.0.i137) #4
   br label %202
 
@@ -887,18 +887,18 @@ getEGLErrorString.exit138:                        ; preds = %29, %switch.lookup1
 115:                                              ; preds = %104
   %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133616), align 8, !tbaa !99
   %117 = call i32 %116() #4
-  %switch.tableidx175 = add i32 %117, -12288
-  %118 = icmp ult i32 %switch.tableidx175, 15
-  br i1 %118, label %switch.lookup176, label %getEGLErrorString.exit140
+  %switch.tableidx173 = add i32 %117, -12288
+  %118 = icmp ult i32 %switch.tableidx173, 15
+  br i1 %118, label %switch.lookup174, label %getEGLErrorString.exit140
 
-switch.lookup176:                                 ; preds = %115
-  %119 = zext nneg i32 %switch.tableidx175 to i64
-  %switch.gep177 = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %119
-  %switch.load178 = load ptr, ptr %switch.gep177, align 8
+switch.lookup174:                                 ; preds = %115
+  %119 = zext nneg i32 %switch.tableidx173 to i64
+  %switch.gep175 = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %119
+  %switch.load176 = load ptr, ptr %switch.gep175, align 8
   br label %getEGLErrorString.exit140
 
-getEGLErrorString.exit140:                        ; preds = %115, %switch.lookup176
-  %.0.i139 = phi ptr [ %switch.load178, %switch.lookup176 ], [ @.str.65, %115 ]
+getEGLErrorString.exit140:                        ; preds = %115, %switch.lookup174
+  %.0.i139 = phi ptr [ %switch.load176, %switch.lookup174 ], [ @.str.65, %115 ]
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65543, ptr noundef nonnull @.str.41, ptr noundef nonnull %.0.i139) #4
   br label %202
 
@@ -965,34 +965,34 @@ getEGLErrorString.exit140:                        ; preds = %115, %switch.lookup
   %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 584), align 8, !tbaa !183
   %154 = call ptr %153(ptr noundef nonnull %0) #4
   %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133496), align 8, !tbaa !125
+  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %switch.selectcmp.case1 = icmp eq i32 %155, 12802
   %switch.selectcmp.case2 = icmp eq i32 %155, 0
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %.val = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133672), align 8
-  %.val183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133728), align 8
-  %.sink170 = select i1 %switch.selectcmp, ptr %.val, ptr %.val183
-  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
-  %157 = call ptr %.sink170(ptr noundef %156, ptr noundef %110, ptr noundef %154, ptr noundef nonnull %4) #4
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store ptr %157, ptr %158, align 8, !tbaa !184
-  %159 = icmp eq ptr %157, null
+  %.val181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133728), align 8
+  %.sink168 = select i1 %switch.selectcmp, ptr %.val, ptr %.val181
+  %158 = call ptr %.sink168(ptr noundef %156, ptr noundef %110, ptr noundef %154, ptr noundef nonnull %4) #4
+  store ptr %158, ptr %157, align 8, !tbaa !184
+  %159 = icmp eq ptr %158, null
   br i1 %159, label %160, label %165
 
 160:                                              ; preds = %149
   %161 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133616), align 8, !tbaa !99
   %162 = call i32 %161() #4
-  %switch.tableidx179 = add i32 %162, -12288
-  %163 = icmp ult i32 %switch.tableidx179, 15
-  br i1 %163, label %switch.lookup180, label %getEGLErrorString.exit142
+  %switch.tableidx177 = add i32 %162, -12288
+  %163 = icmp ult i32 %switch.tableidx177, 15
+  br i1 %163, label %switch.lookup178, label %getEGLErrorString.exit142
 
-switch.lookup180:                                 ; preds = %160
-  %164 = zext nneg i32 %switch.tableidx179 to i64
-  %switch.gep181 = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %164
-  %switch.load182 = load ptr, ptr %switch.gep181, align 8
+switch.lookup178:                                 ; preds = %160
+  %164 = zext nneg i32 %switch.tableidx177 to i64
+  %switch.gep179 = getelementptr inbounds nuw ptr, ptr @switch.table.makeContextCurrentEGL.5, i64 %164
+  %switch.load180 = load ptr, ptr %switch.gep179, align 8
   br label %getEGLErrorString.exit142
 
-getEGLErrorString.exit142:                        ; preds = %160, %switch.lookup180
-  %.0.i141 = phi ptr [ %switch.load182, %switch.lookup180 ], [ @.str.65, %160 ]
+getEGLErrorString.exit142:                        ; preds = %160, %switch.lookup178
+  %.0.i141 = phi ptr [ %switch.load180, %switch.lookup178 ], [ @.str.65, %160 ]
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull @.str.42, ptr noundef nonnull %.0.i141) #4
   br label %202
 

@@ -805,21 +805,20 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08TGAInput4openERKNSt7__
   br label %177
 
 72:                                               ; preds = %69, %69, %69, %69, %69
+  %.not51 = icmp eq i8 %63, 0
   switch i8 %66, label %75 [
     i8 1, label %73
     i8 9, label %73
   ]
 
 73:                                               ; preds = %72, %72
-  %.not = icmp eq i8 %63, 0
-  br i1 %.not, label %74, label %.thread
+  br i1 %.not51, label %74, label %.thread
 
 74:                                               ; preds = %73
   call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.7)
   br label %177
 
 75:                                               ; preds = %72
-  %.not51 = icmp eq i8 %63, 0
   br i1 %.not51, label %80, label %.thread
 
 .thread:                                          ; preds = %73, %75

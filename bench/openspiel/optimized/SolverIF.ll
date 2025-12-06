@@ -1389,34 +1389,34 @@ define noundef i32 @_Z14SolveSameBoardP10ThreadDataRK4dealP12futureTricksi(ptr n
   %14 = sext i32 %6 to i64
   %15 = getelementptr inbounds i32, ptr %13, i64 %14
   store i32 %11, ptr %15, align 4
-  switch i32 %11, label %16 [
-    i32 0, label %17
-    i32 2, label %17
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  switch i32 %11, label %19 [
+    i32 0, label %20
+    i32 2, label %20
   ]
 
-16:                                               ; preds = %4
-  br label %17
+19:                                               ; preds = %4
+  br label %20
 
-17:                                               ; preds = %4, %4, %16
-  %.sink47 = phi i32 [ 0, %16 ], [ 1, %4 ], [ 1, %4 ]
-  %.sink45 = phi i32 [ 1, %16 ], [ 0, %4 ], [ 0, %4 ]
-  store i32 %.sink47, ptr %0, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink45, ptr %18, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink47, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink45, ptr %20, align 4
+20:                                               ; preds = %4, %4, %19
+  %.sink44 = phi i32 [ 0, %19 ], [ 1, %4 ], [ 1, %4 ]
+  %.sink43 = phi i32 [ 1, %19 ], [ 0, %4 ], [ 0, %4 ]
+  store i32 %.sink44, ptr %0, align 8
+  store i32 %.sink43, ptr %16, align 4
+  store i32 %.sink44, ptr %17, align 8
+  store i32 %.sink43, ptr %18, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 987992
   %22 = load i32, ptr %10, align 4
   tail call void @_ZN5Moves6ReinitEii(ptr noundef nonnull align 8 dereferenceable(39992) %21, i32 noundef %8, i32 noundef %22)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %24
 
-24:                                               ; preds = %24, %17
-  %.039 = phi i32 [ %3, %17 ], [ %.140, %24 ]
-  %.037 = phi i32 [ 0, %17 ], [ %.138, %24 ]
-  %.0 = phi i32 [ 13, %17 ], [ %.1, %24 ]
+24:                                               ; preds = %24, %20
+  %.039 = phi i32 [ %3, %20 ], [ %.140, %24 ]
+  %.037 = phi i32 [ 0, %20 ], [ %.138, %24 ]
+  %.0 = phi i32 [ 13, %20 ], [ %.1, %24 ]
   tail call void @_Z14ResetBestMovesP10ThreadData(ptr noundef nonnull %0)
   %25 = tail call noundef zeroext i1 @_Z8ABsearchP3posiiP10ThreadData(ptr noundef nonnull %12, i32 noundef %.039, i32 noundef %6, ptr noundef nonnull %0)
   %26 = zext i1 %25 to i8

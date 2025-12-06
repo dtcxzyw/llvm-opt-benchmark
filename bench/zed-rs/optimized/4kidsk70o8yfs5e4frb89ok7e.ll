@@ -70127,7 +70127,7 @@ default.unreachable99:                            ; preds = %2
           cleanup
   %13 = load i64, ptr %9, align 8, !range !50, !alias.scope !16997, !noundef !7
   %14 = icmp eq i64 %13, -9223372036854775808
-  br i1 %14, label %"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit73", label %161
+  br i1 %14, label %"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit73", label %160
 
 15:                                               ; preds = %8
   %16 = icmp eq i8 %10, 3
@@ -70143,7 +70143,7 @@ default.unreachable99:                            ; preds = %2
           to label %"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit" unwind label %22
 
 common.ret:                                       ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63", %59, %41, %21
-  %common.ret.op = phi { i64, ptr } [ { i64 1, ptr undef }, %21 ], [ { i64 1, ptr undef }, %41 ], [ { i64 1, ptr undef }, %59 ], [ %136, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63" ]
+  %common.ret.op = phi { i64, ptr } [ { i64 1, ptr undef }, %21 ], [ { i64 1, ptr undef }, %41 ], [ { i64 1, ptr undef }, %59 ], [ %135, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63" ]
   ret { i64, ptr } %common.ret.op
 
 21:                                               ; preds = %15
@@ -70190,7 +70190,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(528) %3, i64 528, i1 false)
   %39 = load i64, ptr %0, align 8, !range !50, !noundef !7
   %40 = icmp eq i64 %39, -9223372036854775808
-  br i1 %40, label %91, label %42
+  br i1 %40, label %90, label %42
 
 41:                                               ; preds = %"_ZN99_$LT$futures_util..stream..stream..next..Next$LT$St$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hfbe20735f77f3c00E.exit"
   store i8 3, ptr %4, align 8
@@ -70199,25 +70199,25 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
 42:                                               ; preds = %38
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 392
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.891.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 984
+  %.sroa.992.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 985
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 393
+  %.sroa.1093.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %33, ptr noundef nonnull align 8 dereferenceable(392) %3, i64 392, i1 false)
+  store i8 %.sroa.3.0.copyload, ptr %.sroa.891.0..sroa_idx, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(135) %.sroa.992.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(135) %43, i64 135, i1 false)
   switch i8 %.sroa.3.0.copyload, label %87 [
-    i8 9, label %43
-    i8 23, label %43
-    i8 29, label %43
+    i8 9, label %44
+    i8 23, label %44
+    i8 29, label %44
   ]
 
-43:                                               ; preds = %42, %42, %42
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %33, ptr noundef nonnull align 8 dereferenceable(392) %3, i64 392, i1 false)
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 984
-  store i8 %.sroa.3.0.copyload, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 985
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 393
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(135) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(135) %45, i64 135, i1 false)
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  store ptr %44, ptr %.sroa.10.0..sroa_idx, align 8
+44:                                               ; preds = %42, %42, %42
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  store ptr %45, ptr %.sroa.1093.0..sroa_idx, align 8
   br label %46
 
-46:                                               ; preds = %2, %43
+46:                                               ; preds = %2, %44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %48 = invoke noundef i8 @"_ZN96_$LT$futures_util..sink..send..Send$LT$Si$C$Item$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h285a9c5c1f13f34eE"(ptr noalias noundef nonnull align 8 dereferenceable(536) %47, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %53 unwind label %49, !range !185
@@ -70298,7 +70298,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
 81:                                               ; preds = %78
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcc52f6b1ba9762cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %66)
-          to label %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit" unwind label %137
+          to label %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit" unwind label %136
 
 82:                                               ; preds = %74
   %83 = landingpad { ptr, i32 }
@@ -70310,7 +70310,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
   invoke void @"_ZN4core3ptr58drop_in_place$LT$runtimelib..messaging..JupyterMessage$GT$17h061adf909821e7fdE"(ptr noalias noundef nonnull align 8 dereferenceable(536) %47)
           to label %"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit73" unwind label %85
 
-85:                                               ; preds = %171, %166, %161, %152, %142, %125, %115, %84, %"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit73"
+85:                                               ; preds = %170, %165, %160, %151, %141, %124, %114, %84, %"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit73"
   %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48
@@ -70318,219 +70318,212 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
 
 87:                                               ; preds = %42
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %33, ptr noundef nonnull align 8 dereferenceable(392) %3, i64 392, i1 false)
-  %.sroa.891.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 984
-  store i8 %.sroa.3.0.copyload, ptr %.sroa.891.0..sroa_idx, align 8
-  %.sroa.992.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 985
-  %89 = getelementptr inbounds nuw i8, ptr %3, i64 393
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(135) %.sroa.992.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(135) %89, i64 135, i1 false)
-  %.sroa.1093.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1120
   store ptr %88, ptr %.sroa.1093.0..sroa_idx, align 8
   br label %8
 
-"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit73": ; preds = %60, %84, %49, %22, %161, %11, %34
-  %.pn35 = phi { ptr, i32 } [ %35, %34 ], [ %23, %22 ], [ %12, %161 ], [ %12, %11 ], [ %61, %60 ], [ %50, %84 ], [ %50, %49 ]
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  invoke void @"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %90) #47
-          to label %162 unwind label %85
+"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit73": ; preds = %60, %84, %49, %22, %160, %11, %34
+  %.pn35 = phi { ptr, i32 } [ %35, %34 ], [ %23, %22 ], [ %12, %160 ], [ %12, %11 ], [ %61, %60 ], [ %50, %84 ], [ %50, %49 ]
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  invoke void @"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %89) #47
+          to label %161 unwind label %85
 
-91:                                               ; preds = %38
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  invoke void @"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h764483fe32d99389E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(8) %92)
-          to label %101 unwind label %93
+90:                                               ; preds = %38
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  invoke void @"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h764483fe32d99389E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(8) %91)
+          to label %100 unwind label %92
 
-93:                                               ; preds = %91
-  %94 = landingpad { ptr, i32 }
+92:                                               ; preds = %90
+  %93 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17045)
-  %95 = load ptr, ptr %92, align 8, !alias.scope !17048, !noundef !7
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %.body54, label %97
+  %94 = load ptr, ptr %91, align 8, !alias.scope !17048, !noundef !7
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %.body54, label %96
 
-97:                                               ; preds = %93
-  %98 = atomicrmw sub ptr %95, i64 1 release, align 8, !noalias !17051
-  %99 = icmp eq i64 %98, 1
-  br i1 %99, label %100, label %.body54
+96:                                               ; preds = %92
+  %97 = atomicrmw sub ptr %94, i64 1 release, align 8, !noalias !17051
+  %98 = icmp eq i64 %97, 1
+  br i1 %98, label %99, label %.body54
 
-100:                                              ; preds = %97
+99:                                               ; preds = %96
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcc52f6b1ba9762cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %92)
-          to label %.body54 unwind label %108
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcc52f6b1ba9762cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %91)
+          to label %.body54 unwind label %107
 
-101:                                              ; preds = %91
+100:                                              ; preds = %90
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17056)
-  %102 = load ptr, ptr %92, align 8, !alias.scope !17059, !noundef !7
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56", label %104
+  %101 = load ptr, ptr %91, align 8, !alias.scope !17059, !noundef !7
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56", label %103
 
-104:                                              ; preds = %101
-  %105 = atomicrmw sub ptr %102, i64 1 release, align 8, !noalias !17060
-  %106 = icmp eq i64 %105, 1
-  br i1 %106, label %107, label %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56"
+103:                                              ; preds = %100
+  %104 = atomicrmw sub ptr %101, i64 1 release, align 8, !noalias !17060
+  %105 = icmp eq i64 %104, 1
+  br i1 %105, label %106, label %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56"
 
-107:                                              ; preds = %104
+106:                                              ; preds = %103
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcc52f6b1ba9762cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %92)
-          to label %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56" unwind label %110
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hcc52f6b1ba9762cfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %91)
+          to label %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56" unwind label %109
 
-108:                                              ; preds = %100
-  %109 = landingpad { ptr, i32 }
+107:                                              ; preds = %99
+  %108 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #48
   unreachable
 
-110:                                              ; preds = %107
-  %111 = landingpad { ptr, i32 }
+109:                                              ; preds = %106
+  %110 = landingpad { ptr, i32 }
           cleanup
   br label %.body54
 
-.body54:                                          ; preds = %93, %97, %100, %110
-  %eh.lpad-body55 = phi { ptr, i32 } [ %111, %110 ], [ %94, %100 ], [ %94, %97 ], [ %94, %93 ]
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %113 = load i8, ptr %112, align 8, !range !1001, !alias.scope !17065, !noundef !7
-  %114 = icmp eq i8 %113, 2
-  br i1 %114, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit", label %115
+.body54:                                          ; preds = %92, %96, %99, %109
+  %eh.lpad-body55 = phi { ptr, i32 } [ %110, %109 ], [ %93, %99 ], [ %93, %96 ], [ %93, %92 ]
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %112 = load i8, ptr %111, align 8, !range !1001, !alias.scope !17065, !noundef !7
+  %113 = icmp eq i8 %112, 2
+  br i1 %113, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit", label %114
 
-115:                                              ; preds = %.body54
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %116)
+114:                                              ; preds = %.body54
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %115)
           to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit" unwind label %85
 
-"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56": ; preds = %104, %101, %107
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %118 = load i8, ptr %117, align 8, !range !1001, !alias.scope !17070, !noundef !7
-  %119 = icmp eq i8 %118, 2
-  br i1 %119, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59", label %120
+"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56": ; preds = %103, %100, %106
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %117 = load i8, ptr %116, align 8, !range !1001, !alias.scope !17070, !noundef !7
+  %118 = icmp eq i8 %117, 2
+  br i1 %118, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59", label %119
 
-120:                                              ; preds = %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56"
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %121)
-          to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59" unwind label %127
+119:                                              ; preds = %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56"
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %120)
+          to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59" unwind label %126
 
-"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit": ; preds = %.body54, %115, %127
-  %.pn37 = phi { ptr, i32 } [ %128, %127 ], [ %eh.lpad-body55, %115 ], [ %eh.lpad-body55, %.body54 ]
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %123 = load i8, ptr %122, align 8, !range !1001, !alias.scope !17075, !noundef !7
-  %124 = icmp eq i8 %123, 2
-  br i1 %124, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61", label %125
+"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit": ; preds = %.body54, %114, %126
+  %.pn37 = phi { ptr, i32 } [ %127, %126 ], [ %eh.lpad-body55, %114 ], [ %eh.lpad-body55, %.body54 ]
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %122 = load i8, ptr %121, align 8, !range !1001, !alias.scope !17075, !noundef !7
+  %123 = icmp eq i8 %122, 2
+  br i1 %123, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61", label %124
 
-125:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit"
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %126)
+124:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit"
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %125)
           to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61" unwind label %85
 
-127:                                              ; preds = %120
-  %128 = landingpad { ptr, i32 }
+126:                                              ; preds = %119
+  %127 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit"
 
-"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59": ; preds = %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56", %120
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %130 = load i8, ptr %129, align 8, !range !1001, !alias.scope !17080, !noundef !7
-  %131 = icmp eq i8 %130, 2
-  br i1 %131, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63", label %132
+"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59": ; preds = %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit56", %119
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %129 = load i8, ptr %128, align 8, !range !1001, !alias.scope !17080, !noundef !7
+  %130 = icmp eq i8 %129, 2
+  br i1 %130, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63", label %131
 
-132:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59"
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %133)
-          to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63" unwind label %134
+131:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59"
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %132)
+          to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63" unwind label %133
 
-"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61": ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit75", %171, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65", %152, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit", %125, %134
-  %.pn39 = phi { ptr, i32 } [ %135, %134 ], [ %.pn37, %125 ], [ %.pn37, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit" ], [ %.pn33, %152 ], [ %.pn33, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65" ], [ %.pn35, %171 ], [ %.pn35, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit75" ]
+"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61": ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit75", %170, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65", %151, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit", %124, %133
+  %.pn39 = phi { ptr, i32 } [ %134, %133 ], [ %.pn37, %124 ], [ %.pn37, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit" ], [ %.pn33, %151 ], [ %.pn33, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65" ], [ %.pn35, %170 ], [ %.pn35, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit75" ]
   store i8 2, ptr %4, align 8
   resume { ptr, i32 } %.pn39
 
-134:                                              ; preds = %159, %132
-  %135 = landingpad { ptr, i32 }
+133:                                              ; preds = %158, %131
+  %134 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61"
 
-"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63": ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67", %159, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59", %132
-  %.sroa.015.1 = phi ptr [ null, %132 ], [ null, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59" ], [ %.sroa.015.0, %159 ], [ %.sroa.015.0, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67" ]
+"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63": ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67", %158, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59", %131
+  %.sroa.015.1 = phi ptr [ null, %131 ], [ null, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit59" ], [ %.sroa.015.0, %158 ], [ %.sroa.015.0, %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67" ]
   store i8 1, ptr %4, align 8
-  %136 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.015.1, 1
+  %135 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.015.1, 1
   br label %common.ret
 
-137:                                              ; preds = %81
-  %138 = landingpad { ptr, i32 }
+136:                                              ; preds = %81
+  %137 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %67, %71, %74, %137
-  %eh.lpad-body = phi { ptr, i32 } [ %138, %137 ], [ %68, %74 ], [ %68, %71 ], [ %68, %67 ]
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %140 = load i8, ptr %139, align 8, !range !1001, !alias.scope !17085, !noundef !7
-  %141 = icmp eq i8 %140, 2
-  br i1 %141, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65", label %142
+.body:                                            ; preds = %67, %71, %74, %136
+  %eh.lpad-body = phi { ptr, i32 } [ %137, %136 ], [ %68, %74 ], [ %68, %71 ], [ %68, %67 ]
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %139 = load i8, ptr %138, align 8, !range !1001, !alias.scope !17085, !noundef !7
+  %140 = icmp eq i8 %139, 2
+  br i1 %140, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65", label %141
 
-142:                                              ; preds = %.body
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %143)
+141:                                              ; preds = %.body
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %142)
           to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65" unwind label %85
 
 "_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit": ; preds = %78, %75, %81
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %145 = load i8, ptr %144, align 8, !range !1001, !alias.scope !17090, !noundef !7
-  %146 = icmp eq i8 %145, 2
-  br i1 %146, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67", label %147
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %144 = load i8, ptr %143, align 8, !range !1001, !alias.scope !17090, !noundef !7
+  %145 = icmp eq i8 %144, 2
+  br i1 %145, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67", label %146
 
-147:                                              ; preds = %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit"
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %148)
-          to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67" unwind label %154
+146:                                              ; preds = %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit"
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %147)
+          to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67" unwind label %153
 
-"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65": ; preds = %.body, %142, %154
-  %.pn33 = phi { ptr, i32 } [ %155, %154 ], [ %eh.lpad-body, %142 ], [ %eh.lpad-body, %.body ]
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %150 = load i8, ptr %149, align 8, !range !1001, !alias.scope !17095, !noundef !7
-  %151 = icmp eq i8 %150, 2
-  br i1 %151, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61", label %152
+"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65": ; preds = %.body, %141, %153
+  %.pn33 = phi { ptr, i32 } [ %154, %153 ], [ %eh.lpad-body, %141 ], [ %eh.lpad-body, %.body ]
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %149 = load i8, ptr %148, align 8, !range !1001, !alias.scope !17095, !noundef !7
+  %150 = icmp eq i8 %149, 2
+  br i1 %150, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61", label %151
 
-152:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65"
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %153)
+151:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65"
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %152)
           to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61" unwind label %85
 
-154:                                              ; preds = %147
-  %155 = landingpad { ptr, i32 }
+153:                                              ; preds = %146
+  %154 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit65"
 
-"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67": ; preds = %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit", %147
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %157 = load i8, ptr %156, align 8, !range !1001, !alias.scope !17100, !noundef !7
-  %158 = icmp eq i8 %157, 2
-  br i1 %158, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63", label %159
+"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67": ; preds = %"_ZN4core3ptr97drop_in_place$LT$futures_channel..mpsc..Receiver$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h56cb84cc745acf21E.exit", %146
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %156 = load i8, ptr %155, align 8, !range !1001, !alias.scope !17100, !noundef !7
+  %157 = icmp eq i8 %156, 2
+  br i1 %157, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63", label %158
 
-159:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67"
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %160)
-          to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63" unwind label %134
+158:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit67"
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %159)
+          to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit63" unwind label %133
 
-161:                                              ; preds = %11
+160:                                              ; preds = %11
   invoke void @"_ZN4core3ptr58drop_in_place$LT$runtimelib..messaging..JupyterMessage$GT$17h061adf909821e7fdE"(ptr noalias noundef nonnull align 8 dereferenceable(536) %9)
           to label %"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit73" unwind label %85
 
-162:                                              ; preds = %"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit73"
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %164 = load i8, ptr %163, align 8, !range !1001, !alias.scope !17105, !noundef !7
-  %165 = icmp eq i8 %164, 2
-  br i1 %165, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit75", label %166
+161:                                              ; preds = %"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit73"
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %163 = load i8, ptr %162, align 8, !range !1001, !alias.scope !17105, !noundef !7
+  %164 = icmp eq i8 %163, 2
+  br i1 %164, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit75", label %165
 
-166:                                              ; preds = %162
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %167)
+165:                                              ; preds = %161
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %166)
           to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit75" unwind label %85
 
-"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit75": ; preds = %162, %166
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %169 = load i8, ptr %168, align 8, !range !1001, !alias.scope !17110, !noundef !7
-  %170 = icmp eq i8 %169, 2
-  br i1 %170, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61", label %171
+"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit75": ; preds = %161, %165
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %168 = load i8, ptr %167, align 8, !range !1001, !alias.scope !17110, !noundef !7
+  %169 = icmp eq i8 %168, 2
+  br i1 %169, label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61", label %170
 
-171:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit75"
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %172)
+170:                                              ; preds = %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit75"
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  invoke void @"_ZN4core3ptr107drop_in_place$LT$futures_channel..mpsc..BoundedSenderInner$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e353d7f4e851ee2E.llvm.9404759115765858575"(ptr noalias noundef nonnull align 8 dereferenceable(24) %171)
           to label %"_ZN4core3ptr95drop_in_place$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$GT$17h8772266b60ad1ad0E.exit61" unwind label %85
 }
 

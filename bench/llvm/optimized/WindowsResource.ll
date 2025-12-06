@@ -5909,11 +5909,11 @@ _ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit: ; 
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %54
 
-54:                                               ; preds = %68, %.lr.ph.i2
-  %55 = phi i64 [ %48, %.lr.ph.i2 ], [ %71, %68 ]
-  %56 = phi i64 [ 0, %.lr.ph.i2 ], [ %73, %68 ]
-  %.020.i = phi i32 [ 5, %.lr.ph.i2 ], [ %62, %68 ]
-  %.01019.i = phi i32 [ 0, %.lr.ph.i2 ], [ %72, %68 ]
+54:                                               ; preds = %69, %.lr.ph.i2
+  %55 = phi i64 [ %48, %.lr.ph.i2 ], [ %71, %69 ]
+  %56 = phi i64 [ 0, %.lr.ph.i2 ], [ %73, %69 ]
+  %.020.i = phi i32 [ 5, %.lr.ph.i2 ], [ %62, %69 ]
+  %.01019.i = phi i32 [ 0, %.lr.ph.i2 ], [ %72, %69 ]
   %57 = load ptr, ptr %51, align 8, !tbaa !367
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 %55
   %59 = load ptr, ptr %52, align 8, !tbaa !361
@@ -5924,28 +5924,28 @@ _ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit: ; 
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 %.020.i, ptr %63, align 1
   %64 = load i32, ptr %53, align 8, !tbaa !348
-  switch i32 %64, label %67 [
-    i32 332, label %66
-    i32 34404, label %65
-    i32 452, label %68
-    i32 43620, label %68
-    i32 42561, label %68
-    i32 42574, label %68
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  switch i32 %64, label %68 [
+    i32 332, label %67
+    i32 34404, label %66
+    i32 452, label %69
+    i32 43620, label %69
+    i32 42561, label %69
+    i32 42574, label %69
   ]
 
-65:                                               ; preds = %54
-  br label %68
-
 66:                                               ; preds = %54
-  br label %68
+  br label %69
 
 67:                                               ; preds = %54
+  br label %69
+
+68:                                               ; preds = %54
   unreachable
 
-68:                                               ; preds = %66, %65, %54, %54, %54, %54
-  %.sink.i = phi i16 [ 7, %66 ], [ 3, %65 ], [ 2, %54 ], [ 2, %54 ], [ 2, %54 ], [ 2, %54 ]
-  %69 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store i16 %.sink.i, ptr %69, align 1
+69:                                               ; preds = %67, %66, %54, %54, %54, %54
+  %.sink.i = phi i16 [ 7, %67 ], [ 3, %66 ], [ 2, %54 ], [ 2, %54 ], [ 2, %54 ], [ 2, %54 ]
+  store i16 %.sink.i, ptr %65, align 1
   %70 = load i64, ptr %2, align 8, !tbaa !333
   %71 = add i64 %70, 10
   store i64 %71, ptr %2, align 8, !tbaa !333
@@ -5955,8 +5955,8 @@ _ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit: ; 
   %75 = icmp ugt i64 %74, %73
   br i1 %75, label %54, label %_ZN4llvm6object25WindowsResourceCOFFWriter28writeFirstSectionRelocationsEv.exit, !llvm.loop !372
 
-_ZN4llvm6object25WindowsResourceCOFFWriter28writeFirstSectionRelocationsEv.exit: ; preds = %68, %_ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit
-  %76 = phi i64 [ %48, %_ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit ], [ %71, %68 ]
+_ZN4llvm6object25WindowsResourceCOFFWriter28writeFirstSectionRelocationsEv.exit: ; preds = %69, %_ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit
+  %76 = phi i64 [ %48, %_ZN4llvm6object25WindowsResourceCOFFWriter25writeDirectoryStringTableEv.exit ], [ %71, %69 ]
   %77 = icmp ne i64 %76, 0
   %.neg = sext i1 %77 to i64
   %78 = add i64 %76, %.neg
@@ -7137,14 +7137,14 @@ define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter28writeFirstSec
   %.pre = load i64, ptr %5, align 8, !tbaa !333
   br label %8
 
-._crit_edge:                                      ; preds = %22, %1
+._crit_edge:                                      ; preds = %23, %1
   ret void
 
-8:                                                ; preds = %.lr.ph, %22
-  %9 = phi i64 [ %.pre, %.lr.ph ], [ %25, %22 ]
-  %10 = phi i64 [ 0, %.lr.ph ], [ %27, %22 ]
-  %.020 = phi i32 [ 5, %.lr.ph ], [ %16, %22 ]
-  %.01019 = phi i32 [ 0, %.lr.ph ], [ %26, %22 ]
+8:                                                ; preds = %.lr.ph, %23
+  %9 = phi i64 [ %.pre, %.lr.ph ], [ %25, %23 ]
+  %10 = phi i64 [ 0, %.lr.ph ], [ %27, %23 ]
+  %.020 = phi i32 [ 5, %.lr.ph ], [ %16, %23 ]
+  %.01019 = phi i32 [ 0, %.lr.ph ], [ %26, %23 ]
   %11 = load ptr, ptr %4, align 8, !tbaa !367
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %9
   %13 = load ptr, ptr %6, align 8, !tbaa !361
@@ -7155,28 +7155,28 @@ define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter28writeFirstSec
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %.020, ptr %17, align 1
   %18 = load i32, ptr %7, align 8, !tbaa !348
-  switch i32 %18, label %21 [
-    i32 332, label %20
-    i32 34404, label %19
-    i32 452, label %22
-    i32 43620, label %22
-    i32 42561, label %22
-    i32 42574, label %22
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  switch i32 %18, label %22 [
+    i32 332, label %21
+    i32 34404, label %20
+    i32 452, label %23
+    i32 43620, label %23
+    i32 42561, label %23
+    i32 42574, label %23
   ]
 
-19:                                               ; preds = %8
-  br label %22
-
 20:                                               ; preds = %8
-  br label %22
+  br label %23
 
 21:                                               ; preds = %8
+  br label %23
+
+22:                                               ; preds = %8
   unreachable
 
-22:                                               ; preds = %8, %8, %8, %8, %20, %19
-  %.sink = phi i16 [ 7, %20 ], [ 3, %19 ], [ 2, %8 ], [ 2, %8 ], [ 2, %8 ], [ 2, %8 ]
-  %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i16 %.sink, ptr %23, align 1
+23:                                               ; preds = %8, %8, %8, %8, %21, %20
+  %.sink = phi i16 [ 7, %21 ], [ 3, %20 ], [ 2, %8 ], [ 2, %8 ], [ 2, %8 ], [ 2, %8 ]
+  store i16 %.sink, ptr %19, align 1
   %24 = load i64, ptr %5, align 8, !tbaa !333
   %25 = add i64 %24, 10
   store i64 %25, ptr %5, align 8, !tbaa !333

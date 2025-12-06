@@ -1188,9 +1188,9 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   %8 = add nsw i32 %2, -1
   br label %9
 
-9:                                                ; preds = %.lr.ph, %57
-  %.050 = phi i32 [ 0, %.lr.ph ], [ %59, %57 ]
-  %.03649 = phi ptr [ %1, %.lr.ph ], [ %58, %57 ]
+9:                                                ; preds = %.lr.ph, %54
+  %.050 = phi i32 [ 0, %.lr.ph ], [ %56, %54 ]
+  %.03649 = phi ptr [ %1, %.lr.ph ], [ %55, %54 ]
   %10 = load i8, ptr %.03649, align 1
   %11 = zext i8 %10 to i64
   %12 = getelementptr i16, ptr @t61_tab, i64 %11
@@ -1200,101 +1200,97 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
 
 14:                                               ; preds = %9
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef 65533)
-  br label %57
+  br label %54
 
 15:                                               ; preds = %9
   %16 = icmp slt i32 %.050, %8
-  br i1 %16, label %17, label %55
+  br i1 %16, label %17, label %52
 
 17:                                               ; preds = %15
   %18 = zext i8 %10 to i32
   %19 = and i32 %18, 240
   %20 = icmp eq i32 %19, 192
-  br i1 %20, label %21, label %55
+  br i1 %20, label %21, label %52
 
 21:                                               ; preds = %17
   %22 = and i32 %18, 15
   %23 = getelementptr i8, ptr %.03649, i64 1
   %24 = load i8, ptr %23, align 1
-  switch i8 %24, label %32 [
-    i8 0, label %25
-    i8 32, label %25
-  ]
-
-25:                                               ; preds = %21, %21
-  %26 = zext nneg i32 %22 to i64
-  %27 = shl nuw nsw i64 1, %26
-  %28 = and i64 %27, 4609
-  %.not45.not = icmp eq i64 %28, 0
-  br i1 %.not45.not, label %29, label %._crit_edge51
-
-29:                                               ; preds = %25
-  %30 = getelementptr i16, ptr @accents, i64 %26
-  %31 = load i16, ptr %30, align 2
-  br label %52
-
-32:                                               ; preds = %21
   %.pre = zext nneg i32 %22 to i64
   %.pre53 = shl nuw nsw i64 1, %.pre
   %.pre55 = and i64 %.pre53, 4609
-  %33 = icmp eq i64 %.pre55, 0
-  br i1 %33, label %34, label %._crit_edge51
+  %25 = icmp eq i64 %.pre55, 0
+  switch i8 %24, label %30 [
+    i8 0, label %26
+    i8 32, label %26
+  ]
 
-._crit_edge51:                                    ; preds = %25, %32
+26:                                               ; preds = %21, %21
+  br i1 %25, label %27, label %._crit_edge51
+
+27:                                               ; preds = %26
+  %28 = getelementptr i16, ptr @accents, i64 %.pre
+  %29 = load i16, ptr %28, align 2
+  br label %49
+
+30:                                               ; preds = %21
+  br i1 %25, label %31, label %._crit_edge51
+
+._crit_edge51:                                    ; preds = %26, %30
   %.pre57 = zext i8 %24 to i32
-  br label %47
+  br label %44
 
-34:                                               ; preds = %32
-  %35 = getelementptr ptr, ptr @cx_tab, i64 %.pre
-  %36 = load ptr, ptr %35, align 8
-  %37 = zext i8 %24 to i32
-  %38 = lshr i32 %37, 5
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr ptr, ptr %36, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  %.not47 = icmp eq ptr %41, null
-  br i1 %.not47, label %47, label %42
+31:                                               ; preds = %30
+  %32 = getelementptr ptr, ptr @cx_tab, i64 %.pre
+  %33 = load ptr, ptr %32, align 8
+  %34 = zext i8 %24 to i32
+  %35 = lshr i32 %34, 5
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr ptr, ptr %33, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %.not47 = icmp eq ptr %38, null
+  br i1 %.not47, label %44, label %39
 
-42:                                               ; preds = %34
-  %43 = and i32 %37, 31
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr i16, ptr %41, i64 %44
-  %46 = load i16, ptr %45, align 2
-  %.not48 = icmp eq i16 %46, 0
-  br i1 %.not48, label %47, label %52
+39:                                               ; preds = %31
+  %40 = and i32 %34, 31
+  %41 = zext nneg i32 %40 to i64
+  %42 = getelementptr i16, ptr %38, i64 %41
+  %43 = load i16, ptr %42, align 2
+  %.not48 = icmp eq i16 %43, 0
+  br i1 %.not48, label %44, label %49
 
-47:                                               ; preds = %._crit_edge51, %42, %34
-  %.pre-phi58 = phi i32 [ %.pre57, %._crit_edge51 ], [ %37, %42 ], [ %37, %34 ]
+44:                                               ; preds = %._crit_edge51, %39, %31
+  %.pre-phi58 = phi i32 [ %.pre57, %._crit_edge51 ], [ %34, %39 ], [ %34, %31 ]
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %.pre-phi58)
-  %48 = load i8, ptr %.03649, align 1
-  %49 = zext i8 %48 to i64
-  %50 = getelementptr i16, ptr @t61_tab, i64 %49
-  %51 = load i16, ptr %50, align 2
-  br label %52
+  %45 = load i8, ptr %.03649, align 1
+  %46 = zext i8 %45 to i64
+  %47 = getelementptr i16, ptr @t61_tab, i64 %46
+  %48 = load i16, ptr %47, align 2
+  br label %49
 
-52:                                               ; preds = %42, %47, %29
-  %.sink66 = phi i16 [ %51, %47 ], [ %31, %29 ], [ %46, %42 ]
-  %53 = zext i16 %.sink66 to i32
+49:                                               ; preds = %39, %44, %27
+  %.sink66 = phi i16 [ %48, %44 ], [ %29, %27 ], [ %43, %39 ]
+  %50 = zext i16 %.sink66 to i32
+  tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %50)
+  %51 = add nsw i32 %.050, 1
+  br label %54
+
+52:                                               ; preds = %17, %15
+  %53 = zext i16 %13 to i32
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %53)
-  %54 = add nsw i32 %.050, 1
-  br label %57
+  br label %54
 
-55:                                               ; preds = %17, %15
-  %56 = zext i16 %13 to i32
-  tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %56)
-  br label %57
+54:                                               ; preds = %14, %52, %49
+  %.137 = phi ptr [ %23, %49 ], [ %.03649, %52 ], [ %.03649, %14 ]
+  %.1 = phi i32 [ %51, %49 ], [ %.050, %52 ], [ %.050, %14 ]
+  %55 = getelementptr i8, ptr %.137, i64 1
+  %56 = add nsw i32 %.1, 1
+  %57 = icmp slt i32 %56, %2
+  br i1 %57, label %9, label %._crit_edge, !llvm.loop !21
 
-57:                                               ; preds = %14, %55, %52
-  %.137 = phi ptr [ %23, %52 ], [ %.03649, %55 ], [ %.03649, %14 ]
-  %.1 = phi i32 [ %54, %52 ], [ %.050, %55 ], [ %.050, %14 ]
-  %58 = getelementptr i8, ptr %.137, i64 1
-  %59 = add nsw i32 %.1, 1
-  %60 = icmp slt i32 %59, %2
-  br i1 %60, label %9, label %._crit_edge, !llvm.loop !21
-
-._crit_edge:                                      ; preds = %57, %3
-  %61 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6)
-  ret ptr %61
+._crit_edge:                                      ; preds = %54, %3
+  %58 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6)
+  ret ptr %58
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

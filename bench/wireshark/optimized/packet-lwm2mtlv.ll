@@ -2025,68 +2025,62 @@ define internal fastcc void @lwm2m_add_resource(ptr noundef captures(none) %0, p
   tail call void @g_free(ptr noundef %.058)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i32, ptr %28, align 8
-  switch i32 %29, label %43 [
-    i32 1, label %30
-    i32 9, label %30
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  switch i32 %29, label %38 [
+    i32 1, label %31
+    i32 9, label %31
     i32 2, label %32
-    i32 3, label %34
-    i32 4, label %36
-    i32 5, label %39
-    i32 7, label %41
+    i32 3, label %33
+    i32 4, label %34
+    i32 5, label %36
+    i32 7, label %37
   ]
 
-30:                                               ; preds = %.loopexit, %.loopexit
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 0, ptr %31, align 4
-  br label %45
+31:                                               ; preds = %.loopexit, %.loopexit
+  store i32 0, ptr %30, align 4
+  br label %39
 
 32:                                               ; preds = %.loopexit
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 1, ptr %33, align 4
-  br label %45
+  store i32 1, ptr %30, align 4
+  br label %39
+
+33:                                               ; preds = %.loopexit
+  store i32 1, ptr %30, align 4
+  br label %39
 
 34:                                               ; preds = %.loopexit
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 1, ptr %35, align 4
-  br label %45
+  store i32 0, ptr %30, align 4
+  %35 = select i1 %2, i32 23, i32 22
+  br label %39
 
 36:                                               ; preds = %.loopexit
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 0, ptr %37, align 4
-  %38 = select i1 %2, i32 23, i32 22
-  br label %45
+  store i32 1, ptr %30, align 4
+  br label %39
 
-39:                                               ; preds = %.loopexit
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 1, ptr %40, align 4
-  br label %45
+37:                                               ; preds = %.loopexit
+  store i32 18, ptr %30, align 4
+  br label %39
 
-41:                                               ; preds = %.loopexit
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 18, ptr %42, align 4
-  br label %45
+38:                                               ; preds = %.loopexit
+  store i32 0, ptr %30, align 4
+  br label %39
 
-43:                                               ; preds = %.loopexit
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 0, ptr %44, align 4
-  br label %45
-
-45:                                               ; preds = %43, %41, %39, %36, %34, %32, %30
-  %.sink = phi i32 [ 30, %43 ], [ 24, %41 ], [ 2, %39 ], [ %38, %36 ], [ 11, %34 ], [ 19, %32 ], [ 26, %30 ]
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %.sink, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
-  store i32 -1, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i32 0, ptr %49, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  store i32 -1, ptr %51, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr null, ptr %52, align 8
+39:                                               ; preds = %38, %37, %36, %34, %33, %32, %31
+  %.sink = phi i32 [ 30, %38 ], [ 24, %37 ], [ 2, %36 ], [ %35, %34 ], [ 11, %33 ], [ 19, %32 ], [ 26, %31 ]
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %.sink, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
+  store i32 -1, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  store i32 0, ptr %43, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  store i32 -1, ptr %45, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr null, ptr %46, align 8
   ret void
 }
 

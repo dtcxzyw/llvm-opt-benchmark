@@ -104705,189 +104705,186 @@ define hidden { i32, float } @"_ZN148_$LT$polars_compute..rolling..nulls..quanti
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8, !noundef !6
   %8 = icmp eq i64 %4, %7
-  br i1 %8, label %76, label %9
+  br i1 %8, label %73, label %9
 
 9:                                                ; preds = %3
   %10 = sub i64 %7, %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load i8, ptr %11, align 8, !range !8706, !noundef !6
+  %13 = uitofp i64 %10 to double
   switch i8 %12, label %default.unreachable47 [
-    i8 0, label %13
-    i8 1, label %35
+    i8 0, label %14
+    i8 1, label %33
     i8 2, label %18
-    i8 3, label %35
-    i8 4, label %35
-    i8 5, label %25
+    i8 3, label %33
+    i8 4, label %33
+    i8 5, label %24
   ]
 
 default.unreachable47:                            ; preds = %9
   unreachable
 
-13:                                               ; preds = %9
-  %14 = uitofp i64 %10 to double
+14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load double, ptr %15, align 8, !noundef !6
-  %17 = fmul double %16, %14
+  %17 = fmul double %16, %13
   br label %.thread
 
 18:                                               ; preds = %9
-  %19 = uitofp i64 %10 to double
-  %20 = fadd double %19, -1.000000e+00
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = load double, ptr %21, align 8, !noundef !6
-  %23 = fmul double %20, %22
-  %24 = tail call double @llvm.ceil.f64(double %23)
+  %19 = fadd double %13, -1.000000e+00
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %21 = load double, ptr %20, align 8, !noundef !6
+  %22 = fmul double %19, %21
+  %23 = tail call double @llvm.ceil.f64(double %22)
   br label %.thread
 
-25:                                               ; preds = %9
-  %26 = uitofp i64 %10 to double
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %28 = load double, ptr %27, align 8, !noundef !6
-  %29 = fmul double %28, %26
-  %30 = tail call double @llvm.ceil.f64(double %29)
-  %31 = fadd double %30, -1.000000e+00
-  %32 = tail call double @llvm.maxnum.f64(double %31, double 0.000000e+00)
+24:                                               ; preds = %9
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %26 = load double, ptr %25, align 8, !noundef !6
+  %27 = fmul double %26, %13
+  %28 = tail call double @llvm.ceil.f64(double %27)
+  %29 = fadd double %28, -1.000000e+00
+  %30 = tail call double @llvm.maxnum.f64(double %29, double 0.000000e+00)
   br label %.thread
 
-.thread:                                          ; preds = %25, %18, %13
-  %.sink = phi double [ %32, %25 ], [ %24, %18 ], [ %17, %13 ]
-  %33 = tail call i64 @llvm.fptoui.sat.i64.f64(double %.sink)
-  %34 = add i64 %10, -1
-  %.sroa.0.0.sroa.speculated.i43 = tail call noundef i64 @llvm.umin.i64(i64 %34, i64 %33)
-  br label %44
+.thread:                                          ; preds = %24, %18, %14
+  %.sink = phi double [ %30, %24 ], [ %23, %18 ], [ %17, %14 ]
+  %31 = tail call i64 @llvm.fptoui.sat.i64.f64(double %.sink)
+  %32 = add i64 %10, -1
+  %.sroa.0.0.sroa.speculated.i43 = tail call noundef i64 @llvm.umin.i64(i64 %32, i64 %31)
+  br label %41
 
-35:                                               ; preds = %9, %9, %9
-  %36 = uitofp i64 %10 to double
-  %37 = fadd double %36, -1.000000e+00
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %39 = load double, ptr %38, align 8, !noundef !6
-  %40 = fmul double %37, %39
-  %41 = tail call double @llvm.floor.f64(double %40)
-  %42 = tail call i64 @llvm.fptoui.sat.i64.f64(double %41)
-  %43 = add i64 %10, -1
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %43, i64 %42)
-  switch i8 %12, label %44 [
-    i8 3, label %51
-    i8 4, label %58
+33:                                               ; preds = %9, %9, %9
+  %34 = fadd double %13, -1.000000e+00
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %36 = load double, ptr %35, align 8, !noundef !6
+  %37 = fmul double %34, %36
+  %38 = tail call double @llvm.floor.f64(double %37)
+  %39 = tail call i64 @llvm.fptoui.sat.i64.f64(double %38)
+  %40 = add i64 %10, -1
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 %39)
+  switch i8 %12, label %41 [
+    i8 3, label %48
+    i8 4, label %55
   ]
 
-44:                                               ; preds = %.thread, %35
-  %.sroa.0.0.sroa.speculated.i44 = phi i64 [ %.sroa.0.0.sroa.speculated.i43, %.thread ], [ %.sroa.0.0.sroa.speculated.i, %35 ]
-  %45 = add i64 %.sroa.0.0.sroa.speculated.i44, %4
-  %46 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %45, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %47 = load i32, ptr %46, align 4, !range !1911, !noundef !6
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %49 = load float, ptr %48, align 4
-  %50 = trunc nuw i32 %47 to i1
-  br i1 %50, label %76, label %117, !prof !46
+41:                                               ; preds = %.thread, %33
+  %.sroa.0.0.sroa.speculated.i44 = phi i64 [ %.sroa.0.0.sroa.speculated.i43, %.thread ], [ %.sroa.0.0.sroa.speculated.i, %33 ]
+  %42 = add i64 %.sroa.0.0.sroa.speculated.i44, %4
+  %43 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %42, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %44 = load i32, ptr %43, align 4, !range !1911, !noundef !6
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %46 = load float, ptr %45, align 4
+  %47 = trunc nuw i32 %44 to i1
+  br i1 %47, label %73, label %114, !prof !46
 
-51:                                               ; preds = %35
-  %52 = add i64 %.sroa.0.0.sroa.speculated.i, %4
-  %53 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %54 = load i32, ptr %53, align 4, !range !1911, !noundef !6
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %56 = load float, ptr %55, align 4
-  %57 = trunc nuw i32 %54 to i1
-  br i1 %57, label %62, label %69, !prof !46
+48:                                               ; preds = %33
+  %49 = add i64 %.sroa.0.0.sroa.speculated.i, %4
+  %50 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %49, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %51 = load i32, ptr %50, align 4, !range !1911, !noundef !6
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %53 = load float, ptr %52, align 4
+  %54 = trunc nuw i32 %51 to i1
+  br i1 %54, label %59, label %66, !prof !46
 
-58:                                               ; preds = %35
-  %59 = tail call double @llvm.ceil.f64(double %40)
-  %60 = tail call i64 @llvm.fptoui.sat.i64.f64(double %59)
-  %61 = icmp eq i64 %60, %.sroa.0.0.sroa.speculated.i
-  br i1 %61, label %89, label %79
+55:                                               ; preds = %33
+  %56 = tail call double @llvm.ceil.f64(double %37)
+  %57 = tail call i64 @llvm.fptoui.sat.i64.f64(double %56)
+  %58 = icmp eq i64 %57, %.sroa.0.0.sroa.speculated.i
+  br i1 %58, label %86, label %76
 
-62:                                               ; preds = %51
-  %63 = tail call double @llvm.ceil.f64(double %40)
-  %64 = tail call i64 @llvm.fptoui.sat.i64.f64(double %63)
-  %65 = add i64 %64, %4
-  %66 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %65, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %67 = load i32, ptr %66, align 4, !range !1911, !noundef !6
-  %68 = trunc nuw i32 %67 to i1
-  br i1 %68, label %70, label %75, !prof !46
+59:                                               ; preds = %48
+  %60 = tail call double @llvm.ceil.f64(double %37)
+  %61 = tail call i64 @llvm.fptoui.sat.i64.f64(double %60)
+  %62 = add i64 %61, %4
+  %63 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %64 = load i32, ptr %63, align 4, !range !1911, !noundef !6
+  %65 = trunc nuw i32 %64 to i1
+  br i1 %65, label %67, label %72, !prof !46
 
-69:                                               ; preds = %51
+66:                                               ; preds = %48
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.353) #33
   unreachable
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %72 = load float, ptr %71, align 4
-  %73 = fadd float %56, %72
-  %74 = fmul float %73, 5.000000e-01
-  br label %76
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %69 = load float, ptr %68, align 4
+  %70 = fadd float %53, %69
+  %71 = fmul float %70, 5.000000e-01
+  br label %73
 
-75:                                               ; preds = %62
+72:                                               ; preds = %59
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.354) #33
   unreachable
 
-76:                                               ; preds = %3, %44, %89, %109, %70
-  %.sroa.8.0 = phi float [ %49, %44 ], [ %74, %70 ], [ %94, %89 ], [ %114, %109 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i32 [ 1, %44 ], [ 1, %70 ], [ 1, %89 ], [ 1, %109 ], [ 0, %3 ]
-  %77 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
-  %78 = insertvalue { i32, float } %77, float %.sroa.8.0, 1
-  ret { i32, float } %78
+73:                                               ; preds = %3, %41, %86, %106, %67
+  %.sroa.8.0 = phi float [ %46, %41 ], [ %71, %67 ], [ %91, %86 ], [ %111, %106 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i32 [ 1, %41 ], [ 1, %67 ], [ 1, %86 ], [ 1, %106 ], [ 0, %3 ]
+  %74 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
+  %75 = insertvalue { i32, float } %74, float %.sroa.8.0, 1
+  ret { i32, float } %75
 
-79:                                               ; preds = %58
-  %80 = uitofp i64 %.sroa.0.0.sroa.speculated.i to double
-  %81 = fsub double %40, %80
-  %82 = fptrunc double %81 to float
-  %83 = add i64 %60, %4
-  %84 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %83, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %85 = load i32, ptr %84, align 4, !range !1911, !noundef !6
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %87 = load float, ptr %86, align 4
-  %88 = trunc nuw i32 %85 to i1
-  br i1 %88, label %96, label %101, !prof !46
+76:                                               ; preds = %55
+  %77 = uitofp i64 %.sroa.0.0.sroa.speculated.i to double
+  %78 = fsub double %37, %77
+  %79 = fptrunc double %78 to float
+  %80 = add i64 %57, %4
+  %81 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %80, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %82 = load i32, ptr %81, align 4, !range !1911, !noundef !6
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %84 = load float, ptr %83, align 4
+  %85 = trunc nuw i32 %82 to i1
+  br i1 %85, label %93, label %98, !prof !46
 
-89:                                               ; preds = %58
-  %90 = add i64 %.sroa.0.0.sroa.speculated.i, %4
-  %91 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %90, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %92 = load i32, ptr %91, align 4, !range !1911, !noundef !6
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %94 = load float, ptr %93, align 4
-  %95 = trunc nuw i32 %92 to i1
-  br i1 %95, label %76, label %116, !prof !46
+86:                                               ; preds = %55
+  %87 = add i64 %.sroa.0.0.sroa.speculated.i, %4
+  %88 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %87, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %89 = load i32, ptr %88, align 4, !range !1911, !noundef !6
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %91 = load float, ptr %90, align 4
+  %92 = trunc nuw i32 %89 to i1
+  br i1 %92, label %73, label %113, !prof !46
 
-96:                                               ; preds = %79
-  %97 = add i64 %.sroa.0.0.sroa.speculated.i, %4
-  %98 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %97, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %99 = load i32, ptr %98, align 4, !range !1911, !noundef !6
-  %100 = trunc nuw i32 %99 to i1
-  br i1 %100, label %102, label %108, !prof !46
+93:                                               ; preds = %76
+  %94 = add i64 %.sroa.0.0.sroa.speculated.i, %4
+  %95 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %94, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %96 = load i32, ptr %95, align 4, !range !1911, !noundef !6
+  %97 = trunc nuw i32 %96 to i1
+  br i1 %97, label %99, label %105, !prof !46
 
-101:                                              ; preds = %79
+98:                                               ; preds = %76
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.358) #33
   unreachable
 
-102:                                              ; preds = %96
-  %103 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %104 = load float, ptr %103, align 4
-  %105 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %97, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %106 = load i32, ptr %105, align 4, !range !1911, !noundef !6
-  %107 = trunc nuw i32 %106 to i1
-  br i1 %107, label %109, label %115, !prof !46
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 4
+  %101 = load float, ptr %100, align 4
+  %102 = tail call noundef align 4 dereferenceable(8) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h82b0671b74ab826dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %94, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %103 = load i32, ptr %102, align 4, !range !1911, !noundef !6
+  %104 = trunc nuw i32 %103 to i1
+  br i1 %104, label %106, label %112, !prof !46
 
-108:                                              ; preds = %96
+105:                                              ; preds = %93
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.359) #33
   unreachable
 
-109:                                              ; preds = %102
-  %110 = fsub float %87, %104
-  %111 = fmul float %110, %82
-  %112 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %113 = load float, ptr %112, align 4
-  %114 = fadd float %111, %113
-  br label %76
+106:                                              ; preds = %99
+  %107 = fsub float %84, %101
+  %108 = fmul float %107, %79
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  %110 = load float, ptr %109, align 4
+  %111 = fadd float %108, %110
+  br label %73
 
-115:                                              ; preds = %102
+112:                                              ; preds = %99
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.362) #33
   unreachable
 
-116:                                              ; preds = %89
+113:                                              ; preds = %86
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.363) #33
   unreachable
 
-117:                                              ; preds = %44
+114:                                              ; preds = %41
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.364) #33
   unreachable
 }
@@ -104899,188 +104896,185 @@ define hidden { i64, double } @"_ZN148_$LT$polars_compute..rolling..nulls..quant
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8, !noundef !6
   %8 = icmp eq i64 %4, %7
-  br i1 %8, label %76, label %9
+  br i1 %8, label %73, label %9
 
 9:                                                ; preds = %3
   %10 = sub i64 %7, %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %12 = load i8, ptr %11, align 8, !range !8706, !noundef !6
+  %13 = uitofp i64 %10 to double
   switch i8 %12, label %default.unreachable49 [
-    i8 0, label %13
-    i8 1, label %35
+    i8 0, label %14
+    i8 1, label %33
     i8 2, label %18
-    i8 3, label %35
-    i8 4, label %35
-    i8 5, label %25
+    i8 3, label %33
+    i8 4, label %33
+    i8 5, label %24
   ]
 
 default.unreachable49:                            ; preds = %9
   unreachable
 
-13:                                               ; preds = %9
-  %14 = uitofp i64 %10 to double
+14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load double, ptr %15, align 8, !noundef !6
-  %17 = fmul double %16, %14
+  %17 = fmul double %16, %13
   br label %.thread
 
 18:                                               ; preds = %9
-  %19 = uitofp i64 %10 to double
-  %20 = fadd double %19, -1.000000e+00
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %22 = load double, ptr %21, align 8, !noundef !6
-  %23 = fmul double %20, %22
-  %24 = tail call double @llvm.ceil.f64(double %23)
+  %19 = fadd double %13, -1.000000e+00
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %21 = load double, ptr %20, align 8, !noundef !6
+  %22 = fmul double %19, %21
+  %23 = tail call double @llvm.ceil.f64(double %22)
   br label %.thread
 
-25:                                               ; preds = %9
-  %26 = uitofp i64 %10 to double
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %28 = load double, ptr %27, align 8, !noundef !6
-  %29 = fmul double %28, %26
-  %30 = tail call double @llvm.ceil.f64(double %29)
-  %31 = fadd double %30, -1.000000e+00
-  %32 = tail call double @llvm.maxnum.f64(double %31, double 0.000000e+00)
+24:                                               ; preds = %9
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %26 = load double, ptr %25, align 8, !noundef !6
+  %27 = fmul double %26, %13
+  %28 = tail call double @llvm.ceil.f64(double %27)
+  %29 = fadd double %28, -1.000000e+00
+  %30 = tail call double @llvm.maxnum.f64(double %29, double 0.000000e+00)
   br label %.thread
 
-.thread:                                          ; preds = %25, %18, %13
-  %.sink = phi double [ %32, %25 ], [ %24, %18 ], [ %17, %13 ]
-  %33 = tail call i64 @llvm.fptoui.sat.i64.f64(double %.sink)
-  %34 = add i64 %10, -1
-  %.sroa.0.0.sroa.speculated.i45 = tail call noundef i64 @llvm.umin.i64(i64 %34, i64 %33)
-  br label %44
+.thread:                                          ; preds = %24, %18, %14
+  %.sink = phi double [ %30, %24 ], [ %23, %18 ], [ %17, %14 ]
+  %31 = tail call i64 @llvm.fptoui.sat.i64.f64(double %.sink)
+  %32 = add i64 %10, -1
+  %.sroa.0.0.sroa.speculated.i45 = tail call noundef i64 @llvm.umin.i64(i64 %32, i64 %31)
+  br label %41
 
-35:                                               ; preds = %9, %9, %9
-  %36 = uitofp i64 %10 to double
-  %37 = fadd double %36, -1.000000e+00
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %39 = load double, ptr %38, align 8, !noundef !6
-  %40 = fmul double %37, %39
-  %41 = tail call double @llvm.floor.f64(double %40)
-  %42 = tail call i64 @llvm.fptoui.sat.i64.f64(double %41)
-  %43 = add i64 %10, -1
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %43, i64 %42)
-  switch i8 %12, label %44 [
-    i8 3, label %51
-    i8 4, label %58
+33:                                               ; preds = %9, %9, %9
+  %34 = fadd double %13, -1.000000e+00
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %36 = load double, ptr %35, align 8, !noundef !6
+  %37 = fmul double %34, %36
+  %38 = tail call double @llvm.floor.f64(double %37)
+  %39 = tail call i64 @llvm.fptoui.sat.i64.f64(double %38)
+  %40 = add i64 %10, -1
+  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 %39)
+  switch i8 %12, label %41 [
+    i8 3, label %48
+    i8 4, label %55
   ]
 
-44:                                               ; preds = %.thread, %35
-  %.sroa.0.0.sroa.speculated.i46 = phi i64 [ %.sroa.0.0.sroa.speculated.i45, %.thread ], [ %.sroa.0.0.sroa.speculated.i, %35 ]
-  %45 = add i64 %.sroa.0.0.sroa.speculated.i46, %4
-  %46 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %45, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %47 = load i64, ptr %46, align 8, !range !649, !noundef !6
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %49 = load double, ptr %48, align 8
-  %50 = trunc nuw i64 %47 to i1
-  br i1 %50, label %76, label %116, !prof !46
+41:                                               ; preds = %.thread, %33
+  %.sroa.0.0.sroa.speculated.i46 = phi i64 [ %.sroa.0.0.sroa.speculated.i45, %.thread ], [ %.sroa.0.0.sroa.speculated.i, %33 ]
+  %42 = add i64 %.sroa.0.0.sroa.speculated.i46, %4
+  %43 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %42, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %44 = load i64, ptr %43, align 8, !range !649, !noundef !6
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %46 = load double, ptr %45, align 8
+  %47 = trunc nuw i64 %44 to i1
+  br i1 %47, label %73, label %113, !prof !46
 
-51:                                               ; preds = %35
-  %52 = add i64 %.sroa.0.0.sroa.speculated.i, %4
-  %53 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %52, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %54 = load i64, ptr %53, align 8, !range !649, !noundef !6
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = load double, ptr %55, align 8
-  %57 = trunc nuw i64 %54 to i1
-  br i1 %57, label %62, label %69, !prof !46
+48:                                               ; preds = %33
+  %49 = add i64 %.sroa.0.0.sroa.speculated.i, %4
+  %50 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %49, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %51 = load i64, ptr %50, align 8, !range !649, !noundef !6
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %53 = load double, ptr %52, align 8
+  %54 = trunc nuw i64 %51 to i1
+  br i1 %54, label %59, label %66, !prof !46
 
-58:                                               ; preds = %35
-  %59 = tail call double @llvm.ceil.f64(double %40)
-  %60 = tail call i64 @llvm.fptoui.sat.i64.f64(double %59)
-  %61 = icmp eq i64 %60, %.sroa.0.0.sroa.speculated.i
-  br i1 %61, label %88, label %79
+55:                                               ; preds = %33
+  %56 = tail call double @llvm.ceil.f64(double %37)
+  %57 = tail call i64 @llvm.fptoui.sat.i64.f64(double %56)
+  %58 = icmp eq i64 %57, %.sroa.0.0.sroa.speculated.i
+  br i1 %58, label %85, label %76
 
-62:                                               ; preds = %51
-  %63 = tail call double @llvm.ceil.f64(double %40)
-  %64 = tail call i64 @llvm.fptoui.sat.i64.f64(double %63)
-  %65 = add i64 %64, %4
-  %66 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %65, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %67 = load i64, ptr %66, align 8, !range !649, !noundef !6
-  %68 = trunc nuw i64 %67 to i1
-  br i1 %68, label %70, label %75, !prof !46
+59:                                               ; preds = %48
+  %60 = tail call double @llvm.ceil.f64(double %37)
+  %61 = tail call i64 @llvm.fptoui.sat.i64.f64(double %60)
+  %62 = add i64 %61, %4
+  %63 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %64 = load i64, ptr %63, align 8, !range !649, !noundef !6
+  %65 = trunc nuw i64 %64 to i1
+  br i1 %65, label %67, label %72, !prof !46
 
-69:                                               ; preds = %51
+66:                                               ; preds = %48
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.353) #33
   unreachable
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %72 = load double, ptr %71, align 8
-  %73 = fadd double %56, %72
-  %74 = fmul double %73, 5.000000e-01
-  br label %76
+67:                                               ; preds = %59
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %69 = load double, ptr %68, align 8
+  %70 = fadd double %53, %69
+  %71 = fmul double %70, 5.000000e-01
+  br label %73
 
-75:                                               ; preds = %62
+72:                                               ; preds = %59
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.354) #33
   unreachable
 
-76:                                               ; preds = %3, %44, %88, %108, %70
-  %.sroa.8.0 = phi double [ %49, %44 ], [ %74, %70 ], [ %93, %88 ], [ %113, %108 ], [ undef, %3 ]
-  %.sroa.0.0 = phi i64 [ 1, %44 ], [ 1, %70 ], [ 1, %88 ], [ 1, %108 ], [ 0, %3 ]
-  %77 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
-  %78 = insertvalue { i64, double } %77, double %.sroa.8.0, 1
-  ret { i64, double } %78
+73:                                               ; preds = %3, %41, %85, %105, %67
+  %.sroa.8.0 = phi double [ %46, %41 ], [ %71, %67 ], [ %90, %85 ], [ %110, %105 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i64 [ 1, %41 ], [ 1, %67 ], [ 1, %85 ], [ 1, %105 ], [ 0, %3 ]
+  %74 = insertvalue { i64, double } poison, i64 %.sroa.0.0, 0
+  %75 = insertvalue { i64, double } %74, double %.sroa.8.0, 1
+  ret { i64, double } %75
 
-79:                                               ; preds = %58
-  %80 = uitofp i64 %.sroa.0.0.sroa.speculated.i to double
-  %81 = fsub double %40, %80
-  %82 = add i64 %60, %4
-  %83 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %82, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %84 = load i64, ptr %83, align 8, !range !649, !noundef !6
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %86 = load double, ptr %85, align 8
-  %87 = trunc nuw i64 %84 to i1
-  br i1 %87, label %95, label %100, !prof !46
+76:                                               ; preds = %55
+  %77 = uitofp i64 %.sroa.0.0.sroa.speculated.i to double
+  %78 = fsub double %37, %77
+  %79 = add i64 %57, %4
+  %80 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %79, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %81 = load i64, ptr %80, align 8, !range !649, !noundef !6
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %83 = load double, ptr %82, align 8
+  %84 = trunc nuw i64 %81 to i1
+  br i1 %84, label %92, label %97, !prof !46
 
-88:                                               ; preds = %58
-  %89 = add i64 %.sroa.0.0.sroa.speculated.i, %4
-  %90 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %89, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %91 = load i64, ptr %90, align 8, !range !649, !noundef !6
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %93 = load double, ptr %92, align 8
-  %94 = trunc nuw i64 %91 to i1
-  br i1 %94, label %76, label %115, !prof !46
+85:                                               ; preds = %55
+  %86 = add i64 %.sroa.0.0.sroa.speculated.i, %4
+  %87 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %86, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %88 = load i64, ptr %87, align 8, !range !649, !noundef !6
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %90 = load double, ptr %89, align 8
+  %91 = trunc nuw i64 %88 to i1
+  br i1 %91, label %73, label %112, !prof !46
 
-95:                                               ; preds = %79
-  %96 = add i64 %.sroa.0.0.sroa.speculated.i, %4
-  %97 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %96, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %98 = load i64, ptr %97, align 8, !range !649, !noundef !6
-  %99 = trunc nuw i64 %98 to i1
-  br i1 %99, label %101, label %107, !prof !46
+92:                                               ; preds = %76
+  %93 = add i64 %.sroa.0.0.sroa.speculated.i, %4
+  %94 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %93, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %95 = load i64, ptr %94, align 8, !range !649, !noundef !6
+  %96 = trunc nuw i64 %95 to i1
+  br i1 %96, label %98, label %104, !prof !46
 
-100:                                              ; preds = %79
+97:                                               ; preds = %76
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.358) #33
   unreachable
 
-101:                                              ; preds = %95
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %103 = load double, ptr %102, align 8
-  %104 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %96, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
-  %105 = load i64, ptr %104, align 8, !range !649, !noundef !6
-  %106 = trunc nuw i64 %105 to i1
-  br i1 %106, label %108, label %114, !prof !46
+98:                                               ; preds = %92
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %100 = load double, ptr %99, align 8
+  %101 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN109_$LT$skiplist..ordered_skiplist..OrderedSkipList$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$usize$GT$$GT$5index17h67a488d77296c062E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %5, i64 noundef %93, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.352)
+  %102 = load i64, ptr %101, align 8, !range !649, !noundef !6
+  %103 = trunc nuw i64 %102 to i1
+  br i1 %103, label %105, label %111, !prof !46
 
-107:                                              ; preds = %95
+104:                                              ; preds = %92
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.359) #33
   unreachable
 
-108:                                              ; preds = %101
-  %109 = fsub double %86, %103
-  %110 = fmul double %81, %109
-  %111 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %112 = load double, ptr %111, align 8
-  %113 = fadd double %110, %112
-  br label %76
+105:                                              ; preds = %98
+  %106 = fsub double %83, %100
+  %107 = fmul double %78, %106
+  %108 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %109 = load double, ptr %108, align 8
+  %110 = fadd double %107, %109
+  br label %73
 
-114:                                              ; preds = %101
+111:                                              ; preds = %98
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.362) #33
   unreachable
 
-115:                                              ; preds = %88
+112:                                              ; preds = %85
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.363) #33
   unreachable
 
-116:                                              ; preds = %44
+113:                                              ; preds = %41
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3941b695549b4298a93d0e1e34d52877.364) #33
   unreachable
 }

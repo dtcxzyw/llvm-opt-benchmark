@@ -912,8 +912,8 @@ define noundef ptr @Cudd_zddCoverPathToString(ptr noundef readonly captures(none
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %18 = load i32, ptr %17, align 4, !tbaa !25
@@ -921,24 +921,24 @@ define noundef ptr @Cudd_zddCoverPathToString(ptr noundef readonly captures(none
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !25
   %22 = or i32 %19, %21
-  %23 = icmp ult i32 %22, 11
-  br i1 %23, label %switch.lookup, label %25
+  %23 = getelementptr inbounds nuw i8, ptr %.026, i64 %indvars.iv
+  %24 = icmp ult i32 %22, 11
+  br i1 %24, label %switch.lookup, label %26
 
 switch.lookup:                                    ; preds = %.lr.ph
-  %24 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.Cudd_zddCoverPathToString, i64 %24
+  %25 = zext nneg i32 %22 to i64
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.Cudd_zddCoverPathToString, i64 %25
   %switch.load = load i8, ptr %switch.gep, align 1
-  br label %25
+  br label %26
 
-25:                                               ; preds = %.lr.ph, %switch.lookup
+26:                                               ; preds = %.lr.ph, %switch.lookup
   %.sink = phi i8 [ %switch.load, %switch.lookup ], [ 63, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i8, ptr %.026, i64 %indvars.iv
-  store i8 %.sink, ptr %26, align 1, !tbaa !34
+  store i8 %.sink, ptr %23, align 1, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %25, %15
+._crit_edge:                                      ; preds = %26, %15
   %27 = sext i32 %8 to i64
   %28 = getelementptr inbounds i8, ptr %.026, i64 %27
   store i8 0, ptr %28, align 1, !tbaa !34

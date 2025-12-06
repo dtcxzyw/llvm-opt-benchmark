@@ -2465,32 +2465,30 @@ sub_0:                                            ; preds = %22
 67:                                               ; preds = %64, %64, %66
   %.pr649857 = phi i32 [ %.pr649858, %64 ], [ %.pr649858, %64 ], [ -6, %66 ]
   %68 = load i8, ptr %1, align 1, !tbaa !7
-  switch i8 %68, label %69 [
+  %69 = load i32, ptr %0, align 4, !tbaa !3
+  %.not546 = icmp eq i32 %69, 0
+  switch i8 %68, label %70 [
     i8 65, label %71
     i8 80, label %71
     i8 83, label %71
   ]
 
-69:                                               ; preds = %67
-  %70 = load i32, ptr %0, align 4, !tbaa !3
-  %.not546 = icmp eq i32 %70, 0
+70:                                               ; preds = %67
   br i1 %.not546, label %.thread641, label %.thread644.sink.split
 
 71:                                               ; preds = %67, %67, %67
-  %.pr = load i32, ptr %0, align 4, !tbaa !3
-  %.not547 = icmp eq i32 %.pr, 0
-  br i1 %.not547, label %.thread641, label %72
+  br i1 %.not546, label %.thread641, label %72
 
 72:                                               ; preds = %71
   %73 = icmp eq i8 %68, 83
   br i1 %73, label %.thread644.sink.split, label %.thread644
 
-.thread641:                                       ; preds = %71, %69
+.thread641:                                       ; preds = %71, %70
   store i32 %46, ptr %27, align 4, !tbaa !3
   br label %79
 
-.thread644.sink.split:                            ; preds = %69, %72
-  %.sink = phi i32 [ -16, %72 ], [ -15, %69 ]
+.thread644.sink.split:                            ; preds = %70, %72
+  %.sink = phi i32 [ -16, %72 ], [ -15, %70 ]
   store i32 %.sink, ptr %30, align 4, !tbaa !3
   br label %.thread644
 
@@ -6433,32 +6431,30 @@ sub_0:                                            ; preds = %22
 67:                                               ; preds = %64, %64, %66
   %.pr649857 = phi i32 [ %.pr649858, %64 ], [ %.pr649858, %64 ], [ -6, %66 ]
   %68 = load i8, ptr %1, align 1, !tbaa !7
-  switch i8 %68, label %69 [
+  %69 = load i32, ptr %0, align 4, !tbaa !3
+  %.not546 = icmp eq i32 %69, 0
+  switch i8 %68, label %70 [
     i8 65, label %71
     i8 80, label %71
     i8 83, label %71
   ]
 
-69:                                               ; preds = %67
-  %70 = load i32, ptr %0, align 4, !tbaa !3
-  %.not546 = icmp eq i32 %70, 0
+70:                                               ; preds = %67
   br i1 %.not546, label %.thread641, label %.thread644.sink.split
 
 71:                                               ; preds = %67, %67, %67
-  %.pr = load i32, ptr %0, align 4, !tbaa !3
-  %.not547 = icmp eq i32 %.pr, 0
-  br i1 %.not547, label %.thread641, label %72
+  br i1 %.not546, label %.thread641, label %72
 
 72:                                               ; preds = %71
   %73 = icmp eq i8 %68, 83
   br i1 %73, label %.thread644.sink.split, label %.thread644
 
-.thread641:                                       ; preds = %71, %69
+.thread641:                                       ; preds = %71, %70
   store i32 %46, ptr %27, align 4, !tbaa !3
   br label %79
 
-.thread644.sink.split:                            ; preds = %69, %72
-  %.sink = phi i32 [ -16, %72 ], [ -15, %69 ]
+.thread644.sink.split:                            ; preds = %70, %72
+  %.sink = phi i32 [ -16, %72 ], [ -15, %70 ]
   store i32 %.sink, ptr %30, align 4, !tbaa !3
   br label %.thread644
 

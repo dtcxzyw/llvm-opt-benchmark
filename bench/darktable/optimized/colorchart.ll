@@ -579,7 +579,7 @@ define dso_local noalias noundef ptr @parse_cht(ptr noundef %0) local_unnamed_ad
   %.0360.ph.ph1175 = phi float [ %.2362.lcssa, %._crit_edge848 ], [ 0x3810000000000000, %14 ]
   %.0372.ph.ph1174 = phi float [ %.2374.lcssa, %._crit_edge848 ], [ 0x47EFFFFFE0000000, %14 ]
   %.0380.ph.ph1173 = phi float [ %.2382.lcssa, %._crit_edge848 ], [ 0x3810000000000000, %14 ]
-  %.ph1172 = phi ptr [ %397, %._crit_edge848 ], [ %17, %14 ]
+  %.ph1172 = phi ptr [ %392, %._crit_edge848 ], [ %17, %14 ]
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.preheader.lr.ph, %.outer.backedge
@@ -624,388 +624,388 @@ define dso_local noalias noundef ptr @parse_cht(ptr noundef %0) local_unnamed_ad
   %.pre = load i8, ptr %34, align 1, !tbaa !23
   br label %32
 
-.preheader.i:                                     ; preds = %32, %37
-  %35 = phi i8 [ %.pre.i, %37 ], [ %33, %32 ]
-  %36 = phi ptr [ %38, %37 ], [ %.promoted18.i, %32 ]
-  switch i8 %35, label %37 [
+.preheader.i:                                     ; preds = %32, %38
+  %35 = phi i8 [ %.pre.i, %38 ], [ %33, %32 ]
+  %36 = phi ptr [ %37, %38 ], [ %.promoted18.i, %32 ]
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  switch i8 %35, label %38 [
     i8 32, label %parse_string.exit
     i8 9, label %parse_string.exit
     i8 0, label %parse_string.exit
     i8 10, label %parse_string.exit
   ]
 
-37:                                               ; preds = %.preheader.i
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store ptr %38, ptr %3, align 8, !tbaa !26
-  %.pre.i = load i8, ptr %38, align 1, !tbaa !23
+38:                                               ; preds = %.preheader.i
+  %.pre.i = load i8, ptr %37, align 1, !tbaa !23
   br label %.preheader.i
 
 parse_string.exit:                                ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store ptr %39, ptr %3, align 8, !tbaa !26
+  store ptr %37, ptr %3, align 8, !tbaa !26
   store i8 0, ptr %36, align 1, !tbaa !23
-  %40 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.2) #13
-  %41 = or i32 %40, %.0345.ph1170
-  %or.cond9 = icmp eq i32 %41, 0
-  br i1 %or.cond9, label %42, label %458
+  %39 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.2) #13
+  %40 = or i32 %39, %.0345.ph1170
+  %or.cond9 = icmp eq i32 %40, 0
+  br i1 %or.cond9, label %41, label %453
 
-42:                                               ; preds = %parse_string.exit
-  %43 = load ptr, ptr %3, align 8, !tbaa !26
-  %44 = ptrtoint ptr %43 to i64
-  %45 = sub i64 %44, %21
-  %.not443 = icmp slt i64 %45, %31
+41:                                               ; preds = %parse_string.exit
+  %42 = load ptr, ptr %3, align 8, !tbaa !26
+  %43 = ptrtoint ptr %42 to i64
+  %44 = sub i64 %43, %21
+  %.not443 = icmp slt i64 %44, %31
   br i1 %.not443, label %.preheader693, label %.thread654
 
-.preheader693:                                    ; preds = %42, %.critedge.i478
-  %46 = phi ptr [ %48, %.critedge.i478 ], [ %43, %42 ]
-  %47 = load i8, ptr %46, align 1, !tbaa !23
-  switch i8 %47, label %parse_double.exit [
+.preheader693:                                    ; preds = %41, %.critedge.i478
+  %45 = phi ptr [ %47, %.critedge.i478 ], [ %42, %41 ]
+  %46 = load i8, ptr %45, align 1, !tbaa !23
+  switch i8 %46, label %parse_double.exit [
     i8 32, label %.critedge.i478
     i8 9, label %.critedge.i478
   ]
 
 .critedge.i478:                                   ; preds = %.preheader693, %.preheader693
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  store ptr %48, ptr %3, align 8, !tbaa !26
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  store ptr %47, ptr %3, align 8, !tbaa !26
   br label %.preheader693
 
 parse_double.exit:                                ; preds = %.preheader693
-  %49 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %46, ptr noundef nonnull %3) #13
-  %50 = load ptr, ptr %3, align 8, !tbaa !26
-  %51 = getelementptr inbounds i8, ptr %50, i64 -1
-  store i8 0, ptr %51, align 1, !tbaa !23
-  %52 = fptoui double %49 to i32
-  %53 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
-  %.not444813 = icmp eq ptr %53, null
+  %48 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %45, ptr noundef nonnull %3) #13
+  %49 = load ptr, ptr %3, align 8, !tbaa !26
+  %50 = getelementptr inbounds i8, ptr %49, i64 -1
+  store i8 0, ptr %50, align 1, !tbaa !23
+  %51 = fptoui double %48 to i32
+  %52 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
+  %.not444813 = icmp eq ptr %52, null
   br i1 %.not444813, label %._crit_edge819, label %.lr.ph818
 
-.lr.ph818:                                        ; preds = %parse_double.exit, %393
-  %.2353817 = phi float [ %.4355, %393 ], [ %.0351.ph.ph1176, %parse_double.exit ]
-  %.2362816 = phi float [ %.4364, %393 ], [ %.0360.ph.ph1175, %parse_double.exit ]
-  %.2374815 = phi float [ %.4376, %393 ], [ %.0372.ph.ph1174, %parse_double.exit ]
-  %.2382814 = phi float [ %.4384, %393 ], [ %.0380.ph.ph1173, %parse_double.exit ]
-  %54 = load i8, ptr %2, align 16, !tbaa !23
-  switch i8 %54, label %55 [
+.lr.ph818:                                        ; preds = %parse_double.exit, %388
+  %.2353817 = phi float [ %.4355, %388 ], [ %.0351.ph.ph1176, %parse_double.exit ]
+  %.2362816 = phi float [ %.4364, %388 ], [ %.0360.ph.ph1175, %parse_double.exit ]
+  %.2374815 = phi float [ %.4376, %388 ], [ %.0372.ph.ph1174, %parse_double.exit ]
+  %.2382814 = phi float [ %.4384, %388 ], [ %.0380.ph.ph1173, %parse_double.exit ]
+  %53 = load i8, ptr %2, align 16, !tbaa !23
+  switch i8 %53, label %54 [
     i8 10, label %._crit_edge819
     i8 0, label %._crit_edge819
   ]
 
-55:                                               ; preds = %.lr.ph818
+54:                                               ; preds = %.lr.ph818
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
-  br label %57
+  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
+  br label %56
 
-57:                                               ; preds = %60, %55
-  %58 = phi i8 [ %.pre936, %60 ], [ %54, %55 ]
-  %59 = phi ptr [ %61, %60 ], [ %2, %55 ]
-  switch i8 %58, label %.thread640 [
-    i8 32, label %60
+56:                                               ; preds = %59, %54
+  %57 = phi i8 [ %.pre936, %59 ], [ %53, %54 ]
+  %58 = phi ptr [ %60, %59 ], [ %2, %54 ]
+  switch i8 %57, label %.thread640 [
+    i8 32, label %59
     i8 70, label %.preheader679
-    i8 68, label %192
-    i8 88, label %192
-    i8 89, label %192
+    i8 68, label %191
+    i8 88, label %191
+    i8 89, label %191
   ]
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 1
-  store ptr %61, ptr %4, align 8, !tbaa !26
-  %.pre936 = load i8, ptr %61, align 1, !tbaa !23
-  br label %57
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
+  store ptr %60, ptr %4, align 8, !tbaa !26
+  %.pre936 = load i8, ptr %60, align 1, !tbaa !23
+  br label %56
 
-.preheader679:                                    ; preds = %57, %.preheader679
-  %.pn = phi ptr [ %storemerge, %.preheader679 ], [ %59, %57 ]
+.preheader679:                                    ; preds = %56, %.preheader679
+  %.pn = phi ptr [ %storemerge, %.preheader679 ], [ %58, %56 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 1
-  %62 = load i8, ptr %storemerge, align 1, !tbaa !23
-  switch i8 %62, label %.thread640 [
+  %61 = load i8, ptr %storemerge, align 1, !tbaa !23
+  switch i8 %61, label %.thread640 [
     i8 32, label %.preheader679
     i8 95, label %.preheader678
   ]
 
 .preheader678:                                    ; preds = %.preheader679
-  %63 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
-  %64 = load i8, ptr %63, align 1, !tbaa !23
-  %65 = icmp eq i8 %64, 32
-  br i1 %65, label %.lr.ph806, label %._crit_edge807
+  %62 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
+  %63 = load i8, ptr %62, align 1, !tbaa !23
+  %64 = icmp eq i8 %63, 32
+  br i1 %64, label %.lr.ph806, label %._crit_edge807
 
 .lr.ph806:                                        ; preds = %.preheader678, %.lr.ph806
-  %66 = phi ptr [ %67, %.lr.ph806 ], [ %63, %.preheader678 ]
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
-  store ptr %67, ptr %4, align 8, !tbaa !26
-  %68 = load i8, ptr %67, align 1, !tbaa !23
-  %69 = icmp eq i8 %68, 32
-  br i1 %69, label %.lr.ph806, label %._crit_edge807
+  %65 = phi ptr [ %66, %.lr.ph806 ], [ %62, %.preheader678 ]
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  store ptr %66, ptr %4, align 8, !tbaa !26
+  %67 = load i8, ptr %66, align 1, !tbaa !23
+  %68 = icmp eq i8 %67, 32
+  br i1 %68, label %.lr.ph806, label %._crit_edge807
 
 ._crit_edge807:                                   ; preds = %.lr.ph806, %.preheader678
-  %.lcssa767 = phi ptr [ %63, %.preheader678 ], [ %67, %.lr.ph806 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.lcssa767, i64 1
-  store ptr %70, ptr %4, align 8, !tbaa !26
-  %71 = load i8, ptr %.lcssa767, align 1, !tbaa !23
-  %.not463 = icmp eq i8 %71, 95
+  %.lcssa767 = phi ptr [ %62, %.preheader678 ], [ %66, %.lr.ph806 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.lcssa767, i64 1
+  store ptr %69, ptr %4, align 8, !tbaa !26
+  %70 = load i8, ptr %.lcssa767, align 1, !tbaa !23
+  %.not463 = icmp eq i8 %70, 95
   br i1 %.not463, label %.preheader677, label %.thread640
 
 .preheader677:                                    ; preds = %._crit_edge807
-  %72 = load i8, ptr %70, align 1, !tbaa !23
-  %73 = icmp eq i8 %72, 32
-  br i1 %73, label %.lr.ph810, label %._crit_edge811
+  %71 = load i8, ptr %69, align 1, !tbaa !23
+  %72 = icmp eq i8 %71, 32
+  br i1 %72, label %.lr.ph810, label %._crit_edge811
 
 .lr.ph810:                                        ; preds = %.preheader677, %.lr.ph810
-  %74 = phi ptr [ %75, %.lr.ph810 ], [ %70, %.preheader677 ]
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
-  store ptr %75, ptr %4, align 8, !tbaa !26
-  %76 = load i8, ptr %75, align 1, !tbaa !23
-  %77 = icmp eq i8 %76, 32
-  br i1 %77, label %.lr.ph810, label %._crit_edge811
+  %73 = phi ptr [ %74, %.lr.ph810 ], [ %69, %.preheader677 ]
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1
+  store ptr %74, ptr %4, align 8, !tbaa !26
+  %75 = load i8, ptr %74, align 1, !tbaa !23
+  %76 = icmp eq i8 %75, 32
+  br i1 %76, label %.lr.ph810, label %._crit_edge811
 
 ._crit_edge811:                                   ; preds = %.lr.ph810, %.preheader677
-  %78 = phi i8 [ %72, %.preheader677 ], [ %76, %.lr.ph810 ]
-  %.lcssa768 = phi ptr [ %70, %.preheader677 ], [ %75, %.lr.ph810 ]
-  %79 = ptrtoint ptr %.lcssa768 to i64
-  %80 = sub i64 %79, %21
-  %.not464 = icmp slt i64 %80, %56
+  %77 = phi i8 [ %71, %.preheader677 ], [ %75, %.lr.ph810 ]
+  %.lcssa768 = phi ptr [ %69, %.preheader677 ], [ %74, %.lr.ph810 ]
+  %78 = ptrtoint ptr %.lcssa768 to i64
+  %79 = sub i64 %78, %21
+  %.not464 = icmp slt i64 %79, %55
   br i1 %.not464, label %.preheader676, label %.thread640
 
 .preheader676:                                    ; preds = %._crit_edge811, %.critedge.i480
-  %81 = phi i8 [ %.pre937, %.critedge.i480 ], [ %78, %._crit_edge811 ]
-  %82 = phi ptr [ %83, %.critedge.i480 ], [ %.lcssa768, %._crit_edge811 ]
-  switch i8 %81, label %parse_double.exit481 [
+  %80 = phi i8 [ %.pre937, %.critedge.i480 ], [ %77, %._crit_edge811 ]
+  %81 = phi ptr [ %82, %.critedge.i480 ], [ %.lcssa768, %._crit_edge811 ]
+  switch i8 %80, label %parse_double.exit481 [
     i8 32, label %.critedge.i480
     i8 9, label %.critedge.i480
   ]
 
 .critedge.i480:                                   ; preds = %.preheader676, %.preheader676
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  store ptr %83, ptr %4, align 8, !tbaa !26
-  %.pre937 = load i8, ptr %83, align 1, !tbaa !23
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
+  store ptr %82, ptr %4, align 8, !tbaa !26
+  %.pre937 = load i8, ptr %82, align 1, !tbaa !23
   br label %.preheader676
 
 parse_double.exit481:                             ; preds = %.preheader676
-  %84 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %82, ptr noundef nonnull %4) #13
-  %85 = load ptr, ptr %4, align 8, !tbaa !26
-  %86 = getelementptr inbounds i8, ptr %85, i64 -1
-  store i8 0, ptr %86, align 1, !tbaa !23
-  %87 = fptrunc reassoc nsz arcp contract afn double %84 to float
-  %88 = load ptr, ptr %4, align 8, !tbaa !26
-  %89 = ptrtoint ptr %88 to i64
-  %90 = sub i64 %89, %21
-  %.not465 = icmp slt i64 %90, %56
+  %83 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %81, ptr noundef nonnull %4) #13
+  %84 = load ptr, ptr %4, align 8, !tbaa !26
+  %85 = getelementptr inbounds i8, ptr %84, i64 -1
+  store i8 0, ptr %85, align 1, !tbaa !23
+  %86 = fptrunc reassoc nsz arcp contract afn double %83 to float
+  %87 = load ptr, ptr %4, align 8, !tbaa !26
+  %88 = ptrtoint ptr %87 to i64
+  %89 = sub i64 %88, %21
+  %.not465 = icmp slt i64 %89, %55
   br i1 %.not465, label %.preheader675, label %.thread640
 
 .preheader675:                                    ; preds = %parse_double.exit481, %.critedge.i483
-  %91 = phi ptr [ %93, %.critedge.i483 ], [ %88, %parse_double.exit481 ]
-  %92 = load i8, ptr %91, align 1, !tbaa !23
-  switch i8 %92, label %parse_double.exit484 [
+  %90 = phi ptr [ %92, %.critedge.i483 ], [ %87, %parse_double.exit481 ]
+  %91 = load i8, ptr %90, align 1, !tbaa !23
+  switch i8 %91, label %parse_double.exit484 [
     i8 32, label %.critedge.i483
     i8 9, label %.critedge.i483
   ]
 
 .critedge.i483:                                   ; preds = %.preheader675, %.preheader675
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 1
-  store ptr %93, ptr %4, align 8, !tbaa !26
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 1
+  store ptr %92, ptr %4, align 8, !tbaa !26
   br label %.preheader675
 
 parse_double.exit484:                             ; preds = %.preheader675
-  %94 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %91, ptr noundef nonnull %4) #13
-  %95 = load ptr, ptr %4, align 8, !tbaa !26
-  %96 = getelementptr inbounds i8, ptr %95, i64 -1
-  store i8 0, ptr %96, align 1, !tbaa !23
-  %97 = fptrunc reassoc nsz arcp contract afn double %94 to float
-  %98 = load ptr, ptr %4, align 8, !tbaa !26
-  %99 = ptrtoint ptr %98 to i64
-  %100 = sub i64 %99, %21
-  %.not466 = icmp slt i64 %100, %56
+  %93 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %90, ptr noundef nonnull %4) #13
+  %94 = load ptr, ptr %4, align 8, !tbaa !26
+  %95 = getelementptr inbounds i8, ptr %94, i64 -1
+  store i8 0, ptr %95, align 1, !tbaa !23
+  %96 = fptrunc reassoc nsz arcp contract afn double %93 to float
+  %97 = load ptr, ptr %4, align 8, !tbaa !26
+  %98 = ptrtoint ptr %97 to i64
+  %99 = sub i64 %98, %21
+  %.not466 = icmp slt i64 %99, %55
   br i1 %.not466, label %.preheader674, label %.thread640
 
 .preheader674:                                    ; preds = %parse_double.exit484, %.critedge.i486
-  %101 = phi ptr [ %103, %.critedge.i486 ], [ %98, %parse_double.exit484 ]
-  %102 = load i8, ptr %101, align 1, !tbaa !23
-  switch i8 %102, label %parse_double.exit487 [
+  %100 = phi ptr [ %102, %.critedge.i486 ], [ %97, %parse_double.exit484 ]
+  %101 = load i8, ptr %100, align 1, !tbaa !23
+  switch i8 %101, label %parse_double.exit487 [
     i8 32, label %.critedge.i486
     i8 9, label %.critedge.i486
   ]
 
 .critedge.i486:                                   ; preds = %.preheader674, %.preheader674
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 1
-  store ptr %103, ptr %4, align 8, !tbaa !26
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 1
+  store ptr %102, ptr %4, align 8, !tbaa !26
   br label %.preheader674
 
 parse_double.exit487:                             ; preds = %.preheader674
-  %104 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %101, ptr noundef nonnull %4) #13
-  %105 = load ptr, ptr %4, align 8, !tbaa !26
-  %106 = getelementptr inbounds i8, ptr %105, i64 -1
-  store i8 0, ptr %106, align 1, !tbaa !23
-  %107 = fptrunc reassoc nsz arcp contract afn double %104 to float
-  %108 = load ptr, ptr %4, align 8, !tbaa !26
-  %109 = ptrtoint ptr %108 to i64
-  %110 = sub i64 %109, %21
-  %.not467 = icmp slt i64 %110, %56
+  %103 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %100, ptr noundef nonnull %4) #13
+  %104 = load ptr, ptr %4, align 8, !tbaa !26
+  %105 = getelementptr inbounds i8, ptr %104, i64 -1
+  store i8 0, ptr %105, align 1, !tbaa !23
+  %106 = fptrunc reassoc nsz arcp contract afn double %103 to float
+  %107 = load ptr, ptr %4, align 8, !tbaa !26
+  %108 = ptrtoint ptr %107 to i64
+  %109 = sub i64 %108, %21
+  %.not467 = icmp slt i64 %109, %55
   br i1 %.not467, label %.preheader673, label %.thread640
 
 .preheader673:                                    ; preds = %parse_double.exit487, %.critedge.i489
-  %111 = phi ptr [ %113, %.critedge.i489 ], [ %108, %parse_double.exit487 ]
-  %112 = load i8, ptr %111, align 1, !tbaa !23
-  switch i8 %112, label %parse_double.exit490 [
+  %110 = phi ptr [ %112, %.critedge.i489 ], [ %107, %parse_double.exit487 ]
+  %111 = load i8, ptr %110, align 1, !tbaa !23
+  switch i8 %111, label %parse_double.exit490 [
     i8 32, label %.critedge.i489
     i8 9, label %.critedge.i489
   ]
 
 .critedge.i489:                                   ; preds = %.preheader673, %.preheader673
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 1
-  store ptr %113, ptr %4, align 8, !tbaa !26
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 1
+  store ptr %112, ptr %4, align 8, !tbaa !26
   br label %.preheader673
 
 parse_double.exit490:                             ; preds = %.preheader673
-  %114 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %111, ptr noundef nonnull %4) #13
-  %115 = load ptr, ptr %4, align 8, !tbaa !26
-  %116 = getelementptr inbounds i8, ptr %115, i64 -1
-  store i8 0, ptr %116, align 1, !tbaa !23
-  %117 = fptrunc reassoc nsz arcp contract afn double %114 to float
-  %118 = load ptr, ptr %4, align 8, !tbaa !26
-  %119 = ptrtoint ptr %118 to i64
-  %120 = sub i64 %119, %21
-  %.not468 = icmp slt i64 %120, %56
+  %113 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %110, ptr noundef nonnull %4) #13
+  %114 = load ptr, ptr %4, align 8, !tbaa !26
+  %115 = getelementptr inbounds i8, ptr %114, i64 -1
+  store i8 0, ptr %115, align 1, !tbaa !23
+  %116 = fptrunc reassoc nsz arcp contract afn double %113 to float
+  %117 = load ptr, ptr %4, align 8, !tbaa !26
+  %118 = ptrtoint ptr %117 to i64
+  %119 = sub i64 %118, %21
+  %.not468 = icmp slt i64 %119, %55
   br i1 %.not468, label %.preheader672, label %.thread640
 
 .preheader672:                                    ; preds = %parse_double.exit490, %.critedge.i492
-  %121 = phi ptr [ %123, %.critedge.i492 ], [ %118, %parse_double.exit490 ]
-  %122 = load i8, ptr %121, align 1, !tbaa !23
-  switch i8 %122, label %parse_double.exit493 [
+  %120 = phi ptr [ %122, %.critedge.i492 ], [ %117, %parse_double.exit490 ]
+  %121 = load i8, ptr %120, align 1, !tbaa !23
+  switch i8 %121, label %parse_double.exit493 [
     i8 32, label %.critedge.i492
     i8 9, label %.critedge.i492
   ]
 
 .critedge.i492:                                   ; preds = %.preheader672, %.preheader672
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 1
-  store ptr %123, ptr %4, align 8, !tbaa !26
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 1
+  store ptr %122, ptr %4, align 8, !tbaa !26
   br label %.preheader672
 
 parse_double.exit493:                             ; preds = %.preheader672
-  %124 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %121, ptr noundef nonnull %4) #13
-  %125 = load ptr, ptr %4, align 8, !tbaa !26
-  %126 = getelementptr inbounds i8, ptr %125, i64 -1
-  store i8 0, ptr %126, align 1, !tbaa !23
-  %127 = fptrunc reassoc nsz arcp contract afn double %124 to float
-  %128 = load ptr, ptr %4, align 8, !tbaa !26
-  %129 = ptrtoint ptr %128 to i64
-  %130 = sub i64 %129, %21
-  %.not469 = icmp slt i64 %130, %56
+  %123 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %120, ptr noundef nonnull %4) #13
+  %124 = load ptr, ptr %4, align 8, !tbaa !26
+  %125 = getelementptr inbounds i8, ptr %124, i64 -1
+  store i8 0, ptr %125, align 1, !tbaa !23
+  %126 = fptrunc reassoc nsz arcp contract afn double %123 to float
+  %127 = load ptr, ptr %4, align 8, !tbaa !26
+  %128 = ptrtoint ptr %127 to i64
+  %129 = sub i64 %128, %21
+  %.not469 = icmp slt i64 %129, %55
   br i1 %.not469, label %.preheader, label %.thread640
 
 .preheader:                                       ; preds = %parse_double.exit493, %.critedge.i495
-  %131 = phi ptr [ %133, %.critedge.i495 ], [ %128, %parse_double.exit493 ]
-  %132 = load i8, ptr %131, align 1, !tbaa !23
-  switch i8 %132, label %parse_double.exit496 [
+  %130 = phi ptr [ %132, %.critedge.i495 ], [ %127, %parse_double.exit493 ]
+  %131 = load i8, ptr %130, align 1, !tbaa !23
+  switch i8 %131, label %parse_double.exit496 [
     i8 32, label %.critedge.i495
     i8 9, label %.critedge.i495
   ]
 
 .critedge.i495:                                   ; preds = %.preheader, %.preheader
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 1
-  store ptr %133, ptr %4, align 8, !tbaa !26
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 1
+  store ptr %132, ptr %4, align 8, !tbaa !26
   br label %.preheader
 
 parse_double.exit496:                             ; preds = %.preheader
-  %134 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %131, ptr noundef nonnull %4) #13
-  %135 = load ptr, ptr %4, align 8, !tbaa !26
-  %136 = getelementptr inbounds i8, ptr %135, i64 -1
-  store i8 0, ptr %136, align 1, !tbaa !23
-  %137 = fptrunc reassoc nsz arcp contract afn double %134 to float
-  %138 = load ptr, ptr %4, align 8, !tbaa !26
-  %139 = ptrtoint ptr %138 to i64
-  %140 = sub i64 %139, %21
-  %.not470 = icmp slt i64 %140, %56
-  br i1 %.not470, label %141, label %.thread640
+  %133 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %130, ptr noundef nonnull %4) #13
+  %134 = load ptr, ptr %4, align 8, !tbaa !26
+  %135 = getelementptr inbounds i8, ptr %134, i64 -1
+  store i8 0, ptr %135, align 1, !tbaa !23
+  %136 = fptrunc reassoc nsz arcp contract afn double %133 to float
+  %137 = load ptr, ptr %4, align 8, !tbaa !26
+  %138 = ptrtoint ptr %137 to i64
+  %139 = sub i64 %138, %21
+  %.not470 = icmp slt i64 %139, %55
+  br i1 %.not470, label %140, label %.thread640
 
-141:                                              ; preds = %parse_double.exit496
-  %142 = call reassoc nsz arcp contract afn fastcc double @parse_double(ptr noundef %4)
-  %143 = load ptr, ptr %4, align 8, !tbaa !26
-  %144 = ptrtoint ptr %143 to i64
-  %145 = sub i64 %144, %21
-  %.not471 = icmp slt i64 %145, %56
-  br i1 %.not471, label %146, label %.thread640
+140:                                              ; preds = %parse_double.exit496
+  %141 = call reassoc nsz arcp contract afn fastcc double @parse_double(ptr noundef %4)
+  %142 = load ptr, ptr %4, align 8, !tbaa !26
+  %143 = ptrtoint ptr %142 to i64
+  %144 = sub i64 %143, %21
+  %.not471 = icmp slt i64 %144, %55
+  br i1 %.not471, label %145, label %.thread640
 
-146:                                              ; preds = %141
-  %147 = fptrunc reassoc nsz arcp contract afn double %142 to float
-  %148 = call reassoc nsz arcp contract afn fastcc double @parse_double(ptr noundef %4)
-  %149 = fptrunc reassoc nsz arcp contract afn double %148 to float
-  %150 = fcmp reassoc nsz arcp contract afn olt float %.2353817, %87
-  %151 = select reassoc nsz arcp contract afn i1 %150, float %.2353817, float %87
-  %152 = fcmp reassoc nsz arcp contract afn olt float %151, %107
-  %153 = select reassoc nsz arcp contract afn i1 %152, float %151, float %107
-  %154 = fcmp reassoc nsz arcp contract afn olt float %153, %127
-  %155 = select reassoc nsz arcp contract afn i1 %154, float %153, float %127
-  %156 = fcmp reassoc nsz arcp contract afn olt float %155, %147
-  %157 = select reassoc nsz arcp contract afn i1 %156, float %155, float %147
-  %158 = fcmp reassoc nsz arcp contract afn olt float %.2374815, %97
-  %159 = select reassoc nsz arcp contract afn i1 %158, float %.2374815, float %97
-  %160 = fcmp reassoc nsz arcp contract afn olt float %159, %117
-  %161 = select reassoc nsz arcp contract afn i1 %160, float %159, float %117
-  %162 = fcmp reassoc nsz arcp contract afn olt float %161, %137
-  %163 = select reassoc nsz arcp contract afn i1 %162, float %161, float %137
-  %164 = fcmp reassoc nsz arcp contract afn olt float %163, %149
-  %165 = select reassoc nsz arcp contract afn i1 %164, float %163, float %149
-  %166 = fcmp reassoc nsz arcp contract afn ogt float %.2362816, %87
-  %167 = select reassoc nsz arcp contract afn i1 %166, float %.2362816, float %87
-  %168 = fcmp reassoc nsz arcp contract afn ogt float %167, %107
-  %169 = select reassoc nsz arcp contract afn i1 %168, float %167, float %107
-  %170 = fcmp reassoc nsz arcp contract afn ogt float %169, %127
-  %171 = select reassoc nsz arcp contract afn i1 %170, float %169, float %127
-  %172 = fcmp reassoc nsz arcp contract afn ogt float %171, %147
-  %173 = select reassoc nsz arcp contract afn i1 %172, float %171, float %147
-  %174 = fcmp reassoc nsz arcp contract afn ogt float %.2382814, %97
-  %175 = select reassoc nsz arcp contract afn i1 %174, float %.2382814, float %97
-  %176 = fcmp reassoc nsz arcp contract afn ogt float %175, %117
-  %177 = select reassoc nsz arcp contract afn i1 %176, float %175, float %117
-  %178 = fcmp reassoc nsz arcp contract afn ogt float %177, %137
-  %179 = select reassoc nsz arcp contract afn i1 %178, float %177, float %137
-  %180 = fcmp reassoc nsz arcp contract afn ogt float %179, %149
-  %181 = select reassoc nsz arcp contract afn i1 %180, float %179, float %149
-  %182 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
-  store float %87, ptr %182, align 4, !tbaa !28
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
-  store float %97, ptr %183, align 4, !tbaa !29
-  %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  store float %107, ptr %184, align 4, !tbaa !28
-  %185 = getelementptr inbounds nuw i8, ptr %182, i64 12
-  store float %117, ptr %185, align 4, !tbaa !29
-  %186 = getelementptr inbounds nuw i8, ptr %182, i64 16
-  store float %127, ptr %186, align 4, !tbaa !28
-  %187 = getelementptr inbounds nuw i8, ptr %182, i64 20
-  store float %137, ptr %187, align 4, !tbaa !29
-  %188 = getelementptr inbounds nuw i8, ptr %182, i64 24
-  store float %147, ptr %188, align 4, !tbaa !28
-  %189 = getelementptr inbounds nuw i8, ptr %182, i64 28
-  store float %149, ptr %189, align 4, !tbaa !29
-  %190 = load ptr, ptr %9, align 8, !tbaa !7
-  %191 = call ptr @g_list_append(ptr noundef %190, ptr noundef nonnull %182) #13
-  store ptr %191, ptr %9, align 8, !tbaa !7
-  br label %393
+145:                                              ; preds = %140
+  %146 = fptrunc reassoc nsz arcp contract afn double %141 to float
+  %147 = call reassoc nsz arcp contract afn fastcc double @parse_double(ptr noundef %4)
+  %148 = fptrunc reassoc nsz arcp contract afn double %147 to float
+  %149 = fcmp reassoc nsz arcp contract afn olt float %.2353817, %86
+  %150 = select reassoc nsz arcp contract afn i1 %149, float %.2353817, float %86
+  %151 = fcmp reassoc nsz arcp contract afn olt float %150, %106
+  %152 = select reassoc nsz arcp contract afn i1 %151, float %150, float %106
+  %153 = fcmp reassoc nsz arcp contract afn olt float %152, %126
+  %154 = select reassoc nsz arcp contract afn i1 %153, float %152, float %126
+  %155 = fcmp reassoc nsz arcp contract afn olt float %154, %146
+  %156 = select reassoc nsz arcp contract afn i1 %155, float %154, float %146
+  %157 = fcmp reassoc nsz arcp contract afn olt float %.2374815, %96
+  %158 = select reassoc nsz arcp contract afn i1 %157, float %.2374815, float %96
+  %159 = fcmp reassoc nsz arcp contract afn olt float %158, %116
+  %160 = select reassoc nsz arcp contract afn i1 %159, float %158, float %116
+  %161 = fcmp reassoc nsz arcp contract afn olt float %160, %136
+  %162 = select reassoc nsz arcp contract afn i1 %161, float %160, float %136
+  %163 = fcmp reassoc nsz arcp contract afn olt float %162, %148
+  %164 = select reassoc nsz arcp contract afn i1 %163, float %162, float %148
+  %165 = fcmp reassoc nsz arcp contract afn ogt float %.2362816, %86
+  %166 = select reassoc nsz arcp contract afn i1 %165, float %.2362816, float %86
+  %167 = fcmp reassoc nsz arcp contract afn ogt float %166, %106
+  %168 = select reassoc nsz arcp contract afn i1 %167, float %166, float %106
+  %169 = fcmp reassoc nsz arcp contract afn ogt float %168, %126
+  %170 = select reassoc nsz arcp contract afn i1 %169, float %168, float %126
+  %171 = fcmp reassoc nsz arcp contract afn ogt float %170, %146
+  %172 = select reassoc nsz arcp contract afn i1 %171, float %170, float %146
+  %173 = fcmp reassoc nsz arcp contract afn ogt float %.2382814, %96
+  %174 = select reassoc nsz arcp contract afn i1 %173, float %.2382814, float %96
+  %175 = fcmp reassoc nsz arcp contract afn ogt float %174, %116
+  %176 = select reassoc nsz arcp contract afn i1 %175, float %174, float %116
+  %177 = fcmp reassoc nsz arcp contract afn ogt float %176, %136
+  %178 = select reassoc nsz arcp contract afn i1 %177, float %176, float %136
+  %179 = fcmp reassoc nsz arcp contract afn ogt float %178, %148
+  %180 = select reassoc nsz arcp contract afn i1 %179, float %178, float %148
+  %181 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
+  store float %86, ptr %181, align 4, !tbaa !28
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
+  store float %96, ptr %182, align 4, !tbaa !29
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 8
+  store float %106, ptr %183, align 4, !tbaa !28
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 12
+  store float %116, ptr %184, align 4, !tbaa !29
+  %185 = getelementptr inbounds nuw i8, ptr %181, i64 16
+  store float %126, ptr %185, align 4, !tbaa !28
+  %186 = getelementptr inbounds nuw i8, ptr %181, i64 20
+  store float %136, ptr %186, align 4, !tbaa !29
+  %187 = getelementptr inbounds nuw i8, ptr %181, i64 24
+  store float %146, ptr %187, align 4, !tbaa !28
+  %188 = getelementptr inbounds nuw i8, ptr %181, i64 28
+  store float %148, ptr %188, align 4, !tbaa !29
+  %189 = load ptr, ptr %9, align 8, !tbaa !7
+  %190 = call ptr @g_list_append(ptr noundef %189, ptr noundef nonnull %181) #13
+  store ptr %190, ptr %9, align 8, !tbaa !7
+  br label %388
 
-192:                                              ; preds = %57, %57, %57
-  %193 = getelementptr inbounds nuw i8, ptr %59, i64 1
-  store ptr %193, ptr %4, align 8, !tbaa !26
-  store i8 0, ptr %59, align 1, !tbaa !23
-  %194 = ptrtoint ptr %193 to i64
-  %195 = sub i64 %194, %21
-  %.not445 = icmp slt i64 %195, %56
+191:                                              ; preds = %56, %56, %56
+  %192 = getelementptr inbounds nuw i8, ptr %58, i64 1
+  store ptr %192, ptr %4, align 8, !tbaa !26
+  store i8 0, ptr %58, align 1, !tbaa !23
+  %193 = ptrtoint ptr %192 to i64
+  %194 = sub i64 %193, %21
+  %.not445 = icmp slt i64 %194, %55
   br i1 %.not445, label %.preheader689, label %.thread640
 
-.preheader689:                                    ; preds = %192, %.critedge.i499
-  %.promoted18.i498 = phi ptr [ %197, %.critedge.i499 ], [ %193, %192 ]
-  %196 = load i8, ptr %.promoted18.i498, align 1, !tbaa !23
-  switch i8 %196, label %.preheader.i500 [
+.preheader689:                                    ; preds = %191, %.critedge.i499
+  %.promoted18.i498 = phi ptr [ %196, %.critedge.i499 ], [ %192, %191 ]
+  %195 = load i8, ptr %.promoted18.i498, align 1, !tbaa !23
+  switch i8 %195, label %.preheader.i500 [
     i8 32, label %.critedge.i499
     i8 9, label %.critedge.i499
   ]
 
 .critedge.i499:                                   ; preds = %.preheader689, %.preheader689
-  %197 = getelementptr inbounds nuw i8, ptr %.promoted18.i498, i64 1
-  store ptr %197, ptr %4, align 8, !tbaa !26
+  %196 = getelementptr inbounds nuw i8, ptr %.promoted18.i498, i64 1
+  store ptr %196, ptr %4, align 8, !tbaa !26
   br label %.preheader689
 
 .preheader.i500:                                  ; preds = %.preheader689, %200
-  %198 = phi i8 [ %.pre.i501, %200 ], [ %196, %.preheader689 ]
-  %199 = phi ptr [ %201, %200 ], [ %.promoted18.i498, %.preheader689 ]
-  switch i8 %198, label %200 [
+  %197 = phi i8 [ %.pre.i501, %200 ], [ %195, %.preheader689 ]
+  %198 = phi ptr [ %199, %200 ], [ %.promoted18.i498, %.preheader689 ]
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 1
+  store ptr %199, ptr %4, align 8, !tbaa !26
+  switch i8 %197, label %200 [
     i8 32, label %parse_string.exit502
     i8 9, label %parse_string.exit502
     i8 0, label %parse_string.exit502
@@ -1013,718 +1013,708 @@ parse_double.exit496:                             ; preds = %.preheader
   ]
 
 200:                                              ; preds = %.preheader.i500
-  %201 = getelementptr inbounds nuw i8, ptr %199, i64 1
-  store ptr %201, ptr %4, align 8, !tbaa !26
-  %.pre.i501 = load i8, ptr %201, align 1, !tbaa !23
+  %.pre.i501 = load i8, ptr %199, align 1, !tbaa !23
   br label %.preheader.i500
 
 parse_string.exit502:                             ; preds = %.preheader.i500, %.preheader.i500, %.preheader.i500, %.preheader.i500
-  %202 = getelementptr inbounds nuw i8, ptr %199, i64 1
-  store ptr %202, ptr %4, align 8, !tbaa !26
-  store i8 0, ptr %199, align 1, !tbaa !23
-  %203 = load ptr, ptr %4, align 8, !tbaa !26
-  %204 = ptrtoint ptr %203 to i64
-  %205 = sub i64 %204, %21
-  %.not446 = icmp slt i64 %205, %56
+  store i8 0, ptr %198, align 1, !tbaa !23
+  %201 = load ptr, ptr %4, align 8, !tbaa !26
+  %202 = ptrtoint ptr %201 to i64
+  %203 = sub i64 %202, %21
+  %.not446 = icmp slt i64 %203, %55
   br i1 %.not446, label %.preheader688, label %.thread640
 
 .preheader688:                                    ; preds = %parse_string.exit502, %.critedge.i505
-  %.promoted18.i504 = phi ptr [ %207, %.critedge.i505 ], [ %203, %parse_string.exit502 ]
-  %206 = load i8, ptr %.promoted18.i504, align 1, !tbaa !23
-  switch i8 %206, label %.preheader.i506 [
+  %.promoted18.i504 = phi ptr [ %205, %.critedge.i505 ], [ %201, %parse_string.exit502 ]
+  %204 = load i8, ptr %.promoted18.i504, align 1, !tbaa !23
+  switch i8 %204, label %.preheader.i506 [
     i8 32, label %.critedge.i505
     i8 9, label %.critedge.i505
   ]
 
 .critedge.i505:                                   ; preds = %.preheader688, %.preheader688
-  %207 = getelementptr inbounds nuw i8, ptr %.promoted18.i504, i64 1
-  store ptr %207, ptr %4, align 8, !tbaa !26
+  %205 = getelementptr inbounds nuw i8, ptr %.promoted18.i504, i64 1
+  store ptr %205, ptr %4, align 8, !tbaa !26
   br label %.preheader688
 
-.preheader.i506:                                  ; preds = %.preheader688, %210
-  %208 = phi i8 [ %.pre.i507, %210 ], [ %206, %.preheader688 ]
-  %209 = phi ptr [ %211, %210 ], [ %.promoted18.i504, %.preheader688 ]
-  switch i8 %208, label %210 [
+.preheader.i506:                                  ; preds = %.preheader688, %209
+  %206 = phi i8 [ %.pre.i507, %209 ], [ %204, %.preheader688 ]
+  %207 = phi ptr [ %208, %209 ], [ %.promoted18.i504, %.preheader688 ]
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 1
+  store ptr %208, ptr %4, align 8, !tbaa !26
+  switch i8 %206, label %209 [
     i8 32, label %parse_string.exit508
     i8 9, label %parse_string.exit508
     i8 0, label %parse_string.exit508
     i8 10, label %parse_string.exit508
   ]
 
-210:                                              ; preds = %.preheader.i506
-  %211 = getelementptr inbounds nuw i8, ptr %209, i64 1
-  store ptr %211, ptr %4, align 8, !tbaa !26
-  %.pre.i507 = load i8, ptr %211, align 1, !tbaa !23
+209:                                              ; preds = %.preheader.i506
+  %.pre.i507 = load i8, ptr %208, align 1, !tbaa !23
   br label %.preheader.i506
 
 parse_string.exit508:                             ; preds = %.preheader.i506, %.preheader.i506, %.preheader.i506, %.preheader.i506
-  %212 = getelementptr inbounds nuw i8, ptr %209, i64 1
-  store ptr %212, ptr %4, align 8, !tbaa !26
-  store i8 0, ptr %209, align 1, !tbaa !23
-  %213 = load ptr, ptr %4, align 8, !tbaa !26
-  %214 = ptrtoint ptr %213 to i64
-  %215 = sub i64 %214, %21
-  %.not447 = icmp slt i64 %215, %56
+  store i8 0, ptr %207, align 1, !tbaa !23
+  %210 = load ptr, ptr %4, align 8, !tbaa !26
+  %211 = ptrtoint ptr %210 to i64
+  %212 = sub i64 %211, %21
+  %.not447 = icmp slt i64 %212, %55
   br i1 %.not447, label %.preheader687, label %.thread640
 
 .preheader687:                                    ; preds = %parse_string.exit508, %.critedge.i511
-  %.promoted18.i510 = phi ptr [ %217, %.critedge.i511 ], [ %213, %parse_string.exit508 ]
-  %216 = load i8, ptr %.promoted18.i510, align 1, !tbaa !23
-  switch i8 %216, label %.preheader.i512 [
+  %.promoted18.i510 = phi ptr [ %214, %.critedge.i511 ], [ %210, %parse_string.exit508 ]
+  %213 = load i8, ptr %.promoted18.i510, align 1, !tbaa !23
+  switch i8 %213, label %.preheader.i512 [
     i8 32, label %.critedge.i511
     i8 9, label %.critedge.i511
   ]
 
 .critedge.i511:                                   ; preds = %.preheader687, %.preheader687
-  %217 = getelementptr inbounds nuw i8, ptr %.promoted18.i510, i64 1
-  store ptr %217, ptr %4, align 8, !tbaa !26
+  %214 = getelementptr inbounds nuw i8, ptr %.promoted18.i510, i64 1
+  store ptr %214, ptr %4, align 8, !tbaa !26
   br label %.preheader687
 
-.preheader.i512:                                  ; preds = %.preheader687, %220
-  %218 = phi i8 [ %.pre.i513, %220 ], [ %216, %.preheader687 ]
-  %219 = phi ptr [ %221, %220 ], [ %.promoted18.i510, %.preheader687 ]
-  switch i8 %218, label %220 [
+.preheader.i512:                                  ; preds = %.preheader687, %218
+  %215 = phi i8 [ %.pre.i513, %218 ], [ %213, %.preheader687 ]
+  %216 = phi ptr [ %217, %218 ], [ %.promoted18.i510, %.preheader687 ]
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 1
+  store ptr %217, ptr %4, align 8, !tbaa !26
+  switch i8 %215, label %218 [
     i8 32, label %parse_string.exit514
     i8 9, label %parse_string.exit514
     i8 0, label %parse_string.exit514
     i8 10, label %parse_string.exit514
   ]
 
-220:                                              ; preds = %.preheader.i512
-  %221 = getelementptr inbounds nuw i8, ptr %219, i64 1
-  store ptr %221, ptr %4, align 8, !tbaa !26
-  %.pre.i513 = load i8, ptr %221, align 1, !tbaa !23
+218:                                              ; preds = %.preheader.i512
+  %.pre.i513 = load i8, ptr %217, align 1, !tbaa !23
   br label %.preheader.i512
 
 parse_string.exit514:                             ; preds = %.preheader.i512, %.preheader.i512, %.preheader.i512, %.preheader.i512
-  %222 = getelementptr inbounds nuw i8, ptr %219, i64 1
-  store ptr %222, ptr %4, align 8, !tbaa !26
-  store i8 0, ptr %219, align 1, !tbaa !23
-  %223 = load ptr, ptr %4, align 8, !tbaa !26
-  %224 = ptrtoint ptr %223 to i64
-  %225 = sub i64 %224, %21
-  %.not448 = icmp slt i64 %225, %56
+  store i8 0, ptr %216, align 1, !tbaa !23
+  %219 = load ptr, ptr %4, align 8, !tbaa !26
+  %220 = ptrtoint ptr %219 to i64
+  %221 = sub i64 %220, %21
+  %.not448 = icmp slt i64 %221, %55
   br i1 %.not448, label %.preheader686, label %.thread640
 
 .preheader686:                                    ; preds = %parse_string.exit514, %.critedge.i517
-  %.promoted18.i516 = phi ptr [ %227, %.critedge.i517 ], [ %223, %parse_string.exit514 ]
-  %226 = load i8, ptr %.promoted18.i516, align 1, !tbaa !23
-  switch i8 %226, label %.preheader.i518 [
+  %.promoted18.i516 = phi ptr [ %223, %.critedge.i517 ], [ %219, %parse_string.exit514 ]
+  %222 = load i8, ptr %.promoted18.i516, align 1, !tbaa !23
+  switch i8 %222, label %.preheader.i518 [
     i8 32, label %.critedge.i517
     i8 9, label %.critedge.i517
   ]
 
 .critedge.i517:                                   ; preds = %.preheader686, %.preheader686
-  %227 = getelementptr inbounds nuw i8, ptr %.promoted18.i516, i64 1
-  store ptr %227, ptr %4, align 8, !tbaa !26
+  %223 = getelementptr inbounds nuw i8, ptr %.promoted18.i516, i64 1
+  store ptr %223, ptr %4, align 8, !tbaa !26
   br label %.preheader686
 
-.preheader.i518:                                  ; preds = %.preheader686, %230
-  %228 = phi i8 [ %.pre.i519, %230 ], [ %226, %.preheader686 ]
-  %229 = phi ptr [ %231, %230 ], [ %.promoted18.i516, %.preheader686 ]
-  switch i8 %228, label %230 [
+.preheader.i518:                                  ; preds = %.preheader686, %227
+  %224 = phi i8 [ %.pre.i519, %227 ], [ %222, %.preheader686 ]
+  %225 = phi ptr [ %226, %227 ], [ %.promoted18.i516, %.preheader686 ]
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 1
+  store ptr %226, ptr %4, align 8, !tbaa !26
+  switch i8 %224, label %227 [
     i8 32, label %parse_string.exit520
     i8 9, label %parse_string.exit520
     i8 0, label %parse_string.exit520
     i8 10, label %parse_string.exit520
   ]
 
-230:                                              ; preds = %.preheader.i518
-  %231 = getelementptr inbounds nuw i8, ptr %229, i64 1
-  store ptr %231, ptr %4, align 8, !tbaa !26
-  %.pre.i519 = load i8, ptr %231, align 1, !tbaa !23
+227:                                              ; preds = %.preheader.i518
+  %.pre.i519 = load i8, ptr %226, align 1, !tbaa !23
   br label %.preheader.i518
 
 parse_string.exit520:                             ; preds = %.preheader.i518, %.preheader.i518, %.preheader.i518, %.preheader.i518
-  %232 = getelementptr inbounds nuw i8, ptr %229, i64 1
-  store ptr %232, ptr %4, align 8, !tbaa !26
-  store i8 0, ptr %229, align 1, !tbaa !23
-  %233 = load ptr, ptr %4, align 8, !tbaa !26
-  %234 = ptrtoint ptr %233 to i64
-  %235 = sub i64 %234, %21
-  %.not449 = icmp slt i64 %235, %56
+  store i8 0, ptr %225, align 1, !tbaa !23
+  %228 = load ptr, ptr %4, align 8, !tbaa !26
+  %229 = ptrtoint ptr %228 to i64
+  %230 = sub i64 %229, %21
+  %.not449 = icmp slt i64 %230, %55
   br i1 %.not449, label %.preheader685, label %.thread640
 
 .preheader685:                                    ; preds = %parse_string.exit520, %.critedge.i522
-  %236 = phi ptr [ %238, %.critedge.i522 ], [ %233, %parse_string.exit520 ]
-  %237 = load i8, ptr %236, align 1, !tbaa !23
-  switch i8 %237, label %parse_double.exit523 [
+  %231 = phi ptr [ %233, %.critedge.i522 ], [ %228, %parse_string.exit520 ]
+  %232 = load i8, ptr %231, align 1, !tbaa !23
+  switch i8 %232, label %parse_double.exit523 [
     i8 32, label %.critedge.i522
     i8 9, label %.critedge.i522
   ]
 
 .critedge.i522:                                   ; preds = %.preheader685, %.preheader685
-  %238 = getelementptr inbounds nuw i8, ptr %236, i64 1
-  store ptr %238, ptr %4, align 8, !tbaa !26
+  %233 = getelementptr inbounds nuw i8, ptr %231, i64 1
+  store ptr %233, ptr %4, align 8, !tbaa !26
   br label %.preheader685
 
 parse_double.exit523:                             ; preds = %.preheader685
-  %239 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %236, ptr noundef nonnull %4) #13
-  %240 = load ptr, ptr %4, align 8, !tbaa !26
-  %241 = getelementptr inbounds i8, ptr %240, i64 -1
-  store i8 0, ptr %241, align 1, !tbaa !23
-  %242 = fptrunc reassoc nsz arcp contract afn double %239 to float
-  %243 = load ptr, ptr %4, align 8, !tbaa !26
-  %244 = ptrtoint ptr %243 to i64
-  %245 = sub i64 %244, %21
-  %.not450 = icmp slt i64 %245, %56
+  %234 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %231, ptr noundef nonnull %4) #13
+  %235 = load ptr, ptr %4, align 8, !tbaa !26
+  %236 = getelementptr inbounds i8, ptr %235, i64 -1
+  store i8 0, ptr %236, align 1, !tbaa !23
+  %237 = fptrunc reassoc nsz arcp contract afn double %234 to float
+  %238 = load ptr, ptr %4, align 8, !tbaa !26
+  %239 = ptrtoint ptr %238 to i64
+  %240 = sub i64 %239, %21
+  %.not450 = icmp slt i64 %240, %55
   br i1 %.not450, label %.preheader684, label %.thread640
 
 .preheader684:                                    ; preds = %parse_double.exit523, %.critedge.i525
-  %246 = phi ptr [ %248, %.critedge.i525 ], [ %243, %parse_double.exit523 ]
-  %247 = load i8, ptr %246, align 1, !tbaa !23
-  switch i8 %247, label %parse_double.exit526 [
+  %241 = phi ptr [ %243, %.critedge.i525 ], [ %238, %parse_double.exit523 ]
+  %242 = load i8, ptr %241, align 1, !tbaa !23
+  switch i8 %242, label %parse_double.exit526 [
     i8 32, label %.critedge.i525
     i8 9, label %.critedge.i525
   ]
 
 .critedge.i525:                                   ; preds = %.preheader684, %.preheader684
-  %248 = getelementptr inbounds nuw i8, ptr %246, i64 1
-  store ptr %248, ptr %4, align 8, !tbaa !26
+  %243 = getelementptr inbounds nuw i8, ptr %241, i64 1
+  store ptr %243, ptr %4, align 8, !tbaa !26
   br label %.preheader684
 
 parse_double.exit526:                             ; preds = %.preheader684
-  %249 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %246, ptr noundef nonnull %4) #13
-  %250 = load ptr, ptr %4, align 8, !tbaa !26
-  %251 = getelementptr inbounds i8, ptr %250, i64 -1
-  store i8 0, ptr %251, align 1, !tbaa !23
-  %252 = fptrunc reassoc nsz arcp contract afn double %249 to float
-  %253 = load ptr, ptr %4, align 8, !tbaa !26
-  %254 = ptrtoint ptr %253 to i64
-  %255 = sub i64 %254, %21
-  %.not451 = icmp slt i64 %255, %56
+  %244 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %241, ptr noundef nonnull %4) #13
+  %245 = load ptr, ptr %4, align 8, !tbaa !26
+  %246 = getelementptr inbounds i8, ptr %245, i64 -1
+  store i8 0, ptr %246, align 1, !tbaa !23
+  %247 = fptrunc reassoc nsz arcp contract afn double %244 to float
+  %248 = load ptr, ptr %4, align 8, !tbaa !26
+  %249 = ptrtoint ptr %248 to i64
+  %250 = sub i64 %249, %21
+  %.not451 = icmp slt i64 %250, %55
   br i1 %.not451, label %.preheader683, label %.thread640
 
 .preheader683:                                    ; preds = %parse_double.exit526, %.critedge.i528
-  %256 = phi ptr [ %258, %.critedge.i528 ], [ %253, %parse_double.exit526 ]
-  %257 = load i8, ptr %256, align 1, !tbaa !23
-  switch i8 %257, label %parse_double.exit529 [
+  %251 = phi ptr [ %253, %.critedge.i528 ], [ %248, %parse_double.exit526 ]
+  %252 = load i8, ptr %251, align 1, !tbaa !23
+  switch i8 %252, label %parse_double.exit529 [
     i8 32, label %.critedge.i528
     i8 9, label %.critedge.i528
   ]
 
 .critedge.i528:                                   ; preds = %.preheader683, %.preheader683
-  %258 = getelementptr inbounds nuw i8, ptr %256, i64 1
-  store ptr %258, ptr %4, align 8, !tbaa !26
+  %253 = getelementptr inbounds nuw i8, ptr %251, i64 1
+  store ptr %253, ptr %4, align 8, !tbaa !26
   br label %.preheader683
 
 parse_double.exit529:                             ; preds = %.preheader683
-  %259 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %256, ptr noundef nonnull %4) #13
-  %260 = load ptr, ptr %4, align 8, !tbaa !26
-  %261 = getelementptr inbounds i8, ptr %260, i64 -1
-  store i8 0, ptr %261, align 1, !tbaa !23
-  %262 = fptrunc reassoc nsz arcp contract afn double %259 to float
-  %263 = load ptr, ptr %4, align 8, !tbaa !26
-  %264 = ptrtoint ptr %263 to i64
-  %265 = sub i64 %264, %21
-  %.not452 = icmp slt i64 %265, %56
+  %254 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %251, ptr noundef nonnull %4) #13
+  %255 = load ptr, ptr %4, align 8, !tbaa !26
+  %256 = getelementptr inbounds i8, ptr %255, i64 -1
+  store i8 0, ptr %256, align 1, !tbaa !23
+  %257 = fptrunc reassoc nsz arcp contract afn double %254 to float
+  %258 = load ptr, ptr %4, align 8, !tbaa !26
+  %259 = ptrtoint ptr %258 to i64
+  %260 = sub i64 %259, %21
+  %.not452 = icmp slt i64 %260, %55
   br i1 %.not452, label %.preheader682, label %.thread640
 
 .preheader682:                                    ; preds = %parse_double.exit529, %.critedge.i531
-  %266 = phi ptr [ %268, %.critedge.i531 ], [ %263, %parse_double.exit529 ]
-  %267 = load i8, ptr %266, align 1, !tbaa !23
-  switch i8 %267, label %parse_double.exit532 [
+  %261 = phi ptr [ %263, %.critedge.i531 ], [ %258, %parse_double.exit529 ]
+  %262 = load i8, ptr %261, align 1, !tbaa !23
+  switch i8 %262, label %parse_double.exit532 [
     i8 32, label %.critedge.i531
     i8 9, label %.critedge.i531
   ]
 
 .critedge.i531:                                   ; preds = %.preheader682, %.preheader682
-  %268 = getelementptr inbounds nuw i8, ptr %266, i64 1
-  store ptr %268, ptr %4, align 8, !tbaa !26
+  %263 = getelementptr inbounds nuw i8, ptr %261, i64 1
+  store ptr %263, ptr %4, align 8, !tbaa !26
   br label %.preheader682
 
 parse_double.exit532:                             ; preds = %.preheader682
-  %269 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %266, ptr noundef nonnull %4) #13
-  %270 = load ptr, ptr %4, align 8, !tbaa !26
-  %271 = getelementptr inbounds i8, ptr %270, i64 -1
-  store i8 0, ptr %271, align 1, !tbaa !23
-  %272 = fptrunc reassoc nsz arcp contract afn double %269 to float
-  %273 = load ptr, ptr %4, align 8, !tbaa !26
-  %274 = ptrtoint ptr %273 to i64
-  %275 = sub i64 %274, %21
-  %.not453 = icmp slt i64 %275, %56
+  %264 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %261, ptr noundef nonnull %4) #13
+  %265 = load ptr, ptr %4, align 8, !tbaa !26
+  %266 = getelementptr inbounds i8, ptr %265, i64 -1
+  store i8 0, ptr %266, align 1, !tbaa !23
+  %267 = fptrunc reassoc nsz arcp contract afn double %264 to float
+  %268 = load ptr, ptr %4, align 8, !tbaa !26
+  %269 = ptrtoint ptr %268 to i64
+  %270 = sub i64 %269, %21
+  %.not453 = icmp slt i64 %270, %55
   br i1 %.not453, label %.preheader681, label %.thread640
 
 .preheader681:                                    ; preds = %parse_double.exit532, %.critedge.i534
-  %276 = phi ptr [ %278, %.critedge.i534 ], [ %273, %parse_double.exit532 ]
-  %277 = load i8, ptr %276, align 1, !tbaa !23
-  switch i8 %277, label %parse_double.exit535 [
+  %271 = phi ptr [ %273, %.critedge.i534 ], [ %268, %parse_double.exit532 ]
+  %272 = load i8, ptr %271, align 1, !tbaa !23
+  switch i8 %272, label %parse_double.exit535 [
     i8 32, label %.critedge.i534
     i8 9, label %.critedge.i534
   ]
 
 .critedge.i534:                                   ; preds = %.preheader681, %.preheader681
-  %278 = getelementptr inbounds nuw i8, ptr %276, i64 1
-  store ptr %278, ptr %4, align 8, !tbaa !26
+  %273 = getelementptr inbounds nuw i8, ptr %271, i64 1
+  store ptr %273, ptr %4, align 8, !tbaa !26
   br label %.preheader681
 
 parse_double.exit535:                             ; preds = %.preheader681
-  %279 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %276, ptr noundef nonnull %4) #13
-  %280 = load ptr, ptr %4, align 8, !tbaa !26
-  %281 = getelementptr inbounds i8, ptr %280, i64 -1
-  store i8 0, ptr %281, align 1, !tbaa !23
-  %282 = fptrunc reassoc nsz arcp contract afn double %279 to float
-  %283 = load ptr, ptr %4, align 8, !tbaa !26
-  %284 = ptrtoint ptr %283 to i64
-  %285 = sub i64 %284, %21
-  %.not454 = icmp slt i64 %285, %56
+  %274 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %271, ptr noundef nonnull %4) #13
+  %275 = load ptr, ptr %4, align 8, !tbaa !26
+  %276 = getelementptr inbounds i8, ptr %275, i64 -1
+  store i8 0, ptr %276, align 1, !tbaa !23
+  %277 = fptrunc reassoc nsz arcp contract afn double %274 to float
+  %278 = load ptr, ptr %4, align 8, !tbaa !26
+  %279 = ptrtoint ptr %278 to i64
+  %280 = sub i64 %279, %21
+  %.not454 = icmp slt i64 %280, %55
   br i1 %.not454, label %.preheader680, label %.thread640
 
 .preheader680:                                    ; preds = %parse_double.exit535, %.critedge.i537
-  %286 = phi ptr [ %288, %.critedge.i537 ], [ %283, %parse_double.exit535 ]
-  %287 = load i8, ptr %286, align 1, !tbaa !23
-  switch i8 %287, label %parse_double.exit538 [
+  %281 = phi ptr [ %283, %.critedge.i537 ], [ %278, %parse_double.exit535 ]
+  %282 = load i8, ptr %281, align 1, !tbaa !23
+  switch i8 %282, label %parse_double.exit538 [
     i8 32, label %.critedge.i537
     i8 9, label %.critedge.i537
   ]
 
 .critedge.i537:                                   ; preds = %.preheader680, %.preheader680
-  %288 = getelementptr inbounds nuw i8, ptr %286, i64 1
-  store ptr %288, ptr %4, align 8, !tbaa !26
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 1
+  store ptr %283, ptr %4, align 8, !tbaa !26
   br label %.preheader680
 
 parse_double.exit538:                             ; preds = %.preheader680
-  %289 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %286, ptr noundef nonnull %4) #13
-  %290 = load ptr, ptr %4, align 8, !tbaa !26
-  %291 = getelementptr inbounds i8, ptr %290, i64 -1
-  store i8 0, ptr %291, align 1, !tbaa !23
-  %292 = fptrunc reassoc nsz arcp contract afn double %289 to float
-  %293 = fcmp reassoc nsz arcp contract afn olt float %.2353817, %262
-  %294 = select reassoc nsz arcp contract afn i1 %293, float %.2353817, float %262
-  %295 = fcmp reassoc nsz arcp contract afn olt float %.2374815, %272
-  %296 = select reassoc nsz arcp contract afn i1 %295, float %.2374815, float %272
-  %297 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.promoted18.i498) #16
-  %298 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.promoted18.i504) #16
-  %299 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.promoted18.i510) #16
-  %300 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.promoted18.i516) #16
-  %301 = icmp ugt i64 %297, %298
-  %302 = icmp ugt i64 %299, %300
-  %or.cond = select i1 %301, i1 true, i1 %302
-  br i1 %or.cond, label %.thread640, label %303
+  %284 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %281, ptr noundef nonnull %4) #13
+  %285 = load ptr, ptr %4, align 8, !tbaa !26
+  %286 = getelementptr inbounds i8, ptr %285, i64 -1
+  store i8 0, ptr %286, align 1, !tbaa !23
+  %287 = fptrunc reassoc nsz arcp contract afn double %284 to float
+  %288 = fcmp reassoc nsz arcp contract afn olt float %.2353817, %257
+  %289 = select reassoc nsz arcp contract afn i1 %288, float %.2353817, float %257
+  %290 = fcmp reassoc nsz arcp contract afn olt float %.2374815, %267
+  %291 = select reassoc nsz arcp contract afn i1 %290, float %.2374815, float %267
+  %292 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.promoted18.i498) #16
+  %293 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.promoted18.i504) #16
+  %294 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.promoted18.i510) #16
+  %295 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.promoted18.i516) #16
+  %296 = icmp ugt i64 %292, %293
+  %297 = icmp ugt i64 %294, %295
+  %or.cond = select i1 %296, i1 true, i1 %297
+  br i1 %or.cond, label %.thread640, label %298
 
-303:                                              ; preds = %parse_double.exit538
-  %304 = add i64 %298, 1
-  %305 = add i64 %300, 1
-  %306 = call noalias ptr @malloc(i64 noundef %304) #17
-  %307 = call noalias ptr @malloc(i64 noundef %305) #17
-  %308 = add i64 %299, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %307, ptr nonnull align 1 %.promoted18.i510, i64 %308, i1 false)
-  %309 = add i64 %297, 1
-  %310 = icmp eq i8 %58, 89
-  %311 = icmp eq i8 %58, 68
-  %312 = and i8 %58, -2
-  %or.cond16 = icmp eq i8 %312, 88
+298:                                              ; preds = %parse_double.exit538
+  %299 = add i64 %293, 1
+  %300 = add i64 %295, 1
+  %301 = call noalias ptr @malloc(i64 noundef %299) #17
+  %302 = call noalias ptr @malloc(i64 noundef %300) #17
+  %303 = add i64 %294, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %302, ptr nonnull align 1 %.promoted18.i510, i64 %303, i1 false)
+  %304 = add i64 %292, 1
+  %305 = icmp eq i8 %57, 89
+  %306 = icmp eq i8 %57, 68
+  %307 = and i8 %57, -2
+  %or.cond16 = icmp eq i8 %307, 88
   br label %.loopexit669
 
-.loopexit669:                                     ; preds = %.loopexit669.backedge, %303
-  %.0414 = phi ptr [ null, %303 ], [ %.2416, %.loopexit669.backedge ]
-  %.0412 = phi nsz float [ %272, %303 ], [ %366, %.loopexit669.backedge ]
-  %.0406 = phi ptr [ null, %303 ], [ %spec.select, %.loopexit669.backedge ]
-  %.8368 = phi nsz float [ %.2362816, %303 ], [ %363, %.loopexit669.backedge ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %306, ptr nonnull align 1 %.promoted18.i498, i64 %309, i1 false)
+.loopexit669:                                     ; preds = %.loopexit669.backedge, %298
+  %.0414 = phi ptr [ null, %298 ], [ %.2416, %.loopexit669.backedge ]
+  %.0412 = phi nsz float [ %267, %298 ], [ %361, %.loopexit669.backedge ]
+  %.0406 = phi ptr [ null, %298 ], [ %spec.select, %.loopexit669.backedge ]
+  %.8368 = phi nsz float [ %.2362816, %298 ], [ %358, %.loopexit669.backedge ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %301, ptr nonnull align 1 %.promoted18.i498, i64 %304, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %.loopexit669
   %.1415 = phi ptr [ %.0414, %.loopexit669 ], [ %.2416, %.loopexit.backedge ]
-  %.0410 = phi nsz float [ %262, %.loopexit669 ], [ %342, %.loopexit.backedge ]
+  %.0410 = phi nsz float [ %257, %.loopexit669 ], [ %337, %.loopexit.backedge ]
   %.1407 = phi ptr [ %.0406, %.loopexit669 ], [ %spec.select, %.loopexit.backedge ]
-  %313 = call i32 @g_strcmp0(ptr noundef %306, ptr noundef nonnull @.str.3) #13
-  %.not455 = icmp eq i32 %313, 0
-  br i1 %.not455, label %314, label %316
+  %308 = call i32 @g_strcmp0(ptr noundef %301, ptr noundef nonnull @.str.3) #13
+  %.not455 = icmp eq i32 %308, 0
+  br i1 %.not455, label %309, label %311
 
-314:                                              ; preds = %.loopexit
-  %315 = call noalias ptr @g_strdup(ptr noundef %307) #13
-  br label %325
+309:                                              ; preds = %.loopexit
+  %310 = call noalias ptr @g_strdup(ptr noundef %302) #13
+  br label %320
 
-316:                                              ; preds = %.loopexit
-  %317 = call i32 @g_strcmp0(ptr noundef %307, ptr noundef nonnull @.str.3) #13
-  %.not456 = icmp eq i32 %317, 0
-  br i1 %.not456, label %318, label %320
+311:                                              ; preds = %.loopexit
+  %312 = call i32 @g_strcmp0(ptr noundef %302, ptr noundef nonnull @.str.3) #13
+  %.not456 = icmp eq i32 %312, 0
+  br i1 %.not456, label %313, label %315
 
-318:                                              ; preds = %316
-  %319 = call noalias ptr @g_strdup(ptr noundef %306) #13
-  br label %325
+313:                                              ; preds = %311
+  %314 = call noalias ptr @g_strdup(ptr noundef %301) #13
+  br label %320
 
-320:                                              ; preds = %316
-  br i1 %310, label %321, label %323
+315:                                              ; preds = %311
+  br i1 %305, label %316, label %318
 
-321:                                              ; preds = %320
-  %322 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %307, ptr noundef %306, ptr noundef null) #13
-  br label %325
+316:                                              ; preds = %315
+  %317 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %302, ptr noundef %301, ptr noundef null) #13
+  br label %320
 
-323:                                              ; preds = %320
-  %324 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %306, ptr noundef %307, ptr noundef null) #13
-  br label %325
+318:                                              ; preds = %315
+  %319 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %301, ptr noundef %302, ptr noundef null) #13
+  br label %320
 
-325:                                              ; preds = %318, %323, %321, %314
-  %.0409 = phi ptr [ %322, %321 ], [ %324, %323 ], [ %319, %318 ], [ %315, %314 ]
+320:                                              ; preds = %313, %318, %316, %309
+  %.0409 = phi ptr [ %317, %316 ], [ %319, %318 ], [ %314, %313 ], [ %310, %309 ]
   %.not457 = icmp eq ptr %.1407, null
   %spec.select = select i1 %.not457, ptr %.0409, ptr %.1407
-  %326 = call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #14
-  store float %.0410, ptr %326, align 16, !tbaa !30
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 4
-  store float %.0412, ptr %327, align 4, !tbaa !31
-  %328 = getelementptr inbounds nuw i8, ptr %326, i64 8
-  store float %242, ptr %328, align 8, !tbaa !32
-  %329 = getelementptr inbounds nuw i8, ptr %326, i64 12
-  store float %252, ptr %329, align 4, !tbaa !33
-  %330 = getelementptr inbounds nuw i8, ptr %326, i64 16
-  store i32 -1, ptr %330, align 16, !tbaa !18
-  br i1 %311, label %.thread599, label %333
+  %321 = call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #14
+  store float %.0410, ptr %321, align 16, !tbaa !30
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 4
+  store float %.0412, ptr %322, align 4, !tbaa !31
+  %323 = getelementptr inbounds nuw i8, ptr %321, i64 8
+  store float %237, ptr %323, align 8, !tbaa !32
+  %324 = getelementptr inbounds nuw i8, ptr %321, i64 12
+  store float %247, ptr %324, align 4, !tbaa !33
+  %325 = getelementptr inbounds nuw i8, ptr %321, i64 16
+  store i32 -1, ptr %325, align 16, !tbaa !18
+  br i1 %306, label %.thread599, label %328
 
-.thread599:                                       ; preds = %325
-  %331 = load ptr, ptr %16, align 8, !tbaa !15
-  %332 = call i32 @g_hash_table_insert(ptr noundef %331, ptr noundef %.0409, ptr noundef nonnull %326) #13
-  br label %339
+.thread599:                                       ; preds = %320
+  %326 = load ptr, ptr %16, align 8, !tbaa !15
+  %327 = call i32 @g_hash_table_insert(ptr noundef %326, ptr noundef %.0409, ptr noundef nonnull %321) #13
+  br label %334
 
-333:                                              ; preds = %325
-  %334 = load ptr, ptr %18, align 8, !tbaa !16
-  %335 = call i32 @g_hash_table_insert(ptr noundef %334, ptr noundef %.0409, ptr noundef nonnull %326) #13
-  br i1 %or.cond16, label %336, label %339
+328:                                              ; preds = %320
+  %329 = load ptr, ptr %18, align 8, !tbaa !16
+  %330 = call i32 @g_hash_table_insert(ptr noundef %329, ptr noundef %.0409, ptr noundef nonnull %321) #13
+  br i1 %or.cond16, label %331, label %334
 
-336:                                              ; preds = %333
-  %337 = call noalias ptr @g_strdup(ptr noundef %.0409) #13
-  %338 = call ptr @g_list_append(ptr noundef %.1415, ptr noundef %337) #13
-  br label %339
+331:                                              ; preds = %328
+  %332 = call noalias ptr @g_strdup(ptr noundef %.0409) #13
+  %333 = call ptr @g_list_append(ptr noundef %.1415, ptr noundef %332) #13
+  br label %334
 
-339:                                              ; preds = %.thread599, %333, %336
-  %or.cond16601 = phi i1 [ true, %336 ], [ false, %333 ], [ false, %.thread599 ]
-  %.2416 = phi ptr [ %338, %336 ], [ %.1415, %333 ], [ %.1415, %.thread599 ]
-  %340 = call i32 @g_strcmp0(ptr noundef %306, ptr noundef nonnull %.promoted18.i504) #13
-  %.not458 = icmp eq i32 %340, 0
-  br i1 %.not458, label %360, label %341
+334:                                              ; preds = %.thread599, %328, %331
+  %or.cond16601 = phi i1 [ true, %331 ], [ false, %328 ], [ false, %.thread599 ]
+  %.2416 = phi ptr [ %333, %331 ], [ %.1415, %328 ], [ %.1415, %.thread599 ]
+  %335 = call i32 @g_strcmp0(ptr noundef %301, ptr noundef nonnull %.promoted18.i504) #13
+  %.not458 = icmp eq i32 %335, 0
+  br i1 %.not458, label %355, label %336
 
-341:                                              ; preds = %339
-  %342 = fadd reassoc nsz arcp contract afn float %.0410, %282
-  %343 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %306) #16
-  %.fr.i = freeze i64 %343
+336:                                              ; preds = %334
+  %337 = fadd reassoc nsz arcp contract afn float %.0410, %277
+  %338 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %301) #16
+  %.fr.i = freeze i64 %338
   %.not41.i = icmp slt i64 %.fr.i, 1
   br i1 %.not41.i, label %.loopexit.backedge, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %341
-  %344 = getelementptr inbounds nuw i8, ptr %306, i64 %.fr.i
-  %.02340.i = getelementptr inbounds i8, ptr %344, i64 -1
-  %345 = add nuw i64 %.fr.i, 1
-  %.not29.i = icmp ult i64 %345, %304
+.lr.ph.i:                                         ; preds = %336
+  %339 = getelementptr inbounds nuw i8, ptr %301, i64 %.fr.i
+  %.02340.i = getelementptr inbounds i8, ptr %339, i64 -1
+  %340 = add nuw i64 %.fr.i, 1
+  %.not29.i = icmp ult i64 %340, %299
   br i1 %.not29.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %352
-  %.02343.us.i = phi ptr [ %.023.us.i, %352 ], [ %.02340.i, %.lr.ph.i ]
-  %.pn42.us.i = phi ptr [ %.02343.us.i, %352 ], [ %344, %.lr.ph.i ]
-  %346 = load i8, ptr %.02343.us.i, align 1, !tbaa !23
-  switch i8 %346, label %.thread36.i [
-    i8 122, label %347
-    i8 90, label %347
-    i8 57, label %349
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %347
+  %.02343.us.i = phi ptr [ %.023.us.i, %347 ], [ %.02340.i, %.lr.ph.i ]
+  %.pn42.us.i = phi ptr [ %.02343.us.i, %347 ], [ %339, %.lr.ph.i ]
+  %341 = load i8, ptr %.02343.us.i, align 1, !tbaa !23
+  switch i8 %341, label %.thread36.i [
+    i8 122, label %342
+    i8 90, label %342
+    i8 57, label %344
   ]
 
-347:                                              ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.i
-  %348 = add nsw i8 %346, -25
-  br label %349
+342:                                              ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.i
+  %343 = add nsw i8 %341, -25
+  br label %344
 
-349:                                              ; preds = %347, %.lr.ph.split.us.i
-  %storemerge.us.i = phi i8 [ %348, %347 ], [ 48, %.lr.ph.split.us.i ]
-  %.022.ph.us.i = phi i8 [ %348, %347 ], [ 49, %.lr.ph.split.us.i ]
+344:                                              ; preds = %342, %.lr.ph.split.us.i
+  %storemerge.us.i = phi i8 [ %343, %342 ], [ 48, %.lr.ph.split.us.i ]
+  %.022.ph.us.i = phi i8 [ %343, %342 ], [ 49, %.lr.ph.split.us.i ]
   store i8 %storemerge.us.i, ptr %.02343.us.i, align 1, !tbaa !23
-  %350 = icmp eq ptr %.02343.us.i, %306
-  br i1 %350, label %351, label %352
+  %345 = icmp eq ptr %.02343.us.i, %301
+  br i1 %345, label %346, label %347
 
-351:                                              ; preds = %349
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.pn42.us.i, ptr noundef nonnull align 1 dereferenceable(1) %306, i64 %345, i1 false)
-  store i8 %.022.ph.us.i, ptr %306, align 1, !tbaa !23
-  br label %352
+346:                                              ; preds = %344
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.pn42.us.i, ptr noundef nonnull align 1 dereferenceable(1) %301, i64 %340, i1 false)
+  store i8 %.022.ph.us.i, ptr %301, align 1, !tbaa !23
+  br label %347
 
-352:                                              ; preds = %351, %349
+347:                                              ; preds = %346, %344
   %.023.us.i = getelementptr inbounds i8, ptr %.02343.us.i, i64 -1
-  %.not.us.i = icmp ult ptr %.023.us.i, %306
+  %.not.us.i = icmp ult ptr %.023.us.i, %301
   br i1 %.not.us.i, label %.loopexit.backedge, label %.lr.ph.split.us.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %359
-  %.02343.i = phi ptr [ %.023.i, %359 ], [ %.02340.i, %.lr.ph.i ]
-  %353 = load i8, ptr %.02343.i, align 1, !tbaa !23
-  switch i8 %353, label %.thread36.i [
-    i8 122, label %354
-    i8 90, label %354
-    i8 57, label %357
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %354
+  %.02343.i = phi ptr [ %.023.i, %354 ], [ %.02340.i, %.lr.ph.i ]
+  %348 = load i8, ptr %.02343.i, align 1, !tbaa !23
+  switch i8 %348, label %.thread36.i [
+    i8 122, label %349
+    i8 90, label %349
+    i8 57, label %352
   ]
 
-354:                                              ; preds = %.lr.ph.split.i, %.lr.ph.split.i
-  %355 = add nsw i8 %353, -25
-  br label %357
+349:                                              ; preds = %.lr.ph.split.i, %.lr.ph.split.i
+  %350 = add nsw i8 %348, -25
+  br label %352
 
 .thread36.i:                                      ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
   %.us-phi.i = phi ptr [ %.02343.us.i, %.lr.ph.split.us.i ], [ %.02343.i, %.lr.ph.split.i ]
-  %.us-phi46.i = phi i8 [ %346, %.lr.ph.split.us.i ], [ %353, %.lr.ph.split.i ]
-  %356 = add i8 %.us-phi46.i, 1
-  store i8 %356, ptr %.us-phi.i, align 1, !tbaa !23
+  %.us-phi46.i = phi i8 [ %341, %.lr.ph.split.us.i ], [ %348, %.lr.ph.split.i ]
+  %351 = add i8 %.us-phi46.i, 1
+  store i8 %351, ptr %.us-phi.i, align 1, !tbaa !23
   br label %.loopexit.backedge
 
-.loopexit.backedge:                               ; preds = %359, %352, %.thread36.i, %341
+.loopexit.backedge:                               ; preds = %354, %347, %.thread36.i, %336
   br label %.loopexit
 
-357:                                              ; preds = %354, %.lr.ph.split.i
-  %storemerge.i = phi i8 [ %355, %354 ], [ 48, %.lr.ph.split.i ]
+352:                                              ; preds = %349, %.lr.ph.split.i
+  %storemerge.i = phi i8 [ %350, %349 ], [ 48, %.lr.ph.split.i ]
   store i8 %storemerge.i, ptr %.02343.i, align 1, !tbaa !23
-  %358 = icmp eq ptr %.02343.i, %306
-  br i1 %358, label %.thread640.sink.split, label %359
+  %353 = icmp eq ptr %.02343.i, %301
+  br i1 %353, label %.thread640.sink.split, label %354
 
-359:                                              ; preds = %357
+354:                                              ; preds = %352
   %.023.i = getelementptr inbounds i8, ptr %.02343.i, i64 -1
-  %.not.i = icmp ult ptr %.023.i, %306
+  %.not.i = icmp ult ptr %.023.i, %301
   br i1 %.not.i, label %.loopexit.backedge, label %.lr.ph.split.i
 
-360:                                              ; preds = %339
-  %361 = fadd reassoc nsz arcp contract afn float %.0410, %242
-  %362 = fcmp reassoc nsz arcp contract afn ogt float %.8368, %361
-  %363 = select reassoc nsz arcp contract afn i1 %362, float %.8368, float %361
-  %364 = call i32 @g_strcmp0(ptr noundef %307, ptr noundef nonnull %.promoted18.i516) #13
-  %.not460 = icmp eq i32 %364, 0
-  br i1 %.not460, label %384, label %365
+355:                                              ; preds = %334
+  %356 = fadd reassoc nsz arcp contract afn float %.0410, %237
+  %357 = fcmp reassoc nsz arcp contract afn ogt float %.8368, %356
+  %358 = select reassoc nsz arcp contract afn i1 %357, float %.8368, float %356
+  %359 = call i32 @g_strcmp0(ptr noundef %302, ptr noundef nonnull %.promoted18.i516) #13
+  %.not460 = icmp eq i32 %359, 0
+  br i1 %.not460, label %379, label %360
 
-365:                                              ; preds = %360
-  %366 = fadd reassoc nsz arcp contract afn float %.0412, %292
-  %367 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %307) #16
-  %.fr.i539 = freeze i64 %367
+360:                                              ; preds = %355
+  %361 = fadd reassoc nsz arcp contract afn float %.0412, %287
+  %362 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %302) #16
+  %.fr.i539 = freeze i64 %362
   %.not41.i540 = icmp slt i64 %.fr.i539, 1
   br i1 %.not41.i540, label %.loopexit669.backedge, label %.lr.ph.i541
 
-.lr.ph.i541:                                      ; preds = %365
-  %368 = getelementptr inbounds nuw i8, ptr %307, i64 %.fr.i539
-  %.02340.i542 = getelementptr inbounds i8, ptr %368, i64 -1
-  %369 = add nuw i64 %.fr.i539, 1
-  %.not29.i543 = icmp ult i64 %369, %305
+.lr.ph.i541:                                      ; preds = %360
+  %363 = getelementptr inbounds nuw i8, ptr %302, i64 %.fr.i539
+  %.02340.i542 = getelementptr inbounds i8, ptr %363, i64 -1
+  %364 = add nuw i64 %.fr.i539, 1
+  %.not29.i543 = icmp ult i64 %364, %300
   br i1 %.not29.i543, label %.lr.ph.split.us.i553, label %.lr.ph.split.i544
 
-.lr.ph.split.us.i553:                             ; preds = %.lr.ph.i541, %376
-  %.02343.us.i554 = phi ptr [ %.023.us.i558, %376 ], [ %.02340.i542, %.lr.ph.i541 ]
-  %.pn42.us.i555 = phi ptr [ %.02343.us.i554, %376 ], [ %368, %.lr.ph.i541 ]
-  %370 = load i8, ptr %.02343.us.i554, align 1, !tbaa !23
-  switch i8 %370, label %.thread36.i550 [
-    i8 122, label %371
-    i8 90, label %371
-    i8 57, label %373
+.lr.ph.split.us.i553:                             ; preds = %.lr.ph.i541, %371
+  %.02343.us.i554 = phi ptr [ %.023.us.i558, %371 ], [ %.02340.i542, %.lr.ph.i541 ]
+  %.pn42.us.i555 = phi ptr [ %.02343.us.i554, %371 ], [ %363, %.lr.ph.i541 ]
+  %365 = load i8, ptr %.02343.us.i554, align 1, !tbaa !23
+  switch i8 %365, label %.thread36.i550 [
+    i8 122, label %366
+    i8 90, label %366
+    i8 57, label %368
   ]
 
-371:                                              ; preds = %.lr.ph.split.us.i553, %.lr.ph.split.us.i553
-  %372 = add nsw i8 %370, -25
-  br label %373
+366:                                              ; preds = %.lr.ph.split.us.i553, %.lr.ph.split.us.i553
+  %367 = add nsw i8 %365, -25
+  br label %368
 
-373:                                              ; preds = %371, %.lr.ph.split.us.i553
-  %storemerge.us.i556 = phi i8 [ %372, %371 ], [ 48, %.lr.ph.split.us.i553 ]
-  %.022.ph.us.i557 = phi i8 [ %372, %371 ], [ 49, %.lr.ph.split.us.i553 ]
+368:                                              ; preds = %366, %.lr.ph.split.us.i553
+  %storemerge.us.i556 = phi i8 [ %367, %366 ], [ 48, %.lr.ph.split.us.i553 ]
+  %.022.ph.us.i557 = phi i8 [ %367, %366 ], [ 49, %.lr.ph.split.us.i553 ]
   store i8 %storemerge.us.i556, ptr %.02343.us.i554, align 1, !tbaa !23
-  %374 = icmp eq ptr %.02343.us.i554, %307
-  br i1 %374, label %375, label %376
+  %369 = icmp eq ptr %.02343.us.i554, %302
+  br i1 %369, label %370, label %371
 
-375:                                              ; preds = %373
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.pn42.us.i555, ptr noundef nonnull align 1 dereferenceable(1) %307, i64 %369, i1 false)
-  store i8 %.022.ph.us.i557, ptr %307, align 1, !tbaa !23
-  br label %376
+370:                                              ; preds = %368
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.pn42.us.i555, ptr noundef nonnull align 1 dereferenceable(1) %302, i64 %364, i1 false)
+  store i8 %.022.ph.us.i557, ptr %302, align 1, !tbaa !23
+  br label %371
 
-376:                                              ; preds = %375, %373
+371:                                              ; preds = %370, %368
   %.023.us.i558 = getelementptr inbounds i8, ptr %.02343.us.i554, i64 -1
-  %.not.us.i559 = icmp ult ptr %.023.us.i558, %307
+  %.not.us.i559 = icmp ult ptr %.023.us.i558, %302
   br i1 %.not.us.i559, label %.loopexit669.backedge, label %.lr.ph.split.us.i553
 
-.lr.ph.split.i544:                                ; preds = %.lr.ph.i541, %383
-  %.02343.i545 = phi ptr [ %.023.i547, %383 ], [ %.02340.i542, %.lr.ph.i541 ]
-  %377 = load i8, ptr %.02343.i545, align 1, !tbaa !23
-  switch i8 %377, label %.thread36.i550 [
-    i8 122, label %378
-    i8 90, label %378
-    i8 57, label %381
+.lr.ph.split.i544:                                ; preds = %.lr.ph.i541, %378
+  %.02343.i545 = phi ptr [ %.023.i547, %378 ], [ %.02340.i542, %.lr.ph.i541 ]
+  %372 = load i8, ptr %.02343.i545, align 1, !tbaa !23
+  switch i8 %372, label %.thread36.i550 [
+    i8 122, label %373
+    i8 90, label %373
+    i8 57, label %376
   ]
 
-378:                                              ; preds = %.lr.ph.split.i544, %.lr.ph.split.i544
-  %379 = add nsw i8 %377, -25
-  br label %381
+373:                                              ; preds = %.lr.ph.split.i544, %.lr.ph.split.i544
+  %374 = add nsw i8 %372, -25
+  br label %376
 
 .thread36.i550:                                   ; preds = %.lr.ph.split.i544, %.lr.ph.split.us.i553
   %.us-phi.i551 = phi ptr [ %.02343.us.i554, %.lr.ph.split.us.i553 ], [ %.02343.i545, %.lr.ph.split.i544 ]
-  %.us-phi46.i552 = phi i8 [ %370, %.lr.ph.split.us.i553 ], [ %377, %.lr.ph.split.i544 ]
-  %380 = add i8 %.us-phi46.i552, 1
-  store i8 %380, ptr %.us-phi.i551, align 1, !tbaa !23
+  %.us-phi46.i552 = phi i8 [ %365, %.lr.ph.split.us.i553 ], [ %372, %.lr.ph.split.i544 ]
+  %375 = add i8 %.us-phi46.i552, 1
+  store i8 %375, ptr %.us-phi.i551, align 1, !tbaa !23
   br label %.loopexit669.backedge
 
-.loopexit669.backedge:                            ; preds = %383, %376, %.thread36.i550, %365
+.loopexit669.backedge:                            ; preds = %378, %371, %.thread36.i550, %360
   br label %.loopexit669
 
-381:                                              ; preds = %378, %.lr.ph.split.i544
-  %storemerge.i546 = phi i8 [ %379, %378 ], [ 48, %.lr.ph.split.i544 ]
+376:                                              ; preds = %373, %.lr.ph.split.i544
+  %storemerge.i546 = phi i8 [ %374, %373 ], [ 48, %.lr.ph.split.i544 ]
   store i8 %storemerge.i546, ptr %.02343.i545, align 1, !tbaa !23
-  %382 = icmp eq ptr %.02343.i545, %307
-  br i1 %382, label %.thread640.sink.split, label %383
+  %377 = icmp eq ptr %.02343.i545, %302
+  br i1 %377, label %.thread640.sink.split, label %378
 
-383:                                              ; preds = %381
+378:                                              ; preds = %376
   %.023.i547 = getelementptr inbounds i8, ptr %.02343.i545, i64 -1
-  %.not.i548 = icmp ult ptr %.023.i547, %307
+  %.not.i548 = icmp ult ptr %.023.i547, %302
   br i1 %.not.i548, label %.loopexit669.backedge, label %.lr.ph.split.i544
 
-384:                                              ; preds = %360
-  %385 = fadd reassoc nsz arcp contract afn float %.0412, %252
-  %386 = fcmp reassoc nsz arcp contract afn ogt float %.2382814, %385
-  %387 = select reassoc nsz arcp contract afn i1 %386, float %.2382814, float %385
-  br i1 %or.cond16601, label %388, label %392
+379:                                              ; preds = %355
+  %380 = fadd reassoc nsz arcp contract afn float %.0412, %247
+  %381 = fcmp reassoc nsz arcp contract afn ogt float %.2382814, %380
+  %382 = select reassoc nsz arcp contract afn i1 %381, float %.2382814, float %380
+  br i1 %or.cond16601, label %383, label %387
 
-388:                                              ; preds = %384
-  %389 = load ptr, ptr %20, align 8, !tbaa !17
-  %390 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.4, ptr noundef %spec.select, ptr noundef %.0409) #13
-  %391 = call i32 @g_hash_table_insert(ptr noundef %389, ptr noundef %390, ptr noundef %.2416) #13
-  br label %392
+383:                                              ; preds = %379
+  %384 = load ptr, ptr %20, align 8, !tbaa !17
+  %385 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.4, ptr noundef %spec.select, ptr noundef %.0409) #13
+  %386 = call i32 @g_hash_table_insert(ptr noundef %384, ptr noundef %385, ptr noundef %.2416) #13
+  br label %387
 
-392:                                              ; preds = %388, %384
-  call void @free(ptr noundef %307) #13
-  call void @free(ptr noundef %306) #13
-  br label %393
+387:                                              ; preds = %383, %379
+  call void @free(ptr noundef %302) #13
+  call void @free(ptr noundef %301) #13
+  br label %388
 
-.thread640.sink.split:                            ; preds = %381, %357
-  %.5.ph.ph = phi i32 [ 351, %357 ], [ 362, %381 ]
-  call void @free(ptr noundef %307) #13
-  call void @free(ptr noundef %306) #13
+.thread640.sink.split:                            ; preds = %376, %352
+  %.5.ph.ph = phi i32 [ 351, %352 ], [ 362, %376 ]
+  call void @free(ptr noundef %302) #13
+  call void @free(ptr noundef %301) #13
   br label %.thread640
 
-.thread640:                                       ; preds = %._crit_edge807, %._crit_edge811, %parse_double.exit481, %parse_double.exit484, %parse_double.exit487, %parse_double.exit490, %parse_double.exit493, %parse_double.exit496, %141, %192, %parse_string.exit502, %parse_string.exit508, %parse_string.exit514, %parse_string.exit520, %parse_double.exit523, %parse_double.exit526, %parse_double.exit529, %parse_double.exit532, %parse_double.exit535, %parse_double.exit538, %57, %.preheader679, %.thread640.sink.split
-  %.5.ph = phi i32 [ %.5.ph.ph, %.thread640.sink.split ], [ 206, %.preheader679 ], [ 373, %57 ], [ 268, %192 ], [ 270, %parse_string.exit502 ], [ 272, %parse_string.exit508 ], [ 274, %parse_string.exit514 ], [ 277, %parse_string.exit520 ], [ 279, %parse_double.exit523 ], [ 281, %parse_double.exit526 ], [ 283, %parse_double.exit529 ], [ 285, %parse_double.exit532 ], [ 287, %parse_double.exit535 ], [ 294, %parse_double.exit538 ], [ 208, %._crit_edge807 ], [ 210, %._crit_edge811 ], [ 212, %parse_double.exit481 ], [ 214, %parse_double.exit484 ], [ 216, %parse_double.exit487 ], [ 218, %parse_double.exit490 ], [ 220, %parse_double.exit493 ], [ 222, %parse_double.exit496 ], [ 224, %141 ]
+.thread640:                                       ; preds = %._crit_edge807, %._crit_edge811, %parse_double.exit481, %parse_double.exit484, %parse_double.exit487, %parse_double.exit490, %parse_double.exit493, %parse_double.exit496, %140, %191, %parse_string.exit502, %parse_string.exit508, %parse_string.exit514, %parse_string.exit520, %parse_double.exit523, %parse_double.exit526, %parse_double.exit529, %parse_double.exit532, %parse_double.exit535, %parse_double.exit538, %56, %.preheader679, %.thread640.sink.split
+  %.5.ph = phi i32 [ %.5.ph.ph, %.thread640.sink.split ], [ 206, %.preheader679 ], [ 373, %56 ], [ 268, %191 ], [ 270, %parse_string.exit502 ], [ 272, %parse_string.exit508 ], [ 274, %parse_string.exit514 ], [ 277, %parse_string.exit520 ], [ 279, %parse_double.exit523 ], [ 281, %parse_double.exit526 ], [ 283, %parse_double.exit529 ], [ 285, %parse_double.exit532 ], [ 287, %parse_double.exit535 ], [ 294, %parse_double.exit538 ], [ 208, %._crit_edge807 ], [ 210, %._crit_edge811 ], [ 212, %parse_double.exit481 ], [ 214, %parse_double.exit484 ], [ 216, %parse_double.exit487 ], [ 218, %parse_double.exit490 ], [ 220, %parse_double.exit493 ], [ 222, %parse_double.exit496 ], [ 224, %140 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread654
 
-393:                                              ; preds = %146, %392
-  %.4384 = phi nsz float [ %181, %146 ], [ %387, %392 ]
-  %.4376 = phi nsz float [ %165, %146 ], [ %296, %392 ]
-  %.4364 = phi nsz float [ %173, %146 ], [ %363, %392 ]
-  %.4355 = phi nsz float [ %157, %146 ], [ %294, %392 ]
+388:                                              ; preds = %145, %387
+  %.4384 = phi nsz float [ %180, %145 ], [ %382, %387 ]
+  %.4376 = phi nsz float [ %164, %145 ], [ %291, %387 ]
+  %.4364 = phi nsz float [ %172, %145 ], [ %358, %387 ]
+  %.4355 = phi nsz float [ %156, %145 ], [ %289, %387 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %394 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
-  %.not444 = icmp eq ptr %394, null
+  %389 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
+  %.not444 = icmp eq ptr %389, null
   br i1 %.not444, label %._crit_edge819, label %.lr.ph818
 
-._crit_edge819:                                   ; preds = %393, %.lr.ph818, %.lr.ph818, %parse_double.exit
-  %.2382.lcssa = phi float [ %.0380.ph.ph1173, %parse_double.exit ], [ %.2382814, %.lr.ph818 ], [ %.2382814, %.lr.ph818 ], [ %.4384, %393 ]
-  %.2374.lcssa = phi float [ %.0372.ph.ph1174, %parse_double.exit ], [ %.2374815, %.lr.ph818 ], [ %.2374815, %.lr.ph818 ], [ %.4376, %393 ]
-  %.2362.lcssa = phi float [ %.0360.ph.ph1175, %parse_double.exit ], [ %.2362816, %.lr.ph818 ], [ %.2362816, %.lr.ph818 ], [ %.4364, %393 ]
-  %.2353.lcssa = phi float [ %.0351.ph.ph1176, %parse_double.exit ], [ %.2353817, %.lr.ph818 ], [ %.2353817, %.lr.ph818 ], [ %.4355, %393 ]
-  %395 = load ptr, ptr %16, align 8, !tbaa !15
-  %396 = call i32 @g_hash_table_size(ptr noundef %395) #13
-  %397 = load ptr, ptr %18, align 8, !tbaa !16
-  %398 = call i32 @g_hash_table_size(ptr noundef %397) #13
-  %399 = add i32 %398, %396
-  %.not472 = icmp eq i32 %399, %52
-  br i1 %.not472, label %400, label %.thread654
+._crit_edge819:                                   ; preds = %388, %.lr.ph818, %.lr.ph818, %parse_double.exit
+  %.2382.lcssa = phi float [ %.0380.ph.ph1173, %parse_double.exit ], [ %.2382814, %.lr.ph818 ], [ %.2382814, %.lr.ph818 ], [ %.4384, %388 ]
+  %.2374.lcssa = phi float [ %.0372.ph.ph1174, %parse_double.exit ], [ %.2374815, %.lr.ph818 ], [ %.2374815, %.lr.ph818 ], [ %.4376, %388 ]
+  %.2362.lcssa = phi float [ %.0360.ph.ph1175, %parse_double.exit ], [ %.2362816, %.lr.ph818 ], [ %.2362816, %.lr.ph818 ], [ %.4364, %388 ]
+  %.2353.lcssa = phi float [ %.0351.ph.ph1176, %parse_double.exit ], [ %.2353817, %.lr.ph818 ], [ %.2353817, %.lr.ph818 ], [ %.4355, %388 ]
+  %390 = load ptr, ptr %16, align 8, !tbaa !15
+  %391 = call i32 @g_hash_table_size(ptr noundef %390) #13
+  %392 = load ptr, ptr %18, align 8, !tbaa !16
+  %393 = call i32 @g_hash_table_size(ptr noundef %392) #13
+  %394 = add i32 %393, %391
+  %.not472 = icmp eq i32 %394, %51
+  br i1 %.not472, label %395, label %.thread654
 
-400:                                              ; preds = %._crit_edge819
-  %401 = fsub reassoc nsz arcp contract afn float %.2362.lcssa, %.2353.lcssa
-  store float %401, ptr %24, align 8, !tbaa !34
-  %402 = fsub reassoc nsz arcp contract afn float %.2382.lcssa, %.2374.lcssa
-  store float %402, ptr %25, align 4, !tbaa !35
+395:                                              ; preds = %._crit_edge819
+  %396 = fsub reassoc nsz arcp contract afn float %.2362.lcssa, %.2353.lcssa
+  store float %396, ptr %24, align 8, !tbaa !34
+  %397 = fsub reassoc nsz arcp contract afn float %.2382.lcssa, %.2374.lcssa
+  store float %397, ptr %25, align 4, !tbaa !35
   %.0405835 = load ptr, ptr %9, align 8, !tbaa !36
   %.not473836 = icmp eq ptr %.0405835, null
   br i1 %.not473836, label %._crit_edge840, label %.lr.ph839.preheader
 
-.lr.ph839.preheader:                              ; preds = %400
-  %403 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %401
-  %404 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %402
+.lr.ph839.preheader:                              ; preds = %395
+  %398 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %396
+  %399 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %397
   br label %.lr.ph839
 
-._crit_edge840:                                   ; preds = %420, %400
+._crit_edge840:                                   ; preds = %415, %395
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @g_hash_table_iter_init(ptr noundef nonnull %5, ptr noundef %395) #13
-  %405 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
-  %.not474841 = icmp eq i32 %405, 0
+  call void @g_hash_table_iter_init(ptr noundef nonnull %5, ptr noundef %390) #13
+  %400 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
+  %.not474841 = icmp eq i32 %400, 0
   br i1 %.not474841, label %._crit_edge844, label %.lr.ph843.preheader
 
 .lr.ph843.preheader:                              ; preds = %._crit_edge840
-  %406 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %401
-  %407 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %402
-  %408 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %401
-  %409 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %402
+  %401 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %396
+  %402 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %397
+  %403 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %396
+  %404 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %397
   br label %.lr.ph843
 
-.lr.ph839:                                        ; preds = %.lr.ph839.preheader, %420
-  %.0405837 = phi ptr [ %.0405, %420 ], [ %.0405835, %.lr.ph839.preheader ]
-  %410 = load ptr, ptr %.0405837, align 8, !tbaa !37
-  br label %411
+.lr.ph839:                                        ; preds = %.lr.ph839.preheader, %415
+  %.0405837 = phi ptr [ %.0405, %415 ], [ %.0405835, %.lr.ph839.preheader ]
+  %405 = load ptr, ptr %.0405837, align 8, !tbaa !37
+  br label %406
 
-411:                                              ; preds = %.lr.ph839, %411
-  %indvars.iv = phi i64 [ 0, %.lr.ph839 ], [ %indvars.iv.next, %411 ]
-  %412 = getelementptr inbounds nuw %struct.point_t, ptr %410, i64 %indvars.iv
-  %413 = load float, ptr %412, align 4, !tbaa !28
-  %414 = fsub reassoc nsz arcp contract afn float %413, %.2353.lcssa
-  %415 = fmul reassoc nsz arcp contract afn float %414, %403
-  store float %415, ptr %412, align 4, !tbaa !28
-  %416 = getelementptr inbounds nuw i8, ptr %412, i64 4
-  %417 = load float, ptr %416, align 4, !tbaa !29
-  %418 = fsub reassoc nsz arcp contract afn float %417, %.2374.lcssa
-  %419 = fmul reassoc nsz arcp contract afn float %418, %404
-  store float %419, ptr %416, align 4, !tbaa !29
+406:                                              ; preds = %.lr.ph839, %406
+  %indvars.iv = phi i64 [ 0, %.lr.ph839 ], [ %indvars.iv.next, %406 ]
+  %407 = getelementptr inbounds nuw %struct.point_t, ptr %405, i64 %indvars.iv
+  %408 = load float, ptr %407, align 4, !tbaa !28
+  %409 = fsub reassoc nsz arcp contract afn float %408, %.2353.lcssa
+  %410 = fmul reassoc nsz arcp contract afn float %409, %398
+  store float %410, ptr %407, align 4, !tbaa !28
+  %411 = getelementptr inbounds nuw i8, ptr %407, i64 4
+  %412 = load float, ptr %411, align 4, !tbaa !29
+  %413 = fsub reassoc nsz arcp contract afn float %412, %.2374.lcssa
+  %414 = fmul reassoc nsz arcp contract afn float %413, %399
+  store float %414, ptr %411, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %420, label %411
+  br i1 %exitcond.not, label %415, label %406
 
-420:                                              ; preds = %411
-  %421 = getelementptr inbounds nuw i8, ptr %.0405837, i64 8
-  %.0405 = load ptr, ptr %421, align 8, !tbaa !36
+415:                                              ; preds = %406
+  %416 = getelementptr inbounds nuw i8, ptr %.0405837, i64 8
+  %.0405 = load ptr, ptr %416, align 8, !tbaa !36
   %.not473 = icmp eq ptr %.0405, null
   br i1 %.not473, label %._crit_edge840, label %.lr.ph839
 
 .lr.ph843:                                        ; preds = %.lr.ph843.preheader, %.lr.ph843
-  %422 = load ptr, ptr %7, align 8, !tbaa !39
-  %423 = load float, ptr %422, align 16, !tbaa !30
-  %424 = fsub reassoc nsz arcp contract afn float %423, %.2353.lcssa
-  %425 = fmul reassoc nsz arcp contract afn float %424, %406
-  store float %425, ptr %422, align 16, !tbaa !30
-  %426 = getelementptr inbounds nuw i8, ptr %422, i64 4
-  %427 = load float, ptr %426, align 4, !tbaa !31
-  %428 = fsub reassoc nsz arcp contract afn float %427, %.2374.lcssa
-  %429 = fmul reassoc nsz arcp contract afn float %428, %407
-  store float %429, ptr %426, align 4, !tbaa !31
-  %430 = getelementptr inbounds nuw i8, ptr %422, i64 8
-  %431 = load float, ptr %430, align 8, !tbaa !32
-  %432 = fmul reassoc nsz arcp contract afn float %431, %408
-  store float %432, ptr %430, align 8, !tbaa !32
-  %433 = getelementptr inbounds nuw i8, ptr %422, i64 12
-  %434 = load float, ptr %433, align 4, !tbaa !33
-  %435 = fmul reassoc nsz arcp contract afn float %434, %409
-  store float %435, ptr %433, align 4, !tbaa !33
-  %436 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
-  %.not474 = icmp eq i32 %436, 0
+  %417 = load ptr, ptr %7, align 8, !tbaa !39
+  %418 = load float, ptr %417, align 16, !tbaa !30
+  %419 = fsub reassoc nsz arcp contract afn float %418, %.2353.lcssa
+  %420 = fmul reassoc nsz arcp contract afn float %419, %401
+  store float %420, ptr %417, align 16, !tbaa !30
+  %421 = getelementptr inbounds nuw i8, ptr %417, i64 4
+  %422 = load float, ptr %421, align 4, !tbaa !31
+  %423 = fsub reassoc nsz arcp contract afn float %422, %.2374.lcssa
+  %424 = fmul reassoc nsz arcp contract afn float %423, %402
+  store float %424, ptr %421, align 4, !tbaa !31
+  %425 = getelementptr inbounds nuw i8, ptr %417, i64 8
+  %426 = load float, ptr %425, align 8, !tbaa !32
+  %427 = fmul reassoc nsz arcp contract afn float %426, %403
+  store float %427, ptr %425, align 8, !tbaa !32
+  %428 = getelementptr inbounds nuw i8, ptr %417, i64 12
+  %429 = load float, ptr %428, align 4, !tbaa !33
+  %430 = fmul reassoc nsz arcp contract afn float %429, %404
+  store float %430, ptr %428, align 4, !tbaa !33
+  %431 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
+  %.not474 = icmp eq i32 %431, 0
   br i1 %.not474, label %._crit_edge844, label %.lr.ph843
 
 ._crit_edge844:                                   ; preds = %.lr.ph843, %._crit_edge840
-  call void @g_hash_table_iter_init(ptr noundef nonnull %5, ptr noundef %397) #13
-  %437 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
-  %.not475845 = icmp eq i32 %437, 0
+  call void @g_hash_table_iter_init(ptr noundef nonnull %5, ptr noundef %392) #13
+  %432 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
+  %.not475845 = icmp eq i32 %432, 0
   br i1 %.not475845, label %._crit_edge848, label %.lr.ph847.preheader
 
 .lr.ph847.preheader:                              ; preds = %._crit_edge844
-  %438 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %401
-  %439 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %402
-  %440 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %401
-  %441 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %402
+  %433 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %396
+  %434 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %397
+  %435 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %396
+  %436 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %397
   br label %.lr.ph847
 
 .lr.ph847:                                        ; preds = %.lr.ph847.preheader, %.lr.ph847
-  %442 = load ptr, ptr %7, align 8, !tbaa !39
-  %443 = load float, ptr %442, align 16, !tbaa !30
-  %444 = fsub reassoc nsz arcp contract afn float %443, %.2353.lcssa
-  %445 = fmul reassoc nsz arcp contract afn float %444, %438
-  store float %445, ptr %442, align 16, !tbaa !30
-  %446 = getelementptr inbounds nuw i8, ptr %442, i64 4
-  %447 = load float, ptr %446, align 4, !tbaa !31
-  %448 = fsub reassoc nsz arcp contract afn float %447, %.2374.lcssa
-  %449 = fmul reassoc nsz arcp contract afn float %448, %439
-  store float %449, ptr %446, align 4, !tbaa !31
-  %450 = getelementptr inbounds nuw i8, ptr %442, i64 8
-  %451 = load float, ptr %450, align 8, !tbaa !32
-  %452 = fmul reassoc nsz arcp contract afn float %451, %440
-  store float %452, ptr %450, align 8, !tbaa !32
-  %453 = getelementptr inbounds nuw i8, ptr %442, i64 12
-  %454 = load float, ptr %453, align 4, !tbaa !33
-  %455 = fmul reassoc nsz arcp contract afn float %454, %441
-  store float %455, ptr %453, align 4, !tbaa !33
-  %456 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
-  %.not475 = icmp eq i32 %456, 0
+  %437 = load ptr, ptr %7, align 8, !tbaa !39
+  %438 = load float, ptr %437, align 16, !tbaa !30
+  %439 = fsub reassoc nsz arcp contract afn float %438, %.2353.lcssa
+  %440 = fmul reassoc nsz arcp contract afn float %439, %433
+  store float %440, ptr %437, align 16, !tbaa !30
+  %441 = getelementptr inbounds nuw i8, ptr %437, i64 4
+  %442 = load float, ptr %441, align 4, !tbaa !31
+  %443 = fsub reassoc nsz arcp contract afn float %442, %.2374.lcssa
+  %444 = fmul reassoc nsz arcp contract afn float %443, %434
+  store float %444, ptr %441, align 4, !tbaa !31
+  %445 = getelementptr inbounds nuw i8, ptr %437, i64 8
+  %446 = load float, ptr %445, align 8, !tbaa !32
+  %447 = fmul reassoc nsz arcp contract afn float %446, %435
+  store float %447, ptr %445, align 8, !tbaa !32
+  %448 = getelementptr inbounds nuw i8, ptr %437, i64 12
+  %449 = load float, ptr %448, align 4, !tbaa !33
+  %450 = fmul reassoc nsz arcp contract afn float %449, %436
+  store float %450, ptr %448, align 4, !tbaa !33
+  %451 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
+  %.not475 = icmp eq i32 %451, 0
   br i1 %.not475, label %._crit_edge848, label %.lr.ph847
 
 ._crit_edge848:                                   ; preds = %.lr.ph847, %._crit_edge844
@@ -1732,416 +1722,412 @@ parse_double.exit538:                             ; preds = %.preheader680
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %457 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
-  %.not4297951168 = icmp eq ptr %457, null
+  %452 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
+  %.not4297951168 = icmp eq ptr %452, null
   br i1 %.not4297951168, label %free_chart.exit.thread, label %.lr.ph.preheader.lr.ph
 
-458:                                              ; preds = %parse_string.exit
-  %459 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.5) #13
-  %460 = icmp eq i32 %459, 0
-  %461 = icmp samesign ult i32 %.0345.ph1170, 2
-  %or.cond21 = and i1 %461, %460
-  br i1 %or.cond21, label %462, label %473
+453:                                              ; preds = %parse_string.exit
+  %454 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.5) #13
+  %455 = icmp eq i32 %454, 0
+  %456 = icmp samesign ult i32 %.0345.ph1170, 2
+  %or.cond21 = and i1 %456, %455
+  br i1 %or.cond21, label %457, label %468
 
-462:                                              ; preds = %458
-  %463 = load ptr, ptr %3, align 8, !tbaa !26
-  %464 = ptrtoint ptr %463 to i64
-  %465 = sub i64 %464, %21
-  %.not442 = icmp slt i64 %465, %31
+457:                                              ; preds = %453
+  %458 = load ptr, ptr %3, align 8, !tbaa !26
+  %459 = ptrtoint ptr %458 to i64
+  %460 = sub i64 %459, %21
+  %.not442 = icmp slt i64 %460, %31
   br i1 %.not442, label %.preheader694, label %.thread654
 
-.preheader694:                                    ; preds = %462, %.critedge.i562
-  %466 = phi ptr [ %468, %.critedge.i562 ], [ %463, %462 ]
-  %467 = load i8, ptr %466, align 1, !tbaa !23
-  switch i8 %467, label %parse_double.exit563 [
+.preheader694:                                    ; preds = %457, %.critedge.i562
+  %461 = phi ptr [ %463, %.critedge.i562 ], [ %458, %457 ]
+  %462 = load i8, ptr %461, align 1, !tbaa !23
+  switch i8 %462, label %parse_double.exit563 [
     i8 32, label %.critedge.i562
     i8 9, label %.critedge.i562
   ]
 
 .critedge.i562:                                   ; preds = %.preheader694, %.preheader694
-  %468 = getelementptr inbounds nuw i8, ptr %466, i64 1
-  store ptr %468, ptr %3, align 8, !tbaa !26
+  %463 = getelementptr inbounds nuw i8, ptr %461, i64 1
+  store ptr %463, ptr %3, align 8, !tbaa !26
   br label %.preheader694
 
 parse_double.exit563:                             ; preds = %.preheader694
-  %469 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %466, ptr noundef nonnull %3) #13
-  %470 = load ptr, ptr %3, align 8, !tbaa !26
-  %471 = getelementptr inbounds i8, ptr %470, i64 -1
-  store i8 0, ptr %471, align 1, !tbaa !23
-  %472 = fptrunc reassoc nsz arcp contract afn double %469 to float
-  store float %472, ptr %23, align 8, !tbaa !40
+  %464 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %461, ptr noundef nonnull %3) #13
+  %465 = load ptr, ptr %3, align 8, !tbaa !26
+  %466 = getelementptr inbounds i8, ptr %465, i64 -1
+  store i8 0, ptr %466, align 1, !tbaa !23
+  %467 = fptrunc reassoc nsz arcp contract afn double %464 to float
+  store float %467, ptr %23, align 8, !tbaa !40
   br label %.outer.backedge.sink.split
 
-473:                                              ; preds = %458
-  %474 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.6) #13
-  %475 = icmp eq i32 %474, 0
-  %476 = icmp samesign ult i32 %.0345.ph1170, 3
-  %or.cond23 = and i1 %476, %475
-  br i1 %or.cond23, label %477, label %488
+468:                                              ; preds = %453
+  %469 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.6) #13
+  %470 = icmp eq i32 %469, 0
+  %471 = icmp samesign ult i32 %.0345.ph1170, 3
+  %or.cond23 = and i1 %471, %470
+  br i1 %or.cond23, label %472, label %483
 
-477:                                              ; preds = %473
-  %478 = load ptr, ptr %3, align 8, !tbaa !26
-  %479 = ptrtoint ptr %478 to i64
-  %480 = sub i64 %479, %21
-  %.not441 = icmp slt i64 %480, %31
+472:                                              ; preds = %468
+  %473 = load ptr, ptr %3, align 8, !tbaa !26
+  %474 = ptrtoint ptr %473 to i64
+  %475 = sub i64 %474, %21
+  %.not441 = icmp slt i64 %475, %31
   br i1 %.not441, label %.preheader695, label %.thread654
 
-.preheader695:                                    ; preds = %477, %.critedge.i565
-  %481 = phi ptr [ %483, %.critedge.i565 ], [ %478, %477 ]
-  %482 = load i8, ptr %481, align 1, !tbaa !23
-  switch i8 %482, label %parse_double.exit566 [
+.preheader695:                                    ; preds = %472, %.critedge.i565
+  %476 = phi ptr [ %478, %.critedge.i565 ], [ %473, %472 ]
+  %477 = load i8, ptr %476, align 1, !tbaa !23
+  switch i8 %477, label %parse_double.exit566 [
     i8 32, label %.critedge.i565
     i8 9, label %.critedge.i565
   ]
 
 .critedge.i565:                                   ; preds = %.preheader695, %.preheader695
-  %483 = getelementptr inbounds nuw i8, ptr %481, i64 1
-  store ptr %483, ptr %3, align 8, !tbaa !26
+  %478 = getelementptr inbounds nuw i8, ptr %476, i64 1
+  store ptr %478, ptr %3, align 8, !tbaa !26
   br label %.preheader695
 
 parse_double.exit566:                             ; preds = %.preheader695
-  %484 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %481, ptr noundef nonnull %3) #13
-  %485 = load ptr, ptr %3, align 8, !tbaa !26
-  %486 = getelementptr inbounds i8, ptr %485, i64 -1
-  store i8 0, ptr %486, align 1, !tbaa !23
-  %487 = fptrunc reassoc nsz arcp contract afn double %484 to float
-  store float %487, ptr %22, align 4, !tbaa !41
+  %479 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %476, ptr noundef nonnull %3) #13
+  %480 = load ptr, ptr %3, align 8, !tbaa !26
+  %481 = getelementptr inbounds i8, ptr %480, i64 -1
+  store i8 0, ptr %481, align 1, !tbaa !23
+  %482 = fptrunc reassoc nsz arcp contract afn double %479 to float
+  store float %482, ptr %22, align 4, !tbaa !41
   br label %.outer.backedge.sink.split
 
-488:                                              ; preds = %473
-  %489 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.7) #13
-  %490 = icmp eq i32 %489, 0
-  %491 = icmp samesign ult i32 %.0345.ph1170, 4
-  %or.cond25 = and i1 %491, %490
-  br i1 %or.cond25, label %.outer.backedge.sink.split, label %492
+483:                                              ; preds = %468
+  %484 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.7) #13
+  %485 = icmp eq i32 %484, 0
+  %486 = icmp samesign ult i32 %.0345.ph1170, 4
+  %or.cond25 = and i1 %486, %485
+  br i1 %or.cond25, label %.outer.backedge.sink.split, label %487
 
-492:                                              ; preds = %488
-  %493 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.8) #13
-  %494 = icmp eq i32 %493, 0
-  %495 = icmp samesign ult i32 %.0345.ph1170, 5
-  %or.cond27 = and i1 %495, %494
-  br i1 %or.cond27, label %.outer.backedge.sink.split, label %496
+487:                                              ; preds = %483
+  %488 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.8) #13
+  %489 = icmp eq i32 %488, 0
+  %490 = icmp samesign ult i32 %.0345.ph1170, 5
+  %or.cond27 = and i1 %490, %489
+  br i1 %or.cond27, label %.outer.backedge.sink.split, label %491
 
-496:                                              ; preds = %492
-  %497 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.9) #13
-  %498 = icmp eq i32 %497, 0
-  %499 = icmp samesign ult i32 %.0345.ph1170, 6
-  %or.cond29 = and i1 %499, %498
-  br i1 %or.cond29, label %500, label %573
+491:                                              ; preds = %487
+  %492 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i, ptr noundef nonnull @.str.9) #13
+  %493 = icmp eq i32 %492, 0
+  %494 = icmp samesign ult i32 %.0345.ph1170, 6
+  %or.cond29 = and i1 %494, %493
+  br i1 %or.cond29, label %495, label %566
 
-500:                                              ; preds = %496
-  %501 = load ptr, ptr %3, align 8, !tbaa !26
-  %502 = ptrtoint ptr %501 to i64
-  %503 = sub i64 %502, %21
-  %.not431 = icmp slt i64 %503, %31
+495:                                              ; preds = %491
+  %496 = load ptr, ptr %3, align 8, !tbaa !26
+  %497 = ptrtoint ptr %496 to i64
+  %498 = sub i64 %497, %21
+  %.not431 = icmp slt i64 %498, %31
   br i1 %.not431, label %.preheader697, label %.thread
 
-.preheader697:                                    ; preds = %500, %.critedge.i569
-  %.promoted18.i568 = phi ptr [ %505, %.critedge.i569 ], [ %501, %500 ]
-  %504 = load i8, ptr %.promoted18.i568, align 1, !tbaa !23
-  switch i8 %504, label %.preheader.i570 [
+.preheader697:                                    ; preds = %495, %.critedge.i569
+  %.promoted18.i568 = phi ptr [ %500, %.critedge.i569 ], [ %496, %495 ]
+  %499 = load i8, ptr %.promoted18.i568, align 1, !tbaa !23
+  switch i8 %499, label %.preheader.i570 [
     i8 32, label %.critedge.i569
     i8 9, label %.critedge.i569
   ]
 
 .critedge.i569:                                   ; preds = %.preheader697, %.preheader697
-  %505 = getelementptr inbounds nuw i8, ptr %.promoted18.i568, i64 1
-  store ptr %505, ptr %3, align 8, !tbaa !26
+  %500 = getelementptr inbounds nuw i8, ptr %.promoted18.i568, i64 1
+  store ptr %500, ptr %3, align 8, !tbaa !26
   br label %.preheader697
 
-.preheader.i570:                                  ; preds = %.preheader697, %508
-  %506 = phi i8 [ %.pre.i571, %508 ], [ %504, %.preheader697 ]
-  %507 = phi ptr [ %509, %508 ], [ %.promoted18.i568, %.preheader697 ]
-  switch i8 %506, label %508 [
+.preheader.i570:                                  ; preds = %.preheader697, %504
+  %501 = phi i8 [ %.pre.i571, %504 ], [ %499, %.preheader697 ]
+  %502 = phi ptr [ %503, %504 ], [ %.promoted18.i568, %.preheader697 ]
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 1
+  store ptr %503, ptr %3, align 8, !tbaa !26
+  switch i8 %501, label %504 [
     i8 32, label %parse_string.exit572
     i8 9, label %parse_string.exit572
     i8 0, label %parse_string.exit572
     i8 10, label %parse_string.exit572
   ]
 
-508:                                              ; preds = %.preheader.i570
-  %509 = getelementptr inbounds nuw i8, ptr %507, i64 1
-  store ptr %509, ptr %3, align 8, !tbaa !26
-  %.pre.i571 = load i8, ptr %509, align 1, !tbaa !23
+504:                                              ; preds = %.preheader.i570
+  %.pre.i571 = load i8, ptr %503, align 1, !tbaa !23
   br label %.preheader.i570
 
 parse_string.exit572:                             ; preds = %.preheader.i570, %.preheader.i570, %.preheader.i570, %.preheader.i570
-  %510 = getelementptr inbounds nuw i8, ptr %507, i64 1
-  store ptr %510, ptr %3, align 8, !tbaa !26
-  store i8 0, ptr %507, align 1, !tbaa !23
-  %511 = load ptr, ptr %3, align 8, !tbaa !26
-  %512 = ptrtoint ptr %511 to i64
-  %513 = sub i64 %512, %21
-  %.not432 = icmp slt i64 %513, %31
+  store i8 0, ptr %502, align 1, !tbaa !23
+  %505 = load ptr, ptr %3, align 8, !tbaa !26
+  %506 = ptrtoint ptr %505 to i64
+  %507 = sub i64 %506, %21
+  %.not432 = icmp slt i64 %507, %31
   br i1 %.not432, label %.preheader696, label %.thread
 
 .preheader696:                                    ; preds = %parse_string.exit572, %.critedge.i574
-  %514 = phi ptr [ %516, %.critedge.i574 ], [ %511, %parse_string.exit572 ]
-  %515 = load i8, ptr %514, align 1, !tbaa !23
-  switch i8 %515, label %parse_double.exit575 [
+  %508 = phi ptr [ %510, %.critedge.i574 ], [ %505, %parse_string.exit572 ]
+  %509 = load i8, ptr %508, align 1, !tbaa !23
+  switch i8 %509, label %parse_double.exit575 [
     i8 32, label %.critedge.i574
     i8 9, label %.critedge.i574
   ]
 
 .critedge.i574:                                   ; preds = %.preheader696, %.preheader696
-  %516 = getelementptr inbounds nuw i8, ptr %514, i64 1
-  store ptr %516, ptr %3, align 8, !tbaa !26
+  %510 = getelementptr inbounds nuw i8, ptr %508, i64 1
+  store ptr %510, ptr %3, align 8, !tbaa !26
   br label %.preheader696
 
 parse_double.exit575:                             ; preds = %.preheader696
-  %517 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %514, ptr noundef nonnull %3) #13
-  %518 = load ptr, ptr %3, align 8, !tbaa !26
-  %519 = getelementptr inbounds i8, ptr %518, i64 -1
-  store i8 0, ptr %519, align 1, !tbaa !23
-  %520 = fptoui double %517 to i32
-  %521 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i568, ptr noundef nonnull @.str.10) #13
-  %.not433 = icmp eq i32 %521, 0
-  br i1 %.not433, label %524, label %522
+  %511 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %508, ptr noundef nonnull %3) #13
+  %512 = load ptr, ptr %3, align 8, !tbaa !26
+  %513 = getelementptr inbounds i8, ptr %512, i64 -1
+  store i8 0, ptr %513, align 1, !tbaa !23
+  %514 = fptoui double %511 to i32
+  %515 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i568, ptr noundef nonnull @.str.10) #13
+  %.not433 = icmp eq i32 %515, 0
+  br i1 %.not433, label %518, label %516
 
-522:                                              ; preds = %parse_double.exit575
-  %523 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i568, ptr noundef nonnull @.str.11) #13
-  %.not434 = icmp eq i32 %523, 0
-  br i1 %.not434, label %524, label %.thread
+516:                                              ; preds = %parse_double.exit575
+  %517 = call i32 @g_strcmp0(ptr noundef nonnull %.promoted18.i568, ptr noundef nonnull @.str.11) #13
+  %.not434 = icmp eq i32 %517, 0
+  br i1 %.not434, label %518, label %.thread
 
-524:                                              ; preds = %522, %parse_double.exit575
-  %.0371 = phi i32 [ 5, %parse_double.exit575 ], [ 6, %522 ]
-  %525 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
-  %.not435798 = icmp eq ptr %525, null
+518:                                              ; preds = %516, %parse_double.exit575
+  %.0371 = phi i32 [ 5, %parse_double.exit575 ], [ 6, %516 ]
+  %519 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
+  %.not435798 = icmp eq ptr %519, null
   br i1 %.not435798, label %._crit_edge, label %.lr.ph800
 
-.lr.ph800:                                        ; preds = %524, %565
-  %.0359799 = phi i32 [ %531, %565 ], [ %520, %524 ]
-  %526 = load i8, ptr %2, align 16, !tbaa !23
-  switch i8 %526, label %527 [
+.lr.ph800:                                        ; preds = %518, %558
+  %.0359799 = phi i32 [ %525, %558 ], [ %514, %518 ]
+  %520 = load i8, ptr %2, align 16, !tbaa !23
+  switch i8 %520, label %521 [
     i8 10, label %._crit_edge
     i8 0, label %._crit_edge
   ]
 
-527:                                              ; preds = %.lr.ph800
-  %528 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
+521:                                              ; preds = %.lr.ph800
+  %522 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br label %529
+  br label %523
 
-529:                                              ; preds = %.critedge.i578, %527
-  %530 = phi i8 [ %526, %527 ], [ %.pre935, %.critedge.i578 ]
-  %storemerge666 = phi ptr [ %2, %527 ], [ %532, %.critedge.i578 ]
-  switch i8 %530, label %.preheader.i579.preheader [
+523:                                              ; preds = %.critedge.i578, %521
+  %524 = phi i8 [ %520, %521 ], [ %.pre935, %.critedge.i578 ]
+  %storemerge666 = phi ptr [ %2, %521 ], [ %526, %.critedge.i578 ]
+  switch i8 %524, label %.preheader.i579.preheader [
     i8 32, label %.critedge.i578
     i8 9, label %.critedge.i578
   ]
 
-.preheader.i579.preheader:                        ; preds = %529
-  %531 = add i32 %.0359799, -1
+.preheader.i579.preheader:                        ; preds = %523
+  %525 = add i32 %.0359799, -1
   br label %.preheader.i579
 
-.critedge.i578:                                   ; preds = %529, %529
-  %532 = getelementptr inbounds nuw i8, ptr %storemerge666, i64 1
-  %.pre935 = load i8, ptr %532, align 1, !tbaa !23
-  br label %529
+.critedge.i578:                                   ; preds = %523, %523
+  %526 = getelementptr inbounds nuw i8, ptr %storemerge666, i64 1
+  %.pre935 = load i8, ptr %526, align 1, !tbaa !23
+  br label %523
 
-.preheader.i579:                                  ; preds = %.preheader.i579.preheader, %535
-  %533 = phi i8 [ %.pre.i580, %535 ], [ %530, %.preheader.i579.preheader ]
-  %534 = phi ptr [ %536, %535 ], [ %storemerge666, %.preheader.i579.preheader ]
-  switch i8 %533, label %535 [
+.preheader.i579:                                  ; preds = %.preheader.i579.preheader, %530
+  %527 = phi i8 [ %.pre.i580, %530 ], [ %524, %.preheader.i579.preheader ]
+  %528 = phi ptr [ %529, %530 ], [ %storemerge666, %.preheader.i579.preheader ]
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 1
+  switch i8 %527, label %530 [
     i8 32, label %parse_string.exit581
     i8 9, label %parse_string.exit581
     i8 0, label %parse_string.exit581
     i8 10, label %parse_string.exit581
   ]
 
-535:                                              ; preds = %.preheader.i579
-  %536 = getelementptr inbounds nuw i8, ptr %534, i64 1
-  store ptr %536, ptr %8, align 8, !tbaa !26
-  %.pre.i580 = load i8, ptr %536, align 1, !tbaa !23
+530:                                              ; preds = %.preheader.i579
+  %.pre.i580 = load i8, ptr %529, align 1, !tbaa !23
   br label %.preheader.i579
 
 parse_string.exit581:                             ; preds = %.preheader.i579, %.preheader.i579, %.preheader.i579, %.preheader.i579
-  %537 = getelementptr inbounds nuw i8, ptr %534, i64 1
-  store ptr %537, ptr %8, align 8, !tbaa !26
-  store i8 0, ptr %534, align 1, !tbaa !23
-  %538 = call ptr @g_hash_table_lookup(ptr noundef %.ph1172, ptr noundef nonnull %storemerge666) #13
-  %.not436 = icmp eq ptr %538, null
-  br i1 %.not436, label %.thread649, label %539
+  store ptr %529, ptr %8, align 8, !tbaa !26
+  store i8 0, ptr %528, align 1, !tbaa !23
+  %531 = call ptr @g_hash_table_lookup(ptr noundef %.ph1172, ptr noundef nonnull %storemerge666) #13
+  %.not436 = icmp eq ptr %531, null
+  br i1 %.not436, label %.thread649, label %532
 
-539:                                              ; preds = %parse_string.exit581
-  %540 = load ptr, ptr %8, align 8, !tbaa !26
-  %541 = ptrtoint ptr %540 to i64
-  %542 = sub i64 %541, %21
-  %.not437 = icmp slt i64 %542, %528
+532:                                              ; preds = %parse_string.exit581
+  %533 = load ptr, ptr %8, align 8, !tbaa !26
+  %534 = ptrtoint ptr %533 to i64
+  %535 = sub i64 %534, %21
+  %.not437 = icmp slt i64 %535, %522
   br i1 %.not437, label %.preheader691, label %.thread649
 
-.preheader691:                                    ; preds = %539, %.critedge.i583
-  %543 = phi ptr [ %545, %.critedge.i583 ], [ %540, %539 ]
-  %544 = load i8, ptr %543, align 1, !tbaa !23
-  switch i8 %544, label %parse_double.exit584 [
+.preheader691:                                    ; preds = %532, %.critedge.i583
+  %536 = phi ptr [ %538, %.critedge.i583 ], [ %533, %532 ]
+  %537 = load i8, ptr %536, align 1, !tbaa !23
+  switch i8 %537, label %parse_double.exit584 [
     i8 32, label %.critedge.i583
     i8 9, label %.critedge.i583
   ]
 
 .critedge.i583:                                   ; preds = %.preheader691, %.preheader691
-  %545 = getelementptr inbounds nuw i8, ptr %543, i64 1
-  store ptr %545, ptr %8, align 8, !tbaa !26
+  %538 = getelementptr inbounds nuw i8, ptr %536, i64 1
+  store ptr %538, ptr %8, align 8, !tbaa !26
   br label %.preheader691
 
 parse_double.exit584:                             ; preds = %.preheader691
-  %546 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %543, ptr noundef nonnull %8) #13
-  %547 = load ptr, ptr %8, align 8, !tbaa !26
-  %548 = getelementptr inbounds i8, ptr %547, i64 -1
-  store i8 0, ptr %548, align 1, !tbaa !23
-  %549 = fptrunc reassoc nsz arcp contract afn double %546 to float
-  %550 = load ptr, ptr %8, align 8, !tbaa !26
-  %551 = ptrtoint ptr %550 to i64
-  %552 = sub i64 %551, %21
-  %.not438 = icmp slt i64 %552, %528
+  %539 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %536, ptr noundef nonnull %8) #13
+  %540 = load ptr, ptr %8, align 8, !tbaa !26
+  %541 = getelementptr inbounds i8, ptr %540, i64 -1
+  store i8 0, ptr %541, align 1, !tbaa !23
+  %542 = fptrunc reassoc nsz arcp contract afn double %539 to float
+  %543 = load ptr, ptr %8, align 8, !tbaa !26
+  %544 = ptrtoint ptr %543 to i64
+  %545 = sub i64 %544, %21
+  %.not438 = icmp slt i64 %545, %522
   br i1 %.not438, label %.preheader690, label %.thread649
 
 .preheader690:                                    ; preds = %parse_double.exit584, %.critedge.i586
-  %553 = phi ptr [ %555, %.critedge.i586 ], [ %550, %parse_double.exit584 ]
-  %554 = load i8, ptr %553, align 1, !tbaa !23
-  switch i8 %554, label %parse_double.exit587 [
+  %546 = phi ptr [ %548, %.critedge.i586 ], [ %543, %parse_double.exit584 ]
+  %547 = load i8, ptr %546, align 1, !tbaa !23
+  switch i8 %547, label %parse_double.exit587 [
     i8 32, label %.critedge.i586
     i8 9, label %.critedge.i586
   ]
 
 .critedge.i586:                                   ; preds = %.preheader690, %.preheader690
-  %555 = getelementptr inbounds nuw i8, ptr %553, i64 1
-  store ptr %555, ptr %8, align 8, !tbaa !26
+  %548 = getelementptr inbounds nuw i8, ptr %546, i64 1
+  store ptr %548, ptr %8, align 8, !tbaa !26
   br label %.preheader690
 
 parse_double.exit587:                             ; preds = %.preheader690
-  %556 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %553, ptr noundef nonnull %8) #13
-  %557 = load ptr, ptr %8, align 8, !tbaa !26
-  %558 = getelementptr inbounds i8, ptr %557, i64 -1
-  store i8 0, ptr %558, align 1, !tbaa !23
-  %559 = load ptr, ptr %8, align 8, !tbaa !26
-  %560 = ptrtoint ptr %559 to i64
-  %561 = sub i64 %560, %21
-  %.not439 = icmp slt i64 %561, %528
+  %549 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %546, ptr noundef nonnull %8) #13
+  %550 = load ptr, ptr %8, align 8, !tbaa !26
+  %551 = getelementptr inbounds i8, ptr %550, i64 -1
+  store i8 0, ptr %551, align 1, !tbaa !23
+  %552 = load ptr, ptr %8, align 8, !tbaa !26
+  %553 = ptrtoint ptr %552 to i64
+  %554 = sub i64 %553, %21
+  %.not439 = icmp slt i64 %554, %522
   br i1 %.not439, label %.preheader1074, label %.thread649
 
 .preheader1074:                                   ; preds = %parse_double.exit587, %.critedge.i589
-  %562 = phi ptr [ %564, %.critedge.i589 ], [ %559, %parse_double.exit587 ]
-  %563 = load i8, ptr %562, align 1, !tbaa !23
-  switch i8 %563, label %565 [
+  %555 = phi ptr [ %557, %.critedge.i589 ], [ %552, %parse_double.exit587 ]
+  %556 = load i8, ptr %555, align 1, !tbaa !23
+  switch i8 %556, label %558 [
     i8 32, label %.critedge.i589
     i8 9, label %.critedge.i589
   ]
 
 .critedge.i589:                                   ; preds = %.preheader1074, %.preheader1074
-  %564 = getelementptr inbounds nuw i8, ptr %562, i64 1
-  store ptr %564, ptr %8, align 8, !tbaa !26
+  %557 = getelementptr inbounds nuw i8, ptr %555, i64 1
+  store ptr %557, ptr %8, align 8, !tbaa !26
   br label %.preheader1074
 
-.thread649:                                       ; preds = %parse_string.exit581, %539, %parse_double.exit584, %parse_double.exit587
-  %.18.ph = phi i32 [ 483, %parse_double.exit587 ], [ 481, %parse_double.exit584 ], [ 479, %539 ], [ 477, %parse_string.exit581 ]
+.thread649:                                       ; preds = %parse_string.exit581, %532, %parse_double.exit584, %parse_double.exit587
+  %.18.ph = phi i32 [ 483, %parse_double.exit587 ], [ 481, %parse_double.exit584 ], [ 479, %532 ], [ 477, %parse_string.exit581 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
-565:                                              ; preds = %.preheader1074
-  %566 = fptrunc reassoc nsz arcp contract afn double %556 to float
-  %567 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %562, ptr noundef nonnull %8) #13
-  %568 = load ptr, ptr %8, align 8, !tbaa !26
-  %569 = getelementptr inbounds i8, ptr %568, i64 -1
-  store i8 0, ptr %569, align 1, !tbaa !23
-  %570 = fptrunc reassoc nsz arcp contract afn double %567 to float
-  call void @checker_set_color(ptr noundef nonnull %538, i32 noundef %.0371, float noundef %549, float noundef %566, float noundef %570)
+558:                                              ; preds = %.preheader1074
+  %559 = fptrunc reassoc nsz arcp contract afn double %549 to float
+  %560 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %555, ptr noundef nonnull %8) #13
+  %561 = load ptr, ptr %8, align 8, !tbaa !26
+  %562 = getelementptr inbounds i8, ptr %561, i64 -1
+  store i8 0, ptr %562, align 1, !tbaa !23
+  %563 = fptrunc reassoc nsz arcp contract afn double %560 to float
+  call void @checker_set_color(ptr noundef nonnull %531, i32 noundef %.0371, float noundef %542, float noundef %559, float noundef %563)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %571 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
-  %.not435 = icmp eq ptr %571, null
+  %564 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
+  %.not435 = icmp eq ptr %564, null
   br i1 %.not435, label %._crit_edge, label %.lr.ph800
 
-._crit_edge:                                      ; preds = %565, %.lr.ph800, %.lr.ph800, %524
-  %.0359.lcssa = phi i32 [ %520, %524 ], [ %.0359799, %.lr.ph800 ], [ %.0359799, %.lr.ph800 ], [ %531, %565 ]
+._crit_edge:                                      ; preds = %558, %.lr.ph800, %.lr.ph800, %518
+  %.0359.lcssa = phi i32 [ %514, %518 ], [ %.0359799, %.lr.ph800 ], [ %.0359799, %.lr.ph800 ], [ %525, %558 ]
   %.not440 = icmp eq i32 %.0359.lcssa, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not440, label %.outer.backedge, label %.loopexit698
 
-.outer.backedge.sink.split:                       ; preds = %492, %488, %parse_double.exit566, %parse_double.exit563
-  %.0348.ph.be.ph = phi i32 [ 0, %parse_double.exit566 ], [ 0, %parse_double.exit563 ], [ 1, %488 ], [ 1, %492 ]
-  %.0345.ph.be.ph = phi i32 [ 3, %parse_double.exit566 ], [ 2, %parse_double.exit563 ], [ 4, %488 ], [ 5, %492 ]
+.outer.backedge.sink.split:                       ; preds = %487, %483, %parse_double.exit566, %parse_double.exit563
+  %.0348.ph.be.ph = phi i32 [ 0, %parse_double.exit566 ], [ 0, %parse_double.exit563 ], [ 1, %483 ], [ 1, %487 ]
+  %.0345.ph.be.ph = phi i32 [ 3, %parse_double.exit566 ], [ 2, %parse_double.exit563 ], [ 4, %483 ], [ 5, %487 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %.outer.backedge.sink.split, %._crit_edge
   %.0348.ph.be = phi i32 [ 0, %._crit_edge ], [ %.0348.ph.be.ph, %.outer.backedge.sink.split ]
   %.0345.ph.be = phi i32 [ 6, %._crit_edge ], [ %.0345.ph.be.ph, %.outer.backedge.sink.split ]
-  %572 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
-  %.not429795 = icmp eq ptr %572, null
+  %565 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 512, ptr noundef nonnull %10)
+  %.not429795 = icmp eq ptr %565, null
   br i1 %.not429795, label %free_chart.exit.thread, label %.lr.ph.preheader
 
-573:                                              ; preds = %496
-  %574 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %575 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %574, ptr noundef nonnull @.str.12, ptr noundef nonnull %.promoted18.i) #15
+566:                                              ; preds = %491
+  %567 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %568 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %567, ptr noundef nonnull @.str.12, ptr noundef nonnull %.promoted18.i) #15
   br label %.thread654
 
-.thread654:                                       ; preds = %42, %._crit_edge819, %462, %477, %573, %.thread640
-  %.2.ph = phi i32 [ %.5.ph, %.thread640 ], [ 492, %573 ], [ 433, %477 ], [ 427, %462 ], [ 376, %._crit_edge819 ], [ 187, %42 ]
+.thread654:                                       ; preds = %41, %._crit_edge819, %457, %472, %566, %.thread640
+  %.2.ph = phi i32 [ %.5.ph, %.thread640 ], [ 492, %566 ], [ 433, %472 ], [ 427, %457 ], [ 376, %._crit_edge819 ], [ 187, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit698
 
-.thread:                                          ; preds = %500, %parse_string.exit572, %522, %.thread649
-  %.2.ph961 = phi i32 [ %.18.ph, %.thread649 ], [ 452, %500 ], [ 454, %parse_string.exit572 ], [ 462, %522 ]
+.thread:                                          ; preds = %495, %parse_string.exit572, %516, %.thread649
+  %.2.ph961 = phi i32 [ %.18.ph, %.thread649 ], [ 452, %495 ], [ 454, %parse_string.exit572 ], [ 462, %516 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit698
 
 free_chart.exit.thread:                           ; preds = %._crit_edge848, %.outer.backedge, %.backedge, %14
-  %576 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %577 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %576, ptr noundef nonnull @.str.13, ptr noundef %0) #15
-  br label %594
+  %569 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %570 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %569, ptr noundef nonnull @.str.13, ptr noundef %0) #15
+  br label %587
 
 .loopexit698:                                     ; preds = %._crit_edge, %.thread, %.thread654, %11
   %.0344 = phi i32 [ 153, %11 ], [ %.2.ph, %.thread654 ], [ %.2.ph961, %.thread ], [ 487, %._crit_edge ]
-  %578 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %579 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %578, ptr noundef nonnull @.str.14, ptr noundef nonnull @__FUNCTION__.parse_cht, i32 noundef %.0344) #15
+  %571 = load ptr, ptr @stderr, align 8, !tbaa !24
+  %572 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %571, ptr noundef nonnull @.str.14, ptr noundef nonnull @__FUNCTION__.parse_cht, i32 noundef %.0344) #15
   %.not.i591 = icmp eq ptr %9, null
-  br i1 %.not.i591, label %free_chart.exit, label %580
+  br i1 %.not.i591, label %free_chart.exit, label %573
 
-580:                                              ; preds = %.loopexit698
-  %581 = load ptr, ptr %9, align 8, !tbaa !7
-  call void @g_list_free_full(ptr noundef %581, ptr noundef nonnull @free) #13
-  %582 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %583 = load ptr, ptr %582, align 8, !tbaa !15
-  %.not12.i = icmp eq ptr %583, null
-  br i1 %.not12.i, label %585, label %584
+573:                                              ; preds = %.loopexit698
+  %574 = load ptr, ptr %9, align 8, !tbaa !7
+  call void @g_list_free_full(ptr noundef %574, ptr noundef nonnull @free) #13
+  %575 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %576 = load ptr, ptr %575, align 8, !tbaa !15
+  %.not12.i = icmp eq ptr %576, null
+  br i1 %.not12.i, label %578, label %577
 
-584:                                              ; preds = %580
-  call void @g_hash_table_unref(ptr noundef nonnull %583) #13
-  br label %585
+577:                                              ; preds = %573
+  call void @g_hash_table_unref(ptr noundef nonnull %576) #13
+  br label %578
 
-585:                                              ; preds = %584, %580
-  %586 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %587 = load ptr, ptr %586, align 8, !tbaa !16
-  %.not13.i = icmp eq ptr %587, null
-  br i1 %.not13.i, label %589, label %588
+578:                                              ; preds = %577, %573
+  %579 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %580 = load ptr, ptr %579, align 8, !tbaa !16
+  %.not13.i = icmp eq ptr %580, null
+  br i1 %.not13.i, label %582, label %581
 
-588:                                              ; preds = %585
-  call void @g_hash_table_unref(ptr noundef nonnull %587) #13
-  br label %589
+581:                                              ; preds = %578
+  call void @g_hash_table_unref(ptr noundef nonnull %580) #13
+  br label %582
 
-589:                                              ; preds = %588, %585
-  %590 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %591 = load ptr, ptr %590, align 8, !tbaa !17
-  %.not14.i = icmp eq ptr %591, null
-  br i1 %.not14.i, label %593, label %592
+582:                                              ; preds = %581, %578
+  %583 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %584 = load ptr, ptr %583, align 8, !tbaa !17
+  %.not14.i = icmp eq ptr %584, null
+  br i1 %.not14.i, label %586, label %585
 
-592:                                              ; preds = %589
-  call void @g_hash_table_unref(ptr noundef nonnull %591) #13
-  br label %593
+585:                                              ; preds = %582
+  call void @g_hash_table_unref(ptr noundef nonnull %584) #13
+  br label %586
 
-593:                                              ; preds = %592, %589
+586:                                              ; preds = %585, %582
   call void @free(ptr noundef nonnull %9) #13
   br label %free_chart.exit
 
-free_chart.exit:                                  ; preds = %593, %.loopexit698
-  br i1 %.not, label %596, label %594
+free_chart.exit:                                  ; preds = %586, %.loopexit698
+  br i1 %.not, label %589, label %587
 
-594:                                              ; preds = %free_chart.exit.thread, %free_chart.exit
+587:                                              ; preds = %free_chart.exit.thread, %free_chart.exit
   %.0343664 = phi ptr [ %9, %free_chart.exit.thread ], [ null, %free_chart.exit ]
-  %595 = call i32 @fclose(ptr noundef nonnull %10)
-  br label %596
+  %588 = call i32 @fclose(ptr noundef nonnull %10)
+  br label %589
 
-596:                                              ; preds = %free_chart.exit, %594
-  %.0 = phi ptr [ %.0343664, %594 ], [ null, %free_chart.exit ]
+589:                                              ; preds = %free_chart.exit, %587
+  %.0 = phi ptr [ %.0343664, %587 ], [ null, %free_chart.exit ]
   ret ptr %.0
 }
 

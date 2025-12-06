@@ -231,17 +231,17 @@ if.end18:                                         ; preds = %if.end13
   call void @png_set_write_fn(ptr noundef %2, ptr noundef nonnull %file, ptr noundef nonnull @_ZN3irr5video19user_write_data_fcnEP14png_struct_defPhm, ptr noundef null) #13
   %Format.i = getelementptr inbounds nuw i8, ptr %image, i64 8
   %3 = load i32, ptr %Format.i, align 8, !tbaa !20
+  %4 = load ptr, ptr %png_ptr, align 8, !tbaa !19
+  %5 = load ptr, ptr %info_ptr, align 8, !tbaa !19
+  %Size.i172 = getelementptr inbounds nuw i8, ptr %image, i64 12
+  %6 = load i32, ptr %Size.i172, align 4, !tbaa !25
+  %Height25 = getelementptr inbounds nuw i8, ptr %image, i64 16
+  %7 = load i32, ptr %Height25, align 8, !tbaa !26
   %switch.selectcmp.case1 = icmp eq i32 %3, 3
   %switch.selectcmp.case2 = icmp eq i32 %3, 0
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %4 = select i1 %switch.selectcmp, i32 6, i32 2
-  %5 = load ptr, ptr %png_ptr, align 8, !tbaa !19
-  %6 = load ptr, ptr %info_ptr, align 8, !tbaa !19
-  %Size.i172 = getelementptr inbounds nuw i8, ptr %image, i64 12
-  %7 = load i32, ptr %Size.i172, align 4, !tbaa !25
-  %Height25 = getelementptr inbounds nuw i8, ptr %image, i64 16
-  %8 = load i32, ptr %Height25, align 8, !tbaa !26
-  call void @png_set_IHDR(ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef 8, i32 noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
+  %8 = select i1 %switch.selectcmp, i32 6, i32 2
+  call void @png_set_IHDR(ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 8, i32 noundef %8, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
   %Size.i174 = getelementptr inbounds nuw i8, ptr %image, i64 12
   %9 = load i32, ptr %Size.i174, align 4, !tbaa !25
   %10 = load i32, ptr %Format.i, align 8, !tbaa !20
@@ -390,13 +390,13 @@ if.end101:                                        ; preds = %for.cond.cleanup
   %19 = load ptr, ptr %info_ptr, align 8, !tbaa !19
   call void @png_set_rows(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %call76) #13
   %20 = load i32, ptr %Format.i, align 8, !tbaa !20
-  %switch.selectcmp.case17 = icmp eq i32 %20, 3
-  %switch.selectcmp.case28 = icmp eq i32 %20, 0
-  %switch.selectcmp9 = or i1 %switch.selectcmp.case17, %switch.selectcmp.case28
-  %21 = select i1 %switch.selectcmp9, i32 128, i32 0
-  %22 = load ptr, ptr %png_ptr, align 8, !tbaa !19
-  %23 = load ptr, ptr %info_ptr, align 8, !tbaa !19
-  call void @png_write_png(ptr noundef %22, ptr noundef %23, i32 noundef %21, ptr noundef null) #13
+  %21 = load ptr, ptr %png_ptr, align 8, !tbaa !19
+  %22 = load ptr, ptr %info_ptr, align 8, !tbaa !19
+  %switch.selectcmp.case12 = icmp eq i32 %20, 3
+  %switch.selectcmp.case23 = icmp eq i32 %20, 0
+  %switch.selectcmp4 = or i1 %switch.selectcmp.case12, %switch.selectcmp.case23
+  %23 = select i1 %switch.selectcmp4, i32 128, i32 0
+  call void @png_write_png(ptr noundef %21, ptr noundef %22, i32 noundef %23, ptr noundef null) #13
   call void @_ZdaPv(ptr noundef nonnull %call76) #15
   call void @_ZdaPv(ptr noundef nonnull %call37) #15
   call void @png_destroy_write_struct(ptr noundef nonnull %png_ptr, ptr noundef nonnull %info_ptr) #13

@@ -1744,44 +1744,44 @@ switch.lookup:                                    ; preds = %.lr.ph.i34
   %327 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 6)
   %328 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 7)
   switch i8 %327, label %dissect_oampdu_information.exit [
-    i8 9, label %773
+    i8 9, label %769
     i8 1, label %.preheader.i
-    i8 2, label %370
-    i8 3, label %370
-    i8 4, label %370
+    i8 2, label %366
+    i8 3, label %366
+    i8 4, label %366
   ]
 
 .preheader.i:                                     ; preds = %320
   %.not630672.i = icmp eq i8 %328, 0
   br i1 %.not630672.i, label %dissect_oampdu_information.exit, label %.lr.ph674.i
 
-.lr.ph674.i:                                      ; preds = %.preheader.i, %368
-  %.0673.i = phi i32 [ %.sink.i, %368 ], [ 7, %.preheader.i ]
+.lr.ph674.i:                                      ; preds = %.preheader.i, %365
+  %.0673.i = phi i32 [ %.1.i41, %365 ], [ 7, %.preheader.i ]
   %329 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.0673.i)
   %330 = icmp eq i32 %329, 14024707
   %331 = icmp eq i32 %329, 14024708
-  switch i32 %329, label %364 [
-    i32 14024710, label %332
-    i32 14024708, label %332
-    i32 14024707, label %332
-    i32 14024706, label %332
-    i32 14024705, label %332
-    i32 14024704, label %332
+  %332 = load i32, ptr @hf_dpoe_variable_descriptor, align 4
+  %333 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %332, ptr noundef %0, i32 noundef %.0673.i, i32 noundef 3, i32 noundef 0)
+  %334 = add i32 %.0673.i, 3
+  %335 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %334)
+  switch i32 %329, label %365 [
+    i32 14024710, label %336
+    i32 14024708, label %336
+    i32 14024707, label %336
+    i32 14024706, label %336
+    i32 14024705, label %336
+    i32 14024704, label %336
   ]
 
-332:                                              ; preds = %.lr.ph674.i, %.lr.ph674.i, %.lr.ph674.i, %.lr.ph674.i, %.lr.ph674.i, %.lr.ph674.i
-  %333 = load i32, ptr @hf_dpoe_variable_descriptor, align 4
-  %334 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %333, ptr noundef %0, i32 noundef %.0673.i, i32 noundef 3, i32 noundef 0)
-  %335 = add i32 %.0673.i, 3
-  %336 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %335)
+336:                                              ; preds = %.lr.ph674.i, %.lr.ph674.i, %.lr.ph674.i, %.lr.ph674.i, %.lr.ph674.i, %.lr.ph674.i
   %337 = add i32 %.0673.i, 4
-  %338 = zext i8 %336 to i32
-  %339 = icmp eq i8 %336, 1
+  %338 = zext i8 %335 to i32
+  %339 = icmp eq i8 %335, 1
   br i1 %339, label %340, label %349
 
-340:                                              ; preds = %332
+340:                                              ; preds = %336
   %341 = load i32, ptr @ett_dpoe_opcode, align 4
-  %342 = tail call ptr @proto_item_add_subtree(ptr noundef %334, i32 noundef %341)
+  %342 = tail call ptr @proto_item_add_subtree(ptr noundef %333, i32 noundef %341)
   br i1 %330, label %343, label %346
 
 343:                                              ; preds = %340
@@ -1794,14 +1794,14 @@ switch.lookup:                                    ; preds = %.lr.ph.i34
   %348 = tail call ptr @proto_tree_add_item(ptr noundef %342, i32 noundef %347, ptr noundef %0, i32 noundef %337, i32 noundef 1, i32 noundef 0)
   br label %362
 
-349:                                              ; preds = %332
-  %350 = icmp eq i8 %336, 4
+349:                                              ; preds = %336
+  %350 = icmp eq i8 %335, 4
   %or.cond11.i = and i1 %331, %350
   br i1 %or.cond11.i, label %351, label %362
 
 351:                                              ; preds = %349
   %352 = load i32, ptr @ett_dpoe_opcode, align 4
-  %353 = tail call ptr @proto_item_add_subtree(ptr noundef %334, i32 noundef %352)
+  %353 = tail call ptr @proto_item_add_subtree(ptr noundef %333, i32 noundef %352)
   %354 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_queue_obj_type, align 4
   %355 = tail call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %354, ptr noundef %0, i32 noundef %337, i32 noundef 2, i32 noundef 0)
   %356 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_queue_obj_inst, align 4
@@ -1814,791 +1814,786 @@ switch.lookup:                                    ; preds = %.lr.ph.i34
 
 362:                                              ; preds = %351, %349, %346, %343
   %363 = add i32 %337, %338
-  br label %368
+  %364 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %363)
+  br label %365
 
-364:                                              ; preds = %.lr.ph674.i
-  %365 = load i32, ptr @hf_dpoe_variable_descriptor, align 4
-  %366 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %365, ptr noundef %0, i32 noundef %.0673.i, i32 noundef 3, i32 noundef 0)
-  %367 = add i32 %.0673.i, 3
-  br label %368
-
-368:                                              ; preds = %364, %362
-  %.sink.i = phi i32 [ %367, %364 ], [ %363, %362 ]
-  %369 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.sink.i)
-  %.not630.i = icmp eq i8 %369, 0
+365:                                              ; preds = %362, %.lr.ph674.i
+  %.1607.i = phi i8 [ %364, %362 ], [ %335, %.lr.ph674.i ]
+  %.1.i41 = phi i32 [ %363, %362 ], [ %334, %.lr.ph674.i ]
+  %.not630.i = icmp eq i8 %.1607.i, 0
   br i1 %.not630.i, label %dissect_oampdu_information.exit, label %.lr.ph674.i, !llvm.loop !6
 
-370:                                              ; preds = %320, %320, %320
+366:                                              ; preds = %320, %320, %320
   %.not668.i = icmp eq i8 %328, 0
   br i1 %.not668.i, label %dissect_oampdu_information.exit, label %.lr.ph671.i
 
-.lr.ph671.i:                                      ; preds = %370
-  %371 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %372 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %373 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %374 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %375 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %376 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %377 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %378 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  %379 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %380 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  br label %381
+.lr.ph671.i:                                      ; preds = %366
+  %367 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %368 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %369 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %370 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %371 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %372 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %373 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %374 = getelementptr inbounds nuw i8, ptr %5, i64 7
+  %375 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %376 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  br label %377
 
-381:                                              ; preds = %.loopexit632.i, %.lr.ph671.i
-  %.2669.i = phi i32 [ 7, %.lr.ph671.i ], [ %771, %.loopexit632.i ]
-  %382 = load i32, ptr @hf_dpoe_variable_descriptor, align 4
-  %383 = call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %382, ptr noundef %0, i32 noundef %.2669.i, i32 noundef 3, i32 noundef 0)
-  %384 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.2669.i)
-  %385 = add i32 %.2669.i, 3
-  %386 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %385)
-  %387 = load i32, ptr @ett_dpoe_opcode_response, align 4
-  %388 = call ptr @proto_item_add_subtree(ptr noundef %383, i32 noundef %387)
-  %389 = zext i8 %386 to i32
-  %390 = icmp slt i8 %386, 0
-  br i1 %390, label %391, label %395
+377:                                              ; preds = %.loopexit632.i, %.lr.ph671.i
+  %.2669.i = phi i32 [ 7, %.lr.ph671.i ], [ %767, %.loopexit632.i ]
+  %378 = load i32, ptr @hf_dpoe_variable_descriptor, align 4
+  %379 = call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %378, ptr noundef %0, i32 noundef %.2669.i, i32 noundef 3, i32 noundef 0)
+  %380 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.2669.i)
+  %381 = add i32 %.2669.i, 3
+  %382 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %381)
+  %383 = load i32, ptr @ett_dpoe_opcode_response, align 4
+  %384 = call ptr @proto_item_add_subtree(ptr noundef %379, i32 noundef %383)
+  %385 = zext i8 %382 to i32
+  %386 = icmp slt i8 %382, 0
+  br i1 %386, label %387, label %391
 
-391:                                              ; preds = %381
-  %392 = load i32, ptr @hf_dpoe_variable_response_code, align 4
-  %393 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %392, ptr noundef %0, i32 noundef %385, i32 noundef 1, i32 noundef 0)
-  %394 = add i32 %.2669.i, 4
+387:                                              ; preds = %377
+  %388 = load i32, ptr @hf_dpoe_variable_response_code, align 4
+  %389 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %388, ptr noundef %0, i32 noundef %381, i32 noundef 1, i32 noundef 0)
+  %390 = add i32 %.2669.i, 4
   br label %.loopexit632.i
 
-395:                                              ; preds = %381
-  %396 = icmp eq i8 %386, 0
-  %397 = add i32 %.2669.i, 4
-  br i1 %396, label %398, label %401
+391:                                              ; preds = %377
+  %392 = icmp eq i8 %382, 0
+  %393 = add i32 %.2669.i, 4
+  br i1 %392, label %394, label %397
 
-398:                                              ; preds = %395
-  %399 = load i32, ptr @hf_oampdu_variable_value, align 4
-  %400 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %399, ptr noundef %0, i32 noundef %397, i32 noundef 128, i32 noundef 0)
+394:                                              ; preds = %391
+  %395 = load i32, ptr @hf_oampdu_variable_value, align 4
+  %396 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %395, ptr noundef %0, i32 noundef %393, i32 noundef 128, i32 noundef 0)
   br label %.loopexit632.i
 
-401:                                              ; preds = %395
-  switch i32 %384, label %767 [
-    i32 14090242, label %402
-    i32 14090243, label %405
-    i32 14090246, label %417
-    i32 14090245, label %426
-    i32 14090244, label %474
-    i32 14090247, label %482
-    i32 14090248, label %488
-    i32 14090249, label %491
-    i32 14090250, label %494
-    i32 14090253, label %521
-    i32 14090254, label %527
-    i32 14090255, label %532
-    i32 14090257, label %542
-    i32 14090258, label %547
-    i32 14090259, label %552
-    i32 14090261, label %557
-    i32 14090251, label %562
-    i32 14090252, label %577
-    i32 14090501, label %580
-    i32 14024707, label %584
-    i32 14024708, label %587
-    i32 14091521, label %596
-    i32 14090509, label %672
-    i32 14090510, label %702
-    i32 14090516, label %707
-    i32 14090517, label %712
-    i32 14091011, label %723
-    i32 14091266, label %732
-    i32 14091267, label %735
-    i32 458778, label %738
-    i32 458784, label %741
-    i32 458823, label %744
-    i32 458831, label %747
-    i32 458842, label %750
-    i32 458845, label %753
-    i32 14221575, label %756
-    i32 458781, label %764
+397:                                              ; preds = %391
+  switch i32 %380, label %763 [
+    i32 14090242, label %398
+    i32 14090243, label %401
+    i32 14090246, label %413
+    i32 14090245, label %422
+    i32 14090244, label %470
+    i32 14090247, label %478
+    i32 14090248, label %484
+    i32 14090249, label %487
+    i32 14090250, label %490
+    i32 14090253, label %517
+    i32 14090254, label %523
+    i32 14090255, label %528
+    i32 14090257, label %538
+    i32 14090258, label %543
+    i32 14090259, label %548
+    i32 14090261, label %553
+    i32 14090251, label %558
+    i32 14090252, label %573
+    i32 14090501, label %576
+    i32 14024707, label %580
+    i32 14024708, label %583
+    i32 14091521, label %592
+    i32 14090509, label %668
+    i32 14090510, label %698
+    i32 14090516, label %703
+    i32 14090517, label %708
+    i32 14091011, label %719
+    i32 14091266, label %728
+    i32 14091267, label %731
+    i32 458778, label %734
+    i32 458784, label %737
+    i32 458823, label %740
+    i32 458831, label %743
+    i32 458842, label %746
+    i32 458845, label %749
+    i32 14221575, label %752
+    i32 458781, label %760
   ]
 
-402:                                              ; preds = %401
-  %403 = load i32, ptr @hf_oam_dpoe_response_eth, align 4
-  %404 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %403, ptr noundef %0, i32 noundef %397, i32 noundef %389, i32 noundef 0)
+398:                                              ; preds = %397
+  %399 = load i32, ptr @hf_oam_dpoe_response_eth, align 4
+  %400 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %399, ptr noundef %0, i32 noundef %393, i32 noundef %385, i32 noundef 0)
   br label %.loopexit632.i
 
-405:                                              ; preds = %401
-  %406 = load i32, ptr @hf_oam_dpoe_fw_info_boot_version, align 4
-  %407 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %406, ptr noundef %0, i32 noundef %397, i32 noundef 2, i32 noundef 0)
-  %408 = load i32, ptr @hf_oam_dpoe_fw_info_boot_crc, align 4
-  %409 = add i32 %.2669.i, 6
-  %410 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %408, ptr noundef %0, i32 noundef %409, i32 noundef 4, i32 noundef 0)
-  %411 = load i32, ptr @hf_oam_dpoe_fw_info_fw_version, align 4
-  %412 = add i32 %.2669.i, 10
-  %413 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %411, ptr noundef %0, i32 noundef %412, i32 noundef 2, i32 noundef 0)
-  %414 = load i32, ptr @hf_oam_dpoe_fw_info_fw_crc, align 4
-  %415 = add i32 %.2669.i, 12
-  %416 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %414, ptr noundef %0, i32 noundef %415, i32 noundef 4, i32 noundef 0)
+401:                                              ; preds = %397
+  %402 = load i32, ptr @hf_oam_dpoe_fw_info_boot_version, align 4
+  %403 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %402, ptr noundef %0, i32 noundef %393, i32 noundef 2, i32 noundef 0)
+  %404 = load i32, ptr @hf_oam_dpoe_fw_info_boot_crc, align 4
+  %405 = add i32 %.2669.i, 6
+  %406 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %404, ptr noundef %0, i32 noundef %405, i32 noundef 4, i32 noundef 0)
+  %407 = load i32, ptr @hf_oam_dpoe_fw_info_fw_version, align 4
+  %408 = add i32 %.2669.i, 10
+  %409 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %407, ptr noundef %0, i32 noundef %408, i32 noundef 2, i32 noundef 0)
+  %410 = load i32, ptr @hf_oam_dpoe_fw_info_fw_crc, align 4
+  %411 = add i32 %.2669.i, 12
+  %412 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %410, ptr noundef %0, i32 noundef %411, i32 noundef 4, i32 noundef 0)
   br label %.loopexit632.i
 
-417:                                              ; preds = %401
-  %418 = load ptr, ptr %371, align 8
-  %419 = call ptr @tvb_get_string_enc(ptr noundef %418, ptr noundef %0, i32 noundef %397, i32 noundef %389, i32 noundef 0)
-  %420 = load i32, ptr @hf_oam_dpoe_mfg_info_serial_number, align 4
-  %421 = call ptr @proto_tree_add_string(ptr noundef %388, i32 noundef %420, ptr noundef %0, i32 noundef %397, i32 noundef %389, ptr noundef %419)
-  %422 = load i32, ptr @hf_oam_dpoe_mfg_info_vendor_specific, align 4
-  %423 = add i32 %.2669.i, 36
-  %424 = add nsw i32 %389, -32
-  %425 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %422, ptr noundef %0, i32 noundef %423, i32 noundef %424, i32 noundef 0)
+413:                                              ; preds = %397
+  %414 = load ptr, ptr %367, align 8
+  %415 = call ptr @tvb_get_string_enc(ptr noundef %414, ptr noundef %0, i32 noundef %393, i32 noundef %385, i32 noundef 0)
+  %416 = load i32, ptr @hf_oam_dpoe_mfg_info_serial_number, align 4
+  %417 = call ptr @proto_tree_add_string(ptr noundef %384, i32 noundef %416, ptr noundef %0, i32 noundef %393, i32 noundef %385, ptr noundef %415)
+  %418 = load i32, ptr @hf_oam_dpoe_mfg_info_vendor_specific, align 4
+  %419 = add i32 %.2669.i, 36
+  %420 = add nsw i32 %385, -32
+  %421 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %418, ptr noundef %0, i32 noundef %419, i32 noundef %420, i32 noundef 0)
   br label %.loopexit632.i
 
-426:                                              ; preds = %401
+422:                                              ; preds = %397
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %427 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %397, i32 noundef 0)
-  %428 = zext i16 %427 to i32
-  %429 = add i32 %.2669.i, 6
-  %430 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %429)
-  %431 = add i32 %.2669.i, 7
-  %432 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %431)
+  %423 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %393, i32 noundef 0)
+  %424 = zext i16 %423 to i32
+  %425 = add i32 %.2669.i, 6
+  %426 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %425)
+  %427 = add i32 %.2669.i, 7
+  %428 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %427)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 noundef 0, i64 noundef 16, i1 noundef false) #5
-  %433 = add i16 %427, -8192
-  %or.cond14.i = icmp ult i16 %433, 1434
-  br i1 %or.cond14.i, label %434, label %452
+  %429 = add i16 %423, -8192
+  %or.cond14.i = icmp ult i16 %429, 1434
+  br i1 %or.cond14.i, label %430, label %448
 
-434:                                              ; preds = %426
-  %435 = load ptr, ptr %371, align 8
-  %436 = call ptr @tvb_get_bcd_string(ptr noundef %435, ptr noundef %0, i32 noundef %397, i32 noundef 4, ptr noundef nonnull @Dgt0_9_bcd, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true)
+430:                                              ; preds = %422
+  %431 = load ptr, ptr %367, align 8
+  %432 = call ptr @tvb_get_bcd_string(ptr noundef %431, ptr noundef %0, i32 noundef %393, i32 noundef 4, ptr noundef nonnull @Dgt0_9_bcd, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true)
+  %433 = load i8, ptr %432, align 1
+  store i8 %433, ptr %5, align 16
+  %434 = getelementptr i8, ptr %432, i64 1
+  %435 = load i8, ptr %434, align 1
+  store i8 %435, ptr %368, align 1
+  %436 = getelementptr i8, ptr %432, i64 2
   %437 = load i8, ptr %436, align 1
-  store i8 %437, ptr %5, align 16
-  %438 = getelementptr i8, ptr %436, i64 1
+  store i8 %437, ptr %369, align 2
+  %438 = getelementptr i8, ptr %432, i64 3
   %439 = load i8, ptr %438, align 1
-  store i8 %439, ptr %372, align 1
-  %440 = getelementptr i8, ptr %436, i64 2
+  store i8 %439, ptr %370, align 1
+  store i8 47, ptr %371, align 4
+  %440 = getelementptr i8, ptr %432, i64 4
   %441 = load i8, ptr %440, align 1
-  store i8 %441, ptr %373, align 2
-  %442 = getelementptr i8, ptr %436, i64 3
+  store i8 %441, ptr %372, align 1
+  %442 = getelementptr i8, ptr %432, i64 5
   %443 = load i8, ptr %442, align 1
-  store i8 %443, ptr %374, align 1
-  store i8 47, ptr %375, align 4
-  %444 = getelementptr i8, ptr %436, i64 4
+  store i8 %443, ptr %373, align 2
+  store i8 47, ptr %374, align 1
+  %444 = getelementptr i8, ptr %432, i64 6
   %445 = load i8, ptr %444, align 1
-  store i8 %445, ptr %376, align 1
-  %446 = getelementptr i8, ptr %436, i64 5
+  store i8 %445, ptr %375, align 8
+  %446 = getelementptr i8, ptr %432, i64 7
   %447 = load i8, ptr %446, align 1
-  store i8 %447, ptr %377, align 2
-  store i8 47, ptr %378, align 1
-  %448 = getelementptr i8, ptr %436, i64 6
-  %449 = load i8, ptr %448, align 1
-  store i8 %449, ptr %379, align 8
-  %450 = getelementptr i8, ptr %436, i64 7
-  %451 = load i8, ptr %450, align 1
-  store i8 %451, ptr %380, align 1
-  br label %471
+  store i8 %447, ptr %376, align 1
+  br label %467
 
-452:                                              ; preds = %426
-  %453 = add i16 %427, -5120
-  %or.cond17.i = icmp ult i16 %453, 1536
-  %454 = and i16 %427, 255
-  %455 = icmp samesign ult i16 %454, 100
-  %or.cond20.i = select i1 %or.cond17.i, i1 %455, i1 false
-  br i1 %or.cond20.i, label %456, label %463
+448:                                              ; preds = %422
+  %449 = add i16 %423, -5120
+  %or.cond17.i = icmp ult i16 %449, 1536
+  %450 = and i16 %423, 255
+  %451 = icmp samesign ult i16 %450, 100
+  %or.cond20.i = select i1 %or.cond17.i, i1 %451, i1 false
+  br i1 %or.cond20.i, label %452, label %459
 
-456:                                              ; preds = %452
-  %457 = zext nneg i16 %454 to i32
-  %458 = lshr i16 %427, 8
-  %459 = zext nneg i16 %458 to i32
-  %460 = zext i8 %430 to i32
-  %461 = zext i8 %432 to i32
-  %462 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 15, i32 noundef 2, i64 noundef 16, ptr noundef nonnull @.str.992, i32 noundef %459, i32 noundef %457, i32 noundef %460, i32 noundef %461)
-  br label %471
+452:                                              ; preds = %448
+  %453 = zext nneg i16 %450 to i32
+  %454 = lshr i16 %423, 8
+  %455 = zext nneg i16 %454 to i32
+  %456 = zext i8 %426 to i32
+  %457 = zext i8 %428 to i32
+  %458 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 15, i32 noundef 2, i64 noundef 16, ptr noundef nonnull @.str.992, i32 noundef %455, i32 noundef %453, i32 noundef %456, i32 noundef %457)
+  br label %467
 
-463:                                              ; preds = %452
-  %464 = add i16 %427, -2000
-  %or.cond23.i = icmp ult i16 %464, 600
-  br i1 %or.cond23.i, label %465, label %469
+459:                                              ; preds = %448
+  %460 = add i16 %423, -2000
+  %or.cond23.i = icmp ult i16 %460, 600
+  br i1 %or.cond23.i, label %461, label %465
 
-465:                                              ; preds = %463
-  %466 = zext i8 %430 to i32
-  %467 = zext i8 %432 to i32
-  %468 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 15, i32 noundef 2, i64 noundef 16, ptr noundef nonnull @.str.993, i32 noundef %428, i32 noundef %466, i32 noundef %467)
-  br label %471
+461:                                              ; preds = %459
+  %462 = zext i8 %426 to i32
+  %463 = zext i8 %428 to i32
+  %464 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 15, i32 noundef 2, i64 noundef 16, ptr noundef nonnull @.str.993, i32 noundef %424, i32 noundef %462, i32 noundef %463)
+  br label %467
 
-469:                                              ; preds = %463
-  %470 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 15, i32 noundef 2, i64 noundef 16, ptr noundef nonnull @.str.994, ptr noundef nonnull @.str.991)
-  br label %471
+465:                                              ; preds = %459
+  %466 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 15, i32 noundef 2, i64 noundef 16, ptr noundef nonnull @.str.994, ptr noundef nonnull @.str.991)
+  br label %467
 
-471:                                              ; preds = %469, %465, %456, %434
-  %472 = load i32, ptr @hf_oam_dpoe_date_of_manufacture, align 4
-  %473 = call ptr @proto_tree_add_string(ptr noundef %388, i32 noundef %472, ptr noundef %0, i32 noundef %397, i32 noundef 4, ptr noundef nonnull %5)
+467:                                              ; preds = %465, %461, %452, %430
+  %468 = load i32, ptr @hf_oam_dpoe_date_of_manufacture, align 4
+  %469 = call ptr @proto_tree_add_string(ptr noundef %384, i32 noundef %468, ptr noundef %0, i32 noundef %393, i32 noundef 4, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit632.i
 
-474:                                              ; preds = %401
-  %475 = load i32, ptr @hf_oam_dpoe_chipset_jedec_id, align 4
-  %476 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %475, ptr noundef %0, i32 noundef %397, i32 noundef 2, i32 noundef 0)
-  %477 = load i32, ptr @hf_oam_dpoe_chipset_chip_model, align 4
-  %478 = add i32 %.2669.i, 6
-  %479 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %477, ptr noundef %0, i32 noundef %478, i32 noundef 4, i32 noundef 0)
-  %480 = load i32, ptr @hf_oam_dpoe_chipset_chip_version, align 4
-  %481 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %480, ptr noundef %0, i32 noundef %397, i32 noundef 4, i32 noundef 0)
+470:                                              ; preds = %397
+  %471 = load i32, ptr @hf_oam_dpoe_chipset_jedec_id, align 4
+  %472 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %471, ptr noundef %0, i32 noundef %393, i32 noundef 2, i32 noundef 0)
+  %473 = load i32, ptr @hf_oam_dpoe_chipset_chip_model, align 4
+  %474 = add i32 %.2669.i, 6
+  %475 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %473, ptr noundef %0, i32 noundef %474, i32 noundef 4, i32 noundef 0)
+  %476 = load i32, ptr @hf_oam_dpoe_chipset_chip_version, align 4
+  %477 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %476, ptr noundef %0, i32 noundef %393, i32 noundef 4, i32 noundef 0)
   br label %.loopexit632.i
 
-482:                                              ; preds = %401
-  %483 = load i32, ptr @hf_oam_dpoe_mll_b, align 4
-  %484 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %483, ptr noundef %0, i32 noundef %397, i32 noundef 2, i32 noundef 0)
-  %485 = load i32, ptr @hf_oam_dpoe_mll_do, align 4
-  %486 = add i32 %.2669.i, 6
-  %487 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %485, ptr noundef %0, i32 noundef %486, i32 noundef 2, i32 noundef 0)
+478:                                              ; preds = %397
+  %479 = load i32, ptr @hf_oam_dpoe_mll_b, align 4
+  %480 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %479, ptr noundef %0, i32 noundef %393, i32 noundef 2, i32 noundef 0)
+  %481 = load i32, ptr @hf_oam_dpoe_mll_do, align 4
+  %482 = add i32 %.2669.i, 6
+  %483 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %481, ptr noundef %0, i32 noundef %482, i32 noundef 2, i32 noundef 0)
   br label %.loopexit632.i
 
-488:                                              ; preds = %401
-  %489 = load i32, ptr @hf_oam_dpoe_response_int, align 4
-  %490 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %489, ptr noundef %0, i32 noundef %397, i32 noundef %389, i32 noundef 0)
+484:                                              ; preds = %397
+  %485 = load i32, ptr @hf_oam_dpoe_response_int, align 4
+  %486 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %485, ptr noundef %0, i32 noundef %393, i32 noundef %385, i32 noundef 0)
   br label %.loopexit632.i
 
-491:                                              ; preds = %401
-  %492 = load i32, ptr @hf_oam_dpoe_response_int, align 4
-  %493 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %492, ptr noundef %0, i32 noundef %397, i32 noundef %389, i32 noundef 0)
+487:                                              ; preds = %397
+  %488 = load i32, ptr @hf_oam_dpoe_response_int, align 4
+  %489 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %488, ptr noundef %0, i32 noundef %393, i32 noundef %385, i32 noundef 0)
   br label %.loopexit632.i
 
-494:                                              ; preds = %401
-  %495 = load i32, ptr @hf_oam_dpoe_pkt_buffer_us_queues, align 4
-  %496 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %495, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
-  %497 = load i32, ptr @hf_oam_dpoe_pkt_buffer_us_queues_max_per_link, align 4
-  %498 = add i32 %.2669.i, 5
-  %499 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %497, ptr noundef %0, i32 noundef %498, i32 noundef 1, i32 noundef 0)
-  %500 = load i32, ptr @hf_oam_dpoe_pkt_buffer_us_queue_inc, align 4
-  %501 = add i32 %.2669.i, 6
-  %502 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %500, ptr noundef %0, i32 noundef %501, i32 noundef 1, i32 noundef 0)
-  %503 = load i32, ptr @hf_oam_dpoe_pkt_buffer_ds_queues, align 4
-  %504 = add i32 %.2669.i, 7
-  %505 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %503, ptr noundef %0, i32 noundef %504, i32 noundef 1, i32 noundef 0)
-  %506 = load i32, ptr @hf_oam_dpoe_pkt_buffer_ds_queues_max_per_link, align 4
-  %507 = add i32 %.2669.i, 8
-  %508 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %506, ptr noundef %0, i32 noundef %507, i32 noundef 1, i32 noundef 0)
-  %509 = load i32, ptr @hf_oam_dpoe_pkt_buffer_ds_queue_inc, align 4
-  %510 = add i32 %.2669.i, 9
-  %511 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %509, ptr noundef %0, i32 noundef %510, i32 noundef 1, i32 noundef 0)
-  %512 = load i32, ptr @hf_oam_dpoe_pkt_buffer_total_memory, align 4
-  %513 = add i32 %.2669.i, 10
-  %514 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %512, ptr noundef %0, i32 noundef %513, i32 noundef 2, i32 noundef 0)
-  %515 = load i32, ptr @hf_oam_dpoe_pkt_buffer_us_memory_max, align 4
-  %516 = add i32 %.2669.i, 12
-  %517 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %515, ptr noundef %0, i32 noundef %516, i32 noundef 2, i32 noundef 0)
-  %518 = load i32, ptr @hf_oam_dpoe_pkt_buffer_ds_memory_max, align 4
-  %519 = add i32 %.2669.i, 14
-  %520 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %518, ptr noundef %0, i32 noundef %519, i32 noundef 2, i32 noundef 0)
+490:                                              ; preds = %397
+  %491 = load i32, ptr @hf_oam_dpoe_pkt_buffer_us_queues, align 4
+  %492 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %491, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
+  %493 = load i32, ptr @hf_oam_dpoe_pkt_buffer_us_queues_max_per_link, align 4
+  %494 = add i32 %.2669.i, 5
+  %495 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %493, ptr noundef %0, i32 noundef %494, i32 noundef 1, i32 noundef 0)
+  %496 = load i32, ptr @hf_oam_dpoe_pkt_buffer_us_queue_inc, align 4
+  %497 = add i32 %.2669.i, 6
+  %498 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %496, ptr noundef %0, i32 noundef %497, i32 noundef 1, i32 noundef 0)
+  %499 = load i32, ptr @hf_oam_dpoe_pkt_buffer_ds_queues, align 4
+  %500 = add i32 %.2669.i, 7
+  %501 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %499, ptr noundef %0, i32 noundef %500, i32 noundef 1, i32 noundef 0)
+  %502 = load i32, ptr @hf_oam_dpoe_pkt_buffer_ds_queues_max_per_link, align 4
+  %503 = add i32 %.2669.i, 8
+  %504 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %502, ptr noundef %0, i32 noundef %503, i32 noundef 1, i32 noundef 0)
+  %505 = load i32, ptr @hf_oam_dpoe_pkt_buffer_ds_queue_inc, align 4
+  %506 = add i32 %.2669.i, 9
+  %507 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %505, ptr noundef %0, i32 noundef %506, i32 noundef 1, i32 noundef 0)
+  %508 = load i32, ptr @hf_oam_dpoe_pkt_buffer_total_memory, align 4
+  %509 = add i32 %.2669.i, 10
+  %510 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %508, ptr noundef %0, i32 noundef %509, i32 noundef 2, i32 noundef 0)
+  %511 = load i32, ptr @hf_oam_dpoe_pkt_buffer_us_memory_max, align 4
+  %512 = add i32 %.2669.i, 12
+  %513 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %511, ptr noundef %0, i32 noundef %512, i32 noundef 2, i32 noundef 0)
+  %514 = load i32, ptr @hf_oam_dpoe_pkt_buffer_ds_memory_max, align 4
+  %515 = add i32 %.2669.i, 14
+  %516 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %514, ptr noundef %0, i32 noundef %515, i32 noundef 2, i32 noundef 0)
   br label %.loopexit632.i
 
-521:                                              ; preds = %401
-  %522 = load i32, ptr @hf_oam_dpoe_frame_rate_minimum, align 4
-  %523 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %522, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
-  %524 = load i32, ptr @hf_oam_dpoe_frame_rate_maximum, align 4
-  %525 = add i32 %.2669.i, 5
-  %526 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %524, ptr noundef %0, i32 noundef %525, i32 noundef 1, i32 noundef 0)
+517:                                              ; preds = %397
+  %518 = load i32, ptr @hf_oam_dpoe_frame_rate_minimum, align 4
+  %519 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %518, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
+  %520 = load i32, ptr @hf_oam_dpoe_frame_rate_maximum, align 4
+  %521 = add i32 %.2669.i, 5
+  %522 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %520, ptr noundef %0, i32 noundef %521, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-527:                                              ; preds = %401
-  %528 = load ptr, ptr %371, align 8
-  %529 = call ptr @tvb_get_string_enc(ptr noundef %528, ptr noundef %0, i32 noundef %397, i32 noundef %389, i32 noundef 0)
-  %530 = load i32, ptr @hf_oam_dpoe_mfg_org_name, align 4
-  %531 = call ptr @proto_tree_add_string(ptr noundef %388, i32 noundef %530, ptr noundef %0, i32 noundef %397, i32 noundef %389, ptr noundef %529)
+523:                                              ; preds = %397
+  %524 = load ptr, ptr %367, align 8
+  %525 = call ptr @tvb_get_string_enc(ptr noundef %524, ptr noundef %0, i32 noundef %393, i32 noundef %385, i32 noundef 0)
+  %526 = load i32, ptr @hf_oam_dpoe_mfg_org_name, align 4
+  %527 = call ptr @proto_tree_add_string(ptr noundef %384, i32 noundef %526, ptr noundef %0, i32 noundef %393, i32 noundef %385, ptr noundef %525)
   br label %.loopexit632.i
 
-532:                                              ; preds = %401
-  %533 = load ptr, ptr %371, align 8
-  %534 = call ptr @tvb_get_string_enc(ptr noundef %533, ptr noundef %0, i32 noundef %397, i32 noundef 13, i32 noundef 0)
-  %535 = load i32, ptr @hf_oam_dpoe_tvc_code_access_start, align 4
-  %536 = call ptr @proto_tree_add_string(ptr noundef %388, i32 noundef %535, ptr noundef %0, i32 noundef %397, i32 noundef 13, ptr noundef %534)
-  %537 = load ptr, ptr %371, align 8
-  %538 = add i32 %.2669.i, 17
-  %539 = call ptr @tvb_get_string_enc(ptr noundef %537, ptr noundef %0, i32 noundef %538, i32 noundef 13, i32 noundef 0)
-  %540 = load i32, ptr @hf_oam_dpoe_tvc_cvc_access_start, align 4
-  %541 = call ptr @proto_tree_add_string(ptr noundef %388, i32 noundef %540, ptr noundef %0, i32 noundef %538, i32 noundef 13, ptr noundef %539)
+528:                                              ; preds = %397
+  %529 = load ptr, ptr %367, align 8
+  %530 = call ptr @tvb_get_string_enc(ptr noundef %529, ptr noundef %0, i32 noundef %393, i32 noundef 13, i32 noundef 0)
+  %531 = load i32, ptr @hf_oam_dpoe_tvc_code_access_start, align 4
+  %532 = call ptr @proto_tree_add_string(ptr noundef %384, i32 noundef %531, ptr noundef %0, i32 noundef %393, i32 noundef 13, ptr noundef %530)
+  %533 = load ptr, ptr %367, align 8
+  %534 = add i32 %.2669.i, 17
+  %535 = call ptr @tvb_get_string_enc(ptr noundef %533, ptr noundef %0, i32 noundef %534, i32 noundef 13, i32 noundef 0)
+  %536 = load i32, ptr @hf_oam_dpoe_tvc_cvc_access_start, align 4
+  %537 = call ptr @proto_tree_add_string(ptr noundef %384, i32 noundef %536, ptr noundef %0, i32 noundef %534, i32 noundef 13, ptr noundef %535)
   br label %.loopexit632.i
 
-542:                                              ; preds = %401
-  %543 = load ptr, ptr %371, align 8
-  %544 = call ptr @tvb_get_string_enc(ptr noundef %543, ptr noundef %0, i32 noundef %397, i32 noundef %389, i32 noundef 0)
-  %545 = load i32, ptr @hf_oam_dpoe_vendor_name, align 4
-  %546 = call ptr @proto_tree_add_string(ptr noundef %388, i32 noundef %545, ptr noundef %0, i32 noundef %397, i32 noundef %389, ptr noundef %544)
+538:                                              ; preds = %397
+  %539 = load ptr, ptr %367, align 8
+  %540 = call ptr @tvb_get_string_enc(ptr noundef %539, ptr noundef %0, i32 noundef %393, i32 noundef %385, i32 noundef 0)
+  %541 = load i32, ptr @hf_oam_dpoe_vendor_name, align 4
+  %542 = call ptr @proto_tree_add_string(ptr noundef %384, i32 noundef %541, ptr noundef %0, i32 noundef %393, i32 noundef %385, ptr noundef %540)
   br label %.loopexit632.i
 
-547:                                              ; preds = %401
-  %548 = load ptr, ptr %371, align 8
-  %549 = call ptr @tvb_get_string_enc(ptr noundef %548, ptr noundef %0, i32 noundef %397, i32 noundef %389, i32 noundef 0)
-  %550 = load i32, ptr @hf_oam_dpoe_model_number, align 4
-  %551 = call ptr @proto_tree_add_string(ptr noundef %388, i32 noundef %550, ptr noundef %0, i32 noundef %397, i32 noundef %389, ptr noundef %549)
+543:                                              ; preds = %397
+  %544 = load ptr, ptr %367, align 8
+  %545 = call ptr @tvb_get_string_enc(ptr noundef %544, ptr noundef %0, i32 noundef %393, i32 noundef %385, i32 noundef 0)
+  %546 = load i32, ptr @hf_oam_dpoe_model_number, align 4
+  %547 = call ptr @proto_tree_add_string(ptr noundef %384, i32 noundef %546, ptr noundef %0, i32 noundef %393, i32 noundef %385, ptr noundef %545)
   br label %.loopexit632.i
 
-552:                                              ; preds = %401
-  %553 = load ptr, ptr %371, align 8
-  %554 = call ptr @tvb_get_string_enc(ptr noundef %553, ptr noundef %0, i32 noundef %397, i32 noundef %389, i32 noundef 0)
-  %555 = load i32, ptr @hf_oam_dpoe_hw_version, align 4
-  %556 = call ptr @proto_tree_add_string(ptr noundef %388, i32 noundef %555, ptr noundef %0, i32 noundef %397, i32 noundef %389, ptr noundef %554)
+548:                                              ; preds = %397
+  %549 = load ptr, ptr %367, align 8
+  %550 = call ptr @tvb_get_string_enc(ptr noundef %549, ptr noundef %0, i32 noundef %393, i32 noundef %385, i32 noundef 0)
+  %551 = load i32, ptr @hf_oam_dpoe_hw_version, align 4
+  %552 = call ptr @proto_tree_add_string(ptr noundef %384, i32 noundef %551, ptr noundef %0, i32 noundef %393, i32 noundef %385, ptr noundef %550)
   br label %.loopexit632.i
 
-557:                                              ; preds = %401
-  %558 = load ptr, ptr %371, align 8
-  %559 = call ptr @tvb_get_stringzpad(ptr noundef %558, ptr noundef %0, i32 noundef %397, i32 noundef %389, i32 noundef 0)
-  %560 = load i32, ptr @hf_oam_dpoe_sw_bundle, align 4
-  %561 = call ptr @proto_tree_add_string(ptr noundef %388, i32 noundef %560, ptr noundef %0, i32 noundef %397, i32 noundef %389, ptr noundef %559)
+553:                                              ; preds = %397
+  %554 = load ptr, ptr %367, align 8
+  %555 = call ptr @tvb_get_stringzpad(ptr noundef %554, ptr noundef %0, i32 noundef %393, i32 noundef %385, i32 noundef 0)
+  %556 = load i32, ptr @hf_oam_dpoe_sw_bundle, align 4
+  %557 = call ptr @proto_tree_add_string(ptr noundef %384, i32 noundef %556, ptr noundef %0, i32 noundef %393, i32 noundef %385, ptr noundef %555)
   br label %.loopexit632.i
 
-562:                                              ; preds = %401
-  %563 = load i32, ptr @hf_oam_dpoe_repthr_nqs, align 4
-  %564 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %563, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
-  %565 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %397)
-  %566 = load i32, ptr @hf_oam_dpoe_repthr_rvpqs, align 4
-  %567 = add i32 %.2669.i, 5
-  %568 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %566, ptr noundef %0, i32 noundef %567, i32 noundef 1, i32 noundef 0)
-  %569 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %567)
-  %.not681.i = icmp eq i8 %565, 0
+558:                                              ; preds = %397
+  %559 = load i32, ptr @hf_oam_dpoe_repthr_nqs, align 4
+  %560 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %559, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
+  %561 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %393)
+  %562 = load i32, ptr @hf_oam_dpoe_repthr_rvpqs, align 4
+  %563 = add i32 %.2669.i, 5
+  %564 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %562, ptr noundef %0, i32 noundef %563, i32 noundef 1, i32 noundef 0)
+  %565 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %563)
+  %.not681.i = icmp eq i8 %561, 0
   br i1 %.not681.i, label %.loopexit632.i, label %.preheader631.lr.ph.i
 
-.preheader631.lr.ph.i:                            ; preds = %562
-  %.not682.i = icmp eq i8 %569, 0
-  %570 = add i32 %.2669.i, 6
+.preheader631.lr.ph.i:                            ; preds = %558
+  %.not682.i = icmp eq i8 %565, 0
+  %566 = add i32 %.2669.i, 6
   br i1 %.not682.i, label %.loopexit632.i, label %.preheader631.us.preheader.i
 
 .preheader631.us.preheader.i:                     ; preds = %.preheader631.lr.ph.i
-  %wide.trip.count717.i = zext i8 %565 to i32
-  %wide.trip.count712.i = zext i8 %569 to i32
+  %wide.trip.count717.i = zext i8 %561 to i32
+  %wide.trip.count712.i = zext i8 %565 to i32
   br label %.preheader631.us.i
 
 .preheader631.us.i:                               ; preds = %._crit_edge666.us.i, %.preheader631.us.preheader.i
   %indvars.iv714.i = phi i32 [ 0, %.preheader631.us.preheader.i ], [ %indvars.iv.next715.i, %._crit_edge666.us.i ]
-  br label %571
+  br label %567
 
-571:                                              ; preds = %571, %.preheader631.us.i
-  %indvars.iv709.i = phi i32 [ 0, %.preheader631.us.i ], [ %indvars.iv.next710.i, %571 ]
-  %572 = load i32, ptr @hf_oam_dpoe_report_threshold, align 4
-  %573 = add nuw nsw i32 %indvars.iv709.i, %indvars.iv714.i
-  %574 = shl nuw nsw i32 %573, 1
-  %575 = add i32 %570, %574
-  %576 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %572, ptr noundef %0, i32 noundef %575, i32 noundef 2, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %576, ptr noundef nonnull @.str.995, i32 noundef %indvars.iv714.i, i32 noundef %indvars.iv709.i)
+567:                                              ; preds = %567, %.preheader631.us.i
+  %indvars.iv709.i = phi i32 [ 0, %.preheader631.us.i ], [ %indvars.iv.next710.i, %567 ]
+  %568 = load i32, ptr @hf_oam_dpoe_report_threshold, align 4
+  %569 = add nuw nsw i32 %indvars.iv709.i, %indvars.iv714.i
+  %570 = shl nuw nsw i32 %569, 1
+  %571 = add i32 %566, %570
+  %572 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %568, ptr noundef %0, i32 noundef %571, i32 noundef 2, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %572, ptr noundef nonnull @.str.995, i32 noundef %indvars.iv714.i, i32 noundef %indvars.iv709.i)
   %indvars.iv.next710.i = add nuw nsw i32 %indvars.iv709.i, 1
   %exitcond713.not.i = icmp eq i32 %indvars.iv.next710.i, %wide.trip.count712.i
-  br i1 %exitcond713.not.i, label %._crit_edge666.us.i, label %571, !llvm.loop !8
+  br i1 %exitcond713.not.i, label %._crit_edge666.us.i, label %567, !llvm.loop !8
 
-._crit_edge666.us.i:                              ; preds = %571
+._crit_edge666.us.i:                              ; preds = %567
   %indvars.iv.next715.i = add nuw nsw i32 %indvars.iv714.i, 1
   %exitcond718.not.i = icmp eq i32 %indvars.iv.next715.i, %wide.trip.count717.i
   br i1 %exitcond718.not.i, label %.loopexit632.i, label %.preheader631.us.i, !llvm.loop !9
 
-577:                                              ; preds = %401
-  %578 = load i32, ptr @hf_oam_dpoe_ll_fwd_state, align 4
-  %579 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %578, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
+573:                                              ; preds = %397
+  %574 = load i32, ptr @hf_oam_dpoe_ll_fwd_state, align 4
+  %575 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %574, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-580:                                              ; preds = %401
-  %581 = load i32, ptr @hf_oam_dpoe_s1_autoneg, align 4
-  %582 = load i32, ptr @ett_oam_dpoe_s1_autoneg, align 4
-  %583 = call ptr @proto_tree_add_bitmask(ptr noundef %388, ptr noundef %0, i32 noundef %397, i32 noundef %581, i32 noundef %582, ptr noundef nonnull @s1_autoneg_mode_bits, i32 noundef 0)
+576:                                              ; preds = %397
+  %577 = load i32, ptr @hf_oam_dpoe_s1_autoneg, align 4
+  %578 = load i32, ptr @ett_oam_dpoe_s1_autoneg, align 4
+  %579 = call ptr @proto_tree_add_bitmask(ptr noundef %384, ptr noundef %0, i32 noundef %393, i32 noundef %577, i32 noundef %578, ptr noundef nonnull @s1_autoneg_mode_bits, i32 noundef 0)
   br label %.loopexit632.i
 
-584:                                              ; preds = %401
-  %585 = load i32, ptr @hf_oam_dpoe_user_port_object, align 4
-  %586 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %585, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
+580:                                              ; preds = %397
+  %581 = load i32, ptr @hf_oam_dpoe_user_port_object, align 4
+  %582 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %581, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-587:                                              ; preds = %401
-  %588 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_queue_obj_type, align 4
-  %589 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %588, ptr noundef %0, i32 noundef %397, i32 noundef 2, i32 noundef 0)
-  %590 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_queue_obj_inst, align 4
-  %591 = add i32 %.2669.i, 6
-  %592 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %590, ptr noundef %0, i32 noundef %591, i32 noundef 1, i32 noundef 0)
-  %593 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_queue_queue_index, align 4
-  %594 = add i32 %.2669.i, 7
-  %595 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %593, ptr noundef %0, i32 noundef %594, i32 noundef 1, i32 noundef 0)
+583:                                              ; preds = %397
+  %584 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_queue_obj_type, align 4
+  %585 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %584, ptr noundef %0, i32 noundef %393, i32 noundef 2, i32 noundef 0)
+  %586 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_queue_obj_inst, align 4
+  %587 = add i32 %.2669.i, 6
+  %588 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %586, ptr noundef %0, i32 noundef %587, i32 noundef 1, i32 noundef 0)
+  %589 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_queue_queue_index, align 4
+  %590 = add i32 %.2669.i, 7
+  %591 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %589, ptr noundef %0, i32 noundef %590, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-596:                                              ; preds = %401
-  %597 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %397)
-  %598 = load i32, ptr @hf_oam_dpoe_user_port_object_subtype, align 4
-  %599 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %598, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
-  switch i8 %597, label %.loopexit632.i [
-    i8 3, label %631
-    i8 1, label %600
-    i8 2, label %604
+592:                                              ; preds = %397
+  %593 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %393)
+  %594 = load i32, ptr @hf_oam_dpoe_user_port_object_subtype, align 4
+  %595 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %594, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
+  switch i8 %593, label %.loopexit632.i [
+    i8 3, label %627
+    i8 1, label %596
+    i8 2, label %600
   ]
 
-600:                                              ; preds = %596
-  %601 = load i32, ptr @hf_oam_dpoe_user_port_object_header_precedence, align 4
+596:                                              ; preds = %592
+  %597 = load i32, ptr @hf_oam_dpoe_user_port_object_header_precedence, align 4
+  %598 = add i32 %.2669.i, 5
+  %599 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %597, ptr noundef %0, i32 noundef %598, i32 noundef 1, i32 noundef 0)
+  br label %.loopexit632.i
+
+600:                                              ; preds = %592
+  %601 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_fc, align 4
   %602 = add i32 %.2669.i, 5
-  %603 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %601, ptr noundef %0, i32 noundef %602, i32 noundef 1, i32 noundef 0)
+  %603 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %601, ptr noundef %0, i32 noundef %602, i32 noundef 1, i32 noundef 0)
+  %604 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_fi, align 4
+  %605 = add i32 %.2669.i, 6
+  %606 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %604, ptr noundef %0, i32 noundef %605, i32 noundef 1, i32 noundef 0)
+  %607 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_msbm, align 4
+  %608 = add i32 %.2669.i, 7
+  %609 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %607, ptr noundef %0, i32 noundef %608, i32 noundef 1, i32 noundef 0)
+  %610 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_lsbm, align 4
+  %611 = add i32 %.2669.i, 8
+  %612 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %610, ptr noundef %0, i32 noundef %611, i32 noundef 1, i32 noundef 0)
+  %613 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_operator, align 4
+  %614 = add i32 %.2669.i, 9
+  %615 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %613, ptr noundef %0, i32 noundef %614, i32 noundef 1, i32 noundef 0)
+  %616 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_mvl, align 4
+  %617 = add i32 %.2669.i, 10
+  %618 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %616, ptr noundef %0, i32 noundef %617, i32 noundef 1, i32 noundef 0)
+  %619 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %617)
+  %.not629.i = icmp eq i8 %619, 0
+  br i1 %.not629.i, label %625, label %620
+
+620:                                              ; preds = %600
+  %621 = zext i8 %619 to i32
+  %622 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_mv, align 4
+  %623 = add i32 %.2669.i, 11
+  %624 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %622, ptr noundef %0, i32 noundef %623, i32 noundef %621, i32 noundef 0)
   br label %.loopexit632.i
 
-604:                                              ; preds = %596
-  %605 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_fc, align 4
-  %606 = add i32 %.2669.i, 5
-  %607 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %605, ptr noundef %0, i32 noundef %606, i32 noundef 1, i32 noundef 0)
-  %608 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_fi, align 4
-  %609 = add i32 %.2669.i, 6
-  %610 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %608, ptr noundef %0, i32 noundef %609, i32 noundef 1, i32 noundef 0)
-  %611 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_msbm, align 4
-  %612 = add i32 %.2669.i, 7
-  %613 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %611, ptr noundef %0, i32 noundef %612, i32 noundef 1, i32 noundef 0)
-  %614 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_lsbm, align 4
-  %615 = add i32 %.2669.i, 8
-  %616 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %614, ptr noundef %0, i32 noundef %615, i32 noundef 1, i32 noundef 0)
-  %617 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_operator, align 4
-  %618 = add i32 %.2669.i, 9
-  %619 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %617, ptr noundef %0, i32 noundef %618, i32 noundef 1, i32 noundef 0)
-  %620 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_mvl, align 4
-  %621 = add i32 %.2669.i, 10
-  %622 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %620, ptr noundef %0, i32 noundef %621, i32 noundef 1, i32 noundef 0)
-  %623 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %621)
-  %.not629.i = icmp eq i8 %623, 0
-  br i1 %.not629.i, label %629, label %624
-
-624:                                              ; preds = %604
-  %625 = zext i8 %623 to i32
-  %626 = load i32, ptr @hf_oam_dpoe_user_port_object_clause_mv, align 4
-  %627 = add i32 %.2669.i, 11
-  %628 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %626, ptr noundef %0, i32 noundef %627, i32 noundef %625, i32 noundef 0)
+625:                                              ; preds = %600
+  %626 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %618, ptr noundef nonnull @ei_oampdu_mvl_length_zero, ptr noundef nonnull @.str.329)
   br label %.loopexit632.i
 
-629:                                              ; preds = %604
-  %630 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %622, ptr noundef nonnull @ei_oampdu_mvl_length_zero, ptr noundef nonnull @.str.329)
-  br label %.loopexit632.i
-
-631:                                              ; preds = %596
-  %632 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr, align 4
-  %633 = add i32 %.2669.i, 5
-  %634 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %632, ptr noundef %0, i32 noundef %633, i32 noundef 1, i32 noundef 0)
-  %635 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %633)
-  switch i8 %635, label %.loopexit632.i [
-    i8 0, label %636
-    i8 1, label %637
-    i8 2, label %638
-    i8 3, label %639
-    i8 4, label %641
-    i8 5, label %648
-    i8 6, label %652
-    i8 7, label %656
-    i8 8, label %660
-    i8 9, label %664
-    i8 10, label %668
+627:                                              ; preds = %592
+  %628 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr, align 4
+  %629 = add i32 %.2669.i, 5
+  %630 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %628, ptr noundef %0, i32 noundef %629, i32 noundef 1, i32 noundef 0)
+  %631 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %629)
+  switch i8 %631, label %.loopexit632.i [
+    i8 0, label %632
+    i8 1, label %633
+    i8 2, label %634
+    i8 3, label %635
+    i8 4, label %637
+    i8 5, label %644
+    i8 6, label %648
+    i8 7, label %652
+    i8 8, label %656
+    i8 9, label %660
+    i8 10, label %664
   ]
 
-636:                                              ; preds = %631
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef nonnull @.str.996)
+632:                                              ; preds = %627
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.996)
   br label %.loopexit632.i
 
-637:                                              ; preds = %631
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef nonnull @.str.997)
+633:                                              ; preds = %627
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.997)
   br label %.loopexit632.i
 
-638:                                              ; preds = %631
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef nonnull @.str.998)
+634:                                              ; preds = %627
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.998)
   br label %.loopexit632.i
 
-639:                                              ; preds = %631
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef nonnull @.str.999)
-  %640 = add i32 %.2669.i, 6
-  call fastcc void @dissect_oampdu_add_queue_object(ptr noundef %388, ptr noundef %0, i32 noundef %640)
+635:                                              ; preds = %627
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.999)
+  %636 = add i32 %.2669.i, 6
+  call fastcc void @dissect_oampdu_add_queue_object(ptr noundef %384, ptr noundef %0, i32 noundef %636)
   br label %.loopexit632.i
 
-641:                                              ; preds = %631
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef nonnull @.str.1000)
-  %642 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_set_fc, align 4
-  %643 = add i32 %.2669.i, 6
-  %644 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %642, ptr noundef %0, i32 noundef %643, i32 noundef 1, i32 noundef 0)
-  %645 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_set_fi, align 4
-  %646 = add i32 %.2669.i, 7
-  %647 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %645, ptr noundef %0, i32 noundef %646, i32 noundef 1, i32 noundef 0)
+637:                                              ; preds = %627
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.1000)
+  %638 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_set_fc, align 4
+  %639 = add i32 %.2669.i, 6
+  %640 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %638, ptr noundef %0, i32 noundef %639, i32 noundef 1, i32 noundef 0)
+  %641 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_set_fi, align 4
+  %642 = add i32 %.2669.i, 7
+  %643 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %641, ptr noundef %0, i32 noundef %642, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-648:                                              ; preds = %631
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef nonnull @.str.1001)
-  %649 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_copy, align 4
-  %650 = add i32 %.2669.i, 8
-  %651 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %649, ptr noundef %0, i32 noundef %650, i32 noundef 4, i32 noundef 0)
+644:                                              ; preds = %627
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.1001)
+  %645 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_copy, align 4
+  %646 = add i32 %.2669.i, 8
+  %647 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %645, ptr noundef %0, i32 noundef %646, i32 noundef 4, i32 noundef 0)
   br label %.loopexit632.i
 
-652:                                              ; preds = %631
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef nonnull @.str.1002)
-  %653 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_delete, align 4
+648:                                              ; preds = %627
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.1002)
+  %649 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_delete, align 4
+  %650 = add i32 %.2669.i, 6
+  %651 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %649, ptr noundef %0, i32 noundef %650, i32 noundef 2, i32 noundef 0)
+  br label %.loopexit632.i
+
+652:                                              ; preds = %627
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.1003)
+  %653 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_insert, align 4
   %654 = add i32 %.2669.i, 6
-  %655 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %653, ptr noundef %0, i32 noundef %654, i32 noundef 2, i32 noundef 0)
+  %655 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %653, ptr noundef %0, i32 noundef %654, i32 noundef 2, i32 noundef 0)
   br label %.loopexit632.i
 
-656:                                              ; preds = %631
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef nonnull @.str.1003)
-  %657 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_insert, align 4
+656:                                              ; preds = %627
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.1004)
+  %657 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_replace, align 4
   %658 = add i32 %.2669.i, 6
-  %659 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %657, ptr noundef %0, i32 noundef %658, i32 noundef 2, i32 noundef 0)
+  %659 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %657, ptr noundef %0, i32 noundef %658, i32 noundef 2, i32 noundef 0)
   br label %.loopexit632.i
 
-660:                                              ; preds = %631
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef nonnull @.str.1004)
-  %661 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_replace, align 4
+660:                                              ; preds = %627
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.1005)
+  %661 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_cd, align 4
   %662 = add i32 %.2669.i, 6
-  %663 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %661, ptr noundef %0, i32 noundef %662, i32 noundef 2, i32 noundef 0)
+  %663 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %661, ptr noundef %0, i32 noundef %662, i32 noundef 2, i32 noundef 0)
   br label %.loopexit632.i
 
-664:                                              ; preds = %631
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef nonnull @.str.1005)
-  %665 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_cd, align 4
+664:                                              ; preds = %627
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %630, ptr noundef nonnull @.str.1006)
+  %665 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_ci, align 4
   %666 = add i32 %.2669.i, 6
-  %667 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %665, ptr noundef %0, i32 noundef %666, i32 noundef 2, i32 noundef 0)
+  %667 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %665, ptr noundef %0, i32 noundef %666, i32 noundef 2, i32 noundef 0)
   br label %.loopexit632.i
 
-668:                                              ; preds = %631
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef nonnull @.str.1006)
-  %669 = load i32, ptr @hf_oam_dpoe_user_port_object_result_rr_ci, align 4
-  %670 = add i32 %.2669.i, 6
-  %671 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %669, ptr noundef %0, i32 noundef %670, i32 noundef 2, i32 noundef 0)
-  br label %.loopexit632.i
-
-672:                                              ; preds = %401
-  %673 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %397)
-  %674 = load i32, ptr @hf_oam_dpoe_qc_ll_u, align 4
-  %675 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %674, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
-  %676 = load i32, ptr @ett_oam_dpoe_qc_u, align 4
-  %677 = call ptr @proto_item_add_subtree(ptr noundef %675, i32 noundef %676)
-  %.not677.i = icmp eq i8 %673, 0
+668:                                              ; preds = %397
+  %669 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %393)
+  %670 = load i32, ptr @hf_oam_dpoe_qc_ll_u, align 4
+  %671 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %670, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
+  %672 = load i32, ptr @ett_oam_dpoe_qc_u, align 4
+  %673 = call ptr @proto_item_add_subtree(ptr noundef %671, i32 noundef %672)
+  %.not677.i = icmp eq i8 %669, 0
   br i1 %.not677.i, label %._crit_edge651.i, label %.lr.ph650.preheader.i
 
-.lr.ph650.preheader.i:                            ; preds = %672
-  %wide.trip.count697.i = zext i8 %673 to i32
+.lr.ph650.preheader.i:                            ; preds = %668
+  %wide.trip.count697.i = zext i8 %669 to i32
   br label %.lr.ph650.i
 
 .lr.ph650.i:                                      ; preds = %._crit_edge.i, %.lr.ph650.preheader.i
   %indvars.iv694.i = phi i32 [ 0, %.lr.ph650.preheader.i ], [ %indvars.iv.next695.i, %._crit_edge.i ]
-  %.4648.i = phi i32 [ %397, %.lr.ph650.preheader.i ], [ %.5.lcssa.i, %._crit_edge.i ]
-  %678 = add i32 %.4648.i, 1
-  %679 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %678)
-  %680 = load i32, ptr @hf_oam_dpoe_qc_nq, align 4
-  %681 = call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %680, ptr noundef %0, i32 noundef %678, i32 noundef 1, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %681, ptr noundef nonnull @.str.1007, i32 noundef %indvars.iv694.i)
-  %682 = load i32, ptr @ett_oam_dpoe_qc_nq, align 4
-  %683 = call ptr @proto_item_add_subtree(ptr noundef %681, i32 noundef %682)
-  %.not678.i = icmp eq i8 %679, 0
+  %.4648.i = phi i32 [ %393, %.lr.ph650.preheader.i ], [ %.5.lcssa.i, %._crit_edge.i ]
+  %674 = add i32 %.4648.i, 1
+  %675 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %674)
+  %676 = load i32, ptr @hf_oam_dpoe_qc_nq, align 4
+  %677 = call ptr @proto_tree_add_item(ptr noundef %673, i32 noundef %676, ptr noundef %0, i32 noundef %674, i32 noundef 1, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %677, ptr noundef nonnull @.str.1007, i32 noundef %indvars.iv694.i)
+  %678 = load i32, ptr @ett_oam_dpoe_qc_nq, align 4
+  %679 = call ptr @proto_item_add_subtree(ptr noundef %677, i32 noundef %678)
+  %.not678.i = icmp eq i8 %675, 0
   br i1 %.not678.i, label %._crit_edge.i, label %.lr.ph645.preheader.i
 
 .lr.ph645.preheader.i:                            ; preds = %.lr.ph650.i
-  %wide.trip.count.i = zext i8 %679 to i32
+  %wide.trip.count.i = zext i8 %675 to i32
   br label %.lr.ph645.i
 
 .lr.ph645.i:                                      ; preds = %.lr.ph645.i, %.lr.ph645.preheader.i
   %indvars.iv.i = phi i32 [ 0, %.lr.ph645.preheader.i ], [ %indvars.iv.next.i, %.lr.ph645.i ]
-  %.5644.i = phi i32 [ %678, %.lr.ph645.preheader.i ], [ %684, %.lr.ph645.i ]
-  %684 = add i32 %.5644.i, 1
-  %685 = load i32, ptr @hf_oam_dpoe_qc_queue_size, align 4
-  %686 = call ptr @proto_tree_add_item(ptr noundef %683, i32 noundef %685, ptr noundef %0, i32 noundef %684, i32 noundef 1, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %686, ptr noundef nonnull @.str.1008, i32 noundef %indvars.iv694.i, i32 noundef %indvars.iv.i)
+  %.5644.i = phi i32 [ %674, %.lr.ph645.preheader.i ], [ %680, %.lr.ph645.i ]
+  %680 = add i32 %.5644.i, 1
+  %681 = load i32, ptr @hf_oam_dpoe_qc_queue_size, align 4
+  %682 = call ptr @proto_tree_add_item(ptr noundef %679, i32 noundef %681, ptr noundef %0, i32 noundef %680, i32 noundef 1, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %682, ptr noundef nonnull @.str.1008, i32 noundef %indvars.iv694.i, i32 noundef %indvars.iv.i)
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond693.not.i = icmp eq i32 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond693.not.i, label %._crit_edge.i, label %.lr.ph645.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph645.i, %.lr.ph650.i
-  %.5.lcssa.i = phi i32 [ %678, %.lr.ph650.i ], [ %684, %.lr.ph645.i ]
+  %.5.lcssa.i = phi i32 [ %674, %.lr.ph650.i ], [ %680, %.lr.ph645.i ]
   %indvars.iv.next695.i = add nuw nsw i32 %indvars.iv694.i, 1
   %exitcond698.not.i = icmp eq i32 %indvars.iv.next695.i, %wide.trip.count697.i
   br i1 %exitcond698.not.i, label %._crit_edge651.i, label %.lr.ph650.i, !llvm.loop !11
 
-._crit_edge651.i:                                 ; preds = %._crit_edge.i, %672
-  %.4.lcssa.i = phi i32 [ %397, %672 ], [ %.5.lcssa.i, %._crit_edge.i ]
-  %687 = add i32 %.4.lcssa.i, 1
-  %688 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %687)
-  %689 = load i32, ptr @hf_oam_dpoe_qc_ports_d, align 4
-  %690 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %689, ptr noundef %0, i32 noundef %687, i32 noundef 1, i32 noundef 0)
-  %691 = load i32, ptr @ett_oam_dpoe_qc_d, align 4
-  %692 = call ptr @proto_item_add_subtree(ptr noundef %690, i32 noundef %691)
-  %.not679.i = icmp eq i8 %688, 0
+._crit_edge651.i:                                 ; preds = %._crit_edge.i, %668
+  %.4.lcssa.i = phi i32 [ %393, %668 ], [ %.5.lcssa.i, %._crit_edge.i ]
+  %683 = add i32 %.4.lcssa.i, 1
+  %684 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %683)
+  %685 = load i32, ptr @hf_oam_dpoe_qc_ports_d, align 4
+  %686 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %685, ptr noundef %0, i32 noundef %683, i32 noundef 1, i32 noundef 0)
+  %687 = load i32, ptr @ett_oam_dpoe_qc_d, align 4
+  %688 = call ptr @proto_item_add_subtree(ptr noundef %686, i32 noundef %687)
+  %.not679.i = icmp eq i8 %684, 0
   br i1 %.not679.i, label %.loopexit632.i, label %.lr.ph662.preheader.i
 
 .lr.ph662.preheader.i:                            ; preds = %._crit_edge651.i
-  %wide.trip.count707.i = zext i8 %688 to i32
+  %wide.trip.count707.i = zext i8 %684 to i32
   br label %.lr.ph662.i
 
 .lr.ph662.i:                                      ; preds = %._crit_edge657.i, %.lr.ph662.preheader.i
   %indvars.iv704.i = phi i32 [ 0, %.lr.ph662.preheader.i ], [ %indvars.iv.next705.i, %._crit_edge657.i ]
-  %.6660.i = phi i32 [ %687, %.lr.ph662.preheader.i ], [ %.7.lcssa.i, %._crit_edge657.i ]
-  %693 = add i32 %.6660.i, 1
-  %694 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %693)
-  %695 = load i32, ptr @hf_oam_dpoe_qc_nq, align 4
-  %696 = call ptr @proto_tree_add_item(ptr noundef %692, i32 noundef %695, ptr noundef %0, i32 noundef %693, i32 noundef 1, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %696, ptr noundef nonnull @.str.1009, i32 noundef %indvars.iv704.i)
-  %697 = load i32, ptr @ett_oam_dpoe_qc_nq, align 4
-  %698 = call ptr @proto_item_add_subtree(ptr noundef %696, i32 noundef %697)
-  %.not680.i = icmp eq i8 %694, 0
+  %.6660.i = phi i32 [ %683, %.lr.ph662.preheader.i ], [ %.7.lcssa.i, %._crit_edge657.i ]
+  %689 = add i32 %.6660.i, 1
+  %690 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %689)
+  %691 = load i32, ptr @hf_oam_dpoe_qc_nq, align 4
+  %692 = call ptr @proto_tree_add_item(ptr noundef %688, i32 noundef %691, ptr noundef %0, i32 noundef %689, i32 noundef 1, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %692, ptr noundef nonnull @.str.1009, i32 noundef %indvars.iv704.i)
+  %693 = load i32, ptr @ett_oam_dpoe_qc_nq, align 4
+  %694 = call ptr @proto_item_add_subtree(ptr noundef %692, i32 noundef %693)
+  %.not680.i = icmp eq i8 %690, 0
   br i1 %.not680.i, label %._crit_edge657.i, label %.lr.ph656.preheader.i
 
 .lr.ph656.preheader.i:                            ; preds = %.lr.ph662.i
-  %wide.trip.count702.i = zext i8 %694 to i32
+  %wide.trip.count702.i = zext i8 %690 to i32
   br label %.lr.ph656.i
 
 .lr.ph656.i:                                      ; preds = %.lr.ph656.i, %.lr.ph656.preheader.i
   %indvars.iv699.i = phi i32 [ 0, %.lr.ph656.preheader.i ], [ %indvars.iv.next700.i, %.lr.ph656.i ]
-  %.7654.i = phi i32 [ %693, %.lr.ph656.preheader.i ], [ %699, %.lr.ph656.i ]
-  %699 = add i32 %.7654.i, 1
-  %700 = load i32, ptr @hf_oam_dpoe_qc_queue_size, align 4
-  %701 = call ptr @proto_tree_add_item(ptr noundef %698, i32 noundef %700, ptr noundef %0, i32 noundef %699, i32 noundef 1, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %701, ptr noundef nonnull @.str.1010, i32 noundef %indvars.iv704.i, i32 noundef %indvars.iv699.i)
+  %.7654.i = phi i32 [ %689, %.lr.ph656.preheader.i ], [ %695, %.lr.ph656.i ]
+  %695 = add i32 %.7654.i, 1
+  %696 = load i32, ptr @hf_oam_dpoe_qc_queue_size, align 4
+  %697 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %696, ptr noundef %0, i32 noundef %695, i32 noundef 1, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %697, ptr noundef nonnull @.str.1010, i32 noundef %indvars.iv704.i, i32 noundef %indvars.iv699.i)
   %indvars.iv.next700.i = add nuw nsw i32 %indvars.iv699.i, 1
   %exitcond703.not.i = icmp eq i32 %indvars.iv.next700.i, %wide.trip.count702.i
   br i1 %exitcond703.not.i, label %._crit_edge657.i, label %.lr.ph656.i, !llvm.loop !12
 
 ._crit_edge657.i:                                 ; preds = %.lr.ph656.i, %.lr.ph662.i
-  %.7.lcssa.i = phi i32 [ %693, %.lr.ph662.i ], [ %699, %.lr.ph656.i ]
+  %.7.lcssa.i = phi i32 [ %689, %.lr.ph662.i ], [ %695, %.lr.ph656.i ]
   %indvars.iv.next705.i = add nuw nsw i32 %indvars.iv704.i, 1
   %exitcond708.not.i = icmp eq i32 %indvars.iv.next705.i, %wide.trip.count707.i
   br i1 %exitcond708.not.i, label %.loopexit632.i, label %.lr.ph662.i, !llvm.loop !13
 
-702:                                              ; preds = %401
-  %703 = load ptr, ptr %371, align 8
-  %704 = call ptr @tvb_get_stringzpad(ptr noundef %703, ptr noundef %0, i32 noundef %397, i32 noundef %389, i32 noundef 0)
-  %705 = load i32, ptr @hf_oam_dpoe_fw_filename, align 4
-  %706 = call ptr @proto_tree_add_string(ptr noundef %388, i32 noundef %705, ptr noundef %0, i32 noundef %397, i32 noundef %389, ptr noundef %704)
+698:                                              ; preds = %397
+  %699 = load ptr, ptr %367, align 8
+  %700 = call ptr @tvb_get_stringzpad(ptr noundef %699, ptr noundef %0, i32 noundef %393, i32 noundef %385, i32 noundef 0)
+  %701 = load i32, ptr @hf_oam_dpoe_fw_filename, align 4
+  %702 = call ptr @proto_tree_add_string(ptr noundef %384, i32 noundef %701, ptr noundef %0, i32 noundef %393, i32 noundef %385, ptr noundef %700)
   br label %.loopexit632.i
 
-707:                                              ; preds = %401
-  %708 = load i32, ptr @hf_oam_dpoe_onu_port_config_llid_count, align 4
-  %709 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %708, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
-  %710 = load i32, ptr @hf_oam_dpoe_onu_port_config_uni_count, align 4
-  %711 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %710, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
+703:                                              ; preds = %397
+  %704 = load i32, ptr @hf_oam_dpoe_onu_port_config_llid_count, align 4
+  %705 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %704, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
+  %706 = load i32, ptr @hf_oam_dpoe_onu_port_config_uni_count, align 4
+  %707 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %706, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-712:                                              ; preds = %401
-  %713 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %397)
-  %714 = load i32, ptr @hf_oam_dpoe_qc_nq, align 4
-  %715 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %714, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
-  %716 = add i32 %.2669.i, 5
-  %717 = load i32, ptr @ett_oam_dpoe_qc_nq, align 4
-  %718 = call ptr @proto_item_add_subtree(ptr noundef %715, i32 noundef %717)
-  %.not676.i = icmp eq i8 %713, 0
+708:                                              ; preds = %397
+  %709 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %393)
+  %710 = load i32, ptr @hf_oam_dpoe_qc_nq, align 4
+  %711 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %710, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
+  %712 = add i32 %.2669.i, 5
+  %713 = load i32, ptr @ett_oam_dpoe_qc_nq, align 4
+  %714 = call ptr @proto_item_add_subtree(ptr noundef %711, i32 noundef %713)
+  %.not676.i = icmp eq i8 %709, 0
   br i1 %.not676.i, label %.loopexit632.i, label %.lr.ph641.i
 
-.lr.ph641.i:                                      ; preds = %712, %.lr.ph641.i
-  %.8640.i = phi i32 [ %721, %.lr.ph641.i ], [ %716, %712 ]
-  %.0609639.i = phi i8 [ %722, %.lr.ph641.i ], [ 0, %712 ]
-  %719 = load i32, ptr @hf_oam_dpoe_1904_1_qc_queue_size, align 4
-  %720 = call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %719, ptr noundef %0, i32 noundef %.8640.i, i32 noundef 4, i32 noundef 0)
-  %721 = add i32 %.8640.i, 4
-  %722 = add nuw i8 %.0609639.i, 1
-  %exitcond691.not.i = icmp eq i8 %722, %713
+.lr.ph641.i:                                      ; preds = %708, %.lr.ph641.i
+  %.8640.i = phi i32 [ %717, %.lr.ph641.i ], [ %712, %708 ]
+  %.0609639.i = phi i8 [ %718, %.lr.ph641.i ], [ 0, %708 ]
+  %715 = load i32, ptr @hf_oam_dpoe_1904_1_qc_queue_size, align 4
+  %716 = call ptr @proto_tree_add_item(ptr noundef %714, i32 noundef %715, ptr noundef %0, i32 noundef %.8640.i, i32 noundef 4, i32 noundef 0)
+  %717 = add i32 %.8640.i, 4
+  %718 = add nuw i8 %.0609639.i, 1
+  %exitcond691.not.i = icmp eq i8 %718, %709
   br i1 %exitcond691.not.i, label %.loopexit632.i, label %.lr.ph641.i, !llvm.loop !14
 
-723:                                              ; preds = %401
-  %724 = lshr i8 %386, 1
-  %.not675.i = icmp eq i8 %724, 0
+719:                                              ; preds = %397
+  %720 = lshr i8 %382, 1
+  %.not675.i = icmp eq i8 %720, 0
   br i1 %.not675.i, label %.loopexit632.i, label %.lr.ph.i40
 
-.lr.ph.i40:                                       ; preds = %723, %.lr.ph.i40
-  %.9638.i = phi i32 [ %730, %.lr.ph.i40 ], [ %397, %723 ]
-  %.0604637.i = phi i8 [ %731, %.lr.ph.i40 ], [ 0, %723 ]
-  %725 = load i32, ptr @hf_oam_dpoe_ar_event, align 4
-  %726 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %725, ptr noundef %0, i32 noundef %.9638.i, i32 noundef 1, i32 noundef 0)
-  %727 = load i32, ptr @hf_oam_dpoe_ar_event_state, align 4
-  %728 = add i32 %.9638.i, 1
-  %729 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %727, ptr noundef %0, i32 noundef %728, i32 noundef 1, i32 noundef 0)
-  %730 = add i32 %.9638.i, 2
-  %731 = add nuw nsw i8 %.0604637.i, 1
-  %exitcond.not.i = icmp eq i8 %731, %724
+.lr.ph.i40:                                       ; preds = %719, %.lr.ph.i40
+  %.9638.i = phi i32 [ %726, %.lr.ph.i40 ], [ %393, %719 ]
+  %.0604637.i = phi i8 [ %727, %.lr.ph.i40 ], [ 0, %719 ]
+  %721 = load i32, ptr @hf_oam_dpoe_ar_event, align 4
+  %722 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %721, ptr noundef %0, i32 noundef %.9638.i, i32 noundef 1, i32 noundef 0)
+  %723 = load i32, ptr @hf_oam_dpoe_ar_event_state, align 4
+  %724 = add i32 %.9638.i, 1
+  %725 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %723, ptr noundef %0, i32 noundef %724, i32 noundef 1, i32 noundef 0)
+  %726 = add i32 %.9638.i, 2
+  %727 = add nuw nsw i8 %.0604637.i, 1
+  %exitcond.not.i = icmp eq i8 %727, %720
   br i1 %exitcond.not.i, label %.loopexit632.i, label %.lr.ph.i40, !llvm.loop !15
 
-732:                                              ; preds = %401
-  %733 = load i32, ptr @hf_oam_dpoe_encryption_mode, align 4
-  %734 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %733, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
+728:                                              ; preds = %397
+  %729 = load i32, ptr @hf_oam_dpoe_encryption_mode, align 4
+  %730 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %729, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-735:                                              ; preds = %401
-  %736 = load i32, ptr @hf_oam_dpoe_s_int_encryption_mode, align 4
-  %737 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %736, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
+731:                                              ; preds = %397
+  %732 = load i32, ptr @hf_oam_dpoe_s_int_encryption_mode, align 4
+  %733 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %732, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-738:                                              ; preds = %401
-  %739 = load i32, ptr @hf_oam_dpoe_1904_1_mac_enable_status, align 4
-  %740 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %739, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
+734:                                              ; preds = %397
+  %735 = load i32, ptr @hf_oam_dpoe_1904_1_mac_enable_status, align 4
+  %736 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %735, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-741:                                              ; preds = %401
-  %742 = load i32, ptr @hf_oam_dpoe_1904_1_a_phy_type, align 4
-  %743 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %742, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
+737:                                              ; preds = %397
+  %738 = load i32, ptr @hf_oam_dpoe_1904_1_a_phy_type, align 4
+  %739 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %738, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-744:                                              ; preds = %401
-  %745 = load i32, ptr @hf_oam_dpoe_1904_1_media_available, align 4
-  %746 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %745, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
+740:                                              ; preds = %397
+  %741 = load i32, ptr @hf_oam_dpoe_1904_1_media_available, align 4
+  %742 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %741, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-747:                                              ; preds = %401
-  %748 = load i32, ptr @hf_oam_dpoe_1904_1_autoneg_admstate, align 4
-  %749 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %748, ptr noundef %0, i32 noundef %397, i32 noundef 4, i32 noundef 0)
+743:                                              ; preds = %397
+  %744 = load i32, ptr @hf_oam_dpoe_1904_1_autoneg_admstate, align 4
+  %745 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %744, ptr noundef %0, i32 noundef %393, i32 noundef 4, i32 noundef 0)
   br label %.loopexit632.i
 
-750:                                              ; preds = %401
-  %751 = load i32, ptr @hf_oam_dpoe_1904_1_duplex_status, align 4
-  %752 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %751, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
+746:                                              ; preds = %397
+  %747 = load i32, ptr @hf_oam_dpoe_1904_1_duplex_status, align 4
+  %748 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %747, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
   br label %.loopexit632.i
 
-753:                                              ; preds = %401
-  %754 = load i32, ptr @hf_oam_dpoe_1904_1_mac_control_functions_supported, align 4
-  %755 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %754, ptr noundef %0, i32 noundef %397, i32 noundef 2, i32 noundef 0)
+749:                                              ; preds = %397
+  %750 = load i32, ptr @hf_oam_dpoe_1904_1_mac_control_functions_supported, align 4
+  %751 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %750, ptr noundef %0, i32 noundef %393, i32 noundef 2, i32 noundef 0)
   br label %.loopexit632.i
 
-756:                                              ; preds = %401
-  %757 = load i32, ptr @hf_oam_dpoe_1904_1_cfg_mcast_llid_action, align 4
-  %758 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %757, ptr noundef %0, i32 noundef %397, i32 noundef 1, i32 noundef 0)
-  %759 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %397)
-  %switch.i = icmp ult i8 %759, 2
-  br i1 %switch.i, label %760, label %.loopexit632.i
+752:                                              ; preds = %397
+  %753 = load i32, ptr @hf_oam_dpoe_1904_1_cfg_mcast_llid_action, align 4
+  %754 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %753, ptr noundef %0, i32 noundef %393, i32 noundef 1, i32 noundef 0)
+  %755 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %393)
+  %switch.i = icmp ult i8 %755, 2
+  br i1 %switch.i, label %756, label %.loopexit632.i
 
-760:                                              ; preds = %756
-  %761 = load i32, ptr @hf_oam_dpoe_1904_1_cfg_mcast_llid_value, align 4
-  %762 = add i32 %.2669.i, 5
-  %763 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %761, ptr noundef %0, i32 noundef %762, i32 noundef 2, i32 noundef 0)
+756:                                              ; preds = %752
+  %757 = load i32, ptr @hf_oam_dpoe_1904_1_cfg_mcast_llid_value, align 4
+  %758 = add i32 %.2669.i, 5
+  %759 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %757, ptr noundef %0, i32 noundef %758, i32 noundef 2, i32 noundef 0)
   br label %.loopexit632.i
 
-764:                                              ; preds = %401
-  %765 = load i32, ptr @hf_oam_dpoe_1904_1_read_write_mac_address, align 4
-  %766 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %765, ptr noundef %0, i32 noundef %397, i32 noundef 6, i32 noundef 0)
+760:                                              ; preds = %397
+  %761 = load i32, ptr @hf_oam_dpoe_1904_1_read_write_mac_address, align 4
+  %762 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %761, ptr noundef %0, i32 noundef %393, i32 noundef 6, i32 noundef 0)
   br label %.loopexit632.i
 
-767:                                              ; preds = %401
-  %768 = load i32, ptr @hf_oampdu_variable_value, align 4
-  %769 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %768, ptr noundef %0, i32 noundef %397, i32 noundef %389, i32 noundef 0)
+763:                                              ; preds = %397
+  %764 = load i32, ptr @hf_oampdu_variable_value, align 4
+  %765 = call ptr @proto_tree_add_item(ptr noundef %384, i32 noundef %764, ptr noundef %0, i32 noundef %393, i32 noundef %385, i32 noundef 0)
   br label %.loopexit632.i
 
-.loopexit632.i:                                   ; preds = %.lr.ph.i40, %.lr.ph641.i, %._crit_edge657.i, %._crit_edge666.us.i, %767, %764, %760, %756, %753, %750, %747, %744, %741, %738, %735, %732, %723, %712, %707, %702, %._crit_edge651.i, %668, %664, %660, %656, %652, %648, %641, %639, %638, %637, %636, %631, %629, %624, %600, %596, %587, %584, %580, %577, %.preheader631.lr.ph.i, %562, %557, %552, %547, %542, %532, %527, %521, %494, %491, %488, %482, %474, %471, %417, %405, %402, %398, %391
-  %.0605.i = phi i8 [ 0, %391 ], [ -128, %398 ], [ %386, %402 ], [ %386, %405 ], [ %386, %417 ], [ %386, %471 ], [ %386, %474 ], [ %386, %482 ], [ %386, %488 ], [ %386, %491 ], [ %386, %494 ], [ %386, %521 ], [ %386, %527 ], [ %386, %532 ], [ %386, %542 ], [ %386, %547 ], [ %386, %552 ], [ %386, %557 ], [ %386, %577 ], [ %386, %580 ], [ %386, %584 ], [ %386, %587 ], [ %386, %702 ], [ %386, %707 ], [ %386, %732 ], [ %386, %735 ], [ %386, %738 ], [ %386, %741 ], [ %386, %744 ], [ %386, %747 ], [ %386, %750 ], [ %386, %753 ], [ %386, %764 ], [ %386, %767 ], [ %386, %596 ], [ %386, %636 ], [ %386, %637 ], [ %386, %638 ], [ %386, %639 ], [ %386, %641 ], [ %386, %648 ], [ %386, %652 ], [ %386, %656 ], [ %386, %660 ], [ %386, %664 ], [ %386, %668 ], [ %386, %631 ], [ %386, %624 ], [ %386, %629 ], [ %386, %600 ], [ %386, %756 ], [ %386, %760 ], [ %386, %562 ], [ 1, %._crit_edge651.i ], [ %386, %712 ], [ %386, %723 ], [ %386, %.preheader631.lr.ph.i ], [ %386, %._crit_edge666.us.i ], [ 1, %._crit_edge657.i ], [ %386, %.lr.ph641.i ], [ %386, %.lr.ph.i40 ]
-  %.3.i = phi i32 [ %394, %391 ], [ %397, %398 ], [ %397, %402 ], [ %397, %405 ], [ %397, %417 ], [ %397, %471 ], [ %397, %474 ], [ %397, %482 ], [ %397, %488 ], [ %397, %491 ], [ %397, %494 ], [ %397, %521 ], [ %397, %527 ], [ %397, %532 ], [ %397, %542 ], [ %397, %547 ], [ %397, %552 ], [ %397, %557 ], [ %397, %577 ], [ %397, %580 ], [ %397, %584 ], [ %397, %587 ], [ %397, %702 ], [ %397, %707 ], [ %397, %732 ], [ %397, %735 ], [ %397, %738 ], [ %397, %741 ], [ %397, %744 ], [ %397, %747 ], [ %397, %750 ], [ %397, %753 ], [ %397, %764 ], [ %397, %767 ], [ %397, %596 ], [ %397, %636 ], [ %397, %637 ], [ %397, %638 ], [ %397, %639 ], [ %397, %641 ], [ %397, %648 ], [ %397, %652 ], [ %397, %656 ], [ %397, %660 ], [ %397, %664 ], [ %397, %668 ], [ %397, %631 ], [ %397, %624 ], [ %397, %629 ], [ %397, %600 ], [ %397, %756 ], [ %397, %760 ], [ %397, %562 ], [ %687, %._crit_edge651.i ], [ %716, %712 ], [ %397, %723 ], [ %397, %.preheader631.lr.ph.i ], [ %397, %._crit_edge666.us.i ], [ %.7.lcssa.i, %._crit_edge657.i ], [ %721, %.lr.ph641.i ], [ %730, %.lr.ph.i40 ]
-  %770 = zext i8 %.0605.i to i32
-  %771 = add i32 %.3.i, %770
-  %772 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %771)
-  %.not.i39 = icmp eq i8 %772, 0
-  br i1 %.not.i39, label %dissect_oampdu_information.exit, label %381, !llvm.loop !16
+.loopexit632.i:                                   ; preds = %.lr.ph.i40, %.lr.ph641.i, %._crit_edge657.i, %._crit_edge666.us.i, %763, %760, %756, %752, %749, %746, %743, %740, %737, %734, %731, %728, %719, %708, %703, %698, %._crit_edge651.i, %664, %660, %656, %652, %648, %644, %637, %635, %634, %633, %632, %627, %625, %620, %596, %592, %583, %580, %576, %573, %.preheader631.lr.ph.i, %558, %553, %548, %543, %538, %528, %523, %517, %490, %487, %484, %478, %470, %467, %413, %401, %398, %394, %387
+  %.0605.i = phi i8 [ 0, %387 ], [ -128, %394 ], [ %382, %398 ], [ %382, %401 ], [ %382, %413 ], [ %382, %467 ], [ %382, %470 ], [ %382, %478 ], [ %382, %484 ], [ %382, %487 ], [ %382, %490 ], [ %382, %517 ], [ %382, %523 ], [ %382, %528 ], [ %382, %538 ], [ %382, %543 ], [ %382, %548 ], [ %382, %553 ], [ %382, %573 ], [ %382, %576 ], [ %382, %580 ], [ %382, %583 ], [ %382, %698 ], [ %382, %703 ], [ %382, %728 ], [ %382, %731 ], [ %382, %734 ], [ %382, %737 ], [ %382, %740 ], [ %382, %743 ], [ %382, %746 ], [ %382, %749 ], [ %382, %760 ], [ %382, %763 ], [ %382, %592 ], [ %382, %632 ], [ %382, %633 ], [ %382, %634 ], [ %382, %635 ], [ %382, %637 ], [ %382, %644 ], [ %382, %648 ], [ %382, %652 ], [ %382, %656 ], [ %382, %660 ], [ %382, %664 ], [ %382, %627 ], [ %382, %620 ], [ %382, %625 ], [ %382, %596 ], [ %382, %752 ], [ %382, %756 ], [ %382, %558 ], [ 1, %._crit_edge651.i ], [ %382, %708 ], [ %382, %719 ], [ %382, %.preheader631.lr.ph.i ], [ %382, %._crit_edge666.us.i ], [ 1, %._crit_edge657.i ], [ %382, %.lr.ph641.i ], [ %382, %.lr.ph.i40 ]
+  %.3.i = phi i32 [ %390, %387 ], [ %393, %394 ], [ %393, %398 ], [ %393, %401 ], [ %393, %413 ], [ %393, %467 ], [ %393, %470 ], [ %393, %478 ], [ %393, %484 ], [ %393, %487 ], [ %393, %490 ], [ %393, %517 ], [ %393, %523 ], [ %393, %528 ], [ %393, %538 ], [ %393, %543 ], [ %393, %548 ], [ %393, %553 ], [ %393, %573 ], [ %393, %576 ], [ %393, %580 ], [ %393, %583 ], [ %393, %698 ], [ %393, %703 ], [ %393, %728 ], [ %393, %731 ], [ %393, %734 ], [ %393, %737 ], [ %393, %740 ], [ %393, %743 ], [ %393, %746 ], [ %393, %749 ], [ %393, %760 ], [ %393, %763 ], [ %393, %592 ], [ %393, %632 ], [ %393, %633 ], [ %393, %634 ], [ %393, %635 ], [ %393, %637 ], [ %393, %644 ], [ %393, %648 ], [ %393, %652 ], [ %393, %656 ], [ %393, %660 ], [ %393, %664 ], [ %393, %627 ], [ %393, %620 ], [ %393, %625 ], [ %393, %596 ], [ %393, %752 ], [ %393, %756 ], [ %393, %558 ], [ %683, %._crit_edge651.i ], [ %712, %708 ], [ %393, %719 ], [ %393, %.preheader631.lr.ph.i ], [ %393, %._crit_edge666.us.i ], [ %.7.lcssa.i, %._crit_edge657.i ], [ %717, %.lr.ph641.i ], [ %726, %.lr.ph.i40 ]
+  %766 = zext i8 %.0605.i to i32
+  %767 = add i32 %.3.i, %766
+  %768 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %767)
+  %.not.i39 = icmp eq i8 %768, 0
+  br i1 %.not.i39, label %dissect_oampdu_information.exit, label %377, !llvm.loop !16
 
-773:                                              ; preds = %320
-  %774 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 7)
-  %775 = load i32, ptr @hf_oam_dpoe_file_transfer_opcode, align 4
-  %776 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %775, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
-  switch i8 %774, label %dissect_oampdu_information.exit [
-    i8 1, label %777
-    i8 2, label %781
-    i8 3, label %786
+769:                                              ; preds = %320
+  %770 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 7)
+  %771 = load i32, ptr @hf_oam_dpoe_file_transfer_opcode, align 4
+  %772 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %771, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
+  switch i8 %770, label %dissect_oampdu_information.exit [
+    i8 1, label %773
+    i8 2, label %777
+    i8 3, label %782
   ]
 
-777:                                              ; preds = %773
-  %778 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 8)
-  %779 = load i32, ptr @hf_oam_dpoe_file_transfer_name, align 4
-  %780 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %779, ptr noundef %0, i32 noundef 8, i32 noundef %778, i32 noundef 0)
+773:                                              ; preds = %769
+  %774 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 8)
+  %775 = load i32, ptr @hf_oam_dpoe_file_transfer_name, align 4
+  %776 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %775, ptr noundef %0, i32 noundef 8, i32 noundef %774, i32 noundef 0)
   br label %dissect_oampdu_information.exit
 
-781:                                              ; preds = %773
-  %782 = load i32, ptr @hf_oam_dpoe_file_transfer_block_number, align 4
-  %783 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %782, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0)
-  %784 = load i32, ptr @hf_oam_dpoe_file_transfer_block_width, align 4
-  %785 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %784, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0)
+777:                                              ; preds = %769
+  %778 = load i32, ptr @hf_oam_dpoe_file_transfer_block_number, align 4
+  %779 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %778, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0)
+  %780 = load i32, ptr @hf_oam_dpoe_file_transfer_block_width, align 4
+  %781 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %780, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0)
   br label %dissect_oampdu_information.exit
 
-786:                                              ; preds = %773
-  %787 = load i32, ptr @hf_oam_dpoe_file_transfer_block_number, align 4
-  %788 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %787, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0)
-  %789 = load i32, ptr @hf_oam_dpoe_file_transfer_response_code, align 4
-  %790 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %789, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
+782:                                              ; preds = %769
+  %783 = load i32, ptr @hf_oam_dpoe_file_transfer_block_number, align 4
+  %784 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %783, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0)
+  %785 = load i32, ptr @hf_oam_dpoe_file_transfer_response_code, align 4
+  %786 = tail call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %785, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
   br label %dissect_oampdu_information.exit
 
-dissect_oampdu_information.exit:                  ; preds = %.loopexit632.i, %368, %301, %253, %dissect_cablelabs_event_notification.exit.i, %.lr.ph.i32, %87, %.lr.ph.i, %786, %781, %777, %773, %370, %.preheader.i, %320, %315, %311, %307, %304, %257, %241, %91, %22, %4
-  %791 = call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %791
+dissect_oampdu_information.exit:                  ; preds = %.loopexit632.i, %365, %301, %253, %dissect_cablelabs_event_notification.exit.i, %.lr.ph.i32, %87, %.lr.ph.i, %782, %777, %773, %769, %366, %.preheader.i, %320, %315, %311, %307, %304, %257, %241, %91, %22, %4
+  %787 = call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %787
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

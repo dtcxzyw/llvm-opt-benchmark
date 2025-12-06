@@ -403,7 +403,7 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %3, null
-  br i1 %7, label %176, label %8
+  br i1 %7, label %162, label %8
 
 8:                                                ; preds = %4
   %9 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0, i64 noundef 16)
@@ -454,42 +454,42 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   %38 = icmp ne i16 %22, 640
   %39 = icmp ne i16 %22, 384
   %or.cond = and i1 %38, %39
-  switch i16 %22, label %40 [
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %45 = load i32, ptr %44, align 8
+  %46 = call i32 @conversation_pt_to_conversation_type(i32 noundef %45)
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %48 = load i16, ptr %47, align 8
+  %49 = zext i16 %48 to i32
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 58
+  %51 = load i16, ptr %50, align 2
+  %52 = zext i16 %51 to i32
+  %53 = call ptr @find_conversation(i32 noundef %41, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef 131072)
+  %.not235 = icmp eq ptr %53, null
+  switch i16 %22, label %54 [
     i16 640, label %82
     i16 384, label %82
   ]
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %46 = load i32, ptr %45, align 8
-  %47 = call i32 @conversation_pt_to_conversation_type(i32 noundef %46)
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %49 = load i16, ptr %48, align 8
-  %50 = zext i16 %49 to i32
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 58
-  %52 = load i16, ptr %51, align 2
-  %53 = zext i16 %52 to i32
-  %54 = call ptr @find_conversation(i32 noundef %42, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef %47, i32 noundef %50, i32 noundef %53, i32 noundef 131072)
-  %.not235 = icmp eq ptr %54, null
+54:                                               ; preds = %37
   br i1 %.not235, label %55, label %64
 
-55:                                               ; preds = %40
-  %56 = load i32, ptr %41, align 4
-  %57 = load i32, ptr %45, align 8
+55:                                               ; preds = %54
+  %56 = load i32, ptr %40, align 4
+  %57 = load i32, ptr %44, align 8
   %58 = call i32 @conversation_pt_to_conversation_type(i32 noundef %57)
-  %59 = load i16, ptr %48, align 8
+  %59 = load i16, ptr %47, align 8
   %60 = zext i16 %59 to i32
-  %61 = load i16, ptr %51, align 2
+  %61 = load i16, ptr %50, align 2
   %62 = zext i16 %61 to i32
-  %63 = call ptr @conversation_new(i32 noundef %56, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef %58, i32 noundef %60, i32 noundef %62, i32 noundef 2)
+  %63 = call ptr @conversation_new(i32 noundef %56, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef %58, i32 noundef %60, i32 noundef %62, i32 noundef 2)
   br label %64
 
-64:                                               ; preds = %55, %40
-  %.0220 = phi ptr [ %54, %40 ], [ %63, %55 ]
+64:                                               ; preds = %55, %54
+  %.0220 = phi ptr [ %53, %54 ], [ %63, %55 ]
   %65 = getelementptr inbounds nuw i8, ptr %.0220, i64 24
   %66 = load i32, ptr %65, align 8
   store i32 %66, ptr %6, align 4
@@ -519,330 +519,315 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   %80 = load ptr, ptr %79, align 8
   %81 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.224)
   call void @col_add_str(ptr noundef %80, i32 noundef 25, ptr noundef %81)
-  br label %120
+  br label %106
 
 82:                                               ; preds = %37, %37
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %88 = load i32, ptr %87, align 8
-  %89 = call i32 @conversation_pt_to_conversation_type(i32 noundef %88)
-  %90 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %91 = load i16, ptr %90, align 8
-  %92 = zext i16 %91 to i32
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 58
-  %94 = load i16, ptr %93, align 2
-  %95 = zext i16 %94 to i32
-  %96 = call ptr @find_conversation(i32 noundef %84, ptr noundef nonnull %85, ptr noundef nonnull %86, i32 noundef %89, i32 noundef %92, i32 noundef %95, i32 noundef 131072)
-  %.not233 = icmp eq ptr %96, null
-  br i1 %.not233, label %97, label %104
+  br i1 %.not235, label %83, label %90
 
-97:                                               ; preds = %82
-  %98 = icmp eq i16 %22, 640
-  br i1 %98, label %99, label %120
+83:                                               ; preds = %82
+  %84 = icmp eq i16 %22, 640
+  br i1 %84, label %85, label %106
 
-99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %101 = load ptr, ptr %100, align 8
-  %102 = call ptr @val_to_str(i32 noundef 32770, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.224)
-  call void @col_add_str(ptr noundef %101, i32 noundef 25, ptr noundef %102)
-  %103 = call ptr @proto_tree_add_expert(ptr noundef %.0224, ptr noundef %1, ptr noundef nonnull @ei_fcdns_no_record_of_exchange, ptr noundef %0, i32 noundef 0, i32 noundef -1)
-  br label %176
+85:                                               ; preds = %83
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = call ptr @val_to_str(i32 noundef 32770, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.224)
+  call void @col_add_str(ptr noundef %87, i32 noundef 25, ptr noundef %88)
+  %89 = call ptr @proto_tree_add_expert(ptr noundef %.0224, ptr noundef %1, ptr noundef nonnull @ei_fcdns_no_record_of_exchange, ptr noundef %0, i32 noundef 0, i32 noundef -1)
+  br label %162
 
-104:                                              ; preds = %82
-  %105 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %106 = load i32, ptr %105, align 8
-  store i32 %106, ptr %6, align 4
-  %107 = load ptr, ptr @fcdns_req_hash, align 8
-  %108 = call ptr @wmem_map_lookup(ptr noundef %107, ptr noundef nonnull %6)
-  %.not234 = icmp eq ptr %108, null
-  br i1 %.not234, label %112, label %109
+90:                                               ; preds = %82
+  %91 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %92 = load i32, ptr %91, align 8
+  store i32 %92, ptr %6, align 4
+  %93 = load ptr, ptr @fcdns_req_hash, align 8
+  %94 = call ptr @wmem_map_lookup(ptr noundef %93, ptr noundef nonnull %6)
+  %.not234 = icmp eq ptr %94, null
+  br i1 %.not234, label %98, label %95
 
-109:                                              ; preds = %104
-  %110 = icmp eq i16 %22, 640
-  %111 = load i32, ptr %108, align 4
-  %. = select i1 %110, i32 %111, i32 %23
-  %.237 = select i1 %110, i32 0, i32 %111
+95:                                               ; preds = %90
+  %96 = icmp eq i16 %22, 640
+  %97 = load i32, ptr %94, align 4
+  %. = select i1 %96, i32 %97, i32 %23
+  %.237 = select i1 %96, i32 0, i32 %97
+  br label %98
+
+98:                                               ; preds = %95, %90
+  %.1 = phi i32 [ %23, %90 ], [ %., %95 ]
+  %.0222 = phi i32 [ 0, %90 ], [ %.237, %95 ]
+  %.not242 = icmp eq i32 %.1, 32769
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %100 = load ptr, ptr %99, align 8
+  br i1 %.not242, label %.thread, label %102
+
+.thread:                                          ; preds = %98
+  %101 = call ptr @val_to_str(i32 noundef %.0222, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.224)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %100, i32 noundef 25, ptr noundef nonnull @.str.226, ptr noundef %101)
+  br label %106
+
+102:                                              ; preds = %98
+  %103 = call ptr @val_to_str(i32 noundef %.1, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.224)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %100, i32 noundef 25, ptr noundef nonnull @.str.225, ptr noundef %103)
+  %or.cond238 = and i1 %.not, %.not234
+  br i1 %or.cond238, label %104, label %106
+
+104:                                              ; preds = %102
+  %105 = call ptr @proto_tree_add_expert(ptr noundef %.0224, ptr noundef %1, ptr noundef nonnull @ei_fcdns_no_record_of_exchange, ptr noundef %0, i32 noundef 0, i32 noundef -1)
+  br label %162
+
+106:                                              ; preds = %.thread, %83, %102, %78
+  %.0223 = phi i32 [ %23, %78 ], [ %.1, %102 ], [ %23, %83 ], [ 32769, %.thread ]
+  br i1 %.not, label %107, label %112
+
+107:                                              ; preds = %106
+  %108 = load i32, ptr @hf_fcdns_opcode, align 4
+  %109 = call ptr @proto_tree_add_item(ptr noundef %.0224, i32 noundef %108, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0)
+  %110 = load i32, ptr @hf_fcdns_maxres_size, align 4
+  %111 = call ptr @proto_tree_add_item(ptr noundef %.0224, i32 noundef %110, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0)
   br label %112
 
-112:                                              ; preds = %109, %104
-  %.1 = phi i32 [ %23, %104 ], [ %., %109 ]
-  %.0222 = phi i32 [ 0, %104 ], [ %.237, %109 ]
-  %.not242 = icmp eq i32 %.1, 32769
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %114 = load ptr, ptr %113, align 8
-  br i1 %.not242, label %.thread, label %116
-
-.thread:                                          ; preds = %112
-  %115 = call ptr @val_to_str(i32 noundef %.0222, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.224)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %114, i32 noundef 25, ptr noundef nonnull @.str.226, ptr noundef %115)
-  br label %120
-
-116:                                              ; preds = %112
-  %117 = call ptr @val_to_str(i32 noundef %.1, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.224)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %114, i32 noundef 25, ptr noundef nonnull @.str.225, ptr noundef %117)
-  %or.cond238 = and i1 %.not, %.not234
-  br i1 %or.cond238, label %118, label %120
-
-118:                                              ; preds = %116
-  %119 = call ptr @proto_tree_add_expert(ptr noundef %.0224, ptr noundef %1, ptr noundef nonnull @ei_fcdns_no_record_of_exchange, ptr noundef %0, i32 noundef 0, i32 noundef -1)
-  br label %176
-
-120:                                              ; preds = %.thread, %97, %116, %78
-  %.0223 = phi i32 [ %23, %78 ], [ %.1, %116 ], [ %23, %97 ], [ 32769, %.thread ]
-  br i1 %.not, label %121, label %126
-
-121:                                              ; preds = %120
-  %122 = load i32, ptr @hf_fcdns_opcode, align 4
-  %123 = call ptr @proto_tree_add_item(ptr noundef %.0224, i32 noundef %122, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0)
-  %124 = load i32, ptr @hf_fcdns_maxres_size, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %.0224, i32 noundef %124, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0)
-  br label %126
-
-126:                                              ; preds = %121, %120
+112:                                              ; preds = %107, %106
   switch i32 %.0223, label %dissect_fcdns_daid.exit [
-    i32 32769, label %127
-    i32 256, label %128
-    i32 274, label %129
-    i32 275, label %130
-    i32 276, label %131
-    i32 279, label %132
-    i32 280, label %133
-    i32 282, label %134
-    i32 284, label %135
-    i32 286, label %136
-    i32 287, label %137
-    i32 289, label %138
-    i32 299, label %139
-    i32 305, label %140
-    i32 306, label %141
-    i32 309, label %142
-    i32 313, label %143
-    i32 369, label %144
-    i32 370, label %145
-    i32 371, label %146
-    i32 417, label %147
-    i32 433, label %148
-    i32 497, label %149
-    i32 530, label %150
-    i32 531, label %151
-    i32 532, label %152
-    i32 538, label %153
-    i32 535, label %154
-    i32 536, label %155
-    i32 539, label %156
-    i32 542, label %157
-    i32 543, label %158
-    i32 565, label %159
-    i32 569, label %160
-    i32 768, label %161
-    i32 1040, label %165
-    i32 1056, label %166
-    i32 1072, label %167
-    i32 1104, label %168
-    i32 1136, label %169
-    i32 1184, label %170
-    i32 1200, label %171
-    i32 1216, label %172
-    i32 1232, label %173
-    i32 1248, label %174
+    i32 32769, label %113
+    i32 256, label %114
+    i32 274, label %115
+    i32 275, label %116
+    i32 276, label %117
+    i32 279, label %118
+    i32 280, label %119
+    i32 282, label %120
+    i32 284, label %121
+    i32 286, label %122
+    i32 287, label %123
+    i32 289, label %124
+    i32 299, label %125
+    i32 305, label %126
+    i32 306, label %127
+    i32 309, label %128
+    i32 313, label %129
+    i32 369, label %130
+    i32 370, label %131
+    i32 371, label %132
+    i32 417, label %133
+    i32 433, label %134
+    i32 497, label %135
+    i32 530, label %136
+    i32 531, label %137
+    i32 532, label %138
+    i32 538, label %139
+    i32 535, label %140
+    i32 536, label %141
+    i32 539, label %142
+    i32 542, label %143
+    i32 543, label %144
+    i32 565, label %145
+    i32 569, label %146
+    i32 768, label %147
+    i32 1040, label %151
+    i32 1056, label %152
+    i32 1072, label %153
+    i32 1104, label %154
+    i32 1136, label %155
+    i32 1184, label %156
+    i32 1200, label %157
+    i32 1216, label %158
+    i32 1232, label %159
+    i32 1248, label %160
   ]
 
-127:                                              ; preds = %126
+113:                                              ; preds = %112
   call fastcc void @dissect_fcdns_rjt(ptr noundef %0, ptr noundef %.0224)
   br label %dissect_fcdns_daid.exit
 
-128:                                              ; preds = %126
+114:                                              ; preds = %112
   call fastcc void @dissect_fcdns_ganxt(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-129:                                              ; preds = %126
+115:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gpnid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-130:                                              ; preds = %126
+116:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gnnid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-131:                                              ; preds = %126
+117:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gcsid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-132:                                              ; preds = %126
+118:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gftid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-133:                                              ; preds = %126
+119:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gspnid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-134:                                              ; preds = %126
+120:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gptid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-135:                                              ; preds = %126
+121:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gfpnid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-136:                                              ; preds = %126
+122:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gfdid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-137:                                              ; preds = %126
+123:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gffid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-138:                                              ; preds = %126
+124:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gidpn(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-139:                                              ; preds = %126
+125:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gipppn(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-140:                                              ; preds = %126
+126:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gidnn(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-141:                                              ; preds = %126
+127:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gpnnn(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-142:                                              ; preds = %126
+128:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gipnn(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-143:                                              ; preds = %126
+129:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gsnnnn(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-144:                                              ; preds = %126
+130:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gidft(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-145:                                              ; preds = %126
+131:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gpnft(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-146:                                              ; preds = %126
+132:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gnnft(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-147:                                              ; preds = %126
+133:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gidpt(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-148:                                              ; preds = %126
+134:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gidipp(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-149:                                              ; preds = %126
+135:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gidff(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-150:                                              ; preds = %126
+136:                                              ; preds = %112
   call fastcc void @dissect_fcdns_rpnid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-151:                                              ; preds = %126
+137:                                              ; preds = %112
   call fastcc void @dissect_fcdns_rnnid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-152:                                              ; preds = %126
+138:                                              ; preds = %112
   call fastcc void @dissect_fcdns_rcsid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-153:                                              ; preds = %126
+139:                                              ; preds = %112
   call fastcc void @dissect_fcdns_rptid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-154:                                              ; preds = %126
+140:                                              ; preds = %112
   call fastcc void @dissect_fcdns_rftid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-155:                                              ; preds = %126
+141:                                              ; preds = %112
   call fastcc void @dissect_fcdns_rspnid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-156:                                              ; preds = %126
+142:                                              ; preds = %112
   call fastcc void @dissect_fcdns_rippid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-157:                                              ; preds = %126
+143:                                              ; preds = %112
   call fastcc void @dissect_fcdns_rfdid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-158:                                              ; preds = %126
+144:                                              ; preds = %112
   call fastcc void @dissect_fcdns_rffid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-159:                                              ; preds = %126
+145:                                              ; preds = %112
   call fastcc void @dissect_fcdns_ripnn(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-160:                                              ; preds = %126
+146:                                              ; preds = %112
   call fastcc void @dissect_fcdns_rsnnnn(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-161:                                              ; preds = %126
-  switch i16 %22, label %162 [
+147:                                              ; preds = %112
+  switch i16 %22, label %148 [
     i16 640, label %dissect_fcdns_daid.exit
     i16 384, label %dissect_fcdns_daid.exit
   ]
 
-162:                                              ; preds = %161
-  %163 = load i32, ptr @hf_fcdns_req_portid, align 4
-  %164 = call ptr @proto_tree_add_item(ptr noundef %.0224, i32 noundef %163, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0)
+148:                                              ; preds = %147
+  %149 = load i32, ptr @hf_fcdns_req_portid, align 4
+  %150 = call ptr @proto_tree_add_item(ptr noundef %.0224, i32 noundef %149, ptr noundef %0, i32 noundef 17, i32 noundef 3, i32 noundef 0)
   br label %dissect_fcdns_daid.exit
 
-165:                                              ; preds = %126
+151:                                              ; preds = %112
   call fastcc void @dissect_fcdns_geid(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-166:                                              ; preds = %126
+152:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gepn(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-167:                                              ; preds = %126
+153:                                              ; preds = %112
   call fastcc void @dissect_fcdns_genn(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-168:                                              ; preds = %126
+154:                                              ; preds = %112
   call fastcc void @dissect_fcdns_geip(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-169:                                              ; preds = %126
+155:                                              ; preds = %112
   call fastcc void @dissect_fcdns_geft(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-170:                                              ; preds = %126
+156:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gept(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-171:                                              ; preds = %126
+157:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gezm(ptr noundef %0, ptr noundef %1, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-172:                                              ; preds = %126
+158:                                              ; preds = %112
   call fastcc void @dissect_fcdns_gezn(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-173:                                              ; preds = %126
+159:                                              ; preds = %112
   call fastcc void @dissect_fcdns_geipp(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-174:                                              ; preds = %126
+160:                                              ; preds = %112
   call fastcc void @dissect_fcdns_geff(ptr noundef %0, ptr noundef %.0224, i1 noundef zeroext %or.cond)
   br label %dissect_fcdns_daid.exit
 
-dissect_fcdns_daid.exit:                          ; preds = %161, %161, %162, %126, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127
-  %175 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %176
+dissect_fcdns_daid.exit:                          ; preds = %147, %147, %148, %112, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113
+  %161 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %162
 
-176:                                              ; preds = %4, %dissect_fcdns_daid.exit, %118, %99
-  %.0 = phi i32 [ %175, %dissect_fcdns_daid.exit ], [ 0, %118 ], [ 0, %99 ], [ 0, %4 ]
+162:                                              ; preds = %4, %dissect_fcdns_daid.exit, %104, %85
+  %.0 = phi i32 [ %161, %dissect_fcdns_daid.exit ], [ 0, %104 ], [ 0, %85 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

@@ -242,12 +242,12 @@ define internal i32 @dissect_lacp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %12 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.94)
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
-  %14 = add i32 %13, -16843028
-  %switch.and = and i32 %14, -16777217
+  %14 = load i32, ptr @proto_lacp, align 4
+  %15 = add i32 %13, -16843028
+  %switch.and = and i32 %15, -16777217
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %15 = select i1 %switch.selectcmp, ptr @.str.112, ptr @.str.94
-  %16 = load i32, ptr @proto_lacp, align 4
-  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %15)
+  %16 = select i1 %switch.selectcmp, ptr @.str.112, ptr @.str.94
+  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %16)
   %18 = load i32, ptr @ett_lacp, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18)
   switch i32 %13, label %23 [

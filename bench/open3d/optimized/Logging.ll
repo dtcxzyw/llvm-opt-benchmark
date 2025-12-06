@@ -31311,26 +31311,26 @@ _ZN3fmt3v106detail13arg_converterIxNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
 
 338:                                              ; preds = %331
   %339 = load i32, ptr %28, align 16, !tbaa !40
+  %.sroa.01.0.insert.ext.i.i2.i = zext i32 %339 to i64
+  store i64 %.sroa.01.0.insert.ext.i.i2.i, ptr %28, align 16
   %switch.selectcmp.case1.i.i = icmp eq i8 %332, 105
   %switch.selectcmp.case2.i.i = icmp eq i8 %332, 100
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
   %340 = select i1 %switch.selectcmp.i.i, i32 3, i32 2
-  %.sroa.01.0.insert.ext.i.i2.i = zext i32 %339 to i64
-  store i64 %.sroa.01.0.insert.ext.i.i2.i, ptr %28, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIxNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 341:                                              ; preds = %331
-  %switch.selectcmp.case1.i4.i = icmp eq i8 %332, 105
-  %switch.selectcmp.case2.i5.i = icmp eq i8 %332, 100
-  %switch.selectcmp.i6.i = or i1 %switch.selectcmp.case1.i4.i, %switch.selectcmp.case2.i5.i
-  %342 = select i1 %switch.selectcmp.i6.i, i32 3, i32 4
+  %switch.selectcmp.case1.i5.i = icmp eq i8 %332, 105
+  %switch.selectcmp.case2.i6.i = icmp eq i8 %332, 100
+  %switch.selectcmp.i7.i = or i1 %switch.selectcmp.case1.i5.i, %switch.selectcmp.case2.i6.i
+  %342 = select i1 %switch.selectcmp.i7.i, i32 3, i32 4
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIxNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 343:                                              ; preds = %331
-  %switch.selectcmp.case1.i8.i = icmp eq i8 %332, 105
-  %switch.selectcmp.case2.i9.i = icmp eq i8 %332, 100
-  %switch.selectcmp.i10.i = or i1 %switch.selectcmp.case1.i8.i, %switch.selectcmp.case2.i9.i
-  %344 = select i1 %switch.selectcmp.i10.i, i32 3, i32 4
+  %switch.selectcmp.case1.i9.i = icmp eq i8 %332, 105
+  %switch.selectcmp.case2.i10.i = icmp eq i8 %332, 100
+  %switch.selectcmp.i11.i = or i1 %switch.selectcmp.case1.i9.i, %switch.selectcmp.case2.i10.i
+  %344 = select i1 %switch.selectcmp.i11.i, i32 3, i32 4
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIxNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 345:                                              ; preds = %331
@@ -31340,11 +31340,11 @@ _ZN3fmt3v106detail13arg_converterIxNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
 346:                                              ; preds = %345
   %347 = load i8, ptr %28, align 16, !tbaa !40, !range !221, !noundef !222
   %.sroa.01.0.insert.ext.i.i.i.i = zext nneg i8 %347 to i64
+  store i64 %.sroa.01.0.insert.ext.i.i.i.i, ptr %28, align 16
   %switch.selectcmp.case1.i.i.i = icmp eq i8 %332, 105
   %switch.selectcmp.case2.i.i.i = icmp eq i8 %332, 100
   %switch.selectcmp.i.i.i = or i1 %switch.selectcmp.case1.i.i.i, %switch.selectcmp.case2.i.i.i
   %348 = select i1 %switch.selectcmp.i.i.i, i32 3, i32 7
-  store i64 %.sroa.01.0.insert.ext.i.i.i.i, ptr %28, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIxNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 349:                                              ; preds = %331
@@ -31406,26 +31406,26 @@ _ZN3fmt3v106detail13arg_converterIlNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
 
 360:                                              ; preds = %354
   %361 = load i32, ptr %28, align 16, !tbaa !40
-  %switch.selectcmp.case1.i.i164 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i.i165 = icmp eq i8 %315, 100
-  %switch.selectcmp.i.i166 = or i1 %switch.selectcmp.case1.i.i164, %switch.selectcmp.case2.i.i165
-  %362 = select i1 %switch.selectcmp.i.i166, i32 3, i32 2
-  %.sroa.01.0.insert.ext.i.i2.i167 = zext i32 %361 to i64
-  store i64 %.sroa.01.0.insert.ext.i.i2.i167, ptr %28, align 16
+  %.sroa.01.0.insert.ext.i.i2.i164 = zext i32 %361 to i64
+  store i64 %.sroa.01.0.insert.ext.i.i2.i164, ptr %28, align 16
+  %switch.selectcmp.case1.i.i165 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i.i166 = icmp eq i8 %315, 100
+  %switch.selectcmp.i.i167 = or i1 %switch.selectcmp.case1.i.i165, %switch.selectcmp.case2.i.i166
+  %362 = select i1 %switch.selectcmp.i.i167, i32 3, i32 2
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 363:                                              ; preds = %354
-  %switch.selectcmp.case1.i4.i161 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i5.i162 = icmp eq i8 %315, 100
-  %switch.selectcmp.i6.i163 = or i1 %switch.selectcmp.case1.i4.i161, %switch.selectcmp.case2.i5.i162
-  %364 = select i1 %switch.selectcmp.i6.i163, i32 3, i32 4
+  %switch.selectcmp.case1.i5.i161 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i6.i162 = icmp eq i8 %315, 100
+  %switch.selectcmp.i7.i163 = or i1 %switch.selectcmp.case1.i5.i161, %switch.selectcmp.case2.i6.i162
+  %364 = select i1 %switch.selectcmp.i7.i163, i32 3, i32 4
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 365:                                              ; preds = %354
-  %switch.selectcmp.case1.i8.i158 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i9.i159 = icmp eq i8 %315, 100
-  %switch.selectcmp.i10.i160 = or i1 %switch.selectcmp.case1.i8.i158, %switch.selectcmp.case2.i9.i159
-  %366 = select i1 %switch.selectcmp.i10.i160, i32 3, i32 4
+  %switch.selectcmp.case1.i9.i158 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i10.i159 = icmp eq i8 %315, 100
+  %switch.selectcmp.i11.i160 = or i1 %switch.selectcmp.case1.i9.i158, %switch.selectcmp.case2.i10.i159
+  %366 = select i1 %switch.selectcmp.i11.i160, i32 3, i32 4
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 367:                                              ; preds = %354
@@ -31435,11 +31435,11 @@ _ZN3fmt3v106detail13arg_converterIlNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
 368:                                              ; preds = %367
   %369 = load i8, ptr %28, align 16, !tbaa !40, !range !221, !noundef !222
   %.sroa.01.0.insert.ext.i.i.i.i153 = zext nneg i8 %369 to i64
+  store i64 %.sroa.01.0.insert.ext.i.i.i.i153, ptr %28, align 16
   %switch.selectcmp.case1.i.i.i154 = icmp eq i8 %315, 105
   %switch.selectcmp.case2.i.i.i155 = icmp eq i8 %315, 100
   %switch.selectcmp.i.i.i156 = or i1 %switch.selectcmp.case1.i.i.i154, %switch.selectcmp.case2.i.i.i155
   %370 = select i1 %switch.selectcmp.i.i.i156, i32 3, i32 7
-  store i64 %.sroa.01.0.insert.ext.i.i.i.i153, ptr %28, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 371:                                              ; preds = %354
@@ -31501,26 +31501,26 @@ _ZN3fmt3v106detail13arg_converterIlNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
 
 382:                                              ; preds = %376
   %383 = load i32, ptr %28, align 16, !tbaa !40
-  %switch.selectcmp.case1.i.i187 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i.i188 = icmp eq i8 %315, 100
-  %switch.selectcmp.i.i189 = or i1 %switch.selectcmp.case1.i.i187, %switch.selectcmp.case2.i.i188
-  %384 = select i1 %switch.selectcmp.i.i189, i32 3, i32 2
-  %.sroa.01.0.insert.ext.i.i2.i190 = zext i32 %383 to i64
-  store i64 %.sroa.01.0.insert.ext.i.i2.i190, ptr %28, align 16
+  %.sroa.01.0.insert.ext.i.i2.i187 = zext i32 %383 to i64
+  store i64 %.sroa.01.0.insert.ext.i.i2.i187, ptr %28, align 16
+  %switch.selectcmp.case1.i.i188 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i.i189 = icmp eq i8 %315, 100
+  %switch.selectcmp.i.i190 = or i1 %switch.selectcmp.case1.i.i188, %switch.selectcmp.case2.i.i189
+  %384 = select i1 %switch.selectcmp.i.i190, i32 3, i32 2
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i179
 
 385:                                              ; preds = %376
-  %switch.selectcmp.case1.i4.i184 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i5.i185 = icmp eq i8 %315, 100
-  %switch.selectcmp.i6.i186 = or i1 %switch.selectcmp.case1.i4.i184, %switch.selectcmp.case2.i5.i185
-  %386 = select i1 %switch.selectcmp.i6.i186, i32 3, i32 4
+  %switch.selectcmp.case1.i5.i184 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i6.i185 = icmp eq i8 %315, 100
+  %switch.selectcmp.i7.i186 = or i1 %switch.selectcmp.case1.i5.i184, %switch.selectcmp.case2.i6.i185
+  %386 = select i1 %switch.selectcmp.i7.i186, i32 3, i32 4
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i179
 
 387:                                              ; preds = %376
-  %switch.selectcmp.case1.i8.i181 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i9.i182 = icmp eq i8 %315, 100
-  %switch.selectcmp.i10.i183 = or i1 %switch.selectcmp.case1.i8.i181, %switch.selectcmp.case2.i9.i182
-  %388 = select i1 %switch.selectcmp.i10.i183, i32 3, i32 4
+  %switch.selectcmp.case1.i9.i181 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i10.i182 = icmp eq i8 %315, 100
+  %switch.selectcmp.i11.i183 = or i1 %switch.selectcmp.case1.i9.i181, %switch.selectcmp.case2.i10.i182
+  %388 = select i1 %switch.selectcmp.i11.i183, i32 3, i32 4
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i179
 
 389:                                              ; preds = %376
@@ -31530,11 +31530,11 @@ _ZN3fmt3v106detail13arg_converterIlNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
 390:                                              ; preds = %389
   %391 = load i8, ptr %28, align 16, !tbaa !40, !range !221, !noundef !222
   %.sroa.01.0.insert.ext.i.i.i.i175 = zext nneg i8 %391 to i64
+  store i64 %.sroa.01.0.insert.ext.i.i.i.i175, ptr %28, align 16
   %switch.selectcmp.case1.i.i.i176 = icmp eq i8 %315, 105
   %switch.selectcmp.case2.i.i.i177 = icmp eq i8 %315, 100
   %switch.selectcmp.i.i.i178 = or i1 %switch.selectcmp.case1.i.i.i176, %switch.selectcmp.case2.i.i.i177
   %392 = select i1 %switch.selectcmp.i.i.i178, i32 3, i32 7
-  store i64 %.sroa.01.0.insert.ext.i.i.i.i175, ptr %28, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i179
 
 393:                                              ; preds = %376
@@ -31596,26 +31596,26 @@ _ZN3fmt3v106detail13arg_converterImNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
 
 404:                                              ; preds = %398
   %405 = load i32, ptr %28, align 16, !tbaa !40
-  %switch.selectcmp.case1.i.i212 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i.i213 = icmp eq i8 %315, 100
-  %switch.selectcmp.i.i214 = or i1 %switch.selectcmp.case1.i.i212, %switch.selectcmp.case2.i.i213
-  %406 = select i1 %switch.selectcmp.i.i214, i32 3, i32 2
-  %.sroa.01.0.insert.ext.i.i2.i215 = zext i32 %405 to i64
-  store i64 %.sroa.01.0.insert.ext.i.i2.i215, ptr %28, align 16
+  %.sroa.01.0.insert.ext.i.i2.i212 = zext i32 %405 to i64
+  store i64 %.sroa.01.0.insert.ext.i.i2.i212, ptr %28, align 16
+  %switch.selectcmp.case1.i.i213 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i.i214 = icmp eq i8 %315, 100
+  %switch.selectcmp.i.i215 = or i1 %switch.selectcmp.case1.i.i213, %switch.selectcmp.case2.i.i214
+  %406 = select i1 %switch.selectcmp.i.i215, i32 3, i32 2
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterImNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 407:                                              ; preds = %398
-  %switch.selectcmp.case1.i4.i209 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i5.i210 = icmp eq i8 %315, 100
-  %switch.selectcmp.i6.i211 = or i1 %switch.selectcmp.case1.i4.i209, %switch.selectcmp.case2.i5.i210
-  %408 = select i1 %switch.selectcmp.i6.i211, i32 3, i32 4
+  %switch.selectcmp.case1.i5.i209 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i6.i210 = icmp eq i8 %315, 100
+  %switch.selectcmp.i7.i211 = or i1 %switch.selectcmp.case1.i5.i209, %switch.selectcmp.case2.i6.i210
+  %408 = select i1 %switch.selectcmp.i7.i211, i32 3, i32 4
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterImNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 409:                                              ; preds = %398
-  %switch.selectcmp.case1.i8.i206 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i9.i207 = icmp eq i8 %315, 100
-  %switch.selectcmp.i10.i208 = or i1 %switch.selectcmp.case1.i8.i206, %switch.selectcmp.case2.i9.i207
-  %410 = select i1 %switch.selectcmp.i10.i208, i32 3, i32 4
+  %switch.selectcmp.case1.i9.i206 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i10.i207 = icmp eq i8 %315, 100
+  %switch.selectcmp.i11.i208 = or i1 %switch.selectcmp.case1.i9.i206, %switch.selectcmp.case2.i10.i207
+  %410 = select i1 %switch.selectcmp.i11.i208, i32 3, i32 4
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterImNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 411:                                              ; preds = %398
@@ -31625,11 +31625,11 @@ _ZN3fmt3v106detail13arg_converterImNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
 412:                                              ; preds = %411
   %413 = load i8, ptr %28, align 16, !tbaa !40, !range !221, !noundef !222
   %.sroa.01.0.insert.ext.i.i.i.i201 = zext nneg i8 %413 to i64
+  store i64 %.sroa.01.0.insert.ext.i.i.i.i201, ptr %28, align 16
   %switch.selectcmp.case1.i.i.i202 = icmp eq i8 %315, 105
   %switch.selectcmp.case2.i.i.i203 = icmp eq i8 %315, 100
   %switch.selectcmp.i.i.i204 = or i1 %switch.selectcmp.case1.i.i.i202, %switch.selectcmp.case2.i.i.i203
   %414 = select i1 %switch.selectcmp.i.i.i204, i32 3, i32 7
-  store i64 %.sroa.01.0.insert.ext.i.i.i.i201, ptr %28, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterImNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 415:                                              ; preds = %398
@@ -31691,26 +31691,26 @@ _ZN3fmt3v106detail13arg_converterIlNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
 
 426:                                              ; preds = %420
   %427 = load i32, ptr %28, align 16, !tbaa !40
-  %switch.selectcmp.case1.i.i235 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i.i236 = icmp eq i8 %315, 100
-  %switch.selectcmp.i.i237 = or i1 %switch.selectcmp.case1.i.i235, %switch.selectcmp.case2.i.i236
-  %428 = select i1 %switch.selectcmp.i.i237, i32 3, i32 2
-  %.sroa.01.0.insert.ext.i.i2.i238 = zext i32 %427 to i64
-  store i64 %.sroa.01.0.insert.ext.i.i2.i238, ptr %28, align 16
+  %.sroa.01.0.insert.ext.i.i2.i235 = zext i32 %427 to i64
+  store i64 %.sroa.01.0.insert.ext.i.i2.i235, ptr %28, align 16
+  %switch.selectcmp.case1.i.i236 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i.i237 = icmp eq i8 %315, 100
+  %switch.selectcmp.i.i238 = or i1 %switch.selectcmp.case1.i.i236, %switch.selectcmp.case2.i.i237
+  %428 = select i1 %switch.selectcmp.i.i238, i32 3, i32 2
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i227
 
 429:                                              ; preds = %420
-  %switch.selectcmp.case1.i4.i232 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i5.i233 = icmp eq i8 %315, 100
-  %switch.selectcmp.i6.i234 = or i1 %switch.selectcmp.case1.i4.i232, %switch.selectcmp.case2.i5.i233
-  %430 = select i1 %switch.selectcmp.i6.i234, i32 3, i32 4
+  %switch.selectcmp.case1.i5.i232 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i6.i233 = icmp eq i8 %315, 100
+  %switch.selectcmp.i7.i234 = or i1 %switch.selectcmp.case1.i5.i232, %switch.selectcmp.case2.i6.i233
+  %430 = select i1 %switch.selectcmp.i7.i234, i32 3, i32 4
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i227
 
 431:                                              ; preds = %420
-  %switch.selectcmp.case1.i8.i229 = icmp eq i8 %315, 105
-  %switch.selectcmp.case2.i9.i230 = icmp eq i8 %315, 100
-  %switch.selectcmp.i10.i231 = or i1 %switch.selectcmp.case1.i8.i229, %switch.selectcmp.case2.i9.i230
-  %432 = select i1 %switch.selectcmp.i10.i231, i32 3, i32 4
+  %switch.selectcmp.case1.i9.i229 = icmp eq i8 %315, 105
+  %switch.selectcmp.case2.i10.i230 = icmp eq i8 %315, 100
+  %switch.selectcmp.i11.i231 = or i1 %switch.selectcmp.case1.i9.i229, %switch.selectcmp.case2.i10.i230
+  %432 = select i1 %switch.selectcmp.i11.i231, i32 3, i32 4
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i227
 
 433:                                              ; preds = %420
@@ -31720,11 +31720,11 @@ _ZN3fmt3v106detail13arg_converterIlNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
 434:                                              ; preds = %433
   %435 = load i8, ptr %28, align 16, !tbaa !40, !range !221, !noundef !222
   %.sroa.01.0.insert.ext.i.i.i.i223 = zext nneg i8 %435 to i64
+  store i64 %.sroa.01.0.insert.ext.i.i.i.i223, ptr %28, align 16
   %switch.selectcmp.case1.i.i.i224 = icmp eq i8 %315, 105
   %switch.selectcmp.case2.i.i.i225 = icmp eq i8 %315, 100
   %switch.selectcmp.i.i.i226 = or i1 %switch.selectcmp.case1.i.i.i224, %switch.selectcmp.case2.i.i.i225
   %436 = select i1 %switch.selectcmp.i.i.i226, i32 3, i32 7
-  store i64 %.sroa.01.0.insert.ext.i.i.i.i223, ptr %28, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i227
 
 437:                                              ; preds = %420
@@ -31767,22 +31767,22 @@ _ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_con
 
 444:                                              ; preds = %442
   %445 = load i32, ptr %28, align 16, !tbaa !40
+  %.sroa.01.0.insert.ext.i3.i.i = zext i32 %445 to i64
+  store i64 %.sroa.01.0.insert.ext.i3.i.i, ptr %28, align 16
   %switch.selectcmp.case1.i.i253 = icmp eq i8 %311, 105
   %switch.selectcmp.case2.i.i254 = icmp eq i8 %311, 100
   %switch.selectcmp.i.i255 = or i1 %switch.selectcmp.case1.i.i253, %switch.selectcmp.case2.i.i254
   %446 = select i1 %switch.selectcmp.i.i255, i32 1, i32 2
-  %.sroa.01.0.insert.ext.i3.i.i = zext i32 %445 to i64
-  store i64 %.sroa.01.0.insert.ext.i3.i.i, ptr %28, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIvNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 447:                                              ; preds = %442
   %448 = load i32, ptr %28, align 16, !tbaa !40
-  %switch.selectcmp.case1.i2.i = icmp eq i8 %311, 105
-  %switch.selectcmp.case2.i3.i = icmp eq i8 %311, 100
-  %switch.selectcmp.i4.i = or i1 %switch.selectcmp.case1.i2.i, %switch.selectcmp.case2.i3.i
-  %449 = select i1 %switch.selectcmp.i4.i, i32 1, i32 2
-  %.sroa.01.0.insert.ext.i3.i5.i = zext i32 %448 to i64
-  store i64 %.sroa.01.0.insert.ext.i3.i5.i, ptr %28, align 16
+  %.sroa.01.0.insert.ext.i3.i2.i = zext i32 %448 to i64
+  store i64 %.sroa.01.0.insert.ext.i3.i2.i, ptr %28, align 16
+  %switch.selectcmp.case1.i4.i = icmp eq i8 %311, 105
+  %switch.selectcmp.case2.i5.i = icmp eq i8 %311, 100
+  %switch.selectcmp.i6.i = or i1 %switch.selectcmp.case1.i4.i, %switch.selectcmp.case2.i5.i
+  %449 = select i1 %switch.selectcmp.i6.i, i32 1, i32 2
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIvNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 450:                                              ; preds = %442
@@ -31793,10 +31793,10 @@ _ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_con
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIvNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 452:                                              ; preds = %442
-  %switch.selectcmp.case1.i10.i = icmp eq i8 %311, 105
-  %switch.selectcmp.case2.i11.i = icmp eq i8 %311, 100
-  %switch.selectcmp.i12.i = or i1 %switch.selectcmp.case1.i10.i, %switch.selectcmp.case2.i11.i
-  %453 = select i1 %switch.selectcmp.i12.i, i32 3, i32 4
+  %switch.selectcmp.case1.i11.i = icmp eq i8 %311, 105
+  %switch.selectcmp.case2.i12.i = icmp eq i8 %311, 100
+  %switch.selectcmp.i13.i = or i1 %switch.selectcmp.case1.i11.i, %switch.selectcmp.case2.i12.i
+  %453 = select i1 %switch.selectcmp.i13.i, i32 3, i32 4
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIvNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 454:                                              ; preds = %442
@@ -31806,11 +31806,11 @@ _ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIlNS0_20basic_printf_con
 455:                                              ; preds = %454
   %456 = load i8, ptr %28, align 16, !tbaa !40, !range !221, !noundef !222
   %.sroa.01.0.insert.ext.i3.i.i.i = zext nneg i8 %456 to i64
+  store i64 %.sroa.01.0.insert.ext.i3.i.i.i, ptr %28, align 16
   %switch.selectcmp.case1.i.i.i249 = icmp eq i8 %311, 105
   %switch.selectcmp.case2.i.i.i250 = icmp eq i8 %311, 100
   %switch.selectcmp.i.i.i251 = or i1 %switch.selectcmp.case1.i.i.i249, %switch.selectcmp.case2.i.i.i250
   %457 = select i1 %switch.selectcmp.i.i.i251, i32 1, i32 2
-  store i64 %.sroa.01.0.insert.ext.i3.i.i.i, ptr %28, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIvNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split.i
 
 458:                                              ; preds = %442
@@ -32941,6 +32941,7 @@ _ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
   %.sink12.i = phi i32 [ %10, %9 ], [ %8, %7 ]
   %.sink.i = phi i32 [ 2, %9 ], [ 1, %7 ]
   %.sroa.01.0.insert.ext.i3.i = zext i32 %.sink12.i to i64
+  store i64 %.sroa.01.0.insert.ext.i3.i, ptr %0, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
 
 11:                                               ; preds = %2
@@ -32963,6 +32964,7 @@ _ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIjTnNSt9enab
   %.sink12.i3 = phi i32 [ %16, %15 ], [ %14, %13 ]
   %.sink.i4 = phi i32 [ 2, %15 ], [ 1, %13 ]
   %.sroa.01.0.insert.ext.i3.i5 = zext i32 %.sink12.i3 to i64
+  store i64 %.sroa.01.0.insert.ext.i3.i5, ptr %0, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
 
 17:                                               ; preds = %2
@@ -32976,10 +32978,16 @@ _ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIjTnNSt9enab
   %sext.i7 = shl i64 %18, 56
   %20 = ashr exact i64 %sext.i7, 56
   %.sroa.01.0.insert.ext.i.i = and i64 %20, 4294967295
-  br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
+  br label %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit
 
 21:                                               ; preds = %17
   %.sroa.01.0.insert.ext.i3.i10 = and i64 %18, 255
+  br label %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit
+
+_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit: ; preds = %19, %21
+  %.sroa.01.0.insert.ext.i3.sink.i = phi i64 [ %.sroa.01.0.insert.ext.i3.i10, %21 ], [ %.sroa.01.0.insert.ext.i.i, %19 ]
+  %.sink.i8 = phi i32 [ 2, %21 ], [ 1, %19 ]
+  store i64 %.sroa.01.0.insert.ext.i3.sink.i, ptr %0, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
 
 22:                                               ; preds = %2
@@ -32993,10 +33001,16 @@ _ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIjTnNSt9enab
   %sext.i11 = shl i64 %23, 56
   %25 = ashr exact i64 %sext.i11, 56
   %.sroa.01.0.insert.ext.i.i12 = and i64 %25, 4294967295
-  br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
+  br label %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit
 
 26:                                               ; preds = %22
   %.sroa.01.0.insert.ext.i3.i16 = and i64 %23, 255
+  br label %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit
+
+_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit: ; preds = %24, %26
+  %.sroa.01.0.insert.ext.i3.sink.i13 = phi i64 [ %.sroa.01.0.insert.ext.i3.i16, %26 ], [ %.sroa.01.0.insert.ext.i.i12, %24 ]
+  %.sink.i14 = phi i32 [ 2, %26 ], [ 1, %24 ]
+  store i64 %.sroa.01.0.insert.ext.i3.sink.i13, ptr %0, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
 
 27:                                               ; preds = %2
@@ -33006,6 +33020,7 @@ _ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIjTnNSt9enab
 28:                                               ; preds = %27
   %29 = load i8, ptr %0, align 16, !tbaa !40, !range !221, !noundef !222
   %.sroa.01.0.insert.ext.i3.i.i = zext nneg i8 %29 to i64
+  store i64 %.sroa.01.0.insert.ext.i3.i.i, ptr %0, align 16
   %switch.selectcmp.case1.i.i = icmp eq i8 %1, 105
   %switch.selectcmp.case2.i.i = icmp eq i8 %1, 100
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -33022,16 +33037,20 @@ _ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIjTnNSt9enab
 33:                                               ; preds = %31, %31
   %34 = sext i8 %32 to i64
   %.sroa.01.0.insert.ext.i.i19 = and i64 %34, 4294967295
-  br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
+  br label %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit
 
 35:                                               ; preds = %31
   %.sroa.01.0.insert.ext.i3.i23 = zext i8 %32 to i64
+  br label %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit
+
+_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit: ; preds = %33, %35
+  %.sroa.01.0.insert.ext.i3.sink.i20 = phi i64 [ %.sroa.01.0.insert.ext.i3.i23, %35 ], [ %.sroa.01.0.insert.ext.i.i19, %33 ]
+  %.sink.i21 = phi i32 [ 2, %35 ], [ 1, %33 ]
+  store i64 %.sroa.01.0.insert.ext.i3.sink.i20, ptr %0, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
 
-_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split: ; preds = %35, %33, %26, %24, %21, %19, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %28
-  %.sroa.01.0.insert.ext.i3.i.i.sink = phi i64 [ %.sroa.01.0.insert.ext.i3.i.i, %28 ], [ %.sroa.01.0.insert.ext.i3.i, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sroa.01.0.insert.ext.i3.i5, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sroa.01.0.insert.ext.i3.i10, %21 ], [ %.sroa.01.0.insert.ext.i.i, %19 ], [ %.sroa.01.0.insert.ext.i3.i16, %26 ], [ %.sroa.01.0.insert.ext.i.i12, %24 ], [ %.sroa.01.0.insert.ext.i3.i23, %35 ], [ %.sroa.01.0.insert.ext.i.i19, %33 ]
-  %.sink = phi i32 [ %30, %28 ], [ %.sink.i, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sink.i4, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ 2, %21 ], [ 1, %19 ], [ 2, %26 ], [ 1, %24 ], [ 2, %35 ], [ 1, %33 ]
-  store i64 %.sroa.01.0.insert.ext.i3.i.i.sink, ptr %0, align 16
+_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split: ; preds = %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %28
+  %.sink = phi i32 [ %30, %28 ], [ %.sink.i, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sink.i4, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sink.i8, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sink.i14, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sink.i21, %_ZN3fmt3v106detail13arg_converterIaNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ]
   store i32 %.sink, ptr %3, align 16, !tbaa !86
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIaNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
 
@@ -33072,6 +33091,7 @@ _ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIiTnNSt9enab
   %.sink12.i = phi i32 [ %10, %9 ], [ %8, %7 ]
   %.sink.i = phi i32 [ 2, %9 ], [ 1, %7 ]
   %.sroa.01.0.insert.ext.i3.i = zext i32 %.sink12.i to i64
+  store i64 %.sroa.01.0.insert.ext.i3.i, ptr %0, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
 
 11:                                               ; preds = %2
@@ -33094,6 +33114,7 @@ _ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIjTnNSt9enab
   %.sink12.i3 = phi i32 [ %16, %15 ], [ %14, %13 ]
   %.sink.i4 = phi i32 [ 2, %15 ], [ 1, %13 ]
   %.sroa.01.0.insert.ext.i3.i5 = zext i32 %.sink12.i3 to i64
+  store i64 %.sroa.01.0.insert.ext.i3.i5, ptr %0, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
 
 17:                                               ; preds = %2
@@ -33107,10 +33128,16 @@ _ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIjTnNSt9enab
   %sext.i7 = shl i64 %18, 48
   %20 = ashr exact i64 %sext.i7, 48
   %.sroa.01.0.insert.ext.i.i = and i64 %20, 4294967295
-  br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
+  br label %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit
 
 21:                                               ; preds = %17
   %.sroa.01.0.insert.ext.i3.i10 = and i64 %18, 65535
+  br label %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit
+
+_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit: ; preds = %19, %21
+  %.sroa.01.0.insert.ext.i3.sink.i = phi i64 [ %.sroa.01.0.insert.ext.i3.i10, %21 ], [ %.sroa.01.0.insert.ext.i.i, %19 ]
+  %.sink.i8 = phi i32 [ 2, %21 ], [ 1, %19 ]
+  store i64 %.sroa.01.0.insert.ext.i3.sink.i, ptr %0, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
 
 22:                                               ; preds = %2
@@ -33124,10 +33151,16 @@ _ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIjTnNSt9enab
   %sext.i11 = shl i64 %23, 48
   %25 = ashr exact i64 %sext.i11, 48
   %.sroa.01.0.insert.ext.i.i12 = and i64 %25, 4294967295
-  br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
+  br label %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit
 
 26:                                               ; preds = %22
   %.sroa.01.0.insert.ext.i3.i16 = and i64 %23, 65535
+  br label %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit
+
+_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit: ; preds = %24, %26
+  %.sroa.01.0.insert.ext.i3.sink.i13 = phi i64 [ %.sroa.01.0.insert.ext.i3.i16, %26 ], [ %.sroa.01.0.insert.ext.i.i12, %24 ]
+  %.sink.i14 = phi i32 [ 2, %26 ], [ 1, %24 ]
+  store i64 %.sroa.01.0.insert.ext.i3.sink.i13, ptr %0, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
 
 27:                                               ; preds = %2
@@ -33137,6 +33170,7 @@ _ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIjTnNSt9enab
 28:                                               ; preds = %27
   %29 = load i8, ptr %0, align 16, !tbaa !40, !range !221, !noundef !222
   %.sroa.01.0.insert.ext.i3.i.i = zext nneg i8 %29 to i64
+  store i64 %.sroa.01.0.insert.ext.i3.i.i, ptr %0, align 16
   %switch.selectcmp.case1.i.i = icmp eq i8 %1, 105
   %switch.selectcmp.case2.i.i = icmp eq i8 %1, 100
   %switch.selectcmp.i.i = or i1 %switch.selectcmp.case1.i.i, %switch.selectcmp.case2.i.i
@@ -33154,16 +33188,15 @@ _ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIjTnNSt9enab
   br label %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit
 
 _ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit: ; preds = %31, %31, %33
-  %.sink13.i = phi i64 [ 65535, %33 ], [ 4294967295, %31 ], [ 4294967295, %31 ]
+  %.sink10.i = phi i64 [ 65535, %33 ], [ 4294967295, %31 ], [ 4294967295, %31 ]
   %.sink.i19 = phi i32 [ 2, %33 ], [ 1, %31 ], [ 1, %31 ]
   %34 = sext i8 %32 to i64
-  %.sroa.01.0.insert.ext.i3.i20 = and i64 %.sink13.i, %34
+  %.sroa.01.0.insert.ext.i3.i21 = and i64 %.sink10.i, %34
+  store i64 %.sroa.01.0.insert.ext.i3.i21, ptr %0, align 16
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split
 
-_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split: ; preds = %26, %24, %21, %19, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %28
-  %.sroa.01.0.insert.ext.i3.i.i.sink = phi i64 [ %.sroa.01.0.insert.ext.i3.i.i, %28 ], [ %.sroa.01.0.insert.ext.i3.i, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sroa.01.0.insert.ext.i3.i5, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sroa.01.0.insert.ext.i3.i20, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sroa.01.0.insert.ext.i3.i10, %21 ], [ %.sroa.01.0.insert.ext.i.i, %19 ], [ %.sroa.01.0.insert.ext.i3.i16, %26 ], [ %.sroa.01.0.insert.ext.i.i12, %24 ]
-  %.sink = phi i32 [ %30, %28 ], [ %.sink.i, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sink.i4, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sink.i19, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ 2, %21 ], [ 1, %19 ], [ 2, %26 ], [ 1, %24 ]
-  store i64 %.sroa.01.0.insert.ext.i3.i.i.sink, ptr %0, align 16
+_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.sink.split: ; preds = %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit, %28
+  %.sink = phi i32 [ %30, %28 ], [ %.sink.i, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sink.i4, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIjTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sink.i8, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIxTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sink.i14, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIyTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ], [ %.sink.i19, %_ZN3fmt3v106detail13arg_converterIsNS0_20basic_printf_contextIcEEEclIcTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEEvS8_.exit ]
   store i32 %.sink, ptr %3, align 16, !tbaa !86
   br label %_ZN3fmt3v1016visit_format_argINS0_6detail13arg_converterIsNS0_20basic_printf_contextIcEEEES5_EEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
 

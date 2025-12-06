@@ -653,30 +653,30 @@ getModeInfo.exit:                                 ; preds = %27
   %31 = getelementptr i8, ptr %17, i64 32
   %.val = load i16, ptr %31, align 8, !tbaa !128
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
-  switch i16 %.val, label %32 [
-    i16 2, label %33
-    i16 8, label %33
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  switch i16 %.val, label %33 [
+    i16 2, label %34
+    i16 8, label %34
   ]
 
-32:                                               ; preds = %getModeInfo.exit
-  br label %33
+33:                                               ; preds = %getModeInfo.exit
+  br label %34
 
-33:                                               ; preds = %getModeInfo.exit, %getModeInfo.exit, %32
-  %.sink42 = phi i64 [ 8, %32 ], [ 12, %getModeInfo.exit ], [ 12, %getModeInfo.exit ]
-  %.sink = phi i64 [ 12, %32 ], [ 8, %getModeInfo.exit ], [ 8, %getModeInfo.exit ]
-  %34 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink42
-  %.sink39 = load i32, ptr %34, align 4, !tbaa !93, !noalias !176
+34:                                               ; preds = %getModeInfo.exit, %getModeInfo.exit, %33
+  %.sink42 = phi i64 [ 8, %33 ], [ 12, %getModeInfo.exit ], [ 12, %getModeInfo.exit ]
+  %.sink = phi i64 [ 12, %33 ], [ 8, %getModeInfo.exit ], [ 8, %getModeInfo.exit ]
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink42
+  %.sink39 = load i32, ptr %35, align 4, !tbaa !93, !noalias !176
   store i32 %.sink39, ptr %3, align 4, !tbaa !164, !alias.scope !176
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink
-  %.sink.i = load i32, ptr %35, align 4, !tbaa !93, !noalias !176
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %.sink.i, ptr %36, align 4, !tbaa !165, !alias.scope !176
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 %.sink
+  %.sink.i = load i32, ptr %36, align 4, !tbaa !93, !noalias !176
+  store i32 %.sink.i, ptr %32, align 4, !tbaa !165, !alias.scope !176
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %38 = load i32, ptr %37, align 8, !tbaa !166, !noalias !176
   %.not.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i, label %vidmodeFromModeInfo.exit, label %39
 
-39:                                               ; preds = %33
+39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %41 = load i32, ptr %40, align 8, !tbaa !167, !noalias !176
   %.not7.i.i = icmp eq i32 %41, 0
@@ -694,8 +694,8 @@ getModeInfo.exit:                                 ; preds = %27
   %51 = fptosi double %50 to i32
   br label %vidmodeFromModeInfo.exit
 
-vidmodeFromModeInfo.exit:                         ; preds = %33, %39, %42
-  %.0.i.i = phi i32 [ %51, %42 ], [ 0, %39 ], [ 0, %33 ]
+vidmodeFromModeInfo.exit:                         ; preds = %34, %39, %42
+  %.0.i.i = phi i32 [ %51, %42 ], [ 0, %39 ], [ 0, %34 ]
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %.0.i.i, ptr %52, align 4, !tbaa !169, !alias.scope !176
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !176

@@ -14329,17 +14329,13 @@ if.then7.i.i:                                     ; preds = %if.end4.i.i
 for.body.i.i:                                     ; preds = %if.then7.i.i, %for.inc.i.i
   %start.addr.029.i.i = phi ptr [ %incdec.ptr18.i.i, %for.inc.i.i ], [ %incdec.ptr8.i.i, %if.then7.i.i ]
   %54 = load i16, ptr %start.addr.029.i.i, align 2
+  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
   switch i16 %54, label %for.inc.i.i [
-    i16 10, label %if.then15.i.i
-    i16 13, label %if.then15.i.i
+    i16 10, label %if.end7.i
+    i16 13, label %if.end7.i
   ]
 
-if.then15.i.i:                                    ; preds = %for.body.i.i, %for.body.i.i
-  %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
-  br label %if.end7.i
-
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
   %cmp9.i.i = icmp ult ptr %incdec.ptr18.i.i, %end
   br i1 %cmp9.i.i, label %for.body.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit, !llvm.loop !289
 
@@ -14362,8 +14358,8 @@ for.inc34.i.i:                                    ; preds = %for.body26.i.i
   %cmp25.i.i = icmp ult ptr %add.ptr32.i.i, %end
   br i1 %cmp25.i.i, label %for.body26.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit, !llvm.loop !290
 
-if.end7.i:                                        ; preds = %for.body26.i.i, %if.then15.i.i, %if.then.i188
-  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i188 ], [ %add.ptr16.i.i, %if.then15.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
+if.end7.i:                                        ; preds = %for.body26.i.i, %for.body.i.i, %for.body.i.i, %if.then.i188
+  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i188 ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
   %cmp.i187 = icmp ult ptr %start.addr.1.i, %end
   br i1 %cmp.i187, label %while.body.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit, !llvm.loop !291
 
@@ -14428,17 +14424,13 @@ if.then7.i.i:                                     ; preds = %if.end4.i.i
 for.body.i.i:                                     ; preds = %if.then7.i.i, %for.inc.i.i
   %start.addr.029.i.i = phi ptr [ %incdec.ptr18.i.i, %for.inc.i.i ], [ %incdec.ptr8.i.i, %if.then7.i.i ]
   %2 = load i16, ptr %start.addr.029.i.i, align 2
+  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
   switch i16 %2, label %for.inc.i.i [
-    i16 10, label %if.then15.i.i
-    i16 13, label %if.then15.i.i
+    i16 10, label %if.end7.i
+    i16 13, label %if.end7.i
   ]
 
-if.then15.i.i:                                    ; preds = %for.body.i.i, %for.body.i.i
-  %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
-  br label %if.end7.i
-
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
   %cmp9.i.i = icmp ult ptr %incdec.ptr18.i.i, %end
   br i1 %cmp9.i.i, label %for.body.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit.thread, !llvm.loop !289
 
@@ -14461,8 +14453,8 @@ for.inc34.i.i:                                    ; preds = %for.body26.i.i
   %cmp25.i.i = icmp ult ptr %add.ptr32.i.i, %end
   br i1 %cmp25.i.i, label %for.body26.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit, !llvm.loop !290
 
-if.end7.i:                                        ; preds = %for.body26.i.i, %if.then15.i.i, %if.then.i
-  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %add.ptr16.i.i, %if.then15.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
+if.end7.i:                                        ; preds = %for.body26.i.i, %for.body.i.i, %for.body.i.i, %if.then.i
+  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
   %cmp.i = icmp ult ptr %start.addr.1.i, %end
   br i1 %cmp.i, label %while.body.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit, !llvm.loop !291
 
@@ -15520,17 +15512,13 @@ if.then7.i.i:                                     ; preds = %if.end4.i.i
 for.body.i.i:                                     ; preds = %if.then7.i.i, %for.inc.i.i
   %start.addr.029.i.i = phi ptr [ %incdec.ptr18.i.i, %for.inc.i.i ], [ %incdec.ptr8.i.i, %if.then7.i.i ]
   %38 = load i8, ptr %start.addr.029.i.i, align 1
+  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
   switch i8 %38, label %for.inc.i.i [
-    i8 10, label %if.then15.i.i
-    i8 13, label %if.then15.i.i
+    i8 10, label %if.end8.i
+    i8 13, label %if.end8.i
   ]
 
-if.then15.i.i:                                    ; preds = %for.body.i.i, %for.body.i.i
-  %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
-  br label %if.end8.i
-
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
   %exitcond37.not.i.i = icmp eq ptr %incdec.ptr18.i.i, %end
   br i1 %exitcond37.not.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit, label %for.body.i.i, !llvm.loop !328
 
@@ -15553,8 +15541,8 @@ for.inc34.i.i:                                    ; preds = %for.body26.i.i
   %exitcond.not.i.i = icmp eq ptr %add.ptr32.i.i, %end
   br i1 %exitcond.not.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit, label %for.body26.i.i, !llvm.loop !329
 
-if.end8.i:                                        ; preds = %for.body26.i.i, %if.then15.i.i, %if.then.i
-  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %add.ptr16.i.i, %if.then15.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
+if.end8.i:                                        ; preds = %for.body26.i.i, %for.body.i.i, %for.body.i.i, %if.then.i
+  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
   %cmp.i155 = icmp ult ptr %start.addr.1.i, %end
   br i1 %cmp.i155, label %while.body.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit, !llvm.loop !330
 
@@ -15619,17 +15607,13 @@ if.then7.i.i:                                     ; preds = %if.end4.i.i
 for.body.i.i:                                     ; preds = %if.then7.i.i, %for.inc.i.i
   %start.addr.029.i.i = phi ptr [ %incdec.ptr18.i.i, %for.inc.i.i ], [ %incdec.ptr8.i.i, %if.then7.i.i ]
   %2 = load i8, ptr %start.addr.029.i.i, align 1
+  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
   switch i8 %2, label %for.inc.i.i [
-    i8 10, label %if.then15.i.i
-    i8 13, label %if.then15.i.i
+    i8 10, label %if.end8.i
+    i8 13, label %if.end8.i
   ]
 
-if.then15.i.i:                                    ; preds = %for.body.i.i, %for.body.i.i
-  %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
-  br label %if.end8.i
-
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
   %exitcond37.not.i.i = icmp eq ptr %incdec.ptr18.i.i, %end
   br i1 %exitcond37.not.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit.thread, label %for.body.i.i, !llvm.loop !328
 
@@ -15652,8 +15636,8 @@ for.inc34.i.i:                                    ; preds = %for.body26.i.i
   %exitcond.not.i.i = icmp eq ptr %add.ptr32.i.i, %end
   br i1 %exitcond.not.i.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit, label %for.body26.i.i, !llvm.loop !329
 
-if.end8.i:                                        ; preds = %for.body26.i.i, %if.then15.i.i, %if.then.i
-  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %add.ptr16.i.i, %if.then15.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
+if.end8.i:                                        ; preds = %for.body26.i.i, %for.body.i.i, %for.body.i.i, %if.then.i
+  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
   %cmp.i = icmp ult ptr %start.addr.1.i, %end
   br i1 %cmp.i, label %while.body.i, label %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsIhEEvPKT_S6_PS6_.exit, !llvm.loop !330
 
@@ -23753,17 +23737,13 @@ if.then7.i.i:                                     ; preds = %if.end4.i.i
 for.body.i.i:                                     ; preds = %if.then7.i.i, %for.inc.i.i
   %start.addr.029.i.i = phi ptr [ %incdec.ptr18.i.i, %for.inc.i.i ], [ %incdec.ptr8.i.i, %if.then7.i.i ]
   %102 = load i8, ptr %start.addr.029.i.i, align 1
+  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
   switch i8 %102, label %for.inc.i.i [
-    i8 10, label %if.then15.i.i
-    i8 13, label %if.then15.i.i
+    i8 10, label %if.end7.i
+    i8 13, label %if.end7.i
   ]
 
-if.then15.i.i:                                    ; preds = %for.body.i.i, %for.body.i.i
-  %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
-  br label %if.end7.i
-
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
   %exitcond37.not.i.i = icmp eq ptr %incdec.ptr18.i.i, %end
   br i1 %exitcond37.not.i.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit, label %for.body.i.i, !llvm.loop !425
 
@@ -23786,8 +23766,8 @@ for.inc34.i.i:                                    ; preds = %for.body26.i.i
   %exitcond.not.i.i = icmp eq ptr %add.ptr32.i.i, %end
   br i1 %exitcond.not.i.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit, label %for.body26.i.i, !llvm.loop !426
 
-if.end7.i:                                        ; preds = %for.body26.i.i, %if.then15.i.i, %if.then.i168
-  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i168 ], [ %add.ptr16.i.i, %if.then15.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
+if.end7.i:                                        ; preds = %for.body26.i.i, %for.body.i.i, %for.body.i.i, %if.then.i168
+  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i168 ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
   %cmp.i = icmp ult ptr %start.addr.1.i, %end
   br i1 %cmp.i, label %while.body.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit, !llvm.loop !427
 
@@ -23843,17 +23823,13 @@ if.then7.i.i:                                     ; preds = %if.end4.i.i
 for.body.i.i:                                     ; preds = %if.then7.i.i, %for.inc.i.i
   %start.addr.029.i.i = phi ptr [ %incdec.ptr18.i.i, %for.inc.i.i ], [ %incdec.ptr8.i.i, %if.then7.i.i ]
   %2 = load i8, ptr %start.addr.029.i.i, align 1
+  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
   switch i8 %2, label %for.inc.i.i [
-    i8 10, label %if.then15.i.i
-    i8 13, label %if.then15.i.i
+    i8 10, label %if.end7.i
+    i8 13, label %if.end7.i
   ]
 
-if.then15.i.i:                                    ; preds = %for.body.i.i, %for.body.i.i
-  %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
-  br label %if.end7.i
-
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 1
   %exitcond37.not.i.i = icmp eq ptr %incdec.ptr18.i.i, %end
   br i1 %exitcond37.not.i.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit.thread, label %for.body.i.i, !llvm.loop !425
 
@@ -23876,8 +23852,8 @@ for.inc34.i.i:                                    ; preds = %for.body26.i.i
   %exitcond.not.i.i = icmp eq ptr %add.ptr32.i.i, %end
   br i1 %exitcond.not.i.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit, label %for.body26.i.i, !llvm.loop !426
 
-if.end7.i:                                        ; preds = %for.body26.i.i, %if.then15.i.i, %if.then.i
-  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %add.ptr16.i.i, %if.then15.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
+if.end7.i:                                        ; preds = %for.body26.i.i, %for.body.i.i, %for.body.i.i, %if.then.i
+  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
   %cmp.i = icmp ult ptr %start.addr.1.i, %end
   br i1 %cmp.i, label %while.body.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit, !llvm.loop !427
 
@@ -25577,17 +25553,13 @@ if.then7.i.i:                                     ; preds = %if.end4.i.i
 for.body.i.i:                                     ; preds = %if.then7.i.i, %for.inc.i.i
   %start.addr.029.i.i = phi ptr [ %incdec.ptr18.i.i, %for.inc.i.i ], [ %incdec.ptr8.i.i, %if.then7.i.i ]
   %104 = load i16, ptr %start.addr.029.i.i, align 2
+  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
   switch i16 %104, label %for.inc.i.i [
-    i16 10, label %if.then15.i.i
-    i16 13, label %if.then15.i.i
+    i16 10, label %if.end7.i
+    i16 13, label %if.end7.i
   ]
 
-if.then15.i.i:                                    ; preds = %for.body.i.i, %for.body.i.i
-  %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
-  br label %if.end7.i
-
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
   %cmp9.i.i = icmp ult ptr %incdec.ptr18.i.i, %end
   br i1 %cmp9.i.i, label %for.body.i.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit, !llvm.loop !436
 
@@ -25610,8 +25582,8 @@ for.inc34.i.i:                                    ; preds = %for.body26.i.i
   %cmp25.i.i = icmp ult ptr %add.ptr32.i.i, %end
   br i1 %cmp25.i.i, label %for.body26.i.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit, !llvm.loop !437
 
-if.end7.i:                                        ; preds = %for.body26.i.i, %if.then15.i.i, %if.then.i191
-  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i191 ], [ %add.ptr16.i.i, %if.then15.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
+if.end7.i:                                        ; preds = %for.body26.i.i, %for.body.i.i, %for.body.i.i, %if.then.i191
+  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i191 ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
   %cmp.i = icmp ult ptr %start.addr.1.i, %end
   br i1 %cmp.i, label %while.body.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit, !llvm.loop !438
 
@@ -25667,17 +25639,13 @@ if.then7.i.i:                                     ; preds = %if.end4.i.i
 for.body.i.i:                                     ; preds = %if.then7.i.i, %for.inc.i.i
   %start.addr.029.i.i = phi ptr [ %incdec.ptr18.i.i, %for.inc.i.i ], [ %incdec.ptr8.i.i, %if.then7.i.i ]
   %2 = load i16, ptr %start.addr.029.i.i, align 2
+  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
   switch i16 %2, label %for.inc.i.i [
-    i16 10, label %if.then15.i.i
-    i16 13, label %if.then15.i.i
+    i16 10, label %if.end7.i
+    i16 13, label %if.end7.i
   ]
 
-if.then15.i.i:                                    ; preds = %for.body.i.i, %for.body.i.i
-  %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
-  br label %if.end7.i
-
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr18.i.i = getelementptr inbounds nuw i8, ptr %start.addr.029.i.i, i64 2
   %cmp9.i.i = icmp ult ptr %incdec.ptr18.i.i, %end
   br i1 %cmp9.i.i, label %for.body.i.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit.thread, !llvm.loop !436
 
@@ -25700,8 +25668,8 @@ for.inc34.i.i:                                    ; preds = %for.body26.i.i
   %cmp25.i.i = icmp ult ptr %add.ptr32.i.i, %end
   br i1 %cmp25.i.i, label %for.body26.i.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit, !llvm.loop !437
 
-if.end7.i:                                        ; preds = %for.body26.i.i, %if.then15.i.i, %if.then.i
-  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %add.ptr16.i.i, %if.then15.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
+if.end7.i:                                        ; preds = %for.body26.i.i, %for.body.i.i, %for.body.i.i, %if.then.i
+  %start.addr.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %incdec.ptr18.i.i, %for.body.i.i ], [ %add.ptr32.i.i, %for.body26.i.i ]
   %cmp.i = icmp ult ptr %start.addr.1.i, %end
   br i1 %cmp.i, label %while.body.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit, !llvm.loop !438
 

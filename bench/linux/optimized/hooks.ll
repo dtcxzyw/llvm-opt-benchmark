@@ -2389,41 +2389,35 @@ define internal i32 @selinux_quota_on(ptr noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_syslog(i32 noundef %0) #1 align 16 {
-  switch i32 %0, label %6 [
-    i32 3, label %2
-    i32 10, label %2
-    i32 6, label %4
-    i32 7, label %4
-    i32 8, label %4
+  %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #27
+  switch i32 %0, label %4 [
+    i32 3, label %5
+    i32 10, label %5
+    i32 6, label %3
+    i32 7, label %3
+    i32 8, label %3
   ]
 
-2:                                                ; preds = %1, %1
-  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #27, !srcloc !6
-  br label %8
+3:                                                ; preds = %1, %1, %1
+  br label %5
 
-4:                                                ; preds = %1, %1, %1
-  %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #27, !srcloc !6
-  br label %8
+4:                                                ; preds = %1
+  br label %5
 
-6:                                                ; preds = %1
-  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #27, !srcloc !6
-  br label %8
-
-8:                                                ; preds = %6, %4, %2
-  %9 = phi i64 [ %7, %6 ], [ %5, %4 ], [ %3, %2 ]
-  %10 = phi i32 [ 4, %6 ], [ 8, %4 ], [ 2, %2 ]
-  %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1784
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i32, ptr @selinux_blob_sizes, align 4
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr i8, ptr %15, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %20 = load i32, ptr %19, align 4
-  %21 = tail call i32 @avc_has_perm(i32 noundef %20, i32 noundef 1, i16 noundef zeroext 4, i32 noundef %10, ptr noundef null) #25
-  ret i32 %21
+5:                                                ; preds = %1, %1, %4, %3
+  %6 = phi i32 [ 4, %4 ], [ 8, %3 ], [ 2, %1 ], [ 2, %1 ]
+  %7 = inttoptr i64 %2 to ptr
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1784
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i32, ptr @selinux_blob_sizes, align 4
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr i8, ptr %11, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = load i32, ptr %15, align 4
+  %17 = tail call i32 @avc_has_perm(i32 noundef %16, i32 noundef 1, i16 noundef zeroext 4, i32 noundef %6, ptr noundef null) #25
+  ret i32 %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

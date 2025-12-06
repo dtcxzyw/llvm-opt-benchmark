@@ -11225,173 +11225,151 @@ define hidden noundef zeroext i1 @_ZNK10ClipperLib7Clipper14IsContributingERKNS_
   %13 = load i32, ptr %12, align 4
   %.not33 = icmp eq i32 %13, 1
   %or.cond = select i1 %11, i1 true, i1 %.not33
-  br i1 %or.cond, label %24, label %97
+  br i1 %or.cond, label %24, label %75
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 false)
   %.not32 = icmp eq i32 %17, 1
-  br i1 %.not32, label %24, label %97
+  br i1 %.not32, label %24, label %75
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %20 = load i32, ptr %19, align 4
   %.not = icmp eq i32 %20, 1
-  br i1 %.not, label %24, label %97
+  br i1 %.not, label %24, label %75
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %23 = load i32, ptr %22, align 4
   %.not34 = icmp eq i32 %23, -1
-  br i1 %.not34, label %24, label %97
+  br i1 %.not34, label %24, label %75
 
 24:                                               ; preds = %21, %18, %14, %8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load i32, ptr %25, align 8
-  switch i32 %26, label %97 [
+  switch i32 %26, label %75 [
     i32 0, label %27
-    i32 1, label %40
-    i32 2, label %53
-    i32 3, label %80
+    i32 1, label %36
+    i32 2, label %45
+    i32 3, label %62
   ]
 
 27:                                               ; preds = %24
-  switch i32 %.0, label %36 [
-    i32 0, label %28
-    i32 1, label %28
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %29 = load i32, ptr %28, align 8
+  switch i32 %.0, label %34 [
+    i32 0, label %30
+    i32 1, label %30
     i32 2, label %32
   ]
 
-28:                                               ; preds = %27, %27
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %30 = load i32, ptr %29, align 8
-  %31 = icmp ne i32 %30, 0
-  br label %97
+30:                                               ; preds = %27, %27
+  %31 = icmp ne i32 %29, 0
+  br label %75
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp sgt i32 %34, 0
-  br label %97
+  %33 = icmp sgt i32 %29, 0
+  br label %75
 
-36:                                               ; preds = %27
+34:                                               ; preds = %27
+  %35 = icmp slt i32 %29, 0
+  br label %75
+
+36:                                               ; preds = %24
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %38 = load i32, ptr %37, align 8
-  %39 = icmp slt i32 %38, 0
-  br label %97
-
-40:                                               ; preds = %24
-  switch i32 %.0, label %49 [
-    i32 0, label %41
-    i32 1, label %41
-    i32 2, label %45
+  switch i32 %.0, label %43 [
+    i32 0, label %39
+    i32 1, label %39
+    i32 2, label %41
   ]
 
-41:                                               ; preds = %40, %40
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp eq i32 %43, 0
-  br label %97
+39:                                               ; preds = %36, %36
+  %40 = icmp eq i32 %38, 0
+  br label %75
 
-45:                                               ; preds = %40
+41:                                               ; preds = %36
+  %42 = icmp slt i32 %38, 1
+  br label %75
+
+43:                                               ; preds = %36
+  %44 = icmp sgt i32 %38, -1
+  br label %75
+
+45:                                               ; preds = %24
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %47 = load i32, ptr %46, align 8
-  %48 = icmp slt i32 %47, 1
-  br label %97
+  br i1 %5, label %48, label %55
 
-49:                                               ; preds = %40
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp sgt i32 %51, -1
-  br label %97
-
-53:                                               ; preds = %24
-  br i1 %5, label %54, label %67
-
-54:                                               ; preds = %53
-  switch i32 %.val, label %63 [
-    i32 0, label %55
-    i32 1, label %55
-    i32 2, label %59
+48:                                               ; preds = %45
+  switch i32 %.val, label %53 [
+    i32 0, label %49
+    i32 1, label %49
+    i32 2, label %51
   ]
 
-55:                                               ; preds = %54, %54
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp eq i32 %57, 0
-  br label %97
+49:                                               ; preds = %48, %48
+  %50 = icmp eq i32 %47, 0
+  br label %75
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp slt i32 %61, 1
-  br label %97
+51:                                               ; preds = %48
+  %52 = icmp slt i32 %47, 1
+  br label %75
 
-63:                                               ; preds = %54
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %65 = load i32, ptr %64, align 8
-  %66 = icmp sgt i32 %65, -1
-  br label %97
+53:                                               ; preds = %48
+  %54 = icmp sgt i32 %47, -1
+  br label %75
 
-67:                                               ; preds = %53
-  switch i32 %.val36, label %76 [
-    i32 0, label %68
-    i32 1, label %68
-    i32 2, label %72
+55:                                               ; preds = %45
+  switch i32 %.val36, label %60 [
+    i32 0, label %56
+    i32 1, label %56
+    i32 2, label %58
   ]
 
-68:                                               ; preds = %67, %67
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp ne i32 %70, 0
-  br label %97
+56:                                               ; preds = %55, %55
+  %57 = icmp ne i32 %47, 0
+  br label %75
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp sgt i32 %74, 0
-  br label %97
+58:                                               ; preds = %55
+  %59 = icmp sgt i32 %47, 0
+  br label %75
 
-76:                                               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp slt i32 %78, 0
-  br label %97
+60:                                               ; preds = %55
+  %61 = icmp slt i32 %47, 0
+  br label %75
 
-80:                                               ; preds = %24
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %82 = load i32, ptr %81, align 8
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %84, label %97
+62:                                               ; preds = %24
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %75
 
-84:                                               ; preds = %80
-  switch i32 %.0, label %93 [
-    i32 0, label %85
-    i32 1, label %85
-    i32 2, label %89
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %68 = load i32, ptr %67, align 8
+  switch i32 %.0, label %73 [
+    i32 0, label %69
+    i32 1, label %69
+    i32 2, label %71
   ]
 
-85:                                               ; preds = %84, %84
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %87 = load i32, ptr %86, align 8
-  %88 = icmp eq i32 %87, 0
-  br label %97
+69:                                               ; preds = %66, %66
+  %70 = icmp eq i32 %68, 0
+  br label %75
 
-89:                                               ; preds = %84
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %91 = load i32, ptr %90, align 8
-  %92 = icmp slt i32 %91, 1
-  br label %97
+71:                                               ; preds = %66
+  %72 = icmp slt i32 %68, 1
+  br label %75
 
-93:                                               ; preds = %84
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %95 = load i32, ptr %94, align 8
-  %96 = icmp sgt i32 %95, -1
-  br label %97
+73:                                               ; preds = %66
+  %74 = icmp sgt i32 %68, -1
+  br label %75
 
-97:                                               ; preds = %24, %80, %21, %18, %14, %8, %93, %89, %85, %76, %72, %68, %63, %59, %55, %49, %45, %41, %36, %32, %28
-  %.031 = phi i1 [ %39, %36 ], [ %31, %28 ], [ %35, %32 ], [ %52, %49 ], [ %44, %41 ], [ %48, %45 ], [ %66, %63 ], [ %58, %55 ], [ %62, %59 ], [ %79, %76 ], [ %71, %68 ], [ %75, %72 ], [ %96, %93 ], [ %88, %85 ], [ %92, %89 ], [ false, %8 ], [ false, %14 ], [ false, %18 ], [ false, %21 ], [ true, %80 ], [ true, %24 ]
+75:                                               ; preds = %24, %62, %21, %18, %14, %8, %73, %71, %69, %60, %58, %56, %53, %51, %49, %43, %41, %39, %34, %32, %30
+  %.031 = phi i1 [ %35, %34 ], [ %31, %30 ], [ %33, %32 ], [ %44, %43 ], [ %40, %39 ], [ %42, %41 ], [ %54, %53 ], [ %50, %49 ], [ %52, %51 ], [ %61, %60 ], [ %57, %56 ], [ %59, %58 ], [ %74, %73 ], [ %70, %69 ], [ %72, %71 ], [ false, %8 ], [ false, %14 ], [ false, %18 ], [ false, %21 ], [ true, %62 ], [ true, %24 ]
   ret i1 %.031
 }
 

@@ -79,27 +79,27 @@ define i32 @LSRKStepSetSTSMethod(ptr noundef %0, i32 noundef %1) local_unnamed_a
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetSTSMethod, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %40
+  br i1 %.not, label %6, label %37
 
 6:                                                ; preds = %2
-  switch i32 %1, label %35 [
-    i32 0, label %7
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  switch i32 %1, label %33 [
+    i32 0, label %8
     i32 1, label %20
-    i32 2, label %33
-    i32 3, label %33
-    i32 4, label %33
+    i32 2, label %32
+    i32 3, label %32
+    i32 4, label %32
   ]
 
-7:                                                ; preds = %6
-  %8 = load ptr, ptr %3, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store ptr @lsrkStep_TakeStepRKC, ptr %9, align 8, !tbaa !8
   %10 = load ptr, ptr %4, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 140
   store i32 0, ptr %11, align 4, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 160
   store i32 5, ptr %12, align 8, !tbaa !25
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 776
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 776
   %14 = load ptr, ptr %13, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 92
   store i32 2, ptr %15, align 4, !tbaa !27
@@ -111,50 +111,47 @@ define i32 @LSRKStepSetSTSMethod(ptr noundef %0, i32 noundef %1) local_unnamed_a
   store i32 2, ptr %18, align 4, !tbaa !32
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i64 0, ptr %19, align 8, !tbaa !33
-  br label %37
+  br label %34
 
 20:                                               ; preds = %6
-  %21 = load ptr, ptr %3, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 160
-  store ptr @lsrkStep_TakeStepRKL, ptr %22, align 8, !tbaa !8
-  %23 = load ptr, ptr %4, align 8, !tbaa !19
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 140
-  store i32 0, ptr %24, align 4, !tbaa !21
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 160
-  store i32 5, ptr %25, align 8, !tbaa !25
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 776
-  %27 = load ptr, ptr %26, align 8, !tbaa !26
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 92
-  store i32 2, ptr %28, align 4, !tbaa !27
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i32 2, ptr %29, align 8, !tbaa !30
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 88
-  store i32 2, ptr %30, align 8, !tbaa !31
-  %31 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  store i32 2, ptr %31, align 4, !tbaa !32
-  %32 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  store i64 0, ptr %32, align 8, !tbaa !33
-  br label %37
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  store ptr @lsrkStep_TakeStepRKL, ptr %21, align 8, !tbaa !8
+  %22 = load ptr, ptr %4, align 8, !tbaa !19
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 140
+  store i32 0, ptr %23, align 4, !tbaa !21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 160
+  store i32 5, ptr %24, align 8, !tbaa !25
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 776
+  %26 = load ptr, ptr %25, align 8, !tbaa !26
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 92
+  store i32 2, ptr %27, align 4, !tbaa !27
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store i32 2, ptr %28, align 8, !tbaa !30
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 88
+  store i32 2, ptr %29, align 8, !tbaa !31
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 20
+  store i32 2, ptr %30, align 4, !tbaa !32
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  store i64 0, ptr %31, align 8, !tbaa !33
+  br label %34
 
-33:                                               ; preds = %6, %6, %6
-  %34 = load ptr, ptr %3, align 8, !tbaa !3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %34, i32 noundef -22, i32 noundef 67, ptr noundef nonnull @__func__.LSRKStepSetSTSMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
+32:                                               ; preds = %6, %6, %6
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %7, i32 noundef -22, i32 noundef 67, ptr noundef nonnull @__func__.LSRKStepSetSTSMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #8
   %.pre = load ptr, ptr %4, align 8, !tbaa !19
+  br label %34
+
+33:                                               ; preds = %6
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %7, i32 noundef -22, i32 noundef 72, ptr noundef nonnull @__func__.LSRKStepSetSTSMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
   br label %37
 
-35:                                               ; preds = %6
-  %36 = load ptr, ptr %3, align 8, !tbaa !3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %36, i32 noundef -22, i32 noundef 72, ptr noundef nonnull @__func__.LSRKStepSetSTSMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %40
+34:                                               ; preds = %32, %20, %8
+  %35 = phi ptr [ %.pre, %32 ], [ %22, %20 ], [ %10, %8 ]
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 28
+  store i32 %1, ptr %36, align 4, !tbaa !34
+  br label %37
 
-37:                                               ; preds = %33, %20, %7
-  %38 = phi ptr [ %.pre, %33 ], [ %23, %20 ], [ %10, %7 ]
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 28
-  store i32 %1, ptr %39, align 4, !tbaa !34
-  br label %40
-
-40:                                               ; preds = %2, %37, %35
-  %.0 = phi i32 [ -22, %35 ], [ 0, %37 ], [ %5, %2 ]
+37:                                               ; preds = %2, %34, %33
+  %.0 = phi i32 [ -22, %33 ], [ 0, %34 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -176,105 +173,101 @@ define i32 @LSRKStepSetSSPMethod(ptr noundef %0, i32 noundef %1) local_unnamed_a
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.LSRKStepSetSSPMethod, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %53
+  br i1 %.not, label %6, label %49
 
 6:                                                ; preds = %2
-  switch i32 %1, label %48 [
-    i32 0, label %7
-    i32 1, label %7
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
+  switch i32 %1, label %45 [
+    i32 0, label %8
+    i32 1, label %8
     i32 2, label %9
-    i32 3, label %22
-    i32 4, label %35
+    i32 3, label %21
+    i32 4, label %33
   ]
 
-7:                                                ; preds = %6, %6
-  %8 = load ptr, ptr %3, align 8, !tbaa !3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %8, i32 noundef -22, i32 noundef 104, ptr noundef nonnull @__func__.LSRKStepSetSSPMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
+8:                                                ; preds = %6, %6
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %7, i32 noundef -22, i32 noundef 104, ptr noundef nonnull @__func__.LSRKStepSetSSPMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
   %.pre = load ptr, ptr %4, align 8, !tbaa !19
-  br label %50
+  br label %46
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %3, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  store ptr @lsrkStep_TakeStepSSPs2, ptr %11, align 8, !tbaa !8
-  %12 = load ptr, ptr %4, align 8, !tbaa !19
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 140
-  store i32 1, ptr %13, align 4, !tbaa !21
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i32 10, ptr %14, align 8, !tbaa !35
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 160
-  store i32 3, ptr %15, align 8, !tbaa !25
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 776
-  %17 = load ptr, ptr %16, align 8, !tbaa !26
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 92
-  store i32 2, ptr %18, align 4, !tbaa !27
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 2, ptr %19, align 8, !tbaa !30
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  store i32 1, ptr %20, align 8, !tbaa !31
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i32 1, ptr %21, align 4, !tbaa !32
-  br label %50
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  store ptr @lsrkStep_TakeStepSSPs2, ptr %10, align 8, !tbaa !8
+  %11 = load ptr, ptr %4, align 8, !tbaa !19
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 140
+  store i32 1, ptr %12, align 4, !tbaa !21
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i32 10, ptr %13, align 8, !tbaa !35
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 160
+  store i32 3, ptr %14, align 8, !tbaa !25
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 776
+  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 92
+  store i32 2, ptr %17, align 4, !tbaa !27
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i32 2, ptr %18, align 8, !tbaa !30
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 88
+  store i32 1, ptr %19, align 8, !tbaa !31
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  store i32 1, ptr %20, align 4, !tbaa !32
+  br label %46
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %3, align 8, !tbaa !3
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
-  store ptr @lsrkStep_TakeStepSSPs3, ptr %24, align 8, !tbaa !8
-  %25 = load ptr, ptr %4, align 8, !tbaa !19
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 140
-  store i32 1, ptr %26, align 4, !tbaa !21
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i32 9, ptr %27, align 8, !tbaa !35
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 160
-  store i32 3, ptr %28, align 8, !tbaa !25
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 776
-  %30 = load ptr, ptr %29, align 8, !tbaa !26
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 92
-  store i32 3, ptr %31, align 4, !tbaa !27
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i32 3, ptr %32, align 8, !tbaa !30
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 88
-  store i32 2, ptr %33, align 8, !tbaa !31
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 20
-  store i32 2, ptr %34, align 4, !tbaa !32
-  br label %50
+21:                                               ; preds = %6
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  store ptr @lsrkStep_TakeStepSSPs3, ptr %22, align 8, !tbaa !8
+  %23 = load ptr, ptr %4, align 8, !tbaa !19
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 140
+  store i32 1, ptr %24, align 4, !tbaa !21
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store i32 9, ptr %25, align 8, !tbaa !35
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 160
+  store i32 3, ptr %26, align 8, !tbaa !25
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 776
+  %28 = load ptr, ptr %27, align 8, !tbaa !26
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 92
+  store i32 3, ptr %29, align 4, !tbaa !27
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i32 3, ptr %30, align 8, !tbaa !30
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 88
+  store i32 2, ptr %31, align 8, !tbaa !31
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 20
+  store i32 2, ptr %32, align 4, !tbaa !32
+  br label %46
 
-35:                                               ; preds = %6
-  %36 = load ptr, ptr %3, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 160
-  store ptr @lsrkStep_TakeStepSSP104, ptr %37, align 8, !tbaa !8
-  %38 = load ptr, ptr %4, align 8, !tbaa !19
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 140
-  store i32 1, ptr %39, align 4, !tbaa !21
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store i32 10, ptr %40, align 8, !tbaa !35
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 160
-  store i32 3, ptr %41, align 8, !tbaa !25
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 776
-  %43 = load ptr, ptr %42, align 8, !tbaa !26
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 92
-  store i32 4, ptr %44, align 4, !tbaa !27
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i32 4, ptr %45, align 8, !tbaa !30
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 88
-  store i32 3, ptr %46, align 8, !tbaa !31
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  store i32 3, ptr %47, align 4, !tbaa !32
-  br label %50
+33:                                               ; preds = %6
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  store ptr @lsrkStep_TakeStepSSP104, ptr %34, align 8, !tbaa !8
+  %35 = load ptr, ptr %4, align 8, !tbaa !19
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 140
+  store i32 1, ptr %36, align 4, !tbaa !21
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store i32 10, ptr %37, align 8, !tbaa !35
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 160
+  store i32 3, ptr %38, align 8, !tbaa !25
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 776
+  %40 = load ptr, ptr %39, align 8, !tbaa !26
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 92
+  store i32 4, ptr %41, align 4, !tbaa !27
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store i32 4, ptr %42, align 8, !tbaa !30
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 88
+  store i32 3, ptr %43, align 8, !tbaa !31
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  store i32 3, ptr %44, align 4, !tbaa !32
+  br label %46
 
-48:                                               ; preds = %6
-  %49 = load ptr, ptr %3, align 8, !tbaa !3
-  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %49, i32 noundef -22, i32 noundef 133, ptr noundef nonnull @__func__.LSRKStepSetSSPMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
-  br label %53
+45:                                               ; preds = %6
+  call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef %7, i32 noundef -22, i32 noundef 133, ptr noundef nonnull @__func__.LSRKStepSetSSPMethod, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2) #8
+  br label %49
 
-50:                                               ; preds = %35, %22, %9, %7
-  %51 = phi ptr [ %38, %35 ], [ %25, %22 ], [ %12, %9 ], [ %.pre, %7 ]
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 28
-  store i32 %1, ptr %52, align 4, !tbaa !34
-  br label %53
+46:                                               ; preds = %33, %21, %9, %8
+  %47 = phi ptr [ %35, %33 ], [ %23, %21 ], [ %11, %9 ], [ %.pre, %8 ]
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
+  store i32 %1, ptr %48, align 4, !tbaa !34
+  br label %49
 
-53:                                               ; preds = %2, %50, %48
-  %.0 = phi i32 [ -22, %48 ], [ 0, %50 ], [ %5, %2 ]
+49:                                               ; preds = %2, %46, %45
+  %.0 = phi i32 [ -22, %45 ], [ 0, %46 ], [ %5, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

@@ -710,13 +710,13 @@ _ZN3irr4core6stringIcEaSERKS2_.exit:              ; preds = %if.end.i, %if.else
 while.cond.i:                                     ; preds = %while.body.i, %_ZN3irr4core6stringIcEaSERKS2_.exit
   %p.0.i = phi ptr [ %add.ptr.i, %_ZN3irr4core6stringIcEaSERKS2_.exit ], [ %incdec.ptr.i, %while.body.i ]
   %23 = load i8, ptr %p.0.i, align 1, !tbaa !20
+  %cmp4.not.i = icmp eq ptr %p.0.i, %21
   switch i8 %23, label %land.rhs.i [
     i8 47, label %while.end.i
     i8 92, label %while.end.i
   ]
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %cmp4.not.i = icmp eq ptr %p.0.i, %21
   br i1 %cmp4.not.i, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -724,8 +724,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br label %while.cond.i, !llvm.loop !41
 
 while.end.i:                                      ; preds = %while.cond.i, %while.cond.i
-  %cmp5.not.i = icmp eq ptr %p.0.i, %21
-  br i1 %cmp5.not.i, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit, label %if.then.i
+  br i1 %cmp4.not.i, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %while.end.i
   %incdec.ptr6.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 1

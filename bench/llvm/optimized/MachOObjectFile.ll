@@ -20249,8 +20249,8 @@ switch.lookup:                                    ; preds = %_ZNK4llvm6object15M
   br label %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
 
 _ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit: ; preds = %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit, %switch.lookup
-  %.sink4.i = phi i32 [ %switch.load, %switch.lookup ], [ 134217728, %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit ]
-  %22 = and i32 %.sink4.i, %.sroa.419.0.extract.trunc
+  %.sink.i = phi i32 [ %switch.load, %switch.lookup ], [ 134217728, %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit ]
+  %22 = and i32 %.sink.i, %.sroa.419.0.extract.trunc
   %.0.i7.not = icmp eq i32 %22, 0
   br i1 %.0.i7.not, label %23, label %28
 
@@ -20341,6 +20341,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object15MachOObjectFile21isReloca
 define dso_local noundef range(i32 0, 16777216) i32 @_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !52
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %6 = load i32, ptr %5, align 4
   switch i32 %4, label %8 [
     i32 14, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit
     i32 16, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit
@@ -20351,41 +20353,37 @@ define dso_local noundef range(i32 0, 16777216) i32 @_ZNK4llvm6object15MachOObje
   ]
 
 _ZNK4llvm6object6Binary14isLittleEndianEv.exit:   ; preds = %2, %2, %2, %2, %2, %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %6, 8
-  br label %12
+  br label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4
-  %11 = and i32 %10, 16777215
-  br label %12
+  %9 = and i32 %6, 16777215
+  br label %10
 
-12:                                               ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit, %8
-  %13 = phi i32 [ %11, %8 ], [ %7, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit ]
-  ret i32 %13
+10:                                               ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit, %8
+  %11 = phi i32 [ %9, %8 ], [ %7, %_ZNK4llvm6object6Binary14isLittleEndianEv.exit ]
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !52
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %6 = load i32, ptr %5, align 4
   %switch.tableidx = add i32 %4, -11
-  %5 = icmp ult i32 %switch.tableidx, 10
-  br i1 %5, label %switch.lookup, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit
+  %7 = icmp ult i32 %switch.tableidx, 10
+  br i1 %7, label %switch.lookup, label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit
 
 switch.lookup:                                    ; preds = %2
-  %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 %6
+  %8 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm6object6Binary14isLittleEndianEv.exit
 
 _ZNK4llvm6object6Binary14isLittleEndianEv.exit:   ; preds = %2, %switch.lookup
-  %.sink4 = phi i32 [ %switch.load, %switch.lookup ], [ 134217728, %2 ]
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = load i32, ptr %7, align 4
-  %9 = and i32 %8, %.sink4
+  %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 134217728, %2 ]
+  %9 = and i32 %6, %.sink
   %.0 = icmp ne i32 %9, 0
   ret i1 %.0
 }
@@ -20417,8 +20415,8 @@ switch.lookup:                                    ; preds = %8
   br label %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit.i
 
 _ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit.i: ; preds = %8, %switch.lookup
-  %.sink4.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 134217728, %8 ]
-  %13 = and i32 %.sink4.i.i, %.sroa.4.0.extract.trunc
+  %.sink.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 134217728, %8 ]
+  %13 = and i32 %.sink.i.i, %.sroa.4.0.extract.trunc
   %.0.i6.not.i = icmp eq i32 %13, 0
   br i1 %.0.i6.not.i, label %19, label %14
 
@@ -20487,21 +20485,21 @@ define dso_local { i64, ptr } @_ZNK4llvm6object15MachOObjectFile23getAnyRelocati
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !52
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %10 = load i32, ptr %9, align 4
   %switch.tableidx = add i32 %8, -11
-  %9 = icmp ult i32 %switch.tableidx, 10
-  br i1 %9, label %switch.lookup, label %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
+  %11 = icmp ult i32 %switch.tableidx, 10
+  br i1 %11, label %switch.lookup, label %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
 
 switch.lookup:                                    ; preds = %6
-  %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 %10
+  %12 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object15MachOObjectFile23getAnyRelocationSectionERKNS_5MachO19any_relocation_infoE, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit
 
 _ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_relocation_infoE.exit: ; preds = %6, %switch.lookup
-  %.sink4.i = phi i32 [ %switch.load, %switch.lookup ], [ 134217728, %6 ]
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, %.sink4.i
+  %.sink.i = phi i32 [ %switch.load, %switch.lookup ], [ 134217728, %6 ]
+  %13 = and i32 %.sink.i, %10
   %.0.i6.not = icmp eq i32 %13, 0
   br i1 %.0.i6.not, label %19, label %14
 
@@ -20523,11 +20521,11 @@ _ZNK4llvm6object15MachOObjectFile26getPlainRelocationExternalERKNS_5MachO19any_r
   ]
 
 _ZNK4llvm6object6Binary14isLittleEndianEv.exit.i: ; preds = %19, %19, %19, %19, %19, %19
-  %20 = lshr i32 %12, 8
+  %20 = lshr i32 %10, 8
   br label %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
 
 21:                                               ; preds = %19
-  %22 = and i32 %12, 16777215
+  %22 = and i32 %10, 16777215
   br label %_ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit
 
 _ZNK4llvm6object15MachOObjectFile27getPlainRelocationSymbolNumERKNS_5MachO19any_relocation_infoE.exit: ; preds = %_ZNK4llvm6object6Binary14isLittleEndianEv.exit.i, %21

@@ -168,8 +168,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm18bypassSlowDivisionEPNS_10BasicBlo
   %90 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %91 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %92 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %93 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %94 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  %93 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %95 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %96 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %97 = getelementptr inbounds nuw i8, ptr %21, i64 56
@@ -1012,8 +1012,8 @@ _ZNK4llvm4User10getOperandEj.exit15.i.i.i:        ; preds = %480, %477
 
 488:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit15.i.i.i, %_ZNK4llvm4User10getOperandEj.exit15.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !128
-  store i16 257, ptr %93, align 8, !noalias !128
-  %489 = load ptr, ptr %94, align 8, !tbaa !64, !noalias !128
+  store i16 257, ptr %94, align 8, !noalias !128
+  %489 = load ptr, ptr %93, align 8, !tbaa !64, !noalias !128
   %490 = load ptr, ptr %489, align 8, !tbaa !84, !noalias !128
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 24
   %492 = load ptr, ptr %491, align 8, !noalias !128
@@ -1060,7 +1060,7 @@ _ZN4llvm13IRBuilderBase10CreateSDivEPNS_5ValueES2_RKNS_5TwineEb.exit.i.i.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !128
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !128
   store i16 257, ptr %99, align 8, !noalias !128
-  %508 = load ptr, ptr %94, align 8, !tbaa !64, !noalias !128
+  %508 = load ptr, ptr %93, align 8, !tbaa !64, !noalias !128
   %509 = load ptr, ptr %508, align 8, !tbaa !84, !noalias !128
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 16
   %511 = load ptr, ptr %510, align 8, !noalias !128
@@ -1110,7 +1110,7 @@ _ZN4llvm13IRBuilderBase10CreateSRemEPNS_5ValueES2_RKNS_5TwineE.exit.i.i.i: ; pre
 527:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit15.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !128
   store i16 257, ptr %102, align 8, !noalias !128
-  %528 = load ptr, ptr %94, align 8, !tbaa !64, !noalias !128
+  %528 = load ptr, ptr %93, align 8, !tbaa !64, !noalias !128
   %529 = load ptr, ptr %528, align 8, !tbaa !84, !noalias !128
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 24
   %531 = load ptr, ptr %530, align 8, !noalias !128
@@ -1157,7 +1157,7 @@ _ZN4llvm13IRBuilderBase10CreateUDivEPNS_5ValueES2_RKNS_5TwineEb.exit.i.i.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !128
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !128
   store i16 257, ptr %104, align 8, !noalias !128
-  %547 = load ptr, ptr %94, align 8, !tbaa !64, !noalias !128
+  %547 = load ptr, ptr %93, align 8, !tbaa !64, !noalias !128
   %548 = load ptr, ptr %547, align 8, !tbaa !84, !noalias !128
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 16
   %550 = load ptr, ptr %549, align 8, !noalias !128

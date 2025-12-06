@@ -2905,24 +2905,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
 128:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %130 = load i8, ptr %129, align 8, !tbaa !116
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %switch.tableidx = add i8 %130, -2
-  %131 = icmp ult i8 %switch.tableidx, 11
-  br i1 %131, label %switch.lookup, label %._crit_edge.i.i134
+  %132 = icmp ult i8 %switch.tableidx, 11
+  br i1 %132, label %switch.lookup, label %._crit_edge.i.i134
 
 switch.lookup:                                    ; preds = %128
-  %132 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11OpenImageIO6v3_1_010FitsOutput19create_basic_headerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 %132
-  %switch.load = load i32, ptr %switch.gep, align 4
   %133 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep455 = getelementptr inbounds nuw float, ptr @switch.table._ZN11OpenImageIO6v3_1_010FitsOutput19create_basic_headerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.1, i64 %133
-  %switch.load456 = load float, ptr %switch.gep455, align 4
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11OpenImageIO6v3_1_010FitsOutput19create_basic_headerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, i64 %133
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %134 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep454 = getelementptr inbounds nuw float, ptr @switch.table._ZN11OpenImageIO6v3_1_010FitsOutput19create_basic_headerERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.1, i64 %134
+  %switch.load455 = load float, ptr %switch.gep454, align 4
   br label %._crit_edge.i.i134
 
 ._crit_edge.i.i134:                               ; preds = %128, %switch.lookup
   %.sink = phi i32 [ %switch.load, %switch.lookup ], [ -32, %128 ]
-  %134 = phi float [ %switch.load456, %switch.lookup ], [ -3.200000e+01, %128 ]
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 %.sink, ptr %135, align 8, !tbaa !54
+  %135 = phi float [ %switch.load455, %switch.lookup ], [ -3.200000e+01, %128 ]
+  store i32 %.sink, ptr %131, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %136 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %136, ptr %11, align 8, !tbaa !6
@@ -2931,7 +2931,7 @@ switch.lookup:                                    ; preds = %128
   store i64 6, ptr %137, align 8, !tbaa !11
   %138 = getelementptr inbounds nuw i8, ptr %11, i64 22
   store i8 0, ptr %138, align 2, !tbaa !14
-  invoke void @_ZN11OpenImageIO6v3_1_08fits_pvt7num2strB5cxx11Ef(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, float noundef %134)
+  invoke void @_ZN11OpenImageIO6v3_1_08fits_pvt7num2strB5cxx11Ef(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, float noundef %135)
           to label %139 unwind label %176
 
 139:                                              ; preds = %._crit_edge.i.i134

@@ -7854,43 +7854,42 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120DeduceVersionProfi
   br label %thread-pre-split
 
 28:                                               ; preds = %23
-  switch i32 %16, label %31 [
-    i32 300, label %29
-    i32 310, label %29
-    i32 320, label %29
+  %29 = icmp eq i32 %17, 8
+  switch i32 %16, label %32 [
+    i32 300, label %30
+    i32 310, label %30
+    i32 320, label %30
   ]
 
-29:                                               ; preds = %28, %28, %28
-  %.not = icmp eq i32 %17, 8
-  br i1 %.not, label %thread-pre-split, label %30
+30:                                               ; preds = %28, %28, %28
+  br i1 %29, label %thread-pre-split, label %31
 
-30:                                               ; preds = %29
+31:                                               ; preds = %30
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.59) #25
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.29) #25
   tail call void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.64) #25
   br label %thread-pre-split
 
-31:                                               ; preds = %28
-  %32 = icmp eq i32 %17, 8
-  br i1 %32, label %33, label %36
+32:                                               ; preds = %28
+  br i1 %29, label %33, label %36
 
-33:                                               ; preds = %31
+33:                                               ; preds = %32
   tail call void @_ZN7glslang13TInfoSinkBase7messageENS_11TPrefixTypeEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 2, ptr noundef nonnull @.str.30)
   %34 = load i32, ptr %5, align 4
   %35 = icmp sgt i32 %34, 149
   %.141 = select i1 %35, i32 2, i32 1
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %33, %29, %30, %25, %21, %19, %20
-  %.sink = phi i32 [ 8, %20 ], [ 8, %19 ], [ %., %21 ], [ %.140, %25 ], [ 8, %30 ], [ 8, %29 ], [ %.141, %33 ]
-  %.0.ph = phi i1 [ false, %20 ], [ true, %19 ], [ true, %21 ], [ false, %25 ], [ false, %30 ], [ true, %29 ], [ false, %33 ]
+thread-pre-split:                                 ; preds = %33, %30, %31, %25, %21, %19, %20
+  %.sink = phi i32 [ 8, %20 ], [ 8, %19 ], [ %., %21 ], [ %.140, %25 ], [ 8, %31 ], [ 8, %30 ], [ %.141, %33 ]
+  %.0.ph = phi i1 [ false, %20 ], [ true, %19 ], [ true, %21 ], [ false, %25 ], [ false, %31 ], [ true, %30 ], [ false, %33 ]
   store i32 %.sink, ptr %6, align 4
   %.pr = load i32, ptr %5, align 4
   br label %36
 
-36:                                               ; preds = %thread-pre-split, %31
-  %37 = phi i32 [ %.pr, %thread-pre-split ], [ %16, %31 ]
-  %.0 = phi i1 [ %.0.ph, %thread-pre-split ], [ true, %31 ]
+36:                                               ; preds = %thread-pre-split, %32
+  %37 = phi i32 [ %.pr, %thread-pre-split ], [ %16, %32 ]
+  %.0 = phi i1 [ %.0.ph, %thread-pre-split ], [ true, %32 ]
   switch i32 %37, label %38 [
     i32 100, label %43
     i32 300, label %43

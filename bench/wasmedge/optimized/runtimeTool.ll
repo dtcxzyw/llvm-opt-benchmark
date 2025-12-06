@@ -10420,12 +10420,12 @@ define linkonce_odr hidden void @_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE(ptr nounde
   unreachable
 
 8:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %6, %5
-  %.sink5 = phi i8 [ %1, %6 ], [ 99, %5 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ]
+  %.sink4 = phi i8 [ %1, %6 ], [ 99, %5 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ], [ %1, %2 ]
   %.sink = phi i8 [ %1, %6 ], [ %1, %5 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ], [ 64, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %.sink5, ptr %9, align 2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %.sink, ptr %10, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %.sink4, ptr %10, align 2
+  store i8 %.sink, ptr %9, align 1
   ret void
 }
 

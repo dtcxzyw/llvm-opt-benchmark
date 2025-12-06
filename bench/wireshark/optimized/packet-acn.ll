@@ -3062,9 +3062,9 @@ dissect_acn_common_base_pdu.exit.i:               ; preds = %223, %233
   br label %dissect_pdu_bit_flag_v.exit.i.i
 
 dissect_pdu_bit_flag_v.exit.i.i:                  ; preds = %271, %.thread.i
-  %.sink86.i = phi i32 [ 2, %271 ], [ 5, %.thread.i ]
+  %.sink85.i = phi i32 [ 2, %271 ], [ 5, %.thread.i ]
   %.in.i = phi i8 [ %272, %271 ], [ %255, %.thread.i ]
-  %275 = add i32 %.sink86.i, %246
+  %275 = add i32 %.sink85.i, %246
   %276 = zext i8 %.in.i to i32
   %277 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %275)
   %278 = zext i16 %277 to i32
@@ -3113,8 +3113,8 @@ dissect_pdu_bit_flag_v.exit.i.i:                  ; preds = %271, %.thread.i
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %300, ptr noundef nonnull @.str.749, ptr noundef %299)
   %301 = and i8 %292, 32
   %.not.i126.i.not.not.i = icmp eq i8 %301, 0
-  %.lobit88.i = lshr exact i8 %301, 5
-  %302 = zext nneg i8 %.lobit88.i to i32
+  %.lobit87.i = lshr exact i8 %301, 5
+  %302 = zext nneg i8 %.lobit87.i to i32
   %303 = add i32 %.pre.i, %302
   %.0170.i.i = select i1 %.not.i126.i.not.not.i, i32 0, i32 %.pre.i
   %304 = call fastcc i32 @acn_add_dmp_address_type(ptr noundef %0, ptr noundef %286, i32 noundef %.0170.i.i, ptr noundef nonnull %173)

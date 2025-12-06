@@ -6312,32 +6312,32 @@ define internal fastcc void @_ZL18getPointerOperandsRKN4llvm5ValueERKNS_10DataLa
   %8 = zext i8 %3 to i32
   %9 = add nsw i32 %8, -29
   %.1.i = select i1 %4, i32 %9, i32 %7
-  switch i32 %.1.i, label %113 [
-    i32 55, label %10
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %11 = load i32, ptr %10, align 4
+  switch i32 %.1.i, label %105 [
+    i32 55, label %12
     i32 49, label %37
     i32 50, label %37
     i32 34, label %37
-    i32 57, label %54
-    i32 56, label %72
-    i32 48, label %83
+    i32 57, label %52
+    i32 56, label %68
+    i32 48, label %77
   ]
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 1073741824
+12:                                               ; preds = %2
+  %13 = and i32 %11, 1073741824
   %.not.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i.i, label %17, label %14
 
-14:                                               ; preds = %10
+14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %1, i64 -8
   %16 = load ptr, ptr %15, align 8, !tbaa !166
-  %.pre.i.i.i = and i32 %12, 134217727
+  %.pre.i.i.i = and i32 %11, 134217727
   %.pre1.i.i.i = zext nneg i32 %.pre.i.i.i to i64
   br label %_ZNK4llvm7PHINode15incoming_valuesEv.exit
 
-17:                                               ; preds = %10
-  %18 = and i32 %12, 134217727
+17:                                               ; preds = %12
+  %18 = and i32 %11, 134217727
   %19 = zext nneg i32 %18 to i64
   %20 = sub nsw i64 0, %19
   %21 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %20
@@ -6389,148 +6389,140 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj2EEC2IPKNS_3UseEvEET_S8_.exit: ; preds = %.lr
   %35 = trunc nuw nsw i64 %.pre-phi2.i.i.i to i32
   %36 = add i32 %34, %35
   store i32 %36, ptr %25, align 8, !tbaa !26
-  br label %114
+  br label %106
 
 37:                                               ; preds = %2, %2, %2
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %39 = load i32, ptr %38, align 4
-  %40 = and i32 %39, 1073741824
-  %.not.i.i = icmp eq i32 %40, 0
-  br i1 %.not.i.i, label %44, label %41
+  %38 = and i32 %11, 1073741824
+  %.not.i.i = icmp eq i32 %38, 0
+  br i1 %.not.i.i, label %42, label %39
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %1, i64 -8
-  %43 = load ptr, ptr %42, align 8, !tbaa !166
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds i8, ptr %1, i64 -8
+  %41 = load ptr, ptr %40, align 8, !tbaa !166
   br label %_ZNK4llvm4User10getOperandEj.exit
 
-44:                                               ; preds = %37
-  %45 = and i32 %39, 134217727
-  %46 = zext nneg i32 %45 to i64
-  %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %47
+42:                                               ; preds = %37
+  %43 = and i32 %11, 134217727
+  %44 = zext nneg i32 %43 to i64
+  %45 = sub nsw i64 0, %44
+  %46 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %45
   br label %_ZNK4llvm4User10getOperandEj.exit
 
-_ZNK4llvm4User10getOperandEj.exit:                ; preds = %41, %44
-  %49 = phi ptr [ %43, %41 ], [ %48, %44 ]
-  %50 = load ptr, ptr %49, align 8, !tbaa !131
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %51, ptr %0, align 8, !tbaa !25
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %53, align 4, !tbaa !27
-  store ptr %50, ptr %51, align 8
-  store i32 1, ptr %52, align 8, !tbaa !26
-  br label %114
+_ZNK4llvm4User10getOperandEj.exit:                ; preds = %39, %42
+  %47 = phi ptr [ %41, %39 ], [ %46, %42 ]
+  %48 = load ptr, ptr %47, align 8, !tbaa !131
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %49, ptr %0, align 8, !tbaa !25
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 2, ptr %51, align 4, !tbaa !27
+  store ptr %48, ptr %49, align 8
+  store i32 1, ptr %50, align 8, !tbaa !26
+  br label %106
 
-54:                                               ; preds = %2
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %56 = load i32, ptr %55, align 4
-  %57 = and i32 %56, 1073741824
-  %.not.i.i17 = icmp eq i32 %57, 0
-  br i1 %.not.i.i17, label %61, label %58
+52:                                               ; preds = %2
+  %53 = and i32 %11, 1073741824
+  %.not.i.i17 = icmp eq i32 %53, 0
+  br i1 %.not.i.i17, label %57, label %54
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %1, i64 -8
-  %60 = load ptr, ptr %59, align 8, !tbaa !166
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds i8, ptr %1, i64 -8
+  %56 = load ptr, ptr %55, align 8, !tbaa !166
   br label %_ZNK4llvm4User10getOperandEj.exit20
 
-61:                                               ; preds = %54
-  %62 = and i32 %56, 134217727
-  %63 = zext nneg i32 %62 to i64
-  %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %64
+57:                                               ; preds = %52
+  %58 = and i32 %11, 134217727
+  %59 = zext nneg i32 %58 to i64
+  %60 = sub nsw i64 0, %59
+  %61 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %60
   br label %_ZNK4llvm4User10getOperandEj.exit20
 
-_ZNK4llvm4User10getOperandEj.exit20:              ; preds = %58, %61
-  %.pn = phi ptr [ %60, %58 ], [ %65, %61 ]
+_ZNK4llvm4User10getOperandEj.exit20:              ; preds = %54, %57
+  %.pn = phi ptr [ %56, %54 ], [ %61, %57 ]
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
-  %66 = load ptr, ptr %.in, align 8, !tbaa !131
-  %67 = getelementptr inbounds nuw i8, ptr %.pn, i64 64
-  %68 = load ptr, ptr %67, align 8, !tbaa !131
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %69, ptr %0, align 8, !tbaa !25
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %71, align 4, !tbaa !27
-  store ptr %66, ptr %69, align 8
+  %62 = load ptr, ptr %.in, align 8, !tbaa !131
+  %63 = getelementptr inbounds nuw i8, ptr %.pn, i64 64
+  %64 = load ptr, ptr %63, align 8, !tbaa !131
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %65, ptr %0, align 8, !tbaa !25
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 2, ptr %67, align 4, !tbaa !27
+  store ptr %62, ptr %65, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %68, ptr %.sroa.4.0..sroa_idx, align 8
-  store i32 2, ptr %70, align 8, !tbaa !26
-  br label %114
+  store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
+  store i32 2, ptr %66, align 8, !tbaa !26
+  br label %106
 
-72:                                               ; preds = %2
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %74 = load i32, ptr %73, align 4
-  %75 = and i32 %74, 134217727
-  %76 = zext nneg i32 %75 to i64
-  %77 = sub nsw i64 0, %76
-  %78 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %77
-  %79 = load ptr, ptr %78, align 8, !tbaa !131
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %80, ptr %0, align 8, !tbaa !25
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %82, align 4, !tbaa !27
-  store ptr %79, ptr %80, align 8
-  store i32 1, ptr %81, align 8, !tbaa !26
-  br label %114
+68:                                               ; preds = %2
+  %69 = and i32 %11, 134217727
+  %70 = zext nneg i32 %69 to i64
+  %71 = sub nsw i64 0, %70
+  %72 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %71
+  %73 = load ptr, ptr %72, align 8, !tbaa !131
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %74, ptr %0, align 8, !tbaa !25
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 2, ptr %76, align 4, !tbaa !27
+  store ptr %73, ptr %74, align 8
+  store i32 1, ptr %75, align 8, !tbaa !26
+  br label %106
 
-83:                                               ; preds = %2
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %85 = load i32, ptr %84, align 4
-  %86 = and i32 %85, 1073741824
-  %.not.i.i23 = icmp eq i32 %86, 0
-  br i1 %.not.i.i23, label %90, label %87
+77:                                               ; preds = %2
+  %78 = and i32 %11, 1073741824
+  %.not.i.i23 = icmp eq i32 %78, 0
+  br i1 %.not.i.i23, label %82, label %79
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %1, i64 -8
-  %89 = load ptr, ptr %88, align 8, !tbaa !166
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds i8, ptr %1, i64 -8
+  %81 = load ptr, ptr %80, align 8, !tbaa !166
   br label %_ZNK4llvm4User10getOperandEj.exit24
 
-90:                                               ; preds = %83
-  %91 = and i32 %85, 134217727
-  %92 = zext nneg i32 %91 to i64
-  %93 = sub nsw i64 0, %92
-  %94 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %93
+82:                                               ; preds = %77
+  %83 = and i32 %11, 134217727
+  %84 = zext nneg i32 %83 to i64
+  %85 = sub nsw i64 0, %84
+  %86 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %85
   br label %_ZNK4llvm4User10getOperandEj.exit24
 
-_ZNK4llvm4User10getOperandEj.exit24:              ; preds = %87, %90
-  %95 = phi ptr [ %89, %87 ], [ %94, %90 ]
-  %96 = load ptr, ptr %95, align 8, !tbaa !131
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %98 = load i32, ptr %97, align 4
-  %99 = and i32 %98, 1073741824
-  %.not.i.i25 = icmp eq i32 %99, 0
-  br i1 %.not.i.i25, label %103, label %100
+_ZNK4llvm4User10getOperandEj.exit24:              ; preds = %79, %82
+  %87 = phi ptr [ %81, %79 ], [ %86, %82 ]
+  %88 = load ptr, ptr %87, align 8, !tbaa !131
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %90 = load i32, ptr %89, align 4
+  %91 = and i32 %90, 1073741824
+  %.not.i.i25 = icmp eq i32 %91, 0
+  br i1 %.not.i.i25, label %95, label %92
 
-100:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit24
-  %101 = getelementptr inbounds i8, ptr %96, i64 -8
-  %102 = load ptr, ptr %101, align 8, !tbaa !166
+92:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit24
+  %93 = getelementptr inbounds i8, ptr %88, i64 -8
+  %94 = load ptr, ptr %93, align 8, !tbaa !166
   br label %_ZNK4llvm4User10getOperandEj.exit26
 
-103:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit24
-  %104 = and i32 %98, 134217727
-  %105 = zext nneg i32 %104 to i64
-  %106 = sub nsw i64 0, %105
-  %107 = getelementptr inbounds %"class.llvm::Use", ptr %96, i64 %106
+95:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit24
+  %96 = and i32 %90, 134217727
+  %97 = zext nneg i32 %96 to i64
+  %98 = sub nsw i64 0, %97
+  %99 = getelementptr inbounds %"class.llvm::Use", ptr %88, i64 %98
   br label %_ZNK4llvm4User10getOperandEj.exit26
 
-_ZNK4llvm4User10getOperandEj.exit26:              ; preds = %100, %103
-  %108 = phi ptr [ %102, %100 ], [ %107, %103 ]
-  %109 = load ptr, ptr %108, align 8, !tbaa !131
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %110, ptr %0, align 8, !tbaa !25
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %112, align 4, !tbaa !27
-  store ptr %109, ptr %110, align 8
-  store i32 1, ptr %111, align 8, !tbaa !26
-  br label %114
+_ZNK4llvm4User10getOperandEj.exit26:              ; preds = %92, %95
+  %100 = phi ptr [ %94, %92 ], [ %99, %95 ]
+  %101 = load ptr, ptr %100, align 8, !tbaa !131
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %102, ptr %0, align 8, !tbaa !25
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 2, ptr %104, align 4, !tbaa !27
+  store ptr %101, ptr %102, align 8
+  store i32 1, ptr %103, align 8, !tbaa !26
+  br label %106
 
-113:                                              ; preds = %2
+105:                                              ; preds = %2
   unreachable
 
-114:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit26, %72, %_ZNK4llvm4User10getOperandEj.exit20, %_ZNK4llvm4User10getOperandEj.exit, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EEC2IPKNS_3UseEvEET_S8_.exit
+106:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit26, %68, %_ZNK4llvm4User10getOperandEj.exit20, %_ZNK4llvm4User10getOperandEj.exit, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EEC2IPKNS_3UseEvEET_S8_.exit
   ret void
 }
 

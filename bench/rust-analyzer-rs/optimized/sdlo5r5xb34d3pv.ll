@@ -19419,28 +19419,28 @@ define internal fastcc void @_ZN3hir11term_search4expr13mod_item_path17h42c85581
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.sroa.0.0.copyload = load i32, ptr %2, align 4
   %.sroa.0.sroa.0.0.extract.trunc = trunc i32 %.sroa.0.0.copyload to i8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.12.0.copyload = load i64, ptr %.sroa.12.0..sroa_idx, align 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 %.sroa.0.0.copyload, ptr %16, align 4
-  %.sroa.8.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx22, align 4
-  %.sroa.12.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %.sroa.12.0.copyload, ptr %.sroa.12.0..sroa_idx24, align 4
+  %.sroa.6.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx17, align 4
+  %.sroa.8.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx19, align 4
   call void @_ZN3hir9ModuleDef4name17h354e80ac71fabc52E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %16, ptr noundef nonnull align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %23 = load i8, ptr %18, align 8, !range !2929, !noundef !23
   %.not = icmp eq i8 %23, 27
-  %.sink64.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.sink64.sroa.gep69 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %.sink64.sroa.gep71 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink64.sroa.gep72 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink68.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.sink68.sroa.gep73 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %.sink68.sroa.gep75 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink68.sroa.gep76 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink41.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sink41.sroa.gep46 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %.sink41.sroa.gep48 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink41.sroa.gep49 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink45.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %.sink45.sroa.gep50 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %.sink45.sroa.gep52 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink45.sroa.gep53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %.not, label %42, label %24
 
 24:                                               ; preds = %5
@@ -19531,17 +19531,17 @@ define internal fastcc void @_ZN3hir11term_search4expr13mod_item_path17h42c85581
   br label %_ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit
 
 _ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit: ; preds = %48, %49
-  %.sink64.sroa.phi = phi ptr [ %.sink64.sroa.gep, %49 ], [ %.sink64.sroa.gep69, %48 ]
-  %.sink64.sroa.phi70 = phi ptr [ %.sink64.sroa.gep71, %49 ], [ %.sink64.sroa.gep72, %48 ]
-  %.sink64 = phi ptr [ %10, %49 ], [ %11, %48 ]
+  %.sink41.sroa.phi = phi ptr [ %.sink41.sroa.gep, %49 ], [ %.sink41.sroa.gep46, %48 ]
+  %.sink41.sroa.phi47 = phi ptr [ %.sink41.sroa.gep48, %49 ], [ %.sink41.sroa.gep49, %48 ]
+  %.sink41 = phi ptr [ %10, %49 ], [ %11, %48 ]
   %storemerge.i = phi i32 [ 1, %49 ], [ 0, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !5597
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !5597
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 %.sroa.0.0.copyload, ptr %.sink64, align 4, !noalias !5606
-  store i32 %.sroa.8.0.copyload, ptr %.sink64.sroa.phi, align 4, !noalias !5606
-  store i64 %.sroa.12.0.copyload, ptr %.sink64.sroa.phi70, align 4, !noalias !5606
-  call void @"_ZN3hir7from_id92_$LT$impl$u20$core..convert..From$LT$hir..ModuleDef$GT$$u20$for$u20$hir_def..ModuleDefId$GT$4from17h5c6291a9c3e8460fE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 4 captures(none) dereferenceable(16) %50, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %.sink64), !noalias !5607
+  store i32 %.sroa.0.0.copyload, ptr %.sink41, align 4, !noalias !5606
+  store i32 %.sroa.6.0.copyload, ptr %.sink41.sroa.phi, align 4, !noalias !5606
+  store i64 %.sroa.8.0.copyload, ptr %.sink41.sroa.phi47, align 4, !noalias !5606
+  call void @"_ZN3hir7from_id92_$LT$impl$u20$core..convert..From$LT$hir..ModuleDef$GT$$u20$for$u20$hir_def..ModuleDefId$GT$4from17h5c6291a9c3e8460fE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 4 captures(none) dereferenceable(16) %50, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %.sink41), !noalias !5607
   store i32 %storemerge.i, ptr %13, align 4, !alias.scope !5603, !noalias !5607
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !5597
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !5597
@@ -19565,17 +19565,17 @@ _ZN3hir6Module13find_use_path17h93a1d1af56908f6fE.exit: ; preds = %48, %49
   br label %_ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE.exit
 
 _ZN3hir6Module22find_use_path_prefixed17he30b1c660b00492eE.exit: ; preds = %51, %52
-  %.sink68.sroa.phi = phi ptr [ %.sink68.sroa.gep, %52 ], [ %.sink68.sroa.gep73, %51 ]
-  %.sink68.sroa.phi74 = phi ptr [ %.sink68.sroa.gep75, %52 ], [ %.sink68.sroa.gep76, %51 ]
-  %.sink68 = phi ptr [ %6, %52 ], [ %7, %51 ]
+  %.sink45.sroa.phi = phi ptr [ %.sink45.sroa.gep, %52 ], [ %.sink45.sroa.gep50, %51 ]
+  %.sink45.sroa.phi51 = phi ptr [ %.sink45.sroa.gep52, %52 ], [ %.sink45.sroa.gep53, %51 ]
+  %.sink45 = phi ptr [ %6, %52 ], [ %7, %51 ]
   %storemerge.i12 = phi i32 [ 1, %52 ], [ 0, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5615
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !5615
   %53 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %.sroa.0.0.copyload, ptr %.sink68, align 4, !noalias !5624
-  store i32 %.sroa.8.0.copyload, ptr %.sink68.sroa.phi, align 4, !noalias !5624
-  store i64 %.sroa.12.0.copyload, ptr %.sink68.sroa.phi74, align 4, !noalias !5624
-  call void @"_ZN3hir7from_id92_$LT$impl$u20$core..convert..From$LT$hir..ModuleDef$GT$$u20$for$u20$hir_def..ModuleDefId$GT$4from17h5c6291a9c3e8460fE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 4 captures(none) dereferenceable(16) %53, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %.sink68), !noalias !5625
+  store i32 %.sroa.0.0.copyload, ptr %.sink45, align 4, !noalias !5624
+  store i32 %.sroa.6.0.copyload, ptr %.sink45.sroa.phi, align 4, !noalias !5624
+  store i64 %.sroa.8.0.copyload, ptr %.sink45.sroa.phi51, align 4, !noalias !5624
+  call void @"_ZN3hir7from_id92_$LT$impl$u20$core..convert..From$LT$hir..ModuleDef$GT$$u20$for$u20$hir_def..ModuleDefId$GT$4from17h5c6291a9c3e8460fE"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 4 captures(none) dereferenceable(16) %53, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %.sink45), !noalias !5625
   store i32 %storemerge.i12, ptr %9, align 4, !alias.scope !5621, !noalias !5625
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5615
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !5615

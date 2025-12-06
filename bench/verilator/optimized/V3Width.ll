@@ -68108,43 +68108,43 @@ _ZN7AstNode9privateAsI13AstBasicDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = %7,
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %3, i32 %38)
   %39 = getelementptr inbounds nuw i8, ptr %.1, i64 164
   %.sroa.0.0.copyload.i.i = load i8, ptr %39, align 4, !tbaa !185
+  %40 = getelementptr inbounds nuw i8, ptr %.1, i64 160
+  %.sroa.0.0.copyload.i43 = load i8, ptr %40, align 8, !tbaa !165
   switch i8 %.sroa.0.0.copyload.i.i, label %_ZNK13AstBasicDType11isFourstateEv.exit [
-    i8 6, label %40
-    i8 7, label %40
-    i8 26, label %40
-    i8 11, label %40
+    i8 6, label %41
+    i8 7, label %41
+    i8 26, label %41
+    i8 11, label %41
   ]
 
-40:                                               ; preds = %36, %36, %36, %36
-  %41 = getelementptr inbounds nuw i8, ptr %.1, i64 160
-  %.sroa.0.0.copyload.i = load i8, ptr %41, align 8, !tbaa !165
-  %42 = tail call noundef ptr @_ZNK7AstNode14findLogicDTypeEii8VSigning(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %.sroa.speculated, i32 noundef %.sroa.speculated, i8 %.sroa.0.0.copyload.i)
-  br label %45
+41:                                               ; preds = %36, %36, %36, %36
+  %42 = tail call noundef ptr @_ZNK7AstNode14findLogicDTypeEii8VSigning(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %.sroa.speculated, i32 noundef %.sroa.speculated, i8 %.sroa.0.0.copyload.i43)
+  br label %44
 
 _ZNK13AstBasicDType11isFourstateEv.exit:          ; preds = %36
-  %43 = getelementptr inbounds nuw i8, ptr %.1, i64 160
-  %.sroa.0.0.copyload.i43 = load i8, ptr %43, align 8, !tbaa !165
-  %44 = tail call noundef ptr @_ZNK7AstNode12findBitDTypeEii8VSigning(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %.sroa.speculated, i32 noundef %.sroa.speculated, i8 %.sroa.0.0.copyload.i43)
-  br label %45
+  %43 = tail call noundef ptr @_ZNK7AstNode12findBitDTypeEii8VSigning(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %.sroa.speculated, i32 noundef %.sroa.speculated, i8 %.sroa.0.0.copyload.i43)
+  br label %44
 
-45:                                               ; preds = %_ZNK13AstBasicDType11isFourstateEv.exit, %40
-  %46 = phi ptr [ %42, %40 ], [ %44, %_ZNK13AstBasicDType11isFourstateEv.exit ]
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %48 = load ptr, ptr %47, align 8, !tbaa !159
-  %.not.i44 = icmp eq ptr %48, %46
-  br i1 %.not.i44, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit, label %49
+44:                                               ; preds = %_ZNK13AstBasicDType11isFourstateEv.exit, %41
+  %45 = phi ptr [ %42, %41 ], [ %43, %_ZNK13AstBasicDType11isFourstateEv.exit ]
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %47 = load ptr, ptr %46, align 8, !tbaa !159
+  %.not.i44 = icmp eq ptr %47, %45
+  br i1 %.not.i44, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit, label %48
 
-49:                                               ; preds = %45
-  store ptr %46, ptr %47, align 8, !tbaa !159
-  %50 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !129
-  %51 = add i64 %50, 1
-  store i64 %51, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !129
+48:                                               ; preds = %44
+  store ptr %45, ptr %46, align 8, !tbaa !159
+  %49 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !129
+  %50 = add i64 %49, 1
+  store i64 %50, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !129
   br label %_ZN7AstNode6dtypepEP12AstNodeDType.exit
 
-_ZN7AstNode6dtypepEP12AstNodeDType.exit:          ; preds = %45, %49
-  %52 = tail call noundef ptr @_ZN12WidthVisitor12iterateCheckEP7AstNodePKcS1_6Determ5StageP12AstNodeDTypeNS_10ExtendRuleEb(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.622, ptr noundef nonnull %2, i8 noundef zeroext 1, i8 noundef zeroext 2, ptr noundef %46, i8 noundef zeroext 0, i1 noundef zeroext false)
-  %53 = load ptr, ptr %30, align 8, !tbaa !143
+_ZN7AstNode6dtypepEP12AstNodeDType.exit:          ; preds = %44, %48
+  %51 = tail call noundef ptr @_ZN12WidthVisitor12iterateCheckEP7AstNodePKcS1_6Determ5StageP12AstNodeDTypeNS_10ExtendRuleEb(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.622, ptr noundef nonnull %2, i8 noundef zeroext 1, i8 noundef zeroext 2, ptr noundef %45, i8 noundef zeroext 0, i1 noundef zeroext false)
+  %52 = load ptr, ptr %30, align 8, !tbaa !143
   %.sroa.0.0.copyload.i.i45 = load i8, ptr %39, align 4, !tbaa !185
+  %53 = getelementptr inbounds nuw i8, ptr %.1, i64 160
+  %.sroa.0.0.copyload.i48 = load i8, ptr %53, align 8, !tbaa !165
   switch i8 %.sroa.0.0.copyload.i.i45, label %_ZNK13AstBasicDType11isFourstateEv.exit46 [
     i8 6, label %54
     i8 7, label %54
@@ -68153,56 +68153,52 @@ _ZN7AstNode6dtypepEP12AstNodeDType.exit:          ; preds = %45, %49
   ]
 
 54:                                               ; preds = %_ZN7AstNode6dtypepEP12AstNodeDType.exit, %_ZN7AstNode6dtypepEP12AstNodeDType.exit, %_ZN7AstNode6dtypepEP12AstNodeDType.exit, %_ZN7AstNode6dtypepEP12AstNodeDType.exit
-  %55 = getelementptr inbounds nuw i8, ptr %.1, i64 160
-  %.sroa.0.0.copyload.i47 = load i8, ptr %55, align 8, !tbaa !165
-  %56 = tail call noundef ptr @_ZNK7AstNode14findLogicDTypeEii8VSigning(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %3, i32 noundef %3, i8 %.sroa.0.0.copyload.i47)
-  br label %59
+  %55 = tail call noundef ptr @_ZNK7AstNode14findLogicDTypeEii8VSigning(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %3, i32 noundef %3, i8 %.sroa.0.0.copyload.i48)
+  br label %57
 
 _ZNK13AstBasicDType11isFourstateEv.exit46:        ; preds = %_ZN7AstNode6dtypepEP12AstNodeDType.exit
-  %57 = getelementptr inbounds nuw i8, ptr %.1, i64 160
-  %.sroa.0.0.copyload.i48 = load i8, ptr %57, align 8, !tbaa !165
-  %58 = tail call noundef ptr @_ZNK7AstNode12findBitDTypeEii8VSigning(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %3, i32 noundef %3, i8 %.sroa.0.0.copyload.i48)
-  br label %59
+  %56 = tail call noundef ptr @_ZNK7AstNode12findBitDTypeEii8VSigning(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %3, i32 noundef %3, i8 %.sroa.0.0.copyload.i48)
+  br label %57
 
-59:                                               ; preds = %_ZNK13AstBasicDType11isFourstateEv.exit46, %54
-  %60 = phi ptr [ %56, %54 ], [ %58, %_ZNK13AstBasicDType11isFourstateEv.exit46 ]
-  %61 = load ptr, ptr %47, align 8, !tbaa !159
-  %.not.i49 = icmp eq ptr %61, %60
-  br i1 %.not.i49, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit50, label %62
+57:                                               ; preds = %_ZNK13AstBasicDType11isFourstateEv.exit46, %54
+  %58 = phi ptr [ %55, %54 ], [ %56, %_ZNK13AstBasicDType11isFourstateEv.exit46 ]
+  %59 = load ptr, ptr %46, align 8, !tbaa !159
+  %.not.i49 = icmp eq ptr %59, %58
+  br i1 %.not.i49, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit50, label %60
 
-62:                                               ; preds = %59
-  store ptr %60, ptr %47, align 8, !tbaa !159
-  %63 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !129
-  %64 = add i64 %63, 1
-  store i64 %64, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !129
+60:                                               ; preds = %57
+  store ptr %58, ptr %46, align 8, !tbaa !159
+  %61 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !129
+  %62 = add i64 %61, 1
+  store i64 %62, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !129
   br label %_ZN7AstNode6dtypepEP12AstNodeDType.exit50
 
-_ZN7AstNode6dtypepEP12AstNodeDType.exit50:        ; preds = %59, %62
-  %.not.i51 = icmp eq ptr %53, null
-  br i1 %.not.i51, label %_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit, label %65
+_ZN7AstNode6dtypepEP12AstNodeDType.exit50:        ; preds = %57, %60
+  %.not.i51 = icmp eq ptr %52, null
+  br i1 %.not.i51, label %_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit, label %63
 
-65:                                               ; preds = %_ZN7AstNode6dtypepEP12AstNodeDType.exit50
-  %66 = getelementptr inbounds nuw i8, ptr %53, i64 64
-  %.sroa.0.0.copyload.i.i.i52 = load i16, ptr %66, align 8, !tbaa !158
-  %67 = add i16 %.sroa.0.0.copyload.i.i.i52, -322
-  %spec.select.i.i = icmp ult i16 %67, -242
-  br i1 %spec.select.i.i, label %68, label %_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit, !prof !30
+63:                                               ; preds = %_ZN7AstNode6dtypepEP12AstNodeDType.exit50
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 64
+  %.sroa.0.0.copyload.i.i.i52 = load i16, ptr %64, align 8, !tbaa !158
+  %65 = add i16 %.sroa.0.0.copyload.i.i.i52, -322
+  %spec.select.i.i = icmp ult i16 %65, -242
+  br i1 %spec.select.i.i, label %66, label %_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit, !prof !30
 
-68:                                               ; preds = %65
-  %69 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.25, i32 noundef 2618)
-  %70 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.26)
-  %.sroa.0.0.copyload.i.i5.i53 = load i16, ptr %66, align 8, !tbaa !158
-  %72 = zext i16 %.sroa.0.0.copyload.i.i5.i53 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %72
-  %74 = load ptr, ptr %73, align 8, !tbaa !25
-  %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef %74)
-  %76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.21)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %53, ptr noundef nonnull align 8 dereferenceable(112) %76) #27
+66:                                               ; preds = %63
+  %67 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.25, i32 noundef 2618)
+  %68 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull @.str.26)
+  %.sroa.0.0.copyload.i.i5.i53 = load i16, ptr %64, align 8, !tbaa !158
+  %70 = zext i16 %.sroa.0.0.copyload.i.i5.i53 to i64
+  %71 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %70
+  %72 = load ptr, ptr %71, align 8, !tbaa !25
+  %73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef %72)
+  %74 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull @.str.21)
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %52, ptr noundef nonnull align 8 dereferenceable(112) %74) #27
   unreachable
 
-_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode6dtypepEP12AstNodeDType.exit50, %65
-  tail call void @_ZN12WidthVisitor15widthCheckSizedEP7AstNodePKcP11AstNodeExprP12AstNodeDTypeNS_10ExtendRuleEb(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.622, ptr noundef %53, ptr noundef %60, i8 noundef zeroext 0, i1 noundef zeroext false)
+_ZN7AstNode9privateAsI11AstNodeExprPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode6dtypepEP12AstNodeDType.exit50, %63
+  tail call void @_ZN12WidthVisitor15widthCheckSizedEP7AstNodePKcP11AstNodeExprP12AstNodeDTypeNS_10ExtendRuleEb(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.622, ptr noundef %52, ptr noundef %58, i8 noundef zeroext 0, i1 noundef zeroext false)
   ret void
 }
 

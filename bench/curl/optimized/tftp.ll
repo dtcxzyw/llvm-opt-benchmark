@@ -69,7 +69,7 @@ define internal noundef i32 @tftp_setup_connection(ptr noundef captures(none) %0
   %9 = load ptr, ptr %8, align 8, !tbaa !84
   %10 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.45) #12
   %.not10 = icmp eq ptr %10, null
-  br i1 %.not10, label %22, label %.thread
+  br i1 %.not10, label %20, label %.thread
 
 .thread:                                          ; preds = %2, %7
   %.013 = phi ptr [ %10, %7 ], [ %6, %2 ]
@@ -77,26 +77,27 @@ define internal noundef i32 @tftp_setup_connection(ptr noundef captures(none) %0
   %11 = getelementptr inbounds nuw i8, ptr %.013, i64 6
   %12 = load i8, ptr %11, align 1, !tbaa !85
   %13 = tail call signext i8 @Curl_raw_toupper(i8 noundef signext %12) #13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 5036
+  %15 = load i32, ptr %14, align 4
   switch i8 %13, label %18 [
-    i8 65, label %14
-    i8 78, label %14
+    i8 65, label %16
+    i8 78, label %16
   ]
 
-14:                                               ; preds = %.thread, %.thread
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 5036
-  %16 = load i32, ptr %15, align 4
-  %17 = or i32 %16, 16384
-  store i32 %17, ptr %15, align 4
-  br label %22
+16:                                               ; preds = %.thread, %.thread
+  %17 = or i32 %15, 16384
+  br label %.sink.split
 
 18:                                               ; preds = %.thread
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 5036
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %20, -16385
-  store i32 %21, ptr %19, align 4
-  br label %22
+  %19 = and i32 %15, -16385
+  br label %.sink.split
 
-22:                                               ; preds = %14, %18, %7
+.sink.split:                                      ; preds = %18, %16
+  %.sink = phi i32 [ %17, %16 ], [ %19, %18 ]
+  store i32 %.sink, ptr %14, align 4
+  br label %20
+
+20:                                               ; preds = %.sink.split, %7
   ret i32 0
 }
 

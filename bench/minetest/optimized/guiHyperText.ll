@@ -4443,19 +4443,18 @@ if.end:                                           ; preds = %_ZNSt7__cxx114listI
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN10ParsedText8pushCharEw(ptr noundef nonnull align 8 dereferenceable(424) %this, i32 noundef signext %c) local_unnamed_addr #3 align 2 {
 entry:
+  %m_empty_paragraph5 = getelementptr inbounds nuw i8, ptr %this, i64 416
   switch i32 %c, label %if.else4 [
     i32 32, label %if.then
     i32 9, label %if.then
   ]
 
 if.then:                                          ; preds = %entry, %entry
-  %m_empty_paragraph = getelementptr inbounds nuw i8, ptr %this, i64 416
-  %0 = load i8, ptr %m_empty_paragraph, align 8, !tbaa !93, !range !94, !noundef !95
+  %0 = load i8, ptr %m_empty_paragraph5, align 8, !tbaa !93, !range !94, !noundef !95
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end6, label %return
 
 if.else4:                                         ; preds = %entry
-  %m_empty_paragraph5 = getelementptr inbounds nuw i8, ptr %this, i64 416
   store i8 0, ptr %m_empty_paragraph5, align 8, !tbaa !93
   br label %if.end6
 

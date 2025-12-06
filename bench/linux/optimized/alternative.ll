@@ -3047,21 +3047,21 @@ define internal fastcc void @text_poke_loc_init(ptr noundef captures(none) %0, p
 
 thread-pre-split:                                 ; preds = %17, %31
   %33 = phi i8 [ %32, %31 ], [ %24, %17 ]
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 82
+  %35 = load i8, ptr %34, align 2
+  %36 = zext i8 %35 to i64
   switch i8 %33, label %52 [
-    i8 -61, label %34
-    i8 -23, label %34
-    i8 -21, label %34
+    i8 -61, label %37
+    i8 -23, label %37
+    i8 -21, label %37
   ]
 
-34:                                               ; preds = %thread-pre-split, %thread-pre-split, %thread-pre-split
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 82
-  %36 = load i8, ptr %35, align 2
-  %37 = zext i8 %36 to i64
-  %38 = icmp ugt i64 %3, %37
+37:                                               ; preds = %thread-pre-split, %thread-pre-split, %thread-pre-split
+  %38 = icmp ugt i64 %3, %36
   br i1 %38, label %39, label %.loopexit
 
-39:                                               ; preds = %34
-  %40 = zext i8 %36 to i32
+39:                                               ; preds = %37
+  %40 = zext i8 %35 to i32
   br label %45
 
 41:                                               ; preds = %45
@@ -3071,7 +3071,7 @@ thread-pre-split:                                 ; preds = %17, %31
   br i1 %44, label %45, label %.loopexit, !llvm.loop !163
 
 45:                                               ; preds = %41, %39
-  %46 = phi i64 [ %43, %41 ], [ %37, %39 ]
+  %46 = phi i64 [ %43, %41 ], [ %36, %39 ]
   %47 = phi i32 [ %42, %41 ], [ %40, %39 ]
   %48 = getelementptr i8, ptr %8, i64 %46
   %49 = load i8, ptr %48, align 1
@@ -3084,93 +3084,90 @@ thread-pre-split:                                 ; preds = %17, %31
   unreachable
 
 52:                                               ; preds = %thread-pre-split
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 82
-  %54 = load i8, ptr %53, align 2
-  %55 = zext i8 %54 to i64
-  %56 = icmp eq i64 %3, %55
-  br i1 %56, label %.loopexit, label %57, !prof !28
+  %53 = icmp eq i64 %3, %36
+  br i1 %53, label %.loopexit, label %54, !prof !28
 
-57:                                               ; preds = %52
+54:                                               ; preds = %52
   call void asm sideeffect "503: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 503b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 503) #20, !srcloc !166
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2428, i32 0, i64 12) #20, !srcloc !167
   unreachable
 
-.loopexit:                                        ; preds = %41, %52, %34
-  switch i8 %33, label %61 [
-    i8 -52, label %76
-    i8 -61, label %76
-    i8 -24, label %58
-    i8 -23, label %58
-    i8 -21, label %58
-    i8 112, label %58
-    i8 113, label %58
-    i8 114, label %58
-    i8 115, label %58
-    i8 116, label %58
-    i8 117, label %58
-    i8 118, label %58
-    i8 119, label %58
-    i8 120, label %58
-    i8 121, label %58
-    i8 122, label %58
-    i8 123, label %58
-    i8 124, label %58
-    i8 125, label %58
-    i8 126, label %58
-    i8 127, label %58
+.loopexit:                                        ; preds = %41, %52, %37
+  switch i8 %33, label %58 [
+    i8 -52, label %73
+    i8 -61, label %73
+    i8 -24, label %55
+    i8 -23, label %55
+    i8 -21, label %55
+    i8 112, label %55
+    i8 113, label %55
+    i8 114, label %55
+    i8 115, label %55
+    i8 116, label %55
+    i8 117, label %55
+    i8 118, label %55
+    i8 119, label %55
+    i8 120, label %55
+    i8 121, label %55
+    i8 122, label %55
+    i8 123, label %55
+    i8 124, label %55
+    i8 125, label %55
+    i8 126, label %55
+    i8 127, label %55
   ]
 
-58:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %60 = load i32, ptr %59, align 8
-  br label %73
+55:                                               ; preds = %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit, %.loopexit
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %57 = load i32, ptr %56, align 8
+  br label %70
 
-61:                                               ; preds = %.loopexit
-  switch i64 %3, label %72 [
-    i64 2, label %62
-    i64 5, label %67
+58:                                               ; preds = %.loopexit
+  switch i64 %3, label %69 [
+    i64 2, label %59
+    i64 5, label %64
   ]
 
-62:                                               ; preds = %61
-  %63 = call i32 @bcmp(ptr noundef dereferenceable(2) %13, ptr noundef nonnull dereferenceable(2) getelementptr inbounds nuw (i8, ptr @x86nops, i64 1), i64 2)
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %66, label %65, !prof !28
+59:                                               ; preds = %58
+  %60 = call i32 @bcmp(ptr noundef dereferenceable(2) %13, ptr noundef nonnull dereferenceable(2) getelementptr inbounds nuw (i8, ptr @x86nops, i64 1), i64 2)
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %63, label %62, !prof !28
 
-65:                                               ; preds = %62
+62:                                               ; preds = %59
   call void asm sideeffect "504: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 504b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 504) #20, !srcloc !168
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2446, i32 0, i64 12) #20, !srcloc !169
   unreachable
 
-66:                                               ; preds = %62
+63:                                               ; preds = %59
   store i8 -21, ptr %25, align 1
-  br label %73
+  br label %70
 
-67:                                               ; preds = %61
-  %68 = call i32 @bcmp(ptr noundef dereferenceable(5) %13, ptr noundef nonnull dereferenceable(5) getelementptr inbounds nuw (i8, ptr @x86nops, i64 10), i64 5)
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %71, label %70, !prof !28
+64:                                               ; preds = %58
+  %65 = call i32 @bcmp(ptr noundef dereferenceable(5) %13, ptr noundef nonnull dereferenceable(5) getelementptr inbounds nuw (i8, ptr @x86nops, i64 10), i64 5)
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %68, label %67, !prof !28
 
-70:                                               ; preds = %67
+67:                                               ; preds = %64
   call void asm sideeffect "505: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 505b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 505) #20, !srcloc !170
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2452, i32 0, i64 12) #20, !srcloc !171
   unreachable
 
-71:                                               ; preds = %67
+68:                                               ; preds = %64
   store i8 -23, ptr %25, align 1
-  br label %73
+  br label %70
 
-72:                                               ; preds = %61
+69:                                               ; preds = %58
   call void asm sideeffect "506: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 506b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 506) #20, !srcloc !172
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2458, i32 0, i64 12) #20, !srcloc !173
   unreachable
 
-73:                                               ; preds = %71, %66, %58
-  %74 = phi i32 [ 0, %66 ], [ 0, %71 ], [ %60, %58 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %74, ptr %75, align 4
-  br label %76
+70:                                               ; preds = %68, %63, %55
+  %71 = phi i32 [ 0, %63 ], [ 0, %68 ], [ %57, %55 ]
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %71, ptr %72, align 4
+  br label %73
 
-76:                                               ; preds = %73, %.loopexit, %.loopexit
+73:                                               ; preds = %70, %.loopexit, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

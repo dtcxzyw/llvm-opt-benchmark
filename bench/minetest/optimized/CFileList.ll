@@ -1940,13 +1940,13 @@ if.end21:                                         ; preds = %for.body.i.i46, %ve
 while.cond.i:                                     ; preds = %while.body.i, %if.end21
   %p.0.i = phi ptr [ %add.ptr.i, %if.end21 ], [ %incdec.ptr.i, %while.body.i ]
   %75 = load i8, ptr %p.0.i, align 1, !tbaa !25
+  %cmp4.not.i = icmp eq ptr %p.0.i, %73
   switch i8 %75, label %land.rhs.i [
     i8 47, label %while.end.i
     i8 92, label %while.end.i
   ]
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %cmp4.not.i = icmp eq ptr %p.0.i, %73
   br i1 %cmp4.not.i, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -1954,8 +1954,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br label %while.cond.i, !llvm.loop !59
 
 while.end.i:                                      ; preds = %while.cond.i, %while.cond.i
-  %cmp5.not.i = icmp eq ptr %p.0.i, %73
-  br i1 %cmp5.not.i, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit, label %if.then.i50
+  br i1 %cmp4.not.i, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit, label %if.then.i50
 
 if.then.i50:                                      ; preds = %while.end.i
   %incdec.ptr6.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 1
@@ -2823,13 +2822,13 @@ if.then21:                                        ; preds = %if.end19
 while.cond.i:                                     ; preds = %while.body.i, %if.then21
   %p.0.i = phi ptr [ %add.ptr.i, %if.then21 ], [ %incdec.ptr.i, %while.body.i ]
   %74 = load i8, ptr %p.0.i, align 1, !tbaa !25
+  %cmp4.not.i = icmp eq ptr %p.0.i, %72
   switch i8 %74, label %land.rhs.i [
     i8 47, label %while.end.i
     i8 92, label %while.end.i
   ]
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %cmp4.not.i = icmp eq ptr %p.0.i, %72
   br i1 %cmp4.not.i, label %if.end24, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -2837,8 +2836,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br label %while.cond.i, !llvm.loop !59
 
 while.end.i:                                      ; preds = %while.cond.i, %while.cond.i
-  %cmp5.not.i = icmp eq ptr %p.0.i, %72
-  br i1 %cmp5.not.i, label %if.end24, label %if.then.i37
+  br i1 %cmp4.not.i, label %if.end24, label %if.then.i37
 
 if.then.i37:                                      ; preds = %while.end.i
   %incdec.ptr6.i = getelementptr inbounds nuw i8, ptr %p.0.i, i64 1

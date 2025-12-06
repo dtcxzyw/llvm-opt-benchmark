@@ -1478,23 +1478,23 @@ _ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit: ; preds = %2, %9
   %12 = load i8, ptr %11, align 8
   %13 = lshr i8 %12, 1
   %14 = and i8 %13, 3
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   switch i8 %14, label %default.unreachable27 [
-    i8 0, label %15
-    i8 1, label %15
+    i8 0, label %16
+    i8 1, label %16
     i8 2, label %32
-    i8 3, label %58
+    i8 3, label %57
   ]
 
-15:                                               ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit, %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
+16:                                               ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit, %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !21
+  %17 = load ptr, ptr %15, align 8, !tbaa !21
   %18 = call noundef ptr %17(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
   %19 = ptrtoint ptr %18 to i64
   %20 = getelementptr inbounds i8, ptr %1, i64 %19
   %21 = load atomic i64, ptr %20 acquire, align 8
   store i64 %21, ptr %5, align 8
-  %22 = load ptr, ptr %16, align 8, !tbaa !21
+  %22 = load ptr, ptr %15, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !63, !alias.scope !71
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1503,7 +1503,7 @@ _ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit: ; preds = %2, %9
   %25 = invoke noundef ptr %22(i32 noundef 8, ptr noundef nonnull %5, ptr noundef nonnull align 8 %0, ptr noundef null)
           to label %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit unwind label %26
 
-26:                                               ; preds = %15
+26:                                               ; preds = %16
   %27 = landingpad { ptr, i32 }
           cleanup
   %28 = load ptr, ptr %0, align 8, !tbaa !39, !alias.scope !71
@@ -1520,138 +1520,136 @@ common.resume:                                    ; preds = %26, %.body, %.body1
   %common.resume.op = phi { ptr, i32 } [ %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body13, %.body12 ], [ %27, %26 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit: ; preds = %15
+_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit: ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4absl9MutexLockD2Ev.exit
 
 32:                                               ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !21
-  %35 = call noundef ptr %34(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
-  %36 = load ptr, ptr %33, align 8, !tbaa !21
-  %37 = ptrtoint ptr %36 to i64
-  store i64 %37, ptr %6, align 8, !tbaa !44
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %35, ptr %38, align 8, !tbaa !45
-  invoke void @_ZNK4absl14flags_internal8FlagImpl22ReadSequenceLockedDataEPv(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %35)
-          to label %39 unwind label %56
+  %33 = load ptr, ptr %15, align 8, !tbaa !21
+  %34 = call noundef ptr %33(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+  %35 = load ptr, ptr %15, align 8, !tbaa !21
+  %36 = ptrtoint ptr %35 to i64
+  store i64 %36, ptr %6, align 8, !tbaa !44
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %34, ptr %37, align 8, !tbaa !45
+  invoke void @_ZNK4absl14flags_internal8FlagImpl22ReadSequenceLockedDataEPv(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %34)
+          to label %38 unwind label %55
 
-39:                                               ; preds = %32
-  %40 = load ptr, ptr %33, align 8, !tbaa !21
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %41, ptr %0, align 8, !tbaa !63, !alias.scope !74
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %42, align 8, !tbaa !64, !alias.scope !74
-  store i8 0, ptr %41, align 8, !tbaa !20, !alias.scope !74
-  %43 = invoke noundef ptr %40(i32 noundef 8, ptr noundef %35, ptr noundef nonnull align 8 %0, ptr noundef null)
-          to label %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit8 unwind label %44
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %15, align 8, !tbaa !21
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %40, ptr %0, align 8, !tbaa !63, !alias.scope !74
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %41, align 8, !tbaa !64, !alias.scope !74
+  store i8 0, ptr %40, align 8, !tbaa !20, !alias.scope !74
+  %42 = invoke noundef ptr %39(i32 noundef 8, ptr noundef %34, ptr noundef nonnull align 8 %0, ptr noundef null)
+          to label %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit8 unwind label %43
 
-44:                                               ; preds = %39
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %38
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %46 = load ptr, ptr %0, align 8, !tbaa !39, !alias.scope !74
-  %47 = icmp eq ptr %46, %41
-  br i1 %47, label %.body, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5
+  %45 = load ptr, ptr %0, align 8, !tbaa !39, !alias.scope !74
+  %46 = icmp eq ptr %45, %40
+  br i1 %46, label %.body, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5: ; preds = %44
-  %48 = load i64, ptr %41, align 8, !tbaa !20, !alias.scope !74
-  %49 = add i64 %48, 1
-  call void @_ZdlPvm(ptr noundef %46, i64 noundef %49) #26
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5: ; preds = %43
+  %47 = load i64, ptr %40, align 8, !tbaa !20, !alias.scope !74
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %45, i64 noundef %48) #26
   br label %.body
 
-_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit8: ; preds = %39
-  %.not.i = icmp eq ptr %35, null
-  %50 = icmp eq ptr %36, null
-  %or.cond = select i1 %.not.i, i1 true, i1 %50
-  br i1 %or.cond, label %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit, label %51
+_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit8: ; preds = %38
+  %.not.i = icmp eq ptr %34, null
+  %49 = icmp eq ptr %35, null
+  %or.cond = select i1 %.not.i, i1 true, i1 %49
+  br i1 %or.cond, label %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit, label %50
 
-51:                                               ; preds = %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit8
-  %52 = invoke noundef ptr %36(i32 noundef 1, ptr noundef null, ptr noundef nonnull %35, ptr noundef null)
-          to label %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit unwind label %53
+50:                                               ; preds = %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit8
+  %51 = invoke noundef ptr %35(i32 noundef 1, ptr noundef null, ptr noundef nonnull %34, ptr noundef null)
+          to label %_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit unwind label %52
 
-53:                                               ; preds = %51
-  %54 = landingpad { ptr, i32 }
+52:                                               ; preds = %50
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #25
+  %54 = extractvalue { ptr, i32 } %53, 0
+  call void @__clang_call_terminate(ptr %54) #25
   unreachable
 
-_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit: ; preds = %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit8, %51
+_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev.exit: ; preds = %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit8, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4absl9MutexLockD2Ev.exit
 
-56:                                               ; preds = %32
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %32
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5, %56
-  %eh.lpad-body = phi { ptr, i32 } [ %57, %56 ], [ %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5 ], [ %45, %44 ]
+.body:                                            ; preds = %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5, %55
+  %eh.lpad-body = phi { ptr, i32 } [ %56, %55 ], [ %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i5 ], [ %44, %43 ]
   call void @_ZNSt10unique_ptrIvN4absl14flags_internal15DynValueDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
-58:                                               ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
+57:                                               ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
   call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %60 = load ptr, ptr %59, align 8, !tbaa !21
-  %61 = invoke noundef ptr %60(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %62 unwind label %80
+  %58 = load ptr, ptr %15, align 8, !tbaa !21
+  %59 = invoke noundef ptr %58(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %60 unwind label %78
 
-62:                                               ; preds = %58
-  %63 = ptrtoint ptr %61 to i64
-  %64 = getelementptr inbounds i8, ptr %1, i64 %63
-  %65 = load atomic i64, ptr %64 acquire, align 8
-  %66 = and i64 %65, -4
-  %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %68, ptr %0, align 8, !tbaa !63, !alias.scope !77
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %69, align 8, !tbaa !64, !alias.scope !77
-  store i8 0, ptr %68, align 8, !tbaa !20, !alias.scope !77
-  %70 = invoke noundef ptr %60(i32 noundef 8, ptr noundef %67, ptr noundef nonnull align 8 %0, ptr noundef null)
-          to label %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit14 unwind label %71
+60:                                               ; preds = %57
+  %61 = ptrtoint ptr %59 to i64
+  %62 = getelementptr inbounds i8, ptr %1, i64 %61
+  %63 = load atomic i64, ptr %62 acquire, align 8
+  %64 = and i64 %63, -4
+  %65 = inttoptr i64 %64 to ptr
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %66, ptr %0, align 8, !tbaa !63, !alias.scope !77
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %67, align 8, !tbaa !64, !alias.scope !77
+  store i8 0, ptr %66, align 8, !tbaa !20, !alias.scope !77
+  %68 = invoke noundef ptr %58(i32 noundef 8, ptr noundef %65, ptr noundef nonnull align 8 %0, ptr noundef null)
+          to label %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit14 unwind label %69
 
-71:                                               ; preds = %62
-  %72 = landingpad { ptr, i32 }
+69:                                               ; preds = %60
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %73 = load ptr, ptr %0, align 8, !tbaa !39, !alias.scope !77
-  %74 = icmp eq ptr %73, %68
-  br i1 %74, label %.body12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i9
+  %71 = load ptr, ptr %0, align 8, !tbaa !39, !alias.scope !77
+  %72 = icmp eq ptr %71, %66
+  br i1 %72, label %.body12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i9
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i9: ; preds = %71
-  %75 = load i64, ptr %68, align 8, !tbaa !20, !alias.scope !77
-  %76 = add i64 %75, 1
-  call void @_ZdlPvm(ptr noundef %73, i64 noundef %76) #26
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i9: ; preds = %69
+  %73 = load i64, ptr %66, align 8, !tbaa !20, !alias.scope !77
+  %74 = add i64 %73, 1
+  call void @_ZdlPvm(ptr noundef %71, i64 noundef %74) #26
   br label %.body12
 
-_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit14: ; preds = %62
+_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit14: ; preds = %60
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %77
+          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %75
 
-77:                                               ; preds = %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit14
-  %78 = landingpad { ptr, i32 }
+75:                                               ; preds = %_ZN4absl14flags_internal7UnparseB5cxx11EPFPvNS0_6FlagOpEPKvS1_S1_ES4_.exit14
+  %76 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #25
+  %77 = extractvalue { ptr, i32 } %76, 0
+  call void @__clang_call_terminate(ptr %77) #25
   unreachable
 
-80:                                               ; preds = %58
-  %81 = landingpad { ptr, i32 }
+78:                                               ; preds = %57
+  %79 = landingpad { ptr, i32 }
           cleanup
   br label %.body12
 
-.body12:                                          ; preds = %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i9, %80
-  %eh.lpad-body13 = phi { ptr, i32 } [ %81, %80 ], [ %72, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i9 ], [ %72, %71 ]
+.body12:                                          ; preds = %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i9, %78
+  %eh.lpad-body13 = phi { ptr, i32 } [ %79, %78 ], [ %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i9 ], [ %70, %69 ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %common.resume unwind label %82
+          to label %common.resume unwind label %80
 
-82:                                               ; preds = %.body12
-  %83 = landingpad { ptr, i32 }
+80:                                               ; preds = %.body12
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #25
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #25
   unreachable
 
 default.unreachable27:                            ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
@@ -1876,20 +1874,20 @@ _ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit: ; preds = %2, %8
   %15 = load i8, ptr %14, align 8
   %16 = lshr i8 %15, 1
   %17 = and i8 %16, 3
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = load ptr, ptr %18, align 8, !tbaa !21
   switch i8 %17, label %default.unreachable48 [
-    i8 0, label %18
-    i8 1, label %18
+    i8 0, label %20
+    i8 1, label %20
     i8 2, label %35
-    i8 3, label %72
+    i8 3, label %70
   ]
 
-18:                                               ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit, %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !21
-  %21 = invoke noundef ptr %20(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
+20:                                               ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit, %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
+  %21 = invoke noundef ptr %19(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %22 unwind label %31
 
-22:                                               ; preds = %18
+22:                                               ; preds = %20
   %23 = ptrtoint ptr %21 to i64
   %24 = getelementptr inbounds i8, ptr %1, i64 %23
   %25 = load atomic i64, ptr %24 acquire, align 8
@@ -1904,191 +1902,187 @@ _ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.
   store ptr %1, ptr %29, align 8, !tbaa !33, !noalias !84
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %25, ptr %30, align 8, !tbaa !20, !noalias !84
-  br label %94
+  br label %90
 
-31:                                               ; preds = %18
+31:                                               ; preds = %20
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %97
 
 33:                                               ; preds = %22
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %97
 
 35:                                               ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !21
-  %38 = invoke noundef ptr %37(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %_ZN4absl14flags_internal5AllocEPFPvNS0_6FlagOpEPKvS1_S1_E.exit unwind label %66
+  %36 = invoke noundef ptr %19(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %_ZN4absl14flags_internal5AllocEPFPvNS0_6FlagOpEPKvS1_S1_E.exit unwind label %64
 
 _ZN4absl14flags_internal5AllocEPFPvNS0_6FlagOpEPKvS1_S1_E.exit: ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %40 = load ptr, ptr %36, align 8, !tbaa !21
-  %41 = invoke noundef ptr %40(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %42 unwind label %68
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %38 = load ptr, ptr %18, align 8, !tbaa !21
+  %39 = invoke noundef ptr %38(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %40 unwind label %66
 
-42:                                               ; preds = %_ZN4absl14flags_internal5AllocEPFPvNS0_6FlagOpEPKvS1_S1_E.exit
-  %43 = ptrtoint ptr %41 to i64
-  %44 = getelementptr inbounds i8, ptr %1, i64 %43
-  %45 = load ptr, ptr %36, align 8, !tbaa !21
-  %46 = invoke noundef ptr %45(i32 noundef 4, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %47 unwind label %68
+40:                                               ; preds = %_ZN4absl14flags_internal5AllocEPFPvNS0_6FlagOpEPKvS1_S1_E.exit
+  %41 = ptrtoint ptr %39 to i64
+  %42 = getelementptr inbounds i8, ptr %1, i64 %41
+  %43 = load ptr, ptr %18, align 8, !tbaa !21
+  %44 = invoke noundef ptr %43(i32 noundef 4, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %45 unwind label %66
 
-47:                                               ; preds = %42
-  %48 = load atomic i64, ptr %39 acquire, align 8
-  %49 = and i64 %48, 1
-  %.not.i15 = icmp eq i64 %49, 0
-  br i1 %.not.i15, label %50, label %61, !prof !35
+45:                                               ; preds = %40
+  %46 = load atomic i64, ptr %37 acquire, align 8
+  %47 = and i64 %46, 1
+  %.not.i15 = icmp eq i64 %47, 0
+  br i1 %.not.i15, label %48, label %59, !prof !35
 
-50:                                               ; preds = %47
-  %51 = ptrtoint ptr %46 to i64
-  %52 = icmp ugt ptr %46, inttoptr (i64 7 to ptr)
-  br i1 %52, label %.lr.ph.i.i, label %._crit_edge.i.i
+48:                                               ; preds = %45
+  %49 = ptrtoint ptr %44 to i64
+  %50 = icmp ugt ptr %44, inttoptr (i64 7 to ptr)
+  br i1 %50, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %50, %.lr.ph.i.i
-  %.014.i.i = phi ptr [ %55, %.lr.ph.i.i ], [ %44, %50 ]
-  %.01013.i.i = phi ptr [ %54, %.lr.ph.i.i ], [ %38, %50 ]
-  %.01112.i.i = phi i64 [ %56, %.lr.ph.i.i ], [ %51, %50 ]
-  %53 = load atomic i64, ptr %.014.i.i monotonic, align 8
-  store i64 %53, ptr %.01013.i.i, align 1
-  %54 = getelementptr inbounds nuw i8, ptr %.01013.i.i, i64 8
-  %55 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
-  %56 = add i64 %.01112.i.i, -8
-  %57 = icmp ugt i64 %56, 7
-  br i1 %57, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !80
+.lr.ph.i.i:                                       ; preds = %48, %.lr.ph.i.i
+  %.014.i.i = phi ptr [ %53, %.lr.ph.i.i ], [ %42, %48 ]
+  %.01013.i.i = phi ptr [ %52, %.lr.ph.i.i ], [ %36, %48 ]
+  %.01112.i.i = phi i64 [ %54, %.lr.ph.i.i ], [ %49, %48 ]
+  %51 = load atomic i64, ptr %.014.i.i monotonic, align 8
+  store i64 %51, ptr %.01013.i.i, align 1
+  %52 = getelementptr inbounds nuw i8, ptr %.01013.i.i, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
+  %54 = add i64 %.01112.i.i, -8
+  %55 = icmp ugt i64 %54, 7
+  br i1 %55, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !80
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %50
-  %.011.lcssa.i.i = phi i64 [ %51, %50 ], [ %56, %.lr.ph.i.i ]
-  %.010.lcssa.i.i = phi ptr [ %38, %50 ], [ %54, %.lr.ph.i.i ]
-  %.0.lcssa.i.i = phi ptr [ %44, %50 ], [ %55, %.lr.ph.i.i ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %48
+  %.011.lcssa.i.i = phi i64 [ %49, %48 ], [ %54, %.lr.ph.i.i ]
+  %.010.lcssa.i.i = phi ptr [ %36, %48 ], [ %52, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %42, %48 ], [ %53, %.lr.ph.i.i ]
   %.not.i.i16 = icmp eq i64 %.011.lcssa.i.i, 0
-  br i1 %.not.i.i16, label %_ZN4absl14flags_internal12SequenceLock21RelaxedCopyFromAtomicEPvPKSt6atomicImEm.exit.i, label %58
+  br i1 %.not.i.i16, label %_ZN4absl14flags_internal12SequenceLock21RelaxedCopyFromAtomicEPvPKSt6atomicImEm.exit.i, label %56
 
-58:                                               ; preds = %._crit_edge.i.i
+56:                                               ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %59 = load atomic i64, ptr %.0.lcssa.i.i monotonic, align 8
-  store i64 %59, ptr %3, align 8, !tbaa !37
+  %57 = load atomic i64, ptr %.0.lcssa.i.i monotonic, align 8
+  store i64 %57, ptr %3, align 8, !tbaa !37
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.010.lcssa.i.i, ptr nonnull align 8 %3, i64 %.011.lcssa.i.i, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4absl14flags_internal12SequenceLock21RelaxedCopyFromAtomicEPvPKSt6atomicImEm.exit.i
 
-_ZN4absl14flags_internal12SequenceLock21RelaxedCopyFromAtomicEPvPKSt6atomicImEm.exit.i: ; preds = %58, %._crit_edge.i.i
+_ZN4absl14flags_internal12SequenceLock21RelaxedCopyFromAtomicEPvPKSt6atomicImEm.exit.i: ; preds = %56, %._crit_edge.i.i
   fence acquire
-  %60 = load atomic i64, ptr %39 monotonic, align 8
-  br label %61
+  %58 = load atomic i64, ptr %37 monotonic, align 8
+  br label %59
 
-61:                                               ; preds = %47, %_ZN4absl14flags_internal12SequenceLock21RelaxedCopyFromAtomicEPvPKSt6atomicImEm.exit.i
-  %62 = load atomic i64, ptr %39 monotonic, align 8
-  %63 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-          to label %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit19 unwind label %70
+59:                                               ; preds = %45, %_ZN4absl14flags_internal12SequenceLock21RelaxedCopyFromAtomicEPvPKSt6atomicImEm.exit.i
+  %60 = load atomic i64, ptr %37 monotonic, align 8
+  %61 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
+          to label %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit19 unwind label %68
 
-_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit19: ; preds = %61
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4absl14flags_internal9FlagStateE, i64 16), ptr %63, align 8, !tbaa !82, !noalias !87
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %1, ptr %64, align 8, !tbaa !33, !noalias !87
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store ptr %38, ptr %65, align 8, !tbaa !20, !noalias !87
-  br label %94
+_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit19: ; preds = %59
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4absl14flags_internal9FlagStateE, i64 16), ptr %61, align 8, !tbaa !82, !noalias !87
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %1, ptr %62, align 8, !tbaa !33, !noalias !87
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  store ptr %36, ptr %63, align 8, !tbaa !20, !noalias !87
+  br label %90
 
-66:                                               ; preds = %35
+64:                                               ; preds = %35
+  %65 = landingpad { ptr, i32 }
+          cleanup
+  br label %97
+
+66:                                               ; preds = %40, %_ZN4absl14flags_internal5AllocEPFPvNS0_6FlagOpEPKvS1_S1_E.exit
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %97
 
-68:                                               ; preds = %42, %_ZN4absl14flags_internal5AllocEPFPvNS0_6FlagOpEPKvS1_S1_E.exit
+68:                                               ; preds = %59
   %69 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %97
 
-70:                                               ; preds = %61
-  %71 = landingpad { ptr, i32 }
+70:                                               ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
+  %71 = invoke noundef ptr %19(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %72 unwind label %86
+
+72:                                               ; preds = %70
+  %73 = ptrtoint ptr %71 to i64
+  %74 = getelementptr inbounds i8, ptr %1, i64 %73
+  %75 = load atomic i64, ptr %74 acquire, align 8
+  %76 = invoke noundef ptr %19(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %.noexc unwind label %86
+
+.noexc:                                           ; preds = %72
+  %77 = and i64 %75, -4
+  %78 = inttoptr i64 %77 to ptr
+  %79 = invoke noundef ptr %19(i32 noundef 3, ptr noundef %78, ptr noundef %76, ptr noundef null)
+          to label %80 unwind label %86
+
+80:                                               ; preds = %.noexc
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %82 = load atomic i64, ptr %81 monotonic, align 8
+  %83 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
+          to label %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit24 unwind label %88
+
+_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit24: ; preds = %80
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4absl14flags_internal9FlagStateE, i64 16), ptr %83, align 8, !tbaa !82, !noalias !90
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store ptr %1, ptr %84, align 8, !tbaa !33, !noalias !90
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  store ptr %76, ptr %85, align 8, !tbaa !20, !noalias !90
+  br label %90
+
+86:                                               ; preds = %.noexc, %72, %70
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %97
 
-72:                                               ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %74 = load ptr, ptr %73, align 8, !tbaa !21
-  %75 = invoke noundef ptr %74(i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %76 unwind label %90
-
-76:                                               ; preds = %72
-  %77 = ptrtoint ptr %75 to i64
-  %78 = getelementptr inbounds i8, ptr %1, i64 %77
-  %79 = load atomic i64, ptr %78 acquire, align 8
-  %80 = invoke noundef ptr %74(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %.noexc unwind label %90
-
-.noexc:                                           ; preds = %76
-  %81 = and i64 %79, -4
-  %82 = inttoptr i64 %81 to ptr
-  %83 = invoke noundef ptr %74(i32 noundef 3, ptr noundef %82, ptr noundef %80, ptr noundef null)
-          to label %84 unwind label %90
-
-84:                                               ; preds = %.noexc
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %86 = load atomic i64, ptr %85 monotonic, align 8
-  %87 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-          to label %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit24 unwind label %92
-
-_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit24: ; preds = %84
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4absl14flags_internal9FlagStateE, i64 16), ptr %87, align 8, !tbaa !82, !noalias !90
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store ptr %1, ptr %88, align 8, !tbaa !33, !noalias !90
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  store ptr %80, ptr %89, align 8, !tbaa !20, !noalias !90
-  br label %94
-
-90:                                               ; preds = %.noexc, %76, %72
-  %91 = landingpad { ptr, i32 }
+88:                                               ; preds = %80
+  %89 = landingpad { ptr, i32 }
           cleanup
-  br label %101
-
-92:                                               ; preds = %84
-  %93 = landingpad { ptr, i32 }
-          cleanup
-  br label %101
+  br label %97
 
 default.unreachable48:                            ; preds = %_ZNK4absl14flags_internal8FlagImpl9DataGuardEv.exit
   unreachable
 
-94:                                               ; preds = %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit24, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit19, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit
-  %.sink57 = phi ptr [ %87, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit24 ], [ %63, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit19 ], [ %28, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit ]
-  %.sink51.in = phi i64 [ %86, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit24 ], [ %62, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit19 ], [ %27, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit ]
+90:                                               ; preds = %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit24, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit19, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit
+  %.sink57 = phi ptr [ %83, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit24 ], [ %61, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit19 ], [ %28, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit ]
+  %.sink51.in = phi i64 [ %82, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit24 ], [ %60, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit19 ], [ %27, %_ZNSt10unique_ptrIN4absl14flags_internal9FlagStateESt14default_deleteIS2_EED2Ev.exit ]
   %.sink51 = sdiv i64 %.sink51.in, 2
-  %95 = getelementptr inbounds nuw i8, ptr %.sink57, i64 24
-  store i8 %.lobit, ptr %95, align 8, !tbaa !93, !noalias !96
-  %96 = getelementptr inbounds nuw i8, ptr %.sink57, i64 25
-  store i8 %.lobit7, ptr %96, align 1, !tbaa !97, !noalias !96
-  %97 = getelementptr inbounds nuw i8, ptr %.sink57, i64 32
-  store i64 %.sink51, ptr %97, align 8, !tbaa !98, !noalias !96
+  %91 = getelementptr inbounds nuw i8, ptr %.sink57, i64 24
+  store i8 %.lobit, ptr %91, align 8, !tbaa !93, !noalias !96
+  %92 = getelementptr inbounds nuw i8, ptr %.sink57, i64 25
+  store i8 %.lobit7, ptr %92, align 1, !tbaa !97, !noalias !96
+  %93 = getelementptr inbounds nuw i8, ptr %.sink57, i64 32
+  store i64 %.sink51, ptr %93, align 8, !tbaa !98, !noalias !96
   store ptr %.sink57, ptr %0, align 8, !tbaa !99
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %98
+          to label %_ZN4absl9MutexLockD2Ev.exit unwind label %94
 
-98:                                               ; preds = %94
+94:                                               ; preds = %90
+  %95 = landingpad { ptr, i32 }
+          catch ptr null
+  %96 = extractvalue { ptr, i32 } %95, 0
+  call void @__clang_call_terminate(ptr %96) #25
+  unreachable
+
+_ZN4absl9MutexLockD2Ev.exit:                      ; preds = %90
+  ret void
+
+97:                                               ; preds = %86, %88, %64, %68, %66, %31, %33
+  %.pn12.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ], [ %65, %64 ], [ %69, %68 ], [ %67, %66 ], [ %89, %88 ], [ %87, %86 ]
+  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %_ZN4absl9MutexLockD2Ev.exit25 unwind label %98
+
+98:                                               ; preds = %97
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
   call void @__clang_call_terminate(ptr %100) #25
   unreachable
 
-_ZN4absl9MutexLockD2Ev.exit:                      ; preds = %94
-  ret void
-
-101:                                              ; preds = %90, %92, %66, %70, %68, %31, %33
-  %.pn12.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ], [ %67, %66 ], [ %71, %70 ], [ %69, %68 ], [ %93, %92 ], [ %91, %90 ]
-  invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %_ZN4absl9MutexLockD2Ev.exit25 unwind label %102
-
-102:                                              ; preds = %101
-  %103 = landingpad { ptr, i32 }
-          catch ptr null
-  %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #25
-  unreachable
-
-_ZN4absl9MutexLockD2Ev.exit25:                    ; preds = %101
+_ZN4absl9MutexLockD2Ev.exit25:                    ; preds = %97
   resume { ptr, i32 } %.pn12.pn
 }
 

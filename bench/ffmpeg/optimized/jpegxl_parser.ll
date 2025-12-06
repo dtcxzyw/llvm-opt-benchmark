@@ -164,11 +164,11 @@ define internal i32 @jpegxl_parse(ptr noundef captures(none) %0, ptr noundef %1,
   store i32 %91, ptr %92, align 4, !tbaa !34
   %93 = getelementptr inbounds nuw i8, ptr %37, i64 84
   %94 = load i32, ptr %93, align 4, !tbaa !35
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %switch.and.i.i = and i32 %94, -3
   %switch.selectcmp.i.i = icmp eq i32 %switch.and.i.i, 0
-  %95 = select i1 %switch.selectcmp.i.i, i32 0, i32 2
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store i32 %95, ptr %96, align 8, !tbaa !36
+  %96 = select i1 %switch.selectcmp.i.i, i32 0, i32 2
+  store i32 %96, ptr %95, align 8, !tbaa !36
   %97 = getelementptr inbounds nuw i8, ptr %37, i64 88
   %98 = load i32, ptr %97, align 8, !tbaa !52
   switch i32 %98, label %113 [

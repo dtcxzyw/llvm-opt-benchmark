@@ -24319,8 +24319,8 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 168
   br label %20
 
-.loopexit:                                        ; preds = %197, %20
-  %.1.lcssa = phi i64 [ %.067, %20 ], [ %.2, %197 ]
+.loopexit:                                        ; preds = %187, %20
+  %.1.lcssa = phi i64 [ %.067, %20 ], [ %.2, %187 ]
   %19 = icmp ult i64 %23, %9
   br i1 %19, label %20, label %._crit_edge, !llvm.loop !758
 
@@ -24353,284 +24353,274 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
 
 .lr.ph:                                           ; preds = %20
   %switch = icmp ult i8 %.sroa.2838.32.copyload, 12
-  br i1 %switch, label %.lr.ph.split, label %81
+  br i1 %switch, label %.lr.ph.split, label %71
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %197
-  %.165 = phi i64 [ %.2, %197 ], [ %.067, %.lr.ph ]
-  %.01464 = phi i64 [ %198, %197 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %187
+  %.165 = phi i64 [ %.2, %187 ], [ %.067, %.lr.ph ]
+  %.01464 = phi i64 [ %188, %187 ], [ 0, %.lr.ph ]
   %27 = add i64 %.01464, %25
-  switch i8 %.sroa.2838.32.copyload, label %77 [
-    i8 0, label %28
-    i8 1, label %28
+  %28 = mul i64 %27, %.sroa.45.0.copyload.i
+  switch i8 %.sroa.2838.32.copyload, label %68 [
+    i8 0, label %29
+    i8 1, label %29
     i8 2, label %33
-    i8 3, label %38
-    i8 4, label %43
-    i8 5, label %48
-    i8 6, label %53
-    i8 7, label %58
-    i8 8, label %62
-    i8 9, label %67
-    i8 10, label %72
+    i8 3, label %37
+    i8 4, label %41
+    i8 5, label %45
+    i8 6, label %49
+    i8 7, label %53
+    i8 8, label %56
+    i8 9, label %60
+    i8 10, label %64
   ]
 
-28:                                               ; preds = %.lr.ph.split, %.lr.ph.split
-  %29 = mul i64 %27, %.sroa.45.0.copyload.i
-  %30 = getelementptr inbounds nuw float, ptr %.sroa.16.32.copyload, i64 %29
+29:                                               ; preds = %.lr.ph.split, %.lr.ph.split
+  %30 = getelementptr inbounds nuw float, ptr %.sroa.16.32.copyload, i64 %28
   %31 = load float, ptr %30, align 4, !tbaa !270, !noalias !762
   %32 = fptoui float %31 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
 33:                                               ; preds = %.lr.ph.split
-  %34 = mul i64 %27, %.sroa.45.0.copyload.i
-  %35 = getelementptr inbounds nuw double, ptr %.sroa.16.32.copyload, i64 %34
-  %36 = load double, ptr %35, align 8, !tbaa !765, !noalias !762
-  %37 = fptoui double %36 to i64
+  %34 = getelementptr inbounds nuw double, ptr %.sroa.16.32.copyload, i64 %28
+  %35 = load double, ptr %34, align 8, !tbaa !765, !noalias !762
+  %36 = fptoui double %35 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-38:                                               ; preds = %.lr.ph.split
-  %39 = mul i64 %27, %.sroa.45.0.copyload.i
-  %40 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.16.32.copyload, i64 %39
-  %41 = load x86_fp80, ptr %40, align 16, !tbaa !767, !noalias !762
-  %42 = fptoui x86_fp80 %41 to i64
+37:                                               ; preds = %.lr.ph.split
+  %38 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.16.32.copyload, i64 %28
+  %39 = load x86_fp80, ptr %38, align 16, !tbaa !767, !noalias !762
+  %40 = fptoui x86_fp80 %39 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-43:                                               ; preds = %.lr.ph.split
-  %44 = mul i64 %27, %.sroa.45.0.copyload.i
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !51, !noalias !762
-  %47 = sext i8 %46 to i64
+41:                                               ; preds = %.lr.ph.split
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %28
+  %43 = load i8, ptr %42, align 1, !tbaa !51, !noalias !762
+  %44 = sext i8 %43 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = mul i64 %27, %.sroa.45.0.copyload.i
-  %50 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %49
-  %51 = load i16, ptr %50, align 2, !tbaa !282, !noalias !762
-  %52 = sext i16 %51 to i64
+45:                                               ; preds = %.lr.ph.split
+  %46 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %28
+  %47 = load i16, ptr %46, align 2, !tbaa !282, !noalias !762
+  %48 = sext i16 %47 to i64
+  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+
+49:                                               ; preds = %.lr.ph.split
+  %50 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %28
+  %51 = load i32, ptr %50, align 4, !tbaa !103, !noalias !762
+  %52 = zext i32 %51 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
 53:                                               ; preds = %.lr.ph.split
-  %54 = mul i64 %27, %.sroa.45.0.copyload.i
-  %55 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !103, !noalias !762
-  %57 = zext i32 %56 to i64
+  %54 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %28
+  %55 = load i64, ptr %54, align 8, !tbaa !9, !noalias !762
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-58:                                               ; preds = %.lr.ph.split
-  %59 = mul i64 %27, %.sroa.45.0.copyload.i
-  %60 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !9, !noalias !762
+56:                                               ; preds = %.lr.ph.split
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %28
+  %58 = load i8, ptr %57, align 1, !tbaa !51, !noalias !762
+  %59 = zext i8 %58 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-62:                                               ; preds = %.lr.ph.split
-  %63 = mul i64 %27, %.sroa.45.0.copyload.i
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %63
-  %65 = load i8, ptr %64, align 1, !tbaa !51, !noalias !762
-  %66 = zext i8 %65 to i64
+60:                                               ; preds = %.lr.ph.split
+  %61 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %28
+  %62 = load i16, ptr %61, align 2, !tbaa !282, !noalias !762
+  %63 = zext i16 %62 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-67:                                               ; preds = %.lr.ph.split
-  %68 = mul i64 %27, %.sroa.45.0.copyload.i
-  %69 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %68
-  %70 = load i16, ptr %69, align 2, !tbaa !282, !noalias !762
-  %71 = zext i16 %70 to i64
+64:                                               ; preds = %.lr.ph.split
+  %65 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %28
+  %66 = load i32, ptr %65, align 4, !tbaa !103, !noalias !762
+  %67 = zext i32 %66 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-72:                                               ; preds = %.lr.ph.split
-  %73 = mul i64 %27, %.sroa.45.0.copyload.i
-  %74 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !103, !noalias !762
-  %76 = zext i32 %75 to i64
+68:                                               ; preds = %.lr.ph.split
+  %69 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %28
+  %70 = load i64, ptr %69, align 8, !tbaa !9, !noalias !762
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-77:                                               ; preds = %.lr.ph.split
-  %78 = mul i64 %27, %.sroa.45.0.copyload.i
-  %79 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %78
-  %80 = load i64, ptr %79, align 8, !tbaa !9, !noalias !762
-  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-
-81:                                               ; preds = %.lr.ph
+71:                                               ; preds = %.lr.ph
   tail call void @_ZSt9terminatev() #33, !noalias !762
   unreachable
 
-_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %28, %33, %38, %43, %48, %53, %58, %62, %67, %72, %77
-  %.0.i15 = phi i64 [ %32, %28 ], [ %37, %33 ], [ %42, %38 ], [ %47, %43 ], [ %52, %48 ], [ %57, %53 ], [ %61, %58 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %80, %77 ]
-  switch i8 %.sroa.5559.88.copyload, label %136 [
-    i8 0, label %82
-    i8 1, label %82
-    i8 2, label %86
-    i8 3, label %91
-    i8 4, label %96
-    i8 5, label %101
-    i8 6, label %106
-    i8 7, label %111
-    i8 8, label %116
-    i8 9, label %121
-    i8 10, label %126
-    i8 11, label %131
+_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %29, %33, %37, %41, %45, %49, %53, %56, %60, %64, %68
+  %.0.i15 = phi i64 [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %55, %53 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %70, %68 ]
+  switch i8 %.sroa.5559.88.copyload, label %126 [
+    i8 0, label %72
+    i8 1, label %72
+    i8 2, label %76
+    i8 3, label %81
+    i8 4, label %86
+    i8 5, label %91
+    i8 6, label %96
+    i8 7, label %101
+    i8 8, label %106
+    i8 9, label %111
+    i8 10, label %116
+    i8 11, label %121
   ]
 
-82:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-  %83 = mul i64 %27, %.sroa.30.56.copyload
-  %84 = getelementptr inbounds nuw float, ptr %.sroa.43.88.copyload, i64 %83
-  %85 = load float, ptr %84, align 4, !tbaa !270, !noalias !762
+72:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+  %73 = mul i64 %27, %.sroa.30.56.copyload
+  %74 = getelementptr inbounds nuw float, ptr %.sroa.43.88.copyload, i64 %73
+  %75 = load float, ptr %74, align 4, !tbaa !270, !noalias !762
+  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+
+76:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+  %77 = mul i64 %27, %.sroa.30.56.copyload
+  %78 = getelementptr inbounds nuw double, ptr %.sroa.43.88.copyload, i64 %77
+  %79 = load double, ptr %78, align 8, !tbaa !765, !noalias !762
+  %80 = fptrunc double %79 to float
+  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+
+81:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+  %82 = mul i64 %27, %.sroa.30.56.copyload
+  %83 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.43.88.copyload, i64 %82
+  %84 = load x86_fp80, ptr %83, align 16, !tbaa !767, !noalias !762
+  %85 = fptrunc x86_fp80 %84 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 86:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %87 = mul i64 %27, %.sroa.30.56.copyload
-  %88 = getelementptr inbounds nuw double, ptr %.sroa.43.88.copyload, i64 %87
-  %89 = load double, ptr %88, align 8, !tbaa !765, !noalias !762
-  %90 = fptrunc double %89 to float
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %87
+  %89 = load i8, ptr %88, align 1, !tbaa !51, !noalias !762
+  %90 = sitofp i8 %89 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 91:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %92 = mul i64 %27, %.sroa.30.56.copyload
-  %93 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.43.88.copyload, i64 %92
-  %94 = load x86_fp80, ptr %93, align 16, !tbaa !767, !noalias !762
-  %95 = fptrunc x86_fp80 %94 to float
+  %93 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %92
+  %94 = load i16, ptr %93, align 2, !tbaa !282, !noalias !762
+  %95 = sitofp i16 %94 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 96:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %97 = mul i64 %27, %.sroa.30.56.copyload
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %97
-  %99 = load i8, ptr %98, align 1, !tbaa !51, !noalias !762
-  %100 = sitofp i8 %99 to float
+  %98 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %97
+  %99 = load i32, ptr %98, align 4, !tbaa !103, !noalias !762
+  %100 = sitofp i32 %99 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 101:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %102 = mul i64 %27, %.sroa.30.56.copyload
-  %103 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %102
-  %104 = load i16, ptr %103, align 2, !tbaa !282, !noalias !762
-  %105 = sitofp i16 %104 to float
+  %103 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %102
+  %104 = load i64, ptr %103, align 8, !tbaa !9, !noalias !762
+  %105 = sitofp i64 %104 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 106:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %107 = mul i64 %27, %.sroa.30.56.copyload
-  %108 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %107
-  %109 = load i32, ptr %108, align 4, !tbaa !103, !noalias !762
-  %110 = sitofp i32 %109 to float
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %107
+  %109 = load i8, ptr %108, align 1, !tbaa !51, !noalias !762
+  %110 = uitofp i8 %109 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 111:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %112 = mul i64 %27, %.sroa.30.56.copyload
-  %113 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %112
-  %114 = load i64, ptr %113, align 8, !tbaa !9, !noalias !762
-  %115 = sitofp i64 %114 to float
+  %113 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %112
+  %114 = load i16, ptr %113, align 2, !tbaa !282, !noalias !762
+  %115 = uitofp i16 %114 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 116:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %117 = mul i64 %27, %.sroa.30.56.copyload
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %117
-  %119 = load i8, ptr %118, align 1, !tbaa !51, !noalias !762
-  %120 = uitofp i8 %119 to float
+  %118 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %117
+  %119 = load i32, ptr %118, align 4, !tbaa !103, !noalias !762
+  %120 = uitofp i32 %119 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 121:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %122 = mul i64 %27, %.sroa.30.56.copyload
-  %123 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %122
-  %124 = load i16, ptr %123, align 2, !tbaa !282, !noalias !762
-  %125 = uitofp i16 %124 to float
+  %123 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %122
+  %124 = load i64, ptr %123, align 8, !tbaa !9, !noalias !762
+  %125 = uitofp i64 %124 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 126:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-  %127 = mul i64 %27, %.sroa.30.56.copyload
-  %128 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %127
-  %129 = load i32, ptr %128, align 4, !tbaa !103, !noalias !762
-  %130 = uitofp i32 %129 to float
-  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-
-131:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-  %132 = mul i64 %27, %.sroa.30.56.copyload
-  %133 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %132
-  %134 = load i64, ptr %133, align 8, !tbaa !9, !noalias !762
-  %135 = uitofp i64 %134 to float
-  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-
-136:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   tail call void @_ZSt9terminatev() #33, !noalias !762
   unreachable
 
-_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %82, %86, %91, %96, %101, %106, %111, %116, %121, %126, %131
-  %.0.i = phi float [ %85, %82 ], [ %90, %86 ], [ %95, %91 ], [ %100, %96 ], [ %105, %101 ], [ %110, %106 ], [ %115, %111 ], [ %120, %116 ], [ %125, %121 ], [ %130, %126 ], [ %135, %131 ]
-  %137 = load ptr, ptr %10, align 8, !tbaa !769
-  %138 = fcmp ord float %.0.i, 0.000000e+00
-  %139 = load float, ptr %137, align 4
-  %140 = fcmp une float %.0.i, %139
-  %141 = select i1 %138, i1 %140, i1 false
-  br i1 %141, label %142, label %197
+_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %72, %76, %81, %86, %91, %96, %101, %106, %111, %116, %121
+  %.0.i = phi float [ %75, %72 ], [ %80, %76 ], [ %85, %81 ], [ %90, %86 ], [ %95, %91 ], [ %100, %96 ], [ %105, %101 ], [ %110, %106 ], [ %115, %111 ], [ %120, %116 ], [ %125, %121 ]
+  %127 = load ptr, ptr %10, align 8, !tbaa !769
+  %128 = fcmp ord float %.0.i, 0.000000e+00
+  %129 = load float, ptr %127, align 4
+  %130 = fcmp une float %.0.i, %129
+  %131 = select i1 %128, i1 %130, i1 false
+  br i1 %131, label %132, label %187
 
-142:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-  %143 = load ptr, ptr %11, align 8, !tbaa !770
-  %144 = load ptr, ptr %143, align 8, !tbaa !106
-  %145 = getelementptr inbounds nuw i32, ptr %144, i64 %.165
-  %146 = load i32, ptr %145, align 4, !tbaa !103
-  %147 = load ptr, ptr %12, align 8, !tbaa !771
-  %148 = load i64, ptr %147, align 8, !tbaa !9
-  %149 = add i64 %148, %.01366
-  %150 = and i64 %.0.i15, 4294967295
-  %151 = load ptr, ptr %13, align 8, !tbaa !271
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 %150
-  %153 = load i8, ptr %152, align 1, !tbaa !272
-  %154 = icmp eq i8 %153, 0
-  %155 = load ptr, ptr %14, align 8, !tbaa !175
-  %156 = getelementptr inbounds nuw i64, ptr %155, i64 %150
-  %157 = load i64, ptr %156, align 8, !tbaa !9
-  %158 = getelementptr inbounds nuw i8, ptr %4, i64 %157
-  %159 = load ptr, ptr %15, align 8, !tbaa !278
-  %160 = getelementptr inbounds nuw i32, ptr %159, i64 %150
-  %161 = load i32, ptr %160, align 4, !tbaa !103
-  %162 = sub i32 %146, %161
-  %163 = trunc i32 %162 to i8
-  br i1 %154, label %164, label %180
+132:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+  %133 = load ptr, ptr %11, align 8, !tbaa !770
+  %134 = load ptr, ptr %133, align 8, !tbaa !106
+  %135 = getelementptr inbounds nuw i32, ptr %134, i64 %.165
+  %136 = load i32, ptr %135, align 4, !tbaa !103
+  %137 = load ptr, ptr %12, align 8, !tbaa !771
+  %138 = load i64, ptr %137, align 8, !tbaa !9
+  %139 = add i64 %138, %.01366
+  %140 = and i64 %.0.i15, 4294967295
+  %141 = load ptr, ptr %13, align 8, !tbaa !271
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %140
+  %143 = load i8, ptr %142, align 1, !tbaa !272
+  %144 = icmp eq i8 %143, 0
+  %145 = load ptr, ptr %14, align 8, !tbaa !175
+  %146 = getelementptr inbounds nuw i64, ptr %145, i64 %140
+  %147 = load i64, ptr %146, align 8, !tbaa !9
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 %147
+  %149 = load ptr, ptr %15, align 8, !tbaa !278
+  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %140
+  %151 = load i32, ptr %150, align 4, !tbaa !103
+  %152 = sub i32 %136, %151
+  %153 = trunc i32 %152 to i8
+  br i1 %144, label %154, label %170
 
-164:                                              ; preds = %142
-  %165 = getelementptr inbounds nuw i8, ptr %158, i64 %149
-  store i8 %163, ptr %165, align 1, !tbaa !51
-  %166 = load ptr, ptr %14, align 8, !tbaa !175
-  %167 = getelementptr inbounds nuw i64, ptr %166, i64 %150
-  %168 = load i64, ptr %167, align 8, !tbaa !9
-  %169 = add i64 %168, %149
-  %170 = lshr i64 %169, 5
-  %171 = and i64 %169, 31
-  %172 = xor i64 %171, 31
-  %173 = load ptr, ptr %18, align 8, !tbaa !605
-  %174 = getelementptr inbounds nuw i32, ptr %173, i64 %170
-  %175 = shl nuw nsw i64 1, %172
-  %176 = trunc nuw i64 %175 to i32
-  %177 = xor i32 %176, -1
-  %178 = load i32, ptr %174, align 4, !tbaa !103
-  %179 = and i32 %178, %177
-  store i32 %179, ptr %174, align 4, !tbaa !103
+154:                                              ; preds = %132
+  %155 = getelementptr inbounds nuw i8, ptr %148, i64 %139
+  store i8 %153, ptr %155, align 1, !tbaa !51
+  %156 = load ptr, ptr %14, align 8, !tbaa !175
+  %157 = getelementptr inbounds nuw i64, ptr %156, i64 %140
+  %158 = load i64, ptr %157, align 8, !tbaa !9
+  %159 = add i64 %158, %139
+  %160 = lshr i64 %159, 5
+  %161 = and i64 %159, 31
+  %162 = xor i64 %161, 31
+  %163 = load ptr, ptr %18, align 8, !tbaa !605
+  %164 = getelementptr inbounds nuw i32, ptr %163, i64 %160
+  %165 = shl nuw nsw i64 1, %162
+  %166 = trunc nuw i64 %165 to i32
+  %167 = xor i32 %166, -1
+  %168 = load i32, ptr %164, align 4, !tbaa !103
+  %169 = and i32 %168, %167
+  store i32 %169, ptr %164, align 4, !tbaa !103
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit
 
-180:                                              ; preds = %142
-  %181 = load ptr, ptr %16, align 8, !tbaa !175
-  %182 = getelementptr inbounds nuw i64, ptr %181, i64 %150
-  %183 = load i64, ptr %182, align 8, !tbaa !9
-  %184 = getelementptr inbounds nuw i8, ptr %158, i64 %183
-  store i8 %163, ptr %184, align 1, !tbaa !51
-  %185 = load ptr, ptr %14, align 8, !tbaa !175
-  %186 = getelementptr inbounds nuw i64, ptr %185, i64 %150
-  %187 = load i64, ptr %186, align 8, !tbaa !9
-  %188 = load ptr, ptr %16, align 8, !tbaa !175
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %150
-  %190 = load i64, ptr %189, align 8, !tbaa !9
-  %191 = load ptr, ptr %17, align 8, !tbaa !175
-  %192 = getelementptr i64, ptr %191, i64 %187
-  %193 = getelementptr i64, ptr %192, i64 %190
-  store i64 %149, ptr %193, align 8, !tbaa !9
-  %194 = load i64, ptr %189, align 8, !tbaa !9
-  %195 = add i64 %194, 1
-  store i64 %195, ptr %189, align 8, !tbaa !9
+170:                                              ; preds = %132
+  %171 = load ptr, ptr %16, align 8, !tbaa !175
+  %172 = getelementptr inbounds nuw i64, ptr %171, i64 %140
+  %173 = load i64, ptr %172, align 8, !tbaa !9
+  %174 = getelementptr inbounds nuw i8, ptr %148, i64 %173
+  store i8 %153, ptr %174, align 1, !tbaa !51
+  %175 = load ptr, ptr %14, align 8, !tbaa !175
+  %176 = getelementptr inbounds nuw i64, ptr %175, i64 %140
+  %177 = load i64, ptr %176, align 8, !tbaa !9
+  %178 = load ptr, ptr %16, align 8, !tbaa !175
+  %179 = getelementptr inbounds nuw i64, ptr %178, i64 %140
+  %180 = load i64, ptr %179, align 8, !tbaa !9
+  %181 = load ptr, ptr %17, align 8, !tbaa !175
+  %182 = getelementptr i64, ptr %181, i64 %177
+  %183 = getelementptr i64, ptr %182, i64 %180
+  store i64 %139, ptr %183, align 8, !tbaa !9
+  %184 = load i64, ptr %179, align 8, !tbaa !9
+  %185 = add i64 %184, 1
+  store i64 %185, ptr %179, align 8, !tbaa !9
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit
 
-_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit: ; preds = %164, %180
-  %196 = add i64 %.165, 1
-  br label %197
+_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit: ; preds = %154, %170
+  %186 = add i64 %.165, 1
+  br label %187
 
-197:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-  %.2 = phi i64 [ %196, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit ], [ %.165, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit ]
-  %198 = add nuw i64 %.01464, 1
-  %exitcond.not = icmp eq i64 %198, %26
+187:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+  %.2 = phi i64 [ %186, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit ], [ %.165, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit ]
+  %188 = add nuw i64 %.01464, 1
+  %exitcond.not = icmp eq i64 %188, %26
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !772
 }
 
@@ -24658,8 +24648,8 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 168
   br label %20
 
-.loopexit:                                        ; preds = %188, %20
-  %.1.lcssa = phi i64 [ %.067, %20 ], [ %.2, %188 ]
+.loopexit:                                        ; preds = %178, %20
+  %.1.lcssa = phi i64 [ %.067, %20 ], [ %.2, %178 ]
   %19 = icmp ult i64 %23, %9
   br i1 %19, label %20, label %._crit_edge, !llvm.loop !773
 
@@ -24695,272 +24685,262 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   %28 = load ptr, ptr %11, align 8
   %29 = load ptr, ptr %12, align 8
   %switch = icmp ult i8 %.sroa.2838.32.copyload, 12
-  br i1 %switch, label %.lr.ph.split, label %84
+  br i1 %switch, label %.lr.ph.split, label %74
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %188
-  %.165 = phi i64 [ %.2, %188 ], [ %.067, %.lr.ph ]
-  %.01464 = phi i64 [ %189, %188 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %178
+  %.165 = phi i64 [ %.2, %178 ], [ %.067, %.lr.ph ]
+  %.01464 = phi i64 [ %179, %178 ], [ 0, %.lr.ph ]
   %30 = add i64 %.01464, %25
-  switch i8 %.sroa.2838.32.copyload, label %80 [
-    i8 0, label %31
-    i8 1, label %31
+  %31 = mul i64 %30, %.sroa.45.0.copyload.i
+  switch i8 %.sroa.2838.32.copyload, label %71 [
+    i8 0, label %32
+    i8 1, label %32
     i8 2, label %36
-    i8 3, label %41
-    i8 4, label %46
-    i8 5, label %51
-    i8 6, label %56
-    i8 7, label %61
-    i8 8, label %65
-    i8 9, label %70
-    i8 10, label %75
+    i8 3, label %40
+    i8 4, label %44
+    i8 5, label %48
+    i8 6, label %52
+    i8 7, label %56
+    i8 8, label %59
+    i8 9, label %63
+    i8 10, label %67
   ]
 
-31:                                               ; preds = %.lr.ph.split, %.lr.ph.split
-  %32 = mul i64 %30, %.sroa.45.0.copyload.i
-  %33 = getelementptr inbounds nuw float, ptr %.sroa.16.32.copyload, i64 %32
+32:                                               ; preds = %.lr.ph.split, %.lr.ph.split
+  %33 = getelementptr inbounds nuw float, ptr %.sroa.16.32.copyload, i64 %31
   %34 = load float, ptr %33, align 4, !tbaa !270, !noalias !777
   %35 = fptoui float %34 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
 36:                                               ; preds = %.lr.ph.split
-  %37 = mul i64 %30, %.sroa.45.0.copyload.i
-  %38 = getelementptr inbounds nuw double, ptr %.sroa.16.32.copyload, i64 %37
-  %39 = load double, ptr %38, align 8, !tbaa !765, !noalias !777
-  %40 = fptoui double %39 to i64
+  %37 = getelementptr inbounds nuw double, ptr %.sroa.16.32.copyload, i64 %31
+  %38 = load double, ptr %37, align 8, !tbaa !765, !noalias !777
+  %39 = fptoui double %38 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-41:                                               ; preds = %.lr.ph.split
-  %42 = mul i64 %30, %.sroa.45.0.copyload.i
-  %43 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.16.32.copyload, i64 %42
-  %44 = load x86_fp80, ptr %43, align 16, !tbaa !767, !noalias !777
-  %45 = fptoui x86_fp80 %44 to i64
+40:                                               ; preds = %.lr.ph.split
+  %41 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.16.32.copyload, i64 %31
+  %42 = load x86_fp80, ptr %41, align 16, !tbaa !767, !noalias !777
+  %43 = fptoui x86_fp80 %42 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-46:                                               ; preds = %.lr.ph.split
-  %47 = mul i64 %30, %.sroa.45.0.copyload.i
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !51, !noalias !777
-  %50 = sext i8 %49 to i64
+44:                                               ; preds = %.lr.ph.split
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %31
+  %46 = load i8, ptr %45, align 1, !tbaa !51, !noalias !777
+  %47 = sext i8 %46 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-51:                                               ; preds = %.lr.ph.split
-  %52 = mul i64 %30, %.sroa.45.0.copyload.i
-  %53 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %52
-  %54 = load i16, ptr %53, align 2, !tbaa !282, !noalias !777
-  %55 = sext i16 %54 to i64
+48:                                               ; preds = %.lr.ph.split
+  %49 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %31
+  %50 = load i16, ptr %49, align 2, !tbaa !282, !noalias !777
+  %51 = sext i16 %50 to i64
+  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+
+52:                                               ; preds = %.lr.ph.split
+  %53 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %31
+  %54 = load i32, ptr %53, align 4, !tbaa !103, !noalias !777
+  %55 = zext i32 %54 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
 56:                                               ; preds = %.lr.ph.split
-  %57 = mul i64 %30, %.sroa.45.0.copyload.i
-  %58 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %57
-  %59 = load i32, ptr %58, align 4, !tbaa !103, !noalias !777
-  %60 = zext i32 %59 to i64
+  %57 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %31
+  %58 = load i64, ptr %57, align 8, !tbaa !9, !noalias !777
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-61:                                               ; preds = %.lr.ph.split
-  %62 = mul i64 %30, %.sroa.45.0.copyload.i
-  %63 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %62
-  %64 = load i64, ptr %63, align 8, !tbaa !9, !noalias !777
+59:                                               ; preds = %.lr.ph.split
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %31
+  %61 = load i8, ptr %60, align 1, !tbaa !51, !noalias !777
+  %62 = zext i8 %61 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-65:                                               ; preds = %.lr.ph.split
-  %66 = mul i64 %30, %.sroa.45.0.copyload.i
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %66
-  %68 = load i8, ptr %67, align 1, !tbaa !51, !noalias !777
-  %69 = zext i8 %68 to i64
+63:                                               ; preds = %.lr.ph.split
+  %64 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %31
+  %65 = load i16, ptr %64, align 2, !tbaa !282, !noalias !777
+  %66 = zext i16 %65 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-70:                                               ; preds = %.lr.ph.split
-  %71 = mul i64 %30, %.sroa.45.0.copyload.i
-  %72 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %71
-  %73 = load i16, ptr %72, align 2, !tbaa !282, !noalias !777
-  %74 = zext i16 %73 to i64
+67:                                               ; preds = %.lr.ph.split
+  %68 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %31
+  %69 = load i32, ptr %68, align 4, !tbaa !103, !noalias !777
+  %70 = zext i32 %69 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-75:                                               ; preds = %.lr.ph.split
-  %76 = mul i64 %30, %.sroa.45.0.copyload.i
-  %77 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %76
-  %78 = load i32, ptr %77, align 4, !tbaa !103, !noalias !777
-  %79 = zext i32 %78 to i64
+71:                                               ; preds = %.lr.ph.split
+  %72 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %31
+  %73 = load i64, ptr %72, align 8, !tbaa !9, !noalias !777
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-80:                                               ; preds = %.lr.ph.split
-  %81 = mul i64 %30, %.sroa.45.0.copyload.i
-  %82 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %81
-  %83 = load i64, ptr %82, align 8, !tbaa !9, !noalias !777
-  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-
-84:                                               ; preds = %.lr.ph
+74:                                               ; preds = %.lr.ph
   tail call void @_ZSt9terminatev() #33, !noalias !777
   unreachable
 
-_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %31, %36, %41, %46, %51, %56, %61, %65, %70, %75, %80
-  %.0.i15 = phi i64 [ %35, %31 ], [ %40, %36 ], [ %45, %41 ], [ %50, %46 ], [ %55, %51 ], [ %60, %56 ], [ %64, %61 ], [ %69, %65 ], [ %74, %70 ], [ %79, %75 ], [ %83, %80 ]
-  switch i8 %.sroa.5559.88.copyload, label %139 [
-    i8 0, label %85
-    i8 1, label %85
-    i8 2, label %89
-    i8 3, label %94
-    i8 4, label %99
-    i8 5, label %104
-    i8 6, label %109
-    i8 7, label %114
-    i8 8, label %119
-    i8 9, label %124
-    i8 10, label %129
-    i8 11, label %134
+_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %32, %36, %40, %44, %48, %52, %56, %59, %63, %67, %71
+  %.0.i15 = phi i64 [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %58, %56 ], [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %73, %71 ]
+  switch i8 %.sroa.5559.88.copyload, label %129 [
+    i8 0, label %75
+    i8 1, label %75
+    i8 2, label %79
+    i8 3, label %84
+    i8 4, label %89
+    i8 5, label %94
+    i8 6, label %99
+    i8 7, label %104
+    i8 8, label %109
+    i8 9, label %114
+    i8 10, label %119
+    i8 11, label %124
   ]
 
-85:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-  %86 = mul i64 %30, %.sroa.30.56.copyload
-  %87 = getelementptr inbounds nuw float, ptr %.sroa.43.88.copyload, i64 %86
-  %88 = load float, ptr %87, align 4, !tbaa !270, !noalias !777
+75:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+  %76 = mul i64 %30, %.sroa.30.56.copyload
+  %77 = getelementptr inbounds nuw float, ptr %.sroa.43.88.copyload, i64 %76
+  %78 = load float, ptr %77, align 4, !tbaa !270, !noalias !777
+  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+
+79:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+  %80 = mul i64 %30, %.sroa.30.56.copyload
+  %81 = getelementptr inbounds nuw double, ptr %.sroa.43.88.copyload, i64 %80
+  %82 = load double, ptr %81, align 8, !tbaa !765, !noalias !777
+  %83 = fptrunc double %82 to float
+  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+
+84:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+  %85 = mul i64 %30, %.sroa.30.56.copyload
+  %86 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.43.88.copyload, i64 %85
+  %87 = load x86_fp80, ptr %86, align 16, !tbaa !767, !noalias !777
+  %88 = fptrunc x86_fp80 %87 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 89:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %90 = mul i64 %30, %.sroa.30.56.copyload
-  %91 = getelementptr inbounds nuw double, ptr %.sroa.43.88.copyload, i64 %90
-  %92 = load double, ptr %91, align 8, !tbaa !765, !noalias !777
-  %93 = fptrunc double %92 to float
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %90
+  %92 = load i8, ptr %91, align 1, !tbaa !51, !noalias !777
+  %93 = sitofp i8 %92 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 94:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %95 = mul i64 %30, %.sroa.30.56.copyload
-  %96 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.43.88.copyload, i64 %95
-  %97 = load x86_fp80, ptr %96, align 16, !tbaa !767, !noalias !777
-  %98 = fptrunc x86_fp80 %97 to float
+  %96 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %95
+  %97 = load i16, ptr %96, align 2, !tbaa !282, !noalias !777
+  %98 = sitofp i16 %97 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 99:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %100 = mul i64 %30, %.sroa.30.56.copyload
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %100
-  %102 = load i8, ptr %101, align 1, !tbaa !51, !noalias !777
-  %103 = sitofp i8 %102 to float
+  %101 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %100
+  %102 = load i32, ptr %101, align 4, !tbaa !103, !noalias !777
+  %103 = sitofp i32 %102 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 104:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %105 = mul i64 %30, %.sroa.30.56.copyload
-  %106 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %105
-  %107 = load i16, ptr %106, align 2, !tbaa !282, !noalias !777
-  %108 = sitofp i16 %107 to float
+  %106 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %105
+  %107 = load i64, ptr %106, align 8, !tbaa !9, !noalias !777
+  %108 = sitofp i64 %107 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 109:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %110 = mul i64 %30, %.sroa.30.56.copyload
-  %111 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %110
-  %112 = load i32, ptr %111, align 4, !tbaa !103, !noalias !777
-  %113 = sitofp i32 %112 to float
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %110
+  %112 = load i8, ptr %111, align 1, !tbaa !51, !noalias !777
+  %113 = uitofp i8 %112 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 114:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %115 = mul i64 %30, %.sroa.30.56.copyload
-  %116 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %115
-  %117 = load i64, ptr %116, align 8, !tbaa !9, !noalias !777
-  %118 = sitofp i64 %117 to float
+  %116 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %115
+  %117 = load i16, ptr %116, align 2, !tbaa !282, !noalias !777
+  %118 = uitofp i16 %117 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 119:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %120 = mul i64 %30, %.sroa.30.56.copyload
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %120
-  %122 = load i8, ptr %121, align 1, !tbaa !51, !noalias !777
-  %123 = uitofp i8 %122 to float
+  %121 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %120
+  %122 = load i32, ptr %121, align 4, !tbaa !103, !noalias !777
+  %123 = uitofp i32 %122 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 124:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %125 = mul i64 %30, %.sroa.30.56.copyload
-  %126 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %125
-  %127 = load i16, ptr %126, align 2, !tbaa !282, !noalias !777
-  %128 = uitofp i16 %127 to float
+  %126 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %125
+  %127 = load i64, ptr %126, align 8, !tbaa !9, !noalias !777
+  %128 = uitofp i64 %127 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 129:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-  %130 = mul i64 %30, %.sroa.30.56.copyload
-  %131 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %130
-  %132 = load i32, ptr %131, align 4, !tbaa !103, !noalias !777
-  %133 = uitofp i32 %132 to float
-  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-
-134:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-  %135 = mul i64 %30, %.sroa.30.56.copyload
-  %136 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %135
-  %137 = load i64, ptr %136, align 8, !tbaa !9, !noalias !777
-  %138 = uitofp i64 %137 to float
-  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-
-139:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   tail call void @_ZSt9terminatev() #33, !noalias !777
   unreachable
 
-_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %85, %89, %94, %99, %104, %109, %114, %119, %124, %129, %134
-  %.0.i = phi float [ %88, %85 ], [ %93, %89 ], [ %98, %94 ], [ %103, %99 ], [ %108, %104 ], [ %113, %109 ], [ %118, %114 ], [ %123, %119 ], [ %128, %124 ], [ %133, %129 ], [ %138, %134 ]
-  %140 = fcmp ord float %.0.i, 0.000000e+00
-  %141 = load float, ptr %27, align 4
-  %142 = fcmp une float %.0.i, %141
-  %143 = select i1 %140, i1 %142, i1 false
-  br i1 %143, label %144, label %188
+_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %75, %79, %84, %89, %94, %99, %104, %109, %114, %119, %124
+  %.0.i = phi float [ %78, %75 ], [ %83, %79 ], [ %88, %84 ], [ %93, %89 ], [ %98, %94 ], [ %103, %99 ], [ %108, %104 ], [ %113, %109 ], [ %118, %114 ], [ %123, %119 ], [ %128, %124 ]
+  %130 = fcmp ord float %.0.i, 0.000000e+00
+  %131 = load float, ptr %27, align 4
+  %132 = fcmp une float %.0.i, %131
+  %133 = select i1 %130, i1 %132, i1 false
+  br i1 %133, label %134, label %178
 
-144:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-  %145 = load ptr, ptr %28, align 8, !tbaa !106
-  %146 = getelementptr inbounds nuw i32, ptr %145, i64 %.165
-  %147 = load i32, ptr %146, align 4, !tbaa !103
-  %148 = load i64, ptr %29, align 8, !tbaa !9
-  %149 = add i64 %148, %.01366
-  %150 = and i64 %.0.i15, 4294967295
-  %151 = load ptr, ptr %13, align 8, !tbaa !271
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 %150
-  %153 = load i8, ptr %152, align 1, !tbaa !272
-  %154 = icmp eq i8 %153, 0
-  %155 = load ptr, ptr %14, align 8, !tbaa !175
-  %156 = getelementptr inbounds nuw i64, ptr %155, i64 %150
-  %157 = load i64, ptr %156, align 8, !tbaa !9
-  %158 = getelementptr inbounds nuw i16, ptr %4, i64 %157
-  %159 = load ptr, ptr %15, align 8, !tbaa !278
-  %160 = getelementptr inbounds nuw i32, ptr %159, i64 %150
-  %161 = load i32, ptr %160, align 4, !tbaa !103
-  %162 = sub i32 %147, %161
-  %163 = trunc i32 %162 to i16
-  br i1 %154, label %164, label %177
+134:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+  %135 = load ptr, ptr %28, align 8, !tbaa !106
+  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %.165
+  %137 = load i32, ptr %136, align 4, !tbaa !103
+  %138 = load i64, ptr %29, align 8, !tbaa !9
+  %139 = add i64 %138, %.01366
+  %140 = and i64 %.0.i15, 4294967295
+  %141 = load ptr, ptr %13, align 8, !tbaa !271
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %140
+  %143 = load i8, ptr %142, align 1, !tbaa !272
+  %144 = icmp eq i8 %143, 0
+  %145 = load ptr, ptr %14, align 8, !tbaa !175
+  %146 = getelementptr inbounds nuw i64, ptr %145, i64 %140
+  %147 = load i64, ptr %146, align 8, !tbaa !9
+  %148 = getelementptr inbounds nuw i16, ptr %4, i64 %147
+  %149 = load ptr, ptr %15, align 8, !tbaa !278
+  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %140
+  %151 = load i32, ptr %150, align 4, !tbaa !103
+  %152 = sub i32 %137, %151
+  %153 = trunc i32 %152 to i16
+  br i1 %144, label %154, label %167
 
-164:                                              ; preds = %144
-  %165 = getelementptr inbounds nuw i16, ptr %158, i64 %149
-  store i16 %163, ptr %165, align 2, !tbaa !282
-  %166 = add i64 %157, %149
-  %167 = lshr i64 %166, 5
-  %168 = and i64 %166, 31
-  %169 = xor i64 %168, 31
-  %170 = load ptr, ptr %18, align 8, !tbaa !605
-  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %167
-  %172 = shl nuw nsw i64 1, %169
-  %173 = trunc nuw i64 %172 to i32
-  %174 = xor i32 %173, -1
-  %175 = load i32, ptr %171, align 4, !tbaa !103
-  %176 = and i32 %175, %174
-  store i32 %176, ptr %171, align 4, !tbaa !103
+154:                                              ; preds = %134
+  %155 = getelementptr inbounds nuw i16, ptr %148, i64 %139
+  store i16 %153, ptr %155, align 2, !tbaa !282
+  %156 = add i64 %147, %139
+  %157 = lshr i64 %156, 5
+  %158 = and i64 %156, 31
+  %159 = xor i64 %158, 31
+  %160 = load ptr, ptr %18, align 8, !tbaa !605
+  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %157
+  %162 = shl nuw nsw i64 1, %159
+  %163 = trunc nuw i64 %162 to i32
+  %164 = xor i32 %163, -1
+  %165 = load i32, ptr %161, align 4, !tbaa !103
+  %166 = and i32 %165, %164
+  store i32 %166, ptr %161, align 4, !tbaa !103
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit
 
-177:                                              ; preds = %144
-  %178 = load ptr, ptr %16, align 8, !tbaa !175
-  %179 = getelementptr inbounds nuw i64, ptr %178, i64 %150
-  %180 = load i64, ptr %179, align 8, !tbaa !9
-  %181 = getelementptr inbounds nuw i16, ptr %158, i64 %180
-  store i16 %163, ptr %181, align 2, !tbaa !282
-  %182 = load ptr, ptr %17, align 8, !tbaa !175
-  %183 = getelementptr i64, ptr %182, i64 %157
-  %184 = getelementptr i64, ptr %183, i64 %180
-  store i64 %149, ptr %184, align 8, !tbaa !9
-  %185 = load i64, ptr %179, align 8, !tbaa !9
-  %186 = add i64 %185, 1
-  store i64 %186, ptr %179, align 8, !tbaa !9
+167:                                              ; preds = %134
+  %168 = load ptr, ptr %16, align 8, !tbaa !175
+  %169 = getelementptr inbounds nuw i64, ptr %168, i64 %140
+  %170 = load i64, ptr %169, align 8, !tbaa !9
+  %171 = getelementptr inbounds nuw i16, ptr %148, i64 %170
+  store i16 %153, ptr %171, align 2, !tbaa !282
+  %172 = load ptr, ptr %17, align 8, !tbaa !175
+  %173 = getelementptr i64, ptr %172, i64 %147
+  %174 = getelementptr i64, ptr %173, i64 %170
+  store i64 %139, ptr %174, align 8, !tbaa !9
+  %175 = load i64, ptr %169, align 8, !tbaa !9
+  %176 = add i64 %175, 1
+  store i64 %176, ptr %169, align 8, !tbaa !9
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit
 
-_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit: ; preds = %164, %177
-  %187 = add i64 %.165, 1
-  br label %188
+_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit: ; preds = %154, %167
+  %177 = add i64 %.165, 1
+  br label %178
 
-188:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-  %.2 = phi i64 [ %187, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit ], [ %.165, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit ]
-  %189 = add nuw i64 %.01464, 1
-  %exitcond.not = icmp eq i64 %189, %26
+178:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+  %.2 = phi i64 [ %177, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit ], [ %.165, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit ]
+  %179 = add nuw i64 %.01464, 1
+  %exitcond.not = icmp eq i64 %179, %26
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !780
 }
 
@@ -24988,8 +24968,8 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 168
   br label %20
 
-.loopexit:                                        ; preds = %187, %20
-  %.1.lcssa = phi i64 [ %.067, %20 ], [ %.2, %187 ]
+.loopexit:                                        ; preds = %177, %20
+  %.1.lcssa = phi i64 [ %.067, %20 ], [ %.2, %177 ]
   %19 = icmp ult i64 %23, %9
   br i1 %19, label %20, label %._crit_edge, !llvm.loop !781
 
@@ -25025,271 +25005,261 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   %28 = load ptr, ptr %11, align 8
   %29 = load ptr, ptr %12, align 8
   %switch = icmp ult i8 %.sroa.2838.32.copyload, 12
-  br i1 %switch, label %.lr.ph.split, label %84
+  br i1 %switch, label %.lr.ph.split, label %74
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %187
-  %.165 = phi i64 [ %.2, %187 ], [ %.067, %.lr.ph ]
-  %.01464 = phi i64 [ %188, %187 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %177
+  %.165 = phi i64 [ %.2, %177 ], [ %.067, %.lr.ph ]
+  %.01464 = phi i64 [ %178, %177 ], [ 0, %.lr.ph ]
   %30 = add i64 %.01464, %25
-  switch i8 %.sroa.2838.32.copyload, label %80 [
-    i8 0, label %31
-    i8 1, label %31
+  %31 = mul i64 %30, %.sroa.45.0.copyload.i
+  switch i8 %.sroa.2838.32.copyload, label %71 [
+    i8 0, label %32
+    i8 1, label %32
     i8 2, label %36
-    i8 3, label %41
-    i8 4, label %46
-    i8 5, label %51
-    i8 6, label %56
-    i8 7, label %61
-    i8 8, label %65
-    i8 9, label %70
-    i8 10, label %75
+    i8 3, label %40
+    i8 4, label %44
+    i8 5, label %48
+    i8 6, label %52
+    i8 7, label %56
+    i8 8, label %59
+    i8 9, label %63
+    i8 10, label %67
   ]
 
-31:                                               ; preds = %.lr.ph.split, %.lr.ph.split
-  %32 = mul i64 %30, %.sroa.45.0.copyload.i
-  %33 = getelementptr inbounds nuw float, ptr %.sroa.16.32.copyload, i64 %32
+32:                                               ; preds = %.lr.ph.split, %.lr.ph.split
+  %33 = getelementptr inbounds nuw float, ptr %.sroa.16.32.copyload, i64 %31
   %34 = load float, ptr %33, align 4, !tbaa !270, !noalias !785
   %35 = fptoui float %34 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
 36:                                               ; preds = %.lr.ph.split
-  %37 = mul i64 %30, %.sroa.45.0.copyload.i
-  %38 = getelementptr inbounds nuw double, ptr %.sroa.16.32.copyload, i64 %37
-  %39 = load double, ptr %38, align 8, !tbaa !765, !noalias !785
-  %40 = fptoui double %39 to i64
+  %37 = getelementptr inbounds nuw double, ptr %.sroa.16.32.copyload, i64 %31
+  %38 = load double, ptr %37, align 8, !tbaa !765, !noalias !785
+  %39 = fptoui double %38 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-41:                                               ; preds = %.lr.ph.split
-  %42 = mul i64 %30, %.sroa.45.0.copyload.i
-  %43 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.16.32.copyload, i64 %42
-  %44 = load x86_fp80, ptr %43, align 16, !tbaa !767, !noalias !785
-  %45 = fptoui x86_fp80 %44 to i64
+40:                                               ; preds = %.lr.ph.split
+  %41 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.16.32.copyload, i64 %31
+  %42 = load x86_fp80, ptr %41, align 16, !tbaa !767, !noalias !785
+  %43 = fptoui x86_fp80 %42 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-46:                                               ; preds = %.lr.ph.split
-  %47 = mul i64 %30, %.sroa.45.0.copyload.i
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !51, !noalias !785
-  %50 = sext i8 %49 to i64
+44:                                               ; preds = %.lr.ph.split
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %31
+  %46 = load i8, ptr %45, align 1, !tbaa !51, !noalias !785
+  %47 = sext i8 %46 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-51:                                               ; preds = %.lr.ph.split
-  %52 = mul i64 %30, %.sroa.45.0.copyload.i
-  %53 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %52
-  %54 = load i16, ptr %53, align 2, !tbaa !282, !noalias !785
-  %55 = sext i16 %54 to i64
+48:                                               ; preds = %.lr.ph.split
+  %49 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %31
+  %50 = load i16, ptr %49, align 2, !tbaa !282, !noalias !785
+  %51 = sext i16 %50 to i64
+  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+
+52:                                               ; preds = %.lr.ph.split
+  %53 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %31
+  %54 = load i32, ptr %53, align 4, !tbaa !103, !noalias !785
+  %55 = zext i32 %54 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
 56:                                               ; preds = %.lr.ph.split
-  %57 = mul i64 %30, %.sroa.45.0.copyload.i
-  %58 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %57
-  %59 = load i32, ptr %58, align 4, !tbaa !103, !noalias !785
-  %60 = zext i32 %59 to i64
+  %57 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %31
+  %58 = load i64, ptr %57, align 8, !tbaa !9, !noalias !785
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-61:                                               ; preds = %.lr.ph.split
-  %62 = mul i64 %30, %.sroa.45.0.copyload.i
-  %63 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %62
-  %64 = load i64, ptr %63, align 8, !tbaa !9, !noalias !785
+59:                                               ; preds = %.lr.ph.split
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %31
+  %61 = load i8, ptr %60, align 1, !tbaa !51, !noalias !785
+  %62 = zext i8 %61 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-65:                                               ; preds = %.lr.ph.split
-  %66 = mul i64 %30, %.sroa.45.0.copyload.i
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.16.32.copyload, i64 %66
-  %68 = load i8, ptr %67, align 1, !tbaa !51, !noalias !785
-  %69 = zext i8 %68 to i64
+63:                                               ; preds = %.lr.ph.split
+  %64 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %31
+  %65 = load i16, ptr %64, align 2, !tbaa !282, !noalias !785
+  %66 = zext i16 %65 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-70:                                               ; preds = %.lr.ph.split
-  %71 = mul i64 %30, %.sroa.45.0.copyload.i
-  %72 = getelementptr inbounds nuw i16, ptr %.sroa.16.32.copyload, i64 %71
-  %73 = load i16, ptr %72, align 2, !tbaa !282, !noalias !785
-  %74 = zext i16 %73 to i64
+67:                                               ; preds = %.lr.ph.split
+  %68 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %31
+  %69 = load i32, ptr %68, align 4, !tbaa !103, !noalias !785
+  %70 = zext i32 %69 to i64
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-75:                                               ; preds = %.lr.ph.split
-  %76 = mul i64 %30, %.sroa.45.0.copyload.i
-  %77 = getelementptr inbounds nuw i32, ptr %.sroa.16.32.copyload, i64 %76
-  %78 = load i32, ptr %77, align 4, !tbaa !103, !noalias !785
-  %79 = zext i32 %78 to i64
+71:                                               ; preds = %.lr.ph.split
+  %72 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %31
+  %73 = load i64, ptr %72, align 8, !tbaa !9, !noalias !785
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
 
-80:                                               ; preds = %.lr.ph.split
-  %81 = mul i64 %30, %.sroa.45.0.copyload.i
-  %82 = getelementptr inbounds nuw i64, ptr %.sroa.16.32.copyload, i64 %81
-  %83 = load i64, ptr %82, align 8, !tbaa !9, !noalias !785
-  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-
-84:                                               ; preds = %.lr.ph
+74:                                               ; preds = %.lr.ph
   tail call void @_ZSt9terminatev() #33, !noalias !785
   unreachable
 
-_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %31, %36, %41, %46, %51, %56, %61, %65, %70, %75, %80
-  %.0.i15 = phi i64 [ %35, %31 ], [ %40, %36 ], [ %45, %41 ], [ %50, %46 ], [ %55, %51 ], [ %60, %56 ], [ %64, %61 ], [ %69, %65 ], [ %74, %70 ], [ %79, %75 ], [ %83, %80 ]
-  switch i8 %.sroa.5559.88.copyload, label %139 [
-    i8 0, label %85
-    i8 1, label %85
-    i8 2, label %89
-    i8 3, label %94
-    i8 4, label %99
-    i8 5, label %104
-    i8 6, label %109
-    i8 7, label %114
-    i8 8, label %119
-    i8 9, label %124
-    i8 10, label %129
-    i8 11, label %134
+_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit: ; preds = %32, %36, %40, %44, %48, %52, %56, %59, %63, %67, %71
+  %.0.i15 = phi i64 [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %58, %56 ], [ %62, %59 ], [ %66, %63 ], [ %70, %67 ], [ %73, %71 ]
+  switch i8 %.sroa.5559.88.copyload, label %129 [
+    i8 0, label %75
+    i8 1, label %75
+    i8 2, label %79
+    i8 3, label %84
+    i8 4, label %89
+    i8 5, label %94
+    i8 6, label %99
+    i8 7, label %104
+    i8 8, label %109
+    i8 9, label %114
+    i8 10, label %119
+    i8 11, label %124
   ]
 
-85:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-  %86 = mul i64 %30, %.sroa.30.56.copyload
-  %87 = getelementptr inbounds nuw float, ptr %.sroa.43.88.copyload, i64 %86
-  %88 = load float, ptr %87, align 4, !tbaa !270, !noalias !785
+75:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+  %76 = mul i64 %30, %.sroa.30.56.copyload
+  %77 = getelementptr inbounds nuw float, ptr %.sroa.43.88.copyload, i64 %76
+  %78 = load float, ptr %77, align 4, !tbaa !270, !noalias !785
+  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+
+79:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+  %80 = mul i64 %30, %.sroa.30.56.copyload
+  %81 = getelementptr inbounds nuw double, ptr %.sroa.43.88.copyload, i64 %80
+  %82 = load double, ptr %81, align 8, !tbaa !765, !noalias !785
+  %83 = fptrunc double %82 to float
+  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+
+84:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
+  %85 = mul i64 %30, %.sroa.30.56.copyload
+  %86 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.43.88.copyload, i64 %85
+  %87 = load x86_fp80, ptr %86, align 16, !tbaa !767, !noalias !785
+  %88 = fptrunc x86_fp80 %87 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 89:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %90 = mul i64 %30, %.sroa.30.56.copyload
-  %91 = getelementptr inbounds nuw double, ptr %.sroa.43.88.copyload, i64 %90
-  %92 = load double, ptr %91, align 8, !tbaa !765, !noalias !785
-  %93 = fptrunc double %92 to float
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %90
+  %92 = load i8, ptr %91, align 1, !tbaa !51, !noalias !785
+  %93 = sitofp i8 %92 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 94:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %95 = mul i64 %30, %.sroa.30.56.copyload
-  %96 = getelementptr inbounds nuw x86_fp80, ptr %.sroa.43.88.copyload, i64 %95
-  %97 = load x86_fp80, ptr %96, align 16, !tbaa !767, !noalias !785
-  %98 = fptrunc x86_fp80 %97 to float
+  %96 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %95
+  %97 = load i16, ptr %96, align 2, !tbaa !282, !noalias !785
+  %98 = sitofp i16 %97 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 99:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %100 = mul i64 %30, %.sroa.30.56.copyload
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %100
-  %102 = load i8, ptr %101, align 1, !tbaa !51, !noalias !785
-  %103 = sitofp i8 %102 to float
+  %101 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %100
+  %102 = load i32, ptr %101, align 4, !tbaa !103, !noalias !785
+  %103 = sitofp i32 %102 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 104:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %105 = mul i64 %30, %.sroa.30.56.copyload
-  %106 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %105
-  %107 = load i16, ptr %106, align 2, !tbaa !282, !noalias !785
-  %108 = sitofp i16 %107 to float
+  %106 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %105
+  %107 = load i64, ptr %106, align 8, !tbaa !9, !noalias !785
+  %108 = sitofp i64 %107 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 109:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %110 = mul i64 %30, %.sroa.30.56.copyload
-  %111 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %110
-  %112 = load i32, ptr %111, align 4, !tbaa !103, !noalias !785
-  %113 = sitofp i32 %112 to float
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %110
+  %112 = load i8, ptr %111, align 1, !tbaa !51, !noalias !785
+  %113 = uitofp i8 %112 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 114:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %115 = mul i64 %30, %.sroa.30.56.copyload
-  %116 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %115
-  %117 = load i64, ptr %116, align 8, !tbaa !9, !noalias !785
-  %118 = sitofp i64 %117 to float
+  %116 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %115
+  %117 = load i16, ptr %116, align 2, !tbaa !282, !noalias !785
+  %118 = uitofp i16 %117 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 119:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %120 = mul i64 %30, %.sroa.30.56.copyload
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.43.88.copyload, i64 %120
-  %122 = load i8, ptr %121, align 1, !tbaa !51, !noalias !785
-  %123 = uitofp i8 %122 to float
+  %121 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %120
+  %122 = load i32, ptr %121, align 4, !tbaa !103, !noalias !785
+  %123 = uitofp i32 %122 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 124:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   %125 = mul i64 %30, %.sroa.30.56.copyload
-  %126 = getelementptr inbounds nuw i16, ptr %.sroa.43.88.copyload, i64 %125
-  %127 = load i16, ptr %126, align 2, !tbaa !282, !noalias !785
-  %128 = uitofp i16 %127 to float
+  %126 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %125
+  %127 = load i64, ptr %126, align 8, !tbaa !9, !noalias !785
+  %128 = uitofp i64 %127 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
 
 129:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-  %130 = mul i64 %30, %.sroa.30.56.copyload
-  %131 = getelementptr inbounds nuw i32, ptr %.sroa.43.88.copyload, i64 %130
-  %132 = load i32, ptr %131, align 4, !tbaa !103, !noalias !785
-  %133 = uitofp i32 %132 to float
-  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-
-134:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
-  %135 = mul i64 %30, %.sroa.30.56.copyload
-  %136 = getelementptr inbounds nuw i64, ptr %.sroa.43.88.copyload, i64 %135
-  %137 = load i64, ptr %136, align 8, !tbaa !9, !noalias !785
-  %138 = uitofp i64 %137 to float
-  br label %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-
-139:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clImJRmEEET_DpOT0_EUlPKS5_E_EEDcS5_.exit
   tail call void @_ZSt9terminatev() #33, !noalias !785
   unreachable
 
-_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %85, %89, %94, %99, %104, %109, %114, %119, %124, %129, %134
-  %.0.i = phi float [ %88, %85 ], [ %93, %89 ], [ %98, %94 ], [ %103, %99 ], [ %108, %104 ], [ %113, %109 ], [ %118, %114 ], [ %123, %119 ], [ %128, %124 ], [ %133, %129 ], [ %138, %134 ]
-  %140 = fcmp ord float %.0.i, 0.000000e+00
-  %141 = load float, ptr %27, align 4
-  %142 = fcmp une float %.0.i, %141
-  %143 = select i1 %140, i1 %142, i1 false
-  br i1 %143, label %144, label %187
+_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit: ; preds = %75, %79, %84, %89, %94, %99, %104, %109, %114, %119, %124
+  %.0.i = phi float [ %78, %75 ], [ %83, %79 ], [ %88, %84 ], [ %93, %89 ], [ %98, %94 ], [ %103, %99 ], [ %108, %104 ], [ %113, %109 ], [ %118, %114 ], [ %123, %119 ], [ %128, %124 ]
+  %130 = fcmp ord float %.0.i, 0.000000e+00
+  %131 = load float, ptr %27, align 4
+  %132 = fcmp une float %.0.i, %131
+  %133 = select i1 %130, i1 %132, i1 false
+  br i1 %133, label %134, label %177
 
-144:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-  %145 = load ptr, ptr %28, align 8, !tbaa !106
-  %146 = getelementptr inbounds nuw i32, ptr %145, i64 %.165
-  %147 = load i32, ptr %146, align 4, !tbaa !103
-  %148 = load i64, ptr %29, align 8, !tbaa !9
-  %149 = add i64 %148, %.01366
-  %150 = and i64 %.0.i15, 4294967295
-  %151 = load ptr, ptr %13, align 8, !tbaa !271
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 %150
-  %153 = load i8, ptr %152, align 1, !tbaa !272
-  %154 = icmp eq i8 %153, 0
-  %155 = load ptr, ptr %14, align 8, !tbaa !175
-  %156 = getelementptr inbounds nuw i64, ptr %155, i64 %150
-  %157 = load i64, ptr %156, align 8, !tbaa !9
-  %158 = getelementptr inbounds nuw i32, ptr %4, i64 %157
-  %159 = load ptr, ptr %15, align 8, !tbaa !278
-  %160 = getelementptr inbounds nuw i32, ptr %159, i64 %150
-  %161 = load i32, ptr %160, align 4, !tbaa !103
-  %162 = sub i32 %147, %161
-  br i1 %154, label %163, label %176
+134:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+  %135 = load ptr, ptr %28, align 8, !tbaa !106
+  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %.165
+  %137 = load i32, ptr %136, align 4, !tbaa !103
+  %138 = load i64, ptr %29, align 8, !tbaa !9
+  %139 = add i64 %138, %.01366
+  %140 = and i64 %.0.i15, 4294967295
+  %141 = load ptr, ptr %13, align 8, !tbaa !271
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %140
+  %143 = load i8, ptr %142, align 1, !tbaa !272
+  %144 = icmp eq i8 %143, 0
+  %145 = load ptr, ptr %14, align 8, !tbaa !175
+  %146 = getelementptr inbounds nuw i64, ptr %145, i64 %140
+  %147 = load i64, ptr %146, align 8, !tbaa !9
+  %148 = getelementptr inbounds nuw i32, ptr %4, i64 %147
+  %149 = load ptr, ptr %15, align 8, !tbaa !278
+  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %140
+  %151 = load i32, ptr %150, align 4, !tbaa !103
+  %152 = sub i32 %137, %151
+  br i1 %144, label %153, label %166
 
-163:                                              ; preds = %144
-  %164 = getelementptr inbounds nuw i32, ptr %158, i64 %149
-  store i32 %162, ptr %164, align 4, !tbaa !103
-  %165 = add i64 %157, %149
-  %166 = lshr i64 %165, 5
-  %167 = and i64 %165, 31
-  %168 = xor i64 %167, 31
-  %169 = load ptr, ptr %18, align 8, !tbaa !605
-  %170 = getelementptr inbounds nuw i32, ptr %169, i64 %166
-  %171 = shl nuw nsw i64 1, %168
-  %172 = trunc nuw i64 %171 to i32
-  %173 = xor i32 %172, -1
-  %174 = load i32, ptr %170, align 4, !tbaa !103
-  %175 = and i32 %174, %173
-  store i32 %175, ptr %170, align 4, !tbaa !103
+153:                                              ; preds = %134
+  %154 = getelementptr inbounds nuw i32, ptr %148, i64 %139
+  store i32 %152, ptr %154, align 4, !tbaa !103
+  %155 = add i64 %147, %139
+  %156 = lshr i64 %155, 5
+  %157 = and i64 %155, 31
+  %158 = xor i64 %157, 31
+  %159 = load ptr, ptr %18, align 8, !tbaa !605
+  %160 = getelementptr inbounds nuw i32, ptr %159, i64 %156
+  %161 = shl nuw nsw i64 1, %158
+  %162 = trunc nuw i64 %161 to i32
+  %163 = xor i32 %162, -1
+  %164 = load i32, ptr %160, align 4, !tbaa !103
+  %165 = and i32 %164, %163
+  store i32 %165, ptr %160, align 4, !tbaa !103
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit
 
-176:                                              ; preds = %144
-  %177 = load ptr, ptr %16, align 8, !tbaa !175
-  %178 = getelementptr inbounds nuw i64, ptr %177, i64 %150
-  %179 = load i64, ptr %178, align 8, !tbaa !9
-  %180 = getelementptr inbounds nuw i32, ptr %158, i64 %179
-  store i32 %162, ptr %180, align 4, !tbaa !103
-  %181 = load ptr, ptr %17, align 8, !tbaa !175
-  %182 = getelementptr i64, ptr %181, i64 %157
-  %183 = getelementptr i64, ptr %182, i64 %179
-  store i64 %149, ptr %183, align 8, !tbaa !9
-  %184 = load i64, ptr %178, align 8, !tbaa !9
-  %185 = add i64 %184, 1
-  store i64 %185, ptr %178, align 8, !tbaa !9
+166:                                              ; preds = %134
+  %167 = load ptr, ptr %16, align 8, !tbaa !175
+  %168 = getelementptr inbounds nuw i64, ptr %167, i64 %140
+  %169 = load i64, ptr %168, align 8, !tbaa !9
+  %170 = getelementptr inbounds nuw i32, ptr %148, i64 %169
+  store i32 %152, ptr %170, align 4, !tbaa !103
+  %171 = load ptr, ptr %17, align 8, !tbaa !175
+  %172 = getelementptr i64, ptr %171, i64 %147
+  %173 = getelementptr i64, ptr %172, i64 %169
+  store i64 %139, ptr %173, align 8, !tbaa !9
+  %174 = load i64, ptr %168, align 8, !tbaa !9
+  %175 = add i64 %174, 1
+  store i64 %175, ptr %168, align 8, !tbaa !9
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit
 
-_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit: ; preds = %163, %176
-  %186 = add i64 %.165, 1
-  br label %187
+_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit: ; preds = %153, %166
+  %176 = add i64 %.165, 1
+  br label %177
 
-187:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
-  %.2 = phi i64 [ %186, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit ], [ %.165, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit ]
-  %188 = add nuw i64 %.01464, 1
-  %exitcond.not = icmp eq i64 %188, %26
+177:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit
+  %.2 = phi i64 [ %176, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit ], [ %.165, %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJmEEET_DpOT0_EUlPKS4_E_EEDcS4_.exit ]
+  %178 = add nuw i64 %.01464, 1
+  %exitcond.not = icmp eq i64 %178, %26
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !788
 }
 
@@ -26128,193 +26098,183 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   %25 = getelementptr i8, ptr %.sroa.26.0.copyload, i64 %21
   %26 = getelementptr x86_fp80, ptr %.sroa.26.0.copyload, i64 %21
   %switch = icmp ult i8 %.sroa.3779.0.copyload, 12
-  br i1 %switch, label %.lr.ph.split, label %82
+  br i1 %switch, label %.lr.ph.split, label %72
 
-._crit_edge:                                      ; preds = %143, %.lr.ph87.split
-  %.1.lcssa = phi i64 [ %.085, %.lr.ph87.split ], [ %.2, %143 ]
+._crit_edge:                                      ; preds = %133, %.lr.ph87.split
+  %.1.lcssa = phi i64 [ %.085, %.lr.ph87.split ], [ %.2, %133 ]
   %27 = add nuw i64 %.01384, 1
   %exitcond92.not = icmp eq i64 %27, %8
   br i1 %exitcond92.not, label %._crit_edge88, label %.lr.ph87.split, !llvm.loop !801
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %143
-  %.183 = phi i64 [ %.2, %143 ], [ %.085, %.lr.ph ]
-  %.01482 = phi i64 [ %144, %143 ], [ 0, %.lr.ph ]
-  switch i8 %.sroa.3779.0.copyload, label %77 [
-    i8 0, label %28
-    i8 1, label %28
+.lr.ph.split:                                     ; preds = %.lr.ph, %133
+  %.183 = phi i64 [ %.2, %133 ], [ %.085, %.lr.ph ]
+  %.01482 = phi i64 [ %134, %133 ], [ 0, %.lr.ph ]
+  %28 = mul i64 %.01482, %.sroa.14.0.copyload
+  switch i8 %.sroa.3779.0.copyload, label %68 [
+    i8 0, label %29
+    i8 1, label %29
     i8 2, label %32
-    i8 3, label %37
-    i8 4, label %42
-    i8 5, label %47
-    i8 6, label %52
-    i8 7, label %57
-    i8 8, label %62
-    i8 9, label %67
-    i8 10, label %72
+    i8 3, label %36
+    i8 4, label %40
+    i8 5, label %44
+    i8 6, label %48
+    i8 7, label %52
+    i8 8, label %56
+    i8 9, label %60
+    i8 10, label %64
   ]
 
-28:                                               ; preds = %.lr.ph.split, %.lr.ph.split
-  %29 = mul i64 %.01482, %.sroa.14.0.copyload
-  %30 = getelementptr float, ptr %23, i64 %29
+29:                                               ; preds = %.lr.ph.split, %.lr.ph.split
+  %30 = getelementptr float, ptr %23, i64 %28
   %31 = load float, ptr %30, align 4, !tbaa !270, !noalias !803
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
 32:                                               ; preds = %.lr.ph.split
-  %33 = mul i64 %.01482, %.sroa.14.0.copyload
-  %34 = getelementptr double, ptr %22, i64 %33
-  %35 = load double, ptr %34, align 8, !tbaa !765, !noalias !803
-  %36 = fptrunc double %35 to float
+  %33 = getelementptr double, ptr %22, i64 %28
+  %34 = load double, ptr %33, align 8, !tbaa !765, !noalias !803
+  %35 = fptrunc double %34 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-37:                                               ; preds = %.lr.ph.split
-  %38 = mul i64 %.01482, %.sroa.14.0.copyload
-  %39 = getelementptr x86_fp80, ptr %26, i64 %38
-  %40 = load x86_fp80, ptr %39, align 16, !tbaa !767, !noalias !803
-  %41 = fptrunc x86_fp80 %40 to float
+36:                                               ; preds = %.lr.ph.split
+  %37 = getelementptr x86_fp80, ptr %26, i64 %28
+  %38 = load x86_fp80, ptr %37, align 16, !tbaa !767, !noalias !803
+  %39 = fptrunc x86_fp80 %38 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-42:                                               ; preds = %.lr.ph.split
-  %43 = mul i64 %.01482, %.sroa.14.0.copyload
-  %44 = getelementptr i8, ptr %25, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !51, !noalias !803
-  %46 = sitofp i8 %45 to float
+40:                                               ; preds = %.lr.ph.split
+  %41 = getelementptr i8, ptr %25, i64 %28
+  %42 = load i8, ptr %41, align 1, !tbaa !51, !noalias !803
+  %43 = sitofp i8 %42 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-47:                                               ; preds = %.lr.ph.split
-  %48 = mul i64 %.01482, %.sroa.14.0.copyload
-  %49 = getelementptr i16, ptr %24, i64 %48
-  %50 = load i16, ptr %49, align 2, !tbaa !282, !noalias !803
-  %51 = sitofp i16 %50 to float
+44:                                               ; preds = %.lr.ph.split
+  %45 = getelementptr i16, ptr %24, i64 %28
+  %46 = load i16, ptr %45, align 2, !tbaa !282, !noalias !803
+  %47 = sitofp i16 %46 to float
+  br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
+
+48:                                               ; preds = %.lr.ph.split
+  %49 = getelementptr i32, ptr %23, i64 %28
+  %50 = load i32, ptr %49, align 4, !tbaa !103, !noalias !803
+  %51 = sitofp i32 %50 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
 52:                                               ; preds = %.lr.ph.split
-  %53 = mul i64 %.01482, %.sroa.14.0.copyload
-  %54 = getelementptr i32, ptr %23, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !103, !noalias !803
-  %56 = sitofp i32 %55 to float
+  %53 = getelementptr i64, ptr %22, i64 %28
+  %54 = load i64, ptr %53, align 8, !tbaa !9, !noalias !803
+  %55 = sitofp i64 %54 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-57:                                               ; preds = %.lr.ph.split
-  %58 = mul i64 %.01482, %.sroa.14.0.copyload
-  %59 = getelementptr i64, ptr %22, i64 %58
-  %60 = load i64, ptr %59, align 8, !tbaa !9, !noalias !803
-  %61 = sitofp i64 %60 to float
+56:                                               ; preds = %.lr.ph.split
+  %57 = getelementptr i8, ptr %25, i64 %28
+  %58 = load i8, ptr %57, align 1, !tbaa !51, !noalias !803
+  %59 = uitofp i8 %58 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-62:                                               ; preds = %.lr.ph.split
-  %63 = mul i64 %.01482, %.sroa.14.0.copyload
-  %64 = getelementptr i8, ptr %25, i64 %63
-  %65 = load i8, ptr %64, align 1, !tbaa !51, !noalias !803
-  %66 = uitofp i8 %65 to float
+60:                                               ; preds = %.lr.ph.split
+  %61 = getelementptr i16, ptr %24, i64 %28
+  %62 = load i16, ptr %61, align 2, !tbaa !282, !noalias !803
+  %63 = uitofp i16 %62 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-67:                                               ; preds = %.lr.ph.split
-  %68 = mul i64 %.01482, %.sroa.14.0.copyload
-  %69 = getelementptr i16, ptr %24, i64 %68
-  %70 = load i16, ptr %69, align 2, !tbaa !282, !noalias !803
-  %71 = uitofp i16 %70 to float
+64:                                               ; preds = %.lr.ph.split
+  %65 = getelementptr i32, ptr %23, i64 %28
+  %66 = load i32, ptr %65, align 4, !tbaa !103, !noalias !803
+  %67 = uitofp i32 %66 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-72:                                               ; preds = %.lr.ph.split
-  %73 = mul i64 %.01482, %.sroa.14.0.copyload
-  %74 = getelementptr i32, ptr %23, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !103, !noalias !803
-  %76 = uitofp i32 %75 to float
+68:                                               ; preds = %.lr.ph.split
+  %69 = getelementptr i64, ptr %22, i64 %28
+  %70 = load i64, ptr %69, align 8, !tbaa !9, !noalias !803
+  %71 = uitofp i64 %70 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-77:                                               ; preds = %.lr.ph.split
-  %78 = mul i64 %.01482, %.sroa.14.0.copyload
-  %79 = getelementptr i64, ptr %22, i64 %78
-  %80 = load i64, ptr %79, align 8, !tbaa !9, !noalias !803
-  %81 = uitofp i64 %80 to float
-  br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
-
-82:                                               ; preds = %.lr.ph
+72:                                               ; preds = %.lr.ph
   tail call void @_ZSt9terminatev() #33, !noalias !803
   unreachable
 
-_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit: ; preds = %28, %32, %37, %42, %47, %52, %57, %62, %67, %72, %77
-  %.0.i = phi float [ %31, %28 ], [ %36, %32 ], [ %41, %37 ], [ %46, %42 ], [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %66, %62 ], [ %71, %67 ], [ %76, %72 ], [ %81, %77 ]
-  %83 = load ptr, ptr %9, align 8, !tbaa !806
-  %84 = fcmp ord float %.0.i, 0.000000e+00
-  %85 = load float, ptr %83, align 4
-  %86 = fcmp une float %.0.i, %85
-  %87 = select i1 %84, i1 %86, i1 false
-  br i1 %87, label %88, label %143
+_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit: ; preds = %29, %32, %36, %40, %44, %48, %52, %56, %60, %64, %68
+  %.0.i = phi float [ %31, %29 ], [ %35, %32 ], [ %39, %36 ], [ %43, %40 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %71, %68 ]
+  %73 = load ptr, ptr %9, align 8, !tbaa !806
+  %74 = fcmp ord float %.0.i, 0.000000e+00
+  %75 = load float, ptr %73, align 4
+  %76 = fcmp une float %.0.i, %75
+  %77 = select i1 %74, i1 %76, i1 false
+  br i1 %77, label %78, label %133
 
-88:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
-  %89 = load ptr, ptr %10, align 8, !tbaa !807
-  %90 = load ptr, ptr %89, align 8, !tbaa !106
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.183
-  %92 = load i32, ptr %91, align 4, !tbaa !103
-  %93 = load ptr, ptr %11, align 8, !tbaa !808
-  %94 = load i64, ptr %93, align 8, !tbaa !9
-  %95 = add i64 %94, %.01384
-  %96 = and i64 %.01482, 4294967295
-  %97 = load ptr, ptr %12, align 8, !tbaa !271
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %96
-  %99 = load i8, ptr %98, align 1, !tbaa !272
-  %100 = icmp eq i8 %99, 0
-  %101 = load ptr, ptr %13, align 8, !tbaa !175
-  %102 = getelementptr inbounds nuw i64, ptr %101, i64 %96
-  %103 = load i64, ptr %102, align 8, !tbaa !9
-  %104 = getelementptr inbounds nuw i8, ptr %4, i64 %103
-  %105 = load ptr, ptr %14, align 8, !tbaa !278
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %96
-  %107 = load i32, ptr %106, align 4, !tbaa !103
-  %108 = sub i32 %92, %107
-  %109 = trunc i32 %108 to i8
-  br i1 %100, label %110, label %126
+78:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
+  %79 = load ptr, ptr %10, align 8, !tbaa !807
+  %80 = load ptr, ptr %79, align 8, !tbaa !106
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %.183
+  %82 = load i32, ptr %81, align 4, !tbaa !103
+  %83 = load ptr, ptr %11, align 8, !tbaa !808
+  %84 = load i64, ptr %83, align 8, !tbaa !9
+  %85 = add i64 %84, %.01384
+  %86 = and i64 %.01482, 4294967295
+  %87 = load ptr, ptr %12, align 8, !tbaa !271
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %86
+  %89 = load i8, ptr %88, align 1, !tbaa !272
+  %90 = icmp eq i8 %89, 0
+  %91 = load ptr, ptr %13, align 8, !tbaa !175
+  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %86
+  %93 = load i64, ptr %92, align 8, !tbaa !9
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 %93
+  %95 = load ptr, ptr %14, align 8, !tbaa !278
+  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %86
+  %97 = load i32, ptr %96, align 4, !tbaa !103
+  %98 = sub i32 %82, %97
+  %99 = trunc i32 %98 to i8
+  br i1 %90, label %100, label %116
 
-110:                                              ; preds = %88
-  %111 = getelementptr inbounds nuw i8, ptr %104, i64 %95
-  store i8 %109, ptr %111, align 1, !tbaa !51
-  %112 = load ptr, ptr %13, align 8, !tbaa !175
-  %113 = getelementptr inbounds nuw i64, ptr %112, i64 %96
-  %114 = load i64, ptr %113, align 8, !tbaa !9
-  %115 = add i64 %114, %95
-  %116 = lshr i64 %115, 5
-  %117 = and i64 %115, 31
-  %118 = xor i64 %117, 31
-  %119 = load ptr, ptr %17, align 8, !tbaa !605
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %116
-  %121 = shl nuw nsw i64 1, %118
-  %122 = trunc nuw i64 %121 to i32
-  %123 = xor i32 %122, -1
-  %124 = load i32, ptr %120, align 4, !tbaa !103
-  %125 = and i32 %124, %123
-  store i32 %125, ptr %120, align 4, !tbaa !103
+100:                                              ; preds = %78
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 %85
+  store i8 %99, ptr %101, align 1, !tbaa !51
+  %102 = load ptr, ptr %13, align 8, !tbaa !175
+  %103 = getelementptr inbounds nuw i64, ptr %102, i64 %86
+  %104 = load i64, ptr %103, align 8, !tbaa !9
+  %105 = add i64 %104, %85
+  %106 = lshr i64 %105, 5
+  %107 = and i64 %105, 31
+  %108 = xor i64 %107, 31
+  %109 = load ptr, ptr %17, align 8, !tbaa !605
+  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %106
+  %111 = shl nuw nsw i64 1, %108
+  %112 = trunc nuw i64 %111 to i32
+  %113 = xor i32 %112, -1
+  %114 = load i32, ptr %110, align 4, !tbaa !103
+  %115 = and i32 %114, %113
+  store i32 %115, ptr %110, align 4, !tbaa !103
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit
 
-126:                                              ; preds = %88
-  %127 = load ptr, ptr %15, align 8, !tbaa !175
-  %128 = getelementptr inbounds nuw i64, ptr %127, i64 %96
-  %129 = load i64, ptr %128, align 8, !tbaa !9
-  %130 = getelementptr inbounds nuw i8, ptr %104, i64 %129
-  store i8 %109, ptr %130, align 1, !tbaa !51
-  %131 = load ptr, ptr %13, align 8, !tbaa !175
-  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %96
-  %133 = load i64, ptr %132, align 8, !tbaa !9
-  %134 = load ptr, ptr %15, align 8, !tbaa !175
-  %135 = getelementptr inbounds nuw i64, ptr %134, i64 %96
-  %136 = load i64, ptr %135, align 8, !tbaa !9
-  %137 = load ptr, ptr %16, align 8, !tbaa !175
-  %138 = getelementptr i64, ptr %137, i64 %133
-  %139 = getelementptr i64, ptr %138, i64 %136
-  store i64 %95, ptr %139, align 8, !tbaa !9
-  %140 = load i64, ptr %135, align 8, !tbaa !9
-  %141 = add i64 %140, 1
-  store i64 %141, ptr %135, align 8, !tbaa !9
+116:                                              ; preds = %78
+  %117 = load ptr, ptr %15, align 8, !tbaa !175
+  %118 = getelementptr inbounds nuw i64, ptr %117, i64 %86
+  %119 = load i64, ptr %118, align 8, !tbaa !9
+  %120 = getelementptr inbounds nuw i8, ptr %94, i64 %119
+  store i8 %99, ptr %120, align 1, !tbaa !51
+  %121 = load ptr, ptr %13, align 8, !tbaa !175
+  %122 = getelementptr inbounds nuw i64, ptr %121, i64 %86
+  %123 = load i64, ptr %122, align 8, !tbaa !9
+  %124 = load ptr, ptr %15, align 8, !tbaa !175
+  %125 = getelementptr inbounds nuw i64, ptr %124, i64 %86
+  %126 = load i64, ptr %125, align 8, !tbaa !9
+  %127 = load ptr, ptr %16, align 8, !tbaa !175
+  %128 = getelementptr i64, ptr %127, i64 %123
+  %129 = getelementptr i64, ptr %128, i64 %126
+  store i64 %85, ptr %129, align 8, !tbaa !9
+  %130 = load i64, ptr %125, align 8, !tbaa !9
+  %131 = add i64 %130, 1
+  store i64 %131, ptr %125, align 8, !tbaa !9
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit
 
-_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit: ; preds = %110, %126
-  %142 = add i64 %.183, 1
-  br label %143
+_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit: ; preds = %100, %116
+  %132 = add i64 %.183, 1
+  br label %133
 
-143:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
-  %.2 = phi i64 [ %142, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit ], [ %.183, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit ]
-  %144 = add nuw i64 %.01482, 1
-  %exitcond.not = icmp eq i64 %144, %.sroa.2568.0.copyload
+133:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
+  %.2 = phi i64 [ %132, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIhjmEEvT0_T1_jPT_.exit ], [ %.183, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit ]
+  %134 = add nuw i64 %.01482, 1
+  %exitcond.not = icmp eq i64 %134, %.sroa.2568.0.copyload
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !809
 }
 
@@ -26377,181 +26337,171 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   %26 = load ptr, ptr %10, align 8
   %27 = load ptr, ptr %11, align 8
   %switch = icmp ult i8 %.sroa.3779.0.copyload, 12
-  br i1 %switch, label %.lr.ph.split, label %83
+  br i1 %switch, label %.lr.ph.split, label %73
 
-._crit_edge:                                      ; preds = %132, %.lr.ph87.split
-  %.1.lcssa = phi i64 [ %.085, %.lr.ph87.split ], [ %.2, %132 ]
+._crit_edge:                                      ; preds = %122, %.lr.ph87.split
+  %.1.lcssa = phi i64 [ %.085, %.lr.ph87.split ], [ %.2, %122 ]
   %28 = add nuw i64 %.01384, 1
   %exitcond92.not = icmp eq i64 %28, %8
   br i1 %exitcond92.not, label %._crit_edge88, label %.lr.ph87.splitthread-pre-split, !llvm.loop !810
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %132
-  %.183 = phi i64 [ %.2, %132 ], [ %.085, %.lr.ph ]
-  %.01482 = phi i64 [ %133, %132 ], [ 0, %.lr.ph ]
-  switch i8 %.sroa.3779.0.copyload, label %78 [
-    i8 0, label %29
-    i8 1, label %29
+.lr.ph.split:                                     ; preds = %.lr.ph, %122
+  %.183 = phi i64 [ %.2, %122 ], [ %.085, %.lr.ph ]
+  %.01482 = phi i64 [ %123, %122 ], [ 0, %.lr.ph ]
+  %29 = mul i64 %.01482, %.sroa.14.0.copyload
+  switch i8 %.sroa.3779.0.copyload, label %69 [
+    i8 0, label %30
+    i8 1, label %30
     i8 2, label %33
-    i8 3, label %38
-    i8 4, label %43
-    i8 5, label %48
-    i8 6, label %53
-    i8 7, label %58
-    i8 8, label %63
-    i8 9, label %68
-    i8 10, label %73
+    i8 3, label %37
+    i8 4, label %41
+    i8 5, label %45
+    i8 6, label %49
+    i8 7, label %53
+    i8 8, label %57
+    i8 9, label %61
+    i8 10, label %65
   ]
 
-29:                                               ; preds = %.lr.ph.split, %.lr.ph.split
-  %30 = mul i64 %.01482, %.sroa.14.0.copyload
-  %31 = getelementptr float, ptr %21, i64 %30
+30:                                               ; preds = %.lr.ph.split, %.lr.ph.split
+  %31 = getelementptr float, ptr %21, i64 %29
   %32 = load float, ptr %31, align 4, !tbaa !270, !noalias !811
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
 33:                                               ; preds = %.lr.ph.split
-  %34 = mul i64 %.01482, %.sroa.14.0.copyload
-  %35 = getelementptr double, ptr %20, i64 %34
-  %36 = load double, ptr %35, align 8, !tbaa !765, !noalias !811
-  %37 = fptrunc double %36 to float
+  %34 = getelementptr double, ptr %20, i64 %29
+  %35 = load double, ptr %34, align 8, !tbaa !765, !noalias !811
+  %36 = fptrunc double %35 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-38:                                               ; preds = %.lr.ph.split
-  %39 = mul i64 %.01482, %.sroa.14.0.copyload
-  %40 = getelementptr x86_fp80, ptr %24, i64 %39
-  %41 = load x86_fp80, ptr %40, align 16, !tbaa !767, !noalias !811
-  %42 = fptrunc x86_fp80 %41 to float
+37:                                               ; preds = %.lr.ph.split
+  %38 = getelementptr x86_fp80, ptr %24, i64 %29
+  %39 = load x86_fp80, ptr %38, align 16, !tbaa !767, !noalias !811
+  %40 = fptrunc x86_fp80 %39 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-43:                                               ; preds = %.lr.ph.split
-  %44 = mul i64 %.01482, %.sroa.14.0.copyload
-  %45 = getelementptr i8, ptr %23, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !51, !noalias !811
-  %47 = sitofp i8 %46 to float
+41:                                               ; preds = %.lr.ph.split
+  %42 = getelementptr i8, ptr %23, i64 %29
+  %43 = load i8, ptr %42, align 1, !tbaa !51, !noalias !811
+  %44 = sitofp i8 %43 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = mul i64 %.01482, %.sroa.14.0.copyload
-  %50 = getelementptr i16, ptr %22, i64 %49
-  %51 = load i16, ptr %50, align 2, !tbaa !282, !noalias !811
-  %52 = sitofp i16 %51 to float
+45:                                               ; preds = %.lr.ph.split
+  %46 = getelementptr i16, ptr %22, i64 %29
+  %47 = load i16, ptr %46, align 2, !tbaa !282, !noalias !811
+  %48 = sitofp i16 %47 to float
+  br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
+
+49:                                               ; preds = %.lr.ph.split
+  %50 = getelementptr i32, ptr %21, i64 %29
+  %51 = load i32, ptr %50, align 4, !tbaa !103, !noalias !811
+  %52 = sitofp i32 %51 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
 53:                                               ; preds = %.lr.ph.split
-  %54 = mul i64 %.01482, %.sroa.14.0.copyload
-  %55 = getelementptr i32, ptr %21, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !103, !noalias !811
-  %57 = sitofp i32 %56 to float
+  %54 = getelementptr i64, ptr %20, i64 %29
+  %55 = load i64, ptr %54, align 8, !tbaa !9, !noalias !811
+  %56 = sitofp i64 %55 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-58:                                               ; preds = %.lr.ph.split
-  %59 = mul i64 %.01482, %.sroa.14.0.copyload
-  %60 = getelementptr i64, ptr %20, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !9, !noalias !811
-  %62 = sitofp i64 %61 to float
+57:                                               ; preds = %.lr.ph.split
+  %58 = getelementptr i8, ptr %23, i64 %29
+  %59 = load i8, ptr %58, align 1, !tbaa !51, !noalias !811
+  %60 = uitofp i8 %59 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-63:                                               ; preds = %.lr.ph.split
-  %64 = mul i64 %.01482, %.sroa.14.0.copyload
-  %65 = getelementptr i8, ptr %23, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !51, !noalias !811
-  %67 = uitofp i8 %66 to float
+61:                                               ; preds = %.lr.ph.split
+  %62 = getelementptr i16, ptr %22, i64 %29
+  %63 = load i16, ptr %62, align 2, !tbaa !282, !noalias !811
+  %64 = uitofp i16 %63 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-68:                                               ; preds = %.lr.ph.split
-  %69 = mul i64 %.01482, %.sroa.14.0.copyload
-  %70 = getelementptr i16, ptr %22, i64 %69
-  %71 = load i16, ptr %70, align 2, !tbaa !282, !noalias !811
-  %72 = uitofp i16 %71 to float
+65:                                               ; preds = %.lr.ph.split
+  %66 = getelementptr i32, ptr %21, i64 %29
+  %67 = load i32, ptr %66, align 4, !tbaa !103, !noalias !811
+  %68 = uitofp i32 %67 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-73:                                               ; preds = %.lr.ph.split
-  %74 = mul i64 %.01482, %.sroa.14.0.copyload
-  %75 = getelementptr i32, ptr %21, i64 %74
-  %76 = load i32, ptr %75, align 4, !tbaa !103, !noalias !811
-  %77 = uitofp i32 %76 to float
+69:                                               ; preds = %.lr.ph.split
+  %70 = getelementptr i64, ptr %20, i64 %29
+  %71 = load i64, ptr %70, align 8, !tbaa !9, !noalias !811
+  %72 = uitofp i64 %71 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-78:                                               ; preds = %.lr.ph.split
-  %79 = mul i64 %.01482, %.sroa.14.0.copyload
-  %80 = getelementptr i64, ptr %20, i64 %79
-  %81 = load i64, ptr %80, align 8, !tbaa !9, !noalias !811
-  %82 = uitofp i64 %81 to float
-  br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
-
-83:                                               ; preds = %.lr.ph
+73:                                               ; preds = %.lr.ph
   tail call void @_ZSt9terminatev() #33, !noalias !811
   unreachable
 
-_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit: ; preds = %29, %33, %38, %43, %48, %53, %58, %63, %68, %73, %78
-  %.0.i = phi float [ %32, %29 ], [ %37, %33 ], [ %42, %38 ], [ %47, %43 ], [ %52, %48 ], [ %57, %53 ], [ %62, %58 ], [ %67, %63 ], [ %72, %68 ], [ %77, %73 ], [ %82, %78 ]
-  %84 = fcmp ord float %.0.i, 0.000000e+00
-  %85 = load float, ptr %25, align 4
-  %86 = fcmp une float %.0.i, %85
-  %87 = select i1 %84, i1 %86, i1 false
-  br i1 %87, label %88, label %132
+_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit: ; preds = %30, %33, %37, %41, %45, %49, %53, %57, %61, %65, %69
+  %.0.i = phi float [ %32, %30 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ]
+  %74 = fcmp ord float %.0.i, 0.000000e+00
+  %75 = load float, ptr %25, align 4
+  %76 = fcmp une float %.0.i, %75
+  %77 = select i1 %74, i1 %76, i1 false
+  br i1 %77, label %78, label %122
 
-88:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
-  %89 = load ptr, ptr %26, align 8, !tbaa !106
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %.183
-  %91 = load i32, ptr %90, align 4, !tbaa !103
-  %92 = load i64, ptr %27, align 8, !tbaa !9
-  %93 = add i64 %92, %.01384
-  %94 = and i64 %.01482, 4294967295
-  %95 = load ptr, ptr %12, align 8, !tbaa !271
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %94
-  %97 = load i8, ptr %96, align 1, !tbaa !272
-  %98 = icmp eq i8 %97, 0
-  %99 = load ptr, ptr %13, align 8, !tbaa !175
-  %100 = getelementptr inbounds nuw i64, ptr %99, i64 %94
-  %101 = load i64, ptr %100, align 8, !tbaa !9
-  %102 = getelementptr inbounds nuw i16, ptr %4, i64 %101
-  %103 = load ptr, ptr %14, align 8, !tbaa !278
-  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %94
-  %105 = load i32, ptr %104, align 4, !tbaa !103
-  %106 = sub i32 %91, %105
-  %107 = trunc i32 %106 to i16
-  br i1 %98, label %108, label %121
+78:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
+  %79 = load ptr, ptr %26, align 8, !tbaa !106
+  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.183
+  %81 = load i32, ptr %80, align 4, !tbaa !103
+  %82 = load i64, ptr %27, align 8, !tbaa !9
+  %83 = add i64 %82, %.01384
+  %84 = and i64 %.01482, 4294967295
+  %85 = load ptr, ptr %12, align 8, !tbaa !271
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %84
+  %87 = load i8, ptr %86, align 1, !tbaa !272
+  %88 = icmp eq i8 %87, 0
+  %89 = load ptr, ptr %13, align 8, !tbaa !175
+  %90 = getelementptr inbounds nuw i64, ptr %89, i64 %84
+  %91 = load i64, ptr %90, align 8, !tbaa !9
+  %92 = getelementptr inbounds nuw i16, ptr %4, i64 %91
+  %93 = load ptr, ptr %14, align 8, !tbaa !278
+  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %84
+  %95 = load i32, ptr %94, align 4, !tbaa !103
+  %96 = sub i32 %81, %95
+  %97 = trunc i32 %96 to i16
+  br i1 %88, label %98, label %111
 
-108:                                              ; preds = %88
-  %109 = getelementptr inbounds nuw i16, ptr %102, i64 %93
-  store i16 %107, ptr %109, align 2, !tbaa !282
-  %110 = add i64 %101, %93
-  %111 = lshr i64 %110, 5
-  %112 = and i64 %110, 31
-  %113 = xor i64 %112, 31
-  %114 = load ptr, ptr %17, align 8, !tbaa !605
-  %115 = getelementptr inbounds nuw i32, ptr %114, i64 %111
-  %116 = shl nuw nsw i64 1, %113
-  %117 = trunc nuw i64 %116 to i32
-  %118 = xor i32 %117, -1
-  %119 = load i32, ptr %115, align 4, !tbaa !103
-  %120 = and i32 %119, %118
-  store i32 %120, ptr %115, align 4, !tbaa !103
+98:                                               ; preds = %78
+  %99 = getelementptr inbounds nuw i16, ptr %92, i64 %83
+  store i16 %97, ptr %99, align 2, !tbaa !282
+  %100 = add i64 %91, %83
+  %101 = lshr i64 %100, 5
+  %102 = and i64 %100, 31
+  %103 = xor i64 %102, 31
+  %104 = load ptr, ptr %17, align 8, !tbaa !605
+  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %101
+  %106 = shl nuw nsw i64 1, %103
+  %107 = trunc nuw i64 %106 to i32
+  %108 = xor i32 %107, -1
+  %109 = load i32, ptr %105, align 4, !tbaa !103
+  %110 = and i32 %109, %108
+  store i32 %110, ptr %105, align 4, !tbaa !103
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit
 
-121:                                              ; preds = %88
-  %122 = load ptr, ptr %15, align 8, !tbaa !175
-  %123 = getelementptr inbounds nuw i64, ptr %122, i64 %94
-  %124 = load i64, ptr %123, align 8, !tbaa !9
-  %125 = getelementptr inbounds nuw i16, ptr %102, i64 %124
-  store i16 %107, ptr %125, align 2, !tbaa !282
-  %126 = load ptr, ptr %16, align 8, !tbaa !175
-  %127 = getelementptr i64, ptr %126, i64 %101
-  %128 = getelementptr i64, ptr %127, i64 %124
-  store i64 %93, ptr %128, align 8, !tbaa !9
-  %129 = load i64, ptr %123, align 8, !tbaa !9
-  %130 = add i64 %129, 1
-  store i64 %130, ptr %123, align 8, !tbaa !9
+111:                                              ; preds = %78
+  %112 = load ptr, ptr %15, align 8, !tbaa !175
+  %113 = getelementptr inbounds nuw i64, ptr %112, i64 %84
+  %114 = load i64, ptr %113, align 8, !tbaa !9
+  %115 = getelementptr inbounds nuw i16, ptr %92, i64 %114
+  store i16 %97, ptr %115, align 2, !tbaa !282
+  %116 = load ptr, ptr %16, align 8, !tbaa !175
+  %117 = getelementptr i64, ptr %116, i64 %91
+  %118 = getelementptr i64, ptr %117, i64 %114
+  store i64 %83, ptr %118, align 8, !tbaa !9
+  %119 = load i64, ptr %113, align 8, !tbaa !9
+  %120 = add i64 %119, 1
+  store i64 %120, ptr %113, align 8, !tbaa !9
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit
 
-_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit: ; preds = %108, %121
-  %131 = add i64 %.183, 1
-  br label %132
+_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit: ; preds = %98, %111
+  %121 = add i64 %.183, 1
+  br label %122
 
-132:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
-  %.2 = phi i64 [ %131, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit ], [ %.183, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit ]
-  %133 = add nuw i64 %.01482, 1
-  %exitcond.not = icmp eq i64 %133, %.sroa.2568.0.copyload
+122:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
+  %.2 = phi i64 [ %121, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseItjmEEvT0_T1_jPT_.exit ], [ %.183, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit ]
+  %123 = add nuw i64 %.01482, 1
+  %exitcond.not = icmp eq i64 %123, %.sroa.2568.0.copyload
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !814
 }
 
@@ -26614,180 +26564,170 @@ define linkonce_odr void @_ZZN7xgboost6common12ColumnMatrix20SetIndexMixedColumn
   %26 = load ptr, ptr %10, align 8
   %27 = load ptr, ptr %11, align 8
   %switch = icmp ult i8 %.sroa.3779.0.copyload, 12
-  br i1 %switch, label %.lr.ph.split, label %83
+  br i1 %switch, label %.lr.ph.split, label %73
 
-._crit_edge:                                      ; preds = %131, %.lr.ph87.split
-  %.1.lcssa = phi i64 [ %.085, %.lr.ph87.split ], [ %.2, %131 ]
+._crit_edge:                                      ; preds = %121, %.lr.ph87.split
+  %.1.lcssa = phi i64 [ %.085, %.lr.ph87.split ], [ %.2, %121 ]
   %28 = add nuw i64 %.01384, 1
   %exitcond92.not = icmp eq i64 %28, %8
   br i1 %exitcond92.not, label %._crit_edge88, label %.lr.ph87.splitthread-pre-split, !llvm.loop !815
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %131
-  %.183 = phi i64 [ %.2, %131 ], [ %.085, %.lr.ph ]
-  %.01482 = phi i64 [ %132, %131 ], [ 0, %.lr.ph ]
-  switch i8 %.sroa.3779.0.copyload, label %78 [
-    i8 0, label %29
-    i8 1, label %29
+.lr.ph.split:                                     ; preds = %.lr.ph, %121
+  %.183 = phi i64 [ %.2, %121 ], [ %.085, %.lr.ph ]
+  %.01482 = phi i64 [ %122, %121 ], [ 0, %.lr.ph ]
+  %29 = mul i64 %.01482, %.sroa.14.0.copyload
+  switch i8 %.sroa.3779.0.copyload, label %69 [
+    i8 0, label %30
+    i8 1, label %30
     i8 2, label %33
-    i8 3, label %38
-    i8 4, label %43
-    i8 5, label %48
-    i8 6, label %53
-    i8 7, label %58
-    i8 8, label %63
-    i8 9, label %68
-    i8 10, label %73
+    i8 3, label %37
+    i8 4, label %41
+    i8 5, label %45
+    i8 6, label %49
+    i8 7, label %53
+    i8 8, label %57
+    i8 9, label %61
+    i8 10, label %65
   ]
 
-29:                                               ; preds = %.lr.ph.split, %.lr.ph.split
-  %30 = mul i64 %.01482, %.sroa.14.0.copyload
-  %31 = getelementptr float, ptr %21, i64 %30
+30:                                               ; preds = %.lr.ph.split, %.lr.ph.split
+  %31 = getelementptr float, ptr %21, i64 %29
   %32 = load float, ptr %31, align 4, !tbaa !270, !noalias !816
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
 33:                                               ; preds = %.lr.ph.split
-  %34 = mul i64 %.01482, %.sroa.14.0.copyload
-  %35 = getelementptr double, ptr %20, i64 %34
-  %36 = load double, ptr %35, align 8, !tbaa !765, !noalias !816
-  %37 = fptrunc double %36 to float
+  %34 = getelementptr double, ptr %20, i64 %29
+  %35 = load double, ptr %34, align 8, !tbaa !765, !noalias !816
+  %36 = fptrunc double %35 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-38:                                               ; preds = %.lr.ph.split
-  %39 = mul i64 %.01482, %.sroa.14.0.copyload
-  %40 = getelementptr x86_fp80, ptr %24, i64 %39
-  %41 = load x86_fp80, ptr %40, align 16, !tbaa !767, !noalias !816
-  %42 = fptrunc x86_fp80 %41 to float
+37:                                               ; preds = %.lr.ph.split
+  %38 = getelementptr x86_fp80, ptr %24, i64 %29
+  %39 = load x86_fp80, ptr %38, align 16, !tbaa !767, !noalias !816
+  %40 = fptrunc x86_fp80 %39 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-43:                                               ; preds = %.lr.ph.split
-  %44 = mul i64 %.01482, %.sroa.14.0.copyload
-  %45 = getelementptr i8, ptr %23, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !51, !noalias !816
-  %47 = sitofp i8 %46 to float
+41:                                               ; preds = %.lr.ph.split
+  %42 = getelementptr i8, ptr %23, i64 %29
+  %43 = load i8, ptr %42, align 1, !tbaa !51, !noalias !816
+  %44 = sitofp i8 %43 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = mul i64 %.01482, %.sroa.14.0.copyload
-  %50 = getelementptr i16, ptr %22, i64 %49
-  %51 = load i16, ptr %50, align 2, !tbaa !282, !noalias !816
-  %52 = sitofp i16 %51 to float
+45:                                               ; preds = %.lr.ph.split
+  %46 = getelementptr i16, ptr %22, i64 %29
+  %47 = load i16, ptr %46, align 2, !tbaa !282, !noalias !816
+  %48 = sitofp i16 %47 to float
+  br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
+
+49:                                               ; preds = %.lr.ph.split
+  %50 = getelementptr i32, ptr %21, i64 %29
+  %51 = load i32, ptr %50, align 4, !tbaa !103, !noalias !816
+  %52 = sitofp i32 %51 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
 53:                                               ; preds = %.lr.ph.split
-  %54 = mul i64 %.01482, %.sroa.14.0.copyload
-  %55 = getelementptr i32, ptr %21, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !103, !noalias !816
-  %57 = sitofp i32 %56 to float
+  %54 = getelementptr i64, ptr %20, i64 %29
+  %55 = load i64, ptr %54, align 8, !tbaa !9, !noalias !816
+  %56 = sitofp i64 %55 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-58:                                               ; preds = %.lr.ph.split
-  %59 = mul i64 %.01482, %.sroa.14.0.copyload
-  %60 = getelementptr i64, ptr %20, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !9, !noalias !816
-  %62 = sitofp i64 %61 to float
+57:                                               ; preds = %.lr.ph.split
+  %58 = getelementptr i8, ptr %23, i64 %29
+  %59 = load i8, ptr %58, align 1, !tbaa !51, !noalias !816
+  %60 = uitofp i8 %59 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-63:                                               ; preds = %.lr.ph.split
-  %64 = mul i64 %.01482, %.sroa.14.0.copyload
-  %65 = getelementptr i8, ptr %23, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !51, !noalias !816
-  %67 = uitofp i8 %66 to float
+61:                                               ; preds = %.lr.ph.split
+  %62 = getelementptr i16, ptr %22, i64 %29
+  %63 = load i16, ptr %62, align 2, !tbaa !282, !noalias !816
+  %64 = uitofp i16 %63 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-68:                                               ; preds = %.lr.ph.split
-  %69 = mul i64 %.01482, %.sroa.14.0.copyload
-  %70 = getelementptr i16, ptr %22, i64 %69
-  %71 = load i16, ptr %70, align 2, !tbaa !282, !noalias !816
-  %72 = uitofp i16 %71 to float
+65:                                               ; preds = %.lr.ph.split
+  %66 = getelementptr i32, ptr %21, i64 %29
+  %67 = load i32, ptr %66, align 4, !tbaa !103, !noalias !816
+  %68 = uitofp i32 %67 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-73:                                               ; preds = %.lr.ph.split
-  %74 = mul i64 %.01482, %.sroa.14.0.copyload
-  %75 = getelementptr i32, ptr %21, i64 %74
-  %76 = load i32, ptr %75, align 4, !tbaa !103, !noalias !816
-  %77 = uitofp i32 %76 to float
+69:                                               ; preds = %.lr.ph.split
+  %70 = getelementptr i64, ptr %20, i64 %29
+  %71 = load i64, ptr %70, align 8, !tbaa !9, !noalias !816
+  %72 = uitofp i64 %71 to float
   br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
 
-78:                                               ; preds = %.lr.ph.split
-  %79 = mul i64 %.01482, %.sroa.14.0.copyload
-  %80 = getelementptr i64, ptr %20, i64 %79
-  %81 = load i64, ptr %80, align 8, !tbaa !9, !noalias !816
-  %82 = uitofp i64 %81 to float
-  br label %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
-
-83:                                               ; preds = %.lr.ph
+73:                                               ; preds = %.lr.ph
   tail call void @_ZSt9terminatev() #33, !noalias !816
   unreachable
 
-_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit: ; preds = %29, %33, %38, %43, %48, %53, %58, %63, %68, %73, %78
-  %.0.i = phi float [ %32, %29 ], [ %37, %33 ], [ %42, %38 ], [ %47, %43 ], [ %52, %48 ], [ %57, %53 ], [ %62, %58 ], [ %67, %63 ], [ %72, %68 ], [ %77, %73 ], [ %82, %78 ]
-  %84 = fcmp ord float %.0.i, 0.000000e+00
-  %85 = load float, ptr %25, align 4
-  %86 = fcmp une float %.0.i, %85
-  %87 = select i1 %84, i1 %86, i1 false
-  br i1 %87, label %88, label %131
+_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit: ; preds = %30, %33, %37, %41, %45, %49, %53, %57, %61, %65, %69
+  %.0.i = phi float [ %32, %30 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %56, %53 ], [ %60, %57 ], [ %64, %61 ], [ %68, %65 ], [ %72, %69 ]
+  %74 = fcmp ord float %.0.i, 0.000000e+00
+  %75 = load float, ptr %25, align 4
+  %76 = fcmp une float %.0.i, %75
+  %77 = select i1 %74, i1 %76, i1 false
+  br i1 %77, label %78, label %121
 
-88:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
-  %89 = load ptr, ptr %26, align 8, !tbaa !106
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %.183
-  %91 = load i32, ptr %90, align 4, !tbaa !103
-  %92 = load i64, ptr %27, align 8, !tbaa !9
-  %93 = add i64 %92, %.01384
-  %94 = and i64 %.01482, 4294967295
-  %95 = load ptr, ptr %12, align 8, !tbaa !271
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %94
-  %97 = load i8, ptr %96, align 1, !tbaa !272
-  %98 = icmp eq i8 %97, 0
-  %99 = load ptr, ptr %13, align 8, !tbaa !175
-  %100 = getelementptr inbounds nuw i64, ptr %99, i64 %94
-  %101 = load i64, ptr %100, align 8, !tbaa !9
-  %102 = getelementptr inbounds nuw i32, ptr %4, i64 %101
-  %103 = load ptr, ptr %14, align 8, !tbaa !278
-  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %94
-  %105 = load i32, ptr %104, align 4, !tbaa !103
-  %106 = sub i32 %91, %105
-  br i1 %98, label %107, label %120
+78:                                               ; preds = %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
+  %79 = load ptr, ptr %26, align 8, !tbaa !106
+  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %.183
+  %81 = load i32, ptr %80, align 4, !tbaa !103
+  %82 = load i64, ptr %27, align 8, !tbaa !9
+  %83 = add i64 %82, %.01384
+  %84 = and i64 %.01482, 4294967295
+  %85 = load ptr, ptr %12, align 8, !tbaa !271
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %84
+  %87 = load i8, ptr %86, align 1, !tbaa !272
+  %88 = icmp eq i8 %87, 0
+  %89 = load ptr, ptr %13, align 8, !tbaa !175
+  %90 = getelementptr inbounds nuw i64, ptr %89, i64 %84
+  %91 = load i64, ptr %90, align 8, !tbaa !9
+  %92 = getelementptr inbounds nuw i32, ptr %4, i64 %91
+  %93 = load ptr, ptr %14, align 8, !tbaa !278
+  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %84
+  %95 = load i32, ptr %94, align 4, !tbaa !103
+  %96 = sub i32 %81, %95
+  br i1 %88, label %97, label %110
 
-107:                                              ; preds = %88
-  %108 = getelementptr inbounds nuw i32, ptr %102, i64 %93
-  store i32 %106, ptr %108, align 4, !tbaa !103
-  %109 = add i64 %101, %93
-  %110 = lshr i64 %109, 5
-  %111 = and i64 %109, 31
-  %112 = xor i64 %111, 31
-  %113 = load ptr, ptr %17, align 8, !tbaa !605
-  %114 = getelementptr inbounds nuw i32, ptr %113, i64 %110
-  %115 = shl nuw nsw i64 1, %112
-  %116 = trunc nuw i64 %115 to i32
-  %117 = xor i32 %116, -1
-  %118 = load i32, ptr %114, align 4, !tbaa !103
-  %119 = and i32 %118, %117
-  store i32 %119, ptr %114, align 4, !tbaa !103
+97:                                               ; preds = %78
+  %98 = getelementptr inbounds nuw i32, ptr %92, i64 %83
+  store i32 %96, ptr %98, align 4, !tbaa !103
+  %99 = add i64 %91, %83
+  %100 = lshr i64 %99, 5
+  %101 = and i64 %99, 31
+  %102 = xor i64 %101, 31
+  %103 = load ptr, ptr %17, align 8, !tbaa !605
+  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %100
+  %105 = shl nuw nsw i64 1, %102
+  %106 = trunc nuw i64 %105 to i32
+  %107 = xor i32 %106, -1
+  %108 = load i32, ptr %104, align 4, !tbaa !103
+  %109 = and i32 %108, %107
+  store i32 %109, ptr %104, align 4, !tbaa !103
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit
 
-120:                                              ; preds = %88
-  %121 = load ptr, ptr %15, align 8, !tbaa !175
-  %122 = getelementptr inbounds nuw i64, ptr %121, i64 %94
-  %123 = load i64, ptr %122, align 8, !tbaa !9
-  %124 = getelementptr inbounds nuw i32, ptr %102, i64 %123
-  store i32 %106, ptr %124, align 4, !tbaa !103
-  %125 = load ptr, ptr %16, align 8, !tbaa !175
-  %126 = getelementptr i64, ptr %125, i64 %101
-  %127 = getelementptr i64, ptr %126, i64 %123
-  store i64 %93, ptr %127, align 8, !tbaa !9
-  %128 = load i64, ptr %122, align 8, !tbaa !9
-  %129 = add i64 %128, 1
-  store i64 %129, ptr %122, align 8, !tbaa !9
+110:                                              ; preds = %78
+  %111 = load ptr, ptr %15, align 8, !tbaa !175
+  %112 = getelementptr inbounds nuw i64, ptr %111, i64 %84
+  %113 = load i64, ptr %112, align 8, !tbaa !9
+  %114 = getelementptr inbounds nuw i32, ptr %92, i64 %113
+  store i32 %96, ptr %114, align 4, !tbaa !103
+  %115 = load ptr, ptr %16, align 8, !tbaa !175
+  %116 = getelementptr i64, ptr %115, i64 %91
+  %117 = getelementptr i64, ptr %116, i64 %113
+  store i64 %83, ptr %117, align 8, !tbaa !9
+  %118 = load i64, ptr %112, align 8, !tbaa !9
+  %119 = add i64 %118, 1
+  store i64 %119, ptr %112, align 8, !tbaa !9
   br label %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit
 
-_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit: ; preds = %107, %120
-  %130 = add i64 %.183, 1
-  br label %131
+_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit: ; preds = %97, %110
+  %120 = add i64 %.183, 1
+  br label %121
 
-131:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
-  %.2 = phi i64 [ %130, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit ], [ %.183, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit ]
-  %132 = add nuw i64 %.01482, 1
-  %exitcond.not = icmp eq i64 %132, %.sroa.2568.0.copyload
+121:                                              ; preds = %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit
+  %.2 = phi i64 [ %120, %_ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit ], [ %.183, %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit ]
+  %122 = add nuw i64 %.01482, 1
+  %exitcond.not = icmp eq i64 %122, %.sroa.2568.0.copyload
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !819
 }
 

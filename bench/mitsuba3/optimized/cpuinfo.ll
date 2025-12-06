@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_abi_1_107CpuInfo4hostEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %"class.asmjit::_abi_1_10::CpuInfo", align 8
   %2 = load i1, ptr @_ZN6asmjit9_abi_1_10L18cpuInfoInitializedE, align 4
-  br i1 %2, label %636, label %3
+  br i1 %2, label %633, label %3
 
 3:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -79,7 +79,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %34 = load i64, ptr %33, align 4
   store i64 %34, ptr %32, align 4
   %35 = icmp eq i32 %9, 0
-  br i1 %35, label %481, label %36
+  br i1 %35, label %478, label %36
 
 36:                                               ; preds = %30
   %37 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #7, !srcloc !16
@@ -92,718 +92,713 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %44 = lshr i32 %38, 8
   %45 = and i32 %44, 15
   %46 = icmp eq i32 %45, 15
-  switch i32 %45, label %47 [
-    i32 15, label %49
-    i32 6, label %49
+  %47 = lshr i32 %38, 12
+  switch i32 %45, label %51 [
+    i32 15, label %48
+    i32 6, label %48
   ]
 
-47:                                               ; preds = %36
-  %48 = lshr i32 %38, 12
-  br label %53
+48:                                               ; preds = %36, %36
+  %49 = and i32 %47, 240
+  %50 = or disjoint i32 %43, %49
+  br label %51
 
-49:                                               ; preds = %36, %36
-  %50 = lshr i32 %38, 12
-  %51 = and i32 %50, 240
-  %52 = or disjoint i32 %43, %51
-  br label %53
+51:                                               ; preds = %36, %48
+  %52 = phi i32 [ %50, %48 ], [ %43, %36 ]
+  %53 = lshr i32 %38, 20
+  %54 = and i32 %53, 255
+  %55 = add nuw nsw i32 %54, 15
+  %56 = select i1 %46, i32 %55, i32 %45
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %52, ptr %57, align 8, !tbaa !17
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %56, ptr %58, align 4, !tbaa !18
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %60 = lshr i32 %39, 16
+  %61 = insertelement <4 x i32> poison, i32 %39, i64 0
+  %62 = insertelement <4 x i32> %61, i32 %38, i64 1
+  %63 = insertelement <4 x i32> %62, i32 %47, i64 2
+  %64 = insertelement <4 x i32> %63, i32 %60, i64 3
+  %65 = and <4 x i32> %64, <i32 255, i32 15, i32 3, i32 255>
+  store <4 x i32> %65, ptr %59, align 4, !tbaa !19
+  %66 = lshr i32 %39, 5
+  %67 = and i32 %66, 2040
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i32 %67, ptr %68, align 4, !tbaa !20
+  %69 = and i32 %40, 1
+  %70 = zext nneg i32 %69 to i64
+  %71 = shl nuw nsw i64 %70, 47
+  %72 = shl i32 %40, 22
+  %73 = and i32 %72, 8388608
+  %74 = shl i32 %40, 9
+  %75 = and i32 %74, 4096
+  %76 = insertelement <4 x i32> poison, i32 %40, i64 0
+  %77 = shufflevector <4 x i32> %76, <4 x i32> poison, <4 x i32> zeroinitializer
+  %78 = lshr <4 x i32> %77, <i32 5, i32 6, i32 30, i32 9>
+  %79 = insertelement <4 x i32> poison, i32 %41, i64 0
+  %80 = insertelement <4 x i32> %79, i32 %40, i64 1
+  %81 = shufflevector <4 x i32> %80, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %82 = lshr <4 x i32> %81, <i32 15, i32 8, i32 19, i32 13>
+  %83 = lshr i32 %40, 19
+  %84 = and i32 %83, 1
+  %85 = zext nneg i32 %84 to i64
+  %86 = shl nuw nsw i64 %85, 48
+  %87 = lshr i32 %40, 20
+  %88 = and i32 %87, 1
+  %89 = zext nneg i32 %88 to i64
+  %90 = shl nuw nsw i64 %89, 49
+  %91 = or disjoint i64 %86, %90
+  %92 = lshr i32 %40, 8
+  %93 = and i32 %92, 16384
+  %94 = zext nneg i32 %93 to i64
+  %95 = or disjoint i64 %91, %94
+  %96 = shl i32 %40, 2
+  %97 = and i32 %96, 33554432
+  %98 = zext nneg i32 %97 to i64
+  %99 = or disjoint i64 %95, %98
+  %100 = and i32 %83, 64
+  %101 = lshr i32 %40, 26
+  %102 = and i32 %101, 1
+  %103 = zext nneg i32 %102 to i64
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store i64 %103, ptr %104, align 8, !tbaa !21
+  %105 = extractelement <4 x i32> %78, i64 1
+  %106 = and i32 %105, 2097152
+  %107 = zext nneg i32 %106 to i64
+  %108 = and <4 x i32> %78, splat (i32 1)
+  %109 = zext nneg <4 x i32> %108 to <4 x i64>
+  %110 = shl nuw nsw <4 x i64> %109, <i64 58, i64 43, i64 33, i64 51>
+  %111 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %110)
+  %112 = or disjoint i64 %111, %71
+  %113 = or disjoint i32 %73, %75
+  %114 = zext nneg i32 %113 to i64
+  %115 = or disjoint i64 %112, %114
+  %116 = or disjoint i64 %115, %107
+  %117 = and i32 %41, 1
+  %118 = zext nneg i32 %117 to i64
+  %119 = shl nuw nsw i64 %118, 56
+  %120 = lshr i32 %41, 4
+  %121 = and i32 %120, 1
+  %122 = zext nneg i32 %121 to i64
+  %123 = shl nuw nsw i64 %122, 35
+  %124 = shl i32 %41, 13
+  %125 = and i32 %124, 262144
+  %126 = zext nneg i32 %125 to i64
+  %127 = or disjoint i64 %123, %126
+  %128 = and <4 x i32> %82, splat (i32 1)
+  %129 = zext nneg <4 x i32> %128 to <4 x i64>
+  %130 = shl nuw nsw <4 x i64> %129, <i64 46, i64 49, i64 42, i64 48>
+  %131 = lshr i32 %41, 13
+  %132 = and i32 %131, 1024
+  %133 = zext nneg i32 %132 to i64
+  %134 = or disjoint i64 %127, %133
+  %135 = lshr i32 %41, 24
+  %136 = and i32 %135, 1
+  %137 = zext nneg i32 %136 to i64
+  %138 = shl nuw nsw i64 %137, 61
+  %139 = lshr i32 %41, 25
+  %140 = and i32 %139, 1
+  %141 = zext nneg i32 %140 to i64
+  %142 = mul nuw nsw i64 %141, 105553116266496
+  %143 = or disjoint i64 %134, %142
+  %144 = or disjoint i64 %99, %143
+  %145 = or i64 %144, %116
+  %146 = or i64 %145, 16
+  %147 = lshr i32 %41, 27
+  %148 = and i32 %147, 2
+  %149 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %130)
+  %150 = or disjoint i32 %100, %148
+  %151 = zext nneg i32 %150 to i64
+  %152 = or disjoint i64 %119, %151
+  %153 = or disjoint i64 %152, %138
+  %154 = add nuw nsw i64 %153, %149
+  %155 = icmp ne i32 %102, 0
+  %156 = icmp ne i32 %106, 0
+  %157 = select i1 %155, i1 %156, i1 false
+  br i1 %157, label %158, label %178
 
-53:                                               ; preds = %49, %47
-  %54 = phi i32 [ %48, %47 ], [ %50, %49 ]
-  %55 = phi i32 [ %43, %47 ], [ %52, %49 ]
-  %56 = lshr i32 %38, 20
-  %57 = and i32 %56, 255
-  %58 = add nuw nsw i32 %57, 15
-  %59 = select i1 %46, i32 %58, i32 %45
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %55, ptr %60, align 8, !tbaa !17
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %59, ptr %61, align 4, !tbaa !18
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %63 = lshr i32 %39, 16
-  %64 = insertelement <4 x i32> poison, i32 %39, i64 0
-  %65 = insertelement <4 x i32> %64, i32 %38, i64 1
-  %66 = insertelement <4 x i32> %65, i32 %54, i64 2
-  %67 = insertelement <4 x i32> %66, i32 %63, i64 3
-  %68 = and <4 x i32> %67, <i32 255, i32 15, i32 3, i32 255>
-  store <4 x i32> %68, ptr %62, align 4, !tbaa !19
-  %69 = lshr i32 %39, 5
-  %70 = and i32 %69, 2040
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %70, ptr %71, align 4, !tbaa !20
-  %72 = and i32 %40, 1
-  %73 = zext nneg i32 %72 to i64
-  %74 = shl nuw nsw i64 %73, 47
-  %75 = shl i32 %40, 22
-  %76 = and i32 %75, 8388608
-  %77 = shl i32 %40, 9
-  %78 = and i32 %77, 4096
-  %79 = insertelement <4 x i32> poison, i32 %40, i64 0
-  %80 = shufflevector <4 x i32> %79, <4 x i32> poison, <4 x i32> zeroinitializer
-  %81 = lshr <4 x i32> %80, <i32 5, i32 6, i32 30, i32 9>
-  %82 = insertelement <4 x i32> poison, i32 %41, i64 0
-  %83 = insertelement <4 x i32> %82, i32 %40, i64 1
-  %84 = shufflevector <4 x i32> %83, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %85 = lshr <4 x i32> %84, <i32 15, i32 8, i32 19, i32 13>
-  %86 = lshr i32 %40, 19
-  %87 = and i32 %86, 1
-  %88 = zext nneg i32 %87 to i64
-  %89 = shl nuw nsw i64 %88, 48
-  %90 = lshr i32 %40, 20
-  %91 = and i32 %90, 1
-  %92 = zext nneg i32 %91 to i64
-  %93 = shl nuw nsw i64 %92, 49
-  %94 = or disjoint i64 %89, %93
-  %95 = lshr i32 %40, 8
-  %96 = and i32 %95, 16384
-  %97 = zext nneg i32 %96 to i64
-  %98 = or disjoint i64 %94, %97
-  %99 = shl i32 %40, 2
-  %100 = and i32 %99, 33554432
-  %101 = zext nneg i32 %100 to i64
-  %102 = or disjoint i64 %98, %101
-  %103 = and i32 %86, 64
-  %104 = lshr i32 %40, 26
-  %105 = and i32 %104, 1
-  %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store i64 %106, ptr %107, align 8, !tbaa !21
-  %108 = extractelement <4 x i32> %81, i64 1
-  %109 = and i32 %108, 2097152
-  %110 = zext nneg i32 %109 to i64
-  %111 = and <4 x i32> %81, splat (i32 1)
-  %112 = zext nneg <4 x i32> %111 to <4 x i64>
-  %113 = shl nuw nsw <4 x i64> %112, <i64 58, i64 43, i64 33, i64 51>
-  %114 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %113)
-  %115 = or disjoint i64 %114, %74
-  %116 = or disjoint i32 %76, %78
-  %117 = zext nneg i32 %116 to i64
-  %118 = or disjoint i64 %115, %117
-  %119 = or disjoint i64 %118, %110
-  %120 = and i32 %41, 1
-  %121 = zext nneg i32 %120 to i64
-  %122 = shl nuw nsw i64 %121, 56
-  %123 = lshr i32 %41, 4
-  %124 = and i32 %123, 1
-  %125 = zext nneg i32 %124 to i64
-  %126 = shl nuw nsw i64 %125, 35
-  %127 = shl i32 %41, 13
-  %128 = and i32 %127, 262144
-  %129 = zext nneg i32 %128 to i64
-  %130 = or disjoint i64 %126, %129
-  %131 = and <4 x i32> %85, splat (i32 1)
-  %132 = zext nneg <4 x i32> %131 to <4 x i64>
-  %133 = shl nuw nsw <4 x i64> %132, <i64 46, i64 49, i64 42, i64 48>
-  %134 = lshr i32 %41, 13
-  %135 = and i32 %134, 1024
-  %136 = zext nneg i32 %135 to i64
-  %137 = or disjoint i64 %130, %136
-  %138 = lshr i32 %41, 24
-  %139 = and i32 %138, 1
-  %140 = zext nneg i32 %139 to i64
-  %141 = shl nuw nsw i64 %140, 61
-  %142 = lshr i32 %41, 25
-  %143 = and i32 %142, 1
-  %144 = zext nneg i32 %143 to i64
-  %145 = mul nuw nsw i64 %144, 105553116266496
-  %146 = or disjoint i64 %137, %145
-  %147 = or disjoint i64 %102, %146
-  %148 = or i64 %147, %119
-  %149 = or i64 %148, 16
-  %150 = lshr i32 %41, 27
-  %151 = and i32 %150, 2
-  %152 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %133)
-  %153 = or disjoint i32 %103, %151
-  %154 = zext nneg i32 %153 to i64
-  %155 = or disjoint i64 %122, %154
-  %156 = or disjoint i64 %155, %141
-  %157 = add nuw nsw i64 %156, %152
-  %158 = icmp ne i32 %105, 0
-  %159 = icmp ne i32 %109, 0
-  %160 = select i1 %158, i1 %159, i1 false
-  br i1 %160, label %161, label %181
+158:                                              ; preds = %51
+  %159 = tail call { i32, i32 } asm sideeffect ".byte 0x0F, 0x01, 0xD0", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #7, !srcloc !23
+  %160 = extractvalue { i32, i32 } %159, 0
+  %161 = and i32 %40, 268435456
+  %162 = icmp ne i32 %161, 0
+  %163 = and i32 %160, 6
+  %164 = icmp eq i32 %163, 6
+  %165 = select i1 %162, i1 %164, i1 false
+  br i1 %165, label %166, label %178
 
-161:                                              ; preds = %53
-  %162 = tail call { i32, i32 } asm sideeffect ".byte 0x0F, 0x01, 0xD0", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #7, !srcloc !23
-  %163 = extractvalue { i32, i32 } %162, 0
-  %164 = and i32 %40, 268435456
-  %165 = icmp ne i32 %164, 0
-  %166 = and i32 %163, 6
-  %167 = icmp eq i32 %166, 6
-  %168 = select i1 %165, i1 %167, i1 false
-  br i1 %168, label %169, label %181
+166:                                              ; preds = %158
+  %167 = lshr i32 %40, 12
+  %168 = and i32 %167, 1
+  %169 = zext nneg i32 %168 to i64
+  %170 = shl nuw nsw i64 %169, 54
+  %171 = lshr i32 %40, 29
+  %172 = and i32 %171, 1
+  %173 = zext nneg i32 %172 to i64
+  %174 = shl nuw nsw i64 %173, 53
+  %175 = or disjoint i64 %170, %174
+  %176 = or i64 %175, %154
+  %177 = or i64 %176, 4096
+  store i64 %177, ptr %4, align 8, !tbaa !21
+  br label %178
 
-169:                                              ; preds = %161
-  %170 = lshr i32 %40, 12
-  %171 = and i32 %170, 1
-  %172 = zext nneg i32 %171 to i64
-  %173 = shl nuw nsw i64 %172, 54
-  %174 = lshr i32 %40, 29
-  %175 = and i32 %174, 1
-  %176 = zext nneg i32 %175 to i64
-  %177 = shl nuw nsw i64 %176, 53
-  %178 = or disjoint i64 %173, %177
-  %179 = or i64 %178, %157
-  %180 = or i64 %179, 4096
-  store i64 %180, ptr %4, align 8, !tbaa !21
-  br label %181
+178:                                              ; preds = %166, %158, %51
+  %179 = phi i64 [ %177, %166 ], [ %154, %158 ], [ %154, %51 ]
+  %180 = phi i32 [ %160, %166 ], [ %160, %158 ], [ 0, %51 ]
+  %181 = and i32 %180, 393216
+  %182 = icmp eq i32 %181, 393216
+  %183 = and i32 %180, 230
+  %184 = icmp eq i32 %183, 230
+  %185 = icmp ugt i32 %9, 6
+  br i1 %185, label %186, label %478
 
-181:                                              ; preds = %169, %161, %53
-  %182 = phi i64 [ %180, %169 ], [ %157, %161 ], [ %157, %53 ]
-  %183 = phi i32 [ %163, %169 ], [ %163, %161 ], [ 0, %53 ]
-  %184 = and i32 %183, 393216
-  %185 = icmp eq i32 %184, 393216
-  %186 = and i32 %183, 230
-  %187 = icmp eq i32 %186, 230
-  %188 = icmp ugt i32 %9, 6
-  br i1 %188, label %189, label %481
-
-189:                                              ; preds = %181
-  %190 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #7, !srcloc !16
-  %191 = extractvalue { i32, i32, i32, i32 } %190, 0
-  %192 = extractvalue { i32, i32, i32, i32 } %190, 1
-  %193 = extractvalue { i32, i32, i32, i32 } %190, 2
-  %194 = extractvalue { i32, i32, i32, i32 } %190, 3
-  %195 = and i32 %192, 16384
-  %196 = icmp eq i32 %195, 0
-  %197 = and i32 %192, 1
-  %198 = zext nneg i32 %197 to i64
-  %199 = shl nuw nsw i64 %198, 57
-  %200 = lshr i32 %192, 3
-  %201 = and i32 %200, 1
-  %202 = zext nneg i32 %201 to i64
-  %203 = shl nuw nsw i64 %202, 36
-  %204 = or disjoint i64 %203, %199
-  %205 = lshr i32 %192, 2
-  %206 = and i32 %205, 4
+186:                                              ; preds = %178
+  %187 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #7, !srcloc !16
+  %188 = extractvalue { i32, i32, i32, i32 } %187, 0
+  %189 = extractvalue { i32, i32, i32, i32 } %187, 1
+  %190 = extractvalue { i32, i32, i32, i32 } %187, 2
+  %191 = extractvalue { i32, i32, i32, i32 } %187, 3
+  %192 = and i32 %189, 16384
+  %193 = icmp eq i32 %192, 0
+  %194 = and i32 %189, 1
+  %195 = zext nneg i32 %194 to i64
+  %196 = shl nuw nsw i64 %195, 57
+  %197 = lshr i32 %189, 3
+  %198 = and i32 %197, 1
+  %199 = zext nneg i32 %198 to i64
+  %200 = shl nuw nsw i64 %199, 36
+  %201 = or disjoint i64 %200, %196
+  %202 = lshr i32 %189, 2
+  %203 = and i32 %202, 4
+  %204 = zext nneg i32 %203 to i64
+  %205 = lshr i32 %189, 7
+  %206 = and i32 %205, 1
   %207 = zext nneg i32 %206 to i64
-  %208 = lshr i32 %192, 7
-  %209 = and i32 %208, 1
-  %210 = zext nneg i32 %209 to i64
-  %211 = shl nuw nsw i64 %210, 42
-  %212 = or disjoint i64 %211, %207
-  %213 = lshr i32 %192, 8
-  %214 = and i32 %213, 1
-  %215 = zext nneg i32 %214 to i64
-  %216 = shl nuw nsw i64 %215, 37
-  %217 = lshr i32 %192, 9
-  %218 = and i32 %217, 1
-  %219 = zext nneg i32 %218 to i64
-  %220 = shl nuw nsw i64 %219, 52
-  %221 = or disjoint i64 %216, %220
-  %222 = or disjoint i64 %204, %221
-  %223 = lshr i32 %192, 11
-  %224 = and i32 %223, 1
-  %225 = zext nneg i32 %224 to i64
-  %226 = shl nuw nsw i64 %225, 37
-  %227 = lshr i32 %192, 18
-  %228 = and i32 %227, 1
-  %229 = zext nneg i32 %228 to i64
-  %230 = shl nuw nsw i64 %229, 34
-  %231 = or disjoint i64 %226, %230
-  %232 = or disjoint i64 %212, %231
-  %233 = or i64 %232, %149
-  %234 = lshr i32 %192, 14
-  %235 = and i32 %234, 32
-  %236 = zext nneg i32 %235 to i64
-  %237 = or disjoint i64 %222, %236
-  %238 = lshr i32 %192, 20
-  %239 = and i32 %238, 1
-  %240 = zext nneg i32 %239 to i64
-  %241 = shl nuw nsw i64 %240, 41
-  %.mask = and i32 %192, 25165824
+  %208 = shl nuw nsw i64 %207, 42
+  %209 = or disjoint i64 %208, %204
+  %210 = lshr i32 %189, 8
+  %211 = and i32 %210, 1
+  %212 = zext nneg i32 %211 to i64
+  %213 = shl nuw nsw i64 %212, 37
+  %214 = lshr i32 %189, 9
+  %215 = and i32 %214, 1
+  %216 = zext nneg i32 %215 to i64
+  %217 = shl nuw nsw i64 %216, 52
+  %218 = or disjoint i64 %213, %217
+  %219 = or disjoint i64 %201, %218
+  %220 = lshr i32 %189, 11
+  %221 = and i32 %220, 1
+  %222 = zext nneg i32 %221 to i64
+  %223 = shl nuw nsw i64 %222, 37
+  %224 = lshr i32 %189, 18
+  %225 = and i32 %224, 1
+  %226 = zext nneg i32 %225 to i64
+  %227 = shl nuw nsw i64 %226, 34
+  %228 = or disjoint i64 %223, %227
+  %229 = or disjoint i64 %209, %228
+  %230 = or i64 %229, %146
+  %231 = lshr i32 %189, 14
+  %232 = and i32 %231, 32
+  %233 = zext nneg i32 %232 to i64
+  %234 = or disjoint i64 %219, %233
+  %235 = lshr i32 %189, 20
+  %236 = and i32 %235, 1
+  %237 = zext nneg i32 %236 to i64
+  %238 = shl nuw nsw i64 %237, 41
+  %.mask = and i32 %189, 25165824
   %.zext = zext nneg i32 %.mask to i64
-  %242 = shl nuw nsw i64 %.zext, 20
-  %243 = or disjoint i64 %237, %242
-  %244 = shl i32 %193, 28
-  %245 = and i32 %244, 268435456
-  %246 = shl i32 %193, 18
-  %247 = and i32 %246, 4194304
-  %248 = lshr i32 %193, 7
-  %249 = and i32 %248, 1
-  %250 = zext nneg i32 %249 to i64
-  %251 = shl nuw nsw i64 %250, 39
-  %252 = and i32 %248, 2
-  %253 = insertelement <4 x i32> poison, i32 %193, i64 0
-  %254 = insertelement <4 x i32> %253, i32 %192, i64 1
-  %255 = shufflevector <4 x i32> %254, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
-  %256 = lshr <4 x i32> %255, <i32 9, i32 10, i32 29, i32 5>
-  %257 = and <4 x i32> %256, splat (i32 1)
-  %258 = zext nneg <4 x i32> %257 to <4 x i64>
-  %259 = shl nuw nsw <4 x i64> %258, <i64 57, i64 59, i64 39, i64 60>
-  %260 = shl i32 %193, 9
-  %261 = and i32 %260, -2147483648
-  %262 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %259)
-  %263 = or disjoint i32 %252, %261
-  %264 = zext i32 %263 to i64
-  %265 = or disjoint i32 %245, %247
+  %239 = shl nuw nsw i64 %.zext, 20
+  %240 = or disjoint i64 %234, %239
+  %241 = shl i32 %190, 28
+  %242 = and i32 %241, 268435456
+  %243 = shl i32 %190, 18
+  %244 = and i32 %243, 4194304
+  %245 = lshr i32 %190, 7
+  %246 = and i32 %245, 1
+  %247 = zext nneg i32 %246 to i64
+  %248 = shl nuw nsw i64 %247, 39
+  %249 = and i32 %245, 2
+  %250 = insertelement <4 x i32> poison, i32 %190, i64 0
+  %251 = insertelement <4 x i32> %250, i32 %189, i64 1
+  %252 = shufflevector <4 x i32> %251, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
+  %253 = lshr <4 x i32> %252, <i32 9, i32 10, i32 29, i32 5>
+  %254 = and <4 x i32> %253, splat (i32 1)
+  %255 = zext nneg <4 x i32> %254 to <4 x i64>
+  %256 = shl nuw nsw <4 x i64> %255, <i64 57, i64 59, i64 39, i64 60>
+  %257 = shl i32 %190, 9
+  %258 = and i32 %257, -2147483648
+  %259 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %256)
+  %260 = or disjoint i32 %249, %258
+  %261 = zext i32 %260 to i64
+  %262 = or disjoint i32 %242, %244
+  %263 = zext nneg i32 %262 to i64
+  %264 = lshr i32 %190, 25
+  %265 = and i32 %264, 1
   %266 = zext nneg i32 %265 to i64
-  %267 = lshr i32 %193, 25
-  %268 = and i32 %267, 1
-  %269 = zext nneg i32 %268 to i64
-  %270 = shl nuw nsw i64 %269, 41
-  %271 = lshr i32 %193, 11
-  %272 = and i32 %271, 65536
-  %273 = lshr i32 %193, 13
-  %274 = and i32 %273, 32768
-  %275 = or disjoint i32 %272, %274
+  %267 = shl nuw nsw i64 %266, 41
+  %268 = lshr i32 %190, 11
+  %269 = and i32 %268, 65536
+  %270 = lshr i32 %190, 13
+  %271 = and i32 %270, 32768
+  %272 = or disjoint i32 %269, %271
+  %273 = zext nneg i32 %272 to i64
+  %274 = lshr i32 %190, 29
+  %275 = and i32 %274, 1
   %276 = zext nneg i32 %275 to i64
-  %277 = lshr i32 %193, 29
-  %278 = and i32 %277, 1
-  %279 = zext nneg i32 %278 to i64
-  %280 = shl nuw nsw i64 %279, 51
-  %281 = lshr i32 %194, 4
-  %282 = and i32 %281, 1
-  %283 = zext nneg i32 %282 to i64
-  %284 = shl nuw nsw i64 %283, 58
-  %285 = or disjoint i64 %280, %284
-  %286 = lshr i32 %194, 5
-  %287 = and i32 %286, 1
-  %288 = zext nneg i32 %287 to i64
-  %289 = shl nuw nsw i64 %288, 56
-  %290 = lshr i32 %194, 14
-  %291 = and i32 %290, 1
-  %292 = zext nneg i32 %291 to i64
-  %293 = shl nuw nsw i64 %292, 38
-  %294 = or disjoint i64 %289, %293
-  %295 = lshr i32 %194, 16
-  %296 = and i32 %295, 1
-  %297 = zext nneg i32 %296 to i64
-  %298 = shl nuw nsw i64 %297, 55
-  %299 = or disjoint i64 %294, %298
-  %300 = shl i32 %194, 6
-  %301 = and i32 %300, 16777216
-  %302 = zext nneg i32 %301 to i64
-  %303 = or disjoint i64 %299, %302
-  %304 = or disjoint i64 %303, %276
-  %305 = or disjoint i64 %241, %266
-  %306 = or disjoint i64 %305, %264
-  %307 = or i64 %306, %262
-  %308 = or i64 %307, %304
-  %309 = or i64 %308, %233
-  %310 = lshr i32 %194, 20
-  %311 = and i32 %310, 1
-  %312 = zext nneg i32 %311 to i64
-  %313 = shl nuw nsw i64 %312, 38
-  %314 = or disjoint i64 %251, %270
-  %315 = or disjoint i64 %314, %313
-  %316 = or disjoint i64 %315, %285
-  %317 = or i64 %316, %243
-  %318 = or i64 %317, %182
-  %319 = and i64 %233, 137438953476
-  %320 = icmp eq i64 %319, 0
-  br i1 %320, label %323, label %321
+  %277 = shl nuw nsw i64 %276, 51
+  %278 = lshr i32 %191, 4
+  %279 = and i32 %278, 1
+  %280 = zext nneg i32 %279 to i64
+  %281 = shl nuw nsw i64 %280, 58
+  %282 = or disjoint i64 %277, %281
+  %283 = lshr i32 %191, 5
+  %284 = and i32 %283, 1
+  %285 = zext nneg i32 %284 to i64
+  %286 = shl nuw nsw i64 %285, 56
+  %287 = lshr i32 %191, 14
+  %288 = and i32 %287, 1
+  %289 = zext nneg i32 %288 to i64
+  %290 = shl nuw nsw i64 %289, 38
+  %291 = or disjoint i64 %286, %290
+  %292 = lshr i32 %191, 16
+  %293 = and i32 %292, 1
+  %294 = zext nneg i32 %293 to i64
+  %295 = shl nuw nsw i64 %294, 55
+  %296 = or disjoint i64 %291, %295
+  %297 = shl i32 %191, 6
+  %298 = and i32 %297, 16777216
+  %299 = zext nneg i32 %298 to i64
+  %300 = or disjoint i64 %296, %299
+  %301 = or disjoint i64 %300, %273
+  %302 = or disjoint i64 %238, %263
+  %303 = or disjoint i64 %302, %261
+  %304 = or i64 %303, %259
+  %305 = or i64 %304, %301
+  %306 = or i64 %305, %230
+  %307 = lshr i32 %191, 20
+  %308 = and i32 %307, 1
+  %309 = zext nneg i32 %308 to i64
+  %310 = shl nuw nsw i64 %309, 38
+  %311 = or disjoint i64 %248, %267
+  %312 = or disjoint i64 %311, %310
+  %313 = or disjoint i64 %312, %282
+  %314 = or i64 %313, %240
+  %315 = or i64 %314, %179
+  %316 = and i64 %230, 137438953476
+  %317 = icmp eq i64 %316, 0
+  br i1 %317, label %320, label %318
 
-321:                                              ; preds = %189
-  %322 = or i64 %309, 18014398509481984
-  store i64 %322, ptr %7, align 8, !tbaa !21
-  br label %323
+318:                                              ; preds = %186
+  %319 = or i64 %306, 18014398509481984
+  store i64 %319, ptr %7, align 8, !tbaa !21
+  br label %320
 
-323:                                              ; preds = %321, %189
-  %324 = phi i64 [ %322, %321 ], [ %309, %189 ]
-  %325 = and i32 %192, 32
-  %326 = icmp ne i32 %325, 0
-  %327 = and i64 %182, 4096
-  %328 = icmp ne i64 %327, 0
-  %329 = select i1 %326, i1 %328, i1 false
-  %330 = or i64 %318, 8192
-  %spec.select = select i1 %329, i64 %330, i64 %318
-  %331 = and i32 %192, 65536
-  %332 = icmp ne i32 %331, 0
-  %333 = select i1 %187, i1 %332, i1 false
-  br i1 %333, label %334, label %372
+320:                                              ; preds = %318, %186
+  %321 = phi i64 [ %319, %318 ], [ %306, %186 ]
+  %322 = and i32 %189, 32
+  %323 = icmp ne i32 %322, 0
+  %324 = and i64 %179, 4096
+  %325 = icmp ne i64 %324, 0
+  %326 = select i1 %323, i1 %325, i1 false
+  %327 = or i64 %315, 8192
+  %spec.select = select i1 %326, i64 %327, i64 %315
+  %328 = and i32 %189, 65536
+  %329 = icmp ne i32 %328, 0
+  %330 = select i1 %184, i1 %329, i1 false
+  br i1 %330, label %331, label %369
 
-334:                                              ; preds = %323
-  %335 = shl i32 %192, 3
-  %336 = lshr i32 %192, 1
-  %337 = and i32 %336, 33554432
-  %338 = lshr i32 %192, 6
-  %339 = and i32 %338, 2097152
-  %340 = and i32 %217, 524288
-  %341 = lshr i32 %192, 12
-  %342 = and i32 %341, 262144
-  %343 = and i32 %200, 268435456
-  %344 = shl i32 %193, 25
-  %345 = and i32 %344, 67108864
-  %346 = shl i32 %193, 21
-  %347 = and i32 %346, 134217728
-  %348 = and i32 %246, 536870912
-  %349 = insertelement <4 x i32> %253, i32 %194, i64 1
-  %350 = shufflevector <4 x i32> %349, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
-  %351 = shl <4 x i32> %350, <i32 5, i32 17, i32 13, i32 11>
-  %352 = and <4 x i32> %351, <i32 131072, i32 -2147483648, i32 32768, i32 16384>
-  %353 = shl i32 %194, 22
-  %354 = and i32 %353, 1073741824
-  %355 = and i32 %194, 8388608
-  %356 = and i32 %335, 17825792
-  %357 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %352)
-  %358 = or disjoint i32 %355, %347
-  %359 = or disjoint i32 %358, %345
-  %360 = or disjoint i32 %359, %354
-  %361 = or disjoint i32 %360, %348
-  %362 = or disjoint i32 %361, %340
-  %363 = or disjoint i32 %362, %339
-  %364 = or disjoint i32 %363, %343
-  %365 = or disjoint i32 %364, %342
-  %366 = or disjoint i32 %365, %337
-  %367 = or disjoint i32 %366, %356
-  %368 = or disjoint i32 %367, %357
-  %369 = or disjoint i32 %368, 4194304
-  %370 = zext i32 %369 to i64
-  %371 = or i64 %spec.select, %370
-  br label %372
+331:                                              ; preds = %320
+  %332 = shl i32 %189, 3
+  %333 = lshr i32 %189, 1
+  %334 = and i32 %333, 33554432
+  %335 = lshr i32 %189, 6
+  %336 = and i32 %335, 2097152
+  %337 = and i32 %214, 524288
+  %338 = lshr i32 %189, 12
+  %339 = and i32 %338, 262144
+  %340 = and i32 %197, 268435456
+  %341 = shl i32 %190, 25
+  %342 = and i32 %341, 67108864
+  %343 = shl i32 %190, 21
+  %344 = and i32 %343, 134217728
+  %345 = and i32 %243, 536870912
+  %346 = insertelement <4 x i32> %250, i32 %191, i64 1
+  %347 = shufflevector <4 x i32> %346, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
+  %348 = shl <4 x i32> %347, <i32 5, i32 17, i32 13, i32 11>
+  %349 = and <4 x i32> %348, <i32 131072, i32 -2147483648, i32 32768, i32 16384>
+  %350 = shl i32 %191, 22
+  %351 = and i32 %350, 1073741824
+  %352 = and i32 %191, 8388608
+  %353 = and i32 %332, 17825792
+  %354 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %349)
+  %355 = or disjoint i32 %352, %344
+  %356 = or disjoint i32 %355, %342
+  %357 = or disjoint i32 %356, %351
+  %358 = or disjoint i32 %357, %345
+  %359 = or disjoint i32 %358, %337
+  %360 = or disjoint i32 %359, %336
+  %361 = or disjoint i32 %360, %340
+  %362 = or disjoint i32 %361, %339
+  %363 = or disjoint i32 %362, %334
+  %364 = or disjoint i32 %363, %353
+  %365 = or disjoint i32 %364, %354
+  %366 = or disjoint i32 %365, 4194304
+  %367 = zext i32 %366 to i64
+  %368 = or i64 %spec.select, %367
+  br label %369
 
-372:                                              ; preds = %334, %323
-  %373 = phi i64 [ %371, %334 ], [ %spec.select, %323 ]
-  br i1 %185, label %374, label %384
+369:                                              ; preds = %331, %320
+  %370 = phi i64 [ %368, %331 ], [ %spec.select, %320 ]
+  br i1 %182, label %371, label %381
 
-374:                                              ; preds = %372
-  %375 = and i32 %290, 256
-  %376 = lshr i32 %194, 13
-  %377 = and i32 %376, 2048
-  %378 = lshr i32 %194, 15
-  %379 = and i32 %378, 1024
-  %380 = or disjoint i32 %377, %375
-  %381 = or disjoint i32 %380, %379
-  %382 = zext nneg i32 %381 to i64
-  %383 = or i64 %373, %382
-  br label %384
+371:                                              ; preds = %369
+  %372 = and i32 %287, 256
+  %373 = lshr i32 %191, 13
+  %374 = and i32 %373, 2048
+  %375 = lshr i32 %191, 15
+  %376 = and i32 %375, 1024
+  %377 = or disjoint i32 %374, %372
+  %378 = or disjoint i32 %377, %376
+  %379 = zext nneg i32 %378 to i64
+  %380 = or i64 %370, %379
+  br label %381
 
-384:                                              ; preds = %374, %372
-  %385 = phi i64 [ %383, %374 ], [ %373, %372 ]
-  %386 = icmp eq i32 %191, 0
-  br i1 %386, label %453, label %387
+381:                                              ; preds = %371, %369
+  %382 = phi i64 [ %380, %371 ], [ %370, %369 ]
+  %383 = icmp eq i32 %188, 0
+  br i1 %383, label %450, label %384
 
-387:                                              ; preds = %384
-  %388 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #7, !srcloc !16
-  %389 = extractvalue { i32, i32, i32, i32 } %388, 0
-  %390 = extractvalue { i32, i32, i32, i32 } %388, 3
-  %391 = shl i32 %389, 27
-  %392 = and i32 %391, 1073741824
-  %393 = zext nneg i32 %392 to i64
-  %394 = insertelement <4 x i32> poison, i32 %389, i64 0
-  %395 = shufflevector <4 x i32> %394, <4 x i32> poison, <4 x i32> zeroinitializer
-  %396 = lshr <4 x i32> %395, <i32 12, i32 11, i32 10, i32 7>
-  %397 = and <4 x i32> %396, splat (i32 1)
-  %398 = zext nneg <4 x i32> %397 to <4 x i64>
-  %399 = shl nuw <4 x i64> %398, <i64 59, i64 60, i64 63, i64 47>
-  %400 = lshr i32 %389, 19
-  %401 = and i32 %400, 1
+384:                                              ; preds = %381
+  %385 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 1) #7, !srcloc !16
+  %386 = extractvalue { i32, i32, i32, i32 } %385, 0
+  %387 = extractvalue { i32, i32, i32, i32 } %385, 3
+  %388 = shl i32 %386, 27
+  %389 = and i32 %388, 1073741824
+  %390 = zext nneg i32 %389 to i64
+  %391 = insertelement <4 x i32> poison, i32 %386, i64 0
+  %392 = shufflevector <4 x i32> %391, <4 x i32> poison, <4 x i32> zeroinitializer
+  %393 = lshr <4 x i32> %392, <i32 12, i32 11, i32 10, i32 7>
+  %394 = and <4 x i32> %393, splat (i32 1)
+  %395 = zext nneg <4 x i32> %394 to <4 x i64>
+  %396 = shl nuw <4 x i64> %395, <i64 59, i64 60, i64 63, i64 47>
+  %397 = lshr i32 %386, 19
+  %398 = and i32 %397, 1
+  %399 = zext nneg i32 %398 to i64
+  %400 = shl nuw nsw i64 %399, 62
+  %401 = and i32 %397, 8
   %402 = zext nneg i32 %401 to i64
-  %403 = shl nuw nsw i64 %402, 62
-  %404 = and i32 %400, 8
-  %405 = zext nneg i32 %404 to i64
-  %406 = or disjoint i64 %403, %405
-  %407 = lshr i32 %389, 20
-  %408 = and i32 %407, 64
-  %409 = zext nneg i32 %408 to i64
-  %410 = or disjoint i64 %406, %409
-  %411 = lshr i32 %389, 8
-  %412 = and i32 %411, 524288
-  %413 = zext nneg i32 %412 to i64
-  %414 = or disjoint i64 %410, %413
-  %415 = shl i32 %390, 12
-  %416 = and i32 %415, 67108864
-  %417 = zext nneg i32 %416 to i64
-  %418 = or disjoint i64 %414, %417
-  %419 = or disjoint i64 %418, %393
-  %420 = or i64 %419, %324
-  %421 = lshr i32 %390, 18
-  %422 = and i32 %421, 1
-  %423 = zext nneg i32 %422 to i64
-  %424 = shl nuw nsw i64 %423, 40
-  %425 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %399)
-  %426 = or i64 %424, %425
-  %427 = or i64 %426, %385
-  %428 = and i64 %385, 8192
-  %429 = icmp eq i64 %428, 0
-  br i1 %429, label %439, label %430
+  %403 = or disjoint i64 %400, %402
+  %404 = lshr i32 %386, 20
+  %405 = and i32 %404, 64
+  %406 = zext nneg i32 %405 to i64
+  %407 = or disjoint i64 %403, %406
+  %408 = lshr i32 %386, 8
+  %409 = and i32 %408, 524288
+  %410 = zext nneg i32 %409 to i64
+  %411 = or disjoint i64 %407, %410
+  %412 = shl i32 %387, 12
+  %413 = and i32 %412, 67108864
+  %414 = zext nneg i32 %413 to i64
+  %415 = or disjoint i64 %411, %414
+  %416 = or disjoint i64 %415, %390
+  %417 = or i64 %416, %321
+  %418 = lshr i32 %387, 18
+  %419 = and i32 %418, 1
+  %420 = zext nneg i32 %419 to i64
+  %421 = shl nuw nsw i64 %420, 40
+  %422 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %396)
+  %423 = or i64 %421, %422
+  %424 = or i64 %423, %382
+  %425 = and i64 %382, 8192
+  %426 = icmp eq i64 %425, 0
+  br i1 %426, label %436, label %427
 
-430:                                              ; preds = %387
-  %431 = insertelement <4 x i32> %394, i32 %390, i64 1
-  %432 = shufflevector <4 x i32> %431, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
-  %433 = lshr <4 x i32> %432, <i32 23, i32 4, i32 4, i32 5>
-  %434 = and <4 x i32> %433, splat (i32 1)
-  %435 = zext nneg <4 x i32> %434 to <4 x i64>
-  %436 = shl nuw nsw <4 x i64> %435, <i64 32, i64 34, i64 35, i64 33>
-  %437 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %436)
-  %438 = or i64 %427, %437
-  br label %439
+427:                                              ; preds = %384
+  %428 = insertelement <4 x i32> %391, i32 %387, i64 1
+  %429 = shufflevector <4 x i32> %428, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
+  %430 = lshr <4 x i32> %429, <i32 23, i32 4, i32 4, i32 5>
+  %431 = and <4 x i32> %430, splat (i32 1)
+  %432 = zext nneg <4 x i32> %431 to <4 x i64>
+  %433 = shl nuw nsw <4 x i64> %432, <i64 32, i64 34, i64 35, i64 33>
+  %434 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %433)
+  %435 = or i64 %424, %434
+  br label %436
 
-439:                                              ; preds = %430, %387
-  %440 = phi i64 [ %438, %430 ], [ %427, %387 ]
-  %441 = and i64 %440, 4194304
-  %442 = icmp eq i64 %441, 0
-  %443 = shl i32 %389, 11
-  %444 = and i32 %443, 65536
-  %445 = zext nneg i32 %444 to i64
-  %446 = select i1 %442, i64 0, i64 %445
-  %447 = or i64 %446, %440
-  br i1 %185, label %448, label %453
+436:                                              ; preds = %427, %384
+  %437 = phi i64 [ %435, %427 ], [ %424, %384 ]
+  %438 = and i64 %437, 4194304
+  %439 = icmp eq i64 %438, 0
+  %440 = shl i32 %386, 11
+  %441 = and i32 %440, 65536
+  %442 = zext nneg i32 %441 to i64
+  %443 = select i1 %439, i64 0, i64 %442
+  %444 = or i64 %443, %437
+  br i1 %182, label %445, label %450
 
-448:                                              ; preds = %439
-  %449 = extractelement <4 x i32> %396, i64 0
-  %450 = and i32 %449, 512
-  %451 = zext nneg i32 %450 to i64
-  %452 = or i64 %447, %451
-  store i64 %452, ptr %4, align 8, !tbaa !21
-  br label %453
+445:                                              ; preds = %436
+  %446 = extractelement <4 x i32> %393, i64 0
+  %447 = and i32 %446, 512
+  %448 = zext nneg i32 %447 to i64
+  %449 = or i64 %444, %448
+  store i64 %449, ptr %4, align 8, !tbaa !21
+  br label %450
 
-453:                                              ; preds = %448, %439, %384
-  %454 = phi i64 [ %452, %448 ], [ %447, %439 ], [ %385, %384 ]
-  %455 = phi i64 [ %420, %448 ], [ %420, %439 ], [ %324, %384 ]
-  %456 = icmp ugt i32 %9, 12
-  br i1 %456, label %457, label %481
+450:                                              ; preds = %445, %436, %381
+  %451 = phi i64 [ %449, %445 ], [ %444, %436 ], [ %382, %381 ]
+  %452 = phi i64 [ %417, %445 ], [ %417, %436 ], [ %321, %381 ]
+  %453 = icmp ugt i32 %9, 12
+  br i1 %453, label %454, label %478
 
-457:                                              ; preds = %453
-  %458 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 0) #7, !srcloc !16
-  %459 = extractvalue { i32, i32, i32, i32 } %458, 0
-  %460 = and i32 %183, 24
-  %461 = and i32 %460, %459
-  %462 = icmp ne i32 %461, 24
-  %463 = or i1 %196, %462
-  %464 = or i64 %455, 131072
-  %spec.select13 = select i1 %463, i64 %455, i64 %464
-  %465 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #7, !srcloc !16
-  %466 = extractvalue { i32, i32, i32, i32 } %465, 0
-  %467 = shl i32 %466, 2
-  %468 = and i32 %467, 4
-  %469 = and i32 %466, 10
-  %470 = or disjoint i32 %469, %468
-  %471 = or disjoint i32 %470, %105
-  %472 = zext nneg i32 %471 to i64
-  store i64 %472, ptr %107, align 8, !tbaa !21
-  %473 = icmp eq i32 %9, 13
-  br i1 %473, label %481, label %474
+454:                                              ; preds = %450
+  %455 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 0) #7, !srcloc !16
+  %456 = extractvalue { i32, i32, i32, i32 } %455, 0
+  %457 = and i32 %180, 24
+  %458 = and i32 %457, %456
+  %459 = icmp ne i32 %458, 24
+  %460 = or i1 %193, %459
+  %461 = or i64 %452, 131072
+  %spec.select13 = select i1 %460, i64 %452, i64 %461
+  %462 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 13, i32 1) #7, !srcloc !16
+  %463 = extractvalue { i32, i32, i32, i32 } %462, 0
+  %464 = shl i32 %463, 2
+  %465 = and i32 %464, 4
+  %466 = and i32 %463, 10
+  %467 = or disjoint i32 %466, %465
+  %468 = or disjoint i32 %467, %102
+  %469 = zext nneg i32 %468 to i64
+  store i64 %469, ptr %104, align 8, !tbaa !21
+  %470 = icmp eq i32 %9, 13
+  br i1 %470, label %478, label %471
 
-474:                                              ; preds = %457
-  %475 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 14, i32 0) #7, !srcloc !16
-  %476 = extractvalue { i32, i32, i32, i32 } %475, 1
-  %477 = shl i32 %476, 25
-  %478 = and i32 %477, 536870912
-  %479 = zext nneg i32 %478 to i64
-  %480 = or i64 %spec.select13, %479
-  store i64 %480, ptr %7, align 8, !tbaa !21
-  br label %481
+471:                                              ; preds = %454
+  %472 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 14, i32 0) #7, !srcloc !16
+  %473 = extractvalue { i32, i32, i32, i32 } %472, 1
+  %474 = shl i32 %473, 25
+  %475 = and i32 %474, 536870912
+  %476 = zext nneg i32 %475 to i64
+  %477 = or i64 %spec.select13, %476
+  store i64 %477, ptr %7, align 8, !tbaa !21
+  br label %478
 
-481:                                              ; preds = %474, %457, %453, %181, %30
-  %482 = phi i64 [ 0, %30 ], [ %454, %474 ], [ %454, %457 ], [ %454, %453 ], [ %182, %181 ]
-  %483 = phi i64 [ 16, %30 ], [ %480, %474 ], [ %spec.select13, %457 ], [ %455, %453 ], [ %149, %181 ]
-  %484 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  br label %485
+478:                                              ; preds = %471, %454, %450, %178, %30
+  %479 = phi i64 [ 0, %30 ], [ %451, %471 ], [ %451, %454 ], [ %451, %450 ], [ %179, %178 ]
+  %480 = phi i64 [ 16, %30 ], [ %477, %471 ], [ %spec.select13, %454 ], [ %452, %450 ], [ %146, %178 ]
+  %481 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  br label %482
 
-485:                                              ; preds = %604, %481
-  %486 = phi i64 [ %482, %481 ], [ %605, %604 ]
-  %487 = phi i64 [ %483, %481 ], [ %606, %604 ]
-  %488 = phi i64 [ %482, %481 ], [ %607, %604 ]
-  %489 = phi i64 [ %483, %481 ], [ %608, %604 ]
-  %490 = phi i32 [ -2147483648, %481 ], [ %609, %604 ]
-  %491 = phi i32 [ -2147483648, %481 ], [ %612, %604 ]
-  %492 = phi ptr [ %484, %481 ], [ %611, %604 ]
-  %493 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %491, i32 0) #7, !srcloc !16
-  %494 = extractvalue { i32, i32, i32, i32 } %493, 0
-  %495 = extractvalue { i32, i32, i32, i32 } %493, 1
-  %496 = extractvalue { i32, i32, i32, i32 } %493, 2
-  %497 = extractvalue { i32, i32, i32, i32 } %493, 3
-  switch i32 %491, label %604 [
-    i32 -2147483648, label %498
-    i32 -2147483647, label %500
-    i32 -2147483646, label %575
-    i32 -2147483645, label %575
-    i32 -2147483644, label %575
-    i32 -2147483640, label %582
-    i32 -2147483617, label %598
+482:                                              ; preds = %601, %478
+  %483 = phi i64 [ %479, %478 ], [ %602, %601 ]
+  %484 = phi i64 [ %480, %478 ], [ %603, %601 ]
+  %485 = phi i64 [ %479, %478 ], [ %604, %601 ]
+  %486 = phi i64 [ %480, %478 ], [ %605, %601 ]
+  %487 = phi i32 [ -2147483648, %478 ], [ %606, %601 ]
+  %488 = phi i32 [ -2147483648, %478 ], [ %609, %601 ]
+  %489 = phi ptr [ %481, %478 ], [ %608, %601 ]
+  %490 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %488, i32 0) #7, !srcloc !16
+  %491 = extractvalue { i32, i32, i32, i32 } %490, 0
+  %492 = extractvalue { i32, i32, i32, i32 } %490, 1
+  %493 = extractvalue { i32, i32, i32, i32 } %490, 2
+  %494 = extractvalue { i32, i32, i32, i32 } %490, 3
+  switch i32 %488, label %601 [
+    i32 -2147483648, label %495
+    i32 -2147483647, label %497
+    i32 -2147483646, label %572
+    i32 -2147483645, label %572
+    i32 -2147483644, label %572
+    i32 -2147483640, label %579
+    i32 -2147483617, label %595
   ]
 
-498:                                              ; preds = %485
-  %499 = tail call noundef i32 @llvm.umin.i32(i32 %494, i32 -2147483617)
-  br label %604
+495:                                              ; preds = %482
+  %496 = tail call noundef i32 @llvm.umin.i32(i32 %491, i32 -2147483617)
+  br label %601
 
-500:                                              ; preds = %485
-  %501 = insertelement <4 x i32> poison, i32 %496, i64 0
-  %502 = shufflevector <4 x i32> %501, <4 x i32> poison, <4 x i32> zeroinitializer
-  %503 = shl <4 x i32> %502, <i32 5, i32 3, i32 13, i32 19>
-  %504 = insertelement <4 x i32> %501, i32 %497, i64 1
-  %505 = shufflevector <4 x i32> %504, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 0>
-  %506 = lshr <4 x i32> %505, <i32 2, i32 27, i32 30, i32 6>
-  %507 = and <4 x i32> %503, <i32 32, i32 256, i32 1048576, i32 134217728>
-  %508 = lshr i32 %496, 12
-  %509 = and i32 %508, 1
-  %510 = zext nneg i32 %509 to i64
-  %511 = shl nuw nsw i64 %510, 40
-  %512 = lshr i32 %496, 8
-  %513 = and i32 %512, 128
-  %514 = lshr i32 %496, 21
-  %515 = and i32 %514, 1
-  %516 = zext nneg i32 %515 to i64
-  %517 = shl nuw nsw i64 %516, 53
-  %518 = lshr i32 %496, 16
-  %519 = and i32 %518, 8192
-  %520 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %507)
-  %521 = or disjoint i32 %519, %513
-  %522 = or disjoint i32 %521, %520
+497:                                              ; preds = %482
+  %498 = insertelement <4 x i32> poison, i32 %493, i64 0
+  %499 = shufflevector <4 x i32> %498, <4 x i32> poison, <4 x i32> zeroinitializer
+  %500 = shl <4 x i32> %499, <i32 5, i32 3, i32 13, i32 19>
+  %501 = insertelement <4 x i32> %498, i32 %494, i64 1
+  %502 = shufflevector <4 x i32> %501, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 0>
+  %503 = lshr <4 x i32> %502, <i32 2, i32 27, i32 30, i32 6>
+  %504 = and <4 x i32> %500, <i32 32, i32 256, i32 1048576, i32 134217728>
+  %505 = lshr i32 %493, 12
+  %506 = and i32 %505, 1
+  %507 = zext nneg i32 %506 to i64
+  %508 = shl nuw nsw i64 %507, 40
+  %509 = lshr i32 %493, 8
+  %510 = and i32 %509, 128
+  %511 = lshr i32 %493, 21
+  %512 = and i32 %511, 1
+  %513 = zext nneg i32 %512 to i64
+  %514 = shl nuw nsw i64 %513, 53
+  %515 = lshr i32 %493, 16
+  %516 = and i32 %515, 8192
+  %517 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %504)
+  %518 = or disjoint i32 %516, %510
+  %519 = or disjoint i32 %518, %517
+  %520 = zext nneg i32 %519 to i64
+  %521 = lshr i32 %494, 18
+  %522 = and i32 %521, 4
   %523 = zext nneg i32 %522 to i64
-  %524 = lshr i32 %497, 18
-  %525 = and i32 %524, 4
+  %524 = lshr i32 %494, 21
+  %525 = and i32 %524, 1
   %526 = zext nneg i32 %525 to i64
-  %527 = lshr i32 %497, 21
-  %528 = and i32 %527, 1
-  %529 = zext nneg i32 %528 to i64
-  %530 = shl nuw nsw i64 %529, 62
-  %531 = or disjoint i64 %530, %526
-  %532 = lshr i32 %497, 11
-  %533 = and i32 %532, 2048
-  %534 = lshr i32 %497, 2
-  %535 = and <4 x i32> %506, splat (i32 1)
-  %536 = zext nneg <4 x i32> %535 to <4 x i64>
-  %537 = shl nuw nsw <4 x i64> %536, <i64 52, i64 36, i64 11, i64 50>
-  %538 = extractelement <4 x i64> %536, i64 2
-  %539 = shl nuw nsw i64 %538, 4
-  %540 = or disjoint i64 %539, %531
-  %541 = or i64 %540, %488
-  %542 = lshr i32 %497, 4
-  %543 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %537)
-  %544 = or disjoint i64 %517, %523
-  %545 = or i32 %534, %542
-  %546 = and i32 %545, 134217728
-  %547 = or disjoint i32 %546, %533
-  %548 = zext nneg i32 %547 to i64
-  %549 = or disjoint i64 %511, %548
-  %550 = or i64 %549, %543
-  %551 = or i64 %550, %544
-  %552 = or i64 %551, %489
-  %553 = and i64 %488, 4096
-  %554 = icmp eq i64 %553, 0
-  br i1 %554, label %565, label %555
+  %527 = shl nuw nsw i64 %526, 62
+  %528 = or disjoint i64 %527, %523
+  %529 = lshr i32 %494, 11
+  %530 = and i32 %529, 2048
+  %531 = lshr i32 %494, 2
+  %532 = and <4 x i32> %503, splat (i32 1)
+  %533 = zext nneg <4 x i32> %532 to <4 x i64>
+  %534 = shl nuw nsw <4 x i64> %533, <i64 52, i64 36, i64 11, i64 50>
+  %535 = extractelement <4 x i64> %533, i64 2
+  %536 = shl nuw nsw i64 %535, 4
+  %537 = or disjoint i64 %536, %528
+  %538 = or i64 %537, %485
+  %539 = lshr i32 %494, 4
+  %540 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %534)
+  %541 = or disjoint i64 %514, %520
+  %542 = or i32 %531, %539
+  %543 = and i32 %542, 134217728
+  %544 = or disjoint i32 %543, %530
+  %545 = zext nneg i32 %544 to i64
+  %546 = or disjoint i64 %508, %545
+  %547 = or i64 %546, %540
+  %548 = or i64 %547, %541
+  %549 = or i64 %548, %486
+  %550 = and i64 %485, 4096
+  %551 = icmp eq i64 %550, 0
+  br i1 %551, label %562, label %552
 
-555:                                              ; preds = %500
-  %556 = lshr i32 %496, 11
-  %557 = and i32 %556, 1
-  %558 = zext nneg i32 %557 to i64
-  %559 = shl nuw i64 %558, 63
-  %560 = or i64 %552, %559
-  %561 = and i32 %518, 1
-  %562 = zext nneg i32 %561 to i64
-  %563 = shl nuw nsw i64 %562, 55
-  %564 = or i64 %541, %563
-  br label %565
+552:                                              ; preds = %497
+  %553 = lshr i32 %493, 11
+  %554 = and i32 %553, 1
+  %555 = zext nneg i32 %554 to i64
+  %556 = shl nuw i64 %555, 63
+  %557 = or i64 %549, %556
+  %558 = and i32 %515, 1
+  %559 = zext nneg i32 %558 to i64
+  %560 = shl nuw nsw i64 %559, 55
+  %561 = or i64 %538, %560
+  br label %562
 
-565:                                              ; preds = %555, %500
-  %566 = phi i64 [ %564, %555 ], [ %541, %500 ]
-  %567 = phi i64 [ %560, %555 ], [ %552, %500 ]
-  %568 = load i32, ptr %32, align 4
-  %569 = icmp eq i32 %568, 4476225
-  br i1 %569, label %570, label %604
+562:                                              ; preds = %552, %497
+  %563 = phi i64 [ %561, %552 ], [ %538, %497 ]
+  %564 = phi i64 [ %557, %552 ], [ %549, %497 ]
+  %565 = load i32, ptr %32, align 4
+  %566 = icmp eq i32 %565, 4476225
+  br i1 %566, label %567, label %601
 
-570:                                              ; preds = %565
-  %571 = extractelement <4 x i32> %503, i64 1
-  %572 = and i32 %571, 128
-  %573 = zext nneg i32 %572 to i64
-  %574 = or i64 %566, %573
-  br label %604
+567:                                              ; preds = %562
+  %568 = extractelement <4 x i32> %500, i64 1
+  %569 = and i32 %568, 128
+  %570 = zext nneg i32 %569 to i64
+  %571 = or i64 %563, %570
+  br label %601
 
-575:                                              ; preds = %485, %485, %485
-  %576 = getelementptr inbounds nuw i8, ptr %492, i64 4
-  store i32 %494, ptr %492, align 4, !tbaa !19
-  %577 = getelementptr inbounds nuw i8, ptr %492, i64 8
-  store i32 %495, ptr %576, align 4, !tbaa !19
-  %578 = getelementptr inbounds nuw i8, ptr %492, i64 12
-  store i32 %496, ptr %577, align 4, !tbaa !19
-  %579 = getelementptr inbounds nuw i8, ptr %492, i64 16
-  store i32 %497, ptr %578, align 4, !tbaa !19
-  %580 = icmp eq i32 %491, -2147483644
-  %581 = select i1 %580, i32 -2147483641, i32 %491
-  br label %604
+572:                                              ; preds = %482, %482, %482
+  %573 = getelementptr inbounds nuw i8, ptr %489, i64 4
+  store i32 %491, ptr %489, align 4, !tbaa !19
+  %574 = getelementptr inbounds nuw i8, ptr %489, i64 8
+  store i32 %492, ptr %573, align 4, !tbaa !19
+  %575 = getelementptr inbounds nuw i8, ptr %489, i64 12
+  store i32 %493, ptr %574, align 4, !tbaa !19
+  %576 = getelementptr inbounds nuw i8, ptr %489, i64 16
+  store i32 %494, ptr %575, align 4, !tbaa !19
+  %577 = icmp eq i32 %488, -2147483644
+  %578 = select i1 %577, i32 -2147483641, i32 %488
+  br label %601
 
-582:                                              ; preds = %485
-  %583 = and i32 %495, 1
-  %584 = zext nneg i32 %583 to i64
-  %585 = shl nuw nsw i64 %584, 45
-  %586 = or i64 %585, %488
-  %587 = shl nuw nsw i64 %584, 32
-  %588 = shl i32 %495, 1
-  %589 = and i32 %588, 512
+579:                                              ; preds = %482
+  %580 = and i32 %492, 1
+  %581 = zext nneg i32 %580 to i64
+  %582 = shl nuw nsw i64 %581, 45
+  %583 = or i64 %582, %485
+  %584 = shl nuw nsw i64 %581, 32
+  %585 = shl i32 %492, 1
+  %586 = and i32 %585, 512
+  %587 = zext nneg i32 %586 to i64
+  %588 = lshr i32 %492, 9
+  %589 = and i32 %588, 1
   %590 = zext nneg i32 %589 to i64
-  %591 = lshr i32 %495, 9
-  %592 = and i32 %591, 1
-  %593 = zext nneg i32 %592 to i64
-  %594 = shl nuw nsw i64 %593, 61
-  %595 = or disjoint i64 %587, %590
-  %596 = or disjoint i64 %595, %594
-  %597 = or i64 %596, %489
-  br label %604
+  %591 = shl nuw nsw i64 %590, 61
+  %592 = or disjoint i64 %584, %587
+  %593 = or disjoint i64 %592, %591
+  %594 = or i64 %593, %486
+  br label %601
 
-598:                                              ; preds = %485
-  %599 = lshr i32 %494, 4
-  %600 = and i32 %599, 1
-  %601 = zext nneg i32 %600 to i64
-  %602 = shl nuw nsw i64 %601, 44
-  %603 = or i64 %602, %489
-  br label %604
+595:                                              ; preds = %482
+  %596 = lshr i32 %491, 4
+  %597 = and i32 %596, 1
+  %598 = zext nneg i32 %597 to i64
+  %599 = shl nuw nsw i64 %598, 44
+  %600 = or i64 %599, %486
+  br label %601
 
-604:                                              ; preds = %598, %582, %575, %570, %565, %498, %485
-  %605 = phi i64 [ %486, %485 ], [ %486, %598 ], [ %586, %582 ], [ %486, %575 ], [ %574, %570 ], [ %566, %565 ], [ %486, %498 ]
-  %606 = phi i64 [ %487, %485 ], [ %603, %598 ], [ %597, %582 ], [ %487, %575 ], [ %567, %570 ], [ %567, %565 ], [ %487, %498 ]
-  %607 = phi i64 [ %488, %485 ], [ %488, %598 ], [ %586, %582 ], [ %488, %575 ], [ %574, %570 ], [ %566, %565 ], [ %488, %498 ]
-  %608 = phi i64 [ %489, %485 ], [ %603, %598 ], [ %597, %582 ], [ %489, %575 ], [ %567, %570 ], [ %567, %565 ], [ %489, %498 ]
-  %609 = phi i32 [ %490, %485 ], [ %490, %598 ], [ %490, %582 ], [ %490, %575 ], [ %490, %570 ], [ %490, %565 ], [ %499, %498 ]
-  %610 = phi i32 [ %491, %485 ], [ -2147483617, %598 ], [ -2147483618, %582 ], [ %581, %575 ], [ -2147483647, %570 ], [ -2147483647, %565 ], [ -2147483648, %498 ]
-  %611 = phi ptr [ %492, %485 ], [ %492, %598 ], [ %492, %582 ], [ %579, %575 ], [ %492, %570 ], [ %492, %565 ], [ %492, %498 ]
-  %612 = add i32 %610, 1
-  %613 = icmp ugt i32 %612, %609
-  br i1 %613, label %614, label %485, !llvm.loop !24
+601:                                              ; preds = %595, %579, %572, %567, %562, %495, %482
+  %602 = phi i64 [ %483, %482 ], [ %483, %595 ], [ %583, %579 ], [ %483, %572 ], [ %571, %567 ], [ %563, %562 ], [ %483, %495 ]
+  %603 = phi i64 [ %484, %482 ], [ %600, %595 ], [ %594, %579 ], [ %484, %572 ], [ %564, %567 ], [ %564, %562 ], [ %484, %495 ]
+  %604 = phi i64 [ %485, %482 ], [ %485, %595 ], [ %583, %579 ], [ %485, %572 ], [ %571, %567 ], [ %563, %562 ], [ %485, %495 ]
+  %605 = phi i64 [ %486, %482 ], [ %600, %595 ], [ %594, %579 ], [ %486, %572 ], [ %564, %567 ], [ %564, %562 ], [ %486, %495 ]
+  %606 = phi i32 [ %487, %482 ], [ %487, %595 ], [ %487, %579 ], [ %487, %572 ], [ %487, %567 ], [ %487, %562 ], [ %496, %495 ]
+  %607 = phi i32 [ %488, %482 ], [ -2147483617, %595 ], [ -2147483618, %579 ], [ %578, %572 ], [ -2147483647, %567 ], [ -2147483647, %562 ], [ -2147483648, %495 ]
+  %608 = phi ptr [ %489, %482 ], [ %489, %595 ], [ %489, %579 ], [ %576, %572 ], [ %489, %567 ], [ %489, %562 ], [ %489, %495 ]
+  %609 = add i32 %607, 1
+  %610 = icmp ugt i32 %609, %606
+  br i1 %610, label %611, label %482, !llvm.loop !24
 
-614:                                              ; preds = %604
-  store i64 %606, ptr %7, align 8, !tbaa !21
-  store i64 %605, ptr %4, align 8, !tbaa !21
-  br label %615
+611:                                              ; preds = %601
+  store i64 %603, ptr %7, align 8, !tbaa !21
+  store i64 %602, ptr %4, align 8, !tbaa !21
+  br label %612
 
-615:                                              ; preds = %627, %614
-  %616 = phi ptr [ %630, %627 ], [ %484, %614 ]
-  %617 = phi ptr [ %628, %627 ], [ %484, %614 ]
-  %618 = phi i8 [ %629, %627 ], [ 0, %614 ]
-  %619 = load i8, ptr %616, align 1, !tbaa !26
-  store i8 0, ptr %616, align 1, !tbaa !26
-  switch i8 %619, label %625 [
-    i8 0, label %631
-    i8 32, label %620
+612:                                              ; preds = %624, %611
+  %613 = phi ptr [ %627, %624 ], [ %481, %611 ]
+  %614 = phi ptr [ %625, %624 ], [ %481, %611 ]
+  %615 = phi i8 [ %626, %624 ], [ 0, %611 ]
+  %616 = load i8, ptr %613, align 1, !tbaa !26
+  store i8 0, ptr %613, align 1, !tbaa !26
+  switch i8 %616, label %622 [
+    i8 0, label %628
+    i8 32, label %617
   ]
 
-620:                                              ; preds = %615
-  %621 = icmp eq i8 %618, 64
-  br i1 %621, label %627, label %622
+617:                                              ; preds = %612
+  %618 = icmp eq i8 %615, 64
+  br i1 %618, label %624, label %619
 
-622:                                              ; preds = %620
-  %623 = getelementptr inbounds nuw i8, ptr %616, i64 1
-  %624 = load i8, ptr %623, align 1, !tbaa !26
-  switch i8 %624, label %625 [
-    i8 32, label %627
-    i8 64, label %627
+619:                                              ; preds = %617
+  %620 = getelementptr inbounds nuw i8, ptr %613, i64 1
+  %621 = load i8, ptr %620, align 1, !tbaa !26
+  switch i8 %621, label %622 [
+    i8 32, label %624
+    i8 64, label %624
   ]
 
-625:                                              ; preds = %622, %615
-  %626 = getelementptr inbounds nuw i8, ptr %617, i64 1
-  store i8 %619, ptr %617, align 1, !tbaa !26
-  br label %627
+622:                                              ; preds = %619, %612
+  %623 = getelementptr inbounds nuw i8, ptr %614, i64 1
+  store i8 %616, ptr %614, align 1, !tbaa !26
+  br label %624
 
-627:                                              ; preds = %625, %622, %622, %620
-  %628 = phi ptr [ %617, %620 ], [ %617, %622 ], [ %626, %625 ], [ %617, %622 ]
-  %629 = phi i8 [ 64, %620 ], [ %618, %622 ], [ %619, %625 ], [ %618, %622 ]
-  %630 = getelementptr inbounds nuw i8, ptr %616, i64 1
-  br label %615, !llvm.loop !27
+624:                                              ; preds = %622, %619, %619, %617
+  %625 = phi ptr [ %614, %617 ], [ %614, %619 ], [ %623, %622 ], [ %614, %619 ]
+  %626 = phi i8 [ 64, %617 ], [ %615, %619 ], [ %616, %622 ], [ %615, %619 ]
+  %627 = getelementptr inbounds nuw i8, ptr %613, i64 1
+  br label %612, !llvm.loop !27
 
-631:                                              ; preds = %615
-  store i8 0, ptr %617, align 1, !tbaa !26
-  %632 = tail call i64 @sysconf(i32 noundef 84) #7
-  %633 = tail call i64 @llvm.smax.i64(i64 %632, i64 1)
-  %634 = trunc i64 %633 to i32
-  %635 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %634, ptr %635, align 8, !tbaa !28
+628:                                              ; preds = %612
+  store i8 0, ptr %614, align 1, !tbaa !26
+  %629 = tail call i64 @sysconf(i32 noundef 84) #7
+  %630 = tail call i64 @llvm.smax.i64(i64 %629, i64 1)
+  %631 = trunc i64 %630 to i32
+  %632 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 %631, ptr %632, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) @_ZN6asmjit9_abi_1_10L13cpuInfoGlobalE, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 152, i1 false), !tbaa.struct !29
   store i1 true, ptr @_ZN6asmjit9_abi_1_10L18cpuInfoInitializedE, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %636
+  br label %633
 
-636:                                              ; preds = %631, %0
+633:                                              ; preds = %628, %0
   ret ptr @_ZN6asmjit9_abi_1_10L13cpuInfoGlobalE
 }
 

@@ -992,24 +992,24 @@ lbmpdm_definition_field_add.exit.thread.i:        ; preds = %lbmpdm_definition_f
   %385 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %353, i32 noundef %24)
   %386 = getelementptr inbounds nuw i8, ptr %.0.i281286.i, i64 18
   store i16 %385, ptr %386, align 2
-  %387 = icmp ult i16 %385, 38
-  br i1 %387, label %switch.lookup, label %389
+  %387 = getelementptr inbounds nuw i8, ptr %.0.i281286.i, i64 20
+  %388 = icmp ult i16 %385, 38
+  br i1 %388, label %switch.lookup, label %390
 
 switch.lookup:                                    ; preds = %383
-  %388 = zext nneg i16 %385 to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.lbmpdm_dissect_lbmpdm_payload, i64 %388
+  %389 = zext nneg i16 %385 to i64
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.lbmpdm_dissect_lbmpdm_payload, i64 %389
   %switch.load = load i16, ptr %switch.gep, align 2
-  br label %389
+  br label %390
 
-389:                                              ; preds = %383, %switch.lookup
+390:                                              ; preds = %383, %switch.lookup
   %.sink301.i = phi i16 [ %switch.load, %switch.lookup ], [ 17, %383 ]
-  %390 = getelementptr inbounds nuw i8, ptr %.0.i281286.i, i64 20
-  store i16 %.sink301.i, ptr %390, align 4
+  store i16 %.sink301.i, ptr %387, align 4
   %391 = load i8, ptr %374, align 1
   %392 = icmp eq i8 %391, 1
   br i1 %392, label %393, label %410
 
-393:                                              ; preds = %389
+393:                                              ; preds = %390
   %394 = load i8, ptr %372, align 8
   %395 = icmp eq i8 %394, 1
   br i1 %395, label %396, label %410
@@ -1041,8 +1041,8 @@ switch.lookup:                                    ; preds = %383
   store i32 %409, ptr %306, align 4
   br label %410
 
-410:                                              ; preds = %406, %393, %389, %lbmpdm_definition_field_add.exit.i, %355, %351
-  %.1269.i = phi ptr [ %.0268290.i, %351 ], [ %.0.i281286.i, %406 ], [ %.0268290.i, %393 ], [ %.0268290.i, %389 ], [ %.0268290.i, %lbmpdm_definition_field_add.exit.i ], [ %.0268290.i, %355 ]
+410:                                              ; preds = %406, %393, %390, %lbmpdm_definition_field_add.exit.i, %355, %351
+  %.1269.i = phi ptr [ %.0268290.i, %351 ], [ %.0.i281286.i, %406 ], [ %.0268290.i, %393 ], [ %.0268290.i, %390 ], [ %.0268290.i, %lbmpdm_definition_field_add.exit.i ], [ %.0268290.i, %355 ]
   %411 = add i32 %.0267.i, %.0274288.i
   %412 = sub i32 %.0283287.i, %.0267.i
   %413 = add i32 %.0272289.i, -1

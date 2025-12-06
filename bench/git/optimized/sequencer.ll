@@ -13408,7 +13408,7 @@ todo_list_add_update_ref_commands.exit:           ; preds = %._crit_edge.i67
   %173 = load ptr, ptr %18, align 8, !tbaa !285
   call void @free(ptr noundef %173) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %493
+  br label %490
 
 174:                                              ; preds = %todo_list_add_update_ref_commands.exit.thread, %55
   %.not56 = icmp eq i32 %8, 0
@@ -13417,7 +13417,7 @@ todo_list_add_update_ref_commands.exit:           ; preds = %._crit_edge.i67
 175:                                              ; preds = %174
   %176 = call i32 @todo_list_rearrange_squash(ptr noundef nonnull %10)
   %.not57 = icmp eq i32 %176, 0
-  br i1 %.not57, label %177, label %493
+  br i1 %.not57, label %177, label %490
 
 177:                                              ; preds = %175, %174
   %178 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -13428,7 +13428,7 @@ todo_list_add_update_ref_commands.exit:           ; preds = %._crit_edge.i67
 ._crit_edge:                                      ; preds = %177
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !119
-  br label %289
+  br label %286
 
 180:                                              ; preds = %177
   %181 = load i64, ptr %30, align 8, !tbaa !33
@@ -13503,7 +13503,7 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   br i1 %210, label %189, label %.preheader.i, !llvm.loop !293
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.lr.ph155.i
-  %indvars.iv165.i = phi i64 [ 0, %.lr.ph155.i ], [ %indvars.iv165.i.be, %.backedge.i.backedge ]
+  %indvars.iv165.i = phi i64 [ 0, %.lr.ph155.i ], [ %indvars.iv.next166.i, %.backedge.i.backedge ]
   %.091153.i = phi ptr [ null, %.lr.ph155.i ], [ %.3.i, %.backedge.i.backedge ]
   %.093152.i = phi i32 [ 0, %.lr.ph155.i ], [ %.598.i, %.backedge.i.backedge ]
   %.099151.i = phi i32 [ 0, %.lr.ph155.i ], [ %242, %.backedge.i.backedge ]
@@ -13613,273 +13613,268 @@ st_mult.exit117.i:                                ; preds = %243
   %254 = load ptr, ptr %188, align 8, !tbaa !111
   %255 = getelementptr inbounds nuw %struct.todo_item, ptr %254, i64 %indvars.iv165.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %253, ptr noundef nonnull align 8 dereferenceable(40) %255, i64 40, i1 false), !tbaa.struct !287
-  switch i32 %213, label %256 [
+  %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 1
+  %256 = load i32, ptr %185, align 8, !tbaa !119
+  %257 = sext i32 %256 to i64
+  %258 = icmp slt i64 %indvars.iv.next166.i, %257
+  switch i32 %213, label %259 [
     i32 10, label %.thread.i
     i32 0, label %.thread.i
   ]
 
-256:                                              ; preds = %251
-  %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 1
-  %257 = load i32, ptr %185, align 8, !tbaa !119
-  %258 = sext i32 %257 to i64
-  %259 = icmp slt i64 %indvars.iv.next166.i, %258
-  br i1 %259, label %.backedge.i.backedge, label %._crit_edge.i79
+259:                                              ; preds = %251
+  br i1 %258, label %.backedge.i.backedge, label %._crit_edge.i79
 
 .thread.i:                                        ; preds = %251, %251
-  %indvars.iv.next166181.i = add nuw nsw i64 %indvars.iv165.i, 1
-  %260 = load i32, ptr %185, align 8, !tbaa !119
-  %261 = sext i32 %260 to i64
-  %262 = icmp slt i64 %indvars.iv.next166181.i, %261
-  br i1 %262, label %.backedge.i.backedge, label %._crit_edge.thread183.i
+  br i1 %258, label %.backedge.i.backedge, label %._crit_edge.thread183.i
 
-.backedge.i.backedge:                             ; preds = %.thread.i, %256
-  %indvars.iv165.i.be = phi i64 [ %indvars.iv.next166.i, %256 ], [ %indvars.iv.next166181.i, %.thread.i ]
-  %.0102150.i.be = phi i32 [ %.1103.i, %256 ], [ 1, %.thread.i ]
+.backedge.i.backedge:                             ; preds = %.thread.i, %259
+  %.0102150.i.be = phi i32 [ 1, %.thread.i ], [ %.1103.i, %259 ]
   br label %.backedge.i, !llvm.loop !294
 
-._crit_edge.i79:                                  ; preds = %256
+._crit_edge.i79:                                  ; preds = %259
   br i1 %241, label %todo_list_add_exec_commands.exit, label %._crit_edge.thread183.i
 
 ._crit_edge.thread183.i:                          ; preds = %.thread.i, %._crit_edge.i79
-  %263 = sext i32 %242 to i64
-  %264 = load i64, ptr %178, align 8, !tbaa !58
-  %265 = add i64 %264, %263
-  %266 = sext i32 %.598.i to i64
-  %267 = icmp ugt i64 %265, %266
-  br i1 %267, label %268, label %277
+  %260 = sext i32 %242 to i64
+  %261 = load i64, ptr %178, align 8, !tbaa !58
+  %262 = add i64 %261, %260
+  %263 = sext i32 %.598.i to i64
+  %264 = icmp ugt i64 %262, %263
+  br i1 %264, label %265, label %274
 
-268:                                              ; preds = %._crit_edge.thread183.i
-  %269 = mul i32 %.598.i, 3
-  %270 = add i32 %269, 48
-  %271 = sdiv i32 %270, 2
-  %272 = sext i32 %271 to i64
-  %.7126.i = call i64 @llvm.umax.i64(i64 %265, i64 %272)
+265:                                              ; preds = %._crit_edge.thread183.i
+  %266 = mul i32 %.598.i, 3
+  %267 = add i32 %266, 48
+  %268 = sdiv i32 %267, 2
+  %269 = sext i32 %268 to i64
+  %.7126.i = call i64 @llvm.umax.i64(i64 %262, i64 %269)
   %sext.i = shl i64 %.7126.i, 32
-  %273 = ashr exact i64 %sext.i, 32
-  %mul.ov.i119.i = icmp ugt i64 %273, 461168601842738790
-  br i1 %mul.ov.i119.i, label %274, label %st_mult.exit120.i
+  %270 = ashr exact i64 %sext.i, 32
+  %mul.ov.i119.i = icmp ugt i64 %270, 461168601842738790
+  br i1 %mul.ov.i119.i, label %271, label %st_mult.exit120.i
 
-274:                                              ; preds = %268
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.469, i64 noundef 40, i64 noundef %273) #22
+271:                                              ; preds = %265
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.469, i64 noundef 40, i64 noundef %270) #22
   unreachable
 
-st_mult.exit120.i:                                ; preds = %268
+st_mult.exit120.i:                                ; preds = %265
   %.7.i = trunc i64 %.7126.i to i32
-  %275 = mul nuw nsw i64 %273, 40
-  %276 = call ptr @xrealloc(ptr noundef nonnull %.3.i, i64 noundef %275) #20
+  %272 = mul nuw nsw i64 %270, 40
+  %273 = call ptr @xrealloc(ptr noundef nonnull %.3.i, i64 noundef %272) #20
   %.pr125.i = load i64, ptr %178, align 8, !tbaa !58
-  br label %277
+  br label %274
 
-277:                                              ; preds = %st_mult.exit120.i, %._crit_edge.thread183.i
-  %278 = phi i64 [ %.pr125.i, %st_mult.exit120.i ], [ %264, %._crit_edge.thread183.i ]
+274:                                              ; preds = %st_mult.exit120.i, %._crit_edge.thread183.i
+  %275 = phi i64 [ %.pr125.i, %st_mult.exit120.i ], [ %261, %._crit_edge.thread183.i ]
   %.8.i = phi i32 [ %.7.i, %st_mult.exit120.i ], [ %.598.i, %._crit_edge.thread183.i ]
-  %.5.i = phi ptr [ %276, %st_mult.exit120.i ], [ %.3.i, %._crit_edge.thread183.i ]
-  %279 = getelementptr inbounds %struct.todo_item, ptr %.5.i, i64 %263
-  %.not.i121.i = icmp eq i64 %278, 0
-  br i1 %.not.i121.i, label %copy_array.exit124.i, label %280
+  %.5.i = phi ptr [ %273, %st_mult.exit120.i ], [ %.3.i, %._crit_edge.thread183.i ]
+  %276 = getelementptr inbounds %struct.todo_item, ptr %.5.i, i64 %260
+  %.not.i121.i = icmp eq i64 %275, 0
+  br i1 %.not.i121.i, label %copy_array.exit124.i, label %277
 
-280:                                              ; preds = %277
-  %mul.ov.i.i122.i = icmp ugt i64 %278, 461168601842738790
-  br i1 %mul.ov.i.i122.i, label %281, label %st_mult.exit.i123.i
+277:                                              ; preds = %274
+  %mul.ov.i.i122.i = icmp ugt i64 %275, 461168601842738790
+  br i1 %mul.ov.i.i122.i, label %278, label %st_mult.exit.i123.i
 
-281:                                              ; preds = %280
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.469, i64 noundef 40, i64 noundef %278) #22
+278:                                              ; preds = %277
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.469, i64 noundef 40, i64 noundef %275) #22
   unreachable
 
-st_mult.exit.i123.i:                              ; preds = %280
-  %282 = mul nuw i64 %278, 40
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %279, ptr readonly align 1 %182, i64 %282, i1 false)
+st_mult.exit.i123.i:                              ; preds = %277
+  %279 = mul nuw i64 %275, 40
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %276, ptr readonly align 1 %182, i64 %279, i1 false)
   %.pre168.i = load i64, ptr %178, align 8, !tbaa !58
-  %283 = trunc i64 %.pre168.i to i32
+  %280 = trunc i64 %.pre168.i to i32
   br label %copy_array.exit124.i
 
-copy_array.exit124.i:                             ; preds = %st_mult.exit.i123.i, %277
-  %284 = phi i32 [ 0, %277 ], [ %283, %st_mult.exit.i123.i ]
-  %285 = add i32 %284, %242
+copy_array.exit124.i:                             ; preds = %st_mult.exit.i123.i, %274
+  %281 = phi i32 [ 0, %274 ], [ %280, %st_mult.exit.i123.i ]
+  %282 = add i32 %281, %242
   br label %todo_list_add_exec_commands.exit
 
 todo_list_add_exec_commands.exit:                 ; preds = %.preheader.i, %._crit_edge.i79, %copy_array.exit124.i
-  %.2101.i = phi i32 [ %285, %copy_array.exit124.i ], [ %242, %._crit_edge.i79 ], [ 0, %.preheader.i ]
+  %.2101.i = phi i32 [ %282, %copy_array.exit124.i ], [ %242, %._crit_edge.i79 ], [ 0, %.preheader.i ]
   %.6.i = phi i32 [ %.8.i, %copy_array.exit124.i ], [ %.598.i, %._crit_edge.i79 ], [ 0, %.preheader.i ]
   %.4.i = phi ptr [ %.5.i, %copy_array.exit124.i ], [ %.3.i, %._crit_edge.i79 ], [ null, %.preheader.i ]
   call void @free(ptr noundef %182) #20
-  %286 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %287 = load ptr, ptr %286, align 8, !tbaa !111
-  call void @free(ptr noundef %287) #20
-  store ptr %.4.i, ptr %286, align 8, !tbaa !111
+  %283 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %284 = load ptr, ptr %283, align 8, !tbaa !111
+  call void @free(ptr noundef %284) #20
+  store ptr %.4.i, ptr %283, align 8, !tbaa !111
   store i32 %.2101.i, ptr %185, align 8, !tbaa !119
-  %288 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i32 %.6.i, ptr %288, align 4, !tbaa !121
-  br label %289
+  %285 = getelementptr inbounds nuw i8, ptr %10, i64 36
+  store i32 %.6.i, ptr %285, align 4, !tbaa !121
+  br label %286
 
-289:                                              ; preds = %._crit_edge, %todo_list_add_exec_commands.exit
-  %290 = phi i32 [ %.pre, %._crit_edge ], [ %.2101.i, %todo_list_add_exec_commands.exit ]
-  %291 = icmp sgt i32 %290, 0
-  br i1 %291, label %.lr.ph.i84, label %count_commands.exit.thread
+286:                                              ; preds = %._crit_edge, %todo_list_add_exec_commands.exit
+  %287 = phi i32 [ %.pre, %._crit_edge ], [ %.2101.i, %todo_list_add_exec_commands.exit ]
+  %288 = icmp sgt i32 %287, 0
+  br i1 %288, label %.lr.ph.i84, label %count_commands.exit.thread
 
-.lr.ph.i84:                                       ; preds = %289
-  %292 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %293 = load ptr, ptr %292, align 8, !tbaa !111
-  %wide.trip.count.i = zext nneg i32 %290 to i64
-  br label %294
+.lr.ph.i84:                                       ; preds = %286
+  %289 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %290 = load ptr, ptr %289, align 8, !tbaa !111
+  %wide.trip.count.i = zext nneg i32 %287 to i64
+  br label %291
 
-294:                                              ; preds = %294, %.lr.ph.i84
-  %indvars.iv.i85 = phi i64 [ 0, %.lr.ph.i84 ], [ %indvars.iv.next.i87, %294 ]
-  %.067.i = phi i32 [ 0, %.lr.ph.i84 ], [ %spec.select.i, %294 ]
-  %295 = getelementptr inbounds nuw %struct.todo_item, ptr %293, i64 %indvars.iv.i85
-  %296 = load i32, ptr %295, align 8, !tbaa !124
-  %.not.i86 = icmp ne i32 %296, 14
-  %297 = zext i1 %.not.i86 to i32
-  %spec.select.i = add nuw nsw i32 %.067.i, %297
+291:                                              ; preds = %291, %.lr.ph.i84
+  %indvars.iv.i85 = phi i64 [ 0, %.lr.ph.i84 ], [ %indvars.iv.next.i87, %291 ]
+  %.067.i = phi i32 [ 0, %.lr.ph.i84 ], [ %spec.select.i, %291 ]
+  %292 = getelementptr inbounds nuw %struct.todo_item, ptr %290, i64 %indvars.iv.i85
+  %293 = load i32, ptr %292, align 8, !tbaa !124
+  %.not.i86 = icmp ne i32 %293, 14
+  %294 = zext i1 %.not.i86 to i32
+  %spec.select.i = add nuw nsw i32 %.067.i, %294
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i85, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %count_commands.exit, label %294, !llvm.loop !192
+  br i1 %exitcond.not.i, label %count_commands.exit, label %291, !llvm.loop !192
 
-count_commands.exit:                              ; preds = %294
-  %298 = icmp eq i32 %spec.select.i, 0
-  br i1 %298, label %count_commands.exit.thread, label %314
+count_commands.exit:                              ; preds = %291
+  %295 = icmp eq i32 %spec.select.i, 0
+  br i1 %295, label %count_commands.exit.thread, label %311
 
-count_commands.exit.thread:                       ; preds = %289, %count_commands.exit
-  %299 = load ptr, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
-  %.not.i88 = icmp eq ptr %299, null
-  br i1 %.not.i88, label %300, label %rebase_path_autostash.exit
+count_commands.exit.thread:                       ; preds = %286, %count_commands.exit
+  %296 = load ptr, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
+  %.not.i88 = icmp eq ptr %296, null
+  br i1 %.not.i88, label %297, label %rebase_path_autostash.exit
 
-300:                                              ; preds = %count_commands.exit.thread
-  %301 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.463)
-  store ptr %301, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
+297:                                              ; preds = %count_commands.exit.thread
+  %298 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.463)
+  store ptr %298, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
   br label %rebase_path_autostash.exit
 
-rebase_path_autostash.exit:                       ; preds = %count_commands.exit.thread, %300
-  %302 = phi ptr [ %301, %300 ], [ %299, %count_commands.exit.thread ]
+rebase_path_autostash.exit:                       ; preds = %count_commands.exit.thread, %297
+  %299 = phi ptr [ %298, %297 ], [ %296, %count_commands.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) @__const.make_script_with_merges.label_from_message, i64 24, i1 false)
-  %303 = call i32 @read_oneliner(ptr noundef nonnull %17, ptr noundef %302, i32 noundef 1)
-  %.not.i.i89 = icmp eq i32 %303, 0
-  br i1 %.not.i.i89, label %apply_autostash.exit, label %304
+  %300 = call i32 @read_oneliner(ptr noundef nonnull %17, ptr noundef %299, i32 noundef 1)
+  %.not.i.i89 = icmp eq i32 %300, 0
+  br i1 %.not.i.i89, label %apply_autostash.exit, label %301
 
-304:                                              ; preds = %rebase_path_autostash.exit
+301:                                              ; preds = %rebase_path_autostash.exit
   call void @strbuf_trim(ptr noundef nonnull %17) #20
-  %305 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %306 = load ptr, ptr %305, align 8, !tbaa !31
-  %307 = call fastcc i32 @apply_save_autostash_oid(ptr noundef %306, i32 noundef 1)
-  %308 = call i32 @unlink(ptr noundef %302) #20
+  %302 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %303 = load ptr, ptr %302, align 8, !tbaa !31
+  %304 = call fastcc i32 @apply_save_autostash_oid(ptr noundef %303, i32 noundef 1)
+  %305 = call i32 @unlink(ptr noundef %299) #20
   br label %apply_autostash.exit
 
-apply_autostash.exit:                             ; preds = %rebase_path_autostash.exit, %304
+apply_autostash.exit:                             ; preds = %rebase_path_autostash.exit, %301
   call void @strbuf_release(ptr noundef nonnull %17) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %309 = call i32 @sequencer_remove_state(ptr noundef %1)
-  %310 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
-  %.not4.i = icmp eq i32 %310, 0
-  br i1 %.not4.i, label %_.exit, label %311
+  %306 = call i32 @sequencer_remove_state(ptr noundef %1)
+  %307 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
+  %.not4.i = icmp eq i32 %307, 0
+  br i1 %.not4.i, label %_.exit, label %308
 
-311:                                              ; preds = %apply_autostash.exit
-  %312 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef 5) #20
+308:                                              ; preds = %apply_autostash.exit
+  %309 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef 5) #20
   br label %_.exit
 
-_.exit:                                           ; preds = %apply_autostash.exit, %311
-  %.0.i = phi ptr [ %312, %311 ], [ @.str.96, %apply_autostash.exit ]
-  %313 = call i32 (ptr, ...) @error(ptr noundef %.0.i) #20
-  br label %493
+_.exit:                                           ; preds = %apply_autostash.exit, %308
+  %.0.i = phi ptr [ %309, %308 ], [ @.str.96, %apply_autostash.exit ]
+  %310 = call i32 (ptr, ...) @error(ptr noundef %.0.i) #20
+  br label %490
 
-314:                                              ; preds = %count_commands.exit
-  %315 = call i32 @edit_todo_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %20, ptr noundef %3, ptr noundef nonnull %19, i32 noundef %2) #20
-  switch i32 %315, label %350 [
-    i32 -1, label %493
-    i32 -2, label %316
-    i32 -3, label %328
-    i32 -4, label %346
+311:                                              ; preds = %count_commands.exit
+  %312 = call i32 @edit_todo_list(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %20, ptr noundef %3, ptr noundef nonnull %19, i32 noundef %2) #20
+  switch i32 %312, label %347 [
+    i32 -1, label %490
+    i32 -2, label %313
+    i32 -3, label %325
+    i32 -4, label %343
   ]
 
-316:                                              ; preds = %314
-  %317 = load ptr, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
-  %.not.i90 = icmp eq ptr %317, null
-  br i1 %.not.i90, label %318, label %rebase_path_autostash.exit91
+313:                                              ; preds = %311
+  %314 = load ptr, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
+  %.not.i90 = icmp eq ptr %314, null
+  br i1 %.not.i90, label %315, label %rebase_path_autostash.exit91
 
-318:                                              ; preds = %316
-  %319 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.463)
-  store ptr %319, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
+315:                                              ; preds = %313
+  %316 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.463)
+  store ptr %316, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
   br label %rebase_path_autostash.exit91
 
-rebase_path_autostash.exit91:                     ; preds = %316, %318
-  %320 = phi ptr [ %319, %318 ], [ %317, %316 ]
+rebase_path_autostash.exit91:                     ; preds = %313, %315
+  %317 = phi ptr [ %316, %315 ], [ %314, %313 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) @__const.make_script_with_merges.label_from_message, i64 24, i1 false)
-  %321 = call i32 @read_oneliner(ptr noundef nonnull %16, ptr noundef %320, i32 noundef 1)
-  %.not.i.i92 = icmp eq i32 %321, 0
-  br i1 %.not.i.i92, label %apply_autostash.exit94, label %322
+  %318 = call i32 @read_oneliner(ptr noundef nonnull %16, ptr noundef %317, i32 noundef 1)
+  %.not.i.i92 = icmp eq i32 %318, 0
+  br i1 %.not.i.i92, label %apply_autostash.exit94, label %319
 
-322:                                              ; preds = %rebase_path_autostash.exit91
+319:                                              ; preds = %rebase_path_autostash.exit91
   call void @strbuf_trim(ptr noundef nonnull %16) #20
-  %323 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %324 = load ptr, ptr %323, align 8, !tbaa !31
-  %325 = call fastcc i32 @apply_save_autostash_oid(ptr noundef %324, i32 noundef 1)
-  %326 = call i32 @unlink(ptr noundef %320) #20
+  %320 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %321 = load ptr, ptr %320, align 8, !tbaa !31
+  %322 = call fastcc i32 @apply_save_autostash_oid(ptr noundef %321, i32 noundef 1)
+  %323 = call i32 @unlink(ptr noundef %317) #20
   br label %apply_autostash.exit94
 
-apply_autostash.exit94:                           ; preds = %rebase_path_autostash.exit91, %322
+apply_autostash.exit94:                           ; preds = %rebase_path_autostash.exit91, %319
   call void @strbuf_release(ptr noundef nonnull %16) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %327 = call i32 @sequencer_remove_state(ptr noundef %1)
-  br label %493
+  %324 = call i32 @sequencer_remove_state(ptr noundef %1)
+  br label %490
 
-328:                                              ; preds = %314
-  %329 = load ptr, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
-  %.not.i95 = icmp eq ptr %329, null
-  br i1 %.not.i95, label %330, label %rebase_path_autostash.exit96
+325:                                              ; preds = %311
+  %326 = load ptr, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
+  %.not.i95 = icmp eq ptr %326, null
+  br i1 %.not.i95, label %327, label %rebase_path_autostash.exit96
 
-330:                                              ; preds = %328
-  %331 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.463)
-  store ptr %331, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
+327:                                              ; preds = %325
+  %328 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.463)
+  store ptr %328, ptr @rebase_path_autostash.ret, align 8, !tbaa !4
   br label %rebase_path_autostash.exit96
 
-rebase_path_autostash.exit96:                     ; preds = %328, %330
-  %332 = phi ptr [ %331, %330 ], [ %329, %328 ]
+rebase_path_autostash.exit96:                     ; preds = %325, %327
+  %329 = phi ptr [ %328, %327 ], [ %326, %325 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) @__const.make_script_with_merges.label_from_message, i64 24, i1 false)
-  %333 = call i32 @read_oneliner(ptr noundef nonnull %15, ptr noundef %332, i32 noundef 1)
-  %.not.i.i97 = icmp eq i32 %333, 0
-  br i1 %.not.i.i97, label %apply_autostash.exit99, label %334
+  %330 = call i32 @read_oneliner(ptr noundef nonnull %15, ptr noundef %329, i32 noundef 1)
+  %.not.i.i97 = icmp eq i32 %330, 0
+  br i1 %.not.i.i97, label %apply_autostash.exit99, label %331
 
-334:                                              ; preds = %rebase_path_autostash.exit96
+331:                                              ; preds = %rebase_path_autostash.exit96
   call void @strbuf_trim(ptr noundef nonnull %15) #20
-  %335 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %336 = load ptr, ptr %335, align 8, !tbaa !31
-  %337 = call fastcc i32 @apply_save_autostash_oid(ptr noundef %336, i32 noundef 1)
-  %338 = call i32 @unlink(ptr noundef %332) #20
+  %332 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %333 = load ptr, ptr %332, align 8, !tbaa !31
+  %334 = call fastcc i32 @apply_save_autostash_oid(ptr noundef %333, i32 noundef 1)
+  %335 = call i32 @unlink(ptr noundef %329) #20
   br label %apply_autostash.exit99
 
-apply_autostash.exit99:                           ; preds = %rebase_path_autostash.exit96, %334
+apply_autostash.exit99:                           ; preds = %rebase_path_autostash.exit96, %331
   call void @strbuf_release(ptr noundef nonnull %15) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %339 = call i32 @sequencer_remove_state(ptr noundef %1)
+  %336 = call i32 @sequencer_remove_state(ptr noundef %1)
   call void @strbuf_release(ptr noundef nonnull %20) #20
-  %340 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %341 = load ptr, ptr %340, align 8, !tbaa !111
-  call void @free(ptr noundef %341) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %340, i8 0, i64 16, i1 false)
-  %342 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
-  %.not4.i100 = icmp eq i32 %342, 0
-  br i1 %.not4.i100, label %_.exit102, label %343
+  %337 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %338 = load ptr, ptr %337, align 8, !tbaa !111
+  call void @free(ptr noundef %338) #20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %337, i8 0, i64 16, i1 false)
+  %339 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
+  %.not4.i100 = icmp eq i32 %339, 0
+  br i1 %.not4.i100, label %_.exit102, label %340
 
-343:                                              ; preds = %apply_autostash.exit99
-  %344 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef 5) #20
+340:                                              ; preds = %apply_autostash.exit99
+  %341 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef 5) #20
   br label %_.exit102
 
-_.exit102:                                        ; preds = %apply_autostash.exit99, %343
-  %.0.i101 = phi ptr [ %344, %343 ], [ @.str.96, %apply_autostash.exit99 ]
-  %345 = call i32 (ptr, ...) @error(ptr noundef %.0.i101) #20
-  br label %493
+_.exit102:                                        ; preds = %apply_autostash.exit99, %340
+  %.0.i101 = phi ptr [ %341, %340 ], [ @.str.96, %apply_autostash.exit99 ]
+  %342 = call i32 (ptr, ...) @error(ptr noundef %.0.i101) #20
+  br label %490
 
-346:                                              ; preds = %314
-  %347 = call fastcc i32 @checkout_onto(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %27, ptr noundef %6)
+343:                                              ; preds = %311
+  %344 = call fastcc i32 @checkout_onto(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %27, ptr noundef %6)
   call void @strbuf_release(ptr noundef nonnull %20) #20
-  %348 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %349 = load ptr, ptr %348, align 8, !tbaa !111
-  call void @free(ptr noundef %349) #20
-  br label %493
+  %345 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %346 = load ptr, ptr %345, align 8, !tbaa !111
+  call void @free(ptr noundef %346) #20
+  br label %490
 
-350:                                              ; preds = %314
+347:                                              ; preds = %311
   call fastcc void @todo_list_to_strbuf(ptr noundef %0, ptr noundef nonnull %20, ptr noundef %21, i32 noundef -1, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
@@ -13887,355 +13882,355 @@ _.exit102:                                        ; preds = %apply_autostash.exi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 16 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @strbuf_release(ptr noundef nonnull %21) #20
-  %351 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  store i32 0, ptr %351, align 8, !tbaa !118
-  %352 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %353 = load ptr, ptr %352, align 8, !tbaa !114
-  %354 = call i32 @todo_list_parse_insn_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %353, ptr noundef nonnull %20)
-  %355 = icmp slt i32 %354, 0
-  br i1 %355, label %356, label %358
+  %348 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  store i32 0, ptr %348, align 8, !tbaa !118
+  %349 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %350 = load ptr, ptr %349, align 8, !tbaa !114
+  %351 = call i32 @todo_list_parse_insn_buffer(ptr noundef %0, ptr noundef %1, ptr noundef %350, ptr noundef nonnull %20)
+  %352 = icmp slt i32 %351, 0
+  br i1 %352, label %353, label %355
 
-356:                                              ; preds = %350
-  %357 = load ptr, ptr %352, align 8, !tbaa !114
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.71, i32 noundef 6536, ptr noundef nonnull @.str.97, ptr noundef %357) #22
+353:                                              ; preds = %347
+  %354 = load ptr, ptr %349, align 8, !tbaa !114
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.71, i32 noundef 6536, ptr noundef nonnull @.str.97, ptr noundef %354) #22
   unreachable
 
-358:                                              ; preds = %350
-  %359 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %360 = load i32, ptr %359, align 4, !tbaa !168
-  %.not59 = icmp eq i32 %360, 0
-  br i1 %.not59, label %skip_unnecessary_picks.exit.thread, label %361
+355:                                              ; preds = %347
+  %356 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %357 = load i32, ptr %356, align 4, !tbaa !168
+  %.not59 = icmp eq i32 %357, 0
+  br i1 %.not59, label %skip_unnecessary_picks.exit.thread, label %358
 
-361:                                              ; preds = %358
-  %362 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %363 = load i32, ptr %362, align 8, !tbaa !119
-  %364 = icmp sgt i32 %363, 0
-  br i1 %364, label %.lr.ph.i104, label %skip_unnecessary_picks.exit.thread
+358:                                              ; preds = %355
+  %359 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %360 = load i32, ptr %359, align 8, !tbaa !119
+  %361 = icmp sgt i32 %360, 0
+  br i1 %361, label %.lr.ph.i104, label %skip_unnecessary_picks.exit.thread
 
-.lr.ph.i104:                                      ; preds = %361
-  %365 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %366 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  br label %367
+.lr.ph.i104:                                      ; preds = %358
+  %362 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %363 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  br label %364
 
-367:                                              ; preds = %401, %.lr.ph.i104
-  %368 = phi i32 [ %363, %.lr.ph.i104 ], [ %402, %401 ]
-  %indvars.iv.i105 = phi i64 [ 0, %.lr.ph.i104 ], [ %indvars.iv.next.i115, %401 ]
-  %369 = load ptr, ptr %365, align 8, !tbaa !111
-  %370 = getelementptr inbounds nuw %struct.todo_item, ptr %369, i64 %indvars.iv.i105
-  %371 = load i32, ptr %370, align 8, !tbaa !124
-  %372 = icmp ugt i32 %371, 11
-  br i1 %372, label %401, label %373
+364:                                              ; preds = %398, %.lr.ph.i104
+  %365 = phi i32 [ %360, %.lr.ph.i104 ], [ %399, %398 ]
+  %indvars.iv.i105 = phi i64 [ 0, %.lr.ph.i104 ], [ %indvars.iv.next.i115, %398 ]
+  %366 = load ptr, ptr %362, align 8, !tbaa !111
+  %367 = getelementptr inbounds nuw %struct.todo_item, ptr %366, i64 %indvars.iv.i105
+  %368 = load i32, ptr %367, align 8, !tbaa !124
+  %369 = icmp ugt i32 %368, 11
+  br i1 %369, label %398, label %370
 
-373:                                              ; preds = %367
-  %.not.i106 = icmp eq i32 %371, 0
-  br i1 %.not.i106, label %374, label %.thread.i107
+370:                                              ; preds = %364
+  %.not.i106 = icmp eq i32 %368, 0
+  br i1 %.not.i106, label %371, label %.thread.i107
 
-374:                                              ; preds = %373
-  %375 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  %376 = load ptr, ptr %375, align 8, !tbaa !125
-  %377 = call i32 @repo_parse_commit_gently(ptr noundef %0, ptr noundef %376, i32 noundef 0) #20
-  %.not43.i = icmp eq i32 %377, 0
-  br i1 %.not43.i, label %382, label %378
+371:                                              ; preds = %370
+  %372 = getelementptr inbounds nuw i8, ptr %367, i64 8
+  %373 = load ptr, ptr %372, align 8, !tbaa !125
+  %374 = call i32 @repo_parse_commit_gently(ptr noundef %0, ptr noundef %373, i32 noundef 0) #20
+  %.not43.i = icmp eq i32 %374, 0
+  br i1 %.not43.i, label %379, label %375
 
-378:                                              ; preds = %374
-  %379 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
-  %.not4.i.i = icmp eq i32 %379, 0
-  br i1 %.not4.i.i, label %396, label %380
+375:                                              ; preds = %371
+  %376 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
+  %.not4.i.i = icmp eq i32 %376, 0
+  br i1 %.not4.i.i, label %393, label %377
 
-380:                                              ; preds = %378
-  %381 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.467, i32 noundef 5) #20
-  br label %396
+377:                                              ; preds = %375
+  %378 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.467, i32 noundef 5) #20
+  br label %393
 
-382:                                              ; preds = %374
-  %383 = load ptr, ptr %375, align 8, !tbaa !125
-  %384 = getelementptr inbounds nuw i8, ptr %383, i64 48
-  %385 = load ptr, ptr %384, align 8, !tbaa !131
-  %.not44.i = icmp eq ptr %385, null
-  br i1 %.not44.i, label %.thread.i107, label %386
+379:                                              ; preds = %371
+  %380 = load ptr, ptr %372, align 8, !tbaa !125
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 48
+  %382 = load ptr, ptr %381, align 8, !tbaa !131
+  %.not44.i = icmp eq ptr %382, null
+  br i1 %.not44.i, label %.thread.i107, label %383
 
-386:                                              ; preds = %382
-  %387 = getelementptr inbounds nuw i8, ptr %385, i64 8
-  %388 = load ptr, ptr %387, align 8, !tbaa !135
-  %.not45.i = icmp eq ptr %388, null
-  br i1 %.not45.i, label %389, label %.thread.i107
+383:                                              ; preds = %379
+  %384 = getelementptr inbounds nuw i8, ptr %382, i64 8
+  %385 = load ptr, ptr %384, align 8, !tbaa !135
+  %.not45.i = icmp eq ptr %385, null
+  br i1 %.not45.i, label %386, label %.thread.i107
+
+386:                                              ; preds = %383
+  %387 = load ptr, ptr %382, align 8, !tbaa !217
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 4
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %388, ptr noundef nonnull readonly dereferenceable(32) %22, i64 32)
+  %.not.i.not.i = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not.i.not.i, label %389, label %.thread.i107
 
 389:                                              ; preds = %386
-  %390 = load ptr, ptr %385, align 8, !tbaa !217
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 4
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %391, ptr noundef nonnull readonly dereferenceable(32) %22, i64 32)
-  %.not.i.not.i = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not.i.not.i, label %392, label %.thread.i107
+  %390 = getelementptr inbounds nuw i8, ptr %380, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %22, ptr noundef nonnull readonly align 4 dereferenceable(32) %390, i64 32, i1 false)
+  %391 = getelementptr inbounds nuw i8, ptr %380, i64 36
+  %392 = load i32, ptr %391, align 4, !tbaa !167
+  store i32 %392, ptr %363, align 4, !tbaa !167
+  %.pre.i114 = load i32, ptr %359, align 8, !tbaa !119
+  br label %398
 
-392:                                              ; preds = %389
-  %393 = getelementptr inbounds nuw i8, ptr %383, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %22, ptr noundef nonnull readonly align 4 dereferenceable(32) %393, i64 32, i1 false)
-  %394 = getelementptr inbounds nuw i8, ptr %383, i64 36
-  %395 = load i32, ptr %394, align 4, !tbaa !167
-  store i32 %395, ptr %366, align 4, !tbaa !167
-  %.pre.i114 = load i32, ptr %362, align 8, !tbaa !119
-  br label %401
-
-396:                                              ; preds = %380, %378
-  %.0.i.i113 = phi ptr [ %381, %380 ], [ @.str.467, %378 ]
-  %397 = load ptr, ptr %375, align 8, !tbaa !125
-  %398 = getelementptr inbounds nuw i8, ptr %397, i64 4
-  %399 = call ptr @oid_to_hex(ptr noundef nonnull %398) #20
-  %400 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i113, ptr noundef %399) #20
+393:                                              ; preds = %377, %375
+  %.0.i.i113 = phi ptr [ %378, %377 ], [ @.str.467, %375 ]
+  %394 = load ptr, ptr %372, align 8, !tbaa !125
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 4
+  %396 = call ptr @oid_to_hex(ptr noundef nonnull %395) #20
+  %397 = call i32 (ptr, ...) @error(ptr noundef %.0.i.i113, ptr noundef %396) #20
   br label %skip_unnecessary_picks.exit
 
-401:                                              ; preds = %392, %367
-  %402 = phi i32 [ %.pre.i114, %392 ], [ %368, %367 ]
+398:                                              ; preds = %389, %364
+  %399 = phi i32 [ %.pre.i114, %389 ], [ %365, %364 ]
   %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i105, 1
-  %403 = sext i32 %402 to i64
-  %404 = icmp slt i64 %indvars.iv.next.i115, %403
-  br i1 %404, label %367, label %.thread.i107, !llvm.loop !295
+  %400 = sext i32 %399 to i64
+  %401 = icmp slt i64 %indvars.iv.next.i115, %400
+  br i1 %401, label %364, label %.thread.i107, !llvm.loop !295
 
-.thread.i107:                                     ; preds = %401, %389, %386, %382, %373
-  %.040.lcssa.ph.in.i = phi i64 [ %indvars.iv.next.i115, %401 ], [ %indvars.iv.i105, %373 ], [ %indvars.iv.i105, %382 ], [ %indvars.iv.i105, %386 ], [ %indvars.iv.i105, %389 ]
+.thread.i107:                                     ; preds = %398, %386, %383, %379, %370
+  %.040.lcssa.ph.in.i = phi i64 [ %indvars.iv.next.i115, %398 ], [ %indvars.iv.i105, %370 ], [ %indvars.iv.i105, %379 ], [ %indvars.iv.i105, %383 ], [ %indvars.iv.i105, %386 ]
   %.040.lcssa.ph.i = trunc i64 %.040.lcssa.ph.in.i to i32
   %.not47.i = icmp eq i32 %.040.lcssa.ph.i, 0
-  br i1 %.not47.i, label %skip_unnecessary_picks.exit.thread, label %405
+  br i1 %.not47.i, label %skip_unnecessary_picks.exit.thread, label %402
 
-405:                                              ; preds = %.thread.i107
-  %406 = load ptr, ptr @rebase_path_done.ret, align 8, !tbaa !4
-  %.not.i50.i = icmp eq ptr %406, null
-  br i1 %.not.i50.i, label %407, label %rebase_path_done.exit.i
+402:                                              ; preds = %.thread.i107
+  %403 = load ptr, ptr @rebase_path_done.ret, align 8, !tbaa !4
+  %.not.i50.i = icmp eq ptr %403, null
+  br i1 %.not.i50.i, label %404, label %rebase_path_done.exit.i
 
-407:                                              ; preds = %405
-  %408 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.136)
-  store ptr %408, ptr @rebase_path_done.ret, align 8, !tbaa !4
+404:                                              ; preds = %402
+  %405 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.136)
+  store ptr %405, ptr @rebase_path_done.ret, align 8, !tbaa !4
   br label %rebase_path_done.exit.i
 
-rebase_path_done.exit.i:                          ; preds = %407, %405
-  %409 = phi ptr [ %408, %407 ], [ %406, %405 ]
+rebase_path_done.exit.i:                          ; preds = %404, %402
+  %406 = phi ptr [ %405, %404 ], [ %403, %402 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) @__const.make_script_with_merges.label_from_message, i64 24, i1 false)
   call fastcc void @todo_list_to_strbuf(ptr noundef %0, ptr noundef nonnull readonly %20, ptr noundef %13, i32 noundef %.040.lcssa.ph.i, i32 noundef 0)
-  %410 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %411 = load ptr, ptr %410, align 8, !tbaa !31
-  %412 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %413 = load i64, ptr %412, align 8, !tbaa !33
-  %414 = call fastcc i32 @write_message(ptr noundef %411, i64 noundef %413, ptr noundef %409, i32 noundef 0)
+  %407 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %408 = load ptr, ptr %407, align 8, !tbaa !31
+  %409 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %410 = load i64, ptr %409, align 8, !tbaa !33
+  %411 = call fastcc i32 @write_message(ptr noundef %408, i64 noundef %410, ptr noundef %406, i32 noundef 0)
   call void @strbuf_release(ptr noundef nonnull %13) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.not48.i = icmp eq i32 %414, 0
-  br i1 %.not48.i, label %420, label %415
+  %.not48.i = icmp eq i32 %411, 0
+  br i1 %.not48.i, label %417, label %412
 
-415:                                              ; preds = %rebase_path_done.exit.i
-  %416 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
-  %.not4.i51.i = icmp eq i32 %416, 0
-  br i1 %.not4.i51.i, label %record_in_rewritten.exit.thread.i, label %417
+412:                                              ; preds = %rebase_path_done.exit.i
+  %413 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
+  %.not4.i51.i = icmp eq i32 %413, 0
+  br i1 %.not4.i51.i, label %record_in_rewritten.exit.thread.i, label %414
 
-417:                                              ; preds = %415
-  %418 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.311, i32 noundef 5) #20
+414:                                              ; preds = %412
+  %415 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.311, i32 noundef 5) #20
   br label %record_in_rewritten.exit.thread.i
 
-record_in_rewritten.exit.thread.i:                ; preds = %417, %415
-  %.0.i52.i = phi ptr [ %418, %417 ], [ @.str.311, %415 ]
-  %419 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i52.i, ptr noundef %409) #20
+record_in_rewritten.exit.thread.i:                ; preds = %414, %412
+  %.0.i52.i = phi ptr [ %415, %414 ], [ @.str.311, %412 ]
+  %416 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i52.i, ptr noundef %406) #20
   br label %skip_unnecessary_picks.exit
 
-420:                                              ; preds = %rebase_path_done.exit.i
-  %421 = load ptr, ptr %365, align 8, !tbaa !111
-  %422 = and i64 %.040.lcssa.ph.in.i, 4294967295
-  %423 = getelementptr inbounds nuw %struct.todo_item, ptr %421, i64 %422
-  %424 = load i32, ptr %362, align 8, !tbaa !119
-  %425 = sub nsw i32 %424, %.040.lcssa.ph.i
-  %426 = sext i32 %425 to i64
-  %.not.i54.i = icmp eq i32 %424, %.040.lcssa.ph.i
-  br i1 %.not.i54.i, label %move_array.exit.i, label %427
+417:                                              ; preds = %rebase_path_done.exit.i
+  %418 = load ptr, ptr %362, align 8, !tbaa !111
+  %419 = and i64 %.040.lcssa.ph.in.i, 4294967295
+  %420 = getelementptr inbounds nuw %struct.todo_item, ptr %418, i64 %419
+  %421 = load i32, ptr %359, align 8, !tbaa !119
+  %422 = sub nsw i32 %421, %.040.lcssa.ph.i
+  %423 = sext i32 %422 to i64
+  %.not.i54.i = icmp eq i32 %421, %.040.lcssa.ph.i
+  br i1 %.not.i54.i, label %move_array.exit.i, label %424
 
-427:                                              ; preds = %420
-  %mul.ov.i.i.i108 = icmp slt i32 %425, 0
-  br i1 %mul.ov.i.i.i108, label %428, label %st_mult.exit.i.i109
+424:                                              ; preds = %417
+  %mul.ov.i.i.i108 = icmp slt i32 %422, 0
+  br i1 %mul.ov.i.i.i108, label %425, label %st_mult.exit.i.i109
 
-428:                                              ; preds = %427
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.469, i64 noundef range(i64 4, 41) 40, i64 noundef %426) #22
+425:                                              ; preds = %424
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.469, i64 noundef range(i64 4, 41) 40, i64 noundef %423) #22
   unreachable
 
-st_mult.exit.i.i109:                              ; preds = %427
-  %429 = mul nuw nsw i64 %426, 40
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %421, ptr nonnull readonly align 1 %423, i64 %429, i1 false)
-  %.pre88.i = load i32, ptr %362, align 8, !tbaa !119
+st_mult.exit.i.i109:                              ; preds = %424
+  %426 = mul nuw nsw i64 %423, 40
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %418, ptr nonnull readonly align 1 %420, i64 %426, i1 false)
+  %.pre88.i = load i32, ptr %359, align 8, !tbaa !119
   br label %move_array.exit.i
 
-move_array.exit.i:                                ; preds = %st_mult.exit.i.i109, %420
-  %430 = phi i32 [ %.040.lcssa.ph.i, %420 ], [ %.pre88.i, %st_mult.exit.i.i109 ]
-  %431 = sub nsw i32 %430, %.040.lcssa.ph.i
-  store i32 %431, ptr %362, align 8, !tbaa !119
-  %432 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  store i32 0, ptr %432, align 8, !tbaa !120
-  %433 = getelementptr inbounds nuw i8, ptr %20, i64 44
-  %434 = load i32, ptr %433, align 4, !tbaa !193
-  %435 = add nsw i32 %434, %.040.lcssa.ph.i
-  store i32 %435, ptr %433, align 4, !tbaa !193
-  %436 = icmp sgt i32 %431, 0
-  br i1 %436, label %.lr.ph.i.i110, label %skip_unnecessary_picks.exit.thread
+move_array.exit.i:                                ; preds = %st_mult.exit.i.i109, %417
+  %427 = phi i32 [ %.040.lcssa.ph.i, %417 ], [ %.pre88.i, %st_mult.exit.i.i109 ]
+  %428 = sub nsw i32 %427, %.040.lcssa.ph.i
+  store i32 %428, ptr %359, align 8, !tbaa !119
+  %429 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  store i32 0, ptr %429, align 8, !tbaa !120
+  %430 = getelementptr inbounds nuw i8, ptr %20, i64 44
+  %431 = load i32, ptr %430, align 4, !tbaa !193
+  %432 = add nsw i32 %431, %.040.lcssa.ph.i
+  store i32 %432, ptr %430, align 4, !tbaa !193
+  %433 = icmp sgt i32 %428, 0
+  br i1 %433, label %.lr.ph.i.i110, label %skip_unnecessary_picks.exit.thread
 
 .lr.ph.i.i110:                                    ; preds = %move_array.exit.i
-  %437 = load ptr, ptr %365, align 8, !tbaa !111
-  %438 = zext nneg i32 %431 to i64
-  br label %440
+  %434 = load ptr, ptr %362, align 8, !tbaa !111
+  %435 = zext nneg i32 %428 to i64
+  br label %437
 
-439:                                              ; preds = %440
+436:                                              ; preds = %437
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i.i, %438
-  br i1 %exitcond.not.i111, label %skip_unnecessary_picks.exit.thread, label %440, !llvm.loop !177
+  %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i.i, %435
+  br i1 %exitcond.not.i111, label %skip_unnecessary_picks.exit.thread, label %437, !llvm.loop !177
 
-440:                                              ; preds = %439, %.lr.ph.i.i110
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i110 ], [ %indvars.iv.next.i.i, %439 ]
-  %441 = getelementptr inbounds nuw %struct.todo_item, ptr %437, i64 %indvars.iv.i.i
-  %442 = load i32, ptr %441, align 8, !tbaa !124
-  %443 = icmp ult i32 %442, 12
-  br i1 %443, label %peek_command.exit.i, label %439
+437:                                              ; preds = %436, %.lr.ph.i.i110
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i110 ], [ %indvars.iv.next.i.i, %436 ]
+  %438 = getelementptr inbounds nuw %struct.todo_item, ptr %434, i64 %indvars.iv.i.i
+  %439 = load i32, ptr %438, align 8, !tbaa !124
+  %440 = icmp ult i32 %439, 12
+  br i1 %440, label %peek_command.exit.i, label %436
 
-peek_command.exit.i:                              ; preds = %440
-  %444 = and i32 %442, 14
-  %.not68.i = icmp eq i32 %444, 4
+peek_command.exit.i:                              ; preds = %437
+  %441 = and i32 %439, 14
+  %.not68.i = icmp eq i32 %441, 4
   br i1 %.not68.i, label %.lr.ph.i56.i, label %skip_unnecessary_picks.exit.thread
 
-445:                                              ; preds = %.lr.ph.i56.i
+442:                                              ; preds = %.lr.ph.i56.i
   %indvars.iv.next.i58.i = add nuw nsw i64 %indvars.iv.i57.i, 1
-  %exitcond87.not.i = icmp eq i64 %indvars.iv.next.i58.i, %438
+  %exitcond87.not.i = icmp eq i64 %indvars.iv.next.i58.i, %435
   br i1 %exitcond87.not.i, label %peek_command.exit59.i, label %.lr.ph.i56.i, !llvm.loop !177
 
-.lr.ph.i56.i:                                     ; preds = %peek_command.exit.i, %445
-  %indvars.iv.i57.i = phi i64 [ %indvars.iv.next.i58.i, %445 ], [ 0, %peek_command.exit.i ]
-  %446 = getelementptr inbounds nuw %struct.todo_item, ptr %437, i64 %indvars.iv.i57.i
-  %447 = load i32, ptr %446, align 8, !tbaa !124
-  %448 = icmp ult i32 %447, 12
-  br i1 %448, label %peek_command.exit59.i, label %445
+.lr.ph.i56.i:                                     ; preds = %peek_command.exit.i, %442
+  %indvars.iv.i57.i = phi i64 [ %indvars.iv.next.i58.i, %442 ], [ 0, %peek_command.exit.i ]
+  %443 = getelementptr inbounds nuw %struct.todo_item, ptr %434, i64 %indvars.iv.i57.i
+  %444 = load i32, ptr %443, align 8, !tbaa !124
+  %445 = icmp ult i32 %444, 12
+  br i1 %445, label %peek_command.exit59.i, label %442
 
-peek_command.exit59.i:                            ; preds = %.lr.ph.i56.i, %445
-  %.09.i55.i = phi i32 [ %447, %.lr.ph.i56.i ], [ -1, %445 ]
-  %449 = load ptr, ptr @rebase_path_rewritten_pending.ret, align 8, !tbaa !4
-  %.not.i.i.i112 = icmp eq ptr %449, null
-  br i1 %.not.i.i.i112, label %450, label %rebase_path_rewritten_pending.exit.i.i
+peek_command.exit59.i:                            ; preds = %.lr.ph.i56.i, %442
+  %.09.i55.i = phi i32 [ %444, %.lr.ph.i56.i ], [ -1, %442 ]
+  %446 = load ptr, ptr @rebase_path_rewritten_pending.ret, align 8, !tbaa !4
+  %.not.i.i.i112 = icmp eq ptr %446, null
+  br i1 %.not.i.i.i112, label %447, label %rebase_path_rewritten_pending.exit.i.i
 
-450:                                              ; preds = %peek_command.exit59.i
-  %451 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.289)
-  store ptr %451, ptr @rebase_path_rewritten_pending.ret, align 8, !tbaa !4
+447:                                              ; preds = %peek_command.exit59.i
+  %448 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.289)
+  store ptr %448, ptr @rebase_path_rewritten_pending.ret, align 8, !tbaa !4
   br label %rebase_path_rewritten_pending.exit.i.i
 
-rebase_path_rewritten_pending.exit.i.i:           ; preds = %450, %peek_command.exit59.i
-  %452 = phi ptr [ %451, %450 ], [ %449, %peek_command.exit59.i ]
-  %453 = call ptr @fopen_or_warn(ptr noundef %452, ptr noundef nonnull @.str.288) #20
-  %.not.i60.i = icmp eq ptr %453, null
-  br i1 %.not.i60.i, label %skip_unnecessary_picks.exit.thread, label %454
+rebase_path_rewritten_pending.exit.i.i:           ; preds = %447, %peek_command.exit59.i
+  %449 = phi ptr [ %448, %447 ], [ %446, %peek_command.exit59.i ]
+  %450 = call ptr @fopen_or_warn(ptr noundef %449, ptr noundef nonnull @.str.288) #20
+  %.not.i60.i = icmp eq ptr %450, null
+  br i1 %.not.i60.i, label %skip_unnecessary_picks.exit.thread, label %451
 
-454:                                              ; preds = %rebase_path_rewritten_pending.exit.i.i
-  %455 = call ptr @oid_to_hex(ptr noundef nonnull %22) #20
-  %456 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %453, ptr noundef nonnull @.str.56, ptr noundef %455) #20
-  %457 = call i32 @fclose(ptr noundef nonnull %453)
-  %458 = and i32 %.09.i55.i, -2
-  %.not5.i.i = icmp eq i32 %458, 4
-  br i1 %.not5.i.i, label %skip_unnecessary_picks.exit.thread, label %459
+451:                                              ; preds = %rebase_path_rewritten_pending.exit.i.i
+  %452 = call ptr @oid_to_hex(ptr noundef nonnull %22) #20
+  %453 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %450, ptr noundef nonnull @.str.56, ptr noundef %452) #20
+  %454 = call i32 @fclose(ptr noundef nonnull %450)
+  %455 = and i32 %.09.i55.i, -2
+  %.not5.i.i = icmp eq i32 %455, 4
+  br i1 %.not5.i.i, label %skip_unnecessary_picks.exit.thread, label %456
 
-459:                                              ; preds = %454
+456:                                              ; preds = %451
   call fastcc void @flush_rewritten_pending()
   br label %skip_unnecessary_picks.exit.thread
 
-skip_unnecessary_picks.exit:                      ; preds = %record_in_rewritten.exit.thread.i, %396
+skip_unnecessary_picks.exit:                      ; preds = %record_in_rewritten.exit.thread.i, %393
   call void @todo_list_release(ptr noundef nonnull %20)
-  %460 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
-  %.not4.i116 = icmp eq i32 %460, 0
-  br i1 %.not4.i116, label %_.exit118, label %461
+  %457 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
+  %.not4.i116 = icmp eq i32 %457, 0
+  br i1 %.not4.i116, label %_.exit118, label %458
 
-461:                                              ; preds = %skip_unnecessary_picks.exit
-  %462 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.98, i32 noundef 5) #20
+458:                                              ; preds = %skip_unnecessary_picks.exit
+  %459 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.98, i32 noundef 5) #20
   br label %_.exit118
 
-_.exit118:                                        ; preds = %skip_unnecessary_picks.exit, %461
-  %.0.i117 = phi ptr [ %462, %461 ], [ @.str.98, %skip_unnecessary_picks.exit ]
-  %463 = call i32 (ptr, ...) @error(ptr noundef %.0.i117) #20
-  br label %493
+_.exit118:                                        ; preds = %skip_unnecessary_picks.exit, %458
+  %.0.i117 = phi ptr [ %459, %458 ], [ @.str.98, %skip_unnecessary_picks.exit ]
+  %460 = call i32 (ptr, ...) @error(ptr noundef %.0.i117) #20
+  br label %490
 
-skip_unnecessary_picks.exit.thread:               ; preds = %439, %361, %.thread.i107, %move_array.exit.i, %459, %454, %rebase_path_rewritten_pending.exit.i.i, %peek_command.exit.i, %358
-  %464 = and i32 %2, -3
+skip_unnecessary_picks.exit.thread:               ; preds = %436, %358, %.thread.i107, %move_array.exit.i, %456, %451, %rebase_path_rewritten_pending.exit.i.i, %peek_command.exit.i, %355
+  %461 = and i32 %2, -3
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) @__const.make_script_with_merges.label_from_message, i64 24, i1 false)
-  call fastcc void @todo_list_to_strbuf(ptr noundef %0, ptr noundef nonnull readonly %20, ptr noundef %12, i32 noundef -1, i32 noundef %464)
-  %465 = and i32 %2, 32
-  %.not.i119 = icmp eq i32 %465, 0
-  br i1 %.not.i119, label %todo_list_write_to_file.exit, label %466
+  call fastcc void @todo_list_to_strbuf(ptr noundef %0, ptr noundef nonnull readonly %20, ptr noundef %12, i32 noundef -1, i32 noundef %461)
+  %462 = and i32 %2, 32
+  %.not.i119 = icmp eq i32 %462, 0
+  br i1 %.not.i119, label %todo_list_write_to_file.exit, label %463
 
-466:                                              ; preds = %skip_unnecessary_picks.exit.thread
-  %467 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %468 = load i32, ptr %467, align 8, !tbaa !119
-  %469 = icmp sgt i32 %468, 0
-  br i1 %469, label %.lr.ph.i.i120, label %count_commands.exit.i
+463:                                              ; preds = %skip_unnecessary_picks.exit.thread
+  %464 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %465 = load i32, ptr %464, align 8, !tbaa !119
+  %466 = icmp sgt i32 %465, 0
+  br i1 %466, label %.lr.ph.i.i120, label %count_commands.exit.i
 
-.lr.ph.i.i120:                                    ; preds = %466
-  %470 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %471 = load ptr, ptr %470, align 8, !tbaa !111
-  %wide.trip.count.i.i = zext nneg i32 %468 to i64
-  br label %472
+.lr.ph.i.i120:                                    ; preds = %463
+  %467 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %468 = load ptr, ptr %467, align 8, !tbaa !111
+  %wide.trip.count.i.i = zext nneg i32 %465 to i64
+  br label %469
 
-472:                                              ; preds = %472, %.lr.ph.i.i120
-  %indvars.iv.i.i121 = phi i64 [ 0, %.lr.ph.i.i120 ], [ %indvars.iv.next.i.i123, %472 ]
-  %.067.i.i = phi i32 [ 0, %.lr.ph.i.i120 ], [ %spec.select.i.i, %472 ]
-  %473 = getelementptr inbounds nuw %struct.todo_item, ptr %471, i64 %indvars.iv.i.i121
-  %474 = load i32, ptr %473, align 8, !tbaa !124
-  %.not.i.i122 = icmp ne i32 %474, 14
-  %475 = zext i1 %.not.i.i122 to i32
-  %spec.select.i.i = add nuw nsw i32 %.067.i.i, %475
+469:                                              ; preds = %469, %.lr.ph.i.i120
+  %indvars.iv.i.i121 = phi i64 [ 0, %.lr.ph.i.i120 ], [ %indvars.iv.next.i.i123, %469 ]
+  %.067.i.i = phi i32 [ 0, %.lr.ph.i.i120 ], [ %spec.select.i.i, %469 ]
+  %470 = getelementptr inbounds nuw %struct.todo_item, ptr %468, i64 %indvars.iv.i.i121
+  %471 = load i32, ptr %470, align 8, !tbaa !124
+  %.not.i.i122 = icmp ne i32 %471, 14
+  %472 = zext i1 %.not.i.i122 to i32
+  %spec.select.i.i = add nuw nsw i32 %.067.i.i, %472
   %indvars.iv.next.i.i123 = add nuw nsw i64 %indvars.iv.i.i121, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i123, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %count_commands.exit.i, label %472, !llvm.loop !192
+  br i1 %exitcond.not.i.i, label %count_commands.exit.i, label %469, !llvm.loop !192
 
-count_commands.exit.i:                            ; preds = %472, %466
-  %.06.lcssa.i.i = phi i32 [ 0, %466 ], [ %spec.select.i.i, %472 ]
+count_commands.exit.i:                            ; preds = %469, %463
+  %.06.lcssa.i.i = phi i32 [ 0, %463 ], [ %spec.select.i.i, %469 ]
   call void @append_todo_help(i32 noundef %.06.lcssa.i.i, ptr noundef null, ptr noundef null, ptr noundef nonnull %12) #20
   br label %todo_list_write_to_file.exit
 
 todo_list_write_to_file.exit:                     ; preds = %skip_unnecessary_picks.exit.thread, %count_commands.exit.i
-  %476 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %477 = load ptr, ptr %476, align 8, !tbaa !31
-  %478 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %479 = load i64, ptr %478, align 8, !tbaa !33
-  %480 = call fastcc i32 @write_message(ptr noundef %477, i64 noundef %479, ptr noundef %26, i32 noundef 0)
+  %473 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %474 = load ptr, ptr %473, align 8, !tbaa !31
+  %475 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %476 = load i64, ptr %475, align 8, !tbaa !33
+  %477 = call fastcc i32 @write_message(ptr noundef %474, i64 noundef %476, ptr noundef %26, i32 noundef 0)
   call void @strbuf_release(ptr noundef nonnull %12) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.not61 = icmp eq i32 %480, 0
-  br i1 %.not61, label %486, label %481
+  %.not61 = icmp eq i32 %477, 0
+  br i1 %.not61, label %483, label %478
 
-481:                                              ; preds = %todo_list_write_to_file.exit
+478:                                              ; preds = %todo_list_write_to_file.exit
   call void @todo_list_release(ptr noundef nonnull %20)
-  %482 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
-  %.not4.i124 = icmp eq i32 %482, 0
-  br i1 %.not4.i124, label %_.exit126, label %483
+  %479 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !21
+  %.not4.i124 = icmp eq i32 %479, 0
+  br i1 %.not4.i124, label %_.exit126, label %480
 
-483:                                              ; preds = %481
-  %484 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.99, i32 noundef 5) #20
+480:                                              ; preds = %478
+  %481 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.99, i32 noundef 5) #20
   br label %_.exit126
 
-_.exit126:                                        ; preds = %481, %483
-  %.0.i125 = phi ptr [ %484, %483 ], [ @.str.99, %481 ]
-  %485 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i125, ptr noundef %26) #20
-  br label %493
+_.exit126:                                        ; preds = %478, %480
+  %.0.i125 = phi ptr [ %481, %480 ], [ @.str.99, %478 ]
+  %482 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i125, ptr noundef %26) #20
+  br label %490
 
-486:                                              ; preds = %todo_list_write_to_file.exit
-  %487 = call fastcc i32 @checkout_onto(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %22, ptr noundef %6)
-  %.not62 = icmp eq i32 %487, 0
-  br i1 %.not62, label %488, label %492
+483:                                              ; preds = %todo_list_write_to_file.exit
+  %484 = call fastcc i32 @checkout_onto(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef nonnull %22, ptr noundef %6)
+  %.not62 = icmp eq i32 %484, 0
+  br i1 %.not62, label %485, label %489
 
-488:                                              ; preds = %486
-  %489 = call i32 @require_clean_work_tree(ptr noundef %0, ptr noundef nonnull @.str.100, ptr noundef null, i32 noundef 1, i32 noundef 1) #20
-  %.not63 = icmp eq i32 %489, 0
-  br i1 %.not63, label %490, label %492
+485:                                              ; preds = %483
+  %486 = call i32 @require_clean_work_tree(ptr noundef %0, ptr noundef nonnull @.str.100, ptr noundef null, i32 noundef 1, i32 noundef 1) #20
+  %.not63 = icmp eq i32 %486, 0
+  br i1 %.not63, label %487, label %489
 
-490:                                              ; preds = %488
+487:                                              ; preds = %485
   call fastcc void @todo_list_write_total_nr(ptr noundef %20)
-  %491 = call fastcc i32 @pick_commits(ptr noundef %0, ptr noundef %20, ptr noundef %1)
-  br label %492
+  %488 = call fastcc i32 @pick_commits(ptr noundef %0, ptr noundef %20, ptr noundef %1)
+  br label %489
 
-492:                                              ; preds = %488, %486, %490
-  %.053 = phi i32 [ -1, %486 ], [ -1, %488 ], [ %491, %490 ]
+489:                                              ; preds = %485, %483, %487
+  %.053 = phi i32 [ -1, %483 ], [ -1, %485 ], [ %488, %487 ]
   call void @todo_list_release(ptr noundef nonnull %20)
-  br label %493
+  br label %490
 
-493:                                              ; preds = %todo_list_add_update_ref_commands.exit, %314, %175, %492, %_.exit126, %_.exit118, %346, %_.exit102, %apply_autostash.exit94, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ -1, %apply_autostash.exit94 ], [ -1, %_.exit102 ], [ -1, %346 ], [ -1, %_.exit118 ], [ -1, %_.exit126 ], [ %.053, %492 ], [ -1, %todo_list_add_update_ref_commands.exit ], [ -1, %175 ], [ %315, %314 ]
+490:                                              ; preds = %todo_list_add_update_ref_commands.exit, %311, %175, %489, %_.exit126, %_.exit118, %343, %_.exit102, %apply_autostash.exit94, %_.exit
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %apply_autostash.exit94 ], [ -1, %_.exit102 ], [ -1, %343 ], [ -1, %_.exit118 ], [ -1, %_.exit126 ], [ %.053, %489 ], [ -1, %todo_list_add_update_ref_commands.exit ], [ -1, %175 ], [ %312, %311 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)

@@ -11175,9 +11175,9 @@ define linkonce_odr hidden void @_ZN43ShenandoahFinalMarkUpdateRegionStateClosur
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %5 [
-    i32 9, label %47
-    i32 1, label %47
-    i32 0, label %47
+    i32 9, label %45
+    i32 1, label %45
+    i32 0, label %45
   ]
 
 5:                                                ; preds = %2
@@ -11205,83 +11205,81 @@ define linkonce_odr hidden void @_ZN43ShenandoahFinalMarkUpdateRegionStateClosur
 
 23:                                               ; preds = %16, %5
   %24 = phi i32 [ %.pre, %16 ], [ %4, %5 ]
+  %25 = tail call noundef i64 @_ZNK20ShenandoahHeapRegion9pin_countEv(ptr noundef nonnull align 8 dereferenceable(96) %1) #26
+  %.not = icmp eq i64 %25, 0
   switch i32 %24, label %_ZNK20ShenandoahHeapRegion9is_pinnedEv.exit [
-    i32 7, label %25
-    i32 8, label %25
-    i32 5, label %25
+    i32 7, label %26
+    i32 8, label %26
+    i32 5, label %26
   ]
 
-25:                                               ; preds = %23, %23, %23
-  %26 = tail call noundef i64 @_ZNK20ShenandoahHeapRegion9pin_countEv(ptr noundef nonnull align 8 dereferenceable(96) %1) #26
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %_ZN16ShenandoahLockerD2Ev.exit
+26:                                               ; preds = %23, %23, %23
+  br i1 %.not, label %27, label %_ZN16ShenandoahLockerD2Ev.exit
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit, label %31
+27:                                               ; preds = %26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit, label %30
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  %33 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %32) #26, !srcloc !11
-  %.not.i.i = icmp eq i32 %33, 0
-  br i1 %.not.i.i, label %35, label %34
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  %32 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %31) #26, !srcloc !11
+  %.not.i.i = icmp eq i32 %32, 0
+  br i1 %.not.i.i, label %34, label %33
 
-34:                                               ; preds = %31
-  tail call void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull align 8 dereferenceable(208) %30, i1 noundef zeroext false) #26
-  br label %35
+33:                                               ; preds = %30
+  tail call void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull align 8 dereferenceable(208) %29, i1 noundef zeroext false) #26
+  br label %34
 
-_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit:  ; preds = %28
+_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit:  ; preds = %27
   tail call void @_ZN20ShenandoahHeapRegion13make_unpinnedEv(ptr noundef nonnull align 8 dereferenceable(96) %1) #26
   br label %_ZN16ShenandoahLockerD2Ev.exit
 
-35:                                               ; preds = %31, %34
+34:                                               ; preds = %30, %33
   tail call void @_ZN20ShenandoahHeapRegion13make_unpinnedEv(ptr noundef nonnull align 8 dereferenceable(96) %1) #26
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  store volatile i32 0, ptr %32, align 4
+  store volatile i32 0, ptr %31, align 4
   br label %_ZN16ShenandoahLockerD2Ev.exit
 
 _ZNK20ShenandoahHeapRegion9is_pinnedEv.exit:      ; preds = %23
-  %36 = tail call noundef i64 @_ZNK20ShenandoahHeapRegion9pin_countEv(ptr noundef nonnull align 8 dereferenceable(96) %1) #26
-  %.not = icmp eq i64 %36, 0
-  br i1 %.not, label %_ZN16ShenandoahLockerD2Ev.exit, label %37
+  br i1 %.not, label %_ZN16ShenandoahLockerD2Ev.exit, label %35
 
-37:                                               ; preds = %_ZNK20ShenandoahHeapRegion9is_pinnedEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %.not.i18 = icmp eq ptr %39, null
-  br i1 %.not.i18, label %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit20, label %40
+35:                                               ; preds = %_ZNK20ShenandoahHeapRegion9is_pinnedEv.exit
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %.not.i18 = icmp eq ptr %37, null
+  br i1 %.not.i18, label %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit20, label %38
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  %42 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %41) #26, !srcloc !11
-  %.not.i.i19 = icmp eq i32 %42, 0
-  br i1 %.not.i.i19, label %44, label %43
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 64
+  %40 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %39) #26, !srcloc !11
+  %.not.i.i19 = icmp eq i32 %40, 0
+  br i1 %.not.i.i19, label %42, label %41
 
-43:                                               ; preds = %40
-  tail call void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull align 8 dereferenceable(208) %39, i1 noundef zeroext false) #26
-  br label %44
+41:                                               ; preds = %38
+  tail call void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull align 8 dereferenceable(208) %37, i1 noundef zeroext false) #26
+  br label %42
 
-_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit20: ; preds = %37
+_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit20: ; preds = %35
   tail call void @_ZN20ShenandoahHeapRegion11make_pinnedEv(ptr noundef nonnull align 8 dereferenceable(96) %1) #26
   br label %_ZN16ShenandoahLockerD2Ev.exit
 
-44:                                               ; preds = %40, %43
+42:                                               ; preds = %38, %41
   tail call void @_ZN20ShenandoahHeapRegion11make_pinnedEv(ptr noundef nonnull align 8 dereferenceable(96) %1) #26
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  store volatile i32 0, ptr %41, align 4
+  store volatile i32 0, ptr %39, align 4
   br label %_ZN16ShenandoahLockerD2Ev.exit
 
-_ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %44, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit20, %35, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit, %_ZNK20ShenandoahHeapRegion9is_pinnedEv.exit, %25
-  %45 = load ptr, ptr %13, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store volatile ptr %45, ptr %46, align 8
-  br label %47
+_ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %42, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit20, %34, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit, %_ZNK20ShenandoahHeapRegion9is_pinnedEv.exit, %26
+  %43 = load ptr, ptr %13, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store volatile ptr %43, ptr %44, align 8
+  br label %45
 
-47:                                               ; preds = %2, %2, %2, %_ZN16ShenandoahLockerD2Ev.exit
+45:                                               ; preds = %2, %2, %2, %_ZN16ShenandoahLockerD2Ev.exit
   ret void
 }
 

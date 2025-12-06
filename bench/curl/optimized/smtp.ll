@@ -1010,165 +1010,164 @@ define internal i32 @smtp_connect(ptr noundef %0, ptr noundef writeonly captures
   %.not38.i = icmp eq ptr %13, null
   br i1 %.not38.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2, %24
-  %.02534.i = phi ptr [ %spec.select.i, %24 ], [ %13, %2 ]
+.lr.ph.i:                                         ; preds = %2, %22
+  %.02534.i = phi ptr [ %spec.select.i, %22 ], [ %13, %2 ]
   %14 = load i8, ptr %.02534.i, align 1, !tbaa !7
   %.not.i = icmp eq i8 %14, 0
   br i1 %.not.i, label %.loopexit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.lr.ph.i, %16
-  %15 = phi i8 [ %.pr.i, %16 ], [ %14, %.lr.ph.i ]
-  %.126.i = phi ptr [ %17, %16 ], [ %.02534.i, %.lr.ph.i ]
-  switch i8 %15, label %16 [
-    i8 0, label %.critedge3.i
-    i8 61, label %.critedge3.i
+.preheader.i:                                     ; preds = %.lr.ph.i, %17
+  %15 = phi i8 [ %.pr.i, %17 ], [ %14, %.lr.ph.i ]
+  %.126.i = phi ptr [ %16, %17 ], [ %.02534.i, %.lr.ph.i ]
+  %16 = getelementptr inbounds nuw i8, ptr %.126.i, i64 1
+  switch i8 %15, label %17 [
+    i8 0, label %.critedge3.i.preheader
+    i8 61, label %.critedge3.i.preheader
   ]
 
-16:                                               ; preds = %.preheader.i
-  %17 = getelementptr inbounds nuw i8, ptr %.126.i, i64 1
-  %.pr.i = load i8, ptr %17, align 1, !tbaa !7
+.critedge3.i.preheader:                           ; preds = %.preheader.i, %.preheader.i
+  br label %.critedge3.i
+
+17:                                               ; preds = %.preheader.i
+  %.pr.i = load i8, ptr %16, align 1, !tbaa !7
   br label %.preheader.i, !llvm.loop !123
 
-.critedge3.i:                                     ; preds = %.preheader.i, %.preheader.i
-  %18 = getelementptr inbounds nuw i8, ptr %.126.i, i64 1
-  br label %19
-
-19:                                               ; preds = %21, %.critedge3.i
-  %20 = phi i8 [ %15, %.critedge3.i ], [ %.pre.i, %21 ]
-  %.2.i = phi ptr [ %.126.i, %.critedge3.i ], [ %22, %21 ]
-  switch i8 %20, label %21 [
+.critedge3.i:                                     ; preds = %.critedge3.i.preheader, %19
+  %18 = phi i8 [ %.pre.i, %19 ], [ %15, %.critedge3.i.preheader ]
+  %.2.i = phi ptr [ %20, %19 ], [ %.126.i, %.critedge3.i.preheader ]
+  switch i8 %18, label %19 [
     i8 0, label %.critedge5.i
     i8 59, label %.critedge5.i
   ]
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
-  %.pre.i = load i8, ptr %22, align 1, !tbaa !7
-  br label %19, !llvm.loop !124
+19:                                               ; preds = %.critedge3.i
+  %20 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
+  %.pre.i = load i8, ptr %20, align 1, !tbaa !7
+  br label %.critedge3.i, !llvm.loop !124
 
-.critedge5.i:                                     ; preds = %19, %19
-  %23 = tail call i32 @curl_strnequal(ptr noundef nonnull %.02534.i, ptr noundef nonnull @.str.35, i64 noundef 5) #9
-  %.not33.i = icmp eq i32 %23, 0
-  br i1 %.not33.i, label %smtp_parse_url_options.exit, label %24
+.critedge5.i:                                     ; preds = %.critedge3.i, %.critedge3.i
+  %21 = tail call i32 @curl_strnequal(ptr noundef nonnull %.02534.i, ptr noundef nonnull @.str.35, i64 noundef 5) #9
+  %.not33.i = icmp eq i32 %21, 0
+  br i1 %.not33.i, label %smtp_parse_url_options.exit, label %22
 
-24:                                               ; preds = %.critedge5.i
-  %25 = ptrtoint ptr %.2.i to i64
-  %26 = ptrtoint ptr %18 to i64
-  %27 = sub i64 %25, %26
-  %28 = tail call i32 @Curl_sasl_parse_url_auth_option(ptr noundef nonnull %11, ptr noundef nonnull %18, i64 noundef %27) #9
-  %29 = load i8, ptr %.2.i, align 1, !tbaa !7
-  %30 = icmp eq i8 %29, 59
-  %spec.select.idx.i = zext i1 %30 to i64
+22:                                               ; preds = %.critedge5.i
+  %23 = ptrtoint ptr %.2.i to i64
+  %24 = ptrtoint ptr %16 to i64
+  %25 = sub i64 %23, %24
+  %26 = tail call i32 @Curl_sasl_parse_url_auth_option(ptr noundef nonnull %11, ptr noundef nonnull %16, i64 noundef %25) #9
+  %27 = load i8, ptr %.2.i, align 1, !tbaa !7
+  %28 = icmp eq i8 %27, 59
+  %spec.select.idx.i = zext i1 %28 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.2.i, i64 %spec.select.idx.i
-  %31 = icmp eq i32 %28, 0
-  br i1 %31, label %.lr.ph.i, label %smtp_parse_url_options.exit, !llvm.loop !125
+  %29 = icmp eq i32 %26, 0
+  br i1 %29, label %.lr.ph.i, label %smtp_parse_url_options.exit, !llvm.loop !125
 
 .loopexit:                                        ; preds = %.lr.ph.i, %2
   %.val = load ptr, ptr %5, align 8, !tbaa !90
-  %32 = getelementptr i8, ptr %0, i64 4616
-  %.val24 = load ptr, ptr %32, align 8, !tbaa !126
-  %33 = getelementptr inbounds nuw i8, ptr %.val24, i64 1
+  %30 = getelementptr i8, ptr %0, i64 4616
+  %.val24 = load ptr, ptr %30, align 8, !tbaa !126
+  %31 = getelementptr inbounds nuw i8, ptr %.val24, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %34 = load i8, ptr %33, align 1, !tbaa !7
-  %.not.i25 = icmp eq i8 %34, 0
-  br i1 %.not.i25, label %35, label %smtp_parse_url_path.exit
+  %32 = load i8, ptr %31, align 1, !tbaa !7
+  %.not.i25 = icmp eq i8 %32, 0
+  br i1 %.not.i25, label %33, label %smtp_parse_url_path.exit
 
-35:                                               ; preds = %.loopexit
-  %36 = call i32 @Curl_gethostname(ptr noundef nonnull %4, i64 noundef 1025) #9
-  %.not6.i = icmp eq i32 %36, 0
+33:                                               ; preds = %.loopexit
+  %34 = call i32 @Curl_gethostname(ptr noundef nonnull %4, i64 noundef 1025) #9
+  %.not6.i = icmp eq i32 %34, 0
   %..str.36.i = select i1 %.not6.i, ptr %4, ptr @.str.36
   br label %smtp_parse_url_path.exit
 
-smtp_parse_url_path.exit:                         ; preds = %.loopexit, %35
-  %.0.i = phi ptr [ %33, %.loopexit ], [ %..str.36.i, %35 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.val, i64 1288
-  %38 = call i32 @Curl_urldecode(ptr noundef nonnull %.0.i, i64 noundef 0, ptr noundef nonnull %37, ptr noundef null, i32 noundef 3) #9
+smtp_parse_url_path.exit:                         ; preds = %.loopexit, %33
+  %.0.i = phi ptr [ %31, %.loopexit ], [ %..str.36.i, %33 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.val, i64 1288
+  %36 = call i32 @Curl_urldecode(ptr noundef nonnull %.0.i, i64 noundef 0, ptr noundef nonnull %35, ptr noundef null, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not23 = icmp eq i32 %38, 0
-  br i1 %.not23, label %39, label %smtp_parse_url_options.exit
+  %.not23 = icmp eq i32 %36, 0
+  br i1 %.not23, label %37, label %smtp_parse_url_options.exit
 
-39:                                               ; preds = %smtp_parse_url_path.exit
-  %40 = load ptr, ptr %5, align 8, !tbaa !90
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1280
-  %42 = load i32, ptr %41, align 8, !tbaa !103
-  %.not = icmp eq i32 %42, 1
-  br i1 %.not, label %smtp_state.exit, label %43
+37:                                               ; preds = %smtp_parse_url_path.exit
+  %38 = load ptr, ptr %5, align 8, !tbaa !90
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1280
+  %40 = load i32, ptr %39, align 8, !tbaa !103
+  %.not = icmp eq i32 %40, 1
+  br i1 %.not, label %smtp_state.exit, label %41
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2658
-  %45 = load i64, ptr %44, align 2
-  %46 = and i64 %45, 2147483648
-  %.not.i26 = icmp eq i64 %46, 0
-  br i1 %.not.i26, label %smtp_state.exit, label %47
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2658
+  %43 = load i64, ptr %42, align 2
+  %44 = and i64 %43, 2147483648
+  %.not.i26 = icmp eq i64 %44, 0
+  br i1 %.not.i26, label %smtp_state.exit, label %45
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %49 = load ptr, ptr %48, align 8, !tbaa !8
-  %.not17.i = icmp eq ptr %49, null
-  br i1 %.not17.i, label %56, label %50
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 4864
+  %47 = load ptr, ptr %46, align 8, !tbaa !8
+  %.not17.i = icmp eq ptr %47, null
+  br i1 %.not17.i, label %54, label %48
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %52 = load i32, ptr %51, align 8, !tbaa !77
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %50 = load i32, ptr %49, align 8, !tbaa !77
+  %51 = icmp sgt i32 %50, 0
+  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_smtp, i64 8), align 8
   %53 = icmp sgt i32 %52, 0
-  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_smtp, i64 8), align 8
-  %55 = icmp sgt i32 %54, 0
-  %or.cond.i = select i1 %53, i1 %55, i1 false
-  br i1 %or.cond.i, label %57, label %smtp_state.exit
+  %or.cond.i = select i1 %51, i1 %53, i1 false
+  br i1 %or.cond.i, label %55, label %smtp_state.exit
 
-56:                                               ; preds = %47
+54:                                               ; preds = %45
   %.old.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_smtp, i64 8), align 8, !tbaa !77
   %.old1.i = icmp sgt i32 %.old.i, 0
-  br i1 %.old1.i, label %57, label %smtp_state.exit
+  br i1 %.old1.i, label %55, label %smtp_state.exit
 
-57:                                               ; preds = %56, %50
-  %58 = zext i32 %42 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %58
-  %60 = load ptr, ptr %59, align 8, !tbaa !81
-  call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %60, ptr noundef nonnull @.str.38) #9
+55:                                               ; preds = %54, %48
+  %56 = zext i32 %40 to i64
+  %57 = getelementptr inbounds nuw ptr, ptr @smtp_state.names, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !81
+  call void (ptr, ptr, ...) @Curl_trc_smtp(ptr noundef nonnull %0, ptr noundef nonnull @.str.48, ptr noundef %58, ptr noundef nonnull @.str.38) #9
   %.pre = load ptr, ptr %5, align 8, !tbaa !90
   br label %smtp_state.exit
 
-smtp_state.exit:                                  ; preds = %39, %43, %50, %56, %57
-  %61 = phi ptr [ %40, %39 ], [ %40, %43 ], [ %40, %50 ], [ %40, %56 ], [ %.pre, %57 ]
-  store i32 1, ptr %41, align 8, !tbaa !103
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1088
-  %63 = call zeroext i1 @Curl_conn_is_ssl(ptr noundef %61, i32 noundef 0) #9
-  br i1 %63, label %64, label %.critedge.i
+smtp_state.exit:                                  ; preds = %37, %41, %48, %54, %55
+  %59 = phi ptr [ %38, %37 ], [ %38, %41 ], [ %38, %48 ], [ %38, %54 ], [ %.pre, %55 ]
+  store i32 1, ptr %39, align 8, !tbaa !103
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1088
+  %61 = call zeroext i1 @Curl_conn_is_ssl(ptr noundef %59, i32 noundef 0) #9
+  br i1 %61, label %62, label %.critedge.i
 
-64:                                               ; preds = %smtp_state.exit
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 1296
-  %66 = load i8, ptr %65, align 8
-  %67 = and i8 %66, 1
-  %.not.i27 = icmp eq i8 %67, 0
-  br i1 %.not.i27, label %68, label %.critedge.i
+62:                                               ; preds = %smtp_state.exit
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 1296
+  %64 = load i8, ptr %63, align 8
+  %65 = and i8 %64, 1
+  %.not.i27 = icmp eq i8 %65, 0
+  br i1 %.not.i27, label %66, label %.critedge.i
 
-68:                                               ; preds = %64
+66:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !79
-  %69 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #9
-  %70 = load i8, ptr %3, align 1, !tbaa !79, !range !108, !noundef !109
-  %71 = load i8, ptr %65, align 8
-  %72 = and i8 %71, -2
-  %73 = or disjoint i8 %72, %70
-  store i8 %73, ptr %65, align 8
-  %.not16.i = icmp ne i32 %69, 0
-  %.not17.i28 = icmp eq i8 %70, 0
+  %67 = call i32 @Curl_conn_connect(ptr noundef nonnull %0, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %3) #9
+  %68 = load i8, ptr %3, align 1, !tbaa !79, !range !108, !noundef !109
+  %69 = load i8, ptr %63, align 8
+  %70 = and i8 %69, -2
+  %71 = or disjoint i8 %70, %68
+  store i8 %71, ptr %63, align 8
+  %.not16.i = icmp ne i32 %67, 0
+  %.not17.i28 = icmp eq i8 %68, 0
   %or.cond.i29 = or i1 %.not16.i, %.not17.i28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond.i29, label %smtp_parse_url_options.exit, label %.critedge.i
 
-.critedge.i:                                      ; preds = %68, %64, %smtp_state.exit
-  %74 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %62, i1 noundef zeroext false, i1 noundef zeroext false) #9
-  %75 = getelementptr inbounds nuw i8, ptr %61, i64 1280
-  %76 = load i32, ptr %75, align 8, !tbaa !103
-  %77 = icmp eq i32 %76, 0
-  %78 = zext i1 %77 to i8
-  store i8 %78, ptr %1, align 1, !tbaa !79
+.critedge.i:                                      ; preds = %66, %62, %smtp_state.exit
+  %72 = call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %60, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  %73 = getelementptr inbounds nuw i8, ptr %59, i64 1280
+  %74 = load i32, ptr %73, align 8, !tbaa !103
+  %75 = icmp eq i32 %74, 0
+  %76 = zext i1 %75 to i8
+  store i8 %76, ptr %1, align 1, !tbaa !79
   br label %smtp_parse_url_options.exit
 
-smtp_parse_url_options.exit:                      ; preds = %24, %.critedge5.i, %.critedge.i, %68, %smtp_parse_url_path.exit
-  %.0 = phi i32 [ %38, %smtp_parse_url_path.exit ], [ %74, %.critedge.i ], [ %69, %68 ], [ %28, %24 ], [ 3, %.critedge5.i ]
+smtp_parse_url_options.exit:                      ; preds = %22, %.critedge5.i, %.critedge.i, %66, %smtp_parse_url_path.exit
+  %.0 = phi i32 [ %36, %smtp_parse_url_path.exit ], [ %72, %.critedge.i ], [ %67, %66 ], [ %26, %22 ], [ 3, %.critedge5.i ]
   ret i32 %.0
 }
 

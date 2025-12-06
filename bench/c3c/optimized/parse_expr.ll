@@ -5494,17 +5494,17 @@ switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.parse_char_lit, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep20 = getelementptr inbounds nuw i32, ptr @switch.table.parse_char_lit.2, i64 %17
-  %switch.load21 = load i32, ptr %switch.gep20, align 4
+  %switch.gep19 = getelementptr inbounds nuw i32, ptr @switch.table.parse_char_lit.2, i64 %17
+  %switch.load20 = load i32, ptr %switch.gep19, align 4
   br label %18
 
 18:                                               ; preds = %2, %switch.lookup
   %type_u128.sink = phi ptr [ %switch.load, %switch.lookup ], [ @type_u128, %2 ]
-  %.sink = phi i32 [ %switch.load21, %switch.lookup ], [ 12, %2 ]
-  %19 = load ptr, ptr %type_u128.sink, align 8
-  store ptr %19, ptr %5, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %.sink, ptr %20, align 8
+  %.sink = phi i32 [ %switch.load20, %switch.lookup ], [ 12, %2 ]
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %20 = load ptr, ptr %type_u128.sink, align 8
+  store ptr %20, ptr %5, align 8
+  store i32 %.sink, ptr %19, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
   ret ptr %5
 }

@@ -37051,7 +37051,7 @@ define void @_ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceL
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   %or.cond33 = select i1 %.not30, i1 true, i1 %11
-  br i1 %or.cond33, label %56, label %12
+  br i1 %or.cond33, label %52, label %12
 
 12:                                               ; preds = %5
   %13 = icmp eq i32 %2, 13
@@ -37076,76 +37076,72 @@ define void @_ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceL
   br label %24
 
 24:                                               ; preds = %14, %14, %20, %12
-  br i1 %4, label %56, label %25
+  br i1 %4, label %52, label %25
 
 25:                                               ; preds = %24
-  switch i32 %2, label %46 [
-    i32 14, label %26
-    i32 13, label %26
-    i32 9, label %26
-    i32 8, label %26
-    i32 1, label %26
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = and i64 %27, 234881024
+  %.not29 = icmp eq i64 %28, 0
+  switch i32 %2, label %45 [
+    i32 14, label %29
+    i32 13, label %29
+    i32 9, label %29
+    i32 8, label %29
+    i32 1, label %29
   ]
 
-26:                                               ; preds = %25, %25, %25, %25, %25
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %28 = load i64, ptr %27, align 8
-  %29 = and i64 %28, 234881024
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %56
+29:                                               ; preds = %25, %25, %25, %25, %25
+  br i1 %.not29, label %30, label %52
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %33 = load i32, ptr %32, align 8
-  %34 = and i32 %33, 1
-  %.not = icmp eq i32 %34, 0
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %32 = load i32, ptr %31, align 8
+  %33 = and i32 %32, 1
+  %.not = icmp eq i32 %33, 0
   %switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb.43.switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb = select i1 %.not, ptr @switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb.43, ptr @switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb.43
   %. = select i1 %.not, i64 344, i64 352
   %.str.2..str.460 = select i1 %.not, ptr @.str.2, ptr @.str.460
-  %35 = sext i32 %2 to i64
-  %36 = getelementptr ptr, ptr %switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb.43.switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb, i64 %35
-  %switch.gep41 = getelementptr i8, ptr %36, i64 -8
+  %34 = sext i32 %2 to i64
+  %35 = getelementptr ptr, ptr %switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb.43.switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb, i64 %34
+  %switch.gep41 = getelementptr i8, ptr %35, i64 -8
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.
-  %39 = load ptr, ptr %38, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %39(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.459, ptr noundef nonnull %switch.load42, ptr noundef nonnull %.str.2..str.460) #23
-  %40 = load i64, ptr %27, align 8
-  %41 = and i64 %40, -234881025
-  %42 = or disjoint i64 %41, 67108864
-  store i64 %42, ptr %27, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1376
-  %44 = zext nneg i32 %2 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
-  store i32 2, ptr %45, align 4
-  br label %56
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.
+  %38 = load ptr, ptr %37, align 8
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %38(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.459, ptr noundef nonnull %switch.load42, ptr noundef nonnull %.str.2..str.460) #23
+  %39 = load i64, ptr %26, align 8
+  %40 = and i64 %39, -234881025
+  %41 = or disjoint i64 %40, 67108864
+  store i64 %41, ptr %26, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1376
+  %43 = zext nneg i32 %2 to i64
+  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  store i32 2, ptr %44, align 4
+  br label %52
 
-46:                                               ; preds = %25
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = load i64, ptr %47, align 8
-  %49 = and i64 %48, 234881024
-  %.not29 = icmp eq i64 %49, 0
-  br i1 %.not29, label %56, label %50
+45:                                               ; preds = %25
+  br i1 %.not29, label %52, label %46
 
-50:                                               ; preds = %46
-  %51 = icmp ult i32 %2, 24
-  br i1 %51, label %switch.lookup45, label %_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit37
+46:                                               ; preds = %45
+  %47 = icmp ult i32 %2, 24
+  br i1 %47, label %switch.lookup45, label %_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit37
 
-switch.lookup45:                                  ; preds = %50
-  %52 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb.44, i64 %52
+switch.lookup45:                                  ; preds = %46
+  %48 = zext nneg i32 %2 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TParseContext23precisionQualifierCheckERKNS_10TSourceLocENS_10TBasicTypeERNS_10TQualifierEb.44, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit37
 
-_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit37: ; preds = %50, %switch.lookup45
-  %.0.i36 = phi ptr [ %switch.load, %switch.lookup45 ], [ @.str.1292, %50 ]
-  %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 344
-  %55 = load ptr, ptr %54, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %55(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.461, ptr noundef nonnull %.0.i36, ptr noundef nonnull @.str.2) #23
-  br label %56
+_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit37: ; preds = %46, %switch.lookup45
+  %.0.i36 = phi ptr [ %switch.load, %switch.lookup45 ], [ @.str.1292, %46 ]
+  %49 = load ptr, ptr %0, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 344
+  %51 = load ptr, ptr %50, align 8
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %51(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.461, ptr noundef nonnull %.0.i36, ptr noundef nonnull @.str.2) #23
+  br label %52
 
-56:                                               ; preds = %46, %_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit37, %26, %31, %24, %5
+52:                                               ; preds = %45, %_ZN7glslang5TType14getBasicStringENS_10TBasicTypeE.exit37, %29, %30, %24, %5
   ret void
 }
 
@@ -43023,83 +43019,65 @@ _ZNK7glslang10TQualifier16hasUniformLayoutEv.exit.thread: ; preds = %103, %107, 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang13TParseContext20paramCheckFixStorageERKNS_10TSourceLocERKNS_17TStorageQualifierERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(152) %3) local_unnamed_addr #0 align 2 {
   %5 = load i32, ptr %2, align 4
-  switch i32 %5, label %34 [
-    i32 2, label %6
-    i32 19, label %6
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noundef nonnull align 8 dereferenceable(80) ptr %8(ptr noundef nonnull align 8 dereferenceable(152) %3) #23
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load i64, ptr %10, align 8
+  switch i32 %5, label %22 [
+    i32 2, label %12
+    i32 19, label %12
     i32 16, label %15
     i32 17, label %15
     i32 18, label %15
     i32 31, label %15
-    i32 1, label %25
-    i32 0, label %25
+    i32 1, label %19
+    i32 0, label %19
   ]
 
-6:                                                ; preds = %4, %4
-  %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef nonnull align 8 dereferenceable(80) ptr %9(ptr noundef nonnull align 8 dereferenceable(152) %3) #23
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i64, ptr %11, align 8
-  %13 = and i64 %12, -128
+12:                                               ; preds = %4, %4
+  %13 = and i64 %11, -128
   %14 = or disjoint i64 %13, 19
-  store i64 %14, ptr %11, align 8
-  br label %49
+  store i64 %14, ptr %10, align 8
+  br label %31
 
 15:                                               ; preds = %4, %4, %4, %4
-  %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef nonnull align 8 dereferenceable(80) ptr %18(ptr noundef nonnull align 8 dereferenceable(152) %3) #23
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = zext nneg i32 %5 to i64
-  %23 = and i64 %21, -128
-  %24 = or disjoint i64 %23, %22
-  store i64 %24, ptr %20, align 8
-  br label %49
+  %16 = zext nneg i32 %5 to i64
+  %17 = and i64 %11, -128
+  %18 = or disjoint i64 %17, %16
+  store i64 %18, ptr %10, align 8
+  br label %31
 
-25:                                               ; preds = %4, %4
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef nonnull align 8 dereferenceable(80) ptr %28(ptr noundef nonnull align 8 dereferenceable(152) %3) #23
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load i64, ptr %30, align 8
-  %32 = and i64 %31, -128
-  %33 = or disjoint i64 %32, 16
-  store i64 %33, ptr %30, align 8
-  br label %49
+19:                                               ; preds = %4, %4
+  %20 = and i64 %11, -128
+  %21 = or disjoint i64 %20, 16
+  store i64 %21, ptr %10, align 8
+  br label %31
 
-34:                                               ; preds = %4
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef nonnull align 8 dereferenceable(80) ptr %37(ptr noundef nonnull align 8 dereferenceable(152) %3) #23
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i64, ptr %39, align 8
-  %41 = and i64 %40, -128
-  %42 = or disjoint i64 %41, 16
-  store i64 %42, ptr %39, align 8
-  %43 = load i32, ptr %2, align 4
-  %44 = icmp ult i32 %43, 31
-  br i1 %44, label %switch.lookup, label %_ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit
+22:                                               ; preds = %4
+  %23 = and i64 %11, -128
+  %24 = or disjoint i64 %23, 16
+  store i64 %24, ptr %10, align 8
+  %25 = load i32, ptr %2, align 4
+  %26 = icmp ult i32 %25, 31
+  br i1 %26, label %switch.lookup, label %_ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit
 
-switch.lookup:                                    ; preds = %34
-  %45 = zext nneg i32 %43 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.78, i64 %45
+switch.lookup:                                    ; preds = %22
+  %27 = zext nneg i32 %25 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7glslang13TParseContext33updateStandaloneQualifierDefaultsERKNS_10TSourceLocERKNS_11TPublicTypeE.78, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit
 
-_ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit: ; preds = %34, %switch.lookup
-  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.1275, %34 ]
-  %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 344
-  %48 = load ptr, ptr %47, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %48(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.540, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.2) #23
-  br label %49
+_ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit: ; preds = %22, %switch.lookup
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.1275, %22 ]
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 344
+  %30 = load ptr, ptr %29, align 8
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %30(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.540, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.2) #23
+  br label %31
 
-49:                                               ; preds = %_ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit, %25, %15, %6
+31:                                               ; preds = %_ZN7glslang25GetStorageQualifierStringENS_17TStorageQualifierE.exit, %19, %15, %12
   ret void
 }
 

@@ -4527,7 +4527,7 @@ define hidden noundef zeroext i1 @_ZNK13ArrayCopyNode8modifiesEllP11PhaseValuesb
 
 48:                                               ; preds = %5
   %49 = xor i1 %4, true
-  br label %106
+  br label %100
 
 50:                                               ; preds = %5
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 80
@@ -4535,94 +4535,86 @@ define hidden noundef zeroext i1 @_ZNK13ArrayCopyNode8modifiesEllP11PhaseValuesb
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %54) #11
+  %56 = load i8, ptr @UseCompressedClassPointers, align 1
+  %57 = trunc i8 %56 to i1
+  %58 = select i1 %57, i32 16, i32 20
   switch i8 %55, label %59 [
     i8 16, label %.thread
     i8 13, label %.thread
     i8 12, label %.thread
   ]
 
-.thread:                                          ; preds = %50, %50, %50
-  %56 = load i8, ptr @UseCompressedClassPointers, align 1
-  %57 = trunc i8 %56 to i1
-  %58 = select i1 %57, i32 16, i32 20
-  br label %64
-
 59:                                               ; preds = %50
-  %60 = load i8, ptr @UseCompressedClassPointers, align 1
-  %61 = trunc i8 %60 to i1
-  %62 = select i1 %61, i32 16, i32 20
-  %63 = and i8 %55, -2
-  %or.cond.i.i = icmp eq i8 %63, 12
-  br i1 %or.cond.i.i, label %64, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i
+  %60 = and i8 %55, -2
+  %or.cond.i.i = icmp eq i8 %60, 12
+  br i1 %or.cond.i.i, label %.thread, label %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i
 
-64:                                               ; preds = %.thread, %59
-  %65 = phi i32 [ %58, %.thread ], [ %62, %59 ]
-  %66 = load i8, ptr @UseCompressedOops, align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit, label %68
+.thread:                                          ; preds = %50, %50, %50, %59
+  %61 = load i8, ptr @UseCompressedOops, align 1
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit, label %63
 
 _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %59
   switch i8 %55, label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit [
-    i8 11, label %68
-    i8 7, label %68
+    i8 11, label %63
+    i8 7, label %63
   ]
 
-68:                                               ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %64
-  %69 = phi i32 [ %62, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ %62, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ %65, %64 ]
-  %70 = phi i8 [ %55, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ %55, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ 12, %64 ]
-  %narrow.i = add nuw nsw i32 %69, 7
-  %71 = and i32 %narrow.i, 24
+63:                                               ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %.thread
+  %64 = phi i8 [ %55, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ %55, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ 12, %.thread ]
+  %narrow.i = add nuw nsw i32 %58, 7
+  %65 = and i32 %narrow.i, 24
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
 
-_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %64, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %68
-  %72 = phi i8 [ %70, %68 ], [ %55, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ 12, %64 ]
-  %73 = phi i32 [ %71, %68 ], [ %62, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ %65, %64 ]
-  %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %74
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %78 = load i32, ptr %77, align 8
-  %79 = sext i32 %78 to i64
-  %80 = zext i32 %76 to i64
-  %81 = zext nneg i32 %73 to i64
-  %82 = getelementptr inbounds nuw i8, ptr %22, i64 28
-  %83 = load i32, ptr %82, align 4
-  %84 = sext i32 %83 to i64
-  br i1 %4, label %85, label %95
+_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %.thread, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %63
+  %66 = phi i8 [ %64, %63 ], [ %55, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ 12, %.thread ]
+  %67 = phi i32 [ %65, %63 ], [ %58, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ %58, %.thread ]
+  %68 = zext i8 %66 to i64
+  %69 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %68
+  %70 = load i32, ptr %69, align 4
+  %71 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %72 = load i32, ptr %71, align 8
+  %73 = sext i32 %72 to i64
+  %74 = zext i32 %70 to i64
+  %75 = zext nneg i32 %67 to i64
+  %76 = getelementptr inbounds nuw i8, ptr %22, i64 28
+  %77 = load i32, ptr %76, align 4
+  %78 = sext i32 %77 to i64
+  br i1 %4, label %79, label %89
 
-85:                                               ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
-  %86 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %87 = load i32, ptr %86, align 8
-  %88 = sext i32 %87 to i64
-  %89 = add nsw i64 %88, %79
-  %90 = mul nsw i64 %89, %80
-  %91 = add nsw i64 %90, %81
-  %92 = mul nsw i64 %84, %80
-  %93 = add nsw i64 %92, %81
-  %.not45 = icmp sge i64 %1, %93
-  %94 = icmp slt i64 %2, %91
-  %or.cond46 = select i1 %.not45, i1 %94, i1 false
-  br i1 %or.cond46, label %106, label %105
+79:                                               ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
+  %80 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %81 = load i32, ptr %80, align 8
+  %82 = sext i32 %81 to i64
+  %83 = add nsw i64 %82, %73
+  %84 = mul nsw i64 %83, %74
+  %85 = add nsw i64 %84, %75
+  %86 = mul nsw i64 %78, %74
+  %87 = add nsw i64 %86, %75
+  %.not45 = icmp sge i64 %1, %87
+  %88 = icmp slt i64 %2, %85
+  %or.cond46 = select i1 %.not45, i1 %88, i1 false
+  br i1 %or.cond46, label %100, label %99
 
-95:                                               ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
-  %96 = getelementptr inbounds nuw i8, ptr %30, i64 28
-  %97 = load i32, ptr %96, align 4
-  %98 = sext i32 %97 to i64
-  %99 = add nsw i64 %98, %84
-  %100 = mul nsw i64 %99, %80
-  %101 = add nsw i64 %100, %81
-  %102 = mul nsw i64 %79, %80
-  %103 = add nsw i64 %102, %81
-  %.not = icmp sge i64 %2, %103
-  %104 = icmp slt i64 %1, %101
-  %or.cond47 = select i1 %.not, i1 %104, i1 false
-  br i1 %or.cond47, label %106, label %105
+89:                                               ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
+  %90 = getelementptr inbounds nuw i8, ptr %30, i64 28
+  %91 = load i32, ptr %90, align 4
+  %92 = sext i32 %91 to i64
+  %93 = add nsw i64 %92, %78
+  %94 = mul nsw i64 %93, %74
+  %95 = add nsw i64 %94, %75
+  %96 = mul nsw i64 %73, %74
+  %97 = add nsw i64 %96, %75
+  %.not = icmp sge i64 %2, %97
+  %98 = icmp slt i64 %1, %95
+  %or.cond47 = select i1 %.not, i1 %98, i1 false
+  br i1 %or.cond47, label %100, label %99
 
-105:                                              ; preds = %95, %85
-  br label %106
+99:                                               ; preds = %89, %79
+  br label %100
 
-106:                                              ; preds = %95, %85, %105, %48
-  %.0 = phi i1 [ %49, %48 ], [ false, %105 ], [ true, %85 ], [ true, %95 ]
+100:                                              ; preds = %89, %79, %99, %48
+  %.0 = phi i1 [ %49, %48 ], [ false, %99 ], [ true, %79 ], [ true, %89 ]
   ret i1 %.0
 }
 

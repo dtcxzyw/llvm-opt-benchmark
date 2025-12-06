@@ -824,11 +824,11 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   %switch.offset = add nsw i32 %switch.idx.mult, 16
   %.0128 = select i1 %11, i32 %switch.offset, i32 0
   %12 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef %.0128, ptr noundef %3, ptr noundef %4)
-  br i1 %12, label %13, label %246
+  br i1 %12, label %13, label %242
 
 13:                                               ; preds = %5
   %14 = load i32, ptr %9, align 8
-  switch i32 %14, label %187 [
+  switch i32 %14, label %183 [
     i32 1, label %15
     i32 2, label %20
   ]
@@ -837,17 +837,17 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = load i32, ptr %16, align 8
   %cond = icmp eq i32 %17, 1
-  br i1 %cond, label %18, label %187
+  br i1 %cond, label %18, label %183
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 0, ptr %19, align 8
-  br label %187
+  br label %183
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %22 = load i32, ptr %21, align 8
-  switch i32 %22, label %187 [
+  switch i32 %22, label %183 [
     i32 1, label %23
     i32 22, label %38
     i32 17, label %78
@@ -873,17 +873,17 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %32 = load i8, ptr %31, align 4, !range !6, !noundef !7
   %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %187
+  br i1 %33, label %34, label %183
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 4, ptr %35, align 8
-  br label %187
+  br label %183
 
 36:                                               ; preds = %23
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 0, ptr %37, align 8
-  br label %187
+  br label %183
 
 38:                                               ; preds = %20
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -937,7 +937,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 27
   %70 = load i8, ptr %69, align 1
   %.not135 = icmp eq i8 %70, -1
-  br i1 %.not135, label %187, label %71
+  br i1 %.not135, label %183, label %71
 
 71:                                               ; preds = %50
   %72 = or i16 %56, 29
@@ -948,7 +948,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   %76 = trunc nuw i16 %75 to i8
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 123
   store i8 %76, ptr %77, align 1
-  br label %187
+  br label %183
 
 78:                                               ; preds = %20
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1006,7 +1006,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   %107 = icmp eq i8 %106, -1
   %or.cond14 = select i1 %104, i1 %107, i1 false
   %spec.select = select i1 %or.cond14, i32 4, i32 0
-  br label %187
+  br label %183
 
 108:                                              ; preds = %20, %20
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1023,7 +1023,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   %119 = icmp eq i8 %118, -1
   %or.cond19 = select i1 %116, i1 %119, i1 false
   %spec.select136 = select i1 %or.cond19, i32 4, i32 0
-  br label %187
+  br label %183
 
 120:                                              ; preds = %20, %20, %20
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -1031,7 +1031,7 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   %123 = and i8 %122, 1
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i8 %123, ptr %124, align 8
-  br label %187
+  br label %183
 
 125:                                              ; preds = %20
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -1075,192 +1075,188 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noun
   %150 = load i8, ptr %127, align 4
   %151 = lshr i8 %150, 4
   %152 = and i8 %151, 7
+  %153 = getelementptr inbounds nuw i8, ptr %2, i64 84
   switch i8 %152, label %default.unreachable146 [
-    i8 0, label %153
+    i8 0, label %154
     i8 1, label %157
-    i8 2, label %161
-    i8 4, label %165
-    i8 3, label %169
-    i8 5, label %169
-    i8 6, label %169
-    i8 7, label %169
+    i8 2, label %160
+    i8 4, label %163
+    i8 3, label %166
+    i8 5, label %166
+    i8 6, label %166
+    i8 7, label %166
   ]
 
-153:                                              ; preds = %137
-  %154 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  store i8 0, ptr %154, align 4
+154:                                              ; preds = %137
+  store i8 0, ptr %153, align 4
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 85
   store i8 0, ptr %155, align 1
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 86
   store i8 0, ptr %156, align 2
-  br label %187
+  br label %183
 
 157:                                              ; preds = %137
-  %158 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  store i8 0, ptr %158, align 4
-  %159 = getelementptr inbounds nuw i8, ptr %2, i64 85
-  store i8 0, ptr %159, align 1
-  %160 = getelementptr inbounds nuw i8, ptr %2, i64 86
-  store i8 0, ptr %160, align 2
-  br label %187
+  store i8 0, ptr %153, align 4
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 85
+  store i8 0, ptr %158, align 1
+  %159 = getelementptr inbounds nuw i8, ptr %2, i64 86
+  store i8 0, ptr %159, align 2
+  br label %183
 
-161:                                              ; preds = %137
-  %162 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  store i8 0, ptr %162, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %2, i64 85
-  store i8 0, ptr %163, align 1
-  %164 = getelementptr inbounds nuw i8, ptr %2, i64 86
-  store i8 0, ptr %164, align 2
-  br label %187
+160:                                              ; preds = %137
+  store i8 0, ptr %153, align 4
+  %161 = getelementptr inbounds nuw i8, ptr %2, i64 85
+  store i8 0, ptr %161, align 1
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 86
+  store i8 0, ptr %162, align 2
+  br label %183
 
-165:                                              ; preds = %137
-  %166 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  store i8 0, ptr %166, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %2, i64 85
-  store i8 0, ptr %167, align 1
-  %168 = getelementptr inbounds nuw i8, ptr %2, i64 86
-  store i8 0, ptr %168, align 2
-  br label %187
+163:                                              ; preds = %137
+  store i8 0, ptr %153, align 4
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 85
+  store i8 0, ptr %164, align 1
+  %165 = getelementptr inbounds nuw i8, ptr %2, i64 86
+  store i8 0, ptr %165, align 2
+  br label %183
 
-169:                                              ; preds = %137, %137, %137, %137
-  %170 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  store i8 4, ptr %170, align 4
-  %171 = and i8 %150, 7
-  switch i8 %171, label %default.unreachable146 [
-    i8 1, label %172
-    i8 2, label %172
-    i8 3, label %175
-    i8 0, label %178
-    i8 4, label %178
-    i8 5, label %178
-    i8 6, label %181
-    i8 7, label %184
+166:                                              ; preds = %137, %137, %137, %137
+  store i8 4, ptr %153, align 4
+  %167 = and i8 %150, 7
+  switch i8 %167, label %default.unreachable146 [
+    i8 1, label %168
+    i8 2, label %168
+    i8 3, label %171
+    i8 0, label %174
+    i8 4, label %174
+    i8 5, label %174
+    i8 6, label %177
+    i8 7, label %180
   ]
 
-172:                                              ; preds = %169, %169
-  store i8 6, ptr %170, align 4
-  %173 = getelementptr inbounds nuw i8, ptr %2, i64 85
-  store i8 0, ptr %173, align 1
-  %174 = getelementptr inbounds nuw i8, ptr %2, i64 86
-  store i8 0, ptr %174, align 2
-  br label %187
+168:                                              ; preds = %166, %166
+  store i8 6, ptr %153, align 4
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 85
+  store i8 0, ptr %169, align 1
+  %170 = getelementptr inbounds nuw i8, ptr %2, i64 86
+  store i8 0, ptr %170, align 2
+  br label %183
 
-175:                                              ; preds = %169
-  %176 = getelementptr inbounds nuw i8, ptr %2, i64 85
-  store i8 4, ptr %176, align 1
-  %177 = getelementptr inbounds nuw i8, ptr %2, i64 86
-  store i8 0, ptr %177, align 2
-  br label %187
+171:                                              ; preds = %166
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 85
+  store i8 4, ptr %172, align 1
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 86
+  store i8 0, ptr %173, align 2
+  br label %183
 
-178:                                              ; preds = %169, %169, %169
-  %179 = getelementptr inbounds nuw i8, ptr %2, i64 85
-  store i8 3, ptr %179, align 1
-  %180 = getelementptr inbounds nuw i8, ptr %2, i64 86
-  store i8 0, ptr %180, align 2
-  br label %187
+174:                                              ; preds = %166, %166, %166
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 85
+  store i8 3, ptr %175, align 1
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 86
+  store i8 0, ptr %176, align 2
+  br label %183
 
-181:                                              ; preds = %169
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 85
-  store i8 0, ptr %182, align 1
-  %183 = getelementptr inbounds nuw i8, ptr %2, i64 86
-  store i8 0, ptr %183, align 2
-  br label %187
+177:                                              ; preds = %166
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 85
+  store i8 0, ptr %178, align 1
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 86
+  store i8 0, ptr %179, align 2
+  br label %183
 
-184:                                              ; preds = %169
-  %185 = getelementptr inbounds nuw i8, ptr %2, i64 85
-  store i8 1, ptr %185, align 1
-  %186 = getelementptr inbounds nuw i8, ptr %2, i64 86
-  store i8 0, ptr %186, align 2
-  br label %187
+180:                                              ; preds = %166
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 85
+  store i8 1, ptr %181, align 1
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 86
+  store i8 0, ptr %182, align 2
+  br label %183
 
-default.unreachable146:                           ; preds = %169, %137
+default.unreachable146:                           ; preds = %166, %137
   unreachable
 
-187:                                              ; preds = %108, %101, %30, %20, %120, %34, %36, %71, %50, %172, %175, %178, %181, %184, %165, %161, %157, %153, %18, %15, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %18 ], [ 0, %15 ], [ 0, %20 ], [ 0, %34 ], [ 0, %36 ], [ %.1, %71 ], [ %.1, %50 ], [ 0, %120 ], [ 0, %153 ], [ 0, %157 ], [ 0, %161 ], [ 0, %165 ], [ 0, %172 ], [ 0, %175 ], [ 0, %178 ], [ 0, %181 ], [ 0, %184 ], [ 4, %30 ], [ %spec.select, %101 ], [ %spec.select136, %108 ]
+183:                                              ; preds = %108, %101, %30, %20, %120, %34, %36, %71, %50, %168, %171, %174, %177, %180, %163, %160, %157, %154, %18, %15, %13
+  %.0 = phi i32 [ 0, %13 ], [ 0, %18 ], [ 0, %15 ], [ 0, %20 ], [ 0, %34 ], [ 0, %36 ], [ %.1, %71 ], [ %.1, %50 ], [ 0, %120 ], [ 0, %154 ], [ 0, %157 ], [ 0, %160 ], [ 0, %163 ], [ 0, %168 ], [ 0, %171 ], [ 0, %174 ], [ 0, %177 ], [ 0, %180 ], [ 4, %30 ], [ %spec.select, %101 ], [ %spec.select136, %108 ]
   store i32 0, ptr %2, align 8
-  %188 = call ptr @wtap_block_create(i32 noundef 5)
-  %189 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  store ptr %188, ptr %189, align 8
-  %190 = load i32, ptr %9, align 8
-  %191 = icmp eq i32 %190, 0
-  %192 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %193 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %194 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %195 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %196 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %197 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br i1 %191, label %198, label %220
+  %184 = call ptr @wtap_block_create(i32 noundef 5)
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  store ptr %184, ptr %185, align 8
+  %186 = load i32, ptr %9, align 8
+  %187 = icmp eq i32 %186, 0
+  %188 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br i1 %187, label %194, label %216
 
-198:                                              ; preds = %187
-  store i32 1, ptr %192, align 4
-  %199 = load i32, ptr %6, align 4
-  %200 = uitofp i32 %199 to double
-  %201 = load i32, ptr %193, align 4
-  %202 = uitofp i32 %201 to double
-  %203 = call double @llvm.fmuladd.f64(double %202, double 0x41F0000000000000, double %200)
-  %204 = load double, ptr %194, align 8
-  %205 = fdiv double %203, %204
-  %206 = load double, ptr %195, align 8
-  %207 = fsub double %205, %206
-  %208 = load i64, ptr %8, align 8
-  %209 = fptosi double %207 to i64
-  %210 = add i64 %208, %209
-  store i64 %210, ptr %196, align 8
-  %211 = fptoui double %207 to i64
-  %212 = uitofp i64 %211 to double
-  %213 = fsub double %207, %212
-  %214 = fmul double %213, 1.000000e+09
-  %215 = fptosi double %214 to i32
-  store i32 %215, ptr %197, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.val138 = load i16, ptr %216, align 4
-  %217 = zext i16 %.val138 to i32
-  %218 = sub nsw i32 %217, %.0
-  %219 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i32 %218, ptr %219, align 8
+194:                                              ; preds = %183
+  store i32 1, ptr %188, align 4
+  %195 = load i32, ptr %6, align 4
+  %196 = uitofp i32 %195 to double
+  %197 = load i32, ptr %189, align 4
+  %198 = uitofp i32 %197 to double
+  %199 = call double @llvm.fmuladd.f64(double %198, double 0x41F0000000000000, double %196)
+  %200 = load double, ptr %190, align 8
+  %201 = fdiv double %199, %200
+  %202 = load double, ptr %191, align 8
+  %203 = fsub double %201, %202
+  %204 = load i64, ptr %8, align 8
+  %205 = fptosi double %203 to i64
+  %206 = add i64 %204, %205
+  store i64 %206, ptr %192, align 8
+  %207 = fptoui double %203 to i64
+  %208 = uitofp i64 %207 to double
+  %209 = fsub double %203, %208
+  %210 = fmul double %209, 1.000000e+09
+  %211 = fptosi double %210 to i32
+  store i32 %211, ptr %193, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.val138 = load i16, ptr %212, align 4
+  %213 = zext i16 %.val138 to i32
+  %214 = sub nsw i32 %213, %.0
+  %215 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store i32 %214, ptr %215, align 8
   br label %.sink.split149
 
-220:                                              ; preds = %187
-  store i32 3, ptr %192, align 4
-  %221 = load i32, ptr %6, align 4
-  %222 = uitofp i32 %221 to double
-  %223 = load i32, ptr %193, align 4
-  %224 = uitofp i32 %223 to double
-  %225 = call double @llvm.fmuladd.f64(double %224, double 0x41F0000000000000, double %222)
-  %226 = load double, ptr %194, align 8
-  %227 = fdiv double %225, %226
-  %228 = load double, ptr %195, align 8
-  %229 = fsub double %227, %228
-  %230 = load i64, ptr %8, align 8
-  %231 = fptosi double %229 to i64
-  %232 = add i64 %230, %231
-  store i64 %232, ptr %196, align 8
-  %233 = fptoui double %229 to i64
-  %234 = uitofp i64 %233 to double
-  %235 = fsub double %229, %234
-  %236 = fmul double %235, 1.000000e+09
-  %237 = fptosi double %236 to i32
-  store i32 %237, ptr %197, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %.val140 = load i16, ptr %238, align 2
-  %239 = zext i16 %.val140 to i32
+216:                                              ; preds = %183
+  store i32 3, ptr %188, align 4
+  %217 = load i32, ptr %6, align 4
+  %218 = uitofp i32 %217 to double
+  %219 = load i32, ptr %189, align 4
+  %220 = uitofp i32 %219 to double
+  %221 = call double @llvm.fmuladd.f64(double %220, double 0x41F0000000000000, double %218)
+  %222 = load double, ptr %190, align 8
+  %223 = fdiv double %221, %222
+  %224 = load double, ptr %191, align 8
+  %225 = fsub double %223, %224
+  %226 = load i64, ptr %8, align 8
+  %227 = fptosi double %225 to i64
+  %228 = add i64 %226, %227
+  store i64 %228, ptr %192, align 8
+  %229 = fptoui double %225 to i64
+  %230 = uitofp i64 %229 to double
+  %231 = fsub double %225, %230
+  %232 = fmul double %231, 1.000000e+09
+  %233 = fptosi double %232 to i32
+  store i32 %233, ptr %193, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %.val140 = load i16, ptr %234, align 2
+  %235 = zext i16 %.val140 to i32
+  %236 = sub nsw i32 %235, %.0
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store i32 %236, ptr %237, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.val142 = load i16, ptr %238, align 4
+  %239 = zext i16 %.val142 to i32
   %240 = sub nsw i32 %239, %.0
-  %241 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i32 %240, ptr %241, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.val142 = load i16, ptr %242, align 4
-  %243 = zext i16 %.val142 to i32
-  %244 = sub nsw i32 %243, %.0
   br label %.sink.split149
 
-.sink.split149:                                   ; preds = %220, %198
-  %.sink150 = phi i32 [ %218, %198 ], [ %244, %220 ]
-  %245 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  store i32 %.sink150, ptr %245, align 4
-  br label %246
+.sink.split149:                                   ; preds = %216, %194
+  %.sink150 = phi i32 [ %214, %194 ], [ %240, %216 ]
+  %241 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  store i32 %.sink150, ptr %241, align 4
+  br label %242
 
-246:                                              ; preds = %.sink.split149, %5
+242:                                              ; preds = %.sink.split149, %5
   %.0129 = phi i32 [ -1, %5 ], [ %.0, %.sink.split149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0129

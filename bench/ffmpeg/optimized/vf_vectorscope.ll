@@ -465,7 +465,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
 
 34:                                               ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull @.str.3) #13
-  br label %115
+  br label %113
 
 35:                                               ; preds = %1
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -599,76 +599,71 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
 
 .thread114:                                       ; preds = %61, %.thread107, %.thread111, %62, %73, %74, %72, %66, %68, %67
   %75 = load i32, ptr %2, align 4, !tbaa !77
-  switch i32 %75, label %78 [
-    i32 135, label %76
-    i32 75, label %76
-    i32 73, label %76
-    i32 111, label %76
-    i32 71, label %76
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  store i16 0, ptr %76, align 4, !tbaa !58
+  switch i32 %75, label %77 [
+    i32 135, label %80
+    i32 75, label %80
+    i32 73, label %80
+    i32 111, label %80
+    i32 71, label %80
   ]
 
-76:                                               ; preds = %.thread114, %.thread114, %.thread114, %.thread114, %.thread114
-  %77 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i16 0, ptr %77, align 4, !tbaa !58
-  br label %82
+77:                                               ; preds = %.thread114
+  %78 = sdiv i32 %16, 2
+  %79 = trunc i32 %78 to i16
+  br label %80
 
-78:                                               ; preds = %.thread114
-  %79 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i16 0, ptr %79, align 4, !tbaa !58
-  %80 = sdiv i32 %16, 2
-  %81 = trunc i32 %80 to i16
-  br label %82
-
-82:                                               ; preds = %78, %76
-  %.sink127 = phi i16 [ %81, %78 ], [ 0, %76 ]
-  %83 = getelementptr inbounds nuw i8, ptr %8, i64 22
-  store i16 %.sink127, ptr %83, align 2, !tbaa !58
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i16 %.sink127, ptr %84, align 4, !tbaa !58
-  %85 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %86 = load i8, ptr %85, align 1, !tbaa !86
-  %87 = zext i8 %86 to i32
-  %88 = getelementptr inbounds nuw i8, ptr %8, i64 68
-  store i32 %87, ptr %88, align 4, !tbaa !87
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %90 = load i8, ptr %89, align 2, !tbaa !88
-  %91 = zext i8 %90 to i32
-  %92 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i32 %91, ptr %92, align 8, !tbaa !89
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %94 = load i32, ptr %93, align 4, !tbaa !71
+80:                                               ; preds = %.thread114, %.thread114, %.thread114, %.thread114, %.thread114, %77
+  %.sink127 = phi i16 [ %79, %77 ], [ 0, %.thread114 ], [ 0, %.thread114 ], [ 0, %.thread114 ], [ 0, %.thread114 ], [ 0, %.thread114 ]
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 22
+  store i16 %.sink127, ptr %81, align 2, !tbaa !58
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i16 %.sink127, ptr %82, align 4, !tbaa !58
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %84 = load i8, ptr %83, align 1, !tbaa !86
+  %85 = zext i8 %84 to i32
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 68
+  store i32 %85, ptr %86, align 4, !tbaa !87
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %88 = load i8, ptr %87, align 2, !tbaa !88
+  %89 = zext i8 %88 to i32
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store i32 %89, ptr %90, align 8, !tbaa !89
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %92 = load i32, ptr %91, align 4, !tbaa !71
+  %93 = sub nsw i32 0, %92
+  %94 = ashr i32 %93, %89
   %95 = sub nsw i32 0, %94
-  %96 = ashr i32 %95, %91
-  %97 = sub nsw i32 0, %96
-  %98 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  %99 = getelementptr inbounds nuw i8, ptr %8, i64 60
-  store i32 %97, ptr %99, align 4, !tbaa !44
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i32 %97, ptr %100, align 8, !tbaa !44
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %102 = load i32, ptr %101, align 4, !tbaa !71
-  %103 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store i32 %102, ptr %103, align 8, !tbaa !44
-  store i32 %102, ptr %98, align 4, !tbaa !44
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %105 = load i32, ptr %104, align 8, !tbaa !70
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 52
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 60
+  store i32 %95, ptr %97, align 4, !tbaa !44
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store i32 %95, ptr %98, align 8, !tbaa !44
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %100 = load i32, ptr %99, align 4, !tbaa !71
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  store i32 %100, ptr %101, align 8, !tbaa !44
+  store i32 %100, ptr %96, align 4, !tbaa !44
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %103 = load i32, ptr %102, align 8, !tbaa !70
+  %104 = sub nsw i32 0, %103
+  %105 = ashr i32 %104, %85
   %106 = sub nsw i32 0, %105
-  %107 = ashr i32 %106, %87
-  %108 = sub nsw i32 0, %107
-  %109 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %110 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  store i32 %108, ptr %110, align 4, !tbaa !44
-  %111 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 %108, ptr %111, align 8, !tbaa !44
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %113 = load i32, ptr %112, align 8, !tbaa !70
-  %114 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i32 %113, ptr %114, align 8, !tbaa !44
-  store i32 %113, ptr %109, align 4, !tbaa !44
-  br label %115
+  %107 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  store i32 %106, ptr %108, align 4, !tbaa !44
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i32 %106, ptr %109, align 8, !tbaa !44
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %111 = load i32, ptr %110, align 8, !tbaa !70
+  %112 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store i32 %111, ptr %112, align 8, !tbaa !44
+  store i32 %111, ptr %107, align 4, !tbaa !44
+  br label %113
 
-115:                                              ; preds = %82, %34
-  %.0 = phi i32 [ -22, %34 ], [ 0, %82 ]
+113:                                              ; preds = %80, %34
+  %.0 = phi i32 [ -22, %34 ], [ 0, %80 ]
   ret i32 %.0
 }
 

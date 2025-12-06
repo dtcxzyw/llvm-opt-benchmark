@@ -600,39 +600,43 @@ define noundef zeroext i1 @ff_infer_colors(ptr noundef captures(none) %0, ptr no
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4, !tbaa !38
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   switch i32 %5, label %9 [
-    i32 1, label %6
-    i32 4, label %6
-    i32 5, label %6
-    i32 6, label %6
-    i32 7, label %6
+    i32 1, label %7
+    i32 4, label %7
+    i32 5, label %7
+    i32 6, label %7
+    i32 7, label %7
   ]
 
-6:                                                ; preds = %4, %4, %4, %4, %4
+7:                                                ; preds = %4, %4, %4, %4, %4
   store i32 %5, ptr %1, align 4, !tbaa !38
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %7, ptr noundef nonnull readonly align 4 dereferenceable(48) %8, i64 48, i1 false), !tbaa.struct !50
-  br label %infer_prim_ref.exit
+  br label %.sink.split.i
 
 9:                                                ; preds = %4
   store i32 1, ptr %1, align 4, !tbaa !38
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = tail call ptr @av_csp_primaries_desc_from_id(i32 noundef 1) #8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %10, ptr noundef nonnull align 4 dereferenceable(48) %12, i64 48, i1 false), !tbaa.struct !50
-  %.pre34.pre = load i32, ptr %1, align 4, !tbaa !38
+  %10 = tail call ptr @av_csp_primaries_desc_from_id(i32 noundef 1) #8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.pre36.pre.pre = load i32, ptr %1, align 4, !tbaa !38
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %9, %7
+  %.pre36.pre = phi i32 [ %5, %7 ], [ %.pre36.pre.pre, %9 ]
+  %.sink.i = phi ptr [ %8, %7 ], [ %11, %9 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %6, ptr noundef nonnull align 4 dereferenceable(48) %.sink.i, i64 48, i1 false)
   br label %infer_prim_ref.exit
 
-infer_prim_ref.exit:                              ; preds = %2, %6, %9
-  %.pre34 = phi i32 [ %3, %2 ], [ %.pre34.pre, %9 ], [ %5, %6 ]
-  %.0.i = phi i32 [ 0, %2 ], [ 1, %9 ], [ 1, %6 ]
-  %13 = load i32, ptr %0, align 4, !tbaa !38
-  %.not.i19 = icmp eq i32 %13, 2
-  br i1 %.not.i19, label %14, label %infer_prim_ref.exit21.thread
+infer_prim_ref.exit:                              ; preds = %2, %.sink.split.i
+  %.pre36 = phi i32 [ %3, %2 ], [ %.pre36.pre, %.sink.split.i ]
+  %.0.i = phi i32 [ 0, %2 ], [ 1, %.sink.split.i ]
+  %12 = load i32, ptr %0, align 4, !tbaa !38
+  %.not.i19 = icmp eq i32 %12, 2
+  br i1 %.not.i19, label %13, label %infer_prim_ref.exit23.thread
 
-14:                                               ; preds = %infer_prim_ref.exit
-  switch i32 %.pre34, label %18 [
+13:                                               ; preds = %infer_prim_ref.exit
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  switch i32 %.pre36, label %17 [
     i32 1, label %15
     i32 4, label %15
     i32 5, label %15
@@ -640,133 +644,129 @@ infer_prim_ref.exit:                              ; preds = %2, %6, %9
     i32 7, label %15
   ]
 
-15:                                               ; preds = %14, %14, %14, %14, %14
-  store i32 %.pre34, ptr %0, align 4, !tbaa !38
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %16, ptr noundef nonnull readonly align 4 dereferenceable(48) %17, i64 48, i1 false), !tbaa.struct !50
-  br label %infer_prim_ref.exit21
+15:                                               ; preds = %13, %13, %13, %13, %13
+  store i32 %.pre36, ptr %0, align 4, !tbaa !38
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %infer_prim_ref.exit23
 
-18:                                               ; preds = %14
+17:                                               ; preds = %13
   store i32 1, ptr %0, align 4, !tbaa !38
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = tail call ptr @av_csp_primaries_desc_from_id(i32 noundef 1) #8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %19, ptr noundef nonnull align 4 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !50
-  %.pr = load i32, ptr %0, align 4, !tbaa !38
-  br label %infer_prim_ref.exit21
+  %18 = tail call ptr @av_csp_primaries_desc_from_id(i32 noundef 1) #8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.pr.pr = load i32, ptr %0, align 4, !tbaa !38
+  br label %infer_prim_ref.exit23
 
-infer_prim_ref.exit21:                            ; preds = %15, %18
-  %22 = phi i32 [ %.pre34, %15 ], [ %.pr, %18 ]
-  %.not = icmp eq i32 %22, 2
-  br i1 %.not, label %23, label %infer_prim_ref.exit21.infer_prim_ref.exit21.thread_crit_edge
+infer_prim_ref.exit23:                            ; preds = %15, %17
+  %.pr = phi i32 [ %.pre36, %15 ], [ %.pr.pr, %17 ]
+  %.sink.i22 = phi ptr [ %16, %15 ], [ %19, %17 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %14, ptr noundef nonnull align 4 dereferenceable(48) %.sink.i22, i64 48, i1 false)
+  %.not = icmp eq i32 %.pr, 2
+  br i1 %.not, label %20, label %infer_prim_ref.exit23.infer_prim_ref.exit23.thread_crit_edge
 
-infer_prim_ref.exit21.infer_prim_ref.exit21.thread_crit_edge: ; preds = %infer_prim_ref.exit21
+infer_prim_ref.exit23.infer_prim_ref.exit23.thread_crit_edge: ; preds = %infer_prim_ref.exit23
   %.pre = load i32, ptr %1, align 4, !tbaa !38
-  br label %infer_prim_ref.exit21.thread
+  br label %infer_prim_ref.exit23.thread
 
-23:                                               ; preds = %infer_prim_ref.exit21
+20:                                               ; preds = %infer_prim_ref.exit23
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 492) #8
   tail call void @abort() #9
   unreachable
 
-infer_prim_ref.exit21.thread:                     ; preds = %infer_prim_ref.exit21.infer_prim_ref.exit21.thread_crit_edge, %infer_prim_ref.exit
-  %24 = phi i32 [ %.pre, %infer_prim_ref.exit21.infer_prim_ref.exit21.thread_crit_edge ], [ %.pre34, %infer_prim_ref.exit ]
-  %.0.i2029 = phi i32 [ 1, %infer_prim_ref.exit21.infer_prim_ref.exit21.thread_crit_edge ], [ %.0.i, %infer_prim_ref.exit ]
-  %.not16 = icmp eq i32 %24, 2
-  br i1 %.not16, label %25, label %26
+infer_prim_ref.exit23.thread:                     ; preds = %infer_prim_ref.exit23.infer_prim_ref.exit23.thread_crit_edge, %infer_prim_ref.exit
+  %21 = phi i32 [ %.pre, %infer_prim_ref.exit23.infer_prim_ref.exit23.thread_crit_edge ], [ %.pre36, %infer_prim_ref.exit ]
+  %.0.i2031 = phi i32 [ 1, %infer_prim_ref.exit23.infer_prim_ref.exit23.thread_crit_edge ], [ %.0.i, %infer_prim_ref.exit ]
+  %.not16 = icmp eq i32 %21, 2
+  br i1 %.not16, label %22, label %23
 
-25:                                               ; preds = %infer_prim_ref.exit21.thread
+22:                                               ; preds = %infer_prim_ref.exit23.thread
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 493) #8
   tail call void @abort() #9
   unreachable
 
-26:                                               ; preds = %infer_prim_ref.exit21.thread
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
+23:                                               ; preds = %infer_prim_ref.exit23.thread
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %25 = load i32, ptr %24, align 4, !tbaa !40
+  %.not.i24 = icmp eq i32 %25, 2
+  br i1 %.not.i24, label %26, label %infer_trc_ref.exit
+
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !40
-  %.not.i22 = icmp eq i32 %28, 2
-  br i1 %.not.i22, label %29, label %infer_trc_ref.exit
-
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !40
-  switch i32 %31, label %35 [
-    i32 2, label %32
-    i32 16, label %32
-    i32 18, label %32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  switch i32 %28, label %32 [
+    i32 2, label %30
+    i32 16, label %30
+    i32 18, label %30
   ]
 
-32:                                               ; preds = %29, %29, %29
-  store i32 1, ptr %27, align 4, !tbaa !40
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 4294967296, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 4294967499, ptr %34, align 4
+30:                                               ; preds = %26, %26, %26
+  store i32 1, ptr %24, align 4, !tbaa !40
+  store i64 4294967296, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store i64 4294967499, ptr %31, align 4
   br label %infer_trc_ref.exit
 
-35:                                               ; preds = %29
-  store i32 %31, ptr %27, align 4, !tbaa !40
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %38 = load i64, ptr %37, align 4
-  store i64 %38, ptr %36, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %41 = load i64, ptr %40, align 4
-  store i64 %41, ptr %39, align 4
+32:                                               ; preds = %26
+  store i32 %28, ptr %24, align 4, !tbaa !40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %34 = load i64, ptr %33, align 4
+  store i64 %34, ptr %29, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %37 = load i64, ptr %36, align 4
+  store i64 %37, ptr %35, align 4
   br label %infer_trc_ref.exit
 
-infer_trc_ref.exit:                               ; preds = %26, %32, %35
-  %42 = phi i32 [ %28, %26 ], [ %31, %35 ], [ 1, %32 ]
-  %.0.i23 = phi i32 [ 0, %26 ], [ 1, %35 ], [ 1, %32 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !40
-  %.not.i24 = icmp eq i32 %44, 2
-  br i1 %.not.i24, label %45, label %infer_trc_ref.exit26.thread
+infer_trc_ref.exit:                               ; preds = %23, %30, %32
+  %38 = phi i32 [ %25, %23 ], [ %28, %32 ], [ 1, %30 ]
+  %.0.i25 = phi i32 [ 0, %23 ], [ 1, %32 ], [ 1, %30 ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %40 = load i32, ptr %39, align 4, !tbaa !40
+  %.not.i26 = icmp eq i32 %40, 2
+  br i1 %.not.i26, label %41, label %infer_trc_ref.exit28.thread
 
-45:                                               ; preds = %infer_trc_ref.exit
-  switch i32 %42, label %infer_trc_ref.exit26 [
-    i32 2, label %46
-    i32 16, label %46
-    i32 18, label %46
+41:                                               ; preds = %infer_trc_ref.exit
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  switch i32 %38, label %infer_trc_ref.exit28 [
+    i32 2, label %43
+    i32 16, label %43
+    i32 18, label %43
   ]
 
-46:                                               ; preds = %45, %45, %45
-  store i32 1, ptr %43, align 4, !tbaa !40
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 4294967296, ptr %47, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 4294967499, ptr %48, align 4
-  br label %infer_trc_ref.exit26.thread
+43:                                               ; preds = %41, %41, %41
+  store i32 1, ptr %39, align 4, !tbaa !40
+  store i64 4294967296, ptr %42, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 4294967499, ptr %44, align 4
+  br label %infer_trc_ref.exit28.thread
 
-infer_trc_ref.exit26:                             ; preds = %45
-  store i32 %42, ptr %43, align 4, !tbaa !40
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %51 = load i64, ptr %50, align 4
-  store i64 %51, ptr %49, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %54 = load i64, ptr %53, align 4
-  store i64 %54, ptr %52, align 4
-  br label %infer_trc_ref.exit26.thread
+infer_trc_ref.exit28:                             ; preds = %41
+  store i32 %38, ptr %39, align 4, !tbaa !40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %46 = load i64, ptr %45, align 4
+  store i64 %46, ptr %42, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %49 = load i64, ptr %48, align 4
+  store i64 %49, ptr %47, align 4
+  br label %infer_trc_ref.exit28.thread
 
-infer_trc_ref.exit26.thread:                      ; preds = %infer_trc_ref.exit26, %46, %infer_trc_ref.exit
-  %.0.i2533 = phi i32 [ 1, %infer_trc_ref.exit26 ], [ 1, %46 ], [ 0, %infer_trc_ref.exit ]
-  %55 = load i32, ptr %27, align 4, !tbaa !40
-  %.not18 = icmp eq i32 %55, 2
-  br i1 %.not18, label %56, label %57
+infer_trc_ref.exit28.thread:                      ; preds = %infer_trc_ref.exit28, %43, %infer_trc_ref.exit
+  %.0.i2735 = phi i32 [ 1, %infer_trc_ref.exit28 ], [ 1, %43 ], [ 0, %infer_trc_ref.exit ]
+  %50 = load i32, ptr %24, align 4, !tbaa !40
+  %.not18 = icmp eq i32 %50, 2
+  br i1 %.not18, label %51, label %52
 
-56:                                               ; preds = %infer_trc_ref.exit26.thread
+51:                                               ; preds = %infer_trc_ref.exit28.thread
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 498) #8
   tail call void @abort() #9
   unreachable
 
-57:                                               ; preds = %infer_trc_ref.exit26.thread
-  %58 = or i32 %.0.i2029, %.0.i23
-  %59 = or i32 %58, %.0.i2533
-  %60 = icmp ne i32 %59, 0
-  ret i1 %60
+52:                                               ; preds = %infer_trc_ref.exit28.thread
+  %53 = or i32 %.0.i2031, %.0.i25
+  %54 = or i32 %53, %.0.i2735
+  %55 = icmp ne i32 %54, 0
+  ret i1 %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

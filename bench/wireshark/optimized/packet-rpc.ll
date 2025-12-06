@@ -1506,41 +1506,38 @@ define internal fastcc ptr @get_conversation_for_call(ptr noundef %0) unnamed_ad
 14:                                               ; preds = %6, %4
   %.0 = phi ptr [ %5, %4 ], [ %13, %6 ]
   %15 = icmp eq ptr %.0, null
-  br i1 %15, label %16, label %37
+  br i1 %15, label %16, label %34
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 208
   switch i32 %17, label %29 [
-    i32 2, label %18
-    i32 10, label %18
-    i32 12, label %18
+    i32 2, label %21
+    i32 10, label %21
+    i32 12, label %21
   ]
 
-18:                                               ; preds = %16, %16, %16
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
+21:                                               ; preds = %16, %16, %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %23 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %17)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %27 = load i32, ptr %26, align 8
-  %28 = tail call ptr @conversation_new(i32 noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef %23, i32 noundef %25, i32 noundef %27, i32 noundef 0)
-  br label %37
+  %28 = tail call ptr @conversation_new(i32 noundef %19, ptr noundef nonnull %20, ptr noundef nonnull %22, i32 noundef %23, i32 noundef %25, i32 noundef %27, i32 noundef 0)
+  br label %34
 
 29:                                               ; preds = %16
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %33 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %17)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %35 = load i32, ptr %34, align 8
-  %36 = tail call ptr @conversation_new(i32 noundef %31, ptr noundef nonnull %32, ptr noundef nonnull @null_address, i32 noundef %33, i32 noundef %35, i32 noundef 0, i32 noundef 3)
-  br label %37
+  %30 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %17)
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %32 = load i32, ptr %31, align 8
+  %33 = tail call ptr @conversation_new(i32 noundef %19, ptr noundef nonnull %20, ptr noundef nonnull @null_address, i32 noundef %30, i32 noundef %32, i32 noundef 0, i32 noundef 3)
+  br label %34
 
-37:                                               ; preds = %18, %29, %14
-  %.1 = phi ptr [ %28, %18 ], [ %36, %29 ], [ %.0, %14 ]
+34:                                               ; preds = %21, %29, %14
+  %.1 = phi ptr [ %28, %21 ], [ %33, %29 ], [ %.0, %14 ]
   ret ptr %.1
 }
 

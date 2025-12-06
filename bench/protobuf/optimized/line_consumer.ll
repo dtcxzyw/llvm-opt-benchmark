@@ -464,19 +464,18 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %full_chunk.sroa.8.144, i64 %indvars.iv.i
   %9 = load i8, ptr %add.ptr.i.i, align 1
+  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
   switch i8 %9, label %for.inc.i [
     i8 13, label %while.body
     i8 10, label %while.body
   ]
 
 for.inc.i:                                        ; preds = %for.body.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %full_chunk.sroa.0.143
   br i1 %exitcond.not.i, label %if.else26, label %for.body.i, !llvm.loop !13
 
 while.body:                                       ; preds = %for.body.i, %for.body.i
-  %inc.i = add i64 %indvars.iv.i, 1
-  %idx.ext.i = and i64 %inc.i, 4294967295
+  %idx.ext.i = and i64 %indvars.iv.next.i, 4294967295
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %full_chunk.sroa.8.144, i64 %idx.ext.i
   %sub.i = sub i64 %full_chunk.sroa.0.143, %idx.ext.i
   %10 = load i32, ptr %line_, align 8

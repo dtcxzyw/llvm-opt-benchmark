@@ -3921,10 +3921,10 @@ define internal fastcc i64 @Amap_LibertyUpdateHead(ptr noundef captures(none) %0
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %11
 
-11:                                               ; preds = %.lr.ph, %Amap_LibertyCharIsSpace.exit
-  %.028 = phi ptr [ %9, %.lr.ph ], [ %23, %Amap_LibertyCharIsSpace.exit ]
-  %.02227 = phi ptr [ null, %.lr.ph ], [ %22, %Amap_LibertyCharIsSpace.exit ]
-  %.02326 = phi ptr [ null, %.lr.ph ], [ %.sink, %Amap_LibertyCharIsSpace.exit ]
+11:                                               ; preds = %.lr.ph, %20
+  %.028 = phi ptr [ %9, %.lr.ph ], [ %22, %20 ]
+  %.02227 = phi ptr [ null, %.lr.ph ], [ %21, %20 ]
+  %.02326 = phi ptr [ null, %.lr.ph ], [ %.124, %20 ]
   %12 = load i8, ptr %.028, align 1, !tbaa !16
   %13 = icmp eq i8 %12, 10
   br i1 %13, label %14, label %17
@@ -3938,7 +3938,8 @@ define internal fastcc i64 @Amap_LibertyUpdateHead(ptr noundef captures(none) %0
 
 17:                                               ; preds = %14, %11
   %18 = phi i8 [ %.pr, %14 ], [ %12, %11 ]
-  switch i8 %18, label %19 [
+  %19 = icmp eq ptr %.02326, null
+  switch i8 %18, label %20 [
     i8 32, label %Amap_LibertyCharIsSpace.exit
     i8 13, label %Amap_LibertyCharIsSpace.exit
     i8 10, label %Amap_LibertyCharIsSpace.exit
@@ -3946,34 +3947,33 @@ define internal fastcc i64 @Amap_LibertyUpdateHead(ptr noundef captures(none) %0
     i8 92, label %Amap_LibertyCharIsSpace.exit
   ]
 
-19:                                               ; preds = %17
-  %20 = icmp eq ptr %.02326, null
-  %21 = select i1 %20, ptr %.028, ptr %.02326
-  br label %Amap_LibertyCharIsSpace.exit
+Amap_LibertyCharIsSpace.exit:                     ; preds = %17, %17, %17, %17, %17
+  br label %20
 
-Amap_LibertyCharIsSpace.exit:                     ; preds = %17, %17, %17, %17, %17, %19
-  %.sink = phi ptr [ %21, %19 ], [ %.02326, %17 ], [ %.02326, %17 ], [ %.02326, %17 ], [ %.02326, %17 ], [ %.02326, %17 ]
-  %22 = phi ptr [ %.028, %19 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ], [ %.02227, %17 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.028, i64 1
-  %24 = icmp ult ptr %23, %7
-  br i1 %24, label %11, label %._crit_edge, !llvm.loop !63
+20:                                               ; preds = %17, %Amap_LibertyCharIsSpace.exit
+  %.sink = phi i1 [ false, %Amap_LibertyCharIsSpace.exit ], [ %19, %17 ]
+  %21 = phi ptr [ %.02227, %Amap_LibertyCharIsSpace.exit ], [ %.028, %17 ]
+  %.124 = select i1 %.sink, ptr %.028, ptr %.02326
+  %22 = getelementptr inbounds nuw i8, ptr %.028, i64 1
+  %23 = icmp ult ptr %22, %7
+  br i1 %23, label %11, label %._crit_edge, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %Amap_LibertyCharIsSpace.exit, %2
-  %.023.lcssa = phi ptr [ null, %2 ], [ %.sink, %Amap_LibertyCharIsSpace.exit ]
-  %.022.lcssa = phi ptr [ null, %2 ], [ %22, %Amap_LibertyCharIsSpace.exit ]
+._crit_edge:                                      ; preds = %20, %2
+  %.023.lcssa = phi ptr [ null, %2 ], [ %.124, %20 ]
+  %.022.lcssa = phi ptr [ null, %2 ], [ %21, %20 ]
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
-  %25 = icmp eq ptr %.023.lcssa, null
-  %26 = icmp eq ptr %.022.lcssa, null
-  %or.cond = select i1 %25, i1 true, i1 %26
-  %27 = ptrtoint ptr %.023.lcssa to i64
-  %28 = ptrtoint ptr %4 to i64
-  %29 = sub i64 %27, %28
-  %30 = ptrtoint ptr %.022.lcssa to i64
-  %reass.sub = sub i64 %30, %28
-  %31 = add i64 %reass.sub, 1
-  %32 = and i64 %31, 4294967295
-  %.sroa.020.0.in = select i1 %or.cond, i64 %1, i64 %29
-  %.sroa.321.0 = select i1 %or.cond, i64 %.sroa.3.0.extract.shift, i64 %32
+  %24 = icmp eq ptr %.023.lcssa, null
+  %25 = icmp eq ptr %.022.lcssa, null
+  %or.cond = select i1 %24, i1 true, i1 %25
+  %26 = ptrtoint ptr %.023.lcssa to i64
+  %27 = ptrtoint ptr %4 to i64
+  %28 = sub i64 %26, %27
+  %29 = ptrtoint ptr %.022.lcssa to i64
+  %reass.sub = sub i64 %29, %27
+  %30 = add i64 %reass.sub, 1
+  %31 = and i64 %30, 4294967295
+  %.sroa.020.0.in = select i1 %or.cond, i64 %1, i64 %28
+  %.sroa.321.0 = select i1 %or.cond, i64 %.sroa.3.0.extract.shift, i64 %31
   %.sroa.321.0.insert.shift = shl nuw i64 %.sroa.321.0, 32
   %.sroa.020.0.insert.ext = and i64 %.sroa.020.0.in, 4294967295
   %.sroa.020.0.insert.insert = or disjoint i64 %.sroa.321.0.insert.shift, %.sroa.020.0.insert.ext

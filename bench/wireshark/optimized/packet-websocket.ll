@@ -1448,18 +1448,18 @@ define internal fastcc noundef zeroext i1 @websocket_uncompress(ptr noundef %0, 
 .thread:                                          ; preds = %31, %50
   %.272 = phi ptr [ %.2, %50 ], [ %.063, %31 ]
   %.26671 = phi i32 [ %.266, %50 ], [ %.064, %31 ]
+  %51 = tail call ptr @wmem_file_scope()
   switch i32 %32, label %60 [
-    i32 -5, label %51
-    i32 1, label %51
+    i32 -5, label %52
+    i32 1, label %52
   ]
 
-51:                                               ; preds = %.thread, %.thread
-  %52 = tail call ptr @wmem_file_scope()
-  %53 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %52, i64 noundef 16) #10
+52:                                               ; preds = %.thread, %.thread
+  %53 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %51, i64 noundef 16) #10
   %.not68 = icmp eq i32 %.26671, 0
   br i1 %.not68, label %57, label %54
 
-54:                                               ; preds = %51
+54:                                               ; preds = %52
   store ptr %.272, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 %.26671, ptr %55, align 8
@@ -1467,21 +1467,20 @@ define internal fastcc noundef zeroext i1 @websocket_uncompress(ptr noundef %0, 
   store ptr %56, ptr %3, align 8
   br label %57
 
-57:                                               ; preds = %54, %51
+57:                                               ; preds = %54, %52
   %58 = tail call ptr @wmem_file_scope()
   %59 = load i32, ptr @proto_websocket, align 4
   tail call void @p_add_proto_data(ptr noundef %58, ptr noundef %1, i32 noundef %59, i32 noundef %4, ptr noundef %53)
-  br label %62
+  br label %61
 
 60:                                               ; preds = %.thread
-  %61 = tail call ptr @wmem_file_scope()
-  tail call void @wmem_free(ptr noundef %61, ptr noundef %.272)
-  br label %62
+  tail call void @wmem_free(ptr noundef %51, ptr noundef %.272)
+  br label %61
 
-62:                                               ; preds = %60, %57
-  %63 = icmp eq i32 %32, 1
-  %64 = icmp eq i32 %32, -5
-  %or.cond5 = or i1 %63, %64
+61:                                               ; preds = %60, %57
+  %62 = icmp eq i32 %32, 1
+  %63 = icmp eq i32 %32, -5
+  %or.cond5 = or i1 %62, %63
   ret i1 %or.cond5
 }
 

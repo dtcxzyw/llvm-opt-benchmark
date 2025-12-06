@@ -13646,6 +13646,7 @@ define dso_local void @zend_disable_functions(ptr noundef %0) local_unnamed_addr
   %4 = phi i8 [ %.pr, %zend_disable_function.exit ], [ %3, %2 ]
   %.016 = phi ptr [ %.1, %zend_disable_function.exit ], [ null, %2 ]
   %.0 = phi ptr [ %15, %zend_disable_function.exit ], [ %0, %2 ]
+  %.not23 = icmp eq ptr %.016, null
   switch i8 %4, label %14 [
     i8 0, label %16
     i8 32, label %5
@@ -13653,8 +13654,7 @@ define dso_local void @zend_disable_functions(ptr noundef %0) local_unnamed_addr
   ]
 
 5:                                                ; preds = %.preheader, %.preheader
-  %.not22 = icmp eq ptr %.016, null
-  br i1 %.not22, label %zend_disable_function.exit, label %6
+  br i1 %.not23, label %zend_disable_function.exit, label %6
 
 6:                                                ; preds = %5
   %7 = ptrtoint ptr %.0 to i64
@@ -13685,7 +13685,6 @@ define dso_local void @zend_disable_functions(ptr noundef %0) local_unnamed_addr
   br label %zend_disable_function.exit
 
 14:                                               ; preds = %.preheader
-  %.not23 = icmp eq ptr %.016, null
   %spec.select = select i1 %.not23, ptr %.0, ptr %.016
   br label %zend_disable_function.exit
 
@@ -13696,8 +13695,7 @@ zend_disable_function.exit:                       ; preds = %.critedge9.i, %.cri
   br label %.preheader
 
 16:                                               ; preds = %.preheader
-  %.not21 = icmp eq ptr %.016, null
-  br i1 %.not21, label %zend_disable_function.exit30, label %17
+  br i1 %.not23, label %zend_disable_function.exit30, label %17
 
 17:                                               ; preds = %16
   %18 = ptrtoint ptr %.0 to i64

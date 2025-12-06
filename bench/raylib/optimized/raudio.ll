@@ -58503,14 +58503,14 @@ define hidden range(i32 -10, 1) i32 @drwav_uninit(ptr noundef readonly captures(
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i32, ptr %14, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %17 = load i64, ptr %16, align 8
+  %18 = trunc i64 %17 to i32
   %switch.selectcmp.case1 = icmp eq i32 %15, 0
   %switch.selectcmp.case2 = icmp eq i32 %15, 3
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %16 = select i1 %switch.selectcmp, i32 1, i32 7
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %18 = load i64, ptr %17, align 8
-  %19 = trunc i64 %18 to i32
-  %20 = and i32 %16, %19
+  %19 = select i1 %switch.selectcmp, i32 1, i32 7
+  %20 = and i32 %19, %18
   %.not67 = icmp eq i32 %20, 0
   br i1 %.not67, label %25, label %21
 

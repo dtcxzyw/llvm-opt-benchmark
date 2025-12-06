@@ -1320,7 +1320,7 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1120
   %12 = load i8, ptr %11, align 8, !range !15, !noundef !16
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %14, label %759
+  br i1 %13, label %14, label %757
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 1040
@@ -1389,7 +1389,7 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   %60 = load ptr, ptr %15, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %61, ptr noundef nonnull @.str.15) #17
-  br label %746
+  br label %744
 
 62:                                               ; preds = %52, %42, %37
   %63 = load i32, ptr %38, align 8
@@ -1438,14 +1438,19 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   %93 = phi { i64, i64, i64, i64, i64 } [ %91, %88 ], [ %87, %84 ]
   %94 = extractvalue { i64, i64, i64, i64, i64 } %93, 4
   tail call void @llvm.write_register.i64(metadata !0, i64 %94)
-  switch i32 %5, label %503 [
-    i32 8, label %95
-    i32 7, label %95
-    i32 5, label %95
+  %95 = trunc i16 %1 to i8
+  switch i32 %5, label %.thread26 [
+    i32 8, label %96
+    i32 7, label %96
+    i32 5, label %96
+    i32 0, label %503
+    i32 1, label %512
+    i32 2, label %529
+    i32 3, label %554
+    i32 4, label %589
   ]
 
-95:                                               ; preds = %92, %92, %92
-  %96 = trunc i16 %1 to i8
+96:                                               ; preds = %92, %92, %92
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !annotation !14
   %97 = icmp eq i8 %3, 1
@@ -1453,11 +1458,11 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   %99 = and i1 %97, %98
   br i1 %99, label %.thread9, label %100
 
-.thread9:                                         ; preds = %95
+.thread9:                                         ; preds = %96
   store i8 32, ptr %6, align 2
   br label %.thread14
 
-100:                                              ; preds = %95
+100:                                              ; preds = %96
   %101 = load i8, ptr %6, align 2
   %102 = add i8 %101, -33
   %103 = icmp ult i8 %102, -32
@@ -1476,7 +1481,7 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   %108 = and i8 %107, 16
   %109 = icmp eq i8 %108, 0
   %110 = and i8 %3, 1
-  %111 = shl i8 %96, 1
+  %111 = shl i8 %95, 1
   %112 = select i1 %109, i8 0, i8 %110
   %113 = or disjoint i8 %112, %111
   %114 = load i64, ptr %19, align 8
@@ -1545,7 +1550,7 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   br i1 %.not31, label %.thread15, label %184
 
 .thread16:                                        ; preds = %104
-  %152 = shl i8 %96, 1
+  %152 = shl i8 %95, 1
   %153 = load i64, ptr %19, align 8
   %154 = trunc i64 %153 to i16
   %155 = add i16 %154, 4
@@ -1568,7 +1573,7 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
   br i1 %.not, label %.thread23, label %.thread29
 
 .thread14:                                        ; preds = %104, %.thread9
-  %167 = shl i8 %96, 1
+  %167 = shl i8 %95, 1
   %168 = and i8 %3, 1
   %169 = or disjoint i8 %168, %167
   %170 = load i64, ptr %19, align 8
@@ -2062,388 +2067,378 @@ define internal range(i32 -110, 1) i32 @i801_access(ptr noundef readonly capture
 .thread23:                                        ; preds = %184, %.thread16, %.loopexit37, %.loopexit, %498, %.thread18, %146, %100
   %502 = phi i32 [ -95, %146 ], [ -71, %100 ], [ %496, %498 ], [ %496, %.thread18 ], [ -71, %.loopexit ], [ -95, %184 ], [ %267, %.loopexit37 ], [ -95, %.thread16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %663
+  br label %661
 
 503:                                              ; preds = %92
-  %504 = trunc i16 %1 to i8
-  switch i32 %5, label %.thread26 [
-    i32 0, label %505
-    i32 1, label %514
-    i32 2, label %531
-    i32 3, label %556
-    i32 4, label %591
-  ]
+  %504 = shl i8 %95, 1
+  %505 = and i8 %3, 1
+  %506 = or disjoint i8 %505, %504
+  %507 = load i64, ptr %19, align 8
+  %508 = trunc i64 %507 to i16
+  %509 = add i16 %508, 4
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %506, i16 %509) #15, !srcloc !13
+  %510 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %511 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %510) #15, !srcloc !12
+  br label %621
 
-505:                                              ; preds = %503
-  %506 = shl i8 %504, 1
-  %507 = and i8 %3, 1
-  %508 = or disjoint i8 %507, %506
-  %509 = load i64, ptr %19, align 8
-  %510 = trunc i64 %509 to i16
-  %511 = add i16 %510, 4
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %508, i16 %511) #15, !srcloc !13
-  %512 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %513 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %512) #15, !srcloc !12
-  br label %623
+512:                                              ; preds = %92
+  %513 = shl i8 %95, 1
+  %514 = and i8 %3, 1
+  %515 = or disjoint i8 %514, %513
+  %516 = load i64, ptr %19, align 8
+  %517 = trunc i64 %516 to i16
+  %518 = add i16 %517, 4
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %515, i16 %518) #15, !srcloc !13
+  %519 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %520 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %519) #15, !srcloc !12
+  %521 = extractvalue { i64, i64, i64, i64, i64 } %520, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %521)
+  %522 = icmp eq i8 %3, 0
+  br i1 %522, label %523, label %627
 
-514:                                              ; preds = %503
-  %515 = shl i8 %504, 1
-  %516 = and i8 %3, 1
-  %517 = or disjoint i8 %516, %515
-  %518 = load i64, ptr %19, align 8
-  %519 = trunc i64 %518 to i16
-  %520 = add i16 %519, 4
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %517, i16 %520) #15, !srcloc !13
-  %521 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %522 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %521) #15, !srcloc !12
-  %523 = extractvalue { i64, i64, i64, i64, i64 } %522, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %523)
-  %524 = icmp eq i8 %3, 0
-  br i1 %524, label %525, label %629
+523:                                              ; preds = %512
+  %524 = load i64, ptr %19, align 8
+  %525 = trunc i64 %524 to i16
+  %526 = add i16 %525, 3
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 %526) #15, !srcloc !13
+  %527 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %528 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %527) #15, !srcloc !12
+  br label %621
 
-525:                                              ; preds = %514
-  %526 = load i64, ptr %19, align 8
-  %527 = trunc i64 %526 to i16
-  %528 = add i16 %527, 3
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 %528) #15, !srcloc !13
-  %529 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %530 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %529) #15, !srcloc !12
-  br label %623
+529:                                              ; preds = %92
+  %530 = shl i8 %95, 1
+  %531 = and i8 %3, 1
+  %532 = or disjoint i8 %531, %530
+  %533 = load i64, ptr %19, align 8
+  %534 = trunc i64 %533 to i16
+  %535 = add i16 %534, 4
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %532, i16 %535) #15, !srcloc !13
+  %536 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %537 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %536) #15, !srcloc !12
+  %538 = extractvalue { i64, i64, i64, i64, i64 } %537, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %538)
+  %539 = icmp eq i8 %3, 0
+  br i1 %539, label %540, label %548
 
-531:                                              ; preds = %503
-  %532 = shl i8 %504, 1
-  %533 = and i8 %3, 1
-  %534 = or disjoint i8 %533, %532
-  %535 = load i64, ptr %19, align 8
-  %536 = trunc i64 %535 to i16
-  %537 = add i16 %536, 4
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %534, i16 %537) #15, !srcloc !13
-  %538 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %539 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %538) #15, !srcloc !12
-  %540 = extractvalue { i64, i64, i64, i64, i64 } %539, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %540)
-  %541 = icmp eq i8 %3, 0
-  br i1 %541, label %542, label %550
+540:                                              ; preds = %529
+  %541 = load i8, ptr %6, align 2
+  %542 = load i64, ptr %19, align 8
+  %543 = trunc i64 %542 to i16
+  %544 = add i16 %543, 5
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %541, i16 %544) #15, !srcloc !13
+  %545 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %546 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %545) #15, !srcloc !12
+  %547 = extractvalue { i64, i64, i64, i64, i64 } %546, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %547)
+  br label %548
 
-542:                                              ; preds = %531
-  %543 = load i8, ptr %6, align 2
-  %544 = load i64, ptr %19, align 8
-  %545 = trunc i64 %544 to i16
-  %546 = add i16 %545, 5
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %543, i16 %546) #15, !srcloc !13
-  %547 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %548 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %547) #15, !srcloc !12
-  %549 = extractvalue { i64, i64, i64, i64, i64 } %548, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %549)
-  br label %550
+548:                                              ; preds = %540, %529
+  %549 = load i64, ptr %19, align 8
+  %550 = trunc i64 %549 to i16
+  %551 = add i16 %550, 3
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 %551) #15, !srcloc !13
+  %552 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %553 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %552) #15, !srcloc !12
+  br label %621
 
-550:                                              ; preds = %542, %531
-  %551 = load i64, ptr %19, align 8
-  %552 = trunc i64 %551 to i16
-  %553 = add i16 %552, 3
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 %553) #15, !srcloc !13
-  %554 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %555 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %554) #15, !srcloc !12
-  br label %623
+554:                                              ; preds = %92
+  %555 = shl i8 %95, 1
+  %556 = and i8 %3, 1
+  %557 = or disjoint i8 %556, %555
+  %558 = load i64, ptr %19, align 8
+  %559 = trunc i64 %558 to i16
+  %560 = add i16 %559, 4
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %557, i16 %560) #15, !srcloc !13
+  %561 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %562 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %561) #15, !srcloc !12
+  %563 = extractvalue { i64, i64, i64, i64, i64 } %562, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %563)
+  %564 = icmp eq i8 %3, 0
+  br i1 %564, label %565, label %583
 
-556:                                              ; preds = %503
-  %557 = shl i8 %504, 1
-  %558 = and i8 %3, 1
-  %559 = or disjoint i8 %558, %557
-  %560 = load i64, ptr %19, align 8
-  %561 = trunc i64 %560 to i16
-  %562 = add i16 %561, 4
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %559, i16 %562) #15, !srcloc !13
-  %563 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %564 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %563) #15, !srcloc !12
-  %565 = extractvalue { i64, i64, i64, i64, i64 } %564, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %565)
-  %566 = icmp eq i8 %3, 0
-  br i1 %566, label %567, label %585
+565:                                              ; preds = %554
+  %566 = load i16, ptr %6, align 2
+  %567 = trunc i16 %566 to i8
+  %568 = load i64, ptr %19, align 8
+  %569 = trunc i64 %568 to i16
+  %570 = add i16 %569, 5
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %567, i16 %570) #15, !srcloc !13
+  %571 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %572 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %571) #15, !srcloc !12
+  %573 = extractvalue { i64, i64, i64, i64, i64 } %572, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %573)
+  %574 = load i16, ptr %6, align 2
+  %575 = lshr i16 %574, 8
+  %576 = trunc nuw i16 %575 to i8
+  %577 = load i64, ptr %19, align 8
+  %578 = trunc i64 %577 to i16
+  %579 = add i16 %578, 6
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %576, i16 %579) #15, !srcloc !13
+  %580 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %581 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %580) #15, !srcloc !12
+  %582 = extractvalue { i64, i64, i64, i64, i64 } %581, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %582)
+  br label %583
 
-567:                                              ; preds = %556
-  %568 = load i16, ptr %6, align 2
-  %569 = trunc i16 %568 to i8
-  %570 = load i64, ptr %19, align 8
-  %571 = trunc i64 %570 to i16
-  %572 = add i16 %571, 5
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %569, i16 %572) #15, !srcloc !13
-  %573 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %574 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %573) #15, !srcloc !12
-  %575 = extractvalue { i64, i64, i64, i64, i64 } %574, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %575)
-  %576 = load i16, ptr %6, align 2
-  %577 = lshr i16 %576, 8
-  %578 = trunc nuw i16 %577 to i8
-  %579 = load i64, ptr %19, align 8
-  %580 = trunc i64 %579 to i16
-  %581 = add i16 %580, 6
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %578, i16 %581) #15, !srcloc !13
-  %582 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %583 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %582) #15, !srcloc !12
-  %584 = extractvalue { i64, i64, i64, i64, i64 } %583, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %584)
-  br label %585
+583:                                              ; preds = %565, %554
+  %584 = load i64, ptr %19, align 8
+  %585 = trunc i64 %584 to i16
+  %586 = add i16 %585, 3
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 %586) #15, !srcloc !13
+  %587 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %588 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %587) #15, !srcloc !12
+  br label %621
 
-585:                                              ; preds = %567, %556
-  %586 = load i64, ptr %19, align 8
-  %587 = trunc i64 %586 to i16
-  %588 = add i16 %587, 3
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 %588) #15, !srcloc !13
-  %589 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %590 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %589) #15, !srcloc !12
-  br label %623
+589:                                              ; preds = %92
+  %590 = shl i8 %95, 1
+  %591 = load i64, ptr %19, align 8
+  %592 = trunc i64 %591 to i16
+  %593 = add i16 %592, 4
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %590, i16 %593) #15, !srcloc !13
+  %594 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %595 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %594) #15, !srcloc !12
+  %596 = extractvalue { i64, i64, i64, i64, i64 } %595, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %596)
+  %597 = load i16, ptr %6, align 2
+  %598 = trunc i16 %597 to i8
+  %599 = load i64, ptr %19, align 8
+  %600 = trunc i64 %599 to i16
+  %601 = add i16 %600, 5
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %598, i16 %601) #15, !srcloc !13
+  %602 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %603 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %602) #15, !srcloc !12
+  %604 = extractvalue { i64, i64, i64, i64, i64 } %603, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %604)
+  %605 = load i16, ptr %6, align 2
+  %606 = lshr i16 %605, 8
+  %607 = trunc nuw i16 %606 to i8
+  %608 = load i64, ptr %19, align 8
+  %609 = trunc i64 %608 to i16
+  %610 = add i16 %609, 6
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %607, i16 %610) #15, !srcloc !13
+  %611 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %612 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %611) #15, !srcloc !12
+  %613 = extractvalue { i64, i64, i64, i64, i64 } %612, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %613)
+  %614 = load i64, ptr %19, align 8
+  %615 = trunc i64 %614 to i16
+  %616 = add i16 %615, 3
+  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 %616) #15, !srcloc !13
+  %617 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %618 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %617) #15, !srcloc !12
+  br label %621
 
-591:                                              ; preds = %503
-  %592 = shl i8 %504, 1
-  %593 = load i64, ptr %19, align 8
-  %594 = trunc i64 %593 to i16
-  %595 = add i16 %594, 4
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %592, i16 %595) #15, !srcloc !13
-  %596 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %597 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %596) #15, !srcloc !12
-  %598 = extractvalue { i64, i64, i64, i64, i64 } %597, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %598)
-  %599 = load i16, ptr %6, align 2
-  %600 = trunc i16 %599 to i8
-  %601 = load i64, ptr %19, align 8
-  %602 = trunc i64 %601 to i16
-  %603 = add i16 %602, 5
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %600, i16 %603) #15, !srcloc !13
-  %604 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %605 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %604) #15, !srcloc !12
-  %606 = extractvalue { i64, i64, i64, i64, i64 } %605, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %606)
-  %607 = load i16, ptr %6, align 2
-  %608 = lshr i16 %607, 8
-  %609 = trunc nuw i16 %608 to i8
-  %610 = load i64, ptr %19, align 8
-  %611 = trunc i64 %610 to i16
-  %612 = add i16 %611, 6
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %609, i16 %612) #15, !srcloc !13
-  %613 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %614 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %613) #15, !srcloc !12
-  %615 = extractvalue { i64, i64, i64, i64, i64 } %614, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %615)
-  %616 = load i64, ptr %19, align 8
-  %617 = trunc i64 %616 to i16
-  %618 = add i16 %617, 3
-  tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %4, i16 %618) #15, !srcloc !13
-  %619 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %620 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %619) #15, !srcloc !12
-  br label %623
+.thread26:                                        ; preds = %92
+  %619 = load ptr, ptr %15, align 8
+  %620 = getelementptr inbounds nuw i8, ptr %619, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %620, ptr noundef nonnull @.str.18, i32 noundef %5) #17
+  br label %664
 
-.thread26:                                        ; preds = %503
-  %621 = load ptr, ptr %15, align 8
-  %622 = getelementptr inbounds nuw i8, ptr %621, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %622, ptr noundef nonnull @.str.18, i32 noundef %5) #17
-  br label %666
+621:                                              ; preds = %589, %583, %548, %523, %503
+  %622 = phi { i64, i64, i64, i64, i64 } [ %618, %589 ], [ %588, %583 ], [ %553, %548 ], [ %528, %523 ], [ %511, %503 ]
+  %623 = phi i8 [ 1, %589 ], [ %3, %583 ], [ %3, %548 ], [ 0, %523 ], [ %3, %503 ]
+  %624 = phi i32 [ 16, %589 ], [ 12, %583 ], [ 8, %548 ], [ 4, %523 ], [ 0, %503 ]
+  %625 = extractvalue { i64, i64, i64, i64, i64 } %622, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %625)
+  %626 = icmp eq i8 %623, 0
+  br label %627
 
-623:                                              ; preds = %591, %585, %550, %525, %505
-  %624 = phi { i64, i64, i64, i64, i64 } [ %620, %591 ], [ %590, %585 ], [ %555, %550 ], [ %530, %525 ], [ %513, %505 ]
-  %625 = phi i8 [ 1, %591 ], [ %3, %585 ], [ %3, %550 ], [ 0, %525 ], [ %3, %505 ]
-  %626 = phi i32 [ 16, %591 ], [ 12, %585 ], [ 8, %550 ], [ 4, %525 ], [ 0, %505 ]
-  %627 = extractvalue { i64, i64, i64, i64, i64 } %624, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %627)
-  %628 = icmp eq i8 %625, 0
-  br label %629
+627:                                              ; preds = %621, %512
+  %628 = phi i1 [ false, %512 ], [ %626, %621 ]
+  %629 = phi i32 [ 4, %512 ], [ %624, %621 ]
+  %630 = tail call fastcc i32 @i801_transaction(ptr noundef %10, i32 noundef %629), !range !20
+  %631 = icmp ne i32 %630, 0
+  %632 = or i1 %628, %631
+  br i1 %632, label %661, label %633
 
-629:                                              ; preds = %623, %514
-  %630 = phi i1 [ false, %514 ], [ %628, %623 ]
-  %631 = phi i32 [ 4, %514 ], [ %626, %623 ]
-  %632 = tail call fastcc i32 @i801_transaction(ptr noundef %10, i32 noundef %631), !range !20
-  %633 = icmp ne i32 %632, 0
-  %634 = or i1 %630, %633
-  br i1 %634, label %663, label %635
-
-635:                                              ; preds = %629
+633:                                              ; preds = %627
   switch i32 %5, label %.thread28 [
-    i32 1, label %636
-    i32 2, label %636
-    i32 3, label %644
-    i32 4, label %644
+    i32 1, label %634
+    i32 2, label %634
+    i32 3, label %642
+    i32 4, label %642
   ]
 
-636:                                              ; preds = %635, %635
-  %637 = load i64, ptr %19, align 8
-  %638 = trunc i64 %637 to i16
-  %639 = add i16 %638, 5
-  %640 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %639) #15, !srcloc !11
-  %641 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %642 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %641) #15, !srcloc !12
-  %643 = extractvalue { i64, i64, i64, i64, i64 } %642, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %643)
-  store i8 %640, ptr %6, align 2
+634:                                              ; preds = %633, %633
+  %635 = load i64, ptr %19, align 8
+  %636 = trunc i64 %635 to i16
+  %637 = add i16 %636, 5
+  %638 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %637) #15, !srcloc !11
+  %639 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %640 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %639) #15, !srcloc !12
+  %641 = extractvalue { i64, i64, i64, i64, i64 } %640, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %641)
+  store i8 %638, ptr %6, align 2
   br label %.thread28
 
-644:                                              ; preds = %635, %635
-  %645 = load i64, ptr %19, align 8
-  %646 = trunc i64 %645 to i16
-  %647 = add i16 %646, 5
-  %648 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %647) #15, !srcloc !11
-  %649 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %650 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %649) #15, !srcloc !12
-  %651 = extractvalue { i64, i64, i64, i64, i64 } %650, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %651)
-  %652 = zext i8 %648 to i16
-  %653 = load i64, ptr %19, align 8
-  %654 = trunc i64 %653 to i16
-  %655 = add i16 %654, 6
-  %656 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %655) #15, !srcloc !11
-  %657 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %658 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %657) #15, !srcloc !12
-  %659 = extractvalue { i64, i64, i64, i64, i64 } %658, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %659)
-  %660 = zext i8 %656 to i16
-  %661 = shl nuw i16 %660, 8
-  %662 = or disjoint i16 %661, %652
-  store i16 %662, ptr %6, align 2
+642:                                              ; preds = %633, %633
+  %643 = load i64, ptr %19, align 8
+  %644 = trunc i64 %643 to i16
+  %645 = add i16 %644, 5
+  %646 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %645) #15, !srcloc !11
+  %647 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %648 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %647) #15, !srcloc !12
+  %649 = extractvalue { i64, i64, i64, i64, i64 } %648, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %649)
+  %650 = zext i8 %646 to i16
+  %651 = load i64, ptr %19, align 8
+  %652 = trunc i64 %651 to i16
+  %653 = add i16 %652, 6
+  %654 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %653) #15, !srcloc !11
+  %655 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %656 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %655) #15, !srcloc !12
+  %657 = extractvalue { i64, i64, i64, i64, i64 } %656, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %657)
+  %658 = zext i8 %654 to i16
+  %659 = shl nuw i16 %658, 8
+  %660 = or disjoint i16 %659, %650
+  store i16 %660, ptr %6, align 2
   br label %.thread28
 
-663:                                              ; preds = %629, %.thread23
-  %664 = phi i32 [ %502, %.thread23 ], [ %632, %629 ]
-  %665 = icmp slt i32 %664, 0
-  br i1 %665, label %666, label %692, !prof !26
+661:                                              ; preds = %627, %.thread23
+  %662 = phi i32 [ %502, %.thread23 ], [ %630, %627 ]
+  %663 = icmp slt i32 %662, 0
+  br i1 %663, label %664, label %690, !prof !26
 
-666:                                              ; preds = %.thread26, %663
-  %667 = load ptr, ptr %15, align 8
-  %668 = getelementptr inbounds nuw i8, ptr %667, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %668, ptr noundef nonnull @.str.19) #17
-  %669 = load i64, ptr %19, align 8
-  %670 = trunc i64 %669 to i16
-  %671 = add i16 %670, 2
-  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 %671) #15, !srcloc !13
-  %672 = call i64 @llvm.read_register.i64(metadata !0)
-  %673 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %672) #15, !srcloc !12
-  %674 = extractvalue { i64, i64, i64, i64, i64 } %673, 4
-  call void @llvm.write_register.i64(metadata !0, i64 %674)
+664:                                              ; preds = %.thread26, %661
+  %665 = load ptr, ptr %15, align 8
+  %666 = getelementptr inbounds nuw i8, ptr %665, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %666, ptr noundef nonnull @.str.19) #17
+  %667 = load i64, ptr %19, align 8
+  %668 = trunc i64 %667 to i16
+  %669 = add i16 %668, 2
+  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 2, i16 %669) #15, !srcloc !13
+  %670 = call i64 @llvm.read_register.i64(metadata !0)
+  %671 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %670) #15, !srcloc !12
+  %672 = extractvalue { i64, i64, i64, i64, i64 } %671, 4
+  call void @llvm.write_register.i64(metadata !0, i64 %672)
   call void @usleep_range_state(i64 noundef 1000, i64 noundef 2000, i32 noundef 2) #15
-  %675 = load i64, ptr %19, align 8
-  %676 = trunc i64 %675 to i16
-  %677 = add i16 %676, 2
-  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 %677) #15, !srcloc !13
-  %678 = call i64 @llvm.read_register.i64(metadata !0)
-  %679 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %678) #15, !srcloc !12
-  %680 = extractvalue { i64, i64, i64, i64, i64 } %679, 4
-  call void @llvm.write_register.i64(metadata !0, i64 %680)
-  %681 = load i64, ptr %19, align 8
-  %682 = trunc i64 %681 to i16
-  %683 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %682) #15, !srcloc !11
-  %684 = call i64 @llvm.read_register.i64(metadata !0)
-  %685 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %684) #15, !srcloc !12
-  %686 = extractvalue { i64, i64, i64, i64, i64 } %685, 4
-  call void @llvm.write_register.i64(metadata !0, i64 %686)
-  %687 = and i8 %683, 17
-  %688 = icmp eq i8 %687, 16
-  br i1 %688, label %729, label %689
+  %673 = load i64, ptr %19, align 8
+  %674 = trunc i64 %673 to i16
+  %675 = add i16 %674, 2
+  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 0, i16 %675) #15, !srcloc !13
+  %676 = call i64 @llvm.read_register.i64(metadata !0)
+  %677 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %676) #15, !srcloc !12
+  %678 = extractvalue { i64, i64, i64, i64, i64 } %677, 4
+  call void @llvm.write_register.i64(metadata !0, i64 %678)
+  %679 = load i64, ptr %19, align 8
+  %680 = trunc i64 %679 to i16
+  %681 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %680) #15, !srcloc !11
+  %682 = call i64 @llvm.read_register.i64(metadata !0)
+  %683 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %682) #15, !srcloc !12
+  %684 = extractvalue { i64, i64, i64, i64, i64 } %683, 4
+  call void @llvm.write_register.i64(metadata !0, i64 %684)
+  %685 = and i8 %681, 17
+  %686 = icmp eq i8 %685, 16
+  br i1 %686, label %727, label %687
 
-689:                                              ; preds = %666
-  %690 = load ptr, ptr %15, align 8
-  %691 = getelementptr inbounds nuw i8, ptr %690, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %691, ptr noundef nonnull @.str.20) #17
-  br label %729
+687:                                              ; preds = %664
+  %688 = load ptr, ptr %15, align 8
+  %689 = getelementptr inbounds nuw i8, ptr %688, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %689, ptr noundef nonnull @.str.20) #17
+  br label %727
 
-692:                                              ; preds = %663
-  %693 = zext nneg i32 %664 to i64
-  %694 = and i64 %693, 16
-  %695 = icmp eq i64 %694, 0
-  br i1 %695, label %699, label %696
+690:                                              ; preds = %661
+  %691 = zext nneg i32 %662 to i64
+  %692 = and i64 %691, 16
+  %693 = icmp eq i64 %692, 0
+  br i1 %693, label %697, label %694
 
-696:                                              ; preds = %692
-  %697 = load ptr, ptr %15, align 8
-  %698 = getelementptr inbounds nuw i8, ptr %697, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %698, ptr noundef nonnull @.str.21) #17
-  br label %699
+694:                                              ; preds = %690
+  %695 = load ptr, ptr %15, align 8
+  %696 = getelementptr inbounds nuw i8, ptr %695, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %696, ptr noundef nonnull @.str.21) #17
+  br label %697
 
-699:                                              ; preds = %696, %692
-  %700 = phi i32 [ -5, %696 ], [ 0, %692 ]
-  %701 = and i64 %693, 4
-  %702 = icmp eq i64 %701, 0
-  br i1 %702, label %.thread28, label %703
+697:                                              ; preds = %694, %690
+  %698 = phi i32 [ -5, %694 ], [ 0, %690 ]
+  %699 = and i64 %691, 4
+  %700 = icmp eq i64 %699, 0
+  br i1 %700, label %.thread28, label %701
 
-703:                                              ; preds = %699
-  %704 = load i32, ptr %38, align 8
-  %705 = and i32 %704, 1
-  %706 = icmp eq i32 %705, 0
-  br i1 %706, label %.thread28, label %707
+701:                                              ; preds = %697
+  %702 = load i32, ptr %38, align 8
+  %703 = and i32 %702, 1
+  %704 = icmp eq i32 %703, 0
+  br i1 %704, label %.thread28, label %705
 
-707:                                              ; preds = %703
-  %708 = load i64, ptr %19, align 8
-  %709 = trunc i64 %708 to i16
-  %710 = add i16 %709, 12
-  %711 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %710) #15, !srcloc !11
-  %712 = call i64 @llvm.read_register.i64(metadata !0)
-  %713 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %712) #15, !srcloc !12
-  %714 = extractvalue { i64, i64, i64, i64, i64 } %713, 4
-  call void @llvm.write_register.i64(metadata !0, i64 %714)
-  %715 = and i8 %711, 1
-  %716 = icmp eq i8 %715, 0
-  br i1 %716, label %.thread28, label %717
+705:                                              ; preds = %701
+  %706 = load i64, ptr %19, align 8
+  %707 = trunc i64 %706 to i16
+  %708 = add i16 %707, 12
+  %709 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %708) #15, !srcloc !11
+  %710 = call i64 @llvm.read_register.i64(metadata !0)
+  %711 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %710) #15, !srcloc !12
+  %712 = extractvalue { i64, i64, i64, i64, i64 } %711, 4
+  call void @llvm.write_register.i64(metadata !0, i64 %712)
+  %713 = and i8 %709, 1
+  %714 = icmp eq i8 %713, 0
+  br i1 %714, label %.thread28, label %715
 
-717:                                              ; preds = %707
-  %718 = load i64, ptr %19, align 8
-  %719 = trunc i64 %718 to i16
-  %720 = add i16 %719, 12
-  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 1, i16 %720) #15, !srcloc !13
-  %721 = call i64 @llvm.read_register.i64(metadata !0)
-  %722 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %721) #15, !srcloc !12
-  %723 = extractvalue { i64, i64, i64, i64, i64 } %722, 4
-  call void @llvm.write_register.i64(metadata !0, i64 %723)
+715:                                              ; preds = %705
+  %716 = load i64, ptr %19, align 8
+  %717 = trunc i64 %716 to i16
+  %718 = add i16 %717, 12
+  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 1, i16 %718) #15, !srcloc !13
+  %719 = call i64 @llvm.read_register.i64(metadata !0)
+  %720 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %719) #15, !srcloc !12
+  %721 = extractvalue { i64, i64, i64, i64, i64 } %720, 4
+  call void @llvm.write_register.i64(metadata !0, i64 %721)
   br label %.thread28
 
-.thread28:                                        ; preds = %636, %644, %635, %717, %707, %703, %699
-  %724 = phi i64 [ %693, %717 ], [ %693, %699 ], [ %693, %707 ], [ %693, %703 ], [ 0, %635 ], [ 0, %644 ], [ 0, %636 ]
-  %725 = phi i32 [ -74, %717 ], [ %700, %699 ], [ -6, %707 ], [ -6, %703 ], [ 0, %635 ], [ 0, %644 ], [ 0, %636 ]
-  %726 = and i64 %724, 8
-  %727 = icmp eq i64 %726, 0
-  %728 = select i1 %727, i32 %725, i32 -11
-  br label %729
+.thread28:                                        ; preds = %634, %642, %633, %715, %705, %701, %697
+  %722 = phi i64 [ %691, %715 ], [ %691, %697 ], [ %691, %705 ], [ %691, %701 ], [ 0, %633 ], [ 0, %642 ], [ 0, %634 ]
+  %723 = phi i32 [ -74, %715 ], [ %698, %697 ], [ -6, %705 ], [ -6, %701 ], [ 0, %633 ], [ 0, %642 ], [ 0, %634 ]
+  %724 = and i64 %722, 8
+  %725 = icmp eq i64 %724, 0
+  %726 = select i1 %725, i32 %723, i32 -11
+  br label %727
 
-729:                                              ; preds = %.thread28, %689, %666
-  %730 = phi i32 [ %728, %.thread28 ], [ -110, %666 ], [ -110, %689 ]
-  br i1 %73, label %731, label %746
+727:                                              ; preds = %.thread28, %687, %664
+  %728 = phi i32 [ %726, %.thread28 ], [ -110, %664 ], [ -110, %687 ]
+  br i1 %73, label %729, label %744
 
-731:                                              ; preds = %729
-  %732 = load i64, ptr %19, align 8
-  %733 = trunc i64 %732 to i16
-  %734 = add i16 %733, 13
-  %735 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %734) #15, !srcloc !11
-  %736 = call i64 @llvm.read_register.i64(metadata !0)
-  %737 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %736) #15, !srcloc !12
-  %738 = extractvalue { i64, i64, i64, i64, i64 } %737, 4
-  call void @llvm.write_register.i64(metadata !0, i64 %738)
-  %739 = and i8 %735, -2
-  %740 = load i64, ptr %19, align 8
-  %741 = trunc i64 %740 to i16
-  %742 = add i16 %741, 13
-  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %739, i16 %742) #15, !srcloc !13
-  %743 = call i64 @llvm.read_register.i64(metadata !0)
-  %744 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %743) #15, !srcloc !12
-  %745 = extractvalue { i64, i64, i64, i64, i64 } %744, 4
-  call void @llvm.write_register.i64(metadata !0, i64 %745)
-  br label %746
+729:                                              ; preds = %727
+  %730 = load i64, ptr %19, align 8
+  %731 = trunc i64 %730 to i16
+  %732 = add i16 %731, 13
+  %733 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %732) #15, !srcloc !11
+  %734 = call i64 @llvm.read_register.i64(metadata !0)
+  %735 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %734) #15, !srcloc !12
+  %736 = extractvalue { i64, i64, i64, i64, i64 } %735, 4
+  call void @llvm.write_register.i64(metadata !0, i64 %736)
+  %737 = and i8 %733, -2
+  %738 = load i64, ptr %19, align 8
+  %739 = trunc i64 %738 to i16
+  %740 = add i16 %739, 13
+  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %737, i16 %740) #15, !srcloc !13
+  %741 = call i64 @llvm.read_register.i64(metadata !0)
+  %742 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %741) #15, !srcloc !12
+  %743 = extractvalue { i64, i64, i64, i64, i64 } %742, 4
+  call void @llvm.write_register.i64(metadata !0, i64 %743)
+  br label %744
 
-746:                                              ; preds = %59, %731, %729
-  %747 = phi i32 [ -16, %59 ], [ %730, %731 ], [ %730, %729 ]
-  %748 = load i64, ptr %19, align 8
-  %749 = trunc i64 %748 to i16
-  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -34, i16 %749) #15, !srcloc !13
-  %750 = call i64 @llvm.read_register.i64(metadata !0)
-  %751 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %750) #15, !srcloc !12
-  %752 = extractvalue { i64, i64, i64, i64, i64 } %751, 4
-  call void @llvm.write_register.i64(metadata !0, i64 %752)
-  %753 = load ptr, ptr %15, align 8
-  %754 = call i64 @ktime_get_mono_fast_ns() #15
-  %755 = getelementptr inbounds nuw i8, ptr %753, i64 656
-  store volatile i64 %754, ptr %755, align 8
-  %756 = load ptr, ptr %15, align 8
-  %757 = getelementptr inbounds nuw i8, ptr %756, i64 184
-  %758 = call i32 @__pm_runtime_suspend(ptr noundef nonnull %757, i32 noundef 13) #15
-  br label %759
+744:                                              ; preds = %59, %729, %727
+  %745 = phi i32 [ -16, %59 ], [ %728, %729 ], [ %728, %727 ]
+  %746 = load i64, ptr %19, align 8
+  %747 = trunc i64 %746 to i16
+  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 -34, i16 %747) #15, !srcloc !13
+  %748 = call i64 @llvm.read_register.i64(metadata !0)
+  %749 = call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %748) #15, !srcloc !12
+  %750 = extractvalue { i64, i64, i64, i64, i64 } %749, 4
+  call void @llvm.write_register.i64(metadata !0, i64 %750)
+  %751 = load ptr, ptr %15, align 8
+  %752 = call i64 @ktime_get_mono_fast_ns() #15
+  %753 = getelementptr inbounds nuw i8, ptr %751, i64 656
+  store volatile i64 %752, ptr %753, align 8
+  %754 = load ptr, ptr %15, align 8
+  %755 = getelementptr inbounds nuw i8, ptr %754, i64 184
+  %756 = call i32 @__pm_runtime_suspend(ptr noundef nonnull %755, i32 noundef 13) #15
+  br label %757
 
-759:                                              ; preds = %746, %7
-  %760 = phi i32 [ %747, %746 ], [ -16, %7 ]
-  ret i32 %760
+757:                                              ; preds = %744, %7
+  %758 = phi i32 [ %745, %744 ], [ -16, %7 ]
+  ret i32 %758
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)

@@ -45318,20 +45318,20 @@ define void @"_ZN71_$LT$hir..ItemInNs$u20$as$u20$core..convert..From$LT$hir..Mac
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN75_$LT$hir..ItemInNs$u20$as$u20$core..convert..From$LT$hir..ModuleDef$GT$$GT$4from17h1ba5a8f7cd95ea64E"(ptr noalias noundef writeonly sret({ i32, [4 x i32] }) align 4 captures(none) dereferenceable(20) initializes((0, 20)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #7 {
   %3 = load i8, ptr %1, align 4, !range !1782, !noundef !11
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %switch.tableidx = add nsw i8 %3, -1
-  %4 = icmp ult i8 %switch.tableidx, 5
-  br i1 %4, label %switch.lookup, label %6
+  %5 = icmp ult i8 %switch.tableidx, 5
+  br i1 %5, label %switch.lookup, label %7
 
 switch.lookup:                                    ; preds = %2
-  %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN75_$LT$hir..ItemInNs$u20$as$u20$core..convert..From$LT$hir..ModuleDef$GT$$GT$4from17h1ba5a8f7cd95ea64E", i64 %5
+  %6 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @"switch.table._ZN75_$LT$hir..ItemInNs$u20$as$u20$core..convert..From$LT$hir..ModuleDef$GT$$GT$4from17h1ba5a8f7cd95ea64E", i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %6
+  br label %7
 
-6:                                                ; preds = %switch.lookup, %2
+7:                                                ; preds = %switch.lookup, %2
   %storemerge = phi i32 [ 0, %2 ], [ %switch.load, %switch.lookup ]
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   store i32 %storemerge, ptr %0, align 4
   ret void
 }

@@ -2293,13 +2293,13 @@ cr_add_interval.exit.thread:                      ; preds = %._crit_edge.i, %cr_
   %.4.add = add nuw nsw i64 %.4.idx, 1
   %.ptr128 = getelementptr inbounds nuw i8, ptr @unicode_script_ext_table, i64 %.4.add
   %110 = load i8, ptr %.4.ptr, align 1, !tbaa !13
+  %.not278 = icmp eq i8 %110, 0
   switch i32 %.01929.i, label %.preheader [
     i32 55, label %111
     i32 24, label %111
   ]
 
 .preheader:                                       ; preds = %107
-  %.not278 = icmp eq i8 %110, 0
   br i1 %.not278, label %.loopexit258, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -2307,8 +2307,7 @@ cr_add_interval.exit.thread:                      ; preds = %._crit_edge.i, %cr_
   br label %.lr.ph
 
 111:                                              ; preds = %107, %107
-  %.not138 = icmp eq i8 %110, 0
-  br i1 %.not138, label %.loopexit258, label %112
+  br i1 %.not278, label %.loopexit258, label %112
 
 112:                                              ; preds = %111
   %113 = add i32 %.sroa.0.1273, 2

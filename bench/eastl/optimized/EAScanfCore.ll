@@ -824,7 +824,7 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %entry
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %sw.epilog302
-  %2 = phi i8 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %75, %sw.epilog302 ]
+  %2 = phi i8 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %73, %sw.epilog302 ]
   %nAssignmentCount.0.ph253 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nAssignmentCount.2, %sw.epilog302 ]
   %pFormatCurrent.0.ph252 = phi ptr [ %pFormat, %while.body.lr.ph.lr.ph.lr.ph ], [ %call23, %sw.epilog302 ]
   %nReadCountSum.0.ph251 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nReadCountSum.4, %sw.epilog302 ]
@@ -970,11 +970,11 @@ if.end36:                                         ; preds = %lor.lhs.false32
     i32 71, label %sw.bb182
     i32 98, label %if.end96
     i32 111, label %if.end96.loopexit256
-    i32 117, label %if.end96.loopexit485
-    i32 100, label %if.end96.loopexit485
+    i32 117, label %if.end96.loopexit484
+    i32 100, label %if.end96.loopexit484
     i32 105, label %if.end96.loopexit346
-    i32 88, label %if.end96.loopexit415
-    i32 120, label %if.end96.loopexit415
+    i32 88, label %if.end96.loopexit414
+    i32 120, label %if.end96.loopexit414
   ]
 
 while.cond38:                                     ; preds = %if.end36, %while.cond38
@@ -1071,48 +1071,48 @@ if.end96.loopexit256:                             ; preds = %if.end36
 if.end96.loopexit346:                             ; preds = %if.end36
   br label %if.end96
 
-if.end96.loopexit415:                             ; preds = %if.end36, %if.end36
+if.end96.loopexit414:                             ; preds = %if.end36, %if.end36
   br label %if.end96
 
-if.end96.loopexit485:                             ; preds = %if.end36, %if.end36
+if.end96.loopexit484:                             ; preds = %if.end36, %if.end36
   br label %if.end96
 
-if.end96:                                         ; preds = %if.end36, %if.end96.loopexit485, %if.end96.loopexit415, %if.end96.loopexit346, %if.end96.loopexit256
-  %nBase.0 = phi i32 [ 8, %if.end96.loopexit256 ], [ 0, %if.end96.loopexit346 ], [ 16, %if.end96.loopexit415 ], [ 10, %if.end96.loopexit485 ], [ 2, %if.end36 ]
+if.end96:                                         ; preds = %if.end36, %if.end96.loopexit484, %if.end96.loopexit414, %if.end96.loopexit346, %if.end96.loopexit256
+  %nBase.0 = phi i32 [ 8, %if.end96.loopexit256 ], [ 0, %if.end96.loopexit346 ], [ 16, %if.end96.loopexit414 ], [ 10, %if.end96.loopexit484 ], [ 2, %if.end36 ]
   %26 = load i32, ptr %mModifier.i, align 4
+  %27 = load i32, ptr %fd, align 4
   %switch.tableidx = add i32 %26, -2
-  %27 = icmp ult i32 %switch.tableidx, 14
-  br i1 %27, label %switch.lookup, label %sw.epilog119
+  %28 = icmp ult i32 %switch.tableidx, 14
+  br i1 %28, label %switch.lookup, label %sw.epilog119
 
 switch.lookup:                                    ; preds = %if.end96
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %28
+  %29 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sw.epilog119
 
 sw.epilog119:                                     ; preds = %if.end96, %switch.lookup
   %.sink = phi i64 [ %switch.load, %switch.lookup ], [ 255, %if.end96 ]
-  %29 = load i32, ptr %fd, align 4
-  %call118 = call noundef i64 @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EcE10ReadUint64ES6_S4_miiS9_S9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i64 noundef %.sink, i32 noundef %nBase.0, i32 noundef %29, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bNegative, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
+  %call118 = call noundef i64 @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EcE10ReadUint64ES6_S4_miiS9_S9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i64 noundef %.sink, i32 noundef %nBase.0, i32 noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bNegative, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
   %30 = load i32, ptr %nReadCount, align 4
   %tobool120.not = icmp eq i32 %30, 0
   br i1 %tobool120.not, label %Done, label %if.end122
 
 if.end122:                                        ; preds = %sw.epilog119
   %31 = load i32, ptr %mnType, align 4
+  %32 = load i32, ptr %bNegative, align 4
+  %tobool155.not = icmp eq i32 %32, 0
+  %sub157 = sub i64 0, %call118
+  %spec.select = select i1 %tobool155.not, i64 %call118, i64 %sub157
+  %33 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool159.not = icmp eq ptr %33, null
   switch i32 %31, label %if.else154 [
     i32 105, label %if.then128
     i32 100, label %if.then128
   ]
 
 if.then128:                                       ; preds = %if.end122, %if.end122
-  %32 = load i32, ptr %bNegative, align 4
-  %tobool129.not = icmp eq i32 %32, 0
-  %sub = sub i64 0, %call118
-  %intMaxValue.0 = select i1 %tobool129.not, i64 %call118, i64 %sub
-  %33 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool133.not = icmp eq ptr %33, null
-  br i1 %tobool133.not, label %if.end180, label %if.then134
+  br i1 %tobool159.not, label %if.end180, label %if.then134
 
 if.then134:                                       ; preds = %if.then128
   %34 = load i32, ptr %mModifier.i, align 4
@@ -1132,46 +1132,46 @@ if.then134:                                       ; preds = %if.then128
   ]
 
 sw.bb136:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %33, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog151
 
 sw.bb137:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %33, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog151
 
 sw.bb138:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %33, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog151
 
 sw.bb139:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %33, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog151
 
 sw.bb140:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %33, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog151
 
 sw.bb141:                                         ; preds = %if.then134
-  %conv142 = trunc i64 %intMaxValue.0 to i32
+  %conv142 = trunc i64 %spec.select to i32
   store i32 %conv142, ptr %33, align 4
   br label %sw.epilog151
 
 sw.bb143:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %33, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog151
 
 sw.bb144:                                         ; preds = %if.then134, %if.then134
-  %conv145 = trunc i64 %intMaxValue.0 to i16
+  %conv145 = trunc i64 %spec.select to i16
   store i16 %conv145, ptr %33, align 2
   br label %sw.epilog151
 
 sw.bb146:                                         ; preds = %if.then134, %if.then134
-  %conv147 = trunc i64 %intMaxValue.0 to i8
+  %conv147 = trunc i64 %spec.select to i8
   store i8 %conv147, ptr %33, align 1
   br label %sw.epilog151
 
 sw.bb148:                                         ; preds = %if.then134
-  %conv149 = trunc i64 %intMaxValue.0 to i32
+  %conv149 = trunc i64 %spec.select to i32
   store i32 %conv149, ptr %33, align 4
   br label %sw.epilog151
 
@@ -1180,17 +1180,11 @@ sw.epilog151:                                     ; preds = %if.then134, %sw.bb1
   br label %if.end180
 
 if.else154:                                       ; preds = %if.end122
-  %35 = load i32, ptr %bNegative, align 4
-  %tobool155.not = icmp eq i32 %35, 0
-  %sub157 = sub nsw i64 0, %call118
-  %spec.select = select i1 %tobool155.not, i64 %call118, i64 %sub157
-  %36 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool159.not = icmp eq ptr %36, null
   br i1 %tobool159.not, label %if.end180, label %if.then160
 
 if.then160:                                       ; preds = %if.else154
-  %37 = load i32, ptr %mModifier.i, align 4
-  switch i32 %37, label %sw.epilog177 [
+  %35 = load i32, ptr %mModifier.i, align 4
+  switch i32 %35, label %sw.epilog177 [
     i32 6, label %sw.bb162
     i32 7, label %sw.bb163
     i32 8, label %sw.bb164
@@ -1206,47 +1200,47 @@ if.then160:                                       ; preds = %if.else154
   ]
 
 sw.bb162:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %36, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog177
 
 sw.bb163:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %36, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog177
 
 sw.bb164:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %36, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog177
 
 sw.bb165:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %36, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog177
 
 sw.bb166:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %36, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog177
 
 sw.bb167:                                         ; preds = %if.then160
   %conv168 = trunc i64 %spec.select to i32
-  store i32 %conv168, ptr %36, align 4
+  store i32 %conv168, ptr %33, align 4
   br label %sw.epilog177
 
 sw.bb169:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %36, align 8
+  store i64 %spec.select, ptr %33, align 8
   br label %sw.epilog177
 
 sw.bb170:                                         ; preds = %if.then160, %if.then160
   %conv171 = trunc i64 %spec.select to i16
-  store i16 %conv171, ptr %36, align 2
+  store i16 %conv171, ptr %33, align 2
   br label %sw.epilog177
 
 sw.bb172:                                         ; preds = %if.then160, %if.then160
   %conv173 = trunc i64 %spec.select to i8
-  store i8 %conv173, ptr %36, align 1
+  store i8 %conv173, ptr %33, align 1
   br label %sw.epilog177
 
 sw.bb174:                                         ; preds = %if.then160
   %conv175 = trunc i64 %spec.select to i32
-  store i32 %conv175, ptr %36, align 4
+  store i32 %conv175, ptr %33, align 4
   br label %sw.epilog177
 
 sw.epilog177:                                     ; preds = %if.then160, %sw.bb174, %sw.bb172, %sw.bb170, %sw.bb169, %sw.bb167, %sw.bb166, %sw.bb165, %sw.bb164, %sw.bb163, %sw.bb162
@@ -1255,68 +1249,68 @@ sw.epilog177:                                     ; preds = %if.then160, %sw.bb1
 
 if.end180:                                        ; preds = %if.else154, %sw.epilog177, %if.then128, %sw.epilog151
   %nAssignmentCount.3 = phi i32 [ %inc152, %sw.epilog151 ], [ %nAssignmentCount.0.ph253, %if.then128 ], [ %inc178, %sw.epilog177 ], [ %nAssignmentCount.0.ph253, %if.else154 ]
-  %38 = load i32, ptr %nReadCount, align 4
-  %add = add nsw i32 %38, %nReadCountSum.0.ph145233
+  %36 = load i32, ptr %nReadCount, align 4
+  %add = add nsw i32 %36, %nReadCountSum.0.ph145233
   %inc181 = add nsw i32 %nConversionCount.0.ph250, 1
   br label %sw.epilog302
 
 sw.bb182:                                         ; preds = %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36
-  %39 = load i32, ptr %fd, align 4
-  %40 = load i32, ptr %mDecimalPoint.i, align 4
-  %call184 = call noundef double @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EcE10ReadDoubleES6_S4_iiS9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %39, i32 noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
+  %37 = load i32, ptr %fd, align 4
+  %38 = load i32, ptr %mDecimalPoint.i, align 4
+  %call184 = call noundef double @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EcE10ReadDoubleES6_S4_iiS9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %37, i32 noundef %38, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
   %conv185 = fpext double %call184 to x86_fp80
-  %41 = load i32, ptr %nReadCount, align 4
-  %tobool186.not = icmp eq i32 %41, 0
+  %39 = load i32, ptr %nReadCount, align 4
+  %tobool186.not = icmp eq i32 %39, 0
   br i1 %tobool186.not, label %Done, label %if.end188
 
 if.end188:                                        ; preds = %sw.bb182
-  %42 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool189.not = icmp eq ptr %42, null
+  %40 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool189.not = icmp eq ptr %40, null
   br i1 %tobool189.not, label %if.end200, label %if.then190
 
 if.then190:                                       ; preds = %if.end188
-  %43 = load i32, ptr %mModifier.i, align 4
-  switch i32 %43, label %sw.epilog198 [
+  %41 = load i32, ptr %mModifier.i, align 4
+  switch i32 %41, label %sw.epilog198 [
     i32 10, label %sw.bb192
     i32 9, label %sw.bb193
     i32 0, label %sw.bb195
   ]
 
 sw.bb192:                                         ; preds = %if.then190
-  store x86_fp80 %conv185, ptr %42, align 16
+  store x86_fp80 %conv185, ptr %40, align 16
   br label %sw.epilog198
 
 sw.bb193:                                         ; preds = %if.then190
-  store double %call184, ptr %42, align 8
+  store double %call184, ptr %40, align 8
   br label %sw.epilog198
 
 sw.bb195:                                         ; preds = %if.then190
   %conv196 = fptrunc double %call184 to float
-  store float %conv196, ptr %42, align 4
+  store float %conv196, ptr %40, align 4
   %.pre323.pre = load i32, ptr %nReadCount, align 4
   br label %sw.epilog198
 
 sw.epilog198:                                     ; preds = %if.then190, %sw.bb195, %sw.bb193, %sw.bb192
-  %.pre323 = phi i32 [ %41, %if.then190 ], [ %.pre323.pre, %sw.bb195 ], [ %41, %sw.bb193 ], [ %41, %sw.bb192 ]
+  %.pre323 = phi i32 [ %39, %if.then190 ], [ %.pre323.pre, %sw.bb195 ], [ %39, %sw.bb193 ], [ %39, %sw.bb192 ]
   %inc199 = add nsw i32 %nAssignmentCount.0.ph253, 1
   br label %if.end200
 
 if.end200:                                        ; preds = %sw.epilog198, %if.end188
-  %44 = phi i32 [ %.pre323, %sw.epilog198 ], [ %41, %if.end188 ]
+  %42 = phi i32 [ %.pre323, %sw.epilog198 ], [ %39, %if.end188 ]
   %nAssignmentCount.4 = phi i32 [ %inc199, %sw.epilog198 ], [ %nAssignmentCount.0.ph253, %if.end188 ]
-  %add201 = add nsw i32 %44, %nReadCountSum.0.ph145233
+  %add201 = add nsw i32 %42, %nReadCountSum.0.ph145233
   %inc202 = add nsw i32 %nConversionCount.0.ph250, 1
   br label %sw.epilog302
 
 sw.bb203:                                         ; preds = %if.end36, %if.end36
   %call204 = call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
   store i32 %call204, ptr %c, align 4
-  %45 = and i32 %call204, 255
-  %idxprom.i141239 = zext nneg i32 %45 to i64
+  %43 = and i32 %call204, 255
+  %idxprom.i141239 = zext nneg i32 %43 to i64
   %arrayidx.i142240 = getelementptr inbounds nuw i8, ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 %idxprom.i141239
-  %46 = load i8, ptr %arrayidx.i142240, align 1
-  %47 = and i8 %46, 6
-  %tobool208.not241 = icmp eq i8 %47, 0
+  %44 = load i8, ptr %arrayidx.i142240, align 1
+  %45 = and i8 %44, 6
+  %tobool208.not241 = icmp eq i8 %45, 0
   br i1 %tobool208.not241, label %while.end212, label %while.body209
 
 while.body209:                                    ; preds = %sw.bb203, %while.body209
@@ -1324,12 +1318,12 @@ while.body209:                                    ; preds = %sw.bb203, %while.bo
   %inc210 = add nsw i32 %nReadCountSum.5242, 1
   %call211 = call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
   store i32 %call211, ptr %c, align 4
-  %48 = and i32 %call211, 255
-  %idxprom.i141 = zext nneg i32 %48 to i64
+  %46 = and i32 %call211, 255
+  %idxprom.i141 = zext nneg i32 %46 to i64
   %arrayidx.i142 = getelementptr inbounds nuw i8, ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 %idxprom.i141
-  %49 = load i8, ptr %arrayidx.i142, align 1
-  %50 = and i8 %49, 6
-  %tobool208.not = icmp eq i8 %50, 0
+  %47 = load i8, ptr %arrayidx.i142, align 1
+  %48 = and i8 %47, 6
+  %tobool208.not = icmp eq i8 %48, 0
   br i1 %tobool208.not, label %while.end212, label %while.body209, !llvm.loop !16
 
 while.end212:                                     ; preds = %while.body209, %sw.bb203
@@ -1341,13 +1335,13 @@ while.end212:                                     ; preds = %while.body209, %sw.
 sw.bb214:                                         ; preds = %if.end36, %while.end212
   %nReadCountSum.2 = phi i32 [ %nReadCountSum.5.lcssa, %while.end212 ], [ %nReadCountSum.0.ph145233, %if.end36 ]
   store i32 0, ptr %nReadCount, align 4
-  %51 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool215.not = icmp eq ptr %51, null
+  %49 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool215.not = icmp eq ptr %49, null
   br i1 %tobool215.not, label %if.else236, label %if.then216
 
 if.then216:                                       ; preds = %sw.bb214
-  %52 = load i32, ptr %mModifier.i, align 4
-  switch i32 %52, label %Done [
+  %50 = load i32, ptr %mModifier.i, align 4
+  switch i32 %50, label %Done [
     i32 12, label %sw.epilog223
     i32 1, label %sw.epilog223
     i32 13, label %sw.bb219
@@ -1367,16 +1361,16 @@ sw.epilog223:                                     ; preds = %if.then216, %if.the
   br i1 %call224, label %if.end226, label %Done
 
 if.end226:                                        ; preds = %sw.epilog223
-  %53 = load i32, ptr %nReadCount, align 4
-  %tobool227.not = icmp eq i32 %53, 0
+  %51 = load i32, ptr %nReadCount, align 4
+  %tobool227.not = icmp eq i32 %51, 0
   br i1 %tobool227.not, label %if.then228, label %if.end230
 
 if.then228:                                       ; preds = %if.end226
-  %54 = load i32, ptr %c, align 4
+  %52 = load i32, ptr %c, align 4
   br label %Done.sink.split
 
 if.end230:                                        ; preds = %if.end226
-  %55 = load ptr, ptr %pArgumentCurrent, align 8
+  %53 = load ptr, ptr %pArgumentCurrent, align 8
   switch i32 %stringTypeSize.0, label %if.end230.unreachabledefault [
     i32 1, label %sw.bb231
     i32 2, label %sw.bb232
@@ -1384,15 +1378,15 @@ if.end230:                                        ; preds = %if.end226
   ]
 
 sw.bb231:                                         ; preds = %if.end230
-  store i8 0, ptr %55, align 1
+  store i8 0, ptr %53, align 1
   br label %sw.epilog234
 
 sw.bb232:                                         ; preds = %if.end230
-  store i16 0, ptr %55, align 2
+  store i16 0, ptr %53, align 2
   br label %sw.epilog234
 
 sw.bb233:                                         ; preds = %if.end230
-  store i32 0, ptr %55, align 4
+  store i32 0, ptr %53, align 4
   br label %sw.epilog234
 
 if.end230.unreachabledefault:                     ; preds = %if.end230
@@ -1404,35 +1398,35 @@ sw.epilog234:                                     ; preds = %sw.bb233, %sw.bb232
 
 if.else236:                                       ; preds = %sw.bb214
   %call237 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
-  %56 = load i32, ptr %nReadCount, align 4
-  %tobool238.not = icmp eq i32 %56, 0
+  %54 = load i32, ptr %nReadCount, align 4
+  %tobool238.not = icmp eq i32 %54, 0
   br i1 %tobool238.not, label %if.then239, label %if.end242
 
 if.then239:                                       ; preds = %if.else236
-  %57 = load i32, ptr %c, align 4
-  %call240 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %57, ptr noundef %pContext)
+  %55 = load i32, ptr %c, align 4
+  %call240 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %55, ptr noundef %pContext)
   br label %sw.epilog302
 
 if.end242:                                        ; preds = %if.else236, %sw.epilog234
   %nAssignmentCount.5 = phi i32 [ %inc235, %sw.epilog234 ], [ %nAssignmentCount.0.ph253, %if.else236 ]
-  %58 = load i32, ptr %fd, align 4
-  %cmp244 = icmp sgt i32 %58, -1
+  %56 = load i32, ptr %fd, align 4
+  %cmp244 = icmp sgt i32 %56, -1
   br i1 %cmp244, label %if.then245, label %if.end247
 
 if.then245:                                       ; preds = %if.end242
-  %59 = load i32, ptr %c, align 4
-  %call246 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %59, ptr noundef %pContext)
+  %57 = load i32, ptr %c, align 4
+  %call246 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %57, ptr noundef %pContext)
   br label %if.end247
 
 if.end247:                                        ; preds = %if.then245, %if.end242
-  %60 = load i32, ptr %nReadCount, align 4
-  %add248 = add nsw i32 %60, %nReadCountSum.2
+  %58 = load i32, ptr %nReadCount, align 4
+  %add248 = add nsw i32 %58, %nReadCountSum.2
   %inc249 = add nsw i32 %nConversionCount.0.ph250, 1
   br label %sw.epilog302
 
 sw.bb250:                                         ; preds = %if.end36, %if.end36
-  %61 = load i8, ptr %mbWidthSpecified, align 4
-  %tobool251 = trunc i8 %61 to i1
+  %59 = load i8, ptr %mbWidthSpecified, align 4
+  %tobool251 = trunc i8 %59 to i1
   br i1 %tobool251, label %if.end254, label %if.then252
 
 if.then252:                                       ; preds = %sw.bb250
@@ -1441,20 +1435,20 @@ if.then252:                                       ; preds = %sw.bb250
 
 if.end254:                                        ; preds = %if.then252, %sw.bb250
   store i32 0, ptr %nReadCount, align 4
-  %62 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool255.not = icmp eq ptr %62, null
+  %60 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool255.not = icmp eq ptr %60, null
   br i1 %tobool255.not, label %while.cond283.preheader, label %if.then256
 
 while.cond283.preheader:                          ; preds = %if.end254
-  %63 = load i32, ptr %fd, align 4
-  %dec285247 = add nsw i32 %63, -1
+  %61 = load i32, ptr %fd, align 4
+  %dec285247 = add nsw i32 %61, -1
   store i32 %dec285247, ptr %fd, align 4
-  %tobool286.not248 = icmp eq i32 %63, 0
+  %tobool286.not248 = icmp eq i32 %61, 0
   br i1 %tobool286.not248, label %Done, label %land.rhs287
 
 if.then256:                                       ; preds = %if.end254
-  %64 = load i32, ptr %mModifier.i, align 4
-  switch i32 %64, label %Done [
+  %62 = load i32, ptr %mModifier.i, align 4
+  switch i32 %62, label %Done [
     i32 12, label %sw.epilog263
     i32 1, label %sw.epilog263
     i32 13, label %sw.bb259
@@ -1470,10 +1464,10 @@ sw.bb260:                                         ; preds = %if.then256, %if.the
 
 sw.epilog263:                                     ; preds = %if.then256, %if.then256, %sw.bb260, %sw.bb259
   %charTypeSize.0 = phi i32 [ 2, %sw.bb259 ], [ 4, %sw.bb260 ], [ 1, %if.then256 ], [ 1, %if.then256 ]
-  %65 = load i32, ptr %fd, align 4
-  %dec245 = add nsw i32 %65, -1
+  %63 = load i32, ptr %fd, align 4
+  %dec245 = add nsw i32 %63, -1
   store i32 %dec245, ptr %fd, align 4
-  %tobool266.not246 = icmp eq i32 %65, 0
+  %tobool266.not246 = icmp eq i32 %63, 0
   br i1 %tobool266.not246, label %Done, label %land.rhs
 
 land.rhs:                                         ; preds = %sw.epilog263, %sw.epilog275
@@ -1495,37 +1489,37 @@ while.body269:                                    ; preds = %land.rhs
 
 sw.bb270:                                         ; preds = %while.body269
   %conv271 = trunc i32 %call267 to i8
-  %66 = load ptr, ptr %pArgumentCurrent, align 8
-  store i8 %conv271, ptr %66, align 1
+  %64 = load ptr, ptr %pArgumentCurrent, align 8
+  store i8 %conv271, ptr %64, align 1
   br label %sw.epilog275
 
 sw.bb272:                                         ; preds = %while.body269
   %conv273 = trunc i32 %call267 to i16
-  %67 = load ptr, ptr %pArgumentCurrent, align 8
-  store i16 %conv273, ptr %67, align 2
+  %65 = load ptr, ptr %pArgumentCurrent, align 8
+  store i16 %conv273, ptr %65, align 2
   br label %sw.epilog275
 
 sw.bb274:                                         ; preds = %while.body269
-  %68 = load ptr, ptr %pArgumentCurrent, align 8
-  store i32 %call267, ptr %68, align 4
+  %66 = load ptr, ptr %pArgumentCurrent, align 8
+  store i32 %call267, ptr %66, align 4
   br label %sw.epilog275
 
 while.body269.unreachabledefault:                 ; preds = %while.body269
   unreachable
 
 sw.epilog275:                                     ; preds = %sw.bb274, %sw.bb272, %sw.bb270
-  %69 = load i32, ptr %nReadCount, align 4
-  %inc276 = add nsw i32 %69, 1
+  %67 = load i32, ptr %nReadCount, align 4
+  %inc276 = add nsw i32 %67, 1
   store i32 %inc276, ptr %nReadCount, align 4
-  %70 = load i32, ptr %fd, align 4
-  %dec = add nsw i32 %70, -1
+  %68 = load i32, ptr %fd, align 4
+  %dec = add nsw i32 %68, -1
   store i32 %dec, ptr %fd, align 4
-  %tobool266.not = icmp eq i32 %70, 0
+  %tobool266.not = icmp eq i32 %68, 0
   br i1 %tobool266.not, label %while.end277, label %land.rhs, !llvm.loop !17
 
 while.end277:                                     ; preds = %sw.epilog275, %land.rhs.while.end277.loopexit_crit_edge
-  %71 = phi i32 [ %.pre324.pre, %land.rhs.while.end277.loopexit_crit_edge ], [ %inc276, %sw.epilog275 ]
-  %tobool278.not = icmp eq i32 %71, 0
+  %69 = phi i32 [ %.pre324.pre, %land.rhs.while.end277.loopexit_crit_edge ], [ %inc276, %sw.epilog275 ]
+  %tobool278.not = icmp eq i32 %69, 0
   br i1 %tobool278.not, label %Done, label %if.end280
 
 if.end280:                                        ; preds = %while.end277
@@ -1542,21 +1536,21 @@ land.rhs287:                                      ; preds = %while.cond283.prehe
 while.body291:                                    ; preds = %land.rhs287
   %inc292 = add nsw i32 %.pre325.pre, 1
   store i32 %inc292, ptr %nReadCount, align 4
-  %72 = load i32, ptr %fd, align 4
-  %dec285 = add nsw i32 %72, -1
+  %70 = load i32, ptr %fd, align 4
+  %dec285 = add nsw i32 %70, -1
   store i32 %dec285, ptr %fd, align 4
-  %tobool286.not = icmp eq i32 %72, 0
+  %tobool286.not = icmp eq i32 %70, 0
   br i1 %tobool286.not, label %while.end293, label %land.rhs287, !llvm.loop !18
 
 while.end293:                                     ; preds = %land.rhs287, %while.body291
-  %73 = phi i32 [ %inc292, %while.body291 ], [ %.pre325.pre, %land.rhs287 ]
-  %tobool294.not = icmp eq i32 %73, 0
+  %71 = phi i32 [ %inc292, %while.body291 ], [ %.pre325.pre, %land.rhs287 ]
+  %tobool294.not = icmp eq i32 %71, 0
   br i1 %tobool294.not, label %Done, label %if.end297
 
 if.end297:                                        ; preds = %while.end293, %if.end280
-  %74 = phi i32 [ %71, %if.end280 ], [ %73, %while.end293 ]
+  %72 = phi i32 [ %69, %if.end280 ], [ %71, %while.end293 ]
   %nAssignmentCount.6 = phi i32 [ %inc281, %if.end280 ], [ %nAssignmentCount.0.ph253, %while.end293 ]
-  %add298 = add nsw i32 %74, %nReadCountSum.0.ph145233
+  %add298 = add nsw i32 %72, %nReadCountSum.0.ph145233
   %inc299 = add nsw i32 %nConversionCount.0.ph250, 1
   br label %sw.epilog302
 
@@ -1564,13 +1558,13 @@ sw.epilog302:                                     ; preds = %while.end45, %if.en
   %nConversionCount.1 = phi i32 [ %inc181, %if.end180 ], [ %inc202, %if.end200 ], [ %inc249, %if.end247 ], [ %nConversionCount.0.ph250, %if.then239 ], [ %inc299, %if.end297 ], [ %nConversionCount.0.ph250, %while.end45 ]
   %nReadCountSum.4 = phi i32 [ %add, %if.end180 ], [ %add201, %if.end200 ], [ %add248, %if.end247 ], [ %nReadCountSum.2, %if.then239 ], [ %add298, %if.end297 ], [ %inc44, %while.end45 ]
   %nAssignmentCount.2 = phi i32 [ %nAssignmentCount.3, %if.end180 ], [ %nAssignmentCount.4, %if.end200 ], [ %nAssignmentCount.5, %if.end247 ], [ %nAssignmentCount.0.ph253, %if.then239 ], [ %nAssignmentCount.6, %if.end297 ], [ %nAssignmentCount.0.ph253, %while.end45 ]
-  %75 = load i8, ptr %call23, align 1
-  %tobool.not221232 = icmp eq i8 %75, 0
+  %73 = load i8, ptr %call23, align 1
+  %tobool.not221232 = icmp eq i8 %73, 0
   br i1 %tobool.not221232, label %Done, label %while.body.lr.ph.lr.ph, !llvm.loop !14
 
 Done.sink.split:                                  ; preds = %while.end45, %if.then13, %if.then228
-  %.sink414 = phi i32 [ %54, %if.then228 ], [ %call14, %if.then13 ], [ %call39, %while.end45 ]
-  %call229 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink414, ptr noundef %pContext)
+  %.sink413 = phi i32 [ %52, %if.then228 ], [ %call14, %if.then13 ], [ %call39, %while.end45 ]
+  %call229 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink413, ptr noundef %pContext)
   br label %Done
 
 Done:                                             ; preds = %sw.epilog263, %while.cond283.preheader, %sw.epilog302, %sw.epilog223, %while.end293, %while.end277, %if.then256, %if.then216, %sw.bb182, %sw.epilog119, %while.cond.outer144.backedge, %land.lhs.true, %lor.lhs.false32, %if.end72, %if.end36, %Done.sink.split
@@ -1632,7 +1626,7 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %entry
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %sw.epilog302
-  %2 = phi i16 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %76, %sw.epilog302 ]
+  %2 = phi i16 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %74, %sw.epilog302 ]
   %nAssignmentCount.0.ph306 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nAssignmentCount.2, %sw.epilog302 ]
   %pFormatCurrent.0.ph305 = phi ptr [ %pFormat, %while.body.lr.ph.lr.ph.lr.ph ], [ %call23, %sw.epilog302 ]
   %nReadCountSum.0.ph304 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nReadCountSum.4, %sw.epilog302 ]
@@ -1801,11 +1795,11 @@ if.end36:                                         ; preds = %lor.lhs.false32
     i32 71, label %sw.bb182
     i32 98, label %if.end96
     i32 111, label %if.end96.loopexit309
-    i32 117, label %if.end96.loopexit558
-    i32 100, label %if.end96.loopexit558
+    i32 117, label %if.end96.loopexit557
+    i32 100, label %if.end96.loopexit557
     i32 105, label %if.end96.loopexit407
-    i32 88, label %if.end96.loopexit483
-    i32 120, label %if.end96.loopexit483
+    i32 88, label %if.end96.loopexit482
+    i32 120, label %if.end96.loopexit482
   ]
 
 while.cond38.preheader:                           ; preds = %if.end36
@@ -1919,48 +1913,48 @@ if.end96.loopexit309:                             ; preds = %if.end36
 if.end96.loopexit407:                             ; preds = %if.end36
   br label %if.end96
 
-if.end96.loopexit483:                             ; preds = %if.end36, %if.end36
+if.end96.loopexit482:                             ; preds = %if.end36, %if.end36
   br label %if.end96
 
-if.end96.loopexit558:                             ; preds = %if.end36, %if.end36
+if.end96.loopexit557:                             ; preds = %if.end36, %if.end36
   br label %if.end96
 
-if.end96:                                         ; preds = %if.end36, %if.end96.loopexit558, %if.end96.loopexit483, %if.end96.loopexit407, %if.end96.loopexit309
-  %nBase.0 = phi i32 [ 8, %if.end96.loopexit309 ], [ 0, %if.end96.loopexit407 ], [ 16, %if.end96.loopexit483 ], [ 10, %if.end96.loopexit558 ], [ 2, %if.end36 ]
+if.end96:                                         ; preds = %if.end36, %if.end96.loopexit557, %if.end96.loopexit482, %if.end96.loopexit407, %if.end96.loopexit309
+  %nBase.0 = phi i32 [ 8, %if.end96.loopexit309 ], [ 0, %if.end96.loopexit407 ], [ 16, %if.end96.loopexit482 ], [ 10, %if.end96.loopexit557 ], [ 2, %if.end36 ]
   %29 = load i32, ptr %mModifier.i, align 4
+  %30 = load i32, ptr %fd, align 4
   %switch.tableidx = add i32 %29, -2
-  %30 = icmp ult i32 %switch.tableidx, 14
-  br i1 %30, label %switch.lookup, label %sw.epilog119
+  %31 = icmp ult i32 %switch.tableidx, 14
+  br i1 %31, label %switch.lookup, label %sw.epilog119
 
 switch.lookup:                                    ; preds = %if.end96
-  %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %31
+  %32 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sw.epilog119
 
 sw.epilog119:                                     ; preds = %if.end96, %switch.lookup
   %.sink = phi i64 [ %switch.load, %switch.lookup ], [ 255, %if.end96 ]
-  %32 = load i32, ptr %fd, align 4
-  %call118 = call noundef i64 @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDsE10ReadUint64ES6_S4_miiS9_S9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i64 noundef %.sink, i32 noundef %nBase.0, i32 noundef %32, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bNegative, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
+  %call118 = call noundef i64 @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDsE10ReadUint64ES6_S4_miiS9_S9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i64 noundef %.sink, i32 noundef %nBase.0, i32 noundef %30, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bNegative, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
   %33 = load i32, ptr %nReadCount, align 4
   %tobool120.not = icmp eq i32 %33, 0
   br i1 %tobool120.not, label %Done, label %if.end122
 
 if.end122:                                        ; preds = %sw.epilog119
   %34 = load i32, ptr %mnType, align 4
+  %35 = load i32, ptr %bNegative, align 4
+  %tobool155.not = icmp eq i32 %35, 0
+  %sub157 = sub i64 0, %call118
+  %spec.select = select i1 %tobool155.not, i64 %call118, i64 %sub157
+  %36 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool159.not = icmp eq ptr %36, null
   switch i32 %34, label %if.else154 [
     i32 105, label %if.then128
     i32 100, label %if.then128
   ]
 
 if.then128:                                       ; preds = %if.end122, %if.end122
-  %35 = load i32, ptr %bNegative, align 4
-  %tobool129.not = icmp eq i32 %35, 0
-  %sub = sub i64 0, %call118
-  %intMaxValue.0 = select i1 %tobool129.not, i64 %call118, i64 %sub
-  %36 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool133.not = icmp eq ptr %36, null
-  br i1 %tobool133.not, label %if.end180, label %if.then134
+  br i1 %tobool159.not, label %if.end180, label %if.then134
 
 if.then134:                                       ; preds = %if.then128
   %37 = load i32, ptr %mModifier.i, align 4
@@ -1980,46 +1974,46 @@ if.then134:                                       ; preds = %if.then128
   ]
 
 sw.bb136:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %36, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog151
 
 sw.bb137:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %36, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog151
 
 sw.bb138:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %36, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog151
 
 sw.bb139:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %36, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog151
 
 sw.bb140:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %36, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog151
 
 sw.bb141:                                         ; preds = %if.then134
-  %conv142 = trunc i64 %intMaxValue.0 to i32
+  %conv142 = trunc i64 %spec.select to i32
   store i32 %conv142, ptr %36, align 4
   br label %sw.epilog151
 
 sw.bb143:                                         ; preds = %if.then134
-  store i64 %intMaxValue.0, ptr %36, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog151
 
 sw.bb144:                                         ; preds = %if.then134, %if.then134
-  %conv145 = trunc i64 %intMaxValue.0 to i16
+  %conv145 = trunc i64 %spec.select to i16
   store i16 %conv145, ptr %36, align 2
   br label %sw.epilog151
 
 sw.bb146:                                         ; preds = %if.then134, %if.then134
-  %conv147 = trunc i64 %intMaxValue.0 to i8
+  %conv147 = trunc i64 %spec.select to i8
   store i8 %conv147, ptr %36, align 1
   br label %sw.epilog151
 
 sw.bb148:                                         ; preds = %if.then134
-  %conv149 = trunc i64 %intMaxValue.0 to i32
+  %conv149 = trunc i64 %spec.select to i32
   store i32 %conv149, ptr %36, align 4
   br label %sw.epilog151
 
@@ -2028,17 +2022,11 @@ sw.epilog151:                                     ; preds = %if.then134, %sw.bb1
   br label %if.end180
 
 if.else154:                                       ; preds = %if.end122
-  %38 = load i32, ptr %bNegative, align 4
-  %tobool155.not = icmp eq i32 %38, 0
-  %sub157 = sub nsw i64 0, %call118
-  %spec.select = select i1 %tobool155.not, i64 %call118, i64 %sub157
-  %39 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool159.not = icmp eq ptr %39, null
   br i1 %tobool159.not, label %if.end180, label %if.then160
 
 if.then160:                                       ; preds = %if.else154
-  %40 = load i32, ptr %mModifier.i, align 4
-  switch i32 %40, label %sw.epilog177 [
+  %38 = load i32, ptr %mModifier.i, align 4
+  switch i32 %38, label %sw.epilog177 [
     i32 6, label %sw.bb162
     i32 7, label %sw.bb163
     i32 8, label %sw.bb164
@@ -2054,47 +2042,47 @@ if.then160:                                       ; preds = %if.else154
   ]
 
 sw.bb162:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %39, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog177
 
 sw.bb163:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %39, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog177
 
 sw.bb164:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %39, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog177
 
 sw.bb165:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %39, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog177
 
 sw.bb166:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %39, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog177
 
 sw.bb167:                                         ; preds = %if.then160
   %conv168 = trunc i64 %spec.select to i32
-  store i32 %conv168, ptr %39, align 4
+  store i32 %conv168, ptr %36, align 4
   br label %sw.epilog177
 
 sw.bb169:                                         ; preds = %if.then160
-  store i64 %spec.select, ptr %39, align 8
+  store i64 %spec.select, ptr %36, align 8
   br label %sw.epilog177
 
 sw.bb170:                                         ; preds = %if.then160, %if.then160
   %conv171 = trunc i64 %spec.select to i16
-  store i16 %conv171, ptr %39, align 2
+  store i16 %conv171, ptr %36, align 2
   br label %sw.epilog177
 
 sw.bb172:                                         ; preds = %if.then160, %if.then160
   %conv173 = trunc i64 %spec.select to i8
-  store i8 %conv173, ptr %39, align 1
+  store i8 %conv173, ptr %36, align 1
   br label %sw.epilog177
 
 sw.bb174:                                         ; preds = %if.then160
   %conv175 = trunc i64 %spec.select to i32
-  store i32 %conv175, ptr %39, align 4
+  store i32 %conv175, ptr %36, align 4
   br label %sw.epilog177
 
 sw.epilog177:                                     ; preds = %if.then160, %sw.bb174, %sw.bb172, %sw.bb170, %sw.bb169, %sw.bb167, %sw.bb166, %sw.bb165, %sw.bb164, %sw.bb163, %sw.bb162
@@ -2103,64 +2091,64 @@ sw.epilog177:                                     ; preds = %if.then160, %sw.bb1
 
 if.end180:                                        ; preds = %if.else154, %sw.epilog177, %if.then128, %sw.epilog151
   %nAssignmentCount.3 = phi i32 [ %inc152, %sw.epilog151 ], [ %nAssignmentCount.0.ph306, %if.then128 ], [ %inc178, %sw.epilog177 ], [ %nAssignmentCount.0.ph306, %if.else154 ]
-  %41 = load i32, ptr %nReadCount, align 4
-  %add = add nsw i32 %41, %nReadCountSum.0.ph172275
+  %39 = load i32, ptr %nReadCount, align 4
+  %add = add nsw i32 %39, %nReadCountSum.0.ph172275
   %inc181 = add nsw i32 %nConversionCount.0.ph303, 1
   br label %sw.epilog302
 
 sw.bb182:                                         ; preds = %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36, %if.end36
-  %42 = load i32, ptr %fd, align 4
-  %43 = load i32, ptr %mDecimalPoint.i, align 4
-  %call184 = call noundef double @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDsE10ReadDoubleES6_S4_iiS9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %42, i32 noundef %43, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
+  %40 = load i32, ptr %fd, align 4
+  %41 = load i32, ptr %mDecimalPoint.i, align 4
+  %call184 = call noundef double @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDsE10ReadDoubleES6_S4_iiS9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %40, i32 noundef %41, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
   %conv185 = fpext double %call184 to x86_fp80
-  %44 = load i32, ptr %nReadCount, align 4
-  %tobool186.not = icmp eq i32 %44, 0
+  %42 = load i32, ptr %nReadCount, align 4
+  %tobool186.not = icmp eq i32 %42, 0
   br i1 %tobool186.not, label %Done, label %if.end188
 
 if.end188:                                        ; preds = %sw.bb182
-  %45 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool189.not = icmp eq ptr %45, null
+  %43 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool189.not = icmp eq ptr %43, null
   br i1 %tobool189.not, label %if.end200, label %if.then190
 
 if.then190:                                       ; preds = %if.end188
-  %46 = load i32, ptr %mModifier.i, align 4
-  switch i32 %46, label %sw.epilog198 [
+  %44 = load i32, ptr %mModifier.i, align 4
+  switch i32 %44, label %sw.epilog198 [
     i32 10, label %sw.bb192
     i32 9, label %sw.bb193
     i32 0, label %sw.bb195
   ]
 
 sw.bb192:                                         ; preds = %if.then190
-  store x86_fp80 %conv185, ptr %45, align 16
+  store x86_fp80 %conv185, ptr %43, align 16
   br label %sw.epilog198
 
 sw.bb193:                                         ; preds = %if.then190
-  store double %call184, ptr %45, align 8
+  store double %call184, ptr %43, align 8
   br label %sw.epilog198
 
 sw.bb195:                                         ; preds = %if.then190
   %conv196 = fptrunc double %call184 to float
-  store float %conv196, ptr %45, align 4
+  store float %conv196, ptr %43, align 4
   %.pre383.pre = load i32, ptr %nReadCount, align 4
   br label %sw.epilog198
 
 sw.epilog198:                                     ; preds = %if.then190, %sw.bb195, %sw.bb193, %sw.bb192
-  %.pre383 = phi i32 [ %44, %if.then190 ], [ %.pre383.pre, %sw.bb195 ], [ %44, %sw.bb193 ], [ %44, %sw.bb192 ]
+  %.pre383 = phi i32 [ %42, %if.then190 ], [ %.pre383.pre, %sw.bb195 ], [ %42, %sw.bb193 ], [ %42, %sw.bb192 ]
   %inc199 = add nsw i32 %nAssignmentCount.0.ph306, 1
   br label %if.end200
 
 if.end200:                                        ; preds = %sw.epilog198, %if.end188
-  %47 = phi i32 [ %.pre383, %sw.epilog198 ], [ %44, %if.end188 ]
+  %45 = phi i32 [ %.pre383, %sw.epilog198 ], [ %42, %if.end188 ]
   %nAssignmentCount.4 = phi i32 [ %inc199, %sw.epilog198 ], [ %nAssignmentCount.0.ph306, %if.end188 ]
-  %add201 = add nsw i32 %47, %nReadCountSum.0.ph172275
+  %add201 = add nsw i32 %45, %nReadCountSum.0.ph172275
   %inc202 = add nsw i32 %nConversionCount.0.ph303, 1
   br label %sw.epilog302
 
 sw.bb203:                                         ; preds = %if.end36, %if.end36
   %call204 = call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
   store i32 %call204, ptr %c, align 4
-  %48 = and i32 %call204, 65280
-  %cmp.i153281 = icmp eq i32 %48, 0
+  %46 = and i32 %call204, 65280
+  %cmp.i153281 = icmp eq i32 %46, 0
   br i1 %cmp.i153281, label %_ZN2EA4StdC7IsspaceEDs.exit159, label %while.end212
 
 _ZN2EA4StdC7IsspaceEDs.exit159:                   ; preds = %sw.bb203, %while.body209
@@ -2169,17 +2157,17 @@ _ZN2EA4StdC7IsspaceEDs.exit159:                   ; preds = %sw.bb203, %while.bo
   %conv206.mask = and i32 %storemerge130282, 255
   %conv.i156 = zext nneg i32 %conv206.mask to i64
   %arrayidx.i157 = getelementptr inbounds nuw i8, ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 %conv.i156
-  %49 = load i8, ptr %arrayidx.i157, align 1
-  %50 = and i8 %49, 6
-  %tobool208.not = icmp eq i8 %50, 0
+  %47 = load i8, ptr %arrayidx.i157, align 1
+  %48 = and i8 %47, 6
+  %tobool208.not = icmp eq i8 %48, 0
   br i1 %tobool208.not, label %while.end212, label %while.body209
 
 while.body209:                                    ; preds = %_ZN2EA4StdC7IsspaceEDs.exit159
   %inc210 = add nsw i32 %nReadCountSum.5283, 1
   %call211 = call noundef i32 %pReadFunction(i32 noundef 2, i32 noundef 0, ptr noundef %pContext)
   store i32 %call211, ptr %c, align 4
-  %51 = and i32 %call211, 65280
-  %cmp.i153 = icmp eq i32 %51, 0
+  %49 = and i32 %call211, 65280
+  %cmp.i153 = icmp eq i32 %49, 0
   br i1 %cmp.i153, label %_ZN2EA4StdC7IsspaceEDs.exit159, label %while.end212, !llvm.loop !23
 
 while.end212:                                     ; preds = %_ZN2EA4StdC7IsspaceEDs.exit159, %while.body209, %sw.bb203
@@ -2191,13 +2179,13 @@ while.end212:                                     ; preds = %_ZN2EA4StdC7Isspace
 sw.bb214:                                         ; preds = %if.end36, %while.end212
   %nReadCountSum.2 = phi i32 [ %nReadCountSum.5.lcssa, %while.end212 ], [ %nReadCountSum.0.ph172275, %if.end36 ]
   store i32 0, ptr %nReadCount, align 4
-  %52 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool215.not = icmp eq ptr %52, null
+  %50 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool215.not = icmp eq ptr %50, null
   br i1 %tobool215.not, label %if.else236, label %if.then216
 
 if.then216:                                       ; preds = %sw.bb214
-  %53 = load i32, ptr %mModifier.i, align 4
-  switch i32 %53, label %Done [
+  %51 = load i32, ptr %mModifier.i, align 4
+  switch i32 %51, label %Done [
     i32 12, label %sw.epilog223
     i32 1, label %sw.epilog223
     i32 13, label %sw.bb219
@@ -2217,16 +2205,16 @@ sw.epilog223:                                     ; preds = %if.then216, %if.the
   br i1 %call224, label %if.end226, label %Done
 
 if.end226:                                        ; preds = %sw.epilog223
-  %54 = load i32, ptr %nReadCount, align 4
-  %tobool227.not = icmp eq i32 %54, 0
+  %52 = load i32, ptr %nReadCount, align 4
+  %tobool227.not = icmp eq i32 %52, 0
   br i1 %tobool227.not, label %if.then228, label %if.end230
 
 if.then228:                                       ; preds = %if.end226
-  %55 = load i32, ptr %c, align 4
+  %53 = load i32, ptr %c, align 4
   br label %Done.sink.split
 
 if.end230:                                        ; preds = %if.end226
-  %56 = load ptr, ptr %pArgumentCurrent, align 8
+  %54 = load ptr, ptr %pArgumentCurrent, align 8
   switch i32 %stringTypeSize.0, label %if.end230.unreachabledefault [
     i32 1, label %sw.bb231
     i32 2, label %sw.bb232
@@ -2234,15 +2222,15 @@ if.end230:                                        ; preds = %if.end226
   ]
 
 sw.bb231:                                         ; preds = %if.end230
-  store i8 0, ptr %56, align 1
+  store i8 0, ptr %54, align 1
   br label %sw.epilog234
 
 sw.bb232:                                         ; preds = %if.end230
-  store i16 0, ptr %56, align 2
+  store i16 0, ptr %54, align 2
   br label %sw.epilog234
 
 sw.bb233:                                         ; preds = %if.end230
-  store i32 0, ptr %56, align 4
+  store i32 0, ptr %54, align 4
   br label %sw.epilog234
 
 if.end230.unreachabledefault:                     ; preds = %if.end230
@@ -2254,35 +2242,35 @@ sw.epilog234:                                     ; preds = %sw.bb233, %sw.bb232
 
 if.else236:                                       ; preds = %sw.bb214
   %call237 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
-  %57 = load i32, ptr %nReadCount, align 4
-  %tobool238.not = icmp eq i32 %57, 0
+  %55 = load i32, ptr %nReadCount, align 4
+  %tobool238.not = icmp eq i32 %55, 0
   br i1 %tobool238.not, label %if.then239, label %if.end242
 
 if.then239:                                       ; preds = %if.else236
-  %58 = load i32, ptr %c, align 4
-  %call240 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %58, ptr noundef %pContext)
+  %56 = load i32, ptr %c, align 4
+  %call240 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %56, ptr noundef %pContext)
   br label %sw.epilog302
 
 if.end242:                                        ; preds = %if.else236, %sw.epilog234
   %nAssignmentCount.5 = phi i32 [ %inc235, %sw.epilog234 ], [ %nAssignmentCount.0.ph306, %if.else236 ]
-  %59 = load i32, ptr %fd, align 4
-  %cmp244 = icmp sgt i32 %59, -1
+  %57 = load i32, ptr %fd, align 4
+  %cmp244 = icmp sgt i32 %57, -1
   br i1 %cmp244, label %if.then245, label %if.end247
 
 if.then245:                                       ; preds = %if.end242
-  %60 = load i32, ptr %c, align 4
-  %call246 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %60, ptr noundef %pContext)
+  %58 = load i32, ptr %c, align 4
+  %call246 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %58, ptr noundef %pContext)
   br label %if.end247
 
 if.end247:                                        ; preds = %if.then245, %if.end242
-  %61 = load i32, ptr %nReadCount, align 4
-  %add248 = add nsw i32 %61, %nReadCountSum.2
+  %59 = load i32, ptr %nReadCount, align 4
+  %add248 = add nsw i32 %59, %nReadCountSum.2
   %inc249 = add nsw i32 %nConversionCount.0.ph303, 1
   br label %sw.epilog302
 
 sw.bb250:                                         ; preds = %if.end36, %if.end36
-  %62 = load i8, ptr %mbWidthSpecified, align 4
-  %tobool251 = trunc i8 %62 to i1
+  %60 = load i8, ptr %mbWidthSpecified, align 4
+  %tobool251 = trunc i8 %60 to i1
   br i1 %tobool251, label %if.end254, label %if.then252
 
 if.then252:                                       ; preds = %sw.bb250
@@ -2291,20 +2279,20 @@ if.then252:                                       ; preds = %sw.bb250
 
 if.end254:                                        ; preds = %if.then252, %sw.bb250
   store i32 0, ptr %nReadCount, align 4
-  %63 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool255.not = icmp eq ptr %63, null
+  %61 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool255.not = icmp eq ptr %61, null
   br i1 %tobool255.not, label %while.cond283.preheader, label %if.then256
 
 while.cond283.preheader:                          ; preds = %if.end254
-  %64 = load i32, ptr %fd, align 4
-  %dec285290 = add nsw i32 %64, -1
+  %62 = load i32, ptr %fd, align 4
+  %dec285290 = add nsw i32 %62, -1
   store i32 %dec285290, ptr %fd, align 4
-  %tobool286.not291 = icmp eq i32 %64, 0
+  %tobool286.not291 = icmp eq i32 %62, 0
   br i1 %tobool286.not291, label %Done, label %land.rhs287
 
 if.then256:                                       ; preds = %if.end254
-  %65 = load i32, ptr %mModifier.i, align 4
-  switch i32 %65, label %Done [
+  %63 = load i32, ptr %mModifier.i, align 4
+  switch i32 %63, label %Done [
     i32 12, label %sw.epilog263
     i32 1, label %sw.epilog263
     i32 13, label %sw.bb259
@@ -2320,10 +2308,10 @@ sw.bb260:                                         ; preds = %if.then256, %if.the
 
 sw.epilog263:                                     ; preds = %if.then256, %if.then256, %sw.bb260, %sw.bb259
   %charTypeSize.0 = phi i32 [ 2, %sw.bb259 ], [ 4, %sw.bb260 ], [ 1, %if.then256 ], [ 1, %if.then256 ]
-  %66 = load i32, ptr %fd, align 4
-  %dec288 = add nsw i32 %66, -1
+  %64 = load i32, ptr %fd, align 4
+  %dec288 = add nsw i32 %64, -1
   store i32 %dec288, ptr %fd, align 4
-  %tobool266.not289 = icmp eq i32 %66, 0
+  %tobool266.not289 = icmp eq i32 %64, 0
   br i1 %tobool266.not289, label %Done, label %land.rhs
 
 land.rhs:                                         ; preds = %sw.epilog263, %sw.epilog275
@@ -2345,37 +2333,37 @@ while.body269:                                    ; preds = %land.rhs
 
 sw.bb270:                                         ; preds = %while.body269
   %conv271 = trunc i32 %call267 to i8
-  %67 = load ptr, ptr %pArgumentCurrent, align 8
-  store i8 %conv271, ptr %67, align 1
+  %65 = load ptr, ptr %pArgumentCurrent, align 8
+  store i8 %conv271, ptr %65, align 1
   br label %sw.epilog275
 
 sw.bb272:                                         ; preds = %while.body269
   %conv273 = trunc i32 %call267 to i16
-  %68 = load ptr, ptr %pArgumentCurrent, align 8
-  store i16 %conv273, ptr %68, align 2
+  %66 = load ptr, ptr %pArgumentCurrent, align 8
+  store i16 %conv273, ptr %66, align 2
   br label %sw.epilog275
 
 sw.bb274:                                         ; preds = %while.body269
-  %69 = load ptr, ptr %pArgumentCurrent, align 8
-  store i32 %call267, ptr %69, align 4
+  %67 = load ptr, ptr %pArgumentCurrent, align 8
+  store i32 %call267, ptr %67, align 4
   br label %sw.epilog275
 
 while.body269.unreachabledefault:                 ; preds = %while.body269
   unreachable
 
 sw.epilog275:                                     ; preds = %sw.bb274, %sw.bb272, %sw.bb270
-  %70 = load i32, ptr %nReadCount, align 4
-  %inc276 = add nsw i32 %70, 1
+  %68 = load i32, ptr %nReadCount, align 4
+  %inc276 = add nsw i32 %68, 1
   store i32 %inc276, ptr %nReadCount, align 4
-  %71 = load i32, ptr %fd, align 4
-  %dec = add nsw i32 %71, -1
+  %69 = load i32, ptr %fd, align 4
+  %dec = add nsw i32 %69, -1
   store i32 %dec, ptr %fd, align 4
-  %tobool266.not = icmp eq i32 %71, 0
+  %tobool266.not = icmp eq i32 %69, 0
   br i1 %tobool266.not, label %while.end277, label %land.rhs, !llvm.loop !24
 
 while.end277:                                     ; preds = %sw.epilog275, %land.rhs.while.end277.loopexit_crit_edge
-  %72 = phi i32 [ %.pre384.pre, %land.rhs.while.end277.loopexit_crit_edge ], [ %inc276, %sw.epilog275 ]
-  %tobool278.not = icmp eq i32 %72, 0
+  %70 = phi i32 [ %.pre384.pre, %land.rhs.while.end277.loopexit_crit_edge ], [ %inc276, %sw.epilog275 ]
+  %tobool278.not = icmp eq i32 %70, 0
   br i1 %tobool278.not, label %Done, label %if.end280
 
 if.end280:                                        ; preds = %while.end277
@@ -2392,21 +2380,21 @@ land.rhs287:                                      ; preds = %while.cond283.prehe
 while.body291:                                    ; preds = %land.rhs287
   %inc292 = add nsw i32 %.pre385.pre, 1
   store i32 %inc292, ptr %nReadCount, align 4
-  %73 = load i32, ptr %fd, align 4
-  %dec285 = add nsw i32 %73, -1
+  %71 = load i32, ptr %fd, align 4
+  %dec285 = add nsw i32 %71, -1
   store i32 %dec285, ptr %fd, align 4
-  %tobool286.not = icmp eq i32 %73, 0
+  %tobool286.not = icmp eq i32 %71, 0
   br i1 %tobool286.not, label %while.end293, label %land.rhs287, !llvm.loop !25
 
 while.end293:                                     ; preds = %land.rhs287, %while.body291
-  %74 = phi i32 [ %inc292, %while.body291 ], [ %.pre385.pre, %land.rhs287 ]
-  %tobool294.not = icmp eq i32 %74, 0
+  %72 = phi i32 [ %inc292, %while.body291 ], [ %.pre385.pre, %land.rhs287 ]
+  %tobool294.not = icmp eq i32 %72, 0
   br i1 %tobool294.not, label %Done, label %if.end297
 
 if.end297:                                        ; preds = %while.end293, %if.end280
-  %75 = phi i32 [ %72, %if.end280 ], [ %74, %while.end293 ]
+  %73 = phi i32 [ %70, %if.end280 ], [ %72, %while.end293 ]
   %nAssignmentCount.6 = phi i32 [ %inc281, %if.end280 ], [ %nAssignmentCount.0.ph306, %while.end293 ]
-  %add298 = add nsw i32 %75, %nReadCountSum.0.ph172275
+  %add298 = add nsw i32 %73, %nReadCountSum.0.ph172275
   %inc299 = add nsw i32 %nConversionCount.0.ph303, 1
   br label %sw.epilog302
 
@@ -2414,13 +2402,13 @@ sw.epilog302:                                     ; preds = %if.end297, %if.end2
   %nConversionCount.1 = phi i32 [ %nConversionCount.0.ph303, %if.end49 ], [ %inc181, %if.end180 ], [ %inc202, %if.end200 ], [ %inc249, %if.end247 ], [ %nConversionCount.0.ph303, %if.then239 ], [ %inc299, %if.end297 ]
   %nReadCountSum.4 = phi i32 [ %inc50, %if.end49 ], [ %add, %if.end180 ], [ %add201, %if.end200 ], [ %add248, %if.end247 ], [ %nReadCountSum.2, %if.then239 ], [ %add298, %if.end297 ]
   %nAssignmentCount.2 = phi i32 [ %nAssignmentCount.0.ph306, %if.end49 ], [ %nAssignmentCount.3, %if.end180 ], [ %nAssignmentCount.4, %if.end200 ], [ %nAssignmentCount.5, %if.end247 ], [ %nAssignmentCount.0.ph306, %if.then239 ], [ %nAssignmentCount.6, %if.end297 ]
-  %76 = load i16, ptr %call23, align 2
-  %tobool.not255274 = icmp eq i16 %76, 0
+  %74 = load i16, ptr %call23, align 2
+  %tobool.not255274 = icmp eq i16 %74, 0
   br i1 %tobool.not255274, label %Done, label %while.body.lr.ph.lr.ph, !llvm.loop !21
 
 Done.sink.split:                                  ; preds = %while.cond38.preheader, %while.end45, %if.then13, %while.body43, %if.then228
-  %.sink482 = phi i32 [ %55, %if.then228 ], [ %call39, %while.body43 ], [ %call14, %if.then13 ], [ %call39292, %while.cond38.preheader ], [ %call39295, %while.end45 ]
-  %call229 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink482, ptr noundef %pContext)
+  %.sink481 = phi i32 [ %53, %if.then228 ], [ %call39, %while.body43 ], [ %call14, %if.then13 ], [ %call39292, %while.cond38.preheader ], [ %call39295, %while.end45 ]
+  %call229 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink481, ptr noundef %pContext)
   br label %Done
 
 Done:                                             ; preds = %sw.epilog263, %while.cond283.preheader, %sw.epilog302, %sw.epilog223, %while.end293, %while.end277, %if.then256, %if.then216, %sw.bb182, %sw.epilog119, %while.cond.outer171.backedge, %land.lhs.true, %lor.lhs.false32, %if.end72, %if.end36, %Done.sink.split
@@ -2482,7 +2470,7 @@ while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %entry
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.lr.ph, %sw.epilog297
-  %2 = phi i32 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %70, %sw.epilog297 ]
+  %2 = phi i32 [ %0, %while.body.lr.ph.lr.ph.lr.ph ], [ %68, %sw.epilog297 ]
   %nAssignmentCount.0.ph306 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nAssignmentCount.2, %sw.epilog297 ]
   %pFormatCurrent.0.ph305 = phi ptr [ %pFormat, %while.body.lr.ph.lr.ph.lr.ph ], [ %call21, %sw.epilog297 ]
   %nReadCountSum.0.ph304 = phi i32 [ 0, %while.body.lr.ph.lr.ph.lr.ph ], [ %nReadCountSum.4, %sw.epilog297 ]
@@ -2647,11 +2635,11 @@ if.end34:                                         ; preds = %lor.lhs.false30
     i32 71, label %sw.bb178
     i32 98, label %if.end92
     i32 111, label %if.end92.loopexit309
-    i32 117, label %if.end92.loopexit558
-    i32 100, label %if.end92.loopexit558
+    i32 117, label %if.end92.loopexit557
+    i32 100, label %if.end92.loopexit557
     i32 105, label %if.end92.loopexit407
-    i32 88, label %if.end92.loopexit483
-    i32 120, label %if.end92.loopexit483
+    i32 88, label %if.end92.loopexit482
+    i32 120, label %if.end92.loopexit482
   ]
 
 while.cond36.preheader:                           ; preds = %if.end34
@@ -2762,48 +2750,48 @@ if.end92.loopexit309:                             ; preds = %if.end34
 if.end92.loopexit407:                             ; preds = %if.end34
   br label %if.end92
 
-if.end92.loopexit483:                             ; preds = %if.end34, %if.end34
+if.end92.loopexit482:                             ; preds = %if.end34, %if.end34
   br label %if.end92
 
-if.end92.loopexit558:                             ; preds = %if.end34, %if.end34
+if.end92.loopexit557:                             ; preds = %if.end34, %if.end34
   br label %if.end92
 
-if.end92:                                         ; preds = %if.end34, %if.end92.loopexit558, %if.end92.loopexit483, %if.end92.loopexit407, %if.end92.loopexit309
-  %nBase.0 = phi i32 [ 8, %if.end92.loopexit309 ], [ 0, %if.end92.loopexit407 ], [ 16, %if.end92.loopexit483 ], [ 10, %if.end92.loopexit558 ], [ 2, %if.end34 ]
+if.end92:                                         ; preds = %if.end34, %if.end92.loopexit557, %if.end92.loopexit482, %if.end92.loopexit407, %if.end92.loopexit309
+  %nBase.0 = phi i32 [ 8, %if.end92.loopexit309 ], [ 0, %if.end92.loopexit407 ], [ 16, %if.end92.loopexit482 ], [ 10, %if.end92.loopexit557 ], [ 2, %if.end34 ]
   %25 = load i32, ptr %mModifier.i, align 4
+  %26 = load i32, ptr %fd, align 4
   %switch.tableidx = add i32 %25, -2
-  %26 = icmp ult i32 %switch.tableidx, 14
-  br i1 %26, label %switch.lookup, label %sw.epilog115
+  %27 = icmp ult i32 %switch.tableidx, 14
+  br i1 %27, label %switch.lookup, label %sw.epilog115
 
 switch.lookup:                                    ; preds = %if.end92
-  %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %27
+  %28 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sw.epilog115
 
 sw.epilog115:                                     ; preds = %if.end92, %switch.lookup
   %.sink = phi i64 [ %switch.load, %switch.lookup ], [ 255, %if.end92 ]
-  %28 = load i32, ptr %fd, align 4
-  %call114 = call noundef i64 @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10ReadUint64ES6_S4_miiS9_S9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i64 noundef %.sink, i32 noundef %nBase.0, i32 noundef %28, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bNegative, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
+  %call114 = call noundef i64 @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10ReadUint64ES6_S4_miiS9_S9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i64 noundef %.sink, i32 noundef %nBase.0, i32 noundef %26, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bNegative, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
   %29 = load i32, ptr %nReadCount, align 4
   %tobool116.not = icmp eq i32 %29, 0
   br i1 %tobool116.not, label %Done, label %if.end118
 
 if.end118:                                        ; preds = %sw.epilog115
   %30 = load i32, ptr %mnType, align 4
+  %31 = load i32, ptr %bNegative, align 4
+  %tobool151.not = icmp eq i32 %31, 0
+  %sub153 = sub i64 0, %call114
+  %spec.select = select i1 %tobool151.not, i64 %call114, i64 %sub153
+  %32 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool155.not = icmp eq ptr %32, null
   switch i32 %30, label %if.else150 [
     i32 105, label %if.then124
     i32 100, label %if.then124
   ]
 
 if.then124:                                       ; preds = %if.end118, %if.end118
-  %31 = load i32, ptr %bNegative, align 4
-  %tobool125.not = icmp eq i32 %31, 0
-  %sub = sub i64 0, %call114
-  %intMaxValue.0 = select i1 %tobool125.not, i64 %call114, i64 %sub
-  %32 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool129.not = icmp eq ptr %32, null
-  br i1 %tobool129.not, label %if.end176, label %if.then130
+  br i1 %tobool155.not, label %if.end176, label %if.then130
 
 if.then130:                                       ; preds = %if.then124
   %33 = load i32, ptr %mModifier.i, align 4
@@ -2823,46 +2811,46 @@ if.then130:                                       ; preds = %if.then124
   ]
 
 sw.bb132:                                         ; preds = %if.then130
-  store i64 %intMaxValue.0, ptr %32, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog147
 
 sw.bb133:                                         ; preds = %if.then130
-  store i64 %intMaxValue.0, ptr %32, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog147
 
 sw.bb134:                                         ; preds = %if.then130
-  store i64 %intMaxValue.0, ptr %32, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog147
 
 sw.bb135:                                         ; preds = %if.then130
-  store i64 %intMaxValue.0, ptr %32, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog147
 
 sw.bb136:                                         ; preds = %if.then130
-  store i64 %intMaxValue.0, ptr %32, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog147
 
 sw.bb137:                                         ; preds = %if.then130
-  %conv138 = trunc i64 %intMaxValue.0 to i32
+  %conv138 = trunc i64 %spec.select to i32
   store i32 %conv138, ptr %32, align 4
   br label %sw.epilog147
 
 sw.bb139:                                         ; preds = %if.then130
-  store i64 %intMaxValue.0, ptr %32, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog147
 
 sw.bb140:                                         ; preds = %if.then130, %if.then130
-  %conv141 = trunc i64 %intMaxValue.0 to i16
+  %conv141 = trunc i64 %spec.select to i16
   store i16 %conv141, ptr %32, align 2
   br label %sw.epilog147
 
 sw.bb142:                                         ; preds = %if.then130, %if.then130
-  %conv143 = trunc i64 %intMaxValue.0 to i8
+  %conv143 = trunc i64 %spec.select to i8
   store i8 %conv143, ptr %32, align 1
   br label %sw.epilog147
 
 sw.bb144:                                         ; preds = %if.then130
-  %conv145 = trunc i64 %intMaxValue.0 to i32
+  %conv145 = trunc i64 %spec.select to i32
   store i32 %conv145, ptr %32, align 4
   br label %sw.epilog147
 
@@ -2871,17 +2859,11 @@ sw.epilog147:                                     ; preds = %if.then130, %sw.bb1
   br label %if.end176
 
 if.else150:                                       ; preds = %if.end118
-  %34 = load i32, ptr %bNegative, align 4
-  %tobool151.not = icmp eq i32 %34, 0
-  %sub153 = sub nsw i64 0, %call114
-  %spec.select = select i1 %tobool151.not, i64 %call114, i64 %sub153
-  %35 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool155.not = icmp eq ptr %35, null
   br i1 %tobool155.not, label %if.end176, label %if.then156
 
 if.then156:                                       ; preds = %if.else150
-  %36 = load i32, ptr %mModifier.i, align 4
-  switch i32 %36, label %sw.epilog173 [
+  %34 = load i32, ptr %mModifier.i, align 4
+  switch i32 %34, label %sw.epilog173 [
     i32 6, label %sw.bb158
     i32 7, label %sw.bb159
     i32 8, label %sw.bb160
@@ -2897,47 +2879,47 @@ if.then156:                                       ; preds = %if.else150
   ]
 
 sw.bb158:                                         ; preds = %if.then156
-  store i64 %spec.select, ptr %35, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog173
 
 sw.bb159:                                         ; preds = %if.then156
-  store i64 %spec.select, ptr %35, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog173
 
 sw.bb160:                                         ; preds = %if.then156
-  store i64 %spec.select, ptr %35, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog173
 
 sw.bb161:                                         ; preds = %if.then156
-  store i64 %spec.select, ptr %35, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog173
 
 sw.bb162:                                         ; preds = %if.then156
-  store i64 %spec.select, ptr %35, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog173
 
 sw.bb163:                                         ; preds = %if.then156
   %conv164 = trunc i64 %spec.select to i32
-  store i32 %conv164, ptr %35, align 4
+  store i32 %conv164, ptr %32, align 4
   br label %sw.epilog173
 
 sw.bb165:                                         ; preds = %if.then156
-  store i64 %spec.select, ptr %35, align 8
+  store i64 %spec.select, ptr %32, align 8
   br label %sw.epilog173
 
 sw.bb166:                                         ; preds = %if.then156, %if.then156
   %conv167 = trunc i64 %spec.select to i16
-  store i16 %conv167, ptr %35, align 2
+  store i16 %conv167, ptr %32, align 2
   br label %sw.epilog173
 
 sw.bb168:                                         ; preds = %if.then156, %if.then156
   %conv169 = trunc i64 %spec.select to i8
-  store i8 %conv169, ptr %35, align 1
+  store i8 %conv169, ptr %32, align 1
   br label %sw.epilog173
 
 sw.bb170:                                         ; preds = %if.then156
   %conv171 = trunc i64 %spec.select to i32
-  store i32 %conv171, ptr %35, align 4
+  store i32 %conv171, ptr %32, align 4
   br label %sw.epilog173
 
 sw.epilog173:                                     ; preds = %if.then156, %sw.bb170, %sw.bb168, %sw.bb166, %sw.bb165, %sw.bb163, %sw.bb162, %sw.bb161, %sw.bb160, %sw.bb159, %sw.bb158
@@ -2946,56 +2928,56 @@ sw.epilog173:                                     ; preds = %if.then156, %sw.bb1
 
 if.end176:                                        ; preds = %if.else150, %sw.epilog173, %if.then124, %sw.epilog147
   %nAssignmentCount.3 = phi i32 [ %inc148, %sw.epilog147 ], [ %nAssignmentCount.0.ph306, %if.then124 ], [ %inc174, %sw.epilog173 ], [ %nAssignmentCount.0.ph306, %if.else150 ]
-  %37 = load i32, ptr %nReadCount, align 4
-  %add = add nsw i32 %37, %nReadCountSum.0.ph172275
+  %35 = load i32, ptr %nReadCount, align 4
+  %add = add nsw i32 %35, %nReadCountSum.0.ph172275
   %inc177 = add nsw i32 %nConversionCount.0.ph303, 1
   br label %sw.epilog297
 
 sw.bb178:                                         ; preds = %if.end34, %if.end34, %if.end34, %if.end34, %if.end34, %if.end34, %if.end34, %if.end34
-  %38 = load i32, ptr %fd, align 4
-  %39 = load i32, ptr %mDecimalPoint.i, align 4
-  %call180 = call noundef double @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10ReadDoubleES6_S4_iiS9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %38, i32 noundef %39, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
+  %36 = load i32, ptr %fd, align 4
+  %37 = load i32, ptr %mDecimalPoint.i, align 4
+  %call180 = call noundef double @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10ReadDoubleES6_S4_iiS9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef %36, i32 noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount, ptr noundef nonnull align 4 dereferenceable(4) %bIntegerOverflow)
   %conv181 = fpext double %call180 to x86_fp80
-  %40 = load i32, ptr %nReadCount, align 4
-  %tobool182.not = icmp eq i32 %40, 0
+  %38 = load i32, ptr %nReadCount, align 4
+  %tobool182.not = icmp eq i32 %38, 0
   br i1 %tobool182.not, label %Done, label %if.end184
 
 if.end184:                                        ; preds = %sw.bb178
-  %41 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool185.not = icmp eq ptr %41, null
+  %39 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool185.not = icmp eq ptr %39, null
   br i1 %tobool185.not, label %if.end196, label %if.then186
 
 if.then186:                                       ; preds = %if.end184
-  %42 = load i32, ptr %mModifier.i, align 4
-  switch i32 %42, label %sw.epilog194 [
+  %40 = load i32, ptr %mModifier.i, align 4
+  switch i32 %40, label %sw.epilog194 [
     i32 10, label %sw.bb188
     i32 9, label %sw.bb189
     i32 0, label %sw.bb191
   ]
 
 sw.bb188:                                         ; preds = %if.then186
-  store x86_fp80 %conv181, ptr %41, align 16
+  store x86_fp80 %conv181, ptr %39, align 16
   br label %sw.epilog194
 
 sw.bb189:                                         ; preds = %if.then186
-  store double %call180, ptr %41, align 8
+  store double %call180, ptr %39, align 8
   br label %sw.epilog194
 
 sw.bb191:                                         ; preds = %if.then186
   %conv192 = fptrunc double %call180 to float
-  store float %conv192, ptr %41, align 4
+  store float %conv192, ptr %39, align 4
   %.pre383.pre = load i32, ptr %nReadCount, align 4
   br label %sw.epilog194
 
 sw.epilog194:                                     ; preds = %if.then186, %sw.bb191, %sw.bb189, %sw.bb188
-  %.pre383 = phi i32 [ %40, %if.then186 ], [ %.pre383.pre, %sw.bb191 ], [ %40, %sw.bb189 ], [ %40, %sw.bb188 ]
+  %.pre383 = phi i32 [ %38, %if.then186 ], [ %.pre383.pre, %sw.bb191 ], [ %38, %sw.bb189 ], [ %38, %sw.bb188 ]
   %inc195 = add nsw i32 %nAssignmentCount.0.ph306, 1
   br label %if.end196
 
 if.end196:                                        ; preds = %sw.epilog194, %if.end184
-  %43 = phi i32 [ %.pre383, %sw.epilog194 ], [ %40, %if.end184 ]
+  %41 = phi i32 [ %.pre383, %sw.epilog194 ], [ %38, %if.end184 ]
   %nAssignmentCount.4 = phi i32 [ %inc195, %sw.epilog194 ], [ %nAssignmentCount.0.ph306, %if.end184 ]
-  %add197 = add nsw i32 %43, %nReadCountSum.0.ph172275
+  %add197 = add nsw i32 %41, %nReadCountSum.0.ph172275
   %inc198 = add nsw i32 %nConversionCount.0.ph303, 1
   br label %sw.epilog297
 
@@ -3010,9 +2992,9 @@ _ZN2EA4StdC7IsspaceEDi.exit159:                   ; preds = %sw.bb199, %while.bo
   %storemerge130282 = phi i32 [ %call206, %while.body204 ], [ %call200, %sw.bb199 ]
   %conv.i156 = zext nneg i32 %storemerge130282 to i64
   %arrayidx.i157 = getelementptr inbounds nuw i8, ptr @_ZN2EA4StdC17EASTDC_WCTYPE_MAPE, i64 %conv.i156
-  %44 = load i8, ptr %arrayidx.i157, align 1
-  %45 = and i8 %44, 6
-  %tobool203.not = icmp eq i8 %45, 0
+  %42 = load i8, ptr %arrayidx.i157, align 1
+  %43 = and i8 %42, 6
+  %tobool203.not = icmp eq i8 %43, 0
   br i1 %tobool203.not, label %while.end207, label %while.body204
 
 while.body204:                                    ; preds = %_ZN2EA4StdC7IsspaceEDi.exit159
@@ -3031,13 +3013,13 @@ while.end207:                                     ; preds = %_ZN2EA4StdC7Isspace
 sw.bb209:                                         ; preds = %if.end34, %while.end207
   %nReadCountSum.2 = phi i32 [ %nReadCountSum.5.lcssa, %while.end207 ], [ %nReadCountSum.0.ph172275, %if.end34 ]
   store i32 0, ptr %nReadCount, align 4
-  %46 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool210.not = icmp eq ptr %46, null
+  %44 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool210.not = icmp eq ptr %44, null
   br i1 %tobool210.not, label %if.else231, label %if.then211
 
 if.then211:                                       ; preds = %sw.bb209
-  %47 = load i32, ptr %mModifier.i, align 4
-  switch i32 %47, label %Done [
+  %45 = load i32, ptr %mModifier.i, align 4
+  switch i32 %45, label %Done [
     i32 12, label %sw.epilog218
     i32 1, label %sw.epilog218
     i32 13, label %sw.bb214
@@ -3057,16 +3039,16 @@ sw.epilog218:                                     ; preds = %if.then211, %if.the
   br i1 %call219, label %if.end221, label %Done
 
 if.end221:                                        ; preds = %sw.epilog218
-  %48 = load i32, ptr %nReadCount, align 4
-  %tobool222.not = icmp eq i32 %48, 0
+  %46 = load i32, ptr %nReadCount, align 4
+  %tobool222.not = icmp eq i32 %46, 0
   br i1 %tobool222.not, label %if.then223, label %if.end225
 
 if.then223:                                       ; preds = %if.end221
-  %49 = load i32, ptr %c, align 4
+  %47 = load i32, ptr %c, align 4
   br label %Done.sink.split
 
 if.end225:                                        ; preds = %if.end221
-  %50 = load ptr, ptr %pArgumentCurrent, align 8
+  %48 = load ptr, ptr %pArgumentCurrent, align 8
   switch i32 %stringTypeSize.0, label %if.end225.unreachabledefault [
     i32 1, label %sw.bb226
     i32 2, label %sw.bb227
@@ -3074,15 +3056,15 @@ if.end225:                                        ; preds = %if.end221
   ]
 
 sw.bb226:                                         ; preds = %if.end225
-  store i8 0, ptr %50, align 1
+  store i8 0, ptr %48, align 1
   br label %sw.epilog229
 
 sw.bb227:                                         ; preds = %if.end225
-  store i16 0, ptr %50, align 2
+  store i16 0, ptr %48, align 2
   br label %sw.epilog229
 
 sw.bb228:                                         ; preds = %if.end225
-  store i32 0, ptr %50, align 4
+  store i32 0, ptr %48, align 4
   br label %sw.epilog229
 
 if.end225.unreachabledefault:                     ; preds = %if.end225
@@ -3094,35 +3076,35 @@ sw.epilog229:                                     ; preds = %sw.bb228, %sw.bb227
 
 if.else231:                                       ; preds = %sw.bb209
   %call232 = call noundef zeroext i1 %pReadFormatSpanFunction(ptr noundef nonnull align 4 dereferenceable(52) %fd, ptr noundef nonnull align 4 dereferenceable(4) %c, ptr noundef %pReadFunction, ptr noundef %pContext, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 dereferenceable(4) %nReadCount)
-  %51 = load i32, ptr %nReadCount, align 4
-  %tobool233.not = icmp eq i32 %51, 0
+  %49 = load i32, ptr %nReadCount, align 4
+  %tobool233.not = icmp eq i32 %49, 0
   br i1 %tobool233.not, label %if.then234, label %if.end237
 
 if.then234:                                       ; preds = %if.else231
-  %52 = load i32, ptr %c, align 4
-  %call235 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %52, ptr noundef %pContext)
+  %50 = load i32, ptr %c, align 4
+  %call235 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %50, ptr noundef %pContext)
   br label %sw.epilog297
 
 if.end237:                                        ; preds = %if.else231, %sw.epilog229
   %nAssignmentCount.5 = phi i32 [ %inc230, %sw.epilog229 ], [ %nAssignmentCount.0.ph306, %if.else231 ]
-  %53 = load i32, ptr %fd, align 4
-  %cmp239 = icmp sgt i32 %53, -1
+  %51 = load i32, ptr %fd, align 4
+  %cmp239 = icmp sgt i32 %51, -1
   br i1 %cmp239, label %if.then240, label %if.end242
 
 if.then240:                                       ; preds = %if.end237
-  %54 = load i32, ptr %c, align 4
-  %call241 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %54, ptr noundef %pContext)
+  %52 = load i32, ptr %c, align 4
+  %call241 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %52, ptr noundef %pContext)
   br label %if.end242
 
 if.end242:                                        ; preds = %if.then240, %if.end237
-  %55 = load i32, ptr %nReadCount, align 4
-  %add243 = add nsw i32 %55, %nReadCountSum.2
+  %53 = load i32, ptr %nReadCount, align 4
+  %add243 = add nsw i32 %53, %nReadCountSum.2
   %inc244 = add nsw i32 %nConversionCount.0.ph303, 1
   br label %sw.epilog297
 
 sw.bb245:                                         ; preds = %if.end34, %if.end34
-  %56 = load i8, ptr %mbWidthSpecified, align 4
-  %tobool246 = trunc i8 %56 to i1
+  %54 = load i8, ptr %mbWidthSpecified, align 4
+  %tobool246 = trunc i8 %54 to i1
   br i1 %tobool246, label %if.end249, label %if.then247
 
 if.then247:                                       ; preds = %sw.bb245
@@ -3131,20 +3113,20 @@ if.then247:                                       ; preds = %sw.bb245
 
 if.end249:                                        ; preds = %if.then247, %sw.bb245
   store i32 0, ptr %nReadCount, align 4
-  %57 = load ptr, ptr %pArgumentCurrent, align 8
-  %tobool250.not = icmp eq ptr %57, null
+  %55 = load ptr, ptr %pArgumentCurrent, align 8
+  %tobool250.not = icmp eq ptr %55, null
   br i1 %tobool250.not, label %while.cond278.preheader, label %if.then251
 
 while.cond278.preheader:                          ; preds = %if.end249
-  %58 = load i32, ptr %fd, align 4
-  %dec280290 = add nsw i32 %58, -1
+  %56 = load i32, ptr %fd, align 4
+  %dec280290 = add nsw i32 %56, -1
   store i32 %dec280290, ptr %fd, align 4
-  %tobool281.not291 = icmp eq i32 %58, 0
+  %tobool281.not291 = icmp eq i32 %56, 0
   br i1 %tobool281.not291, label %Done, label %land.rhs282
 
 if.then251:                                       ; preds = %if.end249
-  %59 = load i32, ptr %mModifier.i, align 4
-  switch i32 %59, label %Done [
+  %57 = load i32, ptr %mModifier.i, align 4
+  switch i32 %57, label %Done [
     i32 12, label %sw.epilog258
     i32 1, label %sw.epilog258
     i32 13, label %sw.bb254
@@ -3160,10 +3142,10 @@ sw.bb255:                                         ; preds = %if.then251, %if.the
 
 sw.epilog258:                                     ; preds = %if.then251, %if.then251, %sw.bb255, %sw.bb254
   %charTypeSize.0 = phi i32 [ 2, %sw.bb254 ], [ 4, %sw.bb255 ], [ 1, %if.then251 ], [ 1, %if.then251 ]
-  %60 = load i32, ptr %fd, align 4
-  %dec288 = add nsw i32 %60, -1
+  %58 = load i32, ptr %fd, align 4
+  %dec288 = add nsw i32 %58, -1
   store i32 %dec288, ptr %fd, align 4
-  %tobool261.not289 = icmp eq i32 %60, 0
+  %tobool261.not289 = icmp eq i32 %58, 0
   br i1 %tobool261.not289, label %Done, label %land.rhs
 
 land.rhs:                                         ; preds = %sw.epilog258, %sw.epilog270
@@ -3185,37 +3167,37 @@ while.body264:                                    ; preds = %land.rhs
 
 sw.bb265:                                         ; preds = %while.body264
   %conv266 = trunc i32 %call262 to i8
-  %61 = load ptr, ptr %pArgumentCurrent, align 8
-  store i8 %conv266, ptr %61, align 1
+  %59 = load ptr, ptr %pArgumentCurrent, align 8
+  store i8 %conv266, ptr %59, align 1
   br label %sw.epilog270
 
 sw.bb267:                                         ; preds = %while.body264
   %conv268 = trunc i32 %call262 to i16
-  %62 = load ptr, ptr %pArgumentCurrent, align 8
-  store i16 %conv268, ptr %62, align 2
+  %60 = load ptr, ptr %pArgumentCurrent, align 8
+  store i16 %conv268, ptr %60, align 2
   br label %sw.epilog270
 
 sw.bb269:                                         ; preds = %while.body264
-  %63 = load ptr, ptr %pArgumentCurrent, align 8
-  store i32 %call262, ptr %63, align 4
+  %61 = load ptr, ptr %pArgumentCurrent, align 8
+  store i32 %call262, ptr %61, align 4
   br label %sw.epilog270
 
 while.body264.unreachabledefault:                 ; preds = %while.body264
   unreachable
 
 sw.epilog270:                                     ; preds = %sw.bb269, %sw.bb267, %sw.bb265
-  %64 = load i32, ptr %nReadCount, align 4
-  %inc271 = add nsw i32 %64, 1
+  %62 = load i32, ptr %nReadCount, align 4
+  %inc271 = add nsw i32 %62, 1
   store i32 %inc271, ptr %nReadCount, align 4
-  %65 = load i32, ptr %fd, align 4
-  %dec = add nsw i32 %65, -1
+  %63 = load i32, ptr %fd, align 4
+  %dec = add nsw i32 %63, -1
   store i32 %dec, ptr %fd, align 4
-  %tobool261.not = icmp eq i32 %65, 0
+  %tobool261.not = icmp eq i32 %63, 0
   br i1 %tobool261.not, label %while.end272, label %land.rhs, !llvm.loop !31
 
 while.end272:                                     ; preds = %sw.epilog270, %land.rhs.while.end272.loopexit_crit_edge
-  %66 = phi i32 [ %.pre384.pre, %land.rhs.while.end272.loopexit_crit_edge ], [ %inc271, %sw.epilog270 ]
-  %tobool273.not = icmp eq i32 %66, 0
+  %64 = phi i32 [ %.pre384.pre, %land.rhs.while.end272.loopexit_crit_edge ], [ %inc271, %sw.epilog270 ]
+  %tobool273.not = icmp eq i32 %64, 0
   br i1 %tobool273.not, label %Done, label %if.end275
 
 if.end275:                                        ; preds = %while.end272
@@ -3232,21 +3214,21 @@ land.rhs282:                                      ; preds = %while.cond278.prehe
 while.body286:                                    ; preds = %land.rhs282
   %inc287 = add nsw i32 %.pre385.pre, 1
   store i32 %inc287, ptr %nReadCount, align 4
-  %67 = load i32, ptr %fd, align 4
-  %dec280 = add nsw i32 %67, -1
+  %65 = load i32, ptr %fd, align 4
+  %dec280 = add nsw i32 %65, -1
   store i32 %dec280, ptr %fd, align 4
-  %tobool281.not = icmp eq i32 %67, 0
+  %tobool281.not = icmp eq i32 %65, 0
   br i1 %tobool281.not, label %while.end288, label %land.rhs282, !llvm.loop !32
 
 while.end288:                                     ; preds = %land.rhs282, %while.body286
-  %68 = phi i32 [ %inc287, %while.body286 ], [ %.pre385.pre, %land.rhs282 ]
-  %tobool289.not = icmp eq i32 %68, 0
+  %66 = phi i32 [ %inc287, %while.body286 ], [ %.pre385.pre, %land.rhs282 ]
+  %tobool289.not = icmp eq i32 %66, 0
   br i1 %tobool289.not, label %Done, label %if.end292
 
 if.end292:                                        ; preds = %while.end288, %if.end275
-  %69 = phi i32 [ %66, %if.end275 ], [ %68, %while.end288 ]
+  %67 = phi i32 [ %64, %if.end275 ], [ %66, %while.end288 ]
   %nAssignmentCount.6 = phi i32 [ %inc276, %if.end275 ], [ %nAssignmentCount.0.ph306, %while.end288 ]
-  %add293 = add nsw i32 %69, %nReadCountSum.0.ph172275
+  %add293 = add nsw i32 %67, %nReadCountSum.0.ph172275
   %inc294 = add nsw i32 %nConversionCount.0.ph303, 1
   br label %sw.epilog297
 
@@ -3254,13 +3236,13 @@ sw.epilog297:                                     ; preds = %if.end292, %if.end2
   %nConversionCount.1 = phi i32 [ %nConversionCount.0.ph303, %if.end46 ], [ %inc177, %if.end176 ], [ %inc198, %if.end196 ], [ %inc244, %if.end242 ], [ %nConversionCount.0.ph303, %if.then234 ], [ %inc294, %if.end292 ]
   %nReadCountSum.4 = phi i32 [ %inc47, %if.end46 ], [ %add, %if.end176 ], [ %add197, %if.end196 ], [ %add243, %if.end242 ], [ %nReadCountSum.2, %if.then234 ], [ %add293, %if.end292 ]
   %nAssignmentCount.2 = phi i32 [ %nAssignmentCount.0.ph306, %if.end46 ], [ %nAssignmentCount.3, %if.end176 ], [ %nAssignmentCount.4, %if.end196 ], [ %nAssignmentCount.5, %if.end242 ], [ %nAssignmentCount.0.ph306, %if.then234 ], [ %nAssignmentCount.6, %if.end292 ]
-  %70 = load i32, ptr %call21, align 4
-  %tobool.not255274 = icmp eq i32 %70, 0
+  %68 = load i32, ptr %call21, align 4
+  %tobool.not255274 = icmp eq i32 %68, 0
   br i1 %tobool.not255274, label %Done, label %while.body.lr.ph.lr.ph, !llvm.loop !28
 
 Done.sink.split:                                  ; preds = %while.cond36.preheader, %while.end42, %if.then12, %while.body40, %if.then223
-  %.sink482 = phi i32 [ %49, %if.then223 ], [ %call37, %while.body40 ], [ %call13, %if.then12 ], [ %call37292, %while.cond36.preheader ], [ %call37295, %while.end42 ]
-  %call224 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink482, ptr noundef %pContext)
+  %.sink481 = phi i32 [ %47, %if.then223 ], [ %call37, %while.body40 ], [ %call13, %if.then12 ], [ %call37292, %while.cond36.preheader ], [ %call37295, %while.end42 ]
+  %call224 = call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %.sink481, ptr noundef %pContext)
   br label %Done
 
 Done:                                             ; preds = %sw.epilog258, %while.cond278.preheader, %sw.epilog297, %sw.epilog218, %while.end288, %while.end272, %if.then251, %if.then211, %sw.bb178, %sw.epilog115, %while.cond.outer171.backedge, %land.lhs.true, %lor.lhs.false30, %if.end68, %if.end34, %Done.sink.split

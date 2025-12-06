@@ -2420,7 +2420,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
   %.not106.us.us = icmp eq ptr %17, null
   br i1 %.not106.us.us, label %.preheader, label %18
 
-18:                                               ; preds = %15, %.split.us.split.us
+18:                                               ; preds = %.split.us.split.us, %15
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   br label %.split.us.split.us
 
@@ -2480,7 +2480,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
   %.not106.us161 = icmp eq ptr %47, null
   br i1 %.not106.us161, label %.preheader, label %48
 
-48:                                               ; preds = %45, %.split.split.us.split
+48:                                               ; preds = %.split.split.us.split, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %.split.split.us.split
 

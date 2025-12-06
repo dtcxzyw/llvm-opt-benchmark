@@ -34,19 +34,18 @@ define ptr @BIO_new_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %9 = load i32, ptr %8, align 4, !tbaa !3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %9, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull %1) #10
   %10 = load i32, ptr %8, align 4, !tbaa !3
+  tail call void @ERR_new() #10
   switch i32 %10, label %12 [
     i32 2, label %11
     i32 6, label %11
   ]
 
 11:                                               ; preds = %7, %7
-  tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 75, ptr noundef nonnull @__func__.BIO_new_file) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 128, ptr noundef null) #10
   br label %20
 
 12:                                               ; preds = %7
-  tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @__func__.BIO_new_file) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524290, ptr noundef null) #10
   br label %20

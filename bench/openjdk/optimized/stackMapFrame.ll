@@ -1497,7 +1497,7 @@ define hidden void @_ZN13StackMapFrame11set_local_2Ei16VerificationTypeS0_P10Jav
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr inttoptr (i64 4294901761 to ptr), ptr %20, align 8, !alias.scope !51
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %13, ptr noundef nonnull byval(%class.ErrorContext) align 8 %6, ptr noundef nonnull @.str.6) #12
-  br label %48
+  br label %46
 
 21:                                               ; preds = %5
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1506,58 +1506,53 @@ define hidden void @_ZN13StackMapFrame11set_local_2Ei16VerificationTypeS0_P10Jav
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds %class.VerificationType, ptr %23, i64 %25
   %27 = load i64, ptr %26, align 8
+  %.pre17 = sext i32 %1 to i64
   switch i64 %27, label %._crit_edge [
     i64 197121, label %28
     i64 262657, label %28
   ]
 
-._crit_edge:                                      ; preds = %21
-  %.pre17 = sext i32 %1 to i64
-  br label %32
-
 28:                                               ; preds = %21, %21
-  %29 = sext i32 %1 to i64
-  %30 = getelementptr %class.VerificationType, ptr %23, i64 %29
-  %31 = getelementptr i8, ptr %30, i64 16
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %31, align 8
+  %29 = getelementptr %class.VerificationType, ptr %23, i64 %.pre17
+  %30 = getelementptr i8, ptr %29, i64 16
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %30, align 8
   %.pre = load ptr, ptr %22, align 8
-  br label %32
+  br label %._crit_edge
 
-32:                                               ; preds = %._crit_edge, %28
-  %.pre-phi = phi i64 [ %.pre17, %._crit_edge ], [ %29, %28 ]
-  %33 = phi ptr [ %23, %._crit_edge ], [ %.pre, %28 ]
-  %34 = getelementptr inbounds %class.VerificationType, ptr %33, i64 %.pre-phi
-  %35 = load i64, ptr %34, align 8
-  switch i64 %35, label %38 [
-    i64 918529, label %36
-    i64 852993, label %36
+._crit_edge:                                      ; preds = %21, %28
+  %31 = phi ptr [ %.pre, %28 ], [ %23, %21 ]
+  %32 = getelementptr inbounds %class.VerificationType, ptr %31, i64 %.pre17
+  %33 = load i64, ptr %32, align 8
+  switch i64 %33, label %36 [
+    i64 918529, label %34
+    i64 852993, label %34
   ]
 
-36:                                               ; preds = %32, %32
-  %37 = getelementptr i8, ptr %34, i64 -8
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %37, align 8
+34:                                               ; preds = %._crit_edge, %._crit_edge
+  %35 = getelementptr i8, ptr %32, i64 -8
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %35, align 8
   %.pre16 = load ptr, ptr %22, align 8
-  br label %38
+  br label %36
 
-38:                                               ; preds = %32, %36
-  %39 = phi ptr [ %33, %32 ], [ %.pre16, %36 ]
-  %40 = getelementptr inbounds %class.VerificationType, ptr %39, i64 %.pre-phi
-  store ptr %2, ptr %40, align 8
-  %41 = load ptr, ptr %22, align 8
-  %42 = getelementptr inbounds %class.VerificationType, ptr %41, i64 %25
-  store ptr %3, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = add nsw i32 %44, -1
-  %.not15 = icmp slt i32 %1, %45
-  br i1 %.not15, label %48, label %46
+36:                                               ; preds = %._crit_edge, %34
+  %37 = phi ptr [ %31, %._crit_edge ], [ %.pre16, %34 ]
+  %38 = getelementptr inbounds %class.VerificationType, ptr %37, i64 %.pre17
+  store ptr %2, ptr %38, align 8
+  %39 = load ptr, ptr %22, align 8
+  %40 = getelementptr inbounds %class.VerificationType, ptr %39, i64 %25
+  store ptr %3, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = add nsw i32 %42, -1
+  %.not15 = icmp slt i32 %1, %43
+  br i1 %.not15, label %46, label %44
 
-46:                                               ; preds = %38
-  %47 = add nsw i32 %1, 2
-  store i32 %47, ptr %43, align 4
-  br label %48
+44:                                               ; preds = %36
+  %45 = add nsw i32 %1, 2
+  store i32 %45, ptr %41, align 4
+  br label %46
 
-48:                                               ; preds = %46, %38, %11
+46:                                               ; preds = %44, %36, %11
   ret void
 }
 

@@ -1245,8 +1245,8 @@ _ZNK21libraw_static_table_tixEj.exit163:          ; preds = %113, %118, %119, %1
 .thread189:                                       ; preds = %227
   switch i32 %1, label %.thread189.thread [
     i32 4370, label %243
-    i32 4371, label %267
-    i32 4870, label %276
+    i32 4371, label %258
+    i32 4870, label %267
   ]
 
 243:                                              ; preds = %.thread189
@@ -1255,133 +1255,124 @@ _ZNK21libraw_static_table_tixEj.exit163:          ; preds = %113, %118, %119, %1
   store i16 19789, ptr %244, align 8, !tbaa !131
   %246 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   store i16 %245, ptr %244, align 8, !tbaa !131
-  switch i16 %246, label %265 [
-    i16 257, label %247
-    i16 2305, label %247
-    i16 2313, label %247
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  switch i16 %246, label %257 [
+    i16 257, label %248
+    i16 2305, label %248
+    i16 2313, label %248
     i16 260, label %249
     i16 1025, label %249
-    i16 513, label %251
-    i16 514, label %251
-    i16 769, label %253
-    i16 771, label %253
-    i16 1028, label %255
-    i16 1285, label %257
-    i16 1542, label %259
-    i16 1799, label %261
-    i16 2056, label %263
+    i16 513, label %250
+    i16 514, label %250
+    i16 769, label %251
+    i16 771, label %251
+    i16 1028, label %252
+    i16 1285, label %253
+    i16 1542, label %254
+    i16 1799, label %255
+    i16 2056, label %256
   ]
 
-247:                                              ; preds = %243, %243, %243
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 1333, ptr %248, align 4, !tbaa !132
+248:                                              ; preds = %243, %243, %243
+  store i16 1333, ptr %247, align 4, !tbaa !132
   br label %.thread189.thread
 
 249:                                              ; preds = %243, %243
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 1000, ptr %250, align 4, !tbaa !132
+  store i16 1000, ptr %247, align 4, !tbaa !132
+  br label %.thread189.thread
+
+250:                                              ; preds = %243, %243
+  store i16 1500, ptr %247, align 4, !tbaa !132
   br label %.thread189.thread
 
 251:                                              ; preds = %243, %243
-  %252 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 1500, ptr %252, align 4, !tbaa !132
+  store i16 1777, ptr %247, align 4, !tbaa !132
   br label %.thread189.thread
 
-253:                                              ; preds = %243, %243
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 1777, ptr %254, align 4, !tbaa !132
+252:                                              ; preds = %243
+  store i16 1000, ptr %247, align 4, !tbaa !132
+  br label %.thread189.thread
+
+253:                                              ; preds = %243
+  store i16 1250, ptr %247, align 4, !tbaa !132
+  br label %.thread189.thread
+
+254:                                              ; preds = %243
+  store i16 1166, ptr %247, align 4, !tbaa !132
   br label %.thread189.thread
 
 255:                                              ; preds = %243
-  %256 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 1000, ptr %256, align 4, !tbaa !132
+  store i16 1200, ptr %247, align 4, !tbaa !132
+  br label %.thread189.thread
+
+256:                                              ; preds = %243
+  store i16 1400, ptr %247, align 4, !tbaa !132
   br label %.thread189.thread
 
 257:                                              ; preds = %243
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 1250, ptr %258, align 4, !tbaa !132
+  store i16 1, ptr %247, align 4, !tbaa !132
   br label %.thread189.thread
 
-259:                                              ; preds = %243
-  %260 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 1166, ptr %260, align 4, !tbaa !132
-  br label %.thread189.thread
-
-261:                                              ; preds = %243
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 1200, ptr %262, align 4, !tbaa !132
-  br label %.thread189.thread
-
-263:                                              ; preds = %243
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 1400, ptr %264, align 4, !tbaa !132
-  br label %.thread189.thread
-
-265:                                              ; preds = %243
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 1, ptr %266, align 4, !tbaa !132
+258:                                              ; preds = %.thread189
+  %259 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 3480
+  store i16 %259, ptr %260, align 8, !tbaa !73
+  %261 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 3482
+  store i16 %261, ptr %262, align 2, !tbaa !73
+  %263 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 3484
+  store i16 %263, ptr %264, align 4, !tbaa !73
+  %265 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 3486
+  store i16 %265, ptr %266, align 2, !tbaa !73
   br label %.thread189.thread
 
 267:                                              ; preds = %.thread189
   %268 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 3480
-  store i16 %268, ptr %269, align 8, !tbaa !73
-  %270 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 3482
-  store i16 %270, ptr %271, align 2, !tbaa !73
-  %272 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 3484
-  store i16 %272, ptr %273, align 4, !tbaa !73
-  %274 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %275 = getelementptr inbounds nuw i8, ptr %0, i64 3486
-  store i16 %274, ptr %275, align 2, !tbaa !73
-  br label %.thread189.thread
-
-276:                                              ; preds = %.thread189
-  %277 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %278 = zext i16 %277 to i32
-  switch i16 %277, label %279 [
+  %269 = zext i16 %268 to i32
+  switch i16 %268, label %270 [
     i16 100, label %.thread189.thread
     i16 0, label %.thread189.thread
   ]
 
-279:                                              ; preds = %276
-  %280 = icmp ult i16 %277, 61
-  br i1 %280, label %281, label %283
+270:                                              ; preds = %267
+  %271 = icmp ult i16 %268, 61
+  br i1 %271, label %272, label %274
 
-281:                                              ; preds = %279
-  %282 = uitofp nneg i16 %277 to float
-  br label %287
+272:                                              ; preds = %270
+  %273 = uitofp nneg i16 %268 to float
+  br label %278
 
-283:                                              ; preds = %279
-  %284 = add nsw i32 %278, -32
-  %285 = uitofp nneg i32 %284 to float
-  %286 = fmul reassoc nsz arcp contract afn float %285, 0x3FE1C71C80000000
-  br label %287
+274:                                              ; preds = %270
+  %275 = add nsw i32 %269, -32
+  %276 = uitofp nneg i32 %275 to float
+  %277 = fmul reassoc nsz arcp contract afn float %276, 0x3FE1C71C80000000
+  br label %278
 
-287:                                              ; preds = %283, %281
-  %288 = phi float [ %282, %281 ], [ %286, %283 ]
-  %289 = getelementptr inbounds nuw i8, ptr %0, i64 4704
-  store float %288, ptr %289, align 8, !tbaa !133
-  %290 = getelementptr inbounds nuw i8, ptr %0, i64 4728
-  %291 = load float, ptr %290, align 8, !tbaa !134
-  %292 = fcmp reassoc nsz arcp contract afn ogt float %291, 0xC071126660000000
-  br i1 %292, label %293, label %.thread189.thread
+278:                                              ; preds = %274, %272
+  %279 = phi float [ %273, %272 ], [ %277, %274 ]
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 4704
+  store float %279, ptr %280, align 8, !tbaa !133
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 4728
+  %282 = load float, ptr %281, align 8, !tbaa !134
+  %283 = fcmp reassoc nsz arcp contract afn ogt float %282, 0xC071126660000000
+  br i1 %283, label %284, label %.thread189.thread
 
-293:                                              ; preds = %287
-  %294 = getelementptr inbounds nuw i8, ptr %0, i64 381528
-  %295 = load i64, ptr %294, align 8, !tbaa !74
-  switch i64 %295, label %.thread189.thread [
-    i64 292933679411, label %296
-    i64 292933742643, label %296
+284:                                              ; preds = %278
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 381528
+  %286 = load i64, ptr %285, align 8, !tbaa !74
+  switch i64 %286, label %.thread189.thread [
+    i64 292933679411, label %287
+    i64 292933742643, label %287
   ]
 
-296:                                              ; preds = %293, %293
-  %297 = fadd reassoc nsz arcp contract afn float %288, %291
-  store float %297, ptr %289, align 8, !tbaa !133
+287:                                              ; preds = %284, %284
+  %288 = fadd reassoc nsz arcp contract afn float %279, %282
+  store float %288, ptr %280, align 8, !tbaa !133
   br label %.thread189.thread
 
-.thread189.thread:                                ; preds = %152, %241, %194, %.loopexit, %.preheader, %170, %22, %293, %276, %276, %.thread189, %130, %129, %161, %153, %209, %219, %229, %267, %296, %287, %247, %249, %251, %253, %255, %257, %259, %261, %263, %265, %224, %214, %204, %84, %98, %97, %8
+.thread189.thread:                                ; preds = %152, %241, %194, %.loopexit, %.preheader, %170, %22, %284, %267, %267, %.thread189, %130, %129, %161, %153, %209, %219, %229, %258, %287, %278, %248, %249, %250, %251, %252, %253, %254, %255, %256, %257, %224, %214, %204, %84, %98, %97, %8
   ret void
 }
 

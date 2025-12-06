@@ -86,28 +86,28 @@ define dso_local noundef ptr @_Z12getCleanNamePKcPc(ptr noundef readonly capture
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %11, %2
+._crit_edge:                                      ; preds = %12, %2
   %6 = sext i32 %.sroa.speculated to i64
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   store i8 0, ptr %7, align 1, !tbaa !4
   ret ptr %1
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %11
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %12
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1, !tbaa !4
-  switch i8 %9, label %10 [
-    i8 93, label %11
-    i8 91, label %11
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  switch i8 %9, label %11 [
+    i8 93, label %12
+    i8 91, label %12
   ]
 
-10:                                               ; preds = %.lr.ph
-  br label %11
+11:                                               ; preds = %.lr.ph
+  br label %12
 
-11:                                               ; preds = %.lr.ph, %.lr.ph, %10
-  %.sink = phi i8 [ %9, %10 ], [ 0, %.lr.ph ], [ 0, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %.sink, ptr %12, align 1, !tbaa !4
+12:                                               ; preds = %.lr.ph, %.lr.ph, %11
+  %.sink = phi i8 [ %9, %11 ], [ 0, %.lr.ph ], [ 0, %.lr.ph ]
+  store i8 %.sink, ptr %10, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -5058,27 +5058,27 @@ _ZN6bParse5bFile14findLibPointerEPv.exit200.thread: ; preds = %_ZN6bParse5bFile1
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %199, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %199 ]
+.lr.ph.i:                                         ; preds = %200, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %200 ]
   %196 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.i
   %197 = load i8, ptr %196, align 1, !tbaa !4
-  switch i8 %197, label %198 [
-    i8 93, label %199
-    i8 91, label %199
+  %198 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
+  switch i8 %197, label %199 [
+    i8 93, label %200
+    i8 91, label %200
   ]
 
-198:                                              ; preds = %.lr.ph.i
-  br label %199
+199:                                              ; preds = %.lr.ph.i
+  br label %200
 
-199:                                              ; preds = %198, %.lr.ph.i, %.lr.ph.i
-  %.sink.i = phi i8 [ %197, %198 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i ]
-  %200 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
-  store i8 %.sink.i, ptr %200, align 1, !tbaa !4
+200:                                              ; preds = %199, %.lr.ph.i, %.lr.ph.i
+  %.sink.i = phi i8 [ %197, %199 ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph.i ]
+  store i8 %.sink.i, ptr %198, align 1, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_Z12getCleanNamePKcPc.exit, label %.lr.ph.i, !llvm.loop !7
 
-_Z12getCleanNamePKcPc.exit:                       ; preds = %199, %192
+_Z12getCleanNamePKcPc.exit:                       ; preds = %200, %192
   %201 = sext i32 %.sroa.speculated.i to i64
   %202 = getelementptr inbounds i8, ptr %6, i64 %201
   store i8 0, ptr %202, align 1, !tbaa !4
@@ -5194,27 +5194,27 @@ _Z12getCleanNamePKcPc.exit:                       ; preds = %199, %192
   %wide.trip.count.i204 = zext nneg i32 %smax.i203 to i64
   br label %.lr.ph.i205
 
-.lr.ph.i205:                                      ; preds = %248, %.lr.ph.preheader.i202
-  %indvars.iv.i206 = phi i64 [ 0, %.lr.ph.preheader.i202 ], [ %indvars.iv.next.i208, %248 ]
+.lr.ph.i205:                                      ; preds = %249, %.lr.ph.preheader.i202
+  %indvars.iv.i206 = phi i64 [ 0, %.lr.ph.preheader.i202 ], [ %indvars.iv.next.i208, %249 ]
   %245 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.i206
   %246 = load i8, ptr %245, align 1, !tbaa !4
-  switch i8 %246, label %247 [
-    i8 93, label %248
-    i8 91, label %248
+  %247 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i206
+  switch i8 %246, label %248 [
+    i8 93, label %249
+    i8 91, label %249
   ]
 
-247:                                              ; preds = %.lr.ph.i205
-  br label %248
+248:                                              ; preds = %.lr.ph.i205
+  br label %249
 
-248:                                              ; preds = %247, %.lr.ph.i205, %.lr.ph.i205
-  %.sink.i207 = phi i8 [ %246, %247 ], [ 0, %.lr.ph.i205 ], [ 0, %.lr.ph.i205 ]
-  %249 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i206
-  store i8 %.sink.i207, ptr %249, align 1, !tbaa !4
+249:                                              ; preds = %248, %.lr.ph.i205, %.lr.ph.i205
+  %.sink.i207 = phi i8 [ %246, %248 ], [ 0, %.lr.ph.i205 ], [ 0, %.lr.ph.i205 ]
+  store i8 %.sink.i207, ptr %247, align 1, !tbaa !4
   %indvars.iv.next.i208 = add nuw nsw i64 %indvars.iv.i206, 1
   %exitcond.not.i209 = icmp eq i64 %indvars.iv.next.i208, %wide.trip.count.i204
   br i1 %exitcond.not.i209, label %_Z12getCleanNamePKcPc.exit210, label %.lr.ph.i205, !llvm.loop !7
 
-_Z12getCleanNamePKcPc.exit210:                    ; preds = %248, %.critedge
+_Z12getCleanNamePKcPc.exit210:                    ; preds = %249, %.critedge
   %250 = sext i32 %.sroa.speculated.i201 to i64
   %251 = getelementptr inbounds i8, ptr %8, i64 %250
   store i8 0, ptr %251, align 1, !tbaa !4
@@ -5285,27 +5285,27 @@ _Z12getCleanNamePKcPc.exit210:                    ; preds = %248, %.critedge
   %wide.trip.count.i214 = zext nneg i32 %smax.i213 to i64
   br label %.lr.ph.i215
 
-.lr.ph.i215:                                      ; preds = %272, %.lr.ph.preheader.i212
-  %indvars.iv.i216 = phi i64 [ 0, %.lr.ph.preheader.i212 ], [ %indvars.iv.next.i218, %272 ]
+.lr.ph.i215:                                      ; preds = %273, %.lr.ph.preheader.i212
+  %indvars.iv.i216 = phi i64 [ 0, %.lr.ph.preheader.i212 ], [ %indvars.iv.next.i218, %273 ]
   %269 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.i216
   %270 = load i8, ptr %269, align 1, !tbaa !4
-  switch i8 %270, label %271 [
-    i8 93, label %272
-    i8 91, label %272
+  %271 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i216
+  switch i8 %270, label %272 [
+    i8 93, label %273
+    i8 91, label %273
   ]
 
-271:                                              ; preds = %.lr.ph.i215
-  br label %272
+272:                                              ; preds = %.lr.ph.i215
+  br label %273
 
-272:                                              ; preds = %271, %.lr.ph.i215, %.lr.ph.i215
-  %.sink.i217 = phi i8 [ %270, %271 ], [ 0, %.lr.ph.i215 ], [ 0, %.lr.ph.i215 ]
-  %273 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i216
-  store i8 %.sink.i217, ptr %273, align 1, !tbaa !4
+273:                                              ; preds = %272, %.lr.ph.i215, %.lr.ph.i215
+  %.sink.i217 = phi i8 [ %270, %272 ], [ 0, %.lr.ph.i215 ], [ 0, %.lr.ph.i215 ]
+  store i8 %.sink.i217, ptr %271, align 1, !tbaa !4
   %indvars.iv.next.i218 = add nuw nsw i64 %indvars.iv.i216, 1
   %exitcond.not.i219 = icmp eq i64 %indvars.iv.next.i218, %wide.trip.count.i214
   br i1 %exitcond.not.i219, label %_Z12getCleanNamePKcPc.exit220, label %.lr.ph.i215, !llvm.loop !7
 
-_Z12getCleanNamePKcPc.exit220:                    ; preds = %272, %._crit_edge249
+_Z12getCleanNamePKcPc.exit220:                    ; preds = %273, %._crit_edge249
   %274 = sext i32 %.sroa.speculated.i211 to i64
   %275 = getelementptr inbounds i8, ptr %10, i64 %274
   store i8 0, ptr %275, align 1, !tbaa !4

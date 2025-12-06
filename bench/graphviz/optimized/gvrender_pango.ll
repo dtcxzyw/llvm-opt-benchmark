@@ -91,237 +91,225 @@ define internal void @cairogen_begin_page(ptr noundef %0) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %120
+  br i1 %7, label %8, label %108
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load i32, ptr %9, align 8, !tbaa !33
-  switch i32 %10, label %60 [
-    i32 2, label %11
-    i32 5, label %11
-    i32 3, label %22
-    i32 4, label %52
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %12 = load i32, ptr %11, align 8, !tbaa !34
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 580
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !35
+  switch i32 %10, label %50 [
+    i32 2, label %13
+    i32 5, label %13
+    i32 3, label %20
+    i32 4, label %46
   ]
 
-11:                                               ; preds = %8, %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %13 = load i32, ptr %12, align 8, !tbaa !34
-  %14 = uitofp i32 %13 to double
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  %16 = load i32, ptr %15, align 4, !tbaa !35
-  %17 = uitofp i32 %16 to double
-  %18 = tail call ptr @cairo_ps_surface_create_for_stream(ptr noundef nonnull @writer, ptr noundef nonnull %0, double noundef %14, double noundef %17) #20
-  %19 = load i32, ptr %9, align 8, !tbaa !33
-  %20 = icmp eq i32 %19, 5
-  br i1 %20, label %21, label %108
+13:                                               ; preds = %8, %8
+  %14 = uitofp i32 %12 to double
+  %15 = uitofp i32 %.pre to double
+  %16 = tail call ptr @cairo_ps_surface_create_for_stream(ptr noundef nonnull @writer, ptr noundef nonnull %0, double noundef %14, double noundef %15) #20
+  %17 = load i32, ptr %9, align 8, !tbaa !33
+  %18 = icmp eq i32 %17, 5
+  br i1 %18, label %19, label %96
 
-21:                                               ; preds = %11
-  tail call void @cairo_ps_surface_set_eps(ptr noundef %18, i32 noundef 1) #20
-  br label %108
+19:                                               ; preds = %13
+  tail call void @cairo_ps_surface_set_eps(ptr noundef %16, i32 noundef 1) #20
+  br label %96
 
-22:                                               ; preds = %8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %24 = load i32, ptr %23, align 8, !tbaa !34
-  %25 = uitofp i32 %24 to double
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  %27 = load i32, ptr %26, align 4, !tbaa !35
-  %28 = uitofp i32 %27 to double
-  %29 = tail call ptr @cairo_pdf_surface_create_for_stream(ptr noundef nonnull @writer, ptr noundef nonnull %0, double noundef %25, double noundef %28) #20
-  %30 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #20
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %108, label %31
+20:                                               ; preds = %8
+  %21 = uitofp i32 %12 to double
+  %22 = uitofp i32 %.pre to double
+  %23 = tail call ptr @cairo_pdf_surface_create_for_stream(ptr noundef nonnull @writer, ptr noundef nonnull %0, double noundef %21, double noundef %22) #20
+  %24 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #20
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %96, label %25
 
-31:                                               ; preds = %22
+25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !36
-  %32 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %32, align 4, !tbaa !37
-  %33 = call i64 @strtol(ptr noundef nonnull %30, ptr noundef nonnull %2, i32 noundef 10) #20
-  %34 = icmp eq i64 %33, 9223372036854775807
-  br i1 %34, label %35, label %37
+  %26 = tail call ptr @__errno_location() #21
+  store i32 0, ptr %26, align 4, !tbaa !37
+  %27 = call i64 @strtol(ptr noundef nonnull %24, ptr noundef nonnull %2, i32 noundef 10) #20
+  %28 = icmp eq i64 %27, 9223372036854775807
+  br i1 %28, label %29, label %31
 
-35:                                               ; preds = %31
-  %36 = load i32, ptr %32, align 4, !tbaa !37
-  %.not81 = icmp eq i32 %36, 0
-  br i1 %.not81, label %38, label %41
+29:                                               ; preds = %25
+  %30 = load i32, ptr %26, align 4, !tbaa !37
+  %.not81 = icmp eq i32 %30, 0
+  br i1 %.not81, label %32, label %35
 
-37:                                               ; preds = %31
-  %.old1 = icmp slt i64 %33, 0
-  br i1 %.old1, label %41, label %38
+31:                                               ; preds = %25
+  %.old1 = icmp slt i64 %27, 0
+  br i1 %.old1, label %35, label %32
 
-38:                                               ; preds = %35, %37
-  %39 = load ptr, ptr %2, align 8, !tbaa !36
-  %40 = load i8, ptr %39, align 1, !tbaa !38
-  %.not82 = icmp eq i8 %40, 0
-  br i1 %.not82, label %44, label %41
+32:                                               ; preds = %29, %31
+  %33 = load ptr, ptr %2, align 8, !tbaa !36
+  %34 = load i8, ptr %33, align 1, !tbaa !38
+  %.not82 = icmp eq i8 %34, 0
+  br i1 %.not82, label %38, label %35
 
-41:                                               ; preds = %38, %37, %35
-  %42 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.7, ptr noundef nonnull %30) #22
+35:                                               ; preds = %32, %31, %29
+  %36 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.7, ptr noundef nonnull %24) #22
   tail call void @exit(i32 noundef 1) #23
   unreachable
 
-44:                                               ; preds = %38
+38:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %33, ptr %3, align 8, !tbaa !40
-  %45 = call ptr @gmtime(ptr noundef nonnull %3) #20
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %50
+  store i64 %27, ptr %3, align 8, !tbaa !40
+  %39 = call ptr @gmtime(ptr noundef nonnull %3) #20
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %44
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.7, ptr noundef nonnull %30) #22
+41:                                               ; preds = %38
+  %42 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.7, ptr noundef nonnull %24) #22
   call void @exit(i32 noundef 1) #23
   unreachable
 
-50:                                               ; preds = %44
+44:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
-  %51 = call i64 @strftime(ptr noundef nonnull %4, i64 noundef 20, ptr noundef nonnull @.str.8, ptr noundef nonnull %45) #20
-  call void @cairo_pdf_surface_set_metadata(ptr noundef %29, i32 noundef 5, ptr noundef nonnull %4) #20
-  call void @cairo_pdf_surface_set_metadata(ptr noundef %29, i32 noundef 6, ptr noundef nonnull %4) #20
+  %45 = call i64 @strftime(ptr noundef nonnull %4, i64 noundef 20, ptr noundef nonnull @.str.8, ptr noundef nonnull %39) #20
+  call void @cairo_pdf_surface_set_metadata(ptr noundef %23, i32 noundef 5, ptr noundef nonnull %4) #20
+  call void @cairo_pdf_surface_set_metadata(ptr noundef %23, i32 noundef 6, ptr noundef nonnull %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %108
+  br label %96
 
-52:                                               ; preds = %8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %54 = load i32, ptr %53, align 8, !tbaa !34
-  %55 = uitofp i32 %54 to double
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  %57 = load i32, ptr %56, align 4, !tbaa !35
-  %58 = uitofp i32 %57 to double
-  %59 = tail call ptr @cairo_svg_surface_create_for_stream(ptr noundef nonnull @writer, ptr noundef nonnull %0, double noundef %55, double noundef %58) #20
-  br label %108
+46:                                               ; preds = %8
+  %47 = uitofp i32 %12 to double
+  %48 = uitofp i32 %.pre to double
+  %49 = tail call ptr @cairo_svg_surface_create_for_stream(ptr noundef nonnull @writer, ptr noundef nonnull %0, double noundef %47, double noundef %48) #20
+  br label %96
 
-60:                                               ; preds = %8
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %62 = load i32, ptr %61, align 8, !tbaa !34
-  %63 = icmp ugt i32 %62, 32766
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 580
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !35
-  %64 = icmp ugt i32 %.pre, 32766
-  %or.cond = select i1 %63, i1 true, i1 %64
-  br i1 %or.cond, label %._crit_edge, label %87
+50:                                               ; preds = %8
+  %51 = icmp ugt i32 %12, 32766
+  %52 = icmp ugt i32 %.pre, 32766
+  %or.cond = select i1 %51, i1 true, i1 %52
+  br i1 %or.cond, label %._crit_edge, label %75
 
-._crit_edge:                                      ; preds = %60
-  %65 = uitofp i32 %62 to double
-  %66 = fdiv double 3.276700e+04, %65
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  %68 = uitofp i32 %.pre to double
-  %69 = fdiv double 3.276700e+04, %68
-  %70 = tail call double @llvm.minnum.f64(double %66, double %69)
-  %71 = fmul double %70, %65
-  %72 = fptoui double %71 to i32
-  store i32 %72, ptr %61, align 8, !tbaa !34
-  %73 = fmul double %70, %68
-  %74 = fptoui double %73 to i32
-  store i32 %74, ptr %67, align 4, !tbaa !35
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %76 = load double, ptr %75, align 8, !tbaa !41
-  %77 = fmul double %76, %70
-  store double %77, ptr %75, align 8, !tbaa !41
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %79 = load double, ptr %78, align 8, !tbaa !42
-  %80 = fmul double %70, %79
-  store double %80, ptr %78, align 8, !tbaa !42
-  %81 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %83 = load ptr, ptr %82, align 8, !tbaa !43
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !44
-  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.9, ptr noundef %85, double noundef %70) #22
-  %.pre85 = load i32, ptr %61, align 8, !tbaa !34
-  %.pre87 = load i32, ptr %67, align 4, !tbaa !35
-  br label %87
+._crit_edge:                                      ; preds = %50
+  %53 = uitofp i32 %12 to double
+  %54 = fdiv double 3.276700e+04, %53
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 580
+  %56 = uitofp i32 %.pre to double
+  %57 = fdiv double 3.276700e+04, %56
+  %58 = tail call double @llvm.minnum.f64(double %54, double %57)
+  %59 = fmul double %58, %53
+  %60 = fptoui double %59 to i32
+  store i32 %60, ptr %11, align 8, !tbaa !34
+  %61 = fmul double %58, %56
+  %62 = fptoui double %61 to i32
+  store i32 %62, ptr %55, align 4, !tbaa !35
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %64 = load double, ptr %63, align 8, !tbaa !41
+  %65 = fmul double %64, %58
+  store double %65, ptr %63, align 8, !tbaa !41
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %67 = load double, ptr %66, align 8, !tbaa !42
+  %68 = fmul double %58, %67
+  store double %68, ptr %66, align 8, !tbaa !42
+  %69 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %71 = load ptr, ptr %70, align 8, !tbaa !43
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !44
+  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.9, ptr noundef %73, double noundef %58) #22
+  %.pre85 = load i32, ptr %11, align 8, !tbaa !34
+  %.pre87 = load i32, ptr %55, align 4, !tbaa !35
+  br label %75
 
-87:                                               ; preds = %60, %._crit_edge
-  %88 = phi i32 [ %.pre87, %._crit_edge ], [ %.pre, %60 ]
-  %89 = phi i32 [ %.pre85, %._crit_edge ], [ %62, %60 ]
-  %90 = tail call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %89, i32 noundef %88) #20
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %92 = load ptr, ptr %91, align 8, !tbaa !43
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %94 = load i32, ptr %93, align 8, !tbaa !47
-  %.not83 = icmp eq i32 %94, 0
-  br i1 %.not83, label %108, label %95
+75:                                               ; preds = %50, %._crit_edge
+  %76 = phi i32 [ %.pre87, %._crit_edge ], [ %.pre, %50 ]
+  %77 = phi i32 [ %.pre85, %._crit_edge ], [ %12, %50 ]
+  %78 = tail call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %77, i32 noundef %76) #20
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %80 = load ptr, ptr %79, align 8, !tbaa !43
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load i32, ptr %81, align 8, !tbaa !47
+  %.not83 = icmp eq i32 %82, 0
+  br i1 %.not83, label %96, label %83
 
-95:                                               ; preds = %87
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  %97 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %98 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !44
-  %100 = load i32, ptr %61, align 8, !tbaa !34
-  %101 = load i32, ptr %96, align 4, !tbaa !35
-  %102 = shl i32 %100, 2
-  %103 = mul i32 %102, %101
-  %104 = uitofp i32 %103 to double
-  %105 = fmul double %104, 0x3F50000000000000
-  %106 = tail call double @llvm.round.f64(double %105)
-  %107 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.10, ptr noundef %99, double noundef %106, i32 noundef %100, i32 noundef %101) #22
-  br label %108
+83:                                               ; preds = %75
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 580
+  %85 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !44
+  %88 = load i32, ptr %11, align 8, !tbaa !34
+  %89 = load i32, ptr %84, align 4, !tbaa !35
+  %90 = shl i32 %88, 2
+  %91 = mul i32 %90, %89
+  %92 = uitofp i32 %91 to double
+  %93 = fmul double %92, 0x3F50000000000000
+  %94 = tail call double @llvm.round.f64(double %93)
+  %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.10, ptr noundef %87, double noundef %94, i32 noundef %88, i32 noundef %89) #22
+  br label %96
 
-108:                                              ; preds = %22, %50, %87, %95, %11, %21, %52
-  %.075 = phi ptr [ %90, %95 ], [ %90, %87 ], [ %18, %21 ], [ %18, %11 ], [ %59, %52 ], [ %29, %50 ], [ %29, %22 ]
-  %109 = call i32 @cairo_surface_status(ptr noundef %.075) #20
-  %.not84 = icmp eq i32 %109, 0
-  br i1 %.not84, label %118, label %110
+96:                                               ; preds = %20, %44, %75, %83, %13, %19, %46
+  %.075 = phi ptr [ %78, %83 ], [ %78, %75 ], [ %16, %19 ], [ %16, %13 ], [ %49, %46 ], [ %23, %44 ], [ %23, %20 ]
+  %97 = call i32 @cairo_surface_status(ptr noundef %.075) #20
+  %.not84 = icmp eq i32 %97, 0
+  br i1 %.not84, label %106, label %98
 
-110:                                              ; preds = %108
-  %111 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %113 = load ptr, ptr %112, align 8, !tbaa !43
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %115 = load ptr, ptr %114, align 8, !tbaa !44
-  %116 = call ptr @cairo_status_to_string(i32 noundef %109) #20
-  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef nonnull @.str.11, ptr noundef %115, ptr noundef %116) #22
+98:                                               ; preds = %96
+  %99 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %101 = load ptr, ptr %100, align 8, !tbaa !43
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8, !tbaa !44
+  %104 = call ptr @cairo_status_to_string(i32 noundef %97) #20
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %99, ptr noundef nonnull @.str.11, ptr noundef %103, ptr noundef %104) #22
   call void @cairo_surface_destroy(ptr noundef %.075) #20
-  br label %148
+  br label %136
 
-118:                                              ; preds = %108
-  %119 = call ptr @cairo_create(ptr noundef %.075) #20
+106:                                              ; preds = %96
+  %107 = call ptr @cairo_create(ptr noundef %.075) #20
   call void @cairo_surface_destroy(ptr noundef %.075) #20
-  store ptr %119, ptr %5, align 8, !tbaa !32
-  br label %120
+  store ptr %107, ptr %5, align 8, !tbaa !32
+  br label %108
 
-120:                                              ; preds = %118, %1
-  %.0 = phi ptr [ %119, %118 ], [ %6, %1 ]
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %122 = load double, ptr %121, align 8, !tbaa !41
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %124 = load double, ptr %123, align 8, !tbaa !42
-  call void @cairo_scale(ptr noundef %.0, double noundef %122, double noundef %124) #20
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %126 = load i32, ptr %125, align 8, !tbaa !48
-  %127 = sub nsw i32 0, %126
-  %128 = sitofp i32 %127 to double
-  %129 = fmul double %128, 0x400921FB54442D18
-  %130 = fdiv double %129, 1.800000e+02
-  call void @cairo_rotate(ptr noundef %.0, double noundef %130) #20
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %132 = load double, ptr %131, align 8, !tbaa !49
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %134 = load double, ptr %133, align 8, !tbaa !50
+108:                                              ; preds = %106, %1
+  %.0 = phi ptr [ %107, %106 ], [ %6, %1 ]
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %110 = load double, ptr %109, align 8, !tbaa !41
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %112 = load double, ptr %111, align 8, !tbaa !42
+  call void @cairo_scale(ptr noundef %.0, double noundef %110, double noundef %112) #20
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %114 = load i32, ptr %113, align 8, !tbaa !48
+  %115 = sub nsw i32 0, %114
+  %116 = sitofp i32 %115 to double
+  %117 = fmul double %116, 0x400921FB54442D18
+  %118 = fdiv double %117, 1.800000e+02
+  call void @cairo_rotate(ptr noundef %.0, double noundef %118) #20
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %120 = load double, ptr %119, align 8, !tbaa !49
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %122 = load double, ptr %121, align 8, !tbaa !50
+  %123 = fneg double %122
+  call void @cairo_translate(ptr noundef %.0, double noundef %120, double noundef %123) #20
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %125 = load double, ptr %124, align 8, !tbaa !51
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %127 = load double, ptr %126, align 8, !tbaa !52
+  %128 = fneg double %127
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %130 = load double, ptr %129, align 8, !tbaa !53
+  %131 = fsub double %130, %125
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %133 = load double, ptr %132, align 8, !tbaa !54
+  %134 = fsub double %133, %127
   %135 = fneg double %134
-  call void @cairo_translate(ptr noundef %.0, double noundef %132, double noundef %135) #20
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %137 = load double, ptr %136, align 8, !tbaa !51
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %139 = load double, ptr %138, align 8, !tbaa !52
-  %140 = fneg double %139
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %142 = load double, ptr %141, align 8, !tbaa !53
-  %143 = fsub double %142, %137
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %145 = load double, ptr %144, align 8, !tbaa !54
-  %146 = fsub double %145, %139
-  %147 = fneg double %146
-  call void @cairo_rectangle(ptr noundef %.0, double noundef %137, double noundef %140, double noundef %143, double noundef %147) #20
+  call void @cairo_rectangle(ptr noundef %.0, double noundef %125, double noundef %128, double noundef %131, double noundef %135) #20
   call void @cairo_clip(ptr noundef %.0) #20
-  br label %148
+  br label %136
 
-148:                                              ; preds = %120, %110
+136:                                              ; preds = %108, %98
   ret void
 }
 

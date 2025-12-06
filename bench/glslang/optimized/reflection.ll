@@ -1686,33 +1686,33 @@ _ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit: ; preds = %34, %
   %61 = load i64, ptr %60, align 8
   %62 = trunc i64 %61 to i32
   %63 = and i32 %62, 127
-  switch i32 %63, label %65 [
-    i32 3, label %64
-    i32 26, label %64
-    i32 27, label %64
-    i32 25, label %64
-    i32 20, label %64
-    i32 21, label %64
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %65 = load ptr, ptr %64, align 8
+  switch i32 %63, label %67 [
+    i32 3, label %66
+    i32 26, label %66
+    i32 27, label %66
+    i32 25, label %66
+    i32 20, label %66
+    i32 21, label %66
   ]
 
-64:                                               ; preds = %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit
-  br label %65
+66:                                               ; preds = %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit
+  br label %67
 
-65:                                               ; preds = %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %64
-  %.sink112 = phi i64 [ 344, %64 ], [ 368, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit ]
-  %.sink110 = phi i64 [ 152, %64 ], [ 200, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit ]
-  %.0.i8184 = phi i1 [ true, %64 ], [ false, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit ]
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.sink112
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 %.sink110
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
+67:                                               ; preds = %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit, %66
+  %.sink110 = phi i64 [ 344, %66 ], [ 368, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit ]
+  %.sink = phi i64 [ 152, %66 ], [ 200, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit ]
+  %.0.i8184 = phi i1 [ true, %66 ], [ false, %_ZNSt3setIPK11TIntermNodeSt4lessIS2_ESaIS2_EE6insertEOS2_.exit ]
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 %.sink110
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %.sink
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 32
   %.not = icmp eq i32 %72, 0
   br i1 %.not, label %201, label %73
 
-73:                                               ; preds = %65
+73:                                               ; preds = %67
   %74 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %75, 0
@@ -2021,11 +2021,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   br label %200
 
 200:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, %193, %199
-  %.sink = phi ptr [ %8, %199 ], [ %55, %193 ], [ %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
-  call void @_ZN7glslang20TReflectionTraverser17blowUpIOAggregateEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(121) %0, i1 noundef zeroext %.0.i8184, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(152) %.sink)
+  %.sink113 = phi ptr [ %8, %199 ], [ %55, %193 ], [ %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
+  call void @_ZN7glslang20TReflectionTraverser17blowUpIOAggregateEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(121) %0, i1 noundef zeroext %.0.i8184, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(152) %.sink113)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit58
 
-201:                                              ; preds = %65
+201:                                              ; preds = %67
   %202 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %203 = load ptr, ptr %202, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19

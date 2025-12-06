@@ -1419,47 +1419,44 @@ define internal void @dissect_htstops_subopt(ptr noundef %0, ptr noundef %1, ptr
   %25 = icmp sgt i32 %.15259, 0
   br i1 %25, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %24, %40
-  %.15261 = phi i32 [ %.152, %40 ], [ %.15259, %24 ]
-  %.160.in = phi i32 [ %.160, %40 ], [ %3, %24 ]
+.lr.ph:                                           ; preds = %24, %37
+  %.15261 = phi i32 [ %.152, %37 ], [ %.15259, %24 ]
+  %.160.in = phi i32 [ %.160, %37 ], [ %3, %24 ]
   %.160 = add i32 %.160.in, 1
   %26 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.160)
   %27 = zext i8 %26 to i32
+  %28 = load i32, ptr @hf_telnet_tabstop, align 4
   switch i8 %26, label %31 [
-    i8 0, label %28
-    i8 -5, label %34
-    i8 -4, label %34
-    i8 -3, label %34
-    i8 -2, label %34
-    i8 -1, label %37
+    i8 0, label %29
+    i8 -5, label %33
+    i8 -4, label %33
+    i8 -3, label %33
+    i8 -2, label %33
+    i8 -1, label %35
   ]
 
-28:                                               ; preds = %.lr.ph
-  %29 = load i32, ptr @hf_telnet_tabstop, align 4
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %29, ptr noundef %2, i32 noundef %.160, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.355)
-  br label %40
+29:                                               ; preds = %.lr.ph
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %28, ptr noundef %2, i32 noundef %.160, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.355)
+  br label %37
 
 31:                                               ; preds = %.lr.ph
-  %32 = load i32, ptr @hf_telnet_tabstop, align 4
-  %33 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %32, ptr noundef %2, i32 noundef %.160, i32 noundef 1, i32 noundef %27, ptr noundef nonnull @.str.356, i32 noundef %27)
-  br label %40
+  %32 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %28, ptr noundef %2, i32 noundef %.160, i32 noundef 1, i32 noundef %27, ptr noundef nonnull @.str.356, i32 noundef %27)
+  br label %37
 
-34:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %35 = load i32, ptr @hf_telnet_tabstop, align 4
-  %36 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %35, ptr noundef %2, i32 noundef %.160, i32 noundef 1, i32 noundef %27, ptr noundef nonnull @.str.357, i32 noundef %27)
-  br label %40
+33:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %34 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %28, ptr noundef %2, i32 noundef %.160, i32 noundef 1, i32 noundef %27, ptr noundef nonnull @.str.357, i32 noundef %27)
+  br label %37
 
-37:                                               ; preds = %.lr.ph
-  %38 = load i32, ptr @hf_telnet_tabstop, align 4
-  %39 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %38, ptr noundef %2, i32 noundef %.160, i32 noundef 1, i32 noundef 255, ptr noundef nonnull @.str.358)
-  br label %40
+35:                                               ; preds = %.lr.ph
+  %36 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %28, ptr noundef %2, i32 noundef %.160, i32 noundef 1, i32 noundef 255, ptr noundef nonnull @.str.358)
+  br label %37
 
-40:                                               ; preds = %37, %34, %31, %28
+37:                                               ; preds = %35, %33, %31, %29
   %.152 = add nsw i32 %.15261, -1
-  %41 = icmp sgt i32 %.15261, 1
-  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  %38 = icmp sgt i32 %.15261, 1
+  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %40, %24, %15, %20
+.loopexit:                                        ; preds = %37, %24, %15, %20
   ret void
 }
 

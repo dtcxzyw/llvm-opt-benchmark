@@ -987,7 +987,7 @@ hwloc__type_match.exit153.thread:                 ; preds = %._crit_edge.i.threa
   br i1 %.not101, label %112, label %hwloc__type_match.exit
 
 112:                                              ; preds = %110
-  switch i8 %33, label %137 [
+  switch i8 %33, label %136 [
     i8 108, label %113
     i8 76, label %113
   ]
@@ -997,73 +997,72 @@ hwloc__type_match.exit153.thread:                 ; preds = %._crit_edge.i.threa
   %115 = load i8, ptr %114, align 1, !tbaa !60
   %116 = add i8 %115, -48
   %or.cond105 = icmp ult i8 %116, 10
-  br i1 %or.cond105, label %117, label %137
+  br i1 %or.cond105, label %117, label %136
 
 117:                                              ; preds = %113
   %118 = call i64 @strtol(ptr noundef nonnull %114, ptr noundef nonnull %8, i32 noundef 10) #22
   %119 = trunc i64 %118 to i32
   %120 = load ptr, ptr %8, align 8, !tbaa !61
   %121 = load i8, ptr %120, align 1, !tbaa !60
+  %122 = add i32 %119, -1
   switch i8 %121, label %127 [
-    i8 105, label %122
-    i8 73, label %122
+    i8 105, label %123
+    i8 73, label %123
   ]
 
-122:                                              ; preds = %117, %117
-  %123 = add i32 %119, -1
-  %or.cond = icmp ult i32 %123, 3
+123:                                              ; preds = %117, %117
+  %or.cond = icmp ult i32 %122, 3
   br i1 %or.cond, label %124, label %.thread
 
-124:                                              ; preds = %122
+124:                                              ; preds = %123
   %125 = add nuw nsw i32 %119, 9
   %126 = getelementptr inbounds nuw i8, ptr %120, i64 1
-  br label %135
+  br label %134
 
 127:                                              ; preds = %117
-  %128 = add i32 %119, -1
-  %or.cond3 = icmp ult i32 %128, 5
-  br i1 %or.cond3, label %129, label %.thread
+  %or.cond3 = icmp ult i32 %122, 5
+  br i1 %or.cond3, label %128, label %.thread
 
-129:                                              ; preds = %127
-  %130 = add nuw nsw i32 %119, 4
-  switch i8 %121, label %135 [
-    i8 100, label %131
-    i8 68, label %131
-    i8 117, label %133
-    i8 85, label %133
+128:                                              ; preds = %127
+  %129 = add nuw nsw i32 %119, 4
+  switch i8 %121, label %134 [
+    i8 100, label %130
+    i8 68, label %130
+    i8 117, label %132
+    i8 85, label %132
   ]
 
-131:                                              ; preds = %129, %129
-  %132 = getelementptr inbounds nuw i8, ptr %120, i64 1
-  br label %135
+130:                                              ; preds = %128, %128
+  %131 = getelementptr inbounds nuw i8, ptr %120, i64 1
+  br label %134
 
-133:                                              ; preds = %129, %129
-  %134 = getelementptr inbounds nuw i8, ptr %120, i64 1
-  br label %135
+132:                                              ; preds = %128, %128
+  %133 = getelementptr inbounds nuw i8, ptr %120, i64 1
+  br label %134
 
-135:                                              ; preds = %124, %131, %133, %129
-  %.273 = phi i32 [ %125, %124 ], [ %130, %131 ], [ %130, %133 ], [ %130, %129 ]
-  %.2 = phi i32 [ 2, %124 ], [ 1, %131 ], [ 0, %133 ], [ 0, %129 ]
-  %.067 = phi ptr [ %126, %124 ], [ %132, %131 ], [ %134, %133 ], [ %120, %129 ]
-  %136 = tail call fastcc ptr @hwloc__type_match(ptr noundef nonnull %.067, ptr noundef nonnull @.str.39, i64 noundef 0)
-  %.not103.not = icmp eq ptr %136, null
+134:                                              ; preds = %124, %130, %132, %128
+  %.273 = phi i32 [ %125, %124 ], [ %129, %130 ], [ %129, %132 ], [ %129, %128 ]
+  %.2 = phi i32 [ 2, %124 ], [ 1, %130 ], [ 0, %132 ], [ 0, %128 ]
+  %.067 = phi ptr [ %126, %124 ], [ %131, %130 ], [ %133, %132 ], [ %120, %128 ]
+  %135 = tail call fastcc ptr @hwloc__type_match(ptr noundef nonnull %.067, ptr noundef nonnull @.str.39, i64 noundef 0)
+  %.not103.not = icmp eq ptr %135, null
   br i1 %.not103.not, label %.thread, label %hwloc__type_match.exit
 
-137:                                              ; preds = %112, %113
-  %138 = tail call fastcc ptr @hwloc__type_match(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, i64 noundef 2)
-  store ptr %138, ptr %8, align 8, !tbaa !61
-  %.not102 = icmp eq ptr %138, null
-  br i1 %.not102, label %.thread, label %139
+136:                                              ; preds = %112, %113
+  %137 = tail call fastcc ptr @hwloc__type_match(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, i64 noundef 2)
+  store ptr %137, ptr %8, align 8, !tbaa !61
+  %.not102 = icmp eq ptr %137, null
+  br i1 %.not102, label %.thread, label %138
 
-139:                                              ; preds = %137
-  %140 = load i8, ptr %138, align 1, !tbaa !60
-  %141 = add i8 %140, -48
-  %or.cond106 = icmp ult i8 %141, 10
-  br i1 %or.cond106, label %142, label %hwloc__type_match.exit
+138:                                              ; preds = %136
+  %139 = load i8, ptr %137, align 1, !tbaa !60
+  %140 = add i8 %139, -48
+  %or.cond106 = icmp ult i8 %140, 10
+  br i1 %or.cond106, label %141, label %hwloc__type_match.exit
 
-142:                                              ; preds = %139
-  %143 = call i64 @strtol(ptr noundef nonnull %138, ptr noundef nonnull %8, i32 noundef 10) #22
-  %144 = trunc i64 %143 to i32
+141:                                              ; preds = %138
+  %142 = call i64 @strtol(ptr noundef nonnull %137, ptr noundef nonnull %8, i32 noundef 10) #22
+  %143 = trunc i64 %142 to i32
   br label %hwloc__type_match.exit
 
 hwloc__type_match.exit.loopexit:                  ; preds = %12
@@ -1074,65 +1073,65 @@ hwloc__type_match.exit.loopexit192:               ; preds = %24
   store i64 %29, ptr %7, align 8
   br label %hwloc__type_match.exit
 
-hwloc__type_match.exit:                           ; preds = %hwloc__type_match.exit.loopexit192, %hwloc__type_match.exit.loopexit, %78, %61, %42, %._crit_edge.i149, %._crit_edge.i129, %._crit_edge.i.thread.thread, %._crit_edge.i, %110, %108, %106, %104, %102, %100, %98, %96, %92, %94, %88, %90, %hwloc__type_match.exit153.thread, %._crit_edge.i.thread, %142, %139, %135
-  %.071 = phi i32 [ %.273, %135 ], [ 13, %142 ], [ 13, %139 ], [ 18, %._crit_edge.i.thread ], [ 14, %hwloc__type_match.exit153.thread ], [ 15, %90 ], [ 15, %88 ], [ 1, %94 ], [ 1, %92 ], [ 2, %96 ], [ 3, %98 ], [ 4, %100 ], [ 19, %102 ], [ 16, %104 ], [ 16, %106 ], [ 16, %108 ], [ 17, %110 ], [ 18, %._crit_edge.i ], [ 18, %._crit_edge.i.thread.thread ], [ 0, %._crit_edge.i129 ], [ 14, %._crit_edge.i149 ], [ 18, %42 ], [ 0, %61 ], [ 14, %78 ], [ 18, %hwloc__type_match.exit.loopexit ], [ 18, %hwloc__type_match.exit.loopexit192 ]
-  %.070 = phi i32 [ %119, %135 ], [ %144, %142 ], [ -1, %139 ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %._crit_edge.i149 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit.loopexit192 ]
-  %.069 = phi i32 [ %.2, %135 ], [ -1, %142 ], [ -1, %139 ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %._crit_edge.i149 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit.loopexit192 ]
-  %.068 = phi i32 [ -1, %135 ], [ -1, %142 ], [ -1, %139 ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ 0, %106 ], [ 1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %._crit_edge.i149 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit.loopexit192 ]
+hwloc__type_match.exit:                           ; preds = %hwloc__type_match.exit.loopexit192, %hwloc__type_match.exit.loopexit, %78, %61, %42, %._crit_edge.i149, %._crit_edge.i129, %._crit_edge.i.thread.thread, %._crit_edge.i, %110, %108, %106, %104, %102, %100, %98, %96, %92, %94, %88, %90, %hwloc__type_match.exit153.thread, %._crit_edge.i.thread, %141, %138, %134
+  %.071 = phi i32 [ %.273, %134 ], [ 13, %141 ], [ 13, %138 ], [ 18, %._crit_edge.i.thread ], [ 14, %hwloc__type_match.exit153.thread ], [ 15, %90 ], [ 15, %88 ], [ 1, %94 ], [ 1, %92 ], [ 2, %96 ], [ 3, %98 ], [ 4, %100 ], [ 19, %102 ], [ 16, %104 ], [ 16, %106 ], [ 16, %108 ], [ 17, %110 ], [ 18, %._crit_edge.i ], [ 18, %._crit_edge.i.thread.thread ], [ 0, %._crit_edge.i129 ], [ 14, %._crit_edge.i149 ], [ 18, %42 ], [ 0, %61 ], [ 14, %78 ], [ 18, %hwloc__type_match.exit.loopexit ], [ 18, %hwloc__type_match.exit.loopexit192 ]
+  %.070 = phi i32 [ %119, %134 ], [ %143, %141 ], [ -1, %138 ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %._crit_edge.i149 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit.loopexit192 ]
+  %.069 = phi i32 [ %.2, %134 ], [ -1, %141 ], [ -1, %138 ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %._crit_edge.i149 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit.loopexit192 ]
+  %.068 = phi i32 [ -1, %134 ], [ -1, %141 ], [ -1, %138 ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit153.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ 0, %106 ], [ 1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i129 ], [ -1, %._crit_edge.i149 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ], [ -1, %hwloc__type_match.exit.loopexit ], [ -1, %hwloc__type_match.exit.loopexit192 ]
   store i32 %.071, ptr %1, align 4, !tbaa !3
   %.not104 = icmp eq ptr %2, null
-  br i1 %.not104, label %.thread, label %145
+  br i1 %.not104, label %.thread, label %144
 
-145:                                              ; preds = %hwloc__type_match.exit
-  %146 = add nsw i32 %.071, -5
-  %147 = icmp ult i32 %146, 8
-  %148 = icmp ugt i64 %3, 23
-  %or.cond5 = and i1 %148, %147
-  br i1 %or.cond5, label %149, label %152
+144:                                              ; preds = %hwloc__type_match.exit
+  %145 = add nsw i32 %.071, -5
+  %146 = icmp ult i32 %145, 8
+  %147 = icmp ugt i64 %3, 23
+  %or.cond5 = and i1 %147, %146
+  br i1 %or.cond5, label %148, label %151
 
-149:                                              ; preds = %145
-  %150 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %.070, ptr %150, align 8, !tbaa !60
-  %151 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %.069, ptr %151, align 4, !tbaa !60
+148:                                              ; preds = %144
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %.070, ptr %149, align 8, !tbaa !60
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  store i32 %.069, ptr %150, align 4, !tbaa !60
   br label %.thread
 
-152:                                              ; preds = %145
-  %153 = icmp eq i32 %.071, 13
-  %154 = icmp ugt i64 %3, 15
-  %or.cond7 = and i1 %154, %153
-  br i1 %or.cond7, label %155, label %156
+151:                                              ; preds = %144
+  %152 = icmp eq i32 %.071, 13
+  %153 = icmp ugt i64 %3, 15
+  %or.cond7 = and i1 %153, %152
+  br i1 %or.cond7, label %154, label %155
 
-155:                                              ; preds = %152
+154:                                              ; preds = %151
   store i32 %.070, ptr %2, align 8, !tbaa !60
   br label %.thread
 
-156:                                              ; preds = %152
-  %157 = icmp eq i32 %.071, 16
-  %158 = icmp ugt i64 %3, 43
-  %or.cond9 = and i1 %158, %157
-  br i1 %or.cond9, label %159, label %162
+155:                                              ; preds = %151
+  %156 = icmp eq i32 %.071, 16
+  %157 = icmp ugt i64 %3, 43
+  %or.cond9 = and i1 %157, %156
+  br i1 %or.cond9, label %158, label %161
 
-159:                                              ; preds = %156
-  %160 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %.068, ptr %160, align 8, !tbaa !60
-  %161 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 1, ptr %161, align 4, !tbaa !60
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 %.068, ptr %159, align 8, !tbaa !60
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  store i32 1, ptr %160, align 4, !tbaa !60
   br label %.thread
 
-162:                                              ; preds = %156
-  %163 = icmp eq i32 %.071, 18
-  %164 = icmp ugt i64 %3, 7
-  %or.cond11 = and i1 %164, %163
-  br i1 %or.cond11, label %165, label %.thread
+161:                                              ; preds = %155
+  %162 = icmp eq i32 %.071, 18
+  %163 = icmp ugt i64 %3, 7
+  %or.cond11 = and i1 %163, %162
+  br i1 %or.cond11, label %164, label %.thread
 
-165:                                              ; preds = %162
-  %166 = load i64, ptr %7, align 8, !tbaa !59
-  store i64 %166, ptr %2, align 8, !tbaa !60
+164:                                              ; preds = %161
+  %165 = load i64, ptr %7, align 8, !tbaa !59
+  store i64 %165, ptr %2, align 8, !tbaa !60
   br label %.thread
 
-.thread:                                          ; preds = %127, %122, %hwloc__type_match.exit, %155, %162, %165, %159, %149, %137, %135
-  %.175 = phi i32 [ -1, %135 ], [ -1, %137 ], [ 0, %149 ], [ 0, %159 ], [ 0, %165 ], [ 0, %162 ], [ 0, %155 ], [ 0, %hwloc__type_match.exit ], [ -1, %122 ], [ -1, %127 ]
+.thread:                                          ; preds = %127, %123, %hwloc__type_match.exit, %154, %161, %164, %158, %148, %136, %134
+  %.175 = phi i32 [ -1, %134 ], [ -1, %136 ], [ 0, %148 ], [ 0, %158 ], [ 0, %164 ], [ 0, %161 ], [ 0, %154 ], [ 0, %hwloc__type_match.exit ], [ -1, %123 ], [ -1, %127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.175

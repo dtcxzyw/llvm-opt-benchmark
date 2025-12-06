@@ -1306,39 +1306,36 @@ define hidden void @_ZN17NativeGeneralJump15replace_mt_safeEPhS0_(ptr noundef in
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull ptr @_ZNK17NativeGeneralJump16jump_destinationEv(ptr noundef nonnull readonly align 1 captures(ret: address, provenance) dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
   %2 = load i8, ptr %0, align 1
-  %3 = icmp eq i8 %2, -23
-  %4 = icmp eq i8 %2, 15
-  %5 = or i1 %3, %4
-  %6 = select i1 %4, i32 2, i32 1
-  %7 = select i1 %5, i32 4, i32 1
-  %8 = add nuw nsw i32 %7, %6
-  switch i8 %2, label %17 [
-    i8 -23, label %9
-    i8 15, label %9
+  %3 = icmp eq i8 %2, 15
+  %4 = select i1 %3, i32 2, i32 1
+  switch i8 %2, label %10 [
+    i8 -23, label %5
+    i8 15, label %5
   ]
 
-9:                                                ; preds = %1, %1
-  %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
-  %12 = zext nneg i32 %6 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
-  %14 = load i32, ptr %13, align 4
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %11, i64 %15
-  br label %24
+5:                                                ; preds = %1, %1
+  %6 = zext nneg i32 %4 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %8 = load i32, ptr %7, align 4
+  %9 = sext i32 %8 to i64
+  br label %14
 
-17:                                               ; preds = %1
-  %18 = zext nneg i32 %8 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = sext i8 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %19, i64 %22
-  br label %24
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = sext i8 %12 to i64
+  br label %14
 
-24:                                               ; preds = %17, %9
-  %.0 = phi ptr [ %16, %9 ], [ %23, %17 ]
-  ret ptr %.0
+14:                                               ; preds = %10, %5
+  %.sink = phi i64 [ %13, %10 ], [ %9, %5 ]
+  %15 = icmp eq i8 %2, -23
+  %16 = or i1 %15, %3
+  %17 = select i1 %16, i32 4, i32 1
+  %18 = add nuw nsw i32 %17, %4
+  %19 = zext nneg i32 %18 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
+  %21 = getelementptr inbounds i8, ptr %20, i64 %.sink
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

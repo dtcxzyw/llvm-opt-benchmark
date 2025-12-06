@@ -18661,7 +18661,7 @@ switch.lookup:                                    ; preds = %15
   %.val103 = load i32, ptr %40, align 8, !tbaa !242
   %.not79 = icmp eq i32 %.val103, 0
   %spec.select86 = select i1 %.not79, i1 true, i1 %.069
-  br i1 %spec.select86, label %65, label %90
+  br i1 %spec.select86, label %65, label %86
 
 41:                                               ; preds = %.thread140
   %.not80 = icmp ne i32 %.val96, 0
@@ -18711,10 +18711,10 @@ switch.lookup:                                    ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 0, ptr %1, align 8, !tbaa !706
   store i32 %44, ptr %59, align 8, !tbaa !242
-  br i1 %.069, label %65, label %90
+  br i1 %.069, label %65, label %86
 
 64:                                               ; preds = %41
-  br i1 %.069, label %65, label %90
+  br i1 %.069, label %65, label %86
 
 65:                                               ; preds = %43, %.thread158, %64
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18722,95 +18722,87 @@ switch.lookup:                                    ; preds = %15
   %.not81 = icmp eq i32 %.val102, 0
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val110 = load i32, ptr %67, align 4, !tbaa !710
-  br i1 %.not81, label %77, label %68
-
-68:                                               ; preds = %65
-  switch i32 %.val110, label %73 [
-    i32 11, label %69
-    i32 7, label %69
-  ]
-
-69:                                               ; preds = %68, %68
-  %.val94 = load i32, ptr %39, align 4, !tbaa !711
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val112 = load i32, ptr %70, align 8, !tbaa !712
-  %71 = zext i32 %.val112 to i64
-  %72 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel13emitAddSub_rxEbN4llvm3MVTEjjNS1_10AArch64_AM15ShiftExtendTypeEmbb(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext true, i16 8, i32 noundef %.val102, i32 noundef %.val94, i32 noundef %.val110, i64 noundef %71, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %86
-
-73:                                               ; preds = %68
-  %.val93 = load i32, ptr %39, align 4, !tbaa !711
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val113 = load i32, ptr %74, align 8, !tbaa !712
-  %75 = zext i32 %.val113 to i64
-  %76 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel13emitAddSub_rsEbN4llvm3MVTEjjNS1_10AArch64_AM15ShiftExtendTypeEmbb(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext true, i16 8, i32 noundef %.val102, i32 noundef %.val93, i32 noundef 0, i64 noundef %75, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %86
-
-77:                                               ; preds = %65
   %.val90 = load i32, ptr %39, align 4, !tbaa !711
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val116 = load i32, ptr %78, align 8, !tbaa !712
-  %79 = zext i32 %.val116 to i64
-  switch i32 %.val110, label %84 [
-    i32 7, label %80
-    i32 11, label %82
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val116 = load i32, ptr %68, align 8, !tbaa !712
+  %69 = zext i32 %.val116 to i64
+  br i1 %.not81, label %75, label %70
+
+70:                                               ; preds = %65
+  switch i32 %.val110, label %73 [
+    i32 11, label %71
+    i32 7, label %71
   ]
 
-80:                                               ; preds = %77
-  %81 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitLSL_riEN4llvm3MVTES2_jmb(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 8, i16 7, i32 noundef %.val90, i64 noundef %79, i1 noundef zeroext true)
-  br label %86
+71:                                               ; preds = %70, %70
+  %72 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel13emitAddSub_rxEbN4llvm3MVTEjjNS1_10AArch64_AM15ShiftExtendTypeEmbb(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext true, i16 8, i32 noundef %.val102, i32 noundef %.val90, i32 noundef %.val110, i64 noundef %69, i1 noundef zeroext false, i1 noundef zeroext true)
+  br label %82
 
-82:                                               ; preds = %77
-  %83 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitLSL_riEN4llvm3MVTES2_jmb(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 8, i16 7, i32 noundef %.val90, i64 noundef %79, i1 noundef zeroext false)
-  br label %86
+73:                                               ; preds = %70
+  %74 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel13emitAddSub_rsEbN4llvm3MVTEjjNS1_10AArch64_AM15ShiftExtendTypeEmbb(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext true, i16 8, i32 noundef %.val102, i32 noundef %.val90, i32 noundef 0, i64 noundef %69, i1 noundef zeroext false, i1 noundef zeroext true)
+  br label %82
 
-84:                                               ; preds = %77
-  %85 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitLSL_riEN4llvm3MVTES2_jmb(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 8, i16 8, i32 noundef %.val90, i64 noundef %79, i1 noundef zeroext true)
-  br label %86
+75:                                               ; preds = %65
+  switch i32 %.val110, label %80 [
+    i32 7, label %76
+    i32 11, label %78
+  ]
 
-86:                                               ; preds = %80, %84, %82, %69, %73
-  %.064 = phi i32 [ %72, %69 ], [ %76, %73 ], [ %81, %80 ], [ %83, %82 ], [ %85, %84 ]
+76:                                               ; preds = %75
+  %77 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitLSL_riEN4llvm3MVTES2_jmb(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 8, i16 7, i32 noundef %.val90, i64 noundef %69, i1 noundef zeroext true)
+  br label %82
+
+78:                                               ; preds = %75
+  %79 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitLSL_riEN4llvm3MVTES2_jmb(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 8, i16 7, i32 noundef %.val90, i64 noundef %69, i1 noundef zeroext false)
+  br label %82
+
+80:                                               ; preds = %75
+  %81 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitLSL_riEN4llvm3MVTES2_jmb(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 8, i16 8, i32 noundef %.val90, i64 noundef %69, i1 noundef zeroext true)
+  br label %82
+
+82:                                               ; preds = %76, %80, %78, %71, %73
+  %.064 = phi i32 [ %72, %71 ], [ %74, %73 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ]
   %.not82.not = icmp eq i32 %.064, 0
-  br i1 %.not82.not, label %.critedge, label %87
+  br i1 %.not82.not, label %.critedge, label %83
 
-87:                                               ; preds = %86
+83:                                               ; preds = %82
   store i32 %.064, ptr %66, align 8, !tbaa !242
   store i32 0, ptr %39, align 4, !tbaa !711
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 0, ptr %88, align 8, !tbaa !712
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 -1, ptr %89, align 4, !tbaa !710
-  br label %90
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 0, ptr %84, align 8, !tbaa !712
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 -1, ptr %85, align 4, !tbaa !710
+  br label %86
 
-90:                                               ; preds = %43, %.thread158, %87, %64
-  br i1 %.068139, label %91, label %.critedge
+86:                                               ; preds = %43, %.thread158, %83, %64
+  br i1 %.068139, label %87, label %.critedge
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val99 = load i32, ptr %92, align 8, !tbaa !242
+87:                                               ; preds = %86
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val99 = load i32, ptr %88, align 8, !tbaa !242
   %.not83 = icmp eq i32 %.val99, 0
-  br i1 %.not83, label %_ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit, label %93
+  br i1 %.not83, label %_ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit, label %89
 
-93:                                               ; preds = %91
-  %94 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel11emitAdd_ri_EN4llvm3MVTEjl(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 8, i32 noundef %.val99, i64 noundef %.val89)
-  br label %96
+89:                                               ; preds = %87
+  %90 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel11emitAdd_ri_EN4llvm3MVTEjl(ptr noundef nonnull align 8 dereferenceable(192) %0, i16 8, i32 noundef %.val99, i64 noundef %.val89)
+  br label %92
 
-_ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit: ; preds = %91
-  %95 = call i32 @_ZN4llvm8FastISel14fastEmitInst_iEjPKNS_19TargetRegisterClassEm(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 1013, ptr noundef nonnull @_ZN4llvm7AArch6413GPR64RegClassE, i64 noundef %.val89) #23
-  br label %96
+_ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit: ; preds = %87
+  %91 = call i32 @_ZN4llvm8FastISel14fastEmitInst_iEjPKNS_19TargetRegisterClassEm(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 1013, ptr noundef nonnull @_ZN4llvm7AArch6413GPR64RegClassE, i64 noundef %.val89) #23
+  br label %92
 
-96:                                               ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit, %93
-  %.0 = phi i32 [ %94, %93 ], [ %95, %_ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit ]
+92:                                               ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit, %89
+  %.0 = phi i32 [ %90, %89 ], [ %91, %_ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit ]
   %.not84.not = icmp eq i32 %.0, 0
-  br i1 %.not84.not, label %.critedge, label %97
+  br i1 %.not84.not, label %.critedge, label %93
 
-97:                                               ; preds = %96
-  store i32 %.0, ptr %92, align 8, !tbaa !242
+93:                                               ; preds = %92
+  store i32 %.0, ptr %88, align 8, !tbaa !242
   store i64 0, ptr %18, align 8, !tbaa !1174
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %90, %97, %96, %86, %3
-  %.065 = phi i1 [ false, %3 ], [ false, %86 ], [ false, %96 ], [ true, %97 ], [ true, %90 ], [ false, %15 ]
+.critedge:                                        ; preds = %15, %86, %93, %92, %82, %3
+  %.065 = phi i1 [ false, %3 ], [ false, %82 ], [ false, %92 ], [ true, %93 ], [ true, %86 ], [ false, %15 ]
   ret i1 %.065
 }
 

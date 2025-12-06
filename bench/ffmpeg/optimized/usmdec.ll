@@ -154,11 +154,11 @@ define internal i32 @usm_read_packet(ptr noundef %0, ptr noundef %1) #2 {
   br i1 %58, label %switch.lookup, label %parse_utf.exit.i
 
 switch.lookup:                                    ; preds = %51
-  %59 = zext nneg i32 %29 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.usm_read_packet, i64 %59
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %60 = zext nneg i32 %29 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.usm_read_packet, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
-  %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i32 %switch.load, ptr %60, align 8, !tbaa !32
+  store i32 %switch.load, ptr %59, align 8, !tbaa !32
   store i32 1, ptr %56, align 4, !tbaa !29
   store i32 -1, ptr %55, align 8, !tbaa !33
   %61 = getelementptr inbounds nuw i8, ptr %24, i64 57344
@@ -777,10 +777,10 @@ bytestream2_get_be64.exit.i.i:                    ; preds = %.cont.i.i, %230, %.
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %308, %298
-  %.sink206.i = phi i64 [ 48, %308 ], [ 56, %298 ]
-  %.sink204.i = phi i64 [ %316, %308 ], [ %307, %298 ]
-  %317 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink206.i
-  store i64 %.sink204.i, ptr %317, align 8, !tbaa !63
+  %.sink205.i = phi i64 [ 48, %308 ], [ 56, %298 ]
+  %.sink203.i = phi i64 [ %316, %308 ], [ %307, %298 ]
+  %317 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink205.i
+  store i64 %.sink203.i, ptr %317, align 8, !tbaa !63
   br label %318
 
 318:                                              ; preds = %.sink.split.i, %289

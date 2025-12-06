@@ -1684,84 +1684,83 @@ define dso_local noundef zeroext i1 @RecheckDataDirLockFile() local_unnamed_addr
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.39, i32 noundef 2, i32 noundef 0) #21
   %3 = icmp slt i32 %2, 0
-  br i1 %3, label %4, label %17
+  br i1 %3, label %4, label %16
 
 4:                                                ; preds = %0
   %5 = tail call ptr @__errno_location() #23
   %6 = load i32, ptr %5, align 4
+  %7 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
   switch i32 %6, label %12 [
-    i32 2, label %7
-    i32 20, label %7
+    i32 2, label %8
+    i32 20, label %8
   ]
 
-7:                                                ; preds = %4, %4
-  %8 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
-  br i1 %8, label %9, label %43
+8:                                                ; preds = %4, %4
+  br i1 %7, label %9, label %42
 
-9:                                                ; preds = %7
+9:                                                ; preds = %8
   %10 = tail call i32 @errcode_for_file_access() #21
   %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.39) #21
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1717, ptr noundef nonnull @__func__.RecheckDataDirLockFile) #21
-  br label %43
+  br label %42
 
 12:                                               ; preds = %4
-  %13 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
-  br i1 %13, label %14, label %43
+  br i1 %7, label %13, label %42
 
-14:                                               ; preds = %12
-  %15 = tail call i32 @errcode_for_file_access() #21
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.39) #21
+13:                                               ; preds = %12
+  %14 = tail call i32 @errcode_for_file_access() #21
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.39) #21
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1724, ptr noundef nonnull @__func__.RecheckDataDirLockFile) #21
-  br label %43
+  br label %42
 
-17:                                               ; preds = %0
-  %18 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772189, ptr %18, align 4
-  %19 = call i64 @read(i32 noundef %2, ptr noundef nonnull %1, i64 noundef 8191) #21
-  %20 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %20, align 4
-  %21 = and i64 %19, 2147483648
-  %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %29, label %22
+16:                                               ; preds = %0
+  %17 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772189, ptr %17, align 4
+  %18 = call i64 @read(i32 noundef %2, ptr noundef nonnull %1, i64 noundef 8191) #21
+  %19 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %19, align 4
+  %20 = and i64 %18, 2147483648
+  %.not = icmp eq i64 %20, 0
+  br i1 %.not, label %28, label %21
 
-22:                                               ; preds = %17
-  %23 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
-  br i1 %23, label %24, label %27
+21:                                               ; preds = %16
+  %22 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  br i1 %22, label %23, label %26
 
-24:                                               ; preds = %22
-  %25 = tail call i32 @errcode_for_file_access() #21
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.39) #21
+23:                                               ; preds = %21
+  %24 = tail call i32 @errcode_for_file_access() #21
+  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.39) #21
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1736, ptr noundef nonnull @__func__.RecheckDataDirLockFile) #21
-  br label %27
+  br label %26
 
-27:                                               ; preds = %24, %22
-  %28 = tail call i32 @close(i32 noundef %2) #21
-  br label %43
+26:                                               ; preds = %23, %21
+  %27 = tail call i32 @close(i32 noundef %2) #21
+  br label %42
 
-29:                                               ; preds = %17
-  %30 = and i64 %19, 2147483647
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
-  store i8 0, ptr %31, align 1
-  %32 = tail call i32 @close(i32 noundef %2) #21
-  %33 = call i64 @strtol(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #21
-  %34 = tail call i32 @getpid() #21
-  %35 = sext i32 %34 to i64
-  %36 = icmp eq i64 %33, %35
-  br i1 %36, label %43, label %37
+28:                                               ; preds = %16
+  %29 = and i64 %18, 2147483647
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %29
+  store i8 0, ptr %30, align 1
+  %31 = tail call i32 @close(i32 noundef %2) #21
+  %32 = call i64 @strtol(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #21
+  %33 = tail call i32 @getpid() #21
+  %34 = sext i32 %33 to i64
+  %35 = icmp eq i64 %32, %34
+  br i1 %35, label %42, label %36
 
-37:                                               ; preds = %29
-  %38 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
-  br i1 %38, label %39, label %43
+36:                                               ; preds = %28
+  %37 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  br i1 %37, label %38, label %42
 
-39:                                               ; preds = %37
-  %40 = tail call i32 @getpid() #21
-  %41 = sext i32 %40 to i64
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.39, i64 noundef %33, i64 noundef %41) #21
+38:                                               ; preds = %36
+  %39 = tail call i32 @getpid() #21
+  %40 = sext i32 %39 to i64
+  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.39, i64 noundef %32, i64 noundef %40) #21
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1749, ptr noundef nonnull @__func__.RecheckDataDirLockFile) #21
-  br label %43
+  br label %42
 
-43:                                               ; preds = %37, %39, %29, %12, %14, %7, %9, %27
-  %.0 = phi i1 [ true, %27 ], [ false, %9 ], [ false, %7 ], [ true, %14 ], [ true, %12 ], [ true, %29 ], [ false, %39 ], [ false, %37 ]
+42:                                               ; preds = %36, %38, %28, %12, %13, %8, %9, %26
+  %.0 = phi i1 [ true, %26 ], [ false, %9 ], [ false, %8 ], [ true, %13 ], [ true, %12 ], [ true, %28 ], [ false, %38 ], [ false, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.0
 }

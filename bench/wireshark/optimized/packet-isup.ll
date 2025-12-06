@@ -3698,25 +3698,25 @@ define hidden void @proto_register_bicc() local_unnamed_addr #1 {
 define internal i32 @dissect_bicc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = load i32, ptr @g_isup_variant, align 4
   %trunc = trunc i32 %5 to i8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8
   %switch.tableidx = add i8 %trunc, -1
-  %6 = icmp ult i8 %switch.tableidx, 5
-  br i1 %6, label %switch.lookup, label %9
+  %8 = icmp ult i8 %switch.tableidx, 5
+  br i1 %8, label %switch.lookup, label %11
 
 switch.lookup:                                    ; preds = %4
-  %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_bicc, i64 %7
+  %9 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_bicc, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep37 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_bicc.38, i64 %8
-  %switch.load38 = load ptr, ptr %switch.gep37, align 8
-  br label %9
+  %10 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep36 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_bicc.38, i64 %10
+  %switch.load37 = load ptr, ptr %switch.gep36, align 8
+  br label %11
 
-9:                                                ; preds = %4, %switch.lookup
+11:                                               ; preds = %4, %switch.lookup
   %.str.2022.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.2022, %4 ]
-  %.0 = phi ptr [ %switch.load38, %switch.lookup ], [ @isup_message_type_value_acro_ext, %4 ]
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void @col_set_str(ptr noundef %11, i32 noundef 35, ptr noundef nonnull %.str.2022.sink)
+  %.0 = phi ptr [ %switch.load37, %switch.lookup ], [ @isup_message_type_value_acro_ext, %4 ]
+  tail call void @col_set_str(ptr noundef %7, i32 noundef 35, ptr noundef nonnull %.str.2022.sink)
   %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
   %13 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 25, i32 noundef %13)
@@ -3730,11 +3730,11 @@ switch.lookup:                                    ; preds = %4
   %20 = tail call ptr @val_to_str_ext_const(i32 noundef %19, ptr noundef nonnull %.0, ptr noundef nonnull @.str.1143)
   br i1 %17, label %21, label %22
 
-21:                                               ; preds = %9
+21:                                               ; preds = %11
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.2001, ptr noundef nonnull @.str.2023, ptr noundef %20, i32 noundef %13)
   br label %23
 
-22:                                               ; preds = %9
+22:                                               ; preds = %11
   tail call void @col_append_sep_str(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.2001, ptr noundef %20)
   br label %23
 

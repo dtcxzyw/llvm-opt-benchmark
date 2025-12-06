@@ -2006,7 +2006,7 @@ for.cond.cleanup:                                 ; preds = %cleanup, %entry
   ret void
 
 for.body:                                         ; preds = %cleanup, %for.body.lr.ph
-  %3 = phi ptr [ %1, %for.body.lr.ph ], [ %51, %cleanup ]
+  %3 = phi ptr [ %1, %for.body.lr.ph ], [ %50, %cleanup ]
   %ctr.0233 = phi i32 [ 0, %for.body.lr.ph ], [ %ctr.1, %cleanup ]
   %packed_idx.0231 = phi i64 [ 0, %for.body.lr.ph ], [ %inc111, %cleanup ]
   %add.ptr.i = getelementptr inbounds %struct.PackedInstr, ptr %3, i64 %packed_idx.0231
@@ -2284,6 +2284,9 @@ if.then88:                                        ; preds = %if.then85
 
 if.end89:                                         ; preds = %if.then88, %if.then85
   %44 = load i16, ptr %add.ptr.i, align 8, !tbaa !59
+  %45 = load i16, ptr %set_into83, align 2, !tbaa !65
+  %conv100 = zext i16 %45 to i32
+  %add101 = add nsw i32 %call, %conv100
   switch i16 %44, label %if.else98 [
     i16 4, label %if.then93
     i16 6, label %if.then93
@@ -2291,21 +2294,15 @@ if.end89:                                         ; preds = %if.then88, %if.then
   ]
 
 if.then93:                                        ; preds = %if.end89, %if.end89, %if.end89
-  %45 = load i16, ptr %set_into83, align 2, !tbaa !65
-  %conv95 = zext i16 %45 to i32
-  %add96 = add nsw i32 %call, %conv95
   %46 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !23
-  call void @lua_rawseti(ptr noundef %L, i32 noundef %add96, i32 noundef %47)
+  call void @lua_rawseti(ptr noundef %L, i32 noundef %add101, i32 noundef %47)
   br label %cleanup
 
 if.else98:                                        ; preds = %if.end89
-  %48 = load i16, ptr %set_into83, align 2, !tbaa !65
-  %conv100 = zext i16 %48 to i32
-  %add101 = add nsw i32 %call, %conv100
   %sdata102 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
-  %49 = load ptr, ptr %sdata102, align 8, !tbaa !14
-  call void @lua_setfield(ptr noundef %L, i32 noundef %add101, ptr noundef %49)
+  %48 = load ptr, ptr %sdata102, align 8, !tbaa !14
+  call void @lua_setfield(ptr noundef %L, i32 noundef %add101, ptr noundef %48)
   br label %cleanup
 
 if.else105:                                       ; preds = %if.end82
@@ -2317,10 +2314,10 @@ if.then108:                                       ; preds = %if.else105
 
 cleanup:                                          ; preds = %if.then108, %if.else105, %if.else98, %if.then93, %if.else52, %if.then47, %if.end4.i, %if.then.i, %if.then34, %sw.bb29, %if.else, %if.then16, %sw.bb
   %inc111 = add nuw i64 %packed_idx.0231, 1
-  %50 = load ptr, ptr %_M_finish.i, align 8, !tbaa !57
-  %51 = load ptr, ptr %pv, align 8, !tbaa !58
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %50 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %51 to i64
+  %49 = load ptr, ptr %_M_finish.i, align 8, !tbaa !57
+  %50 = load ptr, ptr %pv, align 8, !tbaa !58
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %49 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %50 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
   %cmp = icmp ult i64 %inc111, %sub.ptr.div.i
@@ -2727,6 +2724,7 @@ sw.epilog:                                        ; preds = %sw.bb41, %sw.bb36, 
 if.then:                                          ; preds = %sw.epilog
   %25 = load i16, ptr %__begin1.sroa.0.0115, align 8, !tbaa !59
   %cmp = icmp sgt i16 %25, -1
+  %conv63 = zext i16 %24 to i32
   br i1 %cmp, label %land.lhs.true, label %if.else65
 
 land.lhs.true:                                    ; preds = %if.then
@@ -2739,20 +2737,17 @@ land.lhs.true:                                    ; preds = %if.then
 if.then51:                                        ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true
   %26 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0115, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !23
-  %conv54 = zext i16 %24 to i32
-  %call55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %27, i32 noundef %conv54)
+  %call55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %27, i32 noundef %conv63)
   br label %if.end70
 
 if.then59:                                        ; preds = %land.lhs.true
   %sdata60 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0115, i64 16
   %28 = load ptr, ptr %sdata60, align 8, !tbaa !14
-  %conv63 = zext i16 %24 to i32
   %call64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %28, i32 noundef %conv63)
   br label %if.end70
 
 if.else65:                                        ; preds = %if.then
-  %conv67 = zext i16 %24 to i32
-  %call68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv67)
+  %call68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %conv63)
   br label %if.end70
 
 if.end70:                                         ; preds = %if.else65, %if.then59, %if.then51, %sw.epilog

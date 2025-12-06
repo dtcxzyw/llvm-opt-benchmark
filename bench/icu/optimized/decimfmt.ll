@@ -1327,63 +1327,60 @@ define void @_ZN6icu_7713DecimalFormatC2ERKNS_13UnicodeStringEPNS_20DecimalForma
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %11, label %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread
 
-9:                                                ; preds = %17, %13, %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit.thread
+9:                                                ; preds = %17, %16, %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit.thread
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %47
 
 11:                                               ; preds = %5
   %12 = icmp eq i32 %3, 11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   switch i32 %3, label %17 [
-    i32 16, label %13
-    i32 13, label %13
-    i32 12, label %13
-    i32 11, label %13
-    i32 10, label %13
-    i32 2, label %13
+    i32 16, label %16
+    i32 13, label %16
+    i32 12, label %16
+    i32 11, label %16
+    i32 10, label %16
+    i32 2, label %16
   ]
 
-13:                                               ; preds = %11, %11, %11, %11, %11, %11
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %15 = load ptr, ptr %14, align 8, !tbaa !25
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  invoke void @_ZN6icu_776number4impl13PatternParser25parseToExistingPropertiesERKNS_13UnicodeStringERNS1_23DecimalFormatPropertiesENS1_14IgnoreRoundingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(757) %16, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %4)
+16:                                               ; preds = %11, %11, %11, %11, %11, %11
+  invoke void @_ZN6icu_776number4impl13PatternParser25parseToExistingPropertiesERKNS_13UnicodeStringERNS1_23DecimalFormatPropertiesENS1_14IgnoreRoundingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(757) %15, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit unwind label %9
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %19 = load ptr, ptr %18, align 8, !tbaa !25
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  invoke void @_ZN6icu_776number4impl13PatternParser25parseToExistingPropertiesERKNS_13UnicodeStringERNS1_23DecimalFormatPropertiesENS1_14IgnoreRoundingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(757) %20, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  invoke void @_ZN6icu_776number4impl13PatternParser25parseToExistingPropertiesERKNS_13UnicodeStringERNS1_23DecimalFormatPropertiesENS1_14IgnoreRoundingER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(757) %15, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit.thread unwind label %9
 
-_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %13
-  br i1 %12, label %21, label %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit.thread
+_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %16
+  br i1 %12, label %18, label %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit.thread
 
-21:                                               ; preds = %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit
-  %22 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #19
-  %.not43 = icmp eq ptr %22, null
-  br i1 %.not43, label %.critedge, label %23
+18:                                               ; preds = %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit
+  %19 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #19
+  %.not43 = icmp eq ptr %19, null
+  br i1 %.not43, label %.critedge, label %20
 
-23:                                               ; preds = %21
+20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %24 = load ptr, ptr %14, align 8, !tbaa !25
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 768
-  %26 = load ptr, ptr %25, align 8, !tbaa !32
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1936
-  invoke void @_ZN6icu_776LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %6, ptr noundef nonnull align 8 dereferenceable(217) %27)
-          to label %_ZNK6icu_7720DecimalFormatSymbols9getLocaleEv.exit unwind label %32
+  %21 = load ptr, ptr %13, align 8, !tbaa !25
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 768
+  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1936
+  invoke void @_ZN6icu_776LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %6, ptr noundef nonnull align 8 dereferenceable(217) %24)
+          to label %_ZNK6icu_7720DecimalFormatSymbols9getLocaleEv.exit unwind label %29
 
-_ZNK6icu_7720DecimalFormatSymbols9getLocaleEv.exit: ; preds = %23
-  invoke void @_ZN6icu_7718CurrencyPluralInfoC1ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) %22, ptr noundef nonnull align 8 dereferenceable(217) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %.critedge48 unwind label %34
+_ZNK6icu_7720DecimalFormatSymbols9getLocaleEv.exit: ; preds = %20
+  invoke void @_ZN6icu_7718CurrencyPluralInfoC1ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) %19, ptr noundef nonnull align 8 dereferenceable(217) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %.critedge48 unwind label %31
 
-.critedge:                                        ; preds = %21
-  %28 = load i32, ptr %4, align 4
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread, label %30
+.critedge:                                        ; preds = %18
+  %25 = load i32, ptr %4, align 4
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread, label %27
 
-30:                                               ; preds = %.critedge
+27:                                               ; preds = %.critedge
   store i32 7, ptr %4, align 4, !tbaa !13
   br label %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread
 
@@ -1391,60 +1388,60 @@ _ZNK6icu_7720DecimalFormatSymbols9getLocaleEv.exit: ; preds = %23
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pr = load i32, ptr %4, align 4, !tbaa !13
-  %31 = icmp sgt i32 %.pr, 0
-  br i1 %31, label %46, label %37
+  %28 = icmp sgt i32 %.pr, 0
+  br i1 %28, label %43, label %34
 
-32:                                               ; preds = %23
-  %33 = landingpad { ptr, i32 }
+29:                                               ; preds = %20
+  %30 = landingpad { ptr, i32 }
           cleanup
-  br label %36
+  br label %33
 
-34:                                               ; preds = %_ZNK6icu_7720DecimalFormatSymbols9getLocaleEv.exit
-  %35 = landingpad { ptr, i32 }
+31:                                               ; preds = %_ZNK6icu_7720DecimalFormatSymbols9getLocaleEv.exit
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %6) #19
-  br label %36
+  br label %33
 
-36:                                               ; preds = %32, %34
-  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %33, %32 ]
+33:                                               ; preds = %29, %31
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %22) #19
-  br label %50
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %19) #19
+  br label %47
 
-37:                                               ; preds = %.critedge48
-  %38 = load ptr, ptr %14, align 8, !tbaa !25
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %40 = load ptr, ptr %39, align 8, !tbaa !109
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit, label %42
+34:                                               ; preds = %.critedge48
+  %35 = load ptr, ptr %13, align 8, !tbaa !25
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  %37 = load ptr, ptr %36, align 8, !tbaa !109
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit, label %39
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %40, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(36) %40) #19
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %37, align 8, !tbaa !18
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8
+  call void %42(ptr noundef nonnull align 8 dereferenceable(36) %37) #19
   br label %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit
 
-46:                                               ; preds = %.critedge48
-  %47 = load ptr, ptr %22, align 8, !tbaa !18
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(36) %22) #19
+43:                                               ; preds = %.critedge48
+  %44 = load ptr, ptr %19, align 8, !tbaa !18
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load ptr, ptr %45, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(36) %19) #19
   br label %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread
 
-_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit: ; preds = %42, %37
-  store ptr %22, ptr %39, align 8, !tbaa !109
+_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit: ; preds = %39, %34
+  store ptr %19, ptr %36, align 8, !tbaa !109
   br label %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit.thread
 
 _ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit.thread: ; preds = %17, %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit, %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit
   invoke void @_ZN6icu_7713DecimalFormat5touchER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread unwind label %9
 
-_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread: ; preds = %.critedge, %30, %46, %5, %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit.thread
+_ZN6icu_7712LocalPointerINS_18CurrencyPluralInfoEED2Ev.exit.thread: ; preds = %.critedge, %27, %43, %5, %_ZN6icu_7713DecimalFormat24setPropertiesFromPatternERKNS_13UnicodeStringEiR10UErrorCode.exit.thread
   ret void
 
-50:                                               ; preds = %36, %9
-  %.pn45 = phi { ptr, i32 } [ %10, %9 ], [ %.pn, %36 ]
+47:                                               ; preds = %33, %9
+  %.pn45 = phi { ptr, i32 } [ %10, %9 ], [ %.pn, %33 ]
   call void @_ZN6icu_7713DecimalFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   resume { ptr, i32 } %.pn45
 }

@@ -4191,7 +4191,7 @@ declare noundef ptr @_ZNK4llvm10DataLayout13getIntPtrTypeEPNS_4TypeE(ptr noundef
 declare noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26ReplaceFPIntrinsicWithCallPN4llvm8CallInstEPKcS3_S3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL26ReplaceFPIntrinsicWithCallPN4llvm8CallInstEPKcS3_S3_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 134217727
@@ -4204,45 +4204,43 @@ define internal fastcc void @_ZL26ReplaceFPIntrinsicWithCallPN4llvm8CallInstEPKc
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %trunc = trunc i32 %15 to i8
-  switch i8 %trunc, label %16 [
-    i8 2, label %17
+  %16 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
+  switch i8 %trunc, label %17 [
+    i8 2, label %18
     i8 3, label %21
-    i8 4, label %25
-    i8 5, label %25
-    i8 6, label %25
+    i8 4, label %24
+    i8 5, label %24
+    i8 6, label %24
   ]
 
-16:                                               ; preds = %4
+17:                                               ; preds = %4
   unreachable
 
-17:                                               ; preds = %4
-  %18 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
+18:                                               ; preds = %4
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
   %20 = tail call noundef ptr @_ZN4llvm4Type10getFloatTyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %19) #16
-  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %18, ptr noundef %20)
-  br label %35
+  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %16, ptr noundef %20)
+  br label %33
 
 21:                                               ; preds = %4
-  %22 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
-  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
-  %24 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %23) #16
-  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE(ptr noundef %2, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %22, ptr noundef %24)
-  br label %35
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
+  %23 = tail call noundef ptr @_ZN4llvm4Type11getDoubleTyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %22) #16
+  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE(ptr noundef %2, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %16, ptr noundef %23)
+  br label %33
 
-25:                                               ; preds = %4, %4, %4
-  %26 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
-  %27 = load i32, ptr %5, align 4
-  %28 = and i32 %27, 134217727
-  %29 = zext nneg i32 %28 to i64
-  %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !3
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !53
-  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %26, ptr noundef %34)
-  br label %35
+24:                                               ; preds = %4, %4, %4
+  %25 = load i32, ptr %5, align 4
+  %26 = and i32 %25, 134217727
+  %27 = zext nneg i32 %26 to i64
+  %28 = sub nsw i64 0, %27
+  %29 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %28
+  %30 = load ptr, ptr %29, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !53
+  tail call fastcc void @_ZL15ReplaceCallWithIPN4llvm3UseEEPNS0_8CallInstEPKcS4_T_S7_PNS0_4TypeE(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %16, ptr noundef %32)
+  br label %33
 
-35:                                               ; preds = %25, %21, %17
+33:                                               ; preds = %24, %21, %18
   ret void
 }
 

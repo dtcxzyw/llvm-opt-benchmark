@@ -1713,14 +1713,14 @@ param_is_newly_set.exit.thread.i.i:               ; preds = %param_is_newly_set.
   %511 = load ptr, ptr @pset, align 8
   %512 = call ptr @PQhostaddr(ptr noundef %511) #17
   %.val.i.i = load i8, ptr %510, align 1
+  %.not260.i.i = icmp eq ptr %512, null
   switch i8 %.val.i.i, label %532 [
     i8 64, label %513
     i8 47, label %513
   ]
 
 513:                                              ; preds = %param_is_newly_set.exit.thread.i.i, %param_is_newly_set.exit.thread.i.i
-  %.not263.i.i = icmp eq ptr %512, null
-  br i1 %.not263.i.i, label %524, label %514
+  br i1 %.not260.i.i, label %524, label %514
 
 514:                                              ; preds = %513
   %515 = load i8, ptr %512, align 1
@@ -1748,7 +1748,6 @@ param_is_newly_set.exit.thread.i.i:               ; preds = %param_is_newly_set.
   br label %558
 
 532:                                              ; preds = %param_is_newly_set.exit.thread.i.i
-  %.not260.i.i = icmp eq ptr %512, null
   br i1 %.not260.i.i, label %545, label %533
 
 533:                                              ; preds = %532
@@ -4467,14 +4466,14 @@ define internal fastcc void @exec_command_conninfo(i1 noundef zeroext %0) unname
   %9 = load ptr, ptr @pset, align 8
   %10 = tail call ptr @PQhostaddr(ptr noundef %9) #17
   %.val = load i8, ptr %8, align 1
+  %.not = icmp eq ptr %10, null
   switch i8 %.val, label %26 [
     i8 64, label %11
     i8 47, label %11
   ]
 
 11:                                               ; preds = %6, %6
-  %.not20 = icmp eq ptr %10, null
-  br i1 %.not20, label %20, label %12
+  br i1 %.not, label %20, label %12
 
 12:                                               ; preds = %11
   %13 = load i8, ptr %10, align 1
@@ -4498,7 +4497,6 @@ define internal fastcc void @exec_command_conninfo(i1 noundef zeroext %0) unname
   br label %43
 
 26:                                               ; preds = %6
-  %.not = icmp eq ptr %10, null
   br i1 %.not, label %37, label %27
 
 27:                                               ; preds = %26

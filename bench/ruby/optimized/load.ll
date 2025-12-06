@@ -1579,18 +1579,17 @@ load_lock.exit.thread148:                         ; preds = %RSTRING_PTR.exit124
 110:                                              ; preds = %108, %105, %104
   %111 = load i64, ptr %7, align 8, !tbaa !42
   %112 = call i64 @rb_thread_shield_wait(i64 noundef %111) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   switch i64 %112, label %load_lock.exit [
     i64 0, label %load_lock.exit.thread
     i64 4, label %load_lock.exit.thread
   ]
 
 load_lock.exit.thread:                            ; preds = %110, %110
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store volatile ptr null, ptr %10, align 8, !tbaa !98
   br label %113
 
 load_lock.exit:                                   ; preds = %110
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store volatile ptr %.sroa.2.0.i123, ptr %10, align 8, !tbaa !98
   %.not96 = icmp eq ptr %.sroa.2.0.i123, null
   br i1 %.not96, label %113, label %114

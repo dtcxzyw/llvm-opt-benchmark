@@ -121,17 +121,17 @@ define void @ff_vc1_i_overlap_filter(ptr noundef readonly captures(none) %0) loc
 79:                                               ; preds = %72, %71
   %80 = phi i32 [ 0, %71 ], [ %74, %72 ]
   %81 = phi i32 [ 0, %71 ], [ %78, %72 ]
+  %82 = load ptr, ptr %35, align 8, !tbaa !57
   switch i32 %42, label %default.unreachable [
-    i32 0, label %82
+    i32 0, label %83
     i32 1, label %95
-    i32 2, label %98
-    i32 3, label %114
-    i32 4, label %117
-    i32 5, label %117
+    i32 2, label %97
+    i32 3, label %112
+    i32 4, label %114
+    i32 5, label %114
   ]
 
-82:                                               ; preds = %79
-  %83 = load ptr, ptr %35, align 8, !tbaa !57
+83:                                               ; preds = %79
   %84 = getelementptr inbounds nuw i8, ptr %62, i64 256
   %.not48.i = icmp eq i32 %80, %81
   %85 = shl nuw nsw i32 %80, 3
@@ -144,263 +144,251 @@ define void @ff_vc1_i_overlap_filter(ptr noundef readonly captures(none) %0) loc
   %92 = zext nneg i32 %91 to i64
   %93 = or i32 %81, %80
   %94 = xor i32 %93, 1
-  tail call void %83(ptr noundef nonnull %84, ptr noundef %27, i64 noundef %88, i64 noundef %92, i32 noundef %94) #1
+  tail call void %82(ptr noundef nonnull %84, ptr noundef %27, i64 noundef %88, i64 noundef %92, i32 noundef %94) #1
   br label %vc1_h_overlap_filter.exit
 
 95:                                               ; preds = %79
-  %96 = load ptr, ptr %35, align 8, !tbaa !57
-  %97 = xor i32 %81, 1
-  tail call void %96(ptr noundef %27, ptr noundef nonnull %38, i64 noundef 8, i64 noundef 8, i32 noundef %97) #1
+  %96 = xor i32 %81, 1
+  tail call void %82(ptr noundef %27, ptr noundef nonnull %38, i64 noundef 8, i64 noundef 8, i32 noundef %96) #1
   br label %vc1_h_overlap_filter.exit
 
-98:                                               ; preds = %79
-  %99 = load ptr, ptr %35, align 8, !tbaa !57
-  %100 = icmp eq i32 %80, 0
-  %101 = icmp ne i32 %81, 0
-  %or.cond.i = and i1 %100, %101
+97:                                               ; preds = %79
+  %98 = icmp eq i32 %80, 0
+  %99 = icmp ne i32 %81, 0
+  %or.cond.i = and i1 %98, %99
   %.v.i = select i1 %or.cond.i, i64 272, i64 384
-  %102 = getelementptr inbounds nuw i8, ptr %62, i64 %.v.i
-  %or.cond3.i = or i1 %100, %101
+  %100 = getelementptr inbounds nuw i8, ptr %62, i64 %.v.i
+  %or.cond3.i = or i1 %98, %99
   %.v44.i = select i1 %or.cond3.i, i64 128, i64 16
-  %103 = getelementptr inbounds nuw i8, ptr %27, i64 %.v44.i
+  %101 = getelementptr inbounds nuw i8, ptr %27, i64 %.v44.i
   %.not45.i = icmp eq i32 %80, %81
-  %104 = shl nuw nsw i32 %80, 3
-  %105 = sub nuw nsw i32 16, %104
-  %106 = select i1 %.not45.i, i32 8, i32 %105
-  %107 = zext nneg i32 %106 to i64
-  %108 = shl nuw nsw i32 %81, 3
-  %109 = sub nuw nsw i32 16, %108
-  %110 = select i1 %.not45.i, i32 8, i32 %109
-  %111 = zext nneg i32 %110 to i64
-  %112 = or i32 %81, %80
-  %.not46.i = icmp eq i32 %112, 0
-  %113 = select i1 %.not46.i, i32 1, i32 2
-  tail call void %99(ptr noundef nonnull %102, ptr noundef nonnull %103, i64 noundef %107, i64 noundef %111, i32 noundef %113) #1
+  %102 = shl nuw nsw i32 %80, 3
+  %103 = sub nuw nsw i32 16, %102
+  %104 = select i1 %.not45.i, i32 8, i32 %103
+  %105 = zext nneg i32 %104 to i64
+  %106 = shl nuw nsw i32 %81, 3
+  %107 = sub nuw nsw i32 16, %106
+  %108 = select i1 %.not45.i, i32 8, i32 %107
+  %109 = zext nneg i32 %108 to i64
+  %110 = or i32 %81, %80
+  %.not46.i = icmp eq i32 %110, 0
+  %111 = select i1 %.not46.i, i32 1, i32 2
+  tail call void %82(ptr noundef nonnull %100, ptr noundef nonnull %101, i64 noundef %105, i64 noundef %109, i32 noundef %111) #1
   br label %vc1_h_overlap_filter.exit
 
-114:                                              ; preds = %79
-  %115 = load ptr, ptr %35, align 8, !tbaa !57
+112:                                              ; preds = %79
   %.not.i = icmp eq i32 %81, 0
-  %116 = select i1 %.not.i, i32 1, i32 2
-  tail call void %115(ptr noundef nonnull %36, ptr noundef nonnull %37, i64 noundef 8, i64 noundef 8, i32 noundef %116) #1
+  %113 = select i1 %.not.i, i32 1, i32 2
+  tail call void %82(ptr noundef nonnull %36, ptr noundef nonnull %37, i64 noundef 8, i64 noundef 8, i32 noundef %113) #1
   br label %vc1_h_overlap_filter.exit
 
-117:                                              ; preds = %79, %79
-  %118 = load ptr, ptr %35, align 8, !tbaa !57
-  %119 = getelementptr inbounds nuw [64 x i16], ptr %62, i64 %indvars.iv
-  %120 = getelementptr inbounds nuw [64 x i16], ptr %27, i64 %indvars.iv
-  tail call void %118(ptr noundef %119, ptr noundef %120, i64 noundef 8, i64 noundef 8, i32 noundef 1) #1
+114:                                              ; preds = %79, %79
+  %115 = getelementptr inbounds nuw [64 x i16], ptr %62, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [64 x i16], ptr %27, i64 %indvars.iv
+  tail call void %82(ptr noundef %115, ptr noundef %116, i64 noundef 8, i64 noundef 8, i32 noundef 1) #1
   br label %vc1_h_overlap_filter.exit
 
 default.unreachable:                              ; preds = %79
   unreachable
 
-vc1_h_overlap_filter.exit:                        ; preds = %117, %114, %98, %95, %82, %39, %47, %53, %58
+vc1_h_overlap_filter.exit:                        ; preds = %114, %112, %97, %95, %83, %39, %47, %53, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %121, label %39, !llvm.loop !58
+  br i1 %exitcond.not, label %117, label %39, !llvm.loop !58
 
-121:                                              ; preds = %vc1_h_overlap_filter.exit
-  %122 = load i32, ptr %33, align 4, !tbaa !55
-  %.not = icmp eq i32 %122, 1
+117:                                              ; preds = %vc1_h_overlap_filter.exit
+  %118 = load i32, ptr %33, align 4, !tbaa !55
+  %.not = icmp eq i32 %118, 1
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %121
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 4140
-  %124 = add nsw i32 %9, -1
-  %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 5704
-  %127 = getelementptr inbounds nuw i8, ptr %23, i64 256
-  %128 = getelementptr inbounds nuw i8, ptr %23, i64 384
-  %129 = getelementptr inbounds nuw i8, ptr %23, i64 128
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  br label %131
+.preheader:                                       ; preds = %117
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 4140
+  %120 = add nsw i32 %9, -1
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 5704
+  %123 = getelementptr inbounds nuw i8, ptr %23, i64 256
+  %124 = getelementptr inbounds nuw i8, ptr %23, i64 384
+  %125 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 540
+  br label %127
 
-131:                                              ; preds = %.preheader, %vc1_v_overlap_filter.exit93
+127:                                              ; preds = %.preheader, %vc1_v_overlap_filter.exit93
   %indvars.iv99 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next100, %vc1_v_overlap_filter.exit93 ]
-  %132 = load i32, ptr %123, align 4, !tbaa !60
-  %.not76 = icmp ne i32 %132, 0
-  %133 = trunc nuw nsw i64 %indvars.iv99 to i32
-  %134 = and i32 %133, 2
-  %.not77 = icmp eq i32 %134, 0
+  %128 = load i32, ptr %119, align 4, !tbaa !60
+  %.not76 = icmp ne i32 %128, 0
+  %129 = trunc nuw nsw i64 %indvars.iv99 to i32
+  %130 = and i32 %129, 2
+  %.not77 = icmp eq i32 %130, 0
   %or.cond92 = and i1 %.not77, %.not76
-  br i1 %or.cond92, label %vc1_v_overlap_filter.exit93, label %135
+  br i1 %or.cond92, label %vc1_v_overlap_filter.exit93, label %131
 
-135:                                              ; preds = %131
-  %136 = load i32, ptr %2, align 4, !tbaa !4
-  %.not78 = icmp eq i32 %136, 0
-  br i1 %.not78, label %vc1_v_overlap_filter.exit, label %137
+131:                                              ; preds = %127
+  %132 = load i32, ptr %2, align 4, !tbaa !4
+  %.not78 = icmp eq i32 %132, 0
+  br i1 %.not78, label %vc1_v_overlap_filter.exit, label %133
 
-137:                                              ; preds = %135
-  %138 = load i8, ptr %28, align 4, !tbaa !50
-  %139 = icmp ugt i8 %138, 8
-  br i1 %139, label %157, label %140
+133:                                              ; preds = %131
+  %134 = load i8, ptr %28, align 4, !tbaa !50
+  %135 = icmp ugt i8 %134, 8
+  br i1 %135, label %153, label %136
 
-140:                                              ; preds = %137
-  %141 = load i32, ptr %29, align 4, !tbaa !51
-  %142 = icmp eq i32 %141, 3
-  br i1 %142, label %143, label %vc1_v_overlap_filter.exit
+136:                                              ; preds = %133
+  %137 = load i32, ptr %29, align 4, !tbaa !51
+  %138 = icmp eq i32 %137, 3
+  br i1 %138, label %139, label %vc1_v_overlap_filter.exit
 
-143:                                              ; preds = %140
-  %144 = load i8, ptr %30, align 4, !tbaa !52
-  %145 = icmp eq i8 %144, 1
-  br i1 %145, label %157, label %146
+139:                                              ; preds = %136
+  %140 = load i8, ptr %30, align 4, !tbaa !52
+  %141 = icmp eq i8 %140, 1
+  br i1 %141, label %153, label %142
 
-146:                                              ; preds = %143
-  %147 = load ptr, ptr %31, align 8, !tbaa !53
-  %148 = getelementptr inbounds i8, ptr %147, i64 %125
-  %149 = load i8, ptr %148, align 1, !tbaa !54
-  %.not79 = icmp eq i8 %149, 0
-  br i1 %.not79, label %vc1_v_overlap_filter.exit, label %150
+142:                                              ; preds = %139
+  %143 = load ptr, ptr %31, align 8, !tbaa !53
+  %144 = getelementptr inbounds i8, ptr %143, i64 %121
+  %145 = load i8, ptr %144, align 1, !tbaa !54
+  %.not79 = icmp eq i8 %145, 0
+  br i1 %.not79, label %vc1_v_overlap_filter.exit, label %146
 
-150:                                              ; preds = %146
-  br i1 %.not77, label %151, label %157
+146:                                              ; preds = %142
+  br i1 %.not77, label %147, label %153
 
-151:                                              ; preds = %150
-  %152 = load i32, ptr %6, align 4, !tbaa !37
-  %153 = sub nsw i32 %124, %152
-  %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i8, ptr %147, i64 %154
-  %156 = load i8, ptr %155, align 1, !tbaa !54
-  %.not81 = icmp eq i8 %156, 0
-  br i1 %.not81, label %vc1_v_overlap_filter.exit, label %157
+147:                                              ; preds = %146
+  %148 = load i32, ptr %6, align 4, !tbaa !37
+  %149 = sub nsw i32 %120, %148
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds i8, ptr %143, i64 %150
+  %152 = load i8, ptr %151, align 1, !tbaa !54
+  %.not81 = icmp eq i8 %152, 0
+  br i1 %.not81, label %vc1_v_overlap_filter.exit, label %153
 
-157:                                              ; preds = %151, %150, %143, %137
-  %.not82 = icmp eq i32 %132, 0
-  %158 = select i1 %.not82, ptr %15, ptr %23
-  switch i32 %133, label %default.unreachable95 [
-    i32 0, label %159
-    i32 1, label %162
-    i32 2, label %165
-    i32 3, label %167
-    i32 4, label %169
-    i32 5, label %169
+153:                                              ; preds = %147, %146, %139, %133
+  %.not82 = icmp eq i32 %128, 0
+  %154 = select i1 %.not82, ptr %15, ptr %23
+  %155 = load ptr, ptr %122, align 8, !tbaa !61
+  switch i32 %129, label %default.unreachable95 [
+    i32 0, label %156
+    i32 1, label %158
+    i32 2, label %160
+    i32 3, label %161
+    i32 4, label %162
+    i32 5, label %162
   ]
 
-159:                                              ; preds = %157
-  %160 = load ptr, ptr %126, align 8, !tbaa !61
-  %161 = getelementptr inbounds nuw i8, ptr %158, i64 128
-  tail call void %160(ptr noundef nonnull %161, ptr noundef %23) #1
+156:                                              ; preds = %153
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 128
+  tail call void %155(ptr noundef nonnull %157, ptr noundef %23) #1
   br label %vc1_v_overlap_filter.exit
 
-162:                                              ; preds = %157
-  %163 = load ptr, ptr %126, align 8, !tbaa !61
-  %164 = getelementptr inbounds nuw i8, ptr %158, i64 384
-  tail call void %163(ptr noundef nonnull %164, ptr noundef nonnull %127) #1
+158:                                              ; preds = %153
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 384
+  tail call void %155(ptr noundef nonnull %159, ptr noundef nonnull %123) #1
   br label %vc1_v_overlap_filter.exit
 
-165:                                              ; preds = %157
-  %166 = load ptr, ptr %126, align 8, !tbaa !61
-  tail call void %166(ptr noundef %23, ptr noundef nonnull %129) #1
+160:                                              ; preds = %153
+  tail call void %155(ptr noundef %23, ptr noundef nonnull %125) #1
   br label %vc1_v_overlap_filter.exit
 
-167:                                              ; preds = %157
-  %168 = load ptr, ptr %126, align 8, !tbaa !61
-  tail call void %168(ptr noundef nonnull %127, ptr noundef nonnull %128) #1
+161:                                              ; preds = %153
+  tail call void %155(ptr noundef nonnull %123, ptr noundef nonnull %124) #1
   br label %vc1_v_overlap_filter.exit
 
-169:                                              ; preds = %157, %157
-  %170 = load ptr, ptr %126, align 8, !tbaa !61
-  %171 = getelementptr inbounds nuw [64 x i16], ptr %158, i64 %indvars.iv99
-  %172 = getelementptr inbounds nuw [64 x i16], ptr %23, i64 %indvars.iv99
-  tail call void %170(ptr noundef %171, ptr noundef %172) #1
+162:                                              ; preds = %153, %153
+  %163 = getelementptr inbounds nuw [64 x i16], ptr %154, i64 %indvars.iv99
+  %164 = getelementptr inbounds nuw [64 x i16], ptr %23, i64 %indvars.iv99
+  tail call void %155(ptr noundef %163, ptr noundef %164) #1
   br label %vc1_v_overlap_filter.exit
 
-default.unreachable95:                            ; preds = %157
+default.unreachable95:                            ; preds = %153
   unreachable
 
-vc1_v_overlap_filter.exit:                        ; preds = %169, %167, %165, %162, %159, %151, %146, %140, %135
-  %173 = load i32, ptr %2, align 4, !tbaa !4
-  %174 = load i32, ptr %130, align 4, !tbaa !62
-  %175 = add nsw i32 %174, -1
-  %176 = icmp eq i32 %173, %175
-  br i1 %176, label %177, label %vc1_v_overlap_filter.exit93
+vc1_v_overlap_filter.exit:                        ; preds = %162, %161, %160, %158, %156, %147, %142, %136, %131
+  %165 = load i32, ptr %2, align 4, !tbaa !4
+  %166 = load i32, ptr %126, align 4, !tbaa !62
+  %167 = add nsw i32 %166, -1
+  %168 = icmp eq i32 %165, %167
+  br i1 %168, label %169, label %vc1_v_overlap_filter.exit93
 
-177:                                              ; preds = %vc1_v_overlap_filter.exit
-  %178 = load i8, ptr %28, align 4, !tbaa !50
-  %179 = icmp ugt i8 %178, 8
-  br i1 %179, label %197, label %180
+169:                                              ; preds = %vc1_v_overlap_filter.exit
+  %170 = load i8, ptr %28, align 4, !tbaa !50
+  %171 = icmp ugt i8 %170, 8
+  br i1 %171, label %189, label %172
 
-180:                                              ; preds = %177
-  %181 = load i32, ptr %29, align 4, !tbaa !51
-  %182 = icmp eq i32 %181, 3
-  br i1 %182, label %183, label %vc1_v_overlap_filter.exit93
+172:                                              ; preds = %169
+  %173 = load i32, ptr %29, align 4, !tbaa !51
+  %174 = icmp eq i32 %173, 3
+  br i1 %174, label %175, label %vc1_v_overlap_filter.exit93
 
-183:                                              ; preds = %180
-  %184 = load i8, ptr %30, align 4, !tbaa !52
-  %185 = icmp eq i8 %184, 1
-  br i1 %185, label %197, label %186
+175:                                              ; preds = %172
+  %176 = load i8, ptr %30, align 4, !tbaa !52
+  %177 = icmp eq i8 %176, 1
+  br i1 %177, label %189, label %178
 
-186:                                              ; preds = %183
-  %187 = load ptr, ptr %31, align 8, !tbaa !53
-  %188 = getelementptr inbounds i8, ptr %187, i64 %32
-  %189 = load i8, ptr %188, align 1, !tbaa !54
-  %.not83 = icmp eq i8 %189, 0
-  br i1 %.not83, label %vc1_v_overlap_filter.exit93, label %190
+178:                                              ; preds = %175
+  %179 = load ptr, ptr %31, align 8, !tbaa !53
+  %180 = getelementptr inbounds i8, ptr %179, i64 %32
+  %181 = load i8, ptr %180, align 1, !tbaa !54
+  %.not83 = icmp eq i8 %181, 0
+  br i1 %.not83, label %vc1_v_overlap_filter.exit93, label %182
 
-190:                                              ; preds = %186
-  br i1 %.not77, label %191, label %197
+182:                                              ; preds = %178
+  br i1 %.not77, label %183, label %189
 
-191:                                              ; preds = %190
-  %192 = load i32, ptr %6, align 4, !tbaa !37
-  %193 = sub nsw i32 %9, %192
-  %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds i8, ptr %187, i64 %194
-  %196 = load i8, ptr %195, align 1, !tbaa !54
-  %.not85 = icmp eq i8 %196, 0
-  br i1 %.not85, label %vc1_v_overlap_filter.exit93, label %197
+183:                                              ; preds = %182
+  %184 = load i32, ptr %6, align 4, !tbaa !37
+  %185 = sub nsw i32 %9, %184
+  %186 = sext i32 %185 to i64
+  %187 = getelementptr inbounds i8, ptr %179, i64 %186
+  %188 = load i8, ptr %187, align 1, !tbaa !54
+  %.not85 = icmp eq i8 %188, 0
+  br i1 %.not85, label %vc1_v_overlap_filter.exit93, label %189
 
-197:                                              ; preds = %191, %190, %183, %177
-  %198 = load i32, ptr %123, align 4, !tbaa !60
-  %.not86 = icmp eq i32 %198, 0
-  %199 = select i1 %.not86, ptr %19, ptr %27
-  switch i32 %133, label %default.unreachable94 [
-    i32 0, label %200
-    i32 1, label %203
-    i32 2, label %206
-    i32 3, label %208
-    i32 4, label %210
-    i32 5, label %210
+189:                                              ; preds = %183, %182, %175, %169
+  %190 = load i32, ptr %119, align 4, !tbaa !60
+  %.not86 = icmp eq i32 %190, 0
+  %191 = select i1 %.not86, ptr %19, ptr %27
+  %192 = load ptr, ptr %122, align 8, !tbaa !61
+  switch i32 %129, label %default.unreachable94 [
+    i32 0, label %193
+    i32 1, label %195
+    i32 2, label %197
+    i32 3, label %198
+    i32 4, label %199
+    i32 5, label %199
   ]
 
-200:                                              ; preds = %197
-  %201 = load ptr, ptr %126, align 8, !tbaa !61
-  %202 = getelementptr inbounds nuw i8, ptr %199, i64 128
-  tail call void %201(ptr noundef nonnull %202, ptr noundef %27) #1
+193:                                              ; preds = %189
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 128
+  tail call void %192(ptr noundef nonnull %194, ptr noundef %27) #1
   br label %vc1_v_overlap_filter.exit93
 
-203:                                              ; preds = %197
-  %204 = load ptr, ptr %126, align 8, !tbaa !61
-  %205 = getelementptr inbounds nuw i8, ptr %199, i64 384
-  tail call void %204(ptr noundef nonnull %205, ptr noundef nonnull %38) #1
+195:                                              ; preds = %189
+  %196 = getelementptr inbounds nuw i8, ptr %191, i64 384
+  tail call void %192(ptr noundef nonnull %196, ptr noundef nonnull %38) #1
   br label %vc1_v_overlap_filter.exit93
 
-206:                                              ; preds = %197
-  %207 = load ptr, ptr %126, align 8, !tbaa !61
-  tail call void %207(ptr noundef %27, ptr noundef nonnull %36) #1
+197:                                              ; preds = %189
+  tail call void %192(ptr noundef %27, ptr noundef nonnull %36) #1
   br label %vc1_v_overlap_filter.exit93
 
-208:                                              ; preds = %197
-  %209 = load ptr, ptr %126, align 8, !tbaa !61
-  tail call void %209(ptr noundef nonnull %38, ptr noundef nonnull %37) #1
+198:                                              ; preds = %189
+  tail call void %192(ptr noundef nonnull %38, ptr noundef nonnull %37) #1
   br label %vc1_v_overlap_filter.exit93
 
-210:                                              ; preds = %197, %197
-  %211 = load ptr, ptr %126, align 8, !tbaa !61
-  %212 = getelementptr inbounds nuw [64 x i16], ptr %199, i64 %indvars.iv99
-  %213 = getelementptr inbounds nuw [64 x i16], ptr %27, i64 %indvars.iv99
-  tail call void %211(ptr noundef %212, ptr noundef %213) #1
+199:                                              ; preds = %189, %189
+  %200 = getelementptr inbounds nuw [64 x i16], ptr %191, i64 %indvars.iv99
+  %201 = getelementptr inbounds nuw [64 x i16], ptr %27, i64 %indvars.iv99
+  tail call void %192(ptr noundef %200, ptr noundef %201) #1
   br label %vc1_v_overlap_filter.exit93
 
-default.unreachable94:                            ; preds = %197
+default.unreachable94:                            ; preds = %189
   unreachable
 
-vc1_v_overlap_filter.exit93:                      ; preds = %210, %208, %206, %203, %200, %131, %vc1_v_overlap_filter.exit, %180, %186, %191
+vc1_v_overlap_filter.exit93:                      ; preds = %199, %198, %197, %195, %193, %127, %vc1_v_overlap_filter.exit, %172, %178, %183
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 6
-  br i1 %exitcond102.not, label %.loopexit, label %131, !llvm.loop !63
+  br i1 %exitcond102.not, label %.loopexit, label %127, !llvm.loop !63
 
-.loopexit:                                        ; preds = %vc1_v_overlap_filter.exit93, %121
+.loopexit:                                        ; preds = %vc1_v_overlap_filter.exit93, %117
   ret void
 }
 
@@ -505,17 +493,17 @@ define void @ff_vc1_p_overlap_filter(ptr noundef readonly captures(none) %0) loc
 70:                                               ; preds = %63, %62
   %71 = phi i32 [ 0, %62 ], [ %65, %63 ]
   %72 = phi i32 [ 0, %62 ], [ %69, %63 ]
+  %73 = load ptr, ptr %33, align 8, !tbaa !57
   switch i32 %40, label %default.unreachable [
-    i32 0, label %73
+    i32 0, label %74
     i32 1, label %86
-    i32 2, label %89
-    i32 3, label %105
-    i32 4, label %108
-    i32 5, label %108
+    i32 2, label %88
+    i32 3, label %103
+    i32 4, label %105
+    i32 5, label %105
   ]
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %33, align 8, !tbaa !57
+74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %53, i64 256
   %.not48.i = icmp eq i32 %71, %72
   %76 = shl nuw nsw i32 %71, 3
@@ -528,237 +516,225 @@ define void @ff_vc1_p_overlap_filter(ptr noundef readonly captures(none) %0) loc
   %83 = zext nneg i32 %82 to i64
   %84 = or i32 %72, %71
   %85 = xor i32 %84, 1
-  tail call void %74(ptr noundef nonnull %75, ptr noundef %27, i64 noundef %79, i64 noundef %83, i32 noundef %85) #1
+  tail call void %73(ptr noundef nonnull %75, ptr noundef %27, i64 noundef %79, i64 noundef %83, i32 noundef %85) #1
   br label %vc1_h_overlap_filter.exit
 
 86:                                               ; preds = %70
-  %87 = load ptr, ptr %33, align 8, !tbaa !57
-  %88 = xor i32 %72, 1
-  tail call void %87(ptr noundef %27, ptr noundef nonnull %36, i64 noundef 8, i64 noundef 8, i32 noundef %88) #1
+  %87 = xor i32 %72, 1
+  tail call void %73(ptr noundef %27, ptr noundef nonnull %36, i64 noundef 8, i64 noundef 8, i32 noundef %87) #1
   br label %vc1_h_overlap_filter.exit
 
-89:                                               ; preds = %70
-  %90 = load ptr, ptr %33, align 8, !tbaa !57
-  %91 = icmp eq i32 %71, 0
-  %92 = icmp ne i32 %72, 0
-  %or.cond.i = and i1 %91, %92
+88:                                               ; preds = %70
+  %89 = icmp eq i32 %71, 0
+  %90 = icmp ne i32 %72, 0
+  %or.cond.i = and i1 %89, %90
   %.v.i = select i1 %or.cond.i, i64 272, i64 384
-  %93 = getelementptr inbounds nuw i8, ptr %53, i64 %.v.i
-  %or.cond3.i = or i1 %91, %92
+  %91 = getelementptr inbounds nuw i8, ptr %53, i64 %.v.i
+  %or.cond3.i = or i1 %89, %90
   %.v44.i = select i1 %or.cond3.i, i64 128, i64 16
-  %94 = getelementptr inbounds nuw i8, ptr %27, i64 %.v44.i
+  %92 = getelementptr inbounds nuw i8, ptr %27, i64 %.v44.i
   %.not45.i = icmp eq i32 %71, %72
-  %95 = shl nuw nsw i32 %71, 3
-  %96 = sub nuw nsw i32 16, %95
-  %97 = select i1 %.not45.i, i32 8, i32 %96
-  %98 = zext nneg i32 %97 to i64
-  %99 = shl nuw nsw i32 %72, 3
-  %100 = sub nuw nsw i32 16, %99
-  %101 = select i1 %.not45.i, i32 8, i32 %100
-  %102 = zext nneg i32 %101 to i64
-  %103 = or i32 %72, %71
-  %.not46.i = icmp eq i32 %103, 0
-  %104 = select i1 %.not46.i, i32 1, i32 2
-  tail call void %90(ptr noundef nonnull %93, ptr noundef nonnull %94, i64 noundef %98, i64 noundef %102, i32 noundef %104) #1
+  %93 = shl nuw nsw i32 %71, 3
+  %94 = sub nuw nsw i32 16, %93
+  %95 = select i1 %.not45.i, i32 8, i32 %94
+  %96 = zext nneg i32 %95 to i64
+  %97 = shl nuw nsw i32 %72, 3
+  %98 = sub nuw nsw i32 16, %97
+  %99 = select i1 %.not45.i, i32 8, i32 %98
+  %100 = zext nneg i32 %99 to i64
+  %101 = or i32 %72, %71
+  %.not46.i = icmp eq i32 %101, 0
+  %102 = select i1 %.not46.i, i32 1, i32 2
+  tail call void %73(ptr noundef nonnull %91, ptr noundef nonnull %92, i64 noundef %96, i64 noundef %100, i32 noundef %102) #1
   br label %vc1_h_overlap_filter.exit
 
-105:                                              ; preds = %70
-  %106 = load ptr, ptr %33, align 8, !tbaa !57
+103:                                              ; preds = %70
   %.not.i = icmp eq i32 %72, 0
-  %107 = select i1 %.not.i, i32 1, i32 2
-  tail call void %106(ptr noundef nonnull %34, ptr noundef nonnull %35, i64 noundef 8, i64 noundef 8, i32 noundef %107) #1
+  %104 = select i1 %.not.i, i32 1, i32 2
+  tail call void %73(ptr noundef nonnull %34, ptr noundef nonnull %35, i64 noundef 8, i64 noundef 8, i32 noundef %104) #1
   br label %vc1_h_overlap_filter.exit
 
-108:                                              ; preds = %70, %70
-  %109 = load ptr, ptr %33, align 8, !tbaa !57
-  %110 = getelementptr inbounds nuw [64 x i16], ptr %53, i64 %indvars.iv
-  %111 = getelementptr inbounds nuw [64 x i16], ptr %27, i64 %indvars.iv
-  tail call void %109(ptr noundef %110, ptr noundef %111, i64 noundef 8, i64 noundef 8, i32 noundef 1) #1
+105:                                              ; preds = %70, %70
+  %106 = getelementptr inbounds nuw [64 x i16], ptr %53, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [64 x i16], ptr %27, i64 %indvars.iv
+  tail call void %73(ptr noundef %106, ptr noundef %107, i64 noundef 8, i64 noundef 8, i32 noundef 1) #1
   br label %vc1_h_overlap_filter.exit
 
 default.unreachable:                              ; preds = %70
   unreachable
 
-vc1_h_overlap_filter.exit:                        ; preds = %108, %105, %89, %86, %73, %37, %42, %49
+vc1_h_overlap_filter.exit:                        ; preds = %105, %103, %88, %86, %74, %37, %42, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %112, label %37, !llvm.loop !66
+  br i1 %exitcond.not, label %108, label %37, !llvm.loop !66
 
-112:                                              ; preds = %vc1_h_overlap_filter.exit
-  %113 = load i32, ptr %30, align 4, !tbaa !55
-  %.not = icmp eq i32 %113, 1
+108:                                              ; preds = %vc1_h_overlap_filter.exit
+  %109 = load i32, ptr %30, align 4, !tbaa !55
+  %.not = icmp eq i32 %109, 1
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %112
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 4140
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 3388
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 5704
-  %117 = getelementptr inbounds nuw i8, ptr %23, i64 256
-  %118 = getelementptr inbounds nuw i8, ptr %23, i64 384
-  %119 = getelementptr inbounds nuw i8, ptr %23, i64 128
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  br label %121
+.preheader:                                       ; preds = %108
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 4140
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 3388
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 5704
+  %113 = getelementptr inbounds nuw i8, ptr %23, i64 256
+  %114 = getelementptr inbounds nuw i8, ptr %23, i64 384
+  %115 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 540
+  br label %117
 
-121:                                              ; preds = %.preheader, %vc1_v_overlap_filter.exit
+117:                                              ; preds = %.preheader, %vc1_v_overlap_filter.exit
   %indvars.iv95 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next96, %vc1_v_overlap_filter.exit ]
-  %122 = load i32, ptr %114, align 4, !tbaa !60
-  %.not74 = icmp ne i32 %122, 0
-  %123 = trunc nuw nsw i64 %indvars.iv95 to i32
-  %124 = and i32 %123, 2
-  %.not75 = icmp eq i32 %124, 0
+  %118 = load i32, ptr %110, align 4, !tbaa !60
+  %.not74 = icmp ne i32 %118, 0
+  %119 = trunc nuw nsw i64 %indvars.iv95 to i32
+  %120 = and i32 %119, 2
+  %.not75 = icmp eq i32 %120, 0
   %or.cond88 = and i1 %.not75, %.not74
-  br i1 %or.cond88, label %vc1_v_overlap_filter.exit, label %125
+  br i1 %or.cond88, label %vc1_v_overlap_filter.exit, label %121
 
-125:                                              ; preds = %121
-  %126 = load i32, ptr %2, align 4, !tbaa !4
-  %.not76 = icmp eq i32 %126, 0
-  br i1 %.not76, label %vc1_v_overlap_filter.exit89, label %127
+121:                                              ; preds = %117
+  %122 = load i32, ptr %2, align 4, !tbaa !4
+  %.not76 = icmp eq i32 %122, 0
+  br i1 %.not76, label %vc1_v_overlap_filter.exit89, label %123
 
-127:                                              ; preds = %125
-  %128 = load ptr, ptr %28, align 8, !tbaa !64
-  %129 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv95
-  %130 = load i32, ptr %129, align 4, !tbaa !65
-  %131 = icmp samesign ugt i64 %indvars.iv95, 3
-  %132 = select i1 %131, i32 -1, i32 -2
-  %133 = add i32 %132, %130
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds i8, ptr %128, i64 %134
-  %136 = load i8, ptr %135, align 1, !tbaa !54
-  %.not77 = icmp eq i8 %136, 0
-  br i1 %.not77, label %vc1_v_overlap_filter.exit89, label %137
+123:                                              ; preds = %121
+  %124 = load ptr, ptr %28, align 8, !tbaa !64
+  %125 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv95
+  %126 = load i32, ptr %125, align 4, !tbaa !65
+  %127 = icmp samesign ugt i64 %indvars.iv95, 3
+  %128 = select i1 %127, i32 -1, i32 -2
+  %129 = add i32 %128, %126
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr inbounds i8, ptr %124, i64 %130
+  %132 = load i8, ptr %131, align 1, !tbaa !54
+  %.not77 = icmp eq i8 %132, 0
+  br i1 %.not77, label %vc1_v_overlap_filter.exit89, label %133
 
-137:                                              ; preds = %127
-  %138 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv95
-  %139 = load i32, ptr %138, align 4, !tbaa !65
-  %140 = sub i32 %133, %139
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i8, ptr %128, i64 %141
-  %143 = load i8, ptr %142, align 1, !tbaa !54
-  %.not78 = icmp eq i8 %143, 0
-  br i1 %.not78, label %vc1_v_overlap_filter.exit89, label %144
+133:                                              ; preds = %123
+  %134 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv95
+  %135 = load i32, ptr %134, align 4, !tbaa !65
+  %136 = sub i32 %129, %135
+  %137 = sext i32 %136 to i64
+  %138 = getelementptr inbounds i8, ptr %124, i64 %137
+  %139 = load i8, ptr %138, align 1, !tbaa !54
+  %.not78 = icmp eq i8 %139, 0
+  br i1 %.not78, label %vc1_v_overlap_filter.exit89, label %140
 
-144:                                              ; preds = %137
-  %.not79 = icmp eq i32 %122, 0
-  %145 = select i1 %.not79, ptr %15, ptr %23
-  switch i32 %123, label %default.unreachable91 [
-    i32 0, label %146
-    i32 1, label %149
-    i32 2, label %152
-    i32 3, label %154
-    i32 4, label %156
-    i32 5, label %156
+140:                                              ; preds = %133
+  %.not79 = icmp eq i32 %118, 0
+  %141 = select i1 %.not79, ptr %15, ptr %23
+  %142 = load ptr, ptr %112, align 8, !tbaa !61
+  switch i32 %119, label %default.unreachable91 [
+    i32 0, label %143
+    i32 1, label %145
+    i32 2, label %147
+    i32 3, label %148
+    i32 4, label %149
+    i32 5, label %149
   ]
 
-146:                                              ; preds = %144
-  %147 = load ptr, ptr %116, align 8, !tbaa !61
-  %148 = getelementptr inbounds nuw i8, ptr %145, i64 128
-  tail call void %147(ptr noundef nonnull %148, ptr noundef %23) #1
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 128
+  tail call void %142(ptr noundef nonnull %144, ptr noundef %23) #1
   br label %vc1_v_overlap_filter.exit89
 
-149:                                              ; preds = %144
-  %150 = load ptr, ptr %116, align 8, !tbaa !61
-  %151 = getelementptr inbounds nuw i8, ptr %145, i64 384
-  tail call void %150(ptr noundef nonnull %151, ptr noundef nonnull %117) #1
+145:                                              ; preds = %140
+  %146 = getelementptr inbounds nuw i8, ptr %141, i64 384
+  tail call void %142(ptr noundef nonnull %146, ptr noundef nonnull %113) #1
   br label %vc1_v_overlap_filter.exit89
 
-152:                                              ; preds = %144
-  %153 = load ptr, ptr %116, align 8, !tbaa !61
-  tail call void %153(ptr noundef %23, ptr noundef nonnull %119) #1
+147:                                              ; preds = %140
+  tail call void %142(ptr noundef %23, ptr noundef nonnull %115) #1
   br label %vc1_v_overlap_filter.exit89
 
-154:                                              ; preds = %144
-  %155 = load ptr, ptr %116, align 8, !tbaa !61
-  tail call void %155(ptr noundef nonnull %117, ptr noundef nonnull %118) #1
+148:                                              ; preds = %140
+  tail call void %142(ptr noundef nonnull %113, ptr noundef nonnull %114) #1
   br label %vc1_v_overlap_filter.exit89
 
-156:                                              ; preds = %144, %144
-  %157 = load ptr, ptr %116, align 8, !tbaa !61
-  %158 = getelementptr inbounds nuw [64 x i16], ptr %145, i64 %indvars.iv95
-  %159 = getelementptr inbounds nuw [64 x i16], ptr %23, i64 %indvars.iv95
-  tail call void %157(ptr noundef %158, ptr noundef %159) #1
+149:                                              ; preds = %140, %140
+  %150 = getelementptr inbounds nuw [64 x i16], ptr %141, i64 %indvars.iv95
+  %151 = getelementptr inbounds nuw [64 x i16], ptr %23, i64 %indvars.iv95
+  tail call void %142(ptr noundef %150, ptr noundef %151) #1
   br label %vc1_v_overlap_filter.exit89
 
-default.unreachable91:                            ; preds = %144
+default.unreachable91:                            ; preds = %140
   unreachable
 
-vc1_v_overlap_filter.exit89:                      ; preds = %156, %154, %152, %149, %146, %137, %127, %125
-  %160 = load i32, ptr %2, align 4, !tbaa !4
-  %161 = load i32, ptr %120, align 4, !tbaa !62
-  %162 = add nsw i32 %161, -1
-  %163 = icmp eq i32 %160, %162
-  br i1 %163, label %164, label %vc1_v_overlap_filter.exit
+vc1_v_overlap_filter.exit89:                      ; preds = %149, %148, %147, %145, %143, %133, %123, %121
+  %152 = load i32, ptr %2, align 4, !tbaa !4
+  %153 = load i32, ptr %116, align 4, !tbaa !62
+  %154 = add nsw i32 %153, -1
+  %155 = icmp eq i32 %152, %154
+  br i1 %155, label %156, label %vc1_v_overlap_filter.exit
 
-164:                                              ; preds = %vc1_v_overlap_filter.exit89
-  %165 = load ptr, ptr %28, align 8, !tbaa !64
-  %166 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv95
-  %167 = load i32, ptr %166, align 4, !tbaa !65
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds i8, ptr %165, i64 %168
-  %170 = load i8, ptr %169, align 1, !tbaa !54
-  %.not80 = icmp eq i8 %170, 0
-  br i1 %.not80, label %vc1_v_overlap_filter.exit, label %171
+156:                                              ; preds = %vc1_v_overlap_filter.exit89
+  %157 = load ptr, ptr %28, align 8, !tbaa !64
+  %158 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv95
+  %159 = load i32, ptr %158, align 4, !tbaa !65
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds i8, ptr %157, i64 %160
+  %162 = load i8, ptr %161, align 1, !tbaa !54
+  %.not80 = icmp eq i8 %162, 0
+  br i1 %.not80, label %vc1_v_overlap_filter.exit, label %163
 
-171:                                              ; preds = %164
-  %172 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv95
-  %173 = load i32, ptr %172, align 4, !tbaa !65
-  %174 = sub nsw i32 %167, %173
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds i8, ptr %165, i64 %175
-  %177 = load i8, ptr %176, align 1, !tbaa !54
-  %.not81 = icmp eq i8 %177, 0
-  br i1 %.not81, label %vc1_v_overlap_filter.exit, label %178
+163:                                              ; preds = %156
+  %164 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv95
+  %165 = load i32, ptr %164, align 4, !tbaa !65
+  %166 = sub nsw i32 %159, %165
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds i8, ptr %157, i64 %167
+  %169 = load i8, ptr %168, align 1, !tbaa !54
+  %.not81 = icmp eq i8 %169, 0
+  br i1 %.not81, label %vc1_v_overlap_filter.exit, label %170
 
-178:                                              ; preds = %171
-  %179 = load i32, ptr %114, align 4, !tbaa !60
-  %.not82 = icmp eq i32 %179, 0
-  %180 = select i1 %.not82, ptr %19, ptr %27
-  switch i32 %123, label %default.unreachable90 [
-    i32 0, label %181
-    i32 1, label %184
-    i32 2, label %187
-    i32 3, label %189
-    i32 4, label %191
-    i32 5, label %191
+170:                                              ; preds = %163
+  %171 = load i32, ptr %110, align 4, !tbaa !60
+  %.not82 = icmp eq i32 %171, 0
+  %172 = select i1 %.not82, ptr %19, ptr %27
+  %173 = load ptr, ptr %112, align 8, !tbaa !61
+  switch i32 %119, label %default.unreachable90 [
+    i32 0, label %174
+    i32 1, label %176
+    i32 2, label %178
+    i32 3, label %179
+    i32 4, label %180
+    i32 5, label %180
   ]
 
-181:                                              ; preds = %178
-  %182 = load ptr, ptr %116, align 8, !tbaa !61
-  %183 = getelementptr inbounds nuw i8, ptr %180, i64 128
-  tail call void %182(ptr noundef nonnull %183, ptr noundef %27) #1
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 128
+  tail call void %173(ptr noundef nonnull %175, ptr noundef %27) #1
   br label %vc1_v_overlap_filter.exit
 
-184:                                              ; preds = %178
-  %185 = load ptr, ptr %116, align 8, !tbaa !61
-  %186 = getelementptr inbounds nuw i8, ptr %180, i64 384
-  tail call void %185(ptr noundef nonnull %186, ptr noundef nonnull %36) #1
+176:                                              ; preds = %170
+  %177 = getelementptr inbounds nuw i8, ptr %172, i64 384
+  tail call void %173(ptr noundef nonnull %177, ptr noundef nonnull %36) #1
   br label %vc1_v_overlap_filter.exit
 
-187:                                              ; preds = %178
-  %188 = load ptr, ptr %116, align 8, !tbaa !61
-  tail call void %188(ptr noundef %27, ptr noundef nonnull %34) #1
+178:                                              ; preds = %170
+  tail call void %173(ptr noundef %27, ptr noundef nonnull %34) #1
   br label %vc1_v_overlap_filter.exit
 
-189:                                              ; preds = %178
-  %190 = load ptr, ptr %116, align 8, !tbaa !61
-  tail call void %190(ptr noundef nonnull %36, ptr noundef nonnull %35) #1
+179:                                              ; preds = %170
+  tail call void %173(ptr noundef nonnull %36, ptr noundef nonnull %35) #1
   br label %vc1_v_overlap_filter.exit
 
-191:                                              ; preds = %178, %178
-  %192 = load ptr, ptr %116, align 8, !tbaa !61
-  %193 = getelementptr inbounds nuw [64 x i16], ptr %180, i64 %indvars.iv95
-  %194 = getelementptr inbounds nuw [64 x i16], ptr %27, i64 %indvars.iv95
-  tail call void %192(ptr noundef %193, ptr noundef %194) #1
+180:                                              ; preds = %170, %170
+  %181 = getelementptr inbounds nuw [64 x i16], ptr %172, i64 %indvars.iv95
+  %182 = getelementptr inbounds nuw [64 x i16], ptr %27, i64 %indvars.iv95
+  tail call void %173(ptr noundef %181, ptr noundef %182) #1
   br label %vc1_v_overlap_filter.exit
 
-default.unreachable90:                            ; preds = %178
+default.unreachable90:                            ; preds = %170
   unreachable
 
-vc1_v_overlap_filter.exit:                        ; preds = %191, %189, %187, %184, %181, %121, %vc1_v_overlap_filter.exit89, %171, %164
+vc1_v_overlap_filter.exit:                        ; preds = %180, %179, %178, %176, %174, %117, %vc1_v_overlap_filter.exit89, %163, %156
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 6
-  br i1 %exitcond98.not, label %.loopexit, label %121, !llvm.loop !67
+  br i1 %exitcond98.not, label %.loopexit, label %117, !llvm.loop !67
 
-.loopexit:                                        ; preds = %vc1_v_overlap_filter.exit, %112
+.loopexit:                                        ; preds = %vc1_v_overlap_filter.exit, %108
   ret void
 }
 

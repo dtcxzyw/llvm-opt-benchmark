@@ -2529,7 +2529,6 @@ $_ZTSZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetT
 @_ZTSN6duckdb23StandardWriterPageStateINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEE = linkonce_odr constant [113 x i8] c"N6duckdb23StandardWriterPageStateINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEE\00", comdat, align 1
 @_ZTIZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FlushDictionaryERNS_26PrimitiveColumnWriterStateEPNS_22ColumnWriterStatisticsEEUlRKS1_RKS2_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FlushDictionaryERNS_26PrimitiveColumnWriterStateEPNS_22ColumnWriterStatisticsEEUlRKS1_RKS2_E_ }, comdat, align 8
 @_ZTSZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FlushDictionaryERNS_26PrimitiveColumnWriterStateEPNS_22ColumnWriterStatisticsEEUlRKS1_RKS2_E_ = linkonce_odr constant [205 x i8] c"ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FlushDictionaryERNS_26PrimitiveColumnWriterStateEPNS_22ColumnWriterStatisticsEEUlRKS1_RKS2_E_\00", comdat, align 1
-@switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE = private unnamed_addr constant [6 x i32] [i32 5, i32 5, i32 0, i32 9, i32 9, i32 6], align 4
 
 @_ZN6duckdb22ColumnWriterStatisticsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb22ColumnWriterStatisticsD2Ev
 @_ZN6duckdb12ColumnWriterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb12ColumnWriterD2Ev
@@ -13120,36 +13119,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !522
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !522
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !522
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !522
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !522
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !524
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -13181,32 +13197,32 @@ define linkonce_odr void @_ZN6duckdb15WKBColumnWriter13FinalizeWriteERNS_17Colum
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21ParquetStringOperatorEE11GetEncodingERNS_26PrimitiveColumnWriterStateE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %4 = load i32, ptr %3, align 8, !tbaa !523
+  %4 = load i32, ptr %3, align 8, !tbaa !522
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21ParquetStringOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !524)
-  %3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #31, !noalias !527
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb21StringStatisticsStateE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !527
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !525)
+  %3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #31, !noalias !528
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb21StringStatisticsStateE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !528
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i8 0, ptr %4, align 8, !tbaa !530, !noalias !527
+  store i8 0, ptr %4, align 8, !tbaa !531, !noalias !528
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  store i8 0, ptr %5, align 1, !tbaa !533, !noalias !527
+  store i8 0, ptr %5, align 1, !tbaa !534, !noalias !528
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %7, ptr %6, align 8, !tbaa !33, !noalias !527
+  store ptr %7, ptr %6, align 8, !tbaa !33, !noalias !528
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 0, ptr %8, align 8, !tbaa !35, !noalias !527
-  store i8 0, ptr %7, align 8, !tbaa !3, !noalias !527
+  store i64 0, ptr %8, align 8, !tbaa !35, !noalias !528
+  store i8 0, ptr %7, align 8, !tbaa !3, !noalias !528
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %10, ptr %9, align 8, !tbaa !33, !noalias !527
+  store ptr %10, ptr %9, align 8, !tbaa !33, !noalias !528
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 0, ptr %11, align 8, !tbaa !35, !noalias !527
-  store i8 0, ptr %10, align 8, !tbaa !3, !noalias !527
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !524
+  store i64 0, ptr %11, align 8, !tbaa !35, !noalias !528
+  store i8 0, ptr %10, align 8, !tbaa !3, !noalias !528
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !525
   ret void
 }
 
@@ -13216,21 +13232,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !535
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !535
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !535
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !535
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !536
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !536
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !536
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !536
   invoke void @_ZN6duckdb23StandardWriterPageStateINS_8string_tES1_NS_21ParquetStringOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_S1_S2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_8string_tES2_NS0_21ParquetStringOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !535
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_8string_tES2_NS0_21ParquetStringOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !536
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !535
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !536
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_8string_tES2_NS0_21ParquetStringOperatorEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -13244,7 +13260,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !542
+  %12 = load i32, ptr %11, align 8, !tbaa !543
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -13255,7 +13271,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !555, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !556, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -13274,13 +13290,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !556, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !557, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !557
+  %27 = load i32, ptr %26, align 4, !tbaa !558
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -13293,7 +13309,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -13310,22 +13326,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !561, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !562, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -13352,7 +13368,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -13364,7 +13380,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -13432,13 +13448,13 @@ _ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit: ; preds = %36, %3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterINS_8string_tES1_NS_21ParquetStringOperatorEE10GetRowSizeERKNS_6VectorEmRKNS_26PrimitiveColumnWriterStateE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(208) %3) unnamed_addr #1 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 384
-  %6 = load i32, ptr %5, align 8, !tbaa !523
+  %6 = load i32, ptr %5, align 8, !tbaa !522
   %7 = icmp eq i32 %6, 8
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !564
+  %10 = load i32, ptr %9, align 8, !tbaa !524
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   br label %18
@@ -13484,7 +13500,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !504
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %33 = load i32, ptr %32, align 8, !tbaa !542
+  %33 = load i32, ptr %32, align 8, !tbaa !543
   switch i32 %33, label %261 [
     i32 8, label %38
     i32 5, label %103
@@ -13505,7 +13521,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21
 
 38:                                               ; preds = %7
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %40 = load i8, ptr %39, align 8, !tbaa !556, !range !216, !noundef !217
+  %40 = load i8, ptr %39, align 8, !tbaa !557, !range !216, !noundef !217
   %41 = trunc nuw i8 %40 to i1
   %42 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %42, %41
@@ -13530,7 +13546,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph211, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph211
   %.us-phi213 = phi i64 [ %5, %.lr.ph211 ], [ %.1120210, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %51 = load i32, ptr %50, align 4, !tbaa !557
+  %51 = load i32, ptr %50, align 4, !tbaa !558
   %52 = trunc i32 %51 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 %52, ptr %20, align 1, !tbaa !3
@@ -13539,10 +13555,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %54(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %20, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %55, align 8, !tbaa !558
+  store i64 0, ptr %55, align 8, !tbaa !559
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %56, align 8, !tbaa !560
-  store i8 1, ptr %39, align 8, !tbaa !556
+  store i64 0, ptr %56, align 8, !tbaa !561
+  store i8 1, ptr %39, align 8, !tbaa !557
   br label %.loopexit
 
 57:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -13655,7 +13671,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_8string_tES1_NS_21ParquetStringOperatorEE8Ge
 
 103:                                              ; preds = %7
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %105 = load i8, ptr %104, align 4, !tbaa !555, !range !216, !noundef !217
+  %105 = load i8, ptr %104, align 4, !tbaa !556, !range !216, !noundef !217
   %106 = trunc nuw i8 %105 to i1
   %107 = icmp uge i64 %5, %6
   %or.cond218.not = or i1 %107, %106
@@ -13695,7 +13711,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb11dbp_encoder10BeginWriteINS_8string_tEEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18480) %118, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %22)
-  store i8 1, ptr %104, align 4, !tbaa !555
+  store i8 1, ptr %104, align 4, !tbaa !556
   %119 = add nuw i64 %.us-phi207, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.loopexit188
@@ -13756,7 +13772,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141.thread: ; preds = %1
 
 137:                                              ; preds = %7
   %138 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %139 = load i8, ptr %138, align 8, !tbaa !561, !range !216, !noundef !217
+  %139 = load i8, ptr %138, align 8, !tbaa !562, !range !216, !noundef !217
   %140 = trunc nuw i8 %139 to i1
   %141 = icmp uge i64 %5, %6
   %or.cond220.not = or i1 %141, %140
@@ -13809,7 +13825,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit147.thread: ; preds = %_
   %160 = load ptr, ptr %156, align 8, !tbaa !19
   %161 = load ptr, ptr %160, align 8
   call void %161(ptr noundef nonnull align 8 dereferenceable(48) %156, ptr noundef %159, i64 noundef %154)
-  store i8 1, ptr %138, align 8, !tbaa !561
+  store i8 1, ptr %138, align 8, !tbaa !562
   %162 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.loopexit191
@@ -14115,7 +14131,7 @@ _ZN6duckdbL19TemplatedWritePlainINS_8string_tES1_NS_21ParquetStringOperatorELb1E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20StandardColumnWriterINS_8string_tES1_NS_21ParquetStringOperatorEE13HasDictionaryERNS_26PrimitiveColumnWriterStateE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #1 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %4 = load i32, ptr %3, align 8, !tbaa !523
+  %4 = load i32, ptr %3, align 8, !tbaa !522
   %5 = icmp eq i32 %4, 8
   ret i1 %5
 }
@@ -14420,14 +14436,14 @@ common.resume:                                    ; preds = %_ZNSt10unique_ptrIN
 
 _ZN6duckdb9make_uniqINS_25StandardColumnWriterStateINS_8string_tES2_NS_21ParquetStringOperatorEEEJRNS_13ParquetWriterERN14duckdb_parquet8RowGroupEmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit: ; preds = %19
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 384
-  store i32 0, ptr %29, align 8, !tbaa !523, !noalias !599
+  store i32 0, ptr %29, align 8, !tbaa !522, !noalias !599
   store ptr %15, ptr %4, align 8, !tbaa !591, !alias.scope !599
   %30 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_25StandardColumnWriterStateINS_8string_tES2_NS_21ParquetStringOperatorEEESt14default_deleteIS4_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %31 unwind label %34
 
 31:                                               ; preds = %_ZN6duckdb9make_uniqINS_25StandardColumnWriterStateINS_8string_tES2_NS_21ParquetStringOperatorEEEJRNS_13ParquetWriterERN14duckdb_parquet8RowGroupEmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_.exit
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 384
-  store i32 8, ptr %32, align 8, !tbaa !523
+  store i32 8, ptr %32, align 8, !tbaa !522
   invoke void @_ZN6duckdb21PrimitiveColumnWriter18RegisterToRowGroupERN14duckdb_parquet8RowGroupE(ptr noundef nonnull align 8 dereferenceable(65) %1, ptr noundef nonnull align 8 dereferenceable(91) %2)
           to label %_ZNSt10unique_ptrIN6duckdb25StandardColumnWriterStateINS0_8string_tES2_NS0_21ParquetStringOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %34
 
@@ -15843,7 +15859,7 @@ _ZN6duckdb21StringStatisticsStateD2Ev.exit:       ; preds = %_ZNSt7__cxx1112basi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb21StringStatisticsState8HasStatsEv(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 8, !tbaa !530, !range !216, !noundef !217
+  %3 = load i8, ptr %2, align 8, !tbaa !531, !range !216, !noundef !217
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -16002,21 +16018,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_8string_tES1_NS_21ParquetStringOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_S1_S2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateINS_8string_tES1_NS_21ParquetStringOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !542
+  store i32 %3, ptr %6, align 8, !tbaa !543
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !555
+  store i8 0, ptr %7, align 4, !tbaa !556
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !561
+  store i8 0, ptr %10, align 8, !tbaa !562
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 16, ptr %13, align 8, !tbaa !563
+  store i64 16, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -16025,7 +16041,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_8string_tES1_NS
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -16039,7 +16055,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !666
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !556
+  store i8 0, ptr %23, align 8, !tbaa !557
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !519
   %26 = icmp eq i64 %25, 0
@@ -16051,7 +16067,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -16060,9 +16076,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !557
+  store i32 %.06.i, ptr %30, align 4, !tbaa !558
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -16099,10 +16115,10 @@ define linkonce_odr void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %4, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 18480
-  store i64 %2, ptr %5, align 8, !tbaa !562
+  store i64 %2, ptr %5, align 8, !tbaa !563
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 18488
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb9Allocator16DefaultAllocatorEv()
-  %8 = load i64, ptr %5, align 8, !tbaa !562
+  %8 = load i64, ptr %5, align 8, !tbaa !563
   %9 = add i64 %8, 1
   %10 = tail call noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %9), !noalias !668
   tail call void @_ZN6duckdb13AllocatedDataC1ERNS_9AllocatorEPhm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %10, i64 noundef %9)
@@ -16282,7 +16298,7 @@ define linkonce_odr void @_ZN6duckdb12RleBpEncoder20WriteCurrentBlockRLEERNS_11W
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !558
+  %13 = load i64, ptr %12, align 8, !tbaa !559
   %14 = shl i64 %13, 1
   br label %15
 
@@ -16425,7 +16441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %61
   br label %68
 
 67:                                               ; preds = %51, %35, %29, %23
-  store i64 0, ptr %12, align 8, !tbaa !558
+  store i64 0, ptr %12, align 8, !tbaa !559
   ret void
 
 68:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %66
@@ -16695,7 +16711,7 @@ declare void @_ZN18duckdb_fastpforlib8internal12__fastpack32EPKjPj(ptr noundef, 
 define linkonce_odr void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStreamERKj(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #1 comdat align 2 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %6 = load i64, ptr %5, align 8, !tbaa !560
+  %6 = load i64, ptr %5, align 8, !tbaa !561
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %28, label %7
 
@@ -16703,7 +16719,7 @@ define linkonce_odr void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStream
   %8 = load i32, ptr %2, align 4, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = add i64 %6, 1
-  store i64 %10, ptr %5, align 8, !tbaa !560
+  store i64 %10, ptr %5, align 8, !tbaa !561
   %11 = getelementptr inbounds nuw i32, ptr %9, i64 %6
   store i32 %8, ptr %11, align 4, !tbaa !29
   %12 = icmp eq i64 %10, 32
@@ -16711,7 +16727,7 @@ define linkonce_odr void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStream
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !558
+  %15 = load i64, ptr %14, align 8, !tbaa !559
   %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %17, label %16
 
@@ -16727,21 +16743,21 @@ define linkonce_odr void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStream
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %21 = load i32, ptr %0, align 8, !tbaa !559
+  %21 = load i32, ptr %0, align 8, !tbaa !560
   %22 = and i32 %21, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %9, ptr noundef nonnull %20, i32 noundef %22)
-  %23 = load i32, ptr %0, align 8, !tbaa !559
+  %23 = load i32, ptr %0, align 8, !tbaa !560
   %24 = zext i32 %23 to i64
   %25 = shl nuw nsw i64 %24, 2
   %26 = load ptr, ptr %1, align 8, !tbaa !19
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %20, i64 noundef %25)
-  store i64 0, ptr %5, align 8, !tbaa !560
+  store i64 0, ptr %5, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i64, ptr %29, align 8, !tbaa !558
+  %30 = load i64, ptr %29, align 8, !tbaa !559
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %32, label %35
 
@@ -16749,7 +16765,7 @@ define linkonce_odr void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStream
   %33 = load i32, ptr %2, align 4, !tbaa !29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %33, ptr %34, align 8, !tbaa !674
-  store i64 1, ptr %29, align 8, !tbaa !558
+  store i64 1, ptr %29, align 8, !tbaa !559
   br label %_ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit
 
 35:                                               ; preds = %28
@@ -16761,7 +16777,7 @@ define linkonce_odr void @_ZN6duckdb12RleBpEncoder10WriteValueERNS_11WriteStream
 
 40:                                               ; preds = %35
   %41 = add i64 %30, 1
-  store i64 %41, ptr %29, align 8, !tbaa !558
+  store i64 %41, ptr %29, align 8, !tbaa !559
   br label %_ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit
 
 42:                                               ; preds = %35
@@ -16776,16 +16792,16 @@ _ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit12: ; preds = %42
   tail call void @_ZN6duckdb12RleBpEncoder20WriteCurrentBlockRLEERNS_11WriteStreamE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %45 = load i32, ptr %2, align 4, !tbaa !29
   store i32 %45, ptr %36, align 8, !tbaa !674
-  store i64 1, ptr %29, align 8, !tbaa !558
+  store i64 1, ptr %29, align 8, !tbaa !559
   br label %_ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit
 
 46:                                               ; preds = %50
   %47 = load i32, ptr %2, align 4, !tbaa !29
   %48 = add i64 %51, 2
-  store i64 %48, ptr %5, align 8, !tbaa !560
+  store i64 %48, ptr %5, align 8, !tbaa !561
   %49 = getelementptr inbounds nuw i32, ptr %44, i64 %52
   store i32 %47, ptr %49, align 4, !tbaa !29
-  store i64 0, ptr %29, align 8, !tbaa !558
+  store i64 0, ptr %29, align 8, !tbaa !559
   br label %_ZN6duckdb12RleBpEncoder8WriteRunERNS_11WriteStreamE.exit
 
 50:                                               ; preds = %.preheader, %50
@@ -17014,7 +17030,7 @@ define linkonce_odr void @_ZN6duckdb21StringStatisticsState6UpdateERKNS_8string_
   %9 = alloca %"struct.duckdb::string_t", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %12 = load i8, ptr %11, align 1, !tbaa !533, !range !216, !noundef !217
+  %12 = load i8, ptr %11, align 1, !tbaa !534, !range !216, !noundef !217
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %210, label %14
 
@@ -17025,9 +17041,9 @@ define linkonce_odr void @_ZN6duckdb21StringStatisticsState6UpdateERKNS_8string_
   br i1 %17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, label %35
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %14
-  store i8 1, ptr %11, align 1, !tbaa !533
+  store i8 1, ptr %11, align 1, !tbaa !534
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %18, align 8, !tbaa !530
+  store i8 0, ptr %18, align 8, !tbaa !531
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %19, ptr %5, align 8, !tbaa !33
@@ -17094,7 +17110,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
 
 35:                                               ; preds = %14
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i8, ptr %36, align 8, !tbaa !530, !range !216, !noundef !217
+  %37 = load i8, ptr %36, align 8, !tbaa !531, !range !216, !noundef !217
   %38 = trunc nuw i8 %37 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %38, label %39, label %.sink.split
@@ -17314,7 +17330,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.pre = load i8, ptr %36, align 8, !tbaa !530, !range !216
+  %.pre = load i8, ptr %36, align 8, !tbaa !531, !range !216
   %122 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %122, label %123, label %.critedge2
@@ -17540,7 +17556,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
   br label %209
 
 209:                                              ; preds = %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48, %_ZN6duckdb11GreaterThan9OperationINS_8string_tEEEbRKT_S5_.exit
-  store i8 1, ptr %36, align 8, !tbaa !530
+  store i8 1, ptr %36, align 8, !tbaa !531
   br label %210
 
 210:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, %209, %2
@@ -18135,36 +18151,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !695
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !695
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !695
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !695
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !695
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !706
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -18177,14 +18210,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterIaiNS_19Parquet
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !706)
-  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !709
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIaiNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !709
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !707)
+  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !710
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIaiNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !710
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 2147483647, ptr %4, align 8, !tbaa !712, !noalias !709
+  store i32 2147483647, ptr %4, align 8, !tbaa !713, !noalias !710
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 -2147483648, ptr %5, align 4, !tbaa !714, !noalias !709
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !706
+  store i32 -2147483648, ptr %5, align 4, !tbaa !715, !noalias !710
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !707
   ret void
 }
 
@@ -18194,21 +18227,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !715
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !715
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !715
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !715
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !716
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !716
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !716
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !716
   invoke void @_ZN6duckdb23StandardWriterPageStateIaiNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIaiS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIaiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !715
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIaiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !716
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !715
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !716
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIaiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -18222,7 +18255,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !718
+  %12 = load i32, ptr %11, align 8, !tbaa !719
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -18233,7 +18266,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !721, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !722, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -18252,13 +18285,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !722, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !723, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !723
+  %27 = load i32, ptr %26, align 4, !tbaa !724
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -18271,7 +18304,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -18288,22 +18321,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !724, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !725, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -18330,7 +18363,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -18342,7 +18375,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -18416,7 +18449,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterIaiNS_19Parque
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !725
+  %10 = load i32, ptr %9, align 8, !tbaa !706
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -18444,7 +18477,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !504
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !718
+  %22 = load i32, ptr %21, align 8, !tbaa !719
   switch i32 %22, label %287 [
     i32 8, label %27
     i32 5, label %88
@@ -18465,7 +18498,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIaiNS_19ParquetCastOpe
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %29 = load i8, ptr %28, align 8, !tbaa !722, !range !216, !noundef !217
+  %29 = load i8, ptr %28, align 8, !tbaa !723, !range !216, !noundef !217
   %30 = trunc nuw i8 %29 to i1
   %31 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %31, %30
@@ -18490,7 +18523,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph191, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph191
   %.us-phi193 = phi i64 [ %5, %.lr.ph191 ], [ %.1108190, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %40 = load i32, ptr %39, align 4, !tbaa !723
+  %40 = load i32, ptr %39, align 4, !tbaa !724
   %41 = trunc i32 %40 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %41, ptr %11, align 1, !tbaa !3
@@ -18499,10 +18532,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %43(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %11, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %44, align 8, !tbaa !558
+  store i64 0, ptr %44, align 8, !tbaa !559
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %45, align 8, !tbaa !560
-  store i8 1, ptr %28, align 8, !tbaa !722
+  store i64 0, ptr %45, align 8, !tbaa !561
+  store i8 1, ptr %28, align 8, !tbaa !723
   br label %.loopexit167
 
 46:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -18597,7 +18630,7 @@ _ZNK6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEE8GetIndexERKa.exit:
 
 88:                                               ; preds = %7
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %90 = load i8, ptr %89, align 4, !tbaa !721, !range !216, !noundef !217
+  %90 = load i8, ptr %89, align 4, !tbaa !722, !range !216, !noundef !217
   %91 = trunc nuw i8 %90 to i1
   %92 = icmp uge i64 %5, %6
   %or.cond203.not = or i1 %92, %91
@@ -18630,7 +18663,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  store i32 %102, ptr %103, align 8, !tbaa !712
+  store i32 %102, ptr %103, align 8, !tbaa !713
   br label %107
 
 107:                                              ; preds = %106, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
@@ -18640,7 +18673,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %110, label %111, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 111:                                              ; preds = %107
-  store i32 %102, ptr %108, align 4, !tbaa !714
+  store i32 %102, ptr %108, align 4, !tbaa !715
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %107, %111
@@ -18650,7 +18683,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
   store i64 %113, ptr %10, align 8, !tbaa !24
   call void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl(ptr noundef nonnull align 8 dereferenceable(18480) %112, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store i8 1, ptr %89, align 4, !tbaa !721
+  store i8 1, ptr %89, align 4, !tbaa !722
   %114 = add nuw i64 %.us-phi187, 1
   br label %.loopexit170
 
@@ -18699,7 +18732,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
-  store i32 %135, ptr %118, align 8, !tbaa !712
+  store i32 %135, ptr %118, align 8, !tbaa !713
   br label %139
 
 139:                                              ; preds = %138, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -18708,7 +18741,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %141, label %142, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 142:                                              ; preds = %139
-  store i32 %135, ptr %119, align 4, !tbaa !714
+  store i32 %135, ptr %119, align 4, !tbaa !715
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit124: ; preds = %139, %142
@@ -18739,7 +18772,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 
 155:                                              ; preds = %7
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %157 = load i8, ptr %156, align 8, !tbaa !724, !range !216, !noundef !217
+  %157 = load i8, ptr %156, align 8, !tbaa !725, !range !216, !noundef !217
   %158 = trunc nuw i8 %157 to i1
   %159 = icmp uge i64 %5, %6
   %or.cond205.not = or i1 %159, %158
@@ -18774,7 +18807,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
-  store i32 %169, ptr %170, align 8, !tbaa !712
+  store i32 %169, ptr %170, align 8, !tbaa !713
   br label %174
 
 174:                                              ; preds = %173, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
@@ -18784,13 +18817,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %177, label %178, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 178:                                              ; preds = %174
-  store i32 %169, ptr %175, align 4, !tbaa !714
+  store i32 %169, ptr %175, align 4, !tbaa !715
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit129: ; preds = %174, %178
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIiEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %179, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %13)
-  store i8 1, ptr %156, align 8, !tbaa !724
+  store i8 1, ptr %156, align 8, !tbaa !725
   %180 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit173
@@ -18838,7 +18871,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %199, label %200, label %201
 
 200:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
-  store i32 %197, ptr %184, align 8, !tbaa !712
+  store i32 %197, ptr %184, align 8, !tbaa !713
   br label %201
 
 201:                                              ; preds = %200, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
@@ -18847,7 +18880,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %203, label %204, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 204:                                              ; preds = %201
-  store i32 %197, ptr %185, align 4, !tbaa !714
+  store i32 %197, ptr %185, align 4, !tbaa !715
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit134: ; preds = %201, %204
@@ -18887,7 +18920,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %219, label %220, label %221
 
 220:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
-  store i32 %217, ptr %24, align 8, !tbaa !712
+  store i32 %217, ptr %24, align 8, !tbaa !713
   br label %221
 
 221:                                              ; preds = %220, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
@@ -18896,7 +18929,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %223, label %224, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 224:                                              ; preds = %221
-  store i32 %217, ptr %25, align 4, !tbaa !714
+  store i32 %217, ptr %25, align 4, !tbaa !715
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit139: ; preds = %221, %224
@@ -18939,7 +18972,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
   br i1 %239, label %240, label %241
 
 240:                                              ; preds = %234
-  store i32 %237, ptr %231, align 8, !tbaa !712
+  store i32 %237, ptr %231, align 8, !tbaa !713
   br label %241
 
 241:                                              ; preds = %240, %234
@@ -18948,7 +18981,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET
   br i1 %243, label %244, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 244:                                              ; preds = %241
-  store i32 %237, ptr %232, align 4, !tbaa !714
+  store i32 %237, ptr %232, align 4, !tbaa !715
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %244, %241
@@ -19017,7 +19050,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %271, label %272, label %273
 
 272:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  store i32 %269, ptr %256, align 8, !tbaa !712
+  store i32 %269, ptr %256, align 8, !tbaa !713
   br label %273
 
 273:                                              ; preds = %272, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -19026,7 +19059,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %275, label %276, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145
 
 276:                                              ; preds = %273
-  store i32 %269, ptr %257, align 4, !tbaa !714
+  store i32 %269, ptr %257, align 4, !tbaa !715
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIaiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %276, %273
@@ -19591,9 +19624,9 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIaiNS_19BaseParquetO
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22NumericStatisticsStateIaiNS_19BaseParquetOperatorEE8HasStatsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !712
+  %3 = load i32, ptr %2, align 8, !tbaa !713
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !714
+  %5 = load i32, ptr %4, align 4, !tbaa !715
   %6 = icmp sle i32 %3, %5
   ret i1 %6
 }
@@ -19682,21 +19715,21 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIaiNS_19BaseParquetO
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIaiNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIaiS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateIaiNS_19ParquetCastOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !718
+  store i32 %3, ptr %6, align 8, !tbaa !719
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !721
+  store i8 0, ptr %7, align 4, !tbaa !722
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !724
+  store i8 0, ptr %10, align 8, !tbaa !725
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 4, ptr %13, align 8, !tbaa !563
+  store i64 4, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -19705,7 +19738,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIaiNS_19ParquetCast
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -19719,7 +19752,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !755
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !722
+  store i8 0, ptr %23, align 8, !tbaa !723
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !704
   %26 = icmp eq i64 %25, 0
@@ -19731,7 +19764,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -19740,9 +19773,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !723
+  store i32 %.06.i, ptr %30, align 4, !tbaa !724
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -20089,7 +20122,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKaRKiEZN6duckdb20StandardC
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  store i32 %6, ptr %7, align 8, !tbaa !712
+  store i32 %6, ptr %7, align 8, !tbaa !713
   br label %11
 
 11:                                               ; preds = %10, %3
@@ -20099,7 +20132,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKaRKiEZN6duckdb20StandardC
   br i1 %14, label %15, label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIaiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKaRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit
 
 15:                                               ; preds = %11
-  store i32 %6, ptr %12, align 4, !tbaa !714
+  store i32 %6, ptr %12, align 4, !tbaa !715
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIaiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKaRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIaiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKaRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit: ; preds = %11, %15
@@ -20469,36 +20502,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !766
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !766
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !766
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !766
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !766
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !777
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -20511,14 +20561,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterIsiNS_19Parquet
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !777)
-  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !780
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIsiNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !780
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !778)
+  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !781
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIsiNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !781
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 2147483647, ptr %4, align 8, !tbaa !783, !noalias !780
+  store i32 2147483647, ptr %4, align 8, !tbaa !784, !noalias !781
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 -2147483648, ptr %5, align 4, !tbaa !785, !noalias !780
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !777
+  store i32 -2147483648, ptr %5, align 4, !tbaa !786, !noalias !781
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !778
   ret void
 }
 
@@ -20528,21 +20578,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !786
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !786
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !786
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !786
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !787
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !787
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !787
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !787
   invoke void @_ZN6duckdb23StandardWriterPageStateIsiNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIsiS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIsiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !786
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIsiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !787
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !786
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !787
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIsiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -20556,7 +20606,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !789
+  %12 = load i32, ptr %11, align 8, !tbaa !790
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -20567,7 +20617,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !792, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !793, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -20586,13 +20636,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !793, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !794, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !794
+  %27 = load i32, ptr %26, align 4, !tbaa !795
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -20605,7 +20655,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -20622,22 +20672,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !795, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !796, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -20664,7 +20714,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -20676,7 +20726,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -20750,7 +20800,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterIsiNS_19Parque
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !796
+  %10 = load i32, ptr %9, align 8, !tbaa !777
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -20778,7 +20828,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !504
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !789
+  %22 = load i32, ptr %21, align 8, !tbaa !790
   switch i32 %22, label %287 [
     i32 8, label %27
     i32 5, label %88
@@ -20799,7 +20849,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIsiNS_19ParquetCastOpe
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %29 = load i8, ptr %28, align 8, !tbaa !793, !range !216, !noundef !217
+  %29 = load i8, ptr %28, align 8, !tbaa !794, !range !216, !noundef !217
   %30 = trunc nuw i8 %29 to i1
   %31 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %31, %30
@@ -20824,7 +20874,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph191, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph191
   %.us-phi193 = phi i64 [ %5, %.lr.ph191 ], [ %.1108190, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %40 = load i32, ptr %39, align 4, !tbaa !794
+  %40 = load i32, ptr %39, align 4, !tbaa !795
   %41 = trunc i32 %40 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %41, ptr %11, align 1, !tbaa !3
@@ -20833,10 +20883,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %43(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %11, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %44, align 8, !tbaa !558
+  store i64 0, ptr %44, align 8, !tbaa !559
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %45, align 8, !tbaa !560
-  store i8 1, ptr %28, align 8, !tbaa !793
+  store i64 0, ptr %45, align 8, !tbaa !561
+  store i8 1, ptr %28, align 8, !tbaa !794
   br label %.loopexit167
 
 46:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -20931,7 +20981,7 @@ _ZNK6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEE8GetIndexERKs.exit:
 
 88:                                               ; preds = %7
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %90 = load i8, ptr %89, align 4, !tbaa !792, !range !216, !noundef !217
+  %90 = load i8, ptr %89, align 4, !tbaa !793, !range !216, !noundef !217
   %91 = trunc nuw i8 %90 to i1
   %92 = icmp uge i64 %5, %6
   %or.cond203.not = or i1 %92, %91
@@ -20964,7 +21014,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  store i32 %102, ptr %103, align 8, !tbaa !783
+  store i32 %102, ptr %103, align 8, !tbaa !784
   br label %107
 
 107:                                              ; preds = %106, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
@@ -20974,7 +21024,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %110, label %111, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 111:                                              ; preds = %107
-  store i32 %102, ptr %108, align 4, !tbaa !785
+  store i32 %102, ptr %108, align 4, !tbaa !786
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %107, %111
@@ -20984,7 +21034,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
   store i64 %113, ptr %10, align 8, !tbaa !24
   call void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl(ptr noundef nonnull align 8 dereferenceable(18480) %112, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store i8 1, ptr %89, align 4, !tbaa !792
+  store i8 1, ptr %89, align 4, !tbaa !793
   %114 = add nuw i64 %.us-phi187, 1
   br label %.loopexit170
 
@@ -21033,7 +21083,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
-  store i32 %135, ptr %118, align 8, !tbaa !783
+  store i32 %135, ptr %118, align 8, !tbaa !784
   br label %139
 
 139:                                              ; preds = %138, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -21042,7 +21092,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %141, label %142, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 142:                                              ; preds = %139
-  store i32 %135, ptr %119, align 4, !tbaa !785
+  store i32 %135, ptr %119, align 4, !tbaa !786
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit124: ; preds = %139, %142
@@ -21073,7 +21123,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 
 155:                                              ; preds = %7
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %157 = load i8, ptr %156, align 8, !tbaa !795, !range !216, !noundef !217
+  %157 = load i8, ptr %156, align 8, !tbaa !796, !range !216, !noundef !217
   %158 = trunc nuw i8 %157 to i1
   %159 = icmp uge i64 %5, %6
   %or.cond205.not = or i1 %159, %158
@@ -21108,7 +21158,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
-  store i32 %169, ptr %170, align 8, !tbaa !783
+  store i32 %169, ptr %170, align 8, !tbaa !784
   br label %174
 
 174:                                              ; preds = %173, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
@@ -21118,13 +21168,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %177, label %178, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 178:                                              ; preds = %174
-  store i32 %169, ptr %175, align 4, !tbaa !785
+  store i32 %169, ptr %175, align 4, !tbaa !786
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit129: ; preds = %174, %178
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIiEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %179, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %13)
-  store i8 1, ptr %156, align 8, !tbaa !795
+  store i8 1, ptr %156, align 8, !tbaa !796
   %180 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit173
@@ -21172,7 +21222,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %199, label %200, label %201
 
 200:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
-  store i32 %197, ptr %184, align 8, !tbaa !783
+  store i32 %197, ptr %184, align 8, !tbaa !784
   br label %201
 
 201:                                              ; preds = %200, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
@@ -21181,7 +21231,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %203, label %204, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 204:                                              ; preds = %201
-  store i32 %197, ptr %185, align 4, !tbaa !785
+  store i32 %197, ptr %185, align 4, !tbaa !786
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit134: ; preds = %201, %204
@@ -21221,7 +21271,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %219, label %220, label %221
 
 220:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
-  store i32 %217, ptr %24, align 8, !tbaa !783
+  store i32 %217, ptr %24, align 8, !tbaa !784
   br label %221
 
 221:                                              ; preds = %220, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
@@ -21230,7 +21280,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %223, label %224, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 224:                                              ; preds = %221
-  store i32 %217, ptr %25, align 4, !tbaa !785
+  store i32 %217, ptr %25, align 4, !tbaa !786
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit139: ; preds = %221, %224
@@ -21273,7 +21323,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
   br i1 %239, label %240, label %241
 
 240:                                              ; preds = %234
-  store i32 %237, ptr %231, align 8, !tbaa !783
+  store i32 %237, ptr %231, align 8, !tbaa !784
   br label %241
 
 241:                                              ; preds = %240, %234
@@ -21282,7 +21332,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET
   br i1 %243, label %244, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 244:                                              ; preds = %241
-  store i32 %237, ptr %232, align 4, !tbaa !785
+  store i32 %237, ptr %232, align 4, !tbaa !786
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %244, %241
@@ -21351,7 +21401,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %271, label %272, label %273
 
 272:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  store i32 %269, ptr %256, align 8, !tbaa !783
+  store i32 %269, ptr %256, align 8, !tbaa !784
   br label %273
 
 273:                                              ; preds = %272, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -21360,7 +21410,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %275, label %276, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145
 
 276:                                              ; preds = %273
-  store i32 %269, ptr %257, align 4, !tbaa !785
+  store i32 %269, ptr %257, align 4, !tbaa !786
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIsiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %276, %273
@@ -21925,9 +21975,9 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIsiNS_19BaseParquetO
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22NumericStatisticsStateIsiNS_19BaseParquetOperatorEE8HasStatsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !783
+  %3 = load i32, ptr %2, align 8, !tbaa !784
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !785
+  %5 = load i32, ptr %4, align 4, !tbaa !786
   %6 = icmp sle i32 %3, %5
   ret i1 %6
 }
@@ -22016,21 +22066,21 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIsiNS_19BaseParquetO
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIsiNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIsiS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateIsiNS_19ParquetCastOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !789
+  store i32 %3, ptr %6, align 8, !tbaa !790
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !792
+  store i8 0, ptr %7, align 4, !tbaa !793
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !795
+  store i8 0, ptr %10, align 8, !tbaa !796
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 4, ptr %13, align 8, !tbaa !563
+  store i64 4, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -22039,7 +22089,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIsiNS_19ParquetCast
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -22053,7 +22103,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !826
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !793
+  store i8 0, ptr %23, align 8, !tbaa !794
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !775
   %26 = icmp eq i64 %25, 0
@@ -22065,7 +22115,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -22074,9 +22124,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !794
+  store i32 %.06.i, ptr %30, align 4, !tbaa !795
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -22222,7 +22272,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKsRKiEZN6duckdb20StandardC
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  store i32 %6, ptr %7, align 8, !tbaa !783
+  store i32 %6, ptr %7, align 8, !tbaa !784
   br label %11
 
 11:                                               ; preds = %10, %3
@@ -22232,7 +22282,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKsRKiEZN6duckdb20StandardC
   br i1 %14, label %15, label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIsiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKsRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit
 
 15:                                               ; preds = %11
-  store i32 %6, ptr %12, align 4, !tbaa !785
+  store i32 %6, ptr %12, align 4, !tbaa !786
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIsiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKsRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIsiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKsRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit: ; preds = %11, %15
@@ -22602,36 +22652,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !837
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !837
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !837
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !837
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !837
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !848
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -22644,14 +22711,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterIiiNS_19Parquet
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !848)
-  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !851
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIiiNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !851
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !849)
+  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !852
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIiiNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !852
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 2147483647, ptr %4, align 8, !tbaa !854, !noalias !851
+  store i32 2147483647, ptr %4, align 8, !tbaa !855, !noalias !852
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 -2147483648, ptr %5, align 4, !tbaa !856, !noalias !851
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !848
+  store i32 -2147483648, ptr %5, align 4, !tbaa !857, !noalias !852
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !849
   ret void
 }
 
@@ -22661,21 +22728,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !857
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !857
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !857
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !857
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !858
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !858
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !858
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !858
   invoke void @_ZN6duckdb23StandardWriterPageStateIiiNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIiiS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIiiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !857
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIiiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !858
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !857
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !858
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIiiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -22689,7 +22756,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !860
+  %12 = load i32, ptr %11, align 8, !tbaa !861
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -22700,7 +22767,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !863, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !864, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -22719,13 +22786,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !864, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !865, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !865
+  %27 = load i32, ptr %26, align 4, !tbaa !866
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -22738,7 +22805,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -22755,22 +22822,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !866, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !867, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -22797,7 +22864,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -22809,7 +22876,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -22883,7 +22950,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterIiiNS_19Parque
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !867
+  %10 = load i32, ptr %9, align 8, !tbaa !848
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -22910,7 +22977,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !504
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !860
+  %21 = load i32, ptr %20, align 8, !tbaa !861
   switch i32 %21, label %276 [
     i32 8, label %26
     i32 5, label %86
@@ -22931,7 +22998,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIiiNS_19ParquetCastOpe
 
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %28 = load i8, ptr %27, align 8, !tbaa !864, !range !216, !noundef !217
+  %28 = load i8, ptr %27, align 8, !tbaa !865, !range !216, !noundef !217
   %29 = trunc nuw i8 %28 to i1
   %30 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %30, %29
@@ -22956,7 +23023,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph188, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph188
   %.us-phi190 = phi i64 [ %5, %.lr.ph188 ], [ %.1108187, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %39 = load i32, ptr %38, align 4, !tbaa !865
+  %39 = load i32, ptr %38, align 4, !tbaa !866
   %40 = trunc i32 %39 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %40, ptr %10, align 1, !tbaa !3
@@ -22965,10 +23032,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %42(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %43, align 8, !tbaa !558
+  store i64 0, ptr %43, align 8, !tbaa !559
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %44, align 8, !tbaa !560
-  store i8 1, ptr %27, align 8, !tbaa !864
+  store i64 0, ptr %44, align 8, !tbaa !561
+  store i8 1, ptr %27, align 8, !tbaa !865
   br label %.loopexit164
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -23062,7 +23129,7 @@ _ZNK6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEE8GetIndexERKi.exit:
 
 86:                                               ; preds = %7
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %88 = load i8, ptr %87, align 4, !tbaa !863, !range !216, !noundef !217
+  %88 = load i8, ptr %87, align 4, !tbaa !864, !range !216, !noundef !217
   %89 = trunc nuw i8 %88 to i1
   %90 = icmp uge i64 %5, %6
   %or.cond200.not = or i1 %90, %89
@@ -23094,7 +23161,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  store i32 %99, ptr %100, align 8, !tbaa !854
+  store i32 %99, ptr %100, align 8, !tbaa !855
   br label %104
 
 104:                                              ; preds = %103, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
@@ -23104,7 +23171,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %107, label %108, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 108:                                              ; preds = %104
-  store i32 %99, ptr %105, align 4, !tbaa !856
+  store i32 %99, ptr %105, align 4, !tbaa !857
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %104, %108
@@ -23114,7 +23181,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
   store i64 %110, ptr %9, align 8, !tbaa !24
   call void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl(ptr noundef nonnull align 8 dereferenceable(18480) %109, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i8 1, ptr %87, align 4, !tbaa !863
+  store i8 1, ptr %87, align 4, !tbaa !864
   %111 = add nuw i64 %.us-phi184, 1
   br label %.loopexit167
 
@@ -23162,7 +23229,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
-  store i32 %131, ptr %115, align 8, !tbaa !854
+  store i32 %131, ptr %115, align 8, !tbaa !855
   br label %135
 
 135:                                              ; preds = %134, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -23171,7 +23238,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %137, label %138, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 138:                                              ; preds = %135
-  store i32 %131, ptr %116, align 4, !tbaa !856
+  store i32 %131, ptr %116, align 4, !tbaa !857
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit124: ; preds = %135, %138
@@ -23202,7 +23269,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 
 151:                                              ; preds = %7
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %153 = load i8, ptr %152, align 8, !tbaa !866, !range !216, !noundef !217
+  %153 = load i8, ptr %152, align 8, !tbaa !867, !range !216, !noundef !217
   %154 = trunc nuw i8 %153 to i1
   %155 = icmp uge i64 %5, %6
   %or.cond202.not = or i1 %155, %154
@@ -23236,7 +23303,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %167, label %168, label %169
 
 168:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
-  store i32 %164, ptr %165, align 8, !tbaa !854
+  store i32 %164, ptr %165, align 8, !tbaa !855
   br label %169
 
 169:                                              ; preds = %168, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
@@ -23246,13 +23313,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %172, label %173, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 173:                                              ; preds = %169
-  store i32 %164, ptr %170, align 4, !tbaa !856
+  store i32 %164, ptr %170, align 4, !tbaa !857
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit129: ; preds = %169, %173
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIiEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %174, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %12)
-  store i8 1, ptr %152, align 8, !tbaa !866
+  store i8 1, ptr %152, align 8, !tbaa !867
   %175 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit170
@@ -23299,7 +23366,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %193, label %194, label %195
 
 194:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
-  store i32 %191, ptr %179, align 8, !tbaa !854
+  store i32 %191, ptr %179, align 8, !tbaa !855
   br label %195
 
 195:                                              ; preds = %194, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
@@ -23308,7 +23375,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %197, label %198, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 198:                                              ; preds = %195
-  store i32 %191, ptr %180, align 4, !tbaa !856
+  store i32 %191, ptr %180, align 4, !tbaa !857
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit134: ; preds = %195, %198
@@ -23347,7 +23414,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %212, label %213, label %214
 
 213:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
-  store i32 %210, ptr %23, align 8, !tbaa !854
+  store i32 %210, ptr %23, align 8, !tbaa !855
   br label %214
 
 214:                                              ; preds = %213, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
@@ -23356,7 +23423,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %216, label %217, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 217:                                              ; preds = %214
-  store i32 %210, ptr %24, align 4, !tbaa !856
+  store i32 %210, ptr %24, align 4, !tbaa !857
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit139: ; preds = %214, %217
@@ -23395,7 +23462,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
   br i1 %231, label %232, label %233
 
 232:                                              ; preds = %226
-  store i32 %230, ptr %224, align 8, !tbaa !854
+  store i32 %230, ptr %224, align 8, !tbaa !855
   br label %233
 
 233:                                              ; preds = %232, %226
@@ -23404,7 +23471,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET
   br i1 %235, label %236, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 236:                                              ; preds = %233
-  store i32 %230, ptr %225, align 4, !tbaa !856
+  store i32 %230, ptr %225, align 4, !tbaa !857
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %236, %233
@@ -23461,7 +23528,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %260, label %261, label %262
 
 261:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  store i32 %258, ptr %246, align 8, !tbaa !854
+  store i32 %258, ptr %246, align 8, !tbaa !855
   br label %262
 
 262:                                              ; preds = %261, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -23470,7 +23537,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %264, label %265, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 265:                                              ; preds = %262
-  store i32 %258, ptr %247, align 4, !tbaa !856
+  store i32 %258, ptr %247, align 4, !tbaa !857
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIiiEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %265, %262
@@ -24033,9 +24100,9 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIiiNS_19BaseParquetO
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22NumericStatisticsStateIiiNS_19BaseParquetOperatorEE8HasStatsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !854
+  %3 = load i32, ptr %2, align 8, !tbaa !855
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !856
+  %5 = load i32, ptr %4, align 4, !tbaa !857
   %6 = icmp sle i32 %3, %5
   ret i1 %6
 }
@@ -24124,21 +24191,21 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIiiNS_19BaseParquetO
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIiiNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIiiS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateIiiNS_19ParquetCastOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !860
+  store i32 %3, ptr %6, align 8, !tbaa !861
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !863
+  store i8 0, ptr %7, align 4, !tbaa !864
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !866
+  store i8 0, ptr %10, align 8, !tbaa !867
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 4, ptr %13, align 8, !tbaa !563
+  store i64 4, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -24147,7 +24214,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIiiNS_19ParquetCast
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -24161,7 +24228,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !897
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !864
+  store i8 0, ptr %23, align 8, !tbaa !865
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !846
   %26 = icmp eq i64 %25, 0
@@ -24173,7 +24240,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -24182,9 +24249,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !865
+  store i32 %.06.i, ptr %30, align 4, !tbaa !866
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -24330,7 +24397,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKiS1_EZN6duckdb20StandardC
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  store i32 %6, ptr %7, align 8, !tbaa !854
+  store i32 %6, ptr %7, align 8, !tbaa !855
   br label %11
 
 11:                                               ; preds = %10, %3
@@ -24340,7 +24407,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKiS1_EZN6duckdb20StandardC
   br i1 %14, label %15, label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIiiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKiS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 15:                                               ; preds = %11
-  store i32 %6, ptr %12, align 4, !tbaa !856
+  store i32 %6, ptr %12, align 4, !tbaa !857
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIiiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKiS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIiiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKiS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit: ; preds = %11, %15
@@ -24710,36 +24777,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !908
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !908
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !908
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !908
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !908
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !919
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -24752,14 +24836,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterIllNS_19Parquet
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !919)
-  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31, !noalias !922
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIllNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !922
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !920)
+  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31, !noalias !923
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIllNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !923
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 9223372036854775807, ptr %4, align 8, !tbaa !925, !noalias !922
+  store i64 9223372036854775807, ptr %4, align 8, !tbaa !926, !noalias !923
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 -9223372036854775808, ptr %5, align 8, !tbaa !927, !noalias !922
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !919
+  store i64 -9223372036854775808, ptr %5, align 8, !tbaa !928, !noalias !923
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !920
   ret void
 }
 
@@ -24769,21 +24853,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !928
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !928
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !928
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !928
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !929
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !929
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !929
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !929
   invoke void @_ZN6duckdb23StandardWriterPageStateIllNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIllS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIllNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !928
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIllNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !929
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !928
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !929
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIllNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -24797,7 +24881,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !931
+  %12 = load i32, ptr %11, align 8, !tbaa !932
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -24808,7 +24892,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !934, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !935, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -24827,13 +24911,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !935, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !936, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !936
+  %27 = load i32, ptr %26, align 4, !tbaa !937
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -24846,7 +24930,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -24863,22 +24947,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !937, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !938, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -24905,7 +24989,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -24917,7 +25001,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -24991,7 +25075,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterIllNS_19Parque
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !938
+  %10 = load i32, ptr %9, align 8, !tbaa !919
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -25018,7 +25102,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !504
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !931
+  %21 = load i32, ptr %20, align 8, !tbaa !932
   switch i32 %21, label %270 [
     i32 8, label %26
     i32 5, label %82
@@ -25039,7 +25123,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_19ParquetCastOpe
 
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %28 = load i8, ptr %27, align 8, !tbaa !935, !range !216, !noundef !217
+  %28 = load i8, ptr %27, align 8, !tbaa !936, !range !216, !noundef !217
   %29 = trunc nuw i8 %28 to i1
   %30 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %30, %29
@@ -25064,7 +25148,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph187, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph187
   %.us-phi189 = phi i64 [ %5, %.lr.ph187 ], [ %.1108186, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %39 = load i32, ptr %38, align 4, !tbaa !936
+  %39 = load i32, ptr %38, align 4, !tbaa !937
   %40 = trunc i32 %39 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %40, ptr %9, align 1, !tbaa !3
@@ -25073,10 +25157,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %42(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %43, align 8, !tbaa !558
+  store i64 0, ptr %43, align 8, !tbaa !559
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %44, align 8, !tbaa !560
-  store i8 1, ptr %27, align 8, !tbaa !935
+  store i64 0, ptr %44, align 8, !tbaa !561
+  store i8 1, ptr %27, align 8, !tbaa !936
   br label %.loopexit163
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -25165,7 +25249,7 @@ _ZNK6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEE8GetIndexERKl.exit:
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %84 = load i8, ptr %83, align 4, !tbaa !934, !range !216, !noundef !217
+  %84 = load i8, ptr %83, align 4, !tbaa !935, !range !216, !noundef !217
   %85 = trunc nuw i8 %84 to i1
   %86 = icmp uge i64 %5, %6
   %or.cond200.not = or i1 %86, %85
@@ -25199,7 +25283,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  store i64 %95, ptr %96, align 8, !tbaa !925
+  store i64 %95, ptr %96, align 8, !tbaa !926
   br label %100
 
 100:                                              ; preds = %99, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
@@ -25209,13 +25293,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %103, label %104, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 104:                                              ; preds = %100
-  store i64 %95, ptr %101, align 8, !tbaa !927
+  store i64 %95, ptr %101, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %100, %104
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl(ptr noundef nonnull align 8 dereferenceable(18480) %105, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store i8 1, ptr %83, align 4, !tbaa !934
+  store i8 1, ptr %83, align 4, !tbaa !935
   %106 = add nuw i64 %.us-phi183, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit166
@@ -25264,7 +25348,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %128, label %129, label %130
 
 129:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
-  store i64 %126, ptr %110, align 8, !tbaa !925
+  store i64 %126, ptr %110, align 8, !tbaa !926
   br label %130
 
 130:                                              ; preds = %129, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -25273,7 +25357,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %132, label %133, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 133:                                              ; preds = %130
-  store i64 %126, ptr %111, align 8, !tbaa !927
+  store i64 %126, ptr %111, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124: ; preds = %130, %133
@@ -25303,7 +25387,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 
 145:                                              ; preds = %7
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %147 = load i8, ptr %146, align 8, !tbaa !937, !range !216, !noundef !217
+  %147 = load i8, ptr %146, align 8, !tbaa !938, !range !216, !noundef !217
   %148 = trunc nuw i8 %147 to i1
   %149 = icmp uge i64 %5, %6
   %or.cond202.not = or i1 %149, %148
@@ -25337,7 +25421,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %161, label %162, label %163
 
 162:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
-  store i64 %158, ptr %159, align 8, !tbaa !925
+  store i64 %158, ptr %159, align 8, !tbaa !926
   br label %163
 
 163:                                              ; preds = %162, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
@@ -25347,13 +25431,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %166, label %167, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 167:                                              ; preds = %163
-  store i64 %158, ptr %164, align 8, !tbaa !927
+  store i64 %158, ptr %164, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129: ; preds = %163, %167
   %168 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIlEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %168, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  store i8 1, ptr %146, align 8, !tbaa !937
+  store i8 1, ptr %146, align 8, !tbaa !938
   %169 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit169
@@ -25400,7 +25484,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %187, label %188, label %189
 
 188:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
-  store i64 %185, ptr %173, align 8, !tbaa !925
+  store i64 %185, ptr %173, align 8, !tbaa !926
   br label %189
 
 189:                                              ; preds = %188, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
@@ -25409,7 +25493,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %191, label %192, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 192:                                              ; preds = %189
-  store i64 %185, ptr %174, align 8, !tbaa !927
+  store i64 %185, ptr %174, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134: ; preds = %189, %192
@@ -25448,7 +25532,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %1
   br i1 %206, label %207, label %208
 
 207:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
-  store i64 %204, ptr %23, align 8, !tbaa !925
+  store i64 %204, ptr %23, align 8, !tbaa !926
   br label %208
 
 208:                                              ; preds = %207, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
@@ -25457,7 +25541,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %1
   br i1 %210, label %211, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 211:                                              ; preds = %208
-  store i64 %204, ptr %24, align 8, !tbaa !927
+  store i64 %204, ptr %24, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit139: ; preds = %208, %211
@@ -25496,7 +25580,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   br i1 %225, label %226, label %227
 
 226:                                              ; preds = %220
-  store i64 %224, ptr %218, align 8, !tbaa !925
+  store i64 %224, ptr %218, align 8, !tbaa !926
   br label %227
 
 227:                                              ; preds = %226, %220
@@ -25505,7 +25589,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   br i1 %229, label %230, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 230:                                              ; preds = %227
-  store i64 %224, ptr %219, align 8, !tbaa !927
+  store i64 %224, ptr %219, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %230, %227
@@ -25562,7 +25646,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %254, label %255, label %256
 
 255:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  store i64 %252, ptr %240, align 8, !tbaa !925
+  store i64 %252, ptr %240, align 8, !tbaa !926
   br label %256
 
 256:                                              ; preds = %255, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -25571,7 +25655,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %258, label %259, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 259:                                              ; preds = %256
-  store i64 %252, ptr %241, align 8, !tbaa !927
+  store i64 %252, ptr %241, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %259, %256
@@ -26130,9 +26214,9 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIllNS_19BaseParquetO
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22NumericStatisticsStateIllNS_19BaseParquetOperatorEE8HasStatsEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !925
+  %3 = load i64, ptr %2, align 8, !tbaa !926
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !927
+  %5 = load i64, ptr %4, align 8, !tbaa !928
   %6 = icmp sle i64 %3, %5
   ret i1 %6
 }
@@ -26221,21 +26305,21 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIllNS_19BaseParquetO
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIllNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIllS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateIllNS_19ParquetCastOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !931
+  store i32 %3, ptr %6, align 8, !tbaa !932
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !934
+  store i8 0, ptr %7, align 4, !tbaa !935
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !937
+  store i8 0, ptr %10, align 8, !tbaa !938
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 8, ptr %13, align 8, !tbaa !563
+  store i64 8, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -26244,7 +26328,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIllNS_19ParquetCast
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -26258,7 +26342,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !968
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !935
+  store i8 0, ptr %23, align 8, !tbaa !936
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !917
   %26 = icmp eq i64 %25, 0
@@ -26270,7 +26354,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -26279,9 +26363,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !936
+  store i32 %.06.i, ptr %30, align 4, !tbaa !937
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -26628,7 +26712,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKlS1_EZN6duckdb20StandardC
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  store i64 %6, ptr %7, align 8, !tbaa !925
+  store i64 %6, ptr %7, align 8, !tbaa !926
   br label %11
 
 11:                                               ; preds = %10, %3
@@ -26638,7 +26722,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKlS1_EZN6duckdb20StandardC
   br i1 %14, label %15, label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIllNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKlS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 15:                                               ; preds = %11
-  store i64 %6, ptr %12, align 8, !tbaa !927
+  store i64 %6, ptr %12, align 8, !tbaa !928
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIllNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKlS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIllNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKlS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit: ; preds = %11, %15
@@ -27008,36 +27092,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !979
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !979
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !979
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !979
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !979
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !990
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -27050,7 +27151,7 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8, !tbaa !534, !alias.scope !990
+  store ptr null, ptr %0, align 8, !tbaa !535, !alias.scope !991
   ret void
 }
 
@@ -27060,21 +27161,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !993
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !993
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !993
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !993
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !994
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !994
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !994
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !994
   invoke void @_ZN6duckdb23StandardWriterPageStateINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_lS2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_10dtime_tz_tElNS0_21ParquetTimeTZOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !993
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_10dtime_tz_tElNS0_21ParquetTimeTZOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !994
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !993
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !994
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_10dtime_tz_tElNS0_21ParquetTimeTZOperatorEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -27088,7 +27189,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !996
+  %12 = load i32, ptr %11, align 8, !tbaa !997
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -27099,7 +27200,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !999, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1000, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -27118,13 +27219,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1000, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1001, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1001
+  %27 = load i32, ptr %26, align 4, !tbaa !1002
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -27137,7 +27238,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -27154,22 +27255,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1002, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1003, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -27196,7 +27297,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -27208,7 +27309,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -27282,7 +27383,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterINS_10dtime_tz
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1003
+  %10 = load i32, ptr %9, align 8, !tbaa !990
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -27310,7 +27411,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !504
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !996
+  %22 = load i32, ptr %21, align 8, !tbaa !997
   switch i32 %22, label %207 [
     i32 8, label %25
     i32 5, label %80
@@ -27329,7 +27430,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10dtime_tz_tElNS_2
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %27 = load i8, ptr %26, align 8, !tbaa !1000, !range !216, !noundef !217
+  %27 = load i8, ptr %26, align 8, !tbaa !1001, !range !216, !noundef !217
   %28 = trunc nuw i8 %27 to i1
   %29 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %29, %28
@@ -27354,7 +27455,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph190, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph190
   %.us-phi192 = phi i64 [ %5, %.lr.ph190 ], [ %.1106189, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %38 = load i32, ptr %37, align 4, !tbaa !1001
+  %38 = load i32, ptr %37, align 4, !tbaa !1002
   %39 = trunc i32 %38 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %39, ptr %10, align 1, !tbaa !3
@@ -27363,10 +27464,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %41(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %42, align 8, !tbaa !558
+  store i64 0, ptr %42, align 8, !tbaa !559
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %43, align 8, !tbaa !560
-  store i8 1, ptr %26, align 8, !tbaa !1000
+  store i64 0, ptr %43, align 8, !tbaa !561
+  store i8 1, ptr %26, align 8, !tbaa !1001
   br label %.loopexit166
 
 44:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -27455,7 +27556,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEE8G
 
 80:                                               ; preds = %7
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %82 = load i8, ptr %81, align 4, !tbaa !999, !range !216, !noundef !217
+  %82 = load i8, ptr %81, align 4, !tbaa !1000, !range !216, !noundef !217
   %83 = trunc nuw i8 %82 to i1
   %84 = icmp uge i64 %5, %6
   %or.cond203.not = or i1 %84, %83
@@ -27486,7 +27587,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %_
   store i64 %93, ptr %12, align 8, !tbaa !24
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl(ptr noundef nonnull align 8 dereferenceable(18480) %94, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  store i8 1, ptr %81, align 4, !tbaa !999
+  store i8 1, ptr %81, align 4, !tbaa !1000
   %95 = add nuw i64 %.us-phi186, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit169
@@ -27555,7 +27656,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 
 125:                                              ; preds = %7
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %127 = load i8, ptr %126, align 8, !tbaa !1002, !range !216, !noundef !217
+  %127 = load i8, ptr %126, align 8, !tbaa !1003, !range !216, !noundef !217
   %128 = trunc nuw i8 %127 to i1
   %129 = icmp uge i64 %5, %6
   %or.cond205.not = or i1 %129, %128
@@ -27586,7 +27687,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread: ; preds = %_
   store i64 %138, ptr %13, align 8, !tbaa !24
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIlEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %139, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store i8 1, ptr %126, align 8, !tbaa !1002
+  store i8 1, ptr %126, align 8, !tbaa !1003
   %140 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit172
@@ -28297,21 +28398,21 @@ declare noundef i64 @_ZN6duckdb4HashINS_10dtime_tz_tEEEmT_(i64) local_unnamed_ad
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_lS2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !996
+  store i32 %3, ptr %6, align 8, !tbaa !997
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !999
+  store i8 0, ptr %7, align 4, !tbaa !1000
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1002
+  store i8 0, ptr %10, align 8, !tbaa !1003
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 8, ptr %13, align 8, !tbaa !563
+  store i64 8, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -28320,7 +28421,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_10dtime_tz_tElN
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -28334,7 +28435,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1034
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1000
+  store i8 0, ptr %23, align 8, !tbaa !1001
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !988
   %26 = icmp eq i64 %25, 0
@@ -28346,7 +28447,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -28355,9 +28456,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1001
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1002
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -28866,36 +28967,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1044
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1044
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1044
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1044
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1044
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1055
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -28908,11 +29026,11 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22ParquetHugeintOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1055)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1058)
-  %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !1061
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22ColumnWriterStatisticsE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1061
-  store ptr %3, ptr %0, align 8, !tbaa !581, !alias.scope !1061
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1056)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1059)
+  %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !1062
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22ColumnWriterStatisticsE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1062
+  store ptr %3, ptr %0, align 8, !tbaa !581, !alias.scope !1062
   ret void
 }
 
@@ -28922,21 +29040,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1062
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1062
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1062
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1062
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1063
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1063
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1063
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1063
   invoke void @_ZN6duckdb23StandardWriterPageStateINS_9hugeint_tEdNS_22ParquetHugeintOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_dS2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_9hugeint_tEdNS0_22ParquetHugeintOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !1062
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_9hugeint_tEdNS0_22ParquetHugeintOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !1063
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1062
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1063
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_9hugeint_tEdNS0_22ParquetHugeintOperatorEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -28950,7 +29068,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1065
+  %12 = load i32, ptr %11, align 8, !tbaa !1066
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -28961,7 +29079,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1068, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1069, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -28980,13 +29098,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1069, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1070, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1070
+  %27 = load i32, ptr %26, align 4, !tbaa !1071
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -28999,7 +29117,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -29016,22 +29134,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1071, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1072, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -29058,7 +29176,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -29070,7 +29188,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -29144,7 +29262,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterINS_9hugeint_t
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1072
+  %10 = load i32, ptr %9, align 8, !tbaa !1055
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -29180,7 +29298,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !504
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !1065
+  %30 = load i32, ptr %29, align 8, !tbaa !1066
   switch i32 %30, label %225 [
     i32 8, label %35
     i32 5, label %92
@@ -29201,7 +29319,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tEdNS_22P
 
 35:                                               ; preds = %7
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %37 = load i8, ptr %36, align 8, !tbaa !1069, !range !216, !noundef !217
+  %37 = load i8, ptr %36, align 8, !tbaa !1070, !range !216, !noundef !217
   %38 = trunc nuw i8 %37 to i1
   %39 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %39, %38
@@ -29226,7 +29344,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph197, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph197
   %.us-phi199 = phi i64 [ %5, %.lr.ph197 ], [ %.1110196, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %48 = load i32, ptr %47, align 4, !tbaa !1070
+  %48 = load i32, ptr %47, align 4, !tbaa !1071
   %49 = trunc i32 %48 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 %49, ptr %17, align 1, !tbaa !3
@@ -29235,10 +29353,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %51(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %17, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %52, align 8, !tbaa !558
+  store i64 0, ptr %52, align 8, !tbaa !559
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %53, align 8, !tbaa !560
-  store i8 1, ptr %36, align 8, !tbaa !1069
+  store i64 0, ptr %53, align 8, !tbaa !561
+  store i8 1, ptr %36, align 8, !tbaa !1070
   br label %.loopexit171
 
 54:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -29328,7 +29446,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22ParquetHugeintOperatorEE8Ge
 
 92:                                               ; preds = %7
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %94 = load i8, ptr %93, align 4, !tbaa !1068, !range !216, !noundef !217
+  %94 = load i8, ptr %93, align 4, !tbaa !1069, !range !216, !noundef !217
   %95 = trunc nuw i8 %94 to i1
   %96 = icmp uge i64 %5, %6
   %or.cond204.not = or i1 %96, %95
@@ -29365,7 +29483,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %_
   store double %106, ptr %19, align 8, !tbaa !1082
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb11dbp_encoder10BeginWriteIdEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18480) %107, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %19)
-  store i8 1, ptr %93, align 4, !tbaa !1068
+  store i8 1, ptr %93, align 4, !tbaa !1069
   %108 = add nuw i64 %.us-phi193, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit174
@@ -29423,7 +29541,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread: ; preds = %1
 
 126:                                              ; preds = %7
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %128 = load i8, ptr %127, align 8, !tbaa !1071, !range !216, !noundef !217
+  %128 = load i8, ptr %127, align 8, !tbaa !1072, !range !216, !noundef !217
   %129 = trunc nuw i8 %128 to i1
   %130 = icmp uge i64 %5, %6
   %or.cond206.not = or i1 %130, %129
@@ -29460,7 +29578,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135.thread: ; preds = %_
   store double %140, ptr %21, align 8, !tbaa !1082
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIdEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %141, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %21)
-  store i8 1, ptr %127, align 8, !tbaa !1071
+  store i8 1, ptr %127, align 8, !tbaa !1072
   %142 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.loopexit177
@@ -30245,21 +30363,21 @@ declare noundef zeroext i1 @_ZN6duckdb7Hugeint7TryCastIdEEbNS_9hugeint_tERT_(i64
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_9hugeint_tEdNS_22ParquetHugeintOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_dS2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateINS_9hugeint_tEdNS_22ParquetHugeintOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1065
+  store i32 %3, ptr %6, align 8, !tbaa !1066
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1068
+  store i8 0, ptr %7, align 4, !tbaa !1069
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1071
+  store i8 0, ptr %10, align 8, !tbaa !1072
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 8, ptr %13, align 8, !tbaa !563
+  store i64 8, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -30268,7 +30386,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_9hugeint_tEdNS_
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -30282,7 +30400,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1104
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1069
+  store i8 0, ptr %23, align 8, !tbaa !1070
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1053
   %26 = icmp eq i64 %25, 0
@@ -30294,7 +30412,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -30303,9 +30421,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1070
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1071
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -31082,36 +31200,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1114
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1114
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1114
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1114
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1114
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1125
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -31124,11 +31259,11 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1125)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1128)
-  %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !1131
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22ColumnWriterStatisticsE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1131
-  store ptr %3, ptr %0, align 8, !tbaa !581, !alias.scope !1131
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1126)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1129)
+  %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !1132
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22ColumnWriterStatisticsE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1132
+  store ptr %3, ptr %0, align 8, !tbaa !581, !alias.scope !1132
   ret void
 }
 
@@ -31138,21 +31273,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1132
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1132
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1132
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1132
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1133
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1133
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1133
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1133
   invoke void @_ZN6duckdb23StandardWriterPageStateINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_dS2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_10uhugeint_tEdNS0_23ParquetUhugeintOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !1132
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_10uhugeint_tEdNS0_23ParquetUhugeintOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !1133
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1132
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1133
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_10uhugeint_tEdNS0_23ParquetUhugeintOperatorEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -31166,7 +31301,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1135
+  %12 = load i32, ptr %11, align 8, !tbaa !1136
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -31177,7 +31312,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1138, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1139, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -31196,13 +31331,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1139, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1140, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1140
+  %27 = load i32, ptr %26, align 4, !tbaa !1141
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -31215,7 +31350,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -31232,22 +31367,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1141, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1142, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -31274,7 +31409,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -31286,7 +31421,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -31360,7 +31495,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterINS_10uhugeint
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1142
+  %10 = load i32, ptr %9, align 8, !tbaa !1125
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -31396,7 +31531,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !504
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !1135
+  %30 = load i32, ptr %29, align 8, !tbaa !1136
   switch i32 %30, label %225 [
     i32 8, label %35
     i32 5, label %92
@@ -31417,7 +31552,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10uhugeint_tEdNS_2
 
 35:                                               ; preds = %7
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %37 = load i8, ptr %36, align 8, !tbaa !1139, !range !216, !noundef !217
+  %37 = load i8, ptr %36, align 8, !tbaa !1140, !range !216, !noundef !217
   %38 = trunc nuw i8 %37 to i1
   %39 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %39, %38
@@ -31442,7 +31577,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph197, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph197
   %.us-phi199 = phi i64 [ %5, %.lr.ph197 ], [ %.1110196, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %48 = load i32, ptr %47, align 4, !tbaa !1140
+  %48 = load i32, ptr %47, align 4, !tbaa !1141
   %49 = trunc i32 %48 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 %49, ptr %17, align 1, !tbaa !3
@@ -31451,10 +31586,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %51(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %17, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %52, align 8, !tbaa !558
+  store i64 0, ptr %52, align 8, !tbaa !559
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %53, align 8, !tbaa !560
-  store i8 1, ptr %36, align 8, !tbaa !1139
+  store i64 0, ptr %53, align 8, !tbaa !561
+  store i8 1, ptr %36, align 8, !tbaa !1140
   br label %.loopexit171
 
 54:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -31544,7 +31679,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEE
 
 92:                                               ; preds = %7
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %94 = load i8, ptr %93, align 4, !tbaa !1138, !range !216, !noundef !217
+  %94 = load i8, ptr %93, align 4, !tbaa !1139, !range !216, !noundef !217
   %95 = trunc nuw i8 %94 to i1
   %96 = icmp uge i64 %5, %6
   %or.cond204.not = or i1 %96, %95
@@ -31581,7 +31716,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %_
   store double %106, ptr %19, align 8, !tbaa !1082
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb11dbp_encoder10BeginWriteIdEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18480) %107, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %19)
-  store i8 1, ptr %93, align 4, !tbaa !1138
+  store i8 1, ptr %93, align 4, !tbaa !1139
   %108 = add nuw i64 %.us-phi193, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit174
@@ -31639,7 +31774,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit131.thread: ; preds = %1
 
 126:                                              ; preds = %7
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %128 = load i8, ptr %127, align 8, !tbaa !1141, !range !216, !noundef !217
+  %128 = load i8, ptr %127, align 8, !tbaa !1142, !range !216, !noundef !217
   %129 = trunc nuw i8 %128 to i1
   %130 = icmp uge i64 %5, %6
   %or.cond206.not = or i1 %130, %129
@@ -31676,7 +31811,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit135.thread: ; preds = %_
   store double %140, ptr %21, align 8, !tbaa !1082
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIdEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %141, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %21)
-  store i8 1, ptr %127, align 8, !tbaa !1141
+  store i8 1, ptr %127, align 8, !tbaa !1142
   %142 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.loopexit177
@@ -32461,21 +32596,21 @@ declare noundef zeroext i1 @_ZN6duckdb8Uhugeint7TryCastIdEEbNS_10uhugeint_tERT_(
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_dS2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1135
+  store i32 %3, ptr %6, align 8, !tbaa !1136
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1138
+  store i8 0, ptr %7, align 4, !tbaa !1139
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1141
+  store i8 0, ptr %10, align 8, !tbaa !1142
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 8, ptr %13, align 8, !tbaa !563
+  store i64 8, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -32484,7 +32619,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_10uhugeint_tEdN
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -32498,7 +32633,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1172
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1139
+  store i8 0, ptr %23, align 8, !tbaa !1140
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1123
   %26 = icmp eq i64 %25, 0
@@ -32510,7 +32645,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -32519,9 +32654,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1140
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1141
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -33024,36 +33159,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1182
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1182
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1182
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1182
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1182
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1193
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -33066,14 +33218,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterIllNS_26Parquet
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimestampNSOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1193)
-  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31, !noalias !1196
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIllNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1196
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1194)
+  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31, !noalias !1197
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIllNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1197
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 9223372036854775807, ptr %4, align 8, !tbaa !925, !noalias !1196
+  store i64 9223372036854775807, ptr %4, align 8, !tbaa !926, !noalias !1197
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 -9223372036854775808, ptr %5, align 8, !tbaa !927, !noalias !1196
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !1193
+  store i64 -9223372036854775808, ptr %5, align 8, !tbaa !928, !noalias !1197
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !1194
   ret void
 }
 
@@ -33083,21 +33235,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1199
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1199
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1199
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1199
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1200
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1200
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1200
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1200
   invoke void @_ZN6duckdb23StandardWriterPageStateIllNS_26ParquetTimestampNSOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIllS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIllNS0_26ParquetTimestampNSOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1199
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIllNS0_26ParquetTimestampNSOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1200
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1199
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1200
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIllNS0_26ParquetTimestampNSOperatorEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -33111,7 +33263,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1202
+  %12 = load i32, ptr %11, align 8, !tbaa !1203
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -33122,7 +33274,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1205, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1206, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -33141,13 +33293,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1206, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1207, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1207
+  %27 = load i32, ptr %26, align 4, !tbaa !1208
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -33160,7 +33312,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -33177,22 +33329,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1208, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1209, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -33219,7 +33371,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -33231,7 +33383,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -33305,7 +33457,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterIllNS_26Parque
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1209
+  %10 = load i32, ptr %9, align 8, !tbaa !1193
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -33332,7 +33484,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !504
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !1202
+  %21 = load i32, ptr %20, align 8, !tbaa !1203
   switch i32 %21, label %270 [
     i32 8, label %26
     i32 5, label %82
@@ -33353,7 +33505,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_26ParquetTimesta
 
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %28 = load i8, ptr %27, align 8, !tbaa !1206, !range !216, !noundef !217
+  %28 = load i8, ptr %27, align 8, !tbaa !1207, !range !216, !noundef !217
   %29 = trunc nuw i8 %28 to i1
   %30 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %30, %29
@@ -33378,7 +33530,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph187, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph187
   %.us-phi189 = phi i64 [ %5, %.lr.ph187 ], [ %.1108186, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %39 = load i32, ptr %38, align 4, !tbaa !1207
+  %39 = load i32, ptr %38, align 4, !tbaa !1208
   %40 = trunc i32 %39 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %40, ptr %9, align 1, !tbaa !3
@@ -33387,10 +33539,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %42(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %43, align 8, !tbaa !558
+  store i64 0, ptr %43, align 8, !tbaa !559
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %44, align 8, !tbaa !560
-  store i8 1, ptr %27, align 8, !tbaa !1206
+  store i64 0, ptr %44, align 8, !tbaa !561
+  store i8 1, ptr %27, align 8, !tbaa !1207
   br label %.loopexit163
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -33479,7 +33631,7 @@ _ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE8GetIndexERK
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %84 = load i8, ptr %83, align 4, !tbaa !1205, !range !216, !noundef !217
+  %84 = load i8, ptr %83, align 4, !tbaa !1206, !range !216, !noundef !217
   %85 = trunc nuw i8 %84 to i1
   %86 = icmp uge i64 %5, %6
   %or.cond200.not = or i1 %86, %85
@@ -33513,7 +33665,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  store i64 %95, ptr %96, align 8, !tbaa !925
+  store i64 %95, ptr %96, align 8, !tbaa !926
   br label %100
 
 100:                                              ; preds = %99, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
@@ -33523,13 +33675,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %103, label %104, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 104:                                              ; preds = %100
-  store i64 %95, ptr %101, align 8, !tbaa !927
+  store i64 %95, ptr %101, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %100, %104
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl(ptr noundef nonnull align 8 dereferenceable(18480) %105, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store i8 1, ptr %83, align 4, !tbaa !1205
+  store i8 1, ptr %83, align 4, !tbaa !1206
   %106 = add nuw i64 %.us-phi183, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit166
@@ -33578,7 +33730,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %128, label %129, label %130
 
 129:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
-  store i64 %126, ptr %110, align 8, !tbaa !925
+  store i64 %126, ptr %110, align 8, !tbaa !926
   br label %130
 
 130:                                              ; preds = %129, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -33587,7 +33739,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %132, label %133, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 133:                                              ; preds = %130
-  store i64 %126, ptr %111, align 8, !tbaa !927
+  store i64 %126, ptr %111, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124: ; preds = %130, %133
@@ -33617,7 +33769,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 
 145:                                              ; preds = %7
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %147 = load i8, ptr %146, align 8, !tbaa !1208, !range !216, !noundef !217
+  %147 = load i8, ptr %146, align 8, !tbaa !1209, !range !216, !noundef !217
   %148 = trunc nuw i8 %147 to i1
   %149 = icmp uge i64 %5, %6
   %or.cond202.not = or i1 %149, %148
@@ -33651,7 +33803,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %161, label %162, label %163
 
 162:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
-  store i64 %158, ptr %159, align 8, !tbaa !925
+  store i64 %158, ptr %159, align 8, !tbaa !926
   br label %163
 
 163:                                              ; preds = %162, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
@@ -33661,13 +33813,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %166, label %167, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 167:                                              ; preds = %163
-  store i64 %158, ptr %164, align 8, !tbaa !927
+  store i64 %158, ptr %164, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129: ; preds = %163, %167
   %168 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIlEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %168, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  store i8 1, ptr %146, align 8, !tbaa !1208
+  store i8 1, ptr %146, align 8, !tbaa !1209
   %169 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit169
@@ -33714,7 +33866,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %187, label %188, label %189
 
 188:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
-  store i64 %185, ptr %173, align 8, !tbaa !925
+  store i64 %185, ptr %173, align 8, !tbaa !926
   br label %189
 
 189:                                              ; preds = %188, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
@@ -33723,7 +33875,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %191, label %192, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 192:                                              ; preds = %189
-  store i64 %185, ptr %174, align 8, !tbaa !927
+  store i64 %185, ptr %174, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134: ; preds = %189, %192
@@ -33762,7 +33914,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %1
   br i1 %206, label %207, label %208
 
 207:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
-  store i64 %204, ptr %23, align 8, !tbaa !925
+  store i64 %204, ptr %23, align 8, !tbaa !926
   br label %208
 
 208:                                              ; preds = %207, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
@@ -33771,7 +33923,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %1
   br i1 %210, label %211, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 211:                                              ; preds = %208
-  store i64 %204, ptr %24, align 8, !tbaa !927
+  store i64 %204, ptr %24, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit139: ; preds = %208, %211
@@ -33810,7 +33962,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   br i1 %225, label %226, label %227
 
 226:                                              ; preds = %220
-  store i64 %224, ptr %218, align 8, !tbaa !925
+  store i64 %224, ptr %218, align 8, !tbaa !926
   br label %227
 
 227:                                              ; preds = %226, %220
@@ -33819,7 +33971,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   br i1 %229, label %230, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 230:                                              ; preds = %227
-  store i64 %224, ptr %219, align 8, !tbaa !927
+  store i64 %224, ptr %219, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %230, %227
@@ -33876,7 +34028,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %254, label %255, label %256
 
 255:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  store i64 %252, ptr %240, align 8, !tbaa !925
+  store i64 %252, ptr %240, align 8, !tbaa !926
   br label %256
 
 256:                                              ; preds = %255, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -33885,7 +34037,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %258, label %259, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 259:                                              ; preds = %256
-  store i64 %252, ptr %241, align 8, !tbaa !927
+  store i64 %252, ptr %241, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %259, %256
@@ -34437,21 +34589,21 @@ _ZNK6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEE6LookupERKl.
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIllNS_26ParquetTimestampNSOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIllS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateIllNS_26ParquetTimestampNSOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1202
+  store i32 %3, ptr %6, align 8, !tbaa !1203
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1205
+  store i8 0, ptr %7, align 4, !tbaa !1206
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1208
+  store i8 0, ptr %10, align 8, !tbaa !1209
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 8, ptr %13, align 8, !tbaa !563
+  store i64 8, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -34460,7 +34612,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIllNS_26ParquetTime
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -34474,7 +34626,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1237
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1206
+  store i8 0, ptr %23, align 8, !tbaa !1207
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1191
   %26 = icmp eq i64 %25, 0
@@ -34486,7 +34638,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -34495,9 +34647,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1207
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1208
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -34643,7 +34795,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKlS1_EZN6duckdb20StandardC
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  store i64 %6, ptr %7, align 8, !tbaa !925
+  store i64 %6, ptr %7, align 8, !tbaa !926
   br label %11
 
 11:                                               ; preds = %10, %3
@@ -34653,7 +34805,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKlS1_EZN6duckdb20StandardC
   br i1 %14, label %15, label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIllNS0_26ParquetTimestampNSOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKlS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 15:                                               ; preds = %11
-  store i64 %6, ptr %12, align 8, !tbaa !927
+  store i64 %6, ptr %12, align 8, !tbaa !928
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIllNS0_26ParquetTimestampNSOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKlS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIllNS0_26ParquetTimestampNSOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKlS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit: ; preds = %11, %15
@@ -35023,36 +35175,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1248
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1248
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1248
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1248
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1248
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1259
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -35065,14 +35234,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterIllNS_25Parquet
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimestampSOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1259)
-  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31, !noalias !1262
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIllNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1262
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1260)
+  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31, !noalias !1263
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIllNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1263
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 9223372036854775807, ptr %4, align 8, !tbaa !925, !noalias !1262
+  store i64 9223372036854775807, ptr %4, align 8, !tbaa !926, !noalias !1263
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 -9223372036854775808, ptr %5, align 8, !tbaa !927, !noalias !1262
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !1259
+  store i64 -9223372036854775808, ptr %5, align 8, !tbaa !928, !noalias !1263
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !1260
   ret void
 }
 
@@ -35082,21 +35251,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1265
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1265
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1265
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1265
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1266
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1266
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1266
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1266
   invoke void @_ZN6duckdb23StandardWriterPageStateIllNS_25ParquetTimestampSOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIllS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIllNS0_25ParquetTimestampSOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1265
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIllNS0_25ParquetTimestampSOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1266
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1265
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1266
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIllNS0_25ParquetTimestampSOperatorEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -35110,7 +35279,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1268
+  %12 = load i32, ptr %11, align 8, !tbaa !1269
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -35121,7 +35290,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1271, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1272, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -35140,13 +35309,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1272, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1273, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1273
+  %27 = load i32, ptr %26, align 4, !tbaa !1274
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -35159,7 +35328,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -35176,22 +35345,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1274, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1275, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -35218,7 +35387,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -35230,7 +35399,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -35304,7 +35473,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterIllNS_25Parque
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1275
+  %10 = load i32, ptr %9, align 8, !tbaa !1259
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -35331,7 +35500,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !504
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !1268
+  %21 = load i32, ptr %20, align 8, !tbaa !1269
   switch i32 %21, label %275 [
     i32 8, label %26
     i32 5, label %82
@@ -35352,7 +35521,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIllNS_25ParquetTimesta
 
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %28 = load i8, ptr %27, align 8, !tbaa !1272, !range !216, !noundef !217
+  %28 = load i8, ptr %27, align 8, !tbaa !1273, !range !216, !noundef !217
   %29 = trunc nuw i8 %28 to i1
   %30 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %30, %29
@@ -35377,7 +35546,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph187, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph187
   %.us-phi189 = phi i64 [ %5, %.lr.ph187 ], [ %.1108186, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %39 = load i32, ptr %38, align 4, !tbaa !1273
+  %39 = load i32, ptr %38, align 4, !tbaa !1274
   %40 = trunc i32 %39 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %40, ptr %9, align 1, !tbaa !3
@@ -35386,10 +35555,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %42(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %9, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %43, align 8, !tbaa !558
+  store i64 0, ptr %43, align 8, !tbaa !559
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %44, align 8, !tbaa !560
-  store i8 1, ptr %27, align 8, !tbaa !1272
+  store i64 0, ptr %44, align 8, !tbaa !561
+  store i8 1, ptr %27, align 8, !tbaa !1273
   br label %.loopexit163
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -35478,7 +35647,7 @@ _ZNK6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEE8GetIndexERKl
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %84 = load i8, ptr %83, align 4, !tbaa !1271, !range !216, !noundef !217
+  %84 = load i8, ptr %83, align 4, !tbaa !1272, !range !216, !noundef !217
   %85 = trunc nuw i8 %84 to i1
   %86 = icmp uge i64 %5, %6
   %or.cond200.not = or i1 %86, %85
@@ -35513,7 +35682,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %99, label %100, label %101
 
 100:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  store i64 %96, ptr %97, align 8, !tbaa !925
+  store i64 %96, ptr %97, align 8, !tbaa !926
   br label %101
 
 101:                                              ; preds = %100, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
@@ -35523,13 +35692,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %104, label %105, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 105:                                              ; preds = %101
-  store i64 %96, ptr %102, align 8, !tbaa !927
+  store i64 %96, ptr %102, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %101, %105
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl(ptr noundef nonnull align 8 dereferenceable(18480) %106, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store i8 1, ptr %83, align 4, !tbaa !1271
+  store i8 1, ptr %83, align 4, !tbaa !1272
   %107 = add nuw i64 %.us-phi183, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit166
@@ -35579,7 +35748,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %130, label %131, label %132
 
 131:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
-  store i64 %128, ptr %111, align 8, !tbaa !925
+  store i64 %128, ptr %111, align 8, !tbaa !926
   br label %132
 
 132:                                              ; preds = %131, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -35588,7 +35757,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %134, label %135, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 135:                                              ; preds = %132
-  store i64 %128, ptr %112, align 8, !tbaa !927
+  store i64 %128, ptr %112, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit124: ; preds = %132, %135
@@ -35618,7 +35787,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIlEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 
 147:                                              ; preds = %7
   %148 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %149 = load i8, ptr %148, align 8, !tbaa !1274, !range !216, !noundef !217
+  %149 = load i8, ptr %148, align 8, !tbaa !1275, !range !216, !noundef !217
   %150 = trunc nuw i8 %149 to i1
   %151 = icmp uge i64 %5, %6
   %or.cond202.not = or i1 %151, %150
@@ -35653,7 +35822,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
-  store i64 %161, ptr %162, align 8, !tbaa !925
+  store i64 %161, ptr %162, align 8, !tbaa !926
   br label %166
 
 166:                                              ; preds = %165, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
@@ -35663,13 +35832,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %169, label %170, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 170:                                              ; preds = %166
-  store i64 %161, ptr %167, align 8, !tbaa !927
+  store i64 %161, ptr %167, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit129: ; preds = %166, %170
   %171 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIlEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %171, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  store i8 1, ptr %148, align 8, !tbaa !1274
+  store i8 1, ptr %148, align 8, !tbaa !1275
   %172 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit169
@@ -35717,7 +35886,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %191, label %192, label %193
 
 192:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
-  store i64 %189, ptr %176, align 8, !tbaa !925
+  store i64 %189, ptr %176, align 8, !tbaa !926
   br label %193
 
 193:                                              ; preds = %192, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
@@ -35726,7 +35895,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %195, label %196, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 196:                                              ; preds = %193
-  store i64 %189, ptr %177, align 8, !tbaa !927
+  store i64 %189, ptr %177, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit134: ; preds = %193, %196
@@ -35766,7 +35935,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %1
   br i1 %211, label %212, label %213
 
 212:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
-  store i64 %209, ptr %23, align 8, !tbaa !925
+  store i64 %209, ptr %23, align 8, !tbaa !926
   br label %213
 
 213:                                              ; preds = %212, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
@@ -35775,7 +35944,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %1
   br i1 %215, label %216, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 216:                                              ; preds = %213
-  store i64 %209, ptr %24, align 8, !tbaa !927
+  store i64 %209, ptr %24, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit139: ; preds = %213, %216
@@ -35812,7 +35981,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   br i1 %230, label %231, label %232
 
 231:                                              ; preds = %225
-  store i64 %228, ptr %223, align 8, !tbaa !925
+  store i64 %228, ptr %223, align 8, !tbaa !926
   br label %232
 
 232:                                              ; preds = %231, %225
@@ -35821,7 +35990,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET
   br i1 %234, label %235, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 235:                                              ; preds = %232
-  store i64 %228, ptr %224, align 8, !tbaa !927
+  store i64 %228, ptr %224, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %235, %232
@@ -35878,7 +36047,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %259, label %260, label %261
 
 260:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  store i64 %257, ptr %244, align 8, !tbaa !925
+  store i64 %257, ptr %244, align 8, !tbaa !926
   br label %261
 
 261:                                              ; preds = %260, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -35887,7 +36056,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %263, label %264, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 264:                                              ; preds = %261
-  store i64 %257, ptr %245, align 8, !tbaa !927
+  store i64 %257, ptr %245, align 8, !tbaa !928
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIllEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %264, %261
@@ -36442,21 +36611,21 @@ declare i64 @_ZN6duckdb9Timestamp32FromEpochSecondsPossiblyInfiniteEl(i64 nounde
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIllNS_25ParquetTimestampSOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIllS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateIllNS_25ParquetTimestampSOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1268
+  store i32 %3, ptr %6, align 8, !tbaa !1269
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1271
+  store i8 0, ptr %7, align 4, !tbaa !1272
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1274
+  store i8 0, ptr %10, align 8, !tbaa !1275
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 8, ptr %13, align 8, !tbaa !563
+  store i64 8, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -36465,7 +36634,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIllNS_25ParquetTime
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -36479,7 +36648,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1303
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1272
+  store i8 0, ptr %23, align 8, !tbaa !1273
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1257
   %26 = icmp eq i64 %25, 0
@@ -36491,7 +36660,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -36500,9 +36669,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1273
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1274
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -36648,7 +36817,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKlS1_EZN6duckdb20StandardC
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  store i64 %6, ptr %7, align 8, !tbaa !925
+  store i64 %6, ptr %7, align 8, !tbaa !926
   br label %11
 
 11:                                               ; preds = %10, %3
@@ -36658,7 +36827,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKlS1_EZN6duckdb20StandardC
   br i1 %14, label %15, label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIllNS0_25ParquetTimestampSOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKlS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 15:                                               ; preds = %11
-  store i64 %6, ptr %12, align 8, !tbaa !927
+  store i64 %6, ptr %12, align 8, !tbaa !928
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIllNS0_25ParquetTimestampSOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKlS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIllNS0_25ParquetTimestampSOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKlS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit: ; preds = %11, %15
@@ -37028,36 +37197,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1314
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1314
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1314
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1314
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1314
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1325
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -37070,14 +37256,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterIhiNS_19Parquet
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1325)
-  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !1328
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIhiNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1328
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1326)
+  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !1329
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIhiNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1329
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 2147483647, ptr %4, align 8, !tbaa !1331, !noalias !1328
+  store i32 2147483647, ptr %4, align 8, !tbaa !1332, !noalias !1329
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 -2147483648, ptr %5, align 4, !tbaa !1333, !noalias !1328
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !1325
+  store i32 -2147483648, ptr %5, align 4, !tbaa !1334, !noalias !1329
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !1326
   ret void
 }
 
@@ -37087,21 +37273,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1334
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1334
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1334
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1334
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1335
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1335
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1335
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1335
   invoke void @_ZN6duckdb23StandardWriterPageStateIhiNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIhiS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIhiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1334
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIhiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1335
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1334
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1335
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIhiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -37115,7 +37301,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1337
+  %12 = load i32, ptr %11, align 8, !tbaa !1338
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -37126,7 +37312,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1340, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1341, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -37145,13 +37331,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1341, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1342, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1342
+  %27 = load i32, ptr %26, align 4, !tbaa !1343
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -37164,7 +37350,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -37181,22 +37367,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1343, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1344, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -37223,7 +37409,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -37235,7 +37421,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -37309,7 +37495,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterIhiNS_19Parque
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1344
+  %10 = load i32, ptr %9, align 8, !tbaa !1325
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -37337,7 +37523,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !504
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !1337
+  %22 = load i32, ptr %21, align 8, !tbaa !1338
   switch i32 %22, label %286 [
     i32 8, label %27
     i32 5, label %87
@@ -37358,7 +37544,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIhiNS_19ParquetCastOpe
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %29 = load i8, ptr %28, align 8, !tbaa !1341, !range !216, !noundef !217
+  %29 = load i8, ptr %28, align 8, !tbaa !1342, !range !216, !noundef !217
   %30 = trunc nuw i8 %29 to i1
   %31 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %31, %30
@@ -37383,7 +37569,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph191, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph191
   %.us-phi193 = phi i64 [ %5, %.lr.ph191 ], [ %.1108190, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %40 = load i32, ptr %39, align 4, !tbaa !1342
+  %40 = load i32, ptr %39, align 4, !tbaa !1343
   %41 = trunc i32 %40 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %41, ptr %11, align 1, !tbaa !3
@@ -37392,10 +37578,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %43(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %11, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %44, align 8, !tbaa !558
+  store i64 0, ptr %44, align 8, !tbaa !559
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %45, align 8, !tbaa !560
-  store i8 1, ptr %28, align 8, !tbaa !1341
+  store i64 0, ptr %45, align 8, !tbaa !561
+  store i8 1, ptr %28, align 8, !tbaa !1342
   br label %.loopexit167
 
 46:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -37489,7 +37675,7 @@ _ZNK6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEE8GetIndexERKh.exit:
 
 87:                                               ; preds = %7
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %89 = load i8, ptr %88, align 4, !tbaa !1340, !range !216, !noundef !217
+  %89 = load i8, ptr %88, align 4, !tbaa !1341, !range !216, !noundef !217
   %90 = trunc nuw i8 %89 to i1
   %91 = icmp uge i64 %5, %6
   %or.cond203.not = or i1 %91, %90
@@ -37522,7 +37708,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %104, label %105, label %106
 
 105:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  store i32 %101, ptr %102, align 8, !tbaa !1331
+  store i32 %101, ptr %102, align 8, !tbaa !1332
   br label %106
 
 106:                                              ; preds = %105, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
@@ -37532,7 +37718,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %109, label %110, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 110:                                              ; preds = %106
-  store i32 %101, ptr %107, align 4, !tbaa !1333
+  store i32 %101, ptr %107, align 4, !tbaa !1334
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %106, %110
@@ -37542,7 +37728,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
   store i64 %112, ptr %10, align 8, !tbaa !24
   call void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl(ptr noundef nonnull align 8 dereferenceable(18480) %111, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store i8 1, ptr %88, align 4, !tbaa !1340
+  store i8 1, ptr %88, align 4, !tbaa !1341
   %113 = add nuw i64 %.us-phi187, 1
   br label %.loopexit170
 
@@ -37591,7 +37777,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
-  store i32 %134, ptr %117, align 8, !tbaa !1331
+  store i32 %134, ptr %117, align 8, !tbaa !1332
   br label %138
 
 138:                                              ; preds = %137, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -37600,7 +37786,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %140, label %141, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 141:                                              ; preds = %138
-  store i32 %134, ptr %118, align 4, !tbaa !1333
+  store i32 %134, ptr %118, align 4, !tbaa !1334
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit124: ; preds = %138, %141
@@ -37631,7 +37817,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 
 154:                                              ; preds = %7
   %155 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %156 = load i8, ptr %155, align 8, !tbaa !1343, !range !216, !noundef !217
+  %156 = load i8, ptr %155, align 8, !tbaa !1344, !range !216, !noundef !217
   %157 = trunc nuw i8 %156 to i1
   %158 = icmp uge i64 %5, %6
   %or.cond205.not = or i1 %158, %157
@@ -37666,7 +37852,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %171, label %172, label %173
 
 172:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
-  store i32 %168, ptr %169, align 8, !tbaa !1331
+  store i32 %168, ptr %169, align 8, !tbaa !1332
   br label %173
 
 173:                                              ; preds = %172, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
@@ -37676,13 +37862,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %176, label %177, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 177:                                              ; preds = %173
-  store i32 %168, ptr %174, align 4, !tbaa !1333
+  store i32 %168, ptr %174, align 4, !tbaa !1334
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit129: ; preds = %173, %177
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIiEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %178, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %13)
-  store i8 1, ptr %155, align 8, !tbaa !1343
+  store i8 1, ptr %155, align 8, !tbaa !1344
   %179 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit173
@@ -37730,7 +37916,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %198, label %199, label %200
 
 199:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
-  store i32 %196, ptr %183, align 8, !tbaa !1331
+  store i32 %196, ptr %183, align 8, !tbaa !1332
   br label %200
 
 200:                                              ; preds = %199, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
@@ -37739,7 +37925,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %202, label %203, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 203:                                              ; preds = %200
-  store i32 %196, ptr %184, align 4, !tbaa !1333
+  store i32 %196, ptr %184, align 4, !tbaa !1334
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit134: ; preds = %200, %203
@@ -37779,7 +37965,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %218, label %219, label %220
 
 219:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
-  store i32 %216, ptr %24, align 8, !tbaa !1331
+  store i32 %216, ptr %24, align 8, !tbaa !1332
   br label %220
 
 220:                                              ; preds = %219, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
@@ -37788,7 +37974,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %222, label %223, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 223:                                              ; preds = %220
-  store i32 %216, ptr %25, align 4, !tbaa !1333
+  store i32 %216, ptr %25, align 4, !tbaa !1334
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit139: ; preds = %220, %223
@@ -37831,7 +38017,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
   br i1 %238, label %239, label %240
 
 239:                                              ; preds = %233
-  store i32 %236, ptr %230, align 8, !tbaa !1331
+  store i32 %236, ptr %230, align 8, !tbaa !1332
   br label %240
 
 240:                                              ; preds = %239, %233
@@ -37840,7 +38026,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET
   br i1 %242, label %243, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 243:                                              ; preds = %240
-  store i32 %236, ptr %231, align 4, !tbaa !1333
+  store i32 %236, ptr %231, align 4, !tbaa !1334
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %243, %240
@@ -37909,7 +38095,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %270, label %271, label %272
 
 271:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  store i32 %268, ptr %255, align 8, !tbaa !1331
+  store i32 %268, ptr %255, align 8, !tbaa !1332
   br label %272
 
 272:                                              ; preds = %271, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -37918,7 +38104,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %274, label %275, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145
 
 275:                                              ; preds = %272
-  store i32 %268, ptr %256, align 4, !tbaa !1333
+  store i32 %268, ptr %256, align 4, !tbaa !1334
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIhiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %275, %272
@@ -38482,9 +38668,9 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIhiNS_19BaseParquetO
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22NumericStatisticsStateIhiNS_19BaseParquetOperatorEE8HasStatsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !1331
+  %3 = load i32, ptr %2, align 8, !tbaa !1332
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !1333
+  %5 = load i32, ptr %4, align 4, !tbaa !1334
   %6 = icmp sle i32 %3, %5
   ret i1 %6
 }
@@ -38575,21 +38761,21 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIhiNS_19BaseParquetO
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIhiNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIhiS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateIhiNS_19ParquetCastOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1337
+  store i32 %3, ptr %6, align 8, !tbaa !1338
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1340
+  store i8 0, ptr %7, align 4, !tbaa !1341
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1343
+  store i8 0, ptr %10, align 8, !tbaa !1344
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 4, ptr %13, align 8, !tbaa !563
+  store i64 4, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -38598,7 +38784,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIhiNS_19ParquetCast
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -38612,7 +38798,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1374
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1341
+  store i8 0, ptr %23, align 8, !tbaa !1342
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1323
   %26 = icmp eq i64 %25, 0
@@ -38624,7 +38810,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -38633,9 +38819,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1342
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1343
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -38781,7 +38967,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKhRKiEZN6duckdb20StandardC
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  store i32 %6, ptr %7, align 8, !tbaa !1331
+  store i32 %6, ptr %7, align 8, !tbaa !1332
   br label %11
 
 11:                                               ; preds = %10, %3
@@ -38791,7 +38977,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKhRKiEZN6duckdb20StandardC
   br i1 %14, label %15, label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIhiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKhRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit
 
 15:                                               ; preds = %11
-  store i32 %6, ptr %12, align 4, !tbaa !1333
+  store i32 %6, ptr %12, align 4, !tbaa !1334
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIhiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKhRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIhiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKhRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit: ; preds = %11, %15
@@ -39161,36 +39347,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1385
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1385
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1385
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1385
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1385
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1396
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -39203,14 +39406,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterItiNS_19Parquet
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1396)
-  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !1399
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateItiNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1399
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1397)
+  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !1400
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateItiNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1400
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 2147483647, ptr %4, align 8, !tbaa !1402, !noalias !1399
+  store i32 2147483647, ptr %4, align 8, !tbaa !1403, !noalias !1400
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 -2147483648, ptr %5, align 4, !tbaa !1404, !noalias !1399
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !1396
+  store i32 -2147483648, ptr %5, align 4, !tbaa !1405, !noalias !1400
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !1397
   ret void
 }
 
@@ -39220,21 +39423,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1405
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1405
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1405
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1405
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1406
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1406
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1406
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1406
   invoke void @_ZN6duckdb23StandardWriterPageStateItiNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryItiS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateItiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1405
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateItiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1406
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1405
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1406
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateItiNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -39248,7 +39451,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1408
+  %12 = load i32, ptr %11, align 8, !tbaa !1409
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -39259,7 +39462,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1411, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1412, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -39278,13 +39481,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1412, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1413, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1413
+  %27 = load i32, ptr %26, align 4, !tbaa !1414
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -39297,7 +39500,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -39314,22 +39517,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1414, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1415, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -39356,7 +39559,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -39368,7 +39571,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -39442,7 +39645,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterItiNS_19Parque
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1415
+  %10 = load i32, ptr %9, align 8, !tbaa !1396
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -39470,7 +39673,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !504
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !1408
+  %22 = load i32, ptr %21, align 8, !tbaa !1409
   switch i32 %22, label %286 [
     i32 8, label %27
     i32 5, label %87
@@ -39491,7 +39694,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterItiNS_19ParquetCastOpe
 
 27:                                               ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %29 = load i8, ptr %28, align 8, !tbaa !1412, !range !216, !noundef !217
+  %29 = load i8, ptr %28, align 8, !tbaa !1413, !range !216, !noundef !217
   %30 = trunc nuw i8 %29 to i1
   %31 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %31, %30
@@ -39516,7 +39719,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph191, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph191
   %.us-phi193 = phi i64 [ %5, %.lr.ph191 ], [ %.1108190, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %40 = load i32, ptr %39, align 4, !tbaa !1413
+  %40 = load i32, ptr %39, align 4, !tbaa !1414
   %41 = trunc i32 %40 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 %41, ptr %11, align 1, !tbaa !3
@@ -39525,10 +39728,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %43(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %11, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %44, align 8, !tbaa !558
+  store i64 0, ptr %44, align 8, !tbaa !559
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %45, align 8, !tbaa !560
-  store i8 1, ptr %28, align 8, !tbaa !1412
+  store i64 0, ptr %45, align 8, !tbaa !561
+  store i8 1, ptr %28, align 8, !tbaa !1413
   br label %.loopexit167
 
 46:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -39622,7 +39825,7 @@ _ZNK6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEE8GetIndexERKt.exit:
 
 87:                                               ; preds = %7
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %89 = load i8, ptr %88, align 4, !tbaa !1411, !range !216, !noundef !217
+  %89 = load i8, ptr %88, align 4, !tbaa !1412, !range !216, !noundef !217
   %90 = trunc nuw i8 %89 to i1
   %91 = icmp uge i64 %5, %6
   %or.cond203.not = or i1 %91, %90
@@ -39655,7 +39858,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %104, label %105, label %106
 
 105:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  store i32 %101, ptr %102, align 8, !tbaa !1402
+  store i32 %101, ptr %102, align 8, !tbaa !1403
   br label %106
 
 106:                                              ; preds = %105, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
@@ -39665,7 +39868,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %109, label %110, label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 110:                                              ; preds = %106
-  store i32 %101, ptr %107, align 4, !tbaa !1404
+  store i32 %101, ptr %107, align 4, !tbaa !1405
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %106, %110
@@ -39675,7 +39878,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
   store i64 %112, ptr %10, align 8, !tbaa !24
   call void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl(ptr noundef nonnull align 8 dereferenceable(18480) %111, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store i8 1, ptr %88, align 4, !tbaa !1411
+  store i8 1, ptr %88, align 4, !tbaa !1412
   %113 = add nuw i64 %.us-phi187, 1
   br label %.loopexit170
 
@@ -39724,7 +39927,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
-  store i32 %134, ptr %117, align 8, !tbaa !1402
+  store i32 %134, ptr %117, align 8, !tbaa !1403
   br label %138
 
 138:                                              ; preds = %137, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -39733,7 +39936,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %140, label %141, label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 141:                                              ; preds = %138
-  store i32 %134, ptr %118, align 4, !tbaa !1404
+  store i32 %134, ptr %118, align 4, !tbaa !1405
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit124: ; preds = %138, %141
@@ -39764,7 +39967,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIiEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 
 154:                                              ; preds = %7
   %155 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %156 = load i8, ptr %155, align 8, !tbaa !1414, !range !216, !noundef !217
+  %156 = load i8, ptr %155, align 8, !tbaa !1415, !range !216, !noundef !217
   %157 = trunc nuw i8 %156 to i1
   %158 = icmp uge i64 %5, %6
   %or.cond205.not = or i1 %158, %157
@@ -39799,7 +40002,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %171, label %172, label %173
 
 172:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
-  store i32 %168, ptr %169, align 8, !tbaa !1402
+  store i32 %168, ptr %169, align 8, !tbaa !1403
   br label %173
 
 173:                                              ; preds = %172, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
@@ -39809,13 +40012,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %176, label %177, label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 177:                                              ; preds = %173
-  store i32 %168, ptr %174, align 4, !tbaa !1404
+  store i32 %168, ptr %174, align 4, !tbaa !1405
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit129: ; preds = %173, %177
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIiEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %178, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %13)
-  store i8 1, ptr %155, align 8, !tbaa !1414
+  store i8 1, ptr %155, align 8, !tbaa !1415
   %179 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit173
@@ -39863,7 +40066,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %198, label %199, label %200
 
 199:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
-  store i32 %196, ptr %183, align 8, !tbaa !1402
+  store i32 %196, ptr %183, align 8, !tbaa !1403
   br label %200
 
 200:                                              ; preds = %199, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
@@ -39872,7 +40075,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %202, label %203, label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 203:                                              ; preds = %200
-  store i32 %196, ptr %184, align 4, !tbaa !1404
+  store i32 %196, ptr %184, align 4, !tbaa !1405
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit134: ; preds = %200, %203
@@ -39912,7 +40115,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %218, label %219, label %220
 
 219:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
-  store i32 %216, ptr %24, align 8, !tbaa !1402
+  store i32 %216, ptr %24, align 8, !tbaa !1403
   br label %220
 
 220:                                              ; preds = %219, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
@@ -39921,7 +40124,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %222, label %223, label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 223:                                              ; preds = %220
-  store i32 %216, ptr %25, align 4, !tbaa !1404
+  store i32 %216, ptr %25, align 4, !tbaa !1405
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit139: ; preds = %220, %223
@@ -39964,7 +40167,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
   br i1 %238, label %239, label %240
 
 239:                                              ; preds = %233
-  store i32 %236, ptr %230, align 8, !tbaa !1402
+  store i32 %236, ptr %230, align 8, !tbaa !1403
   br label %240
 
 240:                                              ; preds = %239, %233
@@ -39973,7 +40176,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET
   br i1 %242, label %243, label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 243:                                              ; preds = %240
-  store i32 %236, ptr %231, align 4, !tbaa !1404
+  store i32 %236, ptr %231, align 4, !tbaa !1405
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %243, %240
@@ -40042,7 +40245,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %270, label %271, label %272
 
 271:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  store i32 %268, ptr %255, align 8, !tbaa !1402
+  store i32 %268, ptr %255, align 8, !tbaa !1403
   br label %272
 
 272:                                              ; preds = %271, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -40051,7 +40254,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %274, label %275, label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145
 
 275:                                              ; preds = %272
-  store i32 %268, ptr %256, align 4, !tbaa !1404
+  store i32 %268, ptr %256, align 4, !tbaa !1405
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsItiEEvPNS_22ColumnWriterStatisticsET0_.exit.i145: ; preds = %275, %272
@@ -40615,9 +40818,9 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateItiNS_19BaseParquetO
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22NumericStatisticsStateItiNS_19BaseParquetOperatorEE8HasStatsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !1402
+  %3 = load i32, ptr %2, align 8, !tbaa !1403
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !1404
+  %5 = load i32, ptr %4, align 4, !tbaa !1405
   %6 = icmp sle i32 %3, %5
   ret i1 %6
 }
@@ -40708,21 +40911,21 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateItiNS_19BaseParquetO
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateItiNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryItiS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateItiNS_19ParquetCastOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1408
+  store i32 %3, ptr %6, align 8, !tbaa !1409
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1411
+  store i8 0, ptr %7, align 4, !tbaa !1412
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1414
+  store i8 0, ptr %10, align 8, !tbaa !1415
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 4, ptr %13, align 8, !tbaa !563
+  store i64 4, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -40731,7 +40934,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateItiNS_19ParquetCast
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -40745,7 +40948,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1445
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1412
+  store i8 0, ptr %23, align 8, !tbaa !1413
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1394
   %26 = icmp eq i64 %25, 0
@@ -40757,7 +40960,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -40766,9 +40969,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1413
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1414
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -40914,7 +41117,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKtRKiEZN6duckdb20StandardC
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  store i32 %6, ptr %7, align 8, !tbaa !1402
+  store i32 %6, ptr %7, align 8, !tbaa !1403
   br label %11
 
 11:                                               ; preds = %10, %3
@@ -40924,7 +41127,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKtRKiEZN6duckdb20StandardC
   br i1 %14, label %15, label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterItiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKtRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit
 
 15:                                               ; preds = %11
-  store i32 %6, ptr %12, align 4, !tbaa !1404
+  store i32 %6, ptr %12, align 4, !tbaa !1405
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterItiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKtRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterItiNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKtRKiE_JS9_SB_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESG_E4typeEOSJ_DpOSK_.exit: ; preds = %11, %15
@@ -41294,36 +41497,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1456
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1456
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1456
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1456
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1456
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1467
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -41336,14 +41556,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterIjjNS_19Parquet
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1467)
-  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !1470
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIjjNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1470
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1468)
+  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !1471
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateIjjNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1471
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 -1, ptr %4, align 8, !tbaa !1473, !noalias !1470
+  store i32 -1, ptr %4, align 8, !tbaa !1474, !noalias !1471
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %5, align 4, !tbaa !1475, !noalias !1470
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !1467
+  store i32 0, ptr %5, align 4, !tbaa !1476, !noalias !1471
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !1468
   ret void
 }
 
@@ -41353,21 +41573,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1476
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1476
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1476
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1476
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1477
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1477
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1477
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1477
   invoke void @_ZN6duckdb23StandardWriterPageStateIjjNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIjjS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIjjNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1476
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIjjNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1477
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1476
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1477
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateIjjNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -41381,7 +41601,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1479
+  %12 = load i32, ptr %11, align 8, !tbaa !1480
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -41392,7 +41612,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1482, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1483, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -41411,13 +41631,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1483, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1484, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1484
+  %27 = load i32, ptr %26, align 4, !tbaa !1485
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -41430,7 +41650,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -41447,22 +41667,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1485, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1486, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -41489,7 +41709,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -41501,7 +41721,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -41575,7 +41795,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterIjjNS_19Parque
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1486
+  %10 = load i32, ptr %9, align 8, !tbaa !1467
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -41602,7 +41822,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !504
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !1479
+  %21 = load i32, ptr %20, align 8, !tbaa !1480
   switch i32 %21, label %276 [
     i32 8, label %26
     i32 5, label %86
@@ -41623,7 +41843,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterIjjNS_19ParquetCastOpe
 
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %28 = load i8, ptr %27, align 8, !tbaa !1483, !range !216, !noundef !217
+  %28 = load i8, ptr %27, align 8, !tbaa !1484, !range !216, !noundef !217
   %29 = trunc nuw i8 %28 to i1
   %30 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %30, %29
@@ -41648,7 +41868,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph188, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph188
   %.us-phi190 = phi i64 [ %5, %.lr.ph188 ], [ %.1108187, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %39 = load i32, ptr %38, align 4, !tbaa !1484
+  %39 = load i32, ptr %38, align 4, !tbaa !1485
   %40 = trunc i32 %39 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %40, ptr %10, align 1, !tbaa !3
@@ -41657,10 +41877,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %42(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %43, align 8, !tbaa !558
+  store i64 0, ptr %43, align 8, !tbaa !559
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %44, align 8, !tbaa !560
-  store i8 1, ptr %27, align 8, !tbaa !1483
+  store i64 0, ptr %44, align 8, !tbaa !561
+  store i8 1, ptr %27, align 8, !tbaa !1484
   br label %.loopexit164
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -41754,7 +41974,7 @@ _ZNK6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEE8GetIndexERKj.exit:
 
 86:                                               ; preds = %7
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %88 = load i8, ptr %87, align 4, !tbaa !1482, !range !216, !noundef !217
+  %88 = load i8, ptr %87, align 4, !tbaa !1483, !range !216, !noundef !217
   %89 = trunc nuw i8 %88 to i1
   %90 = icmp uge i64 %5, %6
   %or.cond200.not = or i1 %90, %89
@@ -41786,7 +42006,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  store i32 %99, ptr %100, align 8, !tbaa !1473
+  store i32 %99, ptr %100, align 8, !tbaa !1474
   br label %104
 
 104:                                              ; preds = %103, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
@@ -41796,7 +42016,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %107, label %108, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 108:                                              ; preds = %104
-  store i32 %99, ptr %105, align 4, !tbaa !1475
+  store i32 %99, ptr %105, align 4, !tbaa !1476
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %104, %108
@@ -41806,7 +42026,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
   store i64 %110, ptr %9, align 8, !tbaa !24
   call void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl(ptr noundef nonnull align 8 dereferenceable(18480) %109, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i8 1, ptr %87, align 4, !tbaa !1482
+  store i8 1, ptr %87, align 4, !tbaa !1483
   %111 = add nuw i64 %.us-phi184, 1
   br label %.loopexit167
 
@@ -41854,7 +42074,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %133, label %134, label %135
 
 134:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
-  store i32 %131, ptr %115, align 8, !tbaa !1473
+  store i32 %131, ptr %115, align 8, !tbaa !1474
   br label %135
 
 135:                                              ; preds = %134, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -41863,7 +42083,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %137, label %138, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 138:                                              ; preds = %135
-  store i32 %131, ptr %116, align 4, !tbaa !1475
+  store i32 %131, ptr %116, align 4, !tbaa !1476
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit124: ; preds = %135, %138
@@ -41894,7 +42114,7 @@ _ZN6duckdb11dbp_encoder10WriteValueIjEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 
 151:                                              ; preds = %7
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %153 = load i8, ptr %152, align 8, !tbaa !1485, !range !216, !noundef !217
+  %153 = load i8, ptr %152, align 8, !tbaa !1486, !range !216, !noundef !217
   %154 = trunc nuw i8 %153 to i1
   %155 = icmp uge i64 %5, %6
   %or.cond202.not = or i1 %155, %154
@@ -41928,7 +42148,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %167, label %168, label %169
 
 168:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
-  store i32 %164, ptr %165, align 8, !tbaa !1473
+  store i32 %164, ptr %165, align 8, !tbaa !1474
   br label %169
 
 169:                                              ; preds = %168, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
@@ -41938,13 +42158,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %172, label %173, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 173:                                              ; preds = %169
-  store i32 %164, ptr %170, align 4, !tbaa !1475
+  store i32 %164, ptr %170, align 4, !tbaa !1476
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit129: ; preds = %169, %173
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIjEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %174, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %12)
-  store i8 1, ptr %152, align 8, !tbaa !1485
+  store i8 1, ptr %152, align 8, !tbaa !1486
   %175 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit170
@@ -41991,7 +42211,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %193, label %194, label %195
 
 194:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
-  store i32 %191, ptr %179, align 8, !tbaa !1473
+  store i32 %191, ptr %179, align 8, !tbaa !1474
   br label %195
 
 195:                                              ; preds = %194, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
@@ -42000,7 +42220,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %197, label %198, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 198:                                              ; preds = %195
-  store i32 %191, ptr %180, align 4, !tbaa !1475
+  store i32 %191, ptr %180, align 4, !tbaa !1476
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit134: ; preds = %195, %198
@@ -42039,7 +42259,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %212, label %213, label %214
 
 213:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
-  store i32 %210, ptr %23, align 8, !tbaa !1473
+  store i32 %210, ptr %23, align 8, !tbaa !1474
   br label %214
 
 214:                                              ; preds = %213, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
@@ -42048,7 +42268,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %2
   br i1 %216, label %217, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 217:                                              ; preds = %214
-  store i32 %210, ptr %24, align 4, !tbaa !1475
+  store i32 %210, ptr %24, align 4, !tbaa !1476
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit139: ; preds = %214, %217
@@ -42087,7 +42307,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
   br i1 %231, label %232, label %233
 
 232:                                              ; preds = %226
-  store i32 %230, ptr %224, align 8, !tbaa !1473
+  store i32 %230, ptr %224, align 8, !tbaa !1474
   br label %233
 
 233:                                              ; preds = %232, %226
@@ -42096,7 +42316,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET
   br i1 %235, label %236, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 236:                                              ; preds = %233
-  store i32 %230, ptr %225, align 4, !tbaa !1475
+  store i32 %230, ptr %225, align 4, !tbaa !1476
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %236, %233
@@ -42153,7 +42373,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %260, label %261, label %262
 
 261:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  store i32 %258, ptr %246, align 8, !tbaa !1473
+  store i32 %258, ptr %246, align 8, !tbaa !1474
   br label %262
 
 262:                                              ; preds = %261, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -42162,7 +42382,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %264, label %265, label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 265:                                              ; preds = %262
-  store i32 %258, ptr %247, align 4, !tbaa !1475
+  store i32 %258, ptr %247, align 4, !tbaa !1476
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsIjjEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %265, %262
@@ -42725,9 +42945,9 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIjjNS_19BaseParquetO
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22NumericStatisticsStateIjjNS_19BaseParquetOperatorEE8HasStatsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !1473
+  %3 = load i32, ptr %2, align 8, !tbaa !1474
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !1475
+  %5 = load i32, ptr %4, align 4, !tbaa !1476
   %6 = icmp ule i32 %3, %5
   ret i1 %6
 }
@@ -42818,21 +43038,21 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateIjjNS_19BaseParquetO
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIjjNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIjjS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateIjjNS_19ParquetCastOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1479
+  store i32 %3, ptr %6, align 8, !tbaa !1480
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1482
+  store i8 0, ptr %7, align 4, !tbaa !1483
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1485
+  store i8 0, ptr %10, align 8, !tbaa !1486
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 4, ptr %13, align 8, !tbaa !563
+  store i64 4, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -42841,7 +43061,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateIjjNS_19ParquetCast
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -42855,7 +43075,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1516
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1483
+  store i8 0, ptr %23, align 8, !tbaa !1484
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1465
   %26 = icmp eq i64 %25, 0
@@ -42867,7 +43087,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -42876,9 +43096,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1484
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1485
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -43225,7 +43445,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKjS1_EZN6duckdb20StandardC
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  store i32 %6, ptr %7, align 8, !tbaa !1473
+  store i32 %6, ptr %7, align 8, !tbaa !1474
   br label %11
 
 11:                                               ; preds = %10, %3
@@ -43235,7 +43455,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKjS1_EZN6duckdb20StandardC
   br i1 %14, label %15, label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIjjNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKjS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 15:                                               ; preds = %11
-  store i32 %6, ptr %12, align 4, !tbaa !1475
+  store i32 %6, ptr %12, align 4, !tbaa !1476
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIjjNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKjS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterIjjNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKjS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit: ; preds = %11, %15
@@ -43605,36 +43825,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1527
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1527
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1527
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1527
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1527
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1538
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -43647,14 +43884,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterImmNS_19Parquet
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1538)
-  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31, !noalias !1541
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateImmNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1541
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1539)
+  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31, !noalias !1542
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateImmNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1542
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 -1, ptr %4, align 8, !tbaa !1544, !noalias !1541
+  store i64 -1, ptr %4, align 8, !tbaa !1545, !noalias !1542
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %5, align 8, !tbaa !1546, !noalias !1541
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !1538
+  store i64 0, ptr %5, align 8, !tbaa !1547, !noalias !1542
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !1539
   ret void
 }
 
@@ -43664,21 +43901,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1547
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1547
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1547
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1547
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1548
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1548
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1548
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1548
   invoke void @_ZN6duckdb23StandardWriterPageStateImmNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryImmS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateImmNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1547
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateImmNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit unwind label %12, !noalias !1548
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1547
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1548
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateImmNS0_19ParquetCastOperatorEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -43692,7 +43929,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1550
+  %12 = load i32, ptr %11, align 8, !tbaa !1551
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -43703,7 +43940,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1553, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1554, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -43722,13 +43959,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1554, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1555, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1555
+  %27 = load i32, ptr %26, align 4, !tbaa !1556
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -43741,7 +43978,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -43758,22 +43995,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1556, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1557, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -43800,7 +44037,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -43812,7 +44049,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -43886,7 +44123,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterImmNS_19Parque
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1557
+  %10 = load i32, ptr %9, align 8, !tbaa !1538
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -43913,7 +44150,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !504
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !1550
+  %21 = load i32, ptr %20, align 8, !tbaa !1551
   switch i32 %21, label %270 [
     i32 8, label %26
     i32 5, label %82
@@ -43934,7 +44171,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterImmNS_19ParquetCastOpe
 
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %28 = load i8, ptr %27, align 8, !tbaa !1554, !range !216, !noundef !217
+  %28 = load i8, ptr %27, align 8, !tbaa !1555, !range !216, !noundef !217
   %29 = trunc nuw i8 %28 to i1
   %30 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %30, %29
@@ -43959,7 +44196,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph188, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph188
   %.us-phi190 = phi i64 [ %5, %.lr.ph188 ], [ %.1108187, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %39 = load i32, ptr %38, align 4, !tbaa !1555
+  %39 = load i32, ptr %38, align 4, !tbaa !1556
   %40 = trunc i32 %39 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %40, ptr %10, align 1, !tbaa !3
@@ -43968,10 +44205,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %42(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %43, align 8, !tbaa !558
+  store i64 0, ptr %43, align 8, !tbaa !559
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %44, align 8, !tbaa !560
-  store i8 1, ptr %27, align 8, !tbaa !1554
+  store i64 0, ptr %44, align 8, !tbaa !561
+  store i8 1, ptr %27, align 8, !tbaa !1555
   br label %.loopexit164
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -44060,7 +44297,7 @@ _ZNK6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEE8GetIndexERKm.exit:
 
 82:                                               ; preds = %7
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %84 = load i8, ptr %83, align 4, !tbaa !1553, !range !216, !noundef !217
+  %84 = load i8, ptr %83, align 4, !tbaa !1554, !range !216, !noundef !217
   %85 = trunc nuw i8 %84 to i1
   %86 = icmp uge i64 %5, %6
   %or.cond201.not = or i1 %86, %85
@@ -44092,7 +44329,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
-  store i64 %95, ptr %96, align 8, !tbaa !1544
+  store i64 %95, ptr %96, align 8, !tbaa !1545
   br label %100
 
 100:                                              ; preds = %99, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread
@@ -44102,7 +44339,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit119.thread: ; preds = %_
   br i1 %103, label %104, label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 104:                                              ; preds = %100
-  store i64 %95, ptr %101, align 8, !tbaa !1546
+  store i64 %95, ptr %101, align 8, !tbaa !1547
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %100, %104
@@ -44111,7 +44348,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
   store i64 %95, ptr %9, align 8, !tbaa !24
   call void @_ZN6duckdb10DbpEncoder10BeginWriteERNS_11WriteStreamERKl(ptr noundef nonnull align 8 dereferenceable(18480) %105, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store i8 1, ptr %83, align 4, !tbaa !1553
+  store i8 1, ptr %83, align 4, !tbaa !1554
   %106 = add nuw i64 %.us-phi184, 1
   br label %.loopexit167
 
@@ -44159,7 +44396,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %128, label %129, label %130
 
 129:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
-  store i64 %126, ptr %110, align 8, !tbaa !1544
+  store i64 %126, ptr %110, align 8, !tbaa !1545
   br label %130
 
 130:                                              ; preds = %129, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -44168,7 +44405,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %1
   br i1 %132, label %133, label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 133:                                              ; preds = %130
-  store i64 %126, ptr %111, align 8, !tbaa !1546
+  store i64 %126, ptr %111, align 8, !tbaa !1547
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit124
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit124: ; preds = %130, %133
@@ -44198,7 +44435,7 @@ _ZN6duckdb11dbp_encoder10WriteValueImEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_.
 
 145:                                              ; preds = %7
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %147 = load i8, ptr %146, align 8, !tbaa !1556, !range !216, !noundef !217
+  %147 = load i8, ptr %146, align 8, !tbaa !1557, !range !216, !noundef !217
   %148 = trunc nuw i8 %147 to i1
   %149 = icmp uge i64 %5, %6
   %or.cond203.not = or i1 %149, %148
@@ -44232,7 +44469,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %161, label %162, label %163
 
 162:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
-  store i64 %158, ptr %159, align 8, !tbaa !1544
+  store i64 %158, ptr %159, align 8, !tbaa !1545
   br label %163
 
 163:                                              ; preds = %162, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread
@@ -44242,13 +44479,13 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit128.thread: ; preds = %_
   br i1 %166, label %167, label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 167:                                              ; preds = %163
-  store i64 %158, ptr %164, align 8, !tbaa !1546
+  store i64 %158, ptr %164, align 8, !tbaa !1547
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit129
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit129: ; preds = %163, %167
   %168 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteImEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %168, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  store i8 1, ptr %146, align 8, !tbaa !1556
+  store i8 1, ptr %146, align 8, !tbaa !1557
   %169 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit170
@@ -44295,7 +44532,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %187, label %188, label %189
 
 188:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
-  store i64 %185, ptr %173, align 8, !tbaa !1544
+  store i64 %185, ptr %173, align 8, !tbaa !1545
   br label %189
 
 189:                                              ; preds = %188, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread
@@ -44304,7 +44541,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit133.thread: ; preds = %1
   br i1 %191, label %192, label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 192:                                              ; preds = %189
-  store i64 %185, ptr %174, align 8, !tbaa !1546
+  store i64 %185, ptr %174, align 8, !tbaa !1547
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit134
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit134: ; preds = %189, %192
@@ -44343,7 +44580,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %1
   br i1 %206, label %207, label %208
 
 207:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
-  store i64 %204, ptr %23, align 8, !tbaa !1544
+  store i64 %204, ptr %23, align 8, !tbaa !1545
   br label %208
 
 208:                                              ; preds = %207, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread
@@ -44352,7 +44589,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit138.thread: ; preds = %1
   br i1 %210, label %211, label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 211:                                              ; preds = %208
-  store i64 %204, ptr %24, align 8, !tbaa !1546
+  store i64 %204, ptr %24, align 8, !tbaa !1547
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit139
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit139: ; preds = %208, %211
@@ -44391,7 +44628,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
   br i1 %225, label %226, label %227
 
 226:                                              ; preds = %220
-  store i64 %224, ptr %218, align 8, !tbaa !1544
+  store i64 %224, ptr %218, align 8, !tbaa !1545
   br label %227
 
 227:                                              ; preds = %226, %220
@@ -44400,7 +44637,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET
   br i1 %229, label %230, label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 230:                                              ; preds = %227
-  store i64 %224, ptr %219, align 8, !tbaa !1546
+  store i64 %224, ptr %219, align 8, !tbaa !1547
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %230, %227
@@ -44457,7 +44694,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %254, label %255, label %256
 
 255:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
-  store i64 %252, ptr %240, align 8, !tbaa !1544
+  store i64 %252, ptr %240, align 8, !tbaa !1545
   br label %256
 
 256:                                              ; preds = %255, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -44466,7 +44703,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
   br i1 %258, label %259, label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 259:                                              ; preds = %256
-  store i64 %252, ptr %241, align 8, !tbaa !1546
+  store i64 %252, ptr %241, align 8, !tbaa !1547
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i144
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsImmEEvPNS_22ColumnWriterStatisticsET0_.exit.i144: ; preds = %259, %256
@@ -45025,9 +45262,9 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateImmNS_19BaseParquetO
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22NumericStatisticsStateImmNS_19BaseParquetOperatorEE8HasStatsEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !1544
+  %3 = load i64, ptr %2, align 8, !tbaa !1545
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !1546
+  %5 = load i64, ptr %4, align 8, !tbaa !1547
   %6 = icmp ule i64 %3, %5
   ret i1 %6
 }
@@ -45118,21 +45355,21 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateImmNS_19BaseParquetO
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateImmNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryImmS1_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateImmNS_19ParquetCastOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1550
+  store i32 %3, ptr %6, align 8, !tbaa !1551
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1553
+  store i8 0, ptr %7, align 4, !tbaa !1554
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1556
+  store i8 0, ptr %10, align 8, !tbaa !1557
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 8, ptr %13, align 8, !tbaa !563
+  store i64 8, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -45141,7 +45378,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateImmNS_19ParquetCast
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -45155,7 +45392,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1587
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1554
+  store i8 0, ptr %23, align 8, !tbaa !1555
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1536
   %26 = icmp eq i64 %25, 0
@@ -45167,7 +45404,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -45176,9 +45413,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1555
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1556
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -45525,7 +45762,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKmS1_EZN6duckdb20StandardC
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %3
-  store i64 %6, ptr %7, align 8, !tbaa !1544
+  store i64 %6, ptr %7, align 8, !tbaa !1545
   br label %11
 
 11:                                               ; preds = %10, %3
@@ -45535,7 +45772,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKmS1_EZN6duckdb20StandardC
   br i1 %14, label %15, label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterImmNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKmS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 15:                                               ; preds = %11
-  store i64 %6, ptr %12, align 8, !tbaa !1546
+  store i64 %6, ptr %12, align 8, !tbaa !1547
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterImmNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKmS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterImmNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKmS9_E_JS9_S9_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESE_E4typeEOSH_DpOSI_.exit: ; preds = %11, %15
@@ -45905,36 +46142,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1598
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1598
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1598
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1598
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1598
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1610
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -45947,14 +46201,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterINS_14float_na_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEfNS_19ParquetCastOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1610)
-  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !1613
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateINS_14float_na_equalEfNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1613
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1611)
+  %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31, !noalias !1614
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateINS_14float_na_equalEfNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1614
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float 0x47EFFFFFE0000000, ptr %4, align 8, !tbaa !1616, !noalias !1613
+  store float 0x47EFFFFFE0000000, ptr %4, align 8, !tbaa !1617, !noalias !1614
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store float 0xC7EFFFFFE0000000, ptr %5, align 4, !tbaa !1618, !noalias !1613
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !1610
+  store float 0xC7EFFFFFE0000000, ptr %5, align 4, !tbaa !1619, !noalias !1614
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !1611
   ret void
 }
 
@@ -45964,21 +46218,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1619
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1619
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1619
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1619
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1620
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1620
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1620
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1620
   invoke void @_ZN6duckdb23StandardWriterPageStateINS_14float_na_equalEfNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_fS2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_14float_na_equalEfNS0_19ParquetCastOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !1619
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_14float_na_equalEfNS0_19ParquetCastOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !1620
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1619
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1620
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_14float_na_equalEfNS0_19ParquetCastOperatorEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -45992,7 +46246,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1622
+  %12 = load i32, ptr %11, align 8, !tbaa !1623
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -46003,7 +46257,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1625, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1626, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -46022,13 +46276,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1626, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1627, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1627
+  %27 = load i32, ptr %26, align 4, !tbaa !1628
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -46041,7 +46295,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -46058,22 +46312,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1628, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1629, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -46100,7 +46354,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -46112,7 +46366,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -46186,7 +46440,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterINS_14float_na
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1629
+  %10 = load i32, ptr %9, align 8, !tbaa !1610
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -46222,7 +46476,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !504
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !1622
+  %30 = load i32, ptr %29, align 8, !tbaa !1623
   switch i32 %30, label %280 [
     i32 8, label %37
     i32 5, label %98
@@ -46245,7 +46499,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_14float_na_equalEf
 
 37:                                               ; preds = %7
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %39 = load i8, ptr %38, align 8, !tbaa !1626, !range !216, !noundef !217
+  %39 = load i8, ptr %38, align 8, !tbaa !1627, !range !216, !noundef !217
   %40 = trunc nuw i8 %39 to i1
   %41 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %41, %40
@@ -46270,7 +46524,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph194, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph194
   %.us-phi196 = phi i64 [ %5, %.lr.ph194 ], [ %.1106193, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %50 = load i32, ptr %49, align 4, !tbaa !1627
+  %50 = load i32, ptr %49, align 4, !tbaa !1628
   %51 = trunc i32 %50 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 %51, ptr %17, align 1, !tbaa !3
@@ -46279,10 +46533,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %53(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %17, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %54, align 8, !tbaa !558
+  store i64 0, ptr %54, align 8, !tbaa !559
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %55, align 8, !tbaa !560
-  store i8 1, ptr %38, align 8, !tbaa !1626
+  store i64 0, ptr %55, align 8, !tbaa !561
+  store i8 1, ptr %38, align 8, !tbaa !1627
   br label %.loopexit170
 
 56:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -46380,7 +46634,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEE
 
 98:                                               ; preds = %7
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %100 = load i8, ptr %99, align 4, !tbaa !1625, !range !216, !noundef !217
+  %100 = load i8, ptr %99, align 4, !tbaa !1626, !range !216, !noundef !217
   %101 = trunc nuw i8 %100 to i1
   %102 = icmp uge i64 %5, %6
   %or.cond208.not = or i1 %102, %101
@@ -46416,7 +46670,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %_
 
 113:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
   %114 = load float, ptr %16, align 4, !tbaa !1604
-  store float %114, ptr %111, align 8, !tbaa !1616
+  store float %114, ptr %111, align 8, !tbaa !1617
   br label %115
 
 115:                                              ; preds = %113, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -46426,14 +46680,14 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %_
 
 118:                                              ; preds = %115
   %119 = load float, ptr %16, align 4, !tbaa !1604
-  store float %119, ptr %116, align 4, !tbaa !1618
+  store float %119, ptr %116, align 4, !tbaa !1619
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %115, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb11dbp_encoder10BeginWriteIfEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18480) %120, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %19)
-  store i8 1, ptr %99, align 4, !tbaa !1625
+  store i8 1, ptr %99, align 4, !tbaa !1626
   %121 = add nuw i64 %.us-phi190, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit173
@@ -46482,7 +46736,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %1
 
 138:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread
   %139 = load float, ptr %15, align 4, !tbaa !1604
-  store float %139, ptr %125, align 8, !tbaa !1616
+  store float %139, ptr %125, align 8, !tbaa !1617
   br label %140
 
 140:                                              ; preds = %138, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread
@@ -46491,7 +46745,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %1
 
 142:                                              ; preds = %140
   %143 = load float, ptr %15, align 4, !tbaa !1604
-  store float %143, ptr %126, align 4, !tbaa !1618
+  store float %143, ptr %126, align 4, !tbaa !1619
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit128
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit128: ; preds = %140, %142
@@ -46507,7 +46761,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22Colum
 
 146:                                              ; preds = %7
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %148 = load i8, ptr %147, align 8, !tbaa !1628, !range !216, !noundef !217
+  %148 = load i8, ptr %147, align 8, !tbaa !1629, !range !216, !noundef !217
   %149 = trunc nuw i8 %148 to i1
   %150 = icmp uge i64 %5, %6
   %or.cond210.not = or i1 %150, %149
@@ -46543,7 +46797,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132.thread: ; preds = %_
 
 161:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132.thread
   %162 = load float, ptr %14, align 4, !tbaa !1604
-  store float %162, ptr %159, align 8, !tbaa !1616
+  store float %162, ptr %159, align 8, !tbaa !1617
   br label %163
 
 163:                                              ; preds = %161, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132.thread
@@ -46553,14 +46807,14 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132.thread: ; preds = %_
 
 166:                                              ; preds = %163
   %167 = load float, ptr %14, align 4, !tbaa !1604
-  store float %167, ptr %164, align 4, !tbaa !1618
+  store float %167, ptr %164, align 4, !tbaa !1619
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit133
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit133: ; preds = %163, %166
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %168 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIfEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %168, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %21)
-  store i8 1, ptr %147, align 8, !tbaa !1628
+  store i8 1, ptr %147, align 8, !tbaa !1629
   %169 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.loopexit176
@@ -46609,7 +46863,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %1
 
 186:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread
   %187 = load float, ptr %13, align 4, !tbaa !1604
-  store float %187, ptr %173, align 8, !tbaa !1616
+  store float %187, ptr %173, align 8, !tbaa !1617
   br label %188
 
 188:                                              ; preds = %186, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread
@@ -46618,7 +46872,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %1
 
 190:                                              ; preds = %188
   %191 = load float, ptr %13, align 4, !tbaa !1604
-  store float %191, ptr %174, align 4, !tbaa !1618
+  store float %191, ptr %174, align 4, !tbaa !1619
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit138
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit138: ; preds = %188, %190
@@ -46660,7 +46914,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142.thread: ; preds = %1
 
 204:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142.thread
   %205 = load float, ptr %12, align 4, !tbaa !1604
-  store float %205, ptr %32, align 8, !tbaa !1616
+  store float %205, ptr %32, align 8, !tbaa !1617
   br label %206
 
 206:                                              ; preds = %204, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142.thread
@@ -46669,7 +46923,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142.thread: ; preds = %1
 
 208:                                              ; preds = %206
   %209 = load float, ptr %12, align 4, !tbaa !1604
-  store float %209, ptr %33, align 4, !tbaa !1618
+  store float %209, ptr %33, align 4, !tbaa !1619
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit143
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit143: ; preds = %206, %208
@@ -46734,7 +46988,7 @@ _ZN6duckdb11bss_encoder10WriteValueIfEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
 
 234:                                              ; preds = %231
   %235 = load float, ptr %10, align 4, !tbaa !1604
-  store float %235, ptr %228, align 8, !tbaa !1616
+  store float %235, ptr %228, align 8, !tbaa !1617
   br label %236
 
 236:                                              ; preds = %234, %231
@@ -46743,7 +46997,7 @@ _ZN6duckdb11bss_encoder10WriteValueIfEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
 
 238:                                              ; preds = %236
   %239 = load float, ptr %10, align 4, !tbaa !1604
-  store float %239, ptr %229, align 4, !tbaa !1618
+  store float %239, ptr %229, align 4, !tbaa !1619
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %238, %236
@@ -46814,7 +47068,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 264:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
   %265 = load float, ptr %8, align 4, !tbaa !1604
-  store float %265, ptr %251, align 8, !tbaa !1616
+  store float %265, ptr %251, align 8, !tbaa !1617
   br label %266
 
 266:                                              ; preds = %264, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -46823,7 +47077,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 268:                                              ; preds = %266
   %269 = load float, ptr %8, align 4, !tbaa !1604
-  store float %269, ptr %252, align 4, !tbaa !1618
+  store float %269, ptr %252, align 4, !tbaa !1619
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit.i149
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_14float_na_equalEfEEvPNS_22ColumnWriterStatisticsET0_.exit.i149: ; preds = %268, %266
@@ -47390,9 +47644,9 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateINS_14float_na_equal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22NumericStatisticsStateINS_14float_na_equalEfNS_19BaseParquetOperatorEE8HasStatsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load float, ptr %2, align 8, !tbaa !1616
+  %3 = load float, ptr %2, align 8, !tbaa !1617
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load float, ptr %4, align 4, !tbaa !1618
+  %5 = load float, ptr %4, align 4, !tbaa !1619
   %6 = fcmp ole float %3, %5
   ret i1 %6
 }
@@ -47481,21 +47735,21 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateINS_14float_na_equal
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_14float_na_equalEfNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_fS2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateINS_14float_na_equalEfNS_19ParquetCastOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1622
+  store i32 %3, ptr %6, align 8, !tbaa !1623
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1625
+  store i8 0, ptr %7, align 4, !tbaa !1626
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1628
+  store i8 0, ptr %10, align 8, !tbaa !1629
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 4, ptr %13, align 8, !tbaa !563
+  store i64 4, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -47504,7 +47758,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_14float_na_equa
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -47518,7 +47772,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1660
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1626
+  store i8 0, ptr %23, align 8, !tbaa !1627
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1608
   %26 = icmp eq i64 %25, 0
@@ -47530,7 +47784,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -47539,9 +47793,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1627
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1628
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -47960,7 +48214,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN6duckdb14float_na_equalE
 
 10:                                               ; preds = %3
   %11 = load float, ptr %4, align 4, !tbaa !1604
-  store float %11, ptr %8, align 8, !tbaa !1616
+  store float %11, ptr %8, align 8, !tbaa !1617
   br label %12
 
 12:                                               ; preds = %10, %3
@@ -47970,7 +48224,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN6duckdb14float_na_equalE
 
 15:                                               ; preds = %12
   %16 = load float, ptr %4, align 4, !tbaa !1604
-  store float %16, ptr %13, align 4, !tbaa !1618
+  store float %16, ptr %13, align 4, !tbaa !1619
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterINS0_14float_na_equalEfNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKS2_RKfE_JSA_SC_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESH_E4typeEOSK_DpOSL_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterINS0_14float_na_equalEfNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKS2_RKfE_JSA_SC_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESH_E4typeEOSK_DpOSL_.exit: ; preds = %12, %15
@@ -48341,36 +48595,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1671
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1671
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1671
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1671
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1671
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1682
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -48383,14 +48654,14 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterINS_15double_na
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalEdNS_19ParquetCastOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1682)
-  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31, !noalias !1685
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateINS_15double_na_equalEdNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1685
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1683)
+  %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31, !noalias !1686
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6duckdb22NumericStatisticsStateINS_15double_na_equalEdNS_19BaseParquetOperatorEEE, i64 16), ptr %3, align 8, !tbaa !19, !noalias !1686
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double 0x7FEFFFFFFFFFFFFF, ptr %4, align 8, !tbaa !1688, !noalias !1685
+  store double 0x7FEFFFFFFFFFFFFF, ptr %4, align 8, !tbaa !1689, !noalias !1686
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double 0xFFEFFFFFFFFFFFFF, ptr %5, align 8, !tbaa !1690, !noalias !1685
-  store ptr %3, ptr %0, align 8, !tbaa !534, !alias.scope !1682
+  store double 0xFFEFFFFFFFFFFFFF, ptr %5, align 8, !tbaa !1691, !noalias !1686
+  store ptr %3, ptr %0, align 8, !tbaa !535, !alias.scope !1683
   ret void
 }
 
@@ -48400,21 +48671,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1691
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1691
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1691
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1691
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1692
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1692
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1692
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1692
   invoke void @_ZN6duckdb23StandardWriterPageStateINS_15double_na_equalEdNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_dS2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_15double_na_equalEdNS0_19ParquetCastOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !1691
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_15double_na_equalEdNS0_19ParquetCastOperatorEEESt14default_deleteIS4_EED2Ev.exit unwind label %12, !noalias !1692
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1691
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1692
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_15double_na_equalEdNS0_19ParquetCastOperatorEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -48428,7 +48699,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1694
+  %12 = load i32, ptr %11, align 8, !tbaa !1695
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -48439,7 +48710,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1697, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1698, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -48458,13 +48729,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1698, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1699, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1699
+  %27 = load i32, ptr %26, align 4, !tbaa !1700
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -48477,7 +48748,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -48494,22 +48765,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1700, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1701, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -48536,7 +48807,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -48548,7 +48819,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -48622,7 +48893,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterINS_15double_n
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1701
+  %10 = load i32, ptr %9, align 8, !tbaa !1682
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -48658,7 +48929,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !504
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !1694
+  %30 = load i32, ptr %29, align 8, !tbaa !1695
   switch i32 %30, label %280 [
     i32 8, label %37
     i32 5, label %98
@@ -48681,7 +48952,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_15double_na_equalE
 
 37:                                               ; preds = %7
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %39 = load i8, ptr %38, align 8, !tbaa !1698, !range !216, !noundef !217
+  %39 = load i8, ptr %38, align 8, !tbaa !1699, !range !216, !noundef !217
   %40 = trunc nuw i8 %39 to i1
   %41 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %41, %40
@@ -48706,7 +48977,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph194, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph194
   %.us-phi196 = phi i64 [ %5, %.lr.ph194 ], [ %.1106193, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %50 = load i32, ptr %49, align 4, !tbaa !1699
+  %50 = load i32, ptr %49, align 4, !tbaa !1700
   %51 = trunc i32 %50 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 %51, ptr %17, align 1, !tbaa !3
@@ -48715,10 +48986,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %53(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %17, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %54, align 8, !tbaa !558
+  store i64 0, ptr %54, align 8, !tbaa !559
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %55, align 8, !tbaa !560
-  store i8 1, ptr %38, align 8, !tbaa !1698
+  store i64 0, ptr %55, align 8, !tbaa !561
+  store i8 1, ptr %38, align 8, !tbaa !1699
   br label %.loopexit170
 
 56:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -48816,7 +49087,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorE
 
 98:                                               ; preds = %7
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %100 = load i8, ptr %99, align 4, !tbaa !1697, !range !216, !noundef !217
+  %100 = load i8, ptr %99, align 4, !tbaa !1698, !range !216, !noundef !217
   %101 = trunc nuw i8 %100 to i1
   %102 = icmp uge i64 %5, %6
   %or.cond208.not = or i1 %102, %101
@@ -48852,7 +49123,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %_
 
 113:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
   %114 = load double, ptr %16, align 8, !tbaa !1082
-  store double %114, ptr %111, align 8, !tbaa !1688
+  store double %114, ptr %111, align 8, !tbaa !1689
   br label %115
 
 115:                                              ; preds = %113, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread
@@ -48862,14 +49133,14 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit123.thread: ; preds = %_
 
 118:                                              ; preds = %115
   %119 = load double, ptr %16, align 8, !tbaa !1082
-  store double %119, ptr %116, align 8, !tbaa !1690
+  store double %119, ptr %116, align 8, !tbaa !1691
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit: ; preds = %115, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb11dbp_encoder10BeginWriteIdEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18480) %120, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %19)
-  store i8 1, ptr %99, align 4, !tbaa !1697
+  store i8 1, ptr %99, align 4, !tbaa !1698
   %121 = add nuw i64 %.us-phi190, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit173
@@ -48918,7 +49189,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %1
 
 138:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread
   %139 = load double, ptr %15, align 8, !tbaa !1082
-  store double %139, ptr %125, align 8, !tbaa !1688
+  store double %139, ptr %125, align 8, !tbaa !1689
   br label %140
 
 140:                                              ; preds = %138, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread
@@ -48927,7 +49198,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit127.thread: ; preds = %1
 
 142:                                              ; preds = %140
   %143 = load double, ptr %15, align 8, !tbaa !1082
-  store double %143, ptr %126, align 8, !tbaa !1690
+  store double %143, ptr %126, align 8, !tbaa !1691
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit128
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit128: ; preds = %140, %142
@@ -48943,7 +49214,7 @@ _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22Colu
 
 146:                                              ; preds = %7
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %148 = load i8, ptr %147, align 8, !tbaa !1700, !range !216, !noundef !217
+  %148 = load i8, ptr %147, align 8, !tbaa !1701, !range !216, !noundef !217
   %149 = trunc nuw i8 %148 to i1
   %150 = icmp uge i64 %5, %6
   %or.cond210.not = or i1 %150, %149
@@ -48979,7 +49250,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132.thread: ; preds = %_
 
 161:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132.thread
   %162 = load double, ptr %14, align 8, !tbaa !1082
-  store double %162, ptr %159, align 8, !tbaa !1688
+  store double %162, ptr %159, align 8, !tbaa !1689
   br label %163
 
 163:                                              ; preds = %161, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132.thread
@@ -48989,14 +49260,14 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit132.thread: ; preds = %_
 
 166:                                              ; preds = %163
   %167 = load double, ptr %14, align 8, !tbaa !1082
-  store double %167, ptr %164, align 8, !tbaa !1690
+  store double %167, ptr %164, align 8, !tbaa !1691
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit133
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit133: ; preds = %163, %166
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %168 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteIdEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %168, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %21)
-  store i8 1, ptr %147, align 8, !tbaa !1700
+  store i8 1, ptr %147, align 8, !tbaa !1701
   %169 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.loopexit176
@@ -49045,7 +49316,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %1
 
 186:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread
   %187 = load double, ptr %13, align 8, !tbaa !1082
-  store double %187, ptr %173, align 8, !tbaa !1688
+  store double %187, ptr %173, align 8, !tbaa !1689
   br label %188
 
 188:                                              ; preds = %186, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread
@@ -49054,7 +49325,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit137.thread: ; preds = %1
 
 190:                                              ; preds = %188
   %191 = load double, ptr %13, align 8, !tbaa !1082
-  store double %191, ptr %174, align 8, !tbaa !1690
+  store double %191, ptr %174, align 8, !tbaa !1691
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit138
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit138: ; preds = %188, %190
@@ -49096,7 +49367,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142.thread: ; preds = %1
 
 204:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142.thread
   %205 = load double, ptr %12, align 8, !tbaa !1082
-  store double %205, ptr %32, align 8, !tbaa !1688
+  store double %205, ptr %32, align 8, !tbaa !1689
   br label %206
 
 206:                                              ; preds = %204, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142.thread
@@ -49105,7 +49376,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142.thread: ; preds = %1
 
 208:                                              ; preds = %206
   %209 = load double, ptr %12, align 8, !tbaa !1082
-  store double %209, ptr %33, align 8, !tbaa !1690
+  store double %209, ptr %33, align 8, !tbaa !1691
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit143
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit143: ; preds = %206, %208
@@ -49170,7 +49441,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
 
 234:                                              ; preds = %231
   %235 = load double, ptr %10, align 8, !tbaa !1082
-  store double %235, ptr %228, align 8, !tbaa !1688
+  store double %235, ptr %228, align 8, !tbaa !1689
   br label %236
 
 236:                                              ; preds = %234, %231
@@ -49179,7 +49450,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
 
 238:                                              ; preds = %236
   %239 = load double, ptr %10, align 8, !tbaa !1082
-  store double %239, ptr %229, align 8, !tbaa !1690
+  store double %239, ptr %229, align 8, !tbaa !1691
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit.i
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit.i: ; preds = %238, %236
@@ -49250,7 +49521,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 264:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
   %265 = load double, ptr %8, align 8, !tbaa !1082
-  store double %265, ptr %251, align 8, !tbaa !1688
+  store double %265, ptr %251, align 8, !tbaa !1689
   br label %266
 
 266:                                              ; preds = %264, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i
@@ -49259,7 +49530,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread.i: ; preds = %_Z
 
 268:                                              ; preds = %266
   %269 = load double, ptr %8, align 8, !tbaa !1082
-  store double %269, ptr %252, align 8, !tbaa !1690
+  store double %269, ptr %252, align 8, !tbaa !1691
   br label %_ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit.i149
 
 _ZN6duckdb19ParquetCastOperator11HandleStatsINS_15double_na_equalEdEEvPNS_22ColumnWriterStatisticsET0_.exit.i149: ; preds = %268, %266
@@ -49831,9 +50102,9 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateINS_15double_na_equa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22NumericStatisticsStateINS_15double_na_equalEdNS_19BaseParquetOperatorEE8HasStatsEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load double, ptr %2, align 8, !tbaa !1688
+  %3 = load double, ptr %2, align 8, !tbaa !1689
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load double, ptr %4, align 8, !tbaa !1690
+  %5 = load double, ptr %4, align 8, !tbaa !1691
   %6 = fcmp ole double %3, %5
   ret i1 %6
 }
@@ -49922,21 +50193,21 @@ define linkonce_odr void @_ZN6duckdb22NumericStatisticsStateINS_15double_na_equa
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_15double_na_equalEdNS_19ParquetCastOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_dS2_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateINS_15double_na_equalEdNS_19ParquetCastOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1694
+  store i32 %3, ptr %6, align 8, !tbaa !1695
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1697
+  store i8 0, ptr %7, align 4, !tbaa !1698
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1700
+  store i8 0, ptr %10, align 8, !tbaa !1701
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 8, ptr %13, align 8, !tbaa !563
+  store i64 8, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -49945,7 +50216,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_15double_na_equ
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -49959,7 +50230,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1732
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1698
+  store i8 0, ptr %23, align 8, !tbaa !1699
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1680
   %26 = icmp eq i64 %25, 0
@@ -49971,7 +50242,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -49980,9 +50251,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1699
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1700
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -50133,7 +50404,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN6duckdb15double_na_equal
 
 10:                                               ; preds = %3
   %11 = load double, ptr %4, align 8, !tbaa !1082
-  store double %11, ptr %8, align 8, !tbaa !1688
+  store double %11, ptr %8, align 8, !tbaa !1689
   br label %12
 
 12:                                               ; preds = %10, %3
@@ -50143,7 +50414,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN6duckdb15double_na_equal
 
 15:                                               ; preds = %12
   %16 = load double, ptr %4, align 8, !tbaa !1082
-  store double %16, ptr %13, align 8, !tbaa !1690
+  store double %16, ptr %13, align 8, !tbaa !1691
   br label %_ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterINS0_15double_na_equalEdNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKS2_RKdE_JSA_SC_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESH_E4typeEOSK_DpOSL_.exit
 
 _ZSt10__invoke_rIvRZN6duckdb20StandardColumnWriterINS0_15double_na_equalEdNS0_19ParquetCastOperatorEE15FlushDictionaryERNS0_26PrimitiveColumnWriterStateEPNS0_22ColumnWriterStatisticsEEUlRKS2_RKdE_JSA_SC_EENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESH_E4typeEOSK_DpOSL_.exit: ; preds = %12, %15
@@ -50522,36 +50793,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1743
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1743
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1743
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1743
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1743
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1754
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -50564,7 +50852,7 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8, !tbaa !534, !alias.scope !1754
+  store ptr null, ptr %0, align 8, !tbaa !535, !alias.scope !1755
   ret void
 }
 
@@ -50574,21 +50862,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1757
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1757
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1757
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1757
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1758
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1758
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1758
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1758
   invoke void @_ZN6duckdb23StandardWriterPageStateINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_S2_S3_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_9hugeint_tENS0_21ParquetUUIDTargetTypeENS0_19ParquetUUIDOperatorEEESt14default_deleteIS5_EED2Ev.exit unwind label %12, !noalias !1757
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_9hugeint_tENS0_21ParquetUUIDTargetTypeENS0_19ParquetUUIDOperatorEEESt14default_deleteIS5_EED2Ev.exit unwind label %12, !noalias !1758
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1757
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1758
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_9hugeint_tENS0_21ParquetUUIDTargetTypeENS0_19ParquetUUIDOperatorEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -50602,7 +50890,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1760
+  %12 = load i32, ptr %11, align 8, !tbaa !1761
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -50613,7 +50901,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1763, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1764, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -50632,13 +50920,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1764, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1765, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1765
+  %27 = load i32, ptr %26, align 4, !tbaa !1766
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -50651,7 +50939,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -50668,22 +50956,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1766, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1767, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -50710,7 +50998,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -50722,7 +51010,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -50796,7 +51084,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterINS_9hugeint_t
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1767
+  %10 = load i32, ptr %9, align 8, !tbaa !1754
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -50832,7 +51120,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !504
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !1760
+  %30 = load i32, ptr %29, align 8, !tbaa !1761
   switch i32 %30, label %296 [
     i32 8, label %34
     i32 5, label %91
@@ -50853,7 +51141,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_9hugeint_tENS_21Pa
 
 34:                                               ; preds = %7
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %36 = load i8, ptr %35, align 8, !tbaa !1764, !range !216, !noundef !217
+  %36 = load i8, ptr %35, align 8, !tbaa !1765, !range !216, !noundef !217
   %37 = trunc nuw i8 %36 to i1
   %38 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %38, %37
@@ -50878,7 +51166,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph259, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph259
   %.us-phi261 = phi i64 [ %5, %.lr.ph259 ], [ %.1120258, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %47 = load i32, ptr %46, align 4, !tbaa !1765
+  %47 = load i32, ptr %46, align 4, !tbaa !1766
   %48 = trunc i32 %47 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 %48, ptr %17, align 1, !tbaa !3
@@ -50887,10 +51175,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %50(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %17, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %51, align 8, !tbaa !558
+  store i64 0, ptr %51, align 8, !tbaa !559
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %52, align 8, !tbaa !560
-  store i8 1, ptr %35, align 8, !tbaa !1764
+  store i64 0, ptr %52, align 8, !tbaa !561
+  store i8 1, ptr %35, align 8, !tbaa !1765
   br label %.loopexit
 
 53:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -50980,7 +51268,7 @@ _ZNK6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19P
 
 91:                                               ; preds = %7
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %93 = load i8, ptr %92, align 4, !tbaa !1763, !range !216, !noundef !217
+  %93 = load i8, ptr %92, align 4, !tbaa !1764, !range !216, !noundef !217
   %94 = trunc nuw i8 %93 to i1
   %95 = icmp uge i64 %5, %6
   %or.cond266.not = or i1 %95, %94
@@ -51048,7 +51336,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
   store i64 %.fca.1.load.i, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb11dbp_encoder10BeginWriteINS_21ParquetUUIDTargetTypeEEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18480) %120, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(16) %19)
-  store i8 1, ptr %92, align 4, !tbaa !1763
+  store i8 1, ptr %92, align 4, !tbaa !1764
   %121 = add nuw i64 %.us-phi255, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.loopexit234
@@ -51137,7 +51425,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
 
 153:                                              ; preds = %7
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %155 = load i8, ptr %154, align 8, !tbaa !1766, !range !216, !noundef !217
+  %155 = load i8, ptr %154, align 8, !tbaa !1767, !range !216, !noundef !217
   %156 = trunc nuw i8 %155 to i1
   %157 = icmp uge i64 %5, %6
   %or.cond268.not = or i1 %157, %156
@@ -51205,7 +51493,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
   store i64 %.fca.1.load.i165, ptr %181, align 8
   %182 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteINS_21ParquetUUIDTargetTypeEEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %182, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(16) %21)
-  store i8 1, ptr %154, align 8, !tbaa !1766
+  store i8 1, ptr %154, align 8, !tbaa !1767
   %183 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.loopexit237
@@ -52078,21 +52366,21 @@ _ZN6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19Pa
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_S2_S3_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1760
+  store i32 %3, ptr %6, align 8, !tbaa !1761
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1763
+  store i8 0, ptr %7, align 4, !tbaa !1764
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1766
+  store i8 0, ptr %10, align 8, !tbaa !1767
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 16, ptr %13, align 8, !tbaa !563
+  store i64 16, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -52101,7 +52389,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_9hugeint_tENS_2
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -52115,7 +52403,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1798
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1764
+  store i8 0, ptr %23, align 8, !tbaa !1765
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1752
   %26 = icmp eq i64 %25, 0
@@ -52127,7 +52415,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -52136,9 +52424,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1765
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1766
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -53025,36 +53313,53 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i8, ptr %20, align 8, !tbaa !521
   %22 = icmp eq i8 %21, 1
-  br i1 %22, label %29, label %23
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  br i1 %22, label %24, label %25
 
-23:                                               ; preds = %18
-  %switch.tableidx = add i32 %10, -1
-  %24 = icmp ult i32 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup, label %29
+24:                                               ; preds = %18
+  store i32 0, ptr %23, align 8, !tbaa !1808
+  br label %34
+
+25:                                               ; preds = %18
+  switch i32 %10, label %29 [
+    i32 1, label %26
+    i32 2, label %26
+    i32 6, label %27
+    i32 4, label %28
+    i32 5, label %28
+  ]
+
+26:                                               ; preds = %25, %25
+  store i32 5, ptr %23, align 8, !tbaa !1808
+  br label %34
+
+27:                                               ; preds = %25
+  store i32 6, ptr %23, align 8, !tbaa !1808
+  br label %34
+
+28:                                               ; preds = %25, %25
+  store i32 9, ptr %23, align 8, !tbaa !1808
+  br label %34
+
+29:                                               ; preds = %25
+  store i32 0, ptr %23, align 8, !tbaa !1808
+  br label %34
 
 .preheader.i:                                     ; preds = %14, %.preheader.i
-  %.0.i = phi i8 [ %26, %.preheader.i ], [ 1, %14 ]
-  %25 = zext nneg i8 %.0.i to i64
-  %.highbits.i = lshr i64 %12, %25
+  %.0.i = phi i8 [ %31, %.preheader.i ], [ 1, %14 ]
+  %30 = zext nneg i8 %.0.i to i64
+  %.highbits.i = lshr i64 %12, %30
   %.not.i = icmp eq i64 %.highbits.i, 0
-  %26 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !522
+  %31 = add i8 %.0.i, 1
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %.preheader.i
-  %27 = zext i8 %.0.i to i32
-  br label %29
+  %32 = zext i8 %.0.i to i32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  store i32 %32, ptr %33, align 8, !tbaa !1819
+  br label %34
 
-switch.lookup:                                    ; preds = %23
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE15FinalizeAnalyzeERNS_17ColumnWriterStateE, i64 %28
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %29
-
-29:                                               ; preds = %23, %switch.lookup, %18, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
-  %.sink12 = phi i64 [ 224, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 384, %18 ], [ 384, %switch.lookup ], [ 384, %23 ]
-  %.sink = phi i32 [ %27, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit ], [ 0, %18 ], [ %switch.load, %switch.lookup ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12
-  store i32 %.sink, ptr %30, align 8, !tbaa !3
+34:                                               ; preds = %24, %29, %28, %27, %26, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit
   ret void
 }
 
@@ -53067,7 +53372,7 @@ define linkonce_odr noundef i32 @_ZN6duckdb20StandardColumnWriterINS_10interval_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEE20InitializeStatsStateEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.569") align 8 %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr null, ptr %0, align 8, !tbaa !534, !alias.scope !1819
+  store ptr null, ptr %0, align 8, !tbaa !535, !alias.scope !1820
   ret void
 }
 
@@ -53077,21 +53382,21 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1822
-  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1822
-  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1822
-  %11 = load i32, ptr %6, align 8, !tbaa !538, !noalias !1822
+  %8 = tail call noalias noundef nonnull dereferenceable(37376) ptr @_Znwm(i64 noundef 37376) #31, !noalias !1823
+  %9 = load i64, ptr %4, align 8, !tbaa !24, !noalias !1823
+  %10 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1823
+  %11 = load i32, ptr %6, align 8, !tbaa !539, !noalias !1823
   invoke void @_ZN6duckdb23StandardWriterPageStateINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_S2_S3_EE(ptr noundef nonnull align 8 dereferenceable(37376) %8, i64 noundef %9, i64 noundef %10, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(145) %7)
-          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_10interval_tENS0_25ParquetIntervalTargetTypeENS0_23ParquetIntervalOperatorEEESt14default_deleteIS5_EED2Ev.exit unwind label %12, !noalias !1822
+          to label %_ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_10interval_tENS0_25ParquetIntervalTargetTypeENS0_23ParquetIntervalOperatorEEESt14default_deleteIS5_EED2Ev.exit unwind label %12, !noalias !1823
 
 12:                                               ; preds = %3
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1822
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #28, !noalias !1823
   resume { ptr, i32 } %13
 
 _ZNSt10unique_ptrIN6duckdb23StandardWriterPageStateINS0_10interval_tENS0_25ParquetIntervalTargetTypeENS0_23ParquetIntervalOperatorEEESt14default_deleteIS5_EED2Ev.exit: ; preds = %3
-  store ptr %8, ptr %0, align 8, !tbaa !539
+  store ptr %8, ptr %0, align 8, !tbaa !540
   ret void
 }
 
@@ -53105,7 +53410,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !1825
+  %12 = load i32, ptr %11, align 8, !tbaa !1826
   switch i32 %12, label %77 [
     i32 5, label %13
     i32 8, label %21
@@ -53116,7 +53421,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !1828, !range !216, !noundef !217
+  %15 = load i8, ptr %14, align 4, !tbaa !1829, !range !216, !noundef !217
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -53135,13 +53440,13 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 37080
-  %23 = load i8, ptr %22, align 8, !tbaa !1829, !range !216, !noundef !217
+  %23 = load i8, ptr %22, align 8, !tbaa !1830, !range !216, !noundef !217
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 37084
-  %27 = load i32, ptr %26, align 4, !tbaa !1830
+  %27 = load i32, ptr %26, align 4, !tbaa !1831
   %28 = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %28, ptr %6, align 1, !tbaa !3
@@ -53154,7 +53459,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
 31:                                               ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 37088
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 37104
-  %34 = load i64, ptr %33, align 8, !tbaa !558
+  %34 = load i64, ptr %33, align 8, !tbaa !559
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %36, label %35
 
@@ -53171,22 +53476,22 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 37112
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 37240
-  %41 = load i32, ptr %32, align 8, !tbaa !559
+  %41 = load i32, ptr %32, align 8, !tbaa !560
   %42 = and i32 %41, 255
   call void @_ZN18duckdb_fastpforlib8fastpackEPKjPjj(ptr noundef nonnull %39, ptr noundef nonnull %40, i32 noundef %42)
-  %43 = load i32, ptr %32, align 8, !tbaa !559
+  %43 = load i32, ptr %32, align 8, !tbaa !560
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
   %46 = load ptr, ptr %1, align 8, !tbaa !19
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %40, i64 noundef %45)
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 37368
-  store i64 0, ptr %48, align 8, !tbaa !560
+  store i64 0, ptr %48, align 8, !tbaa !561
   br label %_ZN6duckdb12RleBpEncoder11FinishWriteERNS_11WriteStreamE.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 18496
-  %51 = load i8, ptr %50, align 8, !tbaa !1831, !range !216, !noundef !217
+  %51 = load i8, ptr %50, align 8, !tbaa !1832, !range !216, !noundef !217
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %59, label %_ZN6duckdb8string_tC2EPKc.exit
 
@@ -53213,7 +53518,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 37000
   %62 = load ptr, ptr %61, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 36984
-  %64 = load i64, ptr %63, align 8, !tbaa !562
+  %64 = load i64, ptr %63, align 8, !tbaa !563
   %65 = load ptr, ptr %1, align 8, !tbaa !19
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %62, i64 noundef %64)
@@ -53225,7 +53530,7 @@ _ZN6duckdb8string_tC2EPKc.exit:                   ; preds = %49
   %70 = load ptr, ptr %69, align 8, !tbaa !6
   %71 = load i64, ptr %68, align 8, !tbaa !13
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 37032
-  %73 = load i64, ptr %72, align 8, !tbaa !563
+  %73 = load i64, ptr %72, align 8, !tbaa !564
   %74 = mul i64 %73, %71
   %75 = load ptr, ptr %1, align 8, !tbaa !19
   %76 = load ptr, ptr %75, align 8
@@ -53299,7 +53604,7 @@ define linkonce_odr noundef i64 @_ZNK6duckdb20StandardColumnWriterINS_10interval
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %10 = load i32, ptr %9, align 8, !tbaa !1832
+  %10 = load i32, ptr %9, align 8, !tbaa !1819
   %11 = add i32 %10, 7
   %12 = lshr i32 %11, 3
   %13 = zext nneg i32 %12 to i64
@@ -53328,7 +53633,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !504
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !1825
+  %23 = load i32, ptr %22, align 8, !tbaa !1826
   switch i32 %23, label %164 [
     i32 8, label %26
     i32 5, label %63
@@ -53348,7 +53653,7 @@ define linkonce_odr void @_ZN6duckdb20StandardColumnWriterINS_10interval_tENS_25
 
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 37080
-  %28 = load i8, ptr %27, align 8, !tbaa !1829, !range !216, !noundef !217
+  %28 = load i8, ptr %27, align 8, !tbaa !1830, !range !216, !noundef !217
   %29 = trunc nuw i8 %28 to i1
   %30 = icmp uge i64 %5, %6
   %or.cond.not = or i1 %30, %29
@@ -53373,7 +53678,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit: ; preds = %.lr.ph234, 
 _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit, %.lr.ph234
   %.us-phi236 = phi i64 [ %5, %.lr.ph234 ], [ %.1148233, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 37084
-  %39 = load i32, ptr %38, align 4, !tbaa !1830
+  %39 = load i32, ptr %38, align 4, !tbaa !1831
   %40 = trunc i32 %39 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %40, ptr %10, align 1, !tbaa !3
@@ -53382,10 +53687,10 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   call void %42(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %10, i64 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 37104
-  store i64 0, ptr %43, align 8, !tbaa !558
+  store i64 0, ptr %43, align 8, !tbaa !559
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 37368
-  store i64 0, ptr %44, align 8, !tbaa !560
-  store i8 1, ptr %27, align 8, !tbaa !1829
+  store i64 0, ptr %44, align 8, !tbaa !561
+  store i8 1, ptr %27, align 8, !tbaa !1830
   br label %.loopexit
 
 45:                                               ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit
@@ -53436,7 +53741,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit161.thread: ; preds = %5
 
 63:                                               ; preds = %7
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %65 = load i8, ptr %64, align 4, !tbaa !1828, !range !216, !noundef !217
+  %65 = load i8, ptr %64, align 4, !tbaa !1829, !range !216, !noundef !217
   %66 = trunc nuw i8 %65 to i1
   %67 = icmp uge i64 %5, %6
   %or.cond241.not = or i1 %67, %66
@@ -53473,7 +53778,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit165.thread: ; preds = %_
   store i32 %.fca.1.extract56, ptr %.sroa.258.0..sroa_idx, align 8
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb11dbp_encoder10BeginWriteINS_25ParquetIntervalTargetTypeEEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18480) %77, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(12) %12)
-  store i8 1, ptr %64, align 4, !tbaa !1828
+  store i8 1, ptr %64, align 4, !tbaa !1829
   %78 = add nuw i64 %.us-phi230, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit211
@@ -53531,7 +53836,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit169.thread: ; preds = %8
 
 95:                                               ; preds = %7
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 18496
-  %97 = load i8, ptr %96, align 8, !tbaa !1831, !range !216, !noundef !217
+  %97 = load i8, ptr %96, align 8, !tbaa !1832, !range !216, !noundef !217
   %98 = trunc nuw i8 %97 to i1
   %99 = icmp uge i64 %5, %6
   %or.cond243.not = or i1 %99, %98
@@ -53568,7 +53873,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit173.thread: ; preds = %_
   store i32 %.fca.1.extract27, ptr %.sroa.229.0..sroa_idx, align 8
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteINS_25ParquetIntervalTargetTypeEEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %109, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(12) %14)
-  store i8 1, ptr %96, align 8, !tbaa !1831
+  store i8 1, ptr %96, align 8, !tbaa !1832
   %110 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit214
@@ -54393,21 +54698,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12
 define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEC2EmmN14duckdb_parquet8Encoding4typeERKNS_19PrimitiveDictionaryIS1_S2_S3_EE(ptr noundef nonnull align 8 dereferenceable(37376) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(145) %4) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6duckdb23StandardWriterPageStateINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEE, i64 16), ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %6, align 8, !tbaa !1825
+  store i32 %3, ptr %6, align 8, !tbaa !1826
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %7, align 4, !tbaa !1828
+  store i8 0, ptr %7, align 4, !tbaa !1829
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8, !tbaa !25
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 18496
-  store i8 0, ptr %10, align 8, !tbaa !1831
+  store i8 0, ptr %10, align 8, !tbaa !1832
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18504
   tail call void @_ZN6duckdb11DlbaEncoderC2Emm(ptr noundef nonnull align 8 dereferenceable(18520) %11, i64 noundef %1, i64 noundef %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 37024
   store i64 %1, ptr %12, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 37032
-  store i64 12, ptr %13, align 8, !tbaa !563
+  store i64 12, ptr %13, align 8, !tbaa !564
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 37040
   store i64 0, ptr %14, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 37048
@@ -54416,7 +54721,7 @@ define linkonce_odr void @_ZN6duckdb23StandardWriterPageStateINS_10interval_tENS
 
 .noexc:                                           ; preds = %5
   %17 = load i64, ptr %12, align 8, !tbaa !13
-  %18 = load i64, ptr %13, align 8, !tbaa !563
+  %18 = load i64, ptr %13, align 8, !tbaa !564
   %19 = mul i64 %18, %17
   %20 = add i64 %19, 1
   %21 = invoke noundef ptr @_ZN6duckdb9Allocator12AllocateDataEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %20)
@@ -54430,7 +54735,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 37072
   store ptr %4, ptr %22, align 8, !tbaa !1865
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 37080
-  store i8 0, ptr %23, align 8, !tbaa !1829
+  store i8 0, ptr %23, align 8, !tbaa !1830
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !1817
   %26 = icmp eq i64 %25, 0
@@ -54442,7 +54747,7 @@ _ZN6duckdb10BssEncoderC2Emm.exit:                 ; preds = %.noexc10
   %.highbits.i = lshr i64 %25, %27
   %.not.i = icmp eq i64 %.highbits.i, 0
   %28 = add i8 %.0.i, 1
-  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !522
+  br i1 %.not.i, label %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, label %.preheader.i, !llvm.loop !523
 
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader.i
   %29 = zext i8 %.0.i to i32
@@ -54451,9 +54756,9 @@ _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit: ; preds = %.preheader
 _ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit: ; preds = %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit, %_ZN6duckdb10BssEncoderC2Emm.exit
   %.06.i = phi i32 [ 0, %_ZN6duckdb10BssEncoderC2Emm.exit ], [ %29, %_ZN6duckdb12RleBpDecoder15ComputeBitWidthEm.exit.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 37084
-  store i32 %.06.i, ptr %30, align 4, !tbaa !1830
+  store i32 %.06.i, ptr %30, align 4, !tbaa !1831
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 37088
-  store i32 %.06.i, ptr %31, align 8, !tbaa !559
+  store i32 %.06.i, ptr %31, align 8, !tbaa !560
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 37092
   %33 = add nuw nsw i32 %.06.i, 7
   %34 = lshr i32 %33, 3
@@ -55930,51 +56235,51 @@ attributes #32 = { nounwind willreturn memory(read) }
 !519 = !{!514, !12, i64 8}
 !520 = !{!514, !47, i64 144}
 !521 = !{!67, !96, i64 176}
-!522 = distinct !{!522, !17}
-!523 = !{!513, !500, i64 384}
-!524 = !{!525}
-!525 = distinct !{!525, !526, !"_ZN6duckdb21ParquetStringOperator15InitializeStatsINS_8string_tES2_EENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
-!526 = distinct !{!526, !"_ZN6duckdb21ParquetStringOperator15InitializeStatsINS_8string_tES2_EENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
-!527 = !{!528, !525}
-!528 = distinct !{!528, !529, !"_ZN6duckdb9make_uniqINS_21StringStatisticsStateEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!529 = distinct !{!529, !"_ZN6duckdb9make_uniqINS_21StringStatisticsStateEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!530 = !{!531, !47, i64 8}
-!531 = !{!"_ZTSN6duckdb21StringStatisticsStateE", !532, i64 0, !47, i64 8, !47, i64 9, !36, i64 16, !36, i64 48}
-!532 = !{!"_ZTSN6duckdb22ColumnWriterStatisticsE"}
-!533 = !{!531, !47, i64 9}
-!534 = !{!485, !486, i64 0}
-!535 = !{!536}
-!536 = distinct !{!536, !537, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_8string_tES2_NS_21ParquetStringOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S2_S3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!537 = distinct !{!537, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_8string_tES2_NS_21ParquetStringOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S2_S3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!538 = !{!500, !500, i64 0}
-!539 = !{!540, !541, i64 0}
-!540 = !{!"_ZTSSt10_Head_baseILm0EPN6duckdb21ColumnWriterPageStateELb0EE", !541, i64 0}
-!541 = !{!"p1 _ZTSN6duckdb21ColumnWriterPageStateE", !10, i64 0}
-!542 = !{!543, !500, i64 8}
-!543 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_8string_tES1_NS_21ParquetStringOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !553, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!544 = !{!"_ZTSN6duckdb21ColumnWriterPageStateE"}
-!545 = !{!"_ZTSN6duckdb11DlbaEncoderE", !23, i64 0, !12, i64 18480, !7, i64 18488, !546, i64 18512}
-!546 = !{!"_ZTSN6duckdb10unique_ptrINS_12MemoryStreamESt14default_deleteIS1_ELb0EEE", !547, i64 0}
-!547 = !{!"_ZTSSt10unique_ptrIN6duckdb12MemoryStreamESt14default_deleteIS1_EE", !548, i64 0}
-!548 = !{!"_ZTSSt15__uniq_ptr_dataIN6duckdb12MemoryStreamESt14default_deleteIS1_ELb1ELb1EE", !549, i64 0}
-!549 = !{!"_ZTSSt15__uniq_ptr_implIN6duckdb12MemoryStreamESt14default_deleteIS1_EE", !550, i64 0}
-!550 = !{!"_ZTSSt5tupleIJPN6duckdb12MemoryStreamESt14default_deleteIS1_EEE", !551, i64 0}
-!551 = !{!"_ZTSSt11_Tuple_implILm0EJPN6duckdb12MemoryStreamESt14default_deleteIS1_EEE", !552, i64 0}
-!552 = !{!"_ZTSSt10_Head_baseILm0EPN6duckdb12MemoryStreamELb0EE", !32, i64 0}
-!553 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_8string_tES1_NS_21ParquetStringOperatorEEE", !10, i64 0}
-!554 = !{!"_ZTSN6duckdb12RleBpEncoderE", !30, i64 0, !30, i64 4, !30, i64 8, !12, i64 16, !4, i64 24, !4, i64 152, !12, i64 280}
-!555 = !{!543, !47, i64 12}
-!556 = !{!543, !47, i64 37080}
-!557 = !{!543, !30, i64 37084}
-!558 = !{!554, !12, i64 16}
-!559 = !{!554, !30, i64 0}
-!560 = !{!554, !12, i64 280}
-!561 = !{!543, !47, i64 18496}
-!562 = !{!545, !12, i64 18480}
-!563 = !{!14, !12, i64 8}
-!564 = !{!513, !30, i64 224}
+!522 = !{!513, !500, i64 384}
+!523 = distinct !{!523, !17}
+!524 = !{!513, !30, i64 224}
+!525 = !{!526}
+!526 = distinct !{!526, !527, !"_ZN6duckdb21ParquetStringOperator15InitializeStatsINS_8string_tES2_EENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
+!527 = distinct !{!527, !"_ZN6duckdb21ParquetStringOperator15InitializeStatsINS_8string_tES2_EENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
+!528 = !{!529, !526}
+!529 = distinct !{!529, !530, !"_ZN6duckdb9make_uniqINS_21StringStatisticsStateEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!530 = distinct !{!530, !"_ZN6duckdb9make_uniqINS_21StringStatisticsStateEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!531 = !{!532, !47, i64 8}
+!532 = !{!"_ZTSN6duckdb21StringStatisticsStateE", !533, i64 0, !47, i64 8, !47, i64 9, !36, i64 16, !36, i64 48}
+!533 = !{!"_ZTSN6duckdb22ColumnWriterStatisticsE"}
+!534 = !{!532, !47, i64 9}
+!535 = !{!485, !486, i64 0}
+!536 = !{!537}
+!537 = distinct !{!537, !538, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_8string_tES2_NS_21ParquetStringOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S2_S3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!538 = distinct !{!538, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_8string_tES2_NS_21ParquetStringOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S2_S3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!539 = !{!500, !500, i64 0}
+!540 = !{!541, !542, i64 0}
+!541 = !{!"_ZTSSt10_Head_baseILm0EPN6duckdb21ColumnWriterPageStateELb0EE", !542, i64 0}
+!542 = !{!"p1 _ZTSN6duckdb21ColumnWriterPageStateE", !10, i64 0}
+!543 = !{!544, !500, i64 8}
+!544 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_8string_tES1_NS_21ParquetStringOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !554, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!545 = !{!"_ZTSN6duckdb21ColumnWriterPageStateE"}
+!546 = !{!"_ZTSN6duckdb11DlbaEncoderE", !23, i64 0, !12, i64 18480, !7, i64 18488, !547, i64 18512}
+!547 = !{!"_ZTSN6duckdb10unique_ptrINS_12MemoryStreamESt14default_deleteIS1_ELb0EEE", !548, i64 0}
+!548 = !{!"_ZTSSt10unique_ptrIN6duckdb12MemoryStreamESt14default_deleteIS1_EE", !549, i64 0}
+!549 = !{!"_ZTSSt15__uniq_ptr_dataIN6duckdb12MemoryStreamESt14default_deleteIS1_ELb1ELb1EE", !550, i64 0}
+!550 = !{!"_ZTSSt15__uniq_ptr_implIN6duckdb12MemoryStreamESt14default_deleteIS1_EE", !551, i64 0}
+!551 = !{!"_ZTSSt5tupleIJPN6duckdb12MemoryStreamESt14default_deleteIS1_EEE", !552, i64 0}
+!552 = !{!"_ZTSSt11_Tuple_implILm0EJPN6duckdb12MemoryStreamESt14default_deleteIS1_EEE", !553, i64 0}
+!553 = !{!"_ZTSSt10_Head_baseILm0EPN6duckdb12MemoryStreamELb0EE", !32, i64 0}
+!554 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_8string_tES1_NS_21ParquetStringOperatorEEE", !10, i64 0}
+!555 = !{!"_ZTSN6duckdb12RleBpEncoderE", !30, i64 0, !30, i64 4, !30, i64 8, !12, i64 16, !4, i64 24, !4, i64 152, !12, i64 280}
+!556 = !{!544, !47, i64 12}
+!557 = !{!544, !47, i64 37080}
+!558 = !{!544, !30, i64 37084}
+!559 = !{!555, !12, i64 16}
+!560 = !{!555, !30, i64 0}
+!561 = !{!555, !12, i64 280}
+!562 = !{!544, !47, i64 18496}
+!563 = !{!546, !12, i64 18480}
+!564 = !{!14, !12, i64 8}
 !565 = distinct !{!565, !17}
-!566 = !{!543, !553, i64 37072}
+!566 = !{!544, !554, i64 37072}
 !567 = !{!514, !12, i64 24}
 !568 = !{!514, !515, i64 136}
 !569 = !{!570, !30, i64 16}
@@ -56026,7 +56331,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !615 = distinct !{!615, !17}
 !616 = !{!477, !478, i64 0}
 !617 = !{!477, !478, i64 8}
-!618 = !{!541, !541, i64 0}
+!618 = !{!542, !542, i64 0}
 !619 = distinct !{!619, !17}
 !620 = !{!621, !624, i64 16}
 !621 = !{!"_ZTSSt15_Rb_tree_header", !622, i64 0, !12, i64 32}
@@ -56074,15 +56379,15 @@ attributes #32 = { nounwind willreturn memory(read) }
 !663 = !{!"p2 _ZTSN6duckdb10ExpressionE", !10, i64 0}
 !664 = !{i64 0, i64 16, !3}
 !665 = !{!505, !506, i64 0}
-!666 = !{!553, !553, i64 0}
-!667 = !{!554, !30, i64 4}
+!666 = !{!554, !554, i64 0}
+!667 = !{!555, !30, i64 4}
 !668 = !{!669}
 !669 = distinct !{!669, !670, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !670 = distinct !{!670, !"_ZN6duckdb9Allocator8AllocateEm"}
 !671 = !{!672}
 !672 = distinct !{!672, !673, !"_ZN6duckdb16make_unsafe_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb0EE25templated_unique_single_tEDpOT0_: argument 0"}
 !673 = distinct !{!673, !"_ZN6duckdb16make_unsafe_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb0EE25templated_unique_single_tEDpOT0_"}
-!674 = !{!554, !30, i64 8}
+!674 = !{!555, !30, i64 8}
 !675 = distinct !{!675, !17}
 !676 = !{!677}
 !677 = distinct !{!677, !678, !"_ZNK6duckdb8string_t9GetStringB5cxx11Ev: argument 0"}
@@ -56114,28 +56419,28 @@ attributes #32 = { nounwind willreturn memory(read) }
 !703 = distinct !{!703, !17}
 !704 = !{!697, !12, i64 8}
 !705 = !{!697, !47, i64 144}
-!706 = !{!707}
-!707 = distinct !{!707, !708, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIaiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
-!708 = distinct !{!708, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIaiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
-!709 = !{!710, !707}
-!710 = distinct !{!710, !711, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIaiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!711 = distinct !{!711, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIaiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!712 = !{!713, !30, i64 8}
-!713 = !{!"_ZTSN6duckdb22NumericStatisticsStateIaiNS_19BaseParquetOperatorEEE", !532, i64 0, !30, i64 8, !30, i64 12}
-!714 = !{!713, !30, i64 12}
-!715 = !{!716}
-!716 = distinct !{!716, !717, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIaiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIaiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!717 = distinct !{!717, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIaiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIaiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!718 = !{!719, !500, i64 8}
-!719 = !{!"_ZTSN6duckdb23StandardWriterPageStateIaiNS_19ParquetCastOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !720, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!720 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEEE", !10, i64 0}
-!721 = !{!719, !47, i64 12}
-!722 = !{!719, !47, i64 37080}
-!723 = !{!719, !30, i64 37084}
-!724 = !{!719, !47, i64 18496}
-!725 = !{!696, !30, i64 224}
+!706 = !{!696, !30, i64 224}
+!707 = !{!708}
+!708 = distinct !{!708, !709, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIaiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
+!709 = distinct !{!709, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIaiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
+!710 = !{!711, !708}
+!711 = distinct !{!711, !712, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIaiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!712 = distinct !{!712, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIaiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!713 = !{!714, !30, i64 8}
+!714 = !{!"_ZTSN6duckdb22NumericStatisticsStateIaiNS_19BaseParquetOperatorEEE", !533, i64 0, !30, i64 8, !30, i64 12}
+!715 = !{!714, !30, i64 12}
+!716 = !{!717}
+!717 = distinct !{!717, !718, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIaiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIaiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!718 = distinct !{!718, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIaiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIaiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!719 = !{!720, !500, i64 8}
+!720 = !{!"_ZTSN6duckdb23StandardWriterPageStateIaiNS_19ParquetCastOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !721, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!721 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIaiNS_19ParquetCastOperatorEEE", !10, i64 0}
+!722 = !{!720, !47, i64 12}
+!723 = !{!720, !47, i64 37080}
+!724 = !{!720, !30, i64 37084}
+!725 = !{!720, !47, i64 18496}
 !726 = distinct !{!726, !17}
-!727 = !{!719, !720, i64 37072}
+!727 = !{!720, !721, i64 37072}
 !728 = !{!697, !12, i64 24}
 !729 = !{!697, !698, i64 136}
 !730 = !{!731, !30, i64 4}
@@ -56163,7 +56468,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !752 = distinct !{!752, !753, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !753 = distinct !{!753, !"_ZN6duckdb9Allocator8AllocateEm"}
 !754 = distinct !{!754, !17}
-!755 = !{!720, !720, i64 0}
+!755 = !{!721, !721, i64 0}
 !756 = !{!757}
 !757 = distinct !{!757, !758, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !758 = distinct !{!758, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56185,28 +56490,28 @@ attributes #32 = { nounwind willreturn memory(read) }
 !774 = distinct !{!774, !17}
 !775 = !{!768, !12, i64 8}
 !776 = !{!768, !47, i64 144}
-!777 = !{!778}
-!778 = distinct !{!778, !779, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIsiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
-!779 = distinct !{!779, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIsiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
-!780 = !{!781, !778}
-!781 = distinct !{!781, !782, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIsiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!782 = distinct !{!782, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIsiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!783 = !{!784, !30, i64 8}
-!784 = !{!"_ZTSN6duckdb22NumericStatisticsStateIsiNS_19BaseParquetOperatorEEE", !532, i64 0, !30, i64 8, !30, i64 12}
-!785 = !{!784, !30, i64 12}
-!786 = !{!787}
-!787 = distinct !{!787, !788, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIsiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIsiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!788 = distinct !{!788, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIsiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIsiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!789 = !{!790, !500, i64 8}
-!790 = !{!"_ZTSN6duckdb23StandardWriterPageStateIsiNS_19ParquetCastOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !791, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!791 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEEE", !10, i64 0}
-!792 = !{!790, !47, i64 12}
-!793 = !{!790, !47, i64 37080}
-!794 = !{!790, !30, i64 37084}
-!795 = !{!790, !47, i64 18496}
-!796 = !{!767, !30, i64 224}
+!777 = !{!767, !30, i64 224}
+!778 = !{!779}
+!779 = distinct !{!779, !780, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIsiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
+!780 = distinct !{!780, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIsiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
+!781 = !{!782, !779}
+!782 = distinct !{!782, !783, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIsiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!783 = distinct !{!783, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIsiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!784 = !{!785, !30, i64 8}
+!785 = !{!"_ZTSN6duckdb22NumericStatisticsStateIsiNS_19BaseParquetOperatorEEE", !533, i64 0, !30, i64 8, !30, i64 12}
+!786 = !{!785, !30, i64 12}
+!787 = !{!788}
+!788 = distinct !{!788, !789, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIsiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIsiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!789 = distinct !{!789, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIsiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIsiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!790 = !{!791, !500, i64 8}
+!791 = !{!"_ZTSN6duckdb23StandardWriterPageStateIsiNS_19ParquetCastOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !792, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!792 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIsiNS_19ParquetCastOperatorEEE", !10, i64 0}
+!793 = !{!791, !47, i64 12}
+!794 = !{!791, !47, i64 37080}
+!795 = !{!791, !30, i64 37084}
+!796 = !{!791, !47, i64 18496}
 !797 = distinct !{!797, !17}
-!798 = !{!790, !791, i64 37072}
+!798 = !{!791, !792, i64 37072}
 !799 = !{!768, !12, i64 24}
 !800 = !{!768, !769, i64 136}
 !801 = !{!802, !30, i64 4}
@@ -56234,7 +56539,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !823 = distinct !{!823, !824, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !824 = distinct !{!824, !"_ZN6duckdb9Allocator8AllocateEm"}
 !825 = distinct !{!825, !17}
-!826 = !{!791, !791, i64 0}
+!826 = !{!792, !792, i64 0}
 !827 = !{!828}
 !828 = distinct !{!828, !829, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !829 = distinct !{!829, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56256,28 +56561,28 @@ attributes #32 = { nounwind willreturn memory(read) }
 !845 = distinct !{!845, !17}
 !846 = !{!839, !12, i64 8}
 !847 = !{!839, !47, i64 144}
-!848 = !{!849}
-!849 = distinct !{!849, !850, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIiiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
-!850 = distinct !{!850, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIiiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
-!851 = !{!852, !849}
-!852 = distinct !{!852, !853, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIiiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!853 = distinct !{!853, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIiiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!854 = !{!855, !30, i64 8}
-!855 = !{!"_ZTSN6duckdb22NumericStatisticsStateIiiNS_19BaseParquetOperatorEEE", !532, i64 0, !30, i64 8, !30, i64 12}
-!856 = !{!855, !30, i64 12}
-!857 = !{!858}
-!858 = distinct !{!858, !859, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIiiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIiiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!859 = distinct !{!859, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIiiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIiiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!860 = !{!861, !500, i64 8}
-!861 = !{!"_ZTSN6duckdb23StandardWriterPageStateIiiNS_19ParquetCastOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !862, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!862 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEEE", !10, i64 0}
-!863 = !{!861, !47, i64 12}
-!864 = !{!861, !47, i64 37080}
-!865 = !{!861, !30, i64 37084}
-!866 = !{!861, !47, i64 18496}
-!867 = !{!838, !30, i64 224}
+!848 = !{!838, !30, i64 224}
+!849 = !{!850}
+!850 = distinct !{!850, !851, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIiiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
+!851 = distinct !{!851, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIiiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
+!852 = !{!853, !850}
+!853 = distinct !{!853, !854, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIiiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!854 = distinct !{!854, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIiiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!855 = !{!856, !30, i64 8}
+!856 = !{!"_ZTSN6duckdb22NumericStatisticsStateIiiNS_19BaseParquetOperatorEEE", !533, i64 0, !30, i64 8, !30, i64 12}
+!857 = !{!856, !30, i64 12}
+!858 = !{!859}
+!859 = distinct !{!859, !860, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIiiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIiiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!860 = distinct !{!860, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIiiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIiiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!861 = !{!862, !500, i64 8}
+!862 = !{!"_ZTSN6duckdb23StandardWriterPageStateIiiNS_19ParquetCastOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !863, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!863 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIiiNS_19ParquetCastOperatorEEE", !10, i64 0}
+!864 = !{!862, !47, i64 12}
+!865 = !{!862, !47, i64 37080}
+!866 = !{!862, !30, i64 37084}
+!867 = !{!862, !47, i64 18496}
 !868 = distinct !{!868, !17}
-!869 = !{!861, !862, i64 37072}
+!869 = !{!862, !863, i64 37072}
 !870 = !{!839, !12, i64 24}
 !871 = !{!839, !840, i64 136}
 !872 = !{!873, !30, i64 4}
@@ -56305,7 +56610,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !894 = distinct !{!894, !895, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !895 = distinct !{!895, !"_ZN6duckdb9Allocator8AllocateEm"}
 !896 = distinct !{!896, !17}
-!897 = !{!862, !862, i64 0}
+!897 = !{!863, !863, i64 0}
 !898 = !{!899}
 !899 = distinct !{!899, !900, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !900 = distinct !{!900, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56327,28 +56632,28 @@ attributes #32 = { nounwind willreturn memory(read) }
 !916 = distinct !{!916, !17}
 !917 = !{!910, !12, i64 8}
 !918 = !{!910, !47, i64 144}
-!919 = !{!920}
-!920 = distinct !{!920, !921, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
-!921 = distinct !{!921, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
-!922 = !{!923, !920}
-!923 = distinct !{!923, !924, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!924 = distinct !{!924, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!925 = !{!926, !12, i64 8}
-!926 = !{!"_ZTSN6duckdb22NumericStatisticsStateIllNS_19BaseParquetOperatorEEE", !532, i64 0, !12, i64 8, !12, i64 16}
-!927 = !{!926, !12, i64 16}
-!928 = !{!929}
-!929 = distinct !{!929, !930, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!930 = distinct !{!930, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!931 = !{!932, !500, i64 8}
-!932 = !{!"_ZTSN6duckdb23StandardWriterPageStateIllNS_19ParquetCastOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !933, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!933 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEEE", !10, i64 0}
-!934 = !{!932, !47, i64 12}
-!935 = !{!932, !47, i64 37080}
-!936 = !{!932, !30, i64 37084}
-!937 = !{!932, !47, i64 18496}
-!938 = !{!909, !30, i64 224}
+!919 = !{!909, !30, i64 224}
+!920 = !{!921}
+!921 = distinct !{!921, !922, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
+!922 = distinct !{!922, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
+!923 = !{!924, !921}
+!924 = distinct !{!924, !925, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!925 = distinct !{!925, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!926 = !{!927, !12, i64 8}
+!927 = !{!"_ZTSN6duckdb22NumericStatisticsStateIllNS_19BaseParquetOperatorEEE", !533, i64 0, !12, i64 8, !12, i64 16}
+!928 = !{!927, !12, i64 16}
+!929 = !{!930}
+!930 = distinct !{!930, !931, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!931 = distinct !{!931, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!932 = !{!933, !500, i64 8}
+!933 = !{!"_ZTSN6duckdb23StandardWriterPageStateIllNS_19ParquetCastOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !934, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!934 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIllNS_19ParquetCastOperatorEEE", !10, i64 0}
+!935 = !{!933, !47, i64 12}
+!936 = !{!933, !47, i64 37080}
+!937 = !{!933, !30, i64 37084}
+!938 = !{!933, !47, i64 18496}
 !939 = distinct !{!939, !17}
-!940 = !{!932, !933, i64 37072}
+!940 = !{!933, !934, i64 37072}
 !941 = !{!910, !12, i64 24}
 !942 = !{!910, !911, i64 136}
 !943 = !{!944, !30, i64 8}
@@ -56376,7 +56681,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !965 = distinct !{!965, !966, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !966 = distinct !{!966, !"_ZN6duckdb9Allocator8AllocateEm"}
 !967 = distinct !{!967, !17}
-!968 = !{!933, !933, i64 0}
+!968 = !{!934, !934, i64 0}
 !969 = !{!970}
 !970 = distinct !{!970, !971, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !971 = distinct !{!971, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56398,22 +56703,22 @@ attributes #32 = { nounwind willreturn memory(read) }
 !987 = distinct !{!987, !17}
 !988 = !{!981, !12, i64 8}
 !989 = !{!981, !47, i64 144}
-!990 = !{!991}
-!991 = distinct !{!991, !992, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_10dtime_tz_tElEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
-!992 = distinct !{!992, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_10dtime_tz_tElEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
-!993 = !{!994}
-!994 = distinct !{!994, !995, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_lS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!995 = distinct !{!995, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_lS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!996 = !{!997, !500, i64 8}
-!997 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !998, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!998 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEEE", !10, i64 0}
-!999 = !{!997, !47, i64 12}
-!1000 = !{!997, !47, i64 37080}
-!1001 = !{!997, !30, i64 37084}
-!1002 = !{!997, !47, i64 18496}
-!1003 = !{!980, !30, i64 224}
+!990 = !{!980, !30, i64 224}
+!991 = !{!992}
+!992 = distinct !{!992, !993, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_10dtime_tz_tElEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
+!993 = distinct !{!993, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_10dtime_tz_tElEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
+!994 = !{!995}
+!995 = distinct !{!995, !996, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_lS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!996 = distinct !{!996, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_lS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!997 = !{!998, !500, i64 8}
+!998 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !999, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!999 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_10dtime_tz_tElNS_21ParquetTimeTZOperatorEEE", !10, i64 0}
+!1000 = !{!998, !47, i64 12}
+!1001 = !{!998, !47, i64 37080}
+!1002 = !{!998, !30, i64 37084}
+!1003 = !{!998, !47, i64 18496}
 !1004 = distinct !{!1004, !17}
-!1005 = !{!997, !998, i64 37072}
+!1005 = !{!998, !999, i64 37072}
 !1006 = !{!981, !12, i64 24}
 !1007 = !{!981, !982, i64 136}
 !1008 = !{!1009, !30, i64 8}
@@ -56442,7 +56747,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1031 = distinct !{!1031, !1032, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !1032 = distinct !{!1032, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1033 = distinct !{!1033, !17}
-!1034 = !{!998, !998, i64 0}
+!1034 = !{!999, !999, i64 0}
 !1035 = !{!1036}
 !1036 = distinct !{!1036, !1037, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1037 = distinct !{!1037, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56463,26 +56768,26 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1052 = distinct !{!1052, !17}
 !1053 = !{!1046, !12, i64 8}
 !1054 = !{!1046, !47, i64 144}
-!1055 = !{!1056}
-!1056 = distinct !{!1056, !1057, !"_ZN6duckdb22ParquetHugeintOperator15InitializeStatsINS_9hugeint_tEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
-!1057 = distinct !{!1057, !"_ZN6duckdb22ParquetHugeintOperator15InitializeStatsINS_9hugeint_tEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
-!1058 = !{!1059}
-!1059 = distinct !{!1059, !1060, !"_ZN6duckdb9make_uniqINS_22ColumnWriterStatisticsEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1060 = distinct !{!1060, !"_ZN6duckdb9make_uniqINS_22ColumnWriterStatisticsEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1061 = !{!1059, !1056}
-!1062 = !{!1063}
-!1063 = distinct !{!1063, !1064, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_9hugeint_tEdNS_22ParquetHugeintOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1064 = distinct !{!1064, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_9hugeint_tEdNS_22ParquetHugeintOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1065 = !{!1066, !500, i64 8}
-!1066 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_9hugeint_tEdNS_22ParquetHugeintOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1067, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1067 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22ParquetHugeintOperatorEEE", !10, i64 0}
-!1068 = !{!1066, !47, i64 12}
-!1069 = !{!1066, !47, i64 37080}
-!1070 = !{!1066, !30, i64 37084}
-!1071 = !{!1066, !47, i64 18496}
-!1072 = !{!1045, !30, i64 224}
+!1055 = !{!1045, !30, i64 224}
+!1056 = !{!1057}
+!1057 = distinct !{!1057, !1058, !"_ZN6duckdb22ParquetHugeintOperator15InitializeStatsINS_9hugeint_tEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
+!1058 = distinct !{!1058, !"_ZN6duckdb22ParquetHugeintOperator15InitializeStatsINS_9hugeint_tEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
+!1059 = !{!1060}
+!1060 = distinct !{!1060, !1061, !"_ZN6duckdb9make_uniqINS_22ColumnWriterStatisticsEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1061 = distinct !{!1061, !"_ZN6duckdb9make_uniqINS_22ColumnWriterStatisticsEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1062 = !{!1060, !1057}
+!1063 = !{!1064}
+!1064 = distinct !{!1064, !1065, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_9hugeint_tEdNS_22ParquetHugeintOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1065 = distinct !{!1065, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_9hugeint_tEdNS_22ParquetHugeintOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1066 = !{!1067, !500, i64 8}
+!1067 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_9hugeint_tEdNS_22ParquetHugeintOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1068, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1068 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_9hugeint_tEdNS_22ParquetHugeintOperatorEEE", !10, i64 0}
+!1069 = !{!1067, !47, i64 12}
+!1070 = !{!1067, !47, i64 37080}
+!1071 = !{!1067, !30, i64 37084}
+!1072 = !{!1067, !47, i64 18496}
 !1073 = distinct !{!1073, !17}
-!1074 = !{!1066, !1067, i64 37072}
+!1074 = !{!1067, !1068, i64 37072}
 !1075 = !{!1046, !12, i64 24}
 !1076 = !{!1046, !1047, i64 136}
 !1077 = !{!1078, !30, i64 16}
@@ -56512,7 +56817,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1101 = distinct !{!1101, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1102 = distinct !{!1102, !17}
 !1103 = !{i64 0, i64 8, !24, i64 8, i64 8, !24}
-!1104 = !{!1067, !1067, i64 0}
+!1104 = !{!1068, !1068, i64 0}
 !1105 = !{!1106}
 !1106 = distinct !{!1106, !1107, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1107 = distinct !{!1107, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56533,26 +56838,26 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1122 = distinct !{!1122, !17}
 !1123 = !{!1116, !12, i64 8}
 !1124 = !{!1116, !47, i64 144}
-!1125 = !{!1126}
-!1126 = distinct !{!1126, !1127, !"_ZN6duckdb23ParquetUhugeintOperator15InitializeStatsINS_10uhugeint_tEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
-!1127 = distinct !{!1127, !"_ZN6duckdb23ParquetUhugeintOperator15InitializeStatsINS_10uhugeint_tEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
-!1128 = !{!1129}
-!1129 = distinct !{!1129, !1130, !"_ZN6duckdb9make_uniqINS_22ColumnWriterStatisticsEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1130 = distinct !{!1130, !"_ZN6duckdb9make_uniqINS_22ColumnWriterStatisticsEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1131 = !{!1129, !1126}
-!1132 = !{!1133}
-!1133 = distinct !{!1133, !1134, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1134 = distinct !{!1134, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1135 = !{!1136, !500, i64 8}
-!1136 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1137, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1137 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEEE", !10, i64 0}
-!1138 = !{!1136, !47, i64 12}
-!1139 = !{!1136, !47, i64 37080}
-!1140 = !{!1136, !30, i64 37084}
-!1141 = !{!1136, !47, i64 18496}
-!1142 = !{!1115, !30, i64 224}
+!1125 = !{!1115, !30, i64 224}
+!1126 = !{!1127}
+!1127 = distinct !{!1127, !1128, !"_ZN6duckdb23ParquetUhugeintOperator15InitializeStatsINS_10uhugeint_tEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
+!1128 = distinct !{!1128, !"_ZN6duckdb23ParquetUhugeintOperator15InitializeStatsINS_10uhugeint_tEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
+!1129 = !{!1130}
+!1130 = distinct !{!1130, !1131, !"_ZN6duckdb9make_uniqINS_22ColumnWriterStatisticsEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1131 = distinct !{!1131, !"_ZN6duckdb9make_uniqINS_22ColumnWriterStatisticsEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1132 = !{!1130, !1127}
+!1133 = !{!1134}
+!1134 = distinct !{!1134, !1135, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1135 = distinct !{!1135, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1136 = !{!1137, !500, i64 8}
+!1137 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1138, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1138 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_10uhugeint_tEdNS_23ParquetUhugeintOperatorEEE", !10, i64 0}
+!1139 = !{!1137, !47, i64 12}
+!1140 = !{!1137, !47, i64 37080}
+!1141 = !{!1137, !30, i64 37084}
+!1142 = !{!1137, !47, i64 18496}
 !1143 = distinct !{!1143, !17}
-!1144 = !{!1136, !1137, i64 37072}
+!1144 = !{!1137, !1138, i64 37072}
 !1145 = !{!1116, !12, i64 24}
 !1146 = !{!1116, !1117, i64 136}
 !1147 = !{!1148, !30, i64 16}
@@ -56580,7 +56885,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1169 = distinct !{!1169, !1170, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !1170 = distinct !{!1170, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1171 = distinct !{!1171, !17}
-!1172 = !{!1137, !1137, i64 0}
+!1172 = !{!1138, !1138, i64 0}
 !1173 = !{!1174}
 !1174 = distinct !{!1174, !1175, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1175 = distinct !{!1175, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56601,25 +56906,25 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1190 = distinct !{!1190, !17}
 !1191 = !{!1184, !12, i64 8}
 !1192 = !{!1184, !47, i64 144}
-!1193 = !{!1194}
-!1194 = distinct !{!1194, !1195, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
-!1195 = distinct !{!1195, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
-!1196 = !{!1197, !1194}
-!1197 = distinct !{!1197, !1198, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1198 = distinct !{!1198, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1199 = !{!1200}
-!1200 = distinct !{!1200, !1201, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_26ParquetTimestampNSOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1201 = distinct !{!1201, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_26ParquetTimestampNSOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1202 = !{!1203, !500, i64 8}
-!1203 = !{!"_ZTSN6duckdb23StandardWriterPageStateIllNS_26ParquetTimestampNSOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1204, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1204 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEEE", !10, i64 0}
-!1205 = !{!1203, !47, i64 12}
-!1206 = !{!1203, !47, i64 37080}
-!1207 = !{!1203, !30, i64 37084}
-!1208 = !{!1203, !47, i64 18496}
-!1209 = !{!1183, !30, i64 224}
+!1193 = !{!1183, !30, i64 224}
+!1194 = !{!1195}
+!1195 = distinct !{!1195, !1196, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
+!1196 = distinct !{!1196, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
+!1197 = !{!1198, !1195}
+!1198 = distinct !{!1198, !1199, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1199 = distinct !{!1199, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1200 = !{!1201}
+!1201 = distinct !{!1201, !1202, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_26ParquetTimestampNSOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1202 = distinct !{!1202, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_26ParquetTimestampNSOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1203 = !{!1204, !500, i64 8}
+!1204 = !{!"_ZTSN6duckdb23StandardWriterPageStateIllNS_26ParquetTimestampNSOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1205, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1205 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIllNS_26ParquetTimestampNSOperatorEEE", !10, i64 0}
+!1206 = !{!1204, !47, i64 12}
+!1207 = !{!1204, !47, i64 37080}
+!1208 = !{!1204, !30, i64 37084}
+!1209 = !{!1204, !47, i64 18496}
 !1210 = distinct !{!1210, !17}
-!1211 = !{!1203, !1204, i64 37072}
+!1211 = !{!1204, !1205, i64 37072}
 !1212 = !{!1184, !12, i64 24}
 !1213 = !{!1184, !1185, i64 136}
 !1214 = !{!1215, !30, i64 8}
@@ -56645,7 +56950,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1234 = distinct !{!1234, !1235, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !1235 = distinct !{!1235, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1236 = distinct !{!1236, !17}
-!1237 = !{!1204, !1204, i64 0}
+!1237 = !{!1205, !1205, i64 0}
 !1238 = !{!1239}
 !1239 = distinct !{!1239, !1240, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1240 = distinct !{!1240, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56667,25 +56972,25 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1256 = distinct !{!1256, !17}
 !1257 = !{!1250, !12, i64 8}
 !1258 = !{!1250, !47, i64 144}
-!1259 = !{!1260}
-!1260 = distinct !{!1260, !1261, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
-!1261 = distinct !{!1261, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
-!1262 = !{!1263, !1260}
-!1263 = distinct !{!1263, !1264, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1264 = distinct !{!1264, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1265 = !{!1266}
-!1266 = distinct !{!1266, !1267, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_25ParquetTimestampSOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1267 = distinct !{!1267, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_25ParquetTimestampSOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1268 = !{!1269, !500, i64 8}
-!1269 = !{!"_ZTSN6duckdb23StandardWriterPageStateIllNS_25ParquetTimestampSOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1270, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1270 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEEE", !10, i64 0}
-!1271 = !{!1269, !47, i64 12}
-!1272 = !{!1269, !47, i64 37080}
-!1273 = !{!1269, !30, i64 37084}
-!1274 = !{!1269, !47, i64 18496}
-!1275 = !{!1249, !30, i64 224}
+!1259 = !{!1249, !30, i64 224}
+!1260 = !{!1261}
+!1261 = distinct !{!1261, !1262, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
+!1262 = distinct !{!1262, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIllEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
+!1263 = !{!1264, !1261}
+!1264 = distinct !{!1264, !1265, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1265 = distinct !{!1265, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIllNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1266 = !{!1267}
+!1267 = distinct !{!1267, !1268, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_25ParquetTimestampSOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1268 = distinct !{!1268, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIllNS_25ParquetTimestampSOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIllS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1269 = !{!1270, !500, i64 8}
+!1270 = !{!"_ZTSN6duckdb23StandardWriterPageStateIllNS_25ParquetTimestampSOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1271, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1271 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIllNS_25ParquetTimestampSOperatorEEE", !10, i64 0}
+!1272 = !{!1270, !47, i64 12}
+!1273 = !{!1270, !47, i64 37080}
+!1274 = !{!1270, !30, i64 37084}
+!1275 = !{!1270, !47, i64 18496}
 !1276 = distinct !{!1276, !17}
-!1277 = !{!1269, !1270, i64 37072}
+!1277 = !{!1270, !1271, i64 37072}
 !1278 = !{!1250, !12, i64 24}
 !1279 = !{!1250, !1251, i64 136}
 !1280 = !{!1281, !30, i64 8}
@@ -56711,7 +57016,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1300 = distinct !{!1300, !1301, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !1301 = distinct !{!1301, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1302 = distinct !{!1302, !17}
-!1303 = !{!1270, !1270, i64 0}
+!1303 = !{!1271, !1271, i64 0}
 !1304 = !{!1305}
 !1305 = distinct !{!1305, !1306, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1306 = distinct !{!1306, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56733,28 +57038,28 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1322 = distinct !{!1322, !17}
 !1323 = !{!1316, !12, i64 8}
 !1324 = !{!1316, !47, i64 144}
-!1325 = !{!1326}
-!1326 = distinct !{!1326, !1327, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIhiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
-!1327 = distinct !{!1327, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIhiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
-!1328 = !{!1329, !1326}
-!1329 = distinct !{!1329, !1330, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIhiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1330 = distinct !{!1330, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIhiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1331 = !{!1332, !30, i64 8}
-!1332 = !{!"_ZTSN6duckdb22NumericStatisticsStateIhiNS_19BaseParquetOperatorEEE", !532, i64 0, !30, i64 8, !30, i64 12}
-!1333 = !{!1332, !30, i64 12}
-!1334 = !{!1335}
-!1335 = distinct !{!1335, !1336, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIhiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIhiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1336 = distinct !{!1336, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIhiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIhiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1337 = !{!1338, !500, i64 8}
-!1338 = !{!"_ZTSN6duckdb23StandardWriterPageStateIhiNS_19ParquetCastOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1339, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1339 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEEE", !10, i64 0}
-!1340 = !{!1338, !47, i64 12}
-!1341 = !{!1338, !47, i64 37080}
-!1342 = !{!1338, !30, i64 37084}
-!1343 = !{!1338, !47, i64 18496}
-!1344 = !{!1315, !30, i64 224}
+!1325 = !{!1315, !30, i64 224}
+!1326 = !{!1327}
+!1327 = distinct !{!1327, !1328, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIhiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
+!1328 = distinct !{!1328, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIhiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
+!1329 = !{!1330, !1327}
+!1330 = distinct !{!1330, !1331, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIhiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1331 = distinct !{!1331, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIhiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1332 = !{!1333, !30, i64 8}
+!1333 = !{!"_ZTSN6duckdb22NumericStatisticsStateIhiNS_19BaseParquetOperatorEEE", !533, i64 0, !30, i64 8, !30, i64 12}
+!1334 = !{!1333, !30, i64 12}
+!1335 = !{!1336}
+!1336 = distinct !{!1336, !1337, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIhiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIhiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1337 = distinct !{!1337, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIhiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIhiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1338 = !{!1339, !500, i64 8}
+!1339 = !{!"_ZTSN6duckdb23StandardWriterPageStateIhiNS_19ParquetCastOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1340, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1340 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIhiNS_19ParquetCastOperatorEEE", !10, i64 0}
+!1341 = !{!1339, !47, i64 12}
+!1342 = !{!1339, !47, i64 37080}
+!1343 = !{!1339, !30, i64 37084}
+!1344 = !{!1339, !47, i64 18496}
 !1345 = distinct !{!1345, !17}
-!1346 = !{!1338, !1339, i64 37072}
+!1346 = !{!1339, !1340, i64 37072}
 !1347 = !{!1316, !12, i64 24}
 !1348 = !{!1316, !1317, i64 136}
 !1349 = !{!1350, !30, i64 4}
@@ -56782,7 +57087,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1371 = distinct !{!1371, !1372, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !1372 = distinct !{!1372, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1373 = distinct !{!1373, !17}
-!1374 = !{!1339, !1339, i64 0}
+!1374 = !{!1340, !1340, i64 0}
 !1375 = !{!1376}
 !1376 = distinct !{!1376, !1377, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1377 = distinct !{!1377, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56804,28 +57109,28 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1393 = distinct !{!1393, !17}
 !1394 = !{!1387, !12, i64 8}
 !1395 = !{!1387, !47, i64 144}
-!1396 = !{!1397}
-!1397 = distinct !{!1397, !1398, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsItiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
-!1398 = distinct !{!1398, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsItiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
-!1399 = !{!1400, !1397}
-!1400 = distinct !{!1400, !1401, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateItiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1401 = distinct !{!1401, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateItiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1402 = !{!1403, !30, i64 8}
-!1403 = !{!"_ZTSN6duckdb22NumericStatisticsStateItiNS_19BaseParquetOperatorEEE", !532, i64 0, !30, i64 8, !30, i64 12}
-!1404 = !{!1403, !30, i64 12}
-!1405 = !{!1406}
-!1406 = distinct !{!1406, !1407, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateItiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryItiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1407 = distinct !{!1407, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateItiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryItiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1408 = !{!1409, !500, i64 8}
-!1409 = !{!"_ZTSN6duckdb23StandardWriterPageStateItiNS_19ParquetCastOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1410, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1410 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEEE", !10, i64 0}
-!1411 = !{!1409, !47, i64 12}
-!1412 = !{!1409, !47, i64 37080}
-!1413 = !{!1409, !30, i64 37084}
-!1414 = !{!1409, !47, i64 18496}
-!1415 = !{!1386, !30, i64 224}
+!1396 = !{!1386, !30, i64 224}
+!1397 = !{!1398}
+!1398 = distinct !{!1398, !1399, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsItiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
+!1399 = distinct !{!1399, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsItiEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
+!1400 = !{!1401, !1398}
+!1401 = distinct !{!1401, !1402, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateItiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1402 = distinct !{!1402, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateItiNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1403 = !{!1404, !30, i64 8}
+!1404 = !{!"_ZTSN6duckdb22NumericStatisticsStateItiNS_19BaseParquetOperatorEEE", !533, i64 0, !30, i64 8, !30, i64 12}
+!1405 = !{!1404, !30, i64 12}
+!1406 = !{!1407}
+!1407 = distinct !{!1407, !1408, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateItiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryItiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1408 = distinct !{!1408, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateItiNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryItiS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1409 = !{!1410, !500, i64 8}
+!1410 = !{!"_ZTSN6duckdb23StandardWriterPageStateItiNS_19ParquetCastOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1411, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1411 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryItiNS_19ParquetCastOperatorEEE", !10, i64 0}
+!1412 = !{!1410, !47, i64 12}
+!1413 = !{!1410, !47, i64 37080}
+!1414 = !{!1410, !30, i64 37084}
+!1415 = !{!1410, !47, i64 18496}
 !1416 = distinct !{!1416, !17}
-!1417 = !{!1409, !1410, i64 37072}
+!1417 = !{!1410, !1411, i64 37072}
 !1418 = !{!1387, !12, i64 24}
 !1419 = !{!1387, !1388, i64 136}
 !1420 = !{!1421, !30, i64 4}
@@ -56853,7 +57158,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1442 = distinct !{!1442, !1443, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !1443 = distinct !{!1443, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1444 = distinct !{!1444, !17}
-!1445 = !{!1410, !1410, i64 0}
+!1445 = !{!1411, !1411, i64 0}
 !1446 = !{!1447}
 !1447 = distinct !{!1447, !1448, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1448 = distinct !{!1448, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56875,28 +57180,28 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1464 = distinct !{!1464, !17}
 !1465 = !{!1458, !12, i64 8}
 !1466 = !{!1458, !47, i64 144}
-!1467 = !{!1468}
-!1468 = distinct !{!1468, !1469, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIjjEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
-!1469 = distinct !{!1469, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIjjEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
-!1470 = !{!1471, !1468}
-!1471 = distinct !{!1471, !1472, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIjjNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1472 = distinct !{!1472, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIjjNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1473 = !{!1474, !30, i64 8}
-!1474 = !{!"_ZTSN6duckdb22NumericStatisticsStateIjjNS_19BaseParquetOperatorEEE", !532, i64 0, !30, i64 8, !30, i64 12}
-!1475 = !{!1474, !30, i64 12}
-!1476 = !{!1477}
-!1477 = distinct !{!1477, !1478, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIjjNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIjjS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1478 = distinct !{!1478, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIjjNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIjjS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1479 = !{!1480, !500, i64 8}
-!1480 = !{!"_ZTSN6duckdb23StandardWriterPageStateIjjNS_19ParquetCastOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1481, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1481 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEEE", !10, i64 0}
-!1482 = !{!1480, !47, i64 12}
-!1483 = !{!1480, !47, i64 37080}
-!1484 = !{!1480, !30, i64 37084}
-!1485 = !{!1480, !47, i64 18496}
-!1486 = !{!1457, !30, i64 224}
+!1467 = !{!1457, !30, i64 224}
+!1468 = !{!1469}
+!1469 = distinct !{!1469, !1470, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIjjEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
+!1470 = distinct !{!1470, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsIjjEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
+!1471 = !{!1472, !1469}
+!1472 = distinct !{!1472, !1473, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIjjNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1473 = distinct !{!1473, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateIjjNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1474 = !{!1475, !30, i64 8}
+!1475 = !{!"_ZTSN6duckdb22NumericStatisticsStateIjjNS_19BaseParquetOperatorEEE", !533, i64 0, !30, i64 8, !30, i64 12}
+!1476 = !{!1475, !30, i64 12}
+!1477 = !{!1478}
+!1478 = distinct !{!1478, !1479, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIjjNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIjjS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1479 = distinct !{!1479, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateIjjNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIjjS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1480 = !{!1481, !500, i64 8}
+!1481 = !{!"_ZTSN6duckdb23StandardWriterPageStateIjjNS_19ParquetCastOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1482, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1482 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryIjjNS_19ParquetCastOperatorEEE", !10, i64 0}
+!1483 = !{!1481, !47, i64 12}
+!1484 = !{!1481, !47, i64 37080}
+!1485 = !{!1481, !30, i64 37084}
+!1486 = !{!1481, !47, i64 18496}
 !1487 = distinct !{!1487, !17}
-!1488 = !{!1480, !1481, i64 37072}
+!1488 = !{!1481, !1482, i64 37072}
 !1489 = !{!1458, !12, i64 24}
 !1490 = !{!1458, !1459, i64 136}
 !1491 = !{!1492, !30, i64 4}
@@ -56924,7 +57229,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1513 = distinct !{!1513, !1514, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !1514 = distinct !{!1514, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1515 = distinct !{!1515, !17}
-!1516 = !{!1481, !1481, i64 0}
+!1516 = !{!1482, !1482, i64 0}
 !1517 = !{!1518}
 !1518 = distinct !{!1518, !1519, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1519 = distinct !{!1519, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -56946,28 +57251,28 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1535 = distinct !{!1535, !17}
 !1536 = !{!1529, !12, i64 8}
 !1537 = !{!1529, !47, i64 144}
-!1538 = !{!1539}
-!1539 = distinct !{!1539, !1540, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsImmEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
-!1540 = distinct !{!1540, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsImmEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
-!1541 = !{!1542, !1539}
-!1542 = distinct !{!1542, !1543, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateImmNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1543 = distinct !{!1543, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateImmNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1544 = !{!1545, !12, i64 8}
-!1545 = !{!"_ZTSN6duckdb22NumericStatisticsStateImmNS_19BaseParquetOperatorEEE", !532, i64 0, !12, i64 8, !12, i64 16}
-!1546 = !{!1545, !12, i64 16}
-!1547 = !{!1548}
-!1548 = distinct !{!1548, !1549, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateImmNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryImmS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1549 = distinct !{!1549, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateImmNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryImmS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1550 = !{!1551, !500, i64 8}
-!1551 = !{!"_ZTSN6duckdb23StandardWriterPageStateImmNS_19ParquetCastOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1552, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1552 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEEE", !10, i64 0}
-!1553 = !{!1551, !47, i64 12}
-!1554 = !{!1551, !47, i64 37080}
-!1555 = !{!1551, !30, i64 37084}
-!1556 = !{!1551, !47, i64 18496}
-!1557 = !{!1528, !30, i64 224}
+!1538 = !{!1528, !30, i64 224}
+!1539 = !{!1540}
+!1540 = distinct !{!1540, !1541, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsImmEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv: argument 0"}
+!1541 = distinct !{!1541, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsImmEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS3_ELb1EEEv"}
+!1542 = !{!1543, !1540}
+!1543 = distinct !{!1543, !1544, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateImmNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1544 = distinct !{!1544, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateImmNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1545 = !{!1546, !12, i64 8}
+!1546 = !{!"_ZTSN6duckdb22NumericStatisticsStateImmNS_19BaseParquetOperatorEEE", !533, i64 0, !12, i64 8, !12, i64 16}
+!1547 = !{!1546, !12, i64 16}
+!1548 = !{!1549}
+!1549 = distinct !{!1549, !1550, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateImmNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryImmS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1550 = distinct !{!1550, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateImmNS_19ParquetCastOperatorEEEJRmS4_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryImmS2_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1551 = !{!1552, !500, i64 8}
+!1552 = !{!"_ZTSN6duckdb23StandardWriterPageStateImmNS_19ParquetCastOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1553, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1553 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryImmNS_19ParquetCastOperatorEEE", !10, i64 0}
+!1554 = !{!1552, !47, i64 12}
+!1555 = !{!1552, !47, i64 37080}
+!1556 = !{!1552, !30, i64 37084}
+!1557 = !{!1552, !47, i64 18496}
 !1558 = distinct !{!1558, !17}
-!1559 = !{!1551, !1552, i64 37072}
+!1559 = !{!1552, !1553, i64 37072}
 !1560 = !{!1529, !12, i64 24}
 !1561 = !{!1529, !1530, i64 136}
 !1562 = !{!1563, !30, i64 8}
@@ -56995,7 +57300,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1584 = distinct !{!1584, !1585, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !1585 = distinct !{!1585, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1586 = distinct !{!1586, !17}
-!1587 = !{!1552, !1552, i64 0}
+!1587 = !{!1553, !1553, i64 0}
 !1588 = !{!1589}
 !1589 = distinct !{!1589, !1590, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1590 = distinct !{!1590, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -57018,28 +57323,28 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1607 = distinct !{!1607, !17}
 !1608 = !{!1600, !12, i64 8}
 !1609 = !{!1600, !47, i64 144}
-!1610 = !{!1611}
-!1611 = distinct !{!1611, !1612, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsINS_14float_na_equalEfEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
-!1612 = distinct !{!1612, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsINS_14float_na_equalEfEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
-!1613 = !{!1614, !1611}
-!1614 = distinct !{!1614, !1615, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateINS_14float_na_equalEfNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1615 = distinct !{!1615, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateINS_14float_na_equalEfNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1616 = !{!1617, !238, i64 8}
-!1617 = !{!"_ZTSN6duckdb22NumericStatisticsStateINS_14float_na_equalEfNS_19BaseParquetOperatorEEE", !532, i64 0, !238, i64 8, !238, i64 12}
-!1618 = !{!1617, !238, i64 12}
-!1619 = !{!1620}
-!1620 = distinct !{!1620, !1621, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_14float_na_equalEfNS_19ParquetCastOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_fS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1621 = distinct !{!1621, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_14float_na_equalEfNS_19ParquetCastOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_fS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1622 = !{!1623, !500, i64 8}
-!1623 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_14float_na_equalEfNS_19ParquetCastOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1624, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1624 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEEE", !10, i64 0}
-!1625 = !{!1623, !47, i64 12}
-!1626 = !{!1623, !47, i64 37080}
-!1627 = !{!1623, !30, i64 37084}
-!1628 = !{!1623, !47, i64 18496}
-!1629 = !{!1599, !30, i64 224}
+!1610 = !{!1599, !30, i64 224}
+!1611 = !{!1612}
+!1612 = distinct !{!1612, !1613, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsINS_14float_na_equalEfEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
+!1613 = distinct !{!1613, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsINS_14float_na_equalEfEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
+!1614 = !{!1615, !1612}
+!1615 = distinct !{!1615, !1616, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateINS_14float_na_equalEfNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1616 = distinct !{!1616, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateINS_14float_na_equalEfNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1617 = !{!1618, !238, i64 8}
+!1618 = !{!"_ZTSN6duckdb22NumericStatisticsStateINS_14float_na_equalEfNS_19BaseParquetOperatorEEE", !533, i64 0, !238, i64 8, !238, i64 12}
+!1619 = !{!1618, !238, i64 12}
+!1620 = !{!1621}
+!1621 = distinct !{!1621, !1622, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_14float_na_equalEfNS_19ParquetCastOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_fS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1622 = distinct !{!1622, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_14float_na_equalEfNS_19ParquetCastOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_fS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1623 = !{!1624, !500, i64 8}
+!1624 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_14float_na_equalEfNS_19ParquetCastOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1625, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1625 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_14float_na_equalEfNS_19ParquetCastOperatorEEE", !10, i64 0}
+!1626 = !{!1624, !47, i64 12}
+!1627 = !{!1624, !47, i64 37080}
+!1628 = !{!1624, !30, i64 37084}
+!1629 = !{!1624, !47, i64 18496}
 !1630 = distinct !{!1630, !17}
-!1631 = !{!1623, !1624, i64 37072}
+!1631 = !{!1624, !1625, i64 37072}
 !1632 = !{!1600, !12, i64 24}
 !1633 = !{!1600, !1601, i64 136}
 !1634 = !{!1635, !30, i64 4}
@@ -57068,7 +57373,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1657 = distinct !{!1657, !1658, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !1658 = distinct !{!1658, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1659 = distinct !{!1659, !17}
-!1660 = !{!1624, !1624, i64 0}
+!1660 = !{!1625, !1625, i64 0}
 !1661 = !{!1662}
 !1662 = distinct !{!1662, !1663, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1663 = distinct !{!1663, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -57090,28 +57395,28 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1679 = distinct !{!1679, !17}
 !1680 = !{!1673, !12, i64 8}
 !1681 = !{!1673, !47, i64 144}
-!1682 = !{!1683}
-!1683 = distinct !{!1683, !1684, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsINS_15double_na_equalEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
-!1684 = distinct !{!1684, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsINS_15double_na_equalEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
-!1685 = !{!1686, !1683}
-!1686 = distinct !{!1686, !1687, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateINS_15double_na_equalEdNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1687 = distinct !{!1687, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateINS_15double_na_equalEdNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1688 = !{!1689, !91, i64 8}
-!1689 = !{!"_ZTSN6duckdb22NumericStatisticsStateINS_15double_na_equalEdNS_19BaseParquetOperatorEEE", !532, i64 0, !91, i64 8, !91, i64 16}
-!1690 = !{!1689, !91, i64 16}
-!1691 = !{!1692}
-!1692 = distinct !{!1692, !1693, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_15double_na_equalEdNS_19ParquetCastOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1693 = distinct !{!1693, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_15double_na_equalEdNS_19ParquetCastOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1694 = !{!1695, !500, i64 8}
-!1695 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_15double_na_equalEdNS_19ParquetCastOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1696, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1696 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEEE", !10, i64 0}
-!1697 = !{!1695, !47, i64 12}
-!1698 = !{!1695, !47, i64 37080}
-!1699 = !{!1695, !30, i64 37084}
-!1700 = !{!1695, !47, i64 18496}
-!1701 = !{!1672, !30, i64 224}
+!1682 = !{!1672, !30, i64 224}
+!1683 = !{!1684}
+!1684 = distinct !{!1684, !1685, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsINS_15double_na_equalEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv: argument 0"}
+!1685 = distinct !{!1685, !"_ZN6duckdb19ParquetCastOperator15InitializeStatsINS_15double_na_equalEdEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS4_ELb1EEEv"}
+!1686 = !{!1687, !1684}
+!1687 = distinct !{!1687, !1688, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateINS_15double_na_equalEdNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1688 = distinct !{!1688, !"_ZN6duckdb9make_uniqINS_22NumericStatisticsStateINS_15double_na_equalEdNS_19BaseParquetOperatorEEEJEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1689 = !{!1690, !91, i64 8}
+!1690 = !{!"_ZTSN6duckdb22NumericStatisticsStateINS_15double_na_equalEdNS_19BaseParquetOperatorEEE", !533, i64 0, !91, i64 8, !91, i64 16}
+!1691 = !{!1690, !91, i64 16}
+!1692 = !{!1693}
+!1693 = distinct !{!1693, !1694, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_15double_na_equalEdNS_19ParquetCastOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1694 = distinct !{!1694, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_15double_na_equalEdNS_19ParquetCastOperatorEEEJRmS5_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_dS3_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1695 = !{!1696, !500, i64 8}
+!1696 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_15double_na_equalEdNS_19ParquetCastOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1697, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1697 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_15double_na_equalEdNS_19ParquetCastOperatorEEE", !10, i64 0}
+!1698 = !{!1696, !47, i64 12}
+!1699 = !{!1696, !47, i64 37080}
+!1700 = !{!1696, !30, i64 37084}
+!1701 = !{!1696, !47, i64 18496}
 !1702 = distinct !{!1702, !17}
-!1703 = !{!1695, !1696, i64 37072}
+!1703 = !{!1696, !1697, i64 37072}
 !1704 = !{!1673, !12, i64 24}
 !1705 = !{!1673, !1674, i64 136}
 !1706 = !{!1707, !30, i64 8}
@@ -57140,7 +57445,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1729 = distinct !{!1729, !1730, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !1730 = distinct !{!1730, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1731 = distinct !{!1731, !17}
-!1732 = !{!1696, !1696, i64 0}
+!1732 = !{!1697, !1697, i64 0}
 !1733 = !{!1734}
 !1734 = distinct !{!1734, !1735, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1735 = distinct !{!1735, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -57162,22 +57467,22 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1751 = distinct !{!1751, !17}
 !1752 = !{!1745, !12, i64 8}
 !1753 = !{!1745, !47, i64 144}
-!1754 = !{!1755}
-!1755 = distinct !{!1755, !1756, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_9hugeint_tENS_21ParquetUUIDTargetTypeEEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS5_ELb1EEEv: argument 0"}
-!1756 = distinct !{!1756, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_9hugeint_tENS_21ParquetUUIDTargetTypeEEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS5_ELb1EEEv"}
-!1757 = !{!1758}
-!1758 = distinct !{!1758, !1759, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEEEJRmS6_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S3_S4_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1759 = distinct !{!1759, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEEEJRmS6_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S3_S4_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1760 = !{!1761, !500, i64 8}
-!1761 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1762, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1762 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEEE", !10, i64 0}
-!1763 = !{!1761, !47, i64 12}
-!1764 = !{!1761, !47, i64 37080}
-!1765 = !{!1761, !30, i64 37084}
-!1766 = !{!1761, !47, i64 18496}
-!1767 = !{!1744, !30, i64 224}
+!1754 = !{!1744, !30, i64 224}
+!1755 = !{!1756}
+!1756 = distinct !{!1756, !1757, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_9hugeint_tENS_21ParquetUUIDTargetTypeEEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS5_ELb1EEEv: argument 0"}
+!1757 = distinct !{!1757, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_9hugeint_tENS_21ParquetUUIDTargetTypeEEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS5_ELb1EEEv"}
+!1758 = !{!1759}
+!1759 = distinct !{!1759, !1760, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEEEJRmS6_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S3_S4_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1760 = distinct !{!1760, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEEEJRmS6_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S3_S4_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1761 = !{!1762, !500, i64 8}
+!1762 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1763, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1763 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorEEE", !10, i64 0}
+!1764 = !{!1762, !47, i64 12}
+!1765 = !{!1762, !47, i64 37080}
+!1766 = !{!1762, !30, i64 37084}
+!1767 = !{!1762, !47, i64 18496}
 !1768 = distinct !{!1768, !17}
-!1769 = !{!1761, !1762, i64 37072}
+!1769 = !{!1762, !1763, i64 37072}
 !1770 = !{!1745, !12, i64 24}
 !1771 = !{!1745, !1746, i64 136}
 !1772 = !{!1773, !30, i64 16}
@@ -57206,7 +57511,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1795 = distinct !{!1795, !1796, !"_ZN6duckdb9Allocator8AllocateEm: argument 0"}
 !1796 = distinct !{!1796, !"_ZN6duckdb9Allocator8AllocateEm"}
 !1797 = distinct !{!1797, !17}
-!1798 = !{!1762, !1762, i64 0}
+!1798 = !{!1763, !1763, i64 0}
 !1799 = !{!1800}
 !1800 = distinct !{!1800, !1801, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1801 = distinct !{!1801, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
@@ -57227,22 +57532,22 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1816 = distinct !{!1816, !17}
 !1817 = !{!1810, !12, i64 8}
 !1818 = !{!1810, !47, i64 144}
-!1819 = !{!1820}
-!1820 = distinct !{!1820, !1821, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_10interval_tENS_25ParquetIntervalTargetTypeEEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS5_ELb1EEEv: argument 0"}
-!1821 = distinct !{!1821, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_10interval_tENS_25ParquetIntervalTargetTypeEEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS5_ELb1EEEv"}
-!1822 = !{!1823}
-!1823 = distinct !{!1823, !1824, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEEJRmS6_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S3_S4_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
-!1824 = distinct !{!1824, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEEJRmS6_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S3_S4_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
-!1825 = !{!1826, !500, i64 8}
-!1826 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEE", !544, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !545, i64 18504, !14, i64 37024, !1827, i64 37072, !47, i64 37080, !30, i64 37084, !554, i64 37088}
-!1827 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEE", !10, i64 0}
-!1828 = !{!1826, !47, i64 12}
-!1829 = !{!1826, !47, i64 37080}
-!1830 = !{!1826, !30, i64 37084}
-!1831 = !{!1826, !47, i64 18496}
-!1832 = !{!1809, !30, i64 224}
+!1819 = !{!1809, !30, i64 224}
+!1820 = !{!1821}
+!1821 = distinct !{!1821, !1822, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_10interval_tENS_25ParquetIntervalTargetTypeEEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS5_ELb1EEEv: argument 0"}
+!1822 = distinct !{!1822, !"_ZN6duckdb19BaseParquetOperator15InitializeStatsINS_10interval_tENS_25ParquetIntervalTargetTypeEEENS_10unique_ptrINS_22ColumnWriterStatisticsESt14default_deleteIS5_ELb1EEEv"}
+!1823 = !{!1824}
+!1824 = distinct !{!1824, !1825, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEEJRmS6_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S3_S4_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
+!1825 = distinct !{!1825, !"_ZN6duckdb9make_uniqINS_23StandardWriterPageStateINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEEJRmS6_RN14duckdb_parquet8Encoding4typeERNS_19PrimitiveDictionaryIS2_S3_S4_EEEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}
+!1826 = !{!1827, !500, i64 8}
+!1827 = !{!"_ZTSN6duckdb23StandardWriterPageStateINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEE", !545, i64 0, !500, i64 8, !47, i64 12, !23, i64 16, !47, i64 18496, !546, i64 18504, !14, i64 37024, !1828, i64 37072, !47, i64 37080, !30, i64 37084, !555, i64 37088}
+!1828 = !{!"p1 _ZTSN6duckdb19PrimitiveDictionaryINS_10interval_tENS_25ParquetIntervalTargetTypeENS_23ParquetIntervalOperatorEEE", !10, i64 0}
+!1829 = !{!1827, !47, i64 12}
+!1830 = !{!1827, !47, i64 37080}
+!1831 = !{!1827, !30, i64 37084}
+!1832 = !{!1827, !47, i64 18496}
 !1833 = distinct !{!1833, !17}
-!1834 = !{!1826, !1827, i64 37072}
+!1834 = !{!1827, !1828, i64 37072}
 !1835 = distinct !{!1835, !17}
 !1836 = distinct !{!1836, !17}
 !1837 = distinct !{!1837, !17}
@@ -57273,7 +57578,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !1862 = !{!1852, !30, i64 4}
 !1863 = !{!1852, !12, i64 8}
 !1864 = distinct !{!1864, !17}
-!1865 = !{!1827, !1827, i64 0}
+!1865 = !{!1828, !1828, i64 0}
 !1866 = !{!1867}
 !1867 = distinct !{!1867, !1868, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_: argument 0"}
 !1868 = distinct !{!1868, !"_ZN6duckdb9make_uniqINS_12MemoryStreamEJPhmEEENS_17TemplatedUniqueIfIT_Lb1EE25templated_unique_single_tEDpOT0_"}

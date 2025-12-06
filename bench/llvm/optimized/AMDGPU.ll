@@ -12225,25 +12225,25 @@ define hidden range(i16 0, 258) i16 @_ZNK5clang6driver10toolchains15AMDGPUToolCh
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !696
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   switch i32 %10, label %29 [
-    i32 8, label %11
-    i32 2, label %11
+    i32 8, label %12
+    i32 2, label %12
   ]
 
-11:                                               ; preds = %8, %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+12:                                               ; preds = %8, %8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %14 = load ptr, ptr %13, align 8, !tbaa !701
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %17, label %15
 
-15:                                               ; preds = %11
+15:                                               ; preds = %12
   %16 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #20
   br label %17
 
-17:                                               ; preds = %15, %11
-  %18 = phi i64 [ %16, %15 ], [ 0, %11 ]
-  %19 = tail call { ptr, i64 } @_ZN5clang24getProcessorFromTargetIDERKN4llvm6TripleENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr %14, i64 %18) #20
+17:                                               ; preds = %15, %12
+  %18 = phi i64 [ %16, %15 ], [ 0, %12 ]
+  %19 = tail call { ptr, i64 } @_ZN5clang24getProcessorFromTargetIDERKN4llvm6TripleENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr %14, i64 %18) #20
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
   %22 = tail call noundef i32 @_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE(ptr %20, i64 %21) #20
@@ -12263,93 +12263,92 @@ _ZN5clang6driver10toolchains15AMDGPUToolChain33getDefaultDenormsAreZeroForTarget
   br label %.critedge
 
 29:                                               ; preds = %8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = tail call { ptr, i64 } @_ZNK4llvm3opt7ArgList15getLastArgValueENS0_12OptSpecifierENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 2260, ptr nonnull @.str.1, i64 0) #20
-  %32 = extractvalue { ptr, i64 } %31, 0
-  %33 = extractvalue { ptr, i64 } %31, 1
-  %34 = tail call { ptr, i64 } @_ZN5clang24getProcessorFromTargetIDERKN4llvm6TripleENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr %32, i64 %33) #20
-  %35 = extractvalue { ptr, i64 } %34, 0
-  %36 = extractvalue { ptr, i64 } %34, 1
-  %37 = tail call noundef i32 @_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE(ptr %35, i64 %36) #20
+  %30 = tail call { ptr, i64 } @_ZNK4llvm3opt7ArgList15getLastArgValueENS0_12OptSpecifierENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 2260, ptr nonnull @.str.1, i64 0) #20
+  %31 = extractvalue { ptr, i64 } %30, 0
+  %32 = extractvalue { ptr, i64 } %30, 1
+  %33 = tail call { ptr, i64 } @_ZN5clang24getProcessorFromTargetIDERKN4llvm6TripleENS0_9StringRefE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr %31, i64 %32) #20
+  %34 = extractvalue { ptr, i64 } %33, 0
+  %35 = extractvalue { ptr, i64 } %33, 1
+  %36 = tail call noundef i32 @_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE(ptr %34, i64 %35) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !702
   store i32 182, ptr %5, align 4, !noalias !702
-  %38 = call i64 @_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr nonnull %5, i64 1) #20, !noalias !702
-  %.sroa.4.0.extract.shift.i.i = lshr i64 %38, 32
+  %37 = call i64 @_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr nonnull %5, i64 1) #20, !noalias !702
+  %.sroa.4.0.extract.shift.i.i = lshr i64 %37, 32
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !702
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !31, !noalias !702
-  %41 = and i64 %38, 4294967295
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
-  %43 = getelementptr ptr, ptr %40, i64 %.sroa.4.0.extract.shift.i.i
-  %.not29.i.i.i.i = icmp samesign eq i64 %41, %.sroa.4.0.extract.shift.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !31, !noalias !702
+  %40 = and i64 %37, 4294967295
+  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %42 = getelementptr ptr, ptr %39, i64 %.sroa.4.0.extract.shift.i.i
+  %.not29.i.i.i.i = icmp samesign eq i64 %40, %.sroa.4.0.extract.shift.i.i
   br i1 %.not29.i.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %29, %.thread25.i.i.i.i
-  %.sroa.024.0.i.i = phi ptr [ %47, %.thread25.i.i.i.i ], [ %42, %29 ]
-  %44 = load ptr, ptr %.sroa.024.0.i.i, align 8, !tbaa !235, !noalias !702
-  %.not14.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not14.i.i.i.i, label %.thread25.i.i.i.i, label %45
+  %.sroa.024.0.i.i = phi ptr [ %46, %.thread25.i.i.i.i ], [ %41, %29 ]
+  %43 = load ptr, ptr %.sroa.024.0.i.i, align 8, !tbaa !235, !noalias !702
+  %.not14.i.i.i.i = icmp eq ptr %43, null
+  br i1 %.not14.i.i.i.i, label %.thread25.i.i.i.i, label %44
 
-45:                                               ; preds = %.lr.ph.i.i.i.i
-  %46 = call noundef zeroext i1 @_ZNK4llvm3opt6Option7matchesENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(16) %44, i32 182) #20, !noalias !702
-  br i1 %46, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.thread25.i.i.i.i
+44:                                               ; preds = %.lr.ph.i.i.i.i
+  %45 = call noundef zeroext i1 @_ZNK4llvm3opt6Option7matchesENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(16) %43, i32 182) #20, !noalias !702
+  br i1 %45, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, label %.thread25.i.i.i.i
 
-.thread25.i.i.i.i:                                ; preds = %45, %.lr.ph.i.i.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %47, %43
+.thread25.i.i.i.i:                                ; preds = %44, %.lr.ph.i.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.024.0.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %46, %42
   br i1 %.not.i.i.i.i, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !237
 
-_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i: ; preds = %45, %29
-  %.sroa.024.1.i.i = phi ptr [ %42, %29 ], [ %.sroa.024.0.i.i, %45 ]
-  %.not36.i = icmp eq ptr %.sroa.024.1.i.i, %43
+_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i: ; preds = %44, %29
+  %.sroa.024.1.i.i = phi ptr [ %41, %29 ], [ %.sroa.024.0.i.i, %44 ]
+  %.not36.i = icmp eq ptr %.sroa.024.1.i.i, %42
   br i1 %.not36.i, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.i
   %.sroa.0.037.i = phi ptr [ %.sroa.0.1.i, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.i ], [ %.sroa.024.1.i.i, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i ]
-  %48 = load ptr, ptr %.sroa.0.037.i, align 8, !tbaa !235
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !238
-  %.not.i.i.i = icmp eq ptr %50, null
-  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %48, ptr %50
-  %51 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 44
-  %52 = load i8, ptr %51, align 4
-  %53 = or i8 %52, 1
-  store i8 %53, ptr %51, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 8
-  %.not29.i.i.i = icmp eq ptr %54, %43
+  %47 = load ptr, ptr %.sroa.0.037.i, align 8, !tbaa !235
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8, !tbaa !238
+  %.not.i.i.i = icmp eq ptr %49, null
+  %spec.select.i.i.i = select i1 %.not.i.i.i, ptr %47, ptr %49
+  %50 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 44
+  %51 = load i8, ptr %50, align 4
+  %52 = or i8 %51, 1
+  store i8 %52, ptr %50, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 8
+  %.not29.i.i.i = icmp eq ptr %53, %42
   br i1 %.not29.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.split.i, %.thread25.i.i.i
-  %.sroa.0.1.i = phi ptr [ %58, %.thread25.i.i.i ], [ %54, %.lr.ph.split.i ]
-  %55 = load ptr, ptr %.sroa.0.1.i, align 8, !tbaa !235
-  %.not14.i.i.i = icmp eq ptr %55, null
-  br i1 %.not14.i.i.i, label %.thread25.i.i.i, label %56
+  %.sroa.0.1.i = phi ptr [ %57, %.thread25.i.i.i ], [ %53, %.lr.ph.split.i ]
+  %54 = load ptr, ptr %.sroa.0.1.i, align 8, !tbaa !235
+  %.not14.i.i.i = icmp eq ptr %54, null
+  br i1 %.not14.i.i.i, label %.thread25.i.i.i, label %55
 
-56:                                               ; preds = %.lr.ph.i.i.i
-  %57 = call noundef zeroext i1 @_ZNK4llvm3opt6Option7matchesENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(16) %55, i32 182) #20
-  br i1 %57, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.i, label %.thread25.i.i.i
+55:                                               ; preds = %.lr.ph.i.i.i
+  %56 = call noundef zeroext i1 @_ZNK4llvm3opt6Option7matchesENS0_12OptSpecifierE(ptr noundef nonnull align 8 dereferenceable(16) %54, i32 182) #20
+  br i1 %56, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.i, label %.thread25.i.i.i
 
-.thread25.i.i.i:                                  ; preds = %56, %.lr.ph.i.i.i
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
-  %.not.i.i6.i = icmp eq ptr %58, %43
+.thread25.i.i.i:                                  ; preds = %55, %.lr.ph.i.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
+  %.not.i.i6.i = icmp eq ptr %57, %42
   br i1 %.not.i.i6.i, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit, label %.lr.ph.i.i.i, !llvm.loop !237
 
-_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.i: ; preds = %56
-  %.not.i23 = icmp eq ptr %.sroa.0.1.i, %43
+_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.i: ; preds = %55
+  %.not.i23 = icmp eq ptr %.sroa.0.1.i, %42
   br i1 %.not.i23, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit, label %.lr.ph.split.i
 
 _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit: ; preds = %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.i, %.thread25.i.i.i
-  %.not28 = icmp eq ptr %48, null
+  %.not28 = icmp eq ptr %47, null
   br i1 %.not28, label %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread, label %.critedge
 
 _ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread: ; preds = %.thread25.i.i.i.i, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit.i, %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit
-  %59 = icmp eq i32 %37, 0
-  br i1 %59, label %_ZN5clang6driver10toolchains15AMDGPUToolChain33getDefaultDenormsAreZeroForTargetEN4llvm6AMDGPU7GPUKindE.exit22.thread, label %_ZN5clang6driver10toolchains15AMDGPUToolChain33getDefaultDenormsAreZeroForTargetEN4llvm6AMDGPU7GPUKindE.exit22
+  %58 = icmp eq i32 %36, 0
+  br i1 %58, label %_ZN5clang6driver10toolchains15AMDGPUToolChain33getDefaultDenormsAreZeroForTargetEN4llvm6AMDGPU7GPUKindE.exit22.thread, label %_ZN5clang6driver10toolchains15AMDGPUToolChain33getDefaultDenormsAreZeroForTargetEN4llvm6AMDGPU7GPUKindE.exit22
 
 _ZN5clang6driver10toolchains15AMDGPUToolChain33getDefaultDenormsAreZeroForTargetEN4llvm6AMDGPU7GPUKindE.exit22: ; preds = %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread
-  %60 = call noundef i32 @_ZN4llvm6AMDGPU17getArchAttrAMDGCNENS0_7GPUKindE(i32 noundef %37) #20
-  %61 = and i32 %60, 48
-  %.not29 = icmp eq i32 %61, 48
+  %59 = call noundef i32 @_ZN4llvm6AMDGPU17getArchAttrAMDGCNENS0_7GPUKindE(i32 noundef %36) #20
+  %60 = and i32 %59, 48
+  %.not29 = icmp eq i32 %60, 48
   br i1 %.not29, label %_ZN5clang6driver10toolchains15AMDGPUToolChain33getDefaultDenormsAreZeroForTargetEN4llvm6AMDGPU7GPUKindE.exit22.thread, label %.critedge
 
 _ZN5clang6driver10toolchains15AMDGPUToolChain33getDefaultDenormsAreZeroForTargetEN4llvm6AMDGPU7GPUKindE.exit22.thread: ; preds = %_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_.exit.thread, %_ZN5clang6driver10toolchains15AMDGPUToolChain33getDefaultDenormsAreZeroForTargetEN4llvm6AMDGPU7GPUKindE.exit22

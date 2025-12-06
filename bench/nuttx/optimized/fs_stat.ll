@@ -13,12 +13,12 @@ define i32 @nx_stat(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
-  br i1 %or.cond, label %94, label %8
+  br i1 %or.cond, label %92, label %8
 
 8:                                                ; preds = %3
   %9 = load i8, ptr %0, align 1
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %94, label %11
+  br i1 %10, label %92, label %11
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -31,7 +31,7 @@ define i32 @nx_stat(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #
   store i8 1, ptr %15, align 8
   %16 = call i32 @inode_find(ptr noundef nonnull %5) #5
   %17 = icmp slt i32 %16, 0
-  br i1 %17, label %91, label %18
+  br i1 %17, label %89, label %18
 
 18:                                               ; preds = %11
   %19 = load ptr, ptr %12, align 8
@@ -45,18 +45,18 @@ define i32 @nx_stat(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %90, label %27
+  br i1 %.not.i, label %88, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 192
   %29 = load ptr, ptr %28, align 8
   %.not16.i = icmp eq ptr %29, null
-  br i1 %.not16.i, label %90, label %30
+  br i1 %.not16.i, label %88, label %30
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %13, align 8
   %32 = call i32 %29(ptr noundef nonnull %19, ptr noundef %31, ptr noundef nonnull %1) #5
-  br label %90
+  br label %88
 
 33:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -75,7 +75,7 @@ define i32 @nx_stat(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %41 = load ptr, ptr %40, align 8
   %.not.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i, label %85, label %42
+  br i1 %.not.i.i, label %83, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -107,90 +107,88 @@ define i32 @nx_stat(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #
   %56 = phi i32 [ %54, %52 ], [ %48, %47 ]
   %57 = load i16, ptr %20, align 2
   %58 = and i16 %57, 15
-  switch i16 %58, label %82 [
-    i16 3, label %59
-    i16 0, label %59
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  switch i16 %58, label %81 [
+    i16 3, label %60
+    i16 0, label %60
     i16 2, label %62
   ]
 
-59:                                               ; preds = %55, %55
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
+60:                                               ; preds = %55, %55
   %61 = or i32 %56, 16384
-  store i32 %61, ptr %60, align 8
+  store i32 %61, ptr %59, align 8
   br label %inode_stat.exit.i
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %64 = or i32 %56, 24576
-  store i32 %64, ptr %63, align 8
-  %65 = load ptr, ptr %40, align 8
-  %.not29.i.i = icmp eq ptr %65, null
-  br i1 %.not29.i.i, label %inode_stat.exit.i, label %66
+  %63 = or i32 %56, 24576
+  store i32 %63, ptr %59, align 8
+  %64 = load ptr, ptr %40, align 8
+  %.not29.i.i = icmp eq ptr %64, null
+  br i1 %.not29.i.i, label %inode_stat.exit.i, label %65
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %68 = load ptr, ptr %67, align 8
-  %.not30.i.i = icmp eq ptr %68, null
-  br i1 %.not30.i.i, label %inode_stat.exit.i, label %69
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %67 = load ptr, ptr %66, align 8
+  %.not30.i.i = icmp eq ptr %67, null
+  br i1 %.not30.i.i, label %inode_stat.exit.i, label %68
 
-69:                                               ; preds = %66
-  %70 = call i32 %68(ptr noundef nonnull %19, ptr noundef nonnull %4) #5
-  %71 = icmp sgt i32 %70, -1
-  %72 = load i8, ptr %4, align 4
-  %73 = trunc i8 %72 to i1
-  %or.cond.i.i = select i1 %71, i1 %73, i1 false
-  br i1 %or.cond.i.i, label %74, label %inode_stat.exit.i
+68:                                               ; preds = %65
+  %69 = call i32 %67(ptr noundef nonnull %19, ptr noundef nonnull %4) #5
+  %70 = icmp sgt i32 %69, -1
+  %71 = load i8, ptr %4, align 4
+  %72 = trunc i8 %71 to i1
+  %or.cond.i.i = select i1 %70, i1 %72, i1 false
+  br i1 %or.cond.i.i, label %73, label %inode_stat.exit.i
 
-74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %78 = load i16, ptr %77, align 4
-  %79 = sext i16 %78 to i32
-  %80 = mul i32 %76, %79
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %80, ptr %81, align 4
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %75 = load i32, ptr %74, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %77 = load i16, ptr %76, align 4
+  %78 = sext i16 %77 to i32
+  %79 = mul i32 %75, %78
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i32 %79, ptr %80, align 4
   br label %inode_stat.exit.i
 
-82:                                               ; preds = %55
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %84 = or i32 %56, 8192
-  store i32 %84, ptr %83, align 8
+81:                                               ; preds = %55
+  %82 = or i32 %56, 8192
+  store i32 %82, ptr %59, align 8
   br label %inode_stat.exit.i
 
-85:                                               ; preds = %39
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 16676, ptr %86, align 8
+83:                                               ; preds = %39
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 16676, ptr %84, align 8
   br label %inode_stat.exit.i
 
-inode_stat.exit.i:                                ; preds = %85, %82, %74, %69, %66, %62, %59, %37
-  %87 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %88 = load i16, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i16 %88, ptr %89, align 4
+inode_stat.exit.i:                                ; preds = %83, %81, %73, %68, %65, %62, %60, %37
+  %85 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %86 = load i16, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i16 %86, ptr %87, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %90
+  br label %88
 
-90:                                               ; preds = %inode_stat.exit.i, %30, %27, %24
+88:                                               ; preds = %inode_stat.exit.i, %30, %27, %24
   %.0.i = phi i32 [ %32, %30 ], [ 0, %inode_stat.exit.i ], [ -38, %27 ], [ -38, %24 ]
   call void @inode_release(ptr noundef nonnull %19) #5
-  br label %91
+  br label %89
 
-91:                                               ; preds = %90, %11
-  %.1.i = phi i32 [ %16, %11 ], [ %.0.i, %90 ]
-  %92 = load ptr, ptr %14, align 8
-  %.not17.i = icmp eq ptr %92, null
-  br i1 %.not17.i, label %stat_recursive.exit, label %93
+89:                                               ; preds = %88, %11
+  %.1.i = phi i32 [ %16, %11 ], [ %.0.i, %88 ]
+  %90 = load ptr, ptr %14, align 8
+  %.not17.i = icmp eq ptr %90, null
+  br i1 %.not17.i, label %stat_recursive.exit, label %91
 
-93:                                               ; preds = %91
-  call void @free(ptr noundef nonnull %92)
+91:                                               ; preds = %89
+  call void @free(ptr noundef nonnull %90)
   br label %stat_recursive.exit
 
-stat_recursive.exit:                              ; preds = %91, %93
+stat_recursive.exit:                              ; preds = %89, %91
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %94
+  br label %92
 
-94:                                               ; preds = %8, %3, %stat_recursive.exit
+92:                                               ; preds = %8, %3, %stat_recursive.exit
   %.0 = phi i32 [ %.1.i, %stat_recursive.exit ], [ -14, %3 ], [ -2, %8 ]
   ret i32 %.0
 }
@@ -244,13 +242,13 @@ define noundef i32 @inode_stat(ptr noundef %0, ptr noundef writeonly captures(no
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 20480, ptr %10, align 8
-  br label %59
+  br label %57
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %57, label %14
+  br i1 %.not, label %55, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -282,67 +280,65 @@ define noundef i32 @inode_stat(ptr noundef %0, ptr noundef writeonly captures(no
   %28 = phi i32 [ %26, %24 ], [ %20, %19 ]
   %29 = load i16, ptr %5, align 2
   %30 = and i16 %29, 15
-  switch i16 %30, label %54 [
-    i16 3, label %31
-    i16 0, label %31
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  switch i16 %30, label %53 [
+    i16 3, label %32
+    i16 0, label %32
     i16 2, label %34
   ]
 
-31:                                               ; preds = %27, %27
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+32:                                               ; preds = %27, %27
   %33 = or i32 %28, 16384
-  store i32 %33, ptr %32, align 8
-  br label %59
+  store i32 %33, ptr %31, align 8
+  br label %57
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = or i32 %28, 24576
-  store i32 %36, ptr %35, align 8
-  %37 = load ptr, ptr %12, align 8
-  %.not29 = icmp eq ptr %37, null
-  br i1 %.not29, label %59, label %38
+  %35 = or i32 %28, 24576
+  store i32 %35, ptr %31, align 8
+  %36 = load ptr, ptr %12, align 8
+  %.not29 = icmp eq ptr %36, null
+  br i1 %.not29, label %57, label %37
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %.not30 = icmp eq ptr %40, null
-  br i1 %.not30, label %59, label %41
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %39 = load ptr, ptr %38, align 8
+  %.not30 = icmp eq ptr %39, null
+  br i1 %.not30, label %57, label %40
 
-41:                                               ; preds = %38
-  %42 = call i32 %40(ptr noundef nonnull %0, ptr noundef nonnull %4) #5
-  %43 = icmp sgt i32 %42, -1
-  %44 = load i8, ptr %4, align 4
-  %45 = trunc i8 %44 to i1
-  %or.cond = select i1 %43, i1 %45, i1 false
-  br i1 %or.cond, label %46, label %59
+40:                                               ; preds = %37
+  %41 = call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %4) #5
+  %42 = icmp sgt i32 %41, -1
+  %43 = load i8, ptr %4, align 4
+  %44 = trunc i8 %43 to i1
+  %or.cond = select i1 %42, i1 %44, i1 false
+  br i1 %or.cond, label %45, label %57
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %50 = load i16, ptr %49, align 4
-  %51 = sext i16 %50 to i32
-  %52 = mul i32 %48, %51
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 %52, ptr %53, align 4
-  br label %59
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %49 = load i16, ptr %48, align 4
+  %50 = sext i16 %49 to i32
+  %51 = mul i32 %47, %50
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  store i32 %51, ptr %52, align 4
+  br label %57
 
-54:                                               ; preds = %27
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %56 = or i32 %28, 8192
-  store i32 %56, ptr %55, align 8
-  br label %59
+53:                                               ; preds = %27
+  %54 = or i32 %28, 8192
+  store i32 %54, ptr %31, align 8
+  br label %57
 
-57:                                               ; preds = %11
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 16676, ptr %58, align 8
-  br label %59
+55:                                               ; preds = %11
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 16676, ptr %56, align 8
+  br label %57
 
-59:                                               ; preds = %57, %54, %41, %46, %38, %34, %31, %9
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %61 = load i16, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i16 %61, ptr %62, align 4
+57:                                               ; preds = %55, %53, %40, %45, %37, %34, %32, %9
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %59 = load i16, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i16 %59, ptr %60, align 4
   ret i32 0
 }
 

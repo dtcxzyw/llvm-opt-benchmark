@@ -7895,53 +7895,54 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm10sampleprof19SampleProfileWriter6createENS_9StringRefENS0_19SampleProfileFormatE(ptr dead_on_unwind noalias writable sret(%"class.llvm::ErrorOr") align 8 captures(none) initializes((0, 4)) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
-  %5 = alloca %"class.std::error_code", align 8
-  %6 = alloca %"class.std::unique_ptr", align 8
+_ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit:
+  %4 = alloca %"class.std::error_code", align 8
+  %5 = alloca %"class.std::unique_ptr", align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store i32 0, ptr %4, align 8, !tbaa !345
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #31
+  store ptr %7, ptr %6, align 8, !tbaa !348
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 0, ptr %5, align 8, !tbaa !345
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #31
-  store ptr %8, ptr %7, align 8, !tbaa !348
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %8 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
   %switch.selectcmp.case1 = icmp eq i32 %3, 255
   %switch.selectcmp.case2 = icmp eq i32 %3, 4
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %9 = select i1 %switch.selectcmp, i32 0, i32 3
-  %10 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
-  call void @_ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %9) #25
-  store ptr %10, ptr %6, align 8, !tbaa !28
-  %11 = load i32, ptr %5, align 8, !tbaa !345
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %15, label %.thread
+  call void @_ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %9) #25
+  store ptr %8, ptr %5, align 8, !tbaa !28
+  %10 = load i32, ptr %4, align 8, !tbaa !345
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %14, label %.thread
 
-.thread:                                          ; preds = %4
-  %.sroa.22.0.copyload = load ptr, ptr %7, align 8, !tbaa !349
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i8, ptr %12, align 8
-  %14 = or i8 %13, 1
-  store i8 %14, ptr %12, align 8
-  store i32 %11, ptr %0, align 8, !tbaa !139
+.thread:                                          ; preds = %_ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit
+  %.sroa.22.0.copyload = load ptr, ptr %6, align 8, !tbaa !349
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load i8, ptr %11, align 8
+  %13 = or i8 %12, 1
+  store i8 %13, ptr %11, align 8
+  store i32 %10, ptr %0, align 8, !tbaa !139
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.22.0.copyload, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !349
   br label %_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i
 
-15:                                               ; preds = %4
-  call void @_ZN4llvm10sampleprof19SampleProfileWriter6createERSt10unique_ptrINS_11raw_ostreamESt14default_deleteIS3_EENS0_19SampleProfileFormatE(ptr dead_on_unwind writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %3)
-  %.pre = load ptr, ptr %6, align 8, !tbaa !28
+14:                                               ; preds = %_ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit
+  call void @_ZN4llvm10sampleprof19SampleProfileWriter6createERSt10unique_ptrINS_11raw_ostreamESt14default_deleteIS3_EENS0_19SampleProfileFormatE(ptr dead_on_unwind writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %3)
+  %.pre = load ptr, ptr %5, align 8, !tbaa !28
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i: ; preds = %.thread, %15
-  %16 = phi ptr [ %10, %.thread ], [ %.pre, %15 ]
-  %17 = load ptr, ptr %16, align 8, !tbaa !14
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(48) %16) #25
+_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i: ; preds = %.thread, %14
+  %15 = phi ptr [ %8, %.thread ], [ %.pre, %14 ]
+  %16 = load ptr, ptr %15, align 8, !tbaa !14
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  call void %18(ptr noundef nonnull align 8 dereferenceable(48) %15) #25
   br label %_ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %15, %_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+_ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %14, %_ZNKSt14default_deleteIN4llvm11raw_ostreamEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 

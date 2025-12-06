@@ -34893,12 +34893,14 @@ define internal fastcc void @_ZN11polars_time7windows6window33ensure_t_in_or_in_
   store i64 %15, ptr %0, align 8
   %.sroa.239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %17, ptr %.sroa.239.0..sroa_idx, align 8
-  br label %49
+  br label %47
 
 19:                                               ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %22 = tail call { i64, i64 } @_ZN11polars_time7windows6bounds6Bounds3new17hc65ceb1ede586eb0E(i64 noundef %5, i64 noundef %17)
+  %23 = extractvalue { i64, i64 } %22, 0
   switch i8 %6, label %default.unreachable [
     i8 0, label %.split.us
     i8 1, label %.split.us79
@@ -34907,8 +34909,6 @@ define internal fastcc void @_ZN11polars_time7windows6window33ensure_t_in_or_in_
   ]
 
 .split.us:                                        ; preds = %19, %19
-  %22 = tail call { i64, i64 } @_ZN11polars_time7windows6bounds6Bounds3new17hc65ceb1ede586eb0E(i64 noundef %5, i64 noundef %17)
-  %23 = extractvalue { i64, i64 } %22, 0
   %24 = icmp sgt i64 %23, %2
   br i1 %24, label %.lr.ph, label %.split71.us
 
@@ -34938,57 +34938,55 @@ define internal fastcc void @_ZN11polars_time7windows6window33ensure_t_in_or_in_
   br i1 %33, label %.lr.ph, label %.split71.us
 
 .split.us79:                                      ; preds = %19, %19
-  %34 = tail call { i64, i64 } @_ZN11polars_time7windows6bounds6Bounds3new17hc65ceb1ede586eb0E(i64 noundef %5, i64 noundef %17)
-  %35 = extractvalue { i64, i64 } %34, 0
-  %.not61.us94 = icmp slt i64 %35, %2
+  %.not61.us94 = icmp slt i64 %23, %2
   br i1 %.not61.us94, label %.split71.us, label %.lr.ph96
 
-.lr.ph96:                                         ; preds = %.split.us79, %40
-  %.sroa.0.0.us8195 = phi i64 [ %38, %40 ], [ %5, %.split.us79 ]
+.lr.ph96:                                         ; preds = %.split.us79, %38
+  %.sroa.0.0.us8195 = phi i64 [ %36, %38 ], [ %5, %.split.us79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void %3(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i64 noundef %.sroa.0.0.us8195, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) %7), !callees !4552
-  %36 = load i64, ptr %10, align 8, !range !93, !noundef !3
-  %.not59.us82 = icmp eq i64 %36, 17
-  br i1 %.not59.us82, label %37, label %.split74.us
+  %34 = load i64, ptr %10, align 8, !range !93, !noundef !3
+  %.not59.us82 = icmp eq i64 %34, 17
+  br i1 %.not59.us82, label %35, label %.split74.us
 
-37:                                               ; preds = %.lr.ph96
-  %38 = load i64, ptr %20, align 8, !noundef !3
+35:                                               ; preds = %.lr.ph96
+  %36 = load i64, ptr %20, align 8, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void %3(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, i64 noundef %38, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) %7), !callees !4552
-  %39 = load i64, ptr %9, align 8, !range !93, !noundef !3
-  %.not60.us83 = icmp eq i64 %39, 17
-  br i1 %.not60.us83, label %40, label %.split77.us
+  call void %3(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %4, i64 noundef %36, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) %7), !callees !4552
+  %37 = load i64, ptr %9, align 8, !range !93, !noundef !3
+  %.not60.us83 = icmp eq i64 %37, 17
+  br i1 %.not60.us83, label %38, label %.split77.us
 
-40:                                               ; preds = %37
-  %41 = load i64, ptr %21, align 8, !noundef !3
+38:                                               ; preds = %35
+  %39 = load i64, ptr %21, align 8, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %42 = tail call { i64, i64 } @_ZN11polars_time7windows6bounds6Bounds3new17hc65ceb1ede586eb0E(i64 noundef %38, i64 noundef %41)
-  %43 = extractvalue { i64, i64 } %42, 0
-  %.not61.us = icmp slt i64 %43, %2
+  %40 = tail call { i64, i64 } @_ZN11polars_time7windows6bounds6Bounds3new17hc65ceb1ede586eb0E(i64 noundef %36, i64 noundef %39)
+  %41 = extractvalue { i64, i64 } %40, 0
+  %.not61.us = icmp slt i64 %41, %2
   br i1 %.not61.us, label %.split71.us, label %.lr.ph96
 
 default.unreachable:                              ; preds = %19
   unreachable
 
-.split71.us:                                      ; preds = %40, %29, %.split.us79, %.split.us
-  %.us-phi = phi i64 [ %17, %.split.us ], [ %17, %.split.us79 ], [ %30, %29 ], [ %41, %40 ]
-  %.us-phi72 = phi i64 [ %5, %.split.us ], [ %5, %.split.us79 ], [ %27, %29 ], [ %38, %40 ]
-  %44 = tail call { i64, i64 } @_ZN11polars_time7windows6bounds6Bounds11new_checked17h7f7cf4f83569e52dE(i64 noundef %.us-phi72, i64 noundef %.us-phi)
-  %45 = extractvalue { i64, i64 } %44, 0
-  %46 = extractvalue { i64, i64 } %44, 1
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %45, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %46, ptr %48, align 8
+.split71.us:                                      ; preds = %38, %29, %.split.us79, %.split.us
+  %.us-phi = phi i64 [ %17, %.split.us ], [ %17, %.split.us79 ], [ %30, %29 ], [ %39, %38 ]
+  %.us-phi72 = phi i64 [ %5, %.split.us ], [ %5, %.split.us79 ], [ %27, %29 ], [ %36, %38 ]
+  %42 = tail call { i64, i64 } @_ZN11polars_time7windows6bounds6Bounds11new_checked17h7f7cf4f83569e52dE(i64 noundef %.us-phi72, i64 noundef %.us-phi)
+  %43 = extractvalue { i64, i64 } %42, 0
+  %44 = extractvalue { i64, i64 } %42, 1
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %43, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %44, ptr %46, align 8
   store i64 17, ptr %0, align 8
-  br label %49
+  br label %47
 
-49:                                               ; preds = %.split74.us, %.split77.us, %.split71.us, %18
+47:                                               ; preds = %.split74.us, %.split77.us, %.split71.us, %18
   ret void
 
 .split74.us:                                      ; preds = %.lr.ph96, %.lr.ph
-  %.us-phi75 = phi i64 [ %25, %.lr.ph ], [ %36, %.lr.ph96 ]
+  %.us-phi75 = phi i64 [ %25, %.lr.ph ], [ %34, %.lr.ph96 ]
   %.sroa.545.0.copyload = load i64, ptr %20, align 8
   %.sroa.646.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.349.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -34997,10 +34995,10 @@ default.unreachable:                              ; preds = %19
   store i64 %.us-phi75, ptr %0, align 8
   %.sroa.248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.545.0.copyload, ptr %.sroa.248.0..sroa_idx, align 8
-  br label %49
+  br label %47
 
-.split77.us:                                      ; preds = %37, %26
-  %.us-phi78 = phi i64 [ %28, %26 ], [ %39, %37 ]
+.split77.us:                                      ; preds = %35, %26
+  %.us-phi78 = phi i64 [ %28, %26 ], [ %37, %35 ]
   %.sroa.554.0.copyload = load i64, ptr %21, align 8
   %.sroa.655.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -35009,7 +35007,7 @@ default.unreachable:                              ; preds = %19
   store i64 %.us-phi78, ptr %0, align 8
   %.sroa.257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.554.0.copyload, ptr %.sroa.257.0..sroa_idx, align 8
-  br label %49
+  br label %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

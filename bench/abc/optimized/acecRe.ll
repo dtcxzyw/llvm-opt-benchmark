@@ -1799,7 +1799,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %.val156 = load ptr, ptr %50, align 8, !tbaa !23
   br label %55
 
-.critedge.preheader:                              ; preds = %62, %Vec_IntStartFull.exit
+.critedge.preheader:                              ; preds = %63, %Vec_IntStartFull.exit
   %51 = icmp sgt i32 %.val155.val, 3
   br i1 %51, label %.lr.ph221, label %.critedge7
 
@@ -1809,27 +1809,27 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %54 = getelementptr i8, ptr %42, i64 8
   br label %70
 
-55:                                               ; preds = %.lr.ph, %62
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
+55:                                               ; preds = %.lr.ph, %63
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %56 = getelementptr inbounds nuw i32, ptr %.val156, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !16
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %60 = load i32, ptr %59, align 4, !tbaa !16
-  switch i32 %60, label %61 [
-    i32 153, label %62
-    i32 150, label %62
-    i32 105, label %62
-    i32 102, label %62
+  %61 = sext i32 %58 to i64
+  switch i32 %60, label %62 [
+    i32 153, label %63
+    i32 150, label %63
+    i32 105, label %63
+    i32 102, label %63
   ]
 
-61:                                               ; preds = %55
-  br label %62
+62:                                               ; preds = %55
+  br label %63
 
-62:                                               ; preds = %55, %55, %55, %55, %61
-  %.val159.sink = phi ptr [ %.val153, %61 ], [ %.val159, %55 ], [ %.val159, %55 ], [ %.val159, %55 ], [ %.val159, %55 ]
-  %63 = sext i32 %58 to i64
-  %64 = getelementptr inbounds i32, ptr %.val159.sink, i64 %63
+63:                                               ; preds = %55, %55, %55, %55, %62
+  %.val159.sink = phi ptr [ %.val153, %62 ], [ %.val159, %55 ], [ %.val159, %55 ], [ %.val159, %55 ], [ %.val159, %55 ]
+  %64 = getelementptr inbounds i32, ptr %.val159.sink, i64 %61
   %65 = load i32, ptr %64, align 4, !tbaa !16
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %64, align 4, !tbaa !16
@@ -1892,14 +1892,14 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %93, %95, %85, %87
-  %.sink298 = phi ptr [ %86, %85 ], [ %88, %87 ], [ %94, %93 ], [ %96, %95 ]
+  %.sink297 = phi ptr [ %86, %85 ], [ %88, %87 ], [ %94, %93 ], [ %96, %95 ]
   %.sink = phi i32 [ 16, %85 ], [ 16, %87 ], [ %90, %93 ], [ %90, %95 ]
-  store ptr %.sink298, ptr %47, align 8, !tbaa !23
+  store ptr %.sink297, ptr %47, align 8, !tbaa !23
   store i32 %.sink, ptr %44, align 8, !tbaa !20
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %78
-  %.pre.i268 = phi ptr [ %71, %78 ], [ %.sink298, %Vec_IntPush.exit.sink.split ]
+  %.pre.i268 = phi ptr [ %71, %78 ], [ %.sink297, %Vec_IntPush.exit.sink.split ]
   %97 = add nsw i32 %79, 1
   store i32 %97, ptr %45, align 4, !tbaa !25
   %98 = sext i32 %79 to i64
@@ -2009,20 +2009,20 @@ Vec_WecStart.exit197:                             ; preds = %Vec_WecStart.exit, 
   br i1 %137, label %142, label %138
 
 138:                                              ; preds = %127
-  switch i32 %133, label %139 [
+  %139 = sext i32 %136 to i64
+  switch i32 %133, label %140 [
     i32 153, label %.sink.split
     i32 150, label %.sink.split
     i32 105, label %.sink.split
     i32 102, label %.sink.split
   ]
 
-139:                                              ; preds = %138
+140:                                              ; preds = %138
   br label %.sink.split
 
-.sink.split:                                      ; preds = %138, %138, %138, %138, %139
-  %.sink300 = phi ptr [ %.pre.i.i204, %139 ], [ %115, %138 ], [ %115, %138 ], [ %115, %138 ], [ %115, %138 ]
-  %140 = sext i32 %136 to i64
-  %141 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.sink300, i64 %140
+.sink.split:                                      ; preds = %138, %138, %138, %138, %140
+  %.sink299 = phi ptr [ %.pre.i.i204, %140 ], [ %115, %138 ], [ %115, %138 ], [ %115, %138 ], [ %115, %138 ]
+  %141 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.sink299, i64 %139
   tail call fastcc void @Vec_IntPushTwo(ptr noundef %141, i32 noundef %129, i32 noundef %133)
   br label %142
 

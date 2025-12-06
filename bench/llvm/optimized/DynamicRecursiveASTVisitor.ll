@@ -11640,11 +11640,11 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE22TraverseTypeConstra
 define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE26TraverseConceptRequirementEPNS_8concepts11RequirementE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
 switch.lookup:
   %2 = load i32, ptr %1, align 4, !tbaa !470
-  %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 %3
+  %3 = load ptr, ptr %0, align 8, !tbaa !376
+  %4 = zext nneg i32 %2 to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !376
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
   ret i1 %7
@@ -87028,11 +87028,11 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE22TraverseTypeConstra
 define weak_odr noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
 switch.lookup:
   %2 = load i32, ptr %1, align 4, !tbaa !470
-  %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 %3
+  %3 = load ptr, ptr %0, align 8, !tbaa !376
+  %4 = zext nneg i32 %2 to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang30DynamicRecursiveASTVisitorBaseILb1EE26TraverseConceptRequirementEPKNS_8concepts11RequirementE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !376
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 %switch.load
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull %1) #17
   ret i1 %7

@@ -4850,19 +4850,19 @@ _ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlV
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %36 = load i32, ptr %35, align 8, !tbaa !517
-  switch i32 %36, label %37 [
-    i32 41, label %38
-    i32 42, label %38
-    i32 26, label %38
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 698
+  switch i32 %36, label %38 [
+    i32 41, label %39
+    i32 42, label %39
+    i32 26, label %39
   ]
 
-37:                                               ; preds = %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit
-  br label %38
+38:                                               ; preds = %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit
+  br label %39
 
-38:                                               ; preds = %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit, %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit, %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit, %37
-  %.sink = phi i16 [ 256, %37 ], [ 257, %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit ], [ 257, %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit ], [ 257, %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 698
-  store i16 %.sink, ptr %39, align 2
+39:                                               ; preds = %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit, %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit, %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit, %38
+  %.sink = phi i16 [ 256, %38 ], [ 257, %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit ], [ 257, %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit ], [ 257, %_ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlVarInfoENS_3omp18InternalControlVarELS5_4EiLi5EEC2Ev.exit ]
+  store i16 %.sink, ptr %37, align 2
   call void @_ZN4llvm15OpenMPIRBuilder10initializeEv(ptr noundef nonnull align 8 dereferenceable(3104) %9) #30
   call fastcc void @_ZN12_GLOBAL__N_119OMPInformationCache26initializeRuntimeFunctionsERN4llvm6ModuleE(ptr noundef nonnull align 8 dereferenceable(33361) %0, ptr noundef nonnull align 8 dereferenceable(841) %1)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32984
@@ -4956,13 +4956,13 @@ _ZN4llvm15EnumeratedArrayIN12_GLOBAL__N_119OMPInformationCache22InternalControlV
   %79 = icmp eq ptr %77, %78
   br i1 %79, label %_ZN4llvm6TripleD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %38
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %39
   %80 = load i64, ptr %78, align 8, !tbaa !13
   %81 = add i64 %80, 1
   call void @_ZdlPvm(ptr noundef %77, i64 noundef %81) #32
   br label %_ZN4llvm6TripleD2Ev.exit
 
-_ZN4llvm6TripleD2Ev.exit:                         ; preds = %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN4llvm6TripleD2Ev.exit:                         ; preds = %39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

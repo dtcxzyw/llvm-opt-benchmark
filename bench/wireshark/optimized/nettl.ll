@@ -97,57 +97,57 @@ define hidden range(i32 -1, 2) i32 @nettl_open(ptr noundef captures(none) %0, pt
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %37 = load i16, ptr %36, align 2
   %rev = call i16 @llvm.bswap.i16(i16 %37)
-  switch i16 %rev, label %43 [
-    i16 95, label %44
-    i16 174, label %44
-    i16 176, label %44
-    i16 177, label %44
-    i16 31, label %38
-    i16 187, label %38
-    i16 9, label %39
-    i16 2, label %39
-    i16 6, label %39
-    i16 8, label %39
-    i16 244, label %39
-    i16 23, label %40
-    i16 245, label %41
-    i16 267, label %42
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  switch i16 %rev, label %44 [
+    i16 95, label %45
+    i16 174, label %45
+    i16 176, label %45
+    i16 177, label %45
+    i16 31, label %39
+    i16 187, label %39
+    i16 9, label %40
+    i16 2, label %40
+    i16 6, label %40
+    i16 8, label %40
+    i16 244, label %40
+    i16 23, label %41
+    i16 245, label %42
+    i16 267, label %43
   ]
 
-38:                                               ; preds = %35, %35
-  br label %44
+39:                                               ; preds = %35, %35
+  br label %45
 
-39:                                               ; preds = %35, %35, %35, %35, %35
-  br label %44
-
-40:                                               ; preds = %35
-  br label %44
+40:                                               ; preds = %35, %35, %35, %35, %35
+  br label %45
 
 41:                                               ; preds = %35
-  br label %44
+  br label %45
 
 42:                                               ; preds = %35
-  br label %44
+  br label %45
 
 43:                                               ; preds = %35
-  br label %44
+  br label %45
 
-44:                                               ; preds = %35, %35, %35, %35, %43, %42, %41, %40, %39, %38
-  %.sink = phi i32 [ 71, %43 ], [ 94, %42 ], [ 65, %41 ], [ 64, %40 ], [ 70, %39 ], [ 72, %38 ], [ 73, %35 ], [ 73, %35 ], [ 73, %35 ], [ 73, %35 ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %.sink, ptr %45, align 8
+44:                                               ; preds = %35
+  br label %45
+
+45:                                               ; preds = %35, %35, %35, %35, %44, %43, %42, %41, %40, %39
+  %.sink = phi i32 [ 71, %44 ], [ 94, %43 ], [ 65, %42 ], [ 64, %41 ], [ 70, %40 ], [ 72, %39 ], [ 73, %35 ], [ 73, %35 ], [ 73, %35 ], [ 73, %35 ]
+  store i32 %.sink, ptr %38, align 8
   %46 = load ptr, ptr %0, align 8
   %47 = call i64 @file_seek(ptr noundef %46, i64 noundef 128, i32 noundef 0, ptr noundef %1)
   %48 = icmp eq i64 %47, -1
   br i1 %48, label %51, label %49
 
-49:                                               ; preds = %44
+49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %50, align 4
   br label %51
 
-51:                                               ; preds = %44, %32, %12, %11, %8, %49
-  %.0 = phi i32 [ 1, %49 ], [ %., %8 ], [ 0, %11 ], [ -1, %12 ], [ %.50, %32 ], [ -1, %44 ]
+51:                                               ; preds = %45, %32, %12, %11, %8, %49
+  %.0 = phi i32 [ 1, %49 ], [ %., %8 ], [ 0, %11 ], [ -1, %12 ], [ %.50, %32 ], [ -1, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -347,47 +347,47 @@ define internal fastcc noundef zeroext i1 @nettl_read_rec(ptr noundef captures(n
   ]
 
 50:                                               ; preds = %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49
-  switch i16 %24, label %51 [
-    i16 -3072, label %57
-    i16 3073, label %57
-    i16 2304, label %57
-    i16 2048, label %57
-    i16 1536, label %57
-    i16 512, label %57
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  switch i16 %24, label %52 [
+    i16 -3072, label %58
+    i16 3073, label %58
+    i16 2304, label %58
+    i16 2048, label %58
+    i16 1536, label %58
+    i16 512, label %58
   ]
 
-51:                                               ; preds = %50
-  switch i16 %24, label %56 [
-    i16 5888, label %57
-    i16 -2816, label %52
-    i16 2817, label %53
-    i16 -20224, label %54
-    i16 -20480, label %54
-    i16 -20992, label %54
-    i16 24320, label %54
-    i16 -17664, label %55
-    i16 7936, label %55
+52:                                               ; preds = %50
+  switch i16 %24, label %57 [
+    i16 5888, label %58
+    i16 -2816, label %53
+    i16 2817, label %54
+    i16 -20224, label %55
+    i16 -20480, label %55
+    i16 -20992, label %55
+    i16 24320, label %55
+    i16 -17664, label %56
+    i16 7936, label %56
   ]
 
-52:                                               ; preds = %51
-  br label %57
+53:                                               ; preds = %52
+  br label %58
 
-53:                                               ; preds = %51
-  br label %57
+54:                                               ; preds = %52
+  br label %58
 
-54:                                               ; preds = %51, %51, %51, %51
-  br label %57
+55:                                               ; preds = %52, %52, %52, %52
+  br label %58
 
-55:                                               ; preds = %51, %51
-  br label %57
+56:                                               ; preds = %52, %52
+  br label %58
 
-56:                                               ; preds = %51
-  br label %57
+57:                                               ; preds = %52
+  br label %58
 
-57:                                               ; preds = %51, %50, %50, %50, %50, %50, %50, %53, %55, %56, %54, %52
-  %.sink = phi i32 [ 94, %53 ], [ 72, %55 ], [ 71, %56 ], [ 73, %54 ], [ 65, %52 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 64, %51 ]
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store i32 %.sink, ptr %58, align 8
+58:                                               ; preds = %52, %50, %50, %50, %50, %50, %50, %54, %56, %57, %55, %53
+  %.sink222 = phi i32 [ 94, %54 ], [ 72, %56 ], [ 71, %57 ], [ 73, %55 ], [ 65, %53 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 70, %50 ], [ 64, %52 ]
+  store i32 %.sink222, ptr %51, align 8
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %60 = load i8, ptr %59, align 4
   %61 = zext i8 %60 to i32
@@ -433,7 +433,7 @@ define internal fastcc noundef zeroext i1 @nettl_read_rec(ptr noundef captures(n
     i16 3073, label %110
   ]
 
-95:                                               ; preds = %57
+95:                                               ; preds = %58
   %96 = icmp eq i32 %46, 536870912
   br i1 %96, label %.thread, label %97
 
@@ -452,15 +452,15 @@ define internal fastcc noundef zeroext i1 @nettl_read_rec(ptr noundef captures(n
   %105 = add nuw nsw i32 %102, 9
   br label %173
 
-106:                                              ; preds = %57, %57, %57
+106:                                              ; preds = %58, %58, %58
   %107 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef 3, ptr noundef %3, ptr noundef %4)
   br i1 %107, label %173, label %364
 
-108:                                              ; preds = %57
+108:                                              ; preds = %58
   %109 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef 26, ptr noundef %3, ptr noundef %4)
   br i1 %109, label %173, label %364
 
-110:                                              ; preds = %57
+110:                                              ; preds = %58
   %111 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef null, i32 noundef 8, ptr noundef %3, ptr noundef %4)
   br i1 %111, label %173, label %364
 
@@ -556,9 +556,9 @@ define internal fastcc noundef zeroext i1 @nettl_read_rec(ptr noundef captures(n
   br label %364
 
 .thread.sink.split:                               ; preds = %28, %171
-  %.sink236 = phi i32 [ 71, %171 ], [ 70, %28 ]
+  %.sink = phi i32 [ 71, %171 ], [ 70, %28 ]
   %177 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store i32 %.sink236, ptr %177, align 8
+  store i32 %.sink, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %179 = load i8, ptr %178, align 4
   %180 = zext i8 %179 to i32
@@ -597,11 +597,11 @@ define internal fastcc noundef zeroext i1 @nettl_read_rec(ptr noundef captures(n
   %213 = or disjoint i32 %209, %212
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %57, %115, %130, %95, %173
-  %.0172197 = phi i32 [ %.0172, %173 ], [ 0, %95 ], [ 0, %130 ], [ 0, %115 ], [ 0, %57 ], [ 0, %.thread.sink.split ]
-  %.0173196 = phi i1 [ false, %173 ], [ true, %95 ], [ false, %130 ], [ false, %115 ], [ false, %57 ], [ false, %.thread.sink.split ]
-  %.0174195 = phi i32 [ %.0174, %173 ], [ %94, %95 ], [ %127, %130 ], [ %127, %115 ], [ %94, %57 ], [ %213, %.thread.sink.split ]
-  %.0175194 = phi i32 [ %.0175, %173 ], [ %76, %95 ], [ %121, %130 ], [ %121, %115 ], [ %76, %57 ], [ %195, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %58, %115, %130, %95, %173
+  %.0172197 = phi i32 [ %.0172, %173 ], [ 0, %95 ], [ 0, %130 ], [ 0, %115 ], [ 0, %58 ], [ 0, %.thread.sink.split ]
+  %.0173196 = phi i1 [ false, %173 ], [ true, %95 ], [ false, %130 ], [ false, %115 ], [ false, %58 ], [ false, %.thread.sink.split ]
+  %.0174195 = phi i32 [ %.0174, %173 ], [ %94, %95 ], [ %127, %130 ], [ %127, %115 ], [ %94, %58 ], [ %213, %.thread.sink.split ]
+  %.0175194 = phi i32 [ %.0175, %173 ], [ %76, %95 ], [ %121, %130 ], [ %121, %115 ], [ %76, %58 ], [ %195, %.thread.sink.split ]
   store i32 0, ptr %2, align 8
   %214 = call ptr @wtap_block_create(i32 noundef 5)
   %215 = getelementptr inbounds nuw i8, ptr %2, i64 232

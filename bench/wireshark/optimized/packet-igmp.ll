@@ -851,103 +851,98 @@ define internal i32 @dissect_igmp_v3_report(ptr noundef %0, ptr noundef %1, ptr 
   %55 = call ptr @tvb_address_to_str(ptr noundef %54, ptr noundef %0, i32 noundef 2, i32 noundef %33)
   %56 = add i32 %storemerge22, 8
   %57 = icmp eq i16 %48, 0
-  br i1 %57, label %58, label %60
+  %58 = load ptr, ptr %28, align 8
+  br i1 %57, label %59, label %61
 
-58:                                               ; preds = %29
+59:                                               ; preds = %29
   %switch.tableidx = add i8 %39, -1
-  %59 = icmp ult i8 %switch.tableidx, 6
-  br i1 %59, label %switch.lookup, label %._crit_edge.sink.split.i
+  %60 = icmp ult i8 %switch.tableidx, 6
+  br i1 %60, label %switch.lookup, label %._crit_edge.sink.split.i
 
-60:                                               ; preds = %29
-  switch i8 %39, label %73 [
-    i8 1, label %61
-    i8 3, label %61
+61:                                               ; preds = %29
+  switch i8 %39, label %70 [
+    i8 1, label %62
+    i8 3, label %62
     i8 2, label %64
     i8 4, label %64
-    i8 5, label %67
-    i8 6, label %70
+    i8 5, label %66
+    i8 6, label %68
   ]
 
-61:                                               ; preds = %60, %60
-  %62 = load ptr, ptr %28, align 8
+62:                                               ; preds = %61, %61
   %.not86.i = icmp eq i16 %48, 1
   %63 = select i1 %.not86.i, ptr @.str.203, ptr @.str.215
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.214, ptr noundef %55, ptr noundef nonnull %63)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.214, ptr noundef %55, ptr noundef nonnull %63)
   br label %.lr.ph.i.preheader
 
-64:                                               ; preds = %60, %60
-  %65 = load ptr, ptr %28, align 8
+64:                                               ; preds = %61, %61
   %.not85.i = icmp eq i16 %48, 1
-  %66 = select i1 %.not85.i, ptr @.str.218, ptr @.str.217
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %65, i32 noundef 25, ptr noundef nonnull @.str.216, ptr noundef %55, ptr noundef nonnull %66)
+  %65 = select i1 %.not85.i, ptr @.str.218, ptr @.str.217
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.216, ptr noundef %55, ptr noundef nonnull %65)
   br label %.lr.ph.i.preheader
 
-67:                                               ; preds = %60
-  %68 = load ptr, ptr %28, align 8
+66:                                               ; preds = %61
   %.not84.i = icmp eq i16 %48, 1
-  %69 = select i1 %.not84.i, ptr @.str.203, ptr @.str.202
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.219, ptr noundef %55, ptr noundef nonnull %69)
+  %67 = select i1 %.not84.i, ptr @.str.203, ptr @.str.202
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.219, ptr noundef %55, ptr noundef nonnull %67)
   br label %.lr.ph.i.preheader
 
-70:                                               ; preds = %60
-  %71 = load ptr, ptr %28, align 8
+68:                                               ; preds = %61
   %.not.i = icmp eq i16 %48, 1
-  %72 = select i1 %.not.i, ptr @.str.203, ptr @.str.202
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %71, i32 noundef 25, ptr noundef nonnull @.str.220, ptr noundef %55, ptr noundef nonnull %72)
+  %69 = select i1 %.not.i, ptr @.str.203, ptr @.str.202
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.220, ptr noundef %55, ptr noundef nonnull %69)
   br label %.lr.ph.i.preheader
 
-73:                                               ; preds = %60
-  %74 = load ptr, ptr %28, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.221, ptr noundef %55)
+70:                                               ; preds = %61
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.221, ptr noundef %55)
   br label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %73, %70, %67, %64, %61
+.lr.ph.i.preheader:                               ; preds = %70, %68, %66, %64, %62
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.092.i = phi i32 [ %82, %.lr.ph.i ], [ %56, %.lr.ph.i.preheader ]
-  %.08291.i = phi i16 [ %75, %.lr.ph.i ], [ %48, %.lr.ph.i.preheader ]
-  %75 = add i16 %.08291.i, -1
-  %76 = load ptr, ptr %28, align 8
-  %77 = load ptr, ptr %27, align 8
-  %78 = call ptr @tvb_address_to_str(ptr noundef %77, ptr noundef %0, i32 noundef 2, i32 noundef %.092.i)
-  %.not89.i = icmp eq i16 %75, 0
-  %79 = select i1 %.not89.i, ptr @.str.206, ptr @.str.205
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.204, ptr noundef %78, ptr noundef nonnull %79)
-  %80 = load i32, ptr @hf_saddr, align 4
-  %81 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %80, ptr noundef %0, i32 noundef %.092.i, i32 noundef 4, i32 noundef 0)
-  %82 = add i32 %.092.i, 4
+  %.092.i = phi i32 [ %78, %.lr.ph.i ], [ %56, %.lr.ph.i.preheader ]
+  %.08291.i = phi i16 [ %71, %.lr.ph.i ], [ %48, %.lr.ph.i.preheader ]
+  %71 = add i16 %.08291.i, -1
+  %72 = load ptr, ptr %28, align 8
+  %73 = load ptr, ptr %27, align 8
+  %74 = call ptr @tvb_address_to_str(ptr noundef %73, ptr noundef %0, i32 noundef 2, i32 noundef %.092.i)
+  %.not89.i = icmp eq i16 %71, 0
+  %75 = select i1 %.not89.i, ptr @.str.206, ptr @.str.205
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.204, ptr noundef %74, ptr noundef nonnull %75)
+  %76 = load i32, ptr @hf_saddr, align 4
+  %77 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %76, ptr noundef %0, i32 noundef %.092.i, i32 noundef 4, i32 noundef 0)
+  %78 = add i32 %.092.i, 4
   br i1 %.not89.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
-switch.lookup:                                    ; preds = %58
-  %83 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_igmp_v3_report, i64 %83
+switch.lookup:                                    ; preds = %59
+  %79 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_igmp_v3_report, i64 %79
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %._crit_edge.sink.split.i
 
-._crit_edge.sink.split.i:                         ; preds = %58, %switch.lookup
-  %.str.213.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.213, %58 ]
-  %84 = load ptr, ptr %28, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %84, i32 noundef 25, ptr noundef nonnull %.str.213.sink.i, ptr noundef %55)
+._crit_edge.sink.split.i:                         ; preds = %59, %switch.lookup
+  %.str.213.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.213, %59 ]
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull %.str.213.sink.i, ptr noundef %55)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %._crit_edge.sink.split.i
-  %.0.lcssa.i = phi i32 [ %56, %._crit_edge.sink.split.i ], [ %82, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %56, %._crit_edge.sink.split.i ], [ %78, %.lr.ph.i ]
   %.not88.i = icmp eq i8 %43, 0
-  br i1 %.not88.i, label %dissect_v3_group_record.exit, label %85
+  br i1 %.not88.i, label %dissect_v3_group_record.exit, label %80
 
-85:                                               ; preds = %._crit_edge.i
-  %86 = load i32, ptr @hf_aux_data, align 4
-  %87 = shl nuw nsw i32 %45, 2
-  %88 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %86, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %87, i32 noundef 0)
-  %89 = add i32 %.0.lcssa.i, %87
+80:                                               ; preds = %._crit_edge.i
+  %81 = load i32, ptr @hf_aux_data, align 4
+  %82 = shl nuw nsw i32 %45, 2
+  %83 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %81, ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %82, i32 noundef 0)
+  %84 = add i32 %.0.lcssa.i, %82
   br label %dissect_v3_group_record.exit
 
-dissect_v3_group_record.exit:                     ; preds = %._crit_edge.i, %85
-  %.1.i = phi i32 [ %89, %85 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %90 = load ptr, ptr %5, align 8
-  %91 = sub i32 %.1.i, %storemerge22
-  call void @proto_item_set_len(ptr noundef %90, i32 noundef %91)
+dissect_v3_group_record.exit:                     ; preds = %._crit_edge.i, %80
+  %.1.i = phi i32 [ %84, %80 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %85 = load ptr, ptr %5, align 8
+  %86 = sub i32 %.1.i, %storemerge22
+  call void @proto_item_set_len(ptr noundef %85, i32 noundef %86)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not19 = icmp eq i16 %30, 0
   br i1 %.not19, label %._crit_edge, label %29, !llvm.loop !11

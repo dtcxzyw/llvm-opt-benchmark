@@ -1531,76 +1531,73 @@ define internal void @trapsig(i32 noundef %0) #0 {
 define dso_local void @create_data_directory() local_unnamed_addr #0 {
   %1 = load ptr, ptr @pg_data, align 8
   %2 = tail call i32 @pg_check_dir(ptr noundef %1) #19
-  switch i32 %2, label %30 [
-    i32 0, label %3
+  %3 = load ptr, ptr @pg_data, align 8
+  switch i32 %2, label %28 [
+    i32 0, label %4
     i32 1, label %13
-    i32 2, label %23
-    i32 3, label %23
-    i32 4, label %23
+    i32 2, label %22
+    i32 3, label %22
+    i32 4, label %22
   ]
 
-3:                                                ; preds = %0
-  %4 = load ptr, ptr @pg_data, align 8
-  %5 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.42, ptr noundef %4) #19
+4:                                                ; preds = %0
+  %5 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.42, ptr noundef %3) #19
   %6 = load ptr, ptr @stdout, align 8
   %7 = tail call i32 @fflush(ptr noundef %6)
   %8 = load ptr, ptr @pg_data, align 8
   %9 = load i32, ptr @pg_dir_create_mode, align 4
   %10 = tail call i32 @pg_mkdir_p(ptr noundef %8, i32 noundef %9) #19
   %.not3 = icmp eq i32 %10, 0
-  br i1 %.not3, label %32, label %11
+  br i1 %.not3, label %29, label %11
 
-11:                                               ; preds = %3
+11:                                               ; preds = %4
   %12 = load ptr, ptr @pg_data, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.43, ptr noundef %12) #19
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
 13:                                               ; preds = %0
-  %14 = load ptr, ptr @pg_data, align 8
-  %15 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44, ptr noundef %14) #19
-  %16 = load ptr, ptr @stdout, align 8
-  %17 = tail call i32 @fflush(ptr noundef %16)
-  %18 = load ptr, ptr @pg_data, align 8
-  %19 = load i32, ptr @pg_dir_create_mode, align 4
-  %20 = tail call i32 @chmod(ptr noundef %18, i32 noundef %19) #19
-  %.not2 = icmp eq i32 %20, 0
-  br i1 %.not2, label %32, label %21
+  %14 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44, ptr noundef %3) #19
+  %15 = load ptr, ptr @stdout, align 8
+  %16 = tail call i32 @fflush(ptr noundef %15)
+  %17 = load ptr, ptr @pg_data, align 8
+  %18 = load i32, ptr @pg_dir_create_mode, align 4
+  %19 = tail call i32 @chmod(ptr noundef %17, i32 noundef %18) #19
+  %.not2 = icmp eq i32 %19, 0
+  br i1 %.not2, label %29, label %20
 
-21:                                               ; preds = %13
-  %22 = load ptr, ptr @pg_data, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef %22) #19
+20:                                               ; preds = %13
+  %21 = load ptr, ptr @pg_data, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef %21) #19
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
-23:                                               ; preds = %0, %0, %0
-  %24 = load ptr, ptr @pg_data, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.46, ptr noundef %24) #19
+22:                                               ; preds = %0, %0, %0
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.46, ptr noundef %3) #19
   %.not = icmp eq i32 %2, 4
-  br i1 %.not, label %26, label %25
+  br i1 %.not, label %24, label %23
 
-25:                                               ; preds = %23
+23:                                               ; preds = %22
   tail call void @warn_on_mount_point(i32 noundef %2)
-  br label %29
+  br label %27
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr @pg_data, align 8
-  %28 = load ptr, ptr @progname, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.47, ptr noundef %27, ptr noundef %28, ptr noundef %27) #19
-  br label %29
+24:                                               ; preds = %22
+  %25 = load ptr, ptr @pg_data, align 8
+  %26 = load ptr, ptr @progname, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.47, ptr noundef %25, ptr noundef %26, ptr noundef %25) #19
+  br label %27
 
-29:                                               ; preds = %26, %25
+27:                                               ; preds = %24, %23
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
-30:                                               ; preds = %0
-  %31 = load ptr, ptr @pg_data, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.48, ptr noundef %31) #19
+28:                                               ; preds = %0
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.48, ptr noundef %3) #19
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
-32:                                               ; preds = %13, %3
-  %found_existing_pgdata.sink = phi ptr [ @made_new_pgdata, %3 ], [ @found_existing_pgdata, %13 ]
+29:                                               ; preds = %13, %4
+  %found_existing_pgdata.sink = phi ptr [ @made_new_pgdata, %4 ], [ @found_existing_pgdata, %13 ]
   tail call fastcc void @check_ok()
   store i1 true, ptr %found_existing_pgdata.sink, align 1
   ret void
@@ -1674,7 +1671,7 @@ define dso_local void @create_xlog_or_symlink() local_unnamed_addr #0 {
   %2 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.49, ptr noundef %1) #19
   %3 = load ptr, ptr @xlog_dir, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %43, label %4
+  br i1 %.not, label %40, label %4
 
 4:                                                ; preds = %0
   tail call void @canonicalize_path(ptr noundef nonnull %3) #19
@@ -1690,99 +1687,96 @@ define dso_local void @create_xlog_or_symlink() local_unnamed_addr #0 {
 
 9:                                                ; preds = %4
   %10 = tail call i32 @pg_check_dir(ptr noundef nonnull %5) #19
-  switch i32 %10, label %37 [
-    i32 0, label %11
+  %11 = load ptr, ptr @xlog_dir, align 8
+  switch i32 %10, label %35 [
+    i32 0, label %12
     i32 1, label %21
-    i32 2, label %31
-    i32 3, label %31
-    i32 4, label %31
+    i32 2, label %30
+    i32 3, label %30
+    i32 4, label %30
   ]
 
-11:                                               ; preds = %9
-  %12 = load ptr, ptr @xlog_dir, align 8
-  %13 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.42, ptr noundef %12) #19
+12:                                               ; preds = %9
+  %13 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.42, ptr noundef %11) #19
   %14 = load ptr, ptr @stdout, align 8
   %15 = tail call i32 @fflush(ptr noundef %14)
   %16 = load ptr, ptr @xlog_dir, align 8
   %17 = load i32, ptr @pg_dir_create_mode, align 4
   %18 = tail call i32 @pg_mkdir_p(ptr noundef %16, i32 noundef %17) #19
   %.not9 = icmp eq i32 %18, 0
-  br i1 %.not9, label %39, label %19
+  br i1 %.not9, label %36, label %19
 
-19:                                               ; preds = %11
+19:                                               ; preds = %12
   %20 = load ptr, ptr @xlog_dir, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.43, ptr noundef %20) #19
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
 21:                                               ; preds = %9
-  %22 = load ptr, ptr @xlog_dir, align 8
-  %23 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44, ptr noundef %22) #19
-  %24 = load ptr, ptr @stdout, align 8
-  %25 = tail call i32 @fflush(ptr noundef %24)
-  %26 = load ptr, ptr @xlog_dir, align 8
-  %27 = load i32, ptr @pg_dir_create_mode, align 4
-  %28 = tail call i32 @chmod(ptr noundef %26, i32 noundef %27) #19
-  %.not8 = icmp eq i32 %28, 0
-  br i1 %.not8, label %39, label %29
+  %22 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44, ptr noundef %11) #19
+  %23 = load ptr, ptr @stdout, align 8
+  %24 = tail call i32 @fflush(ptr noundef %23)
+  %25 = load ptr, ptr @xlog_dir, align 8
+  %26 = load i32, ptr @pg_dir_create_mode, align 4
+  %27 = tail call i32 @chmod(ptr noundef %25, i32 noundef %26) #19
+  %.not8 = icmp eq i32 %27, 0
+  br i1 %.not8, label %36, label %28
 
-29:                                               ; preds = %21
-  %30 = load ptr, ptr @xlog_dir, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef %30) #19
+28:                                               ; preds = %21
+  %29 = load ptr, ptr @xlog_dir, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef %29) #19
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
-31:                                               ; preds = %9, %9, %9
-  %32 = load ptr, ptr @xlog_dir, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.46, ptr noundef %32) #19
+30:                                               ; preds = %9, %9, %9
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.46, ptr noundef %11) #19
   %.not7 = icmp eq i32 %10, 4
-  br i1 %.not7, label %34, label %33
+  br i1 %.not7, label %32, label %31
 
-33:                                               ; preds = %31
+31:                                               ; preds = %30
   tail call void @warn_on_mount_point(i32 noundef %10)
-  br label %36
+  br label %34
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @xlog_dir, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.51, ptr noundef %35) #19
-  br label %36
+32:                                               ; preds = %30
+  %33 = load ptr, ptr @xlog_dir, align 8
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.51, ptr noundef %33) #19
+  br label %34
 
-36:                                               ; preds = %34, %33
+34:                                               ; preds = %32, %31
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
-37:                                               ; preds = %9
-  %38 = load ptr, ptr @xlog_dir, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.48, ptr noundef %38) #19
+35:                                               ; preds = %9
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.48, ptr noundef %11) #19
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
-39:                                               ; preds = %21, %11
-  %found_existing_xlogdir.sink = phi ptr [ @made_new_xlogdir, %11 ], [ @found_existing_xlogdir, %21 ]
+36:                                               ; preds = %21, %12
+  %found_existing_xlogdir.sink = phi ptr [ @made_new_xlogdir, %12 ], [ @found_existing_xlogdir, %21 ]
   tail call fastcc void @check_ok()
   store i1 true, ptr %found_existing_xlogdir.sink, align 1
-  %40 = load ptr, ptr @xlog_dir, align 8
-  %41 = tail call i32 @symlink(ptr noundef %40, ptr noundef %2) #19
-  %.not10 = icmp eq i32 %41, 0
-  br i1 %.not10, label %48, label %42
+  %37 = load ptr, ptr @xlog_dir, align 8
+  %38 = tail call i32 @symlink(ptr noundef %37, ptr noundef %2) #19
+  %.not10 = icmp eq i32 %38, 0
+  br i1 %.not10, label %45, label %39
 
-42:                                               ; preds = %39
+39:                                               ; preds = %36
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.52, ptr noundef %2) #19
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
-43:                                               ; preds = %0
-  %44 = load i32, ptr @pg_dir_create_mode, align 4
-  %45 = tail call i32 @mkdir(ptr noundef %2, i32 noundef %44) #19
-  %46 = icmp slt i32 %45, 0
-  br i1 %46, label %47, label %48
+40:                                               ; preds = %0
+  %41 = load i32, ptr @pg_dir_create_mode, align 4
+  %42 = tail call i32 @mkdir(ptr noundef %2, i32 noundef %41) #19
+  %43 = icmp slt i32 %42, 0
+  br i1 %43, label %44, label %45
 
-47:                                               ; preds = %43
+44:                                               ; preds = %40
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.43, ptr noundef %2) #19
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
-48:                                               ; preds = %39, %43
+45:                                               ; preds = %36, %40
   tail call void @free(ptr noundef %2) #19
   ret void
 }

@@ -36931,28 +36931,28 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14CombinerHelper25matchCommuteCons
   %4 = alloca %"class.std::optional.373", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %6 = load i16, ptr %5, align 4, !tbaa !228
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %8 = load ptr, ptr %7, align 8, !tbaa !241
   %switch.tableidx = add i16 %6, -152
-  %7 = icmp ult i16 %switch.tableidx, 10
-  br i1 %7, label %switch.lookup, label %.split
+  %9 = icmp ult i16 %switch.tableidx, 10
+  br i1 %9, label %switch.lookup, label %.split
 
 switch.lookup:                                    ; preds = %2
-  %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14CombinerHelper25applyCommuteBinOpOperandsERNS_12MachineInstrE, i64 %8
+  %10 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14CombinerHelper25applyCommuteBinOpOperandsERNS_12MachineInstrE, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
-  %9 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep26 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14CombinerHelper25applyCommuteBinOpOperandsERNS_12MachineInstrE.558, i64 %9
-  %switch.load27 = load i64, ptr %switch.gep26, align 8
+  %11 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep24 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14CombinerHelper25applyCommuteBinOpOperandsERNS_12MachineInstrE.558, i64 %11
+  %switch.load25 = load i64, ptr %switch.gep24, align 8
   br label %.split
 
 .split:                                           ; preds = %switch.lookup, %2
-  %.sink24 = phi i64 [ 32, %2 ], [ %switch.load, %switch.lookup ]
-  %.018 = phi i64 [ 2, %2 ], [ %switch.load27, %switch.lookup ]
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !241
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink24
+  %.sink = phi i64 [ 32, %2 ], [ %switch.load, %switch.lookup ]
+  %.018 = phi i64 [ 2, %2 ], [ %switch.load25, %switch.lookup ]
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !204
-  %15 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %11, i64 %.018
+  %15 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %8, i64 %.018
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !204
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -37109,36 +37109,36 @@ define dso_local void @_ZNK4llvm14CombinerHelper25applyCommuteBinOpOperandsERNS_
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(70) %1) #32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %9 = load i16, ptr %8, align 4, !tbaa !228
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %11 = load ptr, ptr %10, align 8, !tbaa !241
   %switch.tableidx = add i16 %9, -152
-  %10 = icmp ult i16 %switch.tableidx, 10
-  br i1 %10, label %switch.lookup, label %.split
+  %12 = icmp ult i16 %switch.tableidx, 10
+  br i1 %12, label %switch.lookup, label %.split
 
 switch.lookup:                                    ; preds = %2
-  %11 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14CombinerHelper25applyCommuteBinOpOperandsERNS_12MachineInstrE, i64 %11
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %12 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep19 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14CombinerHelper25applyCommuteBinOpOperandsERNS_12MachineInstrE.558, i64 %12
-  %switch.load20 = load i64, ptr %switch.gep19, align 8
   %13 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep21 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14CombinerHelper25applyCommuteBinOpOperandsERNS_12MachineInstrE.559, i64 %13
-  %switch.load22 = load i64, ptr %switch.gep21, align 8
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14CombinerHelper25applyCommuteBinOpOperandsERNS_12MachineInstrE, i64 %13
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %14 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep17 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14CombinerHelper25applyCommuteBinOpOperandsERNS_12MachineInstrE.558, i64 %14
+  %switch.load18 = load i64, ptr %switch.gep17, align 8
+  %15 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep19 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm14CombinerHelper25applyCommuteBinOpOperandsERNS_12MachineInstrE.559, i64 %15
+  %switch.load20 = load i64, ptr %switch.gep19, align 8
   br label %.split
 
 .split:                                           ; preds = %switch.lookup, %2
-  %.sink17 = phi i64 [ 32, %2 ], [ %switch.load, %switch.lookup ]
-  %.014 = phi i64 [ 2, %2 ], [ %switch.load20, %switch.lookup ]
-  %.0 = phi i64 [ 1, %2 ], [ %switch.load22, %switch.lookup ]
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !241
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink17
+  %.sink = phi i64 [ 32, %2 ], [ %switch.load, %switch.lookup ]
+  %.014 = phi i64 [ 2, %2 ], [ %switch.load18, %switch.lookup ]
+  %.0 = phi i64 [ 1, %2 ], [ %switch.load20, %switch.lookup ]
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !204
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %15, i64 %.014
+  %20 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %11, i64 %.014
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !204
-  %23 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %15, i64 %.0
+  %23 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %11, i64 %.0
   tail call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %23, i32 %22) #32
   %24 = load ptr, ptr %19, align 8, !tbaa !241
   %25 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %24, i64 %.014

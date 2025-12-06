@@ -53720,7 +53720,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118VisibleDeclsRecord11check
   br label %8
 
 8:                                                ; preds = %.lr.ph83, %.loopexit
-  %.sroa.045.082 = phi ptr [ %0, %.lr.ph83 ], [ %81, %.loopexit ]
+  %.sroa.045.082 = phi ptr [ %0, %.lr.ph83 ], [ %79, %.loopexit ]
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.045.082, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !1146
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -53806,15 +53806,15 @@ _ZN4llvm13TinyPtrVectorIPN5clang9NamedDeclEE3endEv.exit: ; preds = %_ZN4llvm13Ti
   %51 = icmp eq ptr %.sroa.045.082, %0
   br label %52
 
-52:                                               ; preds = %.lr.ph, %79
-  %.01680 = phi ptr [ %.0.i52, %.lr.ph ], [ %80, %79 ]
+52:                                               ; preds = %.lr.ph, %77
+  %.01680 = phi ptr [ %.0.i52, %.lr.ph ], [ %78, %77 ]
   %53 = load ptr, ptr %.01680, align 8, !tbaa !1055
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 1056899072
   %57 = icmp ne i32 %56, 393216
   %or.cond = or i1 %.not21, %57
-  br i1 %or.cond, label %58, label %79
+  br i1 %or.cond, label %58, label %77
 
 58:                                               ; preds = %52
   %59 = or i32 %55, %4
@@ -53824,7 +53824,7 @@ _ZN4llvm13TinyPtrVectorIPN5clang9NamedDeclEE3endEv.exit: ; preds = %_ZN4llvm13Ti
   %62 = and i32 %61, 1073676288
   %.not24 = icmp eq i32 %62, 0
   %or.cond74 = select i1 %or.cond26, i1 true, i1 %.not24
-  br i1 %or.cond74, label %63, label %79
+  br i1 %or.cond74, label %63, label %77
 
 63:                                               ; preds = %58
   %64 = and i32 %55, 127
@@ -53844,7 +53844,9 @@ _ZN4llvm13TinyPtrVectorIPN5clang9NamedDeclEE3endEv.exit: ; preds = %_ZN4llvm13Ti
 
 _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit:    ; preds = %63, %65
   %.pre-phi = phi i32 [ %64, %63 ], [ %.pre91, %65 ]
-  switch i32 %.pre-phi, label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit..critedge_crit_edge [
+  %.pre89 = load i32, ptr %3, align 4
+  %.pre92 = and i32 %.pre89, 127
+  switch i32 %.pre-phi, label %.critedge [
     i32 69, label %67
     i32 37, label %67
     i32 36, label %67
@@ -53854,73 +53856,65 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit:    ; preds = %63, %65
     i32 32, label %67
   ]
 
-_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit..critedge_crit_edge: ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit
-  %.pre89 = load i32, ptr %3, align 4
-  %.pre92 = and i32 %.pre89, 127
-  br label %.critedge
-
 67:                                               ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit
-  %68 = load i32, ptr %3, align 4
-  %69 = and i32 %68, 127
-  switch i32 %69, label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32 [
-    i32 51, label %70
-    i32 52, label %70
-    i32 74, label %70
-    i32 75, label %70
+  switch i32 %.pre92, label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32 [
+    i32 51, label %68
+    i32 52, label %68
+    i32 74, label %68
+    i32 75, label %68
   ]
 
-70:                                               ; preds = %67, %67, %67, %67
-  %71 = tail call noundef ptr @_ZN5clang9NamedDecl21getUnderlyingDeclImplEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #29
-  %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %71, i64 28
+68:                                               ; preds = %67, %67, %67, %67
+  %69 = tail call noundef ptr @_ZN5clang9NamedDecl21getUnderlyingDeclImplEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #29
+  %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %69, i64 28
   %.pre88 = load i32, ptr %.phi.trans.insert87, align 4
   %.pre94 = and i32 %.pre88, 127
   br label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32
 
-_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32:  ; preds = %67, %70
-  %.pre-phi95 = phi i32 [ %69, %67 ], [ %.pre94, %70 ]
+_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32:  ; preds = %67, %68
+  %.pre-phi95 = phi i32 [ %.pre92, %67 ], [ %.pre94, %68 ]
   switch i32 %.pre-phi95, label %.critedge [
-    i32 69, label %72
-    i32 37, label %72
-    i32 36, label %72
-    i32 35, label %72
-    i32 34, label %72
-    i32 33, label %72
-    i32 32, label %72
+    i32 69, label %70
+    i32 37, label %70
+    i32 36, label %70
+    i32 35, label %70
+    i32 34, label %70
+    i32 33, label %70
+    i32 32, label %70
   ]
 
-72:                                               ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32
-  br i1 %51, label %79, label %.critedge
+70:                                               ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32
+  br i1 %51, label %77, label %.critedge
 
-.critedge:                                        ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit..critedge_crit_edge, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %72
-  %.pre-phi93 = phi i32 [ %.pre92, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit..critedge_crit_edge ], [ %69, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32 ], [ %69, %72 ]
-  %73 = add nsw i32 %.pre-phi93, -51
-  %74 = icmp ult i32 %73, 2
-  %75 = icmp eq i32 %64, 78
-  %or.cond75 = and i1 %75, %74
-  br i1 %or.cond75, label %76, label %.thread70
+.critedge:                                        ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit32, %70
+  %71 = add nsw i32 %.pre92, -51
+  %72 = icmp ult i32 %71, 2
+  %73 = icmp eq i32 %64, 78
+  %or.cond75 = and i1 %73, %72
+  br i1 %or.cond75, label %74, label %.thread70
 
-76:                                               ; preds = %.critedge
-  %77 = tail call noundef ptr @_ZNK5clang15UsingShadowDecl13getIntroducerEv(ptr noundef nonnull align 8 dereferenceable(80) %1) #28
-  %78 = icmp eq ptr %77, %53
-  br i1 %78, label %79, label %.thread70
+74:                                               ; preds = %.critedge
+  %75 = tail call noundef ptr @_ZNK5clang15UsingShadowDecl13getIntroducerEv(ptr noundef nonnull align 8 dereferenceable(80) %1) #28
+  %76 = icmp eq ptr %75, %53
+  br i1 %76, label %77, label %.thread70
 
-79:                                               ; preds = %58, %52, %72, %76
-  %80 = getelementptr inbounds nuw i8, ptr %.01680, i64 8
-  %.not = icmp eq ptr %80, %.0.i29
+77:                                               ; preds = %58, %52, %70, %74
+  %78 = getelementptr inbounds nuw i8, ptr %.01680, i64 8
+  %.not = icmp eq ptr %78, %.0.i29
   br i1 %.not, label %.loopexit.loopexit, label %52
 
-.loopexit.loopexit:                               ; preds = %79
+.loopexit.loopexit:                               ; preds = %77
   %.pre90 = load ptr, ptr %9, align 8, !tbaa !1146
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN4llvm13TinyPtrVectorIPN5clang9NamedDeclEE3endEv.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang15DeclarationNameENS_13TinyPtrVectorIPNS2_9NamedDeclEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E4findERKS3_.exit
-  %81 = phi ptr [ %.pre90, %.loopexit.loopexit ], [ %10, %_ZN4llvm13TinyPtrVectorIPN5clang9NamedDeclEE3endEv.exit ], [ %10, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang15DeclarationNameENS_13TinyPtrVectorIPNS2_9NamedDeclEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E4findERKS3_.exit ]
-  %.not76 = icmp eq ptr %81, %5
+  %79 = phi ptr [ %.pre90, %.loopexit.loopexit ], [ %10, %_ZN4llvm13TinyPtrVectorIPN5clang9NamedDeclEE3endEv.exit ], [ %10, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang15DeclarationNameENS_13TinyPtrVectorIPNS2_9NamedDeclEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E4findERKS3_.exit ]
+  %.not76 = icmp eq ptr %79, %5
   br i1 %.not76, label %.thread70, label %8, !llvm.loop !2660
 
-.thread70:                                        ; preds = %.loopexit, %76, %.critedge, %2
-  %82 = phi ptr [ null, %2 ], [ %53, %.critedge ], [ %53, %76 ], [ null, %.loopexit ]
-  ret ptr %82
+.thread70:                                        ; preds = %.loopexit, %74, %.critedge, %2
+  %80 = phi ptr [ null, %2 ], [ %53, %.critedge ], [ %53, %74 ], [ null, %.loopexit ]
+  ret ptr %80
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

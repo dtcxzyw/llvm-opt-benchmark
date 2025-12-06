@@ -3825,14 +3825,14 @@ proto_item_set_generated.exit.i:                  ; preds = %120, %117, %.lr.ph.
   %309 = add i32 %.0..0..0..0.30, 1
   store volatile i32 %309, ptr %9, align 4
   %310 = zext i8 %306 to i32
-  %switch.selectcmp = icmp eq i8 %306, 4
-  %switch.select = select i1 %switch.selectcmp, ptr @dissect_spc_inquiry.aca_fields_spc2, ptr @dissect_spc_inquiry.aca_fields_spc3
-  %switch.selectcmp223 = icmp eq i8 %306, 3
-  %switch.select224 = select i1 %switch.selectcmp223, ptr @dissect_spc_inquiry.aca_fields_spc, ptr %switch.select
   %.0..0..0..0.34 = load volatile i32, ptr %9, align 4
   %311 = load i32, ptr @hf_scsi_inq_acaflags, align 4
   %312 = load i32, ptr @ett_scsi_inq_acaflags, align 4
-  %313 = call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %285, i32 noundef %.0..0..0..0.34, i32 noundef %311, i32 noundef %312, ptr noundef nonnull %switch.select224, i32 noundef 0)
+  %switch.selectcmp = icmp eq i8 %306, 4
+  %switch.select = select i1 %switch.selectcmp, ptr @dissect_spc_inquiry.aca_fields_spc2, ptr @dissect_spc_inquiry.aca_fields_spc3
+  %switch.selectcmp221 = icmp eq i8 %306, 3
+  %switch.select222 = select i1 %switch.selectcmp221, ptr @dissect_spc_inquiry.aca_fields_spc, ptr %switch.select
+  %313 = call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %285, i32 noundef %.0..0..0..0.34, i32 noundef %311, i32 noundef %312, ptr noundef nonnull %switch.select222, i32 noundef 0)
   %.0..0..0..0.35 = load volatile i32, ptr %9, align 4
   %314 = add i32 %.0..0..0..0.35, 1
   store volatile i32 %314, ptr %9, align 4
@@ -4067,21 +4067,21 @@ define internal fastcc noundef i32 @dissect_spc_inq_sccsflags(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_spc_inq_bqueflags(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %trunc = trunc nuw i32 %3 to i8
+  %5 = load i32, ptr @hf_scsi_inq_bqueflags, align 4
+  %6 = load i32, ptr @ett_scsi_inq_bqueflags, align 4
   %switch.tableidx = add i8 %trunc, -3
-  %5 = icmp ult i8 %switch.tableidx, 3
-  br i1 %5, label %switch.lookup, label %7
+  %7 = icmp ult i8 %switch.tableidx, 3
+  br i1 %7, label %switch.lookup, label %9
 
 switch.lookup:                                    ; preds = %4
-  %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_spc_inq_bqueflags, i64 %6
+  %8 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_spc_inq_bqueflags, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %7
+  br label %9
 
-7:                                                ; preds = %4, %switch.lookup
+9:                                                ; preds = %4, %switch.lookup
   %dissect_spc_inq_bqueflags.bqe_fields_spc4.sink = phi ptr [ %switch.load, %switch.lookup ], [ @dissect_spc_inq_bqueflags.bqe_fields_spc4, %4 ]
-  %8 = load i32, ptr @hf_scsi_inq_bqueflags, align 4
-  %9 = load i32, ptr @ett_scsi_inq_bqueflags, align 4
-  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %dissect_spc_inq_bqueflags.bqe_fields_spc4.sink, i32 noundef 0)
+  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %dissect_spc_inq_bqueflags.bqe_fields_spc4.sink, i32 noundef 0)
   %11 = add i32 %1, 1
   ret i32 %11
 }

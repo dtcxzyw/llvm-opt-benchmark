@@ -1036,11 +1036,11 @@ define internal i32 @dissect_frame(ptr noundef %0, ptr noundef %1, ptr noundef %
 switch.lookup:                                    ; preds = %31
   %36 = load i32, ptr %7, align 4
   %37 = and i32 %36, 3
-  %38 = zext nneg i32 %37 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_frame, i64 %38
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 348
+  %39 = zext nneg i32 %37 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_frame, i64 %39
   %switch.load = load i32, ptr %switch.gep, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 348
-  store i32 %switch.load, ptr %39, align 4
+  store i32 %switch.load, ptr %38, align 4
   br label %40
 
 40:                                               ; preds = %switch.lookup, %31
@@ -2412,8 +2412,8 @@ proto_item_set_generated.exit666:                 ; preds = %proto_item_set_gene
   %847 = call i32 @_setjmp(ptr noundef nonnull %846) #9
   %.not616 = icmp eq i32 %847, 0
   %848 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.sink748 = select i1 %.not616, ptr null, ptr %848
-  store volatile ptr %.sink748, ptr %18, align 8
+  %.sink747 = select i1 %.not616, ptr null, ptr %848
+  store volatile ptr %.sink747, ptr %18, align 8
   %.0..0..0..0.56 = load volatile i32, ptr %19, align 4
   %849 = and i32 %.0..0..0..0.56, 1
   %.not617 = icmp eq i32 %849, 0
@@ -2788,8 +2788,8 @@ proto_item_set_generated.exit672:                 ; preds = %1031, %1028, %ensur
   %1038 = call i32 @_setjmp(ptr noundef nonnull %1037) #9
   %.not628 = icmp eq i32 %1038, 0
   %1039 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %.sink749 = select i1 %.not628, ptr null, ptr %1039
-  store volatile ptr %.sink749, ptr %22, align 8
+  %.sink748 = select i1 %.not628, ptr null, ptr %1039
+  store volatile ptr %.sink748, ptr %22, align 8
   %.0..0..0..0.23 = load volatile i32, ptr %23, align 4
   %1040 = and i32 %.0..0..0..0.23, 1
   %.not629 = icmp eq i32 %1040, 0

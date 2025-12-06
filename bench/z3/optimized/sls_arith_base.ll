@@ -6837,7 +6837,7 @@ _ZNK6vectorISt4pairIjjELb0EjE3endEv.exit:         ; preds = %2
   %23 = phi i64 [ %.pre205, %._crit_edge.loopexit ], [ %.sroa.0.0.copyload.i, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit ], [ %.sroa.0.0.copyload.i, %2 ]
   %24 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ 1, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit ], [ 1, %2 ]
   %25 = icmp eq i64 %24, %23
-  br i1 %25, label %279, label %85
+  br i1 %25, label %275, label %85
 
 .lr.ph:                                           ; preds = %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit, %_ZN3sls10arith_baseI13checked_int64ILb1EEE8power_ofES2_j.exit
   %.075187 = phi ptr [ %84, %_ZN3sls10arith_baseI13checked_int64ILb1EEE8power_ofES2_j.exit ], [ %16, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit ]
@@ -7085,28 +7085,28 @@ _ZN3sls10arith_baseI13checked_int64ILb1EEE8power_ofES2_j.exit: ; preds = %_ZN13c
 
 _ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit: ; preds = %134, %137
   %139 = load i64, ptr %6, align 8, !tbaa !41
-  switch i64 %139, label %180 [
-    i64 0, label %140
+  %140 = load ptr, ptr %15, align 8, !tbaa !56
+  %141 = icmp eq ptr %140, null
+  switch i64 %139, label %178 [
+    i64 0, label %142
     i64 1, label %.critedge
     i64 -1, label %.critedge
   ]
 
-140:                                              ; preds = %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit
-  %141 = load ptr, ptr %15, align 8, !tbaa !56
-  %142 = icmp eq ptr %141, null
-  br i1 %142, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit91
+142:                                              ; preds = %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit
+  br i1 %141, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit91
 
-_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit91:       ; preds = %140
-  %143 = getelementptr inbounds i8, ptr %141, i64 -4
+_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit91:       ; preds = %142
+  %143 = getelementptr inbounds i8, ptr %140, i64 -4
   %144 = load i32, ptr %143, align 4, !tbaa !54
   %145 = zext i32 %144 to i64
   %146 = shl nuw nsw i64 %145, 3
-  %147 = getelementptr inbounds nuw i8, ptr %141, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr %140, i64 %146
   %.not85191 = icmp eq i32 %144, 0
   br i1 %.not85191, label %.loopexit, label %.lr.ph193
 
 .lr.ph193:                                        ; preds = %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit91, %_ZngILb1EE13checked_int64IXT_EERKS1_.exit
-  %.078192 = phi ptr [ %157, %_ZngILb1EE13checked_int64IXT_EERKS1_.exit ], [ %141, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit91 ]
+  %.078192 = phi ptr [ %157, %_ZngILb1EE13checked_int64IXT_EERKS1_.exit ], [ %140, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit91 ]
   %148 = load i64, ptr %.078192, align 4
   %149 = load ptr, ptr %10, align 8, !tbaa !119
   %150 = and i64 %148, 4294967295
@@ -7131,288 +7131,284 @@ _ZngILb1EE13checked_int64IXT_EERKS1_.exit:        ; preds = %.lr.ph193
   br i1 %.not85, label %.loopexit, label %.lr.ph193
 
 .critedge:                                        ; preds = %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit, %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit
-  %158 = load ptr, ptr %15, align 8, !tbaa !56
-  %159 = icmp eq ptr %158, null
-  br i1 %159, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit94
+  br i1 %141, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit94
 
 _ZNK6vectorISt4pairIjjELb0EjE3endEv.exit94:       ; preds = %.critedge
-  %160 = getelementptr inbounds i8, ptr %158, i64 -4
-  %161 = load i32, ptr %160, align 4, !tbaa !54
-  %162 = zext i32 %161 to i64
-  %163 = shl nuw nsw i64 %162, 3
-  %164 = getelementptr inbounds nuw i8, ptr %158, i64 %163
-  %.not84188 = icmp eq i32 %161, 0
+  %158 = getelementptr inbounds i8, ptr %140, i64 -4
+  %159 = load i32, ptr %158, align 4, !tbaa !54
+  %160 = zext i32 %159 to i64
+  %161 = shl nuw nsw i64 %160, 3
+  %162 = getelementptr inbounds nuw i8, ptr %140, i64 %161
+  %.not84188 = icmp eq i32 %159, 0
   br i1 %.not84188, label %.loopexit, label %.lr.ph190
 
 .lr.ph190:                                        ; preds = %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit94, %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit99
-  %.081189 = phi ptr [ %179, %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit99 ], [ %158, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit94 ]
-  %165 = load i64, ptr %.081189, align 4
-  %166 = load ptr, ptr %10, align 8, !tbaa !119
-  %167 = and i64 %165, 4294967295
-  %168 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %166, i64 %167
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %.sroa.0.0.copyload.i95 = load i64, ptr %169, align 8, !tbaa !15
-  %170 = sub i64 1, %.sroa.0.0.copyload.i95
-  %171 = icmp slt i64 %.sroa.0.0.copyload.i95, 0
-  %172 = icmp slt i64 %170, 1
-  %or.cond.i.i = and i1 %171, %172
-  br i1 %or.cond.i.i, label %173, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit99
+  %.081189 = phi ptr [ %177, %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit99 ], [ %140, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit94 ]
+  %163 = load i64, ptr %.081189, align 4
+  %164 = load ptr, ptr %10, align 8, !tbaa !119
+  %165 = and i64 %163, 4294967295
+  %166 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %164, i64 %165
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %.sroa.0.0.copyload.i95 = load i64, ptr %167, align 8, !tbaa !15
+  %168 = sub i64 1, %.sroa.0.0.copyload.i95
+  %169 = icmp slt i64 %.sroa.0.0.copyload.i95, 0
+  %170 = icmp slt i64 %168, 1
+  %or.cond.i.i = and i1 %169, %170
+  br i1 %or.cond.i.i, label %171, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit99
 
-173:                                              ; preds = %.lr.ph190
-  %174 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %174, align 8, !tbaa !13
-  call void @__cxa_throw(ptr nonnull %174, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+171:                                              ; preds = %.lr.ph190
+  %172 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %172, align 8, !tbaa !13
+  call void @__cxa_throw(ptr nonnull %172, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
 _ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit99:   ; preds = %.lr.ph190
-  %.sroa.0154.0.extract.trunc = trunc i64 %165 to i32
-  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.0154.0.extract.trunc, i64 %170)
-  %175 = load ptr, ptr %10, align 8, !tbaa !119
-  %176 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %175, i64 %167
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %.sroa.0.0.copyload.i96 = load i64, ptr %177, align 8, !tbaa !15
-  %178 = xor i64 %.sroa.0.0.copyload.i96, -1
-  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.0154.0.extract.trunc, i64 %178)
-  %179 = getelementptr inbounds nuw i8, ptr %.081189, i64 8
-  %.not84 = icmp eq ptr %179, %164
+  %.sroa.0154.0.extract.trunc = trunc i64 %163 to i32
+  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.0154.0.extract.trunc, i64 %168)
+  %173 = load ptr, ptr %10, align 8, !tbaa !119
+  %174 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %173, i64 %165
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
+  %.sroa.0.0.copyload.i96 = load i64, ptr %175, align 8, !tbaa !15
+  %176 = xor i64 %.sroa.0.0.copyload.i96, -1
+  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.0154.0.extract.trunc, i64 %176)
+  %177 = getelementptr inbounds nuw i8, ptr %.081189, i64 8
+  %.not84 = icmp eq ptr %177, %162
   br i1 %.not84, label %.loopexit, label %.lr.ph190
 
-180:                                              ; preds = %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit
-  %181 = load ptr, ptr %15, align 8, !tbaa !56
-  %182 = icmp eq ptr %181, null
-  br i1 %182, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit101
+178:                                              ; preds = %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit
+  br i1 %141, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit101
 
-_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit101:      ; preds = %180
-  %183 = getelementptr inbounds i8, ptr %181, i64 -4
-  %184 = load i32, ptr %183, align 4, !tbaa !54
-  %185 = zext i32 %184 to i64
-  %186 = shl nuw nsw i64 %185, 3
-  %187 = getelementptr inbounds nuw i8, ptr %181, i64 %186
-  %.not83194 = icmp eq i32 %184, 0
+_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit101:      ; preds = %178
+  %179 = getelementptr inbounds i8, ptr %140, i64 -4
+  %180 = load i32, ptr %179, align 4, !tbaa !54
+  %181 = zext i32 %180 to i64
+  %182 = shl nuw nsw i64 %181, 3
+  %183 = getelementptr inbounds nuw i8, ptr %140, i64 %182
+  %.not83194 = icmp eq i32 %180, 0
   br i1 %.not83194, label %.loopexit, label %.lr.ph196
 
-.lr.ph196:                                        ; preds = %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit101, %244
-  %.082195 = phi ptr [ %245, %244 ], [ %181, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit101 ]
-  %188 = load i64, ptr %.082195, align 4
-  %.sroa.0141.0.extract.trunc = trunc i64 %188 to i32
-  %.sroa.10.0.extract.shift = lshr i64 %188, 32
+.lr.ph196:                                        ; preds = %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit101, %240
+  %.082195 = phi ptr [ %241, %240 ], [ %140, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit101 ]
+  %184 = load i64, ptr %.082195, align 4
+  %.sroa.0141.0.extract.trunc = trunc i64 %184 to i32
+  %.sroa.10.0.extract.shift = lshr i64 %184, 32
   %.sroa.10.0.extract.trunc = trunc nuw i64 %.sroa.10.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %189 = load i32, ptr %1, align 8, !tbaa !139
-  %190 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE17mul_value_withoutEjj(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %189, i32 noundef %.sroa.0141.0.extract.trunc)
-  store i64 %190, ptr %8, align 8
-  %191 = icmp eq i64 %190, 0
-  br i1 %191, label %244, label %192
+  %185 = load i32, ptr %1, align 8, !tbaa !139
+  %186 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE17mul_value_withoutEjj(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %185, i32 noundef %.sroa.0141.0.extract.trunc)
+  store i64 %186, ptr %8, align 8
+  %187 = icmp eq i64 %186, 0
+  br i1 %187, label %240, label %188
 
-192:                                              ; preds = %.lr.ph196
-  %193 = icmp ugt i64 %188, 8589934591
-  br i1 %193, label %194, label %._crit_edge206
+188:                                              ; preds = %.lr.ph196
+  %189 = icmp ugt i64 %184, 8589934591
+  br i1 %189, label %190, label %._crit_edge206
 
-._crit_edge206:                                   ; preds = %192
-  %.pre207 = and i64 %188, 4294967295
-  br label %201
+._crit_edge206:                                   ; preds = %188
+  %.pre207 = and i64 %184, 4294967295
+  br label %197
 
-194:                                              ; preds = %192
-  %195 = load ptr, ptr %10, align 8, !tbaa !119
-  %196 = and i64 %188, 4294967295
-  %197 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %195, i64 %196
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 40
-  %199 = load i32, ptr %198, align 8, !tbaa !70
-  %200 = icmp eq i32 %199, 0
-  br i1 %200, label %201, label %244
+190:                                              ; preds = %188
+  %191 = load ptr, ptr %10, align 8, !tbaa !119
+  %192 = and i64 %184, 4294967295
+  %193 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %191, i64 %192
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 40
+  %195 = load i32, ptr %194, align 8, !tbaa !70
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %197, label %240
 
-201:                                              ; preds = %._crit_edge206, %194
-  %.pre-phi = phi i64 [ %.pre207, %._crit_edge206 ], [ %196, %194 ]
-  %202 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE6divideEjRKS2_S5_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.0141.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %203 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7root_ofEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.10.0.extract.trunc, i64 %202)
-  %204 = load ptr, ptr %10, align 8, !tbaa !119
-  %205 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %204, i64 %.pre-phi
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  %.sroa.0.0.copyload.i102 = load i64, ptr %206, align 8, !tbaa !15
-  %207 = sub i64 %203, %.sroa.0.0.copyload.i102
-  %208 = icmp sgt i64 %203, 0
-  br i1 %208, label %209, label %214
+197:                                              ; preds = %._crit_edge206, %190
+  %.pre-phi = phi i64 [ %.pre207, %._crit_edge206 ], [ %192, %190 ]
+  %198 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE6divideEjRKS2_S5_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.0141.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %199 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7root_ofEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.10.0.extract.trunc, i64 %198)
+  %200 = load ptr, ptr %10, align 8, !tbaa !119
+  %201 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %200, i64 %.pre-phi
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
+  %.sroa.0.0.copyload.i102 = load i64, ptr %202, align 8, !tbaa !15
+  %203 = sub i64 %199, %.sroa.0.0.copyload.i102
+  %204 = icmp sgt i64 %199, 0
+  br i1 %204, label %205, label %210
 
-209:                                              ; preds = %201
-  %210 = icmp slt i64 %.sroa.0.0.copyload.i102, 0
-  %211 = icmp slt i64 %207, 1
-  %or.cond.i.i104 = and i1 %210, %211
-  br i1 %or.cond.i.i104, label %212, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105
+205:                                              ; preds = %197
+  %206 = icmp slt i64 %.sroa.0.0.copyload.i102, 0
+  %207 = icmp slt i64 %203, 1
+  %or.cond.i.i104 = and i1 %206, %207
+  br i1 %or.cond.i.i104, label %208, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105
 
-212:                                              ; preds = %209
-  %213 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %213, align 8, !tbaa !13
-  call void @__cxa_throw(ptr nonnull %213, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+208:                                              ; preds = %205
+  %209 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %209, align 8, !tbaa !13
+  call void @__cxa_throw(ptr nonnull %209, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
-214:                                              ; preds = %201
-  %215 = icmp slt i64 %203, 0
-  br i1 %215, label %216, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105
+210:                                              ; preds = %197
+  %211 = icmp slt i64 %199, 0
+  br i1 %211, label %212, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105
 
-216:                                              ; preds = %214
-  %217 = icmp sgt i64 %.sroa.0.0.copyload.i102, 0
-  %218 = icmp sgt i64 %207, -1
-  %or.cond3.i.i103 = and i1 %217, %218
-  br i1 %or.cond3.i.i103, label %219, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105
+212:                                              ; preds = %210
+  %213 = icmp sgt i64 %.sroa.0.0.copyload.i102, 0
+  %214 = icmp sgt i64 %203, -1
+  %or.cond3.i.i103 = and i1 %213, %214
+  br i1 %or.cond3.i.i103, label %215, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105
 
-219:                                              ; preds = %216
-  %220 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %220, align 8, !tbaa !13
-  call void @__cxa_throw(ptr nonnull %220, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+215:                                              ; preds = %212
+  %216 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %216, align 8, !tbaa !13
+  call void @__cxa_throw(ptr nonnull %216, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
-_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105:  ; preds = %209, %214, %216
-  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.0141.0.extract.trunc, i64 %207)
-  %221 = and i32 %.sroa.10.0.extract.trunc, 1
-  %222 = icmp eq i32 %221, 0
-  br i1 %222, label %223, label %244
+_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105:  ; preds = %205, %210, %212
+  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.0141.0.extract.trunc, i64 %203)
+  %217 = and i32 %.sroa.10.0.extract.trunc, 1
+  %218 = icmp eq i32 %217, 0
+  br i1 %218, label %219, label %240
 
-223:                                              ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105
-  %224 = icmp eq i64 %203, -9223372036854775808
-  br i1 %224, label %225, label %_ZngILb1EE13checked_int64IXT_EERKS1_.exit106
+219:                                              ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105
+  %220 = icmp eq i64 %199, -9223372036854775808
+  br i1 %220, label %221, label %_ZngILb1EE13checked_int64IXT_EERKS1_.exit106
 
-225:                                              ; preds = %223
-  %226 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %226, align 8, !tbaa !13
-  call void @__cxa_throw(ptr nonnull %226, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+221:                                              ; preds = %219
+  %222 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %222, align 8, !tbaa !13
+  call void @__cxa_throw(ptr nonnull %222, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
-_ZngILb1EE13checked_int64IXT_EERKS1_.exit106:     ; preds = %223
-  %227 = load ptr, ptr %10, align 8, !tbaa !119
-  %228 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %227, i64 %.pre-phi
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 16
-  %.sroa.0.0.copyload.i107 = load i64, ptr %229, align 8, !tbaa !15
-  %230 = add i64 %203, %.sroa.0.0.copyload.i107
-  %231 = sub i64 0, %230
-  %232 = icmp slt i64 %203, 0
-  br i1 %232, label %233, label %238
+_ZngILb1EE13checked_int64IXT_EERKS1_.exit106:     ; preds = %219
+  %223 = load ptr, ptr %10, align 8, !tbaa !119
+  %224 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %223, i64 %.pre-phi
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
+  %.sroa.0.0.copyload.i107 = load i64, ptr %225, align 8, !tbaa !15
+  %226 = add i64 %199, %.sroa.0.0.copyload.i107
+  %227 = sub i64 0, %226
+  %228 = icmp slt i64 %199, 0
+  br i1 %228, label %229, label %234
 
-233:                                              ; preds = %_ZngILb1EE13checked_int64IXT_EERKS1_.exit106
-  %234 = icmp slt i64 %.sroa.0.0.copyload.i107, 0
-  %235 = icmp slt i64 %231, 1
-  %or.cond.i.i109 = and i1 %234, %235
-  br i1 %or.cond.i.i109, label %236, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit110
+229:                                              ; preds = %_ZngILb1EE13checked_int64IXT_EERKS1_.exit106
+  %230 = icmp slt i64 %.sroa.0.0.copyload.i107, 0
+  %231 = icmp slt i64 %227, 1
+  %or.cond.i.i109 = and i1 %230, %231
+  br i1 %or.cond.i.i109, label %232, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit110
 
-236:                                              ; preds = %233
-  %237 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %237, align 8, !tbaa !13
-  call void @__cxa_throw(ptr nonnull %237, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+232:                                              ; preds = %229
+  %233 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %233, align 8, !tbaa !13
+  call void @__cxa_throw(ptr nonnull %233, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
-238:                                              ; preds = %_ZngILb1EE13checked_int64IXT_EERKS1_.exit106
-  %.not181 = icmp eq i64 %203, 0
-  br i1 %.not181, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit110, label %239
+234:                                              ; preds = %_ZngILb1EE13checked_int64IXT_EERKS1_.exit106
+  %.not181 = icmp eq i64 %199, 0
+  br i1 %.not181, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit110, label %235
 
-239:                                              ; preds = %238
-  %240 = icmp sgt i64 %.sroa.0.0.copyload.i107, 0
-  %241 = icmp sgt i64 %231, -1
-  %or.cond3.i.i108 = and i1 %240, %241
-  br i1 %or.cond3.i.i108, label %242, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit110
+235:                                              ; preds = %234
+  %236 = icmp sgt i64 %.sroa.0.0.copyload.i107, 0
+  %237 = icmp sgt i64 %227, -1
+  %or.cond3.i.i108 = and i1 %236, %237
+  br i1 %or.cond3.i.i108, label %238, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit110
 
-242:                                              ; preds = %239
-  %243 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %243, align 8, !tbaa !13
-  call void @__cxa_throw(ptr nonnull %243, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+238:                                              ; preds = %235
+  %239 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %239, align 8, !tbaa !13
+  call void @__cxa_throw(ptr nonnull %239, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
-_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit110:  ; preds = %233, %238, %239
-  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.0141.0.extract.trunc, i64 %231)
-  br label %244
+_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit110:  ; preds = %229, %234, %235
+  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.0141.0.extract.trunc, i64 %227)
+  br label %240
 
-244:                                              ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105, %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit110, %194, %.lr.ph196
+240:                                              ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit105, %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit110, %190, %.lr.ph196
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %245 = getelementptr inbounds nuw i8, ptr %.082195, i64 8
-  %.not83 = icmp eq ptr %245, %187
+  %241 = getelementptr inbounds nuw i8, ptr %.082195, i64 8
+  %.not83 = icmp eq ptr %241, %183
   br i1 %.not83, label %.loopexit, label %.lr.ph196
 
-.loopexit:                                        ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit99, %_ZngILb1EE13checked_int64IXT_EERKS1_.exit, %244, %180, %.critedge, %140, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit94, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit91, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit101
-  %246 = call noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE12apply_updateEv(ptr noundef nonnull align 8 dereferenceable(672) %0)
-  br i1 %246, label %247, label %250
+.loopexit:                                        ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit99, %_ZngILb1EE13checked_int64IXT_EERKS1_.exit, %240, %178, %.critedge, %142, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit94, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit91, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit101
+  %242 = call noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE12apply_updateEv(ptr noundef nonnull align 8 dereferenceable(672) %0)
+  br i1 %242, label %243, label %246
 
-247:                                              ; preds = %.loopexit
-  %248 = load i32, ptr %1, align 8, !tbaa !139
-  %249 = call noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE15eval_is_correctEj(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %248)
-  br label %279
+243:                                              ; preds = %.loopexit
+  %244 = load i32, ptr %1, align 8, !tbaa !139
+  %245 = call noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE15eval_is_correctEj(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %244)
+  br label %275
 
-250:                                              ; preds = %.loopexit
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %252 = load i8, ptr %251, align 8, !tbaa !236, !range !82, !noundef !83
-  store i8 0, ptr %251, align 8, !tbaa !236
-  %253 = load ptr, ptr %135, align 8, !tbaa !235
-  %.not.i111 = icmp eq ptr %253, null
-  br i1 %.not.i111, label %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit112, label %254
+246:                                              ; preds = %.loopexit
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %248 = load i8, ptr %247, align 8, !tbaa !236, !range !82, !noundef !83
+  store i8 0, ptr %247, align 8, !tbaa !236
+  %249 = load ptr, ptr %135, align 8, !tbaa !235
+  %.not.i111 = icmp eq ptr %249, null
+  br i1 %.not.i111, label %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit112, label %250
 
-254:                                              ; preds = %250
-  %255 = getelementptr inbounds i8, ptr %253, i64 -4
-  store i32 0, ptr %255, align 4, !tbaa !54
+250:                                              ; preds = %246
+  %251 = getelementptr inbounds i8, ptr %249, i64 -4
+  store i32 0, ptr %251, align 4, !tbaa !54
   br label %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit112
 
-_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit112: ; preds = %254, %250
-  %256 = load ptr, ptr %15, align 8, !tbaa !56
-  %257 = icmp eq ptr %256, null
-  br i1 %257, label %._crit_edge200, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit114
+_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit112: ; preds = %250, %246
+  %252 = load ptr, ptr %15, align 8, !tbaa !56
+  %253 = icmp eq ptr %252, null
+  br i1 %253, label %._crit_edge200, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit114
 
 _ZNK6vectorISt4pairIjjELb0EjE3endEv.exit114:      ; preds = %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit112
-  %258 = getelementptr inbounds i8, ptr %256, i64 -4
-  %259 = load i32, ptr %258, align 4, !tbaa !54
-  %260 = zext i32 %259 to i64
-  %261 = shl nuw nsw i64 %260, 3
-  %262 = getelementptr inbounds nuw i8, ptr %256, i64 %261
-  %.not86197 = icmp eq i32 %259, 0
+  %254 = getelementptr inbounds i8, ptr %252, i64 -4
+  %255 = load i32, ptr %254, align 4, !tbaa !54
+  %256 = zext i32 %255 to i64
+  %257 = shl nuw nsw i64 %256, 3
+  %258 = getelementptr inbounds nuw i8, ptr %252, i64 %257
+  %.not86197 = icmp eq i32 %255, 0
   br i1 %.not86197, label %._crit_edge200, label %.lr.ph199
 
-._crit_edge200:                                   ; preds = %267, %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit112, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit114
-  %263 = invoke noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE12apply_updateEv(ptr noundef nonnull align 8 dereferenceable(672) %0)
-          to label %271 unwind label %264
+._crit_edge200:                                   ; preds = %263, %_ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.exit112, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit114
+  %259 = invoke noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE12apply_updateEv(ptr noundef nonnull align 8 dereferenceable(672) %0)
+          to label %267 unwind label %260
 
-264:                                              ; preds = %275, %273, %._crit_edge200
-  %265 = landingpad { ptr, i32 }
+260:                                              ; preds = %271, %269, %._crit_edge200
+  %261 = landingpad { ptr, i32 }
           cleanup
-  br label %278
+  br label %274
 
-.lr.ph199:                                        ; preds = %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit114, %267
-  %.077198 = phi ptr [ %268, %267 ], [ %256, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit114 ]
-  %266 = load i64, ptr %.077198, align 4
-  %.sroa.0.0.extract.trunc = trunc i64 %266 to i32
+.lr.ph199:                                        ; preds = %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit114, %263
+  %.077198 = phi ptr [ %264, %263 ], [ %252, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit114 ]
+  %262 = load i64, ptr %.077198, align 4
+  %.sroa.0.0.extract.trunc = trunc i64 %262 to i32
   invoke void @_ZN3sls10arith_baseI13checked_int64ILb1EEE16add_reset_updateEj(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.0.0.extract.trunc)
-          to label %267 unwind label %269
+          to label %263 unwind label %265
 
-267:                                              ; preds = %.lr.ph199
-  %268 = getelementptr inbounds nuw i8, ptr %.077198, i64 8
-  %.not86 = icmp eq ptr %268, %262
+263:                                              ; preds = %.lr.ph199
+  %264 = getelementptr inbounds nuw i8, ptr %.077198, i64 8
+  %.not86 = icmp eq ptr %264, %258
   br i1 %.not86, label %._crit_edge200, label %.lr.ph199
 
-269:                                              ; preds = %.lr.ph199
-  %270 = landingpad { ptr, i32 }
+265:                                              ; preds = %.lr.ph199
+  %266 = landingpad { ptr, i32 }
           cleanup
-  br label %278
+  br label %274
 
-271:                                              ; preds = %._crit_edge200
-  %272 = load i32, ptr %1, align 8, !tbaa !139
-  br i1 %263, label %273, label %275
+267:                                              ; preds = %._crit_edge200
+  %268 = load i32, ptr %1, align 8, !tbaa !139
+  br i1 %259, label %269, label %271
 
-273:                                              ; preds = %271
-  %274 = invoke noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE15eval_is_correctEj(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %272)
-          to label %277 unwind label %264
+269:                                              ; preds = %267
+  %270 = invoke noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE15eval_is_correctEj(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %268)
+          to label %273 unwind label %260
 
-275:                                              ; preds = %271
-  %276 = invoke noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE14update_checkedEjRKS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %272, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %277 unwind label %264
+271:                                              ; preds = %267
+  %272 = invoke noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE14update_checkedEjRKS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %268, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %273 unwind label %260
 
-277:                                              ; preds = %275, %273
-  %.1 = phi i1 [ %274, %273 ], [ %276, %275 ]
-  store i8 %252, ptr %251, align 8, !tbaa !236
-  br label %279
+273:                                              ; preds = %271, %269
+  %.1 = phi i1 [ %270, %269 ], [ %272, %271 ]
+  store i8 %248, ptr %247, align 8, !tbaa !236
+  br label %275
 
-278:                                              ; preds = %269, %264
-  %.pn = phi { ptr, i32 } [ %270, %269 ], [ %265, %264 ]
-  store i8 %252, ptr %251, align 8, !tbaa !236
+274:                                              ; preds = %265, %260
+  %.pn = phi { ptr, i32 } [ %266, %265 ], [ %261, %260 ]
+  store i8 %248, ptr %247, align 8, !tbaa !236
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
-279:                                              ; preds = %._crit_edge, %277, %247
-  %.0 = phi i1 [ %249, %247 ], [ %.1, %277 ], [ true, %._crit_edge ]
+275:                                              ; preds = %._crit_edge, %273, %243
+  %.0 = phi i1 [ %245, %243 ], [ %.1, %273 ], [ true, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
@@ -11675,29 +11671,29 @@ define weak_odr hidden void @_ZN3sls10arith_baseI13checked_int64ILb1EEE14add_upd
 
 _ZplILb1EE13checked_int64IXT_EERKS1_S3_.exit:     ; preds = %15, %20, %22
   store i64 %13, ptr %4, align 8
-  switch i64 %13, label %69 [
-    i64 0, label %27
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !56
+  %29 = icmp eq ptr %28, null
+  switch i64 %13, label %66 [
+    i64 0, label %30
     i64 1, label %.critedge
     i64 -1, label %.critedge
   ]
 
-27:                                               ; preds = %_ZplILb1EE13checked_int64IXT_EERKS1_S3_.exit
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !56
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit
+30:                                               ; preds = %_ZplILb1EE13checked_int64IXT_EERKS1_S3_.exit
+  br i1 %29, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit
 
-_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit:         ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 -4
+_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit:         ; preds = %30
+  %31 = getelementptr inbounds i8, ptr %28, i64 -4
   %32 = load i32, ptr %31, align 4, !tbaa !54
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 3
-  %35 = getelementptr inbounds nuw i8, ptr %29, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 %34
   %.not52108 = icmp eq i32 %32, 0
   br i1 %.not52108, label %.loopexit, label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit, %_ZngILb1EE13checked_int64IXT_EERKS1_.exit
-  %.0109 = phi ptr [ %45, %_ZngILb1EE13checked_int64IXT_EERKS1_.exit ], [ %29, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit ]
+  %.0109 = phi ptr [ %45, %_ZngILb1EE13checked_int64IXT_EERKS1_.exit ], [ %28, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit ]
   %36 = load i64, ptr %.0109, align 4
   %37 = load ptr, ptr %7, align 8, !tbaa !119
   %38 = and i64 %36, 4294967295
@@ -11722,169 +11718,179 @@ _ZngILb1EE13checked_int64IXT_EERKS1_.exit:        ; preds = %.lr.ph110
   br i1 %.not52, label %.loopexit, label %.lr.ph110
 
 .critedge:                                        ; preds = %_ZplILb1EE13checked_int64IXT_EERKS1_S3_.exit, %_ZplILb1EE13checked_int64IXT_EERKS1_S3_.exit
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !56
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit55
+  br i1 %29, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit55
 
 _ZNK6vectorISt4pairIjjELb0EjE3endEv.exit55:       ; preds = %.critedge
-  %49 = getelementptr inbounds i8, ptr %47, i64 -4
-  %50 = load i32, ptr %49, align 4, !tbaa !54
-  %51 = zext i32 %50 to i64
-  %52 = shl nuw nsw i64 %51, 3
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 %52
-  %.not51106 = icmp eq i32 %50, 0
+  %46 = getelementptr inbounds i8, ptr %28, i64 -4
+  %47 = load i32, ptr %46, align 4, !tbaa !54
+  %48 = zext i32 %47 to i64
+  %49 = shl nuw nsw i64 %48, 3
+  %50 = getelementptr inbounds nuw i8, ptr %28, i64 %49
+  %.not51106 = icmp eq i32 %47, 0
   br i1 %.not51106, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit55, %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit62
-  %.048107 = phi ptr [ %68, %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit62 ], [ %47, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit55 ]
-  %54 = load i64, ptr %.048107, align 4
-  %55 = load ptr, ptr %7, align 8, !tbaa !119
-  %56 = and i64 %54, 4294967295
-  %57 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %55, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %.sroa.0.0.copyload.i56 = load i64, ptr %58, align 8, !tbaa !15
-  %59 = sub i64 1, %.sroa.0.0.copyload.i56
-  %60 = icmp slt i64 %.sroa.0.0.copyload.i56, 0
-  %61 = icmp slt i64 %59, 1
-  %or.cond.i.i58 = and i1 %60, %61
-  br i1 %or.cond.i.i58, label %62, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit62
+  %.048107 = phi ptr [ %65, %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit62 ], [ %28, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit55 ]
+  %51 = load i64, ptr %.048107, align 4
+  %52 = load ptr, ptr %7, align 8, !tbaa !119
+  %53 = and i64 %51, 4294967295
+  %54 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %52, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %.sroa.0.0.copyload.i56 = load i64, ptr %55, align 8, !tbaa !15
+  %56 = sub i64 1, %.sroa.0.0.copyload.i56
+  %57 = icmp slt i64 %.sroa.0.0.copyload.i56, 0
+  %58 = icmp slt i64 %56, 1
+  %or.cond.i.i58 = and i1 %57, %58
+  br i1 %or.cond.i.i58, label %59, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit62
 
-62:                                               ; preds = %.lr.ph
-  %63 = tail call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %63, align 8, !tbaa !13
-  tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+59:                                               ; preds = %.lr.ph
+  %60 = tail call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %60, align 8, !tbaa !13
+  tail call void @__cxa_throw(ptr nonnull %60, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
 _ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit62:   ; preds = %.lr.ph
-  %.sroa.092.0.extract.trunc = trunc i64 %54 to i32
-  tail call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.092.0.extract.trunc, i64 %59)
-  %64 = load ptr, ptr %7, align 8, !tbaa !119
-  %65 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %64, i64 %56
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %.sroa.0.0.copyload.i59 = load i64, ptr %66, align 8, !tbaa !15
-  %67 = xor i64 %.sroa.0.0.copyload.i59, -1
-  tail call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.092.0.extract.trunc, i64 %67)
-  %68 = getelementptr inbounds nuw i8, ptr %.048107, i64 8
-  %.not51 = icmp eq ptr %68, %53
+  %.sroa.092.0.extract.trunc = trunc i64 %51 to i32
+  tail call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.092.0.extract.trunc, i64 %56)
+  %61 = load ptr, ptr %7, align 8, !tbaa !119
+  %62 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %61, i64 %53
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %.sroa.0.0.copyload.i59 = load i64, ptr %63, align 8, !tbaa !15
+  %64 = xor i64 %.sroa.0.0.copyload.i59, -1
+  tail call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.092.0.extract.trunc, i64 %64)
+  %65 = getelementptr inbounds nuw i8, ptr %.048107, i64 8
+  %.not51 = icmp eq ptr %65, %50
   br i1 %.not51, label %.loopexit, label %.lr.ph
 
-69:                                               ; preds = %_ZplILb1EE13checked_int64IXT_EERKS1_S3_.exit
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !56
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit64
+66:                                               ; preds = %_ZplILb1EE13checked_int64IXT_EERKS1_S3_.exit
+  br i1 %29, label %.loopexit, label %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit64
 
-_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit64:       ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %71, i64 -4
-  %74 = load i32, ptr %73, align 4, !tbaa !54
-  %75 = zext i32 %74 to i64
-  %76 = shl nuw nsw i64 %75, 3
-  %77 = getelementptr inbounds nuw i8, ptr %71, i64 %76
-  %.not111 = icmp eq i32 %74, 0
+_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit64:       ; preds = %66
+  %67 = getelementptr inbounds i8, ptr %28, i64 -4
+  %68 = load i32, ptr %67, align 4, !tbaa !54
+  %69 = zext i32 %68 to i64
+  %70 = shl nuw nsw i64 %69, 3
+  %71 = getelementptr inbounds nuw i8, ptr %28, i64 %70
+  %.not111 = icmp eq i32 %68, 0
   br i1 %.not111, label %.loopexit, label %.lr.ph113
 
-.lr.ph113:                                        ; preds = %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit64, %134
-  %.049112 = phi ptr [ %135, %134 ], [ %71, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit64 ]
-  %78 = load i64, ptr %.049112, align 4
-  %.sroa.079.0.extract.trunc = trunc i64 %78 to i32
-  %.sroa.10.0.extract.shift = lshr i64 %78, 32
+.lr.ph113:                                        ; preds = %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit64, %128
+  %.049112 = phi ptr [ %129, %128 ], [ %28, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit64 ]
+  %72 = load i64, ptr %.049112, align 4
+  %.sroa.079.0.extract.trunc = trunc i64 %72 to i32
+  %.sroa.10.0.extract.shift = lshr i64 %72, 32
   %.sroa.10.0.extract.trunc = trunc nuw i64 %.sroa.10.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %79 = load i32, ptr %1, align 8, !tbaa !139
-  %80 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE17mul_value_withoutEjj(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %79, i32 noundef %.sroa.079.0.extract.trunc)
-  store i64 %80, ptr %5, align 8
-  %81 = icmp eq i64 %80, 0
-  br i1 %81, label %134, label %82
+  %73 = load i32, ptr %1, align 8, !tbaa !139
+  %74 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE17mul_value_withoutEjj(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %73, i32 noundef %.sroa.079.0.extract.trunc)
+  store i64 %74, ptr %5, align 8
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %128, label %76
 
-82:                                               ; preds = %.lr.ph113
-  %83 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE6divideEjRKS2_S5_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.079.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %84 = icmp ugt i64 %78, 8589934591
-  br i1 %84, label %85, label %._crit_edge
+76:                                               ; preds = %.lr.ph113
+  %77 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE6divideEjRKS2_S5_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.079.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %78 = icmp ugt i64 %72, 8589934591
+  br i1 %78, label %79, label %._crit_edge
 
-._crit_edge:                                      ; preds = %82
-  %.pre = and i64 %78, 4294967295
-  br label %92
+._crit_edge:                                      ; preds = %76
+  %.pre = and i64 %72, 4294967295
+  br label %86
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %7, align 8, !tbaa !119
-  %87 = and i64 %78, 4294967295
-  %88 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %86, i64 %87
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  %90 = load i32, ptr %89, align 8, !tbaa !70
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %134
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %7, align 8, !tbaa !119
+  %81 = and i64 %72, 4294967295
+  %82 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %80, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
+  %84 = load i32, ptr %83, align 8, !tbaa !70
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %128
 
-92:                                               ; preds = %._crit_edge, %85
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %87, %85 ]
-  %93 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7root_ofEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.10.0.extract.trunc, i64 %83)
-  %94 = load ptr, ptr %7, align 8, !tbaa !119
-  %95 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %94, i64 %.pre-phi
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %.sroa.0.0.copyload.i65 = load i64, ptr %96, align 8, !tbaa !15
-  %97 = sub i64 %93, %.sroa.0.0.copyload.i65
-  %98 = icmp sgt i64 %93, 0
-  br i1 %98, label %99, label %104
+86:                                               ; preds = %._crit_edge, %79
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %81, %79 ]
+  %87 = call i64 @_ZN3sls10arith_baseI13checked_int64ILb1EEE7root_ofEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.10.0.extract.trunc, i64 %77)
+  %88 = load ptr, ptr %7, align 8, !tbaa !119
+  %89 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %88, i64 %.pre-phi
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %.sroa.0.0.copyload.i65 = load i64, ptr %90, align 8, !tbaa !15
+  %91 = sub i64 %87, %.sroa.0.0.copyload.i65
+  %92 = icmp sgt i64 %87, 0
+  br i1 %92, label %93, label %98
 
-99:                                               ; preds = %92
-  %100 = icmp slt i64 %.sroa.0.0.copyload.i65, 0
-  %101 = icmp slt i64 %97, 1
-  %or.cond.i.i67 = and i1 %100, %101
-  br i1 %or.cond.i.i67, label %102, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68
+93:                                               ; preds = %86
+  %94 = icmp slt i64 %.sroa.0.0.copyload.i65, 0
+  %95 = icmp slt i64 %91, 1
+  %or.cond.i.i67 = and i1 %94, %95
+  br i1 %or.cond.i.i67, label %96, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68
 
-102:                                              ; preds = %99
-  %103 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %103, align 8, !tbaa !13
-  call void @__cxa_throw(ptr nonnull %103, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+96:                                               ; preds = %93
+  %97 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %97, align 8, !tbaa !13
+  call void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
-104:                                              ; preds = %92
-  %105 = icmp slt i64 %93, 0
-  br i1 %105, label %106, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68
+98:                                               ; preds = %86
+  %99 = icmp slt i64 %87, 0
+  br i1 %99, label %100, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68
 
-106:                                              ; preds = %104
-  %107 = icmp sgt i64 %.sroa.0.0.copyload.i65, 0
-  %108 = icmp sgt i64 %97, -1
-  %or.cond3.i.i66 = and i1 %107, %108
-  br i1 %or.cond3.i.i66, label %109, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68
+100:                                              ; preds = %98
+  %101 = icmp sgt i64 %.sroa.0.0.copyload.i65, 0
+  %102 = icmp sgt i64 %91, -1
+  %or.cond3.i.i66 = and i1 %101, %102
+  br i1 %or.cond3.i.i66, label %103, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68
 
-109:                                              ; preds = %106
+103:                                              ; preds = %100
+  %104 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %104, align 8, !tbaa !13
+  call void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+  unreachable
+
+_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68:   ; preds = %93, %98, %100
+  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.079.0.extract.trunc, i64 %91)
+  %105 = and i32 %.sroa.10.0.extract.trunc, 1
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %128
+
+107:                                              ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68
+  %108 = icmp eq i64 %87, -9223372036854775808
+  br i1 %108, label %109, label %_ZngILb1EE13checked_int64IXT_EERKS1_.exit69
+
+109:                                              ; preds = %107
   %110 = call ptr @__cxa_allocate_exception(i64 8) #27
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %110, align 8, !tbaa !13
   call void @__cxa_throw(ptr nonnull %110, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
-_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68:   ; preds = %99, %104, %106
-  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.079.0.extract.trunc, i64 %97)
-  %111 = and i32 %.sroa.10.0.extract.trunc, 1
-  %112 = icmp eq i32 %111, 0
-  br i1 %112, label %113, label %134
+_ZngILb1EE13checked_int64IXT_EERKS1_.exit69:      ; preds = %107
+  %111 = load ptr, ptr %7, align 8, !tbaa !119
+  %112 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %111, i64 %.pre-phi
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %.sroa.0.0.copyload.i70 = load i64, ptr %113, align 8, !tbaa !15
+  %114 = add i64 %87, %.sroa.0.0.copyload.i70
+  %115 = sub i64 0, %114
+  %116 = icmp slt i64 %87, 0
+  br i1 %116, label %117, label %122
 
-113:                                              ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68
-  %114 = icmp eq i64 %93, -9223372036854775808
-  br i1 %114, label %115, label %_ZngILb1EE13checked_int64IXT_EERKS1_.exit69
+117:                                              ; preds = %_ZngILb1EE13checked_int64IXT_EERKS1_.exit69
+  %118 = icmp slt i64 %.sroa.0.0.copyload.i70, 0
+  %119 = icmp slt i64 %115, 1
+  %or.cond.i.i72 = and i1 %118, %119
+  br i1 %or.cond.i.i72, label %120, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit73
 
-115:                                              ; preds = %113
-  %116 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %116, align 8, !tbaa !13
-  call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+120:                                              ; preds = %117
+  %121 = call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %121, align 8, !tbaa !13
+  call void @__cxa_throw(ptr nonnull %121, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
-_ZngILb1EE13checked_int64IXT_EERKS1_.exit69:      ; preds = %113
-  %117 = load ptr, ptr %7, align 8, !tbaa !119
-  %118 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %117, i64 %.pre-phi
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %.sroa.0.0.copyload.i70 = load i64, ptr %119, align 8, !tbaa !15
-  %120 = add i64 %93, %.sroa.0.0.copyload.i70
-  %121 = sub i64 0, %120
-  %122 = icmp slt i64 %93, 0
-  br i1 %122, label %123, label %128
+122:                                              ; preds = %_ZngILb1EE13checked_int64IXT_EERKS1_.exit69
+  %.not103 = icmp eq i64 %87, 0
+  br i1 %.not103, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit73, label %123
 
-123:                                              ; preds = %_ZngILb1EE13checked_int64IXT_EERKS1_.exit69
-  %124 = icmp slt i64 %.sroa.0.0.copyload.i70, 0
-  %125 = icmp slt i64 %121, 1
-  %or.cond.i.i72 = and i1 %124, %125
-  br i1 %or.cond.i.i72, label %126, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit73
+123:                                              ; preds = %122
+  %124 = icmp sgt i64 %.sroa.0.0.copyload.i70, 0
+  %125 = icmp sgt i64 %115, -1
+  %or.cond3.i.i71 = and i1 %124, %125
+  br i1 %or.cond3.i.i71, label %126, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit73
 
 126:                                              ; preds = %123
   %127 = call ptr @__cxa_allocate_exception(i64 8) #27
@@ -11892,33 +11898,17 @@ _ZngILb1EE13checked_int64IXT_EERKS1_.exit69:      ; preds = %113
   call void @__cxa_throw(ptr nonnull %127, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
-128:                                              ; preds = %_ZngILb1EE13checked_int64IXT_EERKS1_.exit69
-  %.not103 = icmp eq i64 %93, 0
-  br i1 %.not103, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit73, label %129
+_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit73:   ; preds = %117, %122, %123
+  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.079.0.extract.trunc, i64 %115)
+  br label %128
 
-129:                                              ; preds = %128
-  %130 = icmp sgt i64 %.sroa.0.0.copyload.i70, 0
-  %131 = icmp sgt i64 %121, -1
-  %or.cond3.i.i71 = and i1 %130, %131
-  br i1 %or.cond3.i.i71, label %132, label %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit73
-
-132:                                              ; preds = %129
-  %133 = call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %133, align 8, !tbaa !13
-  call void @__cxa_throw(ptr nonnull %133, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
-  unreachable
-
-_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit73:   ; preds = %123, %128, %129
-  call void @_ZN3sls10arith_baseI13checked_int64ILb1EEE10add_updateEjS2_(ptr noundef nonnull align 8 dereferenceable(672) %0, i32 noundef %.sroa.079.0.extract.trunc, i64 %121)
-  br label %134
-
-134:                                              ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68, %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit73, %85, %.lr.ph113
+128:                                              ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit68, %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit73, %79, %.lr.ph113
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %135 = getelementptr inbounds nuw i8, ptr %.049112, i64 8
-  %.not = icmp eq ptr %135, %77
+  %129 = getelementptr inbounds nuw i8, ptr %.049112, i64 8
+  %.not = icmp eq ptr %129, %71
   br i1 %.not, label %.loopexit, label %.lr.ph113
 
-.loopexit:                                        ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit62, %_ZngILb1EE13checked_int64IXT_EERKS1_.exit, %134, %69, %.critedge, %27, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit55, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit64
+.loopexit:                                        ; preds = %_ZmiILb1EE13checked_int64IXT_EERKS1_S3_.exit62, %_ZngILb1EE13checked_int64IXT_EERKS1_.exit, %128, %66, %.critedge, %30, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit55, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit, %_ZNK6vectorISt4pairIjjELb0EjE3endEv.exit64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

@@ -472,9 +472,9 @@ $_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapCon
 @switch.table._ZN4llvm27getMinMaxReductionRecurKindEj = private unnamed_addr constant [11 x i32] [i32 13, i32 0, i32 12, i32 0, i32 0, i32 0, i32 0, i32 7, i32 6, i32 9, i32 8], align 4
 @switch.table._ZN4llvm27getMinMaxReductionPredicateENS_9RecurKindE = private unnamed_addr constant [8 x i32] [i32 40, i32 38, i32 36, i32 34, i32 poison, i32 poison, i32 4, i32 2], align 4
 @switch.table._ZN4llvm14createMinMaxOpERNS_13IRBuilderBaseENS_9RecurKindEPNS_5ValueES4_ = private unnamed_addr constant [10 x i32] [i32 328, i32 327, i32 364, i32 363, i32 poison, i32 poison, i32 248, i32 237, i32 246, i32 235], align 4
-@switch.table._ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE = private unnamed_addr constant [16 x i32] [i32 379, i32 387, i32 388, i32 380, i32 393, i32 390, i32 389, i32 392, i32 391, i32 381, i32 386, i32 384, i32 382, i32 385, i32 383, i32 381], align 4
 @switch.table._ZN4llvm21createSimpleReductionERNS_13IRBuilderBaseEPNS_5ValueENS_9RecurKindE = private unnamed_addr constant [15 x i32] [i32 379, i32 387, i32 388, i32 380, i32 393, i32 390, i32 389, i32 392, i32 391, i32 381, i32 386, i32 384, i32 382, i32 385, i32 383], align 4
 @switch.table._ZN4llvm21createSimpleReductionERNS_13IRBuilderBaseEPNS_5ValueENS_9RecurKindE.58 = private unnamed_addr constant [7 x i32] [i32 381, i32 386, i32 384, i32 382, i32 385, i32 383, i32 381], align 4
+@switch.table._ZN4llvm21createSimpleReductionERNS_13VectorBuilderEPNS_5ValueERKNS_20RecurrenceDescriptorE = private unnamed_addr constant [16 x i32] [i32 379, i32 387, i32 388, i32 380, i32 393, i32 390, i32 389, i32 392, i32 391, i32 381, i32 386, i32 384, i32 382, i32 385, i32 383, i32 381], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm23formDedicatedExitBlocksEPNS_4LoopEPNS_13DominatorTreeEPNS_8LoopInfoEPNS_16MemorySSAUpdaterEb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
@@ -6246,7 +6246,7 @@ declare noundef ptr @_ZN4llvm10ConstantFP3getEPNS_4TypeERKNS_7APFloatE(ptr nound
 define dso_local noundef ptr @_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE(i32 noundef %0, ptr noundef %1, i32 %2) local_unnamed_addr #0 {
 switch.lookup:
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i32, ptr @switch.table._ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE, i64 %3
+  %4 = getelementptr i32, ptr @switch.table._ZN4llvm21createSimpleReductionERNS_13VectorBuilderEPNS_5ValueERKNS_20RecurrenceDescriptorE, i64 %3
   %switch.gep = getelementptr i8, ptr %4, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = tail call noundef ptr @_ZN4llvm20getReductionIdentityEjPNS_4TypeENS_13FastMathFlagsE(i32 noundef %switch.load, ptr noundef %1, i32 %2)
@@ -6325,213 +6325,35 @@ declare noundef ptr @_ZN4llvm13IRBuilderBase16CreateFMulReduceEPNS_5ValueES2_(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN4llvm21createSimpleReductionERNS_13VectorBuilderEPNS_5ValueERKNS_20RecurrenceDescriptorE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(164) %2) local_unnamed_addr #0 {
-  %4 = alloca [2 x ptr], align 16
-  %5 = alloca %"class.llvm::Twine", align 8
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %7 = load i32, ptr %6, align 8, !tbaa !401
-  switch i32 %7, label %13 [
-    i32 1, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread
-    i32 2, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread15
-    i32 4, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread20
-    i32 3, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread25
-    i32 5, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread30
-    i32 16, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit
-    i32 10, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit
-    i32 11, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread35
-    i32 7, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread40
-    i32 6, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread45
-    i32 9, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread50
-    i32 8, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread55
-    i32 13, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread60
-    i32 12, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread65
-    i32 15, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread70
-    i32 14, label %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread75
-  ]
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread: ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !209
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !400
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i12 = load i32, ptr %12, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-13:                                               ; preds = %3
-  unreachable
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread15: ; preds = %3
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !209
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !400
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i17 = load i32, ptr %18, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread20: ; preds = %3
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !209
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !400
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i22 = load i32, ptr %23, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread25: ; preds = %3
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !209
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !400
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i27 = load i32, ptr %28, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread30: ; preds = %3
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !209
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !400
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i32 = load i32, ptr %33, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread35: ; preds = %3
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !209
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !400
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i37 = load i32, ptr %38, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread40: ; preds = %3
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !209
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !400
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i42 = load i32, ptr %43, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread45: ; preds = %3
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !209
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !400
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i47 = load i32, ptr %48, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread50: ; preds = %3
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !209
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !400
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i52 = load i32, ptr %53, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread55: ; preds = %3
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !209
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %57 = load ptr, ptr %56, align 8, !tbaa !400
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i57 = load i32, ptr %58, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread60: ; preds = %3
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !209
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %62 = load ptr, ptr %61, align 8, !tbaa !400
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i62 = load i32, ptr %63, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread65: ; preds = %3
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !209
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %67 = load ptr, ptr %66, align 8, !tbaa !400
-  %68 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i67 = load i32, ptr %68, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread70: ; preds = %3
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !209
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load ptr, ptr %71, align 8, !tbaa !400
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i72 = load i32, ptr %73, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread75: ; preds = %3
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !209
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load ptr, ptr %76, align 8, !tbaa !400
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i77 = load i32, ptr %78, align 4, !tbaa !368
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit: ; preds = %3, %3
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !209
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !400
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %.sroa.0.0.copyload.i = load i32, ptr %83, align 4, !tbaa !368
-  switch i32 %7, label %84 [
-    i32 14, label %89
-    i32 15, label %88
-    i32 12, label %87
-    i32 13, label %86
-    i32 11, label %85
-    i32 16, label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-    i32 10, label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-  ]
-
-84:                                               ; preds = %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit
-  unreachable
-
-85:                                               ; preds = %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-86:                                               ; preds = %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-87:                                               ; preds = %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-88:                                               ; preds = %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-89:                                               ; preds = %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit
-  br label %_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit
-
-_ZN4llvm21getRecurrenceIdentityENS_9RecurKindEPNS_4TypeENS_13FastMathFlagsE.exit: ; preds = %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread75, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread70, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread65, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread60, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread55, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread50, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread45, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread40, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread35, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread30, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread25, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread20, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread15, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread, %85, %86, %87, %88, %89
-  %.sroa.0.0.copyload.i14 = phi i32 [ %.sroa.0.0.copyload.i12, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread ], [ %.sroa.0.0.copyload.i17, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread15 ], [ %.sroa.0.0.copyload.i22, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread20 ], [ %.sroa.0.0.copyload.i27, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread25 ], [ %.sroa.0.0.copyload.i32, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread30 ], [ %.sroa.0.0.copyload.i37, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread35 ], [ %.sroa.0.0.copyload.i, %85 ], [ %.sroa.0.0.copyload.i42, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread40 ], [ %.sroa.0.0.copyload.i47, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread45 ], [ %.sroa.0.0.copyload.i52, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread50 ], [ %.sroa.0.0.copyload.i57, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread55 ], [ %.sroa.0.0.copyload.i62, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread60 ], [ %.sroa.0.0.copyload.i, %86 ], [ %.sroa.0.0.copyload.i67, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread65 ], [ %.sroa.0.0.copyload.i, %87 ], [ %.sroa.0.0.copyload.i72, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread70 ], [ %.sroa.0.0.copyload.i, %88 ], [ %.sroa.0.0.copyload.i77, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread75 ], [ %.sroa.0.0.copyload.i, %89 ], [ %.sroa.0.0.copyload.i, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit ], [ %.sroa.0.0.copyload.i, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit ]
-  %90 = phi ptr [ %11, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread ], [ %17, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread15 ], [ %22, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread20 ], [ %27, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread25 ], [ %32, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread30 ], [ %37, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread35 ], [ %82, %85 ], [ %42, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread40 ], [ %47, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread45 ], [ %52, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread50 ], [ %57, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread55 ], [ %62, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread60 ], [ %82, %86 ], [ %67, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread65 ], [ %82, %87 ], [ %72, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread70 ], [ %82, %88 ], [ %77, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread75 ], [ %82, %89 ], [ %82, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit ], [ %82, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit ]
-  %91 = phi ptr [ %9, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread ], [ %15, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread15 ], [ %20, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread20 ], [ %25, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread25 ], [ %30, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread30 ], [ %35, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread35 ], [ %80, %85 ], [ %40, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread40 ], [ %45, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread45 ], [ %50, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread50 ], [ %55, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread55 ], [ %60, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread60 ], [ %80, %86 ], [ %65, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread65 ], [ %80, %87 ], [ %70, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread70 ], [ %80, %88 ], [ %75, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread75 ], [ %80, %89 ], [ %80, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit ], [ %80, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit ]
-  %.0.i13 = phi i32 [ 379, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread ], [ 387, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread15 ], [ 380, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread20 ], [ 388, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread25 ], [ 393, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread30 ], [ 386, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread35 ], [ 381, %85 ], [ 389, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread40 ], [ 390, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread45 ], [ 391, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread50 ], [ 392, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread55 ], [ 382, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread60 ], [ 381, %86 ], [ 384, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread65 ], [ 381, %87 ], [ 383, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread70 ], [ 381, %88 ], [ 385, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread75 ], [ 381, %89 ], [ 381, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit ], [ 381, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit ]
-  %.0.i.i = phi i32 [ 379, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread ], [ 387, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread15 ], [ 380, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread20 ], [ 388, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread25 ], [ 393, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread30 ], [ 386, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread35 ], [ 386, %85 ], [ 389, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread40 ], [ 390, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread45 ], [ 391, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread50 ], [ 392, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread55 ], [ 382, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread60 ], [ 382, %86 ], [ 384, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread65 ], [ 384, %87 ], [ 383, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread70 ], [ 383, %88 ], [ 385, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit.thread75 ], [ 385, %89 ], [ 381, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit ], [ 381, %_ZN4llvm23getReductionIntrinsicIDENS_9RecurKindE.exit ]
-  %92 = tail call noundef ptr @_ZN4llvm20getReductionIdentityEjPNS_4TypeENS_13FastMathFlagsE(i32 noundef %.0.i.i, ptr noundef %90, i32 %.sroa.0.0.copyload.i14)
+switch.lookup:
+  %3 = alloca [2 x ptr], align 16
+  %4 = alloca %"class.llvm::Twine", align 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %6 = load i32, ptr %5, align 8, !tbaa !401
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !209
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %10 = load ptr, ptr %9, align 8, !tbaa !400
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %.sroa.0.0.copyload.i12 = load i32, ptr %11, align 4, !tbaa !368
+  %12 = sext i32 %6 to i64
+  %13 = getelementptr i32, ptr @switch.table._ZN4llvm21createSimpleReductionERNS_13VectorBuilderEPNS_5ValueERKNS_20RecurrenceDescriptorE, i64 %12
+  %switch.gep = getelementptr i8, ptr %13, i64 -4
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %14 = tail call noundef ptr @_ZN4llvm20getReductionIdentityEjPNS_4TypeENS_13FastMathFlagsE(i32 noundef %switch.load, ptr noundef %10, i32 %.sroa.0.0.copyload.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  store ptr %14, ptr %3, align 16, !tbaa !374
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %1, ptr %15, align 8, !tbaa !374
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %92, ptr %4, align 16, !tbaa !374
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %1, ptr %93, align 8, !tbaa !374
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %94 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 1, ptr %94, align 8, !tbaa !378
-  %95 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %95, align 1, !tbaa !375
-  %96 = call noundef ptr @_ZN4llvm13VectorBuilder21createSimpleReductionEjPNS_4TypeENS_8ArrayRefIPNS_5ValueEEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.0.i13, ptr noundef nonnull %91, ptr nonnull %4, i64 2, ptr noundef nonnull align 8 dereferenceable(34) %5) #21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 1, ptr %16, align 8, !tbaa !378
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 1, ptr %17, align 1, !tbaa !375
+  %18 = call noundef ptr @_ZN4llvm13VectorBuilder21createSimpleReductionEjPNS_4TypeENS_8ArrayRefIPNS_5ValueEEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %switch.load, ptr noundef nonnull %8, ptr nonnull %3, i64 2, ptr noundef nonnull align 8 dereferenceable(34) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %96
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  ret ptr %18
 }
 
 declare noundef ptr @_ZN4llvm13VectorBuilder21createSimpleReductionEjPNS_4TypeENS_8ArrayRefIPNS_5ValueEEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ptr, i64, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2

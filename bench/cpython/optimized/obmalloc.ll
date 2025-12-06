@@ -15319,7 +15319,7 @@ _mi_strlcat.exit:                                 ; preds = %_mi_strlcpy.exit, %
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !222
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %125, label %.lr.ph.i43
+  br i1 %.not, label %121, label %.lr.ph.i43
 
 .lr.ph.i43:                                       ; preds = %31, %.lr.ph.i43
   %34 = phi i8 [ %37, %.lr.ph.i43 ], [ 109, %31 ]
@@ -15377,7 +15377,7 @@ _mi_strlcat.exit63:                               ; preds = %.lr.ph.i.i56, %.pre
   %.012.lcssa.i.i55 = phi ptr [ %.012.lcssa.i51, %.preheader.i.i50 ], [ %50, %.lr.ph.i.i56 ]
   store i8 0, ptr %.012.lcssa.i.i55, align 1, !tbaa !54
   %56 = call noundef zeroext i1 @_mi_prim_getenv(ptr noundef nonnull readonly %3, ptr noundef nonnull %2, i64 noundef 65)
-  br i1 %56, label %57, label %125
+  br i1 %56, label %57, label %121
 
 57:                                               ; preds = %_mi_strlcat.exit63
   %58 = load ptr, ptr %32, align 8, !tbaa !222
@@ -15432,7 +15432,7 @@ _mi_strnlen.exit:                                 ; preds = %_mi_strnlen.exit.pr
   store i64 1, ptr %0, align 8, !tbaa !107
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %78, align 8, !tbaa !105
-  br label %129
+  br label %125
 
 79:                                               ; preds = %75
   %80 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.90, ptr noundef nonnull dereferenceable(1) %3) #64
@@ -15443,7 +15443,7 @@ _mi_strnlen.exit:                                 ; preds = %_mi_strnlen.exit.pr
   store i64 0, ptr %0, align 8, !tbaa !107
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %82, align 8, !tbaa !105
-  br label %129
+  br label %125
 
 83:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -15451,119 +15451,111 @@ _mi_strnlen.exit:                                 ; preds = %_mi_strnlen.exit.pr
   %84 = call i64 @strtol(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 10) #55
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %86 = load i32, ptr %85, align 4, !tbaa !225
-  switch i32 %86, label %..thread67_crit_edge [
+  %.pre = load ptr, ptr %4, align 8, !tbaa !100
+  switch i32 %86, label %.thread67 [
     i32 9, label %87
     i32 23, label %87
   ]
 
-..thread67_crit_edge:                             ; preds = %83
-  %.pre = load ptr, ptr %4, align 8, !tbaa !100
-  br label %.thread67
-
 87:                                               ; preds = %83, %83
-  %88 = load ptr, ptr %4, align 8, !tbaa !100
-  %89 = load i8, ptr %88, align 1, !tbaa !54
-  switch i8 %89, label %94 [
+  %88 = load i8, ptr %.pre, align 1, !tbaa !54
+  switch i8 %88, label %93 [
     i8 75, label %thread-pre-split
-    i8 77, label %90
-    i8 71, label %92
+    i8 77, label %89
+    i8 71, label %91
   ]
 
-90:                                               ; preds = %87
-  %91 = shl i64 %84, 10
+89:                                               ; preds = %87
+  %90 = shl i64 %84, 10
   br label %thread-pre-split
 
-92:                                               ; preds = %87
-  %93 = shl i64 %84, 20
+91:                                               ; preds = %87
+  %92 = shl i64 %84, 20
   br label %thread-pre-split
 
-94:                                               ; preds = %87
-  %95 = add i64 %84, 1023
-  %96 = lshr i64 %95, 10
-  br label %98
+93:                                               ; preds = %87
+  %94 = add i64 %84, 1023
+  %95 = lshr i64 %94, 10
+  br label %97
 
-thread-pre-split:                                 ; preds = %87, %92, %90
-  %.1.ph = phi i64 [ %93, %92 ], [ %91, %90 ], [ %84, %87 ]
-  %97 = getelementptr i8, ptr %88, i64 1
-  store ptr %97, ptr %4, align 8, !tbaa !100
-  %.pr = load i8, ptr %97, align 1, !tbaa !54
-  br label %98
+thread-pre-split:                                 ; preds = %87, %91, %89
+  %.1.ph = phi i64 [ %92, %91 ], [ %90, %89 ], [ %84, %87 ]
+  %96 = getelementptr i8, ptr %.pre, i64 1
+  store ptr %96, ptr %4, align 8, !tbaa !100
+  %.pr = load i8, ptr %96, align 1, !tbaa !54
+  br label %97
 
-98:                                               ; preds = %thread-pre-split, %94
-  %99 = phi i8 [ %.pr, %thread-pre-split ], [ %89, %94 ]
-  %100 = phi ptr [ %97, %thread-pre-split ], [ %88, %94 ]
-  %.1 = phi i64 [ %.1.ph, %thread-pre-split ], [ %96, %94 ]
-  switch i8 %99, label %.thread67 [
-    i8 73, label %101
-    i8 66, label %107
+97:                                               ; preds = %thread-pre-split, %93
+  %98 = phi i8 [ %.pr, %thread-pre-split ], [ %88, %93 ]
+  %99 = phi ptr [ %96, %thread-pre-split ], [ %.pre, %93 ]
+  %.1 = phi i64 [ %.1.ph, %thread-pre-split ], [ %95, %93 ]
+  switch i8 %98, label %.thread67 [
+    i8 73, label %100
+    i8 66, label %.thread67.sink.split
   ]
 
-101:                                              ; preds = %98
-  %102 = getelementptr i8, ptr %100, i64 1
-  %103 = load i8, ptr %102, align 1, !tbaa !54
-  %104 = icmp eq i8 %103, 66
-  br i1 %104, label %105, label %.thread67
+100:                                              ; preds = %97
+  %101 = getelementptr i8, ptr %99, i64 1
+  %102 = load i8, ptr %101, align 1, !tbaa !54
+  %103 = icmp eq i8 %102, 66
+  br i1 %103, label %.thread67.sink.split, label %.thread67
 
-105:                                              ; preds = %101
-  %106 = getelementptr i8, ptr %100, i64 2
-  store ptr %106, ptr %4, align 8, !tbaa !100
+.thread67.sink.split:                             ; preds = %97, %100
+  %.sink107 = phi i64 [ 2, %100 ], [ 1, %97 ]
+  %104 = getelementptr i8, ptr %99, i64 %.sink107
+  store ptr %104, ptr %4, align 8, !tbaa !100
   br label %.thread67
 
-107:                                              ; preds = %98
-  %108 = getelementptr i8, ptr %100, i64 1
-  store ptr %108, ptr %4, align 8, !tbaa !100
-  br label %.thread67
+.thread67:                                        ; preds = %.thread67.sink.split, %83, %97, %100
+  %105 = phi ptr [ %99, %100 ], [ %99, %97 ], [ %.pre, %83 ], [ %104, %.thread67.sink.split ]
+  %.0 = phi i64 [ %.1, %100 ], [ %.1, %97 ], [ %84, %83 ], [ %.1, %.thread67.sink.split ]
+  %106 = load i8, ptr %105, align 1, !tbaa !54
+  %107 = icmp eq i8 %106, 0
+  br i1 %107, label %108, label %110
 
-.thread67:                                        ; preds = %..thread67_crit_edge, %98, %101, %105, %107
-  %109 = phi ptr [ %106, %105 ], [ %108, %107 ], [ %.pre, %..thread67_crit_edge ], [ %100, %101 ], [ %100, %98 ]
-  %.0 = phi i64 [ %.1, %105 ], [ %.1, %107 ], [ %84, %..thread67_crit_edge ], [ %.1, %101 ], [ %.1, %98 ]
-  %110 = load i8, ptr %109, align 1, !tbaa !54
-  %111 = icmp eq i8 %110, 0
-  br i1 %111, label %112, label %114
-
-112:                                              ; preds = %.thread67
+108:                                              ; preds = %.thread67
   store i64 %.0, ptr %0, align 8, !tbaa !107
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %113, align 8, !tbaa !105
-  br label %124
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %109, align 8, !tbaa !105
+  br label %120
 
-114:                                              ; preds = %.thread67
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %115, align 8, !tbaa !105
-  %116 = icmp eq i32 %86, 2
-  br i1 %116, label %117, label %122
+110:                                              ; preds = %.thread67
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 1, ptr %111, align 8, !tbaa !105
+  %112 = icmp eq i32 %86, 2
+  br i1 %112, label %113, label %118
 
-117:                                              ; preds = %114
-  %118 = load i64, ptr %0, align 8, !tbaa !107
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %120, label %122
+113:                                              ; preds = %110
+  %114 = load i64, ptr %0, align 8, !tbaa !107
+  %115 = icmp eq i64 %114, 0
+  br i1 %115, label %116, label %118
 
-120:                                              ; preds = %117
+116:                                              ; preds = %113
   store i64 1, ptr %0, align 8, !tbaa !107
-  %121 = load ptr, ptr %9, align 8, !tbaa !218
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.91, ptr noundef %121)
+  %117 = load ptr, ptr %9, align 8, !tbaa !218
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.91, ptr noundef %117)
   store i64 0, ptr %0, align 8, !tbaa !107
-  br label %124
+  br label %120
 
-122:                                              ; preds = %117, %114
-  %123 = load ptr, ptr %9, align 8, !tbaa !218
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.91, ptr noundef %123)
-  br label %124
+118:                                              ; preds = %113, %110
+  %119 = load ptr, ptr %9, align 8, !tbaa !218
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.91, ptr noundef %119)
+  br label %120
 
-124:                                              ; preds = %120, %122, %112
+120:                                              ; preds = %116, %118, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %129
+  br label %125
 
-125:                                              ; preds = %31, %_mi_strlcat.exit63
-  %126 = call zeroext i1 @_mi_preloading()
-  br i1 %126, label %129, label %127
+121:                                              ; preds = %31, %_mi_strlcat.exit63
+  %122 = call zeroext i1 @_mi_preloading()
+  br i1 %122, label %125, label %123
 
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %128, align 8, !tbaa !105
-  br label %129
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 1, ptr %124, align 8, !tbaa !105
+  br label %125
 
-129:                                              ; preds = %77, %124, %81, %125, %127
+125:                                              ; preds = %77, %120, %81, %121, %123
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

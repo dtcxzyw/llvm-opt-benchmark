@@ -8064,7 +8064,7 @@ define internal fastcc void @blk_mq_try_issue_directly(ptr noundef %0, ptr nound
 
 14:                                               ; preds = %8, %2
   tail call fastcc void @blk_mq_insert_request(ptr noundef nonnull %1, i32 noundef 0)
-  br label %91
+  br label %87
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -8138,7 +8138,7 @@ define internal fastcc void @blk_mq_try_issue_directly(ptr noundef %0, ptr nound
   %51 = and i32 %50, 2097152
   %52 = icmp ne i32 %51, 0
   tail call void @blk_mq_run_hw_queue(ptr noundef %0, i1 noundef zeroext %52)
-  br label %91
+  br label %87
 
 53:                                               ; preds = %._crit_edge, %39
   %54 = phi ptr [ %.pre8, %._crit_edge ], [ %.pre9, %39 ]
@@ -8152,80 +8152,76 @@ define internal fastcc void @blk_mq_try_issue_directly(ptr noundef %0, ptr nound
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = call zeroext i8 %59(ptr noundef %0, ptr noundef nonnull %3) #22
-  switch i8 %60, label %74 [
-    i8 0, label %61
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %62 = load i32, ptr %61, align 8
+  switch i8 %60, label %72 [
+    i8 0, label %63
     i8 9, label %68
     i8 13, label %68
   ]
 
-61:                                               ; preds = %53
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %63 = load i32, ptr %62, align 8
-  %64 = icmp eq i32 %63, 0
+63:                                               ; preds = %53
+  %64 = icmp eq i32 %62, 0
   br i1 %64, label %.thread6, label %65
 
-65:                                               ; preds = %61
-  %66 = mul i32 %63, 7
+65:                                               ; preds = %63
+  %66 = mul i32 %62, 7
   %67 = lshr i32 %66, 3
-  store i32 %67, ptr %62, align 8
+  store i32 %67, ptr %61, align 8
   br label %.thread6
 
 68:                                               ; preds = %53, %53
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %70 = load i32, ptr %69, align 8
-  %71 = mul i32 %70, 7
-  %72 = add i32 %71, 16
-  %73 = lshr i32 %72, 3
-  store i32 %73, ptr %69, align 8
+  %69 = mul i32 %62, 7
+  %70 = add i32 %69, 16
+  %71 = lshr i32 %70, 3
+  store i32 %71, ptr %61, align 8
   call fastcc void @__blk_mq_requeue_request(ptr noundef nonnull %1)
-  br label %81
+  br label %77
 
-74:                                               ; preds = %53
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %76 = load i32, ptr %75, align 8
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %81, label %78
+72:                                               ; preds = %53
+  %73 = icmp eq i32 %62, 0
+  br i1 %73, label %77, label %74
 
-78:                                               ; preds = %74
-  %79 = mul i32 %76, 7
-  %80 = lshr i32 %79, 3
-  store i32 %80, ptr %75, align 8
-  br label %81
+74:                                               ; preds = %72
+  %75 = mul i32 %62, 7
+  %76 = lshr i32 %75, 3
+  store i32 %76, ptr %61, align 8
+  br label %77
 
-.thread6:                                         ; preds = %65, %61
+.thread6:                                         ; preds = %65, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %91
+  br label %87
 
-81:                                               ; preds = %78, %74, %68
+77:                                               ; preds = %74, %72, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i8 %60, label %90 [
-    i8 0, label %91
-    i8 9, label %82
-    i8 13, label %82
+  switch i8 %60, label %86 [
+    i8 0, label %87
+    i8 9, label %78
+    i8 13, label %78
   ]
 
-82:                                               ; preds = %81, %81
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
+78:                                               ; preds = %77, %77
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %80 = load ptr, ptr %79, align 8
+  call void @_raw_spin_lock(ptr noundef %80) #22
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %84 = load ptr, ptr %83, align 8
-  call void @_raw_spin_lock(ptr noundef %84) #22
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %88 = load ptr, ptr %87, align 8
-  store ptr %85, ptr %87, align 8
-  store ptr %86, ptr %85, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %88, ptr %89, align 8
-  store volatile ptr %85, ptr %88, align 8
-  call void @_raw_spin_unlock(ptr noundef %84) #22
+  store ptr %81, ptr %83, align 8
+  store ptr %82, ptr %81, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  store ptr %84, ptr %85, align 8
+  store volatile ptr %81, ptr %84, align 8
+  call void @_raw_spin_unlock(ptr noundef %80) #22
   call void @blk_mq_run_hw_queue(ptr noundef %0, i1 noundef zeroext false)
-  br label %91
+  br label %87
 
-90:                                               ; preds = %81
+86:                                               ; preds = %77
   call void @blk_mq_end_request(ptr noundef nonnull %1, i8 noundef zeroext %60)
-  br label %91
+  br label %87
 
-91:                                               ; preds = %.thread6, %90, %82, %81, %48, %14
+87:                                               ; preds = %.thread6, %86, %78, %77, %48, %14
   ret void
 }
 
@@ -8364,7 +8360,7 @@ define internal fastcc noundef zeroext i8 @blk_mq_request_issue_directly(ptr nou
 
 16:                                               ; preds = %10, %2
   tail call fastcc void @blk_mq_insert_request(ptr noundef %0, i32 noundef 0)
-  br label %75
+  br label %71
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -8377,7 +8373,7 @@ define internal fastcc noundef zeroext i8 @blk_mq_request_issue_directly(ptr nou
 23:                                               ; preds = %17
   %24 = tail call i32 %21(ptr noundef %11) #22
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %75, label %..thread_crit_edge
+  br i1 %25, label %71, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %23
   %.pre = load ptr, ptr %0, align 8
@@ -8418,11 +8414,11 @@ define internal fastcc noundef zeroext i8 @blk_mq_request_issue_directly(ptr nou
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %75, label %44
+  br i1 %43, label %71, label %44
 
 44:                                               ; preds = %38
   tail call void %42(ptr noundef %.pre8, i32 noundef %27) #22
-  br label %75
+  br label %71
 
 45:                                               ; preds = %._crit_edge, %36
   %46 = phi ptr [ %.pre7, %._crit_edge ], [ %.pre8, %36 ]
@@ -8437,53 +8433,49 @@ define internal fastcc noundef zeroext i8 @blk_mq_request_issue_directly(ptr nou
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = call zeroext i8 %52(ptr noundef %5, ptr noundef nonnull %3) #22
-  switch i8 %53, label %67 [
-    i8 0, label %54
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  %55 = load i32, ptr %54, align 8
+  switch i8 %53, label %65 [
+    i8 0, label %56
     i8 9, label %61
     i8 13, label %61
   ]
 
-54:                                               ; preds = %45
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %56 = load i32, ptr %55, align 8
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %74, label %58
+56:                                               ; preds = %45
+  %57 = icmp eq i32 %55, 0
+  br i1 %57, label %70, label %58
 
-58:                                               ; preds = %54
-  %59 = mul i32 %56, 7
+58:                                               ; preds = %56
+  %59 = mul i32 %55, 7
   %60 = lshr i32 %59, 3
-  store i32 %60, ptr %55, align 8
-  br label %74
+  store i32 %60, ptr %54, align 8
+  br label %70
 
 61:                                               ; preds = %45, %45
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %63 = load i32, ptr %62, align 8
-  %64 = mul i32 %63, 7
-  %65 = add i32 %64, 16
-  %66 = lshr i32 %65, 3
-  store i32 %66, ptr %62, align 8
+  %62 = mul i32 %55, 7
+  %63 = add i32 %62, 16
+  %64 = lshr i32 %63, 3
+  store i32 %64, ptr %54, align 8
   call fastcc void @__blk_mq_requeue_request(ptr noundef %0)
-  br label %74
+  br label %70
 
-67:                                               ; preds = %45
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %69 = load i32, ptr %68, align 8
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %74, label %71
+65:                                               ; preds = %45
+  %66 = icmp eq i32 %55, 0
+  br i1 %66, label %70, label %67
 
-71:                                               ; preds = %67
-  %72 = mul i32 %69, 7
-  %73 = lshr i32 %72, 3
-  store i32 %73, ptr %68, align 8
-  br label %74
+67:                                               ; preds = %65
+  %68 = mul i32 %55, 7
+  %69 = lshr i32 %68, 3
+  store i32 %69, ptr %54, align 8
+  br label %70
 
-74:                                               ; preds = %71, %67, %61, %58, %54
+70:                                               ; preds = %67, %65, %61, %58, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %75
+  br label %71
 
-75:                                               ; preds = %74, %44, %38, %23, %16
-  %76 = phi i8 [ 0, %16 ], [ %53, %74 ], [ 9, %44 ], [ 9, %38 ], [ 9, %23 ]
-  ret i8 %76
+71:                                               ; preds = %70, %44, %38, %23, %16
+  %72 = phi i8 [ 0, %16 ], [ %53, %70 ], [ 9, %44 ], [ 9, %38 ], [ 9, %23 ]
+  ret i8 %72
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid

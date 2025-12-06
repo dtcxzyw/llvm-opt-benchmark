@@ -462,6 +462,8 @@ define internal i32 @dissect_FMP_SessionCreate_request(ptr noundef %0, ptr readn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_SessionCreate_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -474,29 +476,22 @@ define internal i32 @dissect_FMP_SessionCreate_reply(ptr noundef %0, ptr readnon
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %22
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_sessionHandle, align 4
-  %12 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_hostID, align 4
-  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null)
-  %15 = load i32, ptr @hf_fmp_btime, align 4
-  %16 = load i32, ptr @hf_fmp_time_sec, align 4
-  %17 = load i32, ptr @hf_fmp_time_nsec, align 4
-  %18 = tail call fastcc i32 @dissect_fmp_timeval(ptr noundef %0, i32 noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef %16, i32 noundef %17)
-  %19 = load i32, ptr @hf_fmp_heartbeat_interval, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 8, i32 noundef 0)
-  %21 = add i32 %18, 8
-  br label %22
+  %9 = load i32, ptr @hf_fmp_sessionHandle, align 4
+  %10 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_hostID, align 4
+  %12 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10, ptr noundef null)
+  %13 = load i32, ptr @hf_fmp_btime, align 4
+  %14 = load i32, ptr @hf_fmp_time_sec, align 4
+  %15 = load i32, ptr @hf_fmp_time_nsec, align 4
+  %16 = tail call fastcc i32 @dissect_fmp_timeval(ptr noundef %0, i32 noundef %12, ptr noundef %2, i32 noundef %13, i32 noundef %14, i32 noundef %15)
+  %17 = load i32, ptr @hf_fmp_heartbeat_interval, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 8, i32 noundef 0)
+  %19 = add i32 %16, 8
+  br label %dissect_fmp_status.exit
 
-22:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %21, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %19, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -530,7 +525,9 @@ define internal i32 @dissect_FMP_Mount_request(ptr noundef %0, ptr readnone capt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Mount_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
-  switch i32 %5, label %dissect_fmp_status.exit [
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
+  switch i32 %5, label %dissect_fmp_vmInfo.exit [
     i32 0, label %8
     i32 511, label %8
     i32 509, label %8
@@ -542,131 +539,124 @@ define internal i32 @dissect_FMP_Mount_reply(ptr noundef %0, ptr readnone captur
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %dissect_fmp_vmInfo.exit
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_fsID, align 4
+  %9 = load i32, ptr @hf_fmp_fsID, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_fsBlkSz, align 4
   %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_fsBlkSz, align 4
-  %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
-  %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14)
-  %16 = load i32, ptr @hf_fmp_volume_mgmt_type, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
-  %19 = icmp eq i32 %18, 1
-  br i1 %19, label %.split.i, label %dissect_fmp_vmInfo.exit
+  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %12)
+  %14 = load i32, ptr @hf_fmp_volume_mgmt_type, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0)
+  %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %13)
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %.split.i, label %dissect_fmp_vmInfo.exit
 
 .split.i:                                         ; preds = %8
-  %20 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %15, i1 true)
-  switch i32 %20, label %dissect_fmp_vmInfo.exit [
-    i32 0, label %21
-    i32 1, label %34
-    i32 2, label %37
-    i32 3, label %40
-    i32 4, label %52
-    i32 6, label %74
+  %18 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %13, i1 true)
+  switch i32 %18, label %dissect_fmp_vmInfo.exit [
+    i32 0, label %19
+    i32 1, label %32
+    i32 2, label %35
+    i32 3, label %38
+    i32 4, label %50
+    i32 6, label %72
   ]
 
-21:                                               ; preds = %.split.i
-  %22 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14)
-  %.0393.i = add i32 %14, 4
-  %.not4.i = icmp eq i32 %22, 0
+19:                                               ; preds = %.split.i
+  %20 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %12)
+  %.0393.i = add i32 %12, 4
+  %.not4.i = icmp eq i32 %20, 0
   br i1 %.not4.i, label %dissect_fmp_vmInfo.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %21, %.lr.ph.i
-  %.0397.i = phi i32 [ %.039.i, %.lr.ph.i ], [ %.0393.i, %21 ]
-  %.06.i = phi i32 [ %33, %.lr.ph.i ], [ %22, %21 ]
-  %.039.in5.i = phi i32 [ %30, %.lr.ph.i ], [ %14, %21 ]
-  %23 = load i32, ptr @hf_fmp_devSerial_query_cmd, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %.0397.i, i32 noundef 4, i32 noundef 0)
-  %25 = add i32 %.039.in5.i, 8
-  %26 = load i32, ptr @hf_fmp_sigoffset, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 4, i32 noundef 0)
-  %28 = add i32 %.039.in5.i, 12
-  %29 = load i32, ptr @hf_fmp_devSignature, align 4
-  %30 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %29, i32 noundef %28, ptr noundef null)
-  %31 = load i32, ptr @hf_fmp_volindex, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0)
-  %33 = add i32 %.06.i, -1
-  %.039.i = add i32 %30, 4
-  %.not.i = icmp eq i32 %33, 0
+.lr.ph.i:                                         ; preds = %19, %.lr.ph.i
+  %.0397.i = phi i32 [ %.039.i, %.lr.ph.i ], [ %.0393.i, %19 ]
+  %.06.i = phi i32 [ %31, %.lr.ph.i ], [ %20, %19 ]
+  %.039.in5.i = phi i32 [ %28, %.lr.ph.i ], [ %12, %19 ]
+  %21 = load i32, ptr @hf_fmp_devSerial_query_cmd, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %.0397.i, i32 noundef 4, i32 noundef 0)
+  %23 = add i32 %.039.in5.i, 8
+  %24 = load i32, ptr @hf_fmp_sigoffset, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef 0)
+  %26 = add i32 %.039.in5.i, 12
+  %27 = load i32, ptr @hf_fmp_devSignature, align 4
+  %28 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %27, i32 noundef %26, ptr noundef null)
+  %29 = load i32, ptr @hf_fmp_volindex, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0)
+  %31 = add i32 %.06.i, -1
+  %.039.i = add i32 %28, 4
+  %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %dissect_fmp_vmInfo.exit, label %.lr.ph.i, !llvm.loop !6
 
-34:                                               ; preds = %.split.i
-  %35 = load i32, ptr @hf_fmp_volHandle, align 4
-  %36 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %35, i32 noundef %14, ptr noundef null)
+32:                                               ; preds = %.split.i
+  %33 = load i32, ptr @hf_fmp_volHandle, align 4
+  %34 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %33, i32 noundef %12, ptr noundef null)
   br label %dissect_fmp_vmInfo.exit
 
-37:                                               ; preds = %.split.i
-  %38 = load i32, ptr @hf_fmp_volHandle, align 4
-  %39 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %38, i32 noundef %14, ptr noundef null)
+35:                                               ; preds = %.split.i
+  %36 = load i32, ptr @hf_fmp_volHandle, align 4
+  %37 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %36, i32 noundef %12, ptr noundef null)
   br label %dissect_fmp_vmInfo.exit
 
-40:                                               ; preds = %.split.i
-  %41 = load i32, ptr @hf_fmp_devSerial_query_cmd, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
-  %43 = add i32 %14, 4
-  %44 = load i32, ptr @hf_fmp_sigoffset, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef 0)
-  %46 = add i32 %14, 8
-  %47 = load i32, ptr @hf_fmp_devSignature, align 4
-  %48 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %47, i32 noundef %46, ptr noundef null)
-  %49 = load i32, ptr @hf_fmp_blockindex, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0)
-  %51 = add i32 %48, 4
+38:                                               ; preds = %.split.i
+  %39 = load i32, ptr @hf_fmp_devSerial_query_cmd, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0)
+  %41 = add i32 %12, 4
+  %42 = load i32, ptr @hf_fmp_sigoffset, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0)
+  %44 = add i32 %12, 8
+  %45 = load i32, ptr @hf_fmp_devSignature, align 4
+  %46 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %45, i32 noundef %44, ptr noundef null)
+  %47 = load i32, ptr @hf_fmp_blockindex, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef 4, i32 noundef 0)
+  %49 = add i32 %46, 4
   br label %dissect_fmp_vmInfo.exit
 
-52:                                               ; preds = %.split.i
-  %53 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14)
-  %54 = load i32, ptr @hf_fmp_number_of_disk, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
-  %56 = add i32 %14, 4
-  %57 = icmp sgt i32 %53, 0
-  br i1 %57, label %.lr.ph38.i.i, label %dissect_fmp_vmInfo.exit
+50:                                               ; preds = %.split.i
+  %51 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %12)
+  %52 = load i32, ptr @hf_fmp_number_of_disk, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef 0)
+  %54 = add i32 %12, 4
+  %55 = icmp sgt i32 %51, 0
+  br i1 %55, label %.lr.ph38.i.i, label %dissect_fmp_vmInfo.exit
 
-.lr.ph38.i.i:                                     ; preds = %52, %._crit_edge.i.i
-  %.03136.i.i = phi i32 [ %73, %._crit_edge.i.i ], [ 0, %52 ]
-  %.03235.i.i = phi i32 [ %72, %._crit_edge.i.i ], [ %56, %52 ]
-  %58 = load i32, ptr @hf_fmp_sig_offset, align 4
-  %59 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %58, i32 noundef %.03235.i.i)
-  %60 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %59)
-  %61 = load i32, ptr @hf_fmp_length_of_list, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef 0)
-  %63 = add i32 %59, 4
-  %64 = icmp sgt i32 %60, 0
-  br i1 %64, label %.lr.ph.i.i, label %._crit_edge.i.i
+.lr.ph38.i.i:                                     ; preds = %50, %._crit_edge.i.i
+  %.03136.i.i = phi i32 [ %71, %._crit_edge.i.i ], [ 0, %50 ]
+  %.03235.i.i = phi i32 [ %70, %._crit_edge.i.i ], [ %54, %50 ]
+  %56 = load i32, ptr @hf_fmp_sig_offset, align 4
+  %57 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %56, i32 noundef %.03235.i.i)
+  %58 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %57)
+  %59 = load i32, ptr @hf_fmp_length_of_list, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %59, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef 0)
+  %61 = add i32 %57, 4
+  %62 = icmp sgt i32 %58, 0
+  br i1 %62, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph38.i.i, %.lr.ph.i.i
-  %.034.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ 0, %.lr.ph38.i.i ]
-  %.133.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ %63, %.lr.ph38.i.i ]
-  %65 = load i32, ptr @hf_fmp_sigoffset, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %.133.i.i, i32 noundef 4, i32 noundef 0)
-  %67 = add i32 %.133.i.i, 4
-  %68 = load i32, ptr @hf_fmp_dskSigEnt_val, align 4
-  %69 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %68, i32 noundef %67, ptr noundef null)
-  %70 = add nuw nsw i32 %.034.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %70, %60
+  %.034.i.i = phi i32 [ %68, %.lr.ph.i.i ], [ 0, %.lr.ph38.i.i ]
+  %.133.i.i = phi i32 [ %67, %.lr.ph.i.i ], [ %61, %.lr.ph38.i.i ]
+  %63 = load i32, ptr @hf_fmp_sigoffset, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef %.133.i.i, i32 noundef 4, i32 noundef 0)
+  %65 = add i32 %.133.i.i, 4
+  %66 = load i32, ptr @hf_fmp_dskSigEnt_val, align 4
+  %67 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %66, i32 noundef %65, ptr noundef null)
+  %68 = add nuw nsw i32 %.034.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %68, %58
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph38.i.i
-  %.1.lcssa.i.i = phi i32 [ %63, %.lr.ph38.i.i ], [ %69, %.lr.ph.i.i ]
-  %71 = load i32, ptr @hf_fmp_volID, align 4
-  %72 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %71, i32 noundef %.1.lcssa.i.i)
-  %73 = add nuw nsw i32 %.03136.i.i, 1
-  %exitcond42.not.i.i = icmp eq i32 %73, %53
+  %.1.lcssa.i.i = phi i32 [ %61, %.lr.ph38.i.i ], [ %67, %.lr.ph.i.i ]
+  %69 = load i32, ptr @hf_fmp_volID, align 4
+  %70 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %69, i32 noundef %.1.lcssa.i.i)
+  %71 = add nuw nsw i32 %.03136.i.i, 1
+  %exitcond42.not.i.i = icmp eq i32 %71, %51
   br i1 %exitcond42.not.i.i, label %dissect_fmp_vmInfo.exit, label %.lr.ph38.i.i, !llvm.loop !9
 
-74:                                               ; preds = %.split.i
-  %75 = tail call fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %14, ptr noundef %2)
+72:                                               ; preds = %.split.i
+  %73 = tail call fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %12, ptr noundef %2)
   br label %dissect_fmp_vmInfo.exit
 
-dissect_fmp_vmInfo.exit:                          ; preds = %._crit_edge.i.i, %.lr.ph.i, %74, %52, %40, %37, %34, %21, %.split.i, %8, %dissect_fmp_status.exit
-  %.0 = phi i32 [ %7, %dissect_fmp_status.exit ], [ %14, %.split.i ], [ %36, %34 ], [ %39, %37 ], [ %51, %40 ], [ %14, %74 ], [ %14, %8 ], [ %56, %52 ], [ %.0393.i, %21 ], [ %.039.i, %.lr.ph.i ], [ %72, %._crit_edge.i.i ]
+dissect_fmp_vmInfo.exit:                          ; preds = %._crit_edge.i.i, %.lr.ph.i, %4, %72, %50, %38, %35, %32, %19, %.split.i, %8
+  %.0 = phi i32 [ %12, %.split.i ], [ %34, %32 ], [ %37, %35 ], [ %49, %38 ], [ %12, %72 ], [ %12, %8 ], [ %54, %50 ], [ %.0393.i, %19 ], [ %7, %4 ], [ %.039.i, %.lr.ph.i ], [ %70, %._crit_edge.i.i ]
   ret i32 %.0
 }
 
@@ -681,35 +671,34 @@ define internal i32 @dissect_FMP_Open_request(ptr noundef %0, ptr readnone captu
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Open_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
-    i32 0, label %6
-    i32 511, label %6
-    i32 509, label %6
-    i32 507, label %6
-    i32 506, label %6
-    i32 28, label %6
-    i32 504, label %6
-    i32 503, label %6
-    i32 502, label %6
+    i32 0, label %8
+    i32 511, label %8
+    i32 509, label %8
+    i32 507, label %8
+    i32 506, label %8
+    i32 28, label %8
+    i32 504, label %8
+    i32 503, label %8
+    i32 502, label %8
   ]
 
-6:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %7 = load i32, ptr @hf_fmp_status, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 0)
+8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
   %9 = load i32, ptr @hf_fmp_fmpFHandle, align 4
-  %10 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
+  %10 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
   %11 = load i32, ptr @hf_fmp_msgNum, align 4
   %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_fmp_fileSize, align 4
   %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
+  %15 = load i32, ptr @hf_fmp_fsID, align 4
+  %16 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
   br label %dissect_fmp_status.exit
 
-dissect_fmp_status.exit:                          ; preds = %4, %6
-  %hf_fmp_status.sink = phi ptr [ @hf_fmp_fsID, %6 ], [ @hf_fmp_status, %4 ]
-  %.sink16 = phi i32 [ %14, %6 ], [ 0, %4 ]
-  %15 = load i32, ptr %hf_fmp_status.sink, align 4
-  %16 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %.sink16)
-  ret i32 %16
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %16, %8 ], [ %7, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -724,29 +713,28 @@ define internal i32 @dissect_FMP_Close_request(ptr noundef %0, ptr readnone capt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Close_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
-    i32 0, label %6
-    i32 511, label %6
-    i32 509, label %6
-    i32 507, label %6
-    i32 506, label %6
-    i32 28, label %6
-    i32 504, label %6
-    i32 503, label %6
-    i32 502, label %6
+    i32 0, label %8
+    i32 511, label %8
+    i32 509, label %8
+    i32 507, label %8
+    i32 506, label %8
+    i32 28, label %8
+    i32 504, label %8
+    i32 503, label %8
+    i32 502, label %8
   ]
 
-6:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %7 = load i32, ptr @hf_fmp_status, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 0)
+8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
+  %9 = load i32, ptr @hf_fmp_msgNum, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
   br label %dissect_fmp_status.exit
 
-dissect_fmp_status.exit:                          ; preds = %4, %6
-  %hf_fmp_status.sink = phi ptr [ @hf_fmp_msgNum, %6 ], [ @hf_fmp_status, %4 ]
-  %.sink7 = phi i32 [ %8, %6 ], [ 0, %4 ]
-  %9 = load i32, ptr %hf_fmp_status.sink, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %.sink7)
-  ret i32 %10
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %10, %8 ], [ %7, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -766,6 +754,8 @@ define internal i32 @dissect_FMP_OpenGetMap_request(ptr noundef %0, ptr readnone
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenGetMap_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -778,29 +768,22 @@ define internal i32 @dissect_FMP_OpenGetMap_reply(ptr noundef %0, ptr readnone c
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %22
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_fmpFHandle, align 4
-  %12 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_msgNum, align 4
+  %9 = load i32, ptr @hf_fmp_fmpFHandle, align 4
+  %10 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_msgNum, align 4
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
+  %13 = load i32, ptr @hf_fmp_cookie, align 4
   %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
-  %15 = load i32, ptr @hf_fmp_cookie, align 4
-  %16 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
-  %17 = load i32, ptr @hf_fmp_fileSize, align 4
-  %18 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16)
-  %19 = load i32, ptr @hf_fmp_fsID, align 4
-  %20 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %19, i32 noundef %18)
-  %21 = tail call fastcc i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %20, ptr noundef %2)
-  br label %22
+  %15 = load i32, ptr @hf_fmp_fileSize, align 4
+  %16 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
+  %17 = load i32, ptr @hf_fmp_fsID, align 4
+  %18 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16)
+  %19 = tail call fastcc i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %18, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-22:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %21, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %19, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -821,6 +804,8 @@ define internal i32 @dissect_FMP_OpenAllocSpace_request(ptr noundef %0, ptr read
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenAllocSpace_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -833,29 +818,22 @@ define internal i32 @dissect_FMP_OpenAllocSpace_reply(ptr noundef %0, ptr readno
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %22
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_fmpFHandle, align 4
-  %12 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_msgNum, align 4
+  %9 = load i32, ptr @hf_fmp_fmpFHandle, align 4
+  %10 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_msgNum, align 4
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
+  %13 = load i32, ptr @hf_fmp_cookie, align 4
   %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
-  %15 = load i32, ptr @hf_fmp_cookie, align 4
-  %16 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
-  %17 = load i32, ptr @hf_fmp_fileSize, align 4
-  %18 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16)
-  %19 = load i32, ptr @hf_fmp_fsID, align 4
-  %20 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %19, i32 noundef %18)
-  %21 = tail call fastcc i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %20, ptr noundef %2)
-  br label %22
+  %15 = load i32, ptr @hf_fmp_fileSize, align 4
+  %16 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
+  %17 = load i32, ptr @hf_fmp_fsID, align 4
+  %18 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16)
+  %19 = tail call fastcc i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %18, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-22:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %21, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %19, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -877,6 +855,8 @@ define internal i32 @dissect_FMP_GetMap_request(ptr noundef %0, ptr readnone cap
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetMap_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -889,25 +869,18 @@ define internal i32 @dissect_FMP_GetMap_reply(ptr noundef %0, ptr readnone captu
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %18
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_msgNum, align 4
+  %9 = load i32, ptr @hf_fmp_msgNum, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_cookie, align 4
   %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_cookie, align 4
-  %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
-  %15 = load i32, ptr @hf_fmp_fileSize, align 4
-  %16 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
-  %17 = tail call fastcc i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %16, ptr noundef %2)
-  br label %18
+  %13 = load i32, ptr @hf_fmp_fileSize, align 4
+  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
+  %15 = tail call fastcc i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %14, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-18:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %17, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %15, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -929,6 +902,8 @@ define internal i32 @dissect_FMP_AllocSpace_request(ptr noundef %0, ptr readnone
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_AllocSpace_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -941,25 +916,18 @@ define internal i32 @dissect_FMP_AllocSpace_reply(ptr noundef %0, ptr readnone c
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %18
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_msgNum, align 4
+  %9 = load i32, ptr @hf_fmp_msgNum, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_cookie, align 4
   %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_cookie, align 4
-  %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
-  %15 = load i32, ptr @hf_fmp_fileSize, align 4
-  %16 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
-  %17 = tail call fastcc i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %16, ptr noundef %2)
-  br label %18
+  %13 = load i32, ptr @hf_fmp_fileSize, align 4
+  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
+  %15 = tail call fastcc i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %14, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-18:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %17, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %15, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -979,29 +947,28 @@ define internal i32 @dissect_FMP_Flush_request(ptr noundef %0, ptr readnone capt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Flush_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
-    i32 0, label %6
-    i32 511, label %6
-    i32 509, label %6
-    i32 507, label %6
-    i32 506, label %6
-    i32 28, label %6
-    i32 504, label %6
-    i32 503, label %6
-    i32 502, label %6
+    i32 0, label %8
+    i32 511, label %8
+    i32 509, label %8
+    i32 507, label %8
+    i32 506, label %8
+    i32 28, label %8
+    i32 504, label %8
+    i32 503, label %8
+    i32 502, label %8
   ]
 
-6:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %7 = load i32, ptr @hf_fmp_status, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 0)
+8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
+  %9 = load i32, ptr @hf_fmp_msgNum, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
   br label %dissect_fmp_status.exit
 
-dissect_fmp_status.exit:                          ; preds = %4, %6
-  %hf_fmp_status.sink = phi ptr [ @hf_fmp_msgNum, %6 ], [ @hf_fmp_status, %4 ]
-  %.sink7 = phi i32 [ %8, %6 ], [ 0, %4 ]
-  %9 = load i32, ptr %hf_fmp_status.sink, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %.sink7)
-  ret i32 %10
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %10, %8 ], [ %7, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1018,29 +985,28 @@ define internal i32 @dissect_FMP_CancelReq_request(ptr noundef %0, ptr readnone 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_CancelReq_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
-    i32 0, label %6
-    i32 511, label %6
-    i32 509, label %6
-    i32 507, label %6
-    i32 506, label %6
-    i32 28, label %6
-    i32 504, label %6
-    i32 503, label %6
-    i32 502, label %6
+    i32 0, label %8
+    i32 511, label %8
+    i32 509, label %8
+    i32 507, label %8
+    i32 506, label %8
+    i32 28, label %8
+    i32 504, label %8
+    i32 503, label %8
+    i32 502, label %8
   ]
 
-6:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %7 = load i32, ptr @hf_fmp_status, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 0)
+8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
+  %9 = load i32, ptr @hf_fmp_msgNum, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
   br label %dissect_fmp_status.exit
 
-dissect_fmp_status.exit:                          ; preds = %4, %6
-  %hf_fmp_status.sink = phi ptr [ @hf_fmp_msgNum, %6 ], [ @hf_fmp_status, %4 ]
-  %.sink7 = phi i32 [ %8, %6 ], [ 0, %4 ]
-  %9 = load i32, ptr %hf_fmp_status.sink, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %.sink7)
-  ret i32 %10
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %10, %8 ], [ %7, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1062,6 +1028,8 @@ dissect_plugInID.exit:                            ; preds = %4, %5
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_PlugIn_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -1074,20 +1042,13 @@ define internal i32 @dissect_FMP_PlugIn_reply(ptr noundef %0, ptr readnone captu
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %13
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_plugInBuf, align 4
-  %12 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  br label %13
+  %9 = load i32, ptr @hf_fmp_plugInBuf, align 4
+  %10 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  br label %dissect_fmp_status.exit
 
-13:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %12, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %10, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -1140,6 +1101,8 @@ define internal noundef i32 @dissect_FMP_SessionCreateEx_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_SessionCreateEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -1152,43 +1115,36 @@ define internal i32 @dissect_FMP_SessionCreateEx_reply(ptr noundef %0, ptr readn
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %36
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_sessionHandle, align 4
-  %12 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_hostID, align 4
-  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null)
-  %15 = load i32, ptr @hf_fmp_btime, align 4
-  %16 = load i32, ptr @hf_fmp_time_sec, align 4
-  %17 = load i32, ptr @hf_fmp_time_nsec, align 4
-  %18 = tail call fastcc i32 @dissect_fmp_timeval(ptr noundef %0, i32 noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef %16, i32 noundef %17)
-  %19 = load i32, ptr @hf_fmp_heartbeat_interval, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 8, i32 noundef 0)
-  %21 = add i32 %18, 8
-  %22 = load i32, ptr @hf_fmp_os_major, align 4
+  %9 = load i32, ptr @hf_fmp_sessionHandle, align 4
+  %10 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_hostID, align 4
+  %12 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10, ptr noundef null)
+  %13 = load i32, ptr @hf_fmp_btime, align 4
+  %14 = load i32, ptr @hf_fmp_time_sec, align 4
+  %15 = load i32, ptr @hf_fmp_time_nsec, align 4
+  %16 = tail call fastcc i32 @dissect_fmp_timeval(ptr noundef %0, i32 noundef %12, ptr noundef %2, i32 noundef %13, i32 noundef %14, i32 noundef %15)
+  %17 = load i32, ptr @hf_fmp_heartbeat_interval, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 8, i32 noundef 0)
+  %19 = add i32 %16, 8
+  %20 = load i32, ptr @hf_fmp_os_major, align 4
+  %21 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %20, i32 noundef %19)
+  %22 = load i32, ptr @hf_fmp_os_minor, align 4
   %23 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %22, i32 noundef %21)
-  %24 = load i32, ptr @hf_fmp_os_minor, align 4
-  %25 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %24, i32 noundef %23)
-  %26 = load i32, ptr @hf_fmp_server_version_string, align 4
-  %27 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %26, i32 noundef %25, ptr noundef null)
-  %28 = load i32, ptr @hf_fmp_os_patch, align 4
+  %24 = load i32, ptr @hf_fmp_server_version_string, align 4
+  %25 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %24, i32 noundef %23, ptr noundef null)
+  %26 = load i32, ptr @hf_fmp_os_patch, align 4
+  %27 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %26, i32 noundef %25)
+  %28 = load i32, ptr @hf_fmp_os_build, align 4
   %29 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %28, i32 noundef %27)
-  %30 = load i32, ptr @hf_fmp_os_build, align 4
-  %31 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %30, i32 noundef %29)
-  %32 = load i32, ptr @hf_fmp_cap, align 4
-  %33 = load i32, ptr @ett_capabilities, align 4
-  %34 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef nonnull @dissect_fmp_capabilities.capabilities, i32 noundef 0, i32 noundef 1)
-  %35 = add i32 %31, 4
-  br label %36
+  %30 = load i32, ptr @hf_fmp_cap, align 4
+  %31 = load i32, ptr @ett_capabilities, align 4
+  %32 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef nonnull @dissect_fmp_capabilities.capabilities, i32 noundef 0, i32 noundef 1)
+  %33 = add i32 %29, 4
+  br label %dissect_fmp_status.exit
 
-36:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %35, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %33, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -1226,6 +1182,8 @@ define internal i32 @dissect_FMP_GetAttr_request(ptr noundef %0, ptr readnone ca
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetAttr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -1238,21 +1196,14 @@ define internal i32 @dissect_FMP_GetAttr_reply(ptr noundef %0, ptr readnone capt
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %14
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_msgNum, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = tail call fastcc i32 @dissect_fmp_attrs(ptr noundef %0, i32 noundef %12, ptr noundef %2)
-  br label %14
+  %9 = load i32, ptr @hf_fmp_msgNum, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = tail call fastcc i32 @dissect_fmp_attrs(ptr noundef %0, i32 noundef %10, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-14:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %13, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %11, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -1267,6 +1218,8 @@ define internal i32 @dissect_FMP_OpenGetAttr_request(ptr noundef %0, ptr readnon
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenGetAttr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -1279,27 +1232,20 @@ define internal i32 @dissect_FMP_OpenGetAttr_reply(ptr noundef %0, ptr readnone 
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %20
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_fmpFHandle, align 4
-  %12 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_msgNum, align 4
-  %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
-  %15 = load i32, ptr @hf_fmp_fileSize, align 4
-  %16 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
-  %17 = load i32, ptr @hf_fmp_fsID, align 4
-  %18 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16)
-  %19 = tail call fastcc i32 @dissect_fmp_attrs(ptr noundef %0, i32 noundef %18, ptr noundef %2)
-  br label %20
+  %9 = load i32, ptr @hf_fmp_fmpFHandle, align 4
+  %10 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_msgNum, align 4
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
+  %13 = load i32, ptr @hf_fmp_fileSize, align 4
+  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
+  %15 = load i32, ptr @hf_fmp_fsID, align 4
+  %16 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
+  %17 = tail call fastcc i32 @dissect_fmp_attrs(ptr noundef %0, i32 noundef %16, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-20:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %19, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %17, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -1322,6 +1268,8 @@ define internal i32 @dissect_FMP_FlushGetAttr_request(ptr noundef %0, ptr readno
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_FlushGetAttr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -1334,21 +1282,14 @@ define internal i32 @dissect_FMP_FlushGetAttr_reply(ptr noundef %0, ptr readnone
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %14
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_msgNum, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = tail call fastcc i32 @dissect_fmp_attrs(ptr noundef %0, i32 noundef %12, ptr noundef %2)
-  br label %14
+  %9 = load i32, ptr @hf_fmp_msgNum, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = tail call fastcc i32 @dissect_fmp_attrs(ptr noundef %0, i32 noundef %10, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-14:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %13, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %11, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -1369,6 +1310,8 @@ define internal i32 @dissect_FMP_OpenGetMapEx_request(ptr noundef %0, ptr readno
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenGetMapEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -1381,29 +1324,22 @@ define internal i32 @dissect_FMP_OpenGetMapEx_reply(ptr noundef %0, ptr readnone
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %22
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_fmpFHandle, align 4
-  %12 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_msgNum, align 4
+  %9 = load i32, ptr @hf_fmp_fmpFHandle, align 4
+  %10 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_msgNum, align 4
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
+  %13 = load i32, ptr @hf_fmp_cookie, align 4
   %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
-  %15 = load i32, ptr @hf_fmp_cookie, align 4
-  %16 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
-  %17 = load i32, ptr @hf_fmp_fileSize, align 4
-  %18 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16)
-  %19 = load i32, ptr @hf_fmp_fsID, align 4
-  %20 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %19, i32 noundef %18)
-  %21 = tail call fastcc i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %20, ptr noundef %2)
-  br label %22
+  %15 = load i32, ptr @hf_fmp_fileSize, align 4
+  %16 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
+  %17 = load i32, ptr @hf_fmp_fsID, align 4
+  %18 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16)
+  %19 = tail call fastcc i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %18, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-22:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %21, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %19, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -1424,6 +1360,8 @@ define internal i32 @dissect_FMP_OpenAllocSpaceEx_request(ptr noundef %0, ptr re
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenAllocSpaceEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -1436,29 +1374,22 @@ define internal i32 @dissect_FMP_OpenAllocSpaceEx_reply(ptr noundef %0, ptr read
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %22
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_fmpFHandle, align 4
-  %12 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_msgNum, align 4
+  %9 = load i32, ptr @hf_fmp_fmpFHandle, align 4
+  %10 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_msgNum, align 4
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
+  %13 = load i32, ptr @hf_fmp_cookie, align 4
   %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
-  %15 = load i32, ptr @hf_fmp_cookie, align 4
-  %16 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
-  %17 = load i32, ptr @hf_fmp_fileSize, align 4
-  %18 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16)
-  %19 = load i32, ptr @hf_fmp_fsID, align 4
-  %20 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %19, i32 noundef %18)
-  %21 = tail call fastcc i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %20, ptr noundef %2)
-  br label %22
+  %15 = load i32, ptr @hf_fmp_fileSize, align 4
+  %16 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
+  %17 = load i32, ptr @hf_fmp_fsID, align 4
+  %18 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16)
+  %19 = tail call fastcc i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %18, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-22:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %21, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %19, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -1480,6 +1411,8 @@ define internal i32 @dissect_FMP_GetMapEx_request(ptr noundef %0, ptr readnone c
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetMapEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -1492,25 +1425,18 @@ define internal i32 @dissect_FMP_GetMapEx_reply(ptr noundef %0, ptr readnone cap
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %18
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_msgNum, align 4
+  %9 = load i32, ptr @hf_fmp_msgNum, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_cookie, align 4
   %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_cookie, align 4
-  %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
-  %15 = load i32, ptr @hf_fmp_fileSize, align 4
-  %16 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
-  %17 = tail call fastcc i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %16, ptr noundef %2)
-  br label %18
+  %13 = load i32, ptr @hf_fmp_fileSize, align 4
+  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
+  %15 = tail call fastcc i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %14, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-18:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %17, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %15, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -1532,6 +1458,8 @@ define internal i32 @dissect_FMP_AllocSpaceEx_request(ptr noundef %0, ptr readno
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_AllocSpaceEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -1544,25 +1472,18 @@ define internal i32 @dissect_FMP_AllocSpaceEx_reply(ptr noundef %0, ptr readnone
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %18
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = load i32, ptr @hf_fmp_msgNum, align 4
+  %9 = load i32, ptr @hf_fmp_msgNum, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
+  %11 = load i32, ptr @hf_fmp_cookie, align 4
   %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
-  %13 = load i32, ptr @hf_fmp_cookie, align 4
-  %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
-  %15 = load i32, ptr @hf_fmp_fileSize, align 4
-  %16 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14)
-  %17 = tail call fastcc i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %16, ptr noundef %2)
-  br label %18
+  %13 = load i32, ptr @hf_fmp_fileSize, align 4
+  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
+  %15 = tail call fastcc i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %14, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-18:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %17, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %15, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 
@@ -1582,29 +1503,28 @@ define internal i32 @dissect_FMP_FlushEx_request(ptr noundef %0, ptr readnone ca
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_FlushEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
-    i32 0, label %6
-    i32 511, label %6
-    i32 509, label %6
-    i32 507, label %6
-    i32 506, label %6
-    i32 28, label %6
-    i32 504, label %6
-    i32 503, label %6
-    i32 502, label %6
+    i32 0, label %8
+    i32 511, label %8
+    i32 509, label %8
+    i32 507, label %8
+    i32 506, label %8
+    i32 28, label %8
+    i32 504, label %8
+    i32 503, label %8
+    i32 502, label %8
   ]
 
-6:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %7 = load i32, ptr @hf_fmp_status, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 0)
+8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
+  %9 = load i32, ptr @hf_fmp_msgNum, align 4
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %7)
   br label %dissect_fmp_status.exit
 
-dissect_fmp_status.exit:                          ; preds = %4, %6
-  %hf_fmp_status.sink = phi ptr [ @hf_fmp_msgNum, %6 ], [ @hf_fmp_status, %4 ]
-  %.sink7 = phi i32 [ %8, %6 ], [ 0, %4 ]
-  %9 = load i32, ptr %hf_fmp_status.sink, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %.sink7)
-  ret i32 %10
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %10, %8 ], [ %7, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1621,6 +1541,8 @@ define internal i32 @dissect_FMP_GetVolumeInfo_request(ptr noundef %0, ptr readn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetVolumeInfo_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %6 = load i32, ptr @hf_fmp_status, align 4
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
   switch i32 %5, label %dissect_fmp_status.exit [
     i32 0, label %8
     i32 511, label %8
@@ -1633,19 +1555,12 @@ define internal i32 @dissect_FMP_GetVolumeInfo_reply(ptr noundef %0, ptr readnon
     i32 502, label %8
   ]
 
-dissect_fmp_status.exit:                          ; preds = %4
-  %6 = load i32, ptr @hf_fmp_status, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0)
-  br label %12
-
 8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = load i32, ptr @hf_fmp_status, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 0)
-  %11 = tail call fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %10, ptr noundef %2)
-  br label %12
+  %9 = tail call fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %7, ptr noundef %2)
+  br label %dissect_fmp_status.exit
 
-12:                                               ; preds = %dissect_fmp_status.exit, %8
-  %.0 = phi i32 [ %11, %8 ], [ %7, %dissect_fmp_status.exit ]
+dissect_fmp_status.exit:                          ; preds = %4, %8
+  %.0 = phi i32 [ %9, %8 ], [ %7, %4 ]
   ret i32 %.0
 }
 

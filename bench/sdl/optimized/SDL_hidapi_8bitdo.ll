@@ -696,19 +696,19 @@ define internal noundef zeroext i1 @HIDAPI_Driver8BitDo_OpenJoystick(ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %7 = load i16, ptr %6, align 2
-  switch i16 %7, label %8 [
-    i16 24579, label %9
-    i16 24582, label %9
-    i16 24594, label %9
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  switch i16 %7, label %9 [
+    i16 24579, label %10
+    i16 24582, label %10
+    i16 24594, label %10
   ]
 
-8:                                                ; preds = %2
-  br label %9
+9:                                                ; preds = %2
+  br label %10
 
-9:                                                ; preds = %2, %2, %2, %8
-  %.sink = phi i32 [ 11, %8 ], [ 15, %2 ], [ 15, %2 ], [ 15, %2 ]
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i32 %.sink, ptr %10, align 8
+10:                                               ; preds = %2, %2, %2, %9
+  %.sink = phi i32 [ 11, %9 ], [ 15, %2 ], [ 15, %2 ], [ 15, %2 ]
+  store i32 %.sink, ptr %8, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 6, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -717,7 +717,7 @@ define internal noundef zeroext i1 @HIDAPI_Driver8BitDo_OpenJoystick(ptr noundef
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %18
 
-15:                                               ; preds = %9
+15:                                               ; preds = %10
   tail call void @SDL_PrivateJoystickAddSensor(ptr noundef nonnull %1, i32 noundef 2, float noundef 1.250000e+02) #9
   tail call void @SDL_PrivateJoystickAddSensor(ptr noundef nonnull %1, i32 noundef 1, float noundef 1.250000e+02) #9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -726,7 +726,7 @@ define internal noundef zeroext i1 @HIDAPI_Driver8BitDo_OpenJoystick(ptr noundef
   store float 0x3F51DF6A60000000, ptr %17, align 8
   br label %18
 
-18:                                               ; preds = %15, %9
+18:                                               ; preds = %15, %10
   ret i1 true
 }
 

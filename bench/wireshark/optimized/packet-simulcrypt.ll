@@ -761,8 +761,8 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
   br label %13
 
 13:                                               ; preds = %.lr.ph, %dissect_ecmg_parameter_value.exit
-  %.06 = phi i32 [ %4, %.lr.ph ], [ %419, %dissect_ecmg_parameter_value.exit ]
-  %.0935 = phi i32 [ 0, %.lr.ph ], [ %420, %dissect_ecmg_parameter_value.exit ]
+  %.06 = phi i32 [ %4, %.lr.ph ], [ %415, %dissect_ecmg_parameter_value.exit ]
+  %.0935 = phi i32 [ 0, %.lr.ph ], [ %416, %dissect_ecmg_parameter_value.exit ]
   %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %.06)
   %15 = add i32 %.06, 2
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %15)
@@ -773,773 +773,769 @@ define internal fastcc void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef
   %21 = load i32, ptr @hf_simulcrypt_parameter, align 4
   %22 = add nuw nsw i32 %19, 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %2, i32 noundef %.06, i32 noundef %22, i32 noundef 0)
-  switch i16 %6, label %36 [
-    i16 1, label %24
+  %24 = zext i16 %14 to i32
+  switch i16 %6, label %33 [
+    i16 1, label %25
     i16 2, label %27
-    i16 4, label %30
-    i16 5, label %33
-    i16 6, label %33
-    i16 7, label %33
+    i16 4, label %29
+    i16 5, label %31
+    i16 6, label %31
+    i16 7, label %31
   ]
 
-24:                                               ; preds = %13
-  %25 = zext i16 %14 to i32
-  %26 = tail call ptr @val_to_str_ext(i32 noundef %25, ptr noundef nonnull @ecmg_parametertypenames_ext, ptr noundef nonnull @.str.353)
+25:                                               ; preds = %13
+  %26 = tail call ptr @val_to_str_ext(i32 noundef %24, ptr noundef nonnull @ecmg_parametertypenames_ext, ptr noundef nonnull @.str.353)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.362, ptr noundef %26)
-  br label %38
+  br label %34
 
 27:                                               ; preds = %13
-  %28 = zext i16 %14 to i32
-  %29 = tail call ptr @val_to_str_ext(i32 noundef %28, ptr noundef nonnull @emmg_parametertypenames_ext, ptr noundef nonnull @.str.353)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.362, ptr noundef %29)
-  br label %38
+  %28 = tail call ptr @val_to_str_ext(i32 noundef %24, ptr noundef nonnull @emmg_parametertypenames_ext, ptr noundef nonnull @.str.353)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.362, ptr noundef %28)
+  br label %34
 
-30:                                               ; preds = %13
-  %31 = zext i16 %14 to i32
-  %32 = tail call ptr @val_to_str_ext(i32 noundef %31, ptr noundef nonnull @eis_parametertypenames_ext, ptr noundef nonnull @.str.353)
+29:                                               ; preds = %13
+  %30 = tail call ptr @val_to_str_ext(i32 noundef %24, ptr noundef nonnull @eis_parametertypenames_ext, ptr noundef nonnull @.str.353)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.362, ptr noundef %30)
+  br label %34
+
+31:                                               ; preds = %13, %13, %13
+  %32 = tail call ptr @val_to_str_ext(i32 noundef %24, ptr noundef nonnull @psig_parametertypenames_ext, ptr noundef nonnull @.str.353)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.362, ptr noundef %32)
-  br label %38
+  br label %34
 
-33:                                               ; preds = %13, %13, %13
-  %34 = zext i16 %14 to i32
-  %35 = tail call ptr @val_to_str_ext(i32 noundef %34, ptr noundef nonnull @psig_parametertypenames_ext, ptr noundef nonnull @.str.353)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.362, ptr noundef %35)
-  br label %38
+33:                                               ; preds = %13
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.363, i32 noundef %24)
+  br label %34
 
-36:                                               ; preds = %13
-  %37 = zext i16 %14 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.363, i32 noundef %37)
-  br label %38
-
-38:                                               ; preds = %36, %33, %30, %27, %24
+34:                                               ; preds = %33, %31, %29, %27, %25
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.364, i32 noundef %19)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.365, ptr noundef %20)
-  %39 = load i32, ptr @ett_simulcrypt_parameter, align 4
-  %40 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %39)
-  switch i16 %6, label %53 [
+  %35 = load i32, ptr @ett_simulcrypt_parameter, align 4
+  %36 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %35)
+  switch i16 %6, label %49 [
     i16 1, label %.thread
     i16 2, label %.thread1
     i16 4, label %.thread2
-    i16 5, label %54
-    i16 6, label %54
-    i16 7, label %54
+    i16 5, label %50
+    i16 6, label %50
+    i16 7, label %50
   ]
 
-.thread:                                          ; preds = %38
-  %41 = load i32, ptr @hf_simulcrypt_ecmg_parameter_type, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %2, i32 noundef %.06, i32 noundef 2, i32 noundef 0)
-  %43 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %43, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0)
-  switch i16 %14, label %170 [
-    i16 1, label %59
-    i16 2, label %74
-    i16 14, label %77
-    i16 3, label %80
-    i16 4, label %83
-    i16 5, label %86
-    i16 6, label %89
-    i16 22, label %92
-    i16 23, label %95
-    i16 7, label %98
-    i16 8, label %101
-    i16 9, label %104
-    i16 10, label %110
-    i16 11, label %113
-    i16 12, label %116
-    i16 13, label %119
-    i16 15, label %122
-    i16 16, label %125
-    i16 17, label %131
-    i16 18, label %134
-    i16 19, label %137
-    i16 20, label %143
+.thread:                                          ; preds = %34
+  %37 = load i32, ptr @hf_simulcrypt_ecmg_parameter_type, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %2, i32 noundef %.06, i32 noundef 2, i32 noundef 0)
+  %39 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %39, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0)
+  switch i16 %14, label %166 [
+    i16 1, label %55
+    i16 2, label %70
+    i16 14, label %73
+    i16 3, label %76
+    i16 4, label %79
+    i16 5, label %82
+    i16 6, label %85
+    i16 22, label %88
+    i16 23, label %91
+    i16 7, label %94
+    i16 8, label %97
+    i16 9, label %100
+    i16 10, label %106
+    i16 11, label %109
+    i16 12, label %112
+    i16 13, label %115
+    i16 15, label %118
+    i16 16, label %121
+    i16 17, label %127
+    i16 18, label %130
+    i16 19, label %133
+    i16 20, label %139
     i16 21, label %.critedge
-    i16 24, label %158
-    i16 25, label %161
-    i16 28672, label %164
-    i16 28673, label %167
+    i16 24, label %154
+    i16 25, label %157
+    i16 28672, label %160
+    i16 28673, label %163
   ]
 
-.thread1:                                         ; preds = %38
-  %45 = load i32, ptr @hf_simulcrypt_emmg_parameter_type, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %45, ptr noundef %2, i32 noundef %.06, i32 noundef 2, i32 noundef 0)
+.thread1:                                         ; preds = %34
+  %41 = load i32, ptr @hf_simulcrypt_emmg_parameter_type, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %41, ptr noundef %2, i32 noundef %.06, i32 noundef 2, i32 noundef 0)
+  %43 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %43, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0)
+  switch i16 %14, label %199 [
+    i16 1, label %169
+    i16 2, label %172
+    i16 3, label %175
+    i16 4, label %178
+    i16 5, label %181
+    i16 6, label %184
+    i16 7, label %187
+    i16 8, label %190
+    i16 28672, label %193
+    i16 28673, label %196
+  ]
+
+.thread2:                                         ; preds = %34
+  %45 = load i32, ptr @hf_simulcrypt_eis_parameter_type, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %45, ptr noundef %2, i32 noundef %.06, i32 noundef 2, i32 noundef 0)
   %47 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %47, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0)
-  switch i16 %14, label %203 [
-    i16 1, label %173
-    i16 2, label %176
-    i16 3, label %179
-    i16 4, label %182
-    i16 5, label %185
-    i16 6, label %188
-    i16 7, label %191
-    i16 8, label %194
-    i16 28672, label %197
-    i16 28673, label %200
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %47, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0)
+  br label %202
+
+49:                                               ; preds = %34
+  br label %50
+
+50:                                               ; preds = %34, %34, %34, %49
+  %hf_simulcrypt_parameter_type.sink = phi ptr [ @hf_simulcrypt_parameter_type, %49 ], [ @hf_simulcrypt_psig_parameter_type, %34 ], [ @hf_simulcrypt_psig_parameter_type, %34 ], [ @hf_simulcrypt_psig_parameter_type, %34 ]
+  %51 = load i32, ptr %hf_simulcrypt_parameter_type.sink, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %51, ptr noundef %2, i32 noundef %.06, i32 noundef 2, i32 noundef 0)
+  %53 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %53, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0)
+  switch i16 %6, label %412 [
+    i16 7, label %323
+    i16 6, label %323
+    i16 4, label %202
+    i16 5, label %323
   ]
 
-.thread2:                                         ; preds = %38
-  %49 = load i32, ptr @hf_simulcrypt_eis_parameter_type, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %49, ptr noundef %2, i32 noundef %.06, i32 noundef 2, i32 noundef 0)
-  %51 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %51, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0)
-  br label %206
+55:                                               ; preds = %.thread
+  %56 = load i32, ptr @hf_simulcrypt_super_cas_id, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %56, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  %58 = load i32, ptr @ett_simulcrypt_super_cas_id, align 4
+  %59 = tail call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58)
+  %60 = load i32, ptr @hf_simulcrypt_ca_system_id, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0)
+  %62 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
+  %.fr165.i = freeze i16 %62
+  %63 = zext i16 %.fr165.i to i32
+  %64 = load i32, ptr @tab_ecm_inter.0, align 16
+  %.fr164.i = freeze i32 %64
+  %65 = icmp eq i32 %.fr164.i, %63
+  br i1 %65, label %.split163.us.i, label %.loopexit.i, !llvm.loop !6
 
-53:                                               ; preds = %38
-  br label %54
-
-54:                                               ; preds = %38, %38, %38, %53
-  %hf_simulcrypt_parameter_type.sink = phi ptr [ @hf_simulcrypt_parameter_type, %53 ], [ @hf_simulcrypt_psig_parameter_type, %38 ], [ @hf_simulcrypt_psig_parameter_type, %38 ], [ @hf_simulcrypt_psig_parameter_type, %38 ]
-  %55 = load i32, ptr %hf_simulcrypt_parameter_type.sink, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %55, ptr noundef %2, i32 noundef %.06, i32 noundef 2, i32 noundef 0)
-  %57 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %57, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0)
-  switch i16 %6, label %416 [
-    i16 7, label %327
-    i16 6, label %327
-    i16 4, label %206
-    i16 5, label %327
-  ]
-
-59:                                               ; preds = %.thread
-  %60 = load i32, ptr @hf_simulcrypt_super_cas_id, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %60, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  %62 = load i32, ptr @ett_simulcrypt_super_cas_id, align 4
-  %63 = tail call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %62)
-  %64 = load i32, ptr @hf_simulcrypt_ca_system_id, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0)
-  %66 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
-  %.fr165.i = freeze i16 %66
-  %67 = zext i16 %.fr165.i to i32
-  %68 = load i32, ptr @tab_ecm_inter.0, align 16
-  %.fr164.i = freeze i32 %68
-  %69 = icmp eq i32 %.fr164.i, %67
-  br i1 %69, label %.split163.us.i, label %.loopexit.i, !llvm.loop !6
-
-.split163.us.i:                                   ; preds = %59
-  %70 = load i32, ptr %12, align 8
-  store i32 %70, ptr @tab_ecm_inter.3, align 8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.366, i32 noundef %70, ptr noundef nonnull @.str.371)
+.split163.us.i:                                   ; preds = %55
+  %66 = load i32, ptr %12, align 8
+  store i32 %66, ptr @tab_ecm_inter.3, align 8
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.366, i32 noundef %66, ptr noundef nonnull @.str.371)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.split163.us.i, %59
-  %71 = load i32, ptr @hf_simulcrypt_ca_subsystem_id, align 4
-  %72 = add i32 %.06, 6
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %71, ptr noundef %2, i32 noundef %72, i32 noundef 2, i32 noundef 0)
+.loopexit.i:                                      ; preds = %.split163.us.i, %55
+  %67 = load i32, ptr @hf_simulcrypt_ca_subsystem_id, align 4
+  %68 = add i32 %.06, 6
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %67, ptr noundef %2, i32 noundef %68, i32 noundef 2, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-74:                                               ; preds = %.thread
-  %75 = load i32, ptr @hf_simulcrypt_section_tspkt_flag, align 4
-  %76 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %75, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+70:                                               ; preds = %.thread
+  %71 = load i32, ptr @hf_simulcrypt_section_tspkt_flag, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %71, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-77:                                               ; preds = %.thread
-  %78 = load i32, ptr @hf_simulcrypt_ecm_channel_id, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %78, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+73:                                               ; preds = %.thread
+  %74 = load i32, ptr @hf_simulcrypt_ecm_channel_id, align 4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %74, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-80:                                               ; preds = %.thread
-  %81 = load i32, ptr @hf_simulcrypt_delay_start, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %81, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+76:                                               ; preds = %.thread
+  %77 = load i32, ptr @hf_simulcrypt_delay_start, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %77, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-83:                                               ; preds = %.thread
-  %84 = load i32, ptr @hf_simulcrypt_delay_stop, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %84, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+79:                                               ; preds = %.thread
+  %80 = load i32, ptr @hf_simulcrypt_delay_stop, align 4
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %80, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-86:                                               ; preds = %.thread
-  %87 = load i32, ptr @hf_simulcrypt_transition_delay_start, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %87, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+82:                                               ; preds = %.thread
+  %83 = load i32, ptr @hf_simulcrypt_transition_delay_start, align 4
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %83, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-89:                                               ; preds = %.thread
-  %90 = load i32, ptr @hf_simulcrypt_transition_delay_stop, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %90, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+85:                                               ; preds = %.thread
+  %86 = load i32, ptr @hf_simulcrypt_transition_delay_stop, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %86, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-92:                                               ; preds = %.thread
-  %93 = load i32, ptr @hf_simulcrypt_ac_delay_start, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %93, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+88:                                               ; preds = %.thread
+  %89 = load i32, ptr @hf_simulcrypt_ac_delay_start, align 4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %89, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-95:                                               ; preds = %.thread
-  %96 = load i32, ptr @hf_simulcrypt_ac_delay_stop, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %96, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+91:                                               ; preds = %.thread
+  %92 = load i32, ptr @hf_simulcrypt_ac_delay_stop, align 4
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %92, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-98:                                               ; preds = %.thread
-  %99 = load i32, ptr @hf_simulcrypt_ecm_rep_period, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %99, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+94:                                               ; preds = %.thread
+  %95 = load i32, ptr @hf_simulcrypt_ecm_rep_period, align 4
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %95, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-101:                                              ; preds = %.thread
-  %102 = load i32, ptr @hf_simulcrypt_max_streams, align 4
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %102, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+97:                                               ; preds = %.thread
+  %98 = load i32, ptr @hf_simulcrypt_max_streams, align 4
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %98, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-104:                                              ; preds = %.thread
-  %105 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
-  %106 = zext i16 %105 to i32
-  %107 = mul nuw nsw i32 %106, 100
-  %108 = load i32, ptr @hf_simulcrypt_min_cp_duration, align 4
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %108, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.367, i32 noundef %107)
+100:                                              ; preds = %.thread
+  %101 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
+  %102 = zext i16 %101 to i32
+  %103 = mul nuw nsw i32 %102, 100
+  %104 = load i32, ptr @hf_simulcrypt_min_cp_duration, align 4
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %104, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef nonnull @.str.367, i32 noundef %103)
   br label %dissect_ecmg_parameter_value.exit
 
-110:                                              ; preds = %.thread
-  %111 = load i32, ptr @hf_simulcrypt_lead_cw, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %111, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+106:                                              ; preds = %.thread
+  %107 = load i32, ptr @hf_simulcrypt_lead_cw, align 4
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %107, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-113:                                              ; preds = %.thread
-  %114 = load i32, ptr @hf_simulcrypt_cw_per_msg, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %114, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+109:                                              ; preds = %.thread
+  %110 = load i32, ptr @hf_simulcrypt_cw_per_msg, align 4
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %110, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-116:                                              ; preds = %.thread
-  %117 = load i32, ptr @hf_simulcrypt_max_comp_time, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %117, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+112:                                              ; preds = %.thread
+  %113 = load i32, ptr @hf_simulcrypt_max_comp_time, align 4
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %113, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-119:                                              ; preds = %.thread
-  %120 = load i32, ptr @hf_simulcrypt_access_criteria, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %120, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+115:                                              ; preds = %.thread
+  %116 = load i32, ptr @hf_simulcrypt_access_criteria, align 4
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %116, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-122:                                              ; preds = %.thread
-  %123 = load i32, ptr @hf_simulcrypt_ecm_stream_id, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %123, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+118:                                              ; preds = %.thread
+  %119 = load i32, ptr @hf_simulcrypt_ecm_stream_id, align 4
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %119, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-125:                                              ; preds = %.thread
-  %126 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
-  %127 = zext i16 %126 to i32
-  %128 = mul nuw nsw i32 %127, 100
-  %129 = load i32, ptr @hf_simulcrypt_nominal_cp_duration, align 4
-  %130 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %129, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %130, ptr noundef nonnull @.str.367, i32 noundef %128)
+121:                                              ; preds = %.thread
+  %122 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
+  %123 = zext i16 %122 to i32
+  %124 = mul nuw nsw i32 %123, 100
+  %125 = load i32, ptr @hf_simulcrypt_nominal_cp_duration, align 4
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %125, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %126, ptr noundef nonnull @.str.367, i32 noundef %124)
   br label %dissect_ecmg_parameter_value.exit
 
-131:                                              ; preds = %.thread
-  %132 = load i32, ptr @hf_simulcrypt_access_criteria_transfer_mode, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %132, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+127:                                              ; preds = %.thread
+  %128 = load i32, ptr @hf_simulcrypt_access_criteria_transfer_mode, align 4
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %128, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-134:                                              ; preds = %.thread
-  %135 = load i32, ptr @hf_simulcrypt_cp_number, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %135, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+130:                                              ; preds = %.thread
+  %131 = load i32, ptr @hf_simulcrypt_cp_number, align 4
+  %132 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %131, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-137:                                              ; preds = %.thread
-  %138 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
-  %139 = zext i16 %138 to i32
-  %140 = mul nuw nsw i32 %139, 100
-  %141 = load i32, ptr @hf_simulcrypt_cp_duration, align 4
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %141, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %142, ptr noundef nonnull @.str.367, i32 noundef %140)
+133:                                              ; preds = %.thread
+  %134 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
+  %135 = zext i16 %134 to i32
+  %136 = mul nuw nsw i32 %135, 100
+  %137 = load i32, ptr @hf_simulcrypt_cp_duration, align 4
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %137, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %138, ptr noundef nonnull @.str.367, i32 noundef %136)
   br label %dissect_ecmg_parameter_value.exit
 
-143:                                              ; preds = %.thread
-  %144 = load i32, ptr @hf_simulcrypt_cp_cw_combination, align 4
-  %145 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %144, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+139:                                              ; preds = %.thread
+  %140 = load i32, ptr @hf_simulcrypt_cp_cw_combination, align 4
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %140, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
 .critedge:                                        ; preds = %.thread
-  %146 = load i32, ptr @hf_simulcrypt_ecm_datagram, align 4
-  %147 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %146, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  %148 = load i32, ptr @tab_ecm_inter.3, align 8
-  %149 = load i32, ptr %11, align 4
-  %150 = icmp eq i32 %148, %149
-  br i1 %150, label %151, label %dissect_ecmg_parameter_value.exit, !llvm.loop !8
+  %142 = load i32, ptr @hf_simulcrypt_ecm_datagram, align 4
+  %143 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %142, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  %144 = load i32, ptr @tab_ecm_inter.3, align 8
+  %145 = load i32, ptr %11, align 4
+  %146 = icmp eq i32 %144, %145
+  br i1 %146, label %147, label %dissect_ecmg_parameter_value.exit, !llvm.loop !8
 
-151:                                              ; preds = %.critedge
-  %152 = tail call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef %18)
-  %153 = load i32, ptr @ett_simulcrypt_ecm_datagram, align 4
-  %154 = tail call ptr @proto_item_add_subtree(ptr noundef %147, i32 noundef %153)
-  %155 = load ptr, ptr @tab_ecm_inter.2, align 16
-  %.not.i = icmp eq ptr %155, null
-  br i1 %.not.i, label %dissect_ecmg_parameter_value.exit, label %156
+147:                                              ; preds = %.critedge
+  %148 = tail call ptr @tvb_new_subset_remaining(ptr noundef %2, i32 noundef %18)
+  %149 = load i32, ptr @ett_simulcrypt_ecm_datagram, align 4
+  %150 = tail call ptr @proto_item_add_subtree(ptr noundef %143, i32 noundef %149)
+  %151 = load ptr, ptr @tab_ecm_inter.2, align 16
+  %.not.i = icmp eq ptr %151, null
+  br i1 %.not.i, label %dissect_ecmg_parameter_value.exit, label %152
 
-156:                                              ; preds = %151
-  %157 = tail call i32 @call_dissector(ptr noundef nonnull %155, ptr noundef %152, ptr noundef %1, ptr noundef %154)
+152:                                              ; preds = %147
+  %153 = tail call i32 @call_dissector(ptr noundef nonnull %151, ptr noundef %148, ptr noundef %1, ptr noundef %150)
   br label %dissect_ecmg_parameter_value.exit
 
-158:                                              ; preds = %.thread
-  %159 = load i32, ptr @hf_simulcrypt_cw_encryption, align 4
-  %160 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %159, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+154:                                              ; preds = %.thread
+  %155 = load i32, ptr @hf_simulcrypt_cw_encryption, align 4
+  %156 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %155, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-161:                                              ; preds = %.thread
-  %162 = load i32, ptr @hf_simulcrypt_ecm_id, align 4
-  %163 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %162, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+157:                                              ; preds = %.thread
+  %158 = load i32, ptr @hf_simulcrypt_ecm_id, align 4
+  %159 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %158, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-164:                                              ; preds = %.thread
-  %165 = load i32, ptr @hf_simulcrypt_ecmg_error_status, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %165, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+160:                                              ; preds = %.thread
+  %161 = load i32, ptr @hf_simulcrypt_ecmg_error_status, align 4
+  %162 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %161, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-167:                                              ; preds = %.thread
-  %168 = load i32, ptr @hf_simulcrypt_error_information, align 4
-  %169 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %168, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+163:                                              ; preds = %.thread
+  %164 = load i32, ptr @hf_simulcrypt_error_information, align 4
+  %165 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %164, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-170:                                              ; preds = %.thread
-  %171 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
-  %172 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %171, ptr noundef %2, i32 noundef %18, i32 noundef %19, ptr noundef %20)
+166:                                              ; preds = %.thread
+  %167 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
+  %168 = tail call ptr @proto_tree_add_string(ptr noundef %36, i32 noundef %167, ptr noundef %2, i32 noundef %18, i32 noundef %19, ptr noundef %20)
   br label %dissect_ecmg_parameter_value.exit
 
-173:                                              ; preds = %.thread1
-  %174 = load i32, ptr @hf_simulcrypt_client_id, align 4
-  %175 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %174, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+169:                                              ; preds = %.thread1
+  %170 = load i32, ptr @hf_simulcrypt_client_id, align 4
+  %171 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %170, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-176:                                              ; preds = %.thread1
-  %177 = load i32, ptr @hf_simulcrypt_section_tspkt_flag, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %177, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+172:                                              ; preds = %.thread1
+  %173 = load i32, ptr @hf_simulcrypt_section_tspkt_flag, align 4
+  %174 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %173, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-179:                                              ; preds = %.thread1
-  %180 = load i32, ptr @hf_simulcrypt_data_channel_id, align 4
-  %181 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %180, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+175:                                              ; preds = %.thread1
+  %176 = load i32, ptr @hf_simulcrypt_data_channel_id, align 4
+  %177 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %176, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-182:                                              ; preds = %.thread1
-  %183 = load i32, ptr @hf_simulcrypt_data_stream_id, align 4
-  %184 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %183, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+178:                                              ; preds = %.thread1
+  %179 = load i32, ptr @hf_simulcrypt_data_stream_id, align 4
+  %180 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %179, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-185:                                              ; preds = %.thread1
-  %186 = load i32, ptr @hf_simulcrypt_datagram, align 4
-  %187 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %186, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+181:                                              ; preds = %.thread1
+  %182 = load i32, ptr @hf_simulcrypt_datagram, align 4
+  %183 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %182, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-188:                                              ; preds = %.thread1
-  %189 = load i32, ptr @hf_simulcrypt_bandwidth, align 4
-  %190 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %189, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+184:                                              ; preds = %.thread1
+  %185 = load i32, ptr @hf_simulcrypt_bandwidth, align 4
+  %186 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %185, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-191:                                              ; preds = %.thread1
-  %192 = load i32, ptr @hf_simulcrypt_data_type, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %192, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+187:                                              ; preds = %.thread1
+  %188 = load i32, ptr @hf_simulcrypt_data_type, align 4
+  %189 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %188, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-194:                                              ; preds = %.thread1
-  %195 = load i32, ptr @hf_simulcrypt_data_id, align 4
-  %196 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %195, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+190:                                              ; preds = %.thread1
+  %191 = load i32, ptr @hf_simulcrypt_data_id, align 4
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %191, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-197:                                              ; preds = %.thread1
-  %198 = load i32, ptr @hf_simulcrypt_emmg_error_status, align 4
-  %199 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %198, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+193:                                              ; preds = %.thread1
+  %194 = load i32, ptr @hf_simulcrypt_emmg_error_status, align 4
+  %195 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %194, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-200:                                              ; preds = %.thread1
-  %201 = load i32, ptr @hf_simulcrypt_error_information, align 4
-  %202 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %201, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+196:                                              ; preds = %.thread1
+  %197 = load i32, ptr @hf_simulcrypt_error_information, align 4
+  %198 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %197, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-203:                                              ; preds = %.thread1
-  %204 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
-  %205 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %204, ptr noundef %2, i32 noundef %18, i32 noundef %19, ptr noundef %20)
+199:                                              ; preds = %.thread1
+  %200 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
+  %201 = tail call ptr @proto_tree_add_string(ptr noundef %36, i32 noundef %200, ptr noundef %2, i32 noundef %18, i32 noundef %19, ptr noundef %20)
   br label %dissect_ecmg_parameter_value.exit
 
-206:                                              ; preds = %.thread2, %54
-  switch i16 %14, label %324 [
-    i16 1, label %207
-    i16 2, label %210
-    i16 3, label %213
-    i16 4, label %216
-    i16 5, label %219
-    i16 6, label %224
-    i16 7, label %227
-    i16 8, label %230
-    i16 9, label %245
-    i16 10, label %248
-    i16 11, label %251
-    i16 12, label %276
-    i16 13, label %279
-    i16 14, label %282
-    i16 15, label %285
-    i16 16, label %288
-    i16 17, label %291
-    i16 18, label %294
-    i16 19, label %297
-    i16 20, label %300
-    i16 21, label %306
-    i16 22, label %312
-    i16 28672, label %315
-    i16 28673, label %318
-    i16 28674, label %321
+202:                                              ; preds = %.thread2, %50
+  switch i16 %14, label %320 [
+    i16 1, label %203
+    i16 2, label %206
+    i16 3, label %209
+    i16 4, label %212
+    i16 5, label %215
+    i16 6, label %220
+    i16 7, label %223
+    i16 8, label %226
+    i16 9, label %241
+    i16 10, label %244
+    i16 11, label %247
+    i16 12, label %272
+    i16 13, label %275
+    i16 14, label %278
+    i16 15, label %281
+    i16 16, label %284
+    i16 17, label %287
+    i16 18, label %290
+    i16 19, label %293
+    i16 20, label %296
+    i16 21, label %302
+    i16 22, label %308
+    i16 28672, label %311
+    i16 28673, label %314
+    i16 28674, label %317
   ]
 
-207:                                              ; preds = %206
-  %208 = load i32, ptr @hf_simulcrypt_eis_channel_id, align 4
-  %209 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %208, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+203:                                              ; preds = %202
+  %204 = load i32, ptr @hf_simulcrypt_eis_channel_id, align 4
+  %205 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %204, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-210:                                              ; preds = %206
-  %211 = load i32, ptr @hf_simulcrypt_service_flag, align 4
-  %212 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %211, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+206:                                              ; preds = %202
+  %207 = load i32, ptr @hf_simulcrypt_service_flag, align 4
+  %208 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %207, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-213:                                              ; preds = %206
-  %214 = load i32, ptr @hf_simulcrypt_component_flag, align 4
-  %215 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %214, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+209:                                              ; preds = %202
+  %210 = load i32, ptr @hf_simulcrypt_component_flag, align 4
+  %211 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %210, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-216:                                              ; preds = %206
-  %217 = load i32, ptr @hf_simulcrypt_max_scg, align 4
-  %218 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %217, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+212:                                              ; preds = %202
+  %213 = load i32, ptr @hf_simulcrypt_max_scg, align 4
+  %214 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %213, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-219:                                              ; preds = %206
-  %220 = load i32, ptr @hf_simulcrypt_ecm_group, align 4
-  %221 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %220, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  %222 = load i32, ptr @ett_simulcrypt_ecm_group, align 4
-  %223 = tail call ptr @proto_item_add_subtree(ptr noundef %221, i32 noundef %222)
-  tail call fastcc void @dissect_simulcrypt_data(ptr noundef %223, ptr noundef %1, ptr noundef %2, ptr noundef %40, i32 noundef %18, i32 noundef %19, i16 noundef zeroext 4, i1 noundef zeroext true)
+215:                                              ; preds = %202
+  %216 = load i32, ptr @hf_simulcrypt_ecm_group, align 4
+  %217 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %216, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  %218 = load i32, ptr @ett_simulcrypt_ecm_group, align 4
+  %219 = tail call ptr @proto_item_add_subtree(ptr noundef %217, i32 noundef %218)
+  tail call fastcc void @dissect_simulcrypt_data(ptr noundef %219, ptr noundef %1, ptr noundef %2, ptr noundef %36, i32 noundef %18, i32 noundef %19, i16 noundef zeroext 4, i1 noundef zeroext true)
   br label %dissect_ecmg_parameter_value.exit
 
-224:                                              ; preds = %206
-  %225 = load i32, ptr @hf_simulcrypt_scg_id, align 4
-  %226 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %225, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+220:                                              ; preds = %202
+  %221 = load i32, ptr @hf_simulcrypt_scg_id, align 4
+  %222 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %221, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-227:                                              ; preds = %206
-  %228 = load i32, ptr @hf_simulcrypt_scg_reference_id, align 4
-  %229 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %228, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+223:                                              ; preds = %202
+  %224 = load i32, ptr @hf_simulcrypt_scg_reference_id, align 4
+  %225 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %224, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-230:                                              ; preds = %206
-  %231 = load i32, ptr @hf_simulcrypt_super_cas_id, align 4
-  %232 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %231, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  %233 = load i32, ptr @ett_simulcrypt_super_cas_id, align 4
-  %234 = tail call ptr @proto_item_add_subtree(ptr noundef %232, i32 noundef %233)
-  %235 = load i32, ptr @hf_simulcrypt_ca_system_id, align 4
-  %236 = tail call ptr @proto_tree_add_item(ptr noundef %234, i32 noundef %235, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0)
-  %237 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
-  %.fr8 = freeze i16 %237
-  %238 = zext i16 %.fr8 to i32
-  %239 = load i32, ptr @tab_ecm_inter.0, align 16
-  %.fr7 = freeze i32 %239
-  %240 = icmp eq i32 %.fr7, %238
-  br i1 %240, label %.split.us, label %.loopexit.split, !llvm.loop !9
+226:                                              ; preds = %202
+  %227 = load i32, ptr @hf_simulcrypt_super_cas_id, align 4
+  %228 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %227, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  %229 = load i32, ptr @ett_simulcrypt_super_cas_id, align 4
+  %230 = tail call ptr @proto_item_add_subtree(ptr noundef %228, i32 noundef %229)
+  %231 = load i32, ptr @hf_simulcrypt_ca_system_id, align 4
+  %232 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %231, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0)
+  %233 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
+  %.fr8 = freeze i16 %233
+  %234 = zext i16 %.fr8 to i32
+  %235 = load i32, ptr @tab_ecm_inter.0, align 16
+  %.fr7 = freeze i32 %235
+  %236 = icmp eq i32 %.fr7, %234
+  br i1 %236, label %.split.us, label %.loopexit.split, !llvm.loop !9
 
-.split.us:                                        ; preds = %230
-  %241 = load i32, ptr %12, align 8
-  store i32 %241, ptr @tab_ecm_inter.3, align 8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %236, ptr noundef nonnull @.str.366, i32 noundef %241, ptr noundef nonnull @.str.371)
+.split.us:                                        ; preds = %226
+  %237 = load i32, ptr %12, align 8
+  store i32 %237, ptr @tab_ecm_inter.3, align 8
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %232, ptr noundef nonnull @.str.366, i32 noundef %237, ptr noundef nonnull @.str.371)
   br label %.loopexit.split
 
-.loopexit.split:                                  ; preds = %230, %.split.us
-  %242 = load i32, ptr @hf_simulcrypt_ca_subsystem_id, align 4
-  %243 = add i32 %.06, 6
-  %244 = tail call ptr @proto_tree_add_item(ptr noundef %234, i32 noundef %242, ptr noundef %2, i32 noundef %243, i32 noundef 2, i32 noundef 0)
+.loopexit.split:                                  ; preds = %226, %.split.us
+  %238 = load i32, ptr @hf_simulcrypt_ca_subsystem_id, align 4
+  %239 = add i32 %.06, 6
+  %240 = tail call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %238, ptr noundef %2, i32 noundef %239, i32 noundef 2, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-245:                                              ; preds = %206
-  %246 = load i32, ptr @hf_simulcrypt_ecm_id, align 4
-  %247 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %246, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+241:                                              ; preds = %202
+  %242 = load i32, ptr @hf_simulcrypt_ecm_id, align 4
+  %243 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %242, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-248:                                              ; preds = %206
-  %249 = load i32, ptr @hf_simulcrypt_access_criteria, align 4
-  %250 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %249, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+244:                                              ; preds = %202
+  %245 = load i32, ptr @hf_simulcrypt_access_criteria, align 4
+  %246 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %245, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-251:                                              ; preds = %206
-  %252 = load i32, ptr @hf_simulcrypt_activation_time, align 4
-  %253 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %252, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  %254 = load i32, ptr @ett_simulcrypt_activation_time, align 4
-  %255 = tail call ptr @proto_item_add_subtree(ptr noundef %253, i32 noundef %254)
-  %256 = load i32, ptr @hf_simulcrypt_year, align 4
-  %257 = tail call ptr @proto_tree_add_item(ptr noundef %255, i32 noundef %256, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0)
-  %258 = load i32, ptr @hf_simulcrypt_month, align 4
-  %259 = add i32 %.06, 6
-  %260 = tail call ptr @proto_tree_add_item(ptr noundef %255, i32 noundef %258, ptr noundef %2, i32 noundef %259, i32 noundef 1, i32 noundef 0)
-  %261 = load i32, ptr @hf_simulcrypt_day, align 4
-  %262 = add i32 %.06, 7
-  %263 = tail call ptr @proto_tree_add_item(ptr noundef %255, i32 noundef %261, ptr noundef %2, i32 noundef %262, i32 noundef 1, i32 noundef 0)
-  %264 = load i32, ptr @hf_simulcrypt_hour, align 4
-  %265 = add i32 %.06, 8
-  %266 = tail call ptr @proto_tree_add_item(ptr noundef %255, i32 noundef %264, ptr noundef %2, i32 noundef %265, i32 noundef 1, i32 noundef 0)
-  %267 = load i32, ptr @hf_simulcrypt_minute, align 4
-  %268 = add i32 %.06, 9
-  %269 = tail call ptr @proto_tree_add_item(ptr noundef %255, i32 noundef %267, ptr noundef %2, i32 noundef %268, i32 noundef 1, i32 noundef 0)
-  %270 = load i32, ptr @hf_simulcrypt_second, align 4
-  %271 = add i32 %.06, 10
-  %272 = tail call ptr @proto_tree_add_item(ptr noundef %255, i32 noundef %270, ptr noundef %2, i32 noundef %271, i32 noundef 1, i32 noundef 0)
-  %273 = load i32, ptr @hf_simulcrypt_hundredth_second, align 4
-  %274 = add i32 %.06, 11
-  %275 = tail call ptr @proto_tree_add_item(ptr noundef %255, i32 noundef %273, ptr noundef %2, i32 noundef %274, i32 noundef 1, i32 noundef 0)
+247:                                              ; preds = %202
+  %248 = load i32, ptr @hf_simulcrypt_activation_time, align 4
+  %249 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %248, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  %250 = load i32, ptr @ett_simulcrypt_activation_time, align 4
+  %251 = tail call ptr @proto_item_add_subtree(ptr noundef %249, i32 noundef %250)
+  %252 = load i32, ptr @hf_simulcrypt_year, align 4
+  %253 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %252, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0)
+  %254 = load i32, ptr @hf_simulcrypt_month, align 4
+  %255 = add i32 %.06, 6
+  %256 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %254, ptr noundef %2, i32 noundef %255, i32 noundef 1, i32 noundef 0)
+  %257 = load i32, ptr @hf_simulcrypt_day, align 4
+  %258 = add i32 %.06, 7
+  %259 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %257, ptr noundef %2, i32 noundef %258, i32 noundef 1, i32 noundef 0)
+  %260 = load i32, ptr @hf_simulcrypt_hour, align 4
+  %261 = add i32 %.06, 8
+  %262 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %260, ptr noundef %2, i32 noundef %261, i32 noundef 1, i32 noundef 0)
+  %263 = load i32, ptr @hf_simulcrypt_minute, align 4
+  %264 = add i32 %.06, 9
+  %265 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %263, ptr noundef %2, i32 noundef %264, i32 noundef 1, i32 noundef 0)
+  %266 = load i32, ptr @hf_simulcrypt_second, align 4
+  %267 = add i32 %.06, 10
+  %268 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %266, ptr noundef %2, i32 noundef %267, i32 noundef 1, i32 noundef 0)
+  %269 = load i32, ptr @hf_simulcrypt_hundredth_second, align 4
+  %270 = add i32 %.06, 11
+  %271 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %269, ptr noundef %2, i32 noundef %270, i32 noundef 1, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-276:                                              ; preds = %206
-  %277 = load i32, ptr @hf_simulcrypt_activation_pending_flag, align 4
-  %278 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %277, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+272:                                              ; preds = %202
+  %273 = load i32, ptr @hf_simulcrypt_activation_pending_flag, align 4
+  %274 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %273, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-279:                                              ; preds = %206
-  %280 = load i32, ptr @hf_simulcrypt_component_id, align 4
-  %281 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %280, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+275:                                              ; preds = %202
+  %276 = load i32, ptr @hf_simulcrypt_component_id, align 4
+  %277 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %276, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-282:                                              ; preds = %206
-  %283 = load i32, ptr @hf_simulcrypt_service_id, align 4
-  %284 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %283, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+278:                                              ; preds = %202
+  %279 = load i32, ptr @hf_simulcrypt_service_id, align 4
+  %280 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %279, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-285:                                              ; preds = %206
-  %286 = load i32, ptr @hf_simulcrypt_transport_stream_id, align 4
-  %287 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %286, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+281:                                              ; preds = %202
+  %282 = load i32, ptr @hf_simulcrypt_transport_stream_id, align 4
+  %283 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %282, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-288:                                              ; preds = %206
-  %289 = load i32, ptr @hf_simulcrypt_ac_changed_flag, align 4
-  %290 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %289, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+284:                                              ; preds = %202
+  %285 = load i32, ptr @hf_simulcrypt_ac_changed_flag, align 4
+  %286 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %285, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-291:                                              ; preds = %206
-  %292 = load i32, ptr @hf_simulcrypt_scg_current_reference_id, align 4
-  %293 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %292, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+287:                                              ; preds = %202
+  %288 = load i32, ptr @hf_simulcrypt_scg_current_reference_id, align 4
+  %289 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %288, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-294:                                              ; preds = %206
-  %295 = load i32, ptr @hf_simulcrypt_scg_pending_reference_id, align 4
-  %296 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %295, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+290:                                              ; preds = %202
+  %291 = load i32, ptr @hf_simulcrypt_scg_pending_reference_id, align 4
+  %292 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %291, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-297:                                              ; preds = %206
-  %298 = load i32, ptr @hf_simulcrypt_cp_duration_flag, align 4
-  %299 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %298, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+293:                                              ; preds = %202
+  %294 = load i32, ptr @hf_simulcrypt_cp_duration_flag, align 4
+  %295 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %294, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-300:                                              ; preds = %206
-  %301 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
-  %302 = zext i16 %301 to i32
-  %303 = mul nuw nsw i32 %302, 100
-  %304 = load i32, ptr @hf_simulcrypt_recommended_cp_duration, align 4
-  %305 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %304, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %305, ptr noundef nonnull @.str.367, i32 noundef %303)
+296:                                              ; preds = %202
+  %297 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
+  %298 = zext i16 %297 to i32
+  %299 = mul nuw nsw i32 %298, 100
+  %300 = load i32, ptr @hf_simulcrypt_recommended_cp_duration, align 4
+  %301 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %300, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %301, ptr noundef nonnull @.str.367, i32 noundef %299)
   br label %dissect_ecmg_parameter_value.exit
 
-306:                                              ; preds = %206
-  %307 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
-  %308 = zext i16 %307 to i32
-  %309 = mul nuw nsw i32 %308, 100
-  %310 = load i32, ptr @hf_simulcrypt_scg_nominal_cp_duration, align 4
-  %311 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %310, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %311, ptr noundef nonnull @.str.367, i32 noundef %309)
+302:                                              ; preds = %202
+  %303 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %18)
+  %304 = zext i16 %303 to i32
+  %305 = mul nuw nsw i32 %304, 100
+  %306 = load i32, ptr @hf_simulcrypt_scg_nominal_cp_duration, align 4
+  %307 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %306, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %307, ptr noundef nonnull @.str.367, i32 noundef %305)
   br label %dissect_ecmg_parameter_value.exit
 
-312:                                              ; preds = %206
-  %313 = load i32, ptr @hf_simulcrypt_original_network_id, align 4
-  %314 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %313, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+308:                                              ; preds = %202
+  %309 = load i32, ptr @hf_simulcrypt_original_network_id, align 4
+  %310 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %309, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-315:                                              ; preds = %206
-  %316 = load i32, ptr @hf_simulcrypt_eis_error_status, align 4
-  %317 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %316, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+311:                                              ; preds = %202
+  %312 = load i32, ptr @hf_simulcrypt_eis_error_status, align 4
+  %313 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %312, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-318:                                              ; preds = %206
-  %319 = load i32, ptr @hf_simulcrypt_error_information, align 4
-  %320 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %319, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+314:                                              ; preds = %202
+  %315 = load i32, ptr @hf_simulcrypt_error_information, align 4
+  %316 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %315, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-321:                                              ; preds = %206
-  %322 = load i32, ptr @hf_simulcrypt_error_description, align 4
-  %323 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %322, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+317:                                              ; preds = %202
+  %318 = load i32, ptr @hf_simulcrypt_error_description, align 4
+  %319 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %318, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecmg_parameter_value.exit
 
-324:                                              ; preds = %206
-  %325 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
-  %326 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %325, ptr noundef %2, i32 noundef %18, i32 noundef %19, ptr noundef %20)
+320:                                              ; preds = %202
+  %321 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
+  %322 = tail call ptr @proto_tree_add_string(ptr noundef %36, i32 noundef %321, ptr noundef %2, i32 noundef %18, i32 noundef %19, ptr noundef %20)
   br label %dissect_ecmg_parameter_value.exit
 
-327:                                              ; preds = %54, %54, %54
+323:                                              ; preds = %50, %50, %50
   tail call void @increment_dissection_depth(ptr noundef %1)
-  switch i16 %14, label %413 [
-    i16 1, label %328
-    i16 2, label %335
-    i16 3, label %338
-    i16 4, label %341
-    i16 5, label %344
-    i16 6, label %347
-    i16 7, label %350
-    i16 8, label %353
-    i16 9, label %356
-    i16 10, label %361
-    i16 11, label %364
-    i16 12, label %367
-    i16 13, label %392
-    i16 14, label %395
-    i16 15, label %398
-    i16 16, label %401
-    i16 17, label %404
-    i16 28672, label %407
-    i16 28673, label %410
+  switch i16 %14, label %409 [
+    i16 1, label %324
+    i16 2, label %331
+    i16 3, label %334
+    i16 4, label %337
+    i16 5, label %340
+    i16 6, label %343
+    i16 7, label %346
+    i16 8, label %349
+    i16 9, label %352
+    i16 10, label %357
+    i16 11, label %360
+    i16 12, label %363
+    i16 13, label %388
+    i16 14, label %391
+    i16 15, label %394
+    i16 16, label %397
+    i16 17, label %400
+    i16 28672, label %403
+    i16 28673, label %406
   ]
 
-328:                                              ; preds = %327
-  %329 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %18)
-  %330 = load i32, ptr @hf_simulcrypt_psig_type, align 4
-  %331 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %330, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  switch i8 %329, label %dissect_psig_parameter_value.exit [
-    i8 1, label %332
-    i8 2, label %333
-    i8 3, label %334
+324:                                              ; preds = %323
+  %325 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %18)
+  %326 = load i32, ptr @hf_simulcrypt_psig_type, align 4
+  %327 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %326, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  switch i8 %325, label %dissect_psig_parameter_value.exit [
+    i8 1, label %328
+    i8 2, label %329
+    i8 3, label %330
   ]
 
-332:                                              ; preds = %328
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %331, ptr noundef nonnull @.str.368)
+328:                                              ; preds = %324
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %327, ptr noundef nonnull @.str.368)
   br label %dissect_psig_parameter_value.exit
 
-333:                                              ; preds = %328
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %331, ptr noundef nonnull @.str.369)
+329:                                              ; preds = %324
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %327, ptr noundef nonnull @.str.369)
   br label %dissect_psig_parameter_value.exit
 
-334:                                              ; preds = %328
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %331, ptr noundef nonnull @.str.370)
+330:                                              ; preds = %324
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %327, ptr noundef nonnull @.str.370)
   br label %dissect_psig_parameter_value.exit
 
-335:                                              ; preds = %327
-  %336 = load i32, ptr @hf_simulcrypt_channel_id, align 4
-  %337 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %336, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+331:                                              ; preds = %323
+  %332 = load i32, ptr @hf_simulcrypt_channel_id, align 4
+  %333 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %332, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-338:                                              ; preds = %327
-  %339 = load i32, ptr @hf_simulcrypt_stream_id, align 4
-  %340 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %339, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+334:                                              ; preds = %323
+  %335 = load i32, ptr @hf_simulcrypt_stream_id, align 4
+  %336 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %335, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-341:                                              ; preds = %327
-  %342 = load i32, ptr @hf_simulcrypt_transport_stream_id, align 4
-  %343 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %342, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+337:                                              ; preds = %323
+  %338 = load i32, ptr @hf_simulcrypt_transport_stream_id, align 4
+  %339 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %338, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-344:                                              ; preds = %327
-  %345 = load i32, ptr @hf_simulcrypt_original_network_id, align 4
-  %346 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %345, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+340:                                              ; preds = %323
+  %341 = load i32, ptr @hf_simulcrypt_original_network_id, align 4
+  %342 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %341, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-347:                                              ; preds = %327
-  %348 = load i32, ptr @hf_simulcrypt_packet_id, align 4
-  %349 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %348, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+343:                                              ; preds = %323
+  %344 = load i32, ptr @hf_simulcrypt_packet_id, align 4
+  %345 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %344, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-350:                                              ; preds = %327
-  %351 = load i32, ptr @hf_simulcrypt_interface_mode_configuration, align 4
-  %352 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %351, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+346:                                              ; preds = %323
+  %347 = load i32, ptr @hf_simulcrypt_interface_mode_configuration, align 4
+  %348 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %347, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-353:                                              ; preds = %327
-  %354 = load i32, ptr @hf_simulcrypt_max_stream, align 4
-  %355 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %354, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+349:                                              ; preds = %323
+  %350 = load i32, ptr @hf_simulcrypt_max_stream, align 4
+  %351 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %350, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-356:                                              ; preds = %327
-  %357 = load i32, ptr @hf_simulcrypt_table_period_pair, align 4
-  %358 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %357, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  %359 = load i32, ptr @ett_simulcrypt_table_period_pair, align 4
-  %360 = tail call ptr @proto_item_add_subtree(ptr noundef %358, i32 noundef %359)
-  tail call fastcc void @dissect_simulcrypt_data(ptr noundef %360, ptr noundef %1, ptr noundef %2, ptr noundef %40, i32 noundef %18, i32 noundef %19, i16 noundef zeroext 6, i1 noundef zeroext true)
+352:                                              ; preds = %323
+  %353 = load i32, ptr @hf_simulcrypt_table_period_pair, align 4
+  %354 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %353, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  %355 = load i32, ptr @ett_simulcrypt_table_period_pair, align 4
+  %356 = tail call ptr @proto_item_add_subtree(ptr noundef %354, i32 noundef %355)
+  tail call fastcc void @dissect_simulcrypt_data(ptr noundef %356, ptr noundef %1, ptr noundef %2, ptr noundef %36, i32 noundef %18, i32 noundef %19, i16 noundef zeroext 6, i1 noundef zeroext true)
   br label %dissect_psig_parameter_value.exit
 
-361:                                              ; preds = %327
-  %362 = load i32, ptr @hf_simulcrypt_mpeg_section, align 4
-  %363 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %362, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+357:                                              ; preds = %323
+  %358 = load i32, ptr @hf_simulcrypt_mpeg_section, align 4
+  %359 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %358, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-364:                                              ; preds = %327
-  %365 = load i32, ptr @hf_simulcrypt_repetition_rate, align 4
-  %366 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %365, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+360:                                              ; preds = %323
+  %361 = load i32, ptr @hf_simulcrypt_repetition_rate, align 4
+  %362 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %361, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-367:                                              ; preds = %327
-  %368 = load i32, ptr @hf_simulcrypt_activation_time, align 4
-  %369 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %368, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
-  %370 = load i32, ptr @ett_simulcrypt_activation_time, align 4
-  %371 = tail call ptr @proto_item_add_subtree(ptr noundef %369, i32 noundef %370)
-  %372 = load i32, ptr @hf_simulcrypt_year, align 4
-  %373 = tail call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %372, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0)
-  %374 = load i32, ptr @hf_simulcrypt_month, align 4
-  %375 = add i32 %.06, 6
-  %376 = tail call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %374, ptr noundef %2, i32 noundef %375, i32 noundef 1, i32 noundef 0)
-  %377 = load i32, ptr @hf_simulcrypt_day, align 4
-  %378 = add i32 %.06, 7
-  %379 = tail call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %377, ptr noundef %2, i32 noundef %378, i32 noundef 1, i32 noundef 0)
-  %380 = load i32, ptr @hf_simulcrypt_hour, align 4
-  %381 = add i32 %.06, 8
-  %382 = tail call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %380, ptr noundef %2, i32 noundef %381, i32 noundef 1, i32 noundef 0)
-  %383 = load i32, ptr @hf_simulcrypt_minute, align 4
-  %384 = add i32 %.06, 9
-  %385 = tail call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %383, ptr noundef %2, i32 noundef %384, i32 noundef 1, i32 noundef 0)
-  %386 = load i32, ptr @hf_simulcrypt_second, align 4
-  %387 = add i32 %.06, 10
-  %388 = tail call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %386, ptr noundef %2, i32 noundef %387, i32 noundef 1, i32 noundef 0)
-  %389 = load i32, ptr @hf_simulcrypt_hundredth_second, align 4
-  %390 = add i32 %.06, 11
-  %391 = tail call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %389, ptr noundef %2, i32 noundef %390, i32 noundef 1, i32 noundef 0)
+363:                                              ; preds = %323
+  %364 = load i32, ptr @hf_simulcrypt_activation_time, align 4
+  %365 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %364, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+  %366 = load i32, ptr @ett_simulcrypt_activation_time, align 4
+  %367 = tail call ptr @proto_item_add_subtree(ptr noundef %365, i32 noundef %366)
+  %368 = load i32, ptr @hf_simulcrypt_year, align 4
+  %369 = tail call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %368, ptr noundef %2, i32 noundef %18, i32 noundef 2, i32 noundef 0)
+  %370 = load i32, ptr @hf_simulcrypt_month, align 4
+  %371 = add i32 %.06, 6
+  %372 = tail call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %370, ptr noundef %2, i32 noundef %371, i32 noundef 1, i32 noundef 0)
+  %373 = load i32, ptr @hf_simulcrypt_day, align 4
+  %374 = add i32 %.06, 7
+  %375 = tail call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %373, ptr noundef %2, i32 noundef %374, i32 noundef 1, i32 noundef 0)
+  %376 = load i32, ptr @hf_simulcrypt_hour, align 4
+  %377 = add i32 %.06, 8
+  %378 = tail call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %376, ptr noundef %2, i32 noundef %377, i32 noundef 1, i32 noundef 0)
+  %379 = load i32, ptr @hf_simulcrypt_minute, align 4
+  %380 = add i32 %.06, 9
+  %381 = tail call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %379, ptr noundef %2, i32 noundef %380, i32 noundef 1, i32 noundef 0)
+  %382 = load i32, ptr @hf_simulcrypt_second, align 4
+  %383 = add i32 %.06, 10
+  %384 = tail call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %382, ptr noundef %2, i32 noundef %383, i32 noundef 1, i32 noundef 0)
+  %385 = load i32, ptr @hf_simulcrypt_hundredth_second, align 4
+  %386 = add i32 %.06, 11
+  %387 = tail call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %385, ptr noundef %2, i32 noundef %386, i32 noundef 1, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-392:                                              ; preds = %327
-  %393 = load i32, ptr @hf_simulcrypt_datagram, align 4
-  %394 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %393, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+388:                                              ; preds = %323
+  %389 = load i32, ptr @hf_simulcrypt_datagram, align 4
+  %390 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %389, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-395:                                              ; preds = %327
-  %396 = load i32, ptr @hf_simulcrypt_bandwidth, align 4
-  %397 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %396, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+391:                                              ; preds = %323
+  %392 = load i32, ptr @hf_simulcrypt_bandwidth, align 4
+  %393 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %392, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-398:                                              ; preds = %327
-  %399 = load i32, ptr @hf_simulcrypt_initial_bandwidth, align 4
-  %400 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %399, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+394:                                              ; preds = %323
+  %395 = load i32, ptr @hf_simulcrypt_initial_bandwidth, align 4
+  %396 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %395, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-401:                                              ; preds = %327
-  %402 = load i32, ptr @hf_simulcrypt_max_comp_time, align 4
-  %403 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %402, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+397:                                              ; preds = %323
+  %398 = load i32, ptr @hf_simulcrypt_max_comp_time, align 4
+  %399 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %398, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-404:                                              ; preds = %327
-  %405 = load i32, ptr @hf_simulcrypt_asi_input_packet_id, align 4
-  %406 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %405, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+400:                                              ; preds = %323
+  %401 = load i32, ptr @hf_simulcrypt_asi_input_packet_id, align 4
+  %402 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %401, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-407:                                              ; preds = %327
-  %408 = load i32, ptr @hf_simulcrypt_psig_error_status, align 4
-  %409 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %408, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+403:                                              ; preds = %323
+  %404 = load i32, ptr @hf_simulcrypt_psig_error_status, align 4
+  %405 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %404, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-410:                                              ; preds = %327
-  %411 = load i32, ptr @hf_simulcrypt_error_information, align 4
-  %412 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %411, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
+406:                                              ; preds = %323
+  %407 = load i32, ptr @hf_simulcrypt_error_information, align 4
+  %408 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %407, ptr noundef %2, i32 noundef %18, i32 noundef %19, i32 noundef 0)
   br label %dissect_psig_parameter_value.exit
 
-413:                                              ; preds = %327
-  %414 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
-  %415 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %414, ptr noundef %2, i32 noundef %18, i32 noundef %19, ptr noundef %20)
+409:                                              ; preds = %323
+  %410 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
+  %411 = tail call ptr @proto_tree_add_string(ptr noundef %36, i32 noundef %410, ptr noundef %2, i32 noundef %18, i32 noundef %19, ptr noundef %20)
   br label %dissect_psig_parameter_value.exit
 
-dissect_psig_parameter_value.exit:                ; preds = %328, %332, %333, %334, %335, %338, %341, %344, %347, %350, %353, %356, %361, %364, %367, %392, %395, %398, %401, %404, %407, %410, %413
+dissect_psig_parameter_value.exit:                ; preds = %324, %328, %329, %330, %331, %334, %337, %340, %343, %346, %349, %352, %357, %360, %363, %388, %391, %394, %397, %400, %403, %406, %409
   tail call void @decrement_dissection_depth(ptr noundef %1)
   br label %dissect_ecmg_parameter_value.exit
 
-416:                                              ; preds = %54
-  %417 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
-  %418 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %417, ptr noundef %2, i32 noundef %18, i32 noundef %19, ptr noundef %20)
+412:                                              ; preds = %50
+  %413 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
+  %414 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %413, ptr noundef %2, i32 noundef %18, i32 noundef %19, ptr noundef %20)
   br label %dissect_ecmg_parameter_value.exit
 
-dissect_ecmg_parameter_value.exit:                ; preds = %.critedge, %324, %321, %318, %315, %312, %306, %300, %297, %294, %291, %288, %285, %282, %279, %276, %251, %248, %245, %.loopexit.split, %227, %224, %219, %216, %213, %210, %207, %203, %200, %197, %194, %191, %188, %185, %182, %179, %176, %173, %170, %167, %164, %161, %158, %156, %151, %143, %137, %134, %131, %125, %122, %119, %116, %113, %110, %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %.loopexit.i, %416, %dissect_psig_parameter_value.exit
-  %419 = add i32 %18, %19
-  %420 = add i32 %22, %.0935
-  %.95 = select i1 %7, i32 %420, i32 %419
-  %421 = icmp slt i32 %.95, %5
-  br i1 %421, label %13, label %._crit_edge, !llvm.loop !10
+dissect_ecmg_parameter_value.exit:                ; preds = %.critedge, %320, %317, %314, %311, %308, %302, %296, %293, %290, %287, %284, %281, %278, %275, %272, %247, %244, %241, %.loopexit.split, %223, %220, %215, %212, %209, %206, %203, %199, %196, %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %152, %147, %139, %133, %130, %127, %121, %118, %115, %112, %109, %106, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %.loopexit.i, %412, %dissect_psig_parameter_value.exit
+  %415 = add i32 %18, %19
+  %416 = add i32 %22, %.0935
+  %.95 = select i1 %7, i32 %416, i32 %415
+  %417 = icmp slt i32 %.95, %5
+  br i1 %417, label %13, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %dissect_ecmg_parameter_value.exit, %8
   ret void

@@ -15950,7 +15950,7 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit183: ; preds = %_ZNKSt8func
   br label %199
 
 ._crit_edge:                                      ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit224, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit183
-  %.1.lcssa = phi ptr [ %166, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit183 ], [ %628, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit224 ]
+  %.1.lcssa = phi ptr [ %166, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit183 ], [ %625, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit224 ]
   %193 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -15979,31 +15979,31 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit185: ; preds = %._crit_edge
 
 199:                                              ; preds = %.lr.ph, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit224
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit224 ]
-  %.1246 = phi ptr [ %166, %.lr.ph ], [ %628, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit224 ]
+  %.1246 = phi ptr [ %166, %.lr.ph ], [ %625, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit224 ]
   %200 = load ptr, ptr %0, align 8, !tbaa !590
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 4
   %202 = load i32, ptr %201, align 4, !tbaa !234
+  %203 = getelementptr inbounds nuw i8, ptr %200, i64 6568
+  %204 = load ptr, ptr %203, align 8, !tbaa !599
+  %205 = getelementptr inbounds nuw %struct.llama_layer, ptr %204, i64 %indvars.iv
   switch i32 %202, label %304 [
-    i32 11, label %203
-    i32 13, label %203
+    i32 11, label %206
+    i32 13, label %206
   ]
 
-203:                                              ; preds = %199, %199
-  %204 = load ptr, ptr %74, align 8, !tbaa !386
-  %205 = load ptr, ptr %122, align 8, !tbaa !387
-  %206 = getelementptr inbounds nuw i8, ptr %200, i64 6568
-  %207 = load ptr, ptr %206, align 8, !tbaa !599
-  %208 = getelementptr inbounds nuw %struct.llama_layer, ptr %207, i64 %indvars.iv
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 136
+206:                                              ; preds = %199, %199
+  %207 = load ptr, ptr %74, align 8, !tbaa !386
+  %208 = load ptr, ptr %122, align 8, !tbaa !387
+  %209 = getelementptr inbounds nuw i8, ptr %205, i64 136
   %210 = load ptr, ptr %209, align 8, !tbaa !605
-  %211 = call fastcc noundef ptr @_ZL17llm_build_lora_mmR13llama_contextP12ggml_contextP11ggml_tensorS4_(ptr noundef nonnull align 8 dereferenceable(1120) %205, ptr noundef %204, ptr noundef %210, ptr noundef %.1246)
+  %211 = call fastcc noundef ptr @_ZL17llm_build_lora_mmR13llama_contextP12ggml_contextP11ggml_tensorS4_(ptr noundef nonnull align 8 dereferenceable(1120) %208, ptr noundef %207, ptr noundef %210, ptr noundef %.1246)
   %212 = load ptr, ptr %0, align 8, !tbaa !590
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 6568
   %214 = load ptr, ptr %213, align 8, !tbaa !599
   %215 = getelementptr inbounds nuw %struct.llama_layer, ptr %214, i64 %indvars.iv
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 272
   %217 = load ptr, ptr %216, align 8, !tbaa !606
-  %218 = call ptr @ggml_add(ptr noundef %204, ptr noundef %211, ptr noundef %217)
+  %218 = call ptr @ggml_add(ptr noundef %207, ptr noundef %211, ptr noundef %217)
   %219 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
@@ -16017,11 +16017,11 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit185: ; preds = %._crit_edge
   %.not.i.i186 = icmp eq ptr %222, null
   br i1 %.not.i.i186, label %223, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit187
 
-223:                                              ; preds = %203
+223:                                              ; preds = %206
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit187: ; preds = %203
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit187: ; preds = %206
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 24
   %225 = load ptr, ptr %224, align 8, !tbaa !373
   call void %225(ptr noundef nonnull align 8 dereferenceable(32) %219, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 4 dereferenceable(4) %61)
@@ -16158,428 +16158,425 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191: ; preds = %273
   %301 = load i32, ptr %178, align 8, !tbaa !421
   %302 = sext i32 %301 to i64
   %303 = call ptr @ggml_reshape_3d(ptr noundef %299, ptr noundef %.0167, i64 noundef %83, i64 noundef %300, i64 noundef %302)
-  br label %407
+  br label %404
 
 304:                                              ; preds = %199
   %305 = load ptr, ptr %122, align 8, !tbaa !387
   %306 = load ptr, ptr %74, align 8, !tbaa !386
-  %307 = getelementptr inbounds nuw i8, ptr %200, i64 6568
-  %308 = load ptr, ptr %307, align 8, !tbaa !599
-  %309 = getelementptr inbounds nuw %struct.llama_layer, ptr %308, i64 %indvars.iv
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 168
-  %311 = load ptr, ptr %310, align 8, !tbaa !635
-  %312 = call fastcc noundef ptr @_ZL17llm_build_lora_mmR13llama_contextP12ggml_contextP11ggml_tensorS4_(ptr noundef nonnull align 8 dereferenceable(1120) %305, ptr noundef %306, ptr noundef %311, ptr noundef %.1246)
-  %313 = load ptr, ptr %127, align 8, !tbaa !593
+  %307 = getelementptr inbounds nuw i8, ptr %205, i64 168
+  %308 = load ptr, ptr %307, align 8, !tbaa !635
+  %309 = call fastcc noundef ptr @_ZL17llm_build_lora_mmR13llama_contextP12ggml_contextP11ggml_tensorS4_(ptr noundef nonnull align 8 dereferenceable(1120) %305, ptr noundef %306, ptr noundef %308, ptr noundef %.1246)
+  %310 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  store ptr %312, ptr %50, align 8, !tbaa !347
+  store ptr %309, ptr %50, align 8, !tbaa !347
   store ptr @.str.136, ptr %51, align 8, !tbaa !226
-  %314 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %314, ptr %52, align 4, !tbaa !155
-  %315 = getelementptr inbounds nuw i8, ptr %313, i64 16
-  %316 = load ptr, ptr %315, align 8, !tbaa !376
-  %.not.i.i192 = icmp eq ptr %316, null
-  br i1 %.not.i.i192, label %317, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit193
+  %311 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %311, ptr %52, align 4, !tbaa !155
+  %312 = getelementptr inbounds nuw i8, ptr %310, i64 16
+  %313 = load ptr, ptr %312, align 8, !tbaa !376
+  %.not.i.i192 = icmp eq ptr %313, null
+  br i1 %.not.i.i192, label %314, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit193
 
-317:                                              ; preds = %304
+314:                                              ; preds = %304
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit193: ; preds = %304
-  %318 = getelementptr inbounds nuw i8, ptr %313, i64 24
-  %319 = load ptr, ptr %318, align 8, !tbaa !373
-  call void %319(ptr noundef nonnull align 8 dereferenceable(32) %313, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 4 dereferenceable(4) %52)
+  %315 = getelementptr inbounds nuw i8, ptr %310, i64 24
+  %316 = load ptr, ptr %315, align 8, !tbaa !373
+  call void %316(ptr noundef nonnull align 8 dereferenceable(32) %310, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 4 dereferenceable(4) %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  %320 = load ptr, ptr %74, align 8, !tbaa !386
-  %321 = load i64, ptr %136, align 8, !tbaa !395
-  %322 = load i32, ptr %178, align 8, !tbaa !421
-  %323 = sext i32 %322 to i64
-  %324 = getelementptr inbounds nuw i8, ptr %312, i64 56
-  %325 = load i64, ptr %324, align 8, !tbaa !144
-  %326 = call ptr @ggml_view_2d(ptr noundef %320, ptr noundef %312, i64 noundef %321, i64 noundef %323, i64 noundef %325, i64 noundef 0)
-  %327 = call ptr @ggml_cont(ptr noundef %320, ptr noundef %326)
-  %328 = load ptr, ptr %74, align 8, !tbaa !386
-  %329 = load i32, ptr %178, align 8, !tbaa !421
-  %330 = sext i32 %329 to i64
-  %331 = load i64, ptr %324, align 8, !tbaa !144
-  %332 = load i64, ptr %136, align 8, !tbaa !395
-  %333 = shl i64 %332, 2
-  %334 = call ptr @ggml_view_2d(ptr noundef %328, ptr noundef %312, i64 noundef %85, i64 noundef %330, i64 noundef %331, i64 noundef %333)
-  %335 = call ptr @ggml_cont(ptr noundef %328, ptr noundef %334)
-  %336 = load ptr, ptr %74, align 8, !tbaa !386
-  %337 = load i32, ptr %178, align 8, !tbaa !421
-  %338 = sext i32 %337 to i64
-  %339 = load i64, ptr %324, align 8, !tbaa !144
-  %340 = load i64, ptr %136, align 8, !tbaa !395
-  %341 = add nsw i64 %340, %85
-  %342 = shl i64 %341, 2
-  %343 = call ptr @ggml_view_2d(ptr noundef %336, ptr noundef %312, i64 noundef %85, i64 noundef %338, i64 noundef %339, i64 noundef %342)
-  %344 = call ptr @ggml_cont(ptr noundef %336, ptr noundef %343)
-  %345 = load ptr, ptr %127, align 8, !tbaa !593
+  %317 = load ptr, ptr %74, align 8, !tbaa !386
+  %318 = load i64, ptr %136, align 8, !tbaa !395
+  %319 = load i32, ptr %178, align 8, !tbaa !421
+  %320 = sext i32 %319 to i64
+  %321 = getelementptr inbounds nuw i8, ptr %309, i64 56
+  %322 = load i64, ptr %321, align 8, !tbaa !144
+  %323 = call ptr @ggml_view_2d(ptr noundef %317, ptr noundef %309, i64 noundef %318, i64 noundef %320, i64 noundef %322, i64 noundef 0)
+  %324 = call ptr @ggml_cont(ptr noundef %317, ptr noundef %323)
+  %325 = load ptr, ptr %74, align 8, !tbaa !386
+  %326 = load i32, ptr %178, align 8, !tbaa !421
+  %327 = sext i32 %326 to i64
+  %328 = load i64, ptr %321, align 8, !tbaa !144
+  %329 = load i64, ptr %136, align 8, !tbaa !395
+  %330 = shl i64 %329, 2
+  %331 = call ptr @ggml_view_2d(ptr noundef %325, ptr noundef %309, i64 noundef %85, i64 noundef %327, i64 noundef %328, i64 noundef %330)
+  %332 = call ptr @ggml_cont(ptr noundef %325, ptr noundef %331)
+  %333 = load ptr, ptr %74, align 8, !tbaa !386
+  %334 = load i32, ptr %178, align 8, !tbaa !421
+  %335 = sext i32 %334 to i64
+  %336 = load i64, ptr %321, align 8, !tbaa !144
+  %337 = load i64, ptr %136, align 8, !tbaa !395
+  %338 = add nsw i64 %337, %85
+  %339 = shl i64 %338, 2
+  %340 = call ptr @ggml_view_2d(ptr noundef %333, ptr noundef %309, i64 noundef %85, i64 noundef %335, i64 noundef %336, i64 noundef %339)
+  %341 = call ptr @ggml_cont(ptr noundef %333, ptr noundef %340)
+  %342 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  store ptr %327, ptr %47, align 8, !tbaa !347
+  store ptr %324, ptr %47, align 8, !tbaa !347
   store ptr @.str.76, ptr %48, align 8, !tbaa !226
-  store i32 %314, ptr %49, align 4, !tbaa !155
-  %346 = getelementptr inbounds nuw i8, ptr %345, i64 16
-  %347 = load ptr, ptr %346, align 8, !tbaa !376
-  %.not.i.i194 = icmp eq ptr %347, null
-  br i1 %.not.i.i194, label %348, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit195
+  store i32 %311, ptr %49, align 4, !tbaa !155
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 16
+  %344 = load ptr, ptr %343, align 8, !tbaa !376
+  %.not.i.i194 = icmp eq ptr %344, null
+  br i1 %.not.i.i194, label %345, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit195
 
-348:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit193
+345:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit193
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit195: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit193
-  %349 = getelementptr inbounds nuw i8, ptr %345, i64 24
-  %350 = load ptr, ptr %349, align 8, !tbaa !373
-  call void %350(ptr noundef nonnull align 8 dereferenceable(32) %345, ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 4 dereferenceable(4) %49)
+  %346 = getelementptr inbounds nuw i8, ptr %342, i64 24
+  %347 = load ptr, ptr %346, align 8, !tbaa !373
+  call void %347(ptr noundef nonnull align 8 dereferenceable(32) %342, ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 4 dereferenceable(4) %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  %351 = load ptr, ptr %127, align 8, !tbaa !593
+  %348 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  store ptr %335, ptr %44, align 8, !tbaa !347
+  store ptr %332, ptr %44, align 8, !tbaa !347
   store ptr @.str.77, ptr %45, align 8, !tbaa !226
-  store i32 %314, ptr %46, align 4, !tbaa !155
-  %352 = getelementptr inbounds nuw i8, ptr %351, i64 16
-  %353 = load ptr, ptr %352, align 8, !tbaa !376
-  %.not.i.i196 = icmp eq ptr %353, null
-  br i1 %.not.i.i196, label %354, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit197
+  store i32 %311, ptr %46, align 4, !tbaa !155
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
+  %350 = load ptr, ptr %349, align 8, !tbaa !376
+  %.not.i.i196 = icmp eq ptr %350, null
+  br i1 %.not.i.i196, label %351, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit197
 
-354:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit195
+351:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit195
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit197: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit195
-  %355 = getelementptr inbounds nuw i8, ptr %351, i64 24
-  %356 = load ptr, ptr %355, align 8, !tbaa !373
-  call void %356(ptr noundef nonnull align 8 dereferenceable(32) %351, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 4 dereferenceable(4) %46)
+  %352 = getelementptr inbounds nuw i8, ptr %348, i64 24
+  %353 = load ptr, ptr %352, align 8, !tbaa !373
+  call void %353(ptr noundef nonnull align 8 dereferenceable(32) %348, ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 4 dereferenceable(4) %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  %357 = load ptr, ptr %127, align 8, !tbaa !593
+  %354 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  store ptr %344, ptr %41, align 8, !tbaa !347
+  store ptr %341, ptr %41, align 8, !tbaa !347
   store ptr @.str.78, ptr %42, align 8, !tbaa !226
-  store i32 %314, ptr %43, align 4, !tbaa !155
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 16
-  %359 = load ptr, ptr %358, align 8, !tbaa !376
-  %.not.i.i198 = icmp eq ptr %359, null
-  br i1 %.not.i.i198, label %360, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit199
+  store i32 %311, ptr %43, align 4, !tbaa !155
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 16
+  %356 = load ptr, ptr %355, align 8, !tbaa !376
+  %.not.i.i198 = icmp eq ptr %356, null
+  br i1 %.not.i.i198, label %357, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit199
 
-360:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit197
+357:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit197
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit199: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit197
-  %361 = getelementptr inbounds nuw i8, ptr %357, i64 24
-  %362 = load ptr, ptr %361, align 8, !tbaa !373
-  call void %362(ptr noundef nonnull align 8 dereferenceable(32) %357, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 4 dereferenceable(4) %43)
+  %358 = getelementptr inbounds nuw i8, ptr %354, i64 24
+  %359 = load ptr, ptr %358, align 8, !tbaa !373
+  call void %359(ptr noundef nonnull align 8 dereferenceable(32) %354, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 4 dereferenceable(4) %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  %363 = load ptr, ptr %74, align 8, !tbaa !386
-  %364 = load i64, ptr %177, align 8, !tbaa !401
-  %365 = load i32, ptr %178, align 8, !tbaa !421
-  %366 = sext i32 %365 to i64
-  %367 = call ptr @ggml_reshape_3d(ptr noundef %363, ptr noundef %327, i64 noundef %83, i64 noundef %364, i64 noundef %366)
-  %368 = load i64, ptr %180, align 8, !tbaa !399
-  %369 = trunc i64 %368 to i32
-  %370 = load i32, ptr %181, align 8, !tbaa !433
-  %371 = load i32, ptr %182, align 4, !tbaa !429
-  %372 = load float, ptr %183, align 8, !tbaa !411
-  %373 = load float, ptr %184, align 4, !tbaa !412
-  %374 = load float, ptr %185, align 8, !tbaa !413
-  %375 = load float, ptr %186, align 4, !tbaa !414
-  %376 = load float, ptr %187, align 8, !tbaa !415
-  %377 = load float, ptr %188, align 4, !tbaa !416
-  %378 = call ptr @ggml_rope_ext(ptr noundef %363, ptr noundef %367, ptr noundef %.0160, ptr noundef null, i32 noundef %369, i32 noundef %370, i32 noundef %371, float noundef %372, float noundef %373, float noundef %374, float noundef %375, float noundef %376, float noundef %377)
-  %379 = load ptr, ptr %127, align 8, !tbaa !593
+  %360 = load ptr, ptr %74, align 8, !tbaa !386
+  %361 = load i64, ptr %177, align 8, !tbaa !401
+  %362 = load i32, ptr %178, align 8, !tbaa !421
+  %363 = sext i32 %362 to i64
+  %364 = call ptr @ggml_reshape_3d(ptr noundef %360, ptr noundef %324, i64 noundef %83, i64 noundef %361, i64 noundef %363)
+  %365 = load i64, ptr %180, align 8, !tbaa !399
+  %366 = trunc i64 %365 to i32
+  %367 = load i32, ptr %181, align 8, !tbaa !433
+  %368 = load i32, ptr %182, align 4, !tbaa !429
+  %369 = load float, ptr %183, align 8, !tbaa !411
+  %370 = load float, ptr %184, align 4, !tbaa !412
+  %371 = load float, ptr %185, align 8, !tbaa !413
+  %372 = load float, ptr %186, align 4, !tbaa !414
+  %373 = load float, ptr %187, align 8, !tbaa !415
+  %374 = load float, ptr %188, align 4, !tbaa !416
+  %375 = call ptr @ggml_rope_ext(ptr noundef %360, ptr noundef %364, ptr noundef %.0160, ptr noundef null, i32 noundef %366, i32 noundef %367, i32 noundef %368, float noundef %369, float noundef %370, float noundef %371, float noundef %372, float noundef %373, float noundef %374)
+  %376 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  store ptr %378, ptr %38, align 8, !tbaa !347
+  store ptr %375, ptr %38, align 8, !tbaa !347
   store ptr @.str.76, ptr %39, align 8, !tbaa !226
-  store i32 %314, ptr %40, align 4, !tbaa !155
-  %380 = getelementptr inbounds nuw i8, ptr %379, i64 16
-  %381 = load ptr, ptr %380, align 8, !tbaa !376
-  %.not.i.i200 = icmp eq ptr %381, null
-  br i1 %.not.i.i200, label %382, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit201
+  store i32 %311, ptr %40, align 4, !tbaa !155
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
+  %378 = load ptr, ptr %377, align 8, !tbaa !376
+  %.not.i.i200 = icmp eq ptr %378, null
+  br i1 %.not.i.i200, label %379, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit201
 
-382:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit199
+379:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit199
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit201: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit199
-  %383 = getelementptr inbounds nuw i8, ptr %379, i64 24
-  %384 = load ptr, ptr %383, align 8, !tbaa !373
-  call void %384(ptr noundef nonnull align 8 dereferenceable(32) %379, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 4 dereferenceable(4) %40)
+  %380 = getelementptr inbounds nuw i8, ptr %376, i64 24
+  %381 = load ptr, ptr %380, align 8, !tbaa !373
+  call void %381(ptr noundef nonnull align 8 dereferenceable(32) %376, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 4 dereferenceable(4) %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  %385 = load ptr, ptr %74, align 8, !tbaa !386
-  %386 = load i64, ptr %179, align 8, !tbaa !402
-  %387 = load i32, ptr %178, align 8, !tbaa !421
-  %388 = sext i32 %387 to i64
-  %389 = call ptr @ggml_reshape_3d(ptr noundef %385, ptr noundef %335, i64 noundef %83, i64 noundef %386, i64 noundef %388)
-  %390 = load i64, ptr %180, align 8, !tbaa !399
-  %391 = trunc i64 %390 to i32
-  %392 = load i32, ptr %181, align 8, !tbaa !433
-  %393 = load i32, ptr %182, align 4, !tbaa !429
-  %394 = load float, ptr %183, align 8, !tbaa !411
-  %395 = load float, ptr %184, align 4, !tbaa !412
-  %396 = load float, ptr %185, align 8, !tbaa !413
-  %397 = load float, ptr %186, align 4, !tbaa !414
-  %398 = load float, ptr %187, align 8, !tbaa !415
-  %399 = load float, ptr %188, align 4, !tbaa !416
-  %400 = call ptr @ggml_rope_ext(ptr noundef %385, ptr noundef %389, ptr noundef %.0160, ptr noundef null, i32 noundef %391, i32 noundef %392, i32 noundef %393, float noundef %394, float noundef %395, float noundef %396, float noundef %397, float noundef %398, float noundef %399)
-  %401 = load ptr, ptr %127, align 8, !tbaa !593
+  %382 = load ptr, ptr %74, align 8, !tbaa !386
+  %383 = load i64, ptr %179, align 8, !tbaa !402
+  %384 = load i32, ptr %178, align 8, !tbaa !421
+  %385 = sext i32 %384 to i64
+  %386 = call ptr @ggml_reshape_3d(ptr noundef %382, ptr noundef %332, i64 noundef %83, i64 noundef %383, i64 noundef %385)
+  %387 = load i64, ptr %180, align 8, !tbaa !399
+  %388 = trunc i64 %387 to i32
+  %389 = load i32, ptr %181, align 8, !tbaa !433
+  %390 = load i32, ptr %182, align 4, !tbaa !429
+  %391 = load float, ptr %183, align 8, !tbaa !411
+  %392 = load float, ptr %184, align 4, !tbaa !412
+  %393 = load float, ptr %185, align 8, !tbaa !413
+  %394 = load float, ptr %186, align 4, !tbaa !414
+  %395 = load float, ptr %187, align 8, !tbaa !415
+  %396 = load float, ptr %188, align 4, !tbaa !416
+  %397 = call ptr @ggml_rope_ext(ptr noundef %382, ptr noundef %386, ptr noundef %.0160, ptr noundef null, i32 noundef %388, i32 noundef %389, i32 noundef %390, float noundef %391, float noundef %392, float noundef %393, float noundef %394, float noundef %395, float noundef %396)
+  %398 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  store ptr %400, ptr %35, align 8, !tbaa !347
+  store ptr %397, ptr %35, align 8, !tbaa !347
   store ptr @.str.77, ptr %36, align 8, !tbaa !226
-  store i32 %314, ptr %37, align 4, !tbaa !155
-  %402 = getelementptr inbounds nuw i8, ptr %401, i64 16
-  %403 = load ptr, ptr %402, align 8, !tbaa !376
-  %.not.i.i202 = icmp eq ptr %403, null
-  br i1 %.not.i.i202, label %404, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203
+  store i32 %311, ptr %37, align 4, !tbaa !155
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 16
+  %400 = load ptr, ptr %399, align 8, !tbaa !376
+  %.not.i.i202 = icmp eq ptr %400, null
+  br i1 %.not.i.i202, label %401, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203
 
-404:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit201
+401:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit201
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit201
-  %405 = getelementptr inbounds nuw i8, ptr %401, i64 24
-  %406 = load ptr, ptr %405, align 8, !tbaa !373
-  call void %406(ptr noundef nonnull align 8 dereferenceable(32) %401, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 4 dereferenceable(4) %37)
+  %402 = getelementptr inbounds nuw i8, ptr %398, i64 24
+  %403 = load ptr, ptr %402, align 8, !tbaa !373
+  call void %403(ptr noundef nonnull align 8 dereferenceable(32) %398, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 4 dereferenceable(4) %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  br label %407
+  br label %404
 
-407:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191
-  %.pre-phi = phi i32 [ %314, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203 ], [ %220, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191 ]
-  %.0169 = phi ptr [ %344, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203 ], [ %287, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191 ]
-  %.1168 = phi ptr [ %400, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203 ], [ %303, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191 ]
-  %.1166 = phi ptr [ %378, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203 ], [ %298, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191 ]
-  %408 = load ptr, ptr %74, align 8, !tbaa !386
-  %409 = call ptr @ggml_permute(ptr noundef %408, ptr noundef %.1166, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 3)
+404:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191
+  %.pre-phi = phi i32 [ %311, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203 ], [ %220, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191 ]
+  %.0169 = phi ptr [ %341, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203 ], [ %287, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191 ]
+  %.1168 = phi ptr [ %397, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203 ], [ %303, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191 ]
+  %.1166 = phi ptr [ %375, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit203 ], [ %298, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit191 ]
+  %405 = load ptr, ptr %74, align 8, !tbaa !386
+  %406 = call ptr @ggml_permute(ptr noundef %405, ptr noundef %.1166, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 3)
+  %407 = load ptr, ptr %74, align 8, !tbaa !386
+  %408 = call ptr @ggml_permute(ptr noundef %407, ptr noundef %.1168, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 3)
+  %409 = call ptr @ggml_cont(ptr noundef %407, ptr noundef %408)
   %410 = load ptr, ptr %74, align 8, !tbaa !386
-  %411 = call ptr @ggml_permute(ptr noundef %410, ptr noundef %.1168, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 3)
-  %412 = call ptr @ggml_cont(ptr noundef %410, ptr noundef %411)
-  %413 = load ptr, ptr %74, align 8, !tbaa !386
-  %414 = call ptr @ggml_mul_mat(ptr noundef %413, ptr noundef %412, ptr noundef %409)
-  %415 = load ptr, ptr %127, align 8, !tbaa !593
+  %411 = call ptr @ggml_mul_mat(ptr noundef %410, ptr noundef %409, ptr noundef %406)
+  %412 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  store ptr %414, ptr %32, align 8, !tbaa !347
+  store ptr %411, ptr %32, align 8, !tbaa !347
   store ptr @.str.98, ptr %33, align 8, !tbaa !226
   store i32 %.pre-phi, ptr %34, align 4, !tbaa !155
-  %416 = getelementptr inbounds nuw i8, ptr %415, i64 16
-  %417 = load ptr, ptr %416, align 8, !tbaa !376
-  %.not.i.i204 = icmp eq ptr %417, null
-  br i1 %.not.i.i204, label %418, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit205
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 16
+  %414 = load ptr, ptr %413, align 8, !tbaa !376
+  %.not.i.i204 = icmp eq ptr %414, null
+  br i1 %.not.i.i204, label %415, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit205
 
-418:                                              ; preds = %407
+415:                                              ; preds = %404
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit205: ; preds = %407
-  %419 = getelementptr inbounds nuw i8, ptr %415, i64 24
-  %420 = load ptr, ptr %419, align 8, !tbaa !373
-  call void %420(ptr noundef nonnull align 8 dereferenceable(32) %415, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 4 dereferenceable(4) %34)
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit205: ; preds = %404
+  %416 = getelementptr inbounds nuw i8, ptr %412, i64 24
+  %417 = load ptr, ptr %416, align 8, !tbaa !373
+  call void %417(ptr noundef nonnull align 8 dereferenceable(32) %412, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 4 dereferenceable(4) %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  %421 = load ptr, ptr %74, align 8, !tbaa !386
-  %422 = load ptr, ptr %79, align 8, !tbaa !588
-  %423 = getelementptr inbounds nuw i8, ptr %422, i64 6348
-  %424 = load float, ptr %423, align 4, !tbaa !652
-  %425 = call ptr @ggml_soft_max_ext(ptr noundef %421, ptr noundef %414, ptr noundef %173, float noundef %190, float noundef %424)
-  %426 = load ptr, ptr %127, align 8, !tbaa !593
+  %418 = load ptr, ptr %74, align 8, !tbaa !386
+  %419 = load ptr, ptr %79, align 8, !tbaa !588
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 6348
+  %421 = load float, ptr %420, align 4, !tbaa !652
+  %422 = call ptr @ggml_soft_max_ext(ptr noundef %418, ptr noundef %411, ptr noundef %173, float noundef %190, float noundef %421)
+  %423 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  store ptr %425, ptr %29, align 8, !tbaa !347
+  store ptr %422, ptr %29, align 8, !tbaa !347
   store ptr @.str.99, ptr %30, align 8, !tbaa !226
   store i32 %.pre-phi, ptr %31, align 4, !tbaa !155
-  %427 = getelementptr inbounds nuw i8, ptr %426, i64 16
-  %428 = load ptr, ptr %427, align 8, !tbaa !376
-  %.not.i.i206 = icmp eq ptr %428, null
-  br i1 %.not.i.i206, label %429, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 16
+  %425 = load ptr, ptr %424, align 8, !tbaa !376
+  %.not.i.i206 = icmp eq ptr %425, null
+  br i1 %.not.i.i206, label %426, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207
 
-429:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit205
+426:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit205
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit205
-  %430 = getelementptr inbounds nuw i8, ptr %426, i64 24
-  %431 = load ptr, ptr %430, align 8, !tbaa !373
-  call void %431(ptr noundef nonnull align 8 dereferenceable(32) %426, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 4 dereferenceable(4) %31)
+  %427 = getelementptr inbounds nuw i8, ptr %423, i64 24
+  %428 = load ptr, ptr %427, align 8, !tbaa !373
+  call void %428(ptr noundef nonnull align 8 dereferenceable(32) %423, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 4 dereferenceable(4) %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  %432 = load ptr, ptr %74, align 8, !tbaa !386
-  %433 = load i32, ptr %178, align 8, !tbaa !421
-  %434 = sext i32 %433 to i64
-  %435 = call ptr @ggml_reshape_2d(ptr noundef %432, ptr noundef %.0169, i64 noundef %85, i64 noundef %434)
-  %436 = call ptr @ggml_transpose(ptr noundef %432, ptr noundef %435)
-  %437 = call ptr @ggml_cont(ptr noundef %432, ptr noundef %436)
-  %438 = load ptr, ptr %127, align 8, !tbaa !593
+  %429 = load ptr, ptr %74, align 8, !tbaa !386
+  %430 = load i32, ptr %178, align 8, !tbaa !421
+  %431 = sext i32 %430 to i64
+  %432 = call ptr @ggml_reshape_2d(ptr noundef %429, ptr noundef %.0169, i64 noundef %85, i64 noundef %431)
+  %433 = call ptr @ggml_transpose(ptr noundef %429, ptr noundef %432)
+  %434 = call ptr @ggml_cont(ptr noundef %429, ptr noundef %433)
+  %435 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  store ptr %437, ptr %26, align 8, !tbaa !347
+  store ptr %434, ptr %26, align 8, !tbaa !347
   store ptr @.str.97, ptr %27, align 8, !tbaa !226
   store i32 %.pre-phi, ptr %28, align 4, !tbaa !155
-  %439 = getelementptr inbounds nuw i8, ptr %438, i64 16
-  %440 = load ptr, ptr %439, align 8, !tbaa !376
-  %.not.i.i208 = icmp eq ptr %440, null
-  br i1 %.not.i.i208, label %441, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit209
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 16
+  %437 = load ptr, ptr %436, align 8, !tbaa !376
+  %.not.i.i208 = icmp eq ptr %437, null
+  br i1 %.not.i.i208, label %438, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit209
 
-441:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207
+438:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit209: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit207
-  %442 = getelementptr inbounds nuw i8, ptr %438, i64 24
-  %443 = load ptr, ptr %442, align 8, !tbaa !373
-  call void %443(ptr noundef nonnull align 8 dereferenceable(32) %438, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
+  %439 = getelementptr inbounds nuw i8, ptr %435, i64 24
+  %440 = load ptr, ptr %439, align 8, !tbaa !373
+  call void %440(ptr noundef nonnull align 8 dereferenceable(32) %435, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 4 dereferenceable(4) %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %444 = load ptr, ptr %74, align 8, !tbaa !386
-  %445 = load i32, ptr %178, align 8, !tbaa !421
-  %446 = sext i32 %445 to i64
-  %447 = load i64, ptr %179, align 8, !tbaa !402
-  %448 = call ptr @ggml_reshape_3d(ptr noundef %444, ptr noundef %437, i64 noundef %446, i64 noundef %83, i64 noundef %447)
-  %449 = call ptr @ggml_mul_mat(ptr noundef %444, ptr noundef %448, ptr noundef %425)
-  %450 = load ptr, ptr %127, align 8, !tbaa !593
+  %441 = load ptr, ptr %74, align 8, !tbaa !386
+  %442 = load i32, ptr %178, align 8, !tbaa !421
+  %443 = sext i32 %442 to i64
+  %444 = load i64, ptr %179, align 8, !tbaa !402
+  %445 = call ptr @ggml_reshape_3d(ptr noundef %441, ptr noundef %434, i64 noundef %443, i64 noundef %83, i64 noundef %444)
+  %446 = call ptr @ggml_mul_mat(ptr noundef %441, ptr noundef %445, ptr noundef %422)
+  %447 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  store ptr %449, ptr %23, align 8, !tbaa !347
+  store ptr %446, ptr %23, align 8, !tbaa !347
   store ptr @.str.100, ptr %24, align 8, !tbaa !226
   store i32 %.pre-phi, ptr %25, align 4, !tbaa !155
-  %451 = getelementptr inbounds nuw i8, ptr %450, i64 16
-  %452 = load ptr, ptr %451, align 8, !tbaa !376
-  %.not.i.i210 = icmp eq ptr %452, null
-  br i1 %.not.i.i210, label %453, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit211
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 16
+  %449 = load ptr, ptr %448, align 8, !tbaa !376
+  %.not.i.i210 = icmp eq ptr %449, null
+  br i1 %.not.i.i210, label %450, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit211
 
-453:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit209
+450:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit209
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit211: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit209
-  %454 = getelementptr inbounds nuw i8, ptr %450, i64 24
-  %455 = load ptr, ptr %454, align 8, !tbaa !373
-  call void %455(ptr noundef nonnull align 8 dereferenceable(32) %450, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(4) %25)
+  %451 = getelementptr inbounds nuw i8, ptr %447, i64 24
+  %452 = load ptr, ptr %451, align 8, !tbaa !373
+  call void %452(ptr noundef nonnull align 8 dereferenceable(32) %447, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(4) %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %456 = load ptr, ptr %74, align 8, !tbaa !386
-  %457 = call ptr @ggml_permute(ptr noundef %456, ptr noundef %449, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 3)
-  %458 = load ptr, ptr %127, align 8, !tbaa !593
+  %453 = load ptr, ptr %74, align 8, !tbaa !386
+  %454 = call ptr @ggml_permute(ptr noundef %453, ptr noundef %446, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 3)
+  %455 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  store ptr %457, ptr %20, align 8, !tbaa !347
+  store ptr %454, ptr %20, align 8, !tbaa !347
   store ptr @.str.101, ptr %21, align 8, !tbaa !226
   store i32 %.pre-phi, ptr %22, align 4, !tbaa !155
-  %459 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %460 = load ptr, ptr %459, align 8, !tbaa !376
-  %.not.i.i212 = icmp eq ptr %460, null
-  br i1 %.not.i.i212, label %461, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit213
+  %456 = getelementptr inbounds nuw i8, ptr %455, i64 16
+  %457 = load ptr, ptr %456, align 8, !tbaa !376
+  %.not.i.i212 = icmp eq ptr %457, null
+  br i1 %.not.i.i212, label %458, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit213
 
-461:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit211
+458:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit211
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit213: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit211
-  %462 = getelementptr inbounds nuw i8, ptr %458, i64 24
-  %463 = load ptr, ptr %462, align 8, !tbaa !373
-  call void %463(ptr noundef nonnull align 8 dereferenceable(32) %458, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(4) %22)
+  %459 = getelementptr inbounds nuw i8, ptr %455, i64 24
+  %460 = load ptr, ptr %459, align 8, !tbaa !373
+  call void %460(ptr noundef nonnull align 8 dereferenceable(32) %455, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 4 dereferenceable(4) %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %464 = load ptr, ptr %74, align 8, !tbaa !386
-  %465 = load i32, ptr %178, align 8, !tbaa !421
-  %466 = sext i32 %465 to i64
-  %467 = call ptr @ggml_cont_2d(ptr noundef %464, ptr noundef %457, i64 noundef %85, i64 noundef %466)
-  %468 = load ptr, ptr %127, align 8, !tbaa !593
+  %461 = load ptr, ptr %74, align 8, !tbaa !386
+  %462 = load i32, ptr %178, align 8, !tbaa !421
+  %463 = sext i32 %462 to i64
+  %464 = call ptr @ggml_cont_2d(ptr noundef %461, ptr noundef %454, i64 noundef %85, i64 noundef %463)
+  %465 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  store ptr %467, ptr %17, align 8, !tbaa !347
+  store ptr %464, ptr %17, align 8, !tbaa !347
   store ptr @.str.71, ptr %18, align 8, !tbaa !226
   store i32 %.pre-phi, ptr %19, align 4, !tbaa !155
-  %469 = getelementptr inbounds nuw i8, ptr %468, i64 16
-  %470 = load ptr, ptr %469, align 8, !tbaa !376
-  %.not.i.i214 = icmp eq ptr %470, null
-  br i1 %.not.i.i214, label %471, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 16
+  %467 = load ptr, ptr %466, align 8, !tbaa !376
+  %.not.i.i214 = icmp eq ptr %467, null
+  br i1 %.not.i.i214, label %468, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215
 
-471:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit213
+468:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit213
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215: ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit213
-  %472 = getelementptr inbounds nuw i8, ptr %468, i64 24
-  %473 = load ptr, ptr %472, align 8, !tbaa !373
-  call void %473(ptr noundef nonnull align 8 dereferenceable(32) %468, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
+  %469 = getelementptr inbounds nuw i8, ptr %465, i64 24
+  %470 = load ptr, ptr %469, align 8, !tbaa !373
+  call void %470(ptr noundef nonnull align 8 dereferenceable(32) %465, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(4) %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @ggml_build_forward_expand(ptr noundef %78, ptr noundef %467)
-  %474 = load ptr, ptr %122, align 8, !tbaa !387
-  %475 = load ptr, ptr %74, align 8, !tbaa !386
-  %476 = load ptr, ptr %0, align 8, !tbaa !590
-  %477 = getelementptr inbounds nuw i8, ptr %476, i64 6568
-  %478 = load ptr, ptr %477, align 8, !tbaa !599
-  %479 = getelementptr inbounds nuw %struct.llama_layer, ptr %478, i64 %indvars.iv
-  %480 = getelementptr inbounds nuw i8, ptr %479, i64 160
-  %481 = load ptr, ptr %480, align 8, !tbaa !612
-  %482 = call fastcc noundef ptr @_ZL17llm_build_lora_mmR13llama_contextP12ggml_contextP11ggml_tensorS4_(ptr noundef nonnull align 8 dereferenceable(1120) %474, ptr noundef %475, ptr noundef %481, ptr noundef %467)
-  %483 = load ptr, ptr %0, align 8, !tbaa !590
-  %484 = getelementptr inbounds nuw i8, ptr %483, i64 6568
-  %485 = load ptr, ptr %484, align 8, !tbaa !599
-  %486 = getelementptr inbounds nuw %struct.llama_layer, ptr %485, i64 %indvars.iv
-  %487 = getelementptr inbounds nuw i8, ptr %486, i64 296
-  %488 = load ptr, ptr %487, align 8, !tbaa !613
-  %.not176 = icmp eq ptr %488, null
-  br i1 %.not176, label %.thread, label %489
+  call void @ggml_build_forward_expand(ptr noundef %78, ptr noundef %464)
+  %471 = load ptr, ptr %122, align 8, !tbaa !387
+  %472 = load ptr, ptr %74, align 8, !tbaa !386
+  %473 = load ptr, ptr %0, align 8, !tbaa !590
+  %474 = getelementptr inbounds nuw i8, ptr %473, i64 6568
+  %475 = load ptr, ptr %474, align 8, !tbaa !599
+  %476 = getelementptr inbounds nuw %struct.llama_layer, ptr %475, i64 %indvars.iv
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 160
+  %478 = load ptr, ptr %477, align 8, !tbaa !612
+  %479 = call fastcc noundef ptr @_ZL17llm_build_lora_mmR13llama_contextP12ggml_contextP11ggml_tensorS4_(ptr noundef nonnull align 8 dereferenceable(1120) %471, ptr noundef %472, ptr noundef %478, ptr noundef %464)
+  %480 = load ptr, ptr %0, align 8, !tbaa !590
+  %481 = getelementptr inbounds nuw i8, ptr %480, i64 6568
+  %482 = load ptr, ptr %481, align 8, !tbaa !599
+  %483 = getelementptr inbounds nuw %struct.llama_layer, ptr %482, i64 %indvars.iv
+  %484 = getelementptr inbounds nuw i8, ptr %483, i64 296
+  %485 = load ptr, ptr %484, align 8, !tbaa !613
+  %.not176 = icmp eq ptr %485, null
+  br i1 %.not176, label %.thread, label %486
 
-489:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215
-  %490 = load ptr, ptr %127, align 8, !tbaa !593
+486:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215
+  %487 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  store ptr %482, ptr %14, align 8, !tbaa !347
+  store ptr %479, ptr %14, align 8, !tbaa !347
   store ptr @.str.102, ptr %15, align 8, !tbaa !226
   store i32 %.pre-phi, ptr %16, align 4, !tbaa !155
-  %491 = getelementptr inbounds nuw i8, ptr %490, i64 16
-  %492 = load ptr, ptr %491, align 8, !tbaa !376
-  %.not.i.i216 = icmp eq ptr %492, null
-  br i1 %.not.i.i216, label %493, label %494
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 16
+  %489 = load ptr, ptr %488, align 8, !tbaa !376
+  %.not.i.i216 = icmp eq ptr %489, null
+  br i1 %.not.i.i216, label %490, label %491
 
-493:                                              ; preds = %489
+490:                                              ; preds = %486
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
-494:                                              ; preds = %489
-  %495 = getelementptr inbounds nuw i8, ptr %490, i64 24
-  %496 = load ptr, ptr %495, align 8, !tbaa !373
-  call void %496(ptr noundef nonnull align 8 dereferenceable(32) %490, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
+491:                                              ; preds = %486
+  %492 = getelementptr inbounds nuw i8, ptr %487, i64 24
+  %493 = load ptr, ptr %492, align 8, !tbaa !373
+  call void %493(ptr noundef nonnull align 8 dereferenceable(32) %487, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -16590,243 +16587,243 @@ _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215: ; preds = %_ZNKSt8func
   %.phi.trans.insert261 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert260, i64 296
   %.pre262 = load ptr, ptr %.phi.trans.insert261, align 8, !tbaa !613
   %.not177 = icmp eq ptr %.pre262, null
-  br i1 %.not177, label %.thread, label %497
+  br i1 %.not177, label %.thread, label %494
 
-497:                                              ; preds = %494
-  %498 = load ptr, ptr %74, align 8, !tbaa !386
-  %499 = call ptr @ggml_add(ptr noundef %498, ptr noundef %482, ptr noundef nonnull %.pre262)
+494:                                              ; preds = %491
+  %495 = load ptr, ptr %74, align 8, !tbaa !386
+  %496 = call ptr @ggml_add(ptr noundef %495, ptr noundef %479, ptr noundef nonnull %.pre262)
   br label %.thread
 
-.thread:                                          ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215, %497, %494
-  %.0162 = phi ptr [ %499, %497 ], [ %482, %494 ], [ %482, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215 ]
-  %500 = load ptr, ptr %127, align 8, !tbaa !593
+.thread:                                          ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215, %494, %491
+  %.0162 = phi ptr [ %496, %494 ], [ %479, %491 ], [ %479, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit215 ]
+  %497 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %.0162, ptr %11, align 8, !tbaa !347
   store ptr @.str.91, ptr %12, align 8, !tbaa !226
   store i32 %.pre-phi, ptr %13, align 4, !tbaa !155
-  %501 = getelementptr inbounds nuw i8, ptr %500, i64 16
-  %502 = load ptr, ptr %501, align 8, !tbaa !376
-  %.not.i.i218 = icmp eq ptr %502, null
-  br i1 %.not.i.i218, label %503, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219
+  %498 = getelementptr inbounds nuw i8, ptr %497, i64 16
+  %499 = load ptr, ptr %498, align 8, !tbaa !376
+  %.not.i.i218 = icmp eq ptr %499, null
+  br i1 %.not.i.i218, label %500, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219
 
-503:                                              ; preds = %.thread
+500:                                              ; preds = %.thread
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
 _ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219: ; preds = %.thread
-  %504 = getelementptr inbounds nuw i8, ptr %500, i64 24
-  %505 = load ptr, ptr %504, align 8, !tbaa !373
-  call void %505(ptr noundef nonnull align 8 dereferenceable(32) %500, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
+  %501 = getelementptr inbounds nuw i8, ptr %497, i64 24
+  %502 = load ptr, ptr %501, align 8, !tbaa !373
+  call void %502(ptr noundef nonnull align 8 dereferenceable(32) %497, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(4) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %506 = load i64, ptr %174, align 8, !tbaa !397
-  %507 = add nsw i64 %506, -1
-  %508 = icmp eq i64 %507, %indvars.iv
-  %509 = load i32, ptr %191, align 4
-  %510 = icmp eq i32 %509, 0
-  %or.cond = select i1 %508, i1 %510, i1 false
-  br i1 %or.cond, label %511, label %534
+  %503 = load i64, ptr %174, align 8, !tbaa !397
+  %504 = add nsw i64 %503, -1
+  %505 = icmp eq i64 %504, %indvars.iv
+  %506 = load i32, ptr %191, align 4
+  %507 = icmp eq i32 %506, 0
+  %or.cond = select i1 %505, i1 %507, i1 false
+  br i1 %or.cond, label %508, label %531
 
-511:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219
-  %512 = load ptr, ptr %74, align 8, !tbaa !386
-  %513 = load i32, ptr %192, align 8, !tbaa !423
-  %514 = sext i32 %513 to i64
-  %515 = call ptr @ggml_new_tensor_1d(ptr noundef %512, i32 noundef 26, i64 noundef %514)
-  %516 = load ptr, ptr %122, align 8, !tbaa !387
-  %517 = getelementptr inbounds nuw i8, ptr %516, i64 1024
-  store ptr %515, ptr %517, align 8, !tbaa !614
-  %518 = load ptr, ptr %127, align 8, !tbaa !593
+508:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219
+  %509 = load ptr, ptr %74, align 8, !tbaa !386
+  %510 = load i32, ptr %192, align 8, !tbaa !423
+  %511 = sext i32 %510 to i64
+  %512 = call ptr @ggml_new_tensor_1d(ptr noundef %509, i32 noundef 26, i64 noundef %511)
+  %513 = load ptr, ptr %122, align 8, !tbaa !387
+  %514 = getelementptr inbounds nuw i8, ptr %513, i64 1024
+  store ptr %512, ptr %514, align 8, !tbaa !614
+  %515 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store ptr %515, ptr %8, align 8, !tbaa !347
+  store ptr %512, ptr %8, align 8, !tbaa !347
   store ptr @.str.103, ptr %9, align 8, !tbaa !226
   store i32 -1, ptr %10, align 4, !tbaa !155
-  %519 = getelementptr inbounds nuw i8, ptr %518, i64 16
-  %520 = load ptr, ptr %519, align 8, !tbaa !376
-  %.not.i.i.i220 = icmp eq ptr %520, null
-  br i1 %.not.i.i.i220, label %521, label %_ZN17llm_build_context17build_inp_out_idsEv.exit
+  %516 = getelementptr inbounds nuw i8, ptr %515, i64 16
+  %517 = load ptr, ptr %516, align 8, !tbaa !376
+  %.not.i.i.i220 = icmp eq ptr %517, null
+  br i1 %.not.i.i.i220, label %518, label %_ZN17llm_build_context17build_inp_out_idsEv.exit
 
-521:                                              ; preds = %511
+518:                                              ; preds = %508
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
-_ZN17llm_build_context17build_inp_out_idsEv.exit: ; preds = %511
-  %522 = getelementptr inbounds nuw i8, ptr %518, i64 24
-  %523 = load ptr, ptr %522, align 8, !tbaa !373
-  call void %523(ptr noundef nonnull align 8 dereferenceable(32) %518, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+_ZN17llm_build_context17build_inp_out_idsEv.exit: ; preds = %508
+  %519 = getelementptr inbounds nuw i8, ptr %515, i64 24
+  %520 = load ptr, ptr %519, align 8, !tbaa !373
+  call void %520(ptr noundef nonnull align 8 dereferenceable(32) %515, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  %521 = load ptr, ptr %122, align 8, !tbaa !387
+  %522 = getelementptr inbounds nuw i8, ptr %521, i64 1024
+  %523 = load ptr, ptr %522, align 8, !tbaa !614
+  call void @ggml_set_input(ptr noundef %523)
   %524 = load ptr, ptr %122, align 8, !tbaa !387
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 1024
   %526 = load ptr, ptr %525, align 8, !tbaa !614
-  call void @ggml_set_input(ptr noundef %526)
-  %527 = load ptr, ptr %122, align 8, !tbaa !387
-  %528 = getelementptr inbounds nuw i8, ptr %527, i64 1024
-  %529 = load ptr, ptr %528, align 8, !tbaa !614
-  %530 = load ptr, ptr %74, align 8, !tbaa !386
-  %531 = call ptr @ggml_get_rows(ptr noundef %530, ptr noundef %.0162, ptr noundef %529)
+  %527 = load ptr, ptr %74, align 8, !tbaa !386
+  %528 = call ptr @ggml_get_rows(ptr noundef %527, ptr noundef %.0162, ptr noundef %526)
+  %529 = load ptr, ptr %74, align 8, !tbaa !386
+  %530 = call ptr @ggml_get_rows(ptr noundef %529, ptr noundef %.1246, ptr noundef %526)
+  br label %531
+
+531:                                              ; preds = %_ZN17llm_build_context17build_inp_out_idsEv.exit, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219
+  %.1163 = phi ptr [ %528, %_ZN17llm_build_context17build_inp_out_idsEv.exit ], [ %.0162, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219 ]
+  %.2 = phi ptr [ %530, %_ZN17llm_build_context17build_inp_out_idsEv.exit ], [ %.1246, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219 ]
   %532 = load ptr, ptr %74, align 8, !tbaa !386
-  %533 = call ptr @ggml_get_rows(ptr noundef %532, ptr noundef %.1246, ptr noundef %529)
-  br label %534
+  %533 = call ptr @ggml_add(ptr noundef %532, ptr noundef %.1163, ptr noundef %.2)
+  %534 = load ptr, ptr %74, align 8, !tbaa !386
+  %535 = load ptr, ptr %79, align 8, !tbaa !588
+  %536 = load ptr, ptr %0, align 8, !tbaa !590
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 6568
+  %538 = load ptr, ptr %537, align 8, !tbaa !599
+  %539 = getelementptr inbounds nuw %struct.llama_layer, ptr %538, i64 %indvars.iv
+  %540 = getelementptr inbounds nuw i8, ptr %539, i64 64
+  %541 = load ptr, ptr %540, align 8, !tbaa !637
+  %542 = getelementptr inbounds nuw i8, ptr %539, i64 72
+  %543 = load ptr, ptr %542, align 8, !tbaa !653
+  %544 = load ptr, ptr %127, align 8, !tbaa !593
+  %545 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %534, ptr noundef %533, ptr noundef nonnull align 4 dereferenceable(6388) %535, ptr noundef %541, ptr noundef %543, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %544, i32 noundef %.pre-phi)
+  %546 = load ptr, ptr %0, align 8, !tbaa !590
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 6568
+  %548 = load ptr, ptr %547, align 8, !tbaa !599
+  %549 = getelementptr inbounds nuw %struct.llama_layer, ptr %548, i64 %indvars.iv
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 16
+  %551 = load ptr, ptr %550, align 8, !tbaa !633
+  %.not178 = icmp eq ptr %551, null
+  br i1 %.not178, label %567, label %552
 
-534:                                              ; preds = %_ZN17llm_build_context17build_inp_out_idsEv.exit, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219
-  %.1163 = phi ptr [ %531, %_ZN17llm_build_context17build_inp_out_idsEv.exit ], [ %.0162, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219 ]
-  %.2 = phi ptr [ %533, %_ZN17llm_build_context17build_inp_out_idsEv.exit ], [ %.1246, %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit219 ]
-  %535 = load ptr, ptr %74, align 8, !tbaa !386
-  %536 = call ptr @ggml_add(ptr noundef %535, ptr noundef %.1163, ptr noundef %.2)
-  %537 = load ptr, ptr %74, align 8, !tbaa !386
-  %538 = load ptr, ptr %79, align 8, !tbaa !588
-  %539 = load ptr, ptr %0, align 8, !tbaa !590
-  %540 = getelementptr inbounds nuw i8, ptr %539, i64 6568
-  %541 = load ptr, ptr %540, align 8, !tbaa !599
-  %542 = getelementptr inbounds nuw %struct.llama_layer, ptr %541, i64 %indvars.iv
-  %543 = getelementptr inbounds nuw i8, ptr %542, i64 64
-  %544 = load ptr, ptr %543, align 8, !tbaa !637
-  %545 = getelementptr inbounds nuw i8, ptr %542, i64 72
-  %546 = load ptr, ptr %545, align 8, !tbaa !653
-  %547 = load ptr, ptr %127, align 8, !tbaa !593
-  %548 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %537, ptr noundef %536, ptr noundef nonnull align 4 dereferenceable(6388) %538, ptr noundef %544, ptr noundef %546, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %547, i32 noundef %.pre-phi)
-  %549 = load ptr, ptr %0, align 8, !tbaa !590
-  %550 = getelementptr inbounds nuw i8, ptr %549, i64 6568
-  %551 = load ptr, ptr %550, align 8, !tbaa !599
-  %552 = getelementptr inbounds nuw %struct.llama_layer, ptr %551, i64 %indvars.iv
-  %553 = getelementptr inbounds nuw i8, ptr %552, i64 16
-  %554 = load ptr, ptr %553, align 8, !tbaa !633
-  %.not178 = icmp eq ptr %554, null
-  br i1 %.not178, label %570, label %555
+552:                                              ; preds = %531
+  %553 = load ptr, ptr %74, align 8, !tbaa !386
+  %554 = call ptr @ggml_add(ptr noundef %553, ptr noundef %545, ptr noundef %.2)
+  %555 = load ptr, ptr %74, align 8, !tbaa !386
+  %556 = load ptr, ptr %79, align 8, !tbaa !588
+  %557 = load ptr, ptr %0, align 8, !tbaa !590
+  %558 = getelementptr inbounds nuw i8, ptr %557, i64 6568
+  %559 = load ptr, ptr %558, align 8, !tbaa !599
+  %560 = getelementptr inbounds nuw %struct.llama_layer, ptr %559, i64 %indvars.iv
+  %561 = getelementptr inbounds nuw i8, ptr %560, i64 16
+  %562 = load ptr, ptr %561, align 8, !tbaa !633
+  %563 = getelementptr inbounds nuw i8, ptr %560, i64 24
+  %564 = load ptr, ptr %563, align 8, !tbaa !634
+  %565 = load ptr, ptr %127, align 8, !tbaa !593
+  %566 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %555, ptr noundef %554, ptr noundef nonnull align 4 dereferenceable(6388) %556, ptr noundef %562, ptr noundef %564, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %565, i32 noundef %.pre-phi)
+  br label %567
 
-555:                                              ; preds = %534
-  %556 = load ptr, ptr %74, align 8, !tbaa !386
-  %557 = call ptr @ggml_add(ptr noundef %556, ptr noundef %548, ptr noundef %.2)
-  %558 = load ptr, ptr %74, align 8, !tbaa !386
-  %559 = load ptr, ptr %79, align 8, !tbaa !588
-  %560 = load ptr, ptr %0, align 8, !tbaa !590
-  %561 = getelementptr inbounds nuw i8, ptr %560, i64 6568
-  %562 = load ptr, ptr %561, align 8, !tbaa !599
-  %563 = getelementptr inbounds nuw %struct.llama_layer, ptr %562, i64 %indvars.iv
-  %564 = getelementptr inbounds nuw i8, ptr %563, i64 16
-  %565 = load ptr, ptr %564, align 8, !tbaa !633
-  %566 = getelementptr inbounds nuw i8, ptr %563, i64 24
-  %567 = load ptr, ptr %566, align 8, !tbaa !634
+567:                                              ; preds = %552, %531
+  %.2164 = phi ptr [ %566, %552 ], [ %545, %531 ]
   %568 = load ptr, ptr %127, align 8, !tbaa !593
-  %569 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %558, ptr noundef %557, ptr noundef nonnull align 4 dereferenceable(6388) %559, ptr noundef %565, ptr noundef %567, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %568, i32 noundef %.pre-phi)
-  br label %570
-
-570:                                              ; preds = %555, %534
-  %.2164 = phi ptr [ %569, %555 ], [ %548, %534 ]
-  %571 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.2164, ptr %5, align 8, !tbaa !347
   store ptr @.str.79, ptr %6, align 8, !tbaa !226
   store i32 %.pre-phi, ptr %7, align 4, !tbaa !155
-  %572 = getelementptr inbounds nuw i8, ptr %571, i64 16
-  %573 = load ptr, ptr %572, align 8, !tbaa !376
-  %.not.i.i221 = icmp eq ptr %573, null
-  br i1 %.not.i.i221, label %574, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit222
+  %569 = getelementptr inbounds nuw i8, ptr %568, i64 16
+  %570 = load ptr, ptr %569, align 8, !tbaa !376
+  %.not.i.i221 = icmp eq ptr %570, null
+  br i1 %.not.i.i221, label %571, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit222
 
-574:                                              ; preds = %570
+571:                                              ; preds = %567
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit222: ; preds = %570
-  %575 = getelementptr inbounds nuw i8, ptr %571, i64 24
-  %576 = load ptr, ptr %575, align 8, !tbaa !373
-  call void %576(ptr noundef nonnull align 8 dereferenceable(32) %571, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit222: ; preds = %567
+  %572 = getelementptr inbounds nuw i8, ptr %568, i64 24
+  %573 = load ptr, ptr %572, align 8, !tbaa !373
+  call void %573(ptr noundef nonnull align 8 dereferenceable(32) %568, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %577 = load ptr, ptr %0, align 8, !tbaa !590
-  %578 = getelementptr inbounds nuw i8, ptr %577, i64 4
-  %579 = load i32, ptr %578, align 4, !tbaa !234
-  %580 = load ptr, ptr %74, align 8, !tbaa !386
-  %581 = load ptr, ptr %122, align 8, !tbaa !387
-  %582 = getelementptr inbounds nuw i8, ptr %577, i64 6568
-  %583 = load ptr, ptr %582, align 8, !tbaa !599
-  %584 = getelementptr inbounds nuw %struct.llama_layer, ptr %583, i64 %indvars.iv
-  %585 = getelementptr inbounds nuw i8, ptr %584, i64 408
-  %586 = load ptr, ptr %585, align 8, !tbaa !618
-  %587 = getelementptr inbounds nuw i8, ptr %584, i64 400
-  %588 = load ptr, ptr %587, align 8, !tbaa !622
-  switch i32 %579, label %603 [
-    i32 11, label %589
-    i32 13, label %596
+  %574 = load ptr, ptr %0, align 8, !tbaa !590
+  %575 = getelementptr inbounds nuw i8, ptr %574, i64 4
+  %576 = load i32, ptr %575, align 4, !tbaa !234
+  %577 = load ptr, ptr %74, align 8, !tbaa !386
+  %578 = load ptr, ptr %122, align 8, !tbaa !387
+  %579 = getelementptr inbounds nuw i8, ptr %574, i64 6568
+  %580 = load ptr, ptr %579, align 8, !tbaa !599
+  %581 = getelementptr inbounds nuw %struct.llama_layer, ptr %580, i64 %indvars.iv
+  %582 = getelementptr inbounds nuw i8, ptr %581, i64 408
+  %583 = load ptr, ptr %582, align 8, !tbaa !618
+  %584 = getelementptr inbounds nuw i8, ptr %581, i64 400
+  %585 = load ptr, ptr %584, align 8, !tbaa !622
+  switch i32 %576, label %600 [
+    i32 11, label %586
+    i32 13, label %593
   ]
 
-589:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit222
-  %590 = getelementptr inbounds nuw i8, ptr %584, i64 520
-  %591 = load ptr, ptr %590, align 8, !tbaa !619
-  %592 = getelementptr inbounds nuw i8, ptr %584, i64 512
-  %593 = load ptr, ptr %592, align 8, !tbaa !623
-  %594 = load ptr, ptr %127, align 8, !tbaa !593
-  %595 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextR13llama_contextP11ggml_tensorS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS4_PKciEEi(ptr noundef %580, ptr noundef nonnull align 8 dereferenceable(1120) %581, ptr noundef %.2164, ptr noundef %586, ptr noundef %591, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %588, ptr noundef %593, ptr noundef null, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %594, i32 noundef %.pre-phi)
-  br label %608
+586:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit222
+  %587 = getelementptr inbounds nuw i8, ptr %581, i64 520
+  %588 = load ptr, ptr %587, align 8, !tbaa !619
+  %589 = getelementptr inbounds nuw i8, ptr %581, i64 512
+  %590 = load ptr, ptr %589, align 8, !tbaa !623
+  %591 = load ptr, ptr %127, align 8, !tbaa !593
+  %592 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextR13llama_contextP11ggml_tensorS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS4_PKciEEi(ptr noundef %577, ptr noundef nonnull align 8 dereferenceable(1120) %578, ptr noundef %.2164, ptr noundef %583, ptr noundef %588, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %585, ptr noundef %590, ptr noundef null, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %591, i32 noundef %.pre-phi)
+  br label %605
 
-596:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit222
-  %597 = getelementptr inbounds nuw i8, ptr %584, i64 392
-  %598 = load ptr, ptr %597, align 8, !tbaa !620
-  %599 = getelementptr inbounds nuw i8, ptr %584, i64 512
-  %600 = load ptr, ptr %599, align 8, !tbaa !623
-  %601 = load ptr, ptr %127, align 8, !tbaa !593
-  %602 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextR13llama_contextP11ggml_tensorS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS4_PKciEEi(ptr noundef %580, ptr noundef nonnull align 8 dereferenceable(1120) %581, ptr noundef %.2164, ptr noundef %586, ptr noundef null, ptr noundef null, ptr noundef %598, ptr noundef null, ptr noundef null, ptr noundef %588, ptr noundef %600, ptr noundef null, i32 noundef 1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %601, i32 noundef %.pre-phi)
-  br label %608
+593:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit222
+  %594 = getelementptr inbounds nuw i8, ptr %581, i64 392
+  %595 = load ptr, ptr %594, align 8, !tbaa !620
+  %596 = getelementptr inbounds nuw i8, ptr %581, i64 512
+  %597 = load ptr, ptr %596, align 8, !tbaa !623
+  %598 = load ptr, ptr %127, align 8, !tbaa !593
+  %599 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextR13llama_contextP11ggml_tensorS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS4_PKciEEi(ptr noundef %577, ptr noundef nonnull align 8 dereferenceable(1120) %578, ptr noundef %.2164, ptr noundef %583, ptr noundef null, ptr noundef null, ptr noundef %595, ptr noundef null, ptr noundef null, ptr noundef %585, ptr noundef %597, ptr noundef null, i32 noundef 1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %598, i32 noundef %.pre-phi)
+  br label %605
 
-603:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit222
-  %604 = getelementptr inbounds nuw i8, ptr %584, i64 392
-  %605 = load ptr, ptr %604, align 8, !tbaa !620
+600:                                              ; preds = %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit222
+  %601 = getelementptr inbounds nuw i8, ptr %581, i64 392
+  %602 = load ptr, ptr %601, align 8, !tbaa !620
+  %603 = load ptr, ptr %127, align 8, !tbaa !593
+  %604 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextR13llama_contextP11ggml_tensorS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS4_PKciEEi(ptr noundef %577, ptr noundef nonnull align 8 dereferenceable(1120) %578, ptr noundef %.2164, ptr noundef %583, ptr noundef null, ptr noundef null, ptr noundef %602, ptr noundef null, ptr noundef null, ptr noundef %585, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %603, i32 noundef %.pre-phi)
+  br label %605
+
+605:                                              ; preds = %593, %600, %586
+  %.3 = phi ptr [ %592, %586 ], [ %599, %593 ], [ %604, %600 ]
   %606 = load ptr, ptr %127, align 8, !tbaa !593
-  %607 = call fastcc noundef ptr @_ZL13llm_build_ffnP12ggml_contextR13llama_contextP11ggml_tensorS4_S4_S4_S4_S4_S4_S4_S4_S4_S4_15llm_ffn_op_type17llm_ffn_gate_typeRKSt8functionIFvS4_PKciEEi(ptr noundef %580, ptr noundef nonnull align 8 dereferenceable(1120) %581, ptr noundef %.2164, ptr noundef %586, ptr noundef null, ptr noundef null, ptr noundef %605, ptr noundef null, ptr noundef null, ptr noundef %588, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %606, i32 noundef %.pre-phi)
-  br label %608
-
-608:                                              ; preds = %596, %603, %589
-  %.3 = phi ptr [ %595, %589 ], [ %602, %596 ], [ %607, %603 ]
-  %609 = load ptr, ptr %127, align 8, !tbaa !593
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.3, ptr %2, align 8, !tbaa !347
   store ptr @.str.81, ptr %3, align 8, !tbaa !226
   store i32 %.pre-phi, ptr %4, align 4, !tbaa !155
-  %610 = getelementptr inbounds nuw i8, ptr %609, i64 16
-  %611 = load ptr, ptr %610, align 8, !tbaa !376
-  %.not.i.i223 = icmp eq ptr %611, null
-  br i1 %.not.i.i223, label %612, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit224
+  %607 = getelementptr inbounds nuw i8, ptr %606, i64 16
+  %608 = load ptr, ptr %607, align 8, !tbaa !376
+  %.not.i.i223 = icmp eq ptr %608, null
+  br i1 %.not.i.i223, label %609, label %_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit224
 
-612:                                              ; preds = %608
+609:                                              ; preds = %605
   call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
-_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit224: ; preds = %608
-  %613 = getelementptr inbounds nuw i8, ptr %609, i64 24
-  %614 = load ptr, ptr %613, align 8, !tbaa !373
-  call void %614(ptr noundef nonnull align 8 dereferenceable(32) %609, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+_ZNKSt8functionIFvP11ggml_tensorPKciEEclES1_S3_i.exit224: ; preds = %605
+  %610 = getelementptr inbounds nuw i8, ptr %606, i64 24
+  %611 = load ptr, ptr %610, align 8, !tbaa !373
+  call void %611(ptr noundef nonnull align 8 dereferenceable(32) %606, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %615 = load ptr, ptr %74, align 8, !tbaa !386
-  %616 = call ptr @ggml_add(ptr noundef %615, ptr noundef %.3, ptr noundef %.2164)
-  %617 = load ptr, ptr %74, align 8, !tbaa !386
-  %618 = load ptr, ptr %79, align 8, !tbaa !588
-  %619 = load ptr, ptr %0, align 8, !tbaa !590
-  %620 = getelementptr inbounds nuw i8, ptr %619, i64 6568
-  %621 = load ptr, ptr %620, align 8, !tbaa !599
-  %622 = getelementptr inbounds nuw %struct.llama_layer, ptr %621, i64 %indvars.iv
-  %623 = getelementptr inbounds nuw i8, ptr %622, i64 360
-  %624 = load ptr, ptr %623, align 8, !tbaa !638
-  %625 = getelementptr inbounds nuw i8, ptr %622, i64 368
-  %626 = load ptr, ptr %625, align 8, !tbaa !654
-  %627 = load ptr, ptr %127, align 8, !tbaa !593
-  %628 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %617, ptr noundef %616, ptr noundef nonnull align 4 dereferenceable(6388) %618, ptr noundef %624, ptr noundef %626, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %627, i32 noundef %.pre-phi)
+  %612 = load ptr, ptr %74, align 8, !tbaa !386
+  %613 = call ptr @ggml_add(ptr noundef %612, ptr noundef %.3, ptr noundef %.2164)
+  %614 = load ptr, ptr %74, align 8, !tbaa !386
+  %615 = load ptr, ptr %79, align 8, !tbaa !588
+  %616 = load ptr, ptr %0, align 8, !tbaa !590
+  %617 = getelementptr inbounds nuw i8, ptr %616, i64 6568
+  %618 = load ptr, ptr %617, align 8, !tbaa !599
+  %619 = getelementptr inbounds nuw %struct.llama_layer, ptr %618, i64 %indvars.iv
+  %620 = getelementptr inbounds nuw i8, ptr %619, i64 360
+  %621 = load ptr, ptr %620, align 8, !tbaa !638
+  %622 = getelementptr inbounds nuw i8, ptr %619, i64 368
+  %623 = load ptr, ptr %622, align 8, !tbaa !654
+  %624 = load ptr, ptr %127, align 8, !tbaa !593
+  %625 = call fastcc noundef ptr @_ZL14llm_build_normP12ggml_contextP11ggml_tensorRK13llama_hparamsS2_S2_13llm_norm_typeRKSt8functionIFvS2_PKciEEi(ptr noundef %614, ptr noundef %613, ptr noundef nonnull align 4 dereferenceable(6388) %615, ptr noundef %621, ptr noundef %623, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %624, i32 noundef %.pre-phi)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %629 = load i64, ptr %174, align 8, !tbaa !397
-  %630 = icmp sgt i64 %629, %indvars.iv.next
-  br i1 %630, label %199, label %._crit_edge, !llvm.loop !655
+  %626 = load i64, ptr %174, align 8, !tbaa !397
+  %627 = icmp sgt i64 %626, %indvars.iv.next
+  br i1 %627, label %199, label %._crit_edge, !llvm.loop !655
 }
 
 ; Function Attrs: mustprogress uwtable

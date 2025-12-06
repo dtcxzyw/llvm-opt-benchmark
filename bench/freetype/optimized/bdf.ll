@@ -2548,23 +2548,23 @@ bdf_strtok_.exit291:                              ; preds = %.loopexit.i287
 
 314:                                              ; preds = %.critedge
   %315 = load i8, ptr %spec.select230, align 1, !tbaa !37
-  switch i8 %315, label %317 [
-    i8 67, label %318
-    i8 99, label %318
-    i8 77, label %316
-    i8 109, label %316
+  %316 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  switch i8 %315, label %318 [
+    i8 67, label %319
+    i8 99, label %319
+    i8 77, label %317
+    i8 109, label %317
   ]
 
-316:                                              ; preds = %314, %314
-  br label %318
+317:                                              ; preds = %314, %314
+  br label %319
 
-317:                                              ; preds = %314
-  br label %318
+318:                                              ; preds = %314
+  br label %319
 
-318:                                              ; preds = %314, %314, %317, %316
-  %.sink = phi i32 [ 8, %317 ], [ 16, %316 ], [ 32, %314 ], [ 32, %314 ]
-  %319 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  store i32 %.sink, ptr %319, align 8, !tbaa !70
+319:                                              ; preds = %314, %314, %318, %317
+  %.sink = phi i32 [ 8, %318 ], [ 16, %317 ], [ 32, %314 ], [ 32, %314 ]
+  store i32 %.sink, ptr %316, align 8, !tbaa !70
   %320 = load i64, ptr %4, align 8, !tbaa !26
   %321 = or i64 %320, 2
   store i64 %321, ptr %4, align 8, !tbaa !26
@@ -2901,9 +2901,9 @@ bdf_atous_.exit343:                               ; preds = %459
   br label %bdf_atous_.exit343.thread
 
 bdf_atous_.exit343.thread:                        ; preds = %.loopexit.i332, %.lr.ph.i338, %480, %478, %bdf_atous_.exit343, %.thread364
-  %.sink464 = phi i16 [ 1, %.thread364 ], [ 8, %bdf_atous_.exit343 ], [ 4, %478 ], [ 2, %480 ], [ 8, %.lr.ph.i338 ], [ 1, %.loopexit.i332 ]
+  %.sink463 = phi i16 [ 1, %.thread364 ], [ 8, %bdf_atous_.exit343 ], [ 4, %478 ], [ 2, %480 ], [ 8, %.lr.ph.i338 ], [ 1, %.loopexit.i332 ]
   %482 = getelementptr inbounds nuw i8, ptr %25, i64 176
-  store i16 %.sink464, ptr %482, align 8, !tbaa !119
+  store i16 %.sink463, ptr %482, align 8, !tbaa !119
   %483 = load i64, ptr %4, align 8, !tbaa !26
   %484 = or i64 %483, 4
   store i64 %484, ptr %4, align 8, !tbaa !26
@@ -3034,7 +3034,7 @@ bdf_strtok_.exit349:                              ; preds = %.loopexit.i345
   store i32 3, ptr %7, align 4, !tbaa !25
   br label %.thread355
 
-.thread355:                                       ; preds = %.preheader369, %114, %318, %bdf_strtok_.exit291, %518, %112, %108, %switch.edge217, %bdf_add_comment_.exit, %switch.edge, %.critedge236, %523, %517, %496, %493, %490, %bdf_atous_.exit343.thread, %bdf_atos_.exit285, %122, %107, %101, %21, %.critedge216
+.thread355:                                       ; preds = %.preheader369, %114, %319, %bdf_strtok_.exit291, %518, %112, %108, %switch.edge217, %bdf_add_comment_.exit, %switch.edge, %.critedge236, %523, %517, %496, %493, %490, %bdf_atous_.exit343.thread, %bdf_atos_.exit285, %122, %107, %101, %21, %.critedge216
   %526 = load i32, ptr %7, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %526

@@ -135,7 +135,7 @@ define void @ff_h264_pred_init(ptr noundef writeonly %0, i32 noundef %1, i32 nou
   store ptr @pred16x16_vertical_add_9_c, ptr %56, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr @pred16x16_horizontal_add_9_c, ptr %57, align 8, !tbaa !4
-  br label %295
+  br label %294
 
 58:                                               ; preds = %4
   store ptr @pred4x4_vertical_10_c, ptr %0, align 8, !tbaa !4
@@ -255,7 +255,7 @@ define void @ff_h264_pred_init(ptr noundef writeonly %0, i32 noundef %1, i32 nou
   store ptr @pred16x16_vertical_add_10_c, ptr %109, align 8, !tbaa !4
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr @pred16x16_horizontal_add_10_c, ptr %110, align 8, !tbaa !4
-  br label %295
+  br label %294
 
 111:                                              ; preds = %4
   store ptr @pred4x4_vertical_12_c, ptr %0, align 8, !tbaa !4
@@ -375,7 +375,7 @@ define void @ff_h264_pred_init(ptr noundef writeonly %0, i32 noundef %1, i32 nou
   store ptr @pred16x16_vertical_add_12_c, ptr %162, align 8, !tbaa !4
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr @pred16x16_horizontal_add_12_c, ptr %163, align 8, !tbaa !4
-  br label %295
+  br label %294
 
 164:                                              ; preds = %4
   store ptr @pred4x4_vertical_14_c, ptr %0, align 8, !tbaa !4
@@ -495,7 +495,7 @@ define void @ff_h264_pred_init(ptr noundef writeonly %0, i32 noundef %1, i32 nou
   store ptr @pred16x16_vertical_add_14_c, ptr %215, align 8, !tbaa !4
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr @pred16x16_horizontal_add_14_c, ptr %216, align 8, !tbaa !4
-  br label %295
+  br label %294
 
 217:                                              ; preds = %4
   %218 = icmp slt i32 %2, 9
@@ -571,14 +571,14 @@ define void @ff_h264_pred_init(ptr noundef writeonly %0, i32 noundef %1, i32 nou
   store ptr %pred8x16_horizontal_8_c.sink, ptr %248, align 8, !tbaa !4
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %pred8x16_plane_8_c.sink, ptr %249, align 8, !tbaa !4
-  switch i32 %1, label %250 [
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  switch i32 %1, label %251 [
     i32 179, label %258
     i32 139, label %258
     i32 69, label %258
   ]
 
-250:                                              ; preds = %233
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 216
+251:                                              ; preds = %233
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -587,128 +587,127 @@ define void @ff_h264_pred_init(ptr noundef writeonly %0, i32 noundef %1, i32 nou
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br i1 %246, label %.thread387, label %.thread388
 
-.thread387:                                       ; preds = %250
-  store ptr @pred8x8_dc_8_c, ptr %251, align 8, !tbaa !4
+.thread387:                                       ; preds = %251
+  store ptr @pred8x8_dc_8_c, ptr %250, align 8, !tbaa !4
   store ptr @pred8x8_left_dc_8_c, ptr %252, align 8, !tbaa !4
   store ptr @pred8x8_top_dc_8_c, ptr %253, align 8, !tbaa !4
   store ptr @pred8x8_mad_cow_dc_l0t_8, ptr %254, align 8, !tbaa !4
   store ptr @pred8x8_mad_cow_dc_0lt_8, ptr %255, align 8, !tbaa !4
   store ptr @pred8x8_mad_cow_dc_l00_8, ptr %256, align 8, !tbaa !4
   store ptr @pred8x8_mad_cow_dc_0l0_8, ptr %257, align 8, !tbaa !4
-  br label %263
+  br label %262
 
-.thread388:                                       ; preds = %250
-  store ptr @pred8x16_dc_8_c, ptr %251, align 8, !tbaa !4
+.thread388:                                       ; preds = %251
+  store ptr @pred8x16_dc_8_c, ptr %250, align 8, !tbaa !4
   store ptr @pred8x16_left_dc_8_c, ptr %252, align 8, !tbaa !4
   store ptr @pred8x16_top_dc_8_c, ptr %253, align 8, !tbaa !4
   store ptr @pred8x16_mad_cow_dc_l0t_8, ptr %254, align 8, !tbaa !4
   store ptr @pred8x16_mad_cow_dc_0lt_8, ptr %255, align 8, !tbaa !4
   store ptr @pred8x16_mad_cow_dc_l00_8, ptr %256, align 8, !tbaa !4
   store ptr @pred8x16_mad_cow_dc_0l0_8, ptr %257, align 8, !tbaa !4
-  br label %262
+  br label %261
 
 258:                                              ; preds = %233, %233, %233
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr @pred8x8_dc_rv40_c, ptr %259, align 8, !tbaa !4
-  %260 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr @pred8x8_left_dc_rv40_c, ptr %260, align 8, !tbaa !4
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr @pred8x8_top_dc_rv40_c, ptr %261, align 8, !tbaa !4
-  br i1 %246, label %263, label %262
+  store ptr @pred8x8_dc_rv40_c, ptr %250, align 8, !tbaa !4
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store ptr @pred8x8_left_dc_rv40_c, ptr %259, align 8, !tbaa !4
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store ptr @pred8x8_top_dc_rv40_c, ptr %260, align 8, !tbaa !4
+  br i1 %246, label %262, label %261
 
-262:                                              ; preds = %.thread388, %258
-  br label %263
+261:                                              ; preds = %.thread388, %258
+  br label %262
 
-263:                                              ; preds = %258, %.thread387, %262
-  %pred8x16_128_dc_8_c.sink = phi ptr [ @pred8x16_128_dc_8_c, %262 ], [ @pred8x8_128_dc_8_c, %.thread387 ], [ @pred8x8_128_dc_8_c, %258 ]
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr %pred8x16_128_dc_8_c.sink, ptr %264, align 8, !tbaa !4
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store ptr @pred16x16_dc_8_c, ptr %265, align 8, !tbaa !4
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store ptr @pred16x16_vertical_8_c, ptr %266, align 8, !tbaa !4
-  %267 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store ptr @pred16x16_horizontal_8_c, ptr %267, align 8, !tbaa !4
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr @pred16x16_plane_8_c, ptr %268, align 8, !tbaa !4
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store ptr @pred16x16_left_dc_8_c, ptr %269, align 8, !tbaa !4
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store ptr @pred16x16_top_dc_8_c, ptr %270, align 8, !tbaa !4
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store ptr @pred16x16_128_dc_8_c, ptr %271, align 8, !tbaa !4
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store ptr @pred4x4_vertical_add_8_c, ptr %272, align 8, !tbaa !4
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store ptr @pred4x4_horizontal_add_8_c, ptr %273, align 8, !tbaa !4
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store ptr @pred8x8l_vertical_add_8_c, ptr %274, align 8, !tbaa !4
-  %275 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr @pred8x8l_horizontal_add_8_c, ptr %275, align 8, !tbaa !4
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr @pred8x8l_vertical_filter_add_8_c, ptr %276, align 8, !tbaa !4
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr @pred8x8l_horizontal_filter_add_8_c, ptr %277, align 8, !tbaa !4
+262:                                              ; preds = %258, %.thread387, %261
+  %pred8x16_128_dc_8_c.sink = phi ptr [ @pred8x16_128_dc_8_c, %261 ], [ @pred8x8_128_dc_8_c, %.thread387 ], [ @pred8x8_128_dc_8_c, %258 ]
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store ptr %pred8x16_128_dc_8_c.sink, ptr %263, align 8, !tbaa !4
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store ptr @pred16x16_dc_8_c, ptr %264, align 8, !tbaa !4
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store ptr @pred16x16_vertical_8_c, ptr %265, align 8, !tbaa !4
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store ptr @pred16x16_horizontal_8_c, ptr %266, align 8, !tbaa !4
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store ptr @pred16x16_plane_8_c, ptr %267, align 8, !tbaa !4
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  store ptr @pred16x16_left_dc_8_c, ptr %268, align 8, !tbaa !4
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  store ptr @pred16x16_top_dc_8_c, ptr %269, align 8, !tbaa !4
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  store ptr @pred16x16_128_dc_8_c, ptr %270, align 8, !tbaa !4
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store ptr @pred4x4_vertical_add_8_c, ptr %271, align 8, !tbaa !4
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  store ptr @pred4x4_horizontal_add_8_c, ptr %272, align 8, !tbaa !4
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  store ptr @pred8x8l_vertical_add_8_c, ptr %273, align 8, !tbaa !4
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  store ptr @pred8x8l_horizontal_add_8_c, ptr %274, align 8, !tbaa !4
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  store ptr @pred8x8l_vertical_filter_add_8_c, ptr %275, align 8, !tbaa !4
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  store ptr @pred8x8l_horizontal_filter_add_8_c, ptr %276, align 8, !tbaa !4
   %pred8x16_vertical_add_8_c.sink = select i1 %246, ptr @pred8x8_vertical_add_8_c, ptr @pred8x16_vertical_add_8_c
   %pred8x16_horizontal_add_8_c.sink = select i1 %246, ptr @pred8x8_horizontal_add_8_c, ptr @pred8x16_horizontal_add_8_c
-  %278 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store ptr %pred8x16_vertical_add_8_c.sink, ptr %278, align 8, !tbaa !4
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr %pred8x16_horizontal_add_8_c.sink, ptr %279, align 8, !tbaa !4
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  store ptr @pred16x16_vertical_add_8_c, ptr %280, align 8, !tbaa !4
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store ptr @pred16x16_horizontal_add_8_c, ptr %281, align 8, !tbaa !4
-  switch i32 %1, label %295 [
-    i32 23, label %282
-    i32 69, label %283
-    i32 179, label %287
-    i32 139, label %287
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  store ptr %pred8x16_vertical_add_8_c.sink, ptr %277, align 8, !tbaa !4
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  store ptr %pred8x16_horizontal_add_8_c.sink, ptr %278, align 8, !tbaa !4
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  store ptr @pred16x16_vertical_add_8_c, ptr %279, align 8, !tbaa !4
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  store ptr @pred16x16_horizontal_add_8_c, ptr %280, align 8, !tbaa !4
+  switch i32 %1, label %294 [
+    i32 23, label %281
+    i32 69, label %282
+    i32 179, label %286
+    i32 139, label %286
   ]
 
-282:                                              ; preds = %263
+281:                                              ; preds = %262
   store ptr @pred4x4_down_left_svq3_c, ptr %223, align 8, !tbaa !4
-  store ptr @pred16x16_plane_svq3_c, ptr %268, align 8, !tbaa !4
-  br label %295
+  store ptr @pred16x16_plane_svq3_c, ptr %267, align 8, !tbaa !4
+  br label %294
 
-283:                                              ; preds = %263
+282:                                              ; preds = %262
   store ptr @pred4x4_down_left_rv40_c, ptr %223, align 8, !tbaa !4
   store ptr @pred4x4_vertical_left_rv40_c, ptr %227, align 8, !tbaa !4
   store ptr @pred4x4_horizontal_up_rv40_c, ptr %228, align 8, !tbaa !4
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr @pred4x4_down_left_rv40_nodown_c, ptr %284, align 8, !tbaa !4
-  %285 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @pred4x4_horizontal_up_rv40_nodown_c, ptr %285, align 8, !tbaa !4
-  %286 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @pred4x4_vertical_left_rv40_nodown_c, ptr %286, align 8, !tbaa !4
-  store ptr @pred16x16_plane_rv40_c, ptr %268, align 8, !tbaa !4
-  br label %295
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr @pred4x4_down_left_rv40_nodown_c, ptr %283, align 8, !tbaa !4
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr @pred4x4_horizontal_up_rv40_nodown_c, ptr %284, align 8, !tbaa !4
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @pred4x4_vertical_left_rv40_nodown_c, ptr %285, align 8, !tbaa !4
+  store ptr @pred16x16_plane_rv40_c, ptr %267, align 8, !tbaa !4
+  br label %294
 
-287:                                              ; preds = %263, %263
+286:                                              ; preds = %262, %262
   store ptr @pred4x4_vertical_vp8_c, ptr %0, align 8, !tbaa !4
   store ptr @pred4x4_horizontal_vp8_c, ptr %221, align 8, !tbaa !4
   store ptr @pred4x4_vertical_left_vp8_c, ptr %227, align 8, !tbaa !4
   store ptr @pred4x4_tm_vp8_c, ptr %229, align 8, !tbaa !4
   store ptr @pred4x4_vertical_8_c, ptr %230, align 8, !tbaa !4
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr @pred4x4_127_dc_c, ptr %288, align 8, !tbaa !4
-  %289 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @pred4x4_129_dc_c, ptr %289, align 8, !tbaa !4
-  %290 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @pred4x4_horizontal_8_c, ptr %290, align 8, !tbaa !4
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr @pred4x4_127_dc_c, ptr %287, align 8, !tbaa !4
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr @pred4x4_129_dc_c, ptr %288, align 8, !tbaa !4
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @pred4x4_horizontal_8_c, ptr %289, align 8, !tbaa !4
   store ptr @pred8x8_tm_vp8_c, ptr %249, align 8, !tbaa !4
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr @pred8x8_127_dc_8_c, ptr %291, align 8, !tbaa !4
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr @pred8x8_129_dc_8_c, ptr %292, align 8, !tbaa !4
-  store ptr @pred16x16_tm_vp8_c, ptr %268, align 8, !tbaa !4
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store ptr @pred16x16_127_dc_8_c, ptr %293, align 8, !tbaa !4
-  %294 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store ptr @pred16x16_129_dc_8_c, ptr %294, align 8, !tbaa !4
-  br label %295
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store ptr @pred8x8_127_dc_8_c, ptr %290, align 8, !tbaa !4
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store ptr @pred8x8_129_dc_8_c, ptr %291, align 8, !tbaa !4
+  store ptr @pred16x16_tm_vp8_c, ptr %267, align 8, !tbaa !4
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  store ptr @pred16x16_127_dc_8_c, ptr %292, align 8, !tbaa !4
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  store ptr @pred16x16_129_dc_8_c, ptr %293, align 8, !tbaa !4
+  br label %294
 
-295:                                              ; preds = %263, %282, %283, %287, %164, %111, %58, %5
+294:                                              ; preds = %262, %281, %282, %286, %164, %111, %58, %5
   ret void
 }
 

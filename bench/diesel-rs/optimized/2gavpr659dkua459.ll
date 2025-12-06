@@ -556,6 +556,8 @@ default.unreachable:                              ; preds = %54, %41, %30
 
 54:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit139"
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   switch i64 %12, label %default.unreachable [
     i64 0, label %.thread243
     i64 1, label %.thread244
@@ -565,15 +567,11 @@ default.unreachable:                              ; preds = %54, %41, %30
   ]
 
 .thread243:                                       ; preds = %54
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %56 = load ptr, ptr %55, align 8, !alias.scope !99, !noalias !102, !nonnull !14, !align !74, !noundef !14
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit175"
 
 .thread244:                                       ; preds = %54
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %58 = load ptr, ptr %57, align 8, !alias.scope !99, !noalias !102, !nonnull !14, !align !74, !noundef !14
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -590,8 +588,6 @@ default.unreachable:                              ; preds = %54, %41, %30
   br label %69
 
 62:                                               ; preds = %54, %54, %54
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit175"
@@ -823,6 +819,8 @@ default.unreachable:                              ; preds = %56, %43, %30
 
 56:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit139"
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   switch i64 %12, label %default.unreachable [
     i64 0, label %.thread231
     i64 1, label %.thread232
@@ -832,15 +830,11 @@ default.unreachable:                              ; preds = %56, %43, %30
   ]
 
 .thread231:                                       ; preds = %56
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %58 = load ptr, ptr %57, align 8, !alias.scope !125, !noalias !128, !nonnull !14, !align !74, !noundef !14
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit175"
 
 .thread232:                                       ; preds = %56
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %60 = load ptr, ptr %59, align 8, !alias.scope !125, !noalias !128, !nonnull !14, !align !74, !noundef !14
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -857,8 +851,6 @@ default.unreachable:                              ; preds = %56, %43, %30
   br label %71
 
 64:                                               ; preds = %56, %56, %56
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit175"

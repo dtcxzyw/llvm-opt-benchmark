@@ -432,12 +432,12 @@ switch.edge:                                      ; preds = %21, %22, %21, %21, 
 
 .sink.split:                                      ; preds = %.critedge
   %72 = load i32, ptr %1, align 8
-  %73 = add i32 %72, -372645892
-  %switch.and = and i32 %73, -4194305
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %74 = add i32 %72, -372645892
+  %switch.and = and i32 %74, -4194305
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %74 = select i1 %switch.selectcmp, i32 2, i32 1
-  %75 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 %74, ptr %75, align 4
+  %75 = select i1 %switch.selectcmp, i32 2, i32 1
+  store i32 %75, ptr %73, align 4
   br label %76
 
 76:                                               ; preds = %.sink.split, %.critedge
@@ -2312,387 +2312,384 @@ RestartRenderPass.exit:                           ; preds = %5, %19
 33:                                               ; preds = %26, %30
   %34 = phi ptr [ %32, %30 ], [ null, %26 ]
   %35 = icmp eq i32 %4, 0
-  br i1 %35, label %36, label %49
+  br i1 %35, label %36, label %46
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %38 = load ptr, ptr %37, align 8
   %.not89 = icmp eq ptr %38, null
-  br i1 %.not89, label %49, label %39
+  br i1 %.not89, label %46, label %39
 
 39:                                               ; preds = %36
   %40 = load i32, ptr %38, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp eq i32 %42, 2
   switch i32 %40, label %45 [
-    i32 376840196, label %41
-    i32 372645892, label %41
+    i32 376840196, label %44
+    i32 372645892, label %44
   ]
 
-41:                                               ; preds = %39, %39
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp eq i32 %43, 2
-  %. = select i1 %44, i32 4, i32 2
-  br label %49
+44:                                               ; preds = %39, %39
+  %. = select i1 %43, i32 4, i32 2
+  br label %46
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %47 = load i32, ptr %46, align 8
-  %48 = icmp eq i32 %47, 2
-  %.94 = select i1 %48, i32 3, i32 1
+  %.94 = select i1 %43, i32 3, i32 1
+  br label %46
+
+46:                                               ; preds = %33, %44, %45, %36
+  %.175 = phi i32 [ %., %44 ], [ %.94, %45 ], [ 0, %36 ], [ 0, %33 ]
+  %.1 = phi i32 [ 2, %44 ], [ 2, %45 ], [ 1, %36 ], [ 0, %33 ]
+  %.not90 = icmp eq ptr %34, null
+  br i1 %.not90, label %49, label %47
+
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %34, ptr %48, align 8
   br label %49
 
-49:                                               ; preds = %33, %41, %45, %36
-  %.175 = phi i32 [ %., %41 ], [ %.94, %45 ], [ 0, %36 ], [ 0, %33 ]
-  %.1 = phi i32 [ 2, %41 ], [ 2, %45 ], [ 1, %36 ], [ 0, %33 ]
-  %.not90 = icmp eq ptr %34, null
-  br i1 %.not90, label %52, label %50
-
-50:                                               ; preds = %49
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %34, ptr %51, align 8
-  br label %52
-
-52:                                               ; preds = %50, %49
-  %.2 = phi i32 [ 5, %50 ], [ %.175, %49 ]
+49:                                               ; preds = %47, %46
+  %.2 = phi i32 [ 5, %47 ], [ %.175, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %52 = load i32, ptr %51, align 4
+  store i32 %52, ptr %10, align 8
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %55 = load i32, ptr %54, align 4
-  store i32 %55, ptr %10, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %.1, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %.2, ptr %57, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 %4, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %34, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i32 %.1, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 %.2, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i32 %4, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %34, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %58 = load ptr, ptr %57, align 8
+  %.not91 = icmp eq ptr %58, null
+  br i1 %.not91, label %63, label %59
+
+59:                                               ; preds = %49
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 280
   %61 = load ptr, ptr %60, align 8
-  %.not91 = icmp eq ptr %61, null
-  br i1 %.not91, label %66, label %62
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  br label %65
 
-62:                                               ; preds = %52
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 280
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  br label %68
+63:                                               ; preds = %49
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %65
 
-66:                                               ; preds = %52
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %68
-
-68:                                               ; preds = %66, %62
-  %.sink.in = phi ptr [ %67, %66 ], [ %65, %62 ]
+65:                                               ; preds = %63, %59
+  %.sink.in = phi ptr [ %64, %63 ], [ %62, %59 ]
   %.sink = load i32, ptr %.sink.in, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %.sink, ptr %69, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %72 = load ptr, ptr %0, align 8
-  %73 = call ptr @GPU_GetPipeline(ptr noundef nonnull %70, ptr noundef nonnull %71, ptr noundef %72, ptr noundef nonnull %10) #11
-  %.not92 = icmp eq ptr %73, null
-  br i1 %.not92, label %226, label %74
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i32 %.sink, ptr %66, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = load ptr, ptr %0, align 8
+  %70 = call ptr @GPU_GetPipeline(ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef %69, ptr noundef nonnull %10) #11
+  %.not92 = icmp eq ptr %70, null
+  br i1 %.not92, label %223, label %71
 
-74:                                               ; preds = %68
-  call void @SDL_BindGPUGraphicsPipeline_REAL(ptr noundef %27, ptr noundef nonnull %73) #11
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 48
+71:                                               ; preds = %65
+  call void @SDL_BindGPUGraphicsPipeline_REAL(ptr noundef %27, ptr noundef nonnull %70) #11
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %73 = load ptr, ptr %72, align 8
+  %.not93 = icmp eq ptr %73, null
+  br i1 %.not93, label %116, label %74
+
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 280
   %76 = load ptr, ptr %75, align 8
-  %.not93 = icmp eq ptr %76, null
-  br i1 %.not93, label %119, label %77
-
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 280
-  %79 = load ptr, ptr %78, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %81 = load i32, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %85 = load i32, ptr %84, align 8
-  %86 = icmp eq i32 %81, 0
-  %87 = zext i1 %86 to i64
-  %88 = icmp eq i32 %83, 2
-  %89 = select i1 %88, i64 2, i64 0
-  %90 = icmp eq i32 %85, 2
-  %91 = select i1 %90, i64 4, i64 0
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %89
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %87
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %91
-  %96 = load ptr, ptr %95, align 8
-  %.not.i95 = icmp eq ptr %96, null
-  br i1 %.not.i95, label %97, label %GetSampler.exit
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %78 = load i32, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %80 = load i32, ptr %79, align 4
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %82 = load i32, ptr %81, align 8
+  %83 = icmp eq i32 %78, 0
+  %84 = zext i1 %83 to i64
+  %85 = icmp eq i32 %80, 2
+  %86 = select i1 %85, i64 2, i64 0
+  %87 = icmp eq i32 %82, 2
+  %88 = select i1 %87, i64 4, i64 0
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %86
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %84
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %88
+  %93 = load ptr, ptr %92, align 8
+  %.not.i95 = icmp eq ptr %93, null
+  br i1 %.not.i95, label %94, label %GetSampler.exit
 
-97:                                               ; preds = %77
+94:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %9, i8 0, i64 52, i1 false)
-  switch i32 %81, label %101 [
-    i32 0, label %103
-    i32 2, label %98
-    i32 1, label %98
+  switch i32 %78, label %98 [
+    i32 0, label %100
+    i32 2, label %95
+    i32 1, label %95
   ]
 
-98:                                               ; preds = %97, %97
+95:                                               ; preds = %94, %94
   store i32 1, ptr %9, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 1, ptr %99, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 1, ptr %100, align 4
-  br label %103
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 1, ptr %96, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 1, ptr %97, align 4
+  br label %100
 
-101:                                              ; preds = %97
-  %102 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.12, i32 noundef %81) #11
+98:                                               ; preds = %94
+  %99 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.12, i32 noundef %78) #11
   br label %.sink.split.i
 
-103:                                              ; preds = %98, %97
-  switch i32 %83, label %105 [
-    i32 1, label %107
-    i32 2, label %104
+100:                                              ; preds = %95, %94
+  switch i32 %80, label %102 [
+    i32 1, label %104
+    i32 2, label %101
   ]
 
-104:                                              ; preds = %103
-  br label %107
+101:                                              ; preds = %100
+  br label %104
 
-105:                                              ; preds = %103
-  %106 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.13, i32 noundef %83) #11
+102:                                              ; preds = %100
+  %103 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.13, i32 noundef %80) #11
   br label %.sink.split.i
 
-107:                                              ; preds = %104, %103
-  %.sink.i = phi i32 [ 0, %104 ], [ 2, %103 ]
-  %108 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %.sink.i, ptr %108, align 4
-  switch i32 %85, label %110 [
-    i32 1, label %112
-    i32 2, label %109
+104:                                              ; preds = %101, %100
+  %.sink.i = phi i32 [ 0, %101 ], [ 2, %100 ]
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 %.sink.i, ptr %105, align 4
+  switch i32 %82, label %107 [
+    i32 1, label %109
+    i32 2, label %106
   ]
 
-109:                                              ; preds = %107
-  br label %112
+106:                                              ; preds = %104
+  br label %109
 
-110:                                              ; preds = %107
-  %111 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.13, i32 noundef %85) #11
+107:                                              ; preds = %104
+  %108 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.13, i32 noundef %82) #11
   br label %.sink.split.i
 
-112:                                              ; preds = %109, %107
-  %.sink19.i = phi i32 [ 0, %109 ], [ 2, %107 ]
-  %113 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %.sink19.i, ptr %113, align 4
-  %114 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 2, ptr %114, align 4
-  %115 = load ptr, ptr %0, align 8
-  %116 = call ptr @SDL_CreateGPUSampler_REAL(ptr noundef %115, ptr noundef nonnull %9) #11
-  store ptr %116, ptr %95, align 8
+109:                                              ; preds = %106, %104
+  %.sink19.i = phi i32 [ 0, %106 ], [ 2, %104 ]
+  %110 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i32 %.sink19.i, ptr %110, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  store i32 2, ptr %111, align 4
+  %112 = load ptr, ptr %0, align 8
+  %113 = call ptr @SDL_CreateGPUSampler_REAL(ptr noundef %112, ptr noundef nonnull %9) #11
+  store ptr %113, ptr %92, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %112, %110, %105, %101
-  %.1.ph.i = phi ptr [ %116, %112 ], [ null, %110 ], [ null, %105 ], [ null, %101 ]
+.sink.split.i:                                    ; preds = %109, %107, %102, %98
+  %.1.ph.i = phi ptr [ %113, %109 ], [ null, %107 ], [ null, %102 ], [ null, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %GetSampler.exit
 
-GetSampler.exit:                                  ; preds = %77, %.sink.split.i
-  %.1.i = phi ptr [ %96, %77 ], [ %.1.ph.i, %.sink.split.i ]
-  %117 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %.1.i, ptr %117, align 8
-  %118 = load ptr, ptr %79, align 8
-  store ptr %118, ptr %11, align 8
+GetSampler.exit:                                  ; preds = %74, %.sink.split.i
+  %.1.i = phi ptr [ %93, %74 ], [ %.1.ph.i, %.sink.split.i ]
+  %114 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %.1.i, ptr %114, align 8
+  %115 = load ptr, ptr %76, align 8
+  store ptr %115, ptr %11, align 8
   call void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef %27, i32 noundef 0, ptr noundef nonnull %11, i32 noundef 1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %119
+  br label %116
 
-119:                                              ; preds = %GetSampler.exit, %74
-  %.076 = phi i32 [ 1, %GetSampler.exit ], [ 0, %74 ]
-  br i1 %.not88, label %159, label %120
+116:                                              ; preds = %GetSampler.exit, %71
+  %.076 = phi i32 [ 1, %GetSampler.exit ], [ 0, %71 ]
+  br i1 %.not88, label %156, label %117
 
-120:                                              ; preds = %119
-  %121 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %122 = load i32, ptr %121, align 8
-  %123 = icmp sgt i32 %122, 0
-  br i1 %123, label %124, label %127
+117:                                              ; preds = %116
+  %118 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %119 = load i32, ptr %118, align 8
+  %120 = icmp sgt i32 %119, 0
+  br i1 %120, label %121, label %124
 
-124:                                              ; preds = %120
-  %125 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %126 = load ptr, ptr %125, align 8
-  call void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef %27, i32 noundef %.076, ptr noundef %126, i32 noundef %122) #11
-  br label %127
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %123 = load ptr, ptr %122, align 8
+  call void @SDL_BindGPUFragmentSamplers_REAL(ptr noundef %27, i32 noundef %.076, ptr noundef %123, i32 noundef %119) #11
+  br label %124
 
-127:                                              ; preds = %124, %120
-  %128 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %129 = load i32, ptr %128, align 8
-  %130 = icmp sgt i32 %129, 0
-  br i1 %130, label %131, label %134
+124:                                              ; preds = %121, %117
+  %125 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %126 = load i32, ptr %125, align 8
+  %127 = icmp sgt i32 %126, 0
+  br i1 %127, label %128, label %131
 
-131:                                              ; preds = %127
-  %132 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %133 = load ptr, ptr %132, align 8
-  call void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef %27, i32 noundef 0, ptr noundef %133, i32 noundef %129) #11
-  br label %134
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %130 = load ptr, ptr %129, align 8
+  call void @SDL_BindGPUFragmentStorageTextures_REAL(ptr noundef %27, i32 noundef 0, ptr noundef %130, i32 noundef %126) #11
+  br label %131
 
-134:                                              ; preds = %131, %127
-  %135 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %136 = load i32, ptr %135, align 8
-  %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %138, label %141
+131:                                              ; preds = %128, %124
+  %132 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %133 = load i32, ptr %132, align 8
+  %134 = icmp sgt i32 %133, 0
+  br i1 %134, label %135, label %138
 
-138:                                              ; preds = %134
-  %139 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %140 = load ptr, ptr %139, align 8
-  call void @SDL_BindGPUFragmentStorageBuffers_REAL(ptr noundef %27, i32 noundef 0, ptr noundef %140, i32 noundef %136) #11
-  br label %141
+135:                                              ; preds = %131
+  %136 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  %137 = load ptr, ptr %136, align 8
+  call void @SDL_BindGPUFragmentStorageBuffers_REAL(ptr noundef %27, i32 noundef 0, ptr noundef %137, i32 noundef %133) #11
+  br label %138
 
-141:                                              ; preds = %138, %134
-  %142 = getelementptr inbounds nuw i8, ptr %29, i64 72
-  %143 = load i32, ptr %142, align 8
-  %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %.lr.ph, label %PushFragmentUniforms.exit
+138:                                              ; preds = %135, %131
+  %139 = getelementptr inbounds nuw i8, ptr %29, i64 72
+  %140 = load i32, ptr %139, align 8
+  %141 = icmp sgt i32 %140, 0
+  br i1 %141, label %.lr.ph, label %PushFragmentUniforms.exit
 
-.lr.ph:                                           ; preds = %141
-  %145 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  br label %147
+.lr.ph:                                           ; preds = %138
+  %142 = getelementptr inbounds nuw i8, ptr %29, i64 80
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  br label %144
 
-147:                                              ; preds = %.lr.ph, %147
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %147 ]
-  %148 = load ptr, ptr %145, align 8
-  %149 = getelementptr inbounds nuw %struct.SDL_GPURenderStateUniformBuffer, ptr %148, i64 %indvars.iv
-  %150 = load ptr, ptr %146, align 8
-  %151 = load i32, ptr %149, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  %155 = load i32, ptr %154, align 8
-  call void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef %150, i32 noundef %151, ptr noundef %153, i32 noundef %155) #11
+144:                                              ; preds = %.lr.ph, %144
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %144 ]
+  %145 = load ptr, ptr %142, align 8
+  %146 = getelementptr inbounds nuw %struct.SDL_GPURenderStateUniformBuffer, ptr %145, i64 %indvars.iv
+  %147 = load ptr, ptr %143, align 8
+  %148 = load i32, ptr %146, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %146, i64 16
+  %152 = load i32, ptr %151, align 8
+  call void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef %147, i32 noundef %148, ptr noundef %150, i32 noundef %152) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %156 = load i32, ptr %142, align 8
-  %157 = sext i32 %156 to i64
-  %158 = icmp slt i64 %indvars.iv.next, %157
-  br i1 %158, label %147, label %PushFragmentUniforms.exit, !llvm.loop !12
+  %153 = load i32, ptr %139, align 8
+  %154 = sext i32 %153 to i64
+  %155 = icmp slt i64 %indvars.iv.next, %154
+  br i1 %155, label %144, label %PushFragmentUniforms.exit, !llvm.loop !12
 
-159:                                              ; preds = %119
-  %160 = load ptr, ptr %75, align 8
-  %.not.i96 = icmp eq ptr %160, null
-  br i1 %.not.i96, label %PushFragmentUniforms.exit, label %161
+156:                                              ; preds = %116
+  %157 = load ptr, ptr %72, align 8
+  %.not.i96 = icmp eq ptr %157, null
+  br i1 %.not.i96, label %PushFragmentUniforms.exit, label %158
 
-161:                                              ; preds = %159
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %163 = load i32, ptr %162, align 8
-  %164 = icmp eq i32 %163, 2
-  br i1 %164, label %165, label %PushFragmentUniforms.exit
+158:                                              ; preds = %156
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %160 = load i32, ptr %159, align 8
+  %161 = icmp eq i32 %160, 2
+  br i1 %161, label %162, label %PushFragmentUniforms.exit
 
-165:                                              ; preds = %161
+162:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %166 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  %167 = load i32, ptr %166, align 4
-  %168 = sitofp i32 %167 to float
-  %169 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float %168, ptr %169, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %171 = load i32, ptr %170, align 8
-  %172 = sitofp i32 %171 to float
-  %173 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %163 = getelementptr inbounds nuw i8, ptr %157, i64 4
+  %164 = load i32, ptr %163, align 4
+  %165 = sitofp i32 %164 to float
+  %166 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store float %165, ptr %166, align 4
+  %167 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %168 = load i32, ptr %167, align 8
+  %169 = sitofp i32 %168 to float
+  %170 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store float %169, ptr %170, align 4
+  %171 = fdiv float 1.000000e+00, %165
+  store float %171, ptr %8, align 4
+  %172 = fdiv float 1.000000e+00, %169
+  %173 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %172, ptr %173, align 4
-  %174 = fdiv float 1.000000e+00, %168
-  store float %174, ptr %8, align 4
-  %175 = fdiv float 1.000000e+00, %172
-  %176 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float %175, ptr %176, align 4
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %178 = load ptr, ptr %177, align 8
-  call void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef %178, i32 noundef 0, ptr noundef nonnull %8, i32 noundef 16) #11
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %175 = load ptr, ptr %174, align 8
+  call void @SDL_PushGPUFragmentUniformData_REAL(ptr noundef %175, i32 noundef 0, ptr noundef nonnull %8, i32 noundef 16) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %PushFragmentUniforms.exit
 
-PushFragmentUniforms.exit:                        ; preds = %147, %165, %161, %159, %141
+PushFragmentUniforms.exit:                        ; preds = %144, %162, %158, %156, %138
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  %176 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 0, ptr %176, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %178 = load ptr, ptr %177, align 8
+  store ptr %178, ptr %12, align 8
   %179 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 0, ptr %179, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %181 = load ptr, ptr %180, align 8
-  store ptr %181, ptr %12, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %3, ptr %182, align 8
+  store i32 %3, ptr %179, align 8
   call void @SDL_BindGPUVertexBuffers_REAL(ptr noundef %27, i32 noundef 0, ptr noundef nonnull %12, i32 noundef 1) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %183 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %183, i8 0, i64 56, i1 false)
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %185 = load float, ptr %184, align 8
-  %186 = fdiv float 2.000000e+00, %185
-  store float %186, ptr %7, align 4
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 244
-  %188 = load float, ptr %187, align 4
-  %189 = fdiv float -2.000000e+00, %188
-  %190 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store float %189, ptr %190, align 4
-  %191 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %180 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %180, i8 0, i64 56, i1 false)
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %182 = load float, ptr %181, align 8
+  %183 = fdiv float 2.000000e+00, %182
+  store float %183, ptr %7, align 4
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 244
+  %185 = load float, ptr %184, align 4
+  %186 = fdiv float -2.000000e+00, %185
+  %187 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store float %186, ptr %187, align 4
+  %188 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store float 1.000000e+00, ptr %188, align 4
+  %189 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  store float -1.000000e+00, ptr %189, align 4
+  %190 = getelementptr inbounds nuw i8, ptr %7, i64 52
+  store float 1.000000e+00, ptr %190, align 4
+  %191 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store float 1.000000e+00, ptr %191, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store float -1.000000e+00, ptr %192, align 4
-  %193 = getelementptr inbounds nuw i8, ptr %7, i64 52
-  store float 1.000000e+00, ptr %193, align 4
-  %194 = getelementptr inbounds nuw i8, ptr %7, i64 60
-  store float 1.000000e+00, ptr %194, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %195, ptr noundef nonnull readonly align 8 dereferenceable(16) %196, i64 16, i1 false)
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %198 = load ptr, ptr %197, align 8
-  call void @SDL_PushGPUVertexUniformData_REAL(ptr noundef %198, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 80) #11
+  %192 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %192, ptr noundef nonnull readonly align 8 dereferenceable(16) %193, i64 16, i1 false)
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %195 = load ptr, ptr %194, align 8
+  call void @SDL_PushGPUVertexUniformData_REAL(ptr noundef %195, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 80) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %199 = load ptr, ptr %13, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  call void @SDL_SetGPUViewport_REAL(ptr noundef %199, ptr noundef nonnull %200) #11
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %202 = load i8, ptr %201, align 8, !range !7, !noundef !8
-  %203 = trunc nuw i8 %202 to i1
-  br i1 %203, label %204, label %208
+  %196 = load ptr, ptr %13, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  call void @SDL_SetGPUViewport_REAL(ptr noundef %196, ptr noundef nonnull %197) #11
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %199 = load i8, ptr %198, align 8, !range !7, !noundef !8
+  %200 = trunc nuw i8 %199 to i1
+  br i1 %200, label %201, label %205
 
-204:                                              ; preds = %PushFragmentUniforms.exit
-  %205 = load ptr, ptr %13, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @SDL_SetGPUScissor_REAL(ptr noundef %205, ptr noundef nonnull %206) #11
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  store i8 1, ptr %207, align 1
+201:                                              ; preds = %PushFragmentUniforms.exit
+  %202 = load ptr, ptr %13, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  call void @SDL_SetGPUScissor_REAL(ptr noundef %202, ptr noundef nonnull %203) #11
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 289
+  store i8 1, ptr %204, align 1
   br label %SetViewportAndScissor.exit
 
-208:                                              ; preds = %PushFragmentUniforms.exit
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %210 = load i8, ptr %209, align 1, !range !7, !noundef !8
-  %211 = trunc nuw i8 %210 to i1
-  br i1 %211, label %212, label %SetViewportAndScissor.exit
+205:                                              ; preds = %PushFragmentUniforms.exit
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 289
+  %207 = load i8, ptr %206, align 1, !range !7, !noundef !8
+  %208 = trunc nuw i8 %207 to i1
+  br i1 %208, label %209, label %SetViewportAndScissor.exit
 
-212:                                              ; preds = %208
+209:                                              ; preds = %205
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %213 = load float, ptr %200, align 8
+  %210 = load float, ptr %197, align 8
+  %211 = fptosi float %210 to i32
+  store i32 %211, ptr %6, align 4
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %213 = load float, ptr %212, align 4
   %214 = fptosi float %213 to i32
-  store i32 %214, ptr %6, align 4
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %216 = load float, ptr %215, align 4
+  %215 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %214, ptr %215, align 4
+  %216 = load float, ptr %181, align 8
   %217 = fptosi float %216 to i32
-  %218 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %218 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %217, ptr %218, align 4
-  %219 = load float, ptr %184, align 8
+  %219 = load float, ptr %184, align 4
   %220 = fptosi float %219 to i32
-  %221 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %220, ptr %221, align 4
-  %222 = load float, ptr %187, align 4
-  %223 = fptosi float %222 to i32
-  %224 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %223, ptr %224, align 4
-  %225 = load ptr, ptr %13, align 8
-  call void @SDL_SetGPUScissor_REAL(ptr noundef %225, ptr noundef nonnull %6) #11
-  store i8 0, ptr %209, align 1
+  %222 = load ptr, ptr %13, align 8
+  call void @SDL_SetGPUScissor_REAL(ptr noundef %222, ptr noundef nonnull %6) #11
+  store i8 0, ptr %206, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %SetViewportAndScissor.exit
 
-SetViewportAndScissor.exit:                       ; preds = %204, %208, %212
+SetViewportAndScissor.exit:                       ; preds = %201, %205, %209
   call void @SDL_DrawGPUPrimitives_REAL(ptr noundef %27, i32 noundef %2, i32 noundef 1, i32 noundef 0, i32 noundef 0) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %226
+  br label %223
 
-226:                                              ; preds = %68, %SetViewportAndScissor.exit
+223:                                              ; preds = %65, %SetViewportAndScissor.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }

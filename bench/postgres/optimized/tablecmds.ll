@@ -18838,14 +18838,14 @@ define internal fastcc void @ATPrepAlterColumnType(ptr noundef nonnull captures(
 122:                                              ; preds = %111
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %124 = load i8, ptr %123, align 4
+  %.not165 = icmp eq ptr %21, null
   switch i8 %124, label %191 [
     i8 114, label %125
     i8 112, label %125
   ]
 
 125:                                              ; preds = %122, %122
-  %.not166 = icmp eq ptr %21, null
-  br i1 %.not166, label %126, label %134
+  br i1 %.not165, label %126, label %134
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %56, i64 68
@@ -18975,7 +18975,6 @@ ATColumnChangeRequiresRewrite.exit.thread:        ; preds = %167, %176, %179, %1
   br label %198
 
 191:                                              ; preds = %122
-  %.not165 = icmp eq ptr %21, null
   br i1 %.not165, label %198, label %192
 
 192:                                              ; preds = %191

@@ -199,27 +199,27 @@ switch.early.test:                                ; preds = %41
   %71 = tail call noundef zeroext i16 @_ZN6LibRaw5sget2EPh(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %70)
   %72 = zext i16 %71 to i64
   store i64 %72, ptr %69, align 8, !tbaa !79
-  switch i16 %71, label %73 [
-    i16 11, label %74
-    i16 12, label %74
-    i16 26, label %74
-    i16 41, label %74
-    i16 43, label %74
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1336
+  switch i16 %71, label %74 [
+    i16 11, label %75
+    i16 12, label %75
+    i16 26, label %75
+    i16 41, label %75
+    i16 43, label %75
   ]
 
-73:                                               ; preds = %68
-  br label %74
+74:                                               ; preds = %68
+  br label %75
 
-74:                                               ; preds = %68, %68, %68, %68, %68, %73
-  %.sink127 = phi i16 [ 2, %73 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1336
-  store i16 %.sink127, ptr %75, align 8, !tbaa !72
+75:                                               ; preds = %68, %68, %68, %68, %68, %74
+  %.sink127 = phi i16 [ 2, %74 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ], [ 1, %68 ]
+  store i16 %.sink127, ptr %73, align 8, !tbaa !72
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %77 = load float, ptr %76, align 8, !tbaa !80
   %78 = fcmp reassoc nsz arcp contract afn olt float %77, 0x3FE6666660000000
   br i1 %78, label %79, label %87
 
-79:                                               ; preds = %74
+79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %81 = tail call noundef zeroext i16 @_ZN6LibRaw5sget2EPh(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %80)
   %82 = uitofp i16 %81 to float
@@ -232,7 +232,7 @@ switch.early.test:                                ; preds = %41
   store float %86, ptr %76, align 8, !tbaa !80
   br label %87
 
-87:                                               ; preds = %79, %74
+87:                                               ; preds = %79, %75
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 1492
   %89 = load float, ptr %88, align 4, !tbaa !81
   %90 = fcmp reassoc nsz arcp contract afn olt float %89, 0x3FE6666660000000

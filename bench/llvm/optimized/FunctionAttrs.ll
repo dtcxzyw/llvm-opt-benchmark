@@ -28515,18 +28515,14 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN4llvm11Instruc
   %3 = alloca ptr, align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !214
   %4 = load i8, ptr %1, align 8, !tbaa !78
-  switch i8 %4, label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i.i [
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  switch i8 %4, label %"_ZSt10__invoke_rIbRZL15inferConvergentRKN4llvm14SmallSetVectorIPNS0_8FunctionELj8EEERNS0_8SmallSetIS3_Lj8ESt4lessIS3_EEEE3$_1JRNS0_11InstructionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit" [
     i8 85, label %5
     i8 34, label %5
     i8 40, label %5
   ]
 
-_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i.i: ; preds = %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br label %"_ZSt10__invoke_rIbRZL15inferConvergentRKN4llvm14SmallSetVectorIPNS0_8FunctionELj8EEERNS0_8SmallSetIS3_Lj8ESt4lessIS3_EEEE3$_1JRNS0_11InstructionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
-
 5:                                                ; preds = %2, %2, %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = tail call noundef zeroext i1 @_ZNK4llvm13AttributeList9hasFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 6) #23
   br i1 %7, label %_ZNK4llvm8CallBase12isConvergentEv.exit.thread.i.i.i.i, label %_ZNK4llvm8CallBase12isConvergentEv.exit.i.i.i.i
@@ -28562,8 +28558,8 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i: ; preds = %_ZN4llvm16dyn_c
   %21 = xor i1 %20, true
   br label %"_ZSt10__invoke_rIbRZL15inferConvergentRKN4llvm14SmallSetVectorIPNS0_8FunctionELj8EEERNS0_8SmallSetIS3_Lj8ESt4lessIS3_EEEE3$_1JRNS0_11InstructionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
-"_ZSt10__invoke_rIbRZL15inferConvergentRKN4llvm14SmallSetVectorIPNS0_8FunctionELj8EEERNS0_8SmallSetIS3_Lj8ESt4lessIS3_EEEE3$_1JRNS0_11InstructionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i.i, %_ZNK4llvm8CallBase12isConvergentEv.exit.i.i.i.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i
-  %22 = phi i1 [ false, %_ZNK4llvm8CallBase12isConvergentEv.exit.i.i.i.i ], [ %21, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i ], [ false, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread.i.i.i.i ]
+"_ZSt10__invoke_rIbRZL15inferConvergentRKN4llvm14SmallSetVectorIPNS0_8FunctionELj8EEERNS0_8SmallSetIS3_Lj8ESt4lessIS3_EEEE3$_1JRNS0_11InstructionEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %2, %_ZNK4llvm8CallBase12isConvergentEv.exit.i.i.i.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i
+  %22 = phi i1 [ false, %_ZNK4llvm8CallBase12isConvergentEv.exit.i.i.i.i ], [ %21, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i.i.i ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %22
 }

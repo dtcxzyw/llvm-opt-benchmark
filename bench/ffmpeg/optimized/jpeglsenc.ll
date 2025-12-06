@@ -47,12 +47,12 @@ define internal range(i32 -34, 1) i32 @encode_jpegls_init(ptr noundef %0) #0 {
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load i32, ptr %12, align 8, !tbaa !29
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %switch.selectcmp.case1 = icmp eq i32 %13, 8
   %switch.selectcmp.case2 = icmp eq i32 %13, 30
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %14 = select i1 %switch.selectcmp, i32 1, i32 3
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %14, ptr %15, align 4, !tbaa !30
+  %15 = select i1 %switch.selectcmp, i32 1, i32 3
+  store i32 %15, ptr %14, align 4, !tbaa !30
   %16 = mul i32 %7, %5
   %17 = select i1 %switch.selectcmp, i32 536866815, i32 178955605
   %18 = icmp ult i32 %17, %16
@@ -60,7 +60,7 @@ define internal range(i32 -34, 1) i32 @encode_jpegls_init(ptr noundef %0) #0 {
 
 19:                                               ; preds = %11
   %20 = shl nuw nsw i32 %16, 2
-  %21 = mul i32 %20, %14
+  %21 = mul i32 %20, %15
   %22 = sext i32 %21 to i64
   %23 = add nsw i64 %22, 16384
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16

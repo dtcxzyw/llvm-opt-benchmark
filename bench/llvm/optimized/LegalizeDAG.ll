@@ -11202,15 +11202,15 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %234, %240
   ]
 
 247:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %249 = load ptr, ptr %248, align 8, !tbaa !166
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %251 = load ptr, ptr %250, align 8, !tbaa !159
   %switch.selectcmp.case1 = icmp eq i32 %246, 198
   %switch.selectcmp.case2 = icmp eq i32 %246, 203
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %248 = select i1 %switch.selectcmp, i32 215, i32 214
-  %249 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %250 = load ptr, ptr %249, align 8, !tbaa !166
-  %251 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %252 = load ptr, ptr %251, align 8, !tbaa !159
-  %253 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %250, i32 noundef %248, ptr noundef nonnull align 8 dereferenceable(12) %19, i16 %237, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %252) #20
+  %252 = select i1 %switch.selectcmp, i32 215, i32 214
+  %253 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %249, i32 noundef %252, ptr noundef nonnull align 8 dereferenceable(12) %19, i16 %237, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %251) #20
   %storemerge2910 = extractvalue { ptr, i32 } %253, 0
   store ptr %storemerge2910, ptr %20, align 8, !tbaa !179
   %storemerge2908 = extractvalue { ptr, i32 } %253, 1
@@ -11883,25 +11883,25 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856: ; 
   br i1 %.not.i.i.not.i84.i, label %_ZN12_GLOBAL__N_120SelectionDAGLegalize21PromoteLegalINT_TO_FPEPN4llvm6SDNodeERKNS1_5SDLocERNS1_15SmallVectorImplINS1_7SDValueEEE.exit, label %_ZN12_GLOBAL__N_120SelectionDAGLegalize21PromoteLegalINT_TO_FPEPN4llvm6SDNodeERKNS1_5SDLocERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.sink.split, !prof !183
 
 _ZN12_GLOBAL__N_120SelectionDAGLegalize21PromoteLegalINT_TO_FPEPN4llvm6SDNodeERKNS1_5SDLocERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.sink.split: ; preds = %493, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856
-  %.sink3046 = phi i32 [ %491, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856 ], [ %497, %493 ]
+  %.sink = phi i32 [ %491, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856 ], [ %497, %493 ]
   %.fca.0.extract21.i.sink.ph = phi ptr [ %.fca.0.extract21.i, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856 ], [ %.fca.0.extract.i, %493 ]
-  %.sink.ph = phi i32 [ 1, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856 ], [ %.fca.1.extract.i, %493 ]
-  %499 = zext i32 %.sink3046 to i64
+  %.sink3035.ph = phi i32 [ 1, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856 ], [ %.fca.1.extract.i, %493 ]
+  %499 = zext i32 %.sink to i64
   %500 = add nuw nsw i64 %499, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %192, i64 noundef %500, i64 noundef 16) #20
   %.pre.i85.i = load i32, ptr %193, align 8, !tbaa !181
   br label %_ZN12_GLOBAL__N_120SelectionDAGLegalize21PromoteLegalINT_TO_FPEPN4llvm6SDNodeERKNS1_5SDLocERNS1_15SmallVectorImplINS1_7SDValueEEE.exit
 
 _ZN12_GLOBAL__N_120SelectionDAGLegalize21PromoteLegalINT_TO_FPEPN4llvm6SDNodeERKNS1_5SDLocERNS1_15SmallVectorImplINS1_7SDValueEEE.exit: ; preds = %_ZN12_GLOBAL__N_120SelectionDAGLegalize21PromoteLegalINT_TO_FPEPN4llvm6SDNodeERKNS1_5SDLocERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.sink.split, %493, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856
-  %.sink3043 = phi i32 [ %491, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856 ], [ %497, %493 ], [ %.pre.i85.i, %_ZN12_GLOBAL__N_120SelectionDAGLegalize21PromoteLegalINT_TO_FPEPN4llvm6SDNodeERKNS1_5SDLocERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.sink.split ]
+  %.sink3040 = phi i32 [ %491, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856 ], [ %497, %493 ], [ %.pre.i85.i, %_ZN12_GLOBAL__N_120SelectionDAGLegalize21PromoteLegalINT_TO_FPEPN4llvm6SDNodeERKNS1_5SDLocERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.sink.split ]
   %.fca.0.extract21.i.sink = phi ptr [ %.fca.0.extract21.i, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856 ], [ %.fca.0.extract.i, %493 ], [ %.fca.0.extract21.i.sink.ph, %_ZN12_GLOBAL__N_120SelectionDAGLegalize21PromoteLegalINT_TO_FPEPN4llvm6SDNodeERKNS1_5SDLocERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.sink.split ]
-  %.sink = phi i32 [ 1, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856 ], [ %.fca.1.extract.i, %493 ], [ %.sink.ph, %_ZN12_GLOBAL__N_120SelectionDAGLegalize21PromoteLegalINT_TO_FPEPN4llvm6SDNodeERKNS1_5SDLocERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.sink.split ]
+  %.sink3035 = phi i32 [ 1, %_ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit.i1856 ], [ %.fca.1.extract.i, %493 ], [ %.sink3035.ph, %_ZN12_GLOBAL__N_120SelectionDAGLegalize21PromoteLegalINT_TO_FPEPN4llvm6SDNodeERKNS1_5SDLocERNS1_15SmallVectorImplINS1_7SDValueEEE.exit.sink.split ]
   %501 = load ptr, ptr %18, align 8, !tbaa !180
-  %502 = zext i32 %.sink3043 to i64
+  %502 = zext i32 %.sink3040 to i64
   %503 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %501, i64 %502
   store ptr %.fca.0.extract21.i.sink, ptr %503, align 1
   %.sroa.2.0..sroa_idx.i82.i = getelementptr inbounds nuw i8, ptr %503, i64 8
-  store i32 %.sink, ptr %.sroa.2.0..sroa_idx.i82.i, align 1
+  store i32 %.sink3035, ptr %.sroa.2.0..sroa_idx.i82.i, align 1
   %504 = load i32, ptr %193, align 8, !tbaa !181
   %storemerge2907 = add i32 %504, 1
   store i32 %storemerge2907, ptr %193, align 8, !tbaa !181

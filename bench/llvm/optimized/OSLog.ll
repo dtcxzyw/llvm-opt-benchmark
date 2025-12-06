@@ -680,8 +680,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124OSLogFormatStringHandler2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load i32, ptr %6, align 8, !tbaa !420
   switch i32 %7, label %_ZNK5clang14analyze_printf15PrintfSpecifier20consumesDataArgumentEv.exit.thread [
-    i32 24, label %139
-    i32 0, label %139
+    i32 24, label %135
+    i32 0, label %135
   ]
 
 _ZNK5clang14analyze_printf15PrintfSpecifier20consumesDataArgumentEv.exit.thread: ; preds = %5
@@ -784,26 +784,26 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 54:                                               ; preds = %51
   %55 = add i32 %.val39, -1
   store i32 %55, ptr %9, align 8, !tbaa !24
-  br label %139
+  br label %135
 
 .critedge:                                        ; preds = %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit, %51
   %56 = load i32, ptr %6, align 8, !tbaa !420
-  switch i32 %56, label %87 [
-    i32 21, label %57
-    i32 26, label %57
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 356
+  %58 = load i32, ptr %57, align 4, !tbaa !432
+  switch i32 %56, label %85 [
+    i32 21, label %59
+    i32 26, label %59
     i32 27, label %72
   ]
 
-57:                                               ; preds = %.critedge, %.critedge
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 356
-  %59 = load i32, ptr %58, align 4, !tbaa !432
-  switch i32 %59, label %.critedge32 [
-    i32 3, label %139
+59:                                               ; preds = %.critedge, %.critedge
+  switch i32 %58, label %.critedge32 [
+    i32 3, label %135
     i32 1, label %60
     i32 2, label %64
   ]
 
-60:                                               ; preds = %57
+60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %62 = load i32, ptr %61, align 8, !tbaa !433
   %63 = getelementptr inbounds i8, ptr %44, i64 -80
@@ -812,7 +812,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   store i64 %.sroa.077.0.insert.insert, ptr %63, align 8
   br label %.critedge32
 
-64:                                               ; preds = %57
+64:                                               ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %66 = load i32, ptr %65, align 8, !tbaa !433
   %67 = zext i32 %66 to i64
@@ -826,145 +826,141 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   br label %.critedge32
 
 72:                                               ; preds = %.critedge
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 356
-  %74 = load i32, ptr %73, align 4, !tbaa !432
-  switch i32 %74, label %.critedge32 [
-    i32 0, label %139
-    i32 1, label %75
-    i32 2, label %79
-    i32 3, label %139
+  switch i32 %58, label %.critedge32 [
+    i32 0, label %135
+    i32 1, label %73
+    i32 2, label %77
+    i32 3, label %135
   ]
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %77 = load i32, ptr %76, align 8, !tbaa !433
-  %78 = getelementptr inbounds i8, ptr %44, i64 -80
-  %.sroa.070.0.insert.ext = zext i32 %77 to i64
+73:                                               ; preds = %72
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %75 = load i32, ptr %74, align 8, !tbaa !433
+  %76 = getelementptr inbounds i8, ptr %44, i64 -80
+  %.sroa.070.0.insert.ext = zext i32 %75 to i64
   %.sroa.070.0.insert.insert = or disjoint i64 %.sroa.070.0.insert.ext, 4294967296
-  store i64 %.sroa.070.0.insert.insert, ptr %78, align 8
+  store i64 %.sroa.070.0.insert.insert, ptr %76, align 8
   br label %.critedge32
 
-79:                                               ; preds = %72
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %81 = load i32, ptr %80, align 8, !tbaa !433
-  %82 = zext i32 %81 to i64
-  %83 = load ptr, ptr %22, align 8, !tbaa !431
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
-  %85 = load ptr, ptr %84, align 8, !tbaa !15
-  %86 = getelementptr inbounds i8, ptr %44, i64 -72
-  store ptr %85, ptr %86, align 8
+77:                                               ; preds = %72
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %79 = load i32, ptr %78, align 8, !tbaa !433
+  %80 = zext i32 %79 to i64
+  %81 = load ptr, ptr %22, align 8, !tbaa !431
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
+  %83 = load ptr, ptr %82, align 8, !tbaa !15
+  %84 = getelementptr inbounds i8, ptr %44, i64 -72
+  store ptr %83, ptr %84, align 8
   %.sroa.468.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 -64
   store i8 1, ptr %.sroa.468.0..sroa_idx, align 8
   br label %.critedge32
 
-87:                                               ; preds = %.critedge
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 356
-  %89 = load i32, ptr %88, align 4, !tbaa !432
-  %90 = icmp eq i32 %89, 2
-  br i1 %90, label %91, label %.critedge32
+85:                                               ; preds = %.critedge
+  %86 = icmp eq i32 %58, 2
+  br i1 %86, label %87, label %.critedge32
 
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %93 = load i32, ptr %92, align 8, !tbaa !433
-  %94 = zext i32 %93 to i64
-  %95 = load ptr, ptr %22, align 8, !tbaa !431
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %94
-  %97 = load ptr, ptr %96, align 8, !tbaa !15
-  %98 = getelementptr inbounds i8, ptr %44, i64 -56
-  store ptr %97, ptr %98, align 8
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %89 = load i32, ptr %88, align 8, !tbaa !433
+  %90 = zext i32 %89 to i64
+  %91 = load ptr, ptr %22, align 8, !tbaa !431
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %90
+  %93 = load ptr, ptr %92, align 8, !tbaa !15
+  %94 = getelementptr inbounds i8, ptr %44, i64 -56
+  store ptr %93, ptr %94, align 8
   %.sroa.465.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 -48
   store i8 1, ptr %.sroa.465.0..sroa_idx, align 8
   br label %.critedge32
 
-.critedge32:                                      ; preds = %72, %75, %79, %57, %60, %64, %87, %91
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %100 = load i32, ptr %99, align 4, !tbaa !432
-  %101 = icmp eq i32 %100, 2
-  br i1 %101, label %102, label %112
+.critedge32:                                      ; preds = %72, %73, %77, %59, %60, %64, %85, %87
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %96 = load i32, ptr %95, align 4, !tbaa !432
+  %97 = icmp eq i32 %96, 2
+  br i1 %97, label %98, label %108
 
-102:                                              ; preds = %.critedge32
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %104 = load i32, ptr %103, align 8, !tbaa !433
-  %105 = zext i32 %104 to i64
-  %106 = load ptr, ptr %22, align 8, !tbaa !431
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %105
-  %108 = load ptr, ptr %107, align 8, !tbaa !15
+98:                                               ; preds = %.critedge32
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %100 = load i32, ptr %99, align 8, !tbaa !433
+  %101 = zext i32 %100 to i64
+  %102 = load ptr, ptr %22, align 8, !tbaa !431
+  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %101
+  %104 = load ptr, ptr %103, align 8, !tbaa !15
   %.val52 = load ptr, ptr %8, align 8, !tbaa !22
   %.val53 = load i32, ptr %9, align 8, !tbaa !24
-  %109 = zext i32 %.val53 to i64
-  %110 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val52, i64 %109
-  %111 = getelementptr inbounds i8, ptr %110, i64 -40
-  store ptr %108, ptr %111, align 8
-  %.sroa.4.0..sroa_idx63 = getelementptr inbounds i8, ptr %110, i64 -32
+  %105 = zext i32 %.val53 to i64
+  %106 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val52, i64 %105
+  %107 = getelementptr inbounds i8, ptr %106, i64 -40
+  store ptr %104, ptr %107, align 8
+  %.sroa.4.0..sroa_idx63 = getelementptr inbounds i8, ptr %106, i64 -32
   store i8 1, ptr %.sroa.4.0..sroa_idx63, align 8
-  br label %112
+  br label %108
 
-112:                                              ; preds = %102, %.critedge32
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %114 = load i8, ptr %113, align 8, !tbaa !434, !range !401, !noundef !402
-  %115 = trunc nuw i8 %114 to i1
-  br i1 %115, label %116, label %119
+108:                                              ; preds = %98, %.critedge32
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %110 = load i8, ptr %109, align 8, !tbaa !434, !range !401, !noundef !402
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %112, label %115
 
-116:                                              ; preds = %112
+112:                                              ; preds = %108
   %.val54 = load ptr, ptr %8, align 8, !tbaa !22
   %.val55 = load i32, ptr %9, align 8, !tbaa !24
-  %117 = zext i32 %.val55 to i64
-  %118 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val54, i64 %117
+  %113 = zext i32 %.val55 to i64
+  %114 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val54, i64 %113
   br label %._crit_edge.sink.split
 
-119:                                              ; preds = %112
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %121 = load i8, ptr %120, align 8, !tbaa !434, !range !401, !noundef !402
-  %122 = trunc nuw i8 %121 to i1
-  br i1 %122, label %123, label %126
+115:                                              ; preds = %108
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %117 = load i8, ptr %116, align 8, !tbaa !434, !range !401, !noundef !402
+  %118 = trunc nuw i8 %117 to i1
+  br i1 %118, label %119, label %122
 
-123:                                              ; preds = %119
+119:                                              ; preds = %115
   %.val56 = load ptr, ptr %8, align 8, !tbaa !22
   %.val57 = load i32, ptr %9, align 8, !tbaa !24
-  %124 = zext i32 %.val57 to i64
-  %125 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val56, i64 %124
+  %120 = zext i32 %.val57 to i64
+  %121 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val56, i64 %120
   br label %._crit_edge.sink.split
 
-126:                                              ; preds = %119
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %128 = load i8, ptr %127, align 8, !tbaa !434, !range !401, !noundef !402
-  %129 = trunc nuw i8 %128 to i1
+122:                                              ; preds = %115
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %124 = load i8, ptr %123, align 8, !tbaa !434, !range !401, !noundef !402
+  %125 = trunc nuw i8 %124 to i1
   %.val60.pre = load ptr, ptr %8, align 8, !tbaa !22
   %.val61.pre = load i32, ptr %9, align 8, !tbaa !24
-  %130 = zext i32 %.val61.pre to i64
-  br i1 %129, label %131, label %._crit_edge
+  %126 = zext i32 %.val61.pre to i64
+  br i1 %125, label %127, label %._crit_edge
 
-131:                                              ; preds = %126
-  %132 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val60.pre, i64 %130
+127:                                              ; preds = %122
+  %128 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val60.pre, i64 %126
   br label %._crit_edge.sink.split
 
-._crit_edge.sink.split:                           ; preds = %116, %131, %123
-  %.sink95 = phi ptr [ %125, %123 ], [ %132, %131 ], [ %118, %116 ]
-  %.sink94 = phi i8 [ 1, %123 ], [ 2, %131 ], [ 5, %116 ]
-  %.pre-phi.ph = phi i64 [ %124, %123 ], [ %130, %131 ], [ %117, %116 ]
-  %.val60.ph = phi ptr [ %.val56, %123 ], [ %.val60.pre, %131 ], [ %.val54, %116 ]
-  %133 = getelementptr inbounds i8, ptr %.sink95, i64 -24
-  %134 = load i8, ptr %133, align 8, !tbaa !436
-  %135 = or i8 %134, %.sink94
-  store i8 %135, ptr %133, align 8, !tbaa !436
+._crit_edge.sink.split:                           ; preds = %112, %127, %119
+  %.sink95 = phi ptr [ %121, %119 ], [ %128, %127 ], [ %114, %112 ]
+  %.sink94 = phi i8 [ 1, %119 ], [ 2, %127 ], [ 5, %112 ]
+  %.pre-phi.ph = phi i64 [ %120, %119 ], [ %126, %127 ], [ %113, %112 ]
+  %.val60.ph = phi ptr [ %.val56, %119 ], [ %.val60.pre, %127 ], [ %.val54, %112 ]
+  %129 = getelementptr inbounds i8, ptr %.sink95, i64 -24
+  %130 = load i8, ptr %129, align 8, !tbaa !436
+  %131 = or i8 %130, %.sink94
+  store i8 %131, ptr %129, align 8, !tbaa !436
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.sink.split, %126
-  %.pre-phi = phi i64 [ %130, %126 ], [ %.pre-phi.ph, %._crit_edge.sink.split ]
-  %.val60 = phi ptr [ %.val60.pre, %126 ], [ %.val60.ph, %._crit_edge.sink.split ]
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %.sroa.0.0.copyload.i = load ptr, ptr %136, align 8, !tbaa !398
+._crit_edge:                                      ; preds = %._crit_edge.sink.split, %122
+  %.pre-phi = phi i64 [ %126, %122 ], [ %.pre-phi.ph, %._crit_edge.sink.split ]
+  %.val60 = phi ptr [ %.val60.pre, %122 ], [ %.val60.ph, %._crit_edge.sink.split ]
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 368
+  %.sroa.0.0.copyload.i = load ptr, ptr %132, align 8, !tbaa !398
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 376
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !28
-  %137 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val60, i64 %.pre-phi
-  %138 = getelementptr inbounds i8, ptr %137, i64 -16
-  store ptr %.sroa.0.0.copyload.i, ptr %138, align 8, !tbaa !398
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %137, i64 -8
+  %133 = getelementptr inbounds nuw %"struct.(anonymous namespace)::OSLogFormatStringHandler::ArgData", ptr %.val60, i64 %.pre-phi
+  %134 = getelementptr inbounds i8, ptr %133, i64 -16
+  store ptr %.sroa.0.0.copyload.i, ptr %134, align 8, !tbaa !398
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %133, i64 -8
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !28
-  br label %139
+  br label %135
 
-139:                                              ; preds = %5, %5, %54, %._crit_edge, %57, %72, %72
-  %.0 = phi i1 [ false, %54 ], [ true, %._crit_edge ], [ false, %57 ], [ false, %72 ], [ false, %72 ], [ true, %5 ], [ true, %5 ]
+135:                                              ; preds = %5, %5, %54, %._crit_edge, %59, %72, %72
+  %.0 = phi i1 [ false, %54 ], [ true, %._crit_edge ], [ false, %59 ], [ false, %72 ], [ false, %72 ], [ true, %5 ], [ true, %5 ]
   ret i1 %.0
 }
 

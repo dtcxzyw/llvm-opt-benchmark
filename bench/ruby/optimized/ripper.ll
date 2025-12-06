@@ -16729,41 +16729,41 @@ value_expr_gen.exit:                              ; preds = %6, %37, %47
 
 .critedge:                                        ; preds = %.preheader, %57
   %62 = getelementptr inbounds nuw i8, ptr %.043, i64 40
+  %63 = getelementptr i8, ptr %0, i64 288
+  %.val.i.i48 = load ptr, ptr %63, align 8, !tbaa !120
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %switch.selectcmp.case1 = icmp eq i64 %1, 3537
   %switch.selectcmp.case2 = icmp eq i64 %1, 148
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %63 = select i1 %switch.selectcmp, i32 22, i32 23
-  %64 = getelementptr i8, ptr %0, i64 288
-  %.val.i.i48 = load ptr, ptr %64, align 8, !tbaa !120
-  %65 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i48, i32 noundef range(i32 0, 115) %63, i64 noundef range(i64 32, 129) 64, i64 noundef 8) #31
-  tail call void @rb_node_init(ptr noundef %65, i32 noundef range(i32 0, 115) %63) #31
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
-  %67 = load i32, ptr %5, align 4, !tbaa !51
-  %68 = sext i32 %67 to i64
-  %69 = load i64, ptr %65, align 8, !tbaa !61
-  %70 = and i64 %69, 32767
-  %71 = shl nsw i64 %68, 15
-  %72 = or disjoint i64 %70, %71
-  store i64 %72, ptr %65, align 8, !tbaa !61
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %74 = load i32, ptr %73, align 8, !tbaa !192
+  %65 = select i1 %switch.selectcmp, i32 22, i32 23
+  %66 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i48, i32 noundef range(i32 0, 115) %65, i64 noundef range(i64 32, 129) 64, i64 noundef 8) #31
+  tail call void @rb_node_init(ptr noundef %66, i32 noundef range(i32 0, 115) %65) #31
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
+  %68 = load i32, ptr %5, align 4, !tbaa !51
+  %69 = sext i32 %68 to i64
+  %70 = load i64, ptr %66, align 8, !tbaa !61
+  %71 = and i64 %70, 32767
+  %72 = shl nsw i64 %69, 15
+  %73 = or disjoint i64 %71, %72
+  store i64 %73, ptr %66, align 8, !tbaa !61
+  %74 = load i32, ptr %64, align 8, !tbaa !192
   %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %73, align 8, !tbaa !192
-  %76 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  store i32 %75, ptr %64, align 8, !tbaa !192
+  %76 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store i32 %74, ptr %76, align 8, !tbaa !193
-  %77 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store ptr %56, ptr %77, align 8, !tbaa !291
-  %78 = getelementptr inbounds nuw i8, ptr %65, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %66, i64 40
   store ptr %3, ptr %78, align 8, !tbaa !288
-  %79 = getelementptr inbounds nuw i8, ptr %65, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %66, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
-  store ptr %65, ptr %62, align 8, !tbaa !288
+  store ptr %66, ptr %62, align 8, !tbaa !288
   %80 = load i32, ptr %4, align 4, !tbaa !51
   %81 = sext i32 %80 to i64
   %82 = shl nsw i64 %81, 15
-  %83 = or disjoint i64 %70, %82
-  store i64 %83, ptr %65, align 8, !tbaa !61
+  %83 = or disjoint i64 %71, %82
+  store i64 %83, ptr %66, align 8, !tbaa !61
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %86 = load i64, ptr %85, align 4
@@ -16771,44 +16771,44 @@ value_expr_gen.exit:                              ; preds = %6, %37, %47
   br label %109
 
 87:                                               ; preds = %50, %value_expr_gen.exit
-  %switch.selectcmp.case194 = icmp eq i64 %1, 3537
-  %switch.selectcmp.case295 = icmp eq i64 %1, 148
-  %switch.selectcmp96 = or i1 %switch.selectcmp.case194, %switch.selectcmp.case295
-  %88 = select i1 %switch.selectcmp96, i32 22, i32 23
-  %89 = getelementptr i8, ptr %0, i64 288
-  %.val.i.i50 = load ptr, ptr %89, align 8, !tbaa !120
-  %90 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i50, i32 noundef range(i32 0, 115) %88, i64 noundef range(i64 32, 129) 64, i64 noundef 8) #31
-  tail call void @rb_node_init(ptr noundef %90, i32 noundef range(i32 0, 115) %88) #31
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
-  %92 = load i32, ptr %5, align 4, !tbaa !51
-  %93 = sext i32 %92 to i64
-  %94 = load i64, ptr %90, align 8, !tbaa !61
-  %95 = and i64 %94, 32767
-  %96 = shl nsw i64 %93, 15
-  %97 = or disjoint i64 %95, %96
-  store i64 %97, ptr %90, align 8, !tbaa !61
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %99 = load i32, ptr %98, align 8, !tbaa !192
+  %88 = getelementptr i8, ptr %0, i64 288
+  %.val.i.i50 = load ptr, ptr %88, align 8, !tbaa !120
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %switch.selectcmp.case190 = icmp eq i64 %1, 3537
+  %switch.selectcmp.case291 = icmp eq i64 %1, 148
+  %switch.selectcmp92 = or i1 %switch.selectcmp.case190, %switch.selectcmp.case291
+  %90 = select i1 %switch.selectcmp92, i32 22, i32 23
+  %91 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i50, i32 noundef range(i32 0, 115) %90, i64 noundef range(i64 32, 129) 64, i64 noundef 8) #31
+  tail call void @rb_node_init(ptr noundef %91, i32 noundef range(i32 0, 115) %90) #31
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull readonly align 4 dereferenceable(16) %5, i64 16, i1 false)
+  %93 = load i32, ptr %5, align 4, !tbaa !51
+  %94 = sext i32 %93 to i64
+  %95 = load i64, ptr %91, align 8, !tbaa !61
+  %96 = and i64 %95, 32767
+  %97 = shl nsw i64 %94, 15
+  %98 = or disjoint i64 %96, %97
+  store i64 %98, ptr %91, align 8, !tbaa !61
+  %99 = load i32, ptr %89, align 8, !tbaa !192
   %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %98, align 8, !tbaa !192
-  %101 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  store i32 %100, ptr %89, align 8, !tbaa !192
+  %101 = getelementptr inbounds nuw i8, ptr %91, i64 24
   store i32 %99, ptr %101, align 8, !tbaa !193
-  %102 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %91, i64 32
   store ptr %2, ptr %102, align 8, !tbaa !291
-  %103 = getelementptr inbounds nuw i8, ptr %90, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %91, i64 40
   store ptr %3, ptr %103, align 8, !tbaa !288
-  %104 = getelementptr inbounds nuw i8, ptr %90, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %91, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
   %105 = load i32, ptr %4, align 4, !tbaa !51
   %106 = sext i32 %105 to i64
   %107 = shl nsw i64 %106, 15
-  %108 = or disjoint i64 %95, %107
-  store i64 %108, ptr %90, align 8, !tbaa !61
+  %108 = or disjoint i64 %96, %107
+  store i64 %108, ptr %91, align 8, !tbaa !61
   br label %109
 
 109:                                              ; preds = %87, %.critedge
-  %.0 = phi ptr [ %2, %.critedge ], [ %90, %87 ]
+  %.0 = phi ptr [ %2, %.critedge ], [ %91, %87 ]
   ret ptr %.0
 }
 

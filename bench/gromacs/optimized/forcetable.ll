@@ -1649,7 +1649,7 @@ _ZL14set_table_typePiPK19interaction_const_tb.exit: ; preds = %.thread78.i.threa
   br label %.outer
 
 .outer:                                           ; preds = %.thread223, %_ZL14set_table_typePiPK19interaction_const_tb.exit
-  %indvars.iv.ph = phi i64 [ %indvars.iv.next225, %.thread223 ], [ 0, %_ZL14set_table_typePiPK19interaction_const_tb.exit ]
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next, %.thread223 ], [ 0, %_ZL14set_table_typePiPK19interaction_const_tb.exit ]
   %.062147.ph = phi i1 [ true, %.thread223 ], [ false, %_ZL14set_table_typePiPK19interaction_const_tb.exit ]
   br label %126
 
@@ -1660,6 +1660,8 @@ _ZL14set_table_typePiPK19interaction_const_tb.exit: ; preds = %.thread78.i.threa
   %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ %indvars.iv.ph, %.outer ]
   %127 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %128 = load i32, ptr %127, align 4, !tbaa !4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   switch i32 %128, label %129 [
     i32 17, label %.thread223
     i32 10, label %.thread223
@@ -1667,14 +1669,10 @@ _ZL14set_table_typePiPK19interaction_const_tb.exit: ; preds = %.thread78.i.threa
   ]
 
 129:                                              ; preds = %126
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %125, label %126, !llvm.loop !106
 
 .thread223:                                       ; preds = %126, %126, %126
-  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not226 = icmp eq i64 %indvars.iv.next225, 3
-  br i1 %exitcond.not226, label %.thread228, label %.outer, !llvm.loop !106
+  br i1 %exitcond.not, label %.thread228, label %.outer, !llvm.loop !106
 
 .thread228:                                       ; preds = %.thread223, %125
   call void @llvm.lifetime.start.p0(ptr nonnull %19)

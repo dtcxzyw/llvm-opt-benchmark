@@ -1389,22 +1389,22 @@ thread-pre-split:                                 ; preds = %620, %610
   %666 = phi i8 [ %.pre311, %658 ], [ %649, %656 ], [ %649, %654 ]
   %667 = and i8 %666, 3
   %668 = icmp eq i8 %667, 0
+  %669 = getelementptr inbounds nuw i8, ptr %402, i64 3
+  %670 = load i8, ptr %669, align 1
   switch i8 %667, label %default.unreachable411 [
-    i8 3, label %669
-    i8 0, label %669
+    i8 3, label %671
+    i8 0, label %671
     i8 2, label %679
     i8 1, label %685
   ]
 
-669:                                              ; preds = %.thread412, %.thread412
-  %670 = getelementptr inbounds nuw i8, ptr %402, i64 3
-  %671 = load i8, ptr %670, align 1
-  %672 = icmp eq i8 %671, 0
+671:                                              ; preds = %.thread412, %.thread412
+  %672 = icmp eq i8 %670, 0
   br i1 %672, label %.thread414, label %673
 
-673:                                              ; preds = %669
+673:                                              ; preds = %671
   %674 = select i1 %668, ptr @.str.45, ptr @.str.46
-  %675 = zext i8 %671 to i32
+  %675 = zext i8 %670 to i32
   %676 = getelementptr inbounds nuw i8, ptr %495, i64 2
   %677 = load i8, ptr %676, align 2
   %678 = zext i8 %677 to i32
@@ -1412,9 +1412,7 @@ thread-pre-split:                                 ; preds = %620, %610
   br label %692
 
 679:                                              ; preds = %.thread412
-  %.phi.trans.insert316 = getelementptr inbounds nuw i8, ptr %402, i64 3
-  %.pre317 = load i8, ptr %.phi.trans.insert316, align 1
-  %680 = icmp ugt i8 %.pre317, 16
+  %680 = icmp ugt i8 %670, 16
   br i1 %680, label %681, label %.thread414
 
 681:                                              ; preds = %679
@@ -1425,9 +1423,7 @@ thread-pre-split:                                 ; preds = %620, %610
   br label %692
 
 685:                                              ; preds = %.thread412
-  %.phi.trans.insert313 = getelementptr inbounds nuw i8, ptr %402, i64 3
-  %.pre314 = load i8, ptr %.phi.trans.insert313, align 1
-  %686 = and i8 %.pre314, -125
+  %686 = and i8 %670, -125
   %687 = icmp eq i8 %686, 3
   br i1 %687, label %688, label %.thread414
 
@@ -1448,8 +1444,8 @@ default.unreachable411:                           ; preds = %.thread412
   %.pre318 = load i8, ptr %598, align 1
   br label %.thread414
 
-.thread414:                                       ; preds = %669, %679, %692, %685
-  %695 = phi i8 [ %666, %679 ], [ %.pre318, %692 ], [ %666, %685 ], [ %666, %669 ]
+.thread414:                                       ; preds = %671, %679, %692, %685
+  %695 = phi i8 [ %666, %679 ], [ %.pre318, %692 ], [ %666, %685 ], [ %666, %671 ]
   %696 = and i8 %695, 3
   %697 = icmp eq i8 %696, 1
   br i1 %697, label %698, label %713

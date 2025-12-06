@@ -26058,90 +26058,79 @@ define linkonce_odr noundef ptr @_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc noundef range(i32 9988, 10487) i32 @_ZL12GetIntrinsic13IntrinsicTypeN5clang11BuiltinType4KindE(i32 noundef range(i32 0, 2) %0, i32 noundef %1) unnamed_addr #8 {
-  switch i32 %1, label %3 [
-    i32 436, label %4
-    i32 437, label %4
+  %3 = icmp eq i32 %0, 0
+  switch i32 %1, label %4 [
+    i32 436, label %5
+    i32 437, label %5
     i32 447, label %7
     i32 448, label %7
-    i32 442, label %10
-    i32 450, label %13
-    i32 443, label %16
-    i32 451, label %19
-    i32 444, label %22
-    i32 445, label %22
-    i32 452, label %25
-    i32 453, label %25
-    i32 480, label %28
-    i32 481, label %31
-    i32 446, label %34
-    i32 454, label %37
+    i32 442, label %9
+    i32 450, label %11
+    i32 443, label %13
+    i32 451, label %15
+    i32 444, label %17
+    i32 445, label %17
+    i32 452, label %19
+    i32 453, label %19
+    i32 480, label %21
+    i32 481, label %23
+    i32 446, label %25
+    i32 454, label %27
   ]
 
-3:                                                ; preds = %2
+4:                                                ; preds = %2
   unreachable
 
-4:                                                ; preds = %2, %2
-  %5 = icmp eq i32 %0, 0
-  %6 = select i1 %5, i32 9990, i32 10014
-  br label %40
+5:                                                ; preds = %2, %2
+  %6 = select i1 %3, i32 9990, i32 10014
+  br label %29
 
 7:                                                ; preds = %2, %2
-  %8 = icmp eq i32 %0, 0
-  %9 = select i1 %8, i32 9990, i32 10004
-  br label %40
+  %8 = select i1 %3, i32 9990, i32 10004
+  br label %29
 
-10:                                               ; preds = %2
-  %11 = icmp eq i32 %0, 0
-  %12 = select i1 %11, i32 9994, i32 10018
-  br label %40
+9:                                                ; preds = %2
+  %10 = select i1 %3, i32 9994, i32 10018
+  br label %29
+
+11:                                               ; preds = %2
+  %12 = select i1 %3, i32 9994, i32 10008
+  br label %29
 
 13:                                               ; preds = %2
-  %14 = icmp eq i32 %0, 0
-  %15 = select i1 %14, i32 9994, i32 10008
-  br label %40
+  %14 = select i1 %3, i32 9998, i32 10022
+  br label %29
 
-16:                                               ; preds = %2
-  %17 = icmp eq i32 %0, 0
-  %18 = select i1 %17, i32 9998, i32 10022
-  br label %40
+15:                                               ; preds = %2
+  %16 = select i1 %3, i32 9998, i32 10012
+  br label %29
 
-19:                                               ; preds = %2
-  %20 = icmp eq i32 %0, 0
-  %21 = select i1 %20, i32 9998, i32 10012
-  br label %40
+17:                                               ; preds = %2, %2
+  %18 = select i1 %3, i32 9992, i32 10016
+  br label %29
 
-22:                                               ; preds = %2, %2
-  %23 = icmp eq i32 %0, 0
-  %24 = select i1 %23, i32 9992, i32 10016
-  br label %40
+19:                                               ; preds = %2, %2
+  %20 = select i1 %3, i32 9992, i32 10006
+  br label %29
 
-25:                                               ; preds = %2, %2
-  %26 = icmp eq i32 %0, 0
-  %27 = select i1 %26, i32 9992, i32 10006
-  br label %40
+21:                                               ; preds = %2
+  %22 = select i1 %3, i32 9988, i32 10002
+  br label %29
 
-28:                                               ; preds = %2
-  %29 = icmp eq i32 %0, 0
-  %30 = select i1 %29, i32 9988, i32 10002
-  br label %40
+23:                                               ; preds = %2
+  %24 = select i1 %3, i32 10478, i32 10486
+  br label %29
 
-31:                                               ; preds = %2
-  %32 = icmp eq i32 %0, 0
-  %33 = select i1 %32, i32 10478, i32 10486
-  br label %40
+25:                                               ; preds = %2
+  %26 = select i1 %3, i32 9996, i32 10020
+  br label %29
 
-34:                                               ; preds = %2
-  %35 = icmp eq i32 %0, 0
-  %36 = select i1 %35, i32 9996, i32 10020
-  br label %40
+27:                                               ; preds = %2
+  %28 = select i1 %3, i32 9996, i32 10010
+  br label %29
 
-37:                                               ; preds = %2
-  %38 = icmp eq i32 %0, 0
-  %39 = select i1 %38, i32 9996, i32 10010
-  br label %40
-
-40:                                               ; preds = %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %7, %4
-  %.0 = phi i32 [ %6, %4 ], [ %9, %7 ], [ %12, %10 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ]
+29:                                               ; preds = %27, %25, %23, %21, %19, %17, %15, %13, %11, %9, %7, %5
+  %.0 = phi i32 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ]
   ret i32 %.0
 }
 

@@ -4685,7 +4685,7 @@ list_length.exit.thread:                          ; preds = %7, %list_length.exi
 define internal void @_SPI_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %23, label %4
+  br i1 %3, label %21, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i32 @geterrposition() #16
@@ -4696,34 +4696,32 @@ define internal void @_SPI_error_callback(ptr noundef readonly captures(none) %0
   %8 = tail call i32 @errposition(i32 noundef 0) #16
   %9 = tail call i32 @internalerrposition(i32 noundef %5) #16
   %10 = tail call i32 @internalerrquery(ptr noundef nonnull %2) #16
-  br label %23
+  br label %21
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
-  switch i32 %13, label %20 [
-    i32 2, label %14
+  %14 = tail call i32 @set_errcontext_domain(ptr noundef null) #16
+  switch i32 %13, label %19 [
+    i32 2, label %15
     i32 3, label %17
     i32 4, label %17
     i32 5, label %17
   ]
 
-14:                                               ; preds = %11
-  %15 = tail call i32 @set_errcontext_domain(ptr noundef null) #16
+15:                                               ; preds = %11
   %16 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.68, ptr noundef nonnull %2) #16
-  br label %23
+  br label %21
 
 17:                                               ; preds = %11, %11, %11
-  %18 = tail call i32 @set_errcontext_domain(ptr noundef null) #16
-  %19 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.69, ptr noundef nonnull %2) #16
-  br label %23
+  %18 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.69, ptr noundef nonnull %2) #16
+  br label %21
 
-20:                                               ; preds = %11
-  %21 = tail call i32 @set_errcontext_domain(ptr noundef null) #16
-  %22 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.70, ptr noundef nonnull %2) #16
-  br label %23
+19:                                               ; preds = %11
+  %20 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.70, ptr noundef nonnull %2) #16
+  br label %21
 
-23:                                               ; preds = %7, %20, %17, %14, %1
+21:                                               ; preds = %7, %19, %17, %15, %1
   ret void
 }
 

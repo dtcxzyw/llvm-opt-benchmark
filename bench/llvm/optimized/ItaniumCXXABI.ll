@@ -661,233 +661,183 @@ define dso_local noundef nonnull ptr @_ZN5clang7CodeGen19CreateItaniumCXXABIERNS
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = tail call noundef i32 @_ZNK5clang10ASTContext13getCXXABIKindEv(ptr noundef nonnull align 8 dereferenceable(23216) %3) #22
-  switch i32 %4, label %117 [
-    i32 1, label %5
-    i32 2, label %5
-    i32 4, label %5
+  %5 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #23
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %0, ptr %6, align 8, !tbaa !345
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %9 = tail call noundef ptr @_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %8, ptr noundef null) #22
+  store ptr %9, ptr %7, align 8, !tbaa !346
+  switch i32 %4, label %82 [
+    i32 1, label %10
+    i32 2, label %10
+    i32 4, label %10
     i32 3, label %19
-    i32 8, label %33
-    i32 5, label %47
-    i32 6, label %61
-    i32 7, label %75
-    i32 9, label %89
-    i32 0, label %103
+    i32 8, label %28
+    i32 5, label %37
+    i32 6, label %46
+    i32 7, label %55
+    i32 9, label %64
+    i32 0, label %73
   ]
 
-5:                                                ; preds = %1, %1, %1
-  %6 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #23
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %0, ptr %7, align 8, !tbaa !345
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %9 = load ptr, ptr %2, align 8, !tbaa !3
-  %10 = tail call noundef ptr @_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %9, ptr noundef null) #22
-  store ptr %10, ptr %8, align 8, !tbaa !346
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
+10:                                               ; preds = %1, %1, %1
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, i8 0, i64 20, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %13, ptr %12, align 8, !tbaa !348
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 0, ptr %14, align 8, !tbaa !349
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 8, ptr %15, align 4, !tbaa !350
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store i8 1, ptr %16, align 8, !tbaa !351
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 193
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 193
   store i8 1, ptr %17, align 1, !tbaa !367
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 194
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 194
   store i8 0, ptr %18, align 2, !tbaa !368
-  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_19ARMCXXABIE, i64 16), ptr %6, align 8, !tbaa !369
-  br label %118
+  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_19ARMCXXABIE, i64 16), ptr %5, align 8, !tbaa !369
+  br label %83
 
 19:                                               ; preds = %1
-  %20 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #23
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %0, ptr %21, align 8, !tbaa !345
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %23 = load ptr, ptr %2, align 8, !tbaa !3
-  %24 = tail call noundef ptr @_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %23, ptr noundef null) #22
-  store ptr %24, ptr %22, align 8, !tbaa !346
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %25, i8 0, i64 20, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  store ptr %27, ptr %26, align 8, !tbaa !348
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  store i32 0, ptr %28, align 8, !tbaa !349
-  %29 = getelementptr inbounds nuw i8, ptr %20, i64 60
-  store i32 8, ptr %29, align 4, !tbaa !350
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 192
-  store i8 1, ptr %30, align 8, !tbaa !351
-  %31 = getelementptr inbounds nuw i8, ptr %20, i64 193
-  store i8 1, ptr %31, align 1, !tbaa !367
-  %32 = getelementptr inbounds nuw i8, ptr %20, i64 194
-  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_116AppleARM64CXXABIE, i64 16), ptr %20, align 8, !tbaa !369
-  store i8 1, ptr %32, align 2, !tbaa !368
-  br label %118
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %22, ptr %21, align 8, !tbaa !348
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i32 0, ptr %23, align 8, !tbaa !349
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  store i32 8, ptr %24, align 4, !tbaa !350
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  store i8 1, ptr %25, align 8, !tbaa !351
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 193
+  store i8 1, ptr %26, align 1, !tbaa !367
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 194
+  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_116AppleARM64CXXABIE, i64 16), ptr %5, align 8, !tbaa !369
+  store i8 1, ptr %27, align 2, !tbaa !368
+  br label %83
 
-33:                                               ; preds = %1
-  %34 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #23
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %0, ptr %35, align 8, !tbaa !345
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %37 = load ptr, ptr %2, align 8, !tbaa !3
-  %38 = tail call noundef ptr @_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %37, ptr noundef null) #22
-  store ptr %38, ptr %36, align 8, !tbaa !346
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %39, i8 0, i64 20, i1 false)
-  %40 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %41 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  store ptr %41, ptr %40, align 8, !tbaa !348
-  %42 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  store i32 0, ptr %42, align 8, !tbaa !349
-  %43 = getelementptr inbounds nuw i8, ptr %34, i64 60
-  store i32 8, ptr %43, align 4, !tbaa !350
-  %44 = getelementptr inbounds nuw i8, ptr %34, i64 192
-  store i8 0, ptr %44, align 8, !tbaa !351
-  %45 = getelementptr inbounds nuw i8, ptr %34, i64 193
-  store i8 0, ptr %45, align 1, !tbaa !367
-  %46 = getelementptr inbounds nuw i8, ptr %34, i64 194
-  store i8 0, ptr %46, align 2, !tbaa !368
-  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_113FuchsiaCXXABIE, i64 16), ptr %34, align 8, !tbaa !369
-  br label %118
+28:                                               ; preds = %1
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %29, i8 0, i64 20, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %31, ptr %30, align 8, !tbaa !348
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i32 0, ptr %32, align 8, !tbaa !349
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  store i32 8, ptr %33, align 4, !tbaa !350
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  store i8 0, ptr %34, align 8, !tbaa !351
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 193
+  store i8 0, ptr %35, align 1, !tbaa !367
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 194
+  store i8 0, ptr %36, align 2, !tbaa !368
+  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_113FuchsiaCXXABIE, i64 16), ptr %5, align 8, !tbaa !369
+  br label %83
 
-47:                                               ; preds = %1
-  %48 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #23
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %0, ptr %49, align 8, !tbaa !345
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %51 = load ptr, ptr %2, align 8, !tbaa !3
-  %52 = tail call noundef ptr @_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %51, ptr noundef null) #22
-  store ptr %52, ptr %50, align 8, !tbaa !346
-  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_113ItaniumCXXABIE, i64 16), ptr %48, align 8, !tbaa !369
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %53, i8 0, i64 20, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 64
-  store ptr %55, ptr %54, align 8, !tbaa !348
-  %56 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  store i32 0, ptr %56, align 8, !tbaa !349
-  %57 = getelementptr inbounds nuw i8, ptr %48, i64 60
-  store i32 8, ptr %57, align 4, !tbaa !350
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 192
-  store i8 1, ptr %58, align 8, !tbaa !351
-  %59 = getelementptr inbounds nuw i8, ptr %48, i64 193
-  store i8 1, ptr %59, align 1, !tbaa !367
-  %60 = getelementptr inbounds nuw i8, ptr %48, i64 194
-  store i8 0, ptr %60, align 2, !tbaa !368
-  br label %118
+37:                                               ; preds = %1
+  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_113ItaniumCXXABIE, i64 16), ptr %5, align 8, !tbaa !369
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %38, i8 0, i64 20, i1 false)
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %40, ptr %39, align 8, !tbaa !348
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i32 0, ptr %41, align 8, !tbaa !349
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  store i32 8, ptr %42, align 4, !tbaa !350
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  store i8 1, ptr %43, align 8, !tbaa !351
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 193
+  store i8 1, ptr %44, align 1, !tbaa !367
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 194
+  store i8 0, ptr %45, align 2, !tbaa !368
+  br label %83
 
-61:                                               ; preds = %1
-  %62 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #23
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %0, ptr %63, align 8, !tbaa !345
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %65 = load ptr, ptr %2, align 8, !tbaa !3
-  %66 = tail call noundef ptr @_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %65, ptr noundef null) #22
-  store ptr %66, ptr %64, align 8, !tbaa !346
-  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_113ItaniumCXXABIE, i64 16), ptr %62, align 8, !tbaa !369
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %67, i8 0, i64 20, i1 false)
-  %68 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %69 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  store ptr %69, ptr %68, align 8, !tbaa !348
-  %70 = getelementptr inbounds nuw i8, ptr %62, i64 56
-  store i32 0, ptr %70, align 8, !tbaa !349
-  %71 = getelementptr inbounds nuw i8, ptr %62, i64 60
-  store i32 8, ptr %71, align 4, !tbaa !350
-  %72 = getelementptr inbounds nuw i8, ptr %62, i64 192
-  store i8 1, ptr %72, align 8, !tbaa !351
-  %73 = getelementptr inbounds nuw i8, ptr %62, i64 193
-  store i8 0, ptr %73, align 1, !tbaa !367
-  %74 = getelementptr inbounds nuw i8, ptr %62, i64 194
-  store i8 0, ptr %74, align 2, !tbaa !368
-  br label %118
+46:                                               ; preds = %1
+  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_113ItaniumCXXABIE, i64 16), ptr %5, align 8, !tbaa !369
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %47, i8 0, i64 20, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %49, ptr %48, align 8, !tbaa !348
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i32 0, ptr %50, align 8, !tbaa !349
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  store i32 8, ptr %51, align 4, !tbaa !350
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  store i8 1, ptr %52, align 8, !tbaa !351
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 193
+  store i8 0, ptr %53, align 1, !tbaa !367
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 194
+  store i8 0, ptr %54, align 2, !tbaa !368
+  br label %83
 
-75:                                               ; preds = %1
-  %76 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #23
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store ptr %0, ptr %77, align 8, !tbaa !345
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %79 = load ptr, ptr %2, align 8, !tbaa !3
-  %80 = tail call noundef ptr @_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %79, ptr noundef null) #22
-  store ptr %80, ptr %78, align 8, !tbaa !346
-  %81 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %81, i8 0, i64 20, i1 false)
-  %82 = getelementptr inbounds nuw i8, ptr %76, i64 48
-  %83 = getelementptr inbounds nuw i8, ptr %76, i64 64
-  store ptr %83, ptr %82, align 8, !tbaa !348
-  %84 = getelementptr inbounds nuw i8, ptr %76, i64 56
-  store i32 0, ptr %84, align 8, !tbaa !349
-  %85 = getelementptr inbounds nuw i8, ptr %76, i64 60
-  store i32 8, ptr %85, align 4, !tbaa !350
-  %86 = getelementptr inbounds nuw i8, ptr %76, i64 192
-  store i8 1, ptr %86, align 8, !tbaa !351
-  %87 = getelementptr inbounds nuw i8, ptr %76, i64 193
-  store i8 1, ptr %87, align 1, !tbaa !367
-  %88 = getelementptr inbounds nuw i8, ptr %76, i64 194
-  store i8 0, ptr %88, align 2, !tbaa !368
-  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_117WebAssemblyCXXABIE, i64 16), ptr %76, align 8, !tbaa !369
-  br label %118
+55:                                               ; preds = %1
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %56, i8 0, i64 20, i1 false)
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %58, ptr %57, align 8, !tbaa !348
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i32 0, ptr %59, align 8, !tbaa !349
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  store i32 8, ptr %60, align 4, !tbaa !350
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  store i8 1, ptr %61, align 8, !tbaa !351
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 193
+  store i8 1, ptr %62, align 1, !tbaa !367
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 194
+  store i8 0, ptr %63, align 2, !tbaa !368
+  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_117WebAssemblyCXXABIE, i64 16), ptr %5, align 8, !tbaa !369
+  br label %83
 
-89:                                               ; preds = %1
-  %90 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #23
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store ptr %0, ptr %91, align 8, !tbaa !345
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %93 = load ptr, ptr %2, align 8, !tbaa !3
-  %94 = tail call noundef ptr @_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %93, ptr noundef null) #22
-  store ptr %94, ptr %92, align 8, !tbaa !346
-  %95 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %95, i8 0, i64 20, i1 false)
-  %96 = getelementptr inbounds nuw i8, ptr %90, i64 48
-  %97 = getelementptr inbounds nuw i8, ptr %90, i64 64
-  store ptr %97, ptr %96, align 8, !tbaa !348
-  %98 = getelementptr inbounds nuw i8, ptr %90, i64 56
-  store i32 0, ptr %98, align 8, !tbaa !349
-  %99 = getelementptr inbounds nuw i8, ptr %90, i64 60
-  store i32 8, ptr %99, align 4, !tbaa !350
-  %100 = getelementptr inbounds nuw i8, ptr %90, i64 192
-  store i8 0, ptr %100, align 8, !tbaa !351
-  %101 = getelementptr inbounds nuw i8, ptr %90, i64 193
-  store i8 0, ptr %101, align 1, !tbaa !367
-  %102 = getelementptr inbounds nuw i8, ptr %90, i64 194
-  store i8 0, ptr %102, align 2, !tbaa !368
-  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_18XLCXXABIE, i64 16), ptr %90, align 8, !tbaa !369
-  br label %118
+64:                                               ; preds = %1
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %65, i8 0, i64 20, i1 false)
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %67, ptr %66, align 8, !tbaa !348
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i32 0, ptr %68, align 8, !tbaa !349
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  store i32 8, ptr %69, align 4, !tbaa !350
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  store i8 0, ptr %70, align 8, !tbaa !351
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 193
+  store i8 0, ptr %71, align 1, !tbaa !367
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 194
+  store i8 0, ptr %72, align 2, !tbaa !368
+  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_18XLCXXABIE, i64 16), ptr %5, align 8, !tbaa !369
+  br label %83
 
-103:                                              ; preds = %1
-  %104 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #23
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store ptr %0, ptr %105, align 8, !tbaa !345
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %107 = load ptr, ptr %2, align 8, !tbaa !3
-  %108 = tail call noundef ptr @_ZN5clang10ASTContext19createMangleContextEPKNS_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(23216) %107, ptr noundef null) #22
-  store ptr %108, ptr %106, align 8, !tbaa !346
-  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_113ItaniumCXXABIE, i64 16), ptr %104, align 8, !tbaa !369
-  %109 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %109, i8 0, i64 20, i1 false)
-  %110 = getelementptr inbounds nuw i8, ptr %104, i64 48
-  %111 = getelementptr inbounds nuw i8, ptr %104, i64 64
-  store ptr %111, ptr %110, align 8, !tbaa !348
-  %112 = getelementptr inbounds nuw i8, ptr %104, i64 56
-  store i32 0, ptr %112, align 8, !tbaa !349
-  %113 = getelementptr inbounds nuw i8, ptr %104, i64 60
-  store i32 8, ptr %113, align 4, !tbaa !350
-  %114 = getelementptr inbounds nuw i8, ptr %104, i64 192
-  store i8 0, ptr %114, align 8, !tbaa !351
-  %115 = getelementptr inbounds nuw i8, ptr %104, i64 193
-  store i8 0, ptr %115, align 1, !tbaa !367
-  %116 = getelementptr inbounds nuw i8, ptr %104, i64 194
-  store i8 0, ptr %116, align 2, !tbaa !368
-  br label %118
+73:                                               ; preds = %1
+  store ptr getelementptr inbounds nuw inrange(-16, 768) (i8, ptr @_ZTVN12_GLOBAL__N_113ItaniumCXXABIE, i64 16), ptr %5, align 8, !tbaa !369
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %74, i8 0, i64 20, i1 false)
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %76, ptr %75, align 8, !tbaa !348
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i32 0, ptr %77, align 8, !tbaa !349
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  store i32 8, ptr %78, align 4, !tbaa !350
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  store i8 0, ptr %79, align 8, !tbaa !351
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 193
+  store i8 0, ptr %80, align 1, !tbaa !367
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 194
+  store i8 0, ptr %81, align 2, !tbaa !368
+  br label %83
 
-117:                                              ; preds = %1
+82:                                               ; preds = %1
   unreachable
 
-118:                                              ; preds = %103, %89, %75, %61, %47, %33, %19, %5
-  %.0 = phi ptr [ %6, %5 ], [ %20, %19 ], [ %34, %33 ], [ %48, %47 ], [ %62, %61 ], [ %76, %75 ], [ %90, %89 ], [ %104, %103 ]
-  ret ptr %.0
+83:                                               ; preds = %73, %64, %55, %46, %37, %28, %19, %10
+  ret ptr %5
 }
 
 declare noundef i32 @_ZNK5clang10ASTContext13getCXXABIKindEv(ptr noundef nonnull align 8 dereferenceable(23216)) local_unnamed_addr #1

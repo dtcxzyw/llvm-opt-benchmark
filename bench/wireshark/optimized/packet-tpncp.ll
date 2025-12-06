@@ -1743,20 +1743,20 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %14 = select i1 %9, i32 -1, i32 1
   br label %15
 
-15:                                               ; preds = %.lr.ph232, %159
-  %.0183227 = phi ptr [ %.0183217, %.lr.ph232 ], [ %.0183, %159 ]
-  %.0158226 = phi i32 [ 0, %.lr.ph232 ], [ %.1, %159 ]
-  %.0159225 = phi i32 [ 0, %.lr.ph232 ], [ %.1160, %159 ]
-  %.0162224 = phi i32 [ 0, %.lr.ph232 ], [ %.1163, %159 ]
-  %.0165223 = phi i32 [ 0, %.lr.ph232 ], [ %.1166, %159 ]
-  %.0168222 = phi i32 [ 0, %.lr.ph232 ], [ %.1169, %159 ]
-  %.0171221 = phi i32 [ -1, %.lr.ph232 ], [ %.1172, %159 ]
-  %.0174220 = phi i32 [ 2, %.lr.ph232 ], [ %.1175, %159 ]
-  %.0178219 = phi i32 [ %10, %.lr.ph232 ], [ %.1179, %159 ]
+15:                                               ; preds = %.lr.ph232, %158
+  %.0183227 = phi ptr [ %.0183217, %.lr.ph232 ], [ %.0183, %158 ]
+  %.0158226 = phi i32 [ 0, %.lr.ph232 ], [ %.1, %158 ]
+  %.0159225 = phi i32 [ 0, %.lr.ph232 ], [ %.1160, %158 ]
+  %.0162224 = phi i32 [ 0, %.lr.ph232 ], [ %.1163, %158 ]
+  %.0165223 = phi i32 [ 0, %.lr.ph232 ], [ %.1166, %158 ]
+  %.0168222 = phi i32 [ 0, %.lr.ph232 ], [ %.1169, %158 ]
+  %.0171221 = phi i32 [ -1, %.lr.ph232 ], [ %.1172, %158 ]
+  %.0174220 = phi i32 [ 2, %.lr.ph232 ], [ %.1175, %158 ]
+  %.0178219 = phi i32 [ %10, %.lr.ph232 ], [ %.1179, %158 ]
   %16 = getelementptr inbounds nuw i8, ptr %.0183227, i64 28
   %17 = load i32, ptr %16, align 4
   %or.cond199 = icmp sgt i32 %17, %invariant.smax
-  br i1 %or.cond199, label %159, label %18
+  br i1 %or.cond199, label %158, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %.0183227, i64 20
@@ -1847,7 +1847,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
 60:                                               ; preds = %57
   %61 = load i32, ptr %4, align 4
   %.not191 = icmp slt i32 %61, %.0168222
-  br i1 %.not191, label %62, label %159
+  br i1 %.not191, label %62, label %158
 
 62:                                               ; preds = %60, %57
   %63 = icmp sgt i32 %.0165223, 0
@@ -1856,7 +1856,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
 64:                                               ; preds = %62
   %65 = load i32, ptr %4, align 4
   %.not192 = icmp slt i32 %65, %.0165223
-  br i1 %.not192, label %66, label %159
+  br i1 %.not192, label %66, label %158
 
 66:                                               ; preds = %64, %62
   %67 = icmp sgt i32 %.0159225, 0
@@ -1865,7 +1865,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
 68:                                               ; preds = %66
   %69 = load i32, ptr %4, align 4
   %.not193 = icmp slt i32 %69, %.0159225
-  br i1 %.not193, label %70, label %159
+  br i1 %.not193, label %70, label %158
 
 70:                                               ; preds = %68, %66
   %71 = icmp sgt i32 %.0162224, 0
@@ -1874,7 +1874,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
 72:                                               ; preds = %70
   %73 = load i32, ptr %4, align 4
   %.not194 = icmp slt i32 %73, %.0162224
-  br i1 %.not194, label %74, label %159
+  br i1 %.not194, label %74, label %158
 
 74:                                               ; preds = %30, %18, %70, %72, %47, %53, %37, %43, %29, %23, %21
   %.3177 = phi i32 [ %.2176, %72 ], [ %.2176, %70 ], [ %.0174220, %21 ], [ %.0174220, %23 ], [ %.0174220, %29 ], [ %.0174220, %37 ], [ %.0174220, %43 ], [ %.0174220, %47 ], [ %.0174220, %53 ], [ %.0174220, %18 ], [ %.0174220, %30 ]
@@ -1886,7 +1886,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %.2 = phi i32 [ %.0158226, %72 ], [ %.0158226, %70 ], [ %.0158226, %21 ], [ %.0158226, %23 ], [ %.0158226, %29 ], [ %40, %37 ], [ %.0158226, %43 ], [ %.0158226, %47 ], [ %.0158226, %53 ], [ %.0158226, %18 ], [ %.0158226, %30 ]
   %75 = getelementptr inbounds nuw i8, ptr %.0183227, i64 24
   %76 = load i8, ptr %75, align 8
-  switch i8 %76, label %155 [
+  switch i8 %76, label %154 [
     i8 1, label %77
     i8 2, label %77
     i8 3, label %77
@@ -2000,7 +2000,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %128 = icmp eq i32 %.2180203, 7
   %or.cond9 = or i1 %127, %128
   %or.cond11 = and i1 %9, %or.cond9
-  br i1 %or.cond11, label %.sink.split, label %155
+  br i1 %or.cond11, label %.sink.split, label %154
 
 129:                                              ; preds = %74
   %130 = getelementptr inbounds nuw i8, ptr %.0183227, i64 8
@@ -2022,74 +2022,73 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   br i1 %141, label %142, label %.sink.split
 
 142:                                              ; preds = %139
+  %143 = load i32, ptr %4, align 4
   switch i32 %.3177, label %148 [
-    i32 28, label %143
-    i32 10, label %143
+    i32 28, label %144
+    i32 10, label %144
   ]
 
-143:                                              ; preds = %142, %142
-  %144 = getelementptr inbounds nuw i8, ptr %.0183227, i64 12
-  %145 = load i32, ptr %144, align 4
-  %146 = load i32, ptr %4, align 4
-  %147 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %145, ptr noundef %2, i32 noundef %146, i32 noundef 16, i32 noundef %7)
+144:                                              ; preds = %142, %142
+  %145 = getelementptr inbounds nuw i8, ptr %.0183227, i64 12
+  %146 = load i32, ptr %145, align 4
+  %147 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %146, ptr noundef %2, i32 noundef %143, i32 noundef 16, i32 noundef %7)
   br label %.sink.split
 
 148:                                              ; preds = %142
   %149 = getelementptr inbounds nuw i8, ptr %.0183227, i64 8
   %150 = load i32, ptr %149, align 8
-  %151 = load i32, ptr %4, align 4
-  %152 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %150, ptr noundef %2, i32 noundef %151, i32 noundef 4, i32 noundef %7)
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %150, ptr noundef %2, i32 noundef %143, i32 noundef 4, i32 noundef %7)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %139, %148, %143, %123, %126, %129, %134, %87
-  %.sink243 = phi i32 [ %88, %87 ], [ 4, %134 ], [ 2, %129 ], [ 1, %126 ], [ 1, %123 ], [ 16, %143 ], [ 16, %148 ], [ 16, %139 ]
-  %.4182.ph = phi i32 [ %.0178219, %87 ], [ %.0178219, %134 ], [ %.0178219, %129 ], [ %10, %126 ], [ %10, %123 ], [ %.0178219, %143 ], [ %.0178219, %148 ], [ %.0178219, %139 ]
-  %.4.ph = phi i32 [ %.3177, %87 ], [ %.3177, %134 ], [ %.3177, %129 ], [ %.3177, %126 ], [ %.3177, %123 ], [ 2, %143 ], [ 2, %148 ], [ %.3177, %139 ]
-  %153 = load i32, ptr %4, align 4
-  %154 = add i32 %153, %.sink243
-  store i32 %154, ptr %4, align 4
-  br label %155
+.sink.split:                                      ; preds = %139, %148, %144, %123, %126, %129, %134, %87
+  %.sink243 = phi i32 [ %88, %87 ], [ 4, %134 ], [ 2, %129 ], [ 1, %126 ], [ 1, %123 ], [ 16, %144 ], [ 16, %148 ], [ 16, %139 ]
+  %.4182.ph = phi i32 [ %.0178219, %87 ], [ %.0178219, %134 ], [ %.0178219, %129 ], [ %10, %126 ], [ %10, %123 ], [ %.0178219, %144 ], [ %.0178219, %148 ], [ %.0178219, %139 ]
+  %.4.ph = phi i32 [ %.3177, %87 ], [ %.3177, %134 ], [ %.3177, %129 ], [ %.3177, %126 ], [ %.3177, %123 ], [ 2, %144 ], [ 2, %148 ], [ %.3177, %139 ]
+  %152 = load i32, ptr %4, align 4
+  %153 = add i32 %152, %.sink243
+  store i32 %153, ptr %4, align 4
+  br label %154
 
-155:                                              ; preds = %.sink.split, %74, %126
+154:                                              ; preds = %.sink.split, %74, %126
   %.4182 = phi i32 [ %.0178219, %74 ], [ %.2180203, %126 ], [ %.4182.ph, %.sink.split ]
   %.4 = phi i32 [ %.3177, %74 ], [ %.3177, %126 ], [ %.4.ph, %.sink.split ]
-  %156 = load i32, ptr %4, align 4
-  %157 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %156)
-  %158 = icmp slt i32 %157, 1
-  br i1 %158, label %._crit_edge233.loopexit, label %159
+  %155 = load i32, ptr %4, align 4
+  %156 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %155)
+  %157 = icmp slt i32 %156, 1
+  br i1 %157, label %._crit_edge233.loopexit, label %158
 
-159:                                              ; preds = %15, %155, %72, %68, %64, %60
-  %.1179 = phi i32 [ %.0178219, %60 ], [ %.0178219, %64 ], [ %.0178219, %68 ], [ %.0178219, %72 ], [ %.4182, %155 ], [ %.0178219, %15 ]
-  %.1175 = phi i32 [ %.2176, %60 ], [ %.2176, %64 ], [ %.2176, %68 ], [ %.2176, %72 ], [ %.4, %155 ], [ %.0174220, %15 ]
-  %.1172 = phi i32 [ %.0171221, %60 ], [ %.0171221, %64 ], [ %.0171221, %68 ], [ %.0171221, %72 ], [ %.2173, %155 ], [ %.0171221, %15 ]
-  %.1169 = phi i32 [ %.0168222, %60 ], [ %.0168222, %64 ], [ %.0168222, %68 ], [ %.0168222, %72 ], [ %.2170, %155 ], [ %.0168222, %15 ]
-  %.1166 = phi i32 [ %.0165223, %60 ], [ %.0165223, %64 ], [ %.0165223, %68 ], [ %.0165223, %72 ], [ %.2167, %155 ], [ %.0165223, %15 ]
-  %.1163 = phi i32 [ %.0162224, %60 ], [ %.0162224, %64 ], [ %.0162224, %68 ], [ %.0162224, %72 ], [ %.2164, %155 ], [ %.0162224, %15 ]
-  %.1160 = phi i32 [ %.0159225, %60 ], [ %.0159225, %64 ], [ %.0159225, %68 ], [ %.0159225, %72 ], [ %.2161, %155 ], [ %.0159225, %15 ]
-  %.1 = phi i32 [ %.0158226, %60 ], [ %.0158226, %64 ], [ %.0158226, %68 ], [ %.0158226, %72 ], [ %.2, %155 ], [ %.0158226, %15 ]
-  %160 = getelementptr inbounds nuw i8, ptr %.0183227, i64 32
-  %.0183 = load ptr, ptr %160, align 8
+158:                                              ; preds = %15, %154, %72, %68, %64, %60
+  %.1179 = phi i32 [ %.0178219, %60 ], [ %.0178219, %64 ], [ %.0178219, %68 ], [ %.0178219, %72 ], [ %.4182, %154 ], [ %.0178219, %15 ]
+  %.1175 = phi i32 [ %.2176, %60 ], [ %.2176, %64 ], [ %.2176, %68 ], [ %.2176, %72 ], [ %.4, %154 ], [ %.0174220, %15 ]
+  %.1172 = phi i32 [ %.0171221, %60 ], [ %.0171221, %64 ], [ %.0171221, %68 ], [ %.0171221, %72 ], [ %.2173, %154 ], [ %.0171221, %15 ]
+  %.1169 = phi i32 [ %.0168222, %60 ], [ %.0168222, %64 ], [ %.0168222, %68 ], [ %.0168222, %72 ], [ %.2170, %154 ], [ %.0168222, %15 ]
+  %.1166 = phi i32 [ %.0165223, %60 ], [ %.0165223, %64 ], [ %.0165223, %68 ], [ %.0165223, %72 ], [ %.2167, %154 ], [ %.0165223, %15 ]
+  %.1163 = phi i32 [ %.0162224, %60 ], [ %.0162224, %64 ], [ %.0162224, %68 ], [ %.0162224, %72 ], [ %.2164, %154 ], [ %.0162224, %15 ]
+  %.1160 = phi i32 [ %.0159225, %60 ], [ %.0159225, %64 ], [ %.0159225, %68 ], [ %.0159225, %72 ], [ %.2161, %154 ], [ %.0159225, %15 ]
+  %.1 = phi i32 [ %.0158226, %60 ], [ %.0158226, %64 ], [ %.0158226, %68 ], [ %.0158226, %72 ], [ %.2, %154 ], [ %.0158226, %15 ]
+  %159 = getelementptr inbounds nuw i8, ptr %.0183227, i64 32
+  %.0183 = load ptr, ptr %159, align 8
   %.not = icmp eq ptr %.0183, null
   br i1 %.not, label %._crit_edge233.loopexit, label %15, !llvm.loop !19
 
-._crit_edge233.loopexit:                          ; preds = %155, %159
+._crit_edge233.loopexit:                          ; preds = %154, %158
   %.pre = load i32, ptr %4, align 4
   br label %._crit_edge233
 
 ._crit_edge233:                                   ; preds = %._crit_edge233.loopexit, %8
-  %161 = phi i32 [ %.pre, %._crit_edge233.loopexit ], [ %.pre238, %8 ]
-  %162 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %161)
-  %163 = icmp sgt i32 %162, 0
-  br i1 %163, label %164, label %168
+  %160 = phi i32 [ %.pre, %._crit_edge233.loopexit ], [ %.pre238, %8 ]
+  %161 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %160)
+  %162 = icmp sgt i32 %161, 0
+  br i1 %162, label %163, label %167
 
-164:                                              ; preds = %._crit_edge233
-  %165 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_tpncp_unknown_data, ptr noundef nonnull @.str.61)
-  %166 = load i32, ptr %4, align 4
-  %167 = add i32 %166, %162
-  store i32 %167, ptr %4, align 4
-  br label %168
+163:                                              ; preds = %._crit_edge233
+  %164 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_tpncp_unknown_data, ptr noundef nonnull @.str.61)
+  %165 = load i32, ptr %4, align 4
+  %166 = add i32 %165, %161
+  store i32 %166, ptr %4, align 4
+  br label %167
 
-168:                                              ; preds = %164, %._crit_edge233
+167:                                              ; preds = %163, %._crit_edge233
   ret void
 }
 

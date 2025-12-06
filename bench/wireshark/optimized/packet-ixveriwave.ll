@@ -3491,54 +3491,53 @@ switch.lookup:                                    ; preds = %4
   %124 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %123, ptr noundef %1, i32 noundef %69, i32 noundef 3, i32 noundef -2147483648)
   %125 = add nuw nsw i32 %2, 6
   %126 = load i32, ptr %7, align 4
+  %127 = load i32, ptr %5, align 4
   switch i32 %126, label %130 [
-    i32 63, label %127
-    i32 0, label %127
+    i32 63, label %128
+    i32 0, label %128
   ]
 
-127:                                              ; preds = %120, %120
-  %128 = load i32, ptr %5, align 4
-  %129 = icmp ult i32 %128, 4
-  br i1 %129, label %switch.lookup133, label %144
+128:                                              ; preds = %120, %120
+  %129 = icmp ult i32 %127, 4
+  br i1 %129, label %switch.lookup133, label %143
 
 130:                                              ; preds = %120
-  %131 = load i32, ptr %5, align 4
-  switch i32 %131, label %144 [
-    i32 0, label %132
-    i32 1, label %135
-    i32 2, label %138
-    i32 3, label %138
+  switch i32 %127, label %143 [
+    i32 0, label %131
+    i32 1, label %134
+    i32 2, label %137
+    i32 3, label %137
   ]
 
-132:                                              ; preds = %130
-  %133 = load i32, ptr @hf_radiotap_vht_mu_sig_b_length_20_mhz, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %133, ptr noundef %1, i32 noundef %125, i32 noundef 4, i32 noundef -2147483648)
+131:                                              ; preds = %130
+  %132 = load i32, ptr @hf_radiotap_vht_mu_sig_b_length_20_mhz, align 4
+  %133 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %132, ptr noundef %1, i32 noundef %125, i32 noundef 4, i32 noundef -2147483648)
   br label %.sink.split131
 
-135:                                              ; preds = %130
-  %136 = load i32, ptr @hf_radiotap_vht_mu_sig_b_length_40_mhz, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %136, ptr noundef %1, i32 noundef %125, i32 noundef 4, i32 noundef -2147483648)
+134:                                              ; preds = %130
+  %135 = load i32, ptr @hf_radiotap_vht_mu_sig_b_length_40_mhz, align 4
+  %136 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %135, ptr noundef %1, i32 noundef %125, i32 noundef 4, i32 noundef -2147483648)
   br label %.sink.split131
 
-138:                                              ; preds = %130, %130
-  %139 = load i32, ptr @hf_radiotap_vht_mu_sig_b_length_80_160_mhz, align 4
-  %140 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %139, ptr noundef %1, i32 noundef %125, i32 noundef 4, i32 noundef -2147483648)
+137:                                              ; preds = %130, %130
+  %138 = load i32, ptr @hf_radiotap_vht_mu_sig_b_length_80_160_mhz, align 4
+  %139 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %138, ptr noundef %1, i32 noundef %125, i32 noundef 4, i32 noundef -2147483648)
   br label %.sink.split131
 
-switch.lookup133:                                 ; preds = %127
-  %141 = zext nneg i32 %128 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.decode_vht_sig, i64 %141
+switch.lookup133:                                 ; preds = %128
+  %140 = zext nneg i32 %127 to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.decode_vht_sig, i64 %140
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split131
 
-.sink.split131:                                   ; preds = %switch.lookup133, %138, %135, %132
-  %hf_radiotap_vht_mu_mcs_20_mhz.sink = phi ptr [ @hf_radiotap_vht_mu_mcs_20_mhz, %132 ], [ @hf_radiotap_vht_mu_mcs_40_mhz, %135 ], [ @hf_radiotap_vht_mu_mcs_80_160_mhz, %138 ], [ %switch.load, %switch.lookup133 ]
-  %142 = load i32, ptr %hf_radiotap_vht_mu_mcs_20_mhz.sink, align 4
-  %143 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %142, ptr noundef %1, i32 noundef %125, i32 noundef 4, i32 noundef -2147483648)
-  br label %144
+.sink.split131:                                   ; preds = %switch.lookup133, %137, %134, %131
+  %hf_radiotap_vht_mu_mcs_20_mhz.sink = phi ptr [ @hf_radiotap_vht_mu_mcs_20_mhz, %131 ], [ @hf_radiotap_vht_mu_mcs_40_mhz, %134 ], [ @hf_radiotap_vht_mu_mcs_80_160_mhz, %137 ], [ %switch.load, %switch.lookup133 ]
+  %141 = load i32, ptr %hf_radiotap_vht_mu_mcs_20_mhz.sink, align 4
+  %142 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %141, ptr noundef %1, i32 noundef %125, i32 noundef 4, i32 noundef -2147483648)
+  br label %143
 
-144:                                              ; preds = %127, %.sink.split131, %130
-  %145 = add nuw nsw i32 %2, 10
+143:                                              ; preds = %128, %.sink.split131, %130
+  %144 = add nuw nsw i32 %2, 10
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3548,7 +3547,7 @@ switch.lookup133:                                 ; preds = %127
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %145
+  ret i32 %144
 }
 
 ; Function Attrs: null_pointer_is_valid

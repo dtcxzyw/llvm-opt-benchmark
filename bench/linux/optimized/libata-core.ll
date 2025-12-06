@@ -5053,7 +5053,7 @@ define dso_local ptr @ata_dev_next(ptr noundef readonly captures(address, ret: a
 
 9:                                                ; preds = %8, %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1152
-  br label %55
+  br label %54
 
 11:                                               ; preds = %8, %8
   %12 = load ptr, ptr %1, align 64
@@ -5081,35 +5081,35 @@ define dso_local ptr @ata_dev_next(ptr noundef readonly captures(address, ret: a
   %26 = phi i64 [ 1, %24 ], [ 2, %19 ]
   %27 = getelementptr %struct.ata_device, ptr %1, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -1472
-  br label %55
+  br label %54
 
 default.unreachable10:                            ; preds = %29, %8
   unreachable
 
-29:                                               ; preds = %58, %6
-  %30 = phi ptr [ %0, %6 ], [ %56, %58 ]
+29:                                               ; preds = %57, %6
+  %30 = phi ptr [ %0, %6 ], [ %55, %57 ]
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1152
   switch i32 %2, label %default.unreachable10 [
-    i32 0, label %31
-    i32 2, label %31
+    i32 0, label %32
+    i32 2, label %32
     i32 1, label %51
     i32 3, label %51
   ]
 
-31:                                               ; preds = %29, %29
-  %32 = getelementptr i8, ptr %30, i64 2624
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1152
+32:                                               ; preds = %29, %29
+  %33 = getelementptr i8, ptr %30, i64 2624
   %34 = load ptr, ptr %1, align 64
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8256
   %36 = icmp eq ptr %35, %1
   br i1 %36, label %41, label %37
 
-37:                                               ; preds = %31
+37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 14720
   %39 = load ptr, ptr %38, align 64
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %41, label %46
 
-41:                                               ; preds = %37, %31
+41:                                               ; preds = %37, %32
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, 1
@@ -5121,25 +5121,24 @@ default.unreachable10:                            ; preds = %29, %8
 
 47:                                               ; preds = %46, %41
   %48 = phi i64 [ 1, %46 ], [ 2, %41 ]
-  %49 = getelementptr %struct.ata_device, ptr %33, i64 %48
-  %50 = icmp ult ptr %32, %49
-  br i1 %50, label %55, label %.critedge
+  %49 = getelementptr %struct.ata_device, ptr %31, i64 %48
+  %50 = icmp ult ptr %33, %49
+  br i1 %50, label %54, label %.critedge
 
 51:                                               ; preds = %29, %29
   %52 = getelementptr i8, ptr %30, i64 -2624
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 1152
-  %54 = icmp ult ptr %52, %53
-  br i1 %54, label %.critedge, label %55
+  %53 = icmp ult ptr %52, %31
+  br i1 %53, label %.critedge, label %54
 
-55:                                               ; preds = %51, %47, %25, %9
-  %56 = phi ptr [ %52, %51 ], [ %32, %47 ], [ %28, %25 ], [ %10, %9 ]
-  %57 = icmp samesign ult i32 %2, 2
-  br i1 %57, label %58, label %.critedge
+54:                                               ; preds = %51, %47, %25, %9
+  %55 = phi ptr [ %52, %51 ], [ %33, %47 ], [ %28, %25 ], [ %10, %9 ]
+  %56 = icmp samesign ult i32 %2, 2
+  br i1 %56, label %57, label %.critedge
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 800
-  %60 = load i32, ptr %59, align 32
-  switch i32 %60, label %29 [
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 800
+  %59 = load i32, ptr %58, align 32
+  switch i32 %59, label %29 [
     i32 7, label %.critedge
     i32 5, label %.critedge
     i32 3, label %.critedge
@@ -5147,9 +5146,9 @@ default.unreachable10:                            ; preds = %29, %8
     i32 9, label %.critedge
   ]
 
-.critedge:                                        ; preds = %58, %58, %58, %58, %58, %55, %51, %47
-  %61 = phi ptr [ null, %47 ], [ null, %51 ], [ %56, %55 ], [ %56, %58 ], [ %56, %58 ], [ %56, %58 ], [ %56, %58 ], [ %56, %58 ]
-  ret ptr %61
+.critedge:                                        ; preds = %57, %57, %57, %57, %57, %54, %51, %47
+  %60 = phi ptr [ null, %47 ], [ null, %51 ], [ %55, %54 ], [ %55, %57 ], [ %55, %57 ], [ %55, %57 ], [ %55, %57 ], [ %55, %57 ]
+  ret ptr %60
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)

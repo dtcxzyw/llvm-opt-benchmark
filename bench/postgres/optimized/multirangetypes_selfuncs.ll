@@ -53,7 +53,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 28:                                               ; preds = %1
   %29 = call fastcc double @default_multirange_selectivity(i32 noundef %20)
   %30 = bitcast double %29 to i64
-  br label %298
+  br label %297
 
 31:                                               ; preds = %1
   %32 = load ptr, ptr %10, align 8
@@ -76,7 +76,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 41:                                               ; preds = %38, %35
   %42 = call fastcc double @default_multirange_selectivity(i32 noundef %20)
   %43 = bitcast double %42 to i64
-  br label %298
+  br label %297
 
 44:                                               ; preds = %31
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -88,13 +88,13 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %50 = load ptr, ptr %49, align 8
   %.not86 = icmp eq ptr %50, null
-  br i1 %.not86, label %298, label %51
+  br i1 %.not86, label %297, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull %50) #9
-  br label %298
+  br label %297
 
 54:                                               ; preds = %44
   %55 = load i8, ptr %11, align 1, !range !4, !noundef !5
@@ -110,13 +110,13 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %61 = load ptr, ptr %60, align 8
   %.not83 = icmp eq ptr %61, null
-  br i1 %.not83, label %298, label %62
+  br i1 %.not83, label %297, label %62
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull %61) #9
-  br label %298
+  br label %297
 
 65:                                               ; preds = %57, %54
   %.074 = phi i32 [ %20, %54 ], [ %58, %57 ]
@@ -285,17 +285,17 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 
 155:                                              ; preds = %151
   switch i32 %.074, label %160 [
-    i32 2867, label %278
-    i32 2868, label %278
-    i32 2876, label %278
-    i32 2877, label %278
-    i32 4035, label %278
-    i32 4142, label %278
-    i32 4396, label %278
-    i32 4397, label %278
-    i32 4399, label %278
-    i32 4400, label %278
-    i32 2862, label %278
+    i32 2867, label %277
+    i32 2868, label %277
+    i32 2876, label %277
+    i32 2877, label %277
+    i32 4035, label %277
+    i32 4142, label %277
+    i32 4396, label %277
+    i32 4397, label %277
+    i32 4399, label %277
+    i32 4400, label %277
+    i32 2862, label %277
     i32 4540, label %156
     i32 2874, label %156
     i32 2863, label %156
@@ -306,14 +306,14 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 156:                                              ; preds = %155, %155, %155
-  br label %278
+  br label %277
 
 157:                                              ; preds = %155, %155, %155
-  br label %278
+  br label %277
 
 158:                                              ; preds = %155
   %159 = fsub double 1.000000e+00, %.1.i
-  br label %278
+  br label %277
 
 160:                                              ; preds = %155
   %161 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -565,70 +565,69 @@ calc_hist_selectivity.exit.i:                     ; preds = %259, %256, %250, %2
 
 271:                                              ; preds = %269, %calc_hist_selectivity.exit.i
   %.0.i = phi double [ %270, %269 ], [ %.083.ph.ph.i.i, %calc_hist_selectivity.exit.i ]
+  %272 = fsub double 1.000000e+00, %.1.i
   switch i32 %.074, label %275 [
-    i32 4540, label %272
-    i32 2874, label %272
+    i32 4540, label %273
+    i32 2874, label %273
   ]
 
-272:                                              ; preds = %271, %271
-  %273 = fsub double 1.000000e+00, %.1.i
-  %274 = call double @llvm.fmuladd.f64(double %273, double %.0.i, double %.1.i)
-  br label %278
+273:                                              ; preds = %271, %271
+  %274 = call double @llvm.fmuladd.f64(double %272, double %.0.i, double %.1.i)
+  br label %277
 
 275:                                              ; preds = %271
-  %276 = fsub double 1.000000e+00, %.1.i
-  %277 = fmul double %276, %.0.i
-  br label %278
+  %276 = fmul double %272, %.0.i
+  br label %277
 
-278:                                              ; preds = %275, %272, %158, %157, %156, %155, %155, %155, %155, %155, %155, %155, %155, %155, %155, %155
-  %.029.i = phi double [ %.1.i, %156 ], [ 1.000000e+00, %157 ], [ %159, %158 ], [ %274, %272 ], [ %277, %275 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ]
-  %279 = fsub double 1.000000e+00, %.027.i
-  %280 = fmul double %279, %.029.i
-  %281 = fcmp olt double %280, 0.000000e+00
-  br i1 %281, label %calc_multirangesel.exit, label %282
+277:                                              ; preds = %275, %273, %158, %157, %156, %155, %155, %155, %155, %155, %155, %155, %155, %155, %155, %155
+  %.029.i = phi double [ %.1.i, %156 ], [ 1.000000e+00, %157 ], [ %159, %158 ], [ %274, %273 ], [ %276, %275 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %155 ]
+  %278 = fsub double 1.000000e+00, %.027.i
+  %279 = fmul double %278, %.029.i
+  %280 = fcmp olt double %279, 0.000000e+00
+  br i1 %280, label %calc_multirangesel.exit, label %281
 
-282:                                              ; preds = %278
-  %283 = fcmp ogt double %280, 1.000000e+00
-  br i1 %283, label %284, label %calc_multirangesel.exit
+281:                                              ; preds = %277
+  %282 = fcmp ogt double %279, 1.000000e+00
+  br i1 %282, label %283, label %calc_multirangesel.exit
 
-284:                                              ; preds = %282
+283:                                              ; preds = %281
   br label %calc_multirangesel.exit
 
 .thread:                                          ; preds = %65, %65, %65, %65, %65, %65, %65, %65, %111, %92, %66, %125
-  %285 = call fastcc double @default_multirange_selectivity(i32 noundef %.074)
+  %284 = call fastcc double @default_multirange_selectivity(i32 noundef %.074)
   br label %calc_multirangesel.exit
 
-calc_multirangesel.exit:                          ; preds = %284, %282, %278, %.thread
-  %.072 = phi double [ %285, %.thread ], [ 1.000000e+00, %284 ], [ %280, %282 ], [ 0.000000e+00, %278 ]
-  %286 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %287 = load ptr, ptr %286, align 8
-  %.not85 = icmp eq ptr %287, null
-  br i1 %.not85, label %291, label %288
+calc_multirangesel.exit:                          ; preds = %283, %281, %277, %.thread
+  %.072 = phi double [ %284, %.thread ], [ 1.000000e+00, %283 ], [ %279, %281 ], [ 0.000000e+00, %277 ]
+  %285 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %286 = load ptr, ptr %285, align 8
+  %.not85 = icmp eq ptr %286, null
+  br i1 %.not85, label %290, label %287
 
-288:                                              ; preds = %calc_multirangesel.exit
-  %289 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %290 = load ptr, ptr %289, align 8
-  call void %290(ptr noundef nonnull %287) #9
-  br label %291
+287:                                              ; preds = %calc_multirangesel.exit
+  %288 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %289 = load ptr, ptr %288, align 8
+  call void %289(ptr noundef nonnull %286) #9
+  br label %290
 
-291:                                              ; preds = %calc_multirangesel.exit, %288
-  %292 = fcmp olt double %.072, 0.000000e+00
-  br i1 %292, label %296, label %293
+290:                                              ; preds = %calc_multirangesel.exit, %287
+  %291 = fcmp olt double %.072, 0.000000e+00
+  br i1 %291, label %295, label %292
 
-293:                                              ; preds = %291
-  %294 = fcmp ogt double %.072, 1.000000e+00
-  br i1 %294, label %295, label %296
+292:                                              ; preds = %290
+  %293 = fcmp ogt double %.072, 1.000000e+00
+  br i1 %293, label %294, label %295
 
-295:                                              ; preds = %293
-  br label %296
+294:                                              ; preds = %292
+  br label %295
 
-296:                                              ; preds = %291, %293, %295
-  %.1 = phi double [ 1.000000e+00, %295 ], [ %.072, %293 ], [ 0.000000e+00, %291 ]
-  %297 = bitcast double %.1 to i64
-  br label %298
+295:                                              ; preds = %290, %292, %294
+  %.1 = phi double [ 1.000000e+00, %294 ], [ %.072, %292 ], [ 0.000000e+00, %290 ]
+  %296 = bitcast double %.1 to i64
+  br label %297
 
-298:                                              ; preds = %59, %62, %48, %51, %296, %41, %28
-  %.073 = phi i64 [ %297, %296 ], [ %43, %41 ], [ %30, %28 ], [ 0, %51 ], [ 0, %48 ], [ 4576918229304087675, %62 ], [ 4576918229304087675, %59 ]
+297:                                              ; preds = %59, %62, %48, %51, %295, %41, %28
+  %.073 = phi i64 [ %296, %295 ], [ %43, %41 ], [ %30, %28 ], [ 0, %51 ], [ 0, %48 ], [ 4576918229304087675, %62 ], [ 4576918229304087675, %59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

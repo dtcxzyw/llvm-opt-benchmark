@@ -5399,28 +5399,26 @@ if.then12:                                        ; preds = %if.end4
 
 if.end13:                                         ; preds = %if.then12, %if.end4
   tail call void @_ZN3irr5video13COpenGLDriver21setRenderStates3DModeEv(ptr noundef nonnull align 8 dereferenceable(4344) %this)
+  %CacheHandler = getelementptr inbounds nuw i8, ptr %this, i64 3048
+  %2 = load ptr, ptr %CacheHandler, align 8, !tbaa !6
   switch i32 %pType, label %if.then16 [
     i32 7, label %if.else
     i32 0, label %if.else
   ]
 
 if.then16:                                        ; preds = %if.end13
-  %CacheHandler = getelementptr inbounds nuw i8, ptr %this, i64 3048
-  %2 = load ptr, ptr %CacheHandler, align 8, !tbaa !6
   tail call void @_ZN3irr5video19COpenGLCacheHandler14setClientStateEbbbb(ptr noundef nonnull align 8 dereferenceable(216) %2, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true) #25
   br label %if.end18
 
 if.else:                                          ; preds = %if.end13, %if.end13
-  %CacheHandler17 = getelementptr inbounds nuw i8, ptr %this, i64 3048
-  %3 = load ptr, ptr %CacheHandler17, align 8, !tbaa !6
-  tail call void @_ZN3irr5video19COpenGLCacheHandler14setClientStateEbbbb(ptr noundef nonnull align 8 dereferenceable(216) %3, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false) #25
+  tail call void @_ZN3irr5video19COpenGLCacheHandler14setClientStateEbbbb(ptr noundef nonnull align 8 dereferenceable(216) %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false) #25
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else, %if.then16
-  %4 = load i8, ptr %arrayidx, align 1, !tbaa !166, !range !131, !noundef !132
-  %tobool22.not = icmp eq i8 %4, 0
-  %5 = load i8, ptr %arrayidx10, align 1, !range !131
-  %tobool26 = icmp eq i8 %5, 0
+  %3 = load i8, ptr %arrayidx, align 1, !tbaa !166, !range !131, !noundef !132
+  %tobool22.not = icmp eq i8 %3, 0
+  %4 = load i8, ptr %arrayidx10, align 1, !range !131
+  %tobool26 = icmp eq i8 %4, 0
   %.not = select i1 %tobool22.not, i1 %tobool26, i1 false
   %cond = select i1 %.not, i32 4, i32 32993
   br i1 %tobool5.not, label %if.then28, label %if.end49
@@ -5452,8 +5450,8 @@ sw.bb107.thread:                                  ; preds = %if.then38
 
 if.else46:                                        ; preds = %if.then28
   %ColorBuffer = getelementptr inbounds nuw i8, ptr %this, i64 3536
-  %6 = load ptr, ptr %ColorBuffer, align 8, !tbaa !183
-  tail call void @glColorPointer(i32 noundef 4, i32 noundef 5121, i32 noundef 0, ptr noundef nonnull %6) #25
+  %5 = load ptr, ptr %ColorBuffer, align 8, !tbaa !183
+  tail call void @glColorPointer(i32 noundef 4, i32 noundef 5121, i32 noundef 0, ptr noundef nonnull %5) #25
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else46, %if.end18
@@ -5483,20 +5481,20 @@ if.end60:                                         ; preds = %if.else56, %if.then
   tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 36, ptr noundef nonnull %.sink1) #25
   tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 36, ptr noundef %.sink) #25
   %MaxTextureUnits = getelementptr inbounds nuw i8, ptr %this, i64 1731
-  %7 = load i8, ptr %MaxTextureUnits, align 1, !tbaa !151
-  %cmp62.not = icmp eq i8 %7, 0
+  %6 = load i8, ptr %MaxTextureUnits, align 1, !tbaa !151
+  %cmp62.not = icmp eq i8 %6, 0
   br i1 %cmp62.not, label %sw.epilog143, label %land.lhs.true63
 
 land.lhs.true63:                                  ; preds = %if.end60
   %CacheHandler64 = getelementptr inbounds nuw i8, ptr %this, i64 3048
-  %8 = load ptr, ptr %CacheHandler64, align 8, !tbaa !6
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %9 = load ptr, ptr %arrayidx.i, align 8, !tbaa !135
-  %tobool67.not = icmp eq ptr %9, null
+  %7 = load ptr, ptr %CacheHandler64, align 8, !tbaa !6
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %8 = load ptr, ptr %arrayidx.i, align 8, !tbaa !135
+  %tobool67.not = icmp eq ptr %8, null
   br i1 %tobool67.not, label %sw.epilog143, label %if.then68
 
 if.then68:                                        ; preds = %land.lhs.true63
-  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %8, i32 noundef 33985) #25
+  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %7, i32 noundef 33985) #25
   tail call void @glEnableClientState(i32 noundef 32888) #25
   br i1 %tobool5.not, label %if.then71, label %if.else74
 
@@ -5529,14 +5527,14 @@ if.end92:                                         ; preds = %if.else87, %if.then
   tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 44, ptr noundef nonnull %.sink3) #25
   tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 44, ptr noundef %.sink2) #25
   %MaxTextureUnits95 = getelementptr inbounds nuw i8, ptr %this, i64 1731
-  %10 = load i8, ptr %MaxTextureUnits95, align 1, !tbaa !151
-  %cmp97.not = icmp eq i8 %10, 0
+  %9 = load i8, ptr %MaxTextureUnits95, align 1, !tbaa !151
+  %cmp97.not = icmp eq i8 %9, 0
   br i1 %cmp97.not, label %sw.epilog143, label %if.then98
 
 if.then98:                                        ; preds = %if.end92
   %CacheHandler99 = getelementptr inbounds nuw i8, ptr %this, i64 3048
-  %11 = load ptr, ptr %CacheHandler99, align 8, !tbaa !6
-  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %11, i32 noundef 33985) #25
+  %10 = load ptr, ptr %CacheHandler99, align 8, !tbaa !6
+  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %10, i32 noundef 33985) #25
   tail call void @glEnableClientState(i32 noundef 32888) #25
   br i1 %tobool5.not, label %if.then101, label %if.else103
 
@@ -5569,19 +5567,19 @@ if.end121:                                        ; preds = %if.else116, %if.the
   tail call void @glTexCoordPointer(i32 noundef 2, i32 noundef 5126, i32 noundef 60, ptr noundef nonnull %.sink5) #25
   tail call void @glVertexPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 60, ptr noundef %.sink4) #25
   %MaxTextureUnits124 = getelementptr inbounds nuw i8, ptr %this, i64 1731
-  %12 = load i8, ptr %MaxTextureUnits124, align 1, !tbaa !151
-  %cmp126.not = icmp eq i8 %12, 0
+  %11 = load i8, ptr %MaxTextureUnits124, align 1, !tbaa !151
+  %cmp126.not = icmp eq i8 %11, 0
   br i1 %cmp126.not, label %sw.epilog143, label %if.then127
 
 if.then127:                                       ; preds = %if.end121
   %CacheHandler128 = getelementptr inbounds nuw i8, ptr %this, i64 3048
-  %13 = load ptr, ptr %CacheHandler128, align 8, !tbaa !6
-  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %13, i32 noundef 33985) #25
+  %12 = load ptr, ptr %CacheHandler128, align 8, !tbaa !6
+  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %12, i32 noundef 33985) #25
   tail call void @glEnableClientState(i32 noundef 32888) #25
   %Tangent = getelementptr i8, ptr %vertices, i64 36
   tail call void @glTexCoordPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 60, ptr noundef nonnull %Tangent) #25
-  %14 = load ptr, ptr %CacheHandler128, align 8, !tbaa !6
-  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %14, i32 noundef 33986) #25
+  %13 = load ptr, ptr %CacheHandler128, align 8, !tbaa !6
+  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %13, i32 noundef 33986) #25
   tail call void @glEnableClientState(i32 noundef 32888) #25
   br i1 %tobool5.not, label %if.then137, label %if.else139
 
@@ -5597,8 +5595,8 @@ if.else139:                                       ; preds = %if.then127
 sw.epilog143:                                     ; preds = %if.else139, %if.then137, %if.end121, %if.else103, %if.then101, %if.end92, %if.else74, %if.then71, %land.lhs.true63, %if.end60, %if.end49, %if.then38
   tail call void @_ZN3irr5video13COpenGLDriver11renderArrayEPKvjNS_5scene16E_PRIMITIVE_TYPEENS0_12E_INDEX_TYPEE(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef %indexList, i32 noundef %primitiveCount, i32 noundef %pType, i32 noundef %iType)
   %MaxTextureUnits146 = getelementptr inbounds nuw i8, ptr %this, i64 1731
-  %15 = load i8, ptr %MaxTextureUnits146, align 1, !tbaa !151
-  %cmp148.not = icmp eq i8 %15, 0
+  %14 = load i8, ptr %MaxTextureUnits146, align 1, !tbaa !151
+  %cmp148.not = icmp eq i8 %14, 0
   br i1 %cmp148.not, label %return, label %if.then149
 
 if.then149:                                       ; preds = %sw.epilog143
@@ -5609,30 +5607,30 @@ if.then149:                                       ; preds = %sw.epilog143
 
 if.then151:                                       ; preds = %if.then149
   %CacheHandler152 = getelementptr inbounds nuw i8, ptr %this, i64 3048
-  %16 = load ptr, ptr %CacheHandler152, align 8, !tbaa !6
-  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %16, i32 noundef 33986) #25
+  %15 = load ptr, ptr %CacheHandler152, align 8, !tbaa !6
+  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %15, i32 noundef 33986) #25
   tail call void @glDisableClientState(i32 noundef 32888) #25
   br label %if.then160
 
 lor.lhs.false155:                                 ; preds = %if.then149
   %CacheHandler156 = getelementptr inbounds nuw i8, ptr %this, i64 3048
-  %17 = load ptr, ptr %CacheHandler156, align 8, !tbaa !6
-  %arrayidx.i218 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %18 = load ptr, ptr %arrayidx.i218, align 8, !tbaa !135
-  %tobool159.not = icmp eq ptr %18, null
+  %16 = load ptr, ptr %CacheHandler156, align 8, !tbaa !6
+  %arrayidx.i218 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %17 = load ptr, ptr %arrayidx.i218, align 8, !tbaa !135
+  %tobool159.not = icmp eq ptr %17, null
   br i1 %tobool159.not, label %if.end162, label %if.then160
 
 if.then160:                                       ; preds = %lor.lhs.false155, %if.then151, %if.then149
   %CacheHandler161 = getelementptr inbounds nuw i8, ptr %this, i64 3048
-  %19 = load ptr, ptr %CacheHandler161, align 8, !tbaa !6
-  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %19, i32 noundef 33985) #25
+  %18 = load ptr, ptr %CacheHandler161, align 8, !tbaa !6
+  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %18, i32 noundef 33985) #25
   tail call void @glDisableClientState(i32 noundef 32888) #25
   %.pre = load ptr, ptr %CacheHandler161, align 8, !tbaa !6
   br label %if.end162
 
 if.end162:                                        ; preds = %if.then160, %lor.lhs.false155
-  %20 = phi ptr [ %.pre, %if.then160 ], [ %17, %lor.lhs.false155 ]
-  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %20, i32 noundef 33984) #25
+  %19 = phi ptr [ %.pre, %if.then160 ], [ %16, %lor.lhs.false155 ]
+  tail call void @_ZN3irr5video19COpenGLCacheHandler22setClientActiveTextureEj(ptr noundef nonnull align 8 dereferenceable(216) %19, i32 noundef 33984) #25
   br label %return
 
 return:                                           ; preds = %if.end162, %sw.epilog143, %if.end, %entry

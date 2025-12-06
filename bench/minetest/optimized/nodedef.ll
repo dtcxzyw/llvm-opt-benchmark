@@ -9453,6 +9453,7 @@ define dso_local void @_ZN15ContentFeatures18setAlphaFromLegacyEh(ptr noundef no
 entry:
   %drawtype = getelementptr inbounds nuw i8, ptr %this, i64 1538
   %0 = load i8, ptr %drawtype, align 2, !tbaa !265
+  %cmp9 = icmp eq i8 %legacy_alpha, -1
   switch i8 %0, label %sw.default [
     i8 0, label %sw.bb
     i8 2, label %sw.bb3
@@ -9460,17 +9461,14 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %cmp = icmp eq i8 %legacy_alpha, -1
-  %cond = select i1 %cmp, i8 2, i8 1
+  %cond = select i1 %cmp9, i8 2, i8 1
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry, %entry
-  %cmp5 = icmp eq i8 %legacy_alpha, -1
-  %cond6 = select i1 %cmp5, i8 2, i8 0
+  %cond6 = select i1 %cmp9, i8 2, i8 0
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %cmp9 = icmp eq i8 %legacy_alpha, -1
   %cond10 = zext i1 %cmp9 to i8
   br label %sw.epilog
 
@@ -10860,6 +10858,7 @@ for.body123.preheader:                            ; preds = %for.body74.preheade
   %56 = load i8, ptr %buf.i566, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %buf.i566)
   %57 = load i8, ptr %drawtype, align 2, !tbaa !265
+  %cmp9.i = icmp eq i8 %56, -1
   switch i8 %57, label %sw.default.i [
     i8 0, label %sw.bb.i
     i8 2, label %sw.bb3.i
@@ -10904,17 +10903,14 @@ cleanup.action111:                                ; preds = %if.then96
   br label %eh.resume
 
 sw.bb.i:                                          ; preds = %for.body123.preheader
-  %cmp.i = icmp eq i8 %56, -1
-  %cond.i = select i1 %cmp.i, i8 2, i8 1
+  %cond.i = select i1 %cmp9.i, i8 2, i8 1
   br label %_ZN15ContentFeatures18setAlphaFromLegacyEh.exit
 
 sw.bb3.i:                                         ; preds = %for.body123.preheader, %for.body123.preheader
-  %cmp5.i = icmp eq i8 %56, -1
-  %cond6.i = select i1 %cmp5.i, i8 2, i8 0
+  %cond6.i = select i1 %cmp9.i, i8 2, i8 0
   br label %_ZN15ContentFeatures18setAlphaFromLegacyEh.exit
 
 sw.default.i:                                     ; preds = %for.body123.preheader
-  %cmp9.i = icmp eq i8 %56, -1
   %cond10.i = zext i1 %cmp9.i to i8
   br label %_ZN15ContentFeatures18setAlphaFromLegacyEh.exit
 

@@ -2236,36 +2236,36 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
 
 386:                                              ; preds = %312
   %387 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  switch i32 %387, label %392 [
-    i32 0, label %393
-    i32 12, label %393
-    i32 13, label %393
-    i32 1, label %388
-    i32 2, label %389
-    i32 258, label %389
-    i32 7, label %390
-    i32 8, label %391
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  switch i32 %387, label %393 [
+    i32 0, label %394
+    i32 12, label %394
+    i32 13, label %394
+    i32 1, label %389
+    i32 2, label %390
+    i32 258, label %390
+    i32 7, label %391
+    i32 8, label %392
   ]
 
-388:                                              ; preds = %386
-  br label %393
+389:                                              ; preds = %386
+  br label %394
 
-389:                                              ; preds = %386, %386
-  br label %393
-
-390:                                              ; preds = %386
-  br label %393
+390:                                              ; preds = %386, %386
+  br label %394
 
 391:                                              ; preds = %386
-  br label %393
+  br label %394
 
 392:                                              ; preds = %386
-  br label %393
+  br label %394
 
-393:                                              ; preds = %386, %386, %386, %392, %391, %390, %389, %388
-  %.sink = phi i16 [ 1, %392 ], [ 1250, %391 ], [ 1777, %390 ], [ 1333, %389 ], [ 1000, %388 ], [ 1500, %386 ], [ 1500, %386 ], [ 1500, %386 ]
-  %394 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i16 %.sink, ptr %394, align 4, !tbaa !145
+393:                                              ; preds = %386
+  br label %394
+
+394:                                              ; preds = %386, %386, %386, %393, %392, %391, %390, %389
+  %.sink = phi i16 [ 1, %393 ], [ 1250, %392 ], [ 1777, %391 ], [ 1333, %390 ], [ 1000, %389 ], [ 1500, %386 ], [ 1500, %386 ], [ 1500, %386 ]
+  store i16 %.sink, ptr %388, align 4, !tbaa !145
   %395 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %396 = trunc i32 %395 to i16
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 182
@@ -4126,7 +4126,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   store i32 %1572, ptr %1573, align 8, !tbaa !220
   br label %.thread574
 
-.thread574:                                       ; preds = %1561, %421, %288, %324, %1546, %1549, %1517, %1523, %._crit_edge, %127, %132, %16, %7, %136, %151, %167, %164, %295, %341, %355, %367, %379, %380, %373, %361, %348, %335, %458, %457, %456, %.thread566, %1539, %1528, %1563, %1565, %459, %447, %393, %313, %316, %160, %146, %6
+.thread574:                                       ; preds = %1561, %421, %288, %324, %1546, %1549, %1517, %1523, %._crit_edge, %127, %132, %16, %7, %136, %151, %167, %164, %295, %341, %355, %367, %379, %380, %373, %361, %348, %335, %458, %457, %456, %.thread566, %1539, %1528, %1563, %1565, %459, %447, %394, %313, %316, %160, %146, %6
   ret void
 }
 

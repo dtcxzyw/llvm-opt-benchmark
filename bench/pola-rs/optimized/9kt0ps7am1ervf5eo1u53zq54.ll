@@ -51287,11 +51287,11 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN11polars_plan5plans2ir6format79_$LT$impl$u20$core..fmt..Debug$u20$for$u20$polars_plan..dsl..expr..Operator$GT$3fmt17h1c425590b20321ccE", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep6 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan5plans2ir6format79_$LT$impl$u20$core..fmt..Debug$u20$for$u20$polars_plan..dsl..expr..Operator$GT$3fmt17h1c425590b20321ccE.798", i64 %7
-  %switch.load7 = load i64, ptr %switch.gep6, align 8
-  store ptr %switch.load, ptr %4, align 8
+  %switch.gep5 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan5plans2ir6format79_$LT$impl$u20$core..fmt..Debug$u20$for$u20$polars_plan..dsl..expr..Operator$GT$3fmt17h1c425590b20321ccE.798", i64 %7
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %switch.load7, ptr %8, align 8
+  store ptr %switch.load, ptr %4, align 8
+  store i64 %switch.load6, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -66369,8 +66369,8 @@ switch.lookup:
   %7 = zext nneg i8 %5 to i64
   %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN11polars_plan5plans2ir6format79_$LT$impl$u20$core..fmt..Debug$u20$for$u20$polars_plan..dsl..expr..Operator$GT$3fmt17h1c425590b20321ccE.798", i64 %7
   %switch.load2 = load i64, ptr %switch.gep1, align 8
-  store ptr %switch.load, ptr %4, align 8, !noalias !7986
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %switch.load, ptr %4, align 8, !noalias !7986
   store i64 %switch.load2, ptr %8, align 8, !noalias !7986
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !7986
   store ptr %4, ptr %3, align 8, !noalias !7986

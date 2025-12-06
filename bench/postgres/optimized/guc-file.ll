@@ -2931,7 +2931,7 @@ GUC_yylex_init.exit.thread:                       ; preds = %45, %48, %16
   br label %.loopexit.outer
 
 .loopexit.outer:                                  ; preds = %.preheader, %GUC_yylex_init.exit.thread
-  %.0159.ph = phi i32 [ 0, %GUC_yylex_init.exit.thread ], [ %207, %.preheader ]
+  %.0159.ph = phi i32 [ 0, %GUC_yylex_init.exit.thread ], [ %206, %.preheader ]
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %.loopexit.outer
@@ -3191,16 +3191,16 @@ ParseConfigDirectory.exit:                        ; preds = %.lr.ph, %ParseConfi
 
 .thread208:                                       ; preds = %.loopexit, %151, %150
   %.0163206212 = phi i32 [ %.0163, %151 ], [ %.0163, %150 ], [ %54, %.loopexit ]
+  %152 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
   switch i32 %.0163206212, label %180 [
-    i32 99, label %152
-    i32 0, label %152
+    i32 99, label %153
+    i32 0, label %153
   ]
 
-152:                                              ; preds = %.thread208, %.thread208
-  %153 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
-  br i1 %153, label %154, label %159
+153:                                              ; preds = %.thread208, %.thread208
+  br i1 %152, label %154, label %159
 
-154:                                              ; preds = %152
+154:                                              ; preds = %153
   %155 = call i32 @errcode(i32 noundef 16801924) #29
   %156 = load i32, ptr @ConfigFileLineno, align 4
   %157 = add i32 %156, -1
@@ -3208,7 +3208,7 @@ ParseConfigDirectory.exit:                        ; preds = %.lr.ph, %ParseConfi
   call void @errfinish(ptr noundef nonnull @.str.11, i32 noundef 519, ptr noundef nonnull @__func__.ParseConfigFp) #29
   br label %159
 
-159:                                              ; preds = %154, %152
+159:                                              ; preds = %154, %153
   %160 = load i32, ptr @ConfigFileLineno, align 4
   %161 = add i32 %160, -1
   %162 = call ptr @palloc(i64 noundef 48) #29
@@ -3249,136 +3249,135 @@ ParseConfigDirectory.exit:                        ; preds = %.lr.ph, %ParseConfi
   br label %record_config_file_error.exit179
 
 180:                                              ; preds = %.thread208
-  %181 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
-  br i1 %181, label %182, label %187
+  br i1 %152, label %181, label %186
 
-182:                                              ; preds = %180
-  %183 = call i32 @errcode(i32 noundef 16801924) #29
-  %184 = load i32, ptr @ConfigFileLineno, align 4
-  %185 = load ptr, ptr %51, align 8
-  %186 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef %1, i32 noundef %184, ptr noundef %185) #29
+181:                                              ; preds = %180
+  %182 = call i32 @errcode(i32 noundef 16801924) #29
+  %183 = load i32, ptr @ConfigFileLineno, align 4
+  %184 = load ptr, ptr %51, align 8
+  %185 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef %1, i32 noundef %183, ptr noundef %184) #29
   call void @errfinish(ptr noundef nonnull @.str.11, i32 noundef 529, ptr noundef nonnull @__func__.ParseConfigFp) #29
-  br label %187
+  br label %186
 
-187:                                              ; preds = %182, %180
-  %188 = load i32, ptr @ConfigFileLineno, align 4
-  %189 = call ptr @palloc(i64 noundef 48) #29
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, i8 0, i64 16, i1 false)
-  %190 = call ptr @pstrdup(ptr noundef nonnull @.str.27) #29
-  %191 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  store ptr %190, ptr %191, align 8
-  br i1 %.not.i183, label %194, label %192
+186:                                              ; preds = %181, %180
+  %187 = load i32, ptr @ConfigFileLineno, align 4
+  %188 = call ptr @palloc(i64 noundef 48) #29
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %188, i8 0, i64 16, i1 false)
+  %189 = call ptr @pstrdup(ptr noundef nonnull @.str.27) #29
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 16
+  store ptr %189, ptr %190, align 8
+  br i1 %.not.i183, label %193, label %191
 
-192:                                              ; preds = %187
-  %193 = call ptr @pstrdup(ptr noundef nonnull %1) #29
-  br label %194
+191:                                              ; preds = %186
+  %192 = call ptr @pstrdup(ptr noundef nonnull %1) #29
+  br label %193
 
-194:                                              ; preds = %192, %187
-  %195 = phi ptr [ %193, %192 ], [ null, %187 ]
-  %196 = getelementptr inbounds nuw i8, ptr %189, i64 24
-  store ptr %195, ptr %196, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %189, i64 32
-  store i32 %188, ptr %197, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %189, i64 36
-  store i8 1, ptr %198, align 4
-  %199 = getelementptr inbounds nuw i8, ptr %189, i64 37
-  store i8 0, ptr %199, align 1
-  %200 = getelementptr inbounds nuw i8, ptr %189, i64 40
-  store ptr null, ptr %200, align 8
-  %201 = load ptr, ptr %4, align 8
-  %202 = icmp eq ptr %201, null
-  br i1 %202, label %203, label %204
+193:                                              ; preds = %191, %186
+  %194 = phi ptr [ %192, %191 ], [ null, %186 ]
+  %195 = getelementptr inbounds nuw i8, ptr %188, i64 24
+  store ptr %194, ptr %195, align 8
+  %196 = getelementptr inbounds nuw i8, ptr %188, i64 32
+  store i32 %187, ptr %196, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %188, i64 36
+  store i8 1, ptr %197, align 4
+  %198 = getelementptr inbounds nuw i8, ptr %188, i64 37
+  store i8 0, ptr %198, align 1
+  %199 = getelementptr inbounds nuw i8, ptr %188, i64 40
+  store ptr null, ptr %199, align 8
+  %200 = load ptr, ptr %4, align 8
+  %201 = icmp eq ptr %200, null
+  br i1 %201, label %202, label %203
 
-203:                                              ; preds = %194
-  store ptr %189, ptr %4, align 8
+202:                                              ; preds = %193
+  store ptr %188, ptr %4, align 8
   br label %record_config_file_error.exit179
 
-204:                                              ; preds = %194
-  %205 = load ptr, ptr %5, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 40
-  store ptr %189, ptr %206, align 8
+203:                                              ; preds = %193
+  %204 = load ptr, ptr %5, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 40
+  store ptr %188, ptr %205, align 8
   br label %record_config_file_error.exit179
 
-record_config_file_error.exit179:                 ; preds = %204, %203, %177, %176
-  %storemerge = phi ptr [ %162, %176 ], [ %162, %177 ], [ %189, %203 ], [ %189, %204 ]
+record_config_file_error.exit179:                 ; preds = %203, %202, %177, %176
+  %storemerge = phi ptr [ %162, %176 ], [ %162, %177 ], [ %188, %202 ], [ %188, %203 ]
   store ptr %storemerge, ptr %5, align 8
   store volatile i8 0, ptr %9, align 1
-  %207 = add i32 %.0159.ph, 1
-  %208 = icmp sgt i32 %207, 99
-  %or.cond29 = or i1 %53, %208
-  br i1 %or.cond29, label %209, label %.preheader
+  %206 = add i32 %.0159.ph, 1
+  %207 = icmp sgt i32 %206, 99
+  %or.cond29 = or i1 %53, %207
+  br i1 %or.cond29, label %208, label %.preheader
 
-209:                                              ; preds = %record_config_file_error.exit179
-  %210 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
-  br i1 %210, label %211, label %.thread213
+208:                                              ; preds = %record_config_file_error.exit179
+  %209 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #29
+  br i1 %209, label %210, label %.thread213
 
-211:                                              ; preds = %209
-  %212 = call i32 @errcode(i32 noundef 261) #29
-  %213 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %1) #29
+210:                                              ; preds = %208
+  %211 = call i32 @errcode(i32 noundef 261) #29
+  %212 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %1) #29
   call void @errfinish(ptr noundef nonnull @.str.11, i32 noundef 549, ptr noundef nonnull @__func__.ParseConfigFp) #29
   br label %.thread213
 
-.preheader:                                       ; preds = %record_config_file_error.exit179, %214
-  %.2 = phi i32 [ %215, %214 ], [ %.0163206212, %record_config_file_error.exit179 ]
-  switch i32 %.2, label %214 [
+.preheader:                                       ; preds = %record_config_file_error.exit179, %213
+  %.2 = phi i32 [ %214, %213 ], [ %.0163206212, %record_config_file_error.exit179 ]
+  switch i32 %.2, label %213 [
     i32 0, label %.thread213
     i32 99, label %.loopexit.outer
   ]
 
-214:                                              ; preds = %.preheader
-  %215 = call i32 @GUC_yylex(ptr noundef %calloc.i)
+213:                                              ; preds = %.preheader
+  %214 = call i32 @GUC_yylex(ptr noundef %calloc.i)
   br label %.preheader, !llvm.loop !18
 
-.thread213:                                       ; preds = %146, %.loopexit, %.preheader, %209, %211, %record_config_file_error.exit
-  %.0196 = phi ptr [ undef, %record_config_file_error.exit ], [ %calloc.i, %211 ], [ %calloc.i, %209 ], [ %calloc.i, %.preheader ], [ %calloc.i, %.loopexit ], [ %calloc.i, %146 ]
+.thread213:                                       ; preds = %146, %.loopexit, %.preheader, %208, %210, %record_config_file_error.exit
+  %.0196 = phi ptr [ undef, %record_config_file_error.exit ], [ %calloc.i, %210 ], [ %calloc.i, %208 ], [ %calloc.i, %.preheader ], [ %calloc.i, %.loopexit ], [ %calloc.i, %146 ]
   %.0..0..0..0.86 = load volatile ptr, ptr %11, align 8
   %.not.i182 = icmp eq ptr %.0..0..0..0.86, null
-  br i1 %.not.i182, label %GUC_yy_delete_buffer.exit, label %216
+  br i1 %.not.i182, label %GUC_yy_delete_buffer.exit, label %215
 
-216:                                              ; preds = %.thread213
-  %217 = getelementptr inbounds nuw i8, ptr %.0196, i64 40
-  %218 = load ptr, ptr %217, align 8
-  %.not14.i = icmp eq ptr %218, null
-  br i1 %.not14.i, label %.critedge.i, label %219
+215:                                              ; preds = %.thread213
+  %216 = getelementptr inbounds nuw i8, ptr %.0196, i64 40
+  %217 = load ptr, ptr %216, align 8
+  %.not14.i = icmp eq ptr %217, null
+  br i1 %.not14.i, label %.critedge.i, label %218
 
-219:                                              ; preds = %216
-  %220 = getelementptr inbounds nuw i8, ptr %.0196, i64 24
-  %221 = load i64, ptr %220, align 8
-  %222 = getelementptr inbounds nuw ptr, ptr %218, i64 %221
-  %223 = load ptr, ptr %222, align 8
-  %224 = icmp eq ptr %.0..0..0..0.86, %223
-  br i1 %224, label %225, label %.critedge.i
+218:                                              ; preds = %215
+  %219 = getelementptr inbounds nuw i8, ptr %.0196, i64 24
+  %220 = load i64, ptr %219, align 8
+  %221 = getelementptr inbounds nuw ptr, ptr %217, i64 %220
+  %222 = load ptr, ptr %221, align 8
+  %223 = icmp eq ptr %.0..0..0..0.86, %222
+  br i1 %223, label %224, label %.critedge.i
 
-225:                                              ; preds = %219
-  store ptr null, ptr %222, align 8
+224:                                              ; preds = %218
+  store ptr null, ptr %221, align 8
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %225, %219, %216
-  %226 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.86, i64 32
-  %227 = load i32, ptr %226, align 8
-  %.not15.i = icmp eq i32 %227, 0
-  br i1 %.not15.i, label %231, label %228
+.critedge.i:                                      ; preds = %224, %218, %215
+  %225 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.86, i64 32
+  %226 = load i32, ptr %225, align 8
+  %.not15.i = icmp eq i32 %226, 0
+  br i1 %.not15.i, label %230, label %227
 
-228:                                              ; preds = %.critedge.i
-  %229 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.86, i64 8
-  %230 = load ptr, ptr %229, align 8
-  call void @free(ptr noundef %230) #29
-  br label %231
+227:                                              ; preds = %.critedge.i
+  %228 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.86, i64 8
+  %229 = load ptr, ptr %228, align 8
+  call void @free(ptr noundef %229) #29
+  br label %230
 
-231:                                              ; preds = %228, %.critedge.i
+230:                                              ; preds = %227, %.critedge.i
   call void @free(ptr noundef nonnull %.0..0..0..0.86) #29
   br label %GUC_yy_delete_buffer.exit
 
-GUC_yy_delete_buffer.exit:                        ; preds = %.thread213, %231
-  %232 = call i32 @GUC_yylex_destroy(ptr noundef %.0196)
+GUC_yy_delete_buffer.exit:                        ; preds = %.thread213, %230
+  %231 = call i32 @GUC_yylex_destroy(ptr noundef %.0196)
   store i32 %12, ptr @ConfigFileLineno, align 4
   store ptr %13, ptr @GUC_flex_fatal_jmp, align 8
   %.0..0..0..0.93 = load volatile i8, ptr %9, align 1, !range !15, !noundef !16
-  %233 = trunc nuw i8 %.0..0..0..0.93 to i1
+  %232 = trunc nuw i8 %.0..0..0..0.93 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i1 %233
+  ret i1 %232
 }
 
 declare i32 @FreeFile(ptr noundef) local_unnamed_addr #17

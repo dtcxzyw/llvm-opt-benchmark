@@ -1458,23 +1458,23 @@ define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader10getRawNameEv(ptr d
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 114
   %9 = load i8, ptr %8, align 2
   %10 = and i8 %9, 7
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !11
+  %13 = load i8, ptr %12, align 1, !tbaa !25
   switch i8 %10, label %28 [
-    i8 4, label %11
-    i8 2, label %11
+    i8 4, label %14
+    i8 2, label %14
   ]
 
-11:                                               ; preds = %2, %2
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !11
-  %14 = load i8, ptr %13, align 1, !tbaa !25
-  %15 = icmp eq i8 %14, 32
+14:                                               ; preds = %2, %2
+  %15 = icmp eq i8 %13, 32
   br i1 %15, label %_ZN4llvm5ErrorD2Ev.exit, label %_ZNK4llvm9StringRef4findEcm.exit
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %11
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = tail call { ptr, i64 } @_ZNK4llvm6object6Binary7getDataEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #23
   %17 = extractvalue { ptr, i64 } %16, 0
-  %18 = ptrtoint ptr %13 to i64
+  %18 = ptrtoint ptr %12 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   store i64 %20, ptr %3, align 8, !tbaa !49
@@ -1496,39 +1496,35 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %11
   store ptr %27, ptr %0, align 8, !tbaa !45, !alias.scope !111
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %42
+  br label %38
 
 28:                                               ; preds = %2
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !11
-  %31 = load i8, ptr %30, align 1, !tbaa !25
-  %switch.selectcmp.case1 = icmp eq i8 %31, 47
-  %switch.selectcmp.case2 = icmp eq i8 %31, 35
+  %switch.selectcmp.case1 = icmp eq i8 %13, 47
+  %switch.selectcmp.case2 = icmp eq i8 %13, 35
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %32 = select i1 %switch.selectcmp, i32 32, i32 47
+  %29 = select i1 %switch.selectcmp, i32 32, i32 47
   br label %_ZNK4llvm9StringRef4findEcm.exit
 
-_ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %28, %11
-  %33 = phi ptr [ %13, %11 ], [ %30, %28 ]
-  %.0 = phi i32 [ 32, %11 ], [ %32, %28 ]
-  %34 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %33, i32 noundef %.0, i64 noundef 16) #23
-  %.not.i.i = icmp eq ptr %34, null
-  %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %33 to i64
-  %37 = sub i64 %35, %36
-  %.1.i.i = select i1 %.not.i.i, i64 -1, i64 %37
-  %38 = icmp eq i64 %.1.i.i, -1
-  %spec.store.select = select i1 %38, i64 16, i64 %.1.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %40 = load i8, ptr %39, align 8
-  %41 = and i8 %40, -2
-  store i8 %41, ptr %39, align 8
-  store ptr %33, ptr %0, align 8, !tbaa !114
+_ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %28, %14
+  %.0 = phi i32 [ 32, %14 ], [ %29, %28 ]
+  %30 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef %.0, i64 noundef 16) #23
+  %.not.i.i = icmp eq ptr %30, null
+  %31 = ptrtoint ptr %30 to i64
+  %32 = ptrtoint ptr %12 to i64
+  %33 = sub i64 %31, %32
+  %.1.i.i = select i1 %.not.i.i, i64 -1, i64 %33
+  %34 = icmp eq i64 %.1.i.i, -1
+  %spec.store.select = select i1 %34, i64 16, i64 %.1.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %36 = load i8, ptr %35, align 8
+  %37 = and i8 %36, -2
+  store i8 %37, ptr %35, align 8
+  store ptr %12, ptr %0, align 8, !tbaa !114
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %spec.store.select, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !49
-  br label %42
+  br label %38
 
-42:                                               ; preds = %_ZNK4llvm9StringRef4findEcm.exit, %_ZN4llvm5ErrorD2Ev.exit
+38:                                               ; preds = %_ZNK4llvm9StringRef4findEcm.exit, %_ZN4llvm5ErrorD2Ev.exit
   ret void
 }
 

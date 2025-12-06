@@ -8607,74 +8607,73 @@ switch.lookup:                                    ; preds = %17
   br i1 %31, label %32, label %.critedge
 
 32:                                               ; preds = %27
+  %33 = load i32, ptr @hf_gsm_a_sm_pdp_address, align 4
   switch i8 %16, label %36 [
-    i8 -115, label %33
-    i8 87, label %33
-    i8 33, label %33
+    i8 -115, label %34
+    i8 87, label %34
+    i8 33, label %34
   ]
 
-33:                                               ; preds = %32, %32, %32
-  %34 = load i32, ptr @hf_gsm_a_sm_pdp_address, align 4
-  %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %34, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef %29, ptr noundef nonnull @.str.102)
-  br label %66
+34:                                               ; preds = %32, %32, %32
+  %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %33, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef %29, ptr noundef nonnull @.str.102)
+  br label %65
 
 36:                                               ; preds = %32
-  %37 = load i32, ptr @hf_gsm_a_sm_pdp_address, align 4
-  %38 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %37, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.103)
-  br label %66
+  %37 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %33, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.103)
+  br label %65
 
 .critedge:                                        ; preds = %27
-  %39 = add i32 %3, 2
-  %40 = icmp eq i8 %14, 1
-  br i1 %40, label %41, label %57
+  %38 = add i32 %3, 2
+  %39 = icmp eq i8 %14, 1
+  br i1 %39, label %40, label %56
 
-41:                                               ; preds = %.critedge
-  switch i8 %16, label %53 [
-    i8 87, label %42
-    i8 -115, label %46
+40:                                               ; preds = %.critedge
+  switch i8 %16, label %52 [
+    i8 87, label %41
+    i8 -115, label %45
   ]
 
-42:                                               ; preds = %41
-  %43 = load i32, ptr @hf_gsm_a_sm_ip6_address, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %43, ptr noundef %0, i32 noundef %39, i32 noundef 16, i32 noundef 0)
-  %45 = add i32 %3, 18
-  br label %57
+41:                                               ; preds = %40
+  %42 = load i32, ptr @hf_gsm_a_sm_ip6_address, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %42, ptr noundef %0, i32 noundef %38, i32 noundef 16, i32 noundef 0)
+  %44 = add i32 %3, 18
+  br label %56
 
-46:                                               ; preds = %41
-  %47 = load i32, ptr @hf_gsm_a_sm_ip4_address, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %47, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0)
-  %49 = add i32 %3, 6
-  %50 = load i32, ptr @hf_gsm_a_sm_ip6_address, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 16, i32 noundef 0)
-  %52 = add i32 %3, 22
-  br label %57
+45:                                               ; preds = %40
+  %46 = load i32, ptr @hf_gsm_a_sm_ip4_address, align 4
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %46, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0)
+  %48 = add i32 %3, 6
+  %49 = load i32, ptr @hf_gsm_a_sm_ip6_address, align 4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef 16, i32 noundef 0)
+  %51 = add i32 %3, 22
+  br label %56
 
-53:                                               ; preds = %41
-  %54 = load i32, ptr @hf_gsm_a_sm_ip4_address, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %54, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0)
-  %56 = add i32 %3, 6
-  br label %57
+52:                                               ; preds = %40
+  %53 = load i32, ptr @hf_gsm_a_sm_ip4_address, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %53, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0)
+  %55 = add i32 %3, 6
+  br label %56
 
-57:                                               ; preds = %42, %46, %53, %.critedge
-  %.085 = phi i32 [ %56, %53 ], [ %45, %42 ], [ %52, %46 ], [ %39, %.critedge ]
-  %58 = sub i32 %.085, %3
-  %59 = icmp ugt i32 %4, %58
-  br i1 %59, label %60, label %64
+56:                                               ; preds = %41, %45, %52, %.critedge
+  %.085 = phi i32 [ %55, %52 ], [ %44, %41 ], [ %51, %45 ], [ %38, %.critedge ]
+  %57 = sub i32 %.085, %3
+  %58 = icmp ugt i32 %4, %57
+  br i1 %58, label %59, label %63
 
-60:                                               ; preds = %57
-  %61 = sub nuw i32 %4, %58
-  %62 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %.085, i32 noundef %61)
-  %63 = add i32 %61, %.085
-  %.pre = sub i32 %63, %3
-  br label %64
+59:                                               ; preds = %56
+  %60 = sub nuw i32 %4, %57
+  %61 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_extraneous_data, ptr noundef %0, i32 noundef %.085, i32 noundef %60)
+  %62 = add i32 %60, %.085
+  %.pre = sub i32 %62, %3
+  br label %63
 
-64:                                               ; preds = %60, %57
-  %.pre-phi = phi i32 [ %.pre, %60 ], [ %58, %57 ]
-  %65 = trunc i32 %.pre-phi to i16
-  br label %66
+63:                                               ; preds = %59, %56
+  %.pre-phi = phi i32 [ %.pre, %59 ], [ %57, %56 ]
+  %64 = trunc i32 %.pre-phi to i16
+  br label %65
 
-66:                                               ; preds = %64, %36, %33
-  %.0 = phi i16 [ 2, %33 ], [ 2, %36 ], [ %65, %64 ]
+65:                                               ; preds = %63, %36, %34
+  %.0 = phi i16 [ 2, %34 ], [ 2, %36 ], [ %64, %63 ]
   ret i16 %.0
 }
 

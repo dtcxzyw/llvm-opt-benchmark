@@ -77048,7 +77048,7 @@ define internal fastcc ptr @emit_x86_instruction(ptr noundef captures(none) %0, 
 
 emit_load_imm64.exit:                             ; preds = %30
   store i32 2, ptr %0, align 8, !tbaa !110
-  br label %297
+  br label %295
 
 39:                                               ; preds = %27, %35
   %.0.i.ph.i = phi ptr [ %38, %35 ], [ %29, %27 ]
@@ -77325,7 +77325,7 @@ emit_load_imm64.exit:                             ; preds = %30
 
 ensure_buf.exit:                                  ; preds = %161
   store i32 2, ptr %0, align 8, !tbaa !110
-  br label %297
+  br label %295
 
 170:                                              ; preds = %158, %166
   %.0.i269.ph = phi ptr [ %169, %166 ], [ %160, %158 ]
@@ -77430,12 +77430,12 @@ ensure_buf.exit:                                  ; preds = %161
   %214 = or i8 %213, -64
   store i8 %214, ptr %186, align 1, !tbaa !75
   %215 = getelementptr inbounds nuw i8, ptr %186, i64 1
-  br label %285
+  br label %283
 
 216:                                              ; preds = %207
   %217 = and i32 %.3204, 127
   %.not249 = icmp eq i32 %217, 0
-  br i1 %.not249, label %279, label %218
+  br i1 %.not249, label %277, label %218
 
 218:                                              ; preds = %216
   %219 = zext nneg i32 %217 to i64
@@ -77443,19 +77443,19 @@ ensure_buf.exit:                                  ; preds = %161
   %221 = load i8, ptr %220, align 1, !tbaa !75
   %222 = and i32 %.3204, 32512
   %.not250 = icmp eq i32 %222, 0
+  %223 = add nsw i32 %217, -9
+  %224 = icmp ult i32 %223, 2
   switch i32 %222, label %258 [
-    i32 3584, label %223
-    i32 0, label %223
+    i32 3584, label %225
+    i32 0, label %225
   ]
 
-223:                                              ; preds = %218, %218
-  %224 = icmp ne i64 %.1200, 0
-  %225 = add nsw i32 %217, -9
-  %226 = icmp ult i32 %225, 2
-  %or.cond10 = select i1 %224, i1 true, i1 %226
+225:                                              ; preds = %218, %218
+  %226 = icmp ne i64 %.1200, 0
+  %or.cond10 = select i1 %226, i1 true, i1 %224
   br i1 %or.cond10, label %227, label %233
 
-227:                                              ; preds = %223
+227:                                              ; preds = %225
   %228 = add i64 %.1200, 128
   %or.cond12 = icmp ult i64 %228, 256
   br i1 %or.cond12, label %229, label %231
@@ -77468,8 +77468,8 @@ ensure_buf.exit:                                  ; preds = %161
   %232 = or i8 %208, -128
   br label %233
 
-233:                                              ; preds = %229, %231, %223
-  %234 = phi i8 [ %230, %229 ], [ %232, %231 ], [ %208, %223 ]
+233:                                              ; preds = %229, %231, %225
+  %234 = phi i8 [ %230, %229 ], [ %232, %231 ], [ %208, %225 ]
   br i1 %.not250, label %235, label %238
 
 235:                                              ; preds = %233
@@ -77495,7 +77495,7 @@ ensure_buf.exit:                                  ; preds = %161
 
 249:                                              ; preds = %238, %235
   %.1196 = phi ptr [ %248, %238 ], [ %236, %235 ]
-  br i1 %or.cond10, label %250, label %285
+  br i1 %or.cond10, label %250, label %283
 
 250:                                              ; preds = %249
   %251 = add i64 %.1200, 128
@@ -77506,88 +77506,86 @@ ensure_buf.exit:                                  ; preds = %161
   %253 = trunc nsw i64 %.1200 to i8
   %254 = getelementptr inbounds nuw i8, ptr %.1196, i64 1
   store i8 %253, ptr %.1196, align 1, !tbaa !75
-  br label %285
+  br label %283
 
 255:                                              ; preds = %250
   %256 = trunc i64 %.1200 to i32
   store i32 %256, ptr %.1196, align 1
   %257 = getelementptr inbounds nuw i8, ptr %.1196, i64 4
-  br label %285
+  br label %283
 
 258:                                              ; preds = %218
   %259 = zext i8 %221 to i64
-  %260 = add nsw i32 %217, -9
-  %261 = icmp ult i32 %260, 2
-  %262 = or i8 %208, 64
-  %spec.select285 = select i1 %261, i8 %262, i8 %208
-  %263 = or disjoint i8 %spec.select285, 4
-  store i8 %263, ptr %186, align 1, !tbaa !75
-  %264 = lshr i32 %.3204, 8
-  %265 = and i32 %264, 127
-  %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds nuw i8, ptr @reg_lmap, i64 %266
-  %268 = load i8, ptr %267, align 1, !tbaa !75
-  %269 = zext i8 %268 to i64
-  %270 = shl nuw nsw i64 %269, 3
-  %271 = shl i64 %.1200, 6
-  %272 = or i64 %271, %259
-  %273 = or i64 %272, %270
-  %274 = trunc i64 %273 to i8
-  %275 = getelementptr inbounds nuw i8, ptr %186, i64 1
-  store i8 %274, ptr %275, align 1, !tbaa !75
-  %276 = getelementptr inbounds nuw i8, ptr %186, i64 2
-  br i1 %261, label %277, label %285
+  %260 = or i8 %208, 64
+  %spec.select285 = select i1 %224, i8 %260, i8 %208
+  %261 = or disjoint i8 %spec.select285, 4
+  store i8 %261, ptr %186, align 1, !tbaa !75
+  %262 = lshr i32 %.3204, 8
+  %263 = and i32 %262, 127
+  %264 = zext nneg i32 %263 to i64
+  %265 = getelementptr inbounds nuw i8, ptr @reg_lmap, i64 %264
+  %266 = load i8, ptr %265, align 1, !tbaa !75
+  %267 = zext i8 %266 to i64
+  %268 = shl nuw nsw i64 %267, 3
+  %269 = shl i64 %.1200, 6
+  %270 = or i64 %269, %259
+  %271 = or i64 %270, %268
+  %272 = trunc i64 %271 to i8
+  %273 = getelementptr inbounds nuw i8, ptr %186, i64 1
+  store i8 %272, ptr %273, align 1, !tbaa !75
+  %274 = getelementptr inbounds nuw i8, ptr %186, i64 2
+  br i1 %224, label %275, label %283
 
-277:                                              ; preds = %258
-  %278 = getelementptr inbounds nuw i8, ptr %186, i64 3
-  store i8 0, ptr %276, align 1, !tbaa !75
-  br label %285
+275:                                              ; preds = %258
+  %276 = getelementptr inbounds nuw i8, ptr %186, i64 3
+  store i8 0, ptr %274, align 1, !tbaa !75
+  br label %283
 
-279:                                              ; preds = %216
-  %280 = or disjoint i8 %208, 4
-  store i8 %280, ptr %186, align 1, !tbaa !75
-  %281 = getelementptr inbounds nuw i8, ptr %186, i64 1
-  store i8 37, ptr %281, align 1, !tbaa !75
-  %282 = getelementptr inbounds nuw i8, ptr %186, i64 2
-  %283 = trunc i64 %.1200 to i32
-  store i32 %283, ptr %282, align 1
-  %284 = getelementptr inbounds nuw i8, ptr %186, i64 6
-  br label %285
+277:                                              ; preds = %216
+  %278 = or disjoint i8 %208, 4
+  store i8 %278, ptr %186, align 1, !tbaa !75
+  %279 = getelementptr inbounds nuw i8, ptr %186, i64 1
+  store i8 37, ptr %279, align 1, !tbaa !75
+  %280 = getelementptr inbounds nuw i8, ptr %186, i64 2
+  %281 = trunc i64 %.1200 to i32
+  store i32 %281, ptr %280, align 1
+  %282 = getelementptr inbounds nuw i8, ptr %186, i64 6
+  br label %283
 
-285:                                              ; preds = %279, %258, %277, %249, %255, %252, %210
-  %.0195 = phi ptr [ %254, %252 ], [ %257, %255 ], [ %.1196, %249 ], [ %278, %277 ], [ %276, %258 ], [ %284, %279 ], [ %215, %210 ]
-  br i1 %112, label %286, label %297
+283:                                              ; preds = %277, %258, %275, %249, %255, %252, %210
+  %.0195 = phi ptr [ %254, %252 ], [ %257, %255 ], [ %.1196, %249 ], [ %276, %275 ], [ %274, %258 ], [ %282, %277 ], [ %215, %210 ]
+  br i1 %112, label %284, label %295
 
-286:                                              ; preds = %285
-  %287 = and i64 %.0189, 64
-  %.not251 = icmp eq i64 %287, 0
-  br i1 %.not251, label %290, label %288
+284:                                              ; preds = %283
+  %285 = and i64 %.0189, 64
+  %.not251 = icmp eq i64 %285, 0
+  br i1 %.not251, label %288, label %286
 
-288:                                              ; preds = %286
-  %289 = trunc i64 %3 to i8
-  store i8 %289, ptr %.0195, align 1, !tbaa !75
-  br label %297
+286:                                              ; preds = %284
+  %287 = trunc i64 %3 to i8
+  store i8 %287, ptr %.0195, align 1, !tbaa !75
+  br label %295
 
-290:                                              ; preds = %286
-  %291 = and i64 %.0189, 128
-  %.not252 = icmp eq i64 %291, 0
-  br i1 %.not252, label %294, label %292
+288:                                              ; preds = %284
+  %289 = and i64 %.0189, 128
+  %.not252 = icmp eq i64 %289, 0
+  br i1 %.not252, label %292, label %290
 
-292:                                              ; preds = %290
-  %293 = trunc i64 %3 to i16
-  store i16 %293, ptr %.0195, align 1
-  br label %297
+290:                                              ; preds = %288
+  %291 = trunc i64 %3 to i16
+  store i16 %291, ptr %.0195, align 1
+  br label %295
 
-294:                                              ; preds = %290
-  br i1 %.not244, label %295, label %297
+292:                                              ; preds = %288
+  br i1 %.not244, label %293, label %295
 
-295:                                              ; preds = %294
-  %296 = trunc i64 %3 to i32
-  store i32 %296, ptr %.0195, align 1
-  br label %297
+293:                                              ; preds = %292
+  %294 = trunc i64 %3 to i32
+  store i32 %294, ptr %.0195, align 1
+  br label %295
 
-297:                                              ; preds = %ensure_buf.exit, %emit_load_imm64.exit, %285, %292, %295, %294, %288
-  %.0190 = phi ptr [ null, %emit_load_imm64.exit ], [ null, %ensure_buf.exit ], [ %.1198, %288 ], [ %.1198, %294 ], [ %.1198, %295 ], [ %.1198, %292 ], [ %.1198, %285 ]
+295:                                              ; preds = %ensure_buf.exit, %emit_load_imm64.exit, %283, %290, %293, %292, %286
+  %.0190 = phi ptr [ null, %emit_load_imm64.exit ], [ null, %ensure_buf.exit ], [ %.1198, %286 ], [ %.1198, %292 ], [ %.1198, %293 ], [ %.1198, %290 ], [ %.1198, %283 ]
   ret ptr %.0190
 }
 

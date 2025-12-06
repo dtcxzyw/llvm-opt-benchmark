@@ -2998,20 +2998,20 @@ define dso_local noundef i32 @errcode(i32 noundef %0) local_unnamed_addr #3 {
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @errcode_for_file_access() local_unnamed_addr #3 {
   %1 = load i32, ptr @errordata_stack_depth, align 4
-  %2 = sext i32 %1 to i64
-  %3 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %2
-  %4 = icmp slt i32 %1, 0
-  br i1 %4, label %5, label %8
+  %2 = icmp slt i32 %1, 0
+  br i1 %2, label %3, label %6
 
-5:                                                ; preds = %0
+3:                                                ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #33
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #33
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 881, ptr noundef nonnull @__func__.errcode_for_file_access)
   unreachable
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 168
+6:                                                ; preds = %0
+  %7 = zext nneg i32 %1 to i64
+  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %19 [
     i32 1, label %20
@@ -3030,36 +3030,36 @@ define dso_local noundef i32 @errcode_for_file_access() local_unnamed_addr #3 {
     i32 36, label %18
   ]
 
-11:                                               ; preds = %8
+11:                                               ; preds = %6
   br label %20
 
-12:                                               ; preds = %8
+12:                                               ; preds = %6
   br label %20
 
-13:                                               ; preds = %8, %8, %8
+13:                                               ; preds = %6, %6, %6
   br label %20
 
-14:                                               ; preds = %8
+14:                                               ; preds = %6
   br label %20
 
-15:                                               ; preds = %8
+15:                                               ; preds = %6
   br label %20
 
-16:                                               ; preds = %8, %8
+16:                                               ; preds = %6, %6
   br label %20
 
-17:                                               ; preds = %8
+17:                                               ; preds = %6
   br label %20
 
-18:                                               ; preds = %8
+18:                                               ; preds = %6
   br label %20
 
-19:                                               ; preds = %8
+19:                                               ; preds = %6
   br label %20
 
-20:                                               ; preds = %8, %8, %8, %19, %18, %17, %16, %15, %14, %13, %12, %11
-  %.sink = phi i32 [ 2600, %19 ], [ 50463237, %18 ], [ 786949, %17 ], [ 197, %16 ], [ 8389, %15 ], [ 4293, %14 ], [ 151027844, %13 ], [ 33686021, %12 ], [ 16908805, %11 ], [ 16797828, %8 ], [ 16797828, %8 ], [ 16797828, %8 ]
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 48
+20:                                               ; preds = %6, %6, %6, %19, %18, %17, %16, %15, %14, %13, %12, %11
+  %.sink = phi i32 [ 2600, %19 ], [ 50463237, %18 ], [ 786949, %17 ], [ 197, %16 ], [ 8389, %15 ], [ 4293, %14 ], [ 151027844, %13 ], [ 33686021, %12 ], [ 16908805, %11 ], [ 16797828, %6 ], [ 16797828, %6 ], [ 16797828, %6 ]
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 %.sink, ptr %21, align 8
   ret i32 0
 }
@@ -3067,20 +3067,20 @@ define dso_local noundef i32 @errcode_for_file_access() local_unnamed_addr #3 {
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @errcode_for_socket_access() local_unnamed_addr #3 {
   %1 = load i32, ptr @errordata_stack_depth, align 4
-  %2 = sext i32 %1 to i64
-  %3 = getelementptr inbounds %struct.ErrorData, ptr @errordata, i64 %2
-  %4 = icmp slt i32 %1, 0
-  br i1 %4, label %5, label %8
+  %2 = icmp slt i32 %1, 0
+  br i1 %2, label %3, label %6
 
-5:                                                ; preds = %0
+3:                                                ; preds = %0
   store i32 -1, ptr @errordata_stack_depth, align 4
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #33
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #33
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1)
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 958, ptr noundef nonnull @__func__.errcode_for_socket_access)
   unreachable
 
-8:                                                ; preds = %0
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 168
+6:                                                ; preds = %0
+  %7 = zext nneg i32 %1 to i64
+  %8 = getelementptr inbounds nuw %struct.ErrorData, ptr @errordata, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %11 [
     i32 32, label %12
@@ -3094,12 +3094,12 @@ define dso_local noundef i32 @errcode_for_socket_access() local_unnamed_addr #3 
     i32 110, label %12
   ]
 
-11:                                               ; preds = %8
+11:                                               ; preds = %6
   br label %12
 
-12:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8, %8, %11
-  %.sink = phi i32 [ 2600, %11 ], [ 100663808, %8 ], [ 100663808, %8 ], [ 100663808, %8 ], [ 100663808, %8 ], [ 100663808, %8 ], [ 100663808, %8 ], [ 100663808, %8 ], [ 100663808, %8 ], [ 100663808, %8 ]
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
+12:                                               ; preds = %6, %6, %6, %6, %6, %6, %6, %6, %6, %11
+  %.sink = phi i32 [ 2600, %11 ], [ 100663808, %6 ], [ 100663808, %6 ], [ 100663808, %6 ], [ 100663808, %6 ], [ 100663808, %6 ], [ 100663808, %6 ], [ 100663808, %6 ], [ 100663808, %6 ], [ 100663808, %6 ]
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 %.sink, ptr %13, align 8
   ret i32 0
 }

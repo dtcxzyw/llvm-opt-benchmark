@@ -12669,90 +12669,86 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %40
   br i1 %.not89, label %_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit.thread, label %101
 
 101:                                              ; preds = %97
-  switch i8 %18, label %104 [
+  %102 = ptrtoint ptr %spec.select.i.i100 to i64
+  switch i8 %18, label %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit [
     i8 85, label %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i103
     i8 34, label %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i103
     i8 40, label %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i103
   ]
 
 _ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i103: ; preds = %101, %101, %101
-  %102 = ptrtoint ptr %spec.select.i.i100 to i64
   %103 = or disjoint i64 %102, 2
   br label %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit
 
-104:                                              ; preds = %101
-  %105 = ptrtoint ptr %spec.select.i.i100 to i64
-  br label %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit
+_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit: ; preds = %101, %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i103
+  %.sink.i.i = phi i64 [ %103, %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i103 ], [ %102, %101 ]
+  %104 = tail call noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForINS_8AAIsDeadEEEPKT_NS_10IRPositionEPKNS_17AbstractAttributeENS_10DepClassTyEbb(ptr noundef nonnull align 8 dereferenceable(4304) %0, i64 %.sink.i.i, ptr null, ptr noundef %2, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext true)
+  %.not90 = icmp eq ptr %104, null
+  br i1 %.not90, label %_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit.thread, label %105
 
-_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit: ; preds = %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i103, %104
-  %.sink.i.i = phi i64 [ %103, %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i103 ], [ %105, %104 ]
-  %106 = tail call noundef ptr @_ZN4llvm10Attributor16getOrCreateAAForINS_8AAIsDeadEEEPKT_NS_10IRPositionEPKNS_17AbstractAttributeENS_10DepClassTyEbb(ptr noundef nonnull align 8 dereferenceable(4304) %0, i64 %.sink.i.i, ptr null, ptr noundef %2, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext true)
-  %.not90 = icmp eq ptr %106, null
-  br i1 %.not90, label %_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit.thread, label %107
+105:                                              ; preds = %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit
+  %106 = load ptr, ptr %104, align 8, !tbaa !15
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 152
+  %108 = load ptr, ptr %107, align 8
+  %109 = tail call noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(90) %104) #29
+  br i1 %109, label %110, label %_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit.thread
 
-107:                                              ; preds = %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit
-  %108 = load ptr, ptr %106, align 8, !tbaa !15
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 152
-  %110 = load ptr, ptr %109, align 8
-  %111 = tail call noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(90) %106) #29
-  br i1 %111, label %112, label %_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit.thread
-
-112:                                              ; preds = %107
+110:                                              ; preds = %105
   %.not91 = icmp eq ptr %2, null
-  br i1 %.not91, label %114, label %113
+  br i1 %.not91, label %112, label %111
 
-113:                                              ; preds = %112
-  tail call void @_ZN4llvm10Attributor16recordDependenceERKNS_17AbstractAttributeES3_NS_10DepClassTyE(ptr noundef nonnull align 8 dereferenceable(4304) %0, ptr noundef nonnull align 8 dereferenceable(80) %106, ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %6)
-  br label %114
+111:                                              ; preds = %110
+  tail call void @_ZN4llvm10Attributor16recordDependenceERKNS_17AbstractAttributeES3_NS_10DepClassTyE(ptr noundef nonnull align 8 dereferenceable(4304) %0, ptr noundef nonnull align 8 dereferenceable(80) %104, ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %6)
+  br label %112
 
-114:                                              ; preds = %113, %112
-  %115 = getelementptr inbounds nuw i8, ptr %106, i64 88
-  %116 = load i8, ptr %115, align 8, !tbaa !341
-  %117 = and i8 %116, 2
-  %.not117 = icmp eq i8 %117, 0
-  br i1 %.not117, label %118, label %.critedge
+112:                                              ; preds = %111, %110
+  %113 = getelementptr inbounds nuw i8, ptr %104, i64 88
+  %114 = load i8, ptr %113, align 8, !tbaa !341
+  %115 = and i8 %114, 2
+  %.not117 = icmp eq i8 %115, 0
+  br i1 %.not117, label %116, label %.critedge
 
-118:                                              ; preds = %114
+116:                                              ; preds = %112
   store i8 1, ptr %4, align 1, !tbaa !82
   br label %.critedge
 
-_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit.thread: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit, %_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit, %107, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit, %97, %94
+_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit.thread: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit, %_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit, %105, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit, %97, %94
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %119 = load i8, ptr %17, align 8, !tbaa !99
-  %120 = icmp eq i8 %119, 0
-  br i1 %120, label %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i107, label %121
+  %117 = load i8, ptr %17, align 8, !tbaa !99
+  %118 = icmp eq i8 %117, 0
+  br i1 %118, label %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i107, label %119
 
-121:                                              ; preds = %_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit.thread
-  %122 = icmp ugt i8 %119, 28
-  br i1 %122, label %123, label %126
+119:                                              ; preds = %_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit.thread
+  %120 = icmp ugt i8 %117, 28
+  br i1 %120, label %121, label %124
 
-123:                                              ; preds = %121
-  switch i8 %119, label %126 [
+121:                                              ; preds = %119
+  switch i8 %117, label %124 [
     i8 85, label %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i107
     i8 34, label %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i107
     i8 40, label %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i107
   ]
 
-_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i107: ; preds = %123, %123, %123, %_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit.thread
-  %124 = ptrtoint ptr %17 to i64
-  %125 = or disjoint i64 %124, 2
+_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i107: ; preds = %121, %121, %121, %_ZNK4llvm8CallBase12isArgOperandEPKNS_3UseE.exit.thread
+  %122 = ptrtoint ptr %17 to i64
+  %123 = or disjoint i64 %122, 2
   br label %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit108
 
-126:                                              ; preds = %123, %121
-  %127 = ptrtoint ptr %17 to i64
+124:                                              ; preds = %121, %119
+  %125 = ptrtoint ptr %17 to i64
   br label %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit108
 
-_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit108: ; preds = %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i107, %126
-  %.sink.i.i104 = phi i64 [ %125, %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i107 ], [ %127, %126 ]
+_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit108: ; preds = %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i107, %124
+  %.sink.i.i104 = phi i64 [ %123, %_ZN4llvm3isaINS_8CallBaseENS_5ValueEEEbRKT0_.exit.i.i107 ], [ %125, %124 ]
   store i64 %.sink.i.i104, ptr %11, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr null, ptr %128, align 8
-  %129 = call noundef zeroext i1 @_ZN4llvm10Attributor13isAssumedDeadERKNS_10IRPositionEPKNS_17AbstractAttributeEPKNS_8AAIsDeadERbbNS_10DepClassTyE(ptr noundef nonnull align 8 dereferenceable(4304) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext %5, i32 noundef %6)
+  %126 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr null, ptr %126, align 8
+  %127 = call noundef zeroext i1 @_ZN4llvm10Attributor13isAssumedDeadERKNS_10IRPositionEPKNS_17AbstractAttributeEPKNS_8AAIsDeadERbbNS_10DepClassTyE(ptr noundef nonnull align 8 dereferenceable(4304) %0, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext %5, i32 noundef %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN4llvm10IRPosition17callsite_argumentERKNS_8CallBaseEj.exit, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %118, %114, %70, %_ZN4llvm10IRPosition5valueERKNS_5ValueEPKNS_8CallBaseE.exit, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit108, %7
-  %.0 = phi i1 [ false, %7 ], [ %129, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit108 ], [ %39, %_ZN4llvm10IRPosition5valueERKNS_5ValueEPKNS_8CallBaseE.exit ], [ %69, %_ZN4llvm10IRPosition17callsite_argumentERKNS_8CallBaseEj.exit ], [ %75, %70 ], [ %93, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ true, %118 ], [ true, %114 ]
+.critedge:                                        ; preds = %_ZN4llvm10IRPosition17callsite_argumentERKNS_8CallBaseEj.exit, %_ZN4llvm10BasicBlock13getTerminatorEv.exit, %116, %112, %70, %_ZN4llvm10IRPosition5valueERKNS_5ValueEPKNS_8CallBaseE.exit, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit108, %7
+  %.0 = phi i1 [ false, %7 ], [ %127, %_ZN4llvm10IRPosition4instERKNS_11InstructionEPKNS_8CallBaseE.exit108 ], [ %39, %_ZN4llvm10IRPosition5valueERKNS_5ValueEPKNS_8CallBaseE.exit ], [ %69, %_ZN4llvm10IRPosition17callsite_argumentERKNS_8CallBaseEj.exit ], [ %75, %70 ], [ %93, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ true, %116 ], [ true, %112 ]
   ret i1 %.0
 }
 

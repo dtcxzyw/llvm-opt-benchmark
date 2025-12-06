@@ -3938,6 +3938,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %0 = load i8, ptr %Cur.085, align 1
+  %cmp21.not77 = icmp eq ptr %Cur.085, %add.ptr.i
   switch i8 %0, label %for.cond20.preheader [
     i8 32, label %_ZL12isWhitespacec.exit
     i8 13, label %_ZL12isWhitespacec.exit
@@ -3947,16 +3948,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   ]
 
 while.cond8.preheader:                            ; preds = %for.body
-  %cmp10.not70 = icmp eq ptr %Cur.085, %add.ptr.i
-  br i1 %cmp10.not70, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %while.body15, !llvm.loop !69
+  br i1 %cmp21.not77, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %while.body15, !llvm.loop !69
 
 for.cond20.preheader:                             ; preds = %for.body
-  %cmp21.not77 = icmp eq ptr %Cur.085, %add.ptr.i
   br i1 %cmp21.not77, label %for.end, label %for.body22
 
 _ZL12isWhitespacec.exit:                          ; preds = %for.body, %for.body, %for.body, %for.body
-  %cmp4.not73 = icmp eq ptr %Cur.085, %add.ptr.i
-  br i1 %cmp4.not73, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %land.rhs.lr.ph, !llvm.loop !69
+  br i1 %cmp21.not77, label %_ZN4llvh11SmallStringILj128EED2Ev.exit, label %land.rhs.lr.ph, !llvm.loop !69
 
 land.rhs.lr.ph:                                   ; preds = %_ZL12isWhitespacec.exit
   br label %land.rhs, !llvm.loop !69

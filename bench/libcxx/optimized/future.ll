@@ -68,6 +68,8 @@ define hidden noundef nonnull ptr @_ZNKSt3__123__future_error_category4nameEv(pt
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNKSt3__123__future_error_category7messageEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::__1::basic_string") align 8 captures(none) initializes((0, 24)) %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i32 %2, label %.thread.i.i16 [
     i32 0, label %.thread.i.i
     i32 4, label %.thread.i.i
@@ -77,66 +79,56 @@ define hidden void @_ZNKSt3__123__future_error_category7messageEi(ptr dead_on_un
   ]
 
 .thread.i.i:                                      ; preds = %3, %3
-  %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %5, align 8, !tbaa !4
+  %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #20
+  store ptr %6, ptr %4, align 8, !tbaa !4
   store i64 97, ptr %0, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 88, ptr %6, align 8, !tbaa !4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %4, ptr noundef nonnull align 1 dereferenceable(88) @.str.1, i64 88, i1 false)
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store i64 88, ptr %5, align 8, !tbaa !4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %6, ptr noundef nonnull align 1 dereferenceable(88) @.str.1, i64 88, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i8 0, ptr %7, align 1, !tbaa !4
-  br label %24
+  br label %16
 
 .thread.i.i1:                                     ; preds = %3
   %8 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #20
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !4
+  store ptr %8, ptr %4, align 8, !tbaa !4
   store i64 81, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 72, ptr %10, align 8, !tbaa !4
+  store i64 72, ptr %5, align 8, !tbaa !4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %8, ptr noundef nonnull align 1 dereferenceable(72) @.str.2, i64 72, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i8 0, ptr %11, align 1, !tbaa !4
-  br label %24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store i8 0, ptr %9, align 1, !tbaa !4
+  br label %16
 
 .thread.i.i6:                                     ; preds = %3
-  %12 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %12, ptr %13, align 8, !tbaa !4
+  %10 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
+  store ptr %10, ptr %4, align 8, !tbaa !4
   store i64 49, ptr %0, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 46, ptr %14, align 8, !tbaa !4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(46) %12, ptr noundef nonnull align 1 dereferenceable(46) @.str.3, i64 46, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 46
-  store i8 0, ptr %15, align 1, !tbaa !4
-  br label %24
+  store i64 46, ptr %5, align 8, !tbaa !4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(46) %10, ptr noundef nonnull align 1 dereferenceable(46) @.str.3, i64 46, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 46
+  store i8 0, ptr %11, align 1, !tbaa !4
+  br label %16
 
 .thread.i.i11:                                    ; preds = %3
-  %16 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %16, ptr %17, align 8, !tbaa !4
+  %12 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
+  store ptr %12, ptr %4, align 8, !tbaa !4
   store i64 73, ptr %0, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 65, ptr %18, align 8, !tbaa !4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %16, ptr noundef nonnull align 1 dereferenceable(65) @.str.4, i64 65, i1 false)
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 65
-  store i8 0, ptr %19, align 1, !tbaa !4
-  br label %24
+  store i64 65, ptr %5, align 8, !tbaa !4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %12, ptr noundef nonnull align 1 dereferenceable(65) @.str.4, i64 65, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 65
+  store i8 0, ptr %13, align 1, !tbaa !4
+  br label %16
 
 .thread.i.i16:                                    ; preds = %3
-  %20 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %20, ptr %21, align 8, !tbaa !4
+  %14 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
+  store ptr %14, ptr %4, align 8, !tbaa !4
   store i64 33, ptr %0, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 30, ptr %22, align 8, !tbaa !4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %20, ptr noundef nonnull align 1 dereferenceable(30) @.str.5, i64 30, i1 false)
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 30
-  store i8 0, ptr %23, align 1, !tbaa !4
-  br label %24
+  store i64 30, ptr %5, align 8, !tbaa !4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %14, ptr noundef nonnull align 1 dereferenceable(30) @.str.5, i64 30, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 30
+  store i8 0, ptr %15, align 1, !tbaa !4
+  br label %16
 
-24:                                               ; preds = %.thread.i.i16, %.thread.i.i11, %.thread.i.i6, %.thread.i.i1, %.thread.i.i
+16:                                               ; preds = %.thread.i.i16, %.thread.i.i11, %.thread.i.i6, %.thread.i.i1, %.thread.i.i
   ret void
 }
 

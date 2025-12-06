@@ -5433,16 +5433,6 @@ define hidden noundef zeroext i1 @_ZN15G1CollectedHeap18try_collect_fullgcEN7GCC
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 33
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  switch i32 %1, label %.split [
-    i32 23, label %.split.us
-    i32 0, label %.split.us
-    i32 9, label %.split.us
-    i32 7, label %.split.us
-    i32 6, label %.split.us
-    i32 4, label %.split.us
-  ]
-
-.split.us:                                        ; preds = %3, %3, %3, %3, %3, %3
   %15 = load i32, ptr %2, align 4
   %16 = load i32, ptr %5, align 4
   store ptr null, ptr %6, align 8
@@ -5455,66 +5445,59 @@ define hidden noundef zeroext i1 @_ZN15G1CollectedHeap18try_collect_fullgcEN7GCC
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16VM_G1CollectFull, i64 16), ptr %4, align 8
   store i8 0, ptr %13, align 1
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #23
-  %17 = load i8, ptr %13, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %.loopexit, label %.lr.ph
+  %.pre = load i8, ptr %13, align 1
+  %.pre23 = trunc i8 %.pre to i1
+  switch i32 %1, label %.loopexit [
+    i32 23, label %.split.us
+    i32 0, label %.split.us
+    i32 9, label %.split.us
+    i32 7, label %.split.us
+    i32 6, label %.split.us
+    i32 4, label %.split.us
+  ]
+
+.split.us:                                        ; preds = %3, %3, %3, %3, %3, %3
+  br i1 %.pre23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split.us, %_ZN11MutexLockerD2Ev.exit.us
-  %19 = load ptr, ptr @Heap_lock, align 8
-  %.not.i.i.us = icmp eq ptr %19, null
-  br i1 %.not.i.i.us, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, label %20
+  %17 = load ptr, ptr @Heap_lock, align 8
+  %.not.i.i.us = icmp eq ptr %17, null
+  br i1 %.not.i.i.us, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, label %18
 
-20:                                               ; preds = %.lr.ph
-  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %19) #23
-  %21 = load i32, ptr %5, align 4
-  %22 = load i32, ptr %14, align 4
-  %.not.us = icmp eq i32 %21, %22
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %19) #23
+18:                                               ; preds = %.lr.ph
+  call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #23
+  %19 = load i32, ptr %5, align 4
+  %20 = load i32, ptr %14, align 4
+  %.not.us = icmp eq i32 %19, %20
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %17) #23
   br i1 %.not.us, label %_ZN11MutexLockerD2Ev.exit.us, label %.loopexit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us: ; preds = %.lr.ph
-  %23 = load i32, ptr %5, align 4
-  %24 = load i32, ptr %14, align 4
-  %.not11.us = icmp eq i32 %23, %24
+  %21 = load i32, ptr %5, align 4
+  %22 = load i32, ptr %14, align 4
+  %.not11.us = icmp eq i32 %21, %22
   br i1 %.not11.us, label %_ZN11MutexLockerD2Ev.exit.us, label %.loopexit
 
-_ZN11MutexLockerD2Ev.exit.us:                     ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, %20
+_ZN11MutexLockerD2Ev.exit.us:                     ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, %18
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %4) #23
-  %25 = load i32, ptr %2, align 4
-  %26 = load i32, ptr %5, align 4
+  %23 = load i32, ptr %2, align 4
+  %24 = load i32, ptr %5, align 4
   store ptr null, ptr %6, align 8
   store i8 1, ptr %7, align 8
   store i8 0, ptr %8, align 1
-  store i32 %25, ptr %9, align 8
+  store i32 %23, ptr %9, align 8
   store i32 %1, ptr %10, align 4
   store i8 0, ptr %11, align 8
-  store i32 %26, ptr %12, align 4
+  store i32 %24, ptr %12, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16VM_G1CollectFull, i64 16), ptr %4, align 8
   store i8 0, ptr %13, align 1
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #23
-  %27 = load i8, ptr %13, align 1
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %.loopexit, label %.lr.ph
+  %25 = load i8, ptr %13, align 1
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %.loopexit, label %.lr.ph
 
-.split:                                           ; preds = %3
-  %29 = load i32, ptr %2, align 4
-  %30 = load i32, ptr %5, align 4
-  store ptr null, ptr %6, align 8
-  store i8 1, ptr %7, align 8
-  store i8 0, ptr %8, align 1
-  store i32 %29, ptr %9, align 8
-  store i32 %1, ptr %10, align 4
-  store i8 0, ptr %11, align 8
-  store i32 %30, ptr %12, align 4
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV16VM_G1CollectFull, i64 16), ptr %4, align 8
-  store i8 0, ptr %13, align 1
-  call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #23
-  %.pre = load i8, ptr %13, align 1
-  %.pre23 = trunc i8 %.pre to i1
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, %20, %_ZN11MutexLockerD2Ev.exit.us, %.split, %.split.us
-  %.19.ph = phi i1 [ true, %.split.us ], [ %.pre23, %.split ], [ true, %_ZN11MutexLockerD2Ev.exit.us ], [ true, %20 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us ]
+.loopexit:                                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, %18, %_ZN11MutexLockerD2Ev.exit.us, %3, %.split.us
+  %.19.ph = phi i1 [ true, %.split.us ], [ %.pre23, %3 ], [ true, %_ZN11MutexLockerD2Ev.exit.us ], [ true, %18 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %4) #23
   ret i1 %.19.ph
 }

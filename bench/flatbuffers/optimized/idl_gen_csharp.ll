@@ -18559,6 +18559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3882: ; preds = %_
 
 4933:                                             ; preds = %4928
   %4934 = load i32, ptr %1535, align 8, !tbaa !216
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
   switch i32 %4934, label %4944 [
     i32 18, label %4935
     i32 14, label %4935
@@ -18566,7 +18567,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3882: ; preds = %_
   ]
 
 4935:                                             ; preds = %4933, %4933, %4933
-  call void @llvm.lifetime.start.p0(ptr nonnull %192)
   call void @llvm.experimental.noalias.scope.decl(metadata !567)
   %4936 = getelementptr inbounds nuw i8, ptr %1529, i64 204
   %4937 = load i32, ptr %4936, align 4, !tbaa !402, !noalias !567
@@ -18584,7 +18584,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3882: ; preds = %_
   br label %4945
 
 4944:                                             ; preds = %4933
-  call void @llvm.lifetime.start.p0(ptr nonnull %192)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %192, ptr noundef nonnull align 8 dereferenceable(26) %1535, i64 26, i1 false), !tbaa.struct !570
   %.pre25008 = load i32, ptr %192, align 8, !tbaa !216
   br label %4945

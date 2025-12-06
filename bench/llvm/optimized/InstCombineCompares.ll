@@ -60464,21 +60464,16 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_8ConstantEEEEEbPT_RKT0_.e
   ]
 
 491:                                              ; preds = %490
-  switch i16 %92, label %_ZN4llvm8FCmpInst10isEqualityENS_7CmpInst9PredicateE.exit [
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  switch i16 %92, label %.critedge38 [
     i16 9, label %492
     i16 6, label %492
     i16 1, label %492
     i16 14, label %492
   ]
 
-_ZN4llvm8FCmpInst10isEqualityENS_7CmpInst9PredicateE.exit: ; preds = %491
-  call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  br label %.critedge38
-
 492:                                              ; preds = %491, %491, %491, %491
-  call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr null, ptr %43, align 8
   %493 = call noundef zeroext i1 @_ZN4llvm12PatternMatch14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EE10match_implINS_8ConstantEEEbPT_(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %95)
   %494 = load ptr, ptr %43, align 8
@@ -60508,7 +60503,7 @@ _ZN4llvm12PatternMatch5matchINS_8ConstantENS0_14cstval_pred_tyINS0_14is_any_zero
   %502 = call noundef ptr @_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1081) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 0, ptr noundef %501)
   br label %747
 
-.critedge38:                                      ; preds = %_ZN4llvm8FCmpInst10isEqualityENS_7CmpInst9PredicateE.exit, %_ZN4llvm12PatternMatch5matchINS_8ConstantENS0_14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit
+.critedge38:                                      ; preds = %491, %_ZN4llvm12PatternMatch5matchINS_8ConstantENS0_14cstval_pred_tyINS0_14is_any_zero_fpENS_10ConstantFPELb1EEEEEbPT_RKT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %503

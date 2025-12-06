@@ -5688,26 +5688,26 @@ define linkonce_odr hidden void @_ZN5clang13ASTDeclWriter30RegisterTemplateSpeci
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 32768
   %.not12 = icmp eq i32 %12, 0
-  br i1 %.not12, label %58, label %13
+  br i1 %.not12, label %57, label %13
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %0, align 8, !tbaa !335
   %15 = tail call noundef ptr @_ZN5clang9ASTWriter17getFirstLocalDeclEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(3532) %14, ptr noundef %2)
   %.not = icmp eq ptr %15, %2
-  br i1 %.not, label %16, label %58
+  br i1 %.not, label %16, label %57
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 127
+  %20 = load ptr, ptr %0, align 8, !tbaa !335
   switch i32 %19, label %39 [
-    i32 59, label %20
-    i32 40, label %20
+    i32 59, label %21
+    i32 40, label %21
   ]
 
-20:                                               ; preds = %16, %16
-  %21 = load ptr, ptr %0, align 8, !tbaa !335
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1352
+21:                                               ; preds = %16, %16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 1352
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %9, ptr %4, align 8, !tbaa !494
   %23 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN4llvm9MapVectorIPKN5clang9NamedDeclENS_11SmallVectorIPKNS1_4DeclELj6EEENS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS5_ISt4pairIS4_S9_ELj0EEEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -5718,7 +5718,7 @@ define linkonce_odr hidden void @_ZN5clang13ASTDeclWriter30RegisterTemplateSpeci
   %.not.i.i.not.i = icmp ult i32 %25, %27
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit, label %28, !prof !45
 
-28:                                               ; preds = %20
+28:                                               ; preds = %21
   %29 = zext i32 %25 to i64
   %30 = add nuw nsw i64 %29, 1
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -5726,8 +5726,8 @@ define linkonce_odr hidden void @_ZN5clang13ASTDeclWriter30RegisterTemplateSpeci
   %.pre.i = load i32, ptr %24, align 8, !tbaa !43
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit: ; preds = %20, %28
-  %32 = phi i32 [ %25, %20 ], [ %.pre.i, %28 ]
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit: ; preds = %21, %28
+  %32 = phi i32 [ %25, %21 ], [ %.pre.i, %28 ]
   %33 = load ptr, ptr %23, align 8, !tbaa !46
   %34 = zext i32 %32 to i64
   %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
@@ -5737,43 +5737,42 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit: ; pre
   %38 = add i32 %37, 1
   store i32 %38, ptr %24, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %58
+  br label %57
 
 39:                                               ; preds = %16
-  %40 = load ptr, ptr %0, align 8, !tbaa !335
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1312
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 1312
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %9, ptr %5, align 8, !tbaa !494
-  %42 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN4llvm9MapVectorIPKN5clang9NamedDeclENS_11SmallVectorIPKNS1_4DeclELj6EEENS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS5_ISt4pairIS4_S9_ELj0EEEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !43
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  %46 = load i32, ptr %45, align 4, !tbaa !44
-  %.not.i.i.not.i5 = icmp ult i32 %44, %46
-  br i1 %.not.i.i.not.i5, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit7, label %47, !prof !45
+  %41 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN4llvm9MapVectorIPKN5clang9NamedDeclENS_11SmallVectorIPKNS1_4DeclELj6EEENS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS5_ISt4pairIS4_S9_ELj0EEEEixERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load i32, ptr %42, align 8, !tbaa !43
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  %45 = load i32, ptr %44, align 4, !tbaa !44
+  %.not.i.i.not.i5 = icmp ult i32 %43, %45
+  br i1 %.not.i.i.not.i5, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit7, label %46, !prof !45
 
-47:                                               ; preds = %39
-  %48 = zext i32 %44 to i64
-  %49 = add nuw nsw i64 %48, 1
-  %50 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %50, i64 noundef %49, i64 noundef 8) #21
-  %.pre.i6 = load i32, ptr %43, align 8, !tbaa !43
+46:                                               ; preds = %39
+  %47 = zext i32 %43 to i64
+  %48 = add nuw nsw i64 %47, 1
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull %49, i64 noundef %48, i64 noundef 8) #21
+  %.pre.i6 = load i32, ptr %42, align 8, !tbaa !43
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit7
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit7: ; preds = %39, %47
-  %51 = phi i32 [ %44, %39 ], [ %.pre.i6, %47 ]
-  %52 = load ptr, ptr %42, align 8, !tbaa !46
-  %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
-  %55 = ptrtoint ptr %2 to i64
-  store i64 %55, ptr %54, align 1
-  %56 = load i32, ptr %43, align 8, !tbaa !43
-  %57 = add i32 %56, 1
-  store i32 %57, ptr %43, align 8, !tbaa !43
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit7: ; preds = %39, %46
+  %50 = phi i32 [ %43, %39 ], [ %.pre.i6, %46 ]
+  %51 = load ptr, ptr %41, align 8, !tbaa !46
+  %52 = zext i32 %50 to i64
+  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %54 = ptrtoint ptr %2 to i64
+  store i64 %54, ptr %53, align 1
+  %55 = load i32, ptr %42, align 8, !tbaa !43
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %42, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %58
+  br label %57
 
-58:                                               ; preds = %13, %3, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit7, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit
+57:                                               ; preds = %13, %3, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit7, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4DeclELb1EE9push_backES4_.exit
   ret void
 }
 

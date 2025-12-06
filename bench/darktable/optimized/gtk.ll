@@ -3716,13 +3716,14 @@ define void @dt_ui_container_add_widget(ptr noundef readonly captures(none) %0, 
 
 .critedge:                                        ; preds = %3, %13
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dt_ui_container_add_widget, ptr noundef nonnull @.str.75) #18
-  br label %22
+  br label %20
 
 .critedge28:                                      ; preds = %10, %13
-  switch i32 %1, label %20 [
-    i32 8, label %16
-    i32 11, label %16
-    i32 14, label %16
+  %16 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %7) #18
+  switch i32 %1, label %19 [
+    i32 8, label %17
+    i32 11, label %17
+    i32 14, label %17
     i32 7, label %18
     i32 9, label %18
     i32 10, label %18
@@ -3730,22 +3731,19 @@ define void @dt_ui_container_add_widget(ptr noundef readonly captures(none) %0, 
     i32 15, label %18
   ]
 
-16:                                               ; preds = %.critedge28, %.critedge28, %.critedge28
-  %17 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %7) #18
-  tail call void @gtk_box_pack_end(ptr noundef %17, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
-  br label %22
+17:                                               ; preds = %.critedge28, %.critedge28, %.critedge28
+  tail call void @gtk_box_pack_end(ptr noundef %16, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
+  br label %20
 
 18:                                               ; preds = %.critedge28, %.critedge28, %.critedge28, %.critedge28, %.critedge28
-  %19 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %7) #18
-  tail call void @gtk_box_pack_start(ptr noundef %19, ptr noundef %2, i32 noundef 1, i32 noundef 1, i32 noundef 0) #18
-  br label %22
+  tail call void @gtk_box_pack_start(ptr noundef %16, ptr noundef %2, i32 noundef 1, i32 noundef 1, i32 noundef 0) #18
+  br label %20
 
-20:                                               ; preds = %.critedge28
-  %21 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %6, i64 noundef %7) #18
-  tail call void @gtk_box_pack_start(ptr noundef %21, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
-  br label %22
+19:                                               ; preds = %.critedge28
+  tail call void @gtk_box_pack_start(ptr noundef %16, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #18
+  br label %20
 
-22:                                               ; preds = %20, %18, %16, %.critedge
+20:                                               ; preds = %19, %18, %17, %.critedge
   ret void
 }
 

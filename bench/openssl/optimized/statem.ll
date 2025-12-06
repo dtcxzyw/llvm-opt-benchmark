@@ -626,7 +626,7 @@ define internal fastcc range(i32 -1, 2) i32 @state_machine(ptr noundef nonnull %
   %11 = load ptr, ptr %10, align 8, !tbaa !83
   %12 = load i32, ptr %9, align 8, !tbaa !84
   %13 = icmp eq i32 %12, 1
-  br i1 %13, label %405, label %14
+  br i1 %13, label %400, label %14
 
 14:                                               ; preds = %2
   tail call void @ERR_clear_error() #7
@@ -709,7 +709,7 @@ SSL_in_init.exit.thread:                          ; preds = %28, %30, %SSL_in_be
 54:                                               ; preds = %SSL_in_init.exit.thread
   %55 = tail call i32 @SSL_clear(ptr noundef nonnull %0) #7
   %.not92 = icmp eq i32 %55, 0
-  br i1 %.not92, label %405, label %SSL_in_before.exit.thread
+  br i1 %.not92, label %400, label %SSL_in_before.exit.thread
 
 SSL_in_before.exit.thread:                        ; preds = %39, %.thread11.i, %41, %SSL_in_init.exit.thread, %54, %SSL_in_before.exit
   %56 = load i32, ptr %9, align 8, !tbaa !84
@@ -948,7 +948,7 @@ SSL_in_before.exit120.thread:                     ; preds = %121, %.thread11.i11
 
 166:                                              ; preds = %.backedge239, %148
   %167 = phi i32 [ %149, %148 ], [ %.be, %.backedge239 ]
-  switch i32 %167, label %397 [
+  switch i32 %167, label %392 [
     i32 4, label %.loopexit
     i32 2, label %168
     i32 3, label %285
@@ -1290,8 +1290,8 @@ get_callback.exit.i124:                           ; preds = %288, %285
   ]
 
 ._crit_edge.i:                                    ; preds = %293
-  %.pre.i = load i32, ptr %153, align 8, !tbaa !139
-  br label %385
+  %.pre97.i = load i32, ptr %153, align 8, !tbaa !139
+  br label %380
 
 295:                                              ; preds = %293
   br i1 %.not81.i127, label %297, label %.sink.split.i137
@@ -1307,7 +1307,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
   %298 = call i32 %ossl_statem_client_write_transition.ossl_statem_server_write_transition.i(ptr noundef nonnull %0) #7, !callees !140
   switch i32 %298, label %.backedge238 [
     i32 1, label %299
-    i32 2, label %395
+    i32 2, label %390
     i32 0, label %300
   ]
 
@@ -1337,7 +1337,7 @@ get_callback.exit.i124:                           ; preds = %288, %285
     i32 4, label %write_state_machine.exit.thread153
     i32 5, label %write_state_machine.exit.thread153
     i32 2, label %315
-    i32 1, label %396
+    i32 1, label %391
   ]
 
 309:                                              ; preds = %306
@@ -1450,81 +1450,79 @@ get_callback.exit.i124:                           ; preds = %288, %285
 
 362:                                              ; preds = %360
   call void @dtls1_start_timer(ptr noundef nonnull %0) #7
+  %.pre.i = load ptr, ptr %155, align 8, !tbaa !109
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 216
+  %.pre96.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !110
   br label %363
 
 363:                                              ; preds = %362, %360, %353
-  %364 = load i32, ptr %157, align 4, !tbaa !105
-  switch i32 %364, label %376 [
-    i32 18, label %365
-    i32 39, label %365
+  %364 = phi ptr [ %.pre96.i, %362 ], [ %356, %360 ], [ %356, %353 ]
+  %365 = load i32, ptr %157, align 4, !tbaa !105
+  switch i32 %365, label %374 [
+    i32 18, label %366
+    i32 39, label %366
   ]
 
-365:                                              ; preds = %363, %363
-  %366 = load ptr, ptr %155, align 8, !tbaa !109
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 216
-  %368 = load ptr, ptr %367, align 8, !tbaa !110
-  %369 = getelementptr inbounds nuw i8, ptr %368, i64 80
-  %370 = load i32, ptr %369, align 8, !tbaa !113
-  %371 = and i32 %370, 8
-  %.not.i90.i = icmp eq i32 %371, 0
-  br i1 %.not.i90.i, label %374, label %372
+366:                                              ; preds = %363, %363
+  %367 = getelementptr inbounds nuw i8, ptr %364, i64 80
+  %368 = load i32, ptr %367, align 8, !tbaa !113
+  %369 = and i32 %368, 8
+  %.not.i90.i = icmp eq i32 %369, 0
+  br i1 %.not.i90.i, label %372, label %370
 
-372:                                              ; preds = %365
-  %373 = call i32 @dtls1_do_write(ptr noundef nonnull %0, i8 noundef zeroext 20) #7
+370:                                              ; preds = %366
+  %371 = call i32 @dtls1_do_write(ptr noundef nonnull %0, i8 noundef zeroext 20) #7
   br label %statem_do_write.exit.i
 
-374:                                              ; preds = %365
-  %375 = call i32 @ssl3_do_write(ptr noundef nonnull %0, i8 noundef zeroext 20) #7
+372:                                              ; preds = %366
+  %373 = call i32 @ssl3_do_write(ptr noundef nonnull %0, i8 noundef zeroext 20) #7
   br label %statem_do_write.exit.i
 
-376:                                              ; preds = %363
-  %377 = load ptr, ptr %155, align 8, !tbaa !109
-  %378 = getelementptr inbounds nuw i8, ptr %377, i64 216
-  %379 = load ptr, ptr %378, align 8, !tbaa !110
-  %380 = getelementptr inbounds nuw i8, ptr %379, i64 104
-  %381 = load ptr, ptr %380, align 8, !tbaa !147
-  %382 = call i32 %381(ptr noundef nonnull %0) #7
+374:                                              ; preds = %363
+  %375 = getelementptr inbounds nuw i8, ptr %364, i64 104
+  %376 = load ptr, ptr %375, align 8, !tbaa !147
+  %377 = call i32 %376(ptr noundef nonnull %0) #7
   br label %statem_do_write.exit.i
 
-statem_do_write.exit.i:                           ; preds = %376, %374, %372
-  %.0.i91.i = phi i32 [ %373, %372 ], [ %375, %374 ], [ %382, %376 ]
-  %383 = icmp slt i32 %.0.i91.i, 1
-  br i1 %383, label %write_state_machine.exit.thread153, label %384
+statem_do_write.exit.i:                           ; preds = %374, %372, %370
+  %.0.i91.i = phi i32 [ %371, %370 ], [ %373, %372 ], [ %377, %374 ]
+  %378 = icmp slt i32 %.0.i91.i, 1
+  br i1 %378, label %write_state_machine.exit.thread153, label %379
 
-384:                                              ; preds = %statem_do_write.exit.i
+379:                                              ; preds = %statem_do_write.exit.i
   store i32 3, ptr %152, align 4, !tbaa !122
   store i32 3, ptr %153, align 8, !tbaa !139
-  br label %385
+  br label %380
 
-385:                                              ; preds = %384, %._crit_edge.i
-  %386 = phi i32 [ %.pre.i, %._crit_edge.i ], [ 3, %384 ]
-  %387 = call i32 %ossl_statem_client_post_work.ossl_statem_server_post_work.i(ptr noundef nonnull %0, i32 noundef %386) #7, !callees !148
-  store i32 %387, ptr %153, align 8, !tbaa !139
-  switch i32 %387, label %.backedge238 [
-    i32 0, label %388
+380:                                              ; preds = %379, %._crit_edge.i
+  %381 = phi i32 [ %.pre97.i, %._crit_edge.i ], [ 3, %379 ]
+  %382 = call i32 %ossl_statem_client_post_work.ossl_statem_server_post_work.i(ptr noundef nonnull %0, i32 noundef %381) #7, !callees !148
+  store i32 %382, ptr %153, align 8, !tbaa !139
+  switch i32 %382, label %.backedge238 [
+    i32 0, label %383
     i32 3, label %write_state_machine.exit.thread153
     i32 4, label %write_state_machine.exit.thread153
     i32 5, label %write_state_machine.exit.thread153
-    i32 2, label %394
-    i32 1, label %396
+    i32 2, label %389
+    i32 1, label %391
   ]
 
-388:                                              ; preds = %385
-  %389 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %390 = load i32, ptr %389, align 4, !tbaa !70
-  %.not80.i128 = icmp eq i32 %390, 0
-  br i1 %.not80.i128, label %write_state_machine.exit.thread.sink.split, label %391
+383:                                              ; preds = %380
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %385 = load i32, ptr %384, align 4, !tbaa !70
+  %.not80.i128 = icmp eq i32 %385, 0
+  br i1 %.not80.i128, label %write_state_machine.exit.thread.sink.split, label %386
 
-391:                                              ; preds = %388
-  %392 = load i32, ptr %9, align 8, !tbaa !71
-  %393 = icmp eq i32 %392, 1
-  br i1 %393, label %write_state_machine.exit.thread, label %write_state_machine.exit.thread.sink.split, !prof !136
+386:                                              ; preds = %383
+  %387 = load i32, ptr %9, align 8, !tbaa !71
+  %388 = icmp eq i32 %387, 1
+  br i1 %388, label %write_state_machine.exit.thread, label %write_state_machine.exit.thread.sink.split, !prof !136
 
-394:                                              ; preds = %385
+389:                                              ; preds = %380
   store i32 0, ptr %152, align 4, !tbaa !122
   br label %.backedge238
 
-.backedge238:                                     ; preds = %394, %385, %343, %321, %299, %297
+.backedge238:                                     ; preds = %389, %380, %343, %321, %299, %297
   br label %293
 
 write_state_machine.exit.thread.sink.split.sink.split: ; preds = %.thread93.i, %351, %322, %325
@@ -1532,27 +1530,27 @@ write_state_machine.exit.thread.sink.split.sink.split: ; preds = %.thread93.i, %
   call void @WPACKET_cleanup(ptr noundef nonnull %5) #7
   br label %write_state_machine.exit.thread.sink.split
 
-write_state_machine.exit.thread.sink.split:       ; preds = %293, %write_state_machine.exit.thread.sink.split.sink.split, %388, %391, %337, %340, %309, %312, %300, %303
-  %.sink220 = phi i32 [ 856, %303 ], [ 856, %300 ], [ 864, %312 ], [ 864, %309 ], [ 900, %340 ], [ 900, %337 ], [ 937, %391 ], [ 937, %388 ], [ %.sink220.ph, %write_state_machine.exit.thread.sink.split.sink.split ], [ 954, %293 ]
-  %.sink = phi i32 [ 256, %303 ], [ 256, %300 ], [ 256, %312 ], [ 256, %309 ], [ 256, %340 ], [ 256, %337 ], [ 256, %391 ], [ 256, %388 ], [ 786691, %write_state_machine.exit.thread.sink.split.sink.split ], [ 786691, %293 ]
+write_state_machine.exit.thread.sink.split:       ; preds = %293, %write_state_machine.exit.thread.sink.split.sink.split, %383, %386, %337, %340, %309, %312, %300, %303
+  %.sink220 = phi i32 [ 856, %303 ], [ 856, %300 ], [ 864, %312 ], [ 864, %309 ], [ 900, %340 ], [ 900, %337 ], [ 937, %386 ], [ 937, %383 ], [ %.sink220.ph, %write_state_machine.exit.thread.sink.split.sink.split ], [ 954, %293 ]
+  %.sink = phi i32 [ 256, %303 ], [ 256, %300 ], [ 256, %312 ], [ 256, %309 ], [ 256, %340 ], [ 256, %337 ], [ 256, %386 ], [ 256, %383 ], [ 786691, %write_state_machine.exit.thread.sink.split.sink.split ], [ 786691, %293 ]
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink220, ptr noundef nonnull @__func__.write_state_machine) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null)
   br label %write_state_machine.exit.thread
 
-write_state_machine.exit.thread:                  ; preds = %write_state_machine.exit.thread.sink.split, %303, %312, %391, %340
+write_state_machine.exit.thread:                  ; preds = %write_state_machine.exit.thread.sink.split, %303, %312, %386, %340
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-write_state_machine.exit.thread153:               ; preds = %306, %306, %306, %316, %statem_do_write.exit.i, %385, %385, %385
+write_state_machine.exit.thread153:               ; preds = %306, %306, %306, %316, %statem_do_write.exit.i, %380, %380, %380
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-395:                                              ; preds = %297
+390:                                              ; preds = %297
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1560,54 +1558,54 @@ write_state_machine.exit.thread153:               ; preds = %306, %306, %306, %3
   store i32 0, ptr %158, align 4, !tbaa !125
   br label %.backedge239
 
-396:                                              ; preds = %306, %385
+391:                                              ; preds = %306, %380
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 4, ptr %9, align 8, !tbaa !84
   br label %.backedge239
 
-.backedge239:                                     ; preds = %396, %395, %284
-  %.be = phi i32 [ 4, %396 ], [ 2, %395 ], [ 3, %284 ]
+.backedge239:                                     ; preds = %391, %390, %284
+  %.be = phi i32 [ 4, %391 ], [ 2, %390 ], [ 3, %284 ]
   br label %166, !llvm.loop !149
 
-397:                                              ; preds = %166
-  %398 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %399 = load i32, ptr %398, align 4, !tbaa !70
-  %.not108 = icmp ne i32 %399, 0
-  %400 = icmp eq i32 %167, 1
-  %spec.select = and i1 %400, %.not108
-  br i1 %spec.select, label %402, label %401, !prof !136
+392:                                              ; preds = %166
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %394 = load i32, ptr %393, align 4, !tbaa !70
+  %.not108 = icmp ne i32 %394, 0
+  %395 = icmp eq i32 %167, 1
+  %spec.select = and i1 %395, %.not108
+  br i1 %spec.select, label %397, label %396, !prof !136
 
-401:                                              ; preds = %397
+396:                                              ; preds = %392
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 503, ptr noundef nonnull @__func__.state_machine) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 256, ptr noundef null)
-  br label %402
+  br label %397
 
-402:                                              ; preds = %401, %397
+397:                                              ; preds = %396, %392
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 504, ptr noundef nonnull @__func__.state_machine) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786689, ptr noundef null) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %166, %write_state_machine.exit.thread153, %write_state_machine.exit.thread, %read_state_machine.exit.thread, %134, %402, %117, %111, %108, %100, %97, %95
-  %.081 = phi i32 [ -1, %95 ], [ -1, %108 ], [ -1, %402 ], [ -1, %134 ], [ -1, %117 ], [ -1, %111 ], [ -1, %100 ], [ -1, %97 ], [ -1, %read_state_machine.exit.thread ], [ -1, %write_state_machine.exit.thread ], [ -1, %write_state_machine.exit.thread153 ], [ 1, %166 ]
-  %.1 = phi ptr [ null, %95 ], [ null, %108 ], [ null, %402 ], [ null, %134 ], [ null, %117 ], [ %106, %111 ], [ null, %100 ], [ null, %97 ], [ null, %read_state_machine.exit.thread ], [ null, %write_state_machine.exit.thread ], [ null, %write_state_machine.exit.thread153 ], [ null, %166 ]
-  %403 = load i32, ptr %23, align 4, !tbaa !103
-  %404 = add nsw i32 %403, -1
-  store i32 %404, ptr %23, align 4, !tbaa !103
+.loopexit:                                        ; preds = %166, %write_state_machine.exit.thread153, %write_state_machine.exit.thread, %read_state_machine.exit.thread, %134, %397, %117, %111, %108, %100, %97, %95
+  %.081 = phi i32 [ -1, %95 ], [ -1, %108 ], [ -1, %397 ], [ -1, %134 ], [ -1, %117 ], [ -1, %111 ], [ -1, %100 ], [ -1, %97 ], [ -1, %read_state_machine.exit.thread ], [ -1, %write_state_machine.exit.thread ], [ -1, %write_state_machine.exit.thread153 ], [ 1, %166 ]
+  %.1 = phi ptr [ null, %95 ], [ null, %108 ], [ null, %397 ], [ null, %134 ], [ null, %117 ], [ %106, %111 ], [ null, %100 ], [ null, %97 ], [ null, %read_state_machine.exit.thread ], [ null, %write_state_machine.exit.thread ], [ null, %write_state_machine.exit.thread153 ], [ null, %166 ]
+  %398 = load i32, ptr %23, align 4, !tbaa !103
+  %399 = add nsw i32 %398, -1
+  store i32 %399, ptr %23, align 4, !tbaa !103
   call void @BUF_MEM_free(ptr noundef %.1) #7
   %.not110 = icmp eq ptr %.0.i, null
-  br i1 %.not110, label %405, label %.sink.split221
+  br i1 %.not110, label %400, label %.sink.split221
 
 .sink.split221:                                   ; preds = %.loopexit
   %.not111 = icmp eq i32 %1, 0
   %. = select i1 %.not111, i32 4098, i32 8194
   call void %.0.i(ptr noundef %11, i32 noundef %., i32 noundef %.081) #7
-  br label %405
+  br label %400
 
-405:                                              ; preds = %.sink.split221, %.loopexit, %54, %2
+400:                                              ; preds = %.sink.split221, %.loopexit, %54, %2
   %.0 = phi i32 [ -1, %2 ], [ -1, %54 ], [ %.081, %.loopexit ], [ %.081, %.sink.split221 ]
   ret i32 %.0
 }

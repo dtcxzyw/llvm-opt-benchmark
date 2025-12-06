@@ -3457,7 +3457,7 @@ define void @Abc_NtkLogicMakeSimpleCosTest(ptr noundef readonly captures(none) %
   %wide.trip.count = zext nneg i32 %.val42.val to i64
   br label %15
 
-.critedge.preheader:                              ; preds = %44, %2
+.critedge.preheader:                              ; preds = %._crit_edge, %2
   %14 = icmp sgt i32 %.val40.val, 0
   br i1 %14, label %.critedge.preheader54, label %.preheader47.preheader
 
@@ -3465,8 +3465,8 @@ define void @Abc_NtkLogicMakeSimpleCosTest(ptr noundef readonly captures(none) %
   %wide.trip.count59 = zext nneg i32 %.val40.val to i64
   br label %.critedge
 
-15:                                               ; preds = %.lr.ph, %44
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
+15:                                               ; preds = %.lr.ph, %._crit_edge
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
   %16 = getelementptr inbounds nuw ptr, ptr %.val43.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !26
   %18 = getelementptr i8, ptr %17, i64 32
@@ -3499,50 +3499,42 @@ define void @Abc_NtkLogicMakeSimpleCosTest(ptr noundef readonly captures(none) %
   %34 = getelementptr i8, ptr %33, i64 20
   %.val41 = load i32, ptr %34, align 4
   %35 = and i32 %.val41, 15
+  %.phi.trans.insert = getelementptr i8, ptr %17, i64 20
+  %.val.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre = lshr i32 %.val.pre, 10
+  %.pre72 = and i32 %.pre, 1
   switch i32 %35, label %._crit_edge [
     i32 5, label %36
     i32 2, label %36
   ]
 
-._crit_edge:                                      ; preds = %28
-  %.phi.trans.insert = getelementptr i8, ptr %17, i64 20
-  %.val.pre = load i32, ptr %.phi.trans.insert, align 4
-  %.pre = lshr i32 %.val.pre, 10
-  %.pre72 = and i32 %.pre, 1
-  br label %44
-
 36:                                               ; preds = %28, %28
-  %37 = getelementptr i8, ptr %17, i64 20
-  %.val34 = load i32, ptr %37, align 4
-  %38 = lshr i32 %.val34, 10
-  %39 = and i32 %38, 1
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %5, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !51
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %41, align 4, !tbaa !51
-  br label %44
+  %37 = zext nneg i32 %.pre72 to i64
+  %38 = getelementptr inbounds nuw i32, ptr %5, i64 %37
+  %39 = load i32, ptr %38, align 4, !tbaa !51
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %38, align 4, !tbaa !51
+  br label %._crit_edge
 
-44:                                               ; preds = %._crit_edge, %36
-  %.pre-phi73 = phi i32 [ %.pre72, %._crit_edge ], [ %39, %36 ]
-  %45 = shl nuw nsw i32 1, %.pre-phi73
-  %46 = getelementptr inbounds i32, ptr %9, i64 %31
-  %47 = load i32, ptr %46, align 4, !tbaa !51
-  %48 = or i32 %45, %47
-  store i32 %48, ptr %46, align 4, !tbaa !51
+._crit_edge:                                      ; preds = %28, %36
+  %41 = shl nuw nsw i32 1, %.pre72
+  %42 = getelementptr inbounds i32, ptr %9, i64 %31
+  %43 = load i32, ptr %42, align 4, !tbaa !51
+  %44 = or i32 %41, %43
+  store i32 %44, ptr %42, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.preheader, label %15, !llvm.loop !116
 
 .critedge:                                        ; preds = %.critedge.preheader54, %.critedge
   %indvars.iv56 = phi i64 [ 0, %.critedge.preheader54 ], [ %indvars.iv.next57, %.critedge ]
-  %49 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv56
-  %50 = load i32, ptr %49, align 4, !tbaa !51
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !51
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %52, align 4, !tbaa !51
+  %45 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv56
+  %46 = load i32, ptr %45, align 4, !tbaa !51
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !51
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %48, align 4, !tbaa !51
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
   br i1 %exitcond60.not, label %.preheader47.preheader, label %.critedge, !llvm.loop !117
@@ -3552,34 +3544,34 @@ define void @Abc_NtkLogicMakeSimpleCosTest(ptr noundef readonly captures(none) %
 
 .preheader47:                                     ; preds = %.preheader47.preheader, %.preheader47
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.preheader47 ], [ 0, %.preheader47.preheader ]
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv61
-  %56 = load i32, ptr %55, align 4, !tbaa !51
-  %57 = trunc nuw nsw i64 %indvars.iv61 to i32
-  %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %57, i32 noundef %56)
+  %51 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv61
+  %52 = load i32, ptr %51, align 4, !tbaa !51
+  %53 = trunc nuw nsw i64 %indvars.iv61 to i32
+  %54 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %53, i32 noundef %52)
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 4
   br i1 %exitcond64.not, label %.preheader46, label %.preheader47, !llvm.loop !118
 
 .preheader46:                                     ; preds = %.preheader47
-  %59 = load i32, ptr %4, align 8, !tbaa !51
-  %60 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 0, i32 noundef %59)
-  %61 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %62 = load i32, ptr %61, align 4, !tbaa !51
-  %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 1, i32 noundef %62)
-  %64 = load i32, ptr %5, align 8, !tbaa !51
-  %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef 0, i32 noundef %64)
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !51
-  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef 1, i32 noundef %67)
+  %55 = load i32, ptr %4, align 8, !tbaa !51
+  %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 0, i32 noundef %55)
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %58 = load i32, ptr %57, align 4, !tbaa !51
+  %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 1, i32 noundef %58)
+  %60 = load i32, ptr %5, align 8, !tbaa !51
+  %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef 0, i32 noundef %60)
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %63 = load i32, ptr %62, align 4, !tbaa !51
+  %64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef 1, i32 noundef %63)
   %putchar = tail call i32 @putchar(i32 10)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %70, label %69
+  br i1 %.not, label %66, label %65
 
-69:                                               ; preds = %.preheader46
+65:                                               ; preds = %.preheader46
   tail call void @free(ptr noundef nonnull %9) #31
-  br label %70
+  br label %66
 
-70:                                               ; preds = %.preheader46, %69
+66:                                               ; preds = %.preheader46, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -1297,51 +1297,49 @@ define i32 @dissect_per_sequence_of(ptr noundef %0, i32 noundef %1, ptr noundef 
   %11 = call ptr @proto_registrar_get_nth(i32 noundef %4)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
+  %14 = lshr i32 %1, 3
   switch i32 %13, label %20 [
-    i32 3, label %14
-    i32 4, label %14
-    i32 5, label %14
-    i32 6, label %14
-    i32 7, label %14
-    i32 35, label %14
-    i32 8, label %14
-    i32 9, label %14
-    i32 10, label %14
-    i32 11, label %14
+    i32 3, label %15
+    i32 4, label %15
+    i32 5, label %15
+    i32 6, label %15
+    i32 7, label %15
+    i32 35, label %15
+    i32 8, label %15
+    i32 9, label %15
+    i32 10, label %15
+    i32 11, label %15
   ]
 
-14:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
-  %15 = lshr i32 %1, 3
+15:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
   %16 = load i32, ptr %8, align 4
-  %17 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %15, i32 noundef 0, i32 noundef %16)
+  %17 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %16)
   %18 = icmp eq i32 %16, 1
   %19 = select i1 %18, ptr @.str.9, ptr @.str.10
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull %19)
-  br label %23
+  br label %22
 
 20:                                               ; preds = %7
-  %21 = lshr i32 %1, 3
-  %22 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %21, i32 noundef 0, i32 noundef 0)
+  %21 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef 0)
   %.pre = load i32, ptr %8, align 4
-  br label %23
+  br label %22
 
-23:                                               ; preds = %20, %14
-  %.pre-phi = phi i32 [ %21, %20 ], [ %15, %14 ]
-  %24 = phi i32 [ %.pre, %20 ], [ %16, %14 ]
-  %.0 = phi ptr [ %22, %20 ], [ %17, %14 ]
-  %25 = call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %5)
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i32, ptr %28, align 4
-  %30 = call fastcc i32 @dissect_per_sequence_of_helper(ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %25, ptr noundef %27, i32 noundef %29, i32 noundef %24)
-  %31 = lshr i32 %30, 3
-  %.not = icmp eq i32 %31, %.pre-phi
-  %32 = sub nsw i32 %31, %.pre-phi
-  %spec.select = select i1 %.not, i32 1, i32 %32
+22:                                               ; preds = %20, %15
+  %23 = phi i32 [ %.pre, %20 ], [ %16, %15 ]
+  %.0 = phi ptr [ %21, %20 ], [ %17, %15 ]
+  %24 = call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %5)
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = load i32, ptr %27, align 4
+  %29 = call fastcc i32 @dissect_per_sequence_of_helper(ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %24, ptr noundef %26, i32 noundef %28, i32 noundef %23)
+  %30 = lshr i32 %29, 3
+  %.not = icmp eq i32 %30, %14
+  %31 = sub nsw i32 %30, %14
+  %spec.select = select i1 %.not, i32 1, i32 %31
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %spec.select)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i32 %30
+  ret i32 %29
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2824,81 +2822,80 @@ proto_item_set_hidden.exit85:                     ; preds = %53, %50, %47, %30, 
   %57 = call ptr @proto_registrar_get_nth(i32 noundef %4)
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8
+  %60 = lshr i32 %.2, 3
   switch i32 %59, label %66 [
-    i32 3, label %60
-    i32 4, label %60
-    i32 5, label %60
-    i32 6, label %60
-    i32 7, label %60
-    i32 35, label %60
-    i32 8, label %60
-    i32 9, label %60
-    i32 10, label %60
-    i32 11, label %60
+    i32 3, label %61
+    i32 4, label %61
+    i32 5, label %61
+    i32 6, label %61
+    i32 7, label %61
+    i32 35, label %61
+    i32 8, label %61
+    i32 9, label %61
+    i32 10, label %61
+    i32 11, label %61
   ]
 
-60:                                               ; preds = %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85
-  %61 = lshr i32 %.2, 3
+61:                                               ; preds = %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85, %proto_item_set_hidden.exit85
   %62 = load i32, ptr %11, align 4
-  %63 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %61, i32 noundef 0, i32 noundef %62)
+  %63 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %60, i32 noundef 0, i32 noundef %62)
   %64 = icmp eq i32 %62, 1
   %65 = select i1 %64, ptr @.str.9, ptr @.str.10
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull %65)
-  br label %69
+  br label %68
 
 66:                                               ; preds = %proto_item_set_hidden.exit85
-  %67 = lshr i32 %.2, 3
-  %68 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %67, i32 noundef 0, i32 noundef 0)
+  %67 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %60, i32 noundef 0, i32 noundef 0)
   %.pre = load i32, ptr %11, align 4
-  br label %69
+  br label %68
 
-69:                                               ; preds = %66, %60
-  %70 = phi i32 [ %62, %60 ], [ %.pre, %66 ]
-  %.075 = phi ptr [ %63, %60 ], [ %68, %66 ]
-  %71 = call ptr @proto_item_add_subtree(ptr noundef %.075, i32 noundef %5)
+68:                                               ; preds = %66, %61
+  %69 = phi i32 [ %62, %61 ], [ %.pre, %66 ]
+  %.075 = phi ptr [ %63, %61 ], [ %67, %66 ]
+  %70 = call ptr @proto_item_add_subtree(ptr noundef %.075, i32 noundef %5)
   %.not.i86 = icmp ne i32 %7, -1
-  %72 = icmp ult i32 %70, %7
-  %or.cond.i = and i1 %.not.i86, %72
-  br i1 %or.cond.i, label %73, label %77
+  %71 = icmp ult i32 %69, %7
+  %or.cond.i = and i1 %.not.i86, %71
+  br i1 %or.cond.i, label %72, label %76
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %75 = load ptr, ptr %74, align 8
-  %76 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %75, ptr noundef %.075, ptr noundef nonnull @ei_per_size_constraint_too_few, ptr noundef nonnull @.str.169, i32 noundef %70, i32 noundef %7, i32 noundef %8)
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %74 = load ptr, ptr %73, align 8
+  %75 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %74, ptr noundef %.075, ptr noundef nonnull @ei_per_size_constraint_too_few, ptr noundef nonnull @.str.169, i32 noundef %69, i32 noundef %7, i32 noundef %8)
   br label %per_check_items.exit
 
-77:                                               ; preds = %69
-  %78 = icmp ugt i32 %70, %8
-  br i1 %78, label %79, label %per_check_items.exit
+76:                                               ; preds = %68
+  %77 = icmp ugt i32 %69, %8
+  br i1 %77, label %78, label %per_check_items.exit
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %81 = load ptr, ptr %80, align 8
-  %82 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %81, ptr noundef %.075, ptr noundef nonnull @ei_per_size_constraint_too_many, ptr noundef nonnull @.str.170, i32 noundef %70, i32 noundef %7, i32 noundef %8)
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %80, ptr noundef %.075, ptr noundef nonnull @ei_per_size_constraint_too_many, ptr noundef nonnull @.str.170, i32 noundef %69, i32 noundef %7, i32 noundef %8)
   br label %per_check_items.exit
 
-per_check_items.exit:                             ; preds = %73, %77, %79
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %6, align 8
-  %86 = load i32, ptr %85, align 4
-  %87 = call fastcc i32 @dissect_per_sequence_of_helper(ptr noundef %0, i32 noundef %.2, ptr noundef %2, ptr noundef %71, ptr noundef %84, i32 noundef %86, i32 noundef %70)
-  %88 = icmp eq i32 %87, %.2
-  br i1 %88, label %94, label %89
+per_check_items.exit:                             ; preds = %72, %76, %78
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %6, align 8
+  %85 = load i32, ptr %84, align 4
+  %86 = call fastcc i32 @dissect_per_sequence_of_helper(ptr noundef %0, i32 noundef %.2, ptr noundef %2, ptr noundef %70, ptr noundef %83, i32 noundef %85, i32 noundef %69)
+  %87 = icmp eq i32 %86, %.2
+  br i1 %87, label %93, label %88
 
-89:                                               ; preds = %per_check_items.exit
-  %90 = lshr i32 %87, 3
-  %91 = lshr i32 %.2, 3
-  %92 = icmp eq i32 %90, %91
-  %93 = sub nsw i32 %90, %91
-  %spec.select = select i1 %92, i32 1, i32 %93
-  br label %94
+88:                                               ; preds = %per_check_items.exit
+  %89 = lshr i32 %86, 3
+  %90 = lshr i32 %.2, 3
+  %91 = icmp eq i32 %89, %90
+  %92 = sub nsw i32 %89, %90
+  %spec.select = select i1 %91, i32 1, i32 %92
+  br label %93
 
-94:                                               ; preds = %89, %per_check_items.exit
-  %95 = phi i32 [ 0, %per_check_items.exit ], [ %spec.select, %89 ]
-  call void @proto_item_set_len(ptr noundef %.075, i32 noundef %95)
+93:                                               ; preds = %88, %per_check_items.exit
+  %94 = phi i32 [ 0, %per_check_items.exit ], [ %spec.select, %88 ]
+  call void @proto_item_set_len(ptr noundef %.075, i32 noundef %94)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  ret i32 %87
+  ret i32 %86
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

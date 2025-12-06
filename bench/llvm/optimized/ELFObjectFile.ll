@@ -15500,7 +15500,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %42 = or i8 %41, 1
   store i8 %42, ptr %40, align 8
   store ptr %39, ptr %0, align 8, !tbaa !24, !alias.scope !1467
-  br label %241
+  br label %238
 
 .thread:                                          ; preds = %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE9getSymbolENS0_11DataRefImplE.exit
   %43 = load ptr, ptr %8, align 8, !tbaa !1470
@@ -15566,7 +15566,7 @@ _ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE7symbolsEPKNS0_1
   store i8 %72, ptr %70, align 8
   store ptr %69, ptr %0, align 8, !tbaa !24, !alias.scope !1486
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %241
+  br label %238
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %61
   %73 = load ptr, ptr %63, align 8, !tbaa !3
@@ -15623,7 +15623,7 @@ _ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE7symbolsEPKNS0_1
   store i8 %96, ptr %94, align 8
   store ptr %93, ptr %0, align 8, !tbaa !24, !alias.scope !1495
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %241
+  br label %238
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i40: ; preds = %85
   %97 = load ptr, ptr %87, align 8, !tbaa !3
@@ -15999,62 +15999,55 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit104:    ; preds = %206, %_ZNKSt14defau
   %228 = phi i8 [ %225, %223 ], [ %214, %221 ], [ %218, %.thread183 ]
   %.16 = phi i32 [ %226, %223 ], [ %.8, %221 ], [ %217, %.thread183 ]
   %229 = lshr i8 %228, 4
-  switch i8 %229, label %.thread187._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge [
+  %.phi.trans.insert202 = getelementptr inbounds nuw i8, ptr %43, i64 13
+  %.pre203 = load i8, ptr %.phi.trans.insert202, align 1, !tbaa !1510
+  %.pre204 = and i8 %.pre203, 3
+  switch i8 %229, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread [
     i8 10, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
     i8 2, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
     i8 1, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
   ]
 
-.thread187._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge: ; preds = %.thread187
-  %.phi.trans.insert202 = getelementptr inbounds nuw i8, ptr %43, i64 13
-  %.pre203 = load i8, ptr %.phi.trans.insert202, align 1, !tbaa !1510
-  %.pre204 = and i8 %.pre203, 3
-  br label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread
-
 _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit: ; preds = %.thread187, %.thread187, %.thread187
-  %230 = getelementptr inbounds nuw i8, ptr %43, i64 13
-  %231 = load i8, ptr %230, align 1, !tbaa !1510
-  %232 = and i8 %231, 3
-  %.off = add nsw i8 %232, -1
+  %.off = add nsw i8 %.pre204, -1
   %switch = icmp ult i8 %.off, 2
-  %233 = or i32 %.16, 64
-  %spec.select195 = select i1 %switch, i32 %.16, i32 %233
+  %230 = or i32 %.16, 64
+  %spec.select195 = select i1 %switch, i32 %.16, i32 %230
   br label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread
 
-_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread: ; preds = %.thread187._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
-  %.pre-phi = phi i8 [ %.pre204, %.thread187._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge ], [ %232, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ]
-  %.17 = phi i32 [ %.16, %.thread187._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge ], [ %spec.select195, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ]
-  %234 = icmp eq i8 %227, 10
-  %235 = or i32 %.17, 32
-  %spec.select192 = select i1 %234, i32 %235, i32 %.17
-  %236 = icmp eq i8 %.pre-phi, 2
-  %237 = or i32 %spec.select192, 512
-  %.19 = select i1 %236, i32 %237, i32 %spec.select192
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %239 = load i8, ptr %238, align 8
-  %240 = and i8 %239, -2
-  store i8 %240, ptr %238, align 8
+_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread: ; preds = %.thread187, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
+  %.17 = phi i32 [ %spec.select195, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ], [ %.16, %.thread187 ]
+  %231 = icmp eq i8 %227, 10
+  %232 = or i32 %.17, 32
+  %spec.select192 = select i1 %231, i32 %232, i32 %.17
+  %233 = icmp eq i8 %.pre204, 2
+  %234 = or i32 %spec.select192, 512
+  %.19 = select i1 %233, i32 %234, i32 %spec.select192
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %236 = load i8, ptr %235, align 8
+  %237 = and i8 %236, -2
+  store i8 %237, ptr %235, align 8
   store i32 %.19, ptr %0, align 8, !tbaa !118
-  br label %241
+  br label %238
 
-241:                                              ; preds = %.thread234, %.thread220, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %242 = load i8, ptr %35, align 8
-  %243 = trunc i8 %242 to i1
-  br i1 %243, label %244, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit
+238:                                              ; preds = %.thread234, %.thread220, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+  %239 = load i8, ptr %35, align 8
+  %240 = trunc i8 %239 to i1
+  br i1 %240, label %241, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit
 
-244:                                              ; preds = %241
-  %245 = load ptr, ptr %8, align 8, !tbaa !24
-  %.not.i.i107 = icmp eq ptr %245, null
+241:                                              ; preds = %238
+  %242 = load ptr, ptr %8, align 8, !tbaa !24
+  %.not.i.i107 = icmp eq ptr %242, null
   br i1 %.not.i.i107, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i108
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i108: ; preds = %244
-  %246 = load ptr, ptr %245, align 8, !tbaa !3
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  %248 = load ptr, ptr %247, align 8
-  call void %248(ptr noundef nonnull align 8 dereferenceable(8) %245) #21
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i108: ; preds = %241
+  %243 = load ptr, ptr %242, align 8, !tbaa !3
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  %245 = load ptr, ptr %244, align 8
+  call void %245(ptr noundef nonnull align 8 dereferenceable(8) %242) #21
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit
 
-_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit: ; preds = %244, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i108, %241
+_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit: ; preds = %241, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i108, %238
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -17087,74 +17080,54 @@ _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE9getSymbo
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i8, ptr %28, align 1, !tbaa !1472
   %30 = and i8 %29, 15
-  switch i8 %30, label %51 [
-    i8 0, label %31
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load i8, ptr %31, align 8
+  %33 = and i8 %32, -2
+  store i8 %33, ptr %31, align 8
+  switch i8 %30, label %39 [
+    i8 0, label %34
     i8 3, label %35
-    i8 4, label %39
-    i8 2, label %43
-    i8 1, label %47
-    i8 5, label %47
+    i8 4, label %36
+    i8 2, label %37
+    i8 1, label %38
+    i8 5, label %38
   ]
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, -2
-  store i8 %34, ptr %32, align 8
+34:                                               ; preds = %26
   store i32 0, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i8, ptr %36, align 8
-  %38 = and i8 %37, -2
-  store i8 %38, ptr %36, align 8
   store i32 3, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit
 
-39:                                               ; preds = %26
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, -2
-  store i8 %42, ptr %40, align 8
+36:                                               ; preds = %26
   store i32 4, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit
 
-43:                                               ; preds = %26
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, -2
-  store i8 %46, ptr %44, align 8
+37:                                               ; preds = %26
   store i32 5, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit
 
-47:                                               ; preds = %26, %26
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load i8, ptr %48, align 8
-  %50 = and i8 %49, -2
-  store i8 %50, ptr %48, align 8
+38:                                               ; preds = %26, %26
   store i32 2, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit
 
-51:                                               ; preds = %26
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load i8, ptr %52, align 8
-  %54 = and i8 %53, -2
-  store i8 %54, ptr %52, align 8
+39:                                               ; preds = %26
   store i32 1, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2: ; preds = %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE9getSymbolENS0_11DataRefImplE.exit
-  %55 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1657
-  %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load i8, ptr %57, align 8
-  %59 = or i8 %58, 1
-  store i8 %59, ptr %57, align 8
-  store ptr %56, ptr %0, align 8, !tbaa !24, !alias.scope !1660
+  %40 = load i64, ptr %5, align 8, !tbaa !24, !noalias !1657
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = load i8, ptr %42, align 8
+  %44 = or i8 %43, 1
+  store i8 %44, ptr %42, align 8
+  store ptr %41, ptr %0, align 8, !tbaa !24, !alias.scope !1660
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit
 
-_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit: ; preds = %31, %35, %39, %43, %47, %51, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
+_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb0EEEEEED2Ev.exit: ; preds = %34, %35, %36, %37, %38, %39, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -25111,7 +25084,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %42 = or i8 %41, 1
   store i8 %42, ptr %40, align 8
   store ptr %39, ptr %0, align 8, !tbaa !24, !alias.scope !2579
-  br label %241
+  br label %238
 
 .thread:                                          ; preds = %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE9getSymbolENS0_11DataRefImplE.exit
   %43 = load ptr, ptr %8, align 8, !tbaa !2582
@@ -25177,7 +25150,7 @@ _ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE7symbolsEPKNS0_1
   store i8 %72, ptr %70, align 8
   store ptr %69, ptr %0, align 8, !tbaa !24, !alias.scope !2598
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %241
+  br label %238
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %61
   %73 = load ptr, ptr %63, align 8, !tbaa !3
@@ -25234,7 +25207,7 @@ _ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE7symbolsEPKNS0_1
   store i8 %96, ptr %94, align 8
   store ptr %93, ptr %0, align 8, !tbaa !24, !alias.scope !2607
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %241
+  br label %238
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i40: ; preds = %85
   %97 = load ptr, ptr %87, align 8, !tbaa !3
@@ -25611,62 +25584,55 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit108:    ; preds = %206, %_ZNKSt14defau
   %228 = phi i8 [ %225, %223 ], [ %214, %221 ], [ %218, %.thread189 ]
   %.16 = phi i32 [ %226, %223 ], [ %.8, %221 ], [ %217, %.thread189 ]
   %229 = lshr i8 %228, 4
-  switch i8 %229, label %.thread193._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge [
+  %.phi.trans.insert208 = getelementptr inbounds nuw i8, ptr %43, i64 13
+  %.pre209 = load i8, ptr %.phi.trans.insert208, align 1, !tbaa !2622
+  %.pre210 = and i8 %.pre209, 3
+  switch i8 %229, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread [
     i8 10, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
     i8 2, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
     i8 1, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
   ]
 
-.thread193._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge: ; preds = %.thread193
-  %.phi.trans.insert208 = getelementptr inbounds nuw i8, ptr %43, i64 13
-  %.pre209 = load i8, ptr %.phi.trans.insert208, align 1, !tbaa !2622
-  %.pre210 = and i8 %.pre209, 3
-  br label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread
-
 _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit: ; preds = %.thread193, %.thread193, %.thread193
-  %230 = getelementptr inbounds nuw i8, ptr %43, i64 13
-  %231 = load i8, ptr %230, align 1, !tbaa !2622
-  %232 = and i8 %231, 3
-  %.off = add nsw i8 %232, -1
+  %.off = add nsw i8 %.pre210, -1
   %switch = icmp ult i8 %.off, 2
-  %233 = or i32 %.16, 64
-  %spec.select201 = select i1 %switch, i32 %.16, i32 %233
+  %230 = or i32 %.16, 64
+  %spec.select201 = select i1 %switch, i32 %.16, i32 %230
   br label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread
 
-_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread: ; preds = %.thread193._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
-  %.pre-phi = phi i8 [ %.pre210, %.thread193._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge ], [ %232, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ]
-  %.17 = phi i32 [ %.16, %.thread193._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge ], [ %spec.select201, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ]
-  %234 = icmp eq i8 %227, 10
-  %235 = or i32 %.17, 32
-  %spec.select198 = select i1 %234, i32 %235, i32 %.17
-  %236 = icmp eq i8 %.pre-phi, 2
-  %237 = or i32 %spec.select198, 512
-  %.19 = select i1 %236, i32 %237, i32 %spec.select198
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %239 = load i8, ptr %238, align 8
-  %240 = and i8 %239, -2
-  store i8 %240, ptr %238, align 8
+_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread: ; preds = %.thread193, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
+  %.17 = phi i32 [ %spec.select201, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ], [ %.16, %.thread193 ]
+  %231 = icmp eq i8 %227, 10
+  %232 = or i32 %.17, 32
+  %spec.select198 = select i1 %231, i32 %232, i32 %.17
+  %233 = icmp eq i8 %.pre210, 2
+  %234 = or i32 %spec.select198, 512
+  %.19 = select i1 %233, i32 %234, i32 %spec.select198
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %236 = load i8, ptr %235, align 8
+  %237 = and i8 %236, -2
+  store i8 %237, ptr %235, align 8
   store i32 %.19, ptr %0, align 8, !tbaa !118
-  br label %241
+  br label %238
 
-241:                                              ; preds = %.thread240, %.thread226, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %242 = load i8, ptr %35, align 8
-  %243 = trunc i8 %242 to i1
-  br i1 %243, label %244, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit
+238:                                              ; preds = %.thread240, %.thread226, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+  %239 = load i8, ptr %35, align 8
+  %240 = trunc i8 %239 to i1
+  br i1 %240, label %241, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit
 
-244:                                              ; preds = %241
-  %245 = load ptr, ptr %8, align 8, !tbaa !24
-  %.not.i.i113 = icmp eq ptr %245, null
+241:                                              ; preds = %238
+  %242 = load ptr, ptr %8, align 8, !tbaa !24
+  %.not.i.i113 = icmp eq ptr %242, null
   br i1 %.not.i.i113, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i114
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i114: ; preds = %244
-  %246 = load ptr, ptr %245, align 8, !tbaa !3
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  %248 = load ptr, ptr %247, align 8
-  call void %248(ptr noundef nonnull align 8 dereferenceable(8) %245) #21
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i114: ; preds = %241
+  %243 = load ptr, ptr %242, align 8, !tbaa !3
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  %245 = load ptr, ptr %244, align 8
+  call void %245(ptr noundef nonnull align 8 dereferenceable(8) %242) #21
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit
 
-_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit: ; preds = %244, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i114, %241
+_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit: ; preds = %241, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i114, %238
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -26707,74 +26673,54 @@ _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE9getSymbo
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i8, ptr %28, align 1, !tbaa !2584
   %30 = and i8 %29, 15
-  switch i8 %30, label %51 [
-    i8 0, label %31
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load i8, ptr %31, align 8
+  %33 = and i8 %32, -2
+  store i8 %33, ptr %31, align 8
+  switch i8 %30, label %39 [
+    i8 0, label %34
     i8 3, label %35
-    i8 4, label %39
-    i8 2, label %43
-    i8 1, label %47
-    i8 5, label %47
+    i8 4, label %36
+    i8 2, label %37
+    i8 1, label %38
+    i8 5, label %38
   ]
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, -2
-  store i8 %34, ptr %32, align 8
+34:                                               ; preds = %26
   store i32 0, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i8, ptr %36, align 8
-  %38 = and i8 %37, -2
-  store i8 %38, ptr %36, align 8
   store i32 3, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit
 
-39:                                               ; preds = %26
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, -2
-  store i8 %42, ptr %40, align 8
+36:                                               ; preds = %26
   store i32 4, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit
 
-43:                                               ; preds = %26
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, -2
-  store i8 %46, ptr %44, align 8
+37:                                               ; preds = %26
   store i32 5, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit
 
-47:                                               ; preds = %26, %26
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load i8, ptr %48, align 8
-  %50 = and i8 %49, -2
-  store i8 %50, ptr %48, align 8
+38:                                               ; preds = %26, %26
   store i32 2, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit
 
-51:                                               ; preds = %26
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load i8, ptr %52, align 8
-  %54 = and i8 %53, -2
-  store i8 %54, ptr %52, align 8
+39:                                               ; preds = %26
   store i32 1, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2: ; preds = %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE9getSymbolENS0_11DataRefImplE.exit
-  %55 = load i64, ptr %5, align 8, !tbaa !24, !noalias !2762
-  %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load i8, ptr %57, align 8
-  %59 = or i8 %58, 1
-  store i8 %59, ptr %57, align 8
-  store ptr %56, ptr %0, align 8, !tbaa !24, !alias.scope !2765
+  %40 = load i64, ptr %5, align 8, !tbaa !24, !noalias !2762
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = load i8, ptr %42, align 8
+  %44 = or i8 %43, 1
+  store i8 %44, ptr %42, align 8
+  store ptr %41, ptr %0, align 8, !tbaa !24, !alias.scope !2765
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit
 
-_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit: ; preds = %31, %35, %39, %43, %47, %51, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
+_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb0EEEEEED2Ev.exit: ; preds = %34, %35, %36, %37, %38, %39, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -34245,7 +34191,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %42 = or i8 %41, 1
   store i8 %42, ptr %40, align 8
   store ptr %39, ptr %0, align 8, !tbaa !24, !alias.scope !3643
-  br label %242
+  br label %239
 
 .thread:                                          ; preds = %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE9getSymbolENS0_11DataRefImplE.exit
   %43 = load ptr, ptr %8, align 8, !tbaa !3646
@@ -34311,7 +34257,7 @@ _ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7symbolsEPKNS0_1
   store i8 %72, ptr %70, align 8
   store ptr %69, ptr %0, align 8, !tbaa !24, !alias.scope !3660
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %242
+  br label %239
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %61
   %73 = load ptr, ptr %63, align 8, !tbaa !3
@@ -34368,7 +34314,7 @@ _ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE7symbolsEPKNS0_1
   store i8 %96, ptr %94, align 8
   store ptr %93, ptr %0, align 8, !tbaa !24, !alias.scope !3669
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %242
+  br label %239
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i40: ; preds = %85
   %97 = load ptr, ptr %87, align 8, !tbaa !3
@@ -34745,62 +34691,55 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit104:    ; preds = %207, %_ZNKSt14defau
   %229 = phi i8 [ %226, %224 ], [ %215, %222 ], [ %219, %.thread183 ]
   %.16 = phi i32 [ %227, %224 ], [ %.8, %222 ], [ %218, %.thread183 ]
   %230 = lshr i8 %229, 4
-  switch i8 %230, label %.thread187._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge [
+  %.phi.trans.insert202 = getelementptr inbounds nuw i8, ptr %43, i64 5
+  %.pre203 = load i8, ptr %.phi.trans.insert202, align 1, !tbaa !3684
+  %.pre204 = and i8 %.pre203, 3
+  switch i8 %230, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread [
     i8 10, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
     i8 2, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
     i8 1, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
   ]
 
-.thread187._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge: ; preds = %.thread187
-  %.phi.trans.insert202 = getelementptr inbounds nuw i8, ptr %43, i64 5
-  %.pre203 = load i8, ptr %.phi.trans.insert202, align 1, !tbaa !3684
-  %.pre204 = and i8 %.pre203, 3
-  br label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread
-
 _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit: ; preds = %.thread187, %.thread187, %.thread187
-  %231 = getelementptr inbounds nuw i8, ptr %43, i64 5
-  %232 = load i8, ptr %231, align 1, !tbaa !3684
-  %233 = and i8 %232, 3
-  %.off = add nsw i8 %233, -1
+  %.off = add nsw i8 %.pre204, -1
   %switch = icmp ult i8 %.off, 2
-  %234 = or i32 %.16, 64
-  %spec.select195 = select i1 %switch, i32 %.16, i32 %234
+  %231 = or i32 %.16, 64
+  %spec.select195 = select i1 %switch, i32 %.16, i32 %231
   br label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread
 
-_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread: ; preds = %.thread187._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
-  %.pre-phi = phi i8 [ %.pre204, %.thread187._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge ], [ %233, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ]
-  %.17 = phi i32 [ %.16, %.thread187._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge ], [ %spec.select195, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ]
-  %235 = icmp eq i8 %228, 10
-  %236 = or i32 %.17, 32
-  %spec.select192 = select i1 %235, i32 %236, i32 %.17
-  %237 = icmp eq i8 %.pre-phi, 2
-  %238 = or i32 %spec.select192, 512
-  %.19 = select i1 %237, i32 %238, i32 %spec.select192
-  %239 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %240 = load i8, ptr %239, align 8
-  %241 = and i8 %240, -2
-  store i8 %241, ptr %239, align 8
+_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread: ; preds = %.thread187, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
+  %.17 = phi i32 [ %spec.select195, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ], [ %.16, %.thread187 ]
+  %232 = icmp eq i8 %228, 10
+  %233 = or i32 %.17, 32
+  %spec.select192 = select i1 %232, i32 %233, i32 %.17
+  %234 = icmp eq i8 %.pre204, 2
+  %235 = or i32 %spec.select192, 512
+  %.19 = select i1 %234, i32 %235, i32 %spec.select192
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %237 = load i8, ptr %236, align 8
+  %238 = and i8 %237, -2
+  store i8 %238, ptr %236, align 8
   store i32 %.19, ptr %0, align 8, !tbaa !118
-  br label %242
+  br label %239
 
-242:                                              ; preds = %.thread234, %.thread220, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %243 = load i8, ptr %35, align 8
-  %244 = trunc i8 %243 to i1
-  br i1 %244, label %245, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
+239:                                              ; preds = %.thread234, %.thread220, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+  %240 = load i8, ptr %35, align 8
+  %241 = trunc i8 %240 to i1
+  br i1 %241, label %242, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
 
-245:                                              ; preds = %242
-  %246 = load ptr, ptr %8, align 8, !tbaa !24
-  %.not.i.i107 = icmp eq ptr %246, null
+242:                                              ; preds = %239
+  %243 = load ptr, ptr %8, align 8, !tbaa !24
+  %.not.i.i107 = icmp eq ptr %243, null
   br i1 %.not.i.i107, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i108
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i108: ; preds = %245
-  %247 = load ptr, ptr %246, align 8, !tbaa !3
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  %249 = load ptr, ptr %248, align 8
-  call void %249(ptr noundef nonnull align 8 dereferenceable(8) %246) #21
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i108: ; preds = %242
+  %244 = load ptr, ptr %243, align 8, !tbaa !3
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  %246 = load ptr, ptr %245, align 8
+  call void %246(ptr noundef nonnull align 8 dereferenceable(8) %243) #21
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
 
-_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit: ; preds = %245, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i108, %242
+_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit: ; preds = %242, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i108, %239
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -35821,74 +35760,54 @@ _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE9getSymbo
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i8, ptr %28, align 1, !tbaa !3648
   %30 = and i8 %29, 15
-  switch i8 %30, label %51 [
-    i8 0, label %31
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load i8, ptr %31, align 8
+  %33 = and i8 %32, -2
+  store i8 %33, ptr %31, align 8
+  switch i8 %30, label %39 [
+    i8 0, label %34
     i8 3, label %35
-    i8 4, label %39
-    i8 2, label %43
-    i8 1, label %47
-    i8 5, label %47
+    i8 4, label %36
+    i8 2, label %37
+    i8 1, label %38
+    i8 5, label %38
   ]
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, -2
-  store i8 %34, ptr %32, align 8
+34:                                               ; preds = %26
   store i32 0, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i8, ptr %36, align 8
-  %38 = and i8 %37, -2
-  store i8 %38, ptr %36, align 8
   store i32 3, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
 
-39:                                               ; preds = %26
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, -2
-  store i8 %42, ptr %40, align 8
+36:                                               ; preds = %26
   store i32 4, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
 
-43:                                               ; preds = %26
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, -2
-  store i8 %46, ptr %44, align 8
+37:                                               ; preds = %26
   store i32 5, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
 
-47:                                               ; preds = %26, %26
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load i8, ptr %48, align 8
-  %50 = and i8 %49, -2
-  store i8 %50, ptr %48, align 8
+38:                                               ; preds = %26, %26
   store i32 2, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
 
-51:                                               ; preds = %26
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load i8, ptr %52, align 8
-  %54 = and i8 %53, -2
-  store i8 %54, ptr %52, align 8
+39:                                               ; preds = %26
   store i32 1, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2: ; preds = %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE9getSymbolENS0_11DataRefImplE.exit
-  %55 = load i64, ptr %5, align 8, !tbaa !24, !noalias !3819
-  %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load i8, ptr %57, align 8
-  %59 = or i8 %58, 1
-  store i8 %59, ptr %57, align 8
-  store ptr %56, ptr %0, align 8, !tbaa !24, !alias.scope !3822
+  %40 = load i64, ptr %5, align 8, !tbaa !24, !noalias !3819
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = load i8, ptr %42, align 8
+  %44 = or i8 %43, 1
+  store i8 %44, ptr %42, align 8
+  store ptr %41, ptr %0, align 8, !tbaa !24, !alias.scope !3822
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit
 
-_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit: ; preds = %31, %35, %39, %43, %47, %51, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
+_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE1ELb1EEEEEED2Ev.exit: ; preds = %34, %35, %36, %37, %38, %39, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -43788,7 +43707,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   %42 = or i8 %41, 1
   store i8 %42, ptr %40, align 8
   store ptr %39, ptr %0, align 8, !tbaa !24, !alias.scope !4715
-  br label %242
+  br label %239
 
 .thread:                                          ; preds = %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE9getSymbolENS0_11DataRefImplE.exit
   %43 = load ptr, ptr %8, align 8, !tbaa !4718
@@ -43854,7 +43773,7 @@ _ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE7symbolsEPKNS0_1
   store i8 %72, ptr %70, align 8
   store ptr %69, ptr %0, align 8, !tbaa !24, !alias.scope !4732
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %242
+  br label %239
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %61
   %73 = load ptr, ptr %63, align 8, !tbaa !3
@@ -43911,7 +43830,7 @@ _ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE7symbolsEPKNS0_1
   store i8 %96, ptr %94, align 8
   store ptr %93, ptr %0, align 8, !tbaa !24, !alias.scope !4741
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %242
+  br label %239
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i40: ; preds = %85
   %97 = load ptr, ptr %87, align 8, !tbaa !3
@@ -44289,62 +44208,55 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit108:    ; preds = %207, %_ZNKSt14defau
   %229 = phi i8 [ %226, %224 ], [ %215, %222 ], [ %219, %.thread189 ]
   %.16 = phi i32 [ %227, %224 ], [ %.8, %222 ], [ %218, %.thread189 ]
   %230 = lshr i8 %229, 4
-  switch i8 %230, label %.thread193._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge [
+  %.phi.trans.insert208 = getelementptr inbounds nuw i8, ptr %43, i64 5
+  %.pre209 = load i8, ptr %.phi.trans.insert208, align 1, !tbaa !4756
+  %.pre210 = and i8 %.pre209, 3
+  switch i8 %230, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread [
     i8 10, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
     i8 2, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
     i8 1, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
   ]
 
-.thread193._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge: ; preds = %.thread193
-  %.phi.trans.insert208 = getelementptr inbounds nuw i8, ptr %43, i64 5
-  %.pre209 = load i8, ptr %.phi.trans.insert208, align 1, !tbaa !4756
-  %.pre210 = and i8 %.pre209, 3
-  br label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread
-
 _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit: ; preds = %.thread193, %.thread193, %.thread193
-  %231 = getelementptr inbounds nuw i8, ptr %43, i64 5
-  %232 = load i8, ptr %231, align 1, !tbaa !4756
-  %233 = and i8 %232, 3
-  %.off = add nsw i8 %233, -1
+  %.off = add nsw i8 %.pre210, -1
   %switch = icmp ult i8 %.off, 2
-  %234 = or i32 %.16, 64
-  %spec.select201 = select i1 %switch, i32 %.16, i32 %234
+  %231 = or i32 %.16, 64
+  %spec.select201 = select i1 %switch, i32 %.16, i32 %231
   br label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread
 
-_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread: ; preds = %.thread193._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
-  %.pre-phi = phi i8 [ %.pre210, %.thread193._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge ], [ %233, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ]
-  %.17 = phi i32 [ %.16, %.thread193._ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread_crit_edge ], [ %spec.select201, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ]
-  %235 = icmp eq i8 %228, 10
-  %236 = or i32 %.17, 32
-  %spec.select198 = select i1 %235, i32 %236, i32 %.17
-  %237 = icmp eq i8 %.pre-phi, 2
-  %238 = or i32 %spec.select198, 512
-  %.19 = select i1 %237, i32 %238, i32 %spec.select198
-  %239 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %240 = load i8, ptr %239, align 8
-  %241 = and i8 %240, -2
-  store i8 %241, ptr %239, align 8
+_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread: ; preds = %.thread193, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit
+  %.17 = phi i32 [ %spec.select201, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit ], [ %.16, %.thread193 ]
+  %232 = icmp eq i8 %228, 10
+  %233 = or i32 %.17, 32
+  %spec.select198 = select i1 %232, i32 %233, i32 %.17
+  %234 = icmp eq i8 %.pre210, 2
+  %235 = or i32 %spec.select198, 512
+  %.19 = select i1 %234, i32 %235, i32 %spec.select198
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %237 = load i8, ptr %236, align 8
+  %238 = and i8 %237, -2
+  store i8 %238, ptr %236, align 8
   store i32 %.19, ptr %0, align 8, !tbaa !118
-  br label %242
+  br label %239
 
-242:                                              ; preds = %.thread240, %.thread226, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %243 = load i8, ptr %35, align 8
-  %244 = trunc i8 %243 to i1
-  br i1 %244, label %245, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit
+239:                                              ; preds = %.thread240, %.thread226, %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE20isExportedToOtherDSOEPKNS0_12Elf_Sym_ImplIS4_EE.exit.thread, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+  %240 = load i8, ptr %35, align 8
+  %241 = trunc i8 %240 to i1
+  br i1 %241, label %242, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit
 
-245:                                              ; preds = %242
-  %246 = load ptr, ptr %8, align 8, !tbaa !24
-  %.not.i.i113 = icmp eq ptr %246, null
+242:                                              ; preds = %239
+  %243 = load ptr, ptr %8, align 8, !tbaa !24
+  %.not.i.i113 = icmp eq ptr %243, null
   br i1 %.not.i.i113, label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i114
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i114: ; preds = %245
-  %247 = load ptr, ptr %246, align 8, !tbaa !3
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  %249 = load ptr, ptr %248, align 8
-  call void %249(ptr noundef nonnull align 8 dereferenceable(8) %246) #21
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i114: ; preds = %242
+  %244 = load ptr, ptr %243, align 8, !tbaa !3
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  %246 = load ptr, ptr %245, align 8
+  call void %246(ptr noundef nonnull align 8 dereferenceable(8) %243) #21
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit
 
-_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit: ; preds = %245, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i114, %242
+_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit: ; preds = %242, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i114, %239
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -45373,74 +45285,54 @@ _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE9getSymbo
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i8, ptr %28, align 1, !tbaa !4720
   %30 = and i8 %29, 15
-  switch i8 %30, label %51 [
-    i8 0, label %31
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load i8, ptr %31, align 8
+  %33 = and i8 %32, -2
+  store i8 %33, ptr %31, align 8
+  switch i8 %30, label %39 [
+    i8 0, label %34
     i8 3, label %35
-    i8 4, label %39
-    i8 2, label %43
-    i8 1, label %47
-    i8 5, label %47
+    i8 4, label %36
+    i8 2, label %37
+    i8 1, label %38
+    i8 5, label %38
   ]
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, -2
-  store i8 %34, ptr %32, align 8
+34:                                               ; preds = %26
   store i32 0, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i8, ptr %36, align 8
-  %38 = and i8 %37, -2
-  store i8 %38, ptr %36, align 8
   store i32 3, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit
 
-39:                                               ; preds = %26
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i8, ptr %40, align 8
-  %42 = and i8 %41, -2
-  store i8 %42, ptr %40, align 8
+36:                                               ; preds = %26
   store i32 4, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit
 
-43:                                               ; preds = %26
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, -2
-  store i8 %46, ptr %44, align 8
+37:                                               ; preds = %26
   store i32 5, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit
 
-47:                                               ; preds = %26, %26
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load i8, ptr %48, align 8
-  %50 = and i8 %49, -2
-  store i8 %50, ptr %48, align 8
+38:                                               ; preds = %26, %26
   store i32 2, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit
 
-51:                                               ; preds = %26
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load i8, ptr %52, align 8
-  %54 = and i8 %53, -2
-  store i8 %54, ptr %52, align 8
+39:                                               ; preds = %26
   store i32 1, ptr %0, align 8, !tbaa !1655
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2: ; preds = %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE9getSymbolENS0_11DataRefImplE.exit
-  %55 = load i64, ptr %5, align 8, !tbaa !24, !noalias !4891
-  %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load i8, ptr %57, align 8
-  %59 = or i8 %58, 1
-  store i8 %59, ptr %57, align 8
-  store ptr %56, ptr %0, align 8, !tbaa !24, !alias.scope !4894
+  %40 = load i64, ptr %5, align 8, !tbaa !24, !noalias !4891
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = load i8, ptr %42, align 8
+  %44 = or i8 %43, 1
+  store i8 %44, ptr %42, align 8
+  store ptr %41, ptr %0, align 8, !tbaa !24, !alias.scope !4894
   br label %_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit
 
-_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit: ; preds = %31, %35, %39, %43, %47, %51, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
+_ZN4llvm8ExpectedIPKNS_6object12Elf_Sym_ImplINS1_7ELFTypeILNS_10endiannessE0ELb1EEEEEED2Ev.exit: ; preds = %34, %35, %36, %37, %38, %39, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

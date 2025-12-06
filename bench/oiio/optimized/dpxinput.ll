@@ -3857,6 +3857,8 @@ declare noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11OpenImageIO6v3_1_08DPXInput21get_descriptor_stringB5cxx11EN3dpx10DescriptorE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %5, ptr %0, align 8, !tbaa !107
   switch i32 %2, label %._crit_edge.i.i64 [
     i32 0, label %._crit_edge.i.i
     i32 150, label %._crit_edge.i.i
@@ -3884,184 +3886,150 @@ define hidden void @_ZN11OpenImageIO6v3_1_08DPXInput21get_descriptor_stringB5cxx
   ]
 
 ._crit_edge.i.i:                                  ; preds = %3, %3, %3, %3, %3, %3, %3, %3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %0, align 8, !tbaa !107
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 1 dereferenceable(12) @.str.97, i64 12, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 12, ptr %6, align 8, !tbaa !68
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 0, ptr %7, align 4, !tbaa !76
-  br label %59
+  br label %43
 
 ._crit_edge.i.i4:                                 ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %0, align 8, !tbaa !107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %8, ptr noundef nonnull align 1 dereferenceable(3) @.str.110, i64 3, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 3, ptr %9, align 8, !tbaa !68
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  store i8 0, ptr %10, align 1, !tbaa !76
-  br label %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @.str.110, i64 3, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 3, ptr %8, align 8, !tbaa !68
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 19
+  store i8 0, ptr %9, align 1, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i8:                                 ; preds = %3
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %0, align 8, !tbaa !107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %11, ptr noundef nonnull align 1 dereferenceable(5) @.str.111, i64 5, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 5, ptr %12, align 8, !tbaa !68
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  store i8 0, ptr %13, align 1, !tbaa !76
-  br label %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %5, ptr noundef nonnull align 1 dereferenceable(5) @.str.111, i64 5, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 5, ptr %10, align 8, !tbaa !68
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  store i8 0, ptr %11, align 1, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i12:                                ; preds = %3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %14, ptr %0, align 8, !tbaa !107
-  store i32 1702194242, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4, ptr %15, align 8, !tbaa !68
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %16, align 4, !tbaa !76
-  br label %59
+  store i32 1702194242, ptr %5, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 4, ptr %12, align 8, !tbaa !68
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 0, ptr %13, align 4, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i16:                                ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %0, align 8, !tbaa !107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %17, ptr noundef nonnull align 1 dereferenceable(5) @.str.113, i64 5, i1 false)
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 5, ptr %18, align 8, !tbaa !68
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  store i8 0, ptr %19, align 1, !tbaa !76
-  br label %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %5, ptr noundef nonnull align 1 dereferenceable(5) @.str.113, i64 5, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 5, ptr %14, align 8, !tbaa !68
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  store i8 0, ptr %15, align 1, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i20:                                ; preds = %3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %20, ptr %0, align 8, !tbaa !107
-  store i32 1634563404, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4, ptr %21, align 8, !tbaa !68
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %22, align 4, !tbaa !76
-  br label %59
+  store i32 1634563404, ptr %5, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 4, ptr %16, align 8, !tbaa !68
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 0, ptr %17, align 4, !tbaa !76
+  br label %43
 
 .noexc.i25:                                       ; preds = %3
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %23, ptr %0, align 8, !tbaa !107
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 16, ptr %4, align 8, !tbaa !108
-  %24 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %24, ptr %0, align 8, !tbaa !65
-  %25 = load i64, ptr %4, align 8, !tbaa !108
-  store i64 %25, ptr %23, align 8, !tbaa !76
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %24, ptr noundef nonnull align 1 dereferenceable(16) @.str.115, i64 16, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %25, ptr %26, align 8, !tbaa !68
-  %27 = load ptr, ptr %0, align 8, !tbaa !65
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %25
-  store i8 0, ptr %28, align 1, !tbaa !76
+  %18 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
+  store ptr %18, ptr %0, align 8, !tbaa !65
+  %19 = load i64, ptr %4, align 8, !tbaa !108
+  store i64 %19, ptr %5, align 8, !tbaa !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %18, ptr noundef nonnull align 1 dereferenceable(16) @.str.115, i64 16, i1 false)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %19, ptr %20, align 8, !tbaa !68
+  %21 = load ptr, ptr %0, align 8, !tbaa !65
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
+  store i8 0, ptr %22, align 1, !tbaa !76
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %59
+  br label %43
 
 ._crit_edge.i.i28:                                ; preds = %3
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %29, ptr %0, align 8, !tbaa !107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %29, ptr noundef nonnull align 1 dereferenceable(5) @.str.116, i64 5, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 5, ptr %30, align 8, !tbaa !68
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  store i8 0, ptr %31, align 1, !tbaa !76
-  br label %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %5, ptr noundef nonnull align 1 dereferenceable(5) @.str.116, i64 5, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 5, ptr %23, align 8, !tbaa !68
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  store i8 0, ptr %24, align 1, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i32:                                ; preds = %3
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %32, ptr %0, align 8, !tbaa !107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %32, ptr noundef nonnull align 1 dereferenceable(15) @.str.117, i64 15, i1 false)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 15, ptr %33, align 8, !tbaa !68
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 31
-  store i8 0, ptr %34, align 1, !tbaa !76
-  br label %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %5, ptr noundef nonnull align 1 dereferenceable(15) @.str.117, i64 15, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 15, ptr %25, align 8, !tbaa !68
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 31
+  store i8 0, ptr %26, align 1, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i36:                                ; preds = %3
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %35, ptr %0, align 8, !tbaa !107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %35, ptr noundef nonnull align 1 dereferenceable(3) @.str.118, i64 3, i1 false)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 3, ptr %36, align 8, !tbaa !68
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  store i8 0, ptr %37, align 1, !tbaa !76
-  br label %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) @.str.118, i64 3, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 3, ptr %27, align 8, !tbaa !68
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 19
+  store i8 0, ptr %28, align 1, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i40:                                ; preds = %3
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %38, ptr %0, align 8, !tbaa !107
-  store i32 1094862674, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4, ptr %39, align 8, !tbaa !68
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %40, align 4, !tbaa !76
-  br label %59
+  store i32 1094862674, ptr %5, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 4, ptr %29, align 8, !tbaa !68
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 0, ptr %30, align 4, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i44:                                ; preds = %3
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %41, ptr %0, align 8, !tbaa !107
-  store i32 1380401729, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4, ptr %42, align 8, !tbaa !68
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 0, ptr %43, align 4, !tbaa !76
-  br label %59
+  store i32 1380401729, ptr %5, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 4, ptr %31, align 8, !tbaa !68
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 0, ptr %32, align 4, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i48:                                ; preds = %3
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %44, ptr %0, align 8, !tbaa !107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %44, ptr noundef nonnull align 1 dereferenceable(6) @.str.121, i64 6, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 6, ptr %45, align 8, !tbaa !68
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i8 0, ptr %46, align 2, !tbaa !76
-  br label %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %5, ptr noundef nonnull align 1 dereferenceable(6) @.str.121, i64 6, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 6, ptr %33, align 8, !tbaa !68
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i8 0, ptr %34, align 2, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i52:                                ; preds = %3
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %47, ptr %0, align 8, !tbaa !107
-  store i64 4708920518577316419, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 8, ptr %48, align 8, !tbaa !68
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %49, align 8, !tbaa !76
-  br label %59
+  store i64 4708920518577316419, ptr %5, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 8, ptr %35, align 8, !tbaa !68
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %36, align 8, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i56:                                ; preds = %3
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %50, ptr %0, align 8, !tbaa !107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %50, ptr noundef nonnull align 1 dereferenceable(5) @.str.123, i64 5, i1 false)
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 5, ptr %51, align 8, !tbaa !68
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  store i8 0, ptr %52, align 1, !tbaa !76
-  br label %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %5, ptr noundef nonnull align 1 dereferenceable(5) @.str.123, i64 5, i1 false)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 5, ptr %37, align 8, !tbaa !68
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  store i8 0, ptr %38, align 1, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i60:                                ; preds = %3
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %53, ptr %0, align 8, !tbaa !107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %53, ptr noundef nonnull align 1 dereferenceable(6) @.str.124, i64 6, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 6, ptr %54, align 8, !tbaa !68
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  store i8 0, ptr %55, align 2, !tbaa !76
-  br label %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %5, ptr noundef nonnull align 1 dereferenceable(6) @.str.124, i64 6, i1 false)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 6, ptr %39, align 8, !tbaa !68
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  store i8 0, ptr %40, align 2, !tbaa !76
+  br label %43
 
 ._crit_edge.i.i64:                                ; preds = %3
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %56, ptr %0, align 8, !tbaa !107
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %56, ptr noundef nonnull align 1 dereferenceable(9) @.str.77, i64 9, i1 false)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 9, ptr %57, align 8, !tbaa !68
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 0, ptr %58, align 1, !tbaa !76
-  br label %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) @.str.77, i64 9, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 9, ptr %41, align 8, !tbaa !68
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  store i8 0, ptr %42, align 1, !tbaa !76
+  br label %43
 
-59:                                               ; preds = %._crit_edge.i.i64, %._crit_edge.i.i60, %._crit_edge.i.i56, %._crit_edge.i.i52, %._crit_edge.i.i48, %._crit_edge.i.i44, %._crit_edge.i.i40, %._crit_edge.i.i36, %._crit_edge.i.i32, %._crit_edge.i.i28, %.noexc.i25, %._crit_edge.i.i20, %._crit_edge.i.i16, %._crit_edge.i.i12, %._crit_edge.i.i8, %._crit_edge.i.i4, %._crit_edge.i.i
+43:                                               ; preds = %._crit_edge.i.i64, %._crit_edge.i.i60, %._crit_edge.i.i56, %._crit_edge.i.i52, %._crit_edge.i.i48, %._crit_edge.i.i44, %._crit_edge.i.i40, %._crit_edge.i.i36, %._crit_edge.i.i32, %._crit_edge.i.i28, %.noexc.i25, %._crit_edge.i.i20, %._crit_edge.i.i16, %._crit_edge.i.i12, %._crit_edge.i.i8, %._crit_edge.i.i4, %._crit_edge.i.i
   ret void
 }
 

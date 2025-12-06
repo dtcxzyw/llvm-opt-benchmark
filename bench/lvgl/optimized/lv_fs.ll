@@ -1094,18 +1094,17 @@ define ptr @lv_fs_get_last(ptr noundef %0) local_unnamed_addr #0 {
   %.022 = add i64 %.022.in, -1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.022
   %5 = load i8, ptr %4, align 1, !tbaa !14
+  %cond31 = icmp eq i64 %.022, 0
   switch i8 %5, label %.preheader [
     i8 47, label %.critedge
     i8 92, label %.critedge
   ]
 
 .preheader:                                       ; preds = %.preheader28
-  %cond31 = icmp eq i64 %.022, 0
   br i1 %cond31, label %.loopexit, label %.lr.ph
 
 .critedge:                                        ; preds = %.preheader28, %.preheader28
-  %.not27 = icmp eq i64 %.022, 0
-  br i1 %.not27, label %.loopexit, label %.preheader28, !llvm.loop !46
+  br i1 %cond31, label %.loopexit, label %.preheader28, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %.preheader, %8
   %.032 = phi i64 [ %9, %8 ], [ %.022, %.preheader ]

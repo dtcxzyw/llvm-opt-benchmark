@@ -1136,7 +1136,7 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
     i32 1, label %47
     i32 2, label %53
     i32 3, label %64
-    i32 0, label %211
+    i32 0, label %207
   ]
 
 47:                                               ; preds = %46
@@ -1376,311 +1376,303 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
 
 163:                                              ; preds = %162, %154
   %164 = icmp ult i32 %3, 9
-  br i1 %164, label %165, label %187
+  br i1 %164, label %165, label %185
 
 165:                                              ; preds = %163
-  switch i32 %158, label %166 [
-    i32 7, label %180
+  %166 = load ptr, ptr %146, align 8, !tbaa !6
+  %.not.i = icmp eq ptr %166, null
+  switch i32 %158, label %167 [
+    i32 7, label %179
     i32 3, label %173
     i32 4, label %173
     i32 5, label %173
-    i32 2, label %180
-    i32 6, label %180
+    i32 2, label %179
+    i32 6, label %179
   ]
 
-166:                                              ; preds = %165
-  %167 = load ptr, ptr %146, align 8, !tbaa !6
-  %.not.i = icmp eq ptr %167, null
+167:                                              ; preds = %165
   br i1 %.not.i, label %_dead_image_8.exit, label %168
 
-168:                                              ; preds = %166
-  %169 = getelementptr inbounds i8, ptr %167, i64 -64
+168:                                              ; preds = %167
+  %169 = getelementptr inbounds i8, ptr %166, i64 -64
   store i32 20, ptr %169, align 64, !tbaa !18
-  %170 = getelementptr inbounds i8, ptr %167, i64 -60
+  %170 = getelementptr inbounds i8, ptr %166, i64 -60
   store i32 27, ptr %170, align 4, !tbaa !15
-  %171 = getelementptr inbounds i8, ptr %167, i64 -56
+  %171 = getelementptr inbounds i8, ptr %166, i64 -56
   store float 1.000000e+00, ptr %171, align 8, !tbaa !19
-  %172 = getelementptr inbounds i8, ptr %167, i64 -40
+  %172 = getelementptr inbounds i8, ptr %166, i64 -40
   store i32 8, ptr %172, align 8, !tbaa !20
   store i32 8, ptr %143, align 8, !tbaa !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2160) %167, ptr noundef nonnull align 16 dereferenceable(2160) @_dead_image_8.image, i64 2160, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2160) %166, ptr noundef nonnull align 16 dereferenceable(2160) @_dead_image_8.image, i64 2160, i1 false)
   br label %_dead_image_8.exit
 
 173:                                              ; preds = %165, %165, %165
-  %174 = load ptr, ptr %146, align 8, !tbaa !6
-  %.not.i288 = icmp eq ptr %174, null
-  br i1 %.not.i288, label %_dead_image_8.exit, label %175
+  br i1 %.not.i, label %_dead_image_8.exit, label %174
 
-175:                                              ; preds = %173
-  %176 = getelementptr inbounds i8, ptr %174, i64 -64
-  store i32 17, ptr %176, align 64, !tbaa !18
-  %177 = getelementptr inbounds i8, ptr %174, i64 -60
-  store i32 25, ptr %177, align 4, !tbaa !15
-  %178 = getelementptr inbounds i8, ptr %174, i64 -56
-  store float 1.000000e+00, ptr %178, align 8, !tbaa !19
-  %179 = getelementptr inbounds i8, ptr %174, i64 -40
-  store i32 8, ptr %179, align 8, !tbaa !20
+174:                                              ; preds = %173
+  %175 = getelementptr inbounds i8, ptr %166, i64 -64
+  store i32 17, ptr %175, align 64, !tbaa !18
+  %176 = getelementptr inbounds i8, ptr %166, i64 -60
+  store i32 25, ptr %176, align 4, !tbaa !15
+  %177 = getelementptr inbounds i8, ptr %166, i64 -56
+  store float 1.000000e+00, ptr %177, align 8, !tbaa !19
+  %178 = getelementptr inbounds i8, ptr %166, i64 -40
+  store i32 8, ptr %178, align 8, !tbaa !20
   store i32 8, ptr %143, align 8, !tbaa !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1700) %174, ptr noundef nonnull align 16 dereferenceable(1700) @unsupp_image_8.image, i64 1700, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1700) %166, ptr noundef nonnull align 16 dereferenceable(1700) @unsupp_image_8.image, i64 1700, i1 false)
   br label %_dead_image_8.exit
 
-180:                                              ; preds = %165, %165, %165
-  %181 = load ptr, ptr %146, align 8, !tbaa !6
-  %.not.i289 = icmp eq ptr %181, null
-  br i1 %.not.i289, label %_dead_image_8.exit, label %182
+179:                                              ; preds = %165, %165, %165
+  br i1 %.not.i, label %_dead_image_8.exit, label %180
 
-182:                                              ; preds = %180
-  %183 = getelementptr inbounds i8, ptr %181, i64 -64
-  %184 = getelementptr inbounds i8, ptr %181, i64 -60
-  store i32 29, ptr %184, align 4, !tbaa !15
-  store i32 29, ptr %183, align 64, !tbaa !18
-  %185 = getelementptr inbounds i8, ptr %181, i64 -56
-  store float 1.000000e+00, ptr %185, align 8, !tbaa !19
-  %186 = getelementptr inbounds i8, ptr %181, i64 -40
-  store i32 8, ptr %186, align 8, !tbaa !20
+180:                                              ; preds = %179
+  %181 = getelementptr inbounds i8, ptr %166, i64 -64
+  %182 = getelementptr inbounds i8, ptr %166, i64 -60
+  store i32 29, ptr %182, align 4, !tbaa !15
+  store i32 29, ptr %181, align 64, !tbaa !18
+  %183 = getelementptr inbounds i8, ptr %166, i64 -56
+  store float 1.000000e+00, ptr %183, align 8, !tbaa !19
+  %184 = getelementptr inbounds i8, ptr %166, i64 -40
+  store i32 8, ptr %184, align 8, !tbaa !20
   store i32 8, ptr %143, align 8, !tbaa !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3364) %181, ptr noundef nonnull align 16 dereferenceable(3364) @error_image_8.image, i64 3364, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3364) %166, ptr noundef nonnull align 16 dereferenceable(3364) @error_image_8.image, i64 3364, i1 false)
   br label %_dead_image_8.exit
 
-187:                                              ; preds = %163
-  br i1 %switch.selectcmp.i272, label %188, label %210
+185:                                              ; preds = %163
+  br i1 %switch.selectcmp.i272, label %186, label %206
 
-188:                                              ; preds = %187
-  switch i32 %158, label %189 [
-    i32 7, label %203
-    i32 3, label %196
-    i32 4, label %196
-    i32 5, label %196
-    i32 2, label %203
-    i32 6, label %203
+186:                                              ; preds = %185
+  %187 = load ptr, ptr %146, align 8, !tbaa !6
+  %.not.i290 = icmp eq ptr %187, null
+  switch i32 %158, label %188 [
+    i32 7, label %200
+    i32 3, label %194
+    i32 4, label %194
+    i32 5, label %194
+    i32 2, label %200
+    i32 6, label %200
   ]
 
+188:                                              ; preds = %186
+  br i1 %.not.i290, label %_dead_image_8.exit, label %189
+
 189:                                              ; preds = %188
-  %190 = load ptr, ptr %146, align 8, !tbaa !6
-  %.not.i290 = icmp eq ptr %190, null
-  br i1 %.not.i290, label %_dead_image_8.exit, label %191
-
-191:                                              ; preds = %189
-  %192 = getelementptr inbounds i8, ptr %190, i64 -64
-  store i32 20, ptr %192, align 64, !tbaa !18
-  %193 = getelementptr inbounds i8, ptr %190, i64 -60
-  store i32 27, ptr %193, align 4, !tbaa !15
-  %194 = getelementptr inbounds i8, ptr %190, i64 -56
-  store float 1.000000e+00, ptr %194, align 8, !tbaa !19
-  %195 = getelementptr inbounds i8, ptr %190, i64 -40
-  store i32 8, ptr %195, align 8, !tbaa !20
+  %190 = getelementptr inbounds i8, ptr %187, i64 -64
+  store i32 20, ptr %190, align 64, !tbaa !18
+  %191 = getelementptr inbounds i8, ptr %187, i64 -60
+  store i32 27, ptr %191, align 4, !tbaa !15
+  %192 = getelementptr inbounds i8, ptr %187, i64 -56
+  store float 1.000000e+00, ptr %192, align 8, !tbaa !19
+  %193 = getelementptr inbounds i8, ptr %187, i64 -40
+  store i32 8, ptr %193, align 8, !tbaa !20
   store i32 8, ptr %143, align 8, !tbaa !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8640) %190, ptr noundef nonnull align 16 dereferenceable(8640) @_dead_image_f.image, i64 8640, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8640) %187, ptr noundef nonnull align 16 dereferenceable(8640) @_dead_image_f.image, i64 8640, i1 false)
   br label %_dead_image_8.exit
 
-196:                                              ; preds = %188, %188, %188
-  %197 = load ptr, ptr %146, align 8, !tbaa !6
-  %.not.i291 = icmp eq ptr %197, null
-  br i1 %.not.i291, label %_dead_image_8.exit, label %198
+194:                                              ; preds = %186, %186, %186
+  br i1 %.not.i290, label %_dead_image_8.exit, label %195
 
-198:                                              ; preds = %196
-  %199 = getelementptr inbounds i8, ptr %197, i64 -64
-  store i32 17, ptr %199, align 64, !tbaa !18
-  %200 = getelementptr inbounds i8, ptr %197, i64 -60
-  store i32 25, ptr %200, align 4, !tbaa !15
-  %201 = getelementptr inbounds i8, ptr %197, i64 -56
-  store float 1.000000e+00, ptr %201, align 8, !tbaa !19
-  %202 = getelementptr inbounds i8, ptr %197, i64 -40
-  store i32 8, ptr %202, align 8, !tbaa !20
+195:                                              ; preds = %194
+  %196 = getelementptr inbounds i8, ptr %187, i64 -64
+  store i32 17, ptr %196, align 64, !tbaa !18
+  %197 = getelementptr inbounds i8, ptr %187, i64 -60
+  store i32 25, ptr %197, align 4, !tbaa !15
+  %198 = getelementptr inbounds i8, ptr %187, i64 -56
+  store float 1.000000e+00, ptr %198, align 8, !tbaa !19
+  %199 = getelementptr inbounds i8, ptr %187, i64 -40
+  store i32 8, ptr %199, align 8, !tbaa !20
   store i32 8, ptr %143, align 8, !tbaa !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6800) %197, ptr noundef nonnull align 16 dereferenceable(6800) @unsupp_image_f.image, i64 6800, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6800) %187, ptr noundef nonnull align 16 dereferenceable(6800) @unsupp_image_f.image, i64 6800, i1 false)
   br label %_dead_image_8.exit
 
-203:                                              ; preds = %188, %188, %188
-  %204 = load ptr, ptr %146, align 8, !tbaa !6
-  %.not.i292 = icmp eq ptr %204, null
-  br i1 %.not.i292, label %_dead_image_8.exit, label %205
+200:                                              ; preds = %186, %186, %186
+  br i1 %.not.i290, label %_dead_image_8.exit, label %201
 
-205:                                              ; preds = %203
-  %206 = getelementptr inbounds i8, ptr %204, i64 -64
-  %207 = getelementptr inbounds i8, ptr %204, i64 -60
-  store i32 29, ptr %207, align 4, !tbaa !15
-  store i32 29, ptr %206, align 64, !tbaa !18
-  %208 = getelementptr inbounds i8, ptr %204, i64 -56
-  store float 1.000000e+00, ptr %208, align 8, !tbaa !19
-  %209 = getelementptr inbounds i8, ptr %204, i64 -40
-  store i32 8, ptr %209, align 8, !tbaa !20
+201:                                              ; preds = %200
+  %202 = getelementptr inbounds i8, ptr %187, i64 -64
+  %203 = getelementptr inbounds i8, ptr %187, i64 -60
+  store i32 29, ptr %203, align 4, !tbaa !15
+  store i32 29, ptr %202, align 64, !tbaa !18
+  %204 = getelementptr inbounds i8, ptr %187, i64 -56
+  store float 1.000000e+00, ptr %204, align 8, !tbaa !19
+  %205 = getelementptr inbounds i8, ptr %187, i64 -40
+  store i32 8, ptr %205, align 8, !tbaa !20
   store i32 8, ptr %143, align 8, !tbaa !21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13456) %204, ptr noundef nonnull align 16 dereferenceable(13456) @error_image_f.image, i64 13456, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13456) %187, ptr noundef nonnull align 16 dereferenceable(13456) @error_image_f.image, i64 13456, i1 false)
   br label %_dead_image_8.exit
 
-210:                                              ; preds = %187
+206:                                              ; preds = %185
   store ptr null, ptr %146, align 8, !tbaa !6
   br label %_dead_image_8.exit
 
-211:                                              ; preds = %46
+207:                                              ; preds = %46
   %switch.selectcmp.i293 = icmp eq i32 %3, 9
   %switch.select.i294 = select i1 %switch.selectcmp.i293, i64 328, i64 176
   %switch.selectcmp4.i295 = icmp eq i32 %3, 10
   %switch.select5.i296 = select i1 %switch.selectcmp4.i295, i64 480, i64 %switch.select.i294
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.select5.i296
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 112
-  %214 = atomicrmw add ptr %213, i64 1 seq_cst, align 8
-  %215 = icmp ult i32 %3, 9
-  %216 = icmp sgt i32 %3, -1
-  br i1 %216, label %.lr.ph, label %.critedge264
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.select5.i296
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 112
+  %210 = atomicrmw add ptr %209, i64 1 seq_cst, align 8
+  %211 = icmp ult i32 %3, 9
+  %212 = icmp sgt i32 %3, -1
+  br i1 %212, label %.lr.ph, label %.critedge264
 
-.lr.ph:                                           ; preds = %211
-  %217 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %219 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %220 = getelementptr inbounds nuw i8, ptr %212, i64 120
-  br label %221
+.lr.ph:                                           ; preds = %207
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %216 = getelementptr inbounds nuw i8, ptr %208, i64 120
+  br label %217
 
-221:                                              ; preds = %.lr.ph, %237
-  %.0235316 = phi i32 [ %3, %.lr.ph ], [ %238, %237 ]
+217:                                              ; preds = %.lr.ph, %233
+  %.0235316 = phi i32 [ %3, %.lr.ph ], [ %234, %233 ]
   tail call void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %.0235316, i32 noundef 4, i8 noundef signext 114, ptr noundef nonnull @.str.13, i32 noundef 1104)
-  %222 = load ptr, ptr %217, align 8, !tbaa !6
-  %.not247 = icmp eq ptr %222, null
-  br i1 %.not247, label %233, label %223
+  %218 = load ptr, ptr %213, align 8, !tbaa !6
+  %.not247 = icmp eq ptr %218, null
+  br i1 %.not247, label %229, label %219
 
-223:                                              ; preds = %221
-  %224 = load i32, ptr %218, align 8, !tbaa !150
-  %225 = icmp sgt i32 %224, 0
-  br i1 %225, label %226, label %233
+219:                                              ; preds = %217
+  %220 = load i32, ptr %214, align 8, !tbaa !150
+  %221 = icmp sgt i32 %220, 0
+  br i1 %221, label %222, label %229
 
-226:                                              ; preds = %223
-  %227 = load i32, ptr %219, align 4, !tbaa !151
-  %228 = icmp sgt i32 %227, 0
-  br i1 %228, label %229, label %233
+222:                                              ; preds = %219
+  %223 = load i32, ptr %215, align 4, !tbaa !151
+  %224 = icmp sgt i32 %223, 0
+  br i1 %224, label %225, label %229
 
-229:                                              ; preds = %226
+225:                                              ; preds = %222
   %.not248 = icmp eq i32 %3, %.0235316
-  br i1 %.not248, label %.critedge268, label %230
+  br i1 %.not248, label %.critedge268, label %226
 
-230:                                              ; preds = %229
-  %231 = getelementptr inbounds nuw i8, ptr %212, i64 144
-  %232 = atomicrmw add ptr %231, i64 1 seq_cst, align 8
+226:                                              ; preds = %225
+  %227 = getelementptr inbounds nuw i8, ptr %208, i64 144
+  %228 = atomicrmw add ptr %227, i64 1 seq_cst, align 8
   br label %.critedge268
 
-233:                                              ; preds = %226, %223, %221
-  %234 = icmp eq i32 %3, %.0235316
-  br i1 %234, label %235, label %237
+229:                                              ; preds = %222, %219, %217
+  %230 = icmp eq i32 %3, %.0235316
+  br i1 %230, label %231, label %233
 
-235:                                              ; preds = %233
-  %236 = atomicrmw add ptr %220, i64 1 seq_cst, align 8
+231:                                              ; preds = %229
+  %232 = atomicrmw add ptr %216, i64 1 seq_cst, align 8
   tail call void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, i8 noundef signext 114, ptr noundef nonnull @.str.13, i32 noundef 1114)
-  br label %237
+  br label %233
 
-237:                                              ; preds = %233, %235
-  %238 = add nsw i32 %.0235316, -1
-  %239 = icmp ule i32 %3, %238
-  %240 = select i1 %215, i1 true, i1 %239
-  %241 = icmp sgt i32 %.0235316, 0
-  %242 = and i1 %240, %241
-  br i1 %242, label %221, label %.critedge264
+233:                                              ; preds = %229, %231
+  %234 = add nsw i32 %.0235316, -1
+  %235 = icmp ule i32 %3, %234
+  %236 = select i1 %211, i1 true, i1 %235
+  %237 = icmp sgt i32 %.0235316, 0
+  %238 = and i1 %236, %237
+  br i1 %238, label %217, label %.critedge264
 
-.critedge264:                                     ; preds = %237, %211
-  %243 = select i1 %215, i32 8, i32 %3
+.critedge264:                                     ; preds = %233, %207
+  %239 = select i1 %211, i32 8, i32 %3
   %.0317 = add i32 %3, 1
-  %.not249318 = icmp ugt i32 %.0317, %243
+  %.not249318 = icmp ugt i32 %.0317, %239
   br i1 %.not249318, label %.critedge266, label %.lr.ph320
 
 .lr.ph320:                                        ; preds = %.critedge264
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %245 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %246 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  br label %247
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  br label %243
 
-247:                                              ; preds = %.lr.ph320, %258
-  %.0319 = phi i32 [ %.0317, %.lr.ph320 ], [ %.0, %258 ]
+243:                                              ; preds = %.lr.ph320, %254
+  %.0319 = phi i32 [ %.0317, %.lr.ph320 ], [ %.0, %254 ]
   tail call void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %.0319, i32 noundef 4, i8 noundef signext 114, ptr noundef nonnull @.str.13, i32 noundef 1122)
-  %248 = load ptr, ptr %244, align 8, !tbaa !6
-  %.not250 = icmp eq ptr %248, null
-  br i1 %.not250, label %258, label %249
+  %244 = load ptr, ptr %240, align 8, !tbaa !6
+  %.not250 = icmp eq ptr %244, null
+  br i1 %.not250, label %254, label %245
 
-249:                                              ; preds = %247
-  %250 = load i32, ptr %245, align 8, !tbaa !150
-  %251 = icmp sgt i32 %250, 0
-  br i1 %251, label %252, label %258
+245:                                              ; preds = %243
+  %246 = load i32, ptr %241, align 8, !tbaa !150
+  %247 = icmp sgt i32 %246, 0
+  br i1 %247, label %248, label %254
 
-252:                                              ; preds = %249
-  %253 = load i32, ptr %246, align 4, !tbaa !151
-  %254 = icmp sgt i32 %253, 0
-  br i1 %254, label %255, label %258
+248:                                              ; preds = %245
+  %249 = load i32, ptr %242, align 4, !tbaa !151
+  %250 = icmp sgt i32 %249, 0
+  br i1 %250, label %251, label %254
 
-255:                                              ; preds = %252
-  %256 = getelementptr inbounds nuw i8, ptr %212, i64 144
-  %257 = atomicrmw add ptr %256, i64 1 seq_cst, align 8
+251:                                              ; preds = %248
+  %252 = getelementptr inbounds nuw i8, ptr %208, i64 144
+  %253 = atomicrmw add ptr %252, i64 1 seq_cst, align 8
   br label %.critedge268
 
-258:                                              ; preds = %247, %249, %252
+254:                                              ; preds = %243, %245, %248
   %.0 = add i32 %.0319, 1
-  %.not249 = icmp ugt i32 %.0, %243
-  br i1 %.not249, label %.critedge266, label %247
+  %.not249 = icmp ugt i32 %.0, %239
+  br i1 %.not249, label %.critedge266, label %243
 
-.critedge266:                                     ; preds = %258, %.critedge264
-  %259 = getelementptr inbounds nuw i8, ptr %212, i64 128
-  %260 = atomicrmw add ptr %259, i64 1 seq_cst, align 8
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %262 = load i8, ptr %261, align 8, !tbaa !74
-  %.not251 = icmp eq i8 %262, 0
-  br i1 %.not251, label %268, label %263
+.critedge266:                                     ; preds = %254, %.critedge264
+  %255 = getelementptr inbounds nuw i8, ptr %208, i64 128
+  %256 = atomicrmw add ptr %255, i64 1 seq_cst, align 8
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %258 = load i8, ptr %257, align 8, !tbaa !74
+  %.not251 = icmp eq i8 %258, 0
+  br i1 %.not251, label %264, label %259
 
-263:                                              ; preds = %.critedge266
+259:                                              ; preds = %.critedge266
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %13, i8 0, i64 4096, i1 false)
-  %264 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 4096, ptr noundef nonnull @.str.11, ptr noundef nonnull %261, i32 noundef %3, i32 noundef %17) #19
-  %265 = call i32 @g_file_test(ptr noundef nonnull %13, i32 noundef 16) #19
-  %.not252 = icmp eq i32 %265, 0
-  br i1 %.not252, label %267, label %266
+  %260 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 4096, ptr noundef nonnull @.str.11, ptr noundef nonnull %257, i32 noundef %3, i32 noundef %17) #19
+  %261 = call i32 @g_file_test(ptr noundef nonnull %13, i32 noundef 16) #19
+  %.not252 = icmp eq i32 %261, 0
+  br i1 %.not252, label %263, label %262
 
-266:                                              ; preds = %263
+262:                                              ; preds = %259
   call void @dt_mipmap_cache_get_with_caller(ptr noundef nonnull %0, ptr noundef null, i32 noundef %2, i32 noundef 0, i32 noundef 2, i8 noundef signext 0, ptr noundef nonnull @.str.13, i32 noundef 1137)
-  br label %267
+  br label %263
 
-267:                                              ; preds = %266, %263
+263:                                              ; preds = %262, %259
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %268
+  br label %264
 
-268:                                              ; preds = %267, %.critedge266
-  %269 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr null, ptr %269, align 8, !tbaa !6
-  %270 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %270, align 4, !tbaa !153
+264:                                              ; preds = %263, %.critedge266
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr null, ptr %265, align 8, !tbaa !6
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 0, ptr %266, align 4, !tbaa !153
   store i32 11, ptr %1, align 8, !tbaa !154
-  %271 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 0, ptr %271, align 4, !tbaa !151
-  %272 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %272, align 8, !tbaa !150
-  %273 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store float 0.000000e+00, ptr %273, align 8, !tbaa !152
-  %274 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 -1, ptr %274, align 8, !tbaa !21
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 0, ptr %267, align 4, !tbaa !151
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 0, ptr %268, align 8, !tbaa !150
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store float 0.000000e+00, ptr %269, align 8, !tbaa !152
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 -1, ptr %270, align 8, !tbaa !21
   br label %_dead_image_8.exit
 
-_dead_image_8.exit:                               ; preds = %151, %268, %205, %203, %198, %196, %191, %189, %182, %180, %175, %173, %168, %166, %60, %46, %147, %210, %26, %42, %49
-  %275 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
-  %276 = and i32 %275, 16777217
-  %or.cond.not = icmp eq i32 %276, 16777217
-  br i1 %or.cond.not, label %277, label %.critedge268
+_dead_image_8.exit:                               ; preds = %151, %264, %201, %200, %195, %194, %189, %188, %180, %179, %174, %173, %168, %167, %60, %46, %147, %206, %26, %42, %49
+  %271 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %272 = and i32 %271, 16777217
+  %or.cond.not = icmp eq i32 %272, 16777217
+  br i1 %or.cond.not, label %273, label %.critedge268
 
-277:                                              ; preds = %_dead_image_8.exit
-  %278 = select i1 %21, ptr @.str.16, ptr @.str.17
-  %279 = icmp eq i32 %4, 1
-  %280 = select i1 %279, ptr @.str.18, ptr @.str.17
-  %281 = icmp eq i32 %4, 2
-  %282 = select i1 %281, ptr @.str.19, ptr @.str.17
-  %283 = icmp eq i32 %4, 3
-  %284 = select i1 %283, ptr @.str.20, ptr @.str.17
-  %285 = icmp eq i32 %4, 0
-  %286 = select i1 %285, ptr @.str.21, ptr @.str.17
-  %287 = sext i8 %5 to i32
-  %288 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %289 = load ptr, ptr %288, align 8, !tbaa !6
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.15, ptr noundef nonnull %278, ptr noundef nonnull %280, ptr noundef nonnull %282, ptr noundef nonnull %284, ptr noundef nonnull %286, i32 noundef %2, i32 noundef %3, i32 noundef %287, ptr noundef %289) #19
+273:                                              ; preds = %_dead_image_8.exit
+  %274 = select i1 %21, ptr @.str.16, ptr @.str.17
+  %275 = icmp eq i32 %4, 1
+  %276 = select i1 %275, ptr @.str.18, ptr @.str.17
+  %277 = icmp eq i32 %4, 2
+  %278 = select i1 %277, ptr @.str.19, ptr @.str.17
+  %279 = icmp eq i32 %4, 3
+  %280 = select i1 %279, ptr @.str.20, ptr @.str.17
+  %281 = icmp eq i32 %4, 0
+  %282 = select i1 %281, ptr @.str.21, ptr @.str.17
+  %283 = sext i8 %5 to i32
+  %284 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %285 = load ptr, ptr %284, align 8, !tbaa !6
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.15, ptr noundef nonnull %274, ptr noundef nonnull %276, ptr noundef nonnull %278, ptr noundef nonnull %280, ptr noundef nonnull %282, i32 noundef %2, i32 noundef %3, i32 noundef %283, ptr noundef %285) #19
   br label %.critedge268
 
 .critedge:                                        ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge268
 
-.critedge268:                                     ; preds = %255, %230, %229, %_dead_image_8.exit, %277, %.critedge, %53, %47
+.critedge268:                                     ; preds = %251, %226, %225, %_dead_image_8.exit, %273, %.critedge, %53, %47
   ret void
 }
 
@@ -1797,21 +1789,21 @@ define internal fastcc void @_init_f(ptr noundef writeonly captures(none) %0, pt
   %55 = load i32, ptr %54, align 4, !tbaa !165
   %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.49, i32 noundef %55) #22
   %57 = load i32, ptr %54, align 4, !tbaa !165
+  %58 = getelementptr inbounds nuw i8, ptr %21, i64 1116
   %switch.tableidx = add i32 %57, -1
-  %58 = icmp ult i32 %switch.tableidx, 8
-  br i1 %58, label %switch.lookup, label %60
+  %59 = icmp ult i32 %switch.tableidx, 8
+  br i1 %59, label %switch.lookup, label %61
 
 switch.lookup:                                    ; preds = %52
-  %59 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._init_f, i64 %59
+  %60 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._init_f, i64 %60
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %60
+  br label %61
 
-60:                                               ; preds = %52, %switch.lookup
+61:                                               ; preds = %52, %switch.lookup
   %.str.51.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.52, %52 ]
-  %61 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.51.sink, i32 noundef 5) #19
-  %62 = getelementptr inbounds nuw i8, ptr %21, i64 1116
-  call void (ptr, ...) @dt_control_log(ptr noundef %61, ptr noundef nonnull %62) #19
+  %62 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.51.sink, i32 noundef 5) #19
+  call void (ptr, ...) @dt_control_log(ptr noundef %62, ptr noundef nonnull %58) #19
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
   call void @dt_image_cache_read_release(ptr noundef %63, ptr noundef nonnull %21) #19
   store i32 0, ptr %3, align 4, !tbaa !77
@@ -1983,7 +1975,7 @@ dt_mipmap_cache_release_with_caller.exit:         ; preds = %115, %118
   call void @dt_image_cache_read_release(ptr noundef %129, ptr noundef nonnull %21) #19
   br label %130
 
-130:                                              ; preds = %dt_mipmap_cache_release_with_caller.exit, %60
+130:                                              ; preds = %dt_mipmap_cache_release_with_caller.exit, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

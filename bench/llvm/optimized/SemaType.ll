@@ -41294,7 +41294,7 @@ define dso_local i64 @_ZN5clang4Sema26BuiltinChangeCVRQualifiersENS_8QualTypeENS
   %17 = add i8 %14, -25
   %spec.select.i.i.i.i.i.i.i.i.i18 = icmp ult i8 %17, 2
   %or.cond22 = or i1 %spec.select.i.i.i.i.i.i.i.i.i18, %or.cond
-  br i1 %or.cond22, label %50, label %18
+  br i1 %or.cond22, label %47, label %18
 
 18:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -41313,71 +41313,63 @@ define dso_local i64 @_ZN5clang4Sema26BuiltinChangeCVRQualifiersENS_8QualTypeENS
   br label %26
 
 26:                                               ; preds = %18, %23
+  %.sroa.0.0.copyload.pr = load i64, ptr %5, align 8, !tbaa !53
   switch i32 %2, label %thread-pre-split [
     i32 14, label %27
     i32 8, label %27
     i32 13, label %._crit_edge
   ]
 
-._crit_edge:                                      ; preds = %26
-  %.pre = load i64, ptr %5, align 8, !tbaa !1522
-  br label %31
-
 27:                                               ; preds = %26, %26
-  %28 = load i64, ptr %5, align 8, !tbaa !1522
-  %29 = and i64 %28, -5
-  store i64 %29, ptr %5, align 8, !tbaa !1522
-  %30 = icmp eq i32 %2, 13
-  br i1 %30, label %31, label %34
+  %28 = and i64 %.sroa.0.0.copyload.pr, -5
+  store i64 %28, ptr %5, align 8, !tbaa !1522
+  %29 = icmp eq i32 %2, 13
+  br i1 %29, label %._crit_edge, label %thread-pre-split
 
-31:                                               ; preds = %._crit_edge, %27
-  %32 = phi i64 [ %.pre, %._crit_edge ], [ %29, %27 ]
-  %33 = and i64 %32, -3
-  store i64 %33, ptr %5, align 8, !tbaa !1522
-  br label %34
+._crit_edge:                                      ; preds = %26, %27
+  %30 = phi i64 [ %28, %27 ], [ %.sroa.0.0.copyload.pr, %26 ]
+  %31 = and i64 %30, -3
+  store i64 %31, ptr %5, align 8, !tbaa !1522
+  br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %26
-  %.sroa.0.0.copyload.pr = load i64, ptr %5, align 8, !tbaa !53
-  br label %34
+thread-pre-split:                                 ; preds = %26, %._crit_edge, %27
+  %.sroa.0.0.copyload = phi i64 [ %31, %._crit_edge ], [ %28, %27 ], [ %.sroa.0.0.copyload.pr, %26 ]
+  %32 = load ptr, ptr %19, align 8, !tbaa !75
+  %33 = icmp ugt i64 %.sroa.0.0.copyload, 7
+  br i1 %33, label %36, label %34
 
-34:                                               ; preds = %thread-pre-split, %31, %27
-  %.sroa.0.0.copyload = phi i64 [ %.sroa.0.0.copyload.pr, %thread-pre-split ], [ %33, %31 ], [ %29, %27 ]
-  %35 = load ptr, ptr %19, align 8, !tbaa !75
-  %36 = icmp ugt i64 %.sroa.0.0.copyload, 7
-  br i1 %36, label %39, label %37
-
-37:                                               ; preds = %34
-  %38 = or i64 %.sroa.0.0.copyload, %21
+34:                                               ; preds = %thread-pre-split
+  %35 = or i64 %.sroa.0.0.copyload, %21
   br label %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
 
-39:                                               ; preds = %34
-  %40 = and i64 %21, 7
-  %41 = or i64 %.sroa.0.0.copyload, %40
-  %42 = and i64 %21, 8
-  %.not.i.i = icmp eq i64 %42, 0
-  %43 = and i64 %21, -16
-  %44 = inttoptr i64 %43 to ptr
-  br i1 %.not.i.i, label %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i, label %45
+36:                                               ; preds = %thread-pre-split
+  %37 = and i64 %21, 7
+  %38 = or i64 %.sroa.0.0.copyload, %37
+  %39 = and i64 %21, 8
+  %.not.i.i = icmp eq i64 %39, 0
+  %40 = and i64 %21, -16
+  %41 = inttoptr i64 %40 to ptr
+  br i1 %.not.i.i, label %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i, label %42
 
-45:                                               ; preds = %39
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %46, align 8, !tbaa !53
-  %47 = or i64 %.sroa.0.0.copyload.i.i.i, %41
-  %48 = load ptr, ptr %44, align 16, !tbaa !3
+42:                                               ; preds = %36
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %43, align 8, !tbaa !53
+  %44 = or i64 %.sroa.0.0.copyload.i.i.i, %38
+  %45 = load ptr, ptr %41, align 16, !tbaa !3
   br label %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i
 
-_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i: ; preds = %45, %39
-  %.sroa.0.0.i = phi i64 [ %41, %39 ], [ %47, %45 ]
-  %.0.i.i = phi ptr [ %44, %39 ], [ %48, %45 ]
-  %49 = call i64 @_ZNK5clang10ASTContext14getExtQualTypeEPKNS_4TypeENS_10QualifiersE(ptr noundef nonnull align 8 dereferenceable(23216) %35, ptr noundef %.0.i.i, i64 %.sroa.0.0.i) #24
+_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i: ; preds = %42, %36
+  %.sroa.0.0.i = phi i64 [ %38, %36 ], [ %44, %42 ]
+  %.0.i.i = phi ptr [ %41, %36 ], [ %45, %42 ]
+  %46 = call i64 @_ZNK5clang10ASTContext14getExtQualTypeEPKNS_4TypeENS_10QualifiersE(ptr noundef nonnull align 8 dereferenceable(23216) %32, ptr noundef %.0.i.i, i64 %.sroa.0.0.i) #24
   br label %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
 
-_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; preds = %37, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i
-  %.sroa.04.0.i = phi i64 [ %49, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i ], [ %38, %37 ]
+_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; preds = %34, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i
+  %.sroa.04.0.i = phi i64 [ %46, %_ZN5clang18QualifierCollector5stripENS_8QualTypeE.exit.i ], [ %35, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %50
+  br label %47
 
-50:                                               ; preds = %4, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
+47:                                               ; preds = %4, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit
   %.sroa.015.0 = phi i64 [ %.sroa.04.0.i, %_ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit ], [ %1, %4 ]
   ret i64 %.sroa.015.0
 }

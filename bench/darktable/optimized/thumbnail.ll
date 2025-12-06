@@ -5697,24 +5697,24 @@ define internal fastcc void @_thumb_set_image_area(ptr noundef captures(none) %0
   tail call fastcc void @_thumb_retrieve_margins(ptr noundef %0)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %13 = load i32, ptr %12, align 8, !tbaa !90
-  switch i32 %13, label %93 [
-    i32 3, label %14
-    i32 4, label %14
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load i32, ptr %14, align 8, !tbaa !80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %17 = load ptr, ptr %16, align 8, !tbaa !177
+  %18 = load i16, ptr %17, align 2, !tbaa !181
+  %19 = sext i16 %18 to i32
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %21 = load i16, ptr %20, align 2, !tbaa !182
+  %22 = sext i16 %21 to i32
+  %23 = add nsw i32 %19, %22
+  %24 = sub i32 %15, %23
+  switch i32 %13, label %82 [
+    i32 3, label %25
+    i32 4, label %25
     i32 5, label %55
   ]
 
-14:                                               ; preds = %2, %2
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !80
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %18 = load ptr, ptr %17, align 8, !tbaa !177
-  %19 = load i16, ptr %18, align 2, !tbaa !181
-  %20 = sext i16 %19 to i32
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  %22 = load i16, ptr %21, align 2, !tbaa !182
-  %23 = sext i16 %22 to i32
-  %24 = add nsw i32 %20, %23
-  %25 = sub i32 %16, %24
+25:                                               ; preds = %2, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !162
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -5734,16 +5734,16 @@ define internal fastcc void @_thumb_set_image_area(ptr noundef captures(none) %0
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %36, label %41
 
-36:                                               ; preds = %14
+36:                                               ; preds = %25
   %37 = load i32, ptr %7, align 4, !tbaa !162
   %38 = load ptr, ptr %32, align 8, !tbaa !100
   %39 = call i32 @gtk_widget_get_margin_top(ptr noundef %38) #21
   %40 = add nsw i32 %39, %37
-  %.pre = load ptr, ptr %17, align 8, !tbaa !177
+  %.pre = load ptr, ptr %16, align 8, !tbaa !177
   br label %46
 
-41:                                               ; preds = %14
-  %42 = load ptr, ptr %17, align 8, !tbaa !177
+41:                                               ; preds = %25
+  %42 = load ptr, ptr %16, align 8, !tbaa !177
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 6
   %44 = load i16, ptr %43, align 2, !tbaa !180
   %45 = sext i16 %44 to i32
@@ -5762,339 +5762,316 @@ define internal fastcc void @_thumb_set_image_area(ptr noundef captures(none) %0
   %54 = add nsw i32 %.067, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %115
+  br label %93
 
 55:                                               ; preds = %2
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load i32, ptr %56, align 8, !tbaa !80
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %59 = load ptr, ptr %58, align 8, !tbaa !177
-  %60 = load i16, ptr %59, align 2, !tbaa !181
-  %61 = sext i16 %60 to i32
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 2
-  %63 = load i16, ptr %62, align 2, !tbaa !182
-  %64 = sext i16 %63 to i32
-  %65 = add nsw i32 %61, %64
-  %66 = sub i32 %57, %65
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !162
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !162
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %68 = load ptr, ptr %67, align 8, !tbaa !95
-  call void @gtk_widget_get_size_request(ptr noundef %68, ptr noundef nonnull %8, ptr noundef nonnull %9) #21
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %70 = load i32, ptr %69, align 4, !tbaa !81
-  %71 = load i32, ptr %9, align 4, !tbaa !162
-  %72 = load ptr, ptr %67, align 8, !tbaa !95
-  %73 = call i32 @gtk_widget_get_margin_bottom(ptr noundef %72) #21
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %75 = load ptr, ptr %74, align 8, !tbaa !100
-  call void @gtk_widget_get_size_request(ptr noundef %75, ptr noundef nonnull %8, ptr noundef nonnull %9) #21
-  %76 = load i32, ptr %9, align 4, !tbaa !162
-  %77 = load ptr, ptr %74, align 8, !tbaa !100
-  %78 = call i32 @gtk_widget_get_margin_top(ptr noundef %77) #21
-  %79 = add nsw i32 %78, %76
-  %80 = load ptr, ptr %58, align 8, !tbaa !177
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %82 = load i16, ptr %81, align 2, !tbaa !178
-  %83 = sext i16 %82 to i32
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 6
-  %85 = load i16, ptr %84, align 2, !tbaa !180
-  %86 = sext i16 %85 to i32
-  %87 = add i32 %71, %73
-  %88 = add i32 %87, %79
-  %89 = add i32 %88, %83
-  %90 = add i32 %89, %86
-  %91 = sub i32 %70, %90
-  %92 = add nsw i32 %79, %83
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %57 = load ptr, ptr %56, align 8, !tbaa !95
+  call void @gtk_widget_get_size_request(ptr noundef %57, ptr noundef nonnull %8, ptr noundef nonnull %9) #21
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %59 = load i32, ptr %58, align 4, !tbaa !81
+  %60 = load i32, ptr %9, align 4, !tbaa !162
+  %61 = load ptr, ptr %56, align 8, !tbaa !95
+  %62 = call i32 @gtk_widget_get_margin_bottom(ptr noundef %61) #21
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %64 = load ptr, ptr %63, align 8, !tbaa !100
+  call void @gtk_widget_get_size_request(ptr noundef %64, ptr noundef nonnull %8, ptr noundef nonnull %9) #21
+  %65 = load i32, ptr %9, align 4, !tbaa !162
+  %66 = load ptr, ptr %63, align 8, !tbaa !100
+  %67 = call i32 @gtk_widget_get_margin_top(ptr noundef %66) #21
+  %68 = add nsw i32 %67, %65
+  %69 = load ptr, ptr %16, align 8, !tbaa !177
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %71 = load i16, ptr %70, align 2, !tbaa !178
+  %72 = sext i16 %71 to i32
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 6
+  %74 = load i16, ptr %73, align 2, !tbaa !180
+  %75 = sext i16 %74 to i32
+  %76 = add i32 %60, %62
+  %77 = add i32 %76, %68
+  %78 = add i32 %77, %72
+  %79 = add i32 %78, %75
+  %80 = sub i32 %59, %79
+  %81 = add nsw i32 %68, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %115
+  br label %93
 
-93:                                               ; preds = %2
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load i32, ptr %94, align 8, !tbaa !80
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %97 = load ptr, ptr %96, align 8, !tbaa !177
-  %98 = load i16, ptr %97, align 2, !tbaa !181
-  %99 = sext i16 %98 to i32
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 2
-  %101 = load i16, ptr %100, align 2, !tbaa !182
-  %102 = sext i16 %101 to i32
-  %103 = add nsw i32 %99, %102
-  %104 = sub i32 %95, %103
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %106 = load i32, ptr %105, align 4, !tbaa !81
-  %107 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %108 = load i16, ptr %107, align 2, !tbaa !178
-  %109 = sext i16 %108 to i32
-  %110 = getelementptr inbounds nuw i8, ptr %97, i64 6
-  %111 = load i16, ptr %110, align 2, !tbaa !180
-  %112 = sext i16 %111 to i32
-  %113 = add nsw i32 %109, %112
-  %114 = sub i32 %106, %113
-  br label %115
+82:                                               ; preds = %2
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %84 = load i32, ptr %83, align 4, !tbaa !81
+  %85 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %86 = load i16, ptr %85, align 2, !tbaa !178
+  %87 = sext i16 %86 to i32
+  %88 = getelementptr inbounds nuw i8, ptr %17, i64 6
+  %89 = load i16, ptr %88, align 2, !tbaa !180
+  %90 = sext i16 %89 to i32
+  %91 = add nsw i32 %87, %90
+  %92 = sub i32 %84, %91
+  br label %93
 
-115:                                              ; preds = %55, %93, %46
-  %.169 = phi i32 [ %53, %46 ], [ %91, %55 ], [ %114, %93 ]
-  %.1 = phi i32 [ %54, %46 ], [ %92, %55 ], [ %109, %93 ]
-  %.0 = phi i32 [ %25, %46 ], [ %66, %55 ], [ %104, %93 ]
+93:                                               ; preds = %55, %82, %46
+  %.169 = phi i32 [ %53, %46 ], [ %80, %55 ], [ %92, %82 ]
+  %.1 = phi i32 [ %54, %46 ], [ %81, %55 ], [ %87, %82 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !162
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !162
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %117 = load ptr, ptr %116, align 8, !tbaa !88
-  call void @gtk_widget_get_size_request(ptr noundef %117, ptr noundef nonnull %10, ptr noundef nonnull %11) #21
-  %118 = load i32, ptr %10, align 4, !tbaa !162
-  %119 = icmp slt i32 %118, 1
-  %120 = load i32, ptr %11, align 4
-  %121 = icmp slt i32 %120, 1
-  %or.cond = select i1 %119, i1 true, i1 %121
-  br i1 %or.cond, label %122, label %244
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %95 = load ptr, ptr %94, align 8, !tbaa !88
+  call void @gtk_widget_get_size_request(ptr noundef %95, ptr noundef nonnull %10, ptr noundef nonnull %11) #21
+  %96 = load i32, ptr %10, align 4, !tbaa !162
+  %97 = icmp slt i32 %96, 1
+  %98 = load i32, ptr %11, align 4
+  %99 = icmp slt i32 %98, 1
+  %or.cond = select i1 %97, i1 true, i1 %99
+  br i1 %or.cond, label %100, label %222
 
-122:                                              ; preds = %115
-  %123 = fcmp reassoc nsz arcp contract afn oeq float %1, 0.000000e+00
-  %124 = sitofp i32 %.0 to float
-  %125 = sitofp i32 %.169 to float
-  br i1 %123, label %126, label %167
+100:                                              ; preds = %93
+  %101 = fcmp reassoc nsz arcp contract afn oeq float %1, 0.000000e+00
+  %102 = sitofp i32 %24 to float
+  %103 = sitofp i32 %.169 to float
+  br i1 %101, label %104, label %145
 
-126:                                              ; preds = %122
-  %127 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %129 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  br label %130
+104:                                              ; preds = %100
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  br label %108
 
-130:                                              ; preds = %.thread.i, %126
-  %.04055.i = phi i32 [ 7, %126 ], [ %140, %.thread.i ]
+108:                                              ; preds = %.thread.i, %104
+  %.04055.i = phi i32 [ 7, %104 ], [ %118, %.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !278
-  %132 = load i32, ptr %0, align 8, !tbaa !77
-  call void @dt_mipmap_cache_get_with_caller(ptr noundef %131, ptr noundef nonnull %5, i32 noundef %132, i32 noundef %.04055.i, i32 noundef 4, i8 noundef signext 114, ptr noundef nonnull @.str.1, i32 noundef 462) #21
-  %133 = load ptr, ptr %127, align 8, !tbaa !279
-  %.not.i = icmp eq ptr %133, null
-  br i1 %.not.i, label %.thread.i, label %134
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !278
+  %110 = load i32, ptr %0, align 8, !tbaa !77
+  call void @dt_mipmap_cache_get_with_caller(ptr noundef %109, ptr noundef nonnull %5, i32 noundef %110, i32 noundef %.04055.i, i32 noundef 4, i8 noundef signext 114, ptr noundef nonnull @.str.1, i32 noundef 462) #21
+  %111 = load ptr, ptr %105, align 8, !tbaa !279
+  %.not.i = icmp eq ptr %111, null
+  br i1 %.not.i, label %.thread.i, label %112
 
-134:                                              ; preds = %130
-  %135 = load i32, ptr %128, align 8, !tbaa !281
-  %136 = load i32, ptr %129, align 4, !tbaa !282
-  %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !278
-  call void @dt_mipmap_cache_release_with_caller(ptr noundef %137, ptr noundef nonnull %5, ptr noundef nonnull @.str.1, i32 noundef 467) #21
-  %138 = icmp slt i32 %135, 1
-  %139 = icmp slt i32 %136, 1
-  %or.cond.not.i = select i1 %138, i1 true, i1 %139
-  br i1 %or.cond.not.i, label %.thread.i, label %141
+112:                                              ; preds = %108
+  %113 = load i32, ptr %106, align 8, !tbaa !281
+  %114 = load i32, ptr %107, align 4, !tbaa !282
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !278
+  call void @dt_mipmap_cache_release_with_caller(ptr noundef %115, ptr noundef nonnull %5, ptr noundef nonnull @.str.1, i32 noundef 467) #21
+  %116 = icmp slt i32 %113, 1
+  %117 = icmp slt i32 %114, 1
+  %or.cond.not.i = select i1 %116, i1 true, i1 %117
+  br i1 %or.cond.not.i, label %.thread.i, label %119
 
-.thread.i:                                        ; preds = %134, %130
+.thread.i:                                        ; preds = %112, %108
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %140 = add nsw i32 %.04055.i, -1
+  %118 = add nsw i32 %.04055.i, -1
   %.not62.i = icmp eq i32 %.04055.i, 0
-  br i1 %.not62.i, label %.loopexit.i, label %130
+  br i1 %.not62.i, label %.loopexit.i, label %108
 
-141:                                              ; preds = %134
-  %142 = uitofp nneg i32 %135 to float
-  %143 = uitofp nneg i32 %136 to float
-  %144 = fdiv reassoc nsz arcp contract afn float %142, %143
+119:                                              ; preds = %112
+  %120 = uitofp nneg i32 %113 to float
+  %121 = uitofp nneg i32 %114 to float
+  %122 = fdiv reassoc nsz arcp contract afn float %120, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.thread.i, %141
-  %.139.i = phi nsz float [ %144, %141 ], [ 0.000000e+00, %.thread.i ]
-  %145 = fpext reassoc nsz arcp contract afn float %.139.i to double
-  %146 = fcmp reassoc nsz arcp contract afn olt double %145, 1.000000e-03
-  br i1 %146, label %147, label %155
+.loopexit.i:                                      ; preds = %.thread.i, %119
+  %.139.i = phi nsz float [ %122, %119 ], [ 0.000000e+00, %.thread.i ]
+  %123 = fpext reassoc nsz arcp contract afn float %.139.i to double
+  %124 = fcmp reassoc nsz arcp contract afn olt double %123, 1.000000e-03
+  br i1 %124, label %125, label %133
 
-147:                                              ; preds = %.loopexit.i
-  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !199
-  %149 = load i32, ptr %0, align 8, !tbaa !77
-  %150 = call ptr @dt_image_cache_get(ptr noundef %148, i32 noundef %149, i8 noundef signext 114) #21
-  %.not49.i = icmp eq ptr %150, null
-  br i1 %.not49.i, label %155, label %151
+125:                                              ; preds = %.loopexit.i
+  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !199
+  %127 = load i32, ptr %0, align 8, !tbaa !77
+  %128 = call ptr @dt_image_cache_get(ptr noundef %126, i32 noundef %127, i8 noundef signext 114) #21
+  %.not49.i = icmp eq ptr %128, null
+  br i1 %.not49.i, label %133, label %129
 
-151:                                              ; preds = %147
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 1412
-  %153 = load float, ptr %152, align 4, !tbaa !283
-  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !199
-  call void @dt_image_cache_read_release(ptr noundef %154, ptr noundef nonnull %150) #21
-  %.pre.i = fpext reassoc nsz arcp contract afn float %153 to double
-  br label %155
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 1412
+  %131 = load float, ptr %130, align 4, !tbaa !283
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !199
+  call void @dt_image_cache_read_release(ptr noundef %132, ptr noundef nonnull %128) #21
+  %.pre.i = fpext reassoc nsz arcp contract afn float %131 to double
+  br label %133
 
-155:                                              ; preds = %151, %147, %.loopexit.i
-  %.pre-phi.i = phi double [ %145, %147 ], [ %.pre.i, %151 ], [ %145, %.loopexit.i ]
-  %.5.i = phi nsz float [ %.139.i, %147 ], [ %153, %151 ], [ %.139.i, %.loopexit.i ]
-  %156 = fcmp reassoc nsz arcp contract afn ogt double %.pre-phi.i, 1.000000e-03
-  br i1 %156, label %157, label %_get_dimensions_for_img_to_fit.exit
+133:                                              ; preds = %129, %125, %.loopexit.i
+  %.pre-phi.i = phi double [ %123, %125 ], [ %.pre.i, %129 ], [ %123, %.loopexit.i ]
+  %.5.i = phi nsz float [ %.139.i, %125 ], [ %131, %129 ], [ %.139.i, %.loopexit.i ]
+  %134 = fcmp reassoc nsz arcp contract afn ogt double %.pre-phi.i, 1.000000e-03
+  br i1 %134, label %135, label %_get_dimensions_for_img_to_fit.exit
 
-157:                                              ; preds = %155
-  %158 = fcmp reassoc nsz arcp contract afn olt float %.5.i, 1.000000e+00
-  %159 = fmul reassoc nsz arcp contract afn float %.5.i, %125
-  %160 = fdiv reassoc nsz arcp contract afn float %124, %.5.i
-  %.137.i = select nsz i1 %158, float %125, float %160
-  %.1.i = select nsz i1 %158, float %159, float %124
-  %161 = fdiv reassoc nsz arcp contract afn float %124, %.1.i
-  %162 = fdiv reassoc nsz arcp contract afn float %125, %.137.i
-  %163 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %161, float %162)
-  %164 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %163, float 1.000000e+00)
-  %165 = fmul reassoc nsz arcp contract afn float %164, %.1.i
-  %166 = fmul reassoc nsz arcp contract afn float %164, %.137.i
+135:                                              ; preds = %133
+  %136 = fcmp reassoc nsz arcp contract afn olt float %.5.i, 1.000000e+00
+  %137 = fmul reassoc nsz arcp contract afn float %.5.i, %103
+  %138 = fdiv reassoc nsz arcp contract afn float %102, %.5.i
+  %.137.i = select nsz i1 %136, float %103, float %138
+  %.1.i = select nsz i1 %136, float %137, float %102
+  %139 = fdiv reassoc nsz arcp contract afn float %102, %.1.i
+  %140 = fdiv reassoc nsz arcp contract afn float %103, %.137.i
+  %141 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %139, float %140)
+  %142 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %141, float 1.000000e+00)
+  %143 = fmul reassoc nsz arcp contract afn float %142, %.1.i
+  %144 = fmul reassoc nsz arcp contract afn float %142, %.137.i
   br label %_get_dimensions_for_img_to_fit.exit
 
-167:                                              ; preds = %122
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %169 = load float, ptr %168, align 8, !tbaa !176
-  %170 = fcmp reassoc nsz arcp contract afn olt float %169, 1.000000e+00
-  br i1 %170, label %171, label %dt_thumbnail_get_zoom100.exit.i
+145:                                              ; preds = %100
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %147 = load float, ptr %146, align 8, !tbaa !176
+  %148 = fcmp reassoc nsz arcp contract afn olt float %147, 1.000000e+00
+  br i1 %148, label %149, label %dt_thumbnail_get_zoom100.exit.i
 
-171:                                              ; preds = %167
+149:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !162
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !162
-  %172 = load i32, ptr %0, align 8, !tbaa !77
-  %173 = call i32 @dt_image_get_final_size(i32 noundef %172, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %175 = load ptr, ptr %174, align 8, !tbaa !177
-  %.not.i.i = icmp eq ptr %175, null
-  br i1 %.not.i.i, label %176, label %177
+  %150 = load i32, ptr %0, align 8, !tbaa !77
+  %151 = call i32 @dt_image_get_final_size(i32 noundef %150, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %153 = load ptr, ptr %152, align 8, !tbaa !177
+  %.not.i.i = icmp eq ptr %153, null
+  br i1 %.not.i.i, label %154, label %155
 
-176:                                              ; preds = %171
+154:                                              ; preds = %149
   call fastcc void @_thumb_retrieve_margins(ptr noundef nonnull %0)
-  %.pre.i.i = load ptr, ptr %174, align 8, !tbaa !177
-  br label %177
+  %.pre.i.i = load ptr, ptr %152, align 8, !tbaa !177
+  br label %155
 
-177:                                              ; preds = %176, %171
-  %178 = phi ptr [ %.pre.i.i, %176 ], [ %175, %171 ]
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %180 = load i32, ptr %179, align 4, !tbaa !81
-  %181 = getelementptr inbounds nuw i8, ptr %178, i64 4
-  %182 = load i16, ptr %181, align 2, !tbaa !178
-  %183 = sext i16 %182 to i32
-  %184 = getelementptr inbounds nuw i8, ptr %178, i64 6
-  %185 = load i16, ptr %184, align 2, !tbaa !180
-  %186 = sext i16 %185 to i32
-  %187 = add nsw i32 %183, %186
-  %188 = sub i32 %180, %187
-  %189 = sitofp i32 %188 to float
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %191 = load i32, ptr %190, align 8, !tbaa !80
-  %192 = load i16, ptr %178, align 2, !tbaa !181
-  %193 = sext i16 %192 to i32
-  %194 = getelementptr inbounds nuw i8, ptr %178, i64 2
-  %195 = load i16, ptr %194, align 2, !tbaa !182
-  %196 = sext i16 %195 to i32
-  %197 = add nsw i32 %193, %196
-  %198 = sub i32 %191, %197
-  %199 = sitofp i32 %198 to float
-  %200 = load i32, ptr %3, align 4, !tbaa !162
-  %201 = sitofp i32 %200 to float
-  %202 = fdiv reassoc nsz arcp contract afn float %201, %199
-  %203 = load i32, ptr %4, align 4, !tbaa !162
-  %204 = sitofp i32 %203 to float
-  %205 = fdiv reassoc nsz arcp contract afn float %204, %189
-  %206 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %202, float %205)
-  %207 = fcmp reassoc nsz arcp contract afn olt float %206, 1.000000e+00
-  %208 = select reassoc nsz arcp contract afn i1 %207, float 1.000000e+00, float %206
-  store float %208, ptr %168, align 8, !tbaa !176
+155:                                              ; preds = %154, %149
+  %156 = phi ptr [ %.pre.i.i, %154 ], [ %153, %149 ]
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %158 = load i32, ptr %157, align 4, !tbaa !81
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 4
+  %160 = load i16, ptr %159, align 2, !tbaa !178
+  %161 = sext i16 %160 to i32
+  %162 = getelementptr inbounds nuw i8, ptr %156, i64 6
+  %163 = load i16, ptr %162, align 2, !tbaa !180
+  %164 = sext i16 %163 to i32
+  %165 = add nsw i32 %161, %164
+  %166 = sub i32 %158, %165
+  %167 = sitofp i32 %166 to float
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %169 = load i32, ptr %168, align 8, !tbaa !80
+  %170 = load i16, ptr %156, align 2, !tbaa !181
+  %171 = sext i16 %170 to i32
+  %172 = getelementptr inbounds nuw i8, ptr %156, i64 2
+  %173 = load i16, ptr %172, align 2, !tbaa !182
+  %174 = sext i16 %173 to i32
+  %175 = add nsw i32 %171, %174
+  %176 = sub i32 %169, %175
+  %177 = sitofp i32 %176 to float
+  %178 = load i32, ptr %3, align 4, !tbaa !162
+  %179 = sitofp i32 %178 to float
+  %180 = fdiv reassoc nsz arcp contract afn float %179, %177
+  %181 = load i32, ptr %4, align 4, !tbaa !162
+  %182 = sitofp i32 %181 to float
+  %183 = fdiv reassoc nsz arcp contract afn float %182, %167
+  %184 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %180, float %183)
+  %185 = fcmp reassoc nsz arcp contract afn olt float %184, 1.000000e+00
+  %186 = select reassoc nsz arcp contract afn i1 %185, float 1.000000e+00, float %184
+  store float %186, ptr %146, align 8, !tbaa !176
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %dt_thumbnail_get_zoom100.exit.i
 
-dt_thumbnail_get_zoom100.exit.i:                  ; preds = %177, %167
-  %209 = phi float [ %208, %177 ], [ %169, %167 ]
-  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !199
-  %211 = load i32, ptr %0, align 8, !tbaa !77
-  %212 = call ptr @dt_image_cache_get(ptr noundef %210, i32 noundef %211, i8 noundef signext 114) #21
-  %.not.i75 = icmp eq ptr %212, null
-  br i1 %.not.i75, label %_get_dimensions_for_zoomed_img.exit, label %213
+dt_thumbnail_get_zoom100.exit.i:                  ; preds = %155, %145
+  %187 = phi float [ %186, %155 ], [ %147, %145 ]
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !199
+  %189 = load i32, ptr %0, align 8, !tbaa !77
+  %190 = call ptr @dt_image_cache_get(ptr noundef %188, i32 noundef %189, i8 noundef signext 114) #21
+  %.not.i75 = icmp eq ptr %190, null
+  br i1 %.not.i75, label %_get_dimensions_for_zoomed_img.exit, label %191
 
-213:                                              ; preds = %dt_thumbnail_get_zoom100.exit.i
-  %214 = getelementptr inbounds nuw i8, ptr %212, i64 1380
-  %215 = load i32, ptr %214, align 4, !tbaa !284
-  %216 = icmp sgt i32 %215, 0
-  br i1 %216, label %217, label %224
+191:                                              ; preds = %dt_thumbnail_get_zoom100.exit.i
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 1380
+  %193 = load i32, ptr %192, align 4, !tbaa !284
+  %194 = icmp sgt i32 %193, 0
+  br i1 %194, label %195, label %202
 
-217:                                              ; preds = %213
-  %218 = getelementptr inbounds nuw i8, ptr %212, i64 1384
-  %219 = load i32, ptr %218, align 8, !tbaa !285
-  %220 = icmp sgt i32 %219, 0
-  br i1 %220, label %221, label %224
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds nuw i8, ptr %190, i64 1384
+  %197 = load i32, ptr %196, align 8, !tbaa !285
+  %198 = icmp sgt i32 %197, 0
+  br i1 %198, label %199, label %202
 
-221:                                              ; preds = %217
-  %222 = uitofp nneg i32 %215 to float
-  %223 = uitofp nneg i32 %219 to float
-  br label %224
+199:                                              ; preds = %195
+  %200 = uitofp nneg i32 %193 to float
+  %201 = uitofp nneg i32 %197 to float
+  br label %202
 
-224:                                              ; preds = %221, %217, %213
-  %.135.i = phi nsz float [ %223, %221 ], [ %125, %217 ], [ %125, %213 ]
-  %.1.i76 = phi nsz float [ %222, %221 ], [ %124, %217 ], [ %124, %213 ]
-  %225 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !199
-  call void @dt_image_cache_read_release(ptr noundef %225, ptr noundef nonnull %212) #21
+202:                                              ; preds = %199, %195, %191
+  %.135.i = phi nsz float [ %201, %199 ], [ %103, %195 ], [ %103, %191 ]
+  %.1.i76 = phi nsz float [ %200, %199 ], [ %102, %195 ], [ %102, %191 ]
+  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !199
+  call void @dt_image_cache_read_release(ptr noundef %203, ptr noundef nonnull %190) #21
   br label %_get_dimensions_for_zoomed_img.exit
 
-_get_dimensions_for_zoomed_img.exit:              ; preds = %dt_thumbnail_get_zoom100.exit.i, %224
-  %.034.i = phi nsz float [ %.135.i, %224 ], [ %125, %dt_thumbnail_get_zoom100.exit.i ]
-  %.0.i77 = phi nsz float [ %.1.i76, %224 ], [ %124, %dt_thumbnail_get_zoom100.exit.i ]
-  %226 = fcmp reassoc nsz arcp contract afn olt float %209, 1.000000e+00
-  %227 = select reassoc nsz arcp contract afn i1 %226, float 1.000000e+00, float %209
-  %228 = fdiv reassoc nsz arcp contract afn float %124, %.0.i77
-  %229 = fdiv reassoc nsz arcp contract afn float %125, %.034.i
-  %230 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %228, float %229)
-  %231 = fadd reassoc nsz arcp contract afn float %227, -1.000000e+00
-  %232 = fmul reassoc nsz arcp contract afn float %231, %1
-  %233 = fadd reassoc nsz arcp contract afn float %232, 1.000000e+00
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 364
-  store float %233, ptr %234, align 4, !tbaa !175
-  %235 = fmul reassoc nsz arcp contract afn float %230, %233
-  %236 = fmul reassoc nsz arcp contract afn float %235, %.0.i77
-  %237 = fcmp reassoc nsz arcp contract afn olt float %236, %124
-  %..i = select reassoc nsz arcp contract afn i1 %237, float %236, float %124
-  %238 = fmul reassoc nsz arcp contract afn float %235, %.034.i
-  %239 = fcmp reassoc nsz arcp contract afn olt float %238, %125
-  %240 = select reassoc nsz arcp contract afn i1 %239, float %238, float %125
+_get_dimensions_for_zoomed_img.exit:              ; preds = %dt_thumbnail_get_zoom100.exit.i, %202
+  %.034.i = phi nsz float [ %.135.i, %202 ], [ %103, %dt_thumbnail_get_zoom100.exit.i ]
+  %.0.i77 = phi nsz float [ %.1.i76, %202 ], [ %102, %dt_thumbnail_get_zoom100.exit.i ]
+  %204 = fcmp reassoc nsz arcp contract afn olt float %187, 1.000000e+00
+  %205 = select reassoc nsz arcp contract afn i1 %204, float 1.000000e+00, float %187
+  %206 = fdiv reassoc nsz arcp contract afn float %102, %.0.i77
+  %207 = fdiv reassoc nsz arcp contract afn float %103, %.034.i
+  %208 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %206, float %207)
+  %209 = fadd reassoc nsz arcp contract afn float %205, -1.000000e+00
+  %210 = fmul reassoc nsz arcp contract afn float %209, %1
+  %211 = fadd reassoc nsz arcp contract afn float %210, 1.000000e+00
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 364
+  store float %211, ptr %212, align 4, !tbaa !175
+  %213 = fmul reassoc nsz arcp contract afn float %208, %211
+  %214 = fmul reassoc nsz arcp contract afn float %213, %.0.i77
+  %215 = fcmp reassoc nsz arcp contract afn olt float %214, %102
+  %..i = select reassoc nsz arcp contract afn i1 %215, float %214, float %102
+  %216 = fmul reassoc nsz arcp contract afn float %213, %.034.i
+  %217 = fcmp reassoc nsz arcp contract afn olt float %216, %103
+  %218 = select reassoc nsz arcp contract afn i1 %217, float %216, float %103
   br label %_get_dimensions_for_img_to_fit.exit
 
-_get_dimensions_for_img_to_fit.exit:              ; preds = %157, %155, %_get_dimensions_for_zoomed_img.exit
-  %.080 = phi nsz float [ %..i, %_get_dimensions_for_zoomed_img.exit ], [ %165, %157 ], [ %124, %155 ]
-  %.079 = phi nsz float [ %240, %_get_dimensions_for_zoomed_img.exit ], [ %166, %157 ], [ %125, %155 ]
-  %241 = load ptr, ptr %116, align 8, !tbaa !88
-  %242 = fptosi float %.080 to i32
-  %243 = fptosi float %.079 to i32
-  call void @gtk_widget_set_size_request(ptr noundef %241, i32 noundef %242, i32 noundef %243) #21
-  br label %259
+_get_dimensions_for_img_to_fit.exit:              ; preds = %135, %133, %_get_dimensions_for_zoomed_img.exit
+  %.080 = phi nsz float [ %..i, %_get_dimensions_for_zoomed_img.exit ], [ %143, %135 ], [ %102, %133 ]
+  %.079 = phi nsz float [ %218, %_get_dimensions_for_zoomed_img.exit ], [ %144, %135 ], [ %103, %133 ]
+  %219 = load ptr, ptr %94, align 8, !tbaa !88
+  %220 = fptosi float %.080 to i32
+  %221 = fptosi float %.079 to i32
+  call void @gtk_widget_set_size_request(ptr noundef %219, i32 noundef %220, i32 noundef %221) #21
+  br label %237
 
-244:                                              ; preds = %115
-  %245 = sitofp i32 %.0 to float
-  %246 = uitofp nneg i32 %118 to float
-  %247 = fdiv reassoc nsz arcp contract afn float %245, %246
-  %248 = sitofp i32 %.169 to float
-  %249 = uitofp nneg i32 %120 to float
-  %250 = fdiv reassoc nsz arcp contract afn float %248, %249
-  %251 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %247, float %250)
-  %252 = fcmp reassoc nsz arcp contract afn olt float %251, 1.000000e+00
-  br i1 %252, label %253, label %259
+222:                                              ; preds = %93
+  %223 = sitofp i32 %24 to float
+  %224 = uitofp nneg i32 %96 to float
+  %225 = fdiv reassoc nsz arcp contract afn float %223, %224
+  %226 = sitofp i32 %.169 to float
+  %227 = uitofp nneg i32 %98 to float
+  %228 = fdiv reassoc nsz arcp contract afn float %226, %227
+  %229 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %225, float %228)
+  %230 = fcmp reassoc nsz arcp contract afn olt float %229, 1.000000e+00
+  br i1 %230, label %231, label %237
 
-253:                                              ; preds = %244
-  %254 = load ptr, ptr %116, align 8, !tbaa !88
-  %255 = fmul reassoc nsz arcp contract afn float %251, %246
-  %256 = fptosi float %255 to i32
-  %257 = fmul reassoc nsz arcp contract afn float %251, %249
-  %258 = fptosi float %257 to i32
-  call void @gtk_widget_set_size_request(ptr noundef %254, i32 noundef %256, i32 noundef %258) #21
-  br label %259
+231:                                              ; preds = %222
+  %232 = load ptr, ptr %94, align 8, !tbaa !88
+  %233 = fmul reassoc nsz arcp contract afn float %229, %224
+  %234 = fptosi float %233 to i32
+  %235 = fmul reassoc nsz arcp contract afn float %229, %227
+  %236 = fptosi float %235 to i32
+  call void @gtk_widget_set_size_request(ptr noundef %232, i32 noundef %234, i32 noundef %236) #21
+  br label %237
 
-259:                                              ; preds = %244, %253, %_get_dimensions_for_img_to_fit.exit
-  %260 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %261 = load ptr, ptr %260, align 8, !tbaa !87
-  call void @gtk_widget_set_size_request(ptr noundef %261, i32 noundef %.0, i32 noundef %.169) #21
-  %262 = load ptr, ptr %260, align 8, !tbaa !87
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %264 = load ptr, ptr %263, align 8, !tbaa !177
-  %265 = load i16, ptr %264, align 2, !tbaa !181
-  %266 = sext i16 %265 to i32
-  call void @gtk_widget_set_margin_start(ptr noundef %262, i32 noundef %266) #21
-  %267 = load ptr, ptr %260, align 8, !tbaa !87
-  call void @gtk_widget_set_margin_top(ptr noundef %267, i32 noundef %.1) #21
+237:                                              ; preds = %222, %231, %_get_dimensions_for_img_to_fit.exit
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %239 = load ptr, ptr %238, align 8, !tbaa !87
+  call void @gtk_widget_set_size_request(ptr noundef %239, i32 noundef %24, i32 noundef %.169) #21
+  %240 = load ptr, ptr %238, align 8, !tbaa !87
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %242 = load ptr, ptr %241, align 8, !tbaa !177
+  %243 = load i16, ptr %242, align 2, !tbaa !181
+  %244 = sext i16 %243 to i32
+  call void @gtk_widget_set_margin_start(ptr noundef %240, i32 noundef %244) #21
+  %245 = load ptr, ptr %238, align 8, !tbaa !87
+  call void @gtk_widget_set_margin_top(ptr noundef %245, i32 noundef %.1) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void

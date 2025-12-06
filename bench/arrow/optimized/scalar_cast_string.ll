@@ -84702,6 +84702,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %.noexc938._ZN
   %.0770 = phi i8 [ %253, %258 ], [ %.7777, %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483 ]
   %.0707 = phi ptr [ %1, %258 ], [ %4269, %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483 ]
   %334 = load i8, ptr %.0707, align 1, !tbaa !51
+  %.not927 = icmp eq ptr %.0778, null
   switch i8 %334, label %4233 [
     i8 0, label %4270
     i8 97, label %339
@@ -84760,8 +84761,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %.noexc938._ZN
   br label %4315
 
 339:                                              ; preds = %333, %333
-  %.not926 = icmp eq ptr %.0778, null
-  br i1 %.not926, label %413, label %340
+  br i1 %.not927, label %413, label %340
 
 340:                                              ; preds = %339
   %341 = icmp eq i8 %.0782, 0
@@ -84972,8 +84972,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit960: ; preds = %422, %
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 424:                                              ; preds = %333, %333, %333
-  %.not925 = icmp eq ptr %.0778, null
-  br i1 %.not925, label %504, label %425
+  br i1 %.not927, label %504, label %425
 
 425:                                              ; preds = %424
   %426 = icmp eq i8 %.0782, 0
@@ -85190,8 +85189,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit995: ; preds = %513, %
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 515:                                              ; preds = %333, %333
-  %.not922 = icmp eq ptr %.0778, null
-  br i1 %.not922, label %688, label %516
+  br i1 %.not927, label %688, label %516
 
 516:                                              ; preds = %515
   %517 = icmp eq i8 %.0782, 79
@@ -85584,8 +85582,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1049: ; preds = %697, 
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 699:                                              ; preds = %333
-  %.not918 = icmp eq ptr %.0778, null
-  br i1 %.not918, label %853, label %700
+  br i1 %.not927, label %853, label %700
 
 700:                                              ; preds = %699
   %701 = icmp eq i8 %.0782, 79
@@ -85979,8 +85976,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1105: ; preds = %862, 
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 864:                                              ; preds = %333, %333
-  %.not914 = icmp eq ptr %.0778, null
-  br i1 %.not914, label %1014, label %865
+  br i1 %.not927, label %1014, label %865
 
 865:                                              ; preds = %864
   %866 = icmp eq i8 %.0782, 69
@@ -86366,8 +86362,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1170: ; preds = %1023,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 1025:                                             ; preds = %333
-  %.not910 = icmp eq ptr %.0778, null
-  br i1 %.not910, label %1188, label %1026
+  br i1 %.not927, label %1188, label %1026
 
 1026:                                             ; preds = %1025
   %1027 = icmp eq i8 %.0782, 0
@@ -86744,8 +86739,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1236: ; preds = %1197,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 1199:                                             ; preds = %333
-  %.not906 = icmp eq ptr %.0778, null
-  br i1 %.not906, label %1369, label %1200
+  br i1 %.not927, label %1369, label %1200
 
 1200:                                             ; preds = %1199
   %1201 = icmp eq i8 %.0782, 0
@@ -87134,8 +87128,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1303: ; preds = %1378,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 1380:                                             ; preds = %333, %333
-  %.not900 = icmp eq ptr %.0778, null
-  br i1 %.not900, label %1591, label %1381
+  br i1 %.not927, label %1591, label %1381
 
 1381:                                             ; preds = %1380
   %1382 = icmp eq i8 %.0782, 0
@@ -87573,8 +87566,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1372: ; preds = %1600,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 1602:                                             ; preds = %333, %333
-  %.not897 = icmp eq ptr %.0778, null
-  br i1 %.not897, label %1719, label %1603
+  br i1 %.not927, label %1719, label %1603
 
 1603:                                             ; preds = %1602
   %1604 = icmp eq i8 %.0782, 69
@@ -87875,8 +87867,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1423: ; preds = %1728,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 1730:                                             ; preds = %333
-  %.not891 = icmp eq ptr %.0778, null
-  br i1 %.not891, label %1918, label %1731
+  br i1 %.not927, label %1918, label %1731
 
 1731:                                             ; preds = %1730
   %1732 = icmp eq i8 %.0782, 0
@@ -88283,8 +88274,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1503: ; preds = %1927,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 1929:                                             ; preds = %333
-  %.not888 = icmp eq ptr %.0778, null
-  br i1 %.not888, label %2027, label %1930
+  br i1 %.not927, label %2027, label %1930
 
 1930:                                             ; preds = %1929
   %1931 = icmp eq i8 %.0782, 69
@@ -88543,8 +88533,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1548: ; preds = %2036,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 2038:                                             ; preds = %333
-  %.not887 = icmp eq ptr %.0778, null
-  br i1 %.not887, label %2148, label %2039
+  br i1 %.not927, label %2148, label %2039
 
 2039:                                             ; preds = %2038
   %2040 = icmp eq i8 %.0782, 69
@@ -88828,8 +88817,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1598: ; preds = %2157,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 2159:                                             ; preds = %333
-  %.not886 = icmp eq ptr %.0778, null
-  br i1 %.not886, label %2207, label %2160
+  br i1 %.not927, label %2207, label %2160
 
 2160:                                             ; preds = %2159
   %2161 = icmp eq i8 %.0782, 0
@@ -88953,8 +88941,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1623: ; preds = %2216,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 2218:                                             ; preds = %333
-  %.not885 = icmp eq ptr %.0778, null
-  br i1 %.not885, label %2297, label %2219
+  br i1 %.not927, label %2297, label %2219
 
 2219:                                             ; preds = %2218
   %2220 = icmp eq i8 %.0782, 0
@@ -89166,8 +89153,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1659: ; preds = %2306,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 2308:                                             ; preds = %333, %333
-  %.not882 = icmp eq ptr %.0778, null
-  br i1 %.not882, label %2381, label %2309
+  br i1 %.not927, label %2381, label %2309
 
 2309:                                             ; preds = %2308
   %2310 = icmp eq i8 %.0782, 0
@@ -89332,8 +89318,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1684: ; preds = %2390,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 2392:                                             ; preds = %333
-  %.not881 = icmp eq ptr %.0778, null
-  br i1 %.not881, label %2473, label %2393
+  br i1 %.not927, label %2473, label %2393
 
 2393:                                             ; preds = %2392
   %2394 = icmp eq i8 %.0782, 0
@@ -89551,8 +89536,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1722: ; preds = %2482,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 2484:                                             ; preds = %333
-  %.not880 = icmp eq ptr %.0778, null
-  br i1 %.not880, label %2575, label %2485
+  br i1 %.not927, label %2575, label %2485
 
 2485:                                             ; preds = %2484
   %2486 = icmp eq i8 %.0782, 0
@@ -89769,8 +89753,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1767: ; preds = %2584,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 2586:                                             ; preds = %333
-  %.not879 = icmp eq ptr %.0778, null
-  br i1 %.not879, label %2681, label %2587
+  br i1 %.not927, label %2681, label %2587
 
 2587:                                             ; preds = %2586
   %2588 = icmp eq i8 %.0782, 69
@@ -90018,8 +90001,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1809: ; preds = %2690,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 2692:                                             ; preds = %333
-  %.not878 = icmp eq ptr %.0778, null
-  br i1 %.not878, label %2740, label %2693
+  br i1 %.not927, label %2740, label %2693
 
 2693:                                             ; preds = %2692
   %2694 = icmp eq i8 %.0782, 0
@@ -90143,8 +90125,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1834: ; preds = %2749,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 2751:                                             ; preds = %333
-  %.not877 = icmp eq ptr %.0778, null
-  br i1 %.not877, label %2800, label %2752
+  br i1 %.not927, label %2800, label %2752
 
 2752:                                             ; preds = %2751
   %2753 = icmp eq i8 %.0782, 0
@@ -90264,8 +90245,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1856: ; preds = %2809,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 2811:                                             ; preds = %333
-  %.not873 = icmp eq ptr %.0778, null
-  br i1 %.not873, label %2888, label %2812
+  br i1 %.not927, label %2888, label %2812
 
 2812:                                             ; preds = %2811
   %2813 = icmp eq i8 %.0782, 69
@@ -90478,8 +90458,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1891: ; preds = %2897,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 2899:                                             ; preds = %333
-  %.not864 = icmp eq ptr %.0778, null
-  br i1 %.not864, label %3111, label %2900
+  br i1 %.not927, label %3111, label %2900
 
 2900:                                             ; preds = %2899
   %2901 = icmp eq i8 %.0782, 69
@@ -90937,8 +90916,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1987: ; preds = %3120,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 3122:                                             ; preds = %333
-  %.not856 = icmp eq ptr %.0778, null
-  br i1 %.not856, label %3353, label %3123
+  br i1 %.not927, label %3353, label %3123
 
 3123:                                             ; preds = %3122
   %3124 = icmp eq i8 %.0782, 69
@@ -91410,8 +91388,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2142: ; preds = %3362,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 3364:                                             ; preds = %333
-  %.not853 = icmp eq ptr %.0778, null
-  br i1 %.not853, label %3440, label %3365
+  br i1 %.not927, label %3440, label %3365
 
 3365:                                             ; preds = %3364
   %3366 = invoke noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekdayIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1EEEEEEjRSt13basic_ostreamIT_T0_ERKNS0_6fieldsIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(49) %2)
@@ -91623,8 +91600,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2177: ; preds = %3449,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 3451:                                             ; preds = %333
-  %.not844 = icmp eq ptr %.0778, null
-  br i1 %.not844, label %3665, label %3452
+  br i1 %.not927, label %3665, label %3452
 
 3452:                                             ; preds = %3451
   %3453 = icmp eq i8 %.0782, 69
@@ -92081,8 +92057,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2281: ; preds = %3674,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 3676:                                             ; preds = %333
-  %.not843 = icmp eq ptr %.0778, null
-  br i1 %.not843, label %3761, label %3677
+  br i1 %.not927, label %3761, label %3677
 
 3677:                                             ; preds = %3676
   %3678 = icmp eq i8 %.0782, 79
@@ -92307,8 +92282,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2319: ; preds = %3770,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 3772:                                             ; preds = %333
-  %.not840 = icmp eq ptr %.0778, null
-  br i1 %.not840, label %3835, label %3773
+  br i1 %.not927, label %3835, label %3773
 
 3773:                                             ; preds = %3772
   %.sroa.0.0.copyload.i2320 = load i16, ptr %2, align 8, !tbaa !2086
@@ -92494,8 +92468,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2346: ; preds = %3844,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 3846:                                             ; preds = %333
-  %.not836 = icmp eq ptr %.0778, null
-  br i1 %.not836, label %3968, label %3847
+  br i1 %.not927, label %3968, label %3847
 
 3847:                                             ; preds = %3846
   %3848 = icmp eq i8 %.0782, 79
@@ -92816,8 +92789,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2391: ; preds = %3977,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 3979:                                             ; preds = %333
-  %.not831 = icmp eq ptr %.0778, null
-  br i1 %.not831, label %4059, label %3980
+  br i1 %.not927, label %4059, label %3980
 
 3980:                                             ; preds = %3979
   br i1 %261, label %.invoke, label %3988
@@ -93013,8 +92985,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2428: ; preds = %4068,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 4070:                                             ; preds = %333
-  %.not830 = icmp eq ptr %.0778, null
-  br i1 %.not830, label %4127, label %4071
+  br i1 %.not927, label %4127, label %4071
 
 4071:                                             ; preds = %4070
   %4072 = icmp eq i8 %.0782, 0
@@ -93157,8 +93128,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2455: ; preds = %4136,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 4138:                                             ; preds = %333, %333
-  %.not829 = icmp eq ptr %.0778, null
-  br i1 %.not829, label %4175, label %4139
+  br i1 %.not927, label %4175, label %4139
 
 4139:                                             ; preds = %4138
   %4140 = icmp eq i8 %.0782, 0
@@ -93258,8 +93228,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2475: ; preds = %4184,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 4186:                                             ; preds = %333
-  %.not828 = icmp eq ptr %.0778, null
-  br i1 %.not828, label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483, label %4187
+  br i1 %.not927, label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483, label %4187
 
 4187:                                             ; preds = %4186
   %4188 = icmp eq i8 %.0782, 0
@@ -93358,7 +93327,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2495: ; preds = %4231,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483
 
 4233:                                             ; preds = %333
-  %.not927 = icmp eq ptr %.0778, null
   br i1 %.not927, label %4245, label %4234
 
 4234:                                             ; preds = %4233
@@ -93446,8 +93414,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1483: ; preds
   br label %333, !llvm.loop !4502
 
 4270:                                             ; preds = %333
-  %.not826 = icmp eq ptr %.0778, null
-  br i1 %.not826, label %4282, label %4271
+  br i1 %.not927, label %4282, label %4271
 
 4271:                                             ; preds = %4270
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -95464,6 +95431,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %.noexc940._ZN
   %.0771 = phi i8 [ %254, %259 ], [ %.7778, %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485 ]
   %.0707 = phi ptr [ %1, %259 ], [ %4272, %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485 ]
   %335 = load i8, ptr %.0707, align 1, !tbaa !51
+  %.not928 = icmp eq ptr %.0779, null
   switch i8 %335, label %4236 [
     i8 0, label %4273
     i8 97, label %340
@@ -95522,8 +95490,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %.noexc940._ZN
   br label %4318
 
 340:                                              ; preds = %334, %334
-  %.not927 = icmp eq ptr %.0779, null
-  br i1 %.not927, label %414, label %341
+  br i1 %.not928, label %414, label %341
 
 341:                                              ; preds = %340
   %342 = icmp eq i8 %.0783, 0
@@ -95734,8 +95701,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit962: ; preds = %423, %
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 425:                                              ; preds = %334, %334, %334
-  %.not926 = icmp eq ptr %.0779, null
-  br i1 %.not926, label %505, label %426
+  br i1 %.not928, label %505, label %426
 
 426:                                              ; preds = %425
   %427 = icmp eq i8 %.0783, 0
@@ -95952,8 +95918,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit997: ; preds = %514, %
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 516:                                              ; preds = %334, %334
-  %.not923 = icmp eq ptr %.0779, null
-  br i1 %.not923, label %689, label %517
+  br i1 %.not928, label %689, label %517
 
 517:                                              ; preds = %516
   %518 = icmp eq i8 %.0783, 79
@@ -96346,8 +96311,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1051: ; preds = %698, 
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 700:                                              ; preds = %334
-  %.not919 = icmp eq ptr %.0779, null
-  br i1 %.not919, label %854, label %701
+  br i1 %.not928, label %854, label %701
 
 701:                                              ; preds = %700
   %702 = icmp eq i8 %.0783, 79
@@ -96741,8 +96705,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1107: ; preds = %863, 
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 865:                                              ; preds = %334, %334
-  %.not915 = icmp eq ptr %.0779, null
-  br i1 %.not915, label %1015, label %866
+  br i1 %.not928, label %1015, label %866
 
 866:                                              ; preds = %865
   %867 = icmp eq i8 %.0783, 69
@@ -97128,8 +97091,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1172: ; preds = %1024,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1026:                                             ; preds = %334
-  %.not911 = icmp eq ptr %.0779, null
-  br i1 %.not911, label %1189, label %1027
+  br i1 %.not928, label %1189, label %1027
 
 1027:                                             ; preds = %1026
   %1028 = icmp eq i8 %.0783, 0
@@ -97506,8 +97468,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1238: ; preds = %1198,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1200:                                             ; preds = %334
-  %.not907 = icmp eq ptr %.0779, null
-  br i1 %.not907, label %1370, label %1201
+  br i1 %.not928, label %1370, label %1201
 
 1201:                                             ; preds = %1200
   %1202 = icmp eq i8 %.0783, 0
@@ -97896,8 +97857,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1305: ; preds = %1379,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1381:                                             ; preds = %334, %334
-  %.not901 = icmp eq ptr %.0779, null
-  br i1 %.not901, label %1592, label %1382
+  br i1 %.not928, label %1592, label %1382
 
 1382:                                             ; preds = %1381
   %1383 = icmp eq i8 %.0783, 0
@@ -98335,8 +98295,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1374: ; preds = %1601,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1603:                                             ; preds = %334, %334
-  %.not898 = icmp eq ptr %.0779, null
-  br i1 %.not898, label %1720, label %1604
+  br i1 %.not928, label %1720, label %1604
 
 1604:                                             ; preds = %1603
   %1605 = icmp eq i8 %.0783, 69
@@ -98637,8 +98596,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1425: ; preds = %1729,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1731:                                             ; preds = %334
-  %.not892 = icmp eq ptr %.0779, null
-  br i1 %.not892, label %1920, label %1732
+  br i1 %.not928, label %1920, label %1732
 
 1732:                                             ; preds = %1731
   %1733 = icmp eq i8 %.0783, 0
@@ -99046,8 +99004,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1505: ; preds = %1929,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1931:                                             ; preds = %334
-  %.not889 = icmp eq ptr %.0779, null
-  br i1 %.not889, label %2029, label %1932
+  br i1 %.not928, label %2029, label %1932
 
 1932:                                             ; preds = %1931
   %1933 = icmp eq i8 %.0783, 69
@@ -99306,8 +99263,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1550: ; preds = %2038,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2040:                                             ; preds = %334
-  %.not888 = icmp eq ptr %.0779, null
-  br i1 %.not888, label %2150, label %2041
+  br i1 %.not928, label %2150, label %2041
 
 2041:                                             ; preds = %2040
   %2042 = icmp eq i8 %.0783, 69
@@ -99591,8 +99547,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1600: ; preds = %2159,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2161:                                             ; preds = %334
-  %.not887 = icmp eq ptr %.0779, null
-  br i1 %.not887, label %2209, label %2162
+  br i1 %.not928, label %2209, label %2162
 
 2162:                                             ; preds = %2161
   %2163 = icmp eq i8 %.0783, 0
@@ -99716,8 +99671,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1625: ; preds = %2218,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2220:                                             ; preds = %334
-  %.not886 = icmp eq ptr %.0779, null
-  br i1 %.not886, label %2299, label %2221
+  br i1 %.not928, label %2299, label %2221
 
 2221:                                             ; preds = %2220
   %2222 = icmp eq i8 %.0783, 0
@@ -99929,8 +99883,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1661: ; preds = %2308,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2310:                                             ; preds = %334, %334
-  %.not883 = icmp eq ptr %.0779, null
-  br i1 %.not883, label %2384, label %2311
+  br i1 %.not928, label %2384, label %2311
 
 2311:                                             ; preds = %2310
   %2312 = icmp eq i8 %.0783, 0
@@ -100096,8 +100049,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1686: ; preds = %2393,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2395:                                             ; preds = %334
-  %.not882 = icmp eq ptr %.0779, null
-  br i1 %.not882, label %2476, label %2396
+  br i1 %.not928, label %2476, label %2396
 
 2396:                                             ; preds = %2395
   %2397 = icmp eq i8 %.0783, 0
@@ -100315,8 +100267,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1724: ; preds = %2485,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2487:                                             ; preds = %334
-  %.not881 = icmp eq ptr %.0779, null
-  br i1 %.not881, label %2578, label %2488
+  br i1 %.not928, label %2578, label %2488
 
 2488:                                             ; preds = %2487
   %2489 = icmp eq i8 %.0783, 0
@@ -100533,8 +100484,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1769: ; preds = %2587,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2589:                                             ; preds = %334
-  %.not880 = icmp eq ptr %.0779, null
-  br i1 %.not880, label %2684, label %2590
+  br i1 %.not928, label %2684, label %2590
 
 2590:                                             ; preds = %2589
   %2591 = icmp eq i8 %.0783, 69
@@ -100782,8 +100732,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1811: ; preds = %2693,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2695:                                             ; preds = %334
-  %.not879 = icmp eq ptr %.0779, null
-  br i1 %.not879, label %2743, label %2696
+  br i1 %.not928, label %2743, label %2696
 
 2696:                                             ; preds = %2695
   %2697 = icmp eq i8 %.0783, 0
@@ -100907,8 +100856,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1836: ; preds = %2752,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2754:                                             ; preds = %334
-  %.not878 = icmp eq ptr %.0779, null
-  br i1 %.not878, label %2803, label %2755
+  br i1 %.not928, label %2803, label %2755
 
 2755:                                             ; preds = %2754
   %2756 = icmp eq i8 %.0783, 0
@@ -101028,8 +100976,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1858: ; preds = %2812,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2814:                                             ; preds = %334
-  %.not874 = icmp eq ptr %.0779, null
-  br i1 %.not874, label %2891, label %2815
+  br i1 %.not928, label %2891, label %2815
 
 2815:                                             ; preds = %2814
   %2816 = icmp eq i8 %.0783, 69
@@ -101242,8 +101189,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1893: ; preds = %2900,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2902:                                             ; preds = %334
-  %.not865 = icmp eq ptr %.0779, null
-  br i1 %.not865, label %3114, label %2903
+  br i1 %.not928, label %3114, label %2903
 
 2903:                                             ; preds = %2902
   %2904 = icmp eq i8 %.0783, 69
@@ -101701,8 +101647,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1989: ; preds = %3123,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3125:                                             ; preds = %334
-  %.not857 = icmp eq ptr %.0779, null
-  br i1 %.not857, label %3356, label %3126
+  br i1 %.not928, label %3356, label %3126
 
 3126:                                             ; preds = %3125
   %3127 = icmp eq i8 %.0783, 69
@@ -102174,8 +102119,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2144: ; preds = %3365,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3367:                                             ; preds = %334
-  %.not854 = icmp eq ptr %.0779, null
-  br i1 %.not854, label %3443, label %3368
+  br i1 %.not928, label %3443, label %3368
 
 3368:                                             ; preds = %3367
   %3369 = invoke noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekdayIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEjRSt13basic_ostreamIT_T0_ERKNS0_6fieldsIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(49) %2)
@@ -102387,8 +102331,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2179: ; preds = %3452,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3454:                                             ; preds = %334
-  %.not845 = icmp eq ptr %.0779, null
-  br i1 %.not845, label %3668, label %3455
+  br i1 %.not928, label %3668, label %3455
 
 3455:                                             ; preds = %3454
   %3456 = icmp eq i8 %.0783, 69
@@ -102845,8 +102788,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2283: ; preds = %3677,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3679:                                             ; preds = %334
-  %.not844 = icmp eq ptr %.0779, null
-  br i1 %.not844, label %3764, label %3680
+  br i1 %.not928, label %3764, label %3680
 
 3680:                                             ; preds = %3679
   %3681 = icmp eq i8 %.0783, 79
@@ -103071,8 +103013,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2321: ; preds = %3773,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3775:                                             ; preds = %334
-  %.not841 = icmp eq ptr %.0779, null
-  br i1 %.not841, label %3838, label %3776
+  br i1 %.not928, label %3838, label %3776
 
 3776:                                             ; preds = %3775
   %.sroa.0.0.copyload.i2322 = load i16, ptr %2, align 8, !tbaa !2086
@@ -103258,8 +103199,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2348: ; preds = %3847,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3849:                                             ; preds = %334
-  %.not837 = icmp eq ptr %.0779, null
-  br i1 %.not837, label %3971, label %3850
+  br i1 %.not928, label %3971, label %3850
 
 3850:                                             ; preds = %3849
   %3851 = icmp eq i8 %.0783, 79
@@ -103580,8 +103520,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2393: ; preds = %3980,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3982:                                             ; preds = %334
-  %.not832 = icmp eq ptr %.0779, null
-  br i1 %.not832, label %4062, label %3983
+  br i1 %.not928, label %4062, label %3983
 
 3983:                                             ; preds = %3982
   br i1 %262, label %.invoke, label %3991
@@ -103777,8 +103716,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2430: ; preds = %4071,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4073:                                             ; preds = %334
-  %.not831 = icmp eq ptr %.0779, null
-  br i1 %.not831, label %4130, label %4074
+  br i1 %.not928, label %4130, label %4074
 
 4074:                                             ; preds = %4073
   %4075 = icmp eq i8 %.0783, 0
@@ -103921,8 +103859,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2457: ; preds = %4139,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4141:                                             ; preds = %334, %334
-  %.not830 = icmp eq ptr %.0779, null
-  br i1 %.not830, label %4178, label %4142
+  br i1 %.not928, label %4178, label %4142
 
 4142:                                             ; preds = %4141
   %4143 = icmp eq i8 %.0783, 0
@@ -104022,8 +103959,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2477: ; preds = %4187,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4189:                                             ; preds = %334
-  %.not829 = icmp eq ptr %.0779, null
-  br i1 %.not829, label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485, label %4190
+  br i1 %.not928, label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485, label %4190
 
 4190:                                             ; preds = %4189
   %4191 = icmp eq i8 %.0783, 0
@@ -104122,7 +104058,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2497: ; preds = %4234,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4236:                                             ; preds = %334
-  %.not928 = icmp eq ptr %.0779, null
   br i1 %.not928, label %4248, label %4237
 
 4237:                                             ; preds = %4236
@@ -104210,8 +104145,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485: ; preds
   br label %334, !llvm.loop !4541
 
 4273:                                             ; preds = %334
-  %.not827 = icmp eq ptr %.0779, null
-  br i1 %.not827, label %4285, label %4274
+  br i1 %.not928, label %4285, label %4274
 
 4274:                                             ; preds = %4273
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -105939,6 +105873,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %.noexc940._ZN
   %.0771 = phi i8 [ %254, %259 ], [ %.7778, %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485 ]
   %.0707 = phi ptr [ %1, %259 ], [ %4272, %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485 ]
   %335 = load i8, ptr %.0707, align 1, !tbaa !51
+  %.not928 = icmp eq ptr %.0779, null
   switch i8 %335, label %4236 [
     i8 0, label %4273
     i8 97, label %340
@@ -105997,8 +105932,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %.noexc940._ZN
   br label %4318
 
 340:                                              ; preds = %334, %334
-  %.not927 = icmp eq ptr %.0779, null
-  br i1 %.not927, label %414, label %341
+  br i1 %.not928, label %414, label %341
 
 341:                                              ; preds = %340
   %342 = icmp eq i8 %.0783, 0
@@ -106209,8 +106143,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit962: ; preds = %423, %
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 425:                                              ; preds = %334, %334, %334
-  %.not926 = icmp eq ptr %.0779, null
-  br i1 %.not926, label %505, label %426
+  br i1 %.not928, label %505, label %426
 
 426:                                              ; preds = %425
   %427 = icmp eq i8 %.0783, 0
@@ -106427,8 +106360,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit997: ; preds = %514, %
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 516:                                              ; preds = %334, %334
-  %.not923 = icmp eq ptr %.0779, null
-  br i1 %.not923, label %689, label %517
+  br i1 %.not928, label %689, label %517
 
 517:                                              ; preds = %516
   %518 = icmp eq i8 %.0783, 79
@@ -106821,8 +106753,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1051: ; preds = %698, 
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 700:                                              ; preds = %334
-  %.not919 = icmp eq ptr %.0779, null
-  br i1 %.not919, label %854, label %701
+  br i1 %.not928, label %854, label %701
 
 701:                                              ; preds = %700
   %702 = icmp eq i8 %.0783, 79
@@ -107216,8 +107147,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1107: ; preds = %863, 
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 865:                                              ; preds = %334, %334
-  %.not915 = icmp eq ptr %.0779, null
-  br i1 %.not915, label %1015, label %866
+  br i1 %.not928, label %1015, label %866
 
 866:                                              ; preds = %865
   %867 = icmp eq i8 %.0783, 69
@@ -107603,8 +107533,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1172: ; preds = %1024,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1026:                                             ; preds = %334
-  %.not911 = icmp eq ptr %.0779, null
-  br i1 %.not911, label %1189, label %1027
+  br i1 %.not928, label %1189, label %1027
 
 1027:                                             ; preds = %1026
   %1028 = icmp eq i8 %.0783, 0
@@ -107981,8 +107910,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1238: ; preds = %1198,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1200:                                             ; preds = %334
-  %.not907 = icmp eq ptr %.0779, null
-  br i1 %.not907, label %1370, label %1201
+  br i1 %.not928, label %1370, label %1201
 
 1201:                                             ; preds = %1200
   %1202 = icmp eq i8 %.0783, 0
@@ -108371,8 +108299,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1305: ; preds = %1379,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1381:                                             ; preds = %334, %334
-  %.not901 = icmp eq ptr %.0779, null
-  br i1 %.not901, label %1592, label %1382
+  br i1 %.not928, label %1592, label %1382
 
 1382:                                             ; preds = %1381
   %1383 = icmp eq i8 %.0783, 0
@@ -108810,8 +108737,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1374: ; preds = %1601,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1603:                                             ; preds = %334, %334
-  %.not898 = icmp eq ptr %.0779, null
-  br i1 %.not898, label %1720, label %1604
+  br i1 %.not928, label %1720, label %1604
 
 1604:                                             ; preds = %1603
   %1605 = icmp eq i8 %.0783, 69
@@ -109112,8 +109038,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1425: ; preds = %1729,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1731:                                             ; preds = %334
-  %.not892 = icmp eq ptr %.0779, null
-  br i1 %.not892, label %1920, label %1732
+  br i1 %.not928, label %1920, label %1732
 
 1732:                                             ; preds = %1731
   %1733 = icmp eq i8 %.0783, 0
@@ -109521,8 +109446,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1505: ; preds = %1929,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1931:                                             ; preds = %334
-  %.not889 = icmp eq ptr %.0779, null
-  br i1 %.not889, label %2029, label %1932
+  br i1 %.not928, label %2029, label %1932
 
 1932:                                             ; preds = %1931
   %1933 = icmp eq i8 %.0783, 69
@@ -109781,8 +109705,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1550: ; preds = %2038,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2040:                                             ; preds = %334
-  %.not888 = icmp eq ptr %.0779, null
-  br i1 %.not888, label %2150, label %2041
+  br i1 %.not928, label %2150, label %2041
 
 2041:                                             ; preds = %2040
   %2042 = icmp eq i8 %.0783, 69
@@ -110066,8 +109989,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1600: ; preds = %2159,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2161:                                             ; preds = %334
-  %.not887 = icmp eq ptr %.0779, null
-  br i1 %.not887, label %2209, label %2162
+  br i1 %.not928, label %2209, label %2162
 
 2162:                                             ; preds = %2161
   %2163 = icmp eq i8 %.0783, 0
@@ -110191,8 +110113,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1625: ; preds = %2218,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2220:                                             ; preds = %334
-  %.not886 = icmp eq ptr %.0779, null
-  br i1 %.not886, label %2299, label %2221
+  br i1 %.not928, label %2299, label %2221
 
 2221:                                             ; preds = %2220
   %2222 = icmp eq i8 %.0783, 0
@@ -110404,8 +110325,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1661: ; preds = %2308,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2310:                                             ; preds = %334, %334
-  %.not883 = icmp eq ptr %.0779, null
-  br i1 %.not883, label %2384, label %2311
+  br i1 %.not928, label %2384, label %2311
 
 2311:                                             ; preds = %2310
   %2312 = icmp eq i8 %.0783, 0
@@ -110571,8 +110491,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1686: ; preds = %2393,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2395:                                             ; preds = %334
-  %.not882 = icmp eq ptr %.0779, null
-  br i1 %.not882, label %2476, label %2396
+  br i1 %.not928, label %2476, label %2396
 
 2396:                                             ; preds = %2395
   %2397 = icmp eq i8 %.0783, 0
@@ -110790,8 +110709,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1724: ; preds = %2485,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2487:                                             ; preds = %334
-  %.not881 = icmp eq ptr %.0779, null
-  br i1 %.not881, label %2578, label %2488
+  br i1 %.not928, label %2578, label %2488
 
 2488:                                             ; preds = %2487
   %2489 = icmp eq i8 %.0783, 0
@@ -111008,8 +110926,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1769: ; preds = %2587,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2589:                                             ; preds = %334
-  %.not880 = icmp eq ptr %.0779, null
-  br i1 %.not880, label %2684, label %2590
+  br i1 %.not928, label %2684, label %2590
 
 2590:                                             ; preds = %2589
   %2591 = icmp eq i8 %.0783, 69
@@ -111257,8 +111174,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1811: ; preds = %2693,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2695:                                             ; preds = %334
-  %.not879 = icmp eq ptr %.0779, null
-  br i1 %.not879, label %2743, label %2696
+  br i1 %.not928, label %2743, label %2696
 
 2696:                                             ; preds = %2695
   %2697 = icmp eq i8 %.0783, 0
@@ -111382,8 +111298,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1836: ; preds = %2752,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2754:                                             ; preds = %334
-  %.not878 = icmp eq ptr %.0779, null
-  br i1 %.not878, label %2803, label %2755
+  br i1 %.not928, label %2803, label %2755
 
 2755:                                             ; preds = %2754
   %2756 = icmp eq i8 %.0783, 0
@@ -111503,8 +111418,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1858: ; preds = %2812,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2814:                                             ; preds = %334
-  %.not874 = icmp eq ptr %.0779, null
-  br i1 %.not874, label %2891, label %2815
+  br i1 %.not928, label %2891, label %2815
 
 2815:                                             ; preds = %2814
   %2816 = icmp eq i8 %.0783, 69
@@ -111717,8 +111631,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1893: ; preds = %2900,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2902:                                             ; preds = %334
-  %.not865 = icmp eq ptr %.0779, null
-  br i1 %.not865, label %3114, label %2903
+  br i1 %.not928, label %3114, label %2903
 
 2903:                                             ; preds = %2902
   %2904 = icmp eq i8 %.0783, 69
@@ -112176,8 +112089,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1989: ; preds = %3123,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3125:                                             ; preds = %334
-  %.not857 = icmp eq ptr %.0779, null
-  br i1 %.not857, label %3356, label %3126
+  br i1 %.not928, label %3356, label %3126
 
 3126:                                             ; preds = %3125
   %3127 = icmp eq i8 %.0783, 69
@@ -112649,8 +112561,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2144: ; preds = %3365,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3367:                                             ; preds = %334
-  %.not854 = icmp eq ptr %.0779, null
-  br i1 %.not854, label %3443, label %3368
+  br i1 %.not928, label %3443, label %3368
 
 3368:                                             ; preds = %3367
   %3369 = invoke noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekdayIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEEjRSt13basic_ostreamIT_T0_ERKNS0_6fieldsIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(49) %2)
@@ -112862,8 +112773,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2179: ; preds = %3452,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3454:                                             ; preds = %334
-  %.not845 = icmp eq ptr %.0779, null
-  br i1 %.not845, label %3668, label %3455
+  br i1 %.not928, label %3668, label %3455
 
 3455:                                             ; preds = %3454
   %3456 = icmp eq i8 %.0783, 69
@@ -113320,8 +113230,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2283: ; preds = %3677,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3679:                                             ; preds = %334
-  %.not844 = icmp eq ptr %.0779, null
-  br i1 %.not844, label %3764, label %3680
+  br i1 %.not928, label %3764, label %3680
 
 3680:                                             ; preds = %3679
   %3681 = icmp eq i8 %.0783, 79
@@ -113546,8 +113455,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2321: ; preds = %3773,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3775:                                             ; preds = %334
-  %.not841 = icmp eq ptr %.0779, null
-  br i1 %.not841, label %3838, label %3776
+  br i1 %.not928, label %3838, label %3776
 
 3776:                                             ; preds = %3775
   %.sroa.0.0.copyload.i2322 = load i16, ptr %2, align 8, !tbaa !2086
@@ -113733,8 +113641,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2348: ; preds = %3847,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3849:                                             ; preds = %334
-  %.not837 = icmp eq ptr %.0779, null
-  br i1 %.not837, label %3971, label %3850
+  br i1 %.not928, label %3971, label %3850
 
 3850:                                             ; preds = %3849
   %3851 = icmp eq i8 %.0783, 79
@@ -114055,8 +113962,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2393: ; preds = %3980,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3982:                                             ; preds = %334
-  %.not832 = icmp eq ptr %.0779, null
-  br i1 %.not832, label %4062, label %3983
+  br i1 %.not928, label %4062, label %3983
 
 3983:                                             ; preds = %3982
   br i1 %262, label %.invoke, label %3991
@@ -114252,8 +114158,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2430: ; preds = %4071,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4073:                                             ; preds = %334
-  %.not831 = icmp eq ptr %.0779, null
-  br i1 %.not831, label %4130, label %4074
+  br i1 %.not928, label %4130, label %4074
 
 4074:                                             ; preds = %4073
   %4075 = icmp eq i8 %.0783, 0
@@ -114396,8 +114301,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2457: ; preds = %4139,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4141:                                             ; preds = %334, %334
-  %.not830 = icmp eq ptr %.0779, null
-  br i1 %.not830, label %4178, label %4142
+  br i1 %.not928, label %4178, label %4142
 
 4142:                                             ; preds = %4141
   %4143 = icmp eq i8 %.0783, 0
@@ -114497,8 +114401,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2477: ; preds = %4187,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4189:                                             ; preds = %334
-  %.not829 = icmp eq ptr %.0779, null
-  br i1 %.not829, label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485, label %4190
+  br i1 %.not928, label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485, label %4190
 
 4190:                                             ; preds = %4189
   %4191 = icmp eq i8 %.0783, 0
@@ -114597,7 +114500,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2497: ; preds = %4234,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4236:                                             ; preds = %334
-  %.not928 = icmp eq ptr %.0779, null
   br i1 %.not928, label %4248, label %4237
 
 4237:                                             ; preds = %4236
@@ -114685,8 +114587,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485: ; preds
   br label %334, !llvm.loop !4573
 
 4273:                                             ; preds = %334
-  %.not827 = icmp eq ptr %.0779, null
-  br i1 %.not827, label %4285, label %4274
+  br i1 %.not928, label %4285, label %4274
 
 4274:                                             ; preds = %4273
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -116406,6 +116307,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %.noexc940._ZN
   %.0771 = phi i8 [ %254, %259 ], [ %.7778, %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485 ]
   %.0707 = phi ptr [ %1, %259 ], [ %4272, %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485 ]
   %335 = load i8, ptr %.0707, align 1, !tbaa !51
+  %.not928 = icmp eq ptr %.0779, null
   switch i8 %335, label %4236 [
     i8 0, label %4273
     i8 97, label %340
@@ -116464,8 +116366,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %.noexc940._ZN
   br label %4318
 
 340:                                              ; preds = %334, %334
-  %.not927 = icmp eq ptr %.0779, null
-  br i1 %.not927, label %414, label %341
+  br i1 %.not928, label %414, label %341
 
 341:                                              ; preds = %340
   %342 = icmp eq i8 %.0783, 0
@@ -116676,8 +116577,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit962: ; preds = %423, %
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 425:                                              ; preds = %334, %334, %334
-  %.not926 = icmp eq ptr %.0779, null
-  br i1 %.not926, label %505, label %426
+  br i1 %.not928, label %505, label %426
 
 426:                                              ; preds = %425
   %427 = icmp eq i8 %.0783, 0
@@ -116894,8 +116794,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit997: ; preds = %514, %
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 516:                                              ; preds = %334, %334
-  %.not923 = icmp eq ptr %.0779, null
-  br i1 %.not923, label %689, label %517
+  br i1 %.not928, label %689, label %517
 
 517:                                              ; preds = %516
   %518 = icmp eq i8 %.0783, 79
@@ -117288,8 +117187,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1051: ; preds = %698, 
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 700:                                              ; preds = %334
-  %.not919 = icmp eq ptr %.0779, null
-  br i1 %.not919, label %854, label %701
+  br i1 %.not928, label %854, label %701
 
 701:                                              ; preds = %700
   %702 = icmp eq i8 %.0783, 79
@@ -117683,8 +117581,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1107: ; preds = %863, 
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 865:                                              ; preds = %334, %334
-  %.not915 = icmp eq ptr %.0779, null
-  br i1 %.not915, label %1015, label %866
+  br i1 %.not928, label %1015, label %866
 
 866:                                              ; preds = %865
   %867 = icmp eq i8 %.0783, 69
@@ -118070,8 +117967,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1172: ; preds = %1024,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1026:                                             ; preds = %334
-  %.not911 = icmp eq ptr %.0779, null
-  br i1 %.not911, label %1189, label %1027
+  br i1 %.not928, label %1189, label %1027
 
 1027:                                             ; preds = %1026
   %1028 = icmp eq i8 %.0783, 0
@@ -118448,8 +118344,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1238: ; preds = %1198,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1200:                                             ; preds = %334
-  %.not907 = icmp eq ptr %.0779, null
-  br i1 %.not907, label %1370, label %1201
+  br i1 %.not928, label %1370, label %1201
 
 1201:                                             ; preds = %1200
   %1202 = icmp eq i8 %.0783, 0
@@ -118838,8 +118733,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1305: ; preds = %1379,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1381:                                             ; preds = %334, %334
-  %.not901 = icmp eq ptr %.0779, null
-  br i1 %.not901, label %1592, label %1382
+  br i1 %.not928, label %1592, label %1382
 
 1382:                                             ; preds = %1381
   %1383 = icmp eq i8 %.0783, 0
@@ -119277,8 +119171,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1374: ; preds = %1601,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1603:                                             ; preds = %334, %334
-  %.not898 = icmp eq ptr %.0779, null
-  br i1 %.not898, label %1720, label %1604
+  br i1 %.not928, label %1720, label %1604
 
 1604:                                             ; preds = %1603
   %1605 = icmp eq i8 %.0783, 69
@@ -119579,8 +119472,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1425: ; preds = %1729,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1731:                                             ; preds = %334
-  %.not892 = icmp eq ptr %.0779, null
-  br i1 %.not892, label %1920, label %1732
+  br i1 %.not928, label %1920, label %1732
 
 1732:                                             ; preds = %1731
   %1733 = icmp eq i8 %.0783, 0
@@ -119988,8 +119880,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1505: ; preds = %1929,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 1931:                                             ; preds = %334
-  %.not889 = icmp eq ptr %.0779, null
-  br i1 %.not889, label %2029, label %1932
+  br i1 %.not928, label %2029, label %1932
 
 1932:                                             ; preds = %1931
   %1933 = icmp eq i8 %.0783, 69
@@ -120248,8 +120139,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1550: ; preds = %2038,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2040:                                             ; preds = %334
-  %.not888 = icmp eq ptr %.0779, null
-  br i1 %.not888, label %2150, label %2041
+  br i1 %.not928, label %2150, label %2041
 
 2041:                                             ; preds = %2040
   %2042 = icmp eq i8 %.0783, 69
@@ -120533,8 +120423,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1600: ; preds = %2159,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2161:                                             ; preds = %334
-  %.not887 = icmp eq ptr %.0779, null
-  br i1 %.not887, label %2209, label %2162
+  br i1 %.not928, label %2209, label %2162
 
 2162:                                             ; preds = %2161
   %2163 = icmp eq i8 %.0783, 0
@@ -120658,8 +120547,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1625: ; preds = %2218,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2220:                                             ; preds = %334
-  %.not886 = icmp eq ptr %.0779, null
-  br i1 %.not886, label %2299, label %2221
+  br i1 %.not928, label %2299, label %2221
 
 2221:                                             ; preds = %2220
   %2222 = icmp eq i8 %.0783, 0
@@ -120871,8 +120759,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1661: ; preds = %2308,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2310:                                             ; preds = %334, %334
-  %.not883 = icmp eq ptr %.0779, null
-  br i1 %.not883, label %2384, label %2311
+  br i1 %.not928, label %2384, label %2311
 
 2311:                                             ; preds = %2310
   %2312 = icmp eq i8 %.0783, 0
@@ -121038,8 +120925,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1686: ; preds = %2393,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2395:                                             ; preds = %334
-  %.not882 = icmp eq ptr %.0779, null
-  br i1 %.not882, label %2476, label %2396
+  br i1 %.not928, label %2476, label %2396
 
 2396:                                             ; preds = %2395
   %2397 = icmp eq i8 %.0783, 0
@@ -121257,8 +121143,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1724: ; preds = %2485,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2487:                                             ; preds = %334
-  %.not881 = icmp eq ptr %.0779, null
-  br i1 %.not881, label %2578, label %2488
+  br i1 %.not928, label %2578, label %2488
 
 2488:                                             ; preds = %2487
   %2489 = icmp eq i8 %.0783, 0
@@ -121475,8 +121360,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1769: ; preds = %2587,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2589:                                             ; preds = %334
-  %.not880 = icmp eq ptr %.0779, null
-  br i1 %.not880, label %2684, label %2590
+  br i1 %.not928, label %2684, label %2590
 
 2590:                                             ; preds = %2589
   %2591 = icmp eq i8 %.0783, 69
@@ -121724,8 +121608,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1811: ; preds = %2693,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2695:                                             ; preds = %334
-  %.not879 = icmp eq ptr %.0779, null
-  br i1 %.not879, label %2743, label %2696
+  br i1 %.not928, label %2743, label %2696
 
 2696:                                             ; preds = %2695
   %2697 = icmp eq i8 %.0783, 0
@@ -121849,8 +121732,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1836: ; preds = %2752,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2754:                                             ; preds = %334
-  %.not878 = icmp eq ptr %.0779, null
-  br i1 %.not878, label %2803, label %2755
+  br i1 %.not928, label %2803, label %2755
 
 2755:                                             ; preds = %2754
   %2756 = icmp eq i8 %.0783, 0
@@ -121970,8 +121852,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1858: ; preds = %2812,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2814:                                             ; preds = %334
-  %.not874 = icmp eq ptr %.0779, null
-  br i1 %.not874, label %2891, label %2815
+  br i1 %.not928, label %2891, label %2815
 
 2815:                                             ; preds = %2814
   %2816 = icmp eq i8 %.0783, 69
@@ -122184,8 +122065,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1893: ; preds = %2900,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 2902:                                             ; preds = %334
-  %.not865 = icmp eq ptr %.0779, null
-  br i1 %.not865, label %3114, label %2903
+  br i1 %.not928, label %3114, label %2903
 
 2903:                                             ; preds = %2902
   %2904 = icmp eq i8 %.0783, 69
@@ -122643,8 +122523,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1989: ; preds = %3123,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3125:                                             ; preds = %334
-  %.not857 = icmp eq ptr %.0779, null
-  br i1 %.not857, label %3356, label %3126
+  br i1 %.not928, label %3356, label %3126
 
 3126:                                             ; preds = %3125
   %3127 = icmp eq i8 %.0783, 69
@@ -123116,8 +122995,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2144: ; preds = %3365,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3367:                                             ; preds = %334
-  %.not854 = icmp eq ptr %.0779, null
-  br i1 %.not854, label %3443, label %3368
+  br i1 %.not928, label %3443, label %3368
 
 3368:                                             ; preds = %3367
   %3369 = invoke noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekdayIcSt11char_traitsIcENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEjRSt13basic_ostreamIT_T0_ERKNS0_6fieldsIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(49) %2)
@@ -123329,8 +123207,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2179: ; preds = %3452,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3454:                                             ; preds = %334
-  %.not845 = icmp eq ptr %.0779, null
-  br i1 %.not845, label %3668, label %3455
+  br i1 %.not928, label %3668, label %3455
 
 3455:                                             ; preds = %3454
   %3456 = icmp eq i8 %.0783, 69
@@ -123787,8 +123664,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2283: ; preds = %3677,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3679:                                             ; preds = %334
-  %.not844 = icmp eq ptr %.0779, null
-  br i1 %.not844, label %3764, label %3680
+  br i1 %.not928, label %3764, label %3680
 
 3680:                                             ; preds = %3679
   %3681 = icmp eq i8 %.0783, 79
@@ -124013,8 +123889,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2321: ; preds = %3773,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3775:                                             ; preds = %334
-  %.not841 = icmp eq ptr %.0779, null
-  br i1 %.not841, label %3838, label %3776
+  br i1 %.not928, label %3838, label %3776
 
 3776:                                             ; preds = %3775
   %.sroa.0.0.copyload.i2322 = load i16, ptr %2, align 8, !tbaa !2086
@@ -124200,8 +124075,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2348: ; preds = %3847,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3849:                                             ; preds = %334
-  %.not837 = icmp eq ptr %.0779, null
-  br i1 %.not837, label %3971, label %3850
+  br i1 %.not928, label %3971, label %3850
 
 3850:                                             ; preds = %3849
   %3851 = icmp eq i8 %.0783, 79
@@ -124522,8 +124396,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2393: ; preds = %3980,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 3982:                                             ; preds = %334
-  %.not832 = icmp eq ptr %.0779, null
-  br i1 %.not832, label %4062, label %3983
+  br i1 %.not928, label %4062, label %3983
 
 3983:                                             ; preds = %3982
   br i1 %262, label %.invoke, label %3991
@@ -124719,8 +124592,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2430: ; preds = %4071,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4073:                                             ; preds = %334
-  %.not831 = icmp eq ptr %.0779, null
-  br i1 %.not831, label %4130, label %4074
+  br i1 %.not928, label %4130, label %4074
 
 4074:                                             ; preds = %4073
   %4075 = icmp eq i8 %.0783, 0
@@ -124863,8 +124735,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2457: ; preds = %4139,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4141:                                             ; preds = %334, %334
-  %.not830 = icmp eq ptr %.0779, null
-  br i1 %.not830, label %4178, label %4142
+  br i1 %.not928, label %4178, label %4142
 
 4142:                                             ; preds = %4141
   %4143 = icmp eq i8 %.0783, 0
@@ -124964,8 +124835,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2477: ; preds = %4187,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4189:                                             ; preds = %334
-  %.not829 = icmp eq ptr %.0779, null
-  br i1 %.not829, label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485, label %4190
+  br i1 %.not928, label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485, label %4190
 
 4190:                                             ; preds = %4189
   %4191 = icmp eq i8 %.0783, 0
@@ -125064,7 +124934,6 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2497: ; preds = %4234,
   br label %_ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485
 
 4236:                                             ; preds = %334
-  %.not928 = icmp eq ptr %.0779, null
   br i1 %.not928, label %4248, label %4237
 
 4237:                                             ; preds = %4236
@@ -125152,8 +125021,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE8setstateESt12_Ios_Iostate.exit1485: ; preds
   br label %334, !llvm.loop !4605
 
 4273:                                             ; preds = %334
-  %.not827 = icmp eq ptr %.0779, null
-  br i1 %.not827, label %4285, label %4274
+  br i1 %.not928, label %4285, label %4274
 
 4274:                                             ; preds = %4273
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

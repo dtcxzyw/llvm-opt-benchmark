@@ -2130,7 +2130,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments14parse_argumentEPKc13JVMFlagOrig
 
 19:                                               ; preds = %12
   %20 = icmp eq ptr %.1, %.049
-  br i1 %20, label %75, label %21
+  br i1 %20, label %74, label %21
 
 21:                                               ; preds = %19
   %22 = ptrtoint ptr %.049 to i64
@@ -2160,27 +2160,27 @@ define hidden noundef zeroext i1 @_ZN9Arguments14parse_argumentEPKc13JVMFlagOrig
 
 _ZN9Arguments13find_jvm_flagEPKcm.exit.thread:    ; preds = %27, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %75
+  br label %74
 
 _ZN9Arguments13find_jvm_flagEPKcm.exit:           ; preds = %32
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #31
   %36 = call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %33, i64 noundef %35, i1 noundef zeroext false, i1 noundef zeroext false) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %75, label %38
+  br i1 %37, label %74, label %38
 
 38:                                               ; preds = %_ZN9Arguments13find_jvm_flagEPKcm.exit
+  %39 = load i8, ptr %.1, align 1
   switch i8 %6, label %47 [
-    i8 45, label %39
-    i8 43, label %39
+    i8 45, label %40
+    i8 43, label %40
   ]
 
-39:                                               ; preds = %38, %38
-  %40 = load i8, ptr %.1, align 1
-  %.not = icmp eq i8 %40, 0
-  br i1 %.not, label %41, label %75
+40:                                               ; preds = %38, %38
+  %.not = icmp eq i8 %39, 0
+  br i1 %.not, label %41, label %74
 
-41:                                               ; preds = %39
+41:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %.051, ptr %4, align 1
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 20
@@ -2196,73 +2196,72 @@ _ZN9Arguments13find_jvm_flagEPKcm.exit:           ; preds = %32
 _ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit: ; preds = %41, %44
   %.0.i.i.i = phi i1 [ %46, %44 ], [ false, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %75
+  br label %74
 
 47:                                               ; preds = %38
-  %48 = load i8, ptr %.1, align 1
-  switch i8 %48, label %75 [
-    i8 61, label %49
-    i8 58, label %65
+  switch i8 %39, label %74 [
+    i8 61, label %48
+    i8 58, label %64
   ]
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  %51 = load i32, ptr %50, align 4
-  %52 = and i32 %51, -2
-  %spec.select.i = icmp eq i32 %52, 8
-  br i1 %spec.select.i, label %53, label %59
+48:                                               ; preds = %47
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 20
+  %50 = load i32, ptr %49, align 4
+  %51 = and i32 %50, -2
+  %spec.select.i = icmp eq i32 %51, 8
+  br i1 %spec.select.i, label %52, label %58
 
-53:                                               ; preds = %49
-  %54 = icmp eq i32 %51, 9
-  br i1 %54, label %55, label %57
+52:                                               ; preds = %48
+  %53 = icmp eq i32 %50, 9
+  br i1 %53, label %54, label %56
 
-55:                                               ; preds = %53
-  %56 = call fastcc noundef zeroext i1 @_ZL21append_to_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
-  br label %75
+54:                                               ; preds = %52
+  %55 = call fastcc noundef zeroext i1 @_ZL21append_to_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
+  br label %74
 
-57:                                               ; preds = %53
-  %58 = call fastcc noundef zeroext i1 @_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
-  br label %75
+56:                                               ; preds = %52
+  %57 = call fastcc noundef zeroext i1 @_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
+  br label %74
 
-59:                                               ; preds = %49
-  %60 = icmp eq i32 %51, 7
-  br i1 %60, label %61, label %63
+58:                                               ; preds = %48
+  %59 = icmp eq i32 %50, 7
+  br i1 %59, label %60, label %62
 
-61:                                               ; preds = %59
-  %62 = call fastcc noundef zeroext i1 @_ZL19set_fp_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
-  br label %75
+60:                                               ; preds = %58
+  %61 = call fastcc noundef zeroext i1 @_ZL19set_fp_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
+  br label %74
 
-63:                                               ; preds = %59
-  %64 = call fastcc noundef zeroext i1 @_ZL16set_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
-  br label %75
+62:                                               ; preds = %58
+  %63 = call fastcc noundef zeroext i1 @_ZL16set_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
+  br label %74
 
-65:                                               ; preds = %47
-  %66 = load i8, ptr %18, align 1
-  %67 = icmp eq i8 %66, 61
-  br i1 %67, label %68, label %75
+64:                                               ; preds = %47
+  %65 = load i8, ptr %18, align 1
+  %66 = icmp eq i8 %65, 61
+  br i1 %66, label %67, label %74
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %70 = load i8, ptr %69, align 1
-  %71 = icmp eq i8 %70, 0
-  %spec.store.select.i = select i1 %71, ptr null, ptr %69
+  %69 = load i8, ptr %68, align 1
+  %70 = icmp eq i8 %69, 0
+  %spec.store.select.i = select i1 %70, ptr null, ptr %68
   store ptr %spec.store.select.i, ptr %3, align 8
-  %72 = call noundef i32 @_ZN13JVMFlagAccess9set_ccstrEP7JVMFlagPPKc13JVMFlagOrigin(ptr noundef nonnull %36, ptr noundef nonnull %3, i32 noundef %1) #32
-  %.not.i55 = icmp eq i32 %72, 0
-  br i1 %.not.i55, label %73, label %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit
+  %71 = call noundef i32 @_ZN13JVMFlagAccess9set_ccstrEP7JVMFlagPPKc13JVMFlagOrigin(ptr noundef nonnull %36, ptr noundef nonnull %3, i32 noundef %1) #32
+  %.not.i55 = icmp eq i32 %71, 0
+  br i1 %.not.i55, label %72, label %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %3, align 8
-  call void @_Z8FreeHeapPv(ptr noundef %74) #32
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %3, align 8
+  call void @_Z8FreeHeapPv(ptr noundef %73) #32
   br label %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit
 
-_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit: ; preds = %68, %73
+_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit: ; preds = %67, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %75
+  br label %74
 
-75:                                               ; preds = %_ZN9Arguments13find_jvm_flagEPKcm.exit.thread, %65, %47, %39, %_ZN9Arguments13find_jvm_flagEPKcm.exit, %19, %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit, %63, %61, %57, %55, %_ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit
-  %.0 = phi i1 [ %.0.i.i.i, %_ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit ], [ %56, %55 ], [ %58, %57 ], [ %62, %61 ], [ %64, %63 ], [ %.not.i55, %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit ], [ false, %19 ], [ false, %_ZN9Arguments13find_jvm_flagEPKcm.exit ], [ false, %39 ], [ false, %47 ], [ false, %65 ], [ false, %_ZN9Arguments13find_jvm_flagEPKcm.exit.thread ]
+74:                                               ; preds = %_ZN9Arguments13find_jvm_flagEPKcm.exit.thread, %64, %47, %40, %_ZN9Arguments13find_jvm_flagEPKcm.exit, %19, %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit, %62, %60, %56, %54, %_ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit
+  %.0 = phi i1 [ %.0.i.i.i, %_ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit ], [ %55, %54 ], [ %57, %56 ], [ %61, %60 ], [ %63, %62 ], [ %.not.i55, %_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit ], [ false, %19 ], [ false, %_ZN9Arguments13find_jvm_flagEPKcm.exit ], [ false, %40 ], [ false, %47 ], [ false, %64 ], [ false, %_ZN9Arguments13find_jvm_flagEPKcm.exit.thread ]
   ret i1 %.0
 }
 

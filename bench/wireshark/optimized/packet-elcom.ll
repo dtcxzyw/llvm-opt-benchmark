@@ -162,7 +162,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.111 = private unnamed_addr constant [17 x i8] c" Security info: \00", align 1
 @.str.112 = private unnamed_addr constant [6 x i8] c" %02x\00", align 1
 @.str.114 = private unnamed_addr constant [21 x i8] c" <<--- meaning WHAT?\00", align 1
-@switch.table.dissect_elcom = private unnamed_addr constant [4 x ptr] [ptr @.str.90, ptr @.str.91, ptr @.str.90, ptr @.str.91], align 8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_elcom() local_unnamed_addr #0 {
@@ -192,7 +191,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_elcom(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 3
-  br i1 %6, label %186, label %7
+  br i1 %6, label %189, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -217,38 +216,38 @@ define internal i32 @dissect_elcom(ptr noundef %0, ptr noundef readonly captures
   %24 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %25 = zext i8 %24 to i32
   %26 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 28)
-  switch i32 %26, label %47 [
+  switch i32 %26, label %50 [
     i32 0, label %27
     i32 1, label %27
     i32 2, label %43
     i32 3, label %43
-    i32 8, label %.sink.split
+    i32 8, label %.thread
   ]
 
 27:                                               ; preds = %7, %7
   %28 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 48)
   %29 = icmp slt i32 %28, 0
-  br i1 %29, label %186, label %30
+  br i1 %29, label %189, label %30
 
 30:                                               ; preds = %27
   %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %.not = icmp eq i8 %31, 17
-  br i1 %.not, label %32, label %186
+  br i1 %.not, label %32, label %189
 
 32:                                               ; preds = %30
   %33 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 21)
   %.not104 = icmp eq i8 %33, 2
-  br i1 %.not104, label %34, label %186
+  br i1 %.not104, label %34, label %189
 
 34:                                               ; preds = %32
   %35 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 24)
   %.not105 = icmp eq i8 %35, 17
-  br i1 %.not105, label %36, label %186
+  br i1 %.not105, label %36, label %189
 
 36:                                               ; preds = %34
   %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 42)
   %.not106 = icmp eq i8 %37, 2
-  br i1 %.not106, label %38, label %186
+  br i1 %.not106, label %38, label %189
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -256,258 +255,271 @@ define internal i32 @dissect_elcom(ptr noundef %0, ptr noundef readonly captures
   %41 = tail call ptr @tvb_get_string_enc(ptr noundef %40, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
   %42 = load ptr, ptr %8, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %41)
-  br label %switch.lookup
+  br label %46
 
 43:                                               ; preds = %7, %7
   %44 = load ptr, ptr %8, align 8
   tail call void @col_append_str(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.88)
-  br label %switch.lookup
+  br label %46
 
-switch.lookup:                                    ; preds = %38, %43
-  %45 = zext nneg i32 %26 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_elcom, i64 %45
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %.sink.split
+.thread:                                          ; preds = %7
+  %45 = load ptr, ptr %8, align 8
+  tail call void @col_append_str(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.89)
+  br label %50
 
-.sink.split:                                      ; preds = %switch.lookup, %7
-  %.str.89.sink = phi ptr [ @.str.89, %7 ], [ %switch.load, %switch.lookup ]
-  %46 = load ptr, ptr %8, align 8
-  tail call void @col_append_str(ptr noundef %46, i32 noundef 25, ptr noundef nonnull %.str.89.sink)
-  br label %47
+46:                                               ; preds = %43, %38
+  %47 = load ptr, ptr %8, align 8
+  switch i32 %26, label %default.unreachable [
+    i32 0, label %48
+    i32 2, label %48
+    i32 1, label %49
+    i32 3, label %49
+  ]
 
-47:                                               ; preds = %.sink.split, %7
+48:                                               ; preds = %46, %46
+  tail call void @col_append_str(ptr noundef %47, i32 noundef 25, ptr noundef nonnull @.str.90)
+  br label %50
+
+49:                                               ; preds = %46, %46
+  tail call void @col_append_str(ptr noundef %47, i32 noundef 25, ptr noundef nonnull @.str.91)
+  br label %50
+
+default.unreachable:                              ; preds = %46
+  unreachable
+
+50:                                               ; preds = %.thread, %7, %49, %48
   %.not107 = icmp eq ptr %2, null
-  br i1 %.not107, label %.sink.split119, label %48
+  br i1 %.not107, label %.sink.split, label %51
 
-48:                                               ; preds = %47
-  %49 = load i32, ptr @proto_elcom, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %51 = load i32, ptr @ett_elcom, align 4
-  %52 = tail call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51)
-  %53 = load i32, ptr @hf_elcom_request, align 4
-  %54 = load i32, ptr @hf_elcom_response, align 4
-  %55 = select i1 %15, i32 %53, i32 %54
-  %56 = tail call ptr @proto_tree_add_boolean(ptr noundef %52, i32 noundef %55, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef 1)
-  %.not.i = icmp eq ptr %56, null
-  br i1 %.not.i, label %proto_item_set_hidden.exit, label %57
+51:                                               ; preds = %50
+  %52 = load i32, ptr @proto_elcom, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %52, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %54 = load i32, ptr @ett_elcom, align 4
+  %55 = tail call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54)
+  %56 = load i32, ptr @hf_elcom_request, align 4
+  %57 = load i32, ptr @hf_elcom_response, align 4
+  %58 = select i1 %15, i32 %56, i32 %57
+  %59 = tail call ptr @proto_tree_add_boolean(ptr noundef %55, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef 1)
+  %.not.i = icmp eq ptr %59, null
+  br i1 %.not.i, label %proto_item_set_hidden.exit, label %60
 
-57:                                               ; preds = %48
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %59 = load ptr, ptr %58, align 8
-  %.not5.i = icmp eq ptr %59, null
-  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %60
+60:                                               ; preds = %51
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %62 = load ptr, ptr %61, align 8
+  %.not5.i = icmp eq ptr %62, null
+  br i1 %.not5.i, label %proto_item_set_hidden.exit, label %63
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 28
-  %62 = load i32, ptr %61, align 4
-  %63 = or i32 %62, 1
-  store i32 %63, ptr %61, align 4
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 28
+  %65 = load i32, ptr %64, align 4
+  %66 = or i32 %65, 1
+  store i32 %66, ptr %64, align 4
   br label %proto_item_set_hidden.exit
 
-proto_item_set_hidden.exit:                       ; preds = %48, %57, %60
-  %64 = load i32, ptr @hf_elcom_length, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %64, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
-  br i1 %20, label %67, label %66
+proto_item_set_hidden.exit:                       ; preds = %51, %60, %63
+  %67 = load i32, ptr @hf_elcom_length, align 4
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  br i1 %20, label %70, label %69
 
-66:                                               ; preds = %proto_item_set_hidden.exit
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.86)
-  br label %67
+69:                                               ; preds = %proto_item_set_hidden.exit
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %68, ptr noundef nonnull @.str.86)
+  br label %70
 
-67:                                               ; preds = %66, %proto_item_set_hidden.exit
-  %68 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
-  %69 = load i32, ptr @hf_elcom_type, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %69, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
-  %71 = zext i8 %68 to i32
-  %72 = tail call ptr @val_to_str(i32 noundef %71, ptr noundef nonnull @type_vals, ptr noundef nonnull @.str.93)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.92, ptr noundef %72)
-  %73 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3)
-  %74 = icmp slt i32 %73, 1
-  br i1 %74, label %186, label %75
+70:                                               ; preds = %69, %proto_item_set_hidden.exit
+  %71 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %72 = load i32, ptr @hf_elcom_type, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %72, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %74 = zext i8 %71 to i32
+  %75 = tail call ptr @val_to_str(i32 noundef %74, ptr noundef nonnull @type_vals, ptr noundef nonnull @.str.93)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %55, ptr noundef nonnull @.str.92, ptr noundef %75)
+  %76 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3)
+  %77 = icmp slt i32 %76, 1
+  br i1 %77, label %189, label %78
 
-75:                                               ; preds = %67
-  %76 = tail call i32 @llvm.fshl.i32(i32 %71, i32 %71, i32 28)
-  switch i32 %76, label %179 [
-    i32 0, label %77
-    i32 1, label %77
-    i32 2, label %107
-    i32 3, label %110
-    i32 8, label %113
+78:                                               ; preds = %70
+  %79 = tail call i32 @llvm.fshl.i32(i32 %74, i32 %74, i32 28)
+  switch i32 %79, label %182 [
+    i32 0, label %80
+    i32 1, label %80
+    i32 2, label %110
+    i32 3, label %113
+    i32 8, label %116
   ]
 
-77:                                               ; preds = %75, %75
-  %78 = load i32, ptr @hf_elcom_initiator, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %78, ptr noundef %0, i32 noundef 3, i32 noundef 21, i32 noundef 0)
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %81 = load ptr, ptr %80, align 8
-  %82 = load i32, ptr @ett_elcom_initiator, align 4
-  %83 = load i32, ptr @hf_elcom_initiator_endian, align 4
-  %84 = load i32, ptr @hf_elcom_initiator_ip, align 4
-  %85 = load i32, ptr @hf_elcom_initiator_port, align 4
-  %86 = load i32, ptr @hf_elcom_initiator_suff, align 4
-  %87 = tail call fastcc i32 @dissect_lower_address(ptr noundef %81, ptr noundef %79, i32 noundef %82, ptr noundef %0, i32 noundef 3, i32 noundef %83, i32 noundef %84, i32 noundef %85, i32 noundef %86)
-  %88 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %87)
-  %89 = icmp slt i32 %88, 1
-  br i1 %89, label %186, label %90
+80:                                               ; preds = %78, %78
+  %81 = load i32, ptr @hf_elcom_initiator, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %81, ptr noundef %0, i32 noundef 3, i32 noundef 21, i32 noundef 0)
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %84 = load ptr, ptr %83, align 8
+  %85 = load i32, ptr @ett_elcom_initiator, align 4
+  %86 = load i32, ptr @hf_elcom_initiator_endian, align 4
+  %87 = load i32, ptr @hf_elcom_initiator_ip, align 4
+  %88 = load i32, ptr @hf_elcom_initiator_port, align 4
+  %89 = load i32, ptr @hf_elcom_initiator_suff, align 4
+  %90 = tail call fastcc i32 @dissect_lower_address(ptr noundef %84, ptr noundef %82, i32 noundef %85, ptr noundef %0, i32 noundef 3, i32 noundef %86, i32 noundef %87, i32 noundef %88, i32 noundef %89)
+  %91 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %90)
+  %92 = icmp slt i32 %91, 1
+  br i1 %92, label %189, label %93
 
-90:                                               ; preds = %77
-  %91 = load i32, ptr @hf_elcom_responder, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %91, ptr noundef %0, i32 noundef %87, i32 noundef 21, i32 noundef 0)
-  %93 = load ptr, ptr %80, align 8
-  %94 = load i32, ptr @ett_elcom_responder, align 4
-  %95 = load i32, ptr @hf_elcom_responder_endian, align 4
-  %96 = load i32, ptr @hf_elcom_responder_ip, align 4
-  %97 = load i32, ptr @hf_elcom_responder_port, align 4
-  %98 = load i32, ptr @hf_elcom_responder_suff, align 4
-  %99 = tail call fastcc i32 @dissect_lower_address(ptr noundef %93, ptr noundef %92, i32 noundef %94, ptr noundef %0, i32 noundef %87, i32 noundef %95, i32 noundef %96, i32 noundef %97, i32 noundef %98)
-  %100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %99)
-  %101 = icmp slt i32 %100, 1
-  br i1 %101, label %186, label %102
+93:                                               ; preds = %80
+  %94 = load i32, ptr @hf_elcom_responder, align 4
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %94, ptr noundef %0, i32 noundef %90, i32 noundef 21, i32 noundef 0)
+  %96 = load ptr, ptr %83, align 8
+  %97 = load i32, ptr @ett_elcom_responder, align 4
+  %98 = load i32, ptr @hf_elcom_responder_endian, align 4
+  %99 = load i32, ptr @hf_elcom_responder_ip, align 4
+  %100 = load i32, ptr @hf_elcom_responder_port, align 4
+  %101 = load i32, ptr @hf_elcom_responder_suff, align 4
+  %102 = tail call fastcc i32 @dissect_lower_address(ptr noundef %96, ptr noundef %95, i32 noundef %97, ptr noundef %0, i32 noundef %90, i32 noundef %98, i32 noundef %99, i32 noundef %100, i32 noundef %101)
+  %103 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %102)
+  %104 = icmp slt i32 %103, 1
+  br i1 %104, label %189, label %105
 
-102:                                              ; preds = %90
-  %103 = load i32, ptr @hf_elcom_userdata, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %103, ptr noundef %0, i32 noundef %99, i32 noundef -1, i32 noundef 0)
-  %105 = load i32, ptr @ett_elcom_userdata, align 4
-  %106 = tail call fastcc i32 @dissect_userdata(ptr noundef %104, i32 noundef %105, ptr noundef %0, i32 noundef %99)
+105:                                              ; preds = %93
+  %106 = load i32, ptr @hf_elcom_userdata, align 4
+  %107 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %106, ptr noundef %0, i32 noundef %102, i32 noundef -1, i32 noundef 0)
+  %108 = load i32, ptr @ett_elcom_userdata, align 4
+  %109 = tail call fastcc i32 @dissect_userdata(ptr noundef %107, i32 noundef %108, ptr noundef %0, i32 noundef %102)
   br label %dissect_datarequest.exit
 
-107:                                              ; preds = %75
-  %108 = load i32, ptr @hf_elcom_release_reason, align 4
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %108, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+110:                                              ; preds = %78
+  %111 = load i32, ptr @hf_elcom_release_reason, align 4
+  %112 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %111, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   br label %dissect_datarequest.exit
 
-110:                                              ; preds = %75
-  %111 = load i32, ptr @hf_elcom_release_result, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %111, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+113:                                              ; preds = %78
+  %114 = load i32, ptr @hf_elcom_release_result, align 4
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %114, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   br label %dissect_datarequest.exit
 
-113:                                              ; preds = %75
-  %114 = load i32, ptr @hf_elcom_datarequest, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %114, ptr noundef %0, i32 noundef 3, i32 noundef -1, i32 noundef 0)
-  %116 = load i32, ptr @ett_elcom_datarequest, align 4
-  %117 = tail call ptr @proto_item_add_subtree(ptr noundef %115, i32 noundef %116)
-  %118 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3)
-  %119 = icmp slt i32 %118, 1
-  br i1 %119, label %dissect_datarequest.exit, label %120
+116:                                              ; preds = %78
+  %117 = load i32, ptr @hf_elcom_datarequest, align 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %117, ptr noundef %0, i32 noundef 3, i32 noundef -1, i32 noundef 0)
+  %119 = load i32, ptr @ett_elcom_datarequest, align 4
+  %120 = tail call ptr @proto_item_add_subtree(ptr noundef %118, i32 noundef %119)
+  %121 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3)
+  %122 = icmp slt i32 %121, 1
+  br i1 %122, label %dissect_datarequest.exit, label %123
 
-120:                                              ; preds = %113
-  %121 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %122 = load i32, ptr @hf_elcom_datarequest_grouptype, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %122, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
-  switch i8 %121, label %127 [
-    i8 64, label %128
-    i8 65, label %124
+123:                                              ; preds = %116
+  %124 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
+  %125 = load i32, ptr @hf_elcom_datarequest_grouptype, align 4
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %125, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  switch i8 %124, label %130 [
+    i8 64, label %131
+    i8 65, label %127
   ]
 
-124:                                              ; preds = %120
-  %125 = load i32, ptr @hf_elcom_datarequest_result, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %125, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
-  br label %128
+127:                                              ; preds = %123
+  %128 = load i32, ptr @hf_elcom_datarequest_result, align 4
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %128, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  br label %131
 
-127:                                              ; preds = %120
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %123, ptr noundef nonnull @.str.114)
+130:                                              ; preds = %123
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %126, ptr noundef nonnull @.str.114)
   br label %dissect_datarequest.exit
 
-128:                                              ; preds = %124, %120
-  %.077.i = phi i32 [ 4, %120 ], [ 5, %124 ]
-  %129 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.077.i)
-  %130 = icmp slt i32 %129, 1
-  br i1 %130, label %dissect_datarequest.exit, label %131
+131:                                              ; preds = %127, %123
+  %.077.i = phi i32 [ 4, %123 ], [ 5, %127 ]
+  %132 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.077.i)
+  %133 = icmp slt i32 %132, 1
+  br i1 %133, label %dissect_datarequest.exit, label %134
 
-131:                                              ; preds = %128
-  %132 = load i32, ptr @hf_elcom_datarequest_groupnumber, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %132, ptr noundef %0, i32 noundef %.077.i, i32 noundef 1, i32 noundef 0)
-  %134 = add nuw nsw i32 %.077.i, 1
-  %135 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %134)
-  %136 = icmp slt i32 %135, 1
-  br i1 %136, label %dissect_datarequest.exit, label %137
+134:                                              ; preds = %131
+  %135 = load i32, ptr @hf_elcom_datarequest_groupnumber, align 4
+  %136 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %135, ptr noundef %0, i32 noundef %.077.i, i32 noundef 1, i32 noundef 0)
+  %137 = add nuw nsw i32 %.077.i, 1
+  %138 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %137)
+  %139 = icmp slt i32 %138, 1
+  br i1 %139, label %dissect_datarequest.exit, label %140
 
-137:                                              ; preds = %131
-  %138 = load i32, ptr @hf_elcom_datarequest_grouppriority, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %138, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef 0)
-  %140 = or disjoint i32 %.077.i, 2
-  %141 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %140)
-  %142 = icmp slt i32 %141, 1
-  br i1 %142, label %dissect_datarequest.exit, label %143
+140:                                              ; preds = %134
+  %141 = load i32, ptr @hf_elcom_datarequest_grouppriority, align 4
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %141, ptr noundef %0, i32 noundef %137, i32 noundef 1, i32 noundef 0)
+  %143 = or disjoint i32 %.077.i, 2
+  %144 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %143)
+  %145 = icmp slt i32 %144, 1
+  br i1 %145, label %dissect_datarequest.exit, label %146
 
-143:                                              ; preds = %137
-  %144 = load i32, ptr @hf_elcom_datarequest_groupsize, align 4
-  %145 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %144, ptr noundef %0, i32 noundef %140, i32 noundef 1, i32 noundef 0)
-  %146 = add nuw nsw i32 %.077.i, 3
-  %147 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %146)
-  %148 = icmp slt i32 %147, 1
-  br i1 %148, label %dissect_datarequest.exit, label %149
+146:                                              ; preds = %140
+  %147 = load i32, ptr @hf_elcom_datarequest_groupsize, align 4
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %147, ptr noundef %0, i32 noundef %143, i32 noundef 1, i32 noundef 0)
+  %149 = add nuw nsw i32 %.077.i, 3
+  %150 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %149)
+  %151 = icmp slt i32 %150, 1
+  br i1 %151, label %dissect_datarequest.exit, label %152
 
-149:                                              ; preds = %143
-  %150 = load i32, ptr @hf_elcom_datarequest_groupindex1, align 4
-  %151 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %150, ptr noundef %0, i32 noundef %146, i32 noundef 2, i32 noundef 0)
-  %152 = add nuw nsw i32 %.077.i, 5
-  %153 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %152)
-  %154 = icmp slt i32 %153, 1
-  br i1 %154, label %dissect_datarequest.exit, label %155
+152:                                              ; preds = %146
+  %153 = load i32, ptr @hf_elcom_datarequest_groupindex1, align 4
+  %154 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %153, ptr noundef %0, i32 noundef %149, i32 noundef 2, i32 noundef 0)
+  %155 = add nuw nsw i32 %.077.i, 5
+  %156 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %155)
+  %157 = icmp slt i32 %156, 1
+  br i1 %157, label %dissect_datarequest.exit, label %158
 
-155:                                              ; preds = %149
-  %156 = load i32, ptr @hf_elcom_datarequest_groupindex2, align 4
-  %157 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %156, ptr noundef %0, i32 noundef %152, i32 noundef 2, i32 noundef 0)
-  %158 = add nuw nsw i32 %.077.i, 7
-  %159 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %158)
-  %160 = icmp slt i32 %159, 1
-  br i1 %160, label %dissect_datarequest.exit, label %.preheader.i
+158:                                              ; preds = %152
+  %159 = load i32, ptr @hf_elcom_datarequest_groupindex2, align 4
+  %160 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %159, ptr noundef %0, i32 noundef %155, i32 noundef 2, i32 noundef 0)
+  %161 = add nuw nsw i32 %.077.i, 7
+  %162 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %161)
+  %163 = icmp slt i32 %162, 1
+  br i1 %163, label %dissect_datarequest.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %155
-  %161 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %158)
-  %162 = icmp eq i8 %161, 0
-  br i1 %162, label %._crit_edge.i, label %.lr.ph.i
+.preheader.i:                                     ; preds = %158
+  %164 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %161)
+  %165 = icmp eq i8 %164, 0
+  br i1 %165, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %168
-  %.in.i = phi i8 [ %171, %168 ], [ %161, %.preheader.i ]
-  %.180.i = phi i32 [ %165, %168 ], [ %158, %.preheader.i ]
-  %163 = zext i8 %.in.i to i32
-  %164 = add i32 %.180.i, 1
-  %165 = add i32 %164, %163
-  %166 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %165)
-  %167 = icmp slt i32 %166, 1
-  br i1 %167, label %dissect_datarequest.exit, label %168
+.lr.ph.i:                                         ; preds = %.preheader.i, %171
+  %.in.i = phi i8 [ %174, %171 ], [ %164, %.preheader.i ]
+  %.180.i = phi i32 [ %168, %171 ], [ %161, %.preheader.i ]
+  %166 = zext i8 %.in.i to i32
+  %167 = add i32 %.180.i, 1
+  %168 = add i32 %167, %166
+  %169 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %168)
+  %170 = icmp slt i32 %169, 1
+  br i1 %170, label %dissect_datarequest.exit, label %171
 
-168:                                              ; preds = %.lr.ph.i
-  %169 = load i32, ptr @hf_elcom_datarequest_oid, align 4
-  %170 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %169, ptr noundef %0, i32 noundef %.180.i, i32 noundef 1, i32 noundef 0)
-  %171 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %165)
-  %172 = icmp eq i8 %171, 0
-  br i1 %172, label %._crit_edge.i, label %.lr.ph.i
+171:                                              ; preds = %.lr.ph.i
+  %172 = load i32, ptr @hf_elcom_datarequest_oid, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %172, ptr noundef %0, i32 noundef %.180.i, i32 noundef 1, i32 noundef 0)
+  %174 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %168)
+  %175 = icmp eq i8 %174, 0
+  br i1 %175, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %168, %.preheader.i
-  %.1.lcssa.i = phi i32 [ %158, %.preheader.i ], [ %165, %168 ]
-  %173 = add i32 %.1.lcssa.i, 1
-  %174 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %173)
-  %175 = icmp slt i32 %174, 1
-  br i1 %175, label %dissect_datarequest.exit, label %176
+._crit_edge.i:                                    ; preds = %171, %.preheader.i
+  %.1.lcssa.i = phi i32 [ %161, %.preheader.i ], [ %168, %171 ]
+  %176 = add i32 %.1.lcssa.i, 1
+  %177 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %176)
+  %178 = icmp slt i32 %177, 1
+  br i1 %178, label %dissect_datarequest.exit, label %179
 
-176:                                              ; preds = %._crit_edge.i
-  %177 = load i32, ptr @hf_elcom_strangeleftover, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %177, ptr noundef %0, i32 noundef %173, i32 noundef -1, i32 noundef 0)
+179:                                              ; preds = %._crit_edge.i
+  %180 = load i32, ptr @hf_elcom_strangeleftover, align 4
+  %181 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %180, ptr noundef %0, i32 noundef %176, i32 noundef -1, i32 noundef 0)
   br label %dissect_datarequest.exit
 
-179:                                              ; preds = %75
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.94)
+182:                                              ; preds = %78
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %73, ptr noundef nonnull @.str.94)
   br label %dissect_datarequest.exit
 
-dissect_datarequest.exit:                         ; preds = %.lr.ph.i, %176, %._crit_edge.i, %155, %149, %143, %137, %131, %128, %127, %113, %179, %110, %107, %102
-  %.0102 = phi i32 [ 3, %179 ], [ %106, %102 ], [ 4, %107 ], [ 4, %110 ], [ 4, %127 ], [ %173, %176 ], [ 3, %113 ], [ %.077.i, %128 ], [ %134, %131 ], [ %140, %137 ], [ %146, %143 ], [ %152, %149 ], [ %158, %155 ], [ %173, %._crit_edge.i ], [ %.180.i, %.lr.ph.i ]
-  %180 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0102)
-  %181 = icmp sgt i32 %180, 0
-  br i1 %181, label %182, label %.sink.split119
+dissect_datarequest.exit:                         ; preds = %.lr.ph.i, %179, %._crit_edge.i, %158, %152, %146, %140, %134, %131, %130, %116, %182, %113, %110, %105
+  %.0102 = phi i32 [ 3, %182 ], [ %109, %105 ], [ 4, %110 ], [ 4, %113 ], [ 4, %130 ], [ %176, %179 ], [ 3, %116 ], [ %.077.i, %131 ], [ %137, %134 ], [ %143, %140 ], [ %149, %146 ], [ %155, %152 ], [ %161, %158 ], [ %176, %._crit_edge.i ], [ %.180.i, %.lr.ph.i ]
+  %183 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0102)
+  %184 = icmp sgt i32 %183, 0
+  br i1 %184, label %185, label %.sink.split
 
-182:                                              ; preds = %dissect_datarequest.exit
-  %183 = load i32, ptr @hf_elcom_strangeleftover, align 4
-  %184 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %183, ptr noundef %0, i32 noundef %.0102, i32 noundef -1, i32 noundef 0)
-  br label %.sink.split119
+185:                                              ; preds = %dissect_datarequest.exit
+  %186 = load i32, ptr @hf_elcom_strangeleftover, align 4
+  %187 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %186, ptr noundef %0, i32 noundef %.0102, i32 noundef -1, i32 noundef 0)
+  br label %.sink.split
 
-.sink.split119:                                   ; preds = %dissect_datarequest.exit, %182, %47
-  %185 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %186
+.sink.split:                                      ; preds = %dissect_datarequest.exit, %185, %50
+  %188 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %189
 
-186:                                              ; preds = %.sink.split119, %90, %77, %67, %36, %34, %32, %30, %27, %4
-  %.0 = phi i32 [ 0, %4 ], [ 2, %27 ], [ 2, %30 ], [ 2, %32 ], [ 2, %34 ], [ 2, %36 ], [ 3, %67 ], [ %87, %77 ], [ %99, %90 ], [ %185, %.sink.split119 ]
+189:                                              ; preds = %.sink.split, %93, %80, %70, %36, %34, %32, %30, %27, %4
+  %.0 = phi i32 [ 0, %4 ], [ 2, %27 ], [ 2, %30 ], [ 2, %32 ], [ 2, %34 ], [ 2, %36 ], [ 3, %70 ], [ %90, %80 ], [ %102, %93 ], [ %188, %.sink.split ]
   ret i32 %.0
 }
 

@@ -1073,11 +1073,11 @@ define internal i32 @dissect_atn_ulcs_T_pdv_list_presentation_data_values_arbitr
   %11 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null)
   %12 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %86, label %13
+  br i1 %.not, label %83, label %13
 
 13:                                               ; preds = %5
   %14 = load i32, ptr @ulcs_context_value, align 4
-  switch i32 %14, label %86 [
+  switch i32 %14, label %83 [
     i32 1, label %15
     i32 3, label %24
   ]
@@ -1094,7 +1094,7 @@ define internal i32 @dissect_atn_ulcs_T_pdv_list_presentation_data_values_arbitr
   %22 = load i32, ptr @ett_atn_ulcs_ACSE_apdu, align 4
   %23 = call i32 @dissect_per_choice(ptr noundef %20, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %18, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @ACSE_apdu_choice, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %86
+  br label %83
 
 24:                                               ; preds = %13
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 382
@@ -1161,51 +1161,48 @@ find_atn_conversation.exit:                       ; preds = %.lr.ph.i12.i, %add_
   %56 = load ptr, ptr @atn_conversation_tree, align 8
   %57 = call ptr @wmem_tree_lookup32(ptr noundef %56, i32 noundef %55)
   %.not19 = icmp eq ptr %57, null
-  br i1 %.not19, label %79, label %58
+  %58 = load ptr, ptr %7, align 8
+  br i1 %.not19, label %77, label %59
 
-58:                                               ; preds = %find_atn_conversation.exit
-  %59 = load i32, ptr %57, align 4
-  switch i32 %59, label %72 [
-    i32 1, label %60
+59:                                               ; preds = %find_atn_conversation.exit
+  %60 = load i32, ptr %57, align 4
+  switch i32 %60, label %71 [
+    i32 1, label %61
     i32 2, label %66
     i32 22, label %66
   ]
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr @atn_cm_handle, align 8
-  %62 = load ptr, ptr %7, align 8
-  %63 = call ptr @tvb_new_subset_remaining(ptr noundef %62, i32 noundef 0)
+61:                                               ; preds = %59
+  %62 = load ptr, ptr @atn_cm_handle, align 8
+  %63 = call ptr @tvb_new_subset_remaining(ptr noundef %58, i32 noundef 0)
   %64 = load ptr, ptr @root_tree, align 8
-  %65 = call i32 @call_dissector_with_data(ptr noundef %61, ptr noundef %63, ptr noundef %10, ptr noundef %64, ptr noundef null)
-  br label %86
+  %65 = call i32 @call_dissector_with_data(ptr noundef %62, ptr noundef %63, ptr noundef %10, ptr noundef %64, ptr noundef null)
+  br label %83
 
-66:                                               ; preds = %58, %58
+66:                                               ; preds = %59, %59
   %67 = load ptr, ptr @atn_cpdlc_handle, align 8
-  %68 = load ptr, ptr %7, align 8
-  %69 = call ptr @tvb_new_subset_remaining(ptr noundef %68, i32 noundef 0)
-  %70 = load ptr, ptr @root_tree, align 8
-  %71 = call i32 @call_dissector_with_data(ptr noundef %67, ptr noundef %69, ptr noundef %10, ptr noundef %70, ptr noundef null)
-  br label %86
+  %68 = call ptr @tvb_new_subset_remaining(ptr noundef %58, i32 noundef 0)
+  %69 = load ptr, ptr @root_tree, align 8
+  %70 = call i32 @call_dissector_with_data(ptr noundef %67, ptr noundef %68, ptr noundef %10, ptr noundef %69, ptr noundef null)
+  br label %83
 
-72:                                               ; preds = %58
-  %73 = load ptr, ptr @atn_ulcs_heur_subdissector_list, align 8
-  %74 = load ptr, ptr %7, align 8
-  %75 = call ptr @tvb_new_subset_remaining(ptr noundef %74, i32 noundef 0)
-  %76 = load ptr, ptr %9, align 8
-  %77 = load ptr, ptr @root_tree, align 8
-  %78 = call zeroext i1 @dissector_try_heuristic(ptr noundef %73, ptr noundef %75, ptr noundef %76, ptr noundef %77, ptr noundef nonnull %8, ptr noundef null)
-  br label %86
+71:                                               ; preds = %59
+  %72 = load ptr, ptr @atn_ulcs_heur_subdissector_list, align 8
+  %73 = call ptr @tvb_new_subset_remaining(ptr noundef %58, i32 noundef 0)
+  %74 = load ptr, ptr %9, align 8
+  %75 = load ptr, ptr @root_tree, align 8
+  %76 = call zeroext i1 @dissector_try_heuristic(ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef nonnull %8, ptr noundef null)
+  br label %83
 
-79:                                               ; preds = %find_atn_conversation.exit
-  %80 = load ptr, ptr @atn_ulcs_heur_subdissector_list, align 8
-  %81 = load ptr, ptr %7, align 8
-  %82 = call ptr @tvb_new_subset_remaining(ptr noundef %81, i32 noundef 0)
-  %83 = load ptr, ptr %9, align 8
-  %84 = load ptr, ptr @root_tree, align 8
-  %85 = call zeroext i1 @dissector_try_heuristic(ptr noundef %80, ptr noundef %82, ptr noundef %83, ptr noundef %84, ptr noundef nonnull %8, ptr noundef null)
-  br label %86
+77:                                               ; preds = %find_atn_conversation.exit
+  %78 = load ptr, ptr @atn_ulcs_heur_subdissector_list, align 8
+  %79 = call ptr @tvb_new_subset_remaining(ptr noundef %58, i32 noundef 0)
+  %80 = load ptr, ptr %9, align 8
+  %81 = load ptr, ptr @root_tree, align 8
+  %82 = call zeroext i1 @dissector_try_heuristic(ptr noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef nonnull %8, ptr noundef null)
+  br label %83
 
-86:                                               ; preds = %15, %60, %66, %72, %79, %13, %5
+83:                                               ; preds = %15, %61, %66, %71, %77, %13, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %11
@@ -2432,7 +2429,7 @@ define internal i32 @dissect_atn_ulcs_T_externalt_encoding_arbitrary(ptr noundef
   %10 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null)
   %11 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %148, label %12
+  br i1 %.not, label %145, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 382
@@ -2661,56 +2658,53 @@ find_atn_conversation.exit72:                     ; preds = %.lr.ph.i12.i60, %ad
 .thread:                                          ; preds = %50, %find_atn_conversation.exit72, %87, %.loopexit
   %.2 = phi ptr [ %119, %find_atn_conversation.exit72 ], [ %86, %87 ], [ %86, %.loopexit ], [ %.0, %50 ]
   %.not36 = icmp eq ptr %.2, null
-  br i1 %.not36, label %141, label %120
+  %120 = load ptr, ptr %6, align 8
+  br i1 %.not36, label %139, label %121
 
-120:                                              ; preds = %.thread
-  %121 = load i32, ptr %.2, align 4
-  switch i32 %121, label %134 [
-    i32 1, label %122
+121:                                              ; preds = %.thread
+  %122 = load i32, ptr %.2, align 4
+  switch i32 %122, label %133 [
+    i32 1, label %123
     i32 2, label %128
     i32 22, label %128
   ]
 
-122:                                              ; preds = %120
-  %123 = load ptr, ptr @atn_cm_handle, align 8
-  %124 = load ptr, ptr %6, align 8
-  %125 = call ptr @tvb_new_subset_remaining(ptr noundef %124, i32 noundef 0)
+123:                                              ; preds = %121
+  %124 = load ptr, ptr @atn_cm_handle, align 8
+  %125 = call ptr @tvb_new_subset_remaining(ptr noundef %120, i32 noundef 0)
   %126 = load ptr, ptr @root_tree, align 8
-  %127 = call i32 @call_dissector_with_data(ptr noundef %123, ptr noundef %125, ptr noundef %9, ptr noundef %126, ptr noundef null)
-  br label %148
+  %127 = call i32 @call_dissector_with_data(ptr noundef %124, ptr noundef %125, ptr noundef %9, ptr noundef %126, ptr noundef null)
+  br label %145
 
-128:                                              ; preds = %120, %120
+128:                                              ; preds = %121, %121
   %129 = load ptr, ptr @atn_cpdlc_handle, align 8
-  %130 = load ptr, ptr %6, align 8
-  %131 = call ptr @tvb_new_subset_remaining(ptr noundef %130, i32 noundef 0)
-  %132 = load ptr, ptr @root_tree, align 8
-  %133 = call i32 @call_dissector_with_data(ptr noundef %129, ptr noundef %131, ptr noundef %9, ptr noundef %132, ptr noundef null)
-  br label %148
+  %130 = call ptr @tvb_new_subset_remaining(ptr noundef %120, i32 noundef 0)
+  %131 = load ptr, ptr @root_tree, align 8
+  %132 = call i32 @call_dissector_with_data(ptr noundef %129, ptr noundef %130, ptr noundef %9, ptr noundef %131, ptr noundef null)
+  br label %145
 
-134:                                              ; preds = %120
-  %135 = load ptr, ptr @atn_ulcs_heur_subdissector_list, align 8
-  %136 = load ptr, ptr %6, align 8
-  %137 = call ptr @tvb_new_subset_remaining(ptr noundef %136, i32 noundef 0)
-  %138 = load ptr, ptr %8, align 8
-  %139 = load ptr, ptr @root_tree, align 8
-  %140 = call zeroext i1 @dissector_try_heuristic(ptr noundef %135, ptr noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef nonnull %7, ptr noundef null)
-  br label %148
+133:                                              ; preds = %121
+  %134 = load ptr, ptr @atn_ulcs_heur_subdissector_list, align 8
+  %135 = call ptr @tvb_new_subset_remaining(ptr noundef %120, i32 noundef 0)
+  %136 = load ptr, ptr %8, align 8
+  %137 = load ptr, ptr @root_tree, align 8
+  %138 = call zeroext i1 @dissector_try_heuristic(ptr noundef %134, ptr noundef %135, ptr noundef %136, ptr noundef %137, ptr noundef nonnull %7, ptr noundef null)
+  br label %145
 
-141:                                              ; preds = %.thread
-  %142 = load ptr, ptr @atn_ulcs_heur_subdissector_list, align 8
-  %143 = load ptr, ptr %6, align 8
-  %144 = call ptr @tvb_new_subset_remaining(ptr noundef %143, i32 noundef 0)
-  %145 = load ptr, ptr %8, align 8
-  %146 = load ptr, ptr @root_tree, align 8
-  %147 = call zeroext i1 @dissector_try_heuristic(ptr noundef %142, ptr noundef %144, ptr noundef %145, ptr noundef %146, ptr noundef nonnull %7, ptr noundef null)
-  br label %148
+139:                                              ; preds = %.thread
+  %140 = load ptr, ptr @atn_ulcs_heur_subdissector_list, align 8
+  %141 = call ptr @tvb_new_subset_remaining(ptr noundef %120, i32 noundef 0)
+  %142 = load ptr, ptr %8, align 8
+  %143 = load ptr, ptr @root_tree, align 8
+  %144 = call zeroext i1 @dissector_try_heuristic(ptr noundef %140, ptr noundef %141, ptr noundef %142, ptr noundef %143, ptr noundef nonnull %7, ptr noundef null)
+  br label %145
 
-148:                                              ; preds = %141, %134, %128, %122, %5
-  %149 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %10)
-  %150 = add i32 %149, %10
+145:                                              ; preds = %139, %133, %128, %123, %5
+  %146 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %10)
+  %147 = add i32 %146, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %150
+  ret i32 %147
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

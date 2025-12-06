@@ -235,7 +235,7 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %3, null
-  br i1 %7, label %261, label %8
+  br i1 %7, label %247, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -284,42 +284,42 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   %39 = icmp ne i16 %24, 640
   %40 = icmp ne i16 %24, 384
   %or.cond = and i1 %39, %40
-  switch i16 %24, label %41 [
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %46 = load i32, ptr %45, align 8
+  %47 = call i32 @conversation_pt_to_conversation_type(i32 noundef %46)
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %49 = load i16, ptr %48, align 8
+  %50 = zext i16 %49 to i32
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 58
+  %52 = load i16, ptr %51, align 2
+  %53 = zext i16 %52 to i32
+  %54 = call ptr @find_conversation(i32 noundef %42, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef %47, i32 noundef %50, i32 noundef %53, i32 noundef 131072)
+  %.not155 = icmp eq ptr %54, null
+  switch i16 %24, label %55 [
     i16 640, label %82
     i16 384, label %82
   ]
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %47 = load i32, ptr %46, align 8
-  %48 = call i32 @conversation_pt_to_conversation_type(i32 noundef %47)
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %50 = load i16, ptr %49, align 8
-  %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 58
-  %53 = load i16, ptr %52, align 2
-  %54 = zext i16 %53 to i32
-  %55 = call ptr @find_conversation(i32 noundef %43, ptr noundef nonnull %44, ptr noundef nonnull %45, i32 noundef %48, i32 noundef %51, i32 noundef %54, i32 noundef 131072)
-  %.not155 = icmp eq ptr %55, null
+55:                                               ; preds = %38
   br i1 %.not155, label %56, label %65
 
-56:                                               ; preds = %41
-  %57 = load i32, ptr %42, align 4
-  %58 = load i32, ptr %46, align 8
+56:                                               ; preds = %55
+  %57 = load i32, ptr %41, align 4
+  %58 = load i32, ptr %45, align 8
   %59 = call i32 @conversation_pt_to_conversation_type(i32 noundef %58)
-  %60 = load i16, ptr %49, align 8
+  %60 = load i16, ptr %48, align 8
   %61 = zext i16 %60 to i32
-  %62 = load i16, ptr %52, align 2
+  %62 = load i16, ptr %51, align 2
   %63 = zext i16 %62 to i32
-  %64 = call ptr @conversation_new(i32 noundef %57, ptr noundef nonnull %44, ptr noundef nonnull %45, i32 noundef %59, i32 noundef %61, i32 noundef %63, i32 noundef 2)
+  %64 = call ptr @conversation_new(i32 noundef %57, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef %59, i32 noundef %61, i32 noundef %63, i32 noundef 2)
   br label %65
 
-65:                                               ; preds = %56, %41
-  %.0142 = phi ptr [ %55, %41 ], [ %64, %56 ]
+65:                                               ; preds = %56, %55
+  %.0142 = phi ptr [ %54, %55 ], [ %64, %56 ]
   %66 = getelementptr inbounds nuw i8, ptr %.0142, i64 24
   %67 = load i32, ptr %66, align 8
   store i32 %67, ptr %6, align 4
@@ -348,391 +348,376 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   %80 = load ptr, ptr %9, align 8
   %81 = call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull @fc_fzs_opcode_val, ptr noundef nonnull @.str.105)
   call void @col_add_str(ptr noundef %80, i32 noundef 25, ptr noundef %81)
-  br label %118
+  br label %104
 
 82:                                               ; preds = %38, %38
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %88 = load i32, ptr %87, align 8
-  %89 = call i32 @conversation_pt_to_conversation_type(i32 noundef %88)
-  %90 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %91 = load i16, ptr %90, align 8
-  %92 = zext i16 %91 to i32
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 58
-  %94 = load i16, ptr %93, align 2
-  %95 = zext i16 %94 to i32
-  %96 = call ptr @find_conversation(i32 noundef %84, ptr noundef nonnull %85, ptr noundef nonnull %86, i32 noundef %89, i32 noundef %92, i32 noundef %95, i32 noundef 131072)
-  %.not153 = icmp eq ptr %96, null
-  br i1 %.not153, label %97, label %103
+  br i1 %.not155, label %83, label %89
 
-97:                                               ; preds = %82
-  %98 = icmp eq i16 %24, 640
-  br i1 %98, label %99, label %118
+83:                                               ; preds = %82
+  %84 = icmp eq i16 %24, 640
+  br i1 %84, label %85, label %104
 
-99:                                               ; preds = %97
-  %100 = load ptr, ptr %9, align 8
-  %101 = call ptr @val_to_str(i32 noundef 32770, ptr noundef nonnull @fc_fzs_opcode_val, ptr noundef nonnull @.str.105)
-  call void @col_add_str(ptr noundef %100, i32 noundef 25, ptr noundef %101)
-  %102 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0141, ptr noundef %1, ptr noundef nonnull @ei_fcfzs_no_exchange, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.106)
-  br label %261
+85:                                               ; preds = %83
+  %86 = load ptr, ptr %9, align 8
+  %87 = call ptr @val_to_str(i32 noundef 32770, ptr noundef nonnull @fc_fzs_opcode_val, ptr noundef nonnull @.str.105)
+  call void @col_add_str(ptr noundef %86, i32 noundef 25, ptr noundef %87)
+  %88 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0141, ptr noundef %1, ptr noundef nonnull @ei_fcfzs_no_exchange, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.106)
+  br label %247
 
-103:                                              ; preds = %82
-  %104 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %105 = load i32, ptr %104, align 8
-  store i32 %105, ptr %6, align 4
-  %106 = load ptr, ptr @fcfzs_req_hash, align 8
-  %107 = call ptr @wmem_map_lookup(ptr noundef %106, ptr noundef nonnull %6)
-  %.not154 = icmp eq ptr %107, null
-  br i1 %.not154, label %111, label %108
+89:                                               ; preds = %82
+  %90 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %91 = load i32, ptr %90, align 8
+  store i32 %91, ptr %6, align 4
+  %92 = load ptr, ptr @fcfzs_req_hash, align 8
+  %93 = call ptr @wmem_map_lookup(ptr noundef %92, ptr noundef nonnull %6)
+  %.not154 = icmp eq ptr %93, null
+  br i1 %.not154, label %97, label %94
 
-108:                                              ; preds = %103
-  %109 = icmp eq i16 %24, 640
-  %110 = load i32, ptr %107, align 4
-  %. = select i1 %109, i32 %110, i32 %25
-  %.157 = select i1 %109, i32 0, i32 %110
-  br label %111
+94:                                               ; preds = %89
+  %95 = icmp eq i16 %24, 640
+  %96 = load i32, ptr %93, align 4
+  %. = select i1 %95, i32 %96, i32 %25
+  %.157 = select i1 %95, i32 0, i32 %96
+  br label %97
 
-111:                                              ; preds = %108, %103
-  %.1 = phi i32 [ %25, %103 ], [ %., %108 ]
-  %.0143 = phi i32 [ 0, %103 ], [ %.157, %108 ]
+97:                                               ; preds = %94, %89
+  %.1 = phi i32 [ %25, %89 ], [ %., %94 ]
+  %.0143 = phi i32 [ 0, %89 ], [ %.157, %94 ]
   %.not170 = icmp eq i32 %.1, 32769
-  %112 = load ptr, ptr %9, align 8
-  br i1 %.not170, label %.thread167, label %114
+  %98 = load ptr, ptr %9, align 8
+  br i1 %.not170, label %.thread167, label %100
 
-.thread167:                                       ; preds = %111
-  %113 = call ptr @val_to_str(i32 noundef %.0143, ptr noundef nonnull @fc_fzs_opcode_val, ptr noundef nonnull @.str.105)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %112, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef %113)
-  br label %119
+.thread167:                                       ; preds = %97
+  %99 = call ptr @val_to_str(i32 noundef %.0143, ptr noundef nonnull @fc_fzs_opcode_val, ptr noundef nonnull @.str.105)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef %99)
+  br label %105
 
-114:                                              ; preds = %111
-  %115 = call ptr @val_to_str(i32 noundef %.1, ptr noundef nonnull @fc_fzs_opcode_val, ptr noundef nonnull @.str.105)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %112, i32 noundef 25, ptr noundef nonnull @.str.107, ptr noundef %115)
-  br i1 %.not154, label %116, label %118
+100:                                              ; preds = %97
+  %101 = call ptr @val_to_str(i32 noundef %.1, ptr noundef nonnull @fc_fzs_opcode_val, ptr noundef nonnull @.str.105)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.107, ptr noundef %101)
+  br i1 %.not154, label %102, label %104
 
-116:                                              ; preds = %114
-  %117 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0141, ptr noundef %1, ptr noundef nonnull @ei_fcfzs_no_exchange, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.109)
-  br label %261
+102:                                              ; preds = %100
+  %103 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0141, ptr noundef %1, ptr noundef nonnull @ei_fcfzs_no_exchange, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.109)
+  br label %247
 
-118:                                              ; preds = %97, %114, %79
-  %.0144 = phi i32 [ %25, %79 ], [ %.1, %114 ], [ %25, %97 ]
-  switch i32 %.0144, label %258 [
-    i32 32769, label %119
-    i32 256, label %127
-    i32 273, label %134
-    i32 274, label %141
-    i32 275, label %162
-    i32 276, label %190
-    i32 277, label %223
-    i32 278, label %225
-    i32 512, label %234
-    i32 513, label %236
-    i32 514, label %238
+104:                                              ; preds = %83, %100, %79
+  %.0144 = phi i32 [ %25, %79 ], [ %.1, %100 ], [ %25, %83 ]
+  switch i32 %.0144, label %244 [
+    i32 32769, label %105
+    i32 256, label %113
+    i32 273, label %120
+    i32 274, label %127
+    i32 275, label %148
+    i32 276, label %176
+    i32 277, label %209
+    i32 278, label %211
+    i32 512, label %220
+    i32 513, label %222
+    i32 514, label %224
     i32 515, label %dissect_fcfzs_rjt.exit
-    i32 516, label %246
-    i32 517, label %247
-    i32 768, label %248
-    i32 769, label %249
-    i32 770, label %250
+    i32 516, label %232
+    i32 517, label %233
+    i32 768, label %234
+    i32 769, label %235
+    i32 770, label %236
   ]
 
-119:                                              ; preds = %.thread167, %118
+105:                                              ; preds = %.thread167, %104
   %.not.i = icmp eq ptr %.0141, null
-  br i1 %.not.i, label %dissect_fcfzs_rjt.exit, label %120
+  br i1 %.not.i, label %dissect_fcfzs_rjt.exit, label %106
 
-120:                                              ; preds = %119
-  %121 = load i32, ptr @hf_fcfzs_reason, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %121, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
-  %123 = load i32, ptr @hf_fcfzs_rjtdetail, align 4
-  %124 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %123, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  %125 = load i32, ptr @hf_fcfzs_rjtvendor, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %125, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+106:                                              ; preds = %105
+  %107 = load i32, ptr @hf_fcfzs_reason, align 4
+  %108 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %107, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
+  %109 = load i32, ptr @hf_fcfzs_rjtdetail, align 4
+  %110 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %109, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %111 = load i32, ptr @hf_fcfzs_rjtvendor, align 4
+  %112 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %111, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
   br label %dissect_fcfzs_rjt.exit
 
-127:                                              ; preds = %118
+113:                                              ; preds = %104
   switch i16 %24, label %dissect_fcfzs_rjt.exit [
-    i16 640, label %128
-    i16 384, label %128
+    i16 640, label %114
+    i16 384, label %114
   ]
 
-128:                                              ; preds = %127, %127
-  %129 = load i32, ptr @hf_fcfzs_gzc_flags, align 4
-  %130 = load i32, ptr @ett_fcfzs_gzc_flags, align 4
-  %131 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.0141, ptr noundef %0, i32 noundef 16, i32 noundef %129, i32 noundef %130, ptr noundef nonnull @dissect_fcfzs_gzc.flags, i32 noundef 0, i32 noundef 12)
-  %132 = load i32, ptr @hf_fcfzs_gzc_vendor, align 4
-  %133 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %132, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
+114:                                              ; preds = %113, %113
+  %115 = load i32, ptr @hf_fcfzs_gzc_flags, align 4
+  %116 = load i32, ptr @ett_fcfzs_gzc_flags, align 4
+  %117 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.0141, ptr noundef %0, i32 noundef 16, i32 noundef %115, i32 noundef %116, ptr noundef nonnull @dissect_fcfzs_gzc.flags, i32 noundef 0, i32 noundef 12)
+  %118 = load i32, ptr @hf_fcfzs_gzc_vendor, align 4
+  %119 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %118, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
   br label %dissect_fcfzs_rjt.exit
 
-134:                                              ; preds = %118
+120:                                              ; preds = %104
   switch i16 %24, label %dissect_fcfzs_rjt.exit [
-    i16 640, label %135
-    i16 384, label %135
+    i16 640, label %121
+    i16 384, label %121
   ]
 
-135:                                              ; preds = %134, %134
-  %136 = load i32, ptr @hf_fcfzs_zone_state, align 4
-  %137 = load i32, ptr @ett_fcfzs_zone_state, align 4
-  %138 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.0141, ptr noundef %0, i32 noundef 16, i32 noundef %136, i32 noundef %137, ptr noundef nonnull @dissect_fcfzs_gest.flags, i32 noundef 0, i32 noundef 12)
-  %139 = load i32, ptr @hf_fcfzs_gest_vendor, align 4
-  %140 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %139, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
+121:                                              ; preds = %120, %120
+  %122 = load i32, ptr @hf_fcfzs_zone_state, align 4
+  %123 = load i32, ptr @ett_fcfzs_zone_state, align 4
+  %124 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %.0141, ptr noundef %0, i32 noundef 16, i32 noundef %122, i32 noundef %123, ptr noundef nonnull @dissect_fcfzs_gest.flags, i32 noundef 0, i32 noundef 12)
+  %125 = load i32, ptr @hf_fcfzs_gest_vendor, align 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %125, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
   br label %dissect_fcfzs_rjt.exit
 
-141:                                              ; preds = %118
-  %142 = icmp eq ptr %.0141, null
-  %or.cond.i = or i1 %or.cond, %142
-  br i1 %or.cond.i, label %dissect_fcfzs_rjt.exit, label %143
+127:                                              ; preds = %104
+  %128 = icmp eq ptr %.0141, null
+  %or.cond.i = or i1 %or.cond, %128
+  br i1 %or.cond.i, label %dissect_fcfzs_rjt.exit, label %129
 
-143:                                              ; preds = %141
-  %144 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
-  %145 = load i32, ptr @hf_fcfzs_numzonesetattrs, align 4
-  %146 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %145, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
-  %147 = icmp sgt i32 %144, 0
-  br i1 %147, label %.lr.ph.i, label %dissect_fcfzs_rjt.exit
+129:                                              ; preds = %127
+  %130 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
+  %131 = load i32, ptr @hf_fcfzs_numzonesetattrs, align 4
+  %132 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %131, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  %133 = icmp sgt i32 %130, 0
+  br i1 %133, label %.lr.ph.i, label %dissect_fcfzs_rjt.exit
 
-.lr.ph.i:                                         ; preds = %143, %.lr.ph.i
-  %.030.i = phi i32 [ %160, %.lr.ph.i ], [ 20, %143 ]
-  %.02729.i = phi i32 [ %161, %.lr.ph.i ], [ 0, %143 ]
-  %148 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.030.i)
-  %149 = zext i8 %148 to i32
-  %150 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %150, ptr noundef %0, i32 noundef %.030.i, i32 noundef 1, i32 noundef 0)
-  %152 = load i32, ptr @hf_fcfzs_zonesetname, align 4
-  %153 = add i32 %.030.i, 1
-  %154 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %152, ptr noundef %0, i32 noundef %153, i32 noundef %149, i32 noundef 0)
-  %155 = and i32 %149, 3
-  %156 = add i32 %153, %149
-  %157 = add i32 %156, %155
-  %158 = load i32, ptr @hf_fcfzs_numzones, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %158, ptr noundef %0, i32 noundef %157, i32 noundef 4, i32 noundef 0)
-  %160 = add i32 %157, 4
-  %161 = add nuw nsw i32 %.02729.i, 1
-  %exitcond.not.i = icmp eq i32 %161, %144
+.lr.ph.i:                                         ; preds = %129, %.lr.ph.i
+  %.030.i = phi i32 [ %146, %.lr.ph.i ], [ 20, %129 ]
+  %.02729.i = phi i32 [ %147, %.lr.ph.i ], [ 0, %129 ]
+  %134 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.030.i)
+  %135 = zext i8 %134 to i32
+  %136 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %136, ptr noundef %0, i32 noundef %.030.i, i32 noundef 1, i32 noundef 0)
+  %138 = load i32, ptr @hf_fcfzs_zonesetname, align 4
+  %139 = add i32 %.030.i, 1
+  %140 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %138, ptr noundef %0, i32 noundef %139, i32 noundef %135, i32 noundef 0)
+  %141 = and i32 %135, 3
+  %142 = add i32 %139, %135
+  %143 = add i32 %142, %141
+  %144 = load i32, ptr @hf_fcfzs_numzones, align 4
+  %145 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %144, ptr noundef %0, i32 noundef %143, i32 noundef 4, i32 noundef 0)
+  %146 = add i32 %143, 4
+  %147 = add nuw nsw i32 %.02729.i, 1
+  %exitcond.not.i = icmp eq i32 %147, %130
   br i1 %exitcond.not.i, label %dissect_fcfzs_rjt.exit, label %.lr.ph.i, !llvm.loop !6
 
-162:                                              ; preds = %118
+148:                                              ; preds = %104
   %.not.i158 = icmp eq ptr %.0141, null
-  br i1 %.not.i158, label %dissect_fcfzs_rjt.exit, label %163
+  br i1 %.not.i158, label %dissect_fcfzs_rjt.exit, label %149
 
-163:                                              ; preds = %162
-  switch i16 %24, label %164 [
-    i16 640, label %171
-    i16 384, label %171
+149:                                              ; preds = %148
+  switch i16 %24, label %150 [
+    i16 640, label %157
+    i16 384, label %157
   ]
 
-164:                                              ; preds = %163
-  %165 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
-  %166 = zext i8 %165 to i32
-  %167 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
-  %168 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %167, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %169 = load i32, ptr @hf_fcfzs_zonesetname, align 4
-  %170 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %169, ptr noundef %0, i32 noundef 17, i32 noundef %166, i32 noundef 0)
+150:                                              ; preds = %149
+  %151 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
+  %152 = zext i8 %151 to i32
+  %153 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
+  %154 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %153, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %155 = load i32, ptr @hf_fcfzs_zonesetname, align 4
+  %156 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %155, ptr noundef %0, i32 noundef 17, i32 noundef %152, i32 noundef 0)
   br label %dissect_fcfzs_rjt.exit
 
-171:                                              ; preds = %163, %163
-  %172 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
-  %173 = load i32, ptr @hf_fcfzs_numzoneattrs, align 4
-  %174 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %173, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
-  %175 = icmp sgt i32 %172, 0
-  br i1 %175, label %.lr.ph.i159, label %dissect_fcfzs_rjt.exit
+157:                                              ; preds = %149, %149
+  %158 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
+  %159 = load i32, ptr @hf_fcfzs_numzoneattrs, align 4
+  %160 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %159, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  %161 = icmp sgt i32 %158, 0
+  br i1 %161, label %.lr.ph.i159, label %dissect_fcfzs_rjt.exit
 
-.lr.ph.i159:                                      ; preds = %171, %.lr.ph.i159
-  %.038.i = phi i32 [ %188, %.lr.ph.i159 ], [ 20, %171 ]
-  %.03537.i = phi i32 [ %189, %.lr.ph.i159 ], [ 0, %171 ]
-  %176 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.038.i)
-  %177 = zext i8 %176 to i32
-  %178 = load i32, ptr @hf_fcfzs_zonenmlen, align 4
-  %179 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %178, ptr noundef %0, i32 noundef %.038.i, i32 noundef 1, i32 noundef 0)
-  %180 = load i32, ptr @hf_fcfzs_zonename, align 4
-  %181 = add i32 %.038.i, 1
-  %182 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %180, ptr noundef %0, i32 noundef %181, i32 noundef %177, i32 noundef 0)
-  %183 = and i32 %177, 3
-  %184 = add i32 %181, %177
-  %185 = add i32 %184, %183
-  %186 = load i32, ptr @hf_fcfzs_nummbrs, align 4
-  %187 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %186, ptr noundef %0, i32 noundef %185, i32 noundef 4, i32 noundef 0)
-  %188 = add i32 %185, 4
-  %189 = add nuw nsw i32 %.03537.i, 1
-  %exitcond.not.i160 = icmp eq i32 %189, %172
+.lr.ph.i159:                                      ; preds = %157, %.lr.ph.i159
+  %.038.i = phi i32 [ %174, %.lr.ph.i159 ], [ 20, %157 ]
+  %.03537.i = phi i32 [ %175, %.lr.ph.i159 ], [ 0, %157 ]
+  %162 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.038.i)
+  %163 = zext i8 %162 to i32
+  %164 = load i32, ptr @hf_fcfzs_zonenmlen, align 4
+  %165 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %164, ptr noundef %0, i32 noundef %.038.i, i32 noundef 1, i32 noundef 0)
+  %166 = load i32, ptr @hf_fcfzs_zonename, align 4
+  %167 = add i32 %.038.i, 1
+  %168 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %166, ptr noundef %0, i32 noundef %167, i32 noundef %163, i32 noundef 0)
+  %169 = and i32 %163, 3
+  %170 = add i32 %167, %163
+  %171 = add i32 %170, %169
+  %172 = load i32, ptr @hf_fcfzs_nummbrs, align 4
+  %173 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %172, ptr noundef %0, i32 noundef %171, i32 noundef 4, i32 noundef 0)
+  %174 = add i32 %171, 4
+  %175 = add nuw nsw i32 %.03537.i, 1
+  %exitcond.not.i160 = icmp eq i32 %175, %158
   br i1 %exitcond.not.i160, label %dissect_fcfzs_rjt.exit, label %.lr.ph.i159, !llvm.loop !8
 
-190:                                              ; preds = %118
-  switch i16 %24, label %191 [
-    i16 640, label %198
-    i16 384, label %198
+176:                                              ; preds = %104
+  switch i16 %24, label %177 [
+    i16 640, label %184
+    i16 384, label %184
   ]
 
-191:                                              ; preds = %190
-  %192 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
-  %193 = zext i8 %192 to i32
-  %194 = load i32, ptr @hf_fcfzs_zonenmlen, align 4
-  %195 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %194, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %196 = load i32, ptr @hf_fcfzs_zonename, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %196, ptr noundef %0, i32 noundef 17, i32 noundef %193, i32 noundef 0)
+177:                                              ; preds = %176
+  %178 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
+  %179 = zext i8 %178 to i32
+  %180 = load i32, ptr @hf_fcfzs_zonenmlen, align 4
+  %181 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %180, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %182 = load i32, ptr @hf_fcfzs_zonename, align 4
+  %183 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %182, ptr noundef %0, i32 noundef 17, i32 noundef %179, i32 noundef 0)
   br label %dissect_fcfzs_rjt.exit
 
-198:                                              ; preds = %190, %190
-  %199 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
-  %200 = load i32, ptr @hf_fcfzs_nummbrentries, align 4
-  %201 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %200, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
-  %202 = icmp sgt i32 %199, 0
-  br i1 %202, label %.lr.ph.i161, label %dissect_fcfzs_rjt.exit
+184:                                              ; preds = %176, %176
+  %185 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
+  %186 = load i32, ptr @hf_fcfzs_nummbrentries, align 4
+  %187 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %186, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  %188 = icmp sgt i32 %185, 0
+  br i1 %188, label %.lr.ph.i161, label %dissect_fcfzs_rjt.exit
 
-.lr.ph.i161:                                      ; preds = %198, %220
-  %.037.i = phi i32 [ %222, %220 ], [ 0, %198 ]
-  %.03536.i = phi i32 [ %221, %220 ], [ 20, %198 ]
-  %203 = load i32, ptr @hf_fcfzs_mbrtype, align 4
-  %204 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %203, ptr noundef %0, i32 noundef %.03536.i, i32 noundef 1, i32 noundef 0)
-  %205 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03536.i)
-  switch i8 %205, label %218 [
-    i8 1, label %206
-    i8 4, label %206
-    i8 2, label %210
-    i8 3, label %214
+.lr.ph.i161:                                      ; preds = %184, %206
+  %.037.i = phi i32 [ %208, %206 ], [ 0, %184 ]
+  %.03536.i = phi i32 [ %207, %206 ], [ 20, %184 ]
+  %189 = load i32, ptr @hf_fcfzs_mbrtype, align 4
+  %190 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %189, ptr noundef %0, i32 noundef %.03536.i, i32 noundef 1, i32 noundef 0)
+  %191 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03536.i)
+  switch i8 %191, label %204 [
+    i8 1, label %192
+    i8 4, label %192
+    i8 2, label %196
+    i8 3, label %200
   ]
 
-206:                                              ; preds = %.lr.ph.i161, %.lr.ph.i161
-  %207 = load i32, ptr @hf_fcfzs_mbrid_fcwwn, align 4
-  %208 = add i32 %.03536.i, 4
-  %209 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %207, ptr noundef %0, i32 noundef %208, i32 noundef 8, i32 noundef 0)
-  br label %220
+192:                                              ; preds = %.lr.ph.i161, %.lr.ph.i161
+  %193 = load i32, ptr @hf_fcfzs_mbrid_fcwwn, align 4
+  %194 = add i32 %.03536.i, 4
+  %195 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %193, ptr noundef %0, i32 noundef %194, i32 noundef 8, i32 noundef 0)
+  br label %206
 
-210:                                              ; preds = %.lr.ph.i161
-  %211 = load i32, ptr @hf_fcfzs_mbrid_uint, align 4
-  %212 = add i32 %.03536.i, 4
-  %213 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %211, ptr noundef %0, i32 noundef %212, i32 noundef 3, i32 noundef 0)
-  br label %220
+196:                                              ; preds = %.lr.ph.i161
+  %197 = load i32, ptr @hf_fcfzs_mbrid_uint, align 4
+  %198 = add i32 %.03536.i, 4
+  %199 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %197, ptr noundef %0, i32 noundef %198, i32 noundef 3, i32 noundef 0)
+  br label %206
 
-214:                                              ; preds = %.lr.ph.i161
-  %215 = load i32, ptr @hf_fcfzs_mbrid_fc, align 4
-  %216 = add i32 %.03536.i, 4
-  %217 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %215, ptr noundef %0, i32 noundef %216, i32 noundef 3, i32 noundef 0)
-  br label %220
+200:                                              ; preds = %.lr.ph.i161
+  %201 = load i32, ptr @hf_fcfzs_mbrid_fc, align 4
+  %202 = add i32 %.03536.i, 4
+  %203 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %201, ptr noundef %0, i32 noundef %202, i32 noundef 3, i32 noundef 0)
+  br label %206
 
-218:                                              ; preds = %.lr.ph.i161
-  %219 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %204, ptr noundef nonnull @ei_fcfzs_mbrid)
-  br label %220
+204:                                              ; preds = %.lr.ph.i161
+  %205 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %190, ptr noundef nonnull @ei_fcfzs_mbrid)
+  br label %206
 
-220:                                              ; preds = %218, %214, %210, %206
-  %221 = add i32 %.03536.i, 12
-  %222 = add nuw nsw i32 %.037.i, 1
-  %exitcond.not.i162 = icmp eq i32 %222, %199
+206:                                              ; preds = %204, %200, %196, %192
+  %207 = add i32 %.03536.i, 12
+  %208 = add nuw nsw i32 %.037.i, 1
+  %exitcond.not.i162 = icmp eq i32 %208, %185
   br i1 %exitcond.not.i162, label %dissect_fcfzs_rjt.exit, label %.lr.ph.i161, !llvm.loop !9
 
-223:                                              ; preds = %118
+209:                                              ; preds = %104
   switch i16 %24, label %dissect_fcfzs_rjt.exit [
-    i16 640, label %224
-    i16 384, label %224
+    i16 640, label %210
+    i16 384, label %210
   ]
 
-224:                                              ; preds = %223, %223
+210:                                              ; preds = %209, %209
   call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef %1, ptr noundef %.0141)
   br label %dissect_fcfzs_rjt.exit
 
-225:                                              ; preds = %118
-  switch i16 %24, label %226 [
-    i16 640, label %233
-    i16 384, label %233
+211:                                              ; preds = %104
+  switch i16 %24, label %212 [
+    i16 640, label %219
+    i16 384, label %219
   ]
 
-226:                                              ; preds = %225
-  %227 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
-  %228 = zext i8 %227 to i32
-  %229 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
-  %230 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %229, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %231 = load i32, ptr @hf_fcfzs_zonesetname, align 4
-  %232 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %231, ptr noundef %0, i32 noundef 20, i32 noundef %228, i32 noundef 0)
+212:                                              ; preds = %211
+  %213 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
+  %214 = zext i8 %213 to i32
+  %215 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
+  %216 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %215, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %217 = load i32, ptr @hf_fcfzs_zonesetname, align 4
+  %218 = call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %217, ptr noundef %0, i32 noundef 20, i32 noundef %214, i32 noundef 0)
   br label %dissect_fcfzs_rjt.exit
 
-233:                                              ; preds = %225, %225
+219:                                              ; preds = %211, %211
   call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef %1, ptr noundef %.0141)
   br label %dissect_fcfzs_rjt.exit
 
-234:                                              ; preds = %118
-  switch i16 %24, label %235 [
+220:                                              ; preds = %104
+  switch i16 %24, label %221 [
     i16 640, label %dissect_fcfzs_rjt.exit
     i16 384, label %dissect_fcfzs_rjt.exit
   ]
 
-235:                                              ; preds = %234
+221:                                              ; preds = %220
   call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef %1, ptr noundef %.0141)
   br label %dissect_fcfzs_rjt.exit
 
-236:                                              ; preds = %118
+222:                                              ; preds = %104
+  switch i16 %24, label %223 [
+    i16 640, label %dissect_fcfzs_rjt.exit
+    i16 384, label %dissect_fcfzs_rjt.exit
+  ]
+
+223:                                              ; preds = %222
+  call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef %1, ptr noundef %.0141)
+  br label %dissect_fcfzs_rjt.exit
+
+224:                                              ; preds = %104
+  %.not172 = icmp eq ptr %.0141, null
+  br i1 %.not172, label %dissect_fcfzs_rjt.exit, label %switch.early.test
+
+switch.early.test:                                ; preds = %224
+  switch i16 %24, label %225 [
+    i16 640, label %dissect_fcfzs_rjt.exit
+    i16 384, label %dissect_fcfzs_rjt.exit
+  ]
+
+225:                                              ; preds = %switch.early.test
+  %226 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
+  %227 = zext i8 %226 to i32
+  %228 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
+  %229 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %228, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %230 = load i32, ptr @hf_fcfzs_zonesetname, align 4
+  %231 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %230, ptr noundef %0, i32 noundef 20, i32 noundef %227, i32 noundef 0)
+  br label %dissect_fcfzs_rjt.exit
+
+232:                                              ; preds = %104
+  call fastcc void @dissect_fcfzs_arzm(ptr noundef %0, ptr noundef %1, ptr noundef %.0141, i1 noundef zeroext %or.cond)
+  br label %dissect_fcfzs_rjt.exit
+
+233:                                              ; preds = %104
+  call fastcc void @dissect_fcfzs_arzd(ptr noundef %0, ptr noundef %.0141, i1 noundef zeroext %or.cond)
+  br label %dissect_fcfzs_rjt.exit
+
+234:                                              ; preds = %104
+  call fastcc void @dissect_fcfzs_arzm(ptr noundef %0, ptr noundef %1, ptr noundef %.0141, i1 noundef zeroext %or.cond)
+  br label %dissect_fcfzs_rjt.exit
+
+235:                                              ; preds = %104
+  call fastcc void @dissect_fcfzs_arzd(ptr noundef %0, ptr noundef %.0141, i1 noundef zeroext %or.cond)
+  br label %dissect_fcfzs_rjt.exit
+
+236:                                              ; preds = %104
+  %.not171 = icmp eq ptr %.0141, null
+  br i1 %.not171, label %dissect_fcfzs_rjt.exit, label %switch.early.test169
+
+switch.early.test169:                             ; preds = %236
   switch i16 %24, label %237 [
     i16 640, label %dissect_fcfzs_rjt.exit
     i16 384, label %dissect_fcfzs_rjt.exit
   ]
 
-237:                                              ; preds = %236
-  call fastcc void @dissect_fcfzs_zoneset(ptr noundef %0, ptr noundef %1, ptr noundef %.0141)
+237:                                              ; preds = %switch.early.test169
+  %238 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
+  %239 = zext i8 %238 to i32
+  %240 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
+  %241 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %240, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %242 = load i32, ptr @hf_fcfzs_zonesetname, align 4
+  %243 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %242, ptr noundef %0, i32 noundef 20, i32 noundef %239, i32 noundef 0)
   br label %dissect_fcfzs_rjt.exit
 
-238:                                              ; preds = %118
-  %.not172 = icmp eq ptr %.0141, null
-  br i1 %.not172, label %dissect_fcfzs_rjt.exit, label %switch.early.test
-
-switch.early.test:                                ; preds = %238
-  switch i16 %24, label %239 [
-    i16 640, label %dissect_fcfzs_rjt.exit
-    i16 384, label %dissect_fcfzs_rjt.exit
-  ]
-
-239:                                              ; preds = %switch.early.test
-  %240 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
-  %241 = zext i8 %240 to i32
-  %242 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
-  %243 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %242, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %244 = load i32, ptr @hf_fcfzs_zonesetname, align 4
-  %245 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %244, ptr noundef %0, i32 noundef 20, i32 noundef %241, i32 noundef 0)
+244:                                              ; preds = %104
+  %245 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %dissect_fcfzs_rjt.exit
 
-246:                                              ; preds = %118
-  call fastcc void @dissect_fcfzs_arzm(ptr noundef %0, ptr noundef %1, ptr noundef %.0141, i1 noundef zeroext %or.cond)
-  br label %dissect_fcfzs_rjt.exit
+dissect_fcfzs_rjt.exit:                           ; preds = %206, %.lr.ph.i159, %.lr.ph.i, %switch.early.test169, %switch.early.test169, %236, %switch.early.test, %switch.early.test, %224, %222, %222, %220, %220, %209, %120, %113, %237, %104, %225, %223, %221, %219, %212, %210, %184, %177, %157, %150, %148, %129, %127, %121, %114, %106, %105, %244, %235, %234, %233, %232
+  %246 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %247
 
-247:                                              ; preds = %118
-  call fastcc void @dissect_fcfzs_arzd(ptr noundef %0, ptr noundef %.0141, i1 noundef zeroext %or.cond)
-  br label %dissect_fcfzs_rjt.exit
-
-248:                                              ; preds = %118
-  call fastcc void @dissect_fcfzs_arzm(ptr noundef %0, ptr noundef %1, ptr noundef %.0141, i1 noundef zeroext %or.cond)
-  br label %dissect_fcfzs_rjt.exit
-
-249:                                              ; preds = %118
-  call fastcc void @dissect_fcfzs_arzd(ptr noundef %0, ptr noundef %.0141, i1 noundef zeroext %or.cond)
-  br label %dissect_fcfzs_rjt.exit
-
-250:                                              ; preds = %118
-  %.not171 = icmp eq ptr %.0141, null
-  br i1 %.not171, label %dissect_fcfzs_rjt.exit, label %switch.early.test169
-
-switch.early.test169:                             ; preds = %250
-  switch i16 %24, label %251 [
-    i16 640, label %dissect_fcfzs_rjt.exit
-    i16 384, label %dissect_fcfzs_rjt.exit
-  ]
-
-251:                                              ; preds = %switch.early.test169
-  %252 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
-  %253 = zext i8 %252 to i32
-  %254 = load i32, ptr @hf_fcfzs_zonesetnmlen, align 4
-  %255 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %254, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %256 = load i32, ptr @hf_fcfzs_zonesetname, align 4
-  %257 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0141, i32 noundef %256, ptr noundef %0, i32 noundef 20, i32 noundef %253, i32 noundef 0)
-  br label %dissect_fcfzs_rjt.exit
-
-258:                                              ; preds = %118
-  %259 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %dissect_fcfzs_rjt.exit
-
-dissect_fcfzs_rjt.exit:                           ; preds = %220, %.lr.ph.i159, %.lr.ph.i, %switch.early.test169, %switch.early.test169, %250, %switch.early.test, %switch.early.test, %238, %236, %236, %234, %234, %223, %134, %127, %251, %118, %239, %237, %235, %233, %226, %224, %198, %191, %171, %164, %162, %143, %141, %135, %128, %120, %119, %258, %249, %248, %247, %246
-  %260 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %261
-
-261:                                              ; preds = %4, %dissect_fcfzs_rjt.exit, %116, %99
-  %.0 = phi i32 [ %260, %dissect_fcfzs_rjt.exit ], [ 0, %116 ], [ 0, %99 ], [ 0, %4 ]
+247:                                              ; preds = %4, %dissect_fcfzs_rjt.exit, %102, %85
+  %.0 = phi i32 [ %246, %dissect_fcfzs_rjt.exit ], [ 0, %102 ], [ 0, %85 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

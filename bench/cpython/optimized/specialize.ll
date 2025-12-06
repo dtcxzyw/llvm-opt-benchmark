@@ -981,30 +981,30 @@ define hidden void @_PyCode_Quicken(ptr noundef captures(none) %0, i64 noundef %
   br i1 %.not28, label %18, label %11
 
 11:                                               ; preds = %.lr.ph
-  switch i8 %7, label %13 [
-    i8 74, label %14
-    i8 97, label %12
-    i8 100, label %12
-    i8 98, label %12
-    i8 99, label %12
+  %12 = getelementptr i8, ptr %6, i64 2
+  switch i8 %7, label %14 [
+    i8 74, label %15
+    i8 97, label %13
+    i8 100, label %13
+    i8 98, label %13
+    i8 99, label %13
   ]
 
-12:                                               ; preds = %11, %11, %11, %11
-  br label %14
+13:                                               ; preds = %11, %11, %11, %11
+  br label %15
 
-13:                                               ; preds = %11
-  br label %14
+14:                                               ; preds = %11
+  br label %15
 
-14:                                               ; preds = %11, %13, %12
-  %spec.select30.sink = phi i16 [ %spec.select30, %13 ], [ 21845, %12 ], [ %spec.select31, %11 ]
-  %15 = getelementptr i8, ptr %6, i64 2
-  store i16 %spec.select30.sink, ptr %15, align 2, !tbaa !4
+15:                                               ; preds = %11, %14, %13
+  %spec.select30.sink = phi i16 [ %spec.select30, %14 ], [ 21845, %13 ], [ %spec.select31, %11 ]
+  store i16 %spec.select30.sink, ptr %12, align 2, !tbaa !4
   %16 = zext i8 %10 to i64
   %17 = add i64 %.033, %16
   br label %18
 
-18:                                               ; preds = %14, %.lr.ph
-  %.1 = phi i64 [ %17, %14 ], [ %.033, %.lr.ph ]
+18:                                               ; preds = %15, %.lr.ph
+  %.1 = phi i64 [ %17, %15 ], [ %.033, %.lr.ph ]
   %19 = add i64 %.1, 1
   %20 = icmp slt i64 %19, %4
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !7

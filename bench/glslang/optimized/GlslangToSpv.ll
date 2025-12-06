@@ -13297,9 +13297,9 @@ _ZN3spv7Builder11AccessChainD2Ev.exit:            ; preds = %_ZNSt6vectorIjSaIjE
   br label %463
 
 463:                                              ; preds = %462, %461, %461, %461, %461, %461, %461, %461, %461, %461, %461, %461, %461
-  %.sink18.i.i = phi i1 [ false, %462 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ]
+  %.sink.i.i = phi i1 [ false, %462 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ], [ true, %461 ]
   %.0.i.i = phi i32 [ 113, %462 ], [ 114, %461 ], [ 114, %461 ], [ 114, %461 ], [ 114, %461 ], [ 114, %461 ], [ 114, %461 ], [ 114, %461 ], [ 114, %461 ], [ 114, %461 ], [ 114, %461 ], [ 114, %461 ], [ 114, %461 ]
-  %464 = call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %19, i32 noundef %.015.i.i, i1 noundef zeroext %.sink18.i.i) #21
+  %464 = call noundef i32 @_ZN3spv7Builder15makeIntegerTypeEib(ptr noundef nonnull align 8 dereferenceable(1416) %19, i32 noundef %.015.i.i, i1 noundef zeroext %.sink.i.i) #21
   %465 = icmp sgt i32 %361, 0
   br i1 %465, label %466, label %468
 

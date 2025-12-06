@@ -28396,12 +28396,12 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN11ModelWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %3)
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV11NetOptimize, i64 16), ptr %3, align 8, !tbaa !20
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 100
   %switch.selectcmp.case1 = icmp eq i32 %22, 65536
   %switch.selectcmp.case2 = icmp eq i32 %22, 1
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %30 = zext i1 %switch.selectcmp to i32
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 100
-  store i32 %30, ptr %31, align 4, !tbaa !142
+  %31 = zext i1 %switch.selectcmp to i32
+  store i32 %31, ptr %30, align 4, !tbaa !142
   %32 = invoke noundef i32 @_ZN4ncnn3Net10load_paramEPKc(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %12)
           to label %33 unwind label %41
 

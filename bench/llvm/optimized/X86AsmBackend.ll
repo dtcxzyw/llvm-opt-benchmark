@@ -1478,7 +1478,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm22createX86_64AsmBackendERKNS_6Tar
 8:                                                ; preds = %4
   %9 = tail call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #27
   tail call fastcc void @_ZN12_GLOBAL__N_119DarwinX86AsmBackendC2ERKN4llvm6TargetERKNS1_14MCRegisterInfoERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(312) %9, ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull align 8 dereferenceable(304) %1)
-  br label %168
+  br label %163
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -1582,7 +1582,7 @@ _ZN12_GLOBAL__N_120WindowsX86AsmBackendC2ERKN4llvm6TargetEbRKNS1_15MCSubtargetIn
   store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_120WindowsX86AsmBackendE, i64 16), ptr %16, align 8, !tbaa !3
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 201
   store i8 1, ptr %51, align 1, !tbaa !113
-  br label %168
+  br label %163
 
 52:                                               ; preds = %10
   %53 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #27
@@ -1669,7 +1669,7 @@ _ZN12_GLOBAL__N_120WindowsX86AsmBackendC2ERKN4llvm6TargetEbRKNS1_15MCSubtargetIn
   store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_120WindowsX86AsmBackendE, i64 16), ptr %53, align 8, !tbaa !3
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 201
   store i8 1, ptr %88, align 1, !tbaa !113
-  br label %168
+  br label %163
 
 89:                                               ; preds = %10, %10
   br label %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit
@@ -1687,46 +1687,46 @@ _ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit: ; preds = %1
   %.0.i = phi i8 [ 0, %.thread38 ], [ 9, %89 ], [ 6, %90 ], [ 12, %91 ], [ -1, %10 ]
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %93 = load i32, ptr %92, align 8, !tbaa !127
+  %94 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #27
+  tail call void @_ZN4llvm12MCAsmBackendC2ENS_10endiannessEj(ptr noundef nonnull align 8 dereferenceable(202) %94, i32 noundef 1, i32 noundef 1320) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_113X86AsmBackendE, i64 16), ptr %94, align 8, !tbaa !3
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  store ptr %1, ptr %95, align 8, !tbaa !80
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %98 = load ptr, ptr %97, align 8, !tbaa !82
+  %.not.i.i.i.i30 = icmp eq ptr %98, null
   switch i32 %93, label %131 [
-    i32 25, label %94
-    i32 12, label %94
+    i32 25, label %99
+    i32 12, label %99
   ]
 
-94:                                               ; preds = %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit, %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit
-  %95 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #27
-  tail call void @_ZN4llvm12MCAsmBackendC2ENS_10endiannessEj(ptr noundef nonnull align 8 dereferenceable(202) %95, i32 noundef 1, i32 noundef 1320) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_113X86AsmBackendE, i64 16), ptr %95, align 8, !tbaa !3
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store ptr %1, ptr %96, align 8, !tbaa !80
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %99 = load ptr, ptr %98, align 8, !tbaa !82
-  %.not.i.i.i.i = icmp eq ptr %99, null
-  br i1 %.not.i.i.i.i, label %_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i, label %100
+99:                                               ; preds = %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit, %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit
+  br i1 %.not.i.i.i.i30, label %_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i, label %100
 
-100:                                              ; preds = %94
-  %101 = tail call noundef ptr %99() #26
+100:                                              ; preds = %99
+  %101 = tail call noundef ptr %98() #26
   br label %_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i
 
-_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i: ; preds = %100, %94
-  %.0.i.i.i.i = phi ptr [ %101, %100 ], [ null, %94 ]
-  store ptr %.0.i.i.i.i, ptr %97, align 8, !tbaa !85
-  %102 = getelementptr inbounds nuw i8, ptr %95, i64 32
+_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i: ; preds = %100, %99
+  %.0.i.i.i.i = phi ptr [ %101, %100 ], [ null, %99 ]
+  store ptr %.0.i.i.i.i, ptr %96, align 8, !tbaa !85
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 32
   store i8 0, ptr %102, align 8, !tbaa !87
-  %103 = getelementptr inbounds nuw i8, ptr %95, i64 33
+  %103 = getelementptr inbounds nuw i8, ptr %94, i64 33
   store i8 0, ptr %103, align 1, !tbaa !89
-  %104 = getelementptr inbounds nuw i8, ptr %95, i64 36
-  %105 = getelementptr inbounds nuw i8, ptr %95, i64 56
-  %106 = getelementptr inbounds nuw i8, ptr %95, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %94, i64 36
+  %105 = getelementptr inbounds nuw i8, ptr %94, i64 56
+  %106 = getelementptr inbounds nuw i8, ptr %94, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %104, i8 0, i64 20, i1 false)
   store ptr %106, ptr %105, align 8, !tbaa !25
-  %107 = getelementptr inbounds nuw i8, ptr %95, i64 64
+  %107 = getelementptr inbounds nuw i8, ptr %94, i64 64
   store i32 0, ptr %107, align 8, !tbaa !26
-  %108 = getelementptr inbounds nuw i8, ptr %95, i64 68
+  %108 = getelementptr inbounds nuw i8, ptr %94, i64 68
   store i32 6, ptr %108, align 4, !tbaa !27
-  %109 = getelementptr inbounds nuw i8, ptr %95, i64 168
+  %109 = getelementptr inbounds nuw i8, ptr %94, i64 168
   store i32 0, ptr %109, align 8, !tbaa !91
-  %110 = getelementptr inbounds nuw i8, ptr %95, i64 176
+  %110 = getelementptr inbounds nuw i8, ptr %94, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %110, i8 0, i64 25, i1 false)
   %111 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_133X86AlignBranchWithin32BBoundariesE, i64 120), align 8, !tbaa !54, !range !52, !noundef !53
   %112 = trunc nuw i8 %111 to i1
@@ -1774,100 +1774,91 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i: ; preds = %100, %94
   br label %_ZN12_GLOBAL__N_120ELFX86_X32AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit
 
 _ZN12_GLOBAL__N_120ELFX86_X32AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit: ; preds = %126, %128
-  %130 = getelementptr inbounds nuw i8, ptr %95, i64 201
+  %130 = getelementptr inbounds nuw i8, ptr %94, i64 201
   store i8 %.0.i, ptr %130, align 1, !tbaa !115
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_120ELFX86_X32AsmBackendE, i64 16), ptr %95, align 8, !tbaa !3
-  br label %168
-
-131:                                              ; preds = %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit
-  %132 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #27
-  tail call void @_ZN4llvm12MCAsmBackendC2ENS_10endiannessEj(ptr noundef nonnull align 8 dereferenceable(202) %132, i32 noundef 1, i32 noundef 1320) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_113X86AsmBackendE, i64 16), ptr %132, align 8, !tbaa !3
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  store ptr %1, ptr %133, align 8, !tbaa !80
-  %134 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %136 = load ptr, ptr %135, align 8, !tbaa !82
-  %.not.i.i.i.i30 = icmp eq ptr %136, null
-  br i1 %.not.i.i.i.i30, label %_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31, label %137
-
-137:                                              ; preds = %131
-  %138 = tail call noundef ptr %136() #26
-  br label %_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31
-
-_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31: ; preds = %137, %131
-  %.0.i.i.i.i32 = phi ptr [ %138, %137 ], [ null, %131 ]
-  store ptr %.0.i.i.i.i32, ptr %134, align 8, !tbaa !85
-  %139 = getelementptr inbounds nuw i8, ptr %132, i64 32
-  store i8 0, ptr %139, align 8, !tbaa !87
-  %140 = getelementptr inbounds nuw i8, ptr %132, i64 33
-  store i8 0, ptr %140, align 1, !tbaa !89
-  %141 = getelementptr inbounds nuw i8, ptr %132, i64 36
-  %142 = getelementptr inbounds nuw i8, ptr %132, i64 56
-  %143 = getelementptr inbounds nuw i8, ptr %132, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %141, i8 0, i64 20, i1 false)
-  store ptr %143, ptr %142, align 8, !tbaa !25
-  %144 = getelementptr inbounds nuw i8, ptr %132, i64 64
-  store i32 0, ptr %144, align 8, !tbaa !26
-  %145 = getelementptr inbounds nuw i8, ptr %132, i64 68
-  store i32 6, ptr %145, align 4, !tbaa !27
-  %146 = getelementptr inbounds nuw i8, ptr %132, i64 168
-  store i32 0, ptr %146, align 8, !tbaa !91
-  %147 = getelementptr inbounds nuw i8, ptr %132, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %147, i8 0, i64 25, i1 false)
-  %148 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_133X86AlignBranchWithin32BBoundariesE, i64 120), align 8, !tbaa !54, !range !52, !noundef !53
-  %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %150, label %151
-
-150:                                              ; preds = %_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31
-  store i8 5, ptr %140, align 1, !tbaa !111
-  store i8 7, ptr %139, align 1, !tbaa !87
-  br label %151
-
-151:                                              ; preds = %150, %_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31
-  %152 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 8), align 8, !tbaa !6
-  %.not.i.i.i33 = icmp eq i16 %152, 0
-  br i1 %.not.i.i.i33, label %159, label %153
-
-153:                                              ; preds = %151
-  %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 120), align 8, !tbaa !34
-  %155 = zext i32 %154 to i64
-  %.not.i6.i.i.i34 = icmp eq i32 %154, 0
-  %156 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %155, i1 false)
-  %157 = trunc nuw nsw i64 %156 to i8
-  %158 = sub nuw nsw i8 63, %157
-  %.sroa.0.0.i.i.i.i35 = select i1 %.not.i6.i.i.i34, i8 0, i8 %158
-  store i8 %.sroa.0.0.i.i.i.i35, ptr %140, align 1, !tbaa !111
-  br label %159
-
-159:                                              ; preds = %153, %151
-  %160 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_114X86AlignBranchB5cxx11E, i64 8), align 8, !tbaa !6
-  %.not4.i.i.i36 = icmp eq i16 %160, 0
-  br i1 %.not4.i.i.i36, label %163, label %161
-
-161:                                              ; preds = %159
-  %162 = load i8, ptr @_ZN12_GLOBAL__N_121X86AlignBranchKindLocE, align 1, !tbaa !111
-  store i8 %162, ptr %139, align 8, !tbaa !111
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_120ELFX86_X32AsmBackendE, i64 16), ptr %94, align 8, !tbaa !3
   br label %163
 
-163:                                              ; preds = %161, %159
-  %164 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119X86PadMaxPrefixSizeE, i64 8), align 8, !tbaa !6
-  %.not5.i.i.i37 = icmp eq i16 %164, 0
-  br i1 %.not5.i.i.i37, label %_ZN12_GLOBAL__N_119ELFX86_64AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit, label %165
+131:                                              ; preds = %_ZN4llvm23MCELFObjectTargetWriter8getOSABIENS_6Triple6OSTypeE.exit
+  br i1 %.not.i.i.i.i30, label %_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31, label %132
 
-165:                                              ; preds = %163
-  %166 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119X86PadMaxPrefixSizeE, i64 120), align 8, !tbaa !34
-  store i32 %166, ptr %141, align 4, !tbaa !112
+132:                                              ; preds = %131
+  %133 = tail call noundef ptr %98() #26
+  br label %_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31
+
+_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31: ; preds = %132, %131
+  %.0.i.i.i.i32 = phi ptr [ %133, %132 ], [ null, %131 ]
+  store ptr %.0.i.i.i.i32, ptr %96, align 8, !tbaa !85
+  %134 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  store i8 0, ptr %134, align 8, !tbaa !87
+  %135 = getelementptr inbounds nuw i8, ptr %94, i64 33
+  store i8 0, ptr %135, align 1, !tbaa !89
+  %136 = getelementptr inbounds nuw i8, ptr %94, i64 36
+  %137 = getelementptr inbounds nuw i8, ptr %94, i64 56
+  %138 = getelementptr inbounds nuw i8, ptr %94, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %136, i8 0, i64 20, i1 false)
+  store ptr %138, ptr %137, align 8, !tbaa !25
+  %139 = getelementptr inbounds nuw i8, ptr %94, i64 64
+  store i32 0, ptr %139, align 8, !tbaa !26
+  %140 = getelementptr inbounds nuw i8, ptr %94, i64 68
+  store i32 6, ptr %140, align 4, !tbaa !27
+  %141 = getelementptr inbounds nuw i8, ptr %94, i64 168
+  store i32 0, ptr %141, align 8, !tbaa !91
+  %142 = getelementptr inbounds nuw i8, ptr %94, i64 176
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %142, i8 0, i64 25, i1 false)
+  %143 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_133X86AlignBranchWithin32BBoundariesE, i64 120), align 8, !tbaa !54, !range !52, !noundef !53
+  %144 = trunc nuw i8 %143 to i1
+  br i1 %144, label %145, label %146
+
+145:                                              ; preds = %_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31
+  store i8 5, ptr %135, align 1, !tbaa !111
+  store i8 7, ptr %134, align 1, !tbaa !87
+  br label %146
+
+146:                                              ; preds = %145, %_ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31
+  %147 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 8), align 8, !tbaa !6
+  %.not.i.i.i33 = icmp eq i16 %147, 0
+  br i1 %.not.i.i.i33, label %154, label %148
+
+148:                                              ; preds = %146
+  %149 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 120), align 8, !tbaa !34
+  %150 = zext i32 %149 to i64
+  %.not.i6.i.i.i34 = icmp eq i32 %149, 0
+  %151 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %150, i1 false)
+  %152 = trunc nuw nsw i64 %151 to i8
+  %153 = sub nuw nsw i8 63, %152
+  %.sroa.0.0.i.i.i.i35 = select i1 %.not.i6.i.i.i34, i8 0, i8 %153
+  store i8 %.sroa.0.0.i.i.i.i35, ptr %135, align 1, !tbaa !111
+  br label %154
+
+154:                                              ; preds = %148, %146
+  %155 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_114X86AlignBranchB5cxx11E, i64 8), align 8, !tbaa !6
+  %.not4.i.i.i36 = icmp eq i16 %155, 0
+  br i1 %.not4.i.i.i36, label %158, label %156
+
+156:                                              ; preds = %154
+  %157 = load i8, ptr @_ZN12_GLOBAL__N_121X86AlignBranchKindLocE, align 1, !tbaa !111
+  store i8 %157, ptr %134, align 8, !tbaa !111
+  br label %158
+
+158:                                              ; preds = %156, %154
+  %159 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119X86PadMaxPrefixSizeE, i64 8), align 8, !tbaa !6
+  %.not5.i.i.i37 = icmp eq i16 %159, 0
+  br i1 %.not5.i.i.i37, label %_ZN12_GLOBAL__N_119ELFX86_64AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit, label %160
+
+160:                                              ; preds = %158
+  %161 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119X86PadMaxPrefixSizeE, i64 120), align 8, !tbaa !34
+  store i32 %161, ptr %136, align 4, !tbaa !112
   br label %_ZN12_GLOBAL__N_119ELFX86_64AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit
 
-_ZN12_GLOBAL__N_119ELFX86_64AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit: ; preds = %163, %165
-  %167 = getelementptr inbounds nuw i8, ptr %132, i64 201
-  store i8 %.0.i, ptr %167, align 1, !tbaa !115
-  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_119ELFX86_64AsmBackendE, i64 16), ptr %132, align 8, !tbaa !3
-  br label %168
+_ZN12_GLOBAL__N_119ELFX86_64AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit: ; preds = %158, %160
+  %162 = getelementptr inbounds nuw i8, ptr %94, i64 201
+  store i8 %.0.i, ptr %162, align 1, !tbaa !115
+  store ptr getelementptr inbounds nuw inrange(-16, 232) (i8, ptr @_ZTVN12_GLOBAL__N_119ELFX86_64AsmBackendE, i64 16), ptr %94, align 8, !tbaa !3
+  br label %163
 
-168:                                              ; preds = %_ZN12_GLOBAL__N_120ELFX86_X32AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit, %_ZN12_GLOBAL__N_119ELFX86_64AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit, %_ZN12_GLOBAL__N_120WindowsX86AsmBackendC2ERKN4llvm6TargetEbRKNS1_15MCSubtargetInfoE.exit28, %_ZN12_GLOBAL__N_120WindowsX86AsmBackendC2ERKN4llvm6TargetEbRKNS1_15MCSubtargetInfoE.exit, %8
-  %.0 = phi ptr [ %9, %8 ], [ %16, %_ZN12_GLOBAL__N_120WindowsX86AsmBackendC2ERKN4llvm6TargetEbRKNS1_15MCSubtargetInfoE.exit ], [ %53, %_ZN12_GLOBAL__N_120WindowsX86AsmBackendC2ERKN4llvm6TargetEbRKNS1_15MCSubtargetInfoE.exit28 ], [ %95, %_ZN12_GLOBAL__N_120ELFX86_X32AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit ], [ %132, %_ZN12_GLOBAL__N_119ELFX86_64AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit ]
+163:                                              ; preds = %_ZN12_GLOBAL__N_120ELFX86_X32AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit, %_ZN12_GLOBAL__N_119ELFX86_64AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit, %_ZN12_GLOBAL__N_120WindowsX86AsmBackendC2ERKN4llvm6TargetEbRKNS1_15MCSubtargetInfoE.exit28, %_ZN12_GLOBAL__N_120WindowsX86AsmBackendC2ERKN4llvm6TargetEbRKNS1_15MCSubtargetInfoE.exit, %8
+  %.0 = phi ptr [ %9, %8 ], [ %16, %_ZN12_GLOBAL__N_120WindowsX86AsmBackendC2ERKN4llvm6TargetEbRKNS1_15MCSubtargetInfoE.exit ], [ %53, %_ZN12_GLOBAL__N_120WindowsX86AsmBackendC2ERKN4llvm6TargetEbRKNS1_15MCSubtargetInfoE.exit28 ], [ %94, %_ZN12_GLOBAL__N_120ELFX86_X32AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit ], [ %94, %_ZN12_GLOBAL__N_119ELFX86_64AsmBackendC2ERKN4llvm6TargetEhRKNS1_15MCSubtargetInfoE.exit ]
   ret ptr %.0
 }
 

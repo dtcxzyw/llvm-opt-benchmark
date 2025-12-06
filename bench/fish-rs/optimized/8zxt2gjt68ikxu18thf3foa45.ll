@@ -29793,6 +29793,7 @@ _ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit.i: ; preds = %.noexc83
 
 .noexc114:                                        ; preds = %.noexc113
   %872 = load i64, ptr %27, align 8, !range !807, !noalias !2758, !noundef !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !2758
   switch i64 %872, label %874 [
     i64 12, label %877
     i64 17, label %877
@@ -29803,7 +29804,6 @@ _ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit.i: ; preds = %.noexc83
   br label %_ZN4fish10parse_util33detect_errors_in_backgrounded_job17h8ff857ec9a289412E.exit
 
 874:                                              ; preds = %.noexc114
-  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !2758
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !2758
   invoke void %871(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noundef align 1 %868)
           to label %.noexc115 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -29814,7 +29814,6 @@ _ZN4fish3ast12is_same_node17h809b23b2f10f76bbE.exit.i: ; preds = %.noexc83
   br i1 %876, label %918, label %932
 
 877:                                              ; preds = %.noexc114, %.noexc114
-  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !2758
   br i1 %.not108.i, label %_ZN4fish10parse_util33detect_errors_in_backgrounded_job17h8ff857ec9a289412E.exit, label %878
 
 878:                                              ; preds = %877

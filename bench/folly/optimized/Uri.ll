@@ -53934,15 +53934,18 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matche
   %.pre16 = load ptr, ptr %8, align 8, !tbaa !122
   br label %9
 
-9:                                                ; preds = %.preheader10, %34
-  %10 = phi ptr [ %.pre16, %.preheader10 ], [ %35, %34 ]
-  %11 = phi ptr [ %.pre, %.preheader10 ], [ %36, %34 ]
+9:                                                ; preds = %.preheader10, %32
+  %10 = phi ptr [ %.pre16, %.preheader10 ], [ %33, %32 ]
+  %11 = phi ptr [ %.pre, %.preheader10 ], [ %34, %32 ]
   %.not613 = icmp eq ptr %11, %10
   br i1 %.not613, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %_ZN5boost16re_detail_10740012is_separatorIcEEbT_.exit
   %12 = phi ptr [ %14, %_ZN5boost16re_detail_10740012is_separatorIcEEbT_.exit ], [ %11, %9 ]
   %13 = load i8, ptr %12, align 1, !tbaa !16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  store ptr %14, ptr %7, align 8, !tbaa !123
+  %.not6 = icmp eq ptr %14, %10
   switch i8 %13, label %_ZN5boost16re_detail_10740012is_separatorIcEEbT_.exit [
     i8 13, label %15
     i8 10, label %15
@@ -53950,58 +53953,52 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matche
   ]
 
 _ZN5boost16re_detail_10740012is_separatorIcEEbT_.exit: ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store ptr %14, ptr %7, align 8, !tbaa !123
-  %.not6 = icmp eq ptr %14, %10
   br i1 %.not6, label %.critedge.thread, label %.lr.ph, !llvm.loop !991
 
 15:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store ptr %16, ptr %7, align 8, !tbaa !123
-  %17 = icmp eq ptr %16, %10
-  br i1 %17, label %18, label %26
+  br i1 %.not6, label %16, label %24
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %2, align 8, !tbaa !813
-  %20 = load ptr, ptr %19, align 8, !tbaa !126
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 340
-  %22 = load i32, ptr %21, align 4, !tbaa !395
-  %.not9 = icmp eq i32 %22, 0
-  br i1 %.not9, label %25, label %23
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %2, align 8, !tbaa !813
+  %18 = load ptr, ptr %17, align 8, !tbaa !126
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 340
+  %20 = load i32, ptr %19, align 4, !tbaa !395
+  %.not9 = icmp eq i32 %20, 0
+  br i1 %.not9, label %23, label %21
 
-23:                                               ; preds = %18
-  %24 = tail call noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12match_prefixEv(ptr noundef nonnull align 8 dereferenceable(236) %0)
-  br i1 %24, label %.critedge.thread, label %25
+21:                                               ; preds = %16
+  %22 = tail call noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12match_prefixEv(ptr noundef nonnull align 8 dereferenceable(236) %0)
+  br i1 %22, label %.critedge.thread, label %23
 
-25:                                               ; preds = %23, %18
+23:                                               ; preds = %21, %16
   br label %.critedge.thread
 
-26:                                               ; preds = %15
-  %27 = load i8, ptr %16, align 1, !tbaa !16
-  %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !16
-  %31 = and i8 %30, 3
-  %.not8 = icmp eq i8 %31, 0
-  br i1 %.not8, label %34, label %32
+24:                                               ; preds = %15
+  %25 = load i8, ptr %14, align 1, !tbaa !16
+  %26 = zext i8 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !16
+  %29 = and i8 %28, 3
+  %.not8 = icmp eq i8 %29, 0
+  br i1 %.not8, label %32, label %30
 
-32:                                               ; preds = %26
-  %33 = tail call noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12match_prefixEv(ptr noundef nonnull align 8 dereferenceable(236) %0)
-  br i1 %33, label %.critedge.thread, label %._crit_edge
+30:                                               ; preds = %24
+  %31 = tail call noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matcherIPKcSaINS_9sub_matchIS3_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12match_prefixEv(ptr noundef nonnull align 8 dereferenceable(236) %0)
+  br i1 %31, label %.critedge.thread, label %._crit_edge
 
-._crit_edge:                                      ; preds = %32
+._crit_edge:                                      ; preds = %30
   %.pre17 = load ptr, ptr %7, align 8, !tbaa !123
   %.pre18 = load ptr, ptr %8, align 8, !tbaa !122
-  br label %34
+  br label %32
 
-34:                                               ; preds = %._crit_edge, %26
-  %35 = phi ptr [ %.pre18, %._crit_edge ], [ %10, %26 ]
-  %36 = phi ptr [ %.pre17, %._crit_edge ], [ %16, %26 ]
-  %37 = icmp eq ptr %36, %35
-  br i1 %37, label %.critedge.thread, label %9, !llvm.loop !992
+32:                                               ; preds = %._crit_edge, %24
+  %33 = phi ptr [ %.pre18, %._crit_edge ], [ %10, %24 ]
+  %34 = phi ptr [ %.pre17, %._crit_edge ], [ %14, %24 ]
+  %35 = icmp eq ptr %34, %33
+  br i1 %35, label %.critedge.thread, label %9, !llvm.loop !992
 
-.critedge.thread:                                 ; preds = %9, %34, %32, %_ZN5boost16re_detail_10740012is_separatorIcEEbT_.exit, %23, %1, %25
-  %.0 = phi i1 [ false, %25 ], [ true, %1 ], [ true, %23 ], [ false, %_ZN5boost16re_detail_10740012is_separatorIcEEbT_.exit ], [ false, %9 ], [ false, %34 ], [ true, %32 ]
+.critedge.thread:                                 ; preds = %9, %32, %30, %_ZN5boost16re_detail_10740012is_separatorIcEEbT_.exit, %21, %1, %23
+  %.0 = phi i1 [ false, %23 ], [ true, %1 ], [ true, %21 ], [ false, %_ZN5boost16re_detail_10740012is_separatorIcEEbT_.exit ], [ false, %9 ], [ false, %32 ], [ true, %30 ]
   ret i1 %.0
 }
 

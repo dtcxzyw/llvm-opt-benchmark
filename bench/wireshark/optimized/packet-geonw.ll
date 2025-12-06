@@ -3775,7 +3775,7 @@ define internal fastcc void @dissect_sec_payload(ptr noundef %0, ptr noundef cap
   %12 = load i32, ptr %1, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %1, align 4
-  br label %45
+  br label %43
 
 14:                                               ; preds = %4
   %15 = load i32, ptr @hf_sgeonw_payload_field, align 4
@@ -3788,50 +3788,47 @@ define internal fastcc void @dissect_sec_payload(ptr noundef %0, ptr noundef cap
   %22 = load i32, ptr %1, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %1, align 4
-  switch i8 %6, label %37 [
-    i8 0, label %24
-    i8 1, label %24
+  %24 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18)
+  switch i8 %6, label %36 [
+    i8 0, label %25
+    i8 1, label %25
     i8 2, label %32
     i8 4, label %32
   ]
 
-24:                                               ; preds = %14, %14
-  %25 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18)
-  %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %42, label %26
+25:                                               ; preds = %14, %14
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %40, label %26
 
-26:                                               ; preds = %24
+26:                                               ; preds = %25
   %27 = load i32, ptr %1, align 4
-  %28 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %27, i32 noundef %25)
+  %28 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %27, i32 noundef %24)
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @proto_geonw, align 4
   tail call void @p_add_proto_data(ptr noundef %30, ptr noundef %2, i32 noundef %31, i32 noundef 0, ptr noundef %28)
-  br label %42
+  br label %40
 
 32:                                               ; preds = %14, %14
-  %33 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18)
-  %34 = load i32, ptr @hf_sgeonw_opaque, align 4
-  %35 = load i32, ptr %1, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %34, ptr noundef %0, i32 noundef %35, i32 noundef %33, i32 noundef 0)
-  br label %42
+  %33 = load i32, ptr @hf_sgeonw_opaque, align 4
+  %34 = load i32, ptr %1, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef %24, i32 noundef 0)
+  br label %40
 
-37:                                               ; preds = %14
-  %38 = tail call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18)
-  %39 = load i32, ptr @hf_sgeonw_opaque, align 4
-  %40 = load i32, ptr %1, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef %38, i32 noundef 0)
-  br label %42
+36:                                               ; preds = %14
+  %37 = load i32, ptr @hf_sgeonw_opaque, align 4
+  %38 = load i32, ptr %1, align 4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef %24, i32 noundef 0)
+  br label %40
 
-42:                                               ; preds = %24, %26, %37, %32
-  %.sink57 = phi i32 [ %38, %37 ], [ %33, %32 ], [ %25, %26 ], [ %25, %24 ]
-  %43 = load i32, ptr %1, align 4
-  %44 = add i32 %43, %.sink57
-  store i32 %44, ptr %1, align 4
-  tail call void @proto_item_set_end(ptr noundef %16, ptr noundef %0, i32 noundef %44)
-  br label %45
+40:                                               ; preds = %25, %26, %36, %32
+  %41 = load i32, ptr %1, align 4
+  %42 = add i32 %41, %24
+  store i32 %42, ptr %1, align 4
+  tail call void @proto_item_set_end(ptr noundef %16, ptr noundef %0, i32 noundef %42)
+  br label %43
 
-45:                                               ; preds = %42, %9
+43:                                               ; preds = %40, %9
   ret void
 }
 

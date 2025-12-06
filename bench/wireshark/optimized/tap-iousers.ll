@@ -147,33 +147,33 @@ sub_1155:                                         ; preds = %sub_0
   %spec.select = select i1 %.not143, ptr @.str.7, ptr %22
   %23 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull %spec.select)
   %24 = tail call i32 @timestamp_get_type()
+  %25 = select i1 %17, ptr @.str.9, ptr @.str.10
   %switch.tableidx = add i32 %24, -1
-  %25 = icmp ult i32 %switch.tableidx, 9
-  br i1 %25, label %switch.lookup, label %28
+  %26 = icmp ult i32 %switch.tableidx, 9
+  br i1 %26, label %switch.lookup, label %29
 
 switch.lookup:                                    ; preds = %16
-  %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.iousers_draw, i64 %26
-  %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep201 = getelementptr inbounds nuw ptr, ptr @switch.table.iousers_draw.1, i64 %27
-  %switch.load202 = load ptr, ptr %switch.gep201, align 8
-  br label %28
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.iousers_draw, i64 %27
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %28 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep200 = getelementptr inbounds nuw ptr, ptr @switch.table.iousers_draw.1, i64 %28
+  %switch.load201 = load ptr, ptr %switch.gep200, align 8
+  br label %29
 
-28:                                               ; preds = %16, %switch.lookup
+29:                                               ; preds = %16, %switch.lookup
   %.str.16.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.16, %16 ]
-  %.str.17.sink = phi ptr [ %switch.load202, %switch.lookup ], [ @.str.17, %16 ]
-  %29 = select i1 %17, ptr @.str.9, ptr @.str.10
-  %30 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %.str.16.sink, ptr noundef nonnull %29)
-  %31 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %.str.17.sink, ptr noundef nonnull %29)
+  %.str.17.sink = phi ptr [ %switch.load201, %switch.lookup ], [ @.str.17, %16 ]
+  %30 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %.str.16.sink, ptr noundef nonnull %25)
+  %31 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %.str.17.sink, ptr noundef nonnull %25)
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.pre = load ptr, ptr %32, align 8
   br label %33
 
-33:                                               ; preds = %.critedge2, %28
-  %34 = phi ptr [ %.pre, %28 ], [ %218, %.critedge2 ]
-  %35 = phi ptr [ %.pre, %28 ], [ %219, %.critedge2 ]
-  %.0128 = phi i64 [ 4294967295, %28 ], [ %.0.lcssa.ph, %.critedge2 ]
+33:                                               ; preds = %.critedge2, %29
+  %34 = phi ptr [ %.pre, %29 ], [ %218, %.critedge2 ]
+  %35 = phi ptr [ %.pre, %29 ], [ %219, %.critedge2 ]
+  %.0128 = phi i64 [ 4294967295, %29 ], [ %.0.lcssa.ph, %.critedge2 ]
   %.not144 = icmp eq ptr %35, null
   br i1 %.not144, label %.critedge2.thread, label %.lr.ph
 

@@ -8239,6 +8239,7 @@ _ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFl
 
 197:                                              ; preds = %182, %181
   %.0255 = phi i32 [ %196, %182 ], [ 0, %181 ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   switch i32 %0, label %.critedge [
     i32 8464, label %198
     i32 8465, label %198
@@ -8252,12 +8253,10 @@ _ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFl
   ]
 
 198:                                              ; preds = %197, %197, %197, %197, %197, %197, %197, %197, %197
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZN4llvm7maximumERKNS_7APFloatES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APFloat") align 8 %21, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16) #23
   br label %199
 
 .critedge:                                        ; preds = %197
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZN4llvm7minimumERKNS_7APFloatES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APFloat") align 8 %21, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16) #23
   br label %199
 

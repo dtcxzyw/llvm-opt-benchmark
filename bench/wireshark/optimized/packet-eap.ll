@@ -2955,24 +2955,24 @@ define internal fastcc void @dissect_eap_sake(ptr noundef %0, ptr noundef %1, i3
   %32 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %31, ptr noundef %1, i32 noundef %19, i32 noundef 1, i32 noundef 0)
   %33 = add i32 %.011.i, 2
   %34 = add i8 %20, -2
-  switch i8 %18, label %36 [
+  %35 = zext i8 %34 to i32
+  switch i8 %18, label %37 [
     i8 5, label %dissect_eap_sake_attribute.exit.i
     i8 6, label %dissect_eap_sake_attribute.exit.i
-    i8 -124, label %35
+    i8 -124, label %36
   ]
-
-35:                                               ; preds = %24
-  br label %dissect_eap_sake_attribute.exit.i
 
 36:                                               ; preds = %24
   br label %dissect_eap_sake_attribute.exit.i
 
-dissect_eap_sake_attribute.exit.i:                ; preds = %36, %35, %24, %24
-  %hf_eap_sake_attr_value.sink.i.i = phi ptr [ @hf_eap_sake_attr_value, %36 ], [ @hf_eap_sake_attr_value_uint48, %35 ], [ @hf_eap_sake_attr_value_str, %24 ], [ @hf_eap_sake_attr_value_str, %24 ]
-  %37 = load i32, ptr %hf_eap_sake_attr_value.sink.i.i, align 4
-  %38 = zext i8 %34 to i32
-  %39 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %37, ptr noundef %1, i32 noundef %33, i32 noundef %38, i32 noundef 0)
-  %40 = add i32 %33, %38
+37:                                               ; preds = %24
+  br label %dissect_eap_sake_attribute.exit.i
+
+dissect_eap_sake_attribute.exit.i:                ; preds = %37, %36, %24, %24
+  %hf_eap_sake_attr_value.sink.i.i = phi ptr [ @hf_eap_sake_attr_value, %37 ], [ @hf_eap_sake_attr_value_uint48, %36 ], [ @hf_eap_sake_attr_value_str, %24 ], [ @hf_eap_sake_attr_value_str, %24 ]
+  %38 = load i32, ptr %hf_eap_sake_attr_value.sink.i.i, align 4
+  %39 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %38, ptr noundef %1, i32 noundef %33, i32 noundef %35, i32 noundef 0)
+  %40 = add i32 %33, %35
   %41 = icmp slt i32 %40, %16
   br i1 %41, label %.lr.ph.i, label %dissect_eap_sake_attributes.exit, !llvm.loop !10
 

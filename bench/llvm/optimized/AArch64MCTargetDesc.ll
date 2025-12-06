@@ -3068,22 +3068,22 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC11isZeroIdiomERKNS_6MCI
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
-  switch i32 %2, label %3 [
-    i32 1868, label %4
-    i32 1871, label %4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = load ptr, ptr %3, align 8, !tbaa !17
+  switch i32 %2, label %5 [
+    i32 1868, label %6
+    i32 1871, label %6
   ]
 
-3:                                                ; preds = %1
-  br label %4
+5:                                                ; preds = %1
+  br label %6
 
-4:                                                ; preds = %1, %1, %3
-  %.sink14 = phi i64 [ 8, %3 ], [ 24, %1 ], [ 24, %1 ]
-  %.sink12 = phi i64 [ 24, %3 ], [ 40, %1 ], [ 40, %1 ]
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !17
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink14
+6:                                                ; preds = %1, %1, %5
+  %.sink = phi i64 [ 8, %5 ], [ 24, %1 ], [ 24, %1 ]
+  %.sink11 = phi i64 [ 24, %5 ], [ 40, %1 ], [ 40, %1 ]
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
   %8 = load i32, ptr %7, align 8, !tbaa !18
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink12
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink11
   %10 = load i32, ptr %9, align 8, !tbaa !18
   %11 = icmp eq i32 %8, %10
   ret i1 %11
@@ -3919,22 +3919,22 @@ define dso_local noundef range(i32 0, 1772) i32 @_ZN4llvm10AArch64_MC28resolveVa
 
 252:                                              ; preds = %250
   %253 = load i32, ptr %1, align 8, !tbaa !3
-  switch i32 %253, label %254 [
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %255 = load ptr, ptr %254, align 8, !tbaa !17
+  switch i32 %253, label %256 [
     i32 1868, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit
     i32 1871, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit
   ]
 
-254:                                              ; preds = %252
+256:                                              ; preds = %252
   br label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit
 
-_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit: ; preds = %252, %252, %254
-  %.sink14.i = phi i64 [ 8, %254 ], [ 24, %252 ], [ 24, %252 ]
-  %.sink12.i = phi i64 [ 24, %254 ], [ 40, %252 ], [ 40, %252 ]
-  %255 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %256 = load ptr, ptr %255, align 8, !tbaa !17
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 %.sink14.i
+_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit: ; preds = %252, %252, %256
+  %.sink.i = phi i64 [ 8, %256 ], [ 24, %252 ], [ 24, %252 ]
+  %.sink11.i = phi i64 [ 24, %256 ], [ 40, %252 ], [ 40, %252 ]
+  %257 = getelementptr inbounds nuw i8, ptr %255, i64 %.sink.i
   %258 = load i32, ptr %257, align 8, !tbaa !18
-  %259 = getelementptr inbounds nuw i8, ptr %256, i64 %.sink12.i
+  %259 = getelementptr inbounds nuw i8, ptr %255, i64 %.sink11.i
   %260 = load i32, ptr %259, align 8, !tbaa !18
   %261 = icmp eq i32 %258, %260
   %.3170 = select i1 %261, i32 1679, i32 1680
@@ -3946,22 +3946,22 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit: ; preds = %252, %
 
 264:                                              ; preds = %262
   %265 = load i32, ptr %1, align 8, !tbaa !3
-  switch i32 %265, label %266 [
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %267 = load ptr, ptr %266, align 8, !tbaa !17
+  switch i32 %265, label %268 [
     i32 1868, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3589
     i32 1871, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3589
   ]
 
-266:                                              ; preds = %264
+268:                                              ; preds = %264
   br label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3589
 
-_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3589: ; preds = %264, %264, %266
-  %.sink14.i3587 = phi i64 [ 8, %266 ], [ 24, %264 ], [ 24, %264 ]
-  %.sink12.i3588 = phi i64 [ 24, %266 ], [ 40, %264 ], [ 40, %264 ]
-  %267 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %268 = load ptr, ptr %267, align 8, !tbaa !17
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 %.sink14.i3587
+_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3589: ; preds = %264, %264, %268
+  %.sink.i3587 = phi i64 [ 8, %268 ], [ 24, %264 ], [ 24, %264 ]
+  %.sink11.i3588 = phi i64 [ 24, %268 ], [ 40, %264 ], [ 40, %264 ]
+  %269 = getelementptr inbounds nuw i8, ptr %267, i64 %.sink.i3587
   %270 = load i32, ptr %269, align 8, !tbaa !18
-  %271 = getelementptr inbounds nuw i8, ptr %268, i64 %.sink12.i3588
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 %.sink11.i3588
   %272 = load i32, ptr %271, align 8, !tbaa !18
   %273 = icmp eq i32 %270, %272
   %.3171 = select i1 %273, i32 1681, i32 1682
@@ -3973,22 +3973,22 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3589: ; preds = %26
 
 276:                                              ; preds = %274
   %277 = load i32, ptr %1, align 8, !tbaa !3
-  switch i32 %277, label %278 [
+  %278 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %279 = load ptr, ptr %278, align 8, !tbaa !17
+  switch i32 %277, label %280 [
     i32 1868, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3592
     i32 1871, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3592
   ]
 
-278:                                              ; preds = %276
+280:                                              ; preds = %276
   br label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3592
 
-_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3592: ; preds = %276, %276, %278
-  %.sink14.i3590 = phi i64 [ 8, %278 ], [ 24, %276 ], [ 24, %276 ]
-  %.sink12.i3591 = phi i64 [ 24, %278 ], [ 40, %276 ], [ 40, %276 ]
-  %279 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %280 = load ptr, ptr %279, align 8, !tbaa !17
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 %.sink14.i3590
+_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3592: ; preds = %276, %276, %280
+  %.sink.i3590 = phi i64 [ 8, %280 ], [ 24, %276 ], [ 24, %276 ]
+  %.sink11.i3591 = phi i64 [ 24, %280 ], [ 40, %276 ], [ 40, %276 ]
+  %281 = getelementptr inbounds nuw i8, ptr %279, i64 %.sink.i3590
   %282 = load i32, ptr %281, align 8, !tbaa !18
-  %283 = getelementptr inbounds nuw i8, ptr %280, i64 %.sink12.i3591
+  %283 = getelementptr inbounds nuw i8, ptr %279, i64 %.sink11.i3591
   %284 = load i32, ptr %283, align 8, !tbaa !18
   %285 = icmp eq i32 %282, %284
   %.3172 = select i1 %285, i32 1683, i32 1684
@@ -4000,22 +4000,22 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3592: ; preds = %27
 
 288:                                              ; preds = %286
   %289 = load i32, ptr %1, align 8, !tbaa !3
-  switch i32 %289, label %290 [
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %291 = load ptr, ptr %290, align 8, !tbaa !17
+  switch i32 %289, label %292 [
     i32 1868, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3595
     i32 1871, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3595
   ]
 
-290:                                              ; preds = %288
+292:                                              ; preds = %288
   br label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3595
 
-_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3595: ; preds = %288, %288, %290
-  %.sink14.i3593 = phi i64 [ 8, %290 ], [ 24, %288 ], [ 24, %288 ]
-  %.sink12.i3594 = phi i64 [ 24, %290 ], [ 40, %288 ], [ 40, %288 ]
-  %291 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %292 = load ptr, ptr %291, align 8, !tbaa !17
-  %293 = getelementptr inbounds nuw i8, ptr %292, i64 %.sink14.i3593
+_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3595: ; preds = %288, %288, %292
+  %.sink.i3593 = phi i64 [ 8, %292 ], [ 24, %288 ], [ 24, %288 ]
+  %.sink11.i3594 = phi i64 [ 24, %292 ], [ 40, %288 ], [ 40, %288 ]
+  %293 = getelementptr inbounds nuw i8, ptr %291, i64 %.sink.i3593
   %294 = load i32, ptr %293, align 8, !tbaa !18
-  %295 = getelementptr inbounds nuw i8, ptr %292, i64 %.sink12.i3594
+  %295 = getelementptr inbounds nuw i8, ptr %291, i64 %.sink11.i3594
   %296 = load i32, ptr %295, align 8, !tbaa !18
   %297 = icmp eq i32 %294, %296
   %.3173 = select i1 %297, i32 1685, i32 1686
@@ -4027,22 +4027,22 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3595: ; preds = %28
 
 300:                                              ; preds = %298
   %301 = load i32, ptr %1, align 8, !tbaa !3
-  switch i32 %301, label %302 [
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %303 = load ptr, ptr %302, align 8, !tbaa !17
+  switch i32 %301, label %304 [
     i32 1868, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3598
     i32 1871, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3598
   ]
 
-302:                                              ; preds = %300
+304:                                              ; preds = %300
   br label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3598
 
-_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3598: ; preds = %300, %300, %302
-  %.sink14.i3596 = phi i64 [ 8, %302 ], [ 24, %300 ], [ 24, %300 ]
-  %.sink12.i3597 = phi i64 [ 24, %302 ], [ 40, %300 ], [ 40, %300 ]
-  %303 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %304 = load ptr, ptr %303, align 8, !tbaa !17
-  %305 = getelementptr inbounds nuw i8, ptr %304, i64 %.sink14.i3596
+_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3598: ; preds = %300, %300, %304
+  %.sink.i3596 = phi i64 [ 8, %304 ], [ 24, %300 ], [ 24, %300 ]
+  %.sink11.i3597 = phi i64 [ 24, %304 ], [ 40, %300 ], [ 40, %300 ]
+  %305 = getelementptr inbounds nuw i8, ptr %303, i64 %.sink.i3596
   %306 = load i32, ptr %305, align 8, !tbaa !18
-  %307 = getelementptr inbounds nuw i8, ptr %304, i64 %.sink12.i3597
+  %307 = getelementptr inbounds nuw i8, ptr %303, i64 %.sink11.i3597
   %308 = load i32, ptr %307, align 8, !tbaa !18
   %309 = icmp eq i32 %306, %308
   %.3174 = select i1 %309, i32 1685, i32 1686
@@ -4086,22 +4086,22 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3598: ; preds = %30
 
 326:                                              ; preds = %324
   %327 = load i32, ptr %1, align 8, !tbaa !3
-  switch i32 %327, label %328 [
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %329 = load ptr, ptr %328, align 8, !tbaa !17
+  switch i32 %327, label %330 [
     i32 1868, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3601
     i32 1871, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3601
   ]
 
-328:                                              ; preds = %326
+330:                                              ; preds = %326
   br label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3601
 
-_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3601: ; preds = %326, %326, %328
-  %.sink14.i3599 = phi i64 [ 8, %328 ], [ 24, %326 ], [ 24, %326 ]
-  %.sink12.i3600 = phi i64 [ 24, %328 ], [ 40, %326 ], [ 40, %326 ]
-  %329 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %330 = load ptr, ptr %329, align 8, !tbaa !17
-  %331 = getelementptr inbounds nuw i8, ptr %330, i64 %.sink14.i3599
+_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3601: ; preds = %326, %326, %330
+  %.sink.i3599 = phi i64 [ 8, %330 ], [ 24, %326 ], [ 24, %326 ]
+  %.sink11.i3600 = phi i64 [ 24, %330 ], [ 40, %326 ], [ 40, %326 ]
+  %331 = getelementptr inbounds nuw i8, ptr %329, i64 %.sink.i3599
   %332 = load i32, ptr %331, align 8, !tbaa !18
-  %333 = getelementptr inbounds nuw i8, ptr %330, i64 %.sink12.i3600
+  %333 = getelementptr inbounds nuw i8, ptr %329, i64 %.sink11.i3600
   %334 = load i32, ptr %333, align 8, !tbaa !18
   %335 = icmp eq i32 %332, %334
   %.3175 = select i1 %335, i32 1684, i32 1688
@@ -4113,22 +4113,22 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3601: ; preds = %32
 
 338:                                              ; preds = %336
   %339 = load i32, ptr %1, align 8, !tbaa !3
-  switch i32 %339, label %340 [
+  %340 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %341 = load ptr, ptr %340, align 8, !tbaa !17
+  switch i32 %339, label %342 [
     i32 1868, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3604
     i32 1871, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3604
   ]
 
-340:                                              ; preds = %338
+342:                                              ; preds = %338
   br label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3604
 
-_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3604: ; preds = %338, %338, %340
-  %.sink14.i3602 = phi i64 [ 8, %340 ], [ 24, %338 ], [ 24, %338 ]
-  %.sink12.i3603 = phi i64 [ 24, %340 ], [ 40, %338 ], [ 40, %338 ]
-  %341 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %342 = load ptr, ptr %341, align 8, !tbaa !17
-  %343 = getelementptr inbounds nuw i8, ptr %342, i64 %.sink14.i3602
+_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3604: ; preds = %338, %338, %342
+  %.sink.i3602 = phi i64 [ 8, %342 ], [ 24, %338 ], [ 24, %338 ]
+  %.sink11.i3603 = phi i64 [ 24, %342 ], [ 40, %338 ], [ 40, %338 ]
+  %343 = getelementptr inbounds nuw i8, ptr %341, i64 %.sink.i3602
   %344 = load i32, ptr %343, align 8, !tbaa !18
-  %345 = getelementptr inbounds nuw i8, ptr %342, i64 %.sink12.i3603
+  %345 = getelementptr inbounds nuw i8, ptr %341, i64 %.sink11.i3603
   %346 = load i32, ptr %345, align 8, !tbaa !18
   %347 = icmp eq i32 %344, %346
   %.3176 = select i1 %347, i32 1689, i32 1690
@@ -4140,22 +4140,22 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3604: ; preds = %33
 
 350:                                              ; preds = %348
   %351 = load i32, ptr %1, align 8, !tbaa !3
-  switch i32 %351, label %352 [
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %353 = load ptr, ptr %352, align 8, !tbaa !17
+  switch i32 %351, label %354 [
     i32 1868, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3607
     i32 1871, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3607
   ]
 
-352:                                              ; preds = %350
+354:                                              ; preds = %350
   br label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3607
 
-_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3607: ; preds = %350, %350, %352
-  %.sink14.i3605 = phi i64 [ 8, %352 ], [ 24, %350 ], [ 24, %350 ]
-  %.sink12.i3606 = phi i64 [ 24, %352 ], [ 40, %350 ], [ 40, %350 ]
-  %353 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %354 = load ptr, ptr %353, align 8, !tbaa !17
-  %355 = getelementptr inbounds nuw i8, ptr %354, i64 %.sink14.i3605
+_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3607: ; preds = %350, %350, %354
+  %.sink.i3605 = phi i64 [ 8, %354 ], [ 24, %350 ], [ 24, %350 ]
+  %.sink11.i3606 = phi i64 [ 24, %354 ], [ 40, %350 ], [ 40, %350 ]
+  %355 = getelementptr inbounds nuw i8, ptr %353, i64 %.sink.i3605
   %356 = load i32, ptr %355, align 8, !tbaa !18
-  %357 = getelementptr inbounds nuw i8, ptr %354, i64 %.sink12.i3606
+  %357 = getelementptr inbounds nuw i8, ptr %353, i64 %.sink11.i3606
   %358 = load i32, ptr %357, align 8, !tbaa !18
   %359 = icmp eq i32 %356, %358
   %.3177 = select i1 %359, i32 1691, i32 1692
@@ -4167,22 +4167,22 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3607: ; preds = %35
 
 362:                                              ; preds = %360
   %363 = load i32, ptr %1, align 8, !tbaa !3
-  switch i32 %363, label %364 [
+  %364 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %365 = load ptr, ptr %364, align 8, !tbaa !17
+  switch i32 %363, label %366 [
     i32 1868, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3610
     i32 1871, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3610
   ]
 
-364:                                              ; preds = %362
+366:                                              ; preds = %362
   br label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3610
 
-_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3610: ; preds = %362, %362, %364
-  %.sink14.i3608 = phi i64 [ 8, %364 ], [ 24, %362 ], [ 24, %362 ]
-  %.sink12.i3609 = phi i64 [ 24, %364 ], [ 40, %362 ], [ 40, %362 ]
-  %365 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %366 = load ptr, ptr %365, align 8, !tbaa !17
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 %.sink14.i3608
+_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3610: ; preds = %362, %362, %366
+  %.sink.i3608 = phi i64 [ 8, %366 ], [ 24, %362 ], [ 24, %362 ]
+  %.sink11.i3609 = phi i64 [ 24, %366 ], [ 40, %362 ], [ 40, %362 ]
+  %367 = getelementptr inbounds nuw i8, ptr %365, i64 %.sink.i3608
   %368 = load i32, ptr %367, align 8, !tbaa !18
-  %369 = getelementptr inbounds nuw i8, ptr %366, i64 %.sink12.i3609
+  %369 = getelementptr inbounds nuw i8, ptr %365, i64 %.sink11.i3609
   %370 = load i32, ptr %369, align 8, !tbaa !18
   %371 = icmp eq i32 %368, %370
   %.3178 = select i1 %371, i32 1693, i32 1694
@@ -4194,22 +4194,22 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3610: ; preds = %36
 
 374:                                              ; preds = %372
   %375 = load i32, ptr %1, align 8, !tbaa !3
-  switch i32 %375, label %376 [
+  %376 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %377 = load ptr, ptr %376, align 8, !tbaa !17
+  switch i32 %375, label %378 [
     i32 1868, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3613
     i32 1871, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3613
   ]
 
-376:                                              ; preds = %374
+378:                                              ; preds = %374
   br label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3613
 
-_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3613: ; preds = %374, %374, %376
-  %.sink14.i3611 = phi i64 [ 8, %376 ], [ 24, %374 ], [ 24, %374 ]
-  %.sink12.i3612 = phi i64 [ 24, %376 ], [ 40, %374 ], [ 40, %374 ]
-  %377 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %378 = load ptr, ptr %377, align 8, !tbaa !17
-  %379 = getelementptr inbounds nuw i8, ptr %378, i64 %.sink14.i3611
+_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3613: ; preds = %374, %374, %378
+  %.sink.i3611 = phi i64 [ 8, %378 ], [ 24, %374 ], [ 24, %374 ]
+  %.sink11.i3612 = phi i64 [ 24, %378 ], [ 40, %374 ], [ 40, %374 ]
+  %379 = getelementptr inbounds nuw i8, ptr %377, i64 %.sink.i3611
   %380 = load i32, ptr %379, align 8, !tbaa !18
-  %381 = getelementptr inbounds nuw i8, ptr %378, i64 %.sink12.i3612
+  %381 = getelementptr inbounds nuw i8, ptr %377, i64 %.sink11.i3612
   %382 = load i32, ptr %381, align 8, !tbaa !18
   %383 = icmp eq i32 %380, %382
   %.3179 = select i1 %383, i32 1685, i32 1686
@@ -4221,22 +4221,22 @@ _ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3613: ; preds = %37
 
 386:                                              ; preds = %384
   %387 = load i32, ptr %1, align 8, !tbaa !3
-  switch i32 %387, label %388 [
+  %388 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %389 = load ptr, ptr %388, align 8, !tbaa !17
+  switch i32 %387, label %390 [
     i32 1868, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3616
     i32 1871, label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3616
   ]
 
-388:                                              ; preds = %386
+390:                                              ; preds = %386
   br label %_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3616
 
-_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3616: ; preds = %386, %386, %388
-  %.sink14.i3614 = phi i64 [ 8, %388 ], [ 24, %386 ], [ 24, %386 ]
-  %.sink12.i3615 = phi i64 [ 24, %388 ], [ 40, %386 ], [ 40, %386 ]
-  %389 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %390 = load ptr, ptr %389, align 8, !tbaa !17
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 %.sink14.i3614
+_ZN4llvm10AArch64_MC20isNeoversePdSameAsPgERKNS_6MCInstE.exit3616: ; preds = %386, %386, %390
+  %.sink.i3614 = phi i64 [ 8, %390 ], [ 24, %386 ], [ 24, %386 ]
+  %.sink11.i3615 = phi i64 [ 24, %390 ], [ 40, %386 ], [ 40, %386 ]
+  %391 = getelementptr inbounds nuw i8, ptr %389, i64 %.sink.i3614
   %392 = load i32, ptr %391, align 8, !tbaa !18
-  %393 = getelementptr inbounds nuw i8, ptr %390, i64 %.sink12.i3615
+  %393 = getelementptr inbounds nuw i8, ptr %389, i64 %.sink11.i3615
   %394 = load i32, ptr %393, align 8, !tbaa !18
   %395 = icmp eq i32 %392, %394
   %.3180 = select i1 %395, i32 1695, i32 1696

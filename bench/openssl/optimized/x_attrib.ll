@@ -124,7 +124,7 @@ define i32 @ossl_print_attribute_value(ptr noundef %0, i32 noundef %1, ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr %2, align 8, !tbaa !11
-  switch i32 %8, label %175 [
+  switch i32 %8, label %171 [
     i32 1, label %9
     i32 2, label %20
     i32 10, label %20
@@ -139,14 +139,14 @@ define i32 @ossl_print_attribute_value(ptr noundef %0, i32 noundef %1, ptr nound
     i32 12, label %91
     i32 9, label %100
     i32 16, label %104
-    i32 17, label %129
-    i32 26, label %139
-    i32 23, label %139
-    i32 24, label %139
-    i32 18, label %139
-    i32 19, label %148
-    i32 20, label %157
-    i32 22, label %166
+    i32 17, label %125
+    i32 26, label %135
+    i32 23, label %135
+    i32 24, label %135
+    i32 18, label %135
+    i32 19, label %144
+    i32 20, label %153
+    i32 22, label %162
   ]
 
 9:                                                ; preds = %4
@@ -159,18 +159,18 @@ define i32 @ossl_print_attribute_value(ptr noundef %0, i32 noundef %1, ptr nound
   %13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %3, ptr noundef nonnull @.str.2) #4
   %14 = icmp sgt i32 %13, 3
   %15 = zext i1 %14 to i32
-  br label %179
+  br label %175
 
 16:                                               ; preds = %9
   %17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %3, ptr noundef nonnull @.str.2) #4
   %18 = icmp sgt i32 %17, 4
   %19 = zext i1 %18 to i32
-  br label %179
+  br label %175
 
 20:                                               ; preds = %4, %4
   %21 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %3, ptr noundef nonnull @.str.2) #4
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %179, label %23
+  br i1 %22, label %175, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -184,7 +184,7 @@ define i32 @ossl_print_attribute_value(ptr noundef %0, i32 noundef %1, ptr nound
   %30 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef %29) #4
   %31 = icmp sgt i32 %30, 0
   %32 = zext i1 %31 to i32
-  br label %179
+  br label %175
 
 33:                                               ; preds = %23
   %34 = load ptr, ptr %24, align 8, !tbaa !14
@@ -192,12 +192,12 @@ define i32 @ossl_print_attribute_value(ptr noundef %0, i32 noundef %1, ptr nound
   %36 = load ptr, ptr %35, align 8, !tbaa !17
   %37 = load i32, ptr %34, align 8, !tbaa !20
   %38 = call i32 @ossl_bio_print_hex(ptr noundef %0, ptr noundef %36, i32 noundef %37) #4
-  br label %179
+  br label %175
 
 39:                                               ; preds = %4
   %40 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %3, ptr noundef nonnull @.str.2) #4
   %41 = icmp slt i32 %40, 0
-  br i1 %41, label %179, label %42
+  br i1 %41, label %175, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -206,12 +206,12 @@ define i32 @ossl_print_attribute_value(ptr noundef %0, i32 noundef %1, ptr nound
   %46 = load ptr, ptr %45, align 8, !tbaa !17
   %47 = load i32, ptr %44, align 8, !tbaa !20
   %48 = tail call i32 @ossl_bio_print_hex(ptr noundef %0, ptr noundef %46, i32 noundef %47) #4
-  br label %179
+  br label %175
 
 49:                                               ; preds = %4, %4
   %50 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %3, ptr noundef nonnull @.str.2) #4
   %51 = icmp slt i32 %50, 0
-  br i1 %51, label %179, label %52
+  br i1 %51, label %175, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -220,18 +220,18 @@ define i32 @ossl_print_attribute_value(ptr noundef %0, i32 noundef %1, ptr nound
   %56 = load ptr, ptr %55, align 8, !tbaa !17
   %57 = load i32, ptr %54, align 8, !tbaa !20
   %58 = tail call i32 @ossl_bio_print_hex(ptr noundef %0, ptr noundef %56, i32 noundef %57) #4
-  br label %179
+  br label %175
 
 59:                                               ; preds = %4
   %60 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.2) #4
   %61 = icmp sgt i32 %60, 3
   %62 = zext i1 %61 to i32
-  br label %179
+  br label %175
 
 63:                                               ; preds = %4
   %64 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %3, ptr noundef nonnull @.str.2) #4
   %65 = icmp slt i32 %64, 0
-  br i1 %65, label %179, label %66
+  br i1 %65, label %175, label %66
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -264,7 +264,7 @@ define i32 @ossl_print_attribute_value(ptr noundef %0, i32 noundef %1, ptr nound
 print_oid.exit:                                   ; preds = %66, %78
   %.0.i = phi i32 [ %81, %78 ], [ 0, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %179
+  br label %175
 
 82:                                               ; preds = %4, %4, %4
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -275,7 +275,7 @@ print_oid.exit:                                   ; preds = %66, %78
   %88 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %85, ptr noundef %87) #4
   %89 = icmp sgt i32 %88, -1
   %90 = zext i1 %89 to i32
-  br label %179
+  br label %175
 
 91:                                               ; preds = %4
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -286,126 +286,122 @@ print_oid.exit:                                   ; preds = %66, %78
   %97 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %94, ptr noundef %96) #4
   %98 = icmp sgt i32 %97, -1
   %99 = zext i1 %98 to i32
-  br label %179
+  br label %175
 
 100:                                              ; preds = %4
   %101 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %3, ptr noundef nonnull @.str.2) #4
   %102 = icmp sgt i32 %101, 3
   %103 = zext i1 %102 to i32
-  br label %179
+  br label %175
 
 104:                                              ; preds = %4
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %106 = load ptr, ptr %105, align 8, !tbaa !14
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load ptr, ptr %107, align 8, !tbaa !17
   switch i32 %1, label %119 [
-    i32 876, label %105
-    i32 875, label %105
-    i32 877, label %105
-    i32 878, label %105
-    i32 467, label %105
-    i32 471, label %105
-    i32 474, label %105
-    i32 485, label %105
-    i32 500, label %105
+    i32 876, label %109
+    i32 875, label %109
+    i32 877, label %109
+    i32 878, label %109
+    i32 467, label %109
+    i32 471, label %109
+    i32 474, label %109
+    i32 485, label %109
+    i32 500, label %109
   ]
 
-105:                                              ; preds = %104, %104, %104, %104, %104, %104, %104, %104, %104
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !14
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = load ptr, ptr %108, align 8, !tbaa !17
-  store ptr %109, ptr %6, align 8, !tbaa !21
-  %110 = load i32, ptr %107, align 8, !tbaa !20
+109:                                              ; preds = %104, %104, %104, %104, %104, %104, %104, %104, %104
+  store ptr %108, ptr %6, align 8, !tbaa !21
+  %110 = load i32, ptr %106, align 8, !tbaa !20
   %111 = sext i32 %110 to i64
   %112 = call ptr @d2i_X509_NAME(ptr noundef null, ptr noundef nonnull %6, i64 noundef %111) #4
   %113 = icmp eq ptr %112, null
   br i1 %113, label %114, label %116
 
-114:                                              ; preds = %105
+114:                                              ; preds = %109
   %115 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.9) #4
-  br label %179
+  br label %175
 
-116:                                              ; preds = %105
+116:                                              ; preds = %109
   %117 = call i32 @X509_NAME_print_ex(ptr noundef %0, ptr noundef nonnull %112, i32 noundef %3, i64 noundef 131072) #4
   %118 = icmp sgt i32 %117, 0
   %spec.select = zext i1 %118 to i32
   call void @X509_NAME_free(ptr noundef nonnull %112) #4
-  br label %179
+  br label %175
 
 119:                                              ; preds = %104
-  %120 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !14
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !17
-  %124 = load i32, ptr %121, align 8, !tbaa !20
-  %125 = sext i32 %124 to i64
-  %126 = tail call i32 @ASN1_parse_dump(ptr noundef %0, ptr noundef %123, i64 noundef %125, i32 noundef %3, i32 noundef 1) #4
-  %127 = icmp sgt i32 %126, 0
-  %128 = zext i1 %127 to i32
-  br label %179
+  %120 = load i32, ptr %106, align 8, !tbaa !20
+  %121 = sext i32 %120 to i64
+  %122 = tail call i32 @ASN1_parse_dump(ptr noundef %0, ptr noundef %108, i64 noundef %121, i32 noundef %3, i32 noundef 1) #4
+  %123 = icmp sgt i32 %122, 0
+  %124 = zext i1 %123 to i32
+  br label %175
 
-129:                                              ; preds = %4
-  %130 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %131 = load ptr, ptr %130, align 8, !tbaa !14
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %133 = load ptr, ptr %132, align 8, !tbaa !17
-  %134 = load i32, ptr %131, align 8, !tbaa !20
-  %135 = sext i32 %134 to i64
-  %136 = tail call i32 @ASN1_parse_dump(ptr noundef %0, ptr noundef %133, i64 noundef %135, i32 noundef %3, i32 noundef 1) #4
-  %137 = icmp sgt i32 %136, 0
-  %138 = zext i1 %137 to i32
-  br label %179
+125:                                              ; preds = %4
+  %126 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %127 = load ptr, ptr %126, align 8, !tbaa !14
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %129 = load ptr, ptr %128, align 8, !tbaa !17
+  %130 = load i32, ptr %127, align 8, !tbaa !20
+  %131 = sext i32 %130 to i64
+  %132 = tail call i32 @ASN1_parse_dump(ptr noundef %0, ptr noundef %129, i64 noundef %131, i32 noundef %3, i32 noundef 1) #4
+  %133 = icmp sgt i32 %132, 0
+  %134 = zext i1 %133 to i32
+  br label %175
 
-139:                                              ; preds = %4, %4, %4, %4
-  %140 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %141 = load ptr, ptr %140, align 8, !tbaa !14
-  %142 = load i32, ptr %141, align 8, !tbaa !20
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %144 = load ptr, ptr %143, align 8, !tbaa !17
-  %145 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %142, ptr noundef %144) #4
-  %146 = icmp sgt i32 %145, -1
-  %147 = zext i1 %146 to i32
-  br label %179
+135:                                              ; preds = %4, %4, %4, %4
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %137 = load ptr, ptr %136, align 8, !tbaa !14
+  %138 = load i32, ptr %137, align 8, !tbaa !20
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %140 = load ptr, ptr %139, align 8, !tbaa !17
+  %141 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %138, ptr noundef %140) #4
+  %142 = icmp sgt i32 %141, -1
+  %143 = zext i1 %142 to i32
+  br label %175
 
-148:                                              ; preds = %4
-  %149 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %150 = load ptr, ptr %149, align 8, !tbaa !14
-  %151 = load i32, ptr %150, align 8, !tbaa !20
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %153 = load ptr, ptr %152, align 8, !tbaa !17
-  %154 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %151, ptr noundef %153) #4
-  %155 = icmp sgt i32 %154, -1
-  %156 = zext i1 %155 to i32
-  br label %179
+144:                                              ; preds = %4
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %146 = load ptr, ptr %145, align 8, !tbaa !14
+  %147 = load i32, ptr %146, align 8, !tbaa !20
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %149 = load ptr, ptr %148, align 8, !tbaa !17
+  %150 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %147, ptr noundef %149) #4
+  %151 = icmp sgt i32 %150, -1
+  %152 = zext i1 %151 to i32
+  br label %175
 
-157:                                              ; preds = %4
-  %158 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %159 = load ptr, ptr %158, align 8, !tbaa !14
-  %160 = load i32, ptr %159, align 8, !tbaa !20
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %162 = load ptr, ptr %161, align 8, !tbaa !17
-  %163 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %160, ptr noundef %162) #4
-  %164 = icmp sgt i32 %163, -1
-  %165 = zext i1 %164 to i32
-  br label %179
+153:                                              ; preds = %4
+  %154 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %155 = load ptr, ptr %154, align 8, !tbaa !14
+  %156 = load i32, ptr %155, align 8, !tbaa !20
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
+  %158 = load ptr, ptr %157, align 8, !tbaa !17
+  %159 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %156, ptr noundef %158) #4
+  %160 = icmp sgt i32 %159, -1
+  %161 = zext i1 %160 to i32
+  br label %175
 
-166:                                              ; preds = %4
-  %167 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %168 = load ptr, ptr %167, align 8, !tbaa !14
-  %169 = load i32, ptr %168, align 8, !tbaa !20
-  %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %171 = load ptr, ptr %170, align 8, !tbaa !17
-  %172 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %169, ptr noundef %171) #4
+162:                                              ; preds = %4
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %164 = load ptr, ptr %163, align 8, !tbaa !14
+  %165 = load i32, ptr %164, align 8, !tbaa !20
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %167 = load ptr, ptr %166, align 8, !tbaa !17
+  %168 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %165, ptr noundef %167) #4
+  %169 = icmp sgt i32 %168, -1
+  %170 = zext i1 %169 to i32
+  br label %175
+
+171:                                              ; preds = %4
+  %172 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %8) #4
   %173 = icmp sgt i32 %172, -1
   %174 = zext i1 %173 to i32
-  br label %179
+  br label %175
 
-175:                                              ; preds = %4
-  %176 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull @.str.2, i32 noundef %8) #4
-  %177 = icmp sgt i32 %176, -1
-  %178 = zext i1 %177 to i32
-  br label %179
-
-179:                                              ; preds = %63, %49, %39, %20, %175, %166, %157, %148, %139, %129, %119, %116, %114, %100, %91, %82, %print_oid.exit, %59, %52, %42, %33, %28, %16, %12
-  %.077 = phi i32 [ %178, %175 ], [ %15, %12 ], [ %19, %16 ], [ %32, %28 ], [ %38, %33 ], [ %48, %42 ], [ %58, %52 ], [ %62, %59 ], [ %.0.i, %print_oid.exit ], [ %90, %82 ], [ %99, %91 ], [ %103, %100 ], [ %128, %119 ], [ 0, %114 ], [ %spec.select, %116 ], [ %138, %129 ], [ %147, %139 ], [ %156, %148 ], [ %165, %157 ], [ %174, %166 ], [ 0, %20 ], [ 0, %39 ], [ 0, %49 ], [ 0, %63 ]
+175:                                              ; preds = %63, %49, %39, %20, %171, %162, %153, %144, %135, %125, %119, %116, %114, %100, %91, %82, %print_oid.exit, %59, %52, %42, %33, %28, %16, %12
+  %.077 = phi i32 [ %174, %171 ], [ %15, %12 ], [ %19, %16 ], [ %32, %28 ], [ %38, %33 ], [ %48, %42 ], [ %58, %52 ], [ %62, %59 ], [ %.0.i, %print_oid.exit ], [ %90, %82 ], [ %99, %91 ], [ %103, %100 ], [ %124, %119 ], [ 0, %114 ], [ %spec.select, %116 ], [ %134, %125 ], [ %143, %135 ], [ %152, %144 ], [ %161, %153 ], [ %170, %162 ], [ 0, %20 ], [ 0, %39 ], [ 0, %49 ], [ 0, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.077

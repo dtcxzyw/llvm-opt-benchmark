@@ -1965,23 +1965,23 @@ define range(i32 -2147483648, 1) i32 @ff_mpv_encode_init(ptr noundef %0) local_u
   tail call fastcc void @mpv_encode_defaults(ptr noundef %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8, !tbaa !113
-  switch i32 %5, label %7 [
-    i32 14, label %8
-    i32 5, label %8
-    i32 13, label %6
-    i32 4, label %6
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4252
+  switch i32 %5, label %8 [
+    i32 14, label %9
+    i32 5, label %9
+    i32 13, label %7
+    i32 4, label %7
   ]
 
-6:                                                ; preds = %1, %1
-  br label %8
+7:                                                ; preds = %1, %1
+  br label %9
 
-7:                                                ; preds = %1
-  br label %8
+8:                                                ; preds = %1
+  br label %9
 
-8:                                                ; preds = %1, %1, %7, %6
-  %.sink606 = phi i32 [ 1, %7 ], [ 2, %6 ], [ 3, %1 ], [ 3, %1 ]
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4252
-  store i32 %.sink606, ptr %9, align 4, !tbaa !114
+9:                                                ; preds = %1, %1, %8, %7
+  %.sink606 = phi i32 [ 1, %8 ], [ 2, %7 ], [ 3, %1 ], [ 3, %1 ]
+  store i32 %.sink606, ptr %6, align 4, !tbaa !114
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %11 = load i32, ptr %10, align 4, !tbaa !115
   %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 0)
@@ -2004,7 +2004,7 @@ define range(i32 -2147483648, 1) i32 @ff_mpv_encode_init(ptr noundef %0) local_u
   %25 = icmp sgt i32 %24, 600
   br i1 %25, label %26, label %31
 
-26:                                               ; preds = %8
+26:                                               ; preds = %9
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %28 = load i32, ptr %27, align 4, !tbaa !129
   %29 = icmp sgt i32 %28, -2
@@ -2015,8 +2015,8 @@ define range(i32 -2147483648, 1) i32 @ff_mpv_encode_init(ptr noundef %0) local_u
   store i32 600, ptr %23, align 4, !tbaa !128
   br label %31
 
-31:                                               ; preds = %30, %26, %8
-  %32 = phi i32 [ 600, %30 ], [ %24, %26 ], [ %24, %8 ]
+31:                                               ; preds = %30, %26, %9
+  %32 = phi i32 [ 600, %30 ], [ %24, %26 ], [ %24, %9 ]
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 6988
   store i32 %32, ptr %33, align 4, !tbaa !130
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 472
@@ -2207,14 +2207,14 @@ define range(i32 -2147483648, 1) i32 @ff_mpv_encode_init(ptr noundef %0) local_u
   %.not468 = icmp eq i64 %139, 0
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %141 = load i32, ptr %140, align 8, !tbaa !161
-  %.not614 = icmp eq i32 %141, 0
+  %.not613 = icmp eq i32 %141, 0
   br i1 %.not468, label %..thread539_crit_edge, label %142
 
 ..thread539_crit_edge:                            ; preds = %133
-  br i1 %.not614, label %183, label %182
+  br i1 %.not613, label %183, label %182
 
 142:                                              ; preds = %133
-  br i1 %.not614, label %143, label %.thread539.thr_comm
+  br i1 %.not613, label %143, label %.thread539.thr_comm
 
 143:                                              ; preds = %142
   switch i32 %90, label %.thread539.thr_comm [
@@ -2293,8 +2293,8 @@ define range(i32 -2147483648, 1) i32 @ff_mpv_encode_init(ptr noundef %0) local_u
 .thread539.thr_comm:                              ; preds = %142, %143
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %177 = load i32, ptr %176, align 8, !tbaa !161
-  %.not613 = icmp eq i32 %177, 0
-  br i1 %.not613, label %182, label %183
+  %.not612 = icmp eq i32 %177, 0
+  br i1 %.not612, label %182, label %183
 
 .thread539:                                       ; preds = %171, %173
   %178 = phi i64 [ %139, %171 ], [ %.pre, %173 ]
@@ -2481,8 +2481,8 @@ define range(i32 -2147483648, 1) i32 @ff_mpv_encode_init(ptr noundef %0) local_u
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 132
   %.pre572 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !169
   %257 = icmp sgt i32 %.pre572, 255
-  %or.cond608 = select i1 %256, i1 true, i1 %257
-  br i1 %or.cond608, label %.thread543._crit_edge, label %thread-pre-split544
+  %or.cond607 = select i1 %256, i1 true, i1 %257
+  br i1 %or.cond607, label %.thread543._crit_edge, label %thread-pre-split544
 
 .thread543._crit_edge:                            ; preds = %.thread543
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -2762,12 +2762,12 @@ thread-pre-split544:                              ; preds = %.thread543, %.threa
   br label %370
 
 370:                                              ; preds = %364, %367, %367, %367, %367, %367, %369
-  %.sink611 = phi i32 [ 0, %369 ], [ 96, %367 ], [ 96, %367 ], [ 96, %367 ], [ 96, %367 ], [ 96, %367 ], [ 96, %364 ]
-  %.sink609 = phi i32 [ -64, %369 ], [ 0, %367 ], [ 0, %367 ], [ 0, %367 ], [ 0, %367 ], [ 0, %367 ], [ 0, %364 ]
+  %.sink610 = phi i32 [ 0, %369 ], [ 96, %367 ], [ 96, %367 ], [ 96, %367 ], [ 96, %367 ], [ 96, %367 ], [ 96, %364 ]
+  %.sink608 = phi i32 [ -64, %369 ], [ 0, %367 ], [ 0, %367 ], [ 0, %367 ], [ 0, %367 ], [ 0, %367 ], [ 0, %364 ]
   %371 = getelementptr inbounds nuw i8, ptr %3, i64 6528
-  store i32 %.sink611, ptr %371, align 8, !tbaa !173
+  store i32 %.sink610, ptr %371, align 8, !tbaa !173
   %372 = getelementptr inbounds nuw i8, ptr %3, i64 6532
-  store i32 %.sink609, ptr %372, align 4, !tbaa !174
+  store i32 %.sink608, ptr %372, align 4, !tbaa !174
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %374 = load i32, ptr %373, align 4, !tbaa !175
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -2782,7 +2782,7 @@ thread-pre-split544:                              ; preds = %.thread543, %.threa
   br label %.thread554
 
 380:                                              ; preds = %370
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.35, i32 noundef %.sink611, i32 noundef %.sink609) #17
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.35, i32 noundef %.sink610, i32 noundef %.sink608) #17
   %381 = load ptr, ptr %65, align 8, !tbaa !133
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 20
   %383 = load i32, ptr %382, align 4, !tbaa !134

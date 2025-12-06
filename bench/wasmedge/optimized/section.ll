@@ -36683,10 +36683,10 @@ define linkonce_odr void @_ZNSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE17_M_d
   store i8 0, ptr %22, align 1
   %23 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 80
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 78
-  store i8 99, ptr %24, align 2
-  %25 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 79
-  store i8 112, ptr %25, align 1
+  %24 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 79
+  %25 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 78
+  store i8 99, ptr %25, align 2
+  store i8 112, ptr %24, align 1
   %26 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 84
   store i8 0, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 88
@@ -36698,11 +36698,11 @@ define linkonce_odr void @_ZNSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE17_M_d
   store i8 0, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 112
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 110
+  %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 111
+  %33 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 110
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %27, i8 0, i64 9, i1 false)
-  store i8 127, ptr %32, align 2
-  %33 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 111
-  store i8 64, ptr %33, align 1
+  store i8 127, ptr %33, align 2
+  store i8 64, ptr %32, align 1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 116
   store i8 0, ptr %34, align 4
   %35 = add i64 %.057.i.i.i, -1
@@ -36745,10 +36745,10 @@ _ZNKSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE12_M_check_lenEmPKc.exit: ; pre
   store i8 0, ptr %48, align 1
   %49 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 80
   store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 78
-  store i8 99, ptr %50, align 2
-  %51 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 79
-  store i8 112, ptr %51, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 79
+  %51 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 78
+  store i8 99, ptr %51, align 2
+  store i8 112, ptr %50, align 1
   %52 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 84
   store i8 0, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 88
@@ -36760,11 +36760,11 @@ _ZNKSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE12_M_check_lenEmPKc.exit: ; pre
   store i8 0, ptr %56, align 1
   %57 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 112
   store i32 0, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 110
+  %58 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 111
+  %59 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 110
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %53, i8 0, i64 9, i1 false)
-  store i8 127, ptr %58, align 2
-  %59 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 111
-  store i8 64, ptr %59, align 1
+  store i8 127, ptr %59, align 2
+  store i8 64, ptr %58, align 1
   %60 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 116
   store i8 0, ptr %60, align 4
   %61 = add i64 %.057.i.i.i32, -1
@@ -36974,11 +36974,11 @@ define linkonce_odr void @_ZNSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE17_M
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.08.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i ], [ %1, %3 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 26
+  %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 27
+  %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.08.i.i.i, i8 0, i64 48, i1 false)
-  store i8 99, ptr %19, align 2
-  %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 27
-  store i8 112, ptr %20, align 1
+  store i8 99, ptr %20, align 2
+  store i8 112, ptr %19, align 1
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 48
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -37008,11 +37008,11 @@ _ZNKSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE12_M_check_lenEmPKc.exit: ; p
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
   %.08.i.i.i31 = phi ptr [ %34, %.lr.ph.i.i.i30 ], [ %30, %_ZNKSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i32 = phi i64 [ %33, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %31 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 26
+  %31 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 27
+  %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.08.i.i.i31, i8 0, i64 48, i1 false)
-  store i8 99, ptr %31, align 2
-  %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 27
-  store i8 112, ptr %32, align 1
+  store i8 99, ptr %32, align 2
+  store i8 112, ptr %31, align 1
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 48
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -37434,11 +37434,11 @@ define linkonce_odr void @_ZNSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE17_
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.08.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.057.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i ], [ %1, %3 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 26
+  %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 27
+  %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.08.i.i.i, i8 0, i64 40, i1 false)
-  store i8 127, ptr %19, align 2
-  %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 27
-  store i8 64, ptr %20, align 1
+  store i8 127, ptr %20, align 2
+  store i8 64, ptr %19, align 1
   %21 = add i64 %.057.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 40
   %.not.i.i.i = icmp eq i64 %21, 0
@@ -37468,11 +37468,11 @@ _ZNKSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE12_M_check_lenEmPKc.exit: ; 
 .lr.ph.i.i.i30:                                   ; preds = %_ZNKSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i30
   %.08.i.i.i31 = phi ptr [ %34, %.lr.ph.i.i.i30 ], [ %30, %_ZNKSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.057.i.i.i32 = phi i64 [ %33, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE12_M_check_lenEmPKc.exit ]
-  %31 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 26
+  %31 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 27
+  %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.08.i.i.i31, i8 0, i64 40, i1 false)
-  store i8 127, ptr %31, align 2
-  %32 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 27
-  store i8 64, ptr %32, align 1
+  store i8 127, ptr %32, align 2
+  store i8 64, ptr %31, align 1
   %33 = add i64 %.057.i.i.i32, -1
   %34 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 40
   %.not.i.i.i33 = icmp eq i64 %33, 0
@@ -37808,10 +37808,10 @@ define linkonce_odr void @_ZNSt6vectorIN8WasmEdge3AST14ElementSegmentESaIS2_EE17
   store i8 1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 32
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 30
-  store i8 99, ptr %21, align 2
-  %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 31
-  store i8 112, ptr %22, align 1
+  %21 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 31
+  %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 30
+  store i8 99, ptr %22, align 2
+  store i8 112, ptr %21, align 1
   %23 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %23, i8 0, i64 28, i1 false)
   %24 = add i64 %.057.i.i.i, -1
@@ -37848,10 +37848,10 @@ _ZNKSt6vectorIN8WasmEdge3AST14ElementSegmentESaIS2_EE12_M_check_lenEmPKc.exit: ;
   store i8 1, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 32
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 30
-  store i8 99, ptr %36, align 2
-  %37 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 31
-  store i8 112, ptr %37, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 31
+  %37 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 30
+  store i8 99, ptr %37, align 2
+  store i8 112, ptr %36, align 1
   %38 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %38, i8 0, i64 28, i1 false)
   %39 = add i64 %.057.i.i.i32, -1

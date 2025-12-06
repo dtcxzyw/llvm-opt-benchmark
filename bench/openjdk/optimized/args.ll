@@ -72,7 +72,7 @@ define ptr @JLI_PreprocessArg(ptr noundef %0, i8 noundef zeroext %1) local_unnam
   %5 = alloca %struct.stat, align 8
   %6 = load i32, ptr @firstAppArgIndex, align 4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %100, label %8
+  br i1 %7, label %99, label %8
 
 8:                                                ; preds = %2
   %9 = load i8, ptr @stopExpansion, align 1
@@ -81,7 +81,7 @@ define ptr @JLI_PreprocessArg(ptr noundef %0, i8 noundef zeroext %1) local_unnam
 
 10:                                               ; preds = %8
   tail call fastcc void @checkArg(ptr noundef %0)
-  br label %100
+  br label %99
 
 11:                                               ; preds = %8
   %.not18 = icmp eq i8 %1, 0
@@ -100,7 +100,7 @@ define ptr @JLI_PreprocessArg(ptr noundef %0, i8 noundef zeroext %1) local_unnam
 17:                                               ; preds = %15
   %18 = tail call ptr @JLI_List_new(i64 noundef 8) #12
   tail call fastcc void @expand(ptr noundef %18, ptr noundef nonnull %0, ptr noundef null)
-  br label %100
+  br label %99
 
 19:                                               ; preds = %15, %12, %11
   %20 = load i8, ptr %0, align 1
@@ -109,7 +109,7 @@ define ptr @JLI_PreprocessArg(ptr noundef %0, i8 noundef zeroext %1) local_unnam
 
 21:                                               ; preds = %19
   tail call fastcc void @checkArg(ptr noundef nonnull %0)
-  br label %100
+  br label %99
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -121,14 +121,14 @@ define ptr @JLI_PreprocessArg(ptr noundef %0, i8 noundef zeroext %1) local_unnam
 
 25:                                               ; preds = %22
   tail call fastcc void @checkArg(ptr noundef nonnull %0)
-  br label %100
+  br label %99
 
 26:                                               ; preds = %22
   %27 = tail call ptr @JLI_List_new(i64 noundef 1) #12
   tail call fastcc void @checkArg(ptr noundef nonnull %23)
   %28 = tail call ptr @JLI_StringDup(ptr noundef nonnull %23) #12
   tail call void @JLI_List_add(ptr noundef %27, ptr noundef %28) #12
-  br label %100
+  br label %99
 
 29:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -192,7 +192,7 @@ readArgFile.exit.thread.i:                        ; preds = %50
   call void @JLI_List_free(ptr noundef %45) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %98
+  br label %97
 
 53:                                               ; preds = %50
   store ptr %3, ptr %47, align 8
@@ -292,47 +292,43 @@ checkArg.exit.i.i:                                ; preds = %88, %84, %78, %74, 
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i
   %.pre.i.i = load i32, ptr %4, align 8
-  switch i32 %.pre.i.i, label %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge.i [
+  %.pre24.i.pre.i = load ptr, ptr %43, align 8
+  switch i32 %.pre.i.i, label %readArgFile.exit.i [
     i32 5, label %91
     i32 2, label %91
   ]
 
-._crit_edge.i.._crit_edge._crit_edge.i_crit_edge.i: ; preds = %._crit_edge.i.i
-  %.pre24.i.pre.i = load ptr, ptr %43, align 8
-  br label %readArgFile.exit.i
-
 91:                                               ; preds = %._crit_edge.i.i, %._crit_edge.i.i
-  %92 = load ptr, ptr %43, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load i64, ptr %93, align 8
-  %.not16.i.i = icmp eq i64 %94, 0
-  br i1 %.not16.i.i, label %readArgFile.exit.i, label %95
+  %92 = getelementptr inbounds nuw i8, ptr %.pre24.i.pre.i, i64 8
+  %93 = load i64, ptr %92, align 8
+  %.not16.i.i = icmp eq i64 %93, 0
+  br i1 %.not16.i.i, label %readArgFile.exit.i, label %94
 
-95:                                               ; preds = %91
-  %96 = call ptr @JLI_List_combine(ptr noundef nonnull %92) #12
-  call fastcc void @checkArg(ptr noundef %96)
-  call void @JLI_List_add(ptr noundef %45, ptr noundef %96) #12
+94:                                               ; preds = %91
+  %95 = call ptr @JLI_List_combine(ptr noundef nonnull %.pre24.i.pre.i) #12
+  call fastcc void @checkArg(ptr noundef %95)
+  call void @JLI_List_add(ptr noundef %45, ptr noundef %95) #12
   br label %readArgFile.exit.i
 
-readArgFile.exit.i:                               ; preds = %95, %91, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge.i, %41
-  %.sink.i.i = phi ptr [ %92, %91 ], [ %92, %95 ], [ %.pre24.i.pre.i, %._crit_edge.i.._crit_edge._crit_edge.i_crit_edge.i ], [ %42, %41 ]
+readArgFile.exit.i:                               ; preds = %94, %91, %._crit_edge.i.i, %41
+  %.sink.i.i = phi ptr [ %.pre24.i.pre.i, %91 ], [ %.pre24.i.pre.i, %94 ], [ %42, %41 ], [ %.pre24.i.pre.i, %._crit_edge.i.i ]
   call void @JLI_List_free(ptr noundef %.sink.i.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %97 = icmp eq ptr %45, null
-  br i1 %97, label %98, label %expandArgFile.exit
+  %96 = icmp eq ptr %45, null
+  br i1 %96, label %97, label %expandArgFile.exit
 
-98:                                               ; preds = %readArgFile.exit.i, %readArgFile.exit.thread.i
+97:                                               ; preds = %readArgFile.exit.i, %readArgFile.exit.thread.i
   call void (ptr, ...) @JLI_ReportMessage(ptr noundef nonnull @.str.21, ptr noundef nonnull %23) #12
   call void @exit(i32 noundef 1) #14
   unreachable
 
 expandArgFile.exit:                               ; preds = %readArgFile.exit.i
-  %99 = call i32 @fclose(ptr noundef nonnull %30)
+  %98 = call i32 @fclose(ptr noundef nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %100
+  br label %99
 
-100:                                              ; preds = %26, %expandArgFile.exit, %2, %25, %21, %17, %10
+99:                                               ; preds = %26, %expandArgFile.exit, %2, %25, %21, %17, %10
   %.016 = phi ptr [ null, %10 ], [ %18, %17 ], [ null, %21 ], [ null, %25 ], [ null, %2 ], [ %27, %26 ], [ %45, %expandArgFile.exit ]
   ret ptr %.016
 }
@@ -852,18 +848,18 @@ define internal fastcc ptr @nextToken(ptr noundef nonnull captures(none) %0) unn
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %9
 
-9:                                                ; preds = %.lr.ph, %98
-  %10 = phi i32 [ %.pre146, %.lr.ph ], [ %99, %98 ]
-  %11 = phi i32 [ %.pre146, %.lr.ph ], [ %100, %98 ]
-  %12 = phi i32 [ %.pre146, %.lr.ph ], [ %101, %98 ]
-  %13 = phi i32 [ %.pre146, %.lr.ph ], [ %102, %98 ]
-  %14 = phi i32 [ %.pre146, %.lr.ph ], [ %103, %98 ]
-  %15 = phi i32 [ %.pre146, %.lr.ph ], [ %104, %98 ]
-  %16 = phi i32 [ %.pre146, %.lr.ph ], [ %105, %98 ]
-  %.0112139 = phi ptr [ %3, %.lr.ph ], [ %.2114, %98 ]
-  %.0115138 = phi ptr [ %3, %.lr.ph ], [ %106, %98 ]
+9:                                                ; preds = %.lr.ph, %97
+  %10 = phi i32 [ %.pre146, %.lr.ph ], [ %98, %97 ]
+  %11 = phi i32 [ %.pre146, %.lr.ph ], [ %99, %97 ]
+  %12 = phi i32 [ %.pre146, %.lr.ph ], [ %100, %97 ]
+  %13 = phi i32 [ %.pre146, %.lr.ph ], [ %101, %97 ]
+  %14 = phi i32 [ %.pre146, %.lr.ph ], [ %102, %97 ]
+  %15 = phi i32 [ %.pre146, %.lr.ph ], [ %103, %97 ]
+  %16 = phi i32 [ %.pre146, %.lr.ph ], [ %104, %97 ]
+  %.0112139 = phi ptr [ %3, %.lr.ph ], [ %.2114, %97 ]
+  %.0115138 = phi ptr [ %3, %.lr.ph ], [ %105, %97 ]
   %17 = load i8, ptr %.0115138, align 1
-  switch i32 %16, label %42 [
+  switch i32 %16, label %41 [
     i32 0, label %.preheader165
     i32 4, label %.preheader165
     i32 3, label %25
@@ -897,7 +893,7 @@ define internal fastcc ptr @nextToken(ptr noundef nonnull captures(none) %0) unn
   %23 = icmp eq i32 %16, 0
   %24 = select i1 %23, i32 5, i32 2
   store i32 %24, ptr %0, align 8
-  br label %42
+  br label %41
 
 25:                                               ; preds = %9
   switch i8 %17, label %26 [
@@ -931,190 +927,189 @@ define internal fastcc ptr @nextToken(ptr noundef nonnull captures(none) %0) unn
   %storemerge = phi i32 [ 2, %26 ], [ 4, %25 ], [ 4, %25 ]
   store i32 %storemerge, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0115138, i64 1
-  br label %98
+  br label %97
 
 .preheader:                                       ; preds = %9, %38
-  %.4 = phi ptr [ %37, %38 ], [ %.0115138, %9 ]
+  %.4 = phi ptr [ %36, %38 ], [ %.0115138, %9 ]
   %.2 = phi i8 [ %39, %38 ], [ %17, %9 ]
-  switch i8 %.2, label %36 [
+  %36 = getelementptr inbounds nuw i8, ptr %.4, i64 1
+  switch i8 %.2, label %37 [
     i8 13, label %40
     i8 10, label %40
   ]
 
-36:                                               ; preds = %.preheader
-  %37 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  %.not = icmp ult ptr %37, %5
+37:                                               ; preds = %.preheader
+  %.not = icmp ult ptr %36, %5
   br i1 %.not, label %38, label %.loopexit
 
-38:                                               ; preds = %36
-  %39 = load i8, ptr %37, align 1
+38:                                               ; preds = %37
+  %39 = load i8, ptr %36, align 1
   br label %.preheader, !llvm.loop !15
 
 40:                                               ; preds = %.preheader, %.preheader
-  %41 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   store i32 0, ptr %0, align 8
-  br label %98
+  br label %97
 
-42:                                               ; preds = %9, %22
-  %43 = phi i32 [ %24, %22 ], [ %10, %9 ]
-  %44 = phi i32 [ %24, %22 ], [ %11, %9 ]
-  %45 = phi i32 [ %24, %22 ], [ %12, %9 ]
-  %46 = phi i32 [ %24, %22 ], [ %13, %9 ]
-  %47 = phi i32 [ %24, %22 ], [ %14, %9 ]
-  %48 = phi i32 [ %24, %22 ], [ %15, %9 ]
-  %49 = phi i32 [ %24, %22 ], [ %16, %9 ]
+41:                                               ; preds = %9, %22
+  %42 = phi i32 [ %24, %22 ], [ %10, %9 ]
+  %43 = phi i32 [ %24, %22 ], [ %11, %9 ]
+  %44 = phi i32 [ %24, %22 ], [ %12, %9 ]
+  %45 = phi i32 [ %24, %22 ], [ %13, %9 ]
+  %46 = phi i32 [ %24, %22 ], [ %14, %9 ]
+  %47 = phi i32 [ %24, %22 ], [ %15, %9 ]
+  %48 = phi i32 [ %24, %22 ], [ %16, %9 ]
   %.2117 = phi ptr [ %.1116, %22 ], [ %.0115138, %9 ]
   %.1113 = phi ptr [ %.1116, %22 ], [ %.0112139, %9 ]
   %.1 = phi i8 [ %.0110, %22 ], [ %17, %9 ]
-  switch i8 %.1, label %98 [
-    i8 32, label %50
-    i8 9, label %50
-    i8 12, label %50
-    i8 10, label %52
-    i8 13, label %52
-    i8 35, label %71
-    i8 92, label %75
-    i8 39, label %82
-    i8 34, label %82
+  switch i8 %.1, label %97 [
+    i8 32, label %49
+    i8 9, label %49
+    i8 12, label %49
+    i8 10, label %51
+    i8 13, label %51
+    i8 35, label %70
+    i8 92, label %74
+    i8 39, label %81
+    i8 34, label %81
   ]
 
-50:                                               ; preds = %42, %42, %42
-  %51 = icmp eq i32 %44, 2
-  br i1 %51, label %98, label %52
+49:                                               ; preds = %41, %41, %41
+  %50 = icmp eq i32 %43, 2
+  br i1 %50, label %97, label %51
 
-52:                                               ; preds = %50, %42, %42
-  %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load i64, ptr %54, align 8
-  %56 = icmp eq i64 %55, 0
-  %57 = ptrtoint ptr %.2117 to i64
-  %58 = ptrtoint ptr %.1113 to i64
-  %59 = sub i64 %57, %58
-  br i1 %56, label %60, label %64
+51:                                               ; preds = %49, %41, %41
+  %52 = load ptr, ptr %7, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load i64, ptr %53, align 8
+  %55 = icmp eq i64 %54, 0
+  %56 = ptrtoint ptr %.2117 to i64
+  %57 = ptrtoint ptr %.1113 to i64
+  %58 = sub i64 %56, %57
+  br i1 %55, label %59, label %63
 
-60:                                               ; preds = %52
-  %61 = add i64 %59, 1
-  %62 = tail call ptr @JLI_MemAlloc(i64 noundef %61) #12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr readonly align 1 %.1113, i64 %59, i1 false)
-  %63 = getelementptr inbounds i8, ptr %62, i64 %59
-  store i8 0, ptr %63, align 1
-  br label %69
+59:                                               ; preds = %51
+  %60 = add i64 %58, 1
+  %61 = tail call ptr @JLI_MemAlloc(i64 noundef %60) #12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr readonly align 1 %.1113, i64 %58, i1 false)
+  %62 = getelementptr inbounds i8, ptr %61, i64 %58
+  store i8 0, ptr %62, align 1
+  br label %68
 
-64:                                               ; preds = %52
-  tail call void @JLI_List_addSubstring(ptr noundef nonnull %53, ptr noundef %.1113, i64 noundef %59) #12
-  %65 = load ptr, ptr %7, align 8
-  %66 = tail call ptr @JLI_List_combine(ptr noundef %65) #12
-  %67 = load ptr, ptr %7, align 8
-  tail call void @JLI_List_free(ptr noundef %67) #12
-  %68 = tail call ptr @JLI_List_new(i64 noundef 4) #12
-  store ptr %68, ptr %7, align 8
-  br label %69
+63:                                               ; preds = %51
+  tail call void @JLI_List_addSubstring(ptr noundef nonnull %52, ptr noundef %.1113, i64 noundef %58) #12
+  %64 = load ptr, ptr %7, align 8
+  %65 = tail call ptr @JLI_List_combine(ptr noundef %64) #12
+  %66 = load ptr, ptr %7, align 8
+  tail call void @JLI_List_free(ptr noundef %66) #12
+  %67 = tail call ptr @JLI_List_new(i64 noundef 4) #12
+  store ptr %67, ptr %7, align 8
+  br label %68
 
-69:                                               ; preds = %64, %60
-  %.0111 = phi ptr [ %62, %60 ], [ %66, %64 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.2117, i64 1
-  store ptr %70, ptr %2, align 8
+68:                                               ; preds = %63, %59
+  %.0111 = phi ptr [ %61, %59 ], [ %65, %63 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.2117, i64 1
+  store ptr %69, ptr %2, align 8
   store i32 0, ptr %0, align 8
   br label %.loopexit
 
-71:                                               ; preds = %42
-  %72 = icmp eq i32 %45, 2
-  br i1 %72, label %98, label %73
+70:                                               ; preds = %41
+  %71 = icmp eq i32 %44, 2
+  br i1 %71, label %97, label %72
 
-73:                                               ; preds = %71
+72:                                               ; preds = %70
   store i32 1, ptr %0, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %.2117, i64 1
-  br label %98
+  %73 = getelementptr inbounds nuw i8, ptr %.2117, i64 1
+  br label %97
 
-75:                                               ; preds = %42
-  %.not126 = icmp eq i32 %46, 2
-  br i1 %.not126, label %76, label %98
+74:                                               ; preds = %41
+  %.not126 = icmp eq i32 %45, 2
+  br i1 %.not126, label %75, label %97
 
-76:                                               ; preds = %75
-  %77 = load ptr, ptr %7, align 8
-  %78 = ptrtoint ptr %.2117 to i64
-  %79 = ptrtoint ptr %.1113 to i64
-  %80 = sub i64 %78, %79
-  tail call void @JLI_List_addSubstring(ptr noundef %77, ptr noundef %.1113, i64 noundef %80) #12
+75:                                               ; preds = %74
+  %76 = load ptr, ptr %7, align 8
+  %77 = ptrtoint ptr %.2117 to i64
+  %78 = ptrtoint ptr %.1113 to i64
+  %79 = sub i64 %77, %78
+  tail call void @JLI_List_addSubstring(ptr noundef %76, ptr noundef %.1113, i64 noundef %79) #12
   store i32 3, ptr %0, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %.2117, i64 1
-  br label %98
+  %80 = getelementptr inbounds nuw i8, ptr %.2117, i64 1
+  br label %97
 
-82:                                               ; preds = %42, %42
-  %83 = icmp eq i32 %48, 2
-  br i1 %83, label %84, label %86
+81:                                               ; preds = %41, %41
+  %82 = icmp eq i32 %47, 2
+  br i1 %82, label %83, label %85
 
-84:                                               ; preds = %82
-  %85 = load i8, ptr %8, align 8
-  %.not124 = icmp eq i8 %85, %.1
-  br i1 %.not124, label %86, label %98
+83:                                               ; preds = %81
+  %84 = load i8, ptr %8, align 8
+  %.not124 = icmp eq i8 %84, %.1
+  br i1 %.not124, label %85, label %97
 
-86:                                               ; preds = %84, %82
+85:                                               ; preds = %83, %81
   %.not125 = icmp eq ptr %.1113, %.2117
-  br i1 %.not125, label %92, label %87
+  br i1 %.not125, label %91, label %86
 
-87:                                               ; preds = %86
-  %88 = load ptr, ptr %7, align 8
-  %89 = ptrtoint ptr %.2117 to i64
-  %90 = ptrtoint ptr %.1113 to i64
-  %91 = sub i64 %89, %90
-  tail call void @JLI_List_addSubstring(ptr noundef %88, ptr noundef %.1113, i64 noundef %91) #12
+86:                                               ; preds = %85
+  %87 = load ptr, ptr %7, align 8
+  %88 = ptrtoint ptr %.2117 to i64
+  %89 = ptrtoint ptr %.1113 to i64
+  %90 = sub i64 %88, %89
+  tail call void @JLI_List_addSubstring(ptr noundef %87, ptr noundef %.1113, i64 noundef %90) #12
   %.pre145 = load i32, ptr %0, align 8
-  br label %92
+  br label %91
 
-92:                                               ; preds = %87, %86
-  %93 = phi i32 [ %.pre145, %87 ], [ %47, %86 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.2117, i64 1
-  %95 = icmp eq i32 %93, 5
-  br i1 %95, label %96, label %97
+91:                                               ; preds = %86, %85
+  %92 = phi i32 [ %.pre145, %86 ], [ %46, %85 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.2117, i64 1
+  %94 = icmp eq i32 %92, 5
+  br i1 %94, label %95, label %96
 
-96:                                               ; preds = %92
+95:                                               ; preds = %91
   store i8 %.1, ptr %8, align 8
   store i32 2, ptr %0, align 8
-  br label %98
+  br label %97
 
-97:                                               ; preds = %92
+96:                                               ; preds = %91
   store i32 5, ptr %0, align 8
-  br label %98
+  br label %97
 
-98:                                               ; preds = %73, %76, %97, %96, %42, %84, %75, %71, %50, %40, %34
-  %99 = phi i32 [ %43, %42 ], [ %43, %50 ], [ %43, %71 ], [ 1, %73 ], [ %43, %75 ], [ 3, %76 ], [ %43, %84 ], [ 2, %96 ], [ 5, %97 ], [ %storemerge, %34 ], [ 0, %40 ]
-  %100 = phi i32 [ %44, %42 ], [ 2, %50 ], [ %44, %71 ], [ 1, %73 ], [ %44, %75 ], [ 3, %76 ], [ %44, %84 ], [ 2, %96 ], [ 5, %97 ], [ %storemerge, %34 ], [ 0, %40 ]
-  %101 = phi i32 [ %45, %42 ], [ 2, %50 ], [ 2, %71 ], [ 1, %73 ], [ %45, %75 ], [ 3, %76 ], [ %45, %84 ], [ 2, %96 ], [ 5, %97 ], [ %storemerge, %34 ], [ 0, %40 ]
-  %102 = phi i32 [ %46, %42 ], [ 2, %50 ], [ 2, %71 ], [ 1, %73 ], [ %46, %75 ], [ 3, %76 ], [ %46, %84 ], [ 2, %96 ], [ 5, %97 ], [ %storemerge, %34 ], [ 0, %40 ]
-  %103 = phi i32 [ %47, %42 ], [ 2, %50 ], [ 2, %71 ], [ 1, %73 ], [ %46, %75 ], [ 3, %76 ], [ %47, %84 ], [ 2, %96 ], [ 5, %97 ], [ %storemerge, %34 ], [ 0, %40 ]
-  %104 = phi i32 [ %48, %42 ], [ 2, %50 ], [ 2, %71 ], [ 1, %73 ], [ %46, %75 ], [ 3, %76 ], [ 2, %84 ], [ 2, %96 ], [ 5, %97 ], [ %storemerge, %34 ], [ 0, %40 ]
-  %105 = phi i32 [ %49, %42 ], [ 2, %50 ], [ 2, %71 ], [ 1, %73 ], [ %46, %75 ], [ 3, %76 ], [ 2, %84 ], [ 2, %96 ], [ 5, %97 ], [ %storemerge, %34 ], [ 0, %40 ]
-  %.3 = phi ptr [ %.2117, %42 ], [ %.2117, %50 ], [ %.2117, %71 ], [ %.2117, %73 ], [ %.2117, %75 ], [ %.2117, %76 ], [ %.2117, %84 ], [ %.2117, %96 ], [ %.2117, %97 ], [ %.0115138, %34 ], [ %.4, %40 ]
-  %.2114 = phi ptr [ %.1113, %42 ], [ %.1113, %50 ], [ %.1113, %71 ], [ %74, %73 ], [ %.1113, %75 ], [ %81, %76 ], [ %.1113, %84 ], [ %94, %96 ], [ %94, %97 ], [ %35, %34 ], [ %41, %40 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  %107 = icmp ult ptr %106, %5
-  br i1 %107, label %9, label %._crit_edge, !llvm.loop !16
+97:                                               ; preds = %72, %75, %96, %95, %41, %83, %74, %70, %49, %40, %34
+  %98 = phi i32 [ %42, %41 ], [ %42, %49 ], [ %42, %70 ], [ 1, %72 ], [ %42, %74 ], [ 3, %75 ], [ %42, %83 ], [ 2, %95 ], [ 5, %96 ], [ %storemerge, %34 ], [ 0, %40 ]
+  %99 = phi i32 [ %43, %41 ], [ 2, %49 ], [ %43, %70 ], [ 1, %72 ], [ %43, %74 ], [ 3, %75 ], [ %43, %83 ], [ 2, %95 ], [ 5, %96 ], [ %storemerge, %34 ], [ 0, %40 ]
+  %100 = phi i32 [ %44, %41 ], [ 2, %49 ], [ 2, %70 ], [ 1, %72 ], [ %44, %74 ], [ 3, %75 ], [ %44, %83 ], [ 2, %95 ], [ 5, %96 ], [ %storemerge, %34 ], [ 0, %40 ]
+  %101 = phi i32 [ %45, %41 ], [ 2, %49 ], [ 2, %70 ], [ 1, %72 ], [ %45, %74 ], [ 3, %75 ], [ %45, %83 ], [ 2, %95 ], [ 5, %96 ], [ %storemerge, %34 ], [ 0, %40 ]
+  %102 = phi i32 [ %46, %41 ], [ 2, %49 ], [ 2, %70 ], [ 1, %72 ], [ %45, %74 ], [ 3, %75 ], [ %46, %83 ], [ 2, %95 ], [ 5, %96 ], [ %storemerge, %34 ], [ 0, %40 ]
+  %103 = phi i32 [ %47, %41 ], [ 2, %49 ], [ 2, %70 ], [ 1, %72 ], [ %45, %74 ], [ 3, %75 ], [ 2, %83 ], [ 2, %95 ], [ 5, %96 ], [ %storemerge, %34 ], [ 0, %40 ]
+  %104 = phi i32 [ %48, %41 ], [ 2, %49 ], [ 2, %70 ], [ 1, %72 ], [ %45, %74 ], [ 3, %75 ], [ 2, %83 ], [ 2, %95 ], [ 5, %96 ], [ %storemerge, %34 ], [ 0, %40 ]
+  %.3 = phi ptr [ %.2117, %41 ], [ %.2117, %49 ], [ %.2117, %70 ], [ %.2117, %72 ], [ %.2117, %74 ], [ %.2117, %75 ], [ %.2117, %83 ], [ %.2117, %95 ], [ %.2117, %96 ], [ %.0115138, %34 ], [ %.4, %40 ]
+  %.2114 = phi ptr [ %.1113, %41 ], [ %.1113, %49 ], [ %.1113, %70 ], [ %73, %72 ], [ %.1113, %74 ], [ %80, %75 ], [ %.1113, %83 ], [ %93, %95 ], [ %93, %96 ], [ %35, %34 ], [ %36, %40 ]
+  %105 = getelementptr inbounds nuw i8, ptr %.3, i64 1
+  %106 = icmp ult ptr %105, %5
+  br i1 %106, label %9, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %98, %1
-  %108 = phi i32 [ %.pre146, %1 ], [ %99, %98 ]
-  %.0115.lcssa = phi ptr [ %3, %1 ], [ %106, %98 ]
-  %.0112.lcssa = phi ptr [ %3, %1 ], [ %.2114, %98 ]
-  switch i32 %108, label %.loopexit [
-    i32 5, label %109
-    i32 2, label %109
+._crit_edge:                                      ; preds = %97, %1
+  %107 = phi i32 [ %.pre146, %1 ], [ %98, %97 ]
+  %.0115.lcssa = phi ptr [ %3, %1 ], [ %105, %97 ]
+  %.0112.lcssa = phi ptr [ %3, %1 ], [ %.2114, %97 ]
+  switch i32 %107, label %.loopexit [
+    i32 5, label %108
+    i32 2, label %108
   ]
 
-109:                                              ; preds = %._crit_edge, %._crit_edge
-  %110 = icmp ult ptr %.0112.lcssa, %.0115.lcssa
-  br i1 %110, label %111, label %.loopexit
+108:                                              ; preds = %._crit_edge, %._crit_edge
+  %109 = icmp ult ptr %.0112.lcssa, %.0115.lcssa
+  br i1 %109, label %110, label %.loopexit
 
-111:                                              ; preds = %109
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %113 = load ptr, ptr %112, align 8
-  %114 = ptrtoint ptr %.0115.lcssa to i64
-  %115 = ptrtoint ptr %.0112.lcssa to i64
-  %116 = sub i64 %114, %115
-  tail call void @JLI_List_addSubstring(ptr noundef %113, ptr noundef %.0112.lcssa, i64 noundef %116) #12
+110:                                              ; preds = %108
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %112 = load ptr, ptr %111, align 8
+  %113 = ptrtoint ptr %.0115.lcssa to i64
+  %114 = ptrtoint ptr %.0112.lcssa to i64
+  %115 = sub i64 %113, %114
+  tail call void @JLI_List_addSubstring(ptr noundef %112, ptr noundef %.0112.lcssa, i64 noundef %115) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %.critedge, %111, %109, %._crit_edge, %69
-  %.0 = phi ptr [ %.0111, %69 ], [ null, %._crit_edge ], [ null, %109 ], [ null, %111 ], [ null, %.critedge ], [ null, %36 ]
+.loopexit:                                        ; preds = %37, %.critedge, %110, %108, %._crit_edge, %68
+  %.0 = phi ptr [ %.0111, %68 ], [ null, %._crit_edge ], [ null, %108 ], [ null, %110 ], [ null, %.critedge ], [ null, %37 ]
   ret ptr %.0
 }
 

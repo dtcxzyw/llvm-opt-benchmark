@@ -3435,39 +3435,39 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %or.cond3 = and i1 %138, %137
   br i1 %or.cond3, label %tailrecurse.backedge, label %dissect_qnet6_kif_msgsend_msg_devctl.exit
 
-tailrecurse.backedge:                             ; preds = %135, %192, %dissect_qnet6_kif_msgsend_msg_extra.exit347, %dissect_qnet6_kif_msgsend_msg_extra.exit349, %dissect_qnet6_kif_msgsend_msg_extra.exit351, %dissect_qnet6_kif_msgsend_msg_extra.exit353, %dissect_qnet6_kif_msgsend_msg_extra.exit355, %dissect_qnet6_kif_msgsend_msg_extra.exit357, %dissect_qnet6_kif_msgsend_msg_extra.exit359, %dissect_qnet6_kif_msgsend_msg_extra.exit361, %dissect_qnet6_kif_msgsend_msg_extra.exit363, %dissect_qnet6_kif_msgsend_msg_extra.exit365, %dissect_qnet6_kif_msgsend_msg_extra.exit367, %dissect_qnet6_kif_msgsend_msg_extra.exit369, %dissect_qnet6_kif_msgsend_msg_extra.exit371, %dissect_qnet6_kif_msgsend_msg_extra.exit373, %dissect_qnet6_kif_msgsend_msg_extra.exit375, %dissect_qnet6_kif_msgsend_msg_extra.exit379, %dissect_qnet6_kif_msgsend_msg_extra.exit544, %313
+tailrecurse.backedge:                             ; preds = %135, %192, %dissect_qnet6_kif_msgsend_msg_extra.exit347, %dissect_qnet6_kif_msgsend_msg_extra.exit349, %dissect_qnet6_kif_msgsend_msg_extra.exit351, %dissect_qnet6_kif_msgsend_msg_extra.exit353, %dissect_qnet6_kif_msgsend_msg_extra.exit355, %dissect_qnet6_kif_msgsend_msg_extra.exit357, %dissect_qnet6_kif_msgsend_msg_extra.exit359, %dissect_qnet6_kif_msgsend_msg_extra.exit361, %dissect_qnet6_kif_msgsend_msg_extra.exit363, %dissect_qnet6_kif_msgsend_msg_extra.exit365, %dissect_qnet6_kif_msgsend_msg_extra.exit367, %dissect_qnet6_kif_msgsend_msg_extra.exit369, %dissect_qnet6_kif_msgsend_msg_extra.exit371, %dissect_qnet6_kif_msgsend_msg_extra.exit373, %dissect_qnet6_kif_msgsend_msg_extra.exit375, %dissect_qnet6_kif_msgsend_msg_extra.exit379, %dissect_qnet6_kif_msgsend_msg_extra.exit542, %313
   br label %tailrecurse
 
 139:                                              ; preds = %134
-  switch i8 %98, label %143 [
-    i8 1, label %144
-    i8 2, label %140
-    i8 9, label %141
-    i8 10, label %142
-    i8 11, label %142
+  %140 = load i32, ptr %3, align 4
+  %141 = and i32 %spec.select305471, 65535
+  switch i8 %98, label %145 [
+    i8 1, label %146
+    i8 2, label %142
+    i8 9, label %143
+    i8 10, label %144
+    i8 11, label %144
   ]
 
-140:                                              ; preds = %139
-  br label %144
-
-141:                                              ; preds = %139
-  br label %144
-
-142:                                              ; preds = %139, %139
-  br label %144
+142:                                              ; preds = %139
+  br label %146
 
 143:                                              ; preds = %139
-  br label %144
+  br label %146
 
-144:                                              ; preds = %139, %140, %141, %142, %143
-  %hf_qnet6_kif_msg_connect_extra_link_ocb.sink = phi ptr [ @hf_qnet6_kif_msg_connect_extra_symlink_path, %140 ], [ @hf_qnet6_kif_msg_connect_extra_rename_path, %141 ], [ @hf_qnet6_kif_msg_connect_extra_mount, %142 ], [ @hf_qnet6_kif_msg_connect_extra_data, %143 ], [ @hf_qnet6_kif_msg_connect_extra_link_ocb, %139 ]
-  %.sink530 = phi i32 [ 0, %140 ], [ 0, %141 ], [ 0, %142 ], [ 0, %143 ], [ %4, %139 ]
-  %145 = load i32, ptr %hf_qnet6_kif_msg_connect_extra_link_ocb.sink, align 4
-  %146 = load i32, ptr %3, align 4
-  %147 = and i32 %spec.select305471, 65535
-  %148 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %145, ptr noundef %0, i32 noundef %146, i32 noundef %147, i32 noundef %.sink530)
+144:                                              ; preds = %139, %139
+  br label %146
+
+145:                                              ; preds = %139
+  br label %146
+
+146:                                              ; preds = %139, %142, %143, %144, %145
+  %hf_qnet6_kif_msg_connect_extra_link_ocb.sink = phi ptr [ @hf_qnet6_kif_msg_connect_extra_symlink_path, %142 ], [ @hf_qnet6_kif_msg_connect_extra_rename_path, %143 ], [ @hf_qnet6_kif_msg_connect_extra_mount, %144 ], [ @hf_qnet6_kif_msg_connect_extra_data, %145 ], [ @hf_qnet6_kif_msg_connect_extra_link_ocb, %139 ]
+  %.sink528 = phi i32 [ 0, %142 ], [ 0, %143 ], [ 0, %144 ], [ 0, %145 ], [ %4, %139 ]
+  %147 = load i32, ptr %hf_qnet6_kif_msg_connect_extra_link_ocb.sink, align 4
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %147, ptr noundef %0, i32 noundef %140, i32 noundef %141, i32 noundef %.sink528)
   %149 = load i32, ptr %3, align 4
-  %150 = add i32 %149, %147
+  %150 = add i32 %149, %141
   store i32 %150, ptr %3, align 4
   br label %dissect_qnet6_kif_msgsend_msg_devctl.exit
 
@@ -3595,41 +3595,41 @@ dissect_qnet6_kif_msgsend_msg_extra.exit:         ; preds = %151, %177, %181
   br label %.sink.split
 
 .sink.split:                                      ; preds = %221, %224
-  %.sink536 = phi i32 [ 4, %224 ], [ 8, %221 ]
-  %.sink533 = phi i32 [ -26, %224 ], [ -22, %221 ]
+  %.sink534 = phi i32 [ 4, %224 ], [ 8, %221 ]
+  %.sink531 = phi i32 [ -26, %224 ], [ -22, %221 ]
   %.sink.ph = phi i32 [ 28, %224 ], [ 24, %221 ]
   %235 = load i32, ptr %3, align 4
-  %236 = add i32 %235, %.sink536
+  %236 = add i32 %235, %.sink534
   store i32 %236, ptr %3, align 4
-  %237 = add i32 %.sink533, %197
+  %237 = add i32 %.sink531, %197
   br label %238
 
 238:                                              ; preds = %.sink.split, %195
   %239 = phi i32 [ %219, %195 ], [ %236, %.sink.split ]
-  %.0552 = phi i32 [ %220, %195 ], [ %237, %.sink.split ]
+  %.0550 = phi i32 [ %220, %195 ], [ %237, %.sink.split ]
   %.sink = phi i32 [ 16, %195 ], [ %.sink.ph, %.sink.split ]
   %240 = and i16 %199, 32767
   %241 = zext nneg i16 %240 to i32
   %242 = icmp samesign ult i32 %.sink, %241
-  br i1 %242, label %243, label %dissect_qnet6_kif_msgsend_msg_extra.exit544
+  br i1 %242, label %243, label %dissect_qnet6_kif_msgsend_msg_extra.exit542
 
 243:                                              ; preds = %238
   %244 = sub nuw nsw i32 %241, %.sink
-  %spec.select.i543 = tail call i32 @llvm.smin.i32(i32 %244, i32 %.0552)
-  %245 = icmp sgt i32 %spec.select.i543, 0
-  br i1 %245, label %246, label %dissect_qnet6_kif_msgsend_msg_extra.exit544
+  %spec.select.i541 = tail call i32 @llvm.smin.i32(i32 %244, i32 %.0550)
+  %245 = icmp sgt i32 %spec.select.i541, 0
+  br i1 %245, label %246, label %dissect_qnet6_kif_msgsend_msg_extra.exit542
 
 246:                                              ; preds = %243
   %247 = load i32, ptr @hf_qnet6_kif_msgsend_extra, align 4
-  %248 = tail call ptr @proto_tree_add_string(ptr noundef %17, i32 noundef %247, ptr noundef %0, i32 noundef %239, i32 noundef %spec.select.i543, ptr noundef nonnull @.str.1105)
+  %248 = tail call ptr @proto_tree_add_string(ptr noundef %17, i32 noundef %247, ptr noundef %0, i32 noundef %239, i32 noundef %spec.select.i541, ptr noundef nonnull @.str.1105)
   %249 = load i32, ptr %3, align 4
-  %250 = add i32 %249, %spec.select.i543
+  %250 = add i32 %249, %spec.select.i541
   store i32 %250, ptr %3, align 4
-  %251 = sub i32 %.0552, %spec.select.i543
-  br label %dissect_qnet6_kif_msgsend_msg_extra.exit544
+  %251 = sub i32 %.0550, %spec.select.i541
+  br label %dissect_qnet6_kif_msgsend_msg_extra.exit542
 
-dissect_qnet6_kif_msgsend_msg_extra.exit544:      ; preds = %238, %243, %246
-  %.1 = phi i32 [ %251, %246 ], [ %.0552, %243 ], [ %.0552, %238 ]
+dissect_qnet6_kif_msgsend_msg_extra.exit542:      ; preds = %238, %243, %246
+  %.1 = phi i32 [ %251, %246 ], [ %.0550, %243 ], [ %.0550, %238 ]
   %252 = icmp slt i16 %199, 0
   %253 = icmp sgt i32 %.1, 0
   %or.cond.i306 = select i1 %252, i1 %253, i1 false
@@ -3674,7 +3674,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit544:      ; preds = %238, %243, %246
 280:                                              ; preds = %254
   %281 = load i32, ptr @hf_qnet6_kif_msg_io_write_xoffset, align 4
   %282 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %281, ptr noundef %0, i32 noundef %278, i32 noundef 8, i32 noundef range(i32 -2147483648, 1) %4)
-  br label %.sink.split537
+  br label %.sink.split535
 
 283:                                              ; preds = %254
   %284 = load i32, ptr @hf_qnet6_kif_msg_io_read_cond_min, align 4
@@ -3689,58 +3689,58 @@ dissect_qnet6_kif_msgsend_msg_extra.exit544:      ; preds = %238, %243, %246
   store i32 %291, ptr %3, align 4
   %292 = load i32, ptr @hf_qnet6_kif_msg_io_read_cond_timeout, align 4
   %293 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %292, ptr noundef %0, i32 noundef %291, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %4)
-  br label %.sink.split537
+  br label %.sink.split535
 
-.sink.split537:                                   ; preds = %280, %283
-  %.sink542 = phi i32 [ 4, %283 ], [ 8, %280 ]
-  %.sink539 = phi i32 [ -26, %283 ], [ -22, %280 ]
-  %.sink531.ph = phi i32 [ 28, %283 ], [ 24, %280 ]
+.sink.split535:                                   ; preds = %280, %283
+  %.sink540 = phi i32 [ 4, %283 ], [ 8, %280 ]
+  %.sink537 = phi i32 [ -26, %283 ], [ -22, %280 ]
+  %.sink529.ph = phi i32 [ 28, %283 ], [ 24, %280 ]
   %294 = load i32, ptr %3, align 4
-  %295 = add i32 %294, %.sink542
+  %295 = add i32 %294, %.sink540
   store i32 %295, ptr %3, align 4
-  %296 = add i32 %.sink539, %256
+  %296 = add i32 %.sink537, %256
   br label %297
 
-297:                                              ; preds = %.sink.split537, %254
-  %298 = phi i32 [ %278, %254 ], [ %295, %.sink.split537 ]
-  %.0553 = phi i32 [ %279, %254 ], [ %296, %.sink.split537 ]
-  %.sink531 = phi i32 [ 16, %254 ], [ %.sink531.ph, %.sink.split537 ]
+297:                                              ; preds = %.sink.split535, %254
+  %298 = phi i32 [ %278, %254 ], [ %295, %.sink.split535 ]
+  %.0551 = phi i32 [ %279, %254 ], [ %296, %.sink.split535 ]
+  %.sink529 = phi i32 [ 16, %254 ], [ %.sink529.ph, %.sink.split535 ]
   %299 = and i16 %258, 32767
   %300 = zext nneg i16 %299 to i32
-  %301 = icmp samesign ult i32 %.sink531, %300
-  br i1 %301, label %302, label %dissect_qnet6_kif_msgsend_msg_extra.exit546
+  %301 = icmp samesign ult i32 %.sink529, %300
+  br i1 %301, label %302, label %dissect_qnet6_kif_msgsend_msg_extra.exit544
 
 302:                                              ; preds = %297
-  %303 = sub nuw nsw i32 %300, %.sink531
-  %spec.select.i545 = tail call i32 @llvm.smin.i32(i32 %303, i32 %.0553)
-  %304 = icmp sgt i32 %spec.select.i545, 0
-  br i1 %304, label %305, label %dissect_qnet6_kif_msgsend_msg_extra.exit546
+  %303 = sub nuw nsw i32 %300, %.sink529
+  %spec.select.i543 = tail call i32 @llvm.smin.i32(i32 %303, i32 %.0551)
+  %304 = icmp sgt i32 %spec.select.i543, 0
+  br i1 %304, label %305, label %dissect_qnet6_kif_msgsend_msg_extra.exit544
 
 305:                                              ; preds = %302
   %306 = load i32, ptr @hf_qnet6_kif_msgsend_extra, align 4
-  %307 = tail call ptr @proto_tree_add_string(ptr noundef %17, i32 noundef %306, ptr noundef %0, i32 noundef %298, i32 noundef %spec.select.i545, ptr noundef nonnull @.str.1106)
+  %307 = tail call ptr @proto_tree_add_string(ptr noundef %17, i32 noundef %306, ptr noundef %0, i32 noundef %298, i32 noundef %spec.select.i543, ptr noundef nonnull @.str.1106)
   %308 = load i32, ptr %3, align 4
-  %309 = add i32 %308, %spec.select.i545
+  %309 = add i32 %308, %spec.select.i543
   store i32 %309, ptr %3, align 4
-  %310 = sub i32 %.0553, %spec.select.i545
-  br label %dissect_qnet6_kif_msgsend_msg_extra.exit546
+  %310 = sub i32 %.0551, %spec.select.i543
+  br label %dissect_qnet6_kif_msgsend_msg_extra.exit544
 
-dissect_qnet6_kif_msgsend_msg_extra.exit546:      ; preds = %297, %302, %305
+dissect_qnet6_kif_msgsend_msg_extra.exit544:      ; preds = %297, %302, %305
   %311 = phi i32 [ %309, %305 ], [ %298, %302 ], [ %298, %297 ]
-  %.1554 = phi i32 [ %310, %305 ], [ %.0553, %302 ], [ %.0553, %297 ]
+  %.1552 = phi i32 [ %310, %305 ], [ %.0551, %302 ], [ %.0551, %297 ]
   %.not.i309 = icmp sgt i16 %258, -1
-  %312 = icmp sgt i32 %.1554, 0
+  %312 = icmp sgt i32 %.1552, 0
   br i1 %.not.i309, label %314, label %313
 
-313:                                              ; preds = %dissect_qnet6_kif_msgsend_msg_extra.exit546
+313:                                              ; preds = %dissect_qnet6_kif_msgsend_msg_extra.exit544
   br i1 %312, label %tailrecurse.backedge, label %dissect_qnet6_kif_msgsend_msg_devctl.exit
 
-314:                                              ; preds = %dissect_qnet6_kif_msgsend_msg_extra.exit546
+314:                                              ; preds = %dissect_qnet6_kif_msgsend_msg_extra.exit544
   br i1 %312, label %315, label %dissect_qnet6_kif_msgsend_msg_devctl.exit
 
 315:                                              ; preds = %314
   %316 = load i32, ptr @hf_qnet6_kif_msg_io_write_data, align 4
-  %317 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %316, ptr noundef %0, i32 noundef %311, i32 noundef %.1554, i32 noundef 0)
+  %317 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %316, ptr noundef %0, i32 noundef %311, i32 noundef %.1552, i32 noundef 0)
   br label %dissect_qnet6_kif_msgsend_msg_devctl.exit
 
 318:                                              ; preds = %29
@@ -4811,8 +4811,8 @@ dissect_qnet6_kif_msgsend_msg_extra.exit379:      ; preds = %987, %1011, %1015
   %or.cond.i344 = select i1 %1021, i1 %1022, i1 false
   br i1 %or.cond.i344, label %tailrecurse.backedge, label %dissect_qnet6_kif_msgsend_msg_devctl.exit
 
-dissect_qnet6_kif_msgsend_msg_devctl.exit:        ; preds = %313, %dissect_qnet6_kif_msgsend_msg_extra.exit544, %dissect_qnet6_kif_msgsend_msg_extra.exit379, %dissect_qnet6_kif_msgsend_msg_extra.exit375, %dissect_qnet6_kif_msgsend_msg_extra.exit373, %dissect_qnet6_kif_msgsend_msg_extra.exit371, %dissect_qnet6_kif_msgsend_msg_extra.exit369, %dissect_qnet6_kif_msgsend_msg_extra.exit367, %dissect_qnet6_kif_msgsend_msg_extra.exit365, %dissect_qnet6_kif_msgsend_msg_extra.exit363, %dissect_qnet6_kif_msgsend_msg_extra.exit361, %dissect_qnet6_kif_msgsend_msg_extra.exit359, %517, %dissect_qnet6_kif_msgsend_msg_extra.exit357, %dissect_qnet6_kif_msgsend_msg_extra.exit355, %dissect_qnet6_kif_msgsend_msg_extra.exit353, %dissect_qnet6_kif_msgsend_msg_extra.exit351, %dissect_qnet6_kif_msgsend_msg_extra.exit349, %dissect_qnet6_kif_msgsend_msg_extra.exit347, %192, %29, %117, %135, %33, %30, %315, %314, %dissect_qnet6_kif_msgsend_msg_notify.exit, %144
-  %.0288 = phi i32 [ %.0147.i, %dissect_qnet6_kif_msgsend_msg_notify.exit ], [ 0, %144 ], [ 0, %315 ], [ 0, %314 ], [ 0, %313 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit544 ], [ -1, %30 ], [ -1, %33 ], [ -1, %135 ], [ -1, %29 ], [ 0, %117 ], [ 0, %192 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit347 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit349 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit351 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit353 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit355 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit357 ], [ -1, %517 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit359 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit361 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit363 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit365 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit367 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit369 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit371 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit373 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit375 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit379 ]
+dissect_qnet6_kif_msgsend_msg_devctl.exit:        ; preds = %313, %dissect_qnet6_kif_msgsend_msg_extra.exit542, %dissect_qnet6_kif_msgsend_msg_extra.exit379, %dissect_qnet6_kif_msgsend_msg_extra.exit375, %dissect_qnet6_kif_msgsend_msg_extra.exit373, %dissect_qnet6_kif_msgsend_msg_extra.exit371, %dissect_qnet6_kif_msgsend_msg_extra.exit369, %dissect_qnet6_kif_msgsend_msg_extra.exit367, %dissect_qnet6_kif_msgsend_msg_extra.exit365, %dissect_qnet6_kif_msgsend_msg_extra.exit363, %dissect_qnet6_kif_msgsend_msg_extra.exit361, %dissect_qnet6_kif_msgsend_msg_extra.exit359, %517, %dissect_qnet6_kif_msgsend_msg_extra.exit357, %dissect_qnet6_kif_msgsend_msg_extra.exit355, %dissect_qnet6_kif_msgsend_msg_extra.exit353, %dissect_qnet6_kif_msgsend_msg_extra.exit351, %dissect_qnet6_kif_msgsend_msg_extra.exit349, %dissect_qnet6_kif_msgsend_msg_extra.exit347, %192, %29, %117, %135, %33, %30, %315, %314, %dissect_qnet6_kif_msgsend_msg_notify.exit, %146
+  %.0288 = phi i32 [ %.0147.i, %dissect_qnet6_kif_msgsend_msg_notify.exit ], [ 0, %146 ], [ 0, %315 ], [ 0, %314 ], [ 0, %313 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit542 ], [ -1, %30 ], [ -1, %33 ], [ -1, %135 ], [ -1, %29 ], [ 0, %117 ], [ 0, %192 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit347 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit349 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit351 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit353 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit355 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit357 ], [ -1, %517 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit359 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit361 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit363 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit365 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit367 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit369 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit371 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit373 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit375 ], [ 0, %dissect_qnet6_kif_msgsend_msg_extra.exit379 ]
   ret i32 %.0288
 }
 

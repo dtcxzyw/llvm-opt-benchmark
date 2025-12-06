@@ -956,39 +956,39 @@ _ZN6Thread20current_or_null_safeEv.exit:          ; preds = %6
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 1092
   %26 = load volatile i32, ptr %25, align 4
+  %27 = load ptr, ptr @tty, align 8
+  %28 = ptrtoint ptr %8 to i64
+  %29 = load ptr, ptr %8, align 8
   %switch.tableidx = add i32 %26, -2
-  %27 = icmp ult i32 %switch.tableidx, 7
-  br i1 %27, label %switch.lookup, label %30
+  %30 = icmp ult i32 %switch.tableidx, 7
+  br i1 %30, label %switch.lookup, label %33
 
 switch.lookup:                                    ; preds = %14
-  %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag, i64 %28
+  %31 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag, i64 %31
   %switch.load = load i64, ptr %switch.gep, align 8
-  %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep35 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag.1, i64 %29
-  %switch.load36 = load ptr, ptr %switch.gep35, align 8
-  br label %30
+  %32 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep31 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5JVMCI6vtraceEiPKcP13__va_list_tag.1, i64 %32
+  %switch.load32 = load ptr, ptr %switch.gep31, align 8
+  br label %33
 
-30:                                               ; preds = %14, %switch.lookup
-  %.sink34 = phi i64 [ %switch.load, %switch.lookup ], [ 176, %14 ]
-  %.str.16.sink = phi ptr [ %switch.load36, %switch.lookup ], [ @.str.16, %14 ]
-  %31 = load ptr, ptr @tty, align 8
-  %32 = ptrtoint ptr %8 to i64
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.sink34
+33:                                               ; preds = %14, %switch.lookup
+  %.sink30 = phi i64 [ %switch.load, %switch.lookup ], [ 176, %14 ]
+  %.str.16.sink = phi ptr [ %switch.load32, %switch.lookup ], [ @.str.16, %14 ]
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %.sink30
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(888) %8) #14
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull %.str.16.sink, i32 noundef %0, i64 noundef %32, ptr noundef %36, i32 noundef %0, i32 noundef 32) #14
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull %.str.16.sink, i32 noundef %0, i64 noundef %28, ptr noundef %36, i32 noundef %0, i32 noundef 32) #14
   %37 = load ptr, ptr %18, align 8
   %.not.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i, label %39, label %38
 
-38:                                               ; preds = %30
+38:                                               ; preds = %33
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %24) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %18) #14
   br label %39
 
-39:                                               ; preds = %38, %30
+39:                                               ; preds = %38, %33
   %40 = load ptr, ptr %19, align 8
   %.not8.i.i.i.i = icmp eq ptr %40, %20
   br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %41

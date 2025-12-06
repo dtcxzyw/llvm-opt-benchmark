@@ -2632,23 +2632,23 @@ define internal fastcc zeroext range(i8 0, 2) i8 @setContext(ptr noundef nonnull
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph, %148
-  %.074124 = phi ptr [ %1, %.lr.ph ], [ %.377, %148 ]
-  %.079123 = phi ptr [ %1, %.lr.ph ], [ %.281, %148 ]
+21:                                               ; preds = %.lr.ph, %143
+  %.074124 = phi ptr [ %1, %.lr.ph ], [ %.377, %143 ]
+  %.079123 = phi ptr [ %1, %.lr.ph ], [ %.281, %143 ]
   %22 = load i8, ptr %.074124, align 1, !tbaa !3
-  switch i8 %22, label %137 [
-    i8 12, label %23
-    i8 0, label %23
+  %23 = load ptr, ptr %9, align 8, !tbaa !175
+  switch i8 %22, label %133 [
+    i8 12, label %24
+    i8 0, label %24
     i8 61, label %77
   ]
 
-23:                                               ; preds = %21, %21
-  %24 = load ptr, ptr %9, align 8, !tbaa !175
+24:                                               ; preds = %21, %21
   %25 = load ptr, ptr %11, align 8, !tbaa !176
-  %26 = icmp eq ptr %24, %25
+  %26 = icmp eq ptr %23, %25
   br i1 %26, label %27, label %29
 
-27:                                               ; preds = %23
+27:                                               ; preds = %24
   %28 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
   %.not101 = icmp eq i8 %28, 0
   br i1 %.not101, label %.critedge106, label %._crit_edge149
@@ -2657,8 +2657,8 @@ define internal fastcc zeroext range(i8 0, 2) i8 @setContext(ptr noundef nonnull
   %.pre150 = load ptr, ptr %9, align 8, !tbaa !175
   br label %29
 
-29:                                               ; preds = %._crit_edge149, %23
-  %30 = phi ptr [ %.pre150, %._crit_edge149 ], [ %24, %23 ]
+29:                                               ; preds = %._crit_edge149, %24
+  %30 = phi ptr [ %.pre150, %._crit_edge149 ], [ %23, %24 ]
   %31 = getelementptr i8, ptr %30, i64 1
   store ptr %31, ptr %9, align 8, !tbaa !175
   store i8 0, ptr %30, align 1, !tbaa !3
@@ -2748,197 +2748,192 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i
   %spec.select = getelementptr i8, ptr %.074124, i64 %spec.select.idx
   %76 = load ptr, ptr %10, align 8, !tbaa !177
   store ptr %76, ptr %9, align 8, !tbaa !175
-  br label %148
+  br label %143
 
 77:                                               ; preds = %21
-  %78 = load ptr, ptr %9, align 8, !tbaa !175
-  %79 = load ptr, ptr %10, align 8, !tbaa !177
-  %80 = icmp eq ptr %78, %79
-  br i1 %80, label %110, label %81
+  %78 = load ptr, ptr %10, align 8, !tbaa !177
+  %79 = icmp eq ptr %23, %78
+  br i1 %79, label %109, label %80
 
-81:                                               ; preds = %77
-  %82 = load ptr, ptr %11, align 8, !tbaa !176
-  %83 = icmp eq ptr %78, %82
-  br i1 %83, label %84, label %86
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %11, align 8, !tbaa !176
+  %82 = icmp eq ptr %23, %81
+  br i1 %82, label %83, label %85
 
-84:                                               ; preds = %81
-  %85 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
-  %.not92 = icmp eq i8 %85, 0
+83:                                               ; preds = %80
+  %84 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
+  %.not92 = icmp eq i8 %84, 0
   br i1 %.not92, label %.critedge106, label %._crit_edge
 
-._crit_edge:                                      ; preds = %84
+._crit_edge:                                      ; preds = %83
   %.pre = load ptr, ptr %9, align 8, !tbaa !175
-  br label %86
+  br label %85
 
-86:                                               ; preds = %._crit_edge, %81
-  %87 = phi ptr [ %.pre, %._crit_edge ], [ %78, %81 ]
-  %88 = getelementptr i8, ptr %87, i64 1
-  store ptr %88, ptr %9, align 8, !tbaa !175
-  store i8 0, ptr %87, align 1, !tbaa !3
-  %89 = load ptr, ptr %10, align 8, !tbaa !177
-  %90 = tail call fastcc ptr @lookup(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef %89, i64 noundef 16)
-  %.not93 = icmp eq ptr %90, null
-  br i1 %.not93, label %.critedge106, label %91
+85:                                               ; preds = %._crit_edge, %80
+  %86 = phi ptr [ %.pre, %._crit_edge ], [ %23, %80 ]
+  %87 = getelementptr i8, ptr %86, i64 1
+  store ptr %87, ptr %9, align 8, !tbaa !175
+  store i8 0, ptr %86, align 1, !tbaa !3
+  %88 = load ptr, ptr %10, align 8, !tbaa !177
+  %89 = tail call fastcc ptr @lookup(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef %88, i64 noundef 16)
+  %.not93 = icmp eq ptr %89, null
+  br i1 %.not93, label %.critedge106, label %90
 
-91:                                               ; preds = %86
-  %92 = load ptr, ptr %90, align 8, !tbaa !145
-  %93 = load ptr, ptr %10, align 8, !tbaa !177
-  %94 = icmp eq ptr %92, %93
-  br i1 %94, label %.preheader, label %108
+90:                                               ; preds = %85
+  %91 = load ptr, ptr %89, align 8, !tbaa !145
+  %92 = load ptr, ptr %10, align 8, !tbaa !177
+  %93 = icmp eq ptr %91, %92
+  br i1 %93, label %.preheader, label %107
 
-.preheader:                                       ; preds = %91, %100
-  %.0.i = phi ptr [ %104, %100 ], [ %92, %91 ]
-  %95 = load ptr, ptr %14, align 8, !tbaa !146
-  %96 = load ptr, ptr %15, align 8, !tbaa !147
-  %97 = icmp eq ptr %95, %96
-  br i1 %97, label %98, label %100
+.preheader:                                       ; preds = %90, %99
+  %.0.i = phi ptr [ %103, %99 ], [ %91, %90 ]
+  %94 = load ptr, ptr %14, align 8, !tbaa !146
+  %95 = load ptr, ptr %15, align 8, !tbaa !147
+  %96 = icmp eq ptr %94, %95
+  br i1 %96, label %97, label %99
 
-98:                                               ; preds = %.preheader
-  %99 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %13)
-  %.not.i108 = icmp eq i8 %99, 0
+97:                                               ; preds = %.preheader
+  %98 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %13)
+  %.not.i108 = icmp eq i8 %98, 0
   br i1 %.not.i108, label %poolCopyString.exit.thread, label %._crit_edge.i109
 
-poolCopyString.exit.thread:                       ; preds = %98
-  store ptr null, ptr %90, align 8, !tbaa !145
+poolCopyString.exit.thread:                       ; preds = %97
+  store ptr null, ptr %89, align 8, !tbaa !145
   br label %.critedge106
 
-._crit_edge.i109:                                 ; preds = %98
+._crit_edge.i109:                                 ; preds = %97
   %.pre.i = load ptr, ptr %14, align 8, !tbaa !146
-  br label %100
+  br label %99
 
-100:                                              ; preds = %._crit_edge.i109, %.preheader
-  %101 = phi ptr [ %.pre.i, %._crit_edge.i109 ], [ %95, %.preheader ]
-  %102 = load i8, ptr %.0.i, align 1, !tbaa !3
-  %103 = getelementptr i8, ptr %101, i64 1
-  store ptr %103, ptr %14, align 8, !tbaa !146
-  store i8 %102, ptr %101, align 1, !tbaa !3
-  %104 = getelementptr i8, ptr %.0.i, i64 1
-  %105 = load i8, ptr %.0.i, align 1, !tbaa !3
-  %.not12.i = icmp eq i8 %105, 0
+99:                                               ; preds = %._crit_edge.i109, %.preheader
+  %100 = phi ptr [ %.pre.i, %._crit_edge.i109 ], [ %94, %.preheader ]
+  %101 = load i8, ptr %.0.i, align 1, !tbaa !3
+  %102 = getelementptr i8, ptr %100, i64 1
+  store ptr %102, ptr %14, align 8, !tbaa !146
+  store i8 %101, ptr %100, align 1, !tbaa !3
+  %103 = getelementptr i8, ptr %.0.i, i64 1
+  %104 = load i8, ptr %.0.i, align 1, !tbaa !3
+  %.not12.i = icmp eq i8 %104, 0
   br i1 %.not12.i, label %poolCopyString.exit, label %.preheader, !llvm.loop !150
 
-poolCopyString.exit:                              ; preds = %100
-  %106 = load ptr, ptr %16, align 8, !tbaa !148
-  %107 = load ptr, ptr %14, align 8, !tbaa !146
-  store ptr %107, ptr %16, align 8, !tbaa !148
-  store ptr %106, ptr %90, align 8, !tbaa !145
-  %.not94 = icmp eq ptr %106, null
+poolCopyString.exit:                              ; preds = %99
+  %105 = load ptr, ptr %16, align 8, !tbaa !148
+  %106 = load ptr, ptr %14, align 8, !tbaa !146
+  store ptr %106, ptr %16, align 8, !tbaa !148
+  store ptr %105, ptr %89, align 8, !tbaa !145
+  %.not94 = icmp eq ptr %105, null
   br i1 %.not94, label %.critedge106, label %poolCopyString.exit._crit_edge
 
 poolCopyString.exit._crit_edge:                   ; preds = %poolCopyString.exit
   %.pre143 = load ptr, ptr %10, align 8, !tbaa !177
-  br label %108
+  br label %107
 
-108:                                              ; preds = %poolCopyString.exit._crit_edge, %91
-  %109 = phi ptr [ %.pre143, %poolCopyString.exit._crit_edge ], [ %93, %91 ]
-  store ptr %109, ptr %9, align 8, !tbaa !175
+107:                                              ; preds = %poolCopyString.exit._crit_edge, %90
+  %108 = phi ptr [ %.pre143, %poolCopyString.exit._crit_edge ], [ %92, %90 ]
+  store ptr %108, ptr %9, align 8, !tbaa !175
+  br label %109
+
+109:                                              ; preds = %77, %107
+  %.0 = phi ptr [ %89, %107 ], [ %17, %77 ]
   br label %110
 
-110:                                              ; preds = %77, %108
-  %.0 = phi ptr [ %90, %108 ], [ %17, %77 ]
-  br label %111
-
-111:                                              ; preds = %119, %110
-  %.074.pn = phi ptr [ %.074124, %110 ], [ %.483, %119 ]
+110:                                              ; preds = %118, %109
+  %.074.pn = phi ptr [ %.074124, %109 ], [ %.483, %118 ]
   %.483 = getelementptr i8, ptr %.074.pn, i64 1
-  %112 = load i8, ptr %.483, align 1, !tbaa !3
-  switch i8 %112, label %113 [
+  %111 = load i8, ptr %.483, align 1, !tbaa !3
+  %112 = load ptr, ptr %9, align 8, !tbaa !175
+  %113 = load ptr, ptr %11, align 8, !tbaa !176
+  %114 = icmp eq ptr %112, %113
+  switch i8 %111, label %115 [
     i8 12, label %.critedge
     i8 0, label %.critedge
   ]
 
-113:                                              ; preds = %111
-  %114 = load ptr, ptr %9, align 8, !tbaa !175
-  %115 = load ptr, ptr %11, align 8, !tbaa !176
-  %116 = icmp eq ptr %114, %115
-  br i1 %116, label %117, label %119
+115:                                              ; preds = %110
+  br i1 %114, label %116, label %118
 
-117:                                              ; preds = %113
-  %118 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
-  %.not100 = icmp eq i8 %118, 0
+116:                                              ; preds = %115
+  %117 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
+  %.not100 = icmp eq i8 %117, 0
   br i1 %.not100, label %.critedge106, label %._crit_edge146
 
-._crit_edge146:                                   ; preds = %117
+._crit_edge146:                                   ; preds = %116
   %.pre147 = load i8, ptr %.483, align 1, !tbaa !3
   %.pre148 = load ptr, ptr %9, align 8, !tbaa !175
-  br label %119
+  br label %118
 
-119:                                              ; preds = %._crit_edge146, %113
-  %120 = phi ptr [ %.pre148, %._crit_edge146 ], [ %114, %113 ]
-  %121 = phi i8 [ %.pre147, %._crit_edge146 ], [ %112, %113 ]
-  %122 = getelementptr i8, ptr %120, i64 1
-  store ptr %122, ptr %9, align 8, !tbaa !175
-  store i8 %121, ptr %120, align 1, !tbaa !3
-  br label %111, !llvm.loop !180
+118:                                              ; preds = %._crit_edge146, %115
+  %119 = phi ptr [ %.pre148, %._crit_edge146 ], [ %112, %115 ]
+  %120 = phi i8 [ %.pre147, %._crit_edge146 ], [ %111, %115 ]
+  %121 = getelementptr i8, ptr %119, i64 1
+  store ptr %121, ptr %9, align 8, !tbaa !175
+  store i8 %120, ptr %119, align 1, !tbaa !3
+  br label %110, !llvm.loop !180
 
-.critedge:                                        ; preds = %111, %111
-  %123 = load ptr, ptr %9, align 8, !tbaa !175
-  %124 = load ptr, ptr %11, align 8, !tbaa !176
-  %125 = icmp eq ptr %123, %124
-  br i1 %125, label %126, label %128
+.critedge:                                        ; preds = %110, %110
+  br i1 %114, label %122, label %124
 
-126:                                              ; preds = %.critedge
-  %127 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
-  %.not97 = icmp eq i8 %127, 0
+122:                                              ; preds = %.critedge
+  %123 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
+  %.not97 = icmp eq i8 %123, 0
   br i1 %.not97, label %.critedge106, label %._crit_edge144
 
-._crit_edge144:                                   ; preds = %126
+._crit_edge144:                                   ; preds = %122
   %.pre145 = load ptr, ptr %9, align 8, !tbaa !175
-  br label %128
+  br label %124
 
-128:                                              ; preds = %._crit_edge144, %.critedge
-  %129 = phi ptr [ %.pre145, %._crit_edge144 ], [ %123, %.critedge ]
-  %130 = getelementptr i8, ptr %129, i64 1
+124:                                              ; preds = %._crit_edge144, %.critedge
+  %125 = phi ptr [ %.pre145, %._crit_edge144 ], [ %112, %.critedge ]
+  %126 = getelementptr i8, ptr %125, i64 1
+  store ptr %126, ptr %9, align 8, !tbaa !175
+  store i8 0, ptr %125, align 1, !tbaa !3
+  %127 = load ptr, ptr %10, align 8, !tbaa !177
+  %128 = tail call fastcc i32 @addBinding(ptr noundef nonnull %0, ptr noundef nonnull %.0, ptr noundef null, ptr noundef %127, ptr noundef %18)
+  %.not98 = icmp eq i32 %128, 0
+  br i1 %.not98, label %129, label %.critedge106
+
+129:                                              ; preds = %124
+  %130 = load ptr, ptr %10, align 8, !tbaa !177
   store ptr %130, ptr %9, align 8, !tbaa !175
-  store i8 0, ptr %129, align 1, !tbaa !3
-  %131 = load ptr, ptr %10, align 8, !tbaa !177
-  %132 = tail call fastcc i32 @addBinding(ptr noundef nonnull %0, ptr noundef nonnull %.0, ptr noundef null, ptr noundef %131, ptr noundef %18)
-  %.not98 = icmp eq i32 %132, 0
-  br i1 %.not98, label %133, label %.critedge106
-
-133:                                              ; preds = %128
-  %134 = load ptr, ptr %10, align 8, !tbaa !177
-  store ptr %134, ptr %9, align 8, !tbaa !175
-  %135 = load i8, ptr %.483, align 1, !tbaa !3
-  %.not99 = icmp eq i8 %135, 0
-  %136 = getelementptr i8, ptr %.074.pn, i64 2
-  %spec.select104 = select i1 %.not99, ptr %.483, ptr %136
-  br label %148
-
-137:                                              ; preds = %21
-  %138 = load ptr, ptr %9, align 8, !tbaa !175
-  %139 = load ptr, ptr %11, align 8, !tbaa !176
-  %140 = icmp eq ptr %138, %139
-  br i1 %140, label %141, label %143
-
-141:                                              ; preds = %137
-  %142 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
-  %.not91 = icmp eq i8 %142, 0
-  br i1 %.not91, label %.critedge106, label %._crit_edge151
-
-._crit_edge151:                                   ; preds = %141
-  %.pre152 = load i8, ptr %.074124, align 1, !tbaa !3
-  %.pre153 = load ptr, ptr %9, align 8, !tbaa !175
+  %131 = load i8, ptr %.483, align 1, !tbaa !3
+  %.not99 = icmp eq i8 %131, 0
+  %132 = getelementptr i8, ptr %.074.pn, i64 2
+  %spec.select104 = select i1 %.not99, ptr %.483, ptr %132
   br label %143
 
-143:                                              ; preds = %._crit_edge151, %137
-  %144 = phi ptr [ %.pre153, %._crit_edge151 ], [ %138, %137 ]
-  %145 = phi i8 [ %.pre152, %._crit_edge151 ], [ %22, %137 ]
-  %146 = getelementptr i8, ptr %144, i64 1
-  store ptr %146, ptr %9, align 8, !tbaa !175
-  store i8 %145, ptr %144, align 1, !tbaa !3
-  %147 = getelementptr i8, ptr %.074124, i64 1
-  br label %148
+133:                                              ; preds = %21
+  %134 = load ptr, ptr %11, align 8, !tbaa !176
+  %135 = icmp eq ptr %23, %134
+  br i1 %135, label %136, label %138
 
-148:                                              ; preds = %.thread, %133, %143
-  %.281 = phi ptr [ %spec.select104, %133 ], [ %.079123, %143 ], [ %spec.select, %.thread ]
-  %.377 = phi ptr [ %spec.select104, %133 ], [ %147, %143 ], [ %spec.select, %.thread ]
-  %149 = load i8, ptr %.281, align 1, !tbaa !3
-  %.not = icmp eq i8 %149, 0
+136:                                              ; preds = %133
+  %137 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %8)
+  %.not91 = icmp eq i8 %137, 0
+  br i1 %.not91, label %.critedge106, label %._crit_edge151
+
+._crit_edge151:                                   ; preds = %136
+  %.pre152 = load i8, ptr %.074124, align 1, !tbaa !3
+  %.pre153 = load ptr, ptr %9, align 8, !tbaa !175
+  br label %138
+
+138:                                              ; preds = %._crit_edge151, %133
+  %139 = phi ptr [ %.pre153, %._crit_edge151 ], [ %23, %133 ]
+  %140 = phi i8 [ %.pre152, %._crit_edge151 ], [ %22, %133 ]
+  %141 = getelementptr i8, ptr %139, i64 1
+  store ptr %141, ptr %9, align 8, !tbaa !175
+  store i8 %140, ptr %139, align 1, !tbaa !3
+  %142 = getelementptr i8, ptr %.074124, i64 1
+  br label %143
+
+143:                                              ; preds = %.thread, %129, %138
+  %.281 = phi ptr [ %spec.select104, %129 ], [ %.079123, %138 ], [ %spec.select, %.thread ]
+  %.377 = phi ptr [ %spec.select104, %129 ], [ %142, %138 ], [ %spec.select, %.thread ]
+  %144 = load i8, ptr %.281, align 1, !tbaa !3
+  %.not = icmp eq i8 %144, 0
   br i1 %.not, label %.critedge106, label %21, !llvm.loop !181
 
-.critedge106:                                     ; preds = %84, %86, %poolCopyString.exit, %126, %128, %148, %141, %27, %117, %4, %poolCopyString.exit.thread, %2
-  %.072 = phi i8 [ 0, %2 ], [ 0, %poolCopyString.exit.thread ], [ 1, %4 ], [ 0, %117 ], [ 0, %84 ], [ 0, %86 ], [ 0, %poolCopyString.exit ], [ 0, %126 ], [ 0, %128 ], [ 1, %148 ], [ 0, %141 ], [ 0, %27 ]
+.critedge106:                                     ; preds = %83, %85, %poolCopyString.exit, %122, %124, %143, %136, %27, %116, %4, %poolCopyString.exit.thread, %2
+  %.072 = phi i8 [ 0, %2 ], [ 0, %poolCopyString.exit.thread ], [ 1, %4 ], [ 0, %116 ], [ 0, %83 ], [ 0, %85 ], [ 0, %poolCopyString.exit ], [ 0, %122 ], [ 0, %124 ], [ 1, %143 ], [ 0, %136 ], [ 0, %27 ]
   ret i8 %.072
 }
 

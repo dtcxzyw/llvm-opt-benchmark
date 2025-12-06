@@ -969,20 +969,20 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   store ptr @graticule_none, ptr %33, align 8, !tbaa !94
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %35 = load i32, ptr %34, align 8, !tbaa !37
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 376
   %switch.tableidx = add i32 %35, -1
-  %36 = icmp ult i32 %switch.tableidx, 7
-  br i1 %36, label %switch.lookup, label %38
+  %37 = icmp ult i32 %switch.tableidx, 7
+  br i1 %37, label %switch.lookup, label %39
 
 switch.lookup:                                    ; preds = %1
-  %37 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.config_input, i64 %37
+  %38 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.config_input, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %38
+  br label %39
 
-38:                                               ; preds = %1, %switch.lookup
+39:                                               ; preds = %1, %switch.lookup
   %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 256, %1 ]
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 376
-  store i32 %.sink, ptr %39, align 8, !tbaa !64
+  store i32 %.sink, ptr %36, align 8, !tbaa !64
   %40 = icmp sgt i32 %15, 8
   %41 = select i1 %40, i32 16, i32 0
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1061,202 +1061,202 @@ switch.lookup:                                    ; preds = %1
     i32 23, label %113
   ]
 
-51:                                               ; preds = %38
+51:                                               ; preds = %39
   br label %.sink.split
 
-52:                                               ; preds = %38
+52:                                               ; preds = %39
   br label %.sink.split
 
-53:                                               ; preds = %38
+53:                                               ; preds = %39
   br label %.sink.split
 
-54:                                               ; preds = %38
+54:                                               ; preds = %39
   br label %.sink.split
 
-55:                                               ; preds = %38
+55:                                               ; preds = %39
   br label %.sink.split
 
-56:                                               ; preds = %38
+56:                                               ; preds = %39
   br label %.sink.split
 
-57:                                               ; preds = %38
+57:                                               ; preds = %39
   br label %.sink.split
 
-58:                                               ; preds = %38
+58:                                               ; preds = %39
   br label %.sink.split
 
-59:                                               ; preds = %38
+59:                                               ; preds = %39
   br label %.sink.split
 
-60:                                               ; preds = %38
+60:                                               ; preds = %39
   br label %.sink.split
 
-61:                                               ; preds = %38
+61:                                               ; preds = %39
   br label %.sink.split
 
-62:                                               ; preds = %38
+62:                                               ; preds = %39
   br label %.sink.split
 
-63:                                               ; preds = %38
+63:                                               ; preds = %39
   br label %.sink.split
 
-64:                                               ; preds = %38
+64:                                               ; preds = %39
   br label %.sink.split
 
-65:                                               ; preds = %38
+65:                                               ; preds = %39
   br label %.sink.split
 
-66:                                               ; preds = %38
+66:                                               ; preds = %39
   br label %.sink.split
 
-67:                                               ; preds = %38
+67:                                               ; preds = %39
   br label %.sink.split
 
-68:                                               ; preds = %38
+68:                                               ; preds = %39
   br label %.sink.split
 
-69:                                               ; preds = %38
+69:                                               ; preds = %39
   br label %.sink.split
 
-70:                                               ; preds = %38
+70:                                               ; preds = %39
   br label %.sink.split
 
-71:                                               ; preds = %38
+71:                                               ; preds = %39
   br label %.sink.split
 
-72:                                               ; preds = %38
+72:                                               ; preds = %39
   br label %.sink.split
 
-73:                                               ; preds = %38
+73:                                               ; preds = %39
   br label %.sink.split
 
-74:                                               ; preds = %38
+74:                                               ; preds = %39
   br label %.sink.split
 
-75:                                               ; preds = %38
+75:                                               ; preds = %39
   br label %.sink.split
 
-76:                                               ; preds = %38
+76:                                               ; preds = %39
   br label %.sink.split
 
-77:                                               ; preds = %38
+77:                                               ; preds = %39
   br label %.sink.split
 
-78:                                               ; preds = %38
+78:                                               ; preds = %39
   br label %.sink.split
 
-79:                                               ; preds = %38
+79:                                               ; preds = %39
   br label %.sink.split
 
-80:                                               ; preds = %38
+80:                                               ; preds = %39
   br label %.sink.split
 
-81:                                               ; preds = %38
+81:                                               ; preds = %39
   br label %.sink.split
 
-82:                                               ; preds = %38
+82:                                               ; preds = %39
   br label %.sink.split
 
-83:                                               ; preds = %38
+83:                                               ; preds = %39
   br label %.sink.split
 
-84:                                               ; preds = %38
+84:                                               ; preds = %39
   br label %.sink.split
 
-85:                                               ; preds = %38
+85:                                               ; preds = %39
   br label %.sink.split
 
-86:                                               ; preds = %38
+86:                                               ; preds = %39
   br label %.sink.split
 
-87:                                               ; preds = %38
+87:                                               ; preds = %39
   br label %.sink.split
 
-88:                                               ; preds = %38
+88:                                               ; preds = %39
   br label %.sink.split
 
-89:                                               ; preds = %38
+89:                                               ; preds = %39
   br label %.sink.split
 
-90:                                               ; preds = %38
+90:                                               ; preds = %39
   br label %.sink.split
 
-91:                                               ; preds = %38
+91:                                               ; preds = %39
   br label %.sink.split
 
-92:                                               ; preds = %38
+92:                                               ; preds = %39
   br label %.sink.split
 
-93:                                               ; preds = %38
+93:                                               ; preds = %39
   br label %.sink.split
 
-94:                                               ; preds = %38
+94:                                               ; preds = %39
   br label %.sink.split
 
-95:                                               ; preds = %38
+95:                                               ; preds = %39
   br label %.sink.split
 
-96:                                               ; preds = %38
+96:                                               ; preds = %39
   br label %.sink.split
 
-97:                                               ; preds = %38
+97:                                               ; preds = %39
   br label %.sink.split
 
-98:                                               ; preds = %38
+98:                                               ; preds = %39
   br label %.sink.split
 
-99:                                               ; preds = %38
+99:                                               ; preds = %39
   br label %.sink.split
 
-100:                                              ; preds = %38
+100:                                              ; preds = %39
   br label %.sink.split
 
-101:                                              ; preds = %38
+101:                                              ; preds = %39
   br label %.sink.split
 
-102:                                              ; preds = %38
+102:                                              ; preds = %39
   br label %.sink.split
 
-103:                                              ; preds = %38
+103:                                              ; preds = %39
   br label %.sink.split
 
-104:                                              ; preds = %38
+104:                                              ; preds = %39
   br label %.sink.split
 
-105:                                              ; preds = %38
+105:                                              ; preds = %39
   br label %.sink.split
 
-106:                                              ; preds = %38
+106:                                              ; preds = %39
   br label %.sink.split
 
-107:                                              ; preds = %38
+107:                                              ; preds = %39
   br label %.sink.split
 
-108:                                              ; preds = %38
+108:                                              ; preds = %39
   br label %.sink.split
 
-109:                                              ; preds = %38
+109:                                              ; preds = %39
   br label %.sink.split
 
-110:                                              ; preds = %38
+110:                                              ; preds = %39
   br label %.sink.split
 
-111:                                              ; preds = %38
+111:                                              ; preds = %39
   br label %.sink.split
 
-112:                                              ; preds = %38
+112:                                              ; preds = %39
   br label %.sink.split
 
-113:                                              ; preds = %38
+113:                                              ; preds = %39
   br label %.sink.split
 
-.sink.split:                                      ; preds = %38, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113
-  %yflat16_row.sink = phi ptr [ @yflat16_row, %113 ], [ @yflat16_column, %112 ], [ @yflat16_row_mirror, %111 ], [ @yflat16_column_mirror, %110 ], [ @yflat_row, %109 ], [ @yflat_column, %108 ], [ @yflat_row_mirror, %107 ], [ @yflat_column_mirror, %106 ], [ @xflat16_row, %105 ], [ @xflat16_column, %104 ], [ @xflat16_row_mirror, %103 ], [ @xflat16_column_mirror, %102 ], [ @xflat_row, %101 ], [ @xflat_column, %100 ], [ @xflat_row_mirror, %99 ], [ @xflat_column_mirror, %98 ], [ @acolor16_row, %97 ], [ @acolor16_column, %96 ], [ @acolor16_row_mirror, %95 ], [ @acolor16_column_mirror, %94 ], [ @acolor_row, %93 ], [ @acolor_column, %92 ], [ @acolor_row_mirror, %91 ], [ @acolor_column_mirror, %90 ], [ @color16_row, %89 ], [ @color16_column, %88 ], [ @color16_row_mirror, %87 ], [ @color16_column_mirror, %86 ], [ @color_row, %85 ], [ @color_column, %84 ], [ @color_row_mirror, %83 ], [ @color_column_mirror, %82 ], [ @chroma16_row, %81 ], [ @chroma16_column, %80 ], [ @chroma16_row_mirror, %79 ], [ @chroma16_column_mirror, %78 ], [ @chroma_row, %77 ], [ @chroma_column, %76 ], [ @chroma_row_mirror, %75 ], [ @chroma_column_mirror, %74 ], [ @aflat16_row, %73 ], [ @aflat16_column, %72 ], [ @aflat16_row_mirror, %71 ], [ @aflat16_column_mirror, %70 ], [ @aflat_row, %69 ], [ @aflat_column, %68 ], [ @aflat_row_mirror, %67 ], [ @aflat_column_mirror, %66 ], [ @flat16_row, %65 ], [ @flat16_column, %64 ], [ @flat16_row_mirror, %63 ], [ @flat16_column_mirror, %62 ], [ @flat_row, %61 ], [ @flat_column, %60 ], [ @flat_row_mirror, %59 ], [ @flat_column_mirror, %58 ], [ @lowpass16_row, %57 ], [ @lowpass16_column, %56 ], [ @lowpass16_row_mirror, %55 ], [ @lowpass16_column_mirror, %54 ], [ @lowpass_row, %53 ], [ @lowpass_column, %52 ], [ @lowpass_row_mirror, %51 ], [ @lowpass_column_mirror, %38 ]
+.sink.split:                                      ; preds = %39, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %65, %66, %67, %68, %69, %70, %71, %72, %73, %74, %75, %76, %77, %78, %79, %80, %81, %82, %83, %84, %85, %86, %87, %88, %89, %90, %91, %92, %93, %94, %95, %96, %97, %98, %99, %100, %101, %102, %103, %104, %105, %106, %107, %108, %109, %110, %111, %112, %113
+  %yflat16_row.sink = phi ptr [ @yflat16_row, %113 ], [ @yflat16_column, %112 ], [ @yflat16_row_mirror, %111 ], [ @yflat16_column_mirror, %110 ], [ @yflat_row, %109 ], [ @yflat_column, %108 ], [ @yflat_row_mirror, %107 ], [ @yflat_column_mirror, %106 ], [ @xflat16_row, %105 ], [ @xflat16_column, %104 ], [ @xflat16_row_mirror, %103 ], [ @xflat16_column_mirror, %102 ], [ @xflat_row, %101 ], [ @xflat_column, %100 ], [ @xflat_row_mirror, %99 ], [ @xflat_column_mirror, %98 ], [ @acolor16_row, %97 ], [ @acolor16_column, %96 ], [ @acolor16_row_mirror, %95 ], [ @acolor16_column_mirror, %94 ], [ @acolor_row, %93 ], [ @acolor_column, %92 ], [ @acolor_row_mirror, %91 ], [ @acolor_column_mirror, %90 ], [ @color16_row, %89 ], [ @color16_column, %88 ], [ @color16_row_mirror, %87 ], [ @color16_column_mirror, %86 ], [ @color_row, %85 ], [ @color_column, %84 ], [ @color_row_mirror, %83 ], [ @color_column_mirror, %82 ], [ @chroma16_row, %81 ], [ @chroma16_column, %80 ], [ @chroma16_row_mirror, %79 ], [ @chroma16_column_mirror, %78 ], [ @chroma_row, %77 ], [ @chroma_column, %76 ], [ @chroma_row_mirror, %75 ], [ @chroma_column_mirror, %74 ], [ @aflat16_row, %73 ], [ @aflat16_column, %72 ], [ @aflat16_row_mirror, %71 ], [ @aflat16_column_mirror, %70 ], [ @aflat_row, %69 ], [ @aflat_column, %68 ], [ @aflat_row_mirror, %67 ], [ @aflat_column_mirror, %66 ], [ @flat16_row, %65 ], [ @flat16_column, %64 ], [ @flat16_row_mirror, %63 ], [ @flat16_column_mirror, %62 ], [ @flat_row, %61 ], [ @flat_column, %60 ], [ @flat_row_mirror, %59 ], [ @flat_column_mirror, %58 ], [ @lowpass16_row, %57 ], [ @lowpass16_column, %56 ], [ @lowpass16_row_mirror, %55 ], [ @lowpass16_column_mirror, %54 ], [ @lowpass_row, %53 ], [ @lowpass_column, %52 ], [ @lowpass_row_mirror, %51 ], [ @lowpass_column_mirror, %39 ]
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 464
   store ptr %yflat16_row.sink, ptr %114, align 8, !tbaa !91
   br label %115
 
-115:                                              ; preds = %.sink.split, %38
+115:                                              ; preds = %.sink.split, %39
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 384
   store i8 -1, ptr %116, align 8, !tbaa !62
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 52
@@ -1308,8 +1308,8 @@ switch.lookup:                                    ; preds = %1
   br label %144
 
 144:                                              ; preds = %135, %141, %138, %131
-  %.sink265 = phi ptr [ %137, %135 ], [ %143, %141 ], [ %140, %138 ], [ %133, %131 ]
-  store ptr %.sink265, ptr %129, align 8, !tbaa !106
+  %.sink264 = phi ptr [ %137, %135 ], [ %143, %141 ], [ %140, %138 ], [ %133, %131 ]
+  store ptr %.sink264, ptr %129, align 8, !tbaa !106
   %switch = icmp ult i32 %35, 8
   %145 = icmp sgt i32 %118, 0
   %or.cond = select i1 %switch, i1 %145, i1 false
@@ -1321,21 +1321,21 @@ switch.lookup:                                    ; preds = %1
 
 148:                                              ; preds = %146
   %149 = select i1 %40, ptr @graticule16_column, ptr @graticule_column
-  br label %.sink.split257
+  br label %.sink.split256
 
 150:                                              ; preds = %146
   br i1 %126, label %151, label %153
 
 151:                                              ; preds = %150
   %152 = select i1 %40, ptr @graticule16_row, ptr @graticule_row
-  br label %.sink.split257
+  br label %.sink.split256
 
-.sink.split257:                                   ; preds = %151, %148
-  %.sink258 = phi ptr [ %149, %148 ], [ %152, %151 ]
-  store ptr %.sink258, ptr %33, align 8, !tbaa !94
+.sink.split256:                                   ; preds = %151, %148
+  %.sink257 = phi ptr [ %149, %148 ], [ %152, %151 ]
+  store ptr %.sink257, ptr %33, align 8, !tbaa !94
   br label %153
 
-153:                                              ; preds = %.sink.split257, %144, %150
+153:                                              ; preds = %.sink.split256, %144, %150
   switch i32 %35, label %193 [
     i32 4, label %154
     i32 5, label %154
@@ -1357,31 +1357,31 @@ switch.lookup:                                    ; preds = %1
   ]
 
 157:                                              ; preds = %154
-  %switch.tableidx266 = add i32 %15, -8
-  %158 = icmp ult i32 %switch.tableidx266, 5
-  %switch.maskindex = trunc i32 %switch.tableidx266 to i8
+  %switch.tableidx265 = add i32 %15, -8
+  %158 = icmp ult i32 %switch.tableidx265, 5
+  %switch.maskindex = trunc i32 %switch.tableidx265 to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond370 = select i1 %158, i1 %switch.lobit, i1 false
-  br i1 %or.cond370, label %.sink.split259, label %193
+  %or.cond369 = select i1 %158, i1 %switch.lobit, i1 false
+  br i1 %or.cond369, label %.sink.split258, label %193
 
 159:                                              ; preds = %154
-  %switch.tableidx271 = add i32 %15, -8
-  %160 = icmp ult i32 %switch.tableidx271, 5
-  %switch.maskindex275 = trunc i32 %switch.tableidx271 to i8
-  %switch.shifted276 = lshr i8 23, %switch.maskindex275
-  %switch.lobit277 = trunc i8 %switch.shifted276 to i1
-  %or.cond371 = select i1 %160, i1 %switch.lobit277, i1 false
-  br i1 %or.cond371, label %.sink.split259, label %193
+  %switch.tableidx270 = add i32 %15, -8
+  %160 = icmp ult i32 %switch.tableidx270, 5
+  %switch.maskindex274 = trunc i32 %switch.tableidx270 to i8
+  %switch.shifted275 = lshr i8 23, %switch.maskindex274
+  %switch.lobit276 = trunc i8 %switch.shifted275 to i1
+  %or.cond370 = select i1 %160, i1 %switch.lobit276, i1 false
+  br i1 %or.cond370, label %.sink.split258, label %193
 
 161:                                              ; preds = %154
-  %switch.tableidx280 = add i32 %15, -8
-  %162 = icmp ult i32 %switch.tableidx280, 5
-  %switch.maskindex284 = trunc i32 %switch.tableidx280 to i8
-  %switch.shifted285 = lshr i8 23, %switch.maskindex284
-  %switch.lobit286 = trunc i8 %switch.shifted285 to i1
-  %or.cond372 = select i1 %162, i1 %switch.lobit286, i1 false
-  br i1 %or.cond372, label %.sink.split259, label %193
+  %switch.tableidx279 = add i32 %15, -8
+  %162 = icmp ult i32 %switch.tableidx279, 5
+  %switch.maskindex283 = trunc i32 %switch.tableidx279 to i8
+  %switch.shifted284 = lshr i8 23, %switch.maskindex283
+  %switch.lobit285 = trunc i8 %switch.shifted284 to i1
+  %or.cond371 = select i1 %162, i1 %switch.lobit285, i1 false
+  br i1 %or.cond371, label %.sink.split258, label %193
 
 163:                                              ; preds = %153
   %164 = getelementptr inbounds nuw i8, ptr %5, i64 380
@@ -1393,31 +1393,31 @@ switch.lookup:                                    ; preds = %1
   ]
 
 166:                                              ; preds = %163
-  %switch.tableidx289 = add i32 %15, -8
-  %167 = icmp ult i32 %switch.tableidx289, 5
-  %switch.maskindex293 = trunc i32 %switch.tableidx289 to i8
-  %switch.shifted294 = lshr i8 23, %switch.maskindex293
-  %switch.lobit295 = trunc i8 %switch.shifted294 to i1
-  %or.cond373 = select i1 %167, i1 %switch.lobit295, i1 false
-  br i1 %or.cond373, label %.sink.split259, label %193
+  %switch.tableidx288 = add i32 %15, -8
+  %167 = icmp ult i32 %switch.tableidx288, 5
+  %switch.maskindex292 = trunc i32 %switch.tableidx288 to i8
+  %switch.shifted293 = lshr i8 23, %switch.maskindex292
+  %switch.lobit294 = trunc i8 %switch.shifted293 to i1
+  %or.cond372 = select i1 %167, i1 %switch.lobit294, i1 false
+  br i1 %or.cond372, label %.sink.split258, label %193
 
 168:                                              ; preds = %163
-  %switch.tableidx298 = add i32 %15, -8
-  %169 = icmp ult i32 %switch.tableidx298, 5
-  %switch.maskindex302 = trunc i32 %switch.tableidx298 to i8
-  %switch.shifted303 = lshr i8 23, %switch.maskindex302
-  %switch.lobit304 = trunc i8 %switch.shifted303 to i1
-  %or.cond374 = select i1 %169, i1 %switch.lobit304, i1 false
-  br i1 %or.cond374, label %.sink.split259, label %193
+  %switch.tableidx297 = add i32 %15, -8
+  %169 = icmp ult i32 %switch.tableidx297, 5
+  %switch.maskindex301 = trunc i32 %switch.tableidx297 to i8
+  %switch.shifted302 = lshr i8 23, %switch.maskindex301
+  %switch.lobit303 = trunc i8 %switch.shifted302 to i1
+  %or.cond373 = select i1 %169, i1 %switch.lobit303, i1 false
+  br i1 %or.cond373, label %.sink.split258, label %193
 
 170:                                              ; preds = %163
-  %switch.tableidx307 = add i32 %15, -8
-  %171 = icmp ult i32 %switch.tableidx307, 5
-  %switch.maskindex311 = trunc i32 %switch.tableidx307 to i8
-  %switch.shifted312 = lshr i8 23, %switch.maskindex311
-  %switch.lobit313 = trunc i8 %switch.shifted312 to i1
-  %or.cond375 = select i1 %171, i1 %switch.lobit313, i1 false
-  br i1 %or.cond375, label %.sink.split259, label %193
+  %switch.tableidx306 = add i32 %15, -8
+  %171 = icmp ult i32 %switch.tableidx306, 5
+  %switch.maskindex310 = trunc i32 %switch.tableidx306 to i8
+  %switch.shifted311 = lshr i8 23, %switch.maskindex310
+  %switch.lobit312 = trunc i8 %switch.shifted311 to i1
+  %or.cond374 = select i1 %171, i1 %switch.lobit312, i1 false
+  br i1 %or.cond374, label %.sink.split258, label %193
 
 172:                                              ; preds = %153, %153, %153
   %173 = getelementptr inbounds nuw i8, ptr %5, i64 380
@@ -1429,31 +1429,31 @@ switch.lookup:                                    ; preds = %1
   ]
 
 175:                                              ; preds = %172
-  %switch.tableidx316 = add i32 %15, -8
-  %176 = icmp ult i32 %switch.tableidx316, 5
-  %switch.maskindex320 = trunc i32 %switch.tableidx316 to i8
-  %switch.shifted321 = lshr i8 23, %switch.maskindex320
-  %switch.lobit322 = trunc i8 %switch.shifted321 to i1
-  %or.cond376 = select i1 %176, i1 %switch.lobit322, i1 false
-  br i1 %or.cond376, label %.sink.split259, label %193
+  %switch.tableidx315 = add i32 %15, -8
+  %176 = icmp ult i32 %switch.tableidx315, 5
+  %switch.maskindex319 = trunc i32 %switch.tableidx315 to i8
+  %switch.shifted320 = lshr i8 23, %switch.maskindex319
+  %switch.lobit321 = trunc i8 %switch.shifted320 to i1
+  %or.cond375 = select i1 %176, i1 %switch.lobit321, i1 false
+  br i1 %or.cond375, label %.sink.split258, label %193
 
 177:                                              ; preds = %172
-  %switch.tableidx325 = add i32 %15, -8
-  %178 = icmp ult i32 %switch.tableidx325, 5
-  %switch.maskindex329 = trunc i32 %switch.tableidx325 to i8
-  %switch.shifted330 = lshr i8 23, %switch.maskindex329
-  %switch.lobit331 = trunc i8 %switch.shifted330 to i1
-  %or.cond377 = select i1 %178, i1 %switch.lobit331, i1 false
-  br i1 %or.cond377, label %.sink.split259, label %193
+  %switch.tableidx324 = add i32 %15, -8
+  %178 = icmp ult i32 %switch.tableidx324, 5
+  %switch.maskindex328 = trunc i32 %switch.tableidx324 to i8
+  %switch.shifted329 = lshr i8 23, %switch.maskindex328
+  %switch.lobit330 = trunc i8 %switch.shifted329 to i1
+  %or.cond376 = select i1 %178, i1 %switch.lobit330, i1 false
+  br i1 %or.cond376, label %.sink.split258, label %193
 
 179:                                              ; preds = %172
-  %switch.tableidx334 = add i32 %15, -8
-  %180 = icmp ult i32 %switch.tableidx334, 5
-  %switch.maskindex338 = trunc i32 %switch.tableidx334 to i8
-  %switch.shifted339 = lshr i8 23, %switch.maskindex338
-  %switch.lobit340 = trunc i8 %switch.shifted339 to i1
-  %or.cond378 = select i1 %180, i1 %switch.lobit340, i1 false
-  br i1 %or.cond378, label %.sink.split259, label %193
+  %switch.tableidx333 = add i32 %15, -8
+  %180 = icmp ult i32 %switch.tableidx333, 5
+  %switch.maskindex337 = trunc i32 %switch.tableidx333 to i8
+  %switch.shifted338 = lshr i8 23, %switch.maskindex337
+  %switch.lobit339 = trunc i8 %switch.shifted338 to i1
+  %or.cond377 = select i1 %180, i1 %switch.lobit339, i1 false
+  br i1 %or.cond377, label %.sink.split258, label %193
 
 181:                                              ; preds = %153
   %182 = getelementptr inbounds nuw i8, ptr %5, i64 380
@@ -1465,46 +1465,46 @@ switch.lookup:                                    ; preds = %1
   ]
 
 184:                                              ; preds = %181
-  %switch.tableidx343 = add i32 %15, -8
-  %185 = icmp ult i32 %switch.tableidx343, 5
-  %switch.maskindex347 = trunc i32 %switch.tableidx343 to i8
-  %switch.shifted348 = lshr i8 23, %switch.maskindex347
-  %switch.lobit349 = trunc i8 %switch.shifted348 to i1
-  %or.cond379 = select i1 %185, i1 %switch.lobit349, i1 false
-  br i1 %or.cond379, label %.sink.split259, label %193
+  %switch.tableidx342 = add i32 %15, -8
+  %185 = icmp ult i32 %switch.tableidx342, 5
+  %switch.maskindex346 = trunc i32 %switch.tableidx342 to i8
+  %switch.shifted347 = lshr i8 23, %switch.maskindex346
+  %switch.lobit348 = trunc i8 %switch.shifted347 to i1
+  %or.cond378 = select i1 %185, i1 %switch.lobit348, i1 false
+  br i1 %or.cond378, label %.sink.split258, label %193
 
 186:                                              ; preds = %181
-  %switch.tableidx352 = add i32 %15, -8
-  %187 = icmp ult i32 %switch.tableidx352, 5
-  %switch.maskindex356 = trunc i32 %switch.tableidx352 to i8
-  %switch.shifted357 = lshr i8 23, %switch.maskindex356
-  %switch.lobit358 = trunc i8 %switch.shifted357 to i1
-  %or.cond380 = select i1 %187, i1 %switch.lobit358, i1 false
-  br i1 %or.cond380, label %.sink.split259, label %193
+  %switch.tableidx351 = add i32 %15, -8
+  %187 = icmp ult i32 %switch.tableidx351, 5
+  %switch.maskindex355 = trunc i32 %switch.tableidx351 to i8
+  %switch.shifted356 = lshr i8 23, %switch.maskindex355
+  %switch.lobit357 = trunc i8 %switch.shifted356 to i1
+  %or.cond379 = select i1 %187, i1 %switch.lobit357, i1 false
+  br i1 %or.cond379, label %.sink.split258, label %193
 
 188:                                              ; preds = %181
-  %switch.tableidx361 = add i32 %15, -8
-  %189 = icmp ult i32 %switch.tableidx361, 5
-  %switch.maskindex365 = trunc i32 %switch.tableidx361 to i8
-  %switch.shifted366 = lshr i8 23, %switch.maskindex365
-  %switch.lobit367 = trunc i8 %switch.shifted366 to i1
-  %or.cond381 = select i1 %189, i1 %switch.lobit367, i1 false
-  br i1 %or.cond381, label %.sink.split259, label %193
+  %switch.tableidx360 = add i32 %15, -8
+  %189 = icmp ult i32 %switch.tableidx360, 5
+  %switch.maskindex364 = trunc i32 %switch.tableidx360 to i8
+  %switch.shifted365 = lshr i8 23, %switch.maskindex364
+  %switch.lobit366 = trunc i8 %switch.shifted365 to i1
+  %or.cond380 = select i1 %189, i1 %switch.lobit366, i1 false
+  br i1 %or.cond380, label %.sink.split258, label %193
 
-.sink.split259:                                   ; preds = %188, %186, %184, %179, %177, %175, %170, %168, %166, %161, %159, %157
-  %switch.tableidx361.sink = phi i32 [ %switch.tableidx266, %157 ], [ %switch.tableidx271, %159 ], [ %switch.tableidx280, %161 ], [ %switch.tableidx289, %166 ], [ %switch.tableidx298, %168 ], [ %switch.tableidx307, %170 ], [ %switch.tableidx316, %175 ], [ %switch.tableidx325, %177 ], [ %switch.tableidx334, %179 ], [ %switch.tableidx343, %184 ], [ %switch.tableidx352, %186 ], [ %switch.tableidx361, %188 ]
+.sink.split258:                                   ; preds = %188, %186, %184, %179, %177, %175, %170, %168, %166, %161, %159, %157
+  %switch.tableidx360.sink = phi i32 [ %switch.tableidx265, %157 ], [ %switch.tableidx270, %159 ], [ %switch.tableidx279, %161 ], [ %switch.tableidx288, %166 ], [ %switch.tableidx297, %168 ], [ %switch.tableidx306, %170 ], [ %switch.tableidx315, %175 ], [ %switch.tableidx324, %177 ], [ %switch.tableidx333, %179 ], [ %switch.tableidx342, %184 ], [ %switch.tableidx351, %186 ], [ %switch.tableidx360, %188 ]
   %switch.table.config_input.12.sink = phi ptr [ @switch.table.config_input.1, %157 ], [ @switch.table.config_input.5, %159 ], [ @switch.table.config_input.6, %161 ], [ @switch.table.config_input.4, %166 ], [ @switch.table.config_input.5, %168 ], [ @switch.table.config_input.6, %170 ], [ @switch.table.config_input.7, %175 ], [ @switch.table.config_input.8, %177 ], [ @switch.table.config_input.9, %179 ], [ @switch.table.config_input.10, %184 ], [ @switch.table.config_input.11, %186 ], [ @switch.table.config_input.12, %188 ]
-  %.sink260 = phi i32 [ 3, %157 ], [ 5, %159 ], [ 5, %161 ], [ 5, %166 ], [ 5, %168 ], [ 5, %170 ], [ 3, %175 ], [ 5, %177 ], [ 7, %179 ], [ 3, %184 ], [ 5, %186 ], [ 7, %188 ]
-  %190 = zext nneg i32 %switch.tableidx361.sink to i64
-  %switch.gep368 = getelementptr inbounds nuw ptr, ptr %switch.table.config_input.12.sink, i64 %190
-  %switch.load369 = load ptr, ptr %switch.gep368, align 8
+  %.sink259 = phi i32 [ 3, %157 ], [ 5, %159 ], [ 5, %161 ], [ 5, %166 ], [ 5, %168 ], [ 5, %170 ], [ 3, %175 ], [ 5, %177 ], [ 7, %179 ], [ 3, %184 ], [ 5, %186 ], [ 7, %188 ]
+  %190 = zext nneg i32 %switch.tableidx360.sink to i64
+  %switch.gep367 = getelementptr inbounds nuw ptr, ptr %switch.table.config_input.12.sink, i64 %190
+  %switch.load368 = load ptr, ptr %switch.gep367, align 8
   %191 = getelementptr inbounds nuw i8, ptr %5, i64 424
-  store ptr %switch.load369, ptr %191, align 8, !tbaa !108
+  store ptr %switch.load368, ptr %191, align 8, !tbaa !108
   %192 = getelementptr inbounds nuw i8, ptr %5, i64 432
-  store i32 %.sink260, ptr %192, align 8, !tbaa !109
+  store i32 %.sink259, ptr %192, align 8, !tbaa !109
   br label %193
 
-193:                                              ; preds = %188, %186, %184, %179, %177, %175, %170, %168, %166, %161, %159, %157, %.sink.split259, %181, %172, %163, %154, %153
+193:                                              ; preds = %188, %186, %184, %179, %177, %175, %170, %168, %166, %161, %159, %157, %.sink.split258, %181, %172, %163, %154, %153
   %194 = getelementptr inbounds nuw i8, ptr %5, i64 376
   %195 = add nsw i32 %15, -8
   %196 = shl i32 %.sink, %195
@@ -1524,9 +1524,9 @@ switch.lookup:                                    ; preds = %1
   br label %200
 
 200:                                              ; preds = %193, %198
-  %.sink263 = phi i32 [ -16777216, %198 ], [ -8421632, %193 ]
+  %.sink262 = phi i32 [ -16777216, %198 ], [ -8421632, %193 ]
   %201 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 %.sink263, ptr %201, align 4
+  store i32 %.sink262, ptr %201, align 4
   ret i32 0
 }
 

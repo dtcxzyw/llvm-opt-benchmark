@@ -388,45 +388,40 @@ define hidden void @KeccakP1600_OverwriteLanes(ptr noundef writeonly captures(no
   %wide.trip.count = zext i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %12
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
   %4 = trunc nuw i64 %indvars.iv to i32
+  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %6 = load i64, ptr %5, align 8, !tbaa !4
   switch i32 %4, label %9 [
-    i32 20, label %5
-    i32 17, label %5
-    i32 12, label %5
-    i32 8, label %5
-    i32 2, label %5
-    i32 1, label %5
+    i32 20, label %7
+    i32 17, label %7
+    i32 12, label %7
+    i32 8, label %7
+    i32 2, label %7
+    i32 1, label %7
   ]
 
-5:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  %7 = load i64, ptr %6, align 8, !tbaa !4
-  %8 = xor i64 %7, -1
-  br label %12
+7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
+  %8 = xor i64 %6, -1
+  br label %9
 
-9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  %11 = load i64, ptr %10, align 8, !tbaa !4
-  br label %12
-
-12:                                               ; preds = %5, %9
-  %.sink = phi i64 [ %8, %5 ], [ %11, %9 ]
-  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
-  store i64 %.sink, ptr %13, align 8, !tbaa !4
+9:                                                ; preds = %.lr.ph, %7
+  %.sink = phi i64 [ %8, %7 ], [ %6, %.lr.ph ]
+  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  store i64 %.sink, ptr %10, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %12, %3
+._crit_edge:                                      ; preds = %9, %3
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @KeccakP1600_OverwriteBytes(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq i32 %2, 0
-  br i1 %5, label %6, label %35
+  br i1 %5, label %6, label %32
 
 6:                                                ; preds = %4
   %7 = lshr i32 %3, 3
@@ -437,99 +432,95 @@ define hidden void @KeccakP1600_OverwriteBytes(ptr noundef writeonly captures(no
   %wide.trip.count.i = zext nneg i32 %7 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
+.lr.ph.i:                                         ; preds = %13, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %13 ]
   %8 = trunc nuw i64 %indvars.iv.i to i32
+  %9 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %10 = load i64, ptr %9, align 8, !tbaa !4
   switch i32 %8, label %13 [
-    i32 20, label %9
-    i32 17, label %9
-    i32 12, label %9
-    i32 8, label %9
-    i32 2, label %9
-    i32 1, label %9
+    i32 20, label %11
+    i32 17, label %11
+    i32 12, label %11
+    i32 8, label %11
+    i32 2, label %11
+    i32 1, label %11
   ]
 
-9:                                                ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
-  %11 = load i64, ptr %10, align 8, !tbaa !4
-  %12 = xor i64 %11, -1
-  br label %16
+11:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %12 = xor i64 %10, -1
+  br label %13
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
-  %15 = load i64, ptr %14, align 8, !tbaa !4
-  br label %16
-
-16:                                               ; preds = %13, %9
-  %.sink.i = phi i64 [ %12, %9 ], [ %15, %13 ]
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
-  store i64 %.sink.i, ptr %17, align 8, !tbaa !4
+13:                                               ; preds = %11, %.lr.ph.i
+  %.sink.i = phi i64 [ %12, %11 ], [ %10, %.lr.ph.i ]
+  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  store i64 %.sink.i, ptr %14, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %KeccakP1600_OverwriteLanes.exit, label %.lr.ph.i
 
-KeccakP1600_OverwriteLanes.exit:                  ; preds = %16
-  %18 = and i32 %3, -8
-  %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
-  %21 = and i32 %3, 7
+KeccakP1600_OverwriteLanes.exit:                  ; preds = %13
+  %15 = and i32 %3, -8
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
+  %18 = and i32 %3, 7
   switch i32 %7, label %KeccakP1600_OverwriteLanes.exit.thread [
-    i32 20, label %22
-    i32 17, label %22
-    i32 12, label %22
-    i32 8, label %22
-    i32 2, label %22
-    i32 1, label %22
+    i32 20, label %19
+    i32 17, label %19
+    i32 12, label %19
+    i32 8, label %19
+    i32 2, label %19
+    i32 1, label %19
   ]
 
-22:                                               ; preds = %KeccakP1600_OverwriteLanes.exit, %KeccakP1600_OverwriteLanes.exit, %KeccakP1600_OverwriteLanes.exit, %KeccakP1600_OverwriteLanes.exit, %KeccakP1600_OverwriteLanes.exit, %KeccakP1600_OverwriteLanes.exit
-  %.not.i33 = icmp eq i32 %21, 0
+19:                                               ; preds = %KeccakP1600_OverwriteLanes.exit, %KeccakP1600_OverwriteLanes.exit, %KeccakP1600_OverwriteLanes.exit, %KeccakP1600_OverwriteLanes.exit, %KeccakP1600_OverwriteLanes.exit, %KeccakP1600_OverwriteLanes.exit
+  %.not.i33 = icmp eq i32 %18, 0
   br i1 %.not.i33, label %KeccakP1600_OverwriteBytesInLane.exit, label %.lr.ph.i34
 
-.lr.ph.i34:                                       ; preds = %22
-  %wide.trip.count.i35 = zext nneg i32 %21 to i64
-  br label %23
+.lr.ph.i34:                                       ; preds = %19
+  %wide.trip.count.i35 = zext nneg i32 %18 to i64
+  br label %20
 
-23:                                               ; preds = %23, %.lr.ph.i34
-  %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.i34 ], [ %indvars.iv.next.i37, %23 ]
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv.i36
-  %25 = load i8, ptr %24, align 1, !tbaa !8
-  %26 = xor i8 %25, -1
-  %27 = trunc nuw i64 %indvars.iv.i36 to i32
-  %28 = add i32 %18, %27
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
-  store i8 %26, ptr %30, align 1, !tbaa !8
+20:                                               ; preds = %20, %.lr.ph.i34
+  %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.i34 ], [ %indvars.iv.next.i37, %20 ]
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv.i36
+  %22 = load i8, ptr %21, align 1, !tbaa !8
+  %23 = xor i8 %22, -1
+  %24 = trunc nuw i64 %indvars.iv.i36 to i32
+  %25 = add i32 %15, %24
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
+  store i8 %23, ptr %27, align 1, !tbaa !8
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i35
-  br i1 %exitcond.not.i38, label %KeccakP1600_OverwriteBytesInLane.exit, label %23
+  br i1 %exitcond.not.i38, label %KeccakP1600_OverwriteBytesInLane.exit, label %20
 
 KeccakP1600_OverwriteLanes.exit.thread:           ; preds = %6, %KeccakP1600_OverwriteLanes.exit
-  %.pre-phi55 = phi i64 [ %19, %KeccakP1600_OverwriteLanes.exit ], [ 0, %6 ]
-  %31 = phi i32 [ %21, %KeccakP1600_OverwriteLanes.exit ], [ %3, %6 ]
-  %32 = phi ptr [ %20, %KeccakP1600_OverwriteLanes.exit ], [ %1, %6 ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre-phi55
-  %34 = zext nneg i32 %31 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %32, i64 %34, i1 false)
+  %.pre-phi55 = phi i64 [ %16, %KeccakP1600_OverwriteLanes.exit ], [ 0, %6 ]
+  %28 = phi i32 [ %18, %KeccakP1600_OverwriteLanes.exit ], [ %3, %6 ]
+  %29 = phi ptr [ %17, %KeccakP1600_OverwriteLanes.exit ], [ %1, %6 ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre-phi55
+  %31 = zext nneg i32 %28 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr readonly align 1 %29, i64 %31, i1 false)
   br label %KeccakP1600_OverwriteBytesInLane.exit
 
-35:                                               ; preds = %4
+32:                                               ; preds = %4
   %.not47 = icmp eq i32 %3, 0
   br i1 %.not47, label %KeccakP1600_OverwriteBytesInLane.exit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %35
-  %36 = and i32 %2, 7
-  %37 = lshr i32 %2, 3
+.lr.ph.preheader:                                 ; preds = %32
+  %33 = and i32 %2, 7
+  %34 = lshr i32 %2, 3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %KeccakP1600_OverwriteBytesInLane.exit45
-  %.02751 = phi ptr [ %58, %KeccakP1600_OverwriteBytesInLane.exit45 ], [ %1, %.lr.ph.preheader ]
-  %.02850 = phi i32 [ 0, %KeccakP1600_OverwriteBytesInLane.exit45 ], [ %36, %.lr.ph.preheader ]
-  %.02949 = phi i32 [ %57, %KeccakP1600_OverwriteBytesInLane.exit45 ], [ %37, %.lr.ph.preheader ]
-  %.03048 = phi i32 [ %56, %KeccakP1600_OverwriteBytesInLane.exit45 ], [ %3, %.lr.ph.preheader ]
-  %38 = sub nuw nsw i32 8, %.02850
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %38, i32 %.03048)
-  switch i32 %.02949, label %49 [
+  %.02751 = phi ptr [ %54, %KeccakP1600_OverwriteBytesInLane.exit45 ], [ %1, %.lr.ph.preheader ]
+  %.02850 = phi i32 [ 0, %KeccakP1600_OverwriteBytesInLane.exit45 ], [ %33, %.lr.ph.preheader ]
+  %.02949 = phi i32 [ %53, %KeccakP1600_OverwriteBytesInLane.exit45 ], [ %34, %.lr.ph.preheader ]
+  %.03048 = phi i32 [ %52, %KeccakP1600_OverwriteBytesInLane.exit45 ], [ %3, %.lr.ph.preheader ]
+  %35 = sub nuw nsw i32 8, %.02850
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %35, i32 %.03048)
+  %36 = shl i32 %.02949, 3
+  switch i32 %.02949, label %46 [
     i32 20, label %.lr.ph.i40
     i32 17, label %.lr.ph.i40
     i32 12, label %.lr.ph.i40
@@ -539,44 +530,42 @@ KeccakP1600_OverwriteLanes.exit.thread:           ; preds = %6, %KeccakP1600_Ove
   ]
 
 .lr.ph.i40:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %39 = shl nuw nsw i32 %.02949, 3
-  %40 = or disjoint i32 %.02850, %39
+  %37 = or disjoint i32 %.02850, %36
   %wide.trip.count.i41 = zext nneg i32 %spec.select to i64
-  br label %41
+  br label %38
 
-41:                                               ; preds = %41, %.lr.ph.i40
-  %indvars.iv.i42 = phi i64 [ 0, %.lr.ph.i40 ], [ %indvars.iv.next.i43, %41 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.02751, i64 %indvars.iv.i42
-  %43 = load i8, ptr %42, align 1, !tbaa !8
-  %44 = xor i8 %43, -1
-  %45 = trunc nuw i64 %indvars.iv.i42 to i32
-  %46 = add i32 %40, %45
-  %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
-  store i8 %44, ptr %48, align 1, !tbaa !8
+38:                                               ; preds = %38, %.lr.ph.i40
+  %indvars.iv.i42 = phi i64 [ 0, %.lr.ph.i40 ], [ %indvars.iv.next.i43, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.02751, i64 %indvars.iv.i42
+  %40 = load i8, ptr %39, align 1, !tbaa !8
+  %41 = xor i8 %40, -1
+  %42 = trunc nuw i64 %indvars.iv.i42 to i32
+  %43 = add i32 %37, %42
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %44
+  store i8 %41, ptr %45, align 1, !tbaa !8
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i41
-  br i1 %exitcond.not.i44, label %KeccakP1600_OverwriteBytesInLane.exit45, label %41
+  br i1 %exitcond.not.i44, label %KeccakP1600_OverwriteBytesInLane.exit45, label %38
 
-49:                                               ; preds = %.lr.ph
-  %50 = shl i32 %.02949, 3
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %51
-  %53 = zext nneg i32 %.02850 to i64
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
-  %55 = zext nneg i32 %spec.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull readonly align 1 dereferenceable(1) %.02751, i64 %55, i1 false)
+46:                                               ; preds = %.lr.ph
+  %47 = zext i32 %36 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
+  %49 = zext nneg i32 %.02850 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %49
+  %51 = zext nneg i32 %spec.select to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %50, ptr noundef nonnull readonly align 1 dereferenceable(1) %.02751, i64 %51, i1 false)
   br label %KeccakP1600_OverwriteBytesInLane.exit45
 
-KeccakP1600_OverwriteBytesInLane.exit45:          ; preds = %41, %49
-  %.pre-phi = phi i64 [ %55, %49 ], [ %wide.trip.count.i41, %41 ]
-  %56 = sub i32 %.03048, %spec.select
-  %57 = add i32 %.02949, 1
-  %58 = getelementptr inbounds nuw i8, ptr %.02751, i64 %.pre-phi
-  %.not = icmp eq i32 %56, 0
+KeccakP1600_OverwriteBytesInLane.exit45:          ; preds = %38, %46
+  %.pre-phi = phi i64 [ %51, %46 ], [ %wide.trip.count.i41, %38 ]
+  %52 = sub i32 %.03048, %spec.select
+  %53 = add i32 %.02949, 1
+  %54 = getelementptr inbounds nuw i8, ptr %.02751, i64 %.pre-phi
+  %.not = icmp eq i32 %52, 0
   br i1 %.not, label %KeccakP1600_OverwriteBytesInLane.exit, label %.lr.ph
 
-KeccakP1600_OverwriteBytesInLane.exit:            ; preds = %KeccakP1600_OverwriteBytesInLane.exit45, %23, %35, %KeccakP1600_OverwriteLanes.exit.thread, %22
+KeccakP1600_OverwriteBytesInLane.exit:            ; preds = %KeccakP1600_OverwriteBytesInLane.exit45, %20, %32, %KeccakP1600_OverwriteLanes.exit.thread, %19
   ret void
 }
 

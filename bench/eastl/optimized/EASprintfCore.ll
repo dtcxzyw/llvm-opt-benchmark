@@ -402,6 +402,8 @@ if.then12:                                        ; preds = %if.end10
 
 sw.bb:                                            ; preds = %if.then12, %if.then12
   %7 = load i32, ptr %mModifier.i, align 4
+  %gp_offset120 = load i32, ptr %arguments, align 8
+  %fits_in_gp121 = icmp ult i32 %gp_offset120, 41
   switch i32 %7, label %if.else118 [
     i32 5, label %if.then15
     i32 10, label %if.then20
@@ -414,15 +416,13 @@ sw.bb:                                            ; preds = %if.then12, %if.then
   ]
 
 if.then15:                                        ; preds = %sw.bb
-  %gp_offset = load i32, ptr %arguments, align 8
-  %fits_in_gp = icmp ult i32 %gp_offset, 41
-  br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
+  br i1 %fits_in_gp121, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %if.then15
   %reg_save_area = load ptr, ptr %1, align 8
-  %8 = zext nneg i32 %gp_offset to i64
+  %8 = zext nneg i32 %gp_offset120 to i64
   %9 = getelementptr i8, ptr %reg_save_area, i64 %8
-  %10 = add nuw nsw i32 %gp_offset, 8
+  %10 = add nuw nsw i32 %gp_offset120, 8
   store i32 %10, ptr %arguments, align 8
   br label %if.end156.thread182
 
@@ -438,15 +438,13 @@ if.end156.thread182:                              ; preds = %vaarg.in_reg, %vaar
   br label %if.then159
 
 if.then20:                                        ; preds = %sw.bb, %sw.bb
-  %gp_offset22 = load i32, ptr %arguments, align 8
-  %fits_in_gp23 = icmp ult i32 %gp_offset22, 41
-  br i1 %fits_in_gp23, label %vaarg.in_reg24, label %vaarg.in_mem26
+  br i1 %fits_in_gp121, label %vaarg.in_reg24, label %vaarg.in_mem26
 
 vaarg.in_reg24:                                   ; preds = %if.then20
   %reg_save_area25 = load ptr, ptr %1, align 8
-  %12 = zext nneg i32 %gp_offset22 to i64
+  %12 = zext nneg i32 %gp_offset120 to i64
   %13 = getelementptr i8, ptr %reg_save_area25, i64 %12
-  %14 = add nuw nsw i32 %gp_offset22, 8
+  %14 = add nuw nsw i32 %gp_offset120, 8
   store i32 %14, ptr %arguments, align 8
   br label %vaarg.end30
 
@@ -462,15 +460,13 @@ vaarg.end30:                                      ; preds = %vaarg.in_mem26, %va
   br label %if.end156
 
 if.then35:                                        ; preds = %sw.bb
-  %gp_offset37 = load i32, ptr %arguments, align 8
-  %fits_in_gp38 = icmp ult i32 %gp_offset37, 41
-  br i1 %fits_in_gp38, label %vaarg.in_reg39, label %vaarg.in_mem41
+  br i1 %fits_in_gp121, label %vaarg.in_reg39, label %vaarg.in_mem41
 
 vaarg.in_reg39:                                   ; preds = %if.then35
   %reg_save_area40 = load ptr, ptr %1, align 8
-  %16 = zext nneg i32 %gp_offset37 to i64
+  %16 = zext nneg i32 %gp_offset120 to i64
   %17 = getelementptr i8, ptr %reg_save_area40, i64 %16
-  %18 = add nuw nsw i32 %gp_offset37, 8
+  %18 = add nuw nsw i32 %gp_offset120, 8
   store i32 %18, ptr %arguments, align 8
   br label %vaarg.end45
 
@@ -486,15 +482,13 @@ vaarg.end45:                                      ; preds = %vaarg.in_mem41, %va
   br label %if.else164
 
 if.then50:                                        ; preds = %sw.bb
-  %gp_offset52 = load i32, ptr %arguments, align 8
-  %fits_in_gp53 = icmp ult i32 %gp_offset52, 41
-  br i1 %fits_in_gp53, label %vaarg.in_reg54, label %vaarg.in_mem56
+  br i1 %fits_in_gp121, label %vaarg.in_reg54, label %vaarg.in_mem56
 
 vaarg.in_reg54:                                   ; preds = %if.then50
   %reg_save_area55 = load ptr, ptr %1, align 8
-  %20 = zext nneg i32 %gp_offset52 to i64
+  %20 = zext nneg i32 %gp_offset120 to i64
   %21 = getelementptr i8, ptr %reg_save_area55, i64 %20
-  %22 = add nuw nsw i32 %gp_offset52, 8
+  %22 = add nuw nsw i32 %gp_offset120, 8
   store i32 %22, ptr %arguments, align 8
   br label %vaarg.end60
 
@@ -510,15 +504,13 @@ vaarg.end60:                                      ; preds = %vaarg.in_mem56, %va
   br label %if.else164
 
 if.then65:                                        ; preds = %sw.bb
-  %gp_offset67 = load i32, ptr %arguments, align 8
-  %fits_in_gp68 = icmp ult i32 %gp_offset67, 41
-  br i1 %fits_in_gp68, label %vaarg.in_reg69, label %vaarg.in_mem71
+  br i1 %fits_in_gp121, label %vaarg.in_reg69, label %vaarg.in_mem71
 
 vaarg.in_reg69:                                   ; preds = %if.then65
   %reg_save_area70 = load ptr, ptr %1, align 8
-  %24 = zext nneg i32 %gp_offset67 to i64
+  %24 = zext nneg i32 %gp_offset120 to i64
   %25 = getelementptr i8, ptr %reg_save_area70, i64 %24
-  %26 = add nuw nsw i32 %gp_offset67, 8
+  %26 = add nuw nsw i32 %gp_offset120, 8
   store i32 %26, ptr %arguments, align 8
   br label %vaarg.end75
 
@@ -534,15 +526,13 @@ vaarg.end75:                                      ; preds = %vaarg.in_mem71, %va
   br label %if.else164
 
 if.then80:                                        ; preds = %sw.bb
-  %gp_offset82 = load i32, ptr %arguments, align 8
-  %fits_in_gp83 = icmp ult i32 %gp_offset82, 41
-  br i1 %fits_in_gp83, label %vaarg.in_reg84, label %vaarg.in_mem86
+  br i1 %fits_in_gp121, label %vaarg.in_reg84, label %vaarg.in_mem86
 
 vaarg.in_reg84:                                   ; preds = %if.then80
   %reg_save_area85 = load ptr, ptr %1, align 8
-  %28 = zext nneg i32 %gp_offset82 to i64
+  %28 = zext nneg i32 %gp_offset120 to i64
   %29 = getelementptr i8, ptr %reg_save_area85, i64 %28
-  %30 = add nuw nsw i32 %gp_offset82, 8
+  %30 = add nuw nsw i32 %gp_offset120, 8
   store i32 %30, ptr %arguments, align 8
   br label %vaarg.end90
 
@@ -558,9 +548,7 @@ vaarg.end90:                                      ; preds = %vaarg.in_mem86, %va
   br label %if.else164
 
 if.then95:                                        ; preds = %sw.bb
-  %gp_offset97 = load i32, ptr %arguments, align 8
-  %fits_in_gp98 = icmp ult i32 %gp_offset97, 41
-  br i1 %fits_in_gp98, label %vaarg.end105, label %vaarg.end105.thread
+  br i1 %fits_in_gp121, label %vaarg.end105, label %vaarg.end105.thread
 
 vaarg.end105.thread:                              ; preds = %if.then95
   %overflow_arg_area103 = load ptr, ptr %overflow_arg_area_p443, align 8
@@ -569,16 +557,16 @@ vaarg.end105.thread:                              ; preds = %if.then95
   br label %vaarg.in_mem112
 
 vaarg.end105:                                     ; preds = %if.then95
-  %32 = add nuw nsw i32 %gp_offset97, 8
+  %32 = add nuw nsw i32 %gp_offset120, 8
   store i32 %32, ptr %arguments, align 8
-  %fits_in_gp109 = icmp ult i32 %gp_offset97, 33
+  %fits_in_gp109 = icmp ult i32 %gp_offset120, 33
   br i1 %fits_in_gp109, label %vaarg.in_reg110, label %vaarg.in_mem112
 
 vaarg.in_reg110:                                  ; preds = %vaarg.end105
   %reg_save_area111 = load ptr, ptr %1, align 8
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr i8, ptr %reg_save_area111, i64 %33
-  %35 = add nuw nsw i32 %gp_offset97, 16
+  %35 = add nuw nsw i32 %gp_offset120, 16
   store i32 %35, ptr %arguments, align 8
   br label %vaarg.end116
 
@@ -594,8 +582,6 @@ vaarg.end116:                                     ; preds = %vaarg.in_mem112, %v
   br label %if.else164
 
 if.else118:                                       ; preds = %sw.bb
-  %gp_offset120 = load i32, ptr %arguments, align 8
-  %fits_in_gp121 = icmp ult i32 %gp_offset120, 41
   br i1 %fits_in_gp121, label %vaarg.in_reg122, label %vaarg.in_mem124
 
 vaarg.in_reg122:                                  ; preds = %if.else118
@@ -1577,6 +1563,8 @@ if.then12:                                        ; preds = %if.end10
 
 sw.bb:                                            ; preds = %if.then12, %if.then12
   %7 = load i32, ptr %mModifier.i, align 4
+  %gp_offset120 = load i32, ptr %arguments, align 8
+  %fits_in_gp121 = icmp ult i32 %gp_offset120, 41
   switch i32 %7, label %if.else118 [
     i32 5, label %if.then15
     i32 10, label %if.then20
@@ -1589,15 +1577,13 @@ sw.bb:                                            ; preds = %if.then12, %if.then
   ]
 
 if.then15:                                        ; preds = %sw.bb
-  %gp_offset = load i32, ptr %arguments, align 8
-  %fits_in_gp = icmp ult i32 %gp_offset, 41
-  br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
+  br i1 %fits_in_gp121, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %if.then15
   %reg_save_area = load ptr, ptr %1, align 8
-  %8 = zext nneg i32 %gp_offset to i64
+  %8 = zext nneg i32 %gp_offset120 to i64
   %9 = getelementptr i8, ptr %reg_save_area, i64 %8
-  %10 = add nuw nsw i32 %gp_offset, 8
+  %10 = add nuw nsw i32 %gp_offset120, 8
   store i32 %10, ptr %arguments, align 8
   br label %if.end156.thread181
 
@@ -1613,15 +1599,13 @@ if.end156.thread181:                              ; preds = %vaarg.in_reg, %vaar
   br label %if.then159
 
 if.then20:                                        ; preds = %sw.bb, %sw.bb
-  %gp_offset22 = load i32, ptr %arguments, align 8
-  %fits_in_gp23 = icmp ult i32 %gp_offset22, 41
-  br i1 %fits_in_gp23, label %vaarg.in_reg24, label %vaarg.in_mem26
+  br i1 %fits_in_gp121, label %vaarg.in_reg24, label %vaarg.in_mem26
 
 vaarg.in_reg24:                                   ; preds = %if.then20
   %reg_save_area25 = load ptr, ptr %1, align 8
-  %12 = zext nneg i32 %gp_offset22 to i64
+  %12 = zext nneg i32 %gp_offset120 to i64
   %13 = getelementptr i8, ptr %reg_save_area25, i64 %12
-  %14 = add nuw nsw i32 %gp_offset22, 8
+  %14 = add nuw nsw i32 %gp_offset120, 8
   store i32 %14, ptr %arguments, align 8
   br label %vaarg.end30
 
@@ -1637,15 +1621,13 @@ vaarg.end30:                                      ; preds = %vaarg.in_mem26, %va
   br label %if.end156
 
 if.then35:                                        ; preds = %sw.bb
-  %gp_offset37 = load i32, ptr %arguments, align 8
-  %fits_in_gp38 = icmp ult i32 %gp_offset37, 41
-  br i1 %fits_in_gp38, label %vaarg.in_reg39, label %vaarg.in_mem41
+  br i1 %fits_in_gp121, label %vaarg.in_reg39, label %vaarg.in_mem41
 
 vaarg.in_reg39:                                   ; preds = %if.then35
   %reg_save_area40 = load ptr, ptr %1, align 8
-  %16 = zext nneg i32 %gp_offset37 to i64
+  %16 = zext nneg i32 %gp_offset120 to i64
   %17 = getelementptr i8, ptr %reg_save_area40, i64 %16
-  %18 = add nuw nsw i32 %gp_offset37, 8
+  %18 = add nuw nsw i32 %gp_offset120, 8
   store i32 %18, ptr %arguments, align 8
   br label %vaarg.end45
 
@@ -1661,15 +1643,13 @@ vaarg.end45:                                      ; preds = %vaarg.in_mem41, %va
   br label %if.else164
 
 if.then50:                                        ; preds = %sw.bb
-  %gp_offset52 = load i32, ptr %arguments, align 8
-  %fits_in_gp53 = icmp ult i32 %gp_offset52, 41
-  br i1 %fits_in_gp53, label %vaarg.in_reg54, label %vaarg.in_mem56
+  br i1 %fits_in_gp121, label %vaarg.in_reg54, label %vaarg.in_mem56
 
 vaarg.in_reg54:                                   ; preds = %if.then50
   %reg_save_area55 = load ptr, ptr %1, align 8
-  %20 = zext nneg i32 %gp_offset52 to i64
+  %20 = zext nneg i32 %gp_offset120 to i64
   %21 = getelementptr i8, ptr %reg_save_area55, i64 %20
-  %22 = add nuw nsw i32 %gp_offset52, 8
+  %22 = add nuw nsw i32 %gp_offset120, 8
   store i32 %22, ptr %arguments, align 8
   br label %vaarg.end60
 
@@ -1685,15 +1665,13 @@ vaarg.end60:                                      ; preds = %vaarg.in_mem56, %va
   br label %if.else164
 
 if.then65:                                        ; preds = %sw.bb
-  %gp_offset67 = load i32, ptr %arguments, align 8
-  %fits_in_gp68 = icmp ult i32 %gp_offset67, 41
-  br i1 %fits_in_gp68, label %vaarg.in_reg69, label %vaarg.in_mem71
+  br i1 %fits_in_gp121, label %vaarg.in_reg69, label %vaarg.in_mem71
 
 vaarg.in_reg69:                                   ; preds = %if.then65
   %reg_save_area70 = load ptr, ptr %1, align 8
-  %24 = zext nneg i32 %gp_offset67 to i64
+  %24 = zext nneg i32 %gp_offset120 to i64
   %25 = getelementptr i8, ptr %reg_save_area70, i64 %24
-  %26 = add nuw nsw i32 %gp_offset67, 8
+  %26 = add nuw nsw i32 %gp_offset120, 8
   store i32 %26, ptr %arguments, align 8
   br label %vaarg.end75
 
@@ -1709,15 +1687,13 @@ vaarg.end75:                                      ; preds = %vaarg.in_mem71, %va
   br label %if.else164
 
 if.then80:                                        ; preds = %sw.bb
-  %gp_offset82 = load i32, ptr %arguments, align 8
-  %fits_in_gp83 = icmp ult i32 %gp_offset82, 41
-  br i1 %fits_in_gp83, label %vaarg.in_reg84, label %vaarg.in_mem86
+  br i1 %fits_in_gp121, label %vaarg.in_reg84, label %vaarg.in_mem86
 
 vaarg.in_reg84:                                   ; preds = %if.then80
   %reg_save_area85 = load ptr, ptr %1, align 8
-  %28 = zext nneg i32 %gp_offset82 to i64
+  %28 = zext nneg i32 %gp_offset120 to i64
   %29 = getelementptr i8, ptr %reg_save_area85, i64 %28
-  %30 = add nuw nsw i32 %gp_offset82, 8
+  %30 = add nuw nsw i32 %gp_offset120, 8
   store i32 %30, ptr %arguments, align 8
   br label %vaarg.end90
 
@@ -1733,9 +1709,7 @@ vaarg.end90:                                      ; preds = %vaarg.in_mem86, %va
   br label %if.else164
 
 if.then95:                                        ; preds = %sw.bb
-  %gp_offset97 = load i32, ptr %arguments, align 8
-  %fits_in_gp98 = icmp ult i32 %gp_offset97, 41
-  br i1 %fits_in_gp98, label %vaarg.end105, label %vaarg.end105.thread
+  br i1 %fits_in_gp121, label %vaarg.end105, label %vaarg.end105.thread
 
 vaarg.end105.thread:                              ; preds = %if.then95
   %overflow_arg_area103 = load ptr, ptr %overflow_arg_area_p446, align 8
@@ -1744,16 +1718,16 @@ vaarg.end105.thread:                              ; preds = %if.then95
   br label %vaarg.in_mem112
 
 vaarg.end105:                                     ; preds = %if.then95
-  %32 = add nuw nsw i32 %gp_offset97, 8
+  %32 = add nuw nsw i32 %gp_offset120, 8
   store i32 %32, ptr %arguments, align 8
-  %fits_in_gp109 = icmp ult i32 %gp_offset97, 33
+  %fits_in_gp109 = icmp ult i32 %gp_offset120, 33
   br i1 %fits_in_gp109, label %vaarg.in_reg110, label %vaarg.in_mem112
 
 vaarg.in_reg110:                                  ; preds = %vaarg.end105
   %reg_save_area111 = load ptr, ptr %1, align 8
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr i8, ptr %reg_save_area111, i64 %33
-  %35 = add nuw nsw i32 %gp_offset97, 16
+  %35 = add nuw nsw i32 %gp_offset120, 16
   store i32 %35, ptr %arguments, align 8
   br label %vaarg.end116
 
@@ -1769,8 +1743,6 @@ vaarg.end116:                                     ; preds = %vaarg.in_mem112, %v
   br label %if.else164
 
 if.else118:                                       ; preds = %sw.bb
-  %gp_offset120 = load i32, ptr %arguments, align 8
-  %fits_in_gp121 = icmp ult i32 %gp_offset120, 41
   br i1 %fits_in_gp121, label %vaarg.in_reg122, label %vaarg.in_mem124
 
 vaarg.in_reg122:                                  ; preds = %if.else118
@@ -2756,6 +2728,8 @@ if.then11:                                        ; preds = %if.end9
 
 sw.bb:                                            ; preds = %if.then11, %if.then11
   %7 = load i32, ptr %mModifier.i, align 4
+  %gp_offset119 = load i32, ptr %arguments, align 8
+  %fits_in_gp120 = icmp ult i32 %gp_offset119, 41
   switch i32 %7, label %if.else117 [
     i32 5, label %if.then14
     i32 10, label %if.then19
@@ -2768,15 +2742,13 @@ sw.bb:                                            ; preds = %if.then11, %if.then
   ]
 
 if.then14:                                        ; preds = %sw.bb
-  %gp_offset = load i32, ptr %arguments, align 8
-  %fits_in_gp = icmp ult i32 %gp_offset, 41
-  br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
+  br i1 %fits_in_gp120, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %if.then14
   %reg_save_area = load ptr, ptr %1, align 8
-  %8 = zext nneg i32 %gp_offset to i64
+  %8 = zext nneg i32 %gp_offset119 to i64
   %9 = getelementptr i8, ptr %reg_save_area, i64 %8
-  %10 = add nuw nsw i32 %gp_offset, 8
+  %10 = add nuw nsw i32 %gp_offset119, 8
   store i32 %10, ptr %arguments, align 8
   br label %if.end155.thread186
 
@@ -2792,15 +2764,13 @@ if.end155.thread186:                              ; preds = %vaarg.in_reg, %vaar
   br label %if.then158
 
 if.then19:                                        ; preds = %sw.bb, %sw.bb
-  %gp_offset21 = load i32, ptr %arguments, align 8
-  %fits_in_gp22 = icmp ult i32 %gp_offset21, 41
-  br i1 %fits_in_gp22, label %vaarg.in_reg23, label %vaarg.in_mem25
+  br i1 %fits_in_gp120, label %vaarg.in_reg23, label %vaarg.in_mem25
 
 vaarg.in_reg23:                                   ; preds = %if.then19
   %reg_save_area24 = load ptr, ptr %1, align 8
-  %12 = zext nneg i32 %gp_offset21 to i64
+  %12 = zext nneg i32 %gp_offset119 to i64
   %13 = getelementptr i8, ptr %reg_save_area24, i64 %12
-  %14 = add nuw nsw i32 %gp_offset21, 8
+  %14 = add nuw nsw i32 %gp_offset119, 8
   store i32 %14, ptr %arguments, align 8
   br label %vaarg.end29
 
@@ -2816,15 +2786,13 @@ vaarg.end29:                                      ; preds = %vaarg.in_mem25, %va
   br label %if.end155
 
 if.then34:                                        ; preds = %sw.bb
-  %gp_offset36 = load i32, ptr %arguments, align 8
-  %fits_in_gp37 = icmp ult i32 %gp_offset36, 41
-  br i1 %fits_in_gp37, label %vaarg.in_reg38, label %vaarg.in_mem40
+  br i1 %fits_in_gp120, label %vaarg.in_reg38, label %vaarg.in_mem40
 
 vaarg.in_reg38:                                   ; preds = %if.then34
   %reg_save_area39 = load ptr, ptr %1, align 8
-  %16 = zext nneg i32 %gp_offset36 to i64
+  %16 = zext nneg i32 %gp_offset119 to i64
   %17 = getelementptr i8, ptr %reg_save_area39, i64 %16
-  %18 = add nuw nsw i32 %gp_offset36, 8
+  %18 = add nuw nsw i32 %gp_offset119, 8
   store i32 %18, ptr %arguments, align 8
   br label %vaarg.end44
 
@@ -2840,15 +2808,13 @@ vaarg.end44:                                      ; preds = %vaarg.in_mem40, %va
   br label %if.else163
 
 if.then49:                                        ; preds = %sw.bb
-  %gp_offset51 = load i32, ptr %arguments, align 8
-  %fits_in_gp52 = icmp ult i32 %gp_offset51, 41
-  br i1 %fits_in_gp52, label %vaarg.in_reg53, label %vaarg.in_mem55
+  br i1 %fits_in_gp120, label %vaarg.in_reg53, label %vaarg.in_mem55
 
 vaarg.in_reg53:                                   ; preds = %if.then49
   %reg_save_area54 = load ptr, ptr %1, align 8
-  %20 = zext nneg i32 %gp_offset51 to i64
+  %20 = zext nneg i32 %gp_offset119 to i64
   %21 = getelementptr i8, ptr %reg_save_area54, i64 %20
-  %22 = add nuw nsw i32 %gp_offset51, 8
+  %22 = add nuw nsw i32 %gp_offset119, 8
   store i32 %22, ptr %arguments, align 8
   br label %vaarg.end59
 
@@ -2864,15 +2830,13 @@ vaarg.end59:                                      ; preds = %vaarg.in_mem55, %va
   br label %if.else163
 
 if.then64:                                        ; preds = %sw.bb
-  %gp_offset66 = load i32, ptr %arguments, align 8
-  %fits_in_gp67 = icmp ult i32 %gp_offset66, 41
-  br i1 %fits_in_gp67, label %vaarg.in_reg68, label %vaarg.in_mem70
+  br i1 %fits_in_gp120, label %vaarg.in_reg68, label %vaarg.in_mem70
 
 vaarg.in_reg68:                                   ; preds = %if.then64
   %reg_save_area69 = load ptr, ptr %1, align 8
-  %24 = zext nneg i32 %gp_offset66 to i64
+  %24 = zext nneg i32 %gp_offset119 to i64
   %25 = getelementptr i8, ptr %reg_save_area69, i64 %24
-  %26 = add nuw nsw i32 %gp_offset66, 8
+  %26 = add nuw nsw i32 %gp_offset119, 8
   store i32 %26, ptr %arguments, align 8
   br label %vaarg.end74
 
@@ -2888,15 +2852,13 @@ vaarg.end74:                                      ; preds = %vaarg.in_mem70, %va
   br label %if.else163
 
 if.then79:                                        ; preds = %sw.bb
-  %gp_offset81 = load i32, ptr %arguments, align 8
-  %fits_in_gp82 = icmp ult i32 %gp_offset81, 41
-  br i1 %fits_in_gp82, label %vaarg.in_reg83, label %vaarg.in_mem85
+  br i1 %fits_in_gp120, label %vaarg.in_reg83, label %vaarg.in_mem85
 
 vaarg.in_reg83:                                   ; preds = %if.then79
   %reg_save_area84 = load ptr, ptr %1, align 8
-  %28 = zext nneg i32 %gp_offset81 to i64
+  %28 = zext nneg i32 %gp_offset119 to i64
   %29 = getelementptr i8, ptr %reg_save_area84, i64 %28
-  %30 = add nuw nsw i32 %gp_offset81, 8
+  %30 = add nuw nsw i32 %gp_offset119, 8
   store i32 %30, ptr %arguments, align 8
   br label %vaarg.end89
 
@@ -2912,9 +2874,7 @@ vaarg.end89:                                      ; preds = %vaarg.in_mem85, %va
   br label %if.else163
 
 if.then94:                                        ; preds = %sw.bb
-  %gp_offset96 = load i32, ptr %arguments, align 8
-  %fits_in_gp97 = icmp ult i32 %gp_offset96, 41
-  br i1 %fits_in_gp97, label %vaarg.end104, label %vaarg.end104.thread
+  br i1 %fits_in_gp120, label %vaarg.end104, label %vaarg.end104.thread
 
 vaarg.end104.thread:                              ; preds = %if.then94
   %overflow_arg_area102 = load ptr, ptr %overflow_arg_area_p445, align 8
@@ -2923,16 +2883,16 @@ vaarg.end104.thread:                              ; preds = %if.then94
   br label %vaarg.in_mem111
 
 vaarg.end104:                                     ; preds = %if.then94
-  %32 = add nuw nsw i32 %gp_offset96, 8
+  %32 = add nuw nsw i32 %gp_offset119, 8
   store i32 %32, ptr %arguments, align 8
-  %fits_in_gp108 = icmp ult i32 %gp_offset96, 33
+  %fits_in_gp108 = icmp ult i32 %gp_offset119, 33
   br i1 %fits_in_gp108, label %vaarg.in_reg109, label %vaarg.in_mem111
 
 vaarg.in_reg109:                                  ; preds = %vaarg.end104
   %reg_save_area110 = load ptr, ptr %1, align 8
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr i8, ptr %reg_save_area110, i64 %33
-  %35 = add nuw nsw i32 %gp_offset96, 16
+  %35 = add nuw nsw i32 %gp_offset119, 16
   store i32 %35, ptr %arguments, align 8
   br label %vaarg.end115
 
@@ -2948,8 +2908,6 @@ vaarg.end115:                                     ; preds = %vaarg.in_mem111, %v
   br label %if.else163
 
 if.else117:                                       ; preds = %sw.bb
-  %gp_offset119 = load i32, ptr %arguments, align 8
-  %fits_in_gp120 = icmp ult i32 %gp_offset119, 41
   br i1 %fits_in_gp120, label %vaarg.in_reg121, label %vaarg.in_mem123
 
 vaarg.in_reg121:                                  ; preds = %if.else117

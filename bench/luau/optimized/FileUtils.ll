@@ -1177,18 +1177,17 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %_ZNSt11char_traitsI
   %.1.i.i = add i64 %.1.i.i.in, -1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 %.1.i.i
   %10 = load i8, ptr %9, align 1, !tbaa !4
+  %.not17.i.i = icmp eq i64 %.1.i.i, 0
   switch i8 %10, label %11 [
     i8 92, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEPKcm.exit
     i8 47, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEPKcm.exit
   ]
 
 11:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
-  %.not17.i.i = icmp eq i64 %.1.i.i, 0
   br i1 %.not17.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !55
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
-  %cond = icmp eq i64 %.1.i.i, 0
-  br i1 %cond, label %._crit_edge.i.i.i.i.i.i.i.i, label %16
+  br i1 %.not17.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, label %16
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEPKcm.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -1663,12 +1663,12 @@ GL_GetFBO.exit:                                   ; preds = %78, %.critedge, %83
 
 232:                                              ; preds = %209, %221
   %233 = phi i32 [ %210, %209 ], [ %.pre223, %221 ]
-  %234 = add i32 %233, -372645892
-  %switch.and = and i32 %234, -4194305
+  %234 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %235 = add i32 %233, -372645892
+  %switch.and = and i32 %235, -4194305
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %235 = select i1 %switch.selectcmp, i32 3, i32 2
-  %236 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store i32 %235, ptr %236, align 8
+  %236 = select i1 %switch.selectcmp, i32 3, i32 2
+  store i32 %236, ptr %234, align 8
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %238 = load i32, ptr %237, align 4
   %239 = sitofp i32 %238 to float

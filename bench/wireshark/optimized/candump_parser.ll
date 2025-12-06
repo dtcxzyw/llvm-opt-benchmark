@@ -132,7 +132,7 @@ define hidden void @CandumpParser(ptr noundef captures(address) initializes((16,
   br label %24
 
 24:                                               ; preds = %yyStackOverflow.exit, %5
-  %.037 = phi i8 [ %10, %5 ], [ %157, %yyStackOverflow.exit ]
+  %.037 = phi i8 [ %10, %5 ], [ %154, %yyStackOverflow.exit ]
   %25 = icmp ugt i8 %.037, 24
   br i1 %25, label %yy_find_shift_action.exit, label %26
 
@@ -160,367 +160,362 @@ define hidden void @CandumpParser(ptr noundef captures(address) initializes((16,
 yy_find_shift_action.exit:                        ; preds = %24, %34, %37
   %.0.i = phi i8 [ %36, %34 ], [ %39, %37 ], [ %.037, %24 ]
   %40 = icmp ugt i8 %.0.i, 121
-  br i1 %40, label %41, label %160
+  br i1 %40, label %41, label %157
 
 41:                                               ; preds = %yy_find_shift_action.exit
   %42 = zext i8 %.0.i to i64
   %43 = add nuw nsw i64 %42, 4294967174
+  %.pre = load ptr, ptr %0, align 8
   switch i8 %.0.i, label %._crit_edge [
     i8 -107, label %44
     i8 -124, label %44
   ]
 
-._crit_edge:                                      ; preds = %41
-  %.pre = load ptr, ptr %0, align 8
-  br label %53
-
 44:                                               ; preds = %41, %41
-  %45 = load ptr, ptr %0, align 8
-  %46 = load ptr, ptr %13, align 8
-  %.not = icmp ult ptr %45, %46
-  br i1 %.not, label %53, label %47
+  %45 = load ptr, ptr %13, align 8
+  %.not = icmp ult ptr %.pre, %45
+  br i1 %.not, label %._crit_edge, label %46
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = icmp ugt ptr %45, %48
-  br i1 %49, label %.lr.ph.i, label %yyStackOverflow.exit.thread
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = icmp ugt ptr %.pre, %47
+  br i1 %48, label %.lr.ph.i, label %yyStackOverflow.exit.thread
 
-.lr.ph.i:                                         ; preds = %47, %.lr.ph.i
-  %50 = phi ptr [ %51, %.lr.ph.i ], [ %45, %47 ]
-  %51 = getelementptr i8, ptr %50, i64 -96
-  %52 = icmp ugt ptr %51, %48
-  br i1 %52, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+.lr.ph.i:                                         ; preds = %46, %.lr.ph.i
+  %49 = phi ptr [ %50, %.lr.ph.i ], [ %.pre, %46 ]
+  %50 = getelementptr i8, ptr %49, i64 -96
+  %51 = icmp ugt ptr %50, %47
+  br i1 %51, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  store ptr %51, ptr %0, align 8
+  store ptr %50, ptr %0, align 8
   br label %yyStackOverflow.exit.thread
 
-53:                                               ; preds = %._crit_edge, %44
-  %54 = phi ptr [ %.pre, %._crit_edge ], [ %45, %44 ]
+._crit_edge:                                      ; preds = %41, %44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i8 %.0.i, label %yyStackOverflow.exit [
-    i8 122, label %55
-    i8 -109, label %127
-    i8 124, label %59
-    i8 125, label %67
-    i8 126, label %72
-    i8 127, label %79
-    i8 -128, label %86
-    i8 -127, label %90
-    i8 -126, label %97
-    i8 -125, label %97
-    i8 -124, label %101
-    i8 -123, label %103
-    i8 -122, label %106
-    i8 -121, label %111
-    i8 -120, label %118
-    i8 -119, label %127
-    i8 -118, label %127
-    i8 -117, label %127
-    i8 -116, label %127
-    i8 -115, label %127
-    i8 -114, label %127
-    i8 -113, label %127
-    i8 -112, label %127
-    i8 -111, label %127
-    i8 -110, label %127
+    i8 122, label %52
+    i8 -109, label %124
+    i8 124, label %56
+    i8 125, label %64
+    i8 126, label %69
+    i8 127, label %76
+    i8 -128, label %83
+    i8 -127, label %87
+    i8 -126, label %94
+    i8 -125, label %94
+    i8 -124, label %98
+    i8 -123, label %100
+    i8 -122, label %103
+    i8 -121, label %108
+    i8 -120, label %115
+    i8 -119, label %124
+    i8 -118, label %124
+    i8 -117, label %124
+    i8 -116, label %124
+    i8 -115, label %124
+    i8 -114, label %124
+    i8 -113, label %124
+    i8 -112, label %124
+    i8 -111, label %124
+    i8 -110, label %124
   ]
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %57, ptr noundef nonnull align 8 dereferenceable(88) %58, i64 88, i1 false)
-  store i8 1, ptr %56, align 8
+52:                                               ; preds = %._crit_edge
+  %53 = load ptr, ptr %7, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %54, ptr noundef nonnull align 8 dereferenceable(88) %55, i64 88, i1 false)
+  store i8 1, ptr %53, align 8
   br label %yyStackOverflow.exit
 
-59:                                               ; preds = %53
-  %60 = getelementptr i8, ptr %54, i64 -472
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef align 8 dereferenceable(16) %60, i64 16, i1 false)
+56:                                               ; preds = %._crit_edge
+  %57 = getelementptr i8, ptr %.pre, i64 -472
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef align 8 dereferenceable(16) %57, i64 16, i1 false)
   store i8 0, ptr %19, align 4
-  %61 = getelementptr i8, ptr %54, i64 -88
-  %62 = load i32, ptr %61, align 8
-  %63 = or i32 %62, 1073741824
-  store i32 %63, ptr %20, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %65 = load i64, ptr %64, align 8
-  %66 = trunc i64 %65 to i8
-  store i8 %66, ptr %22, align 2
+  %58 = getelementptr i8, ptr %.pre, i64 -88
+  %59 = load i32, ptr %58, align 8
+  %60 = or i32 %59, 1073741824
+  store i32 %60, ptr %20, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %62 = load i64, ptr %61, align 8
+  %63 = trunc i64 %62 to i8
+  store i8 %63, ptr %22, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %23, i8 noundef 0, i64 noundef 64, i1 noundef false) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(88) %60, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(88) %57, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false)
   br label %yyStackOverflow.exit
 
-67:                                               ; preds = %53
-  %68 = getelementptr i8, ptr %54, i64 -472
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef align 8 dereferenceable(16) %68, i64 16, i1 false)
+64:                                               ; preds = %._crit_edge
+  %65 = getelementptr i8, ptr %.pre, i64 -472
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef align 8 dereferenceable(16) %65, i64 16, i1 false)
   store i8 0, ptr %19, align 4
-  %69 = getelementptr i8, ptr %54, i64 -88
-  %70 = load i32, ptr %69, align 8
-  store i32 %70, ptr %20, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(65) %22, ptr noundef nonnull align 8 dereferenceable(65) %71, i64 65, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(88) %68, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false)
+  %66 = getelementptr i8, ptr %.pre, i64 -88
+  %67 = load i32, ptr %66, align 8
+  store i32 %67, ptr %20, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(65) %22, ptr noundef nonnull align 8 dereferenceable(65) %68, i64 65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(88) %65, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false)
   br label %yyStackOverflow.exit
 
-72:                                               ; preds = %53
-  %73 = getelementptr i8, ptr %54, i64 -568
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef align 8 dereferenceable(16) %73, i64 16, i1 false)
+69:                                               ; preds = %._crit_edge
+  %70 = getelementptr i8, ptr %.pre, i64 -568
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef align 8 dereferenceable(16) %70, i64 16, i1 false)
   store i8 1, ptr %19, align 4
-  %74 = getelementptr i8, ptr %54, i64 -184
-  %75 = load i32, ptr %74, align 8
-  store i32 %75, ptr %20, align 8
-  %76 = getelementptr i8, ptr %54, i64 -88
-  %77 = load i8, ptr %76, align 8
-  store i8 %77, ptr %21, align 1
-  %78 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(65) %22, ptr noundef nonnull align 8 dereferenceable(65) %78, i64 65, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(88) %73, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false)
+  %71 = getelementptr i8, ptr %.pre, i64 -184
+  %72 = load i32, ptr %71, align 8
+  store i32 %72, ptr %20, align 8
+  %73 = getelementptr i8, ptr %.pre, i64 -88
+  %74 = load i8, ptr %73, align 8
+  store i8 %74, ptr %21, align 1
+  %75 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(65) %22, ptr noundef nonnull align 8 dereferenceable(65) %75, i64 65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(88) %70, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false)
   br label %yyStackOverflow.exit
 
-79:                                               ; preds = %53
-  %80 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %81 = load i64, ptr %80, align 8
-  store i64 %81, ptr %6, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %83 = load i64, ptr %82, align 8
-  %84 = trunc i64 %83 to i32
-  %85 = mul i32 %84, 1000
-  store i32 %85, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+76:                                               ; preds = %._crit_edge
+  %77 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %78 = load i64, ptr %77, align 8
+  store i64 %78, ptr %6, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
+  %80 = load i64, ptr %79, align 8
+  %81 = trunc i64 %80 to i32
+  %82 = mul i32 %81, 1000
+  store i32 %82, ptr %18, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
   br label %yyStackOverflow.exit
 
-86:                                               ; preds = %53
-  %87 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %88 = load i64, ptr %87, align 8
-  %89 = trunc i64 %88 to i32
-  store i32 %89, ptr %87, align 8
+83:                                               ; preds = %._crit_edge
+  %84 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %85 = load i64, ptr %84, align 8
+  %86 = trunc i64 %85 to i32
+  store i32 %86, ptr %84, align 8
   br label %yyStackOverflow.exit
 
-90:                                               ; preds = %53
-  %91 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %92 = load i64, ptr %91, align 8
-  %93 = trunc i64 %92 to i32
-  %94 = shl i32 %93, 2
-  %95 = and i32 %94, -2147483648
-  %96 = xor i32 %95, -2147483648
-  %spec.select.i = or i32 %96, %93
-  store i32 %spec.select.i, ptr %91, align 8
+87:                                               ; preds = %._crit_edge
+  %88 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %89 = load i64, ptr %88, align 8
+  %90 = trunc i64 %89 to i32
+  %91 = shl i32 %90, 2
+  %92 = and i32 %91, -2147483648
+  %93 = xor i32 %92, -2147483648
+  %spec.select.i = or i32 %93, %90
+  store i32 %spec.select.i, ptr %88, align 8
   br label %yyStackOverflow.exit
 
-97:                                               ; preds = %53, %53
-  %98 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %99 = load i64, ptr %98, align 8
-  %100 = trunc i64 %99 to i8
-  store i8 %100, ptr %98, align 8
+94:                                               ; preds = %._crit_edge, %._crit_edge
+  %95 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %96 = load i64, ptr %95, align 8
+  %97 = trunc i64 %96 to i8
+  store i8 %97, ptr %95, align 8
   br label %yyStackOverflow.exit
 
-101:                                              ; preds = %53
-  %102 = getelementptr i8, ptr %54, i64 104
-  store i8 0, ptr %102, align 8
+98:                                               ; preds = %._crit_edge
+  %99 = getelementptr i8, ptr %.pre, i64 104
+  store i8 0, ptr %99, align 8
   br label %yyStackOverflow.exit
 
-103:                                              ; preds = %53
+100:                                              ; preds = %._crit_edge
   store i8 1, ptr %6, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %102 = load i8, ptr %101, align 8
+  store i8 %102, ptr %14, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %101, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
+  br label %yyStackOverflow.exit
+
+103:                                              ; preds = %._crit_edge
+  store i8 2, ptr %6, align 8
+  %104 = getelementptr i8, ptr %.pre, i64 -88
   %105 = load i8, ptr %104, align 8
   store i8 %105, ptr %14, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %104, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
+  %106 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %107 = load i8, ptr %106, align 8
+  store i8 %107, ptr %15, align 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(65) %104, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
   br label %yyStackOverflow.exit
 
-106:                                              ; preds = %53
-  store i8 2, ptr %6, align 8
-  %107 = getelementptr i8, ptr %54, i64 -88
-  %108 = load i8, ptr %107, align 8
-  store i8 %108, ptr %14, align 1
-  %109 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %110 = load i8, ptr %109, align 8
-  store i8 %110, ptr %15, align 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(65) %107, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
-  br label %yyStackOverflow.exit
-
-111:                                              ; preds = %53
+108:                                              ; preds = %._crit_edge
   store i8 3, ptr %6, align 8
-  %112 = getelementptr i8, ptr %54, i64 -184
-  %113 = load i8, ptr %112, align 8
-  store i8 %113, ptr %14, align 1
-  %114 = getelementptr i8, ptr %54, i64 -88
-  %115 = load i8, ptr %114, align 8
-  store i8 %115, ptr %15, align 2
-  %116 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %117 = load i8, ptr %116, align 8
-  store i8 %117, ptr %16, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(65) %112, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
+  %109 = getelementptr i8, ptr %.pre, i64 -184
+  %110 = load i8, ptr %109, align 8
+  store i8 %110, ptr %14, align 1
+  %111 = getelementptr i8, ptr %.pre, i64 -88
+  %112 = load i8, ptr %111, align 8
+  store i8 %112, ptr %15, align 2
+  %113 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %114 = load i8, ptr %113, align 8
+  store i8 %114, ptr %16, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(65) %109, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
   br label %yyStackOverflow.exit
 
-118:                                              ; preds = %53
+115:                                              ; preds = %._crit_edge
   store i8 4, ptr %6, align 8
-  %119 = getelementptr i8, ptr %54, i64 -280
-  %120 = load i8, ptr %119, align 8
-  store i8 %120, ptr %14, align 1
-  %121 = getelementptr i8, ptr %54, i64 -184
-  %122 = load i8, ptr %121, align 8
-  store i8 %122, ptr %15, align 2
-  %123 = getelementptr i8, ptr %54, i64 -88
-  %124 = load i8, ptr %123, align 8
-  store i8 %124, ptr %16, align 1
-  %125 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %126 = load i8, ptr %125, align 8
-  store i8 %126, ptr %17, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(65) %119, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
+  %116 = getelementptr i8, ptr %.pre, i64 -280
+  %117 = load i8, ptr %116, align 8
+  store i8 %117, ptr %14, align 1
+  %118 = getelementptr i8, ptr %.pre, i64 -184
+  %119 = load i8, ptr %118, align 8
+  store i8 %119, ptr %15, align 2
+  %120 = getelementptr i8, ptr %.pre, i64 -88
+  %121 = load i8, ptr %120, align 8
+  store i8 %121, ptr %16, align 1
+  %122 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %123 = load i8, ptr %122, align 8
+  store i8 %123, ptr %17, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(65) %116, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
   br label %yyStackOverflow.exit
 
-127:                                              ; preds = %53, %53, %53, %53, %53, %53, %53, %53, %53, %53, %53
-  %128 = getelementptr i8, ptr %54, i64 -88
-  %129 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %130 = load i8, ptr %128, align 1
-  %131 = load i8, ptr %129, align 1
-  %132 = add i8 %131, %130
-  store i8 %132, ptr %6, align 8
-  %133 = getelementptr i8, ptr %54, i64 -87
-  %134 = zext i8 %130 to i64
-  %135 = call ptr @__memcpy_chk(ptr noundef nonnull %14, ptr noundef nonnull readonly %133, i64 noundef range(i64 0, 256) %134, i64 noundef 87) #12, !alias.scope !9
-  %136 = add nuw nsw i64 %134, 1
-  %137 = getelementptr i8, ptr %14, i64 %134
-  %138 = getelementptr inbounds nuw i8, ptr %54, i64 9
-  %139 = zext i8 %131 to i64
-  %140 = call i64 @llvm.usub.sat.i64(i64 88, i64 %136)
-  %141 = call ptr @__memcpy_chk(ptr noundef %137, ptr noundef nonnull readonly %138, i64 noundef range(i64 0, 256) %139, i64 noundef %140) #12, !alias.scope !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(65) %128, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
+124:                                              ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %125 = getelementptr i8, ptr %.pre, i64 -88
+  %126 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %127 = load i8, ptr %125, align 1
+  %128 = load i8, ptr %126, align 1
+  %129 = add i8 %128, %127
+  store i8 %129, ptr %6, align 8
+  %130 = getelementptr i8, ptr %.pre, i64 -87
+  %131 = zext i8 %127 to i64
+  %132 = call ptr @__memcpy_chk(ptr noundef nonnull %14, ptr noundef nonnull readonly %130, i64 noundef range(i64 0, 256) %131, i64 noundef 87) #12, !alias.scope !9
+  %133 = add nuw nsw i64 %131, 1
+  %134 = getelementptr i8, ptr %14, i64 %131
+  %135 = getelementptr inbounds nuw i8, ptr %.pre, i64 9
+  %136 = zext i8 %128 to i64
+  %137 = call i64 @llvm.usub.sat.i64(i64 88, i64 %133)
+  %138 = call ptr @__memcpy_chk(ptr noundef %134, ptr noundef nonnull readonly %135, i64 noundef range(i64 0, 256) %136, i64 noundef %137) #12, !alias.scope !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(65) %125, ptr noundef nonnull align 8 dereferenceable(65) %6, i64 65, i1 false)
   br label %yyStackOverflow.exit
 
-yyStackOverflow.exit:                             ; preds = %127, %118, %111, %106, %103, %101, %97, %90, %86, %79, %72, %67, %59, %55, %53
-  %142 = and i64 %43, 4294967295
-  %143 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %142
-  %144 = load i8, ptr %143, align 1
-  %145 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %142
-  %146 = load i8, ptr %145, align 1
-  %147 = sext i8 %146 to i64
-  %148 = getelementptr %struct.yyStackEntry, ptr %54, i64 %147
-  %149 = load i8, ptr %148, align 8
-  %150 = zext i8 %149 to i64
-  %151 = getelementptr i8, ptr @yy_reduce_ofst, i64 %150
-  %152 = load i8, ptr %151, align 1
-  %153 = sext i8 %152 to i64
-  %154 = zext i8 %144 to i64
-  %155 = getelementptr i8, ptr @yy_action, i64 %153
-  %156 = getelementptr i8, ptr %155, i64 %154
-  %157 = load i8, ptr %156, align 1
-  %158 = getelementptr i8, ptr %148, i64 96
-  store ptr %158, ptr %0, align 8
-  store i8 %157, ptr %158, align 8
-  %159 = getelementptr i8, ptr %148, i64 97
-  store i8 %144, ptr %159, align 1
+yyStackOverflow.exit:                             ; preds = %124, %115, %108, %103, %100, %98, %94, %87, %83, %76, %69, %64, %56, %52, %._crit_edge
+  %139 = and i64 %43, 4294967295
+  %140 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %139
+  %141 = load i8, ptr %140, align 1
+  %142 = getelementptr i8, ptr @yyRuleInfoNRhs, i64 %139
+  %143 = load i8, ptr %142, align 1
+  %144 = sext i8 %143 to i64
+  %145 = getelementptr %struct.yyStackEntry, ptr %.pre, i64 %144
+  %146 = load i8, ptr %145, align 8
+  %147 = zext i8 %146 to i64
+  %148 = getelementptr i8, ptr @yy_reduce_ofst, i64 %147
+  %149 = load i8, ptr %148, align 1
+  %150 = sext i8 %149 to i64
+  %151 = zext i8 %141 to i64
+  %152 = getelementptr i8, ptr @yy_action, i64 %150
+  %153 = getelementptr i8, ptr %152, i64 %151
+  %154 = load i8, ptr %153, align 1
+  %155 = getelementptr i8, ptr %145, i64 96
+  store ptr %155, ptr %0, align 8
+  store i8 %154, ptr %155, align 8
+  %156 = getelementptr i8, ptr %145, i64 97
+  store i8 %141, ptr %156, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %24
 
-160:                                              ; preds = %yy_find_shift_action.exit
-  %161 = icmp samesign ult i8 %.0.i, 119
-  br i1 %161, label %162, label %181
+157:                                              ; preds = %yy_find_shift_action.exit
+  %158 = icmp samesign ult i8 %.0.i, 119
+  br i1 %158, label %159, label %178
 
-162:                                              ; preds = %160
-  %163 = load ptr, ptr %0, align 8
-  %164 = getelementptr i8, ptr %163, i64 96
-  store ptr %164, ptr %0, align 8
-  %165 = load ptr, ptr %13, align 8
-  %166 = icmp ugt ptr %164, %165
-  br i1 %166, label %167, label %173
+159:                                              ; preds = %157
+  %160 = load ptr, ptr %0, align 8
+  %161 = getelementptr i8, ptr %160, i64 96
+  store ptr %161, ptr %0, align 8
+  %162 = load ptr, ptr %13, align 8
+  %163 = icmp ugt ptr %161, %162
+  br i1 %163, label %164, label %170
 
-167:                                              ; preds = %162
-  store ptr %163, ptr %0, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %169 = icmp ugt ptr %163, %168
-  br i1 %169, label %.lr.ph.i.i, label %yy_shift.exit
+164:                                              ; preds = %159
+  store ptr %160, ptr %0, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %166 = icmp ugt ptr %160, %165
+  br i1 %166, label %.lr.ph.i.i, label %yy_shift.exit
 
-.lr.ph.i.i:                                       ; preds = %167, %.lr.ph.i.i
-  %170 = phi ptr [ %171, %.lr.ph.i.i ], [ %163, %167 ]
-  %171 = getelementptr i8, ptr %170, i64 -96
-  %172 = icmp ugt ptr %171, %168
-  br i1 %172, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
+.lr.ph.i.i:                                       ; preds = %164, %.lr.ph.i.i
+  %167 = phi ptr [ %168, %.lr.ph.i.i ], [ %160, %164 ]
+  %168 = getelementptr i8, ptr %167, i64 -96
+  %169 = icmp ugt ptr %168, %165
+  br i1 %169, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  store ptr %171, ptr %0, align 8
+  store ptr %168, ptr %0, align 8
   br label %yy_shift.exit
 
-173:                                              ; preds = %162
-  %174 = icmp samesign ugt i8 %.0.i, 24
-  %175 = add nuw i8 %.0.i, 57
-  %spec.select.i40 = select i1 %174, i8 %175, i8 %.0.i
-  store i8 %spec.select.i40, ptr %164, align 8
-  %176 = getelementptr i8, ptr %163, i64 97
-  store i8 %11, ptr %176, align 1
-  %177 = getelementptr i8, ptr %163, i64 104
-  store i64 %2, ptr %177, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %163, i64 112
+170:                                              ; preds = %159
+  %171 = icmp samesign ugt i8 %.0.i, 24
+  %172 = add nuw i8 %.0.i, 57
+  %spec.select.i40 = select i1 %171, i8 %172, i8 %.0.i
+  store i8 %spec.select.i40, ptr %161, align 8
+  %173 = getelementptr i8, ptr %160, i64 97
+  store i8 %11, ptr %173, align 1
+  %174 = getelementptr i8, ptr %160, i64 104
+  store i64 %2, ptr %174, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr i8, ptr %160, i64 112
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %yy_shift.exit
 
-yy_shift.exit:                                    ; preds = %167, %._crit_edge.i.i, %173
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %179 = load i32, ptr %178, align 8
-  %180 = add i32 %179, -1
-  store i32 %180, ptr %178, align 8
+yy_shift.exit:                                    ; preds = %164, %._crit_edge.i.i, %170
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %176 = load i32, ptr %175, align 8
+  %177 = add i32 %176, -1
+  store i32 %177, ptr %175, align 8
   br label %yyStackOverflow.exit.thread
 
-181:                                              ; preds = %160
-  %182 = icmp eq i8 %.0.i, 120
-  br i1 %182, label %183, label %187
+178:                                              ; preds = %157
+  %179 = icmp eq i8 %.0.i, 120
+  br i1 %179, label %180, label %184
 
-183:                                              ; preds = %181
-  %184 = load ptr, ptr %0, align 8
-  %185 = getelementptr i8, ptr %184, i64 -96
-  store ptr %185, ptr %0, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1, ptr %186, align 8
+180:                                              ; preds = %178
+  %181 = load ptr, ptr %0, align 8
+  %182 = getelementptr i8, ptr %181, i64 -96
+  store ptr %182, ptr %0, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 -1, ptr %183, align 8
   br label %yyStackOverflow.exit.thread
 
-187:                                              ; preds = %181
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %189 = load i32, ptr %188, align 8
-  %190 = icmp slt i32 %189, 1
-  br i1 %190, label %191, label %196
+184:                                              ; preds = %178
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %186 = load i32, ptr %185, align 8
+  %187 = icmp slt i32 %186, 1
+  br i1 %187, label %188, label %193
 
-191:                                              ; preds = %187
-  %192 = load ptr, ptr %7, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 128
-  %194 = load ptr, ptr %193, align 8
-  call void @g_free(ptr noundef %194)
-  %195 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str)
-  store ptr %195, ptr %193, align 8
-  store ptr %192, ptr %7, align 8
-  br label %196
+188:                                              ; preds = %184
+  %189 = load ptr, ptr %7, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 128
+  %191 = load ptr, ptr %190, align 8
+  call void @g_free(ptr noundef %191)
+  %192 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str)
+  store ptr %192, ptr %190, align 8
+  store ptr %189, ptr %7, align 8
+  br label %193
 
-196:                                              ; preds = %191, %187
-  store i32 3, ptr %188, align 8
-  br i1 %8, label %197, label %yyStackOverflow.exit.thread
+193:                                              ; preds = %188, %184
+  store i32 3, ptr %185, align 8
+  br i1 %8, label %194, label %yyStackOverflow.exit.thread
 
-197:                                              ; preds = %196
-  %198 = load ptr, ptr %7, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 24
+194:                                              ; preds = %193
+  %195 = load ptr, ptr %7, align 8
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted.i41 = load ptr, ptr %0, align 8
-  %200 = icmp ugt ptr %.promoted.i41, %199
-  br i1 %200, label %.lr.ph.i42, label %yy_parse_failed.exit
+  %197 = icmp ugt ptr %.promoted.i41, %196
+  br i1 %197, label %.lr.ph.i42, label %yy_parse_failed.exit
 
-.lr.ph.i42:                                       ; preds = %197, %.lr.ph.i42
-  %201 = phi ptr [ %202, %.lr.ph.i42 ], [ %.promoted.i41, %197 ]
-  %202 = getelementptr i8, ptr %201, i64 -96
-  %203 = icmp ugt ptr %202, %199
-  br i1 %203, label %.lr.ph.i42, label %._crit_edge.i43, !llvm.loop !17
+.lr.ph.i42:                                       ; preds = %194, %.lr.ph.i42
+  %198 = phi ptr [ %199, %.lr.ph.i42 ], [ %.promoted.i41, %194 ]
+  %199 = getelementptr i8, ptr %198, i64 -96
+  %200 = icmp ugt ptr %199, %196
+  br i1 %200, label %.lr.ph.i42, label %._crit_edge.i43, !llvm.loop !17
 
 ._crit_edge.i43:                                  ; preds = %.lr.ph.i42
-  store ptr %202, ptr %0, align 8
+  store ptr %199, ptr %0, align 8
   br label %yy_parse_failed.exit
 
-yy_parse_failed.exit:                             ; preds = %197, %._crit_edge.i43
-  %204 = getelementptr inbounds nuw i8, ptr %198, i64 128
-  %205 = load ptr, ptr %204, align 8
-  call void @g_free(ptr noundef %205)
-  %206 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1)
-  store ptr %206, ptr %204, align 8
-  store ptr %198, ptr %7, align 8
-  store i32 -1, ptr %188, align 8
+yy_parse_failed.exit:                             ; preds = %194, %._crit_edge.i43
+  %201 = getelementptr inbounds nuw i8, ptr %195, i64 128
+  %202 = load ptr, ptr %201, align 8
+  call void @g_free(ptr noundef %202)
+  %203 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1)
+  store ptr %203, ptr %201, align 8
+  store ptr %195, ptr %7, align 8
+  store i32 -1, ptr %185, align 8
   br label %yyStackOverflow.exit.thread
 
-yyStackOverflow.exit.thread:                      ; preds = %._crit_edge.i, %47, %yy_shift.exit, %yy_parse_failed.exit, %196, %183
+yyStackOverflow.exit.thread:                      ; preds = %._crit_edge.i, %46, %yy_shift.exit, %yy_parse_failed.exit, %193, %180
   ret void
 }
 

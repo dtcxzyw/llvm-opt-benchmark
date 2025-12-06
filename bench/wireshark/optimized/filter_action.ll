@@ -798,7 +798,7 @@ define void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind noali
   store i32 0, ptr %10, align 4
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
   invoke void @_ZN9QtPrivate12QPodArrayOpsIN12FilterAction10ActionTypeEE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %11, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %10)
-          to label %19 unwind label %59
+          to label %19 unwind label %61
 
 19:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -806,7 +806,7 @@ define void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind noali
   store i32 1, ptr %9, align 4
   %20 = load i64, ptr %18, align 8
   invoke void @_ZN9QtPrivate12QPodArrayOpsIN12FilterAction10ActionTypeEE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %11, i64 noundef %20, ptr noundef nonnull align 4 dereferenceable(4) %9)
-          to label %21 unwind label %59
+          to label %21 unwind label %61
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -814,7 +814,7 @@ define void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind noali
   store i32 2, ptr %8, align 4
   %22 = load i64, ptr %18, align 8
   invoke void @_ZN9QtPrivate12QPodArrayOpsIN12FilterAction10ActionTypeEE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %11, i64 noundef %22, ptr noundef nonnull align 4 dereferenceable(4) %8)
-          to label %23 unwind label %59
+          to label %23 unwind label %61
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -822,7 +822,7 @@ define void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind noali
   store i32 3, ptr %7, align 4
   %24 = load i64, ptr %18, align 8
   invoke void @_ZN9QtPrivate12QPodArrayOpsIN12FilterAction10ActionTypeEE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %11, i64 noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %7)
-          to label %25 unwind label %59
+          to label %25 unwind label %61
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -830,7 +830,7 @@ define void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind noali
   store i32 4, ptr %6, align 4
   %26 = load i64, ptr %18, align 8
   invoke void @_ZN9QtPrivate12QPodArrayOpsIN12FilterAction10ActionTypeEE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %11, i64 noundef %26, ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %27 unwind label %59
+          to label %27 unwind label %61
 
 27:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -838,7 +838,7 @@ define void @_ZN12FilterAction11actionTypesENS_6ActionE(ptr dead_on_unwind noali
   store i32 5, ptr %5, align 4
   %28 = load i64, ptr %18, align 8
   invoke void @_ZN9QtPrivate12QPodArrayOpsIN12FilterAction10ActionTypeEE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %11, i64 noundef %28, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %29 unwind label %59
+          to label %29 unwind label %61
 
 29:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -891,7 +891,7 @@ _ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit: ; preds = %29, %_ZN5QListIN12F
   store i32 0, ptr %4, align 4
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
   invoke void @_ZN9QtPrivate12QPodArrayOpsIN12FilterAction10ActionTypeEE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %12, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %46 unwind label %65
+          to label %46 unwind label %67
 
 46:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -899,7 +899,7 @@ _ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit: ; preds = %29, %_ZN5QListIN12F
   store i32 1, ptr %3, align 4
   %47 = load i64, ptr %45, align 8
   invoke void @_ZN9QtPrivate12QPodArrayOpsIN12FilterAction10ActionTypeEE7emplaceIJRS2_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %12, i64 noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %48 unwind label %65
+          to label %48 unwind label %67
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -936,88 +936,86 @@ _ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit18: ; preds = %48, %_ZN5QListIN1
   br label %58
 
 58:                                               ; preds = %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit18, %42, %39
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   switch i32 %1, label %77 [
-    i32 3, label %71
-    i32 1, label %71
+    i32 3, label %73
+    i32 1, label %73
   ]
 
-59:                                               ; preds = %27, %25, %23, %21, %19, %17
-  %60 = landingpad { ptr, i32 }
+61:                                               ; preds = %27, %25, %23, %21, %19, %17
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %61 = load ptr, ptr %11, align 8
-  %.not.i.i.i19 = icmp eq ptr %61, null
+  %63 = load ptr, ptr %11, align 8
+  %.not.i.i.i19 = icmp eq ptr %63, null
   br i1 %.not.i.i.i19, label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22, label %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20
 
-_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20: ; preds = %59
-  %62 = atomicrmw sub ptr %61, i32 1 seq_cst, align 4
-  %.not.i.i21 = icmp eq i32 %62, 1
-  br i1 %.not.i.i21, label %63, label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22
+_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20: ; preds = %61
+  %64 = atomicrmw sub ptr %63, i32 1 seq_cst, align 4
+  %.not.i.i21 = icmp eq i32 %64, 1
+  br i1 %.not.i.i21, label %65, label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22
 
-63:                                               ; preds = %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20
-  %64 = load ptr, ptr %11, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %64, i64 noundef 4, i64 noundef 8) #20
+65:                                               ; preds = %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20
+  %66 = load ptr, ptr %11, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %66, i64 noundef 4, i64 noundef 8) #20
   br label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22
 
-_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22: ; preds = %59, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20, %63
+_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22: ; preds = %61, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i20, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %84
+  br label %82
 
-65:                                               ; preds = %46, %44
-  %66 = landingpad { ptr, i32 }
+67:                                               ; preds = %46, %44
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %67 = load ptr, ptr %12, align 8
-  %.not.i.i.i23 = icmp eq ptr %67, null
+  %69 = load ptr, ptr %12, align 8
+  %.not.i.i.i23 = icmp eq ptr %69, null
   br i1 %.not.i.i.i23, label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit26, label %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24
 
-_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24: ; preds = %65
-  %68 = atomicrmw sub ptr %67, i32 1 seq_cst, align 4
-  %.not.i.i25 = icmp eq i32 %68, 1
-  br i1 %.not.i.i25, label %69, label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit26
+_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24: ; preds = %67
+  %70 = atomicrmw sub ptr %69, i32 1 seq_cst, align 4
+  %.not.i.i25 = icmp eq i32 %70, 1
+  br i1 %.not.i.i25, label %71, label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit26
 
-69:                                               ; preds = %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24
-  %70 = load ptr, ptr %12, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %70, i64 noundef 4, i64 noundef 8) #20
+71:                                               ; preds = %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24
+  %72 = load ptr, ptr %12, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %72, i64 noundef 4, i64 noundef 8) #20
   br label %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit26
 
-_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit26: ; preds = %65, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24, %69
+_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit26: ; preds = %67, %_ZN17QArrayDataPointerIN12FilterAction10ActionTypeEE5derefEv.exit.i.i24, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %84
+  br label %82
 
-71:                                               ; preds = %58, %58
-  %72 = load ptr, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, align 8
-  store ptr %72, ptr %0, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, i64 8), align 8
-  store ptr %74, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+73:                                               ; preds = %58, %58
+  %74 = load ptr, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, align 8
+  store ptr %74, ptr %0, align 8
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, i64 8), align 8
+  store ptr %75, ptr %59, align 8
   %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, i64 16), align 8
-  store i64 %76, ptr %75, align 8
-  %.not.i.i.i27 = icmp eq ptr %72, null
+  store i64 %76, ptr %60, align 8
+  %.not.i.i.i27 = icmp eq ptr %74, null
   br i1 %.not.i.i.i27, label %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28, label %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28.sink.split
 
 77:                                               ; preds = %58
   %78 = load ptr, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, align 8
   store ptr %78, ptr %0, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 8), align 8
-  store ptr %80, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %82 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 16), align 8
-  store i64 %82, ptr %81, align 8
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 8), align 8
+  store ptr %79, ptr %59, align 8
+  %80 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12FilterAction11actionTypesENS_6ActionEE13action_types_, i64 16), align 8
+  store i64 %80, ptr %60, align 8
   %.not.i.i.i29 = icmp eq ptr %78, null
   br i1 %.not.i.i.i29, label %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28, label %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28.sink.split
 
-_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28.sink.split: ; preds = %77, %71
-  %.sink = phi ptr [ %72, %71 ], [ %78, %77 ]
-  %83 = atomicrmw add ptr %.sink, i32 1 seq_cst, align 4
+_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28.sink.split: ; preds = %77, %73
+  %.sink = phi ptr [ %74, %73 ], [ %78, %77 ]
+  %81 = atomicrmw add ptr %.sink, i32 1 seq_cst, align 4
   br label %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28
 
-_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28: ; preds = %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28.sink.split, %77, %71
+_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28: ; preds = %_ZN5QListIN12FilterAction10ActionTypeEEC2ERKS2_.exit28.sink.split, %77, %73
   ret void
 
-84:                                               ; preds = %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit26, %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22
+82:                                               ; preds = %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit26, %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22
   %_ZGVZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_.sink = phi ptr [ @_ZGVZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_, %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit26 ], [ @_ZGVZN12FilterAction11actionTypesENS_6ActionEE13action_types_, %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22 ]
-  %.pn = phi { ptr, i32 } [ %66, %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit26 ], [ %60, %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22 ]
+  %.pn = phi { ptr, i32 } [ %68, %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit26 ], [ %62, %_ZN5QListIN12FilterAction10ActionTypeEED2Ev.exit22 ]
   call void @__cxa_guard_abort(ptr nonnull %_ZGVZN12FilterAction11actionTypesENS_6ActionEE20simple_action_types_.sink) #20
   resume { ptr, i32 } %.pn
 }

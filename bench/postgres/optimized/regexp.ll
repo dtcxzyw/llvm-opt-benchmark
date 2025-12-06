@@ -1259,13 +1259,13 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   %74 = zext nneg i32 %.0152 to i64
   br label %75
 
-75:                                               ; preds = %.lr.ph, %162
-  %.0133186 = phi ptr [ %8, %.lr.ph ], [ %.3, %162 ]
-  %.0135185 = phi ptr [ %71, %.lr.ph ], [ %.4, %162 ]
-  %.0139184 = phi i32 [ 0, %.lr.ph ], [ %.1140, %162 ]
-  %.0143183 = phi i8 [ 0, %.lr.ph ], [ %.1144, %162 ]
-  %.0146182 = phi i8 [ 0, %.lr.ph ], [ %.4150, %162 ]
-  %.0153181 = phi i32 [ %25, %.lr.ph ], [ %.3156, %162 ]
+75:                                               ; preds = %.lr.ph, %157
+  %.0133186 = phi ptr [ %8, %.lr.ph ], [ %.3, %157 ]
+  %.0135185 = phi ptr [ %71, %.lr.ph ], [ %.4, %157 ]
+  %.0139184 = phi i32 [ 0, %.lr.ph ], [ %.1140, %157 ]
+  %.0143183 = phi i8 [ 0, %.lr.ph ], [ %.1144, %157 ]
+  %.0146182 = phi i8 [ 0, %.lr.ph ], [ %.4150, %157 ]
+  %.0153181 = phi i32 [ %25, %.lr.ph ], [ %.3156, %157 ]
   %76 = load i8, ptr %.0133186, align 1
   br i1 %73, label %77, label %.thread175
 
@@ -1312,7 +1312,7 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   %.2137 = phi ptr [ %.0135185, %._crit_edge187 ], [ %85, %82 ], [ %92, %90 ]
   %94 = getelementptr inbounds nuw i8, ptr %.0133186, i64 %.pre-phi
   %95 = sub nsw i32 %.0153181, %78
-  br label %162
+  br label %157
 
 .thread175:                                       ; preds = %77, %75
   %96 = trunc nuw i8 %.0146182 to i1
@@ -1380,14 +1380,14 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
 124:                                              ; preds = %110, %101
   %.5 = phi ptr [ %109, %101 ], [ %119, %110 ]
   %125 = add nuw nsw i32 %.0139184, 1
-  br label %159
+  br label %154
 
 126:                                              ; preds = %97
   %127 = getelementptr inbounds nuw i8, ptr %.0135185, i64 1
   store i8 92, ptr %.0135185, align 1
   %128 = getelementptr inbounds nuw i8, ptr %.0135185, i64 2
   store i8 %76, ptr %127, align 1
-  br label %159
+  br label %154
 
 129:                                              ; preds = %.thread175
   br i1 %.not168, label %133, label %130
@@ -1395,7 +1395,7 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
 130:                                              ; preds = %129
   %131 = load i8, ptr %.0134, align 1
   %132 = icmp eq i8 %76, %131
-  br i1 %132, label %159, label %133
+  br i1 %132, label %154, label %133
 
 133:                                              ; preds = %130, %129
   %134 = trunc nuw i8 %.0143183 to i1
@@ -1416,89 +1416,84 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   store i8 %76, ptr %.8, align 1
   %141 = icmp ne i8 %76, 93
   %spec.select = zext i1 %141 to i8
-  br label %159
+  br label %154
 
 142:                                              ; preds = %133
-  switch i8 %76, label %157 [
-    i8 91, label %143
+  %143 = getelementptr inbounds nuw i8, ptr %.0135185, i64 1
+  switch i8 %76, label %153 [
+    i8 91, label %144
     i8 37, label %145
-    i8 95, label %148
-    i8 40, label %150
-    i8 94, label %154
-    i8 92, label %154
-    i8 46, label %154
-    i8 36, label %154
+    i8 95, label %147
+    i8 40, label %148
+    i8 94, label %151
+    i8 92, label %151
+    i8 46, label %151
+    i8 36, label %151
   ]
 
-143:                                              ; preds = %142
-  %144 = getelementptr inbounds nuw i8, ptr %.0135185, i64 1
+144:                                              ; preds = %142
   store i8 91, ptr %.0135185, align 1
-  br label %159
+  br label %154
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds nuw i8, ptr %.0135185, i64 1
   store i8 46, ptr %.0135185, align 1
-  %147 = getelementptr inbounds nuw i8, ptr %.0135185, i64 2
-  store i8 42, ptr %146, align 1
-  br label %159
+  %146 = getelementptr inbounds nuw i8, ptr %.0135185, i64 2
+  store i8 42, ptr %143, align 1
+  br label %154
+
+147:                                              ; preds = %142
+  store i8 46, ptr %.0135185, align 1
+  br label %154
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %.0135185, i64 1
-  store i8 46, ptr %.0135185, align 1
-  br label %159
-
-150:                                              ; preds = %142
-  %151 = getelementptr inbounds nuw i8, ptr %.0135185, i64 1
   store i8 40, ptr %.0135185, align 1
-  %152 = getelementptr inbounds nuw i8, ptr %.0135185, i64 2
-  store i8 63, ptr %151, align 1
-  %153 = getelementptr inbounds nuw i8, ptr %.0135185, i64 3
-  store i8 58, ptr %152, align 1
-  br label %159
+  %149 = getelementptr inbounds nuw i8, ptr %.0135185, i64 2
+  store i8 63, ptr %143, align 1
+  %150 = getelementptr inbounds nuw i8, ptr %.0135185, i64 3
+  store i8 58, ptr %149, align 1
+  br label %154
 
-154:                                              ; preds = %142, %142, %142, %142
-  %155 = getelementptr inbounds nuw i8, ptr %.0135185, i64 1
+151:                                              ; preds = %142, %142, %142, %142
   store i8 92, ptr %.0135185, align 1
-  %156 = getelementptr inbounds nuw i8, ptr %.0135185, i64 2
-  store i8 %76, ptr %155, align 1
-  br label %159
+  %152 = getelementptr inbounds nuw i8, ptr %.0135185, i64 2
+  store i8 %76, ptr %143, align 1
+  br label %154
 
-157:                                              ; preds = %142
-  %158 = getelementptr inbounds nuw i8, ptr %.0135185, i64 1
+153:                                              ; preds = %142
   store i8 %76, ptr %.0135185, align 1
-  br label %159
+  br label %154
 
-159:                                              ; preds = %139, %130, %124, %126, %143, %148, %154, %157, %150, %145
-  %.5151 = phi i8 [ 0, %143 ], [ 0, %145 ], [ 0, %148 ], [ 0, %150 ], [ 0, %154 ], [ 0, %157 ], [ 0, %126 ], [ 0, %124 ], [ 1, %130 ], [ 0, %139 ]
-  %.2145 = phi i8 [ 1, %143 ], [ 0, %145 ], [ 0, %148 ], [ 0, %150 ], [ 0, %154 ], [ 0, %157 ], [ %.0143183, %126 ], [ 0, %124 ], [ %.0143183, %130 ], [ %spec.select, %139 ]
-  %.3142 = phi i32 [ %.0139184, %143 ], [ %.0139184, %145 ], [ %.0139184, %148 ], [ %.0139184, %150 ], [ %.0139184, %154 ], [ %.0139184, %157 ], [ %.0139184, %126 ], [ %125, %124 ], [ %.0139184, %130 ], [ %.0139184, %139 ]
-  %.7 = phi ptr [ %144, %143 ], [ %147, %145 ], [ %149, %148 ], [ %153, %150 ], [ %156, %154 ], [ %158, %157 ], [ %128, %126 ], [ %.5, %124 ], [ %.0135185, %130 ], [ %140, %139 ]
-  %160 = getelementptr inbounds nuw i8, ptr %.0133186, i64 1
-  %161 = add nsw i32 %.0153181, -1
-  br label %162
+154:                                              ; preds = %139, %130, %124, %126, %144, %147, %151, %153, %148, %145
+  %.5151 = phi i8 [ 0, %144 ], [ 0, %145 ], [ 0, %147 ], [ 0, %148 ], [ 0, %151 ], [ 0, %153 ], [ 0, %126 ], [ 0, %124 ], [ 1, %130 ], [ 0, %139 ]
+  %.2145 = phi i8 [ 1, %144 ], [ 0, %145 ], [ 0, %147 ], [ 0, %148 ], [ 0, %151 ], [ 0, %153 ], [ %.0143183, %126 ], [ 0, %124 ], [ %.0143183, %130 ], [ %spec.select, %139 ]
+  %.3142 = phi i32 [ %.0139184, %144 ], [ %.0139184, %145 ], [ %.0139184, %147 ], [ %.0139184, %148 ], [ %.0139184, %151 ], [ %.0139184, %153 ], [ %.0139184, %126 ], [ %125, %124 ], [ %.0139184, %130 ], [ %.0139184, %139 ]
+  %.7 = phi ptr [ %143, %144 ], [ %146, %145 ], [ %143, %147 ], [ %150, %148 ], [ %152, %151 ], [ %143, %153 ], [ %128, %126 ], [ %.5, %124 ], [ %.0135185, %130 ], [ %140, %139 ]
+  %155 = getelementptr inbounds nuw i8, ptr %.0133186, i64 1
+  %156 = add nsw i32 %.0153181, -1
+  br label %157
 
-162:                                              ; preds = %93, %159
-  %.3156 = phi i32 [ %161, %159 ], [ %95, %93 ]
-  %.4150 = phi i8 [ %.5151, %159 ], [ %.2148, %93 ]
-  %.1144 = phi i8 [ %.2145, %159 ], [ %.0143183, %93 ]
-  %.1140 = phi i32 [ %.3142, %159 ], [ %.0139184, %93 ]
-  %.4 = phi ptr [ %.7, %159 ], [ %.2137, %93 ]
-  %.3 = phi ptr [ %160, %159 ], [ %94, %93 ]
-  %163 = icmp sgt i32 %.3156, 0
-  br i1 %163, label %75, label %._crit_edge
+157:                                              ; preds = %93, %154
+  %.3156 = phi i32 [ %156, %154 ], [ %95, %93 ]
+  %.4150 = phi i8 [ %.5151, %154 ], [ %.2148, %93 ]
+  %.1144 = phi i8 [ %.2145, %154 ], [ %.0143183, %93 ]
+  %.1140 = phi i32 [ %.3142, %154 ], [ %.0139184, %93 ]
+  %.4 = phi ptr [ %.7, %154 ], [ %.2137, %93 ]
+  %.3 = phi ptr [ %155, %154 ], [ %94, %93 ]
+  %158 = icmp sgt i32 %.3156, 0
+  br i1 %158, label %75, label %._crit_edge
 
-._crit_edge:                                      ; preds = %162, %62
-  %.0135.lcssa = phi ptr [ %71, %62 ], [ %.4, %162 ]
-  %164 = getelementptr inbounds nuw i8, ptr %.0135.lcssa, i64 1
+._crit_edge:                                      ; preds = %157, %62
+  %.0135.lcssa = phi ptr [ %71, %62 ], [ %.4, %157 ]
+  %159 = getelementptr inbounds nuw i8, ptr %.0135.lcssa, i64 1
   store i8 41, ptr %.0135.lcssa, align 1
-  %165 = getelementptr inbounds nuw i8, ptr %.0135.lcssa, i64 2
-  store i8 36, ptr %164, align 1
-  %166 = ptrtoint ptr %165 to i64
-  %167 = ptrtoint ptr %66 to i64
-  %168 = sub i64 %166, %167
-  %169 = trunc i64 %168 to i32
-  %170 = shl i32 %169, 2
-  store i32 %170, ptr %66, align 4
+  %160 = getelementptr inbounds nuw i8, ptr %.0135.lcssa, i64 2
+  store i8 36, ptr %159, align 1
+  %161 = ptrtoint ptr %160 to i64
+  %162 = ptrtoint ptr %66 to i64
+  %163 = sub i64 %161, %162
+  %164 = trunc i64 %163 to i32
+  %165 = shl i32 %164, 2
+  store i32 %165, ptr %66, align 4
   ret ptr %66
 }
 

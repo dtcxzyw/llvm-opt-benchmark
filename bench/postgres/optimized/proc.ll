@@ -588,31 +588,31 @@ define dso_local void @InitProcess() local_unnamed_addr #0 {
 
 15:                                               ; preds = %14, %11
   %16 = load i32, ptr @MyBackendType, align 4
+  %17 = load ptr, ptr @ProcGlobal, align 8
   %switch.tableidx = add i32 %16, -3
-  %17 = icmp ult i32 %switch.tableidx, 5
-  br i1 %17, label %switch.lookup, label %19
+  %18 = icmp ult i32 %switch.tableidx, 5
+  br i1 %18, label %switch.lookup, label %20
 
 switch.lookup:                                    ; preds = %15
-  %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.InitProcess, i64 %18
+  %19 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.InitProcess, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %19
+  br label %20
 
-19:                                               ; preds = %15, %switch.lookup
-  %.sink8 = phi i64 [ %switch.load, %switch.lookup ], [ 40, %15 ]
-  %20 = load ptr, ptr @ProcGlobal, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink8
+20:                                               ; preds = %15, %switch.lookup
+  %.sink = phi i64 [ %switch.load, %switch.lookup ], [ 40, %15 ]
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink
   %22 = load ptr, ptr @ProcStructLock, align 8
   %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i8 1, ptr elementtype(i8) %22) #13, !srcloc !10
   %.not6 = icmp eq i8 %23, 0
   br i1 %.not6, label %27, label %24
 
-24:                                               ; preds = %19
+24:                                               ; preds = %20
   %25 = load ptr, ptr @ProcStructLock, align 8
   %26 = tail call i32 @s_lock(ptr noundef %25, ptr noundef nonnull @.str.2, i32 noundef 383, ptr noundef nonnull @__func__.InitProcess) #13
   br label %27
 
-27:                                               ; preds = %19, %24
+27:                                               ; preds = %20, %24
   %28 = load ptr, ptr @ProcGlobal, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = load i32, ptr %29, align 8

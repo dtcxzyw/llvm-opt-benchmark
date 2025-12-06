@@ -586,12 +586,14 @@ define internal noundef zeroext i1 @print_preamble_ps(ptr noundef readonly captu
   store i8 0, ptr %4, align 16
   br label %ps_clean_string.exit
 
-.preheader.i:                                     ; preds = %3, %25
-  %.022.i = phi i32 [ %26, %25 ], [ 0, %3 ]
-  %.01721.i = phi i32 [ %27, %25 ], [ 0, %3 ]
+.preheader.i:                                     ; preds = %3, %23
+  %.022.i = phi i32 [ %24, %23 ], [ 0, %3 ]
+  %.01721.i = phi i32 [ %25, %23 ], [ 0, %3 ]
   %13 = sext i32 %.022.i to i64
   %14 = getelementptr i8, ptr %1, i64 %13
   %15 = load i8, ptr %14, align 1
+  %16 = sext i32 %.01721.i to i64
+  %17 = getelementptr i8, ptr %4, i64 %16
   switch i8 %15, label %21 [
     i8 40, label %.thread.i
     i8 41, label %.thread.i
@@ -599,37 +601,33 @@ define internal noundef zeroext i1 @print_preamble_ps(ptr noundef readonly captu
   ]
 
 .thread.i:                                        ; preds = %.preheader.i, %.preheader.i, %.preheader.i
-  %16 = sext i32 %.01721.i to i64
-  %17 = getelementptr i8, ptr %4, i64 %16
   store i8 92, ptr %17, align 1
   %18 = add nsw i32 %.01721.i, 1
   %19 = sext i32 %18 to i64
   %20 = getelementptr i8, ptr %4, i64 %19
   store i8 %15, ptr %20, align 1
-  br label %25
+  br label %23
 
 21:                                               ; preds = %.preheader.i
-  %22 = sext i32 %.01721.i to i64
-  %23 = getelementptr i8, ptr %4, i64 %22
-  store i8 %15, ptr %23, align 1
-  %24 = icmp eq i8 %15, 0
-  br i1 %24, label %ps_clean_string.exit, label %25
+  store i8 %15, ptr %17, align 1
+  %22 = icmp eq i8 %15, 0
+  br i1 %22, label %ps_clean_string.exit, label %23
 
-25:                                               ; preds = %21, %.thread.i
+23:                                               ; preds = %21, %.thread.i
   %.120.i = phi i32 [ %18, %.thread.i ], [ %.01721.i, %21 ]
-  %26 = add i32 %.022.i, 1
-  %27 = add nsw i32 %.120.i, 1
-  %28 = icmp slt i32 %.120.i, 255
-  br i1 %28, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !8
+  %24 = add i32 %.022.i, 1
+  %25 = add nsw i32 %.120.i, 1
+  %26 = icmp slt i32 %.120.i, 255
+  br i1 %26, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !8
 
-ps_clean_string.exit:                             ; preds = %21, %25, %12
+ps_clean_string.exit:                             ; preds = %21, %23, %12
+  %27 = load ptr, ptr %7, align 8
+  %28 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %27, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef nonnull %4, ptr noundef %2)
   %29 = load ptr, ptr %7, align 8
-  %30 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %29, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef nonnull %4, ptr noundef %2)
-  %31 = load ptr, ptr %7, align 8
-  %fputc = call i32 @fputc(i32 10, ptr %31)
-  %32 = load ptr, ptr %7, align 8
-  %33 = call i32 @ferror(ptr noundef %32) #13
-  %.not = icmp eq i32 %33, 0
+  %fputc = call i32 @fputc(i32 10, ptr %29)
+  %30 = load ptr, ptr %7, align 8
+  %31 = call i32 @ferror(ptr noundef %30) #13
+  %.not = icmp eq i32 %31, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not
 }
@@ -647,12 +645,14 @@ define internal noundef zeroext i1 @print_line_ps(ptr noundef readonly captures(
   store i8 0, ptr %4, align 16
   br label %ps_clean_string.exit
 
-.preheader.i:                                     ; preds = %3, %21
-  %.022.i = phi i32 [ %22, %21 ], [ 0, %3 ]
-  %.01721.i = phi i32 [ %23, %21 ], [ 0, %3 ]
+.preheader.i:                                     ; preds = %3, %19
+  %.022.i = phi i32 [ %20, %19 ], [ 0, %3 ]
+  %.01721.i = phi i32 [ %21, %19 ], [ 0, %3 ]
   %9 = sext i32 %.022.i to i64
   %10 = getelementptr i8, ptr %2, i64 %9
   %11 = load i8, ptr %10, align 1
+  %12 = sext i32 %.01721.i to i64
+  %13 = getelementptr i8, ptr %4, i64 %12
   switch i8 %11, label %17 [
     i8 40, label %.thread.i
     i8 41, label %.thread.i
@@ -660,36 +660,32 @@ define internal noundef zeroext i1 @print_line_ps(ptr noundef readonly captures(
   ]
 
 .thread.i:                                        ; preds = %.preheader.i, %.preheader.i, %.preheader.i
-  %12 = sext i32 %.01721.i to i64
-  %13 = getelementptr i8, ptr %4, i64 %12
   store i8 92, ptr %13, align 1
   %14 = add nsw i32 %.01721.i, 1
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %4, i64 %15
   store i8 %11, ptr %16, align 1
-  br label %21
+  br label %19
 
 17:                                               ; preds = %.preheader.i
-  %18 = sext i32 %.01721.i to i64
-  %19 = getelementptr i8, ptr %4, i64 %18
-  store i8 %11, ptr %19, align 1
-  %20 = icmp eq i8 %11, 0
-  br i1 %20, label %ps_clean_string.exit, label %21
+  store i8 %11, ptr %13, align 1
+  %18 = icmp eq i8 %11, 0
+  br i1 %18, label %ps_clean_string.exit, label %19
 
-21:                                               ; preds = %17, %.thread.i
+19:                                               ; preds = %17, %.thread.i
   %.120.i = phi i32 [ %14, %.thread.i ], [ %.01721.i, %17 ]
-  %22 = add i32 %.022.i, 1
-  %23 = add nsw i32 %.120.i, 1
-  %24 = icmp slt i32 %.120.i, 255
-  br i1 %24, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !8
+  %20 = add i32 %.022.i, 1
+  %21 = add nsw i32 %.120.i, 1
+  %22 = icmp slt i32 %.120.i, 255
+  br i1 %22, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !8
 
-ps_clean_string.exit:                             ; preds = %17, %21, %8
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %26, i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef %1, ptr noundef nonnull %4)
-  %28 = load ptr, ptr %25, align 8
-  %29 = call i32 @ferror(ptr noundef %28) #13
-  %.not = icmp eq i32 %29, 0
+ps_clean_string.exit:                             ; preds = %17, %19, %8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %24, i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef %1, ptr noundef nonnull %4)
+  %26 = load ptr, ptr %23, align 8
+  %27 = call i32 @ferror(ptr noundef %26) #13
+  %.not = icmp eq i32 %27, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not
 }
@@ -707,12 +703,14 @@ define internal noundef zeroext i1 @print_bookmark_ps(ptr noundef readonly captu
   store i8 0, ptr %4, align 16
   br label %ps_clean_string.exit
 
-.preheader.i:                                     ; preds = %3, %21
-  %.022.i = phi i32 [ %22, %21 ], [ 0, %3 ]
-  %.01721.i = phi i32 [ %23, %21 ], [ 0, %3 ]
+.preheader.i:                                     ; preds = %3, %19
+  %.022.i = phi i32 [ %20, %19 ], [ 0, %3 ]
+  %.01721.i = phi i32 [ %21, %19 ], [ 0, %3 ]
   %9 = sext i32 %.022.i to i64
   %10 = getelementptr i8, ptr %2, i64 %9
   %11 = load i8, ptr %10, align 1
+  %12 = sext i32 %.01721.i to i64
+  %13 = getelementptr i8, ptr %4, i64 %12
   switch i8 %11, label %17 [
     i8 40, label %.thread.i
     i8 41, label %.thread.i
@@ -720,42 +718,38 @@ define internal noundef zeroext i1 @print_bookmark_ps(ptr noundef readonly captu
   ]
 
 .thread.i:                                        ; preds = %.preheader.i, %.preheader.i, %.preheader.i
-  %12 = sext i32 %.01721.i to i64
-  %13 = getelementptr i8, ptr %4, i64 %12
   store i8 92, ptr %13, align 1
   %14 = add nsw i32 %.01721.i, 1
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %4, i64 %15
   store i8 %11, ptr %16, align 1
-  br label %21
+  br label %19
 
 17:                                               ; preds = %.preheader.i
-  %18 = sext i32 %.01721.i to i64
-  %19 = getelementptr i8, ptr %4, i64 %18
-  store i8 %11, ptr %19, align 1
-  %20 = icmp eq i8 %11, 0
-  br i1 %20, label %ps_clean_string.exit, label %21
+  store i8 %11, ptr %13, align 1
+  %18 = icmp eq i8 %11, 0
+  br i1 %18, label %ps_clean_string.exit, label %19
 
-21:                                               ; preds = %17, %.thread.i
+19:                                               ; preds = %17, %.thread.i
   %.120.i = phi i32 [ %14, %.thread.i ], [ %.01721.i, %17 ]
-  %22 = add i32 %.022.i, 1
-  %23 = add nsw i32 %.120.i, 1
-  %24 = icmp slt i32 %.120.i, 255
-  br i1 %24, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !8
+  %20 = add i32 %.022.i, 1
+  %21 = add nsw i32 %.120.i, 1
+  %22 = icmp slt i32 %.120.i, 255
+  br i1 %22, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !8
 
-ps_clean_string.exit:                             ; preds = %17, %21, %8
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %26, i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef %1, ptr noundef nonnull %4)
-  %28 = load ptr, ptr %25, align 8
-  %29 = call i64 @fwrite(ptr nonnull @.str.18, i64 71, i64 1, ptr %28)
-  %30 = load ptr, ptr %25, align 8
-  %31 = call i64 @fwrite(ptr nonnull @.str.19, i64 72, i64 1, ptr %30)
-  %32 = load ptr, ptr %25, align 8
-  %33 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %32, i32 noundef 2, ptr noundef nonnull @.str.20, ptr noundef %1)
-  %34 = load ptr, ptr %25, align 8
-  %35 = call i32 @ferror(ptr noundef %34) #13
-  %.not = icmp eq i32 %35, 0
+ps_clean_string.exit:                             ; preds = %17, %19, %8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %24, i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef %1, ptr noundef nonnull %4)
+  %26 = load ptr, ptr %23, align 8
+  %27 = call i64 @fwrite(ptr nonnull @.str.18, i64 71, i64 1, ptr %26)
+  %28 = load ptr, ptr %23, align 8
+  %29 = call i64 @fwrite(ptr nonnull @.str.19, i64 72, i64 1, ptr %28)
+  %30 = load ptr, ptr %23, align 8
+  %31 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %30, i32 noundef 2, ptr noundef nonnull @.str.20, ptr noundef %1)
+  %32 = load ptr, ptr %23, align 8
+  %33 = call i32 @ferror(ptr noundef %32) #13
+  %.not = icmp eq i32 %33, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not
 }

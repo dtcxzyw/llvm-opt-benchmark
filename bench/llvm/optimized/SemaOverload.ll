@@ -84591,7 +84591,7 @@ _ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11Failure
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %19, ptr %20, align 8, !tbaa !1300
   store ptr %2, ptr %10, align 8, !tbaa !1301
-  br label %188
+  br label %182
 
 21:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -84642,20 +84642,20 @@ _ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11Failure
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 6624
   store i32 0, ptr %45, align 8, !tbaa !1467
   %46 = call fastcc noundef i32 @_ZL23IsUserDefinedConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeERNS_29UserDefinedConversionSequenceERNS_20OverloadCandidateSetENS0_15AllowedExplicitEb(ptr noundef nonnull align 8 dereferenceable(17504) %1, ptr noundef nonnull %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull align 8 dereferenceable(6628) %8, i32 noundef %5, i1 noundef zeroext %6)
+  %47 = load i32, ptr %0, align 8
+  %48 = and i32 %47, 2147483647
+  %49 = icmp eq i32 %48, 3
   switch i32 %46, label %.unreachabledefault [
-    i32 0, label %47
-    i32 3, label %47
+    i32 0, label %50
+    i32 3, label %50
     i32 2, label %121
-    i32 1, label %170
+    i32 1, label %167
   ]
 
-47:                                               ; preds = %21, %21
-  %48 = load i32, ptr %0, align 8
-  %49 = and i32 %48, 2147483647
-  %50 = icmp eq i32 %49, 3
-  br i1 %50, label %51, label %_ZN5clang26ImplicitConversionSequence14setUserDefinedEv.exit
+50:                                               ; preds = %21, %21
+  br i1 %49, label %51, label %_ZN5clang26ImplicitConversionSequence14setUserDefinedEv.exit
 
-51:                                               ; preds = %47
+51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !418
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -84666,8 +84666,8 @@ _ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11Failure
   call void @free(ptr noundef %53) #30
   br label %_ZN5clang26ImplicitConversionSequence14setUserDefinedEv.exit
 
-_ZN5clang26ImplicitConversionSequence14setUserDefinedEv.exit: ; preds = %47, %51, %56
-  %57 = and i32 %48, -2147483648
+_ZN5clang26ImplicitConversionSequence14setUserDefinedEv.exit: ; preds = %50, %51, %56
+  %57 = and i32 %47, -2147483648
   %58 = or disjoint i32 %57, 2
   store i32 %58, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -84778,140 +84778,134 @@ _ZN5clang26ImplicitConversionSequence11setStandardEv.exit: ; preds = %_ZNK5clang
   br label %.loopexit
 
 121:                                              ; preds = %21
-  %122 = load i32, ptr %0, align 8
-  %123 = and i32 %122, 2147483647
-  %124 = icmp eq i32 %123, 3
-  br i1 %124, label %_ZN5clang26ImplicitConversionSequence12setAmbiguousEv.exit, label %125
+  br i1 %49, label %_ZN5clang26ImplicitConversionSequence12setAmbiguousEv.exit, label %122
 
-125:                                              ; preds = %121
-  %126 = and i32 %122, -2147483648
-  %127 = or disjoint i32 %126, 3
-  store i32 %127, ptr %0, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %129, ptr %128, align 8, !tbaa !418
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %130, align 8, !tbaa !419
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 4, ptr %131, align 4, !tbaa !420
+122:                                              ; preds = %121
+  %123 = and i32 %47, -2147483648
+  %124 = or disjoint i32 %123, 3
+  store i32 %124, ptr %0, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %126, ptr %125, align 8, !tbaa !418
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %127, align 8, !tbaa !419
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 4, ptr %128, align 4, !tbaa !420
   br label %_ZN5clang26ImplicitConversionSequence12setAmbiguousEv.exit
 
-_ZN5clang26ImplicitConversionSequence12setAmbiguousEv.exit: ; preds = %121, %125
-  %132 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.0.0.copyload.i67 = load i64, ptr %132, align 8, !tbaa !23
-  %133 = inttoptr i64 %.sroa.0.0.copyload.i67 to ptr
-  store ptr %133, ptr %10, align 8, !tbaa !421
-  %134 = inttoptr i64 %3 to ptr
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %134, ptr %135, align 8, !tbaa !423
-  %136 = load i32, ptr %24, align 8, !tbaa !419
-  %.not89 = icmp eq i32 %136, 0
+_ZN5clang26ImplicitConversionSequence12setAmbiguousEv.exit: ; preds = %121, %122
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.0.0.copyload.i67 = load i64, ptr %129, align 8, !tbaa !23
+  %130 = inttoptr i64 %.sroa.0.0.copyload.i67 to ptr
+  store ptr %130, ptr %10, align 8, !tbaa !421
+  %131 = inttoptr i64 %3 to ptr
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %131, ptr %132, align 8, !tbaa !423
+  %133 = load i32, ptr %24, align 8, !tbaa !419
+  %.not89 = icmp eq i32 %133, 0
   br i1 %.not89, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang26ImplicitConversionSequence12setAmbiguousEv.exit
-  %137 = load ptr, ptr %8, align 8, !tbaa !418
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %142
+  %134 = load ptr, ptr %8, align 8, !tbaa !418
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %139
 
-142:                                              ; preds = %.lr.ph, %164
-  %143 = phi i32 [ %136, %.lr.ph ], [ %165, %164 ]
-  %144 = phi ptr [ %137, %.lr.ph ], [ %166, %164 ]
-  %.05490 = phi ptr [ %137, %.lr.ph ], [ %167, %164 ]
-  %145 = getelementptr inbounds nuw i8, ptr %.05490, i64 104
-  %146 = load i16, ptr %145, align 8
-  %147 = and i16 %146, 2
-  %.not56 = icmp eq i16 %147, 0
-  br i1 %.not56, label %164, label %148
+139:                                              ; preds = %.lr.ph, %161
+  %140 = phi i32 [ %133, %.lr.ph ], [ %162, %161 ]
+  %141 = phi ptr [ %134, %.lr.ph ], [ %163, %161 ]
+  %.05490 = phi ptr [ %134, %.lr.ph ], [ %164, %161 ]
+  %142 = getelementptr inbounds nuw i8, ptr %.05490, i64 104
+  %143 = load i16, ptr %142, align 8
+  %144 = and i16 %143, 2
+  %.not56 = icmp eq i16 %144, 0
+  br i1 %.not56, label %161, label %145
 
-148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw i8, ptr %.05490, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %149, i64 8) ]
-  %.0.copyload.i.i.i.i.i68 = load i64, ptr %149, align 8
-  %150 = and i64 %.0.copyload.i.i.i.i.i68, -8
-  %151 = inttoptr i64 %150 to ptr
-  %152 = load ptr, ptr %.05490, align 8, !tbaa !1491
-  %153 = load i32, ptr %139, align 8, !tbaa !419
-  %154 = load i32, ptr %140, align 4, !tbaa !420
-  %.not.i.i.not.i.i = icmp ult i32 %153, %154
-  br i1 %.not.i.i.not.i.i, label %_ZN5clang27AmbiguousConversionSequence13addConversionEPNS_9NamedDeclEPNS_12FunctionDeclE.exit, label %155, !prof !429
+145:                                              ; preds = %139
+  %146 = getelementptr inbounds nuw i8, ptr %.05490, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %146, i64 8) ]
+  %.0.copyload.i.i.i.i.i68 = load i64, ptr %146, align 8
+  %147 = and i64 %.0.copyload.i.i.i.i.i68, -8
+  %148 = inttoptr i64 %147 to ptr
+  %149 = load ptr, ptr %.05490, align 8, !tbaa !1491
+  %150 = load i32, ptr %136, align 8, !tbaa !419
+  %151 = load i32, ptr %137, align 4, !tbaa !420
+  %.not.i.i.not.i.i = icmp ult i32 %150, %151
+  br i1 %.not.i.i.not.i.i, label %_ZN5clang27AmbiguousConversionSequence13addConversionEPNS_9NamedDeclEPNS_12FunctionDeclE.exit, label %152, !prof !429
 
-155:                                              ; preds = %148
-  %156 = zext i32 %153 to i64
-  %157 = add nuw nsw i64 %156, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull %141, i64 noundef %157, i64 noundef 16) #30
-  %.pre.i.i69 = load i32, ptr %139, align 8, !tbaa !419
+152:                                              ; preds = %145
+  %153 = zext i32 %150 to i64
+  %154 = add nuw nsw i64 %153, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef nonnull %138, i64 noundef %154, i64 noundef 16) #30
+  %.pre.i.i69 = load i32, ptr %136, align 8, !tbaa !419
   br label %_ZN5clang27AmbiguousConversionSequence13addConversionEPNS_9NamedDeclEPNS_12FunctionDeclE.exit
 
-_ZN5clang27AmbiguousConversionSequence13addConversionEPNS_9NamedDeclEPNS_12FunctionDeclE.exit: ; preds = %148, %155
-  %158 = phi i32 [ %153, %148 ], [ %.pre.i.i69, %155 ]
-  %159 = load ptr, ptr %138, align 8, !tbaa !418
-  %160 = zext i32 %158 to i64
-  %161 = getelementptr inbounds nuw %"struct.std::pair.1509", ptr %159, i64 %160
-  store ptr %151, ptr %161, align 1
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %161, i64 8
-  store ptr %152, ptr %.sroa.2.0..sroa_idx.i.i, align 1
-  %162 = load i32, ptr %139, align 8, !tbaa !419
-  %163 = add i32 %162, 1
-  store i32 %163, ptr %139, align 8, !tbaa !419
+_ZN5clang27AmbiguousConversionSequence13addConversionEPNS_9NamedDeclEPNS_12FunctionDeclE.exit: ; preds = %145, %152
+  %155 = phi i32 [ %150, %145 ], [ %.pre.i.i69, %152 ]
+  %156 = load ptr, ptr %135, align 8, !tbaa !418
+  %157 = zext i32 %155 to i64
+  %158 = getelementptr inbounds nuw %"struct.std::pair.1509", ptr %156, i64 %157
+  store ptr %148, ptr %158, align 1
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %158, i64 8
+  store ptr %149, ptr %.sroa.2.0..sroa_idx.i.i, align 1
+  %159 = load i32, ptr %136, align 8, !tbaa !419
+  %160 = add i32 %159, 1
+  store i32 %160, ptr %136, align 8, !tbaa !419
   %.pre = load ptr, ptr %8, align 8, !tbaa !418
   %.pre91 = load i32, ptr %24, align 8, !tbaa !419
-  br label %164
+  br label %161
 
-164:                                              ; preds = %142, %_ZN5clang27AmbiguousConversionSequence13addConversionEPNS_9NamedDeclEPNS_12FunctionDeclE.exit
-  %165 = phi i32 [ %143, %142 ], [ %.pre91, %_ZN5clang27AmbiguousConversionSequence13addConversionEPNS_9NamedDeclEPNS_12FunctionDeclE.exit ]
-  %166 = phi ptr [ %144, %142 ], [ %.pre, %_ZN5clang27AmbiguousConversionSequence13addConversionEPNS_9NamedDeclEPNS_12FunctionDeclE.exit ]
-  %167 = getelementptr inbounds nuw i8, ptr %.05490, i64 168
-  %168 = zext i32 %165 to i64
-  %169 = getelementptr inbounds nuw %"struct.clang::OverloadCandidate", ptr %166, i64 %168
-  %.not = icmp eq ptr %167, %169
-  br i1 %.not, label %.loopexit, label %142, !llvm.loop !2220
+161:                                              ; preds = %139, %_ZN5clang27AmbiguousConversionSequence13addConversionEPNS_9NamedDeclEPNS_12FunctionDeclE.exit
+  %162 = phi i32 [ %140, %139 ], [ %.pre91, %_ZN5clang27AmbiguousConversionSequence13addConversionEPNS_9NamedDeclEPNS_12FunctionDeclE.exit ]
+  %163 = phi ptr [ %141, %139 ], [ %.pre, %_ZN5clang27AmbiguousConversionSequence13addConversionEPNS_9NamedDeclEPNS_12FunctionDeclE.exit ]
+  %164 = getelementptr inbounds nuw i8, ptr %.05490, i64 168
+  %165 = zext i32 %162 to i64
+  %166 = getelementptr inbounds nuw %"struct.clang::OverloadCandidate", ptr %163, i64 %165
+  %.not = icmp eq ptr %164, %166
+  br i1 %.not, label %.loopexit, label %139, !llvm.loop !2220
 
-170:                                              ; preds = %21
-  %171 = load i32, ptr %0, align 8
-  %172 = and i32 %171, 2147483647
-  %173 = icmp eq i32 %172, 3
-  br i1 %173, label %174, label %_ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit72
+167:                                              ; preds = %21
+  br i1 %49, label %168, label %_ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit72
 
-174:                                              ; preds = %170
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %176 = load ptr, ptr %175, align 8, !tbaa !418
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %178 = icmp eq ptr %176, %177
-  br i1 %178, label %_ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit72, label %179
+168:                                              ; preds = %167
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %170 = load ptr, ptr %169, align 8, !tbaa !418
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %172 = icmp eq ptr %170, %171
+  br i1 %172, label %_ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit72, label %173
 
-179:                                              ; preds = %174
-  call void @free(ptr noundef %176) #30
+173:                                              ; preds = %168
+  call void @free(ptr noundef %170) #30
   br label %_ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit72
 
-_ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit72: ; preds = %170, %174, %179
-  %180 = and i32 %171, -2147483648
-  %181 = or disjoint i32 %180, 5
-  store i32 %181, ptr %0, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.0.0.copyload.i.i.i70 = load i64, ptr %182, align 8, !tbaa !23
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %183, align 8, !tbaa !1296
-  %184 = inttoptr i64 %.sroa.0.0.copyload.i.i.i70 to ptr
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %184, ptr %185, align 8, !tbaa !1299
-  %186 = inttoptr i64 %3 to ptr
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %186, ptr %187, align 8, !tbaa !1300
+_ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit72: ; preds = %167, %168, %173
+  %174 = and i32 %47, -2147483648
+  %175 = or disjoint i32 %174, 5
+  store i32 %175, ptr %0, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.0.0.copyload.i.i.i70 = load i64, ptr %176, align 8, !tbaa !23
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %177, align 8, !tbaa !1296
+  %178 = inttoptr i64 %.sroa.0.0.copyload.i.i.i70 to ptr
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %178, ptr %179, align 8, !tbaa !1299
+  %180 = inttoptr i64 %3 to ptr
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %180, ptr %181, align 8, !tbaa !1300
   store ptr %2, ptr %10, align 8, !tbaa !1301
   br label %.loopexit
 
 .unreachabledefault:                              ; preds = %21
   unreachable
 
-.loopexit:                                        ; preds = %164, %_ZN5clang26ImplicitConversionSequence12setAmbiguousEv.exit, %106, %119, %_ZN5clang26ImplicitConversionSequence11setStandardEv.exit, %_ZN5clang26ImplicitConversionSequence14setUserDefinedEv.exit, %_ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit72
+.loopexit:                                        ; preds = %161, %_ZN5clang26ImplicitConversionSequence12setAmbiguousEv.exit, %106, %119, %_ZN5clang26ImplicitConversionSequence11setStandardEv.exit, %_ZN5clang26ImplicitConversionSequence14setUserDefinedEv.exit, %_ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit72
   call void @_ZN5clang20OverloadCandidateSetD2Ev(ptr noundef nonnull align 8 dereferenceable(6628) %8) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %188
+  br label %182
 
-188:                                              ; preds = %_ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit, %.loopexit
+182:                                              ; preds = %_ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit, %.loopexit
   ret void
 }
 

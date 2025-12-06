@@ -3061,23 +3061,23 @@ define internal fastcc void @printsub(ptr noundef %0, i32 noundef range(i32 60, 
   %142 = add i64 %3, -2
   %143 = load i8, ptr %2, align 1, !tbaa !79
   %144 = icmp ult i8 %143, 40
-  br i1 %144, label %145, label %172
+  %145 = load i64, ptr %5, align 2
+  %146 = and i64 %145, 2147483648
+  %.not245 = icmp eq i64 %146, 0
+  br i1 %144, label %147, label %170
 
-145:                                              ; preds = %140
+147:                                              ; preds = %140
   switch i8 %143, label %159 [
-    i8 24, label %146
-    i8 35, label %146
-    i8 39, label %146
-    i8 31, label %146
+    i8 24, label %148
+    i8 35, label %148
+    i8 39, label %148
+    i8 31, label %148
   ]
 
-146:                                              ; preds = %145, %145, %145, %145
-  %147 = load i64, ptr %5, align 2
-  %148 = and i64 %147, 2147483648
-  %.not242 = icmp eq i64 %148, 0
-  br i1 %.not242, label %185, label %149
+148:                                              ; preds = %147, %147, %147, %147
+  br i1 %.not245, label %181, label %149
 
-149:                                              ; preds = %146
+149:                                              ; preds = %148
   %150 = load ptr, ptr %9, align 8, !tbaa !112
   %.not243 = icmp eq ptr %150, null
   br i1 %.not243, label %155, label %151
@@ -3086,369 +3086,363 @@ define internal fastcc void @printsub(ptr noundef %0, i32 noundef range(i32 60, 
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %153 = load i32, ptr %152, align 8, !tbaa !113
   %154 = icmp sgt i32 %153, 0
-  br i1 %154, label %155, label %185
+  br i1 %154, label %155, label %181
 
 155:                                              ; preds = %151, %149
   %156 = zext nneg i8 %143 to i64
   %157 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !101
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef %158) #9
-  br label %185
+  br label %181
 
-159:                                              ; preds = %145
-  %160 = load i64, ptr %5, align 2
-  %161 = and i64 %160, 2147483648
-  %.not245 = icmp eq i64 %161, 0
-  br i1 %.not245, label %185, label %162
+159:                                              ; preds = %147
+  br i1 %.not245, label %181, label %160
 
-162:                                              ; preds = %159
-  %163 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not246 = icmp eq ptr %163, null
-  br i1 %.not246, label %168, label %164
+160:                                              ; preds = %159
+  %161 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not246 = icmp eq ptr %161, null
+  br i1 %.not246, label %166, label %162
 
-164:                                              ; preds = %162
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %166 = load i32, ptr %165, align 8, !tbaa !113
-  %167 = icmp sgt i32 %166, 0
-  br i1 %167, label %168, label %185
+162:                                              ; preds = %160
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %164 = load i32, ptr %163, align 8, !tbaa !113
+  %165 = icmp sgt i32 %164, 0
+  br i1 %165, label %166, label %181
 
-168:                                              ; preds = %164, %162
-  %169 = zext nneg i8 %143 to i64
-  %170 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %169
-  %171 = load ptr, ptr %170, align 8, !tbaa !101
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.87, ptr noundef %171) #9
-  br label %185
+166:                                              ; preds = %162, %160
+  %167 = zext nneg i8 %143 to i64
+  %168 = getelementptr inbounds nuw ptr, ptr @telnetoptions, i64 %167
+  %169 = load ptr, ptr %168, align 8, !tbaa !101
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.87, ptr noundef %169) #9
+  br label %181
 
-172:                                              ; preds = %140
-  %173 = load i64, ptr %5, align 2
-  %174 = and i64 %173, 2147483648
-  %.not239 = icmp eq i64 %174, 0
-  br i1 %.not239, label %185, label %175
+170:                                              ; preds = %140
+  br i1 %.not245, label %181, label %171
 
-175:                                              ; preds = %172
-  %176 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not240 = icmp eq ptr %176, null
-  br i1 %.not240, label %181, label %177
+171:                                              ; preds = %170
+  %172 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not240 = icmp eq ptr %172, null
+  br i1 %.not240, label %177, label %173
 
-177:                                              ; preds = %175
-  %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %179 = load i32, ptr %178, align 8, !tbaa !113
-  %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %181, label %185
+173:                                              ; preds = %171
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %175 = load i32, ptr %174, align 8, !tbaa !113
+  %176 = icmp sgt i32 %175, 0
+  br i1 %176, label %177, label %181
 
-181:                                              ; preds = %177, %175
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 %141
-  %183 = load i8, ptr %182, align 1, !tbaa !79
-  %184 = zext i8 %183 to i32
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.88, i32 noundef %184) #9
-  br label %185
+177:                                              ; preds = %173, %171
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 %141
+  %179 = load i8, ptr %178, align 1, !tbaa !79
+  %180 = zext i8 %179 to i32
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.88, i32 noundef %180) #9
+  br label %181
 
-185:                                              ; preds = %172, %177, %181, %155, %151, %146, %168, %164, %159
-  %186 = load i8, ptr %2, align 1, !tbaa !79
-  %cond = icmp eq i8 %186, 31
-  br i1 %cond, label %187, label %215
+181:                                              ; preds = %170, %173, %177, %155, %151, %148, %166, %162, %159
+  %182 = load i8, ptr %2, align 1, !tbaa !79
+  %cond = icmp eq i8 %182, 31
+  br i1 %cond, label %183, label %211
 
-187:                                              ; preds = %185
-  %188 = icmp ugt i64 %142, 4
-  br i1 %188, label %189, label %.loopexit
+183:                                              ; preds = %181
+  %184 = icmp ugt i64 %142, 4
+  br i1 %184, label %185, label %.loopexit
 
-189:                                              ; preds = %187
-  %190 = load i64, ptr %5, align 2
-  %191 = and i64 %190, 2147483648
-  %.not274 = icmp eq i64 %191, 0
-  br i1 %.not274, label %.loopexit, label %192
+185:                                              ; preds = %183
+  %186 = load i64, ptr %5, align 2
+  %187 = and i64 %186, 2147483648
+  %.not274 = icmp eq i64 %187, 0
+  br i1 %.not274, label %.loopexit, label %188
 
-192:                                              ; preds = %189
-  %193 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not275 = icmp eq ptr %193, null
-  br i1 %.not275, label %198, label %194
+188:                                              ; preds = %185
+  %189 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not275 = icmp eq ptr %189, null
+  br i1 %.not275, label %194, label %190
 
-194:                                              ; preds = %192
-  %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  %196 = load i32, ptr %195, align 8, !tbaa !113
-  %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %198, label %.loopexit
+190:                                              ; preds = %188
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %192 = load i32, ptr %191, align 8, !tbaa !113
+  %193 = icmp sgt i32 %192, 0
+  br i1 %193, label %194, label %.loopexit
 
-198:                                              ; preds = %194, %192
-  %199 = getelementptr inbounds nuw i8, ptr %2, i64 1
+194:                                              ; preds = %190, %188
+  %195 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %196 = load i8, ptr %195, align 1, !tbaa !79
+  %197 = zext i8 %196 to i32
+  %198 = shl nuw nsw i32 %197, 8
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %200 = load i8, ptr %199, align 1, !tbaa !79
   %201 = zext i8 %200 to i32
-  %202 = shl nuw nsw i32 %201, 8
-  %203 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %202 = or disjoint i32 %198, %201
+  %203 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %204 = load i8, ptr %203, align 1, !tbaa !79
   %205 = zext i8 %204 to i32
-  %206 = or disjoint i32 %202, %205
-  %207 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %206 = shl nuw nsw i32 %205, 8
+  %207 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %208 = load i8, ptr %207, align 1, !tbaa !79
   %209 = zext i8 %208 to i32
-  %210 = shl nuw nsw i32 %209, 8
-  %211 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %212 = load i8, ptr %211, align 1, !tbaa !79
-  %213 = zext i8 %212 to i32
-  %214 = or disjoint i32 %210, %213
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.89, i32 noundef %206, i32 noundef %214) #9
+  %210 = or disjoint i32 %206, %209
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.89, i32 noundef %202, i32 noundef %210) #9
   br label %.loopexit
 
-215:                                              ; preds = %185
-  %216 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %217 = load i8, ptr %216, align 1, !tbaa !79
-  switch i8 %217, label %254 [
-    i8 0, label %218
-    i8 1, label %227
-    i8 2, label %236
-    i8 3, label %245
+211:                                              ; preds = %181
+  %212 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %213 = load i8, ptr %212, align 1, !tbaa !79
+  switch i8 %213, label %250 [
+    i8 0, label %214
+    i8 1, label %223
+    i8 2, label %232
+    i8 3, label %241
   ]
 
-218:                                              ; preds = %215
-  %219 = load i64, ptr %5, align 2
-  %220 = and i64 %219, 2147483648
-  %.not257 = icmp eq i64 %220, 0
-  br i1 %.not257, label %thread-pre-split, label %221
+214:                                              ; preds = %211
+  %215 = load i64, ptr %5, align 2
+  %216 = and i64 %215, 2147483648
+  %.not257 = icmp eq i64 %216, 0
+  br i1 %.not257, label %thread-pre-split, label %217
 
-221:                                              ; preds = %218
-  %222 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not258 = icmp eq ptr %222, null
-  br i1 %.not258, label %thread-pre-split.sink.split, label %223
+217:                                              ; preds = %214
+  %218 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not258 = icmp eq ptr %218, null
+  br i1 %.not258, label %thread-pre-split.sink.split, label %219
 
-223:                                              ; preds = %221
-  %224 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  %225 = load i32, ptr %224, align 8, !tbaa !113
-  %226 = icmp sgt i32 %225, 0
-  br i1 %226, label %thread-pre-split.sink.split, label %thread-pre-split
+219:                                              ; preds = %217
+  %220 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  %221 = load i32, ptr %220, align 8, !tbaa !113
+  %222 = icmp sgt i32 %221, 0
+  br i1 %222, label %thread-pre-split.sink.split, label %thread-pre-split
 
-227:                                              ; preds = %215
-  %228 = load i64, ptr %5, align 2
-  %229 = and i64 %228, 2147483648
-  %.not254 = icmp eq i64 %229, 0
-  br i1 %.not254, label %thread-pre-split, label %230
+223:                                              ; preds = %211
+  %224 = load i64, ptr %5, align 2
+  %225 = and i64 %224, 2147483648
+  %.not254 = icmp eq i64 %225, 0
+  br i1 %.not254, label %thread-pre-split, label %226
 
-230:                                              ; preds = %227
-  %231 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not255 = icmp eq ptr %231, null
-  br i1 %.not255, label %thread-pre-split.sink.split, label %232
+226:                                              ; preds = %223
+  %227 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not255 = icmp eq ptr %227, null
+  br i1 %.not255, label %thread-pre-split.sink.split, label %228
 
-232:                                              ; preds = %230
-  %233 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  %234 = load i32, ptr %233, align 8, !tbaa !113
-  %235 = icmp sgt i32 %234, 0
-  br i1 %235, label %thread-pre-split.sink.split, label %thread-pre-split
+228:                                              ; preds = %226
+  %229 = getelementptr inbounds nuw i8, ptr %227, i64 8
+  %230 = load i32, ptr %229, align 8, !tbaa !113
+  %231 = icmp sgt i32 %230, 0
+  br i1 %231, label %thread-pre-split.sink.split, label %thread-pre-split
 
-236:                                              ; preds = %215
-  %237 = load i64, ptr %5, align 2
-  %238 = and i64 %237, 2147483648
-  %.not251 = icmp eq i64 %238, 0
-  br i1 %.not251, label %thread-pre-split, label %239
+232:                                              ; preds = %211
+  %233 = load i64, ptr %5, align 2
+  %234 = and i64 %233, 2147483648
+  %.not251 = icmp eq i64 %234, 0
+  br i1 %.not251, label %thread-pre-split, label %235
 
-239:                                              ; preds = %236
-  %240 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not252 = icmp eq ptr %240, null
-  br i1 %.not252, label %thread-pre-split.sink.split, label %241
+235:                                              ; preds = %232
+  %236 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not252 = icmp eq ptr %236, null
+  br i1 %.not252, label %thread-pre-split.sink.split, label %237
 
-241:                                              ; preds = %239
-  %242 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  %243 = load i32, ptr %242, align 8, !tbaa !113
-  %244 = icmp sgt i32 %243, 0
-  br i1 %244, label %thread-pre-split.sink.split, label %thread-pre-split
+237:                                              ; preds = %235
+  %238 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %239 = load i32, ptr %238, align 8, !tbaa !113
+  %240 = icmp sgt i32 %239, 0
+  br i1 %240, label %thread-pre-split.sink.split, label %thread-pre-split
 
-245:                                              ; preds = %215
-  %246 = load i64, ptr %5, align 2
-  %247 = and i64 %246, 2147483648
-  %.not248 = icmp eq i64 %247, 0
-  br i1 %.not248, label %thread-pre-split, label %248
+241:                                              ; preds = %211
+  %242 = load i64, ptr %5, align 2
+  %243 = and i64 %242, 2147483648
+  %.not248 = icmp eq i64 %243, 0
+  br i1 %.not248, label %thread-pre-split, label %244
 
-248:                                              ; preds = %245
-  %249 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not249 = icmp eq ptr %249, null
-  br i1 %.not249, label %thread-pre-split.sink.split, label %250
+244:                                              ; preds = %241
+  %245 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not249 = icmp eq ptr %245, null
+  br i1 %.not249, label %thread-pre-split.sink.split, label %246
 
-250:                                              ; preds = %248
-  %251 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  %252 = load i32, ptr %251, align 8, !tbaa !113
-  %253 = icmp sgt i32 %252, 0
-  br i1 %253, label %thread-pre-split.sink.split, label %thread-pre-split
+246:                                              ; preds = %244
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
+  %248 = load i32, ptr %247, align 8, !tbaa !113
+  %249 = icmp sgt i32 %248, 0
+  br i1 %249, label %thread-pre-split.sink.split, label %thread-pre-split
 
-thread-pre-split.sink.split:                      ; preds = %248, %250, %239, %241, %230, %232, %221, %223
-  %.str.90.sink = phi ptr [ @.str.90, %223 ], [ @.str.90, %221 ], [ @.str.91, %232 ], [ @.str.91, %230 ], [ @.str.92, %241 ], [ @.str.92, %239 ], [ @.str.93, %250 ], [ @.str.93, %248 ]
+thread-pre-split.sink.split:                      ; preds = %244, %246, %235, %237, %226, %228, %217, %219
+  %.str.90.sink = phi ptr [ @.str.90, %219 ], [ @.str.90, %217 ], [ @.str.91, %228 ], [ @.str.91, %226 ], [ @.str.92, %237 ], [ @.str.92, %235 ], [ @.str.93, %246 ], [ @.str.93, %244 ]
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull %.str.90.sink) #9
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %223, %218, %232, %227, %241, %236, %250, %245
+thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %219, %214, %228, %223, %237, %232, %246, %241
   %.pr = load i8, ptr %2, align 1, !tbaa !79
-  br label %254
+  br label %250
 
-254:                                              ; preds = %thread-pre-split, %215
-  %255 = phi i8 [ %.pr, %thread-pre-split ], [ %186, %215 ]
-  switch i8 %255, label %.preheader [
-    i8 24, label %257
-    i8 35, label %257
-    i8 39, label %269
+250:                                              ; preds = %thread-pre-split, %211
+  %251 = phi i8 [ %.pr, %thread-pre-split ], [ %182, %211 ]
+  switch i8 %251, label %.preheader [
+    i8 24, label %253
+    i8 35, label %253
+    i8 39, label %265
   ]
 
-.preheader:                                       ; preds = %254
-  %256 = icmp ugt i64 %142, 2
-  br i1 %256, label %.lr.ph286, label %.loopexit
+.preheader:                                       ; preds = %250
+  %252 = icmp ugt i64 %142, 2
+  br i1 %252, label %.lr.ph286, label %.loopexit
 
-257:                                              ; preds = %254, %254
-  %258 = getelementptr inbounds nuw i8, ptr %2, i64 %142
-  store i8 0, ptr %258, align 1, !tbaa !79
-  %259 = load i64, ptr %5, align 2
-  %260 = and i64 %259, 2147483648
-  %.not269 = icmp eq i64 %260, 0
-  br i1 %.not269, label %.loopexit, label %261
+253:                                              ; preds = %250, %250
+  %254 = getelementptr inbounds nuw i8, ptr %2, i64 %142
+  store i8 0, ptr %254, align 1, !tbaa !79
+  %255 = load i64, ptr %5, align 2
+  %256 = and i64 %255, 2147483648
+  %.not269 = icmp eq i64 %256, 0
+  br i1 %.not269, label %.loopexit, label %257
 
-261:                                              ; preds = %257
-  %262 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not270 = icmp eq ptr %262, null
-  br i1 %.not270, label %267, label %263
+257:                                              ; preds = %253
+  %258 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not270 = icmp eq ptr %258, null
+  br i1 %.not270, label %263, label %259
 
-263:                                              ; preds = %261
-  %264 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  %265 = load i32, ptr %264, align 8, !tbaa !113
-  %266 = icmp sgt i32 %265, 0
-  br i1 %266, label %267, label %.loopexit
+259:                                              ; preds = %257
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %261 = load i32, ptr %260, align 8, !tbaa !113
+  %262 = icmp sgt i32 %261, 0
+  br i1 %262, label %263, label %.loopexit
 
-267:                                              ; preds = %263, %261
-  %268 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.94, ptr noundef nonnull %268) #9
+263:                                              ; preds = %259, %257
+  %264 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.94, ptr noundef nonnull %264) #9
   br label %.loopexit
 
-269:                                              ; preds = %254
-  %270 = load i8, ptr %216, align 1, !tbaa !79
-  %271 = icmp eq i8 %270, 0
-  br i1 %271, label %272, label %.loopexit
+265:                                              ; preds = %250
+  %266 = load i8, ptr %212, align 1, !tbaa !79
+  %267 = icmp eq i8 %266, 0
+  br i1 %267, label %268, label %.loopexit
 
-272:                                              ; preds = %269
-  %273 = load i64, ptr %5, align 2
-  %274 = and i64 %273, 2147483648
-  %.not260 = icmp eq i64 %274, 0
-  br i1 %.not260, label %282, label %275
+268:                                              ; preds = %265
+  %269 = load i64, ptr %5, align 2
+  %270 = and i64 %269, 2147483648
+  %.not260 = icmp eq i64 %270, 0
+  br i1 %.not260, label %278, label %271
 
-275:                                              ; preds = %272
-  %276 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not261 = icmp eq ptr %276, null
-  br i1 %.not261, label %281, label %277
+271:                                              ; preds = %268
+  %272 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not261 = icmp eq ptr %272, null
+  br i1 %.not261, label %277, label %273
 
-277:                                              ; preds = %275
-  %278 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  %279 = load i32, ptr %278, align 8, !tbaa !113
-  %280 = icmp sgt i32 %279, 0
-  br i1 %280, label %281, label %282
+273:                                              ; preds = %271
+  %274 = getelementptr inbounds nuw i8, ptr %272, i64 8
+  %275 = load i32, ptr %274, align 8, !tbaa !113
+  %276 = icmp sgt i32 %275, 0
+  br i1 %276, label %277, label %278
 
-281:                                              ; preds = %277, %275
+277:                                              ; preds = %273, %271
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.95) #9
-  br label %282
+  br label %278
 
-282:                                              ; preds = %281, %277, %272
-  %283 = icmp ugt i64 %142, 3
-  br i1 %283, label %.lr.ph, label %.loopexit
+278:                                              ; preds = %277, %273, %268
+  %279 = icmp ugt i64 %142, 3
+  br i1 %279, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %282, %314
-  %284 = phi i64 [ %316, %314 ], [ 3, %282 ]
-  %.2284 = phi i32 [ %315, %314 ], [ 3, %282 ]
-  %285 = getelementptr inbounds nuw i8, ptr %2, i64 %284
-  %286 = load i8, ptr %285, align 1, !tbaa !79
-  %287 = load i64, ptr %5, align 2
-  %288 = and i64 %287, 2147483648
-  %.not266 = icmp eq i64 %288, 0
-  switch i8 %286, label %305 [
-    i8 0, label %289
-    i8 1, label %297
+.lr.ph:                                           ; preds = %278, %310
+  %280 = phi i64 [ %312, %310 ], [ 3, %278 ]
+  %.2284 = phi i32 [ %311, %310 ], [ 3, %278 ]
+  %281 = getelementptr inbounds nuw i8, ptr %2, i64 %280
+  %282 = load i8, ptr %281, align 1, !tbaa !79
+  %283 = load i64, ptr %5, align 2
+  %284 = and i64 %283, 2147483648
+  %.not266 = icmp eq i64 %284, 0
+  switch i8 %282, label %301 [
+    i8 0, label %285
+    i8 1, label %293
   ]
 
-289:                                              ; preds = %.lr.ph
-  br i1 %.not266, label %314, label %290
+285:                                              ; preds = %.lr.ph
+  br i1 %.not266, label %310, label %286
 
-290:                                              ; preds = %289
-  %291 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not265 = icmp eq ptr %291, null
-  br i1 %.not265, label %296, label %292
+286:                                              ; preds = %285
+  %287 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not265 = icmp eq ptr %287, null
+  br i1 %.not265, label %292, label %288
 
-292:                                              ; preds = %290
-  %293 = getelementptr inbounds nuw i8, ptr %291, i64 8
-  %294 = load i32, ptr %293, align 8, !tbaa !113
-  %295 = icmp sgt i32 %294, 0
-  br i1 %295, label %296, label %314
+288:                                              ; preds = %286
+  %289 = getelementptr inbounds nuw i8, ptr %287, i64 8
+  %290 = load i32, ptr %289, align 8, !tbaa !113
+  %291 = icmp sgt i32 %290, 0
+  br i1 %291, label %292, label %310
 
-296:                                              ; preds = %292, %290
+292:                                              ; preds = %288, %286
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.96) #9
-  br label %314
+  br label %310
 
-297:                                              ; preds = %.lr.ph
-  br i1 %.not266, label %314, label %298
+293:                                              ; preds = %.lr.ph
+  br i1 %.not266, label %310, label %294
 
-298:                                              ; preds = %297
-  %299 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not263 = icmp eq ptr %299, null
-  br i1 %.not263, label %304, label %300
+294:                                              ; preds = %293
+  %295 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not263 = icmp eq ptr %295, null
+  br i1 %.not263, label %300, label %296
 
-300:                                              ; preds = %298
-  %301 = getelementptr inbounds nuw i8, ptr %299, i64 8
-  %302 = load i32, ptr %301, align 8, !tbaa !113
-  %303 = icmp sgt i32 %302, 0
-  br i1 %303, label %304, label %314
+296:                                              ; preds = %294
+  %297 = getelementptr inbounds nuw i8, ptr %295, i64 8
+  %298 = load i32, ptr %297, align 8, !tbaa !113
+  %299 = icmp sgt i32 %298, 0
+  br i1 %299, label %300, label %310
 
-304:                                              ; preds = %300, %298
+300:                                              ; preds = %296, %294
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.97) #9
-  br label %314
+  br label %310
 
-305:                                              ; preds = %.lr.ph
-  br i1 %.not266, label %314, label %306
+301:                                              ; preds = %.lr.ph
+  br i1 %.not266, label %310, label %302
 
-306:                                              ; preds = %305
-  %307 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not267 = icmp eq ptr %307, null
-  br i1 %.not267, label %312, label %308
+302:                                              ; preds = %301
+  %303 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not267 = icmp eq ptr %303, null
+  br i1 %.not267, label %308, label %304
 
-308:                                              ; preds = %306
-  %309 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  %310 = load i32, ptr %309, align 8, !tbaa !113
-  %311 = icmp sgt i32 %310, 0
-  br i1 %311, label %312, label %314
+304:                                              ; preds = %302
+  %305 = getelementptr inbounds nuw i8, ptr %303, i64 8
+  %306 = load i32, ptr %305, align 8, !tbaa !113
+  %307 = icmp sgt i32 %306, 0
+  br i1 %307, label %308, label %310
 
-312:                                              ; preds = %308, %306
-  %313 = zext i8 %286 to i32
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, i32 noundef %313) #9
-  br label %314
+308:                                              ; preds = %304, %302
+  %309 = zext i8 %282 to i32
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, i32 noundef %309) #9
+  br label %310
 
-314:                                              ; preds = %296, %292, %289, %304, %300, %297, %312, %308, %305
-  %315 = add i32 %.2284, 1
-  %316 = zext i32 %315 to i64
-  %317 = icmp ugt i64 %142, %316
-  br i1 %317, label %.lr.ph, label %.loopexit, !llvm.loop !125
+310:                                              ; preds = %292, %288, %285, %300, %296, %293, %308, %304, %301
+  %311 = add i32 %.2284, 1
+  %312 = zext i32 %311 to i64
+  %313 = icmp ugt i64 %142, %312
+  br i1 %313, label %.lr.ph, label %.loopexit, !llvm.loop !125
 
-.lr.ph286:                                        ; preds = %.preheader, %331
-  %318 = phi i64 [ %333, %331 ], [ 2, %.preheader ]
-  %.3285 = phi i32 [ %332, %331 ], [ 2, %.preheader ]
-  %319 = load i64, ptr %5, align 2
-  %320 = and i64 %319, 2147483648
-  %.not272 = icmp eq i64 %320, 0
-  br i1 %.not272, label %331, label %321
+.lr.ph286:                                        ; preds = %.preheader, %327
+  %314 = phi i64 [ %329, %327 ], [ 2, %.preheader ]
+  %.3285 = phi i32 [ %328, %327 ], [ 2, %.preheader ]
+  %315 = load i64, ptr %5, align 2
+  %316 = and i64 %315, 2147483648
+  %.not272 = icmp eq i64 %316, 0
+  br i1 %.not272, label %327, label %317
 
-321:                                              ; preds = %.lr.ph286
-  %322 = load ptr, ptr %9, align 8, !tbaa !112
-  %.not273 = icmp eq ptr %322, null
-  br i1 %.not273, label %327, label %323
+317:                                              ; preds = %.lr.ph286
+  %318 = load ptr, ptr %9, align 8, !tbaa !112
+  %.not273 = icmp eq ptr %318, null
+  br i1 %.not273, label %323, label %319
 
-323:                                              ; preds = %321
-  %324 = getelementptr inbounds nuw i8, ptr %322, i64 8
-  %325 = load i32, ptr %324, align 8, !tbaa !113
-  %326 = icmp sgt i32 %325, 0
-  br i1 %326, label %327, label %331
+319:                                              ; preds = %317
+  %320 = getelementptr inbounds nuw i8, ptr %318, i64 8
+  %321 = load i32, ptr %320, align 8, !tbaa !113
+  %322 = icmp sgt i32 %321, 0
+  br i1 %322, label %323, label %327
 
-327:                                              ; preds = %323, %321
-  %328 = getelementptr inbounds nuw i8, ptr %2, i64 %318
-  %329 = load i8, ptr %328, align 1, !tbaa !79
-  %330 = zext i8 %329 to i32
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.99, i32 noundef %330) #9
-  br label %331
+323:                                              ; preds = %319, %317
+  %324 = getelementptr inbounds nuw i8, ptr %2, i64 %314
+  %325 = load i8, ptr %324, align 1, !tbaa !79
+  %326 = zext i8 %325 to i32
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.99, i32 noundef %326) #9
+  br label %327
 
-331:                                              ; preds = %.lr.ph286, %323, %327
-  %332 = add i32 %.3285, 1
-  %333 = zext i32 %332 to i64
-  %334 = icmp ugt i64 %142, %333
-  br i1 %334, label %.lr.ph286, label %.loopexit, !llvm.loop !126
+327:                                              ; preds = %.lr.ph286, %319, %323
+  %328 = add i32 %.3285, 1
+  %329 = zext i32 %328 to i64
+  %330 = icmp ugt i64 %142, %329
+  br i1 %330, label %.lr.ph286, label %.loopexit, !llvm.loop !126
 
-.loopexit:                                        ; preds = %314, %331, %282, %.preheader, %128, %139, %135, %130, %267, %263, %257, %269, %187, %198, %194, %189, %4
+.loopexit:                                        ; preds = %310, %327, %278, %.preheader, %128, %139, %135, %130, %263, %259, %253, %265, %183, %194, %190, %185, %4
   ret void
 }
 

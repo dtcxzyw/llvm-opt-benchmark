@@ -1137,8 +1137,8 @@ define internal void @do_mt_hash_work() #0 {
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %17
 
-17:                                               ; preds = %0, %117
-  %.046 = phi i64 [ 0, %0 ], [ %118, %117 ]
+17:                                               ; preds = %0, %115
+  %.046 = phi i64 [ 0, %0 ], [ %116, %115 ]
   %18 = load ptr, ptr @testrand_lock, align 8, !tbaa !50
   %19 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %18) #13
   %20 = icmp ne i32 %19, 0
@@ -1173,16 +1173,16 @@ define internal void @do_mt_hash_work() #0 {
 
 39:                                               ; preds = %23
   %40 = and i32 %26, 3
+  %41 = load ptr, ptr @m_ht, align 8, !tbaa !48
   switch i32 %40, label %default.unreachable52 [
-    i32 0, label %41
+    i32 0, label %42
     i32 1, label %64
     i32 2, label %64
-    i32 3, label %93
+    i32 3, label %92
   ]
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr @m_ht, align 8, !tbaa !48
-  call void @ossl_ht_read_lock(ptr noundef %42) #13
+42:                                               ; preds = %39
+  call void @ossl_ht_read_lock(ptr noundef %41) #13
   %43 = load ptr, ptr @m_ht, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = call ptr @ossl_ht_get(ptr noundef %43, ptr noundef nonnull %4) #13
@@ -1190,7 +1190,7 @@ define internal void @do_mt_hash_work() #0 {
   %45 = icmp eq ptr %44, null
   br i1 %45, label %ossl_ht_mt_TEST_MT_ENTRY_get.exit.thread, label %46
 
-46:                                               ; preds = %41
+46:                                               ; preds = %42
   %47 = call ptr @ossl_rcu_uptr_deref(ptr noundef nonnull %3) #13
   %48 = icmp eq ptr %47, null
   br i1 %48, label %ossl_ht_mt_TEST_MT_ENTRY_get.exit.thread, label %49
@@ -1201,7 +1201,7 @@ define internal void @do_mt_hash_work() #0 {
   %.not.i.i = icmp eq ptr %51, @mt_TEST_MT_ENTRY_id
   br i1 %.not.i.i, label %ossl_ht_mt_TEST_MT_ENTRY_get.exit, label %ossl_ht_mt_TEST_MT_ENTRY_get.exit.thread
 
-ossl_ht_mt_TEST_MT_ENTRY_get.exit.thread:         ; preds = %41, %46, %49
+ossl_ht_mt_TEST_MT_ENTRY_get.exit.thread:         ; preds = %42, %46, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %58
 
@@ -1230,129 +1230,127 @@ ossl_ht_mt_TEST_MT_ENTRY_get.exit:                ; preds = %49
   %62 = getelementptr inbounds ptr, ptr @worker_exits, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !54
   %.not41 = icmp eq ptr %63, null
-  br i1 %.not41, label %117, label %.loopexit
+  br i1 %.not41, label %115, label %.loopexit
 
 64:                                               ; preds = %39, %39
-  %65 = load ptr, ptr @m_ht, align 8, !tbaa !48
-  call void @ossl_ht_write_lock(ptr noundef %65) #13
-  %66 = icmp eq i32 %40, 2
-  br i1 %66, label %70, label %67
+  call void @ossl_ht_write_lock(ptr noundef %41) #13
+  %65 = icmp eq i32 %40, 2
+  br i1 %65, label %69, label %66
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr %30, align 8, !tbaa !61
-  %.not34 = icmp eq i32 %68, 0
-  %69 = zext i1 %.not34 to i32
-  br label %70
+66:                                               ; preds = %64
+  %67 = load i32, ptr %30, align 8, !tbaa !61
+  %.not34 = icmp eq i32 %67, 0
+  %68 = zext i1 %.not34 to i32
+  br label %69
 
-70:                                               ; preds = %64, %67
-  %.026 = phi ptr [ null, %67 ], [ %6, %64 ]
-  %.025 = phi i32 [ %69, %67 ], [ 1, %64 ]
-  %71 = load ptr, ptr @m_ht, align 8, !tbaa !48
+69:                                               ; preds = %64, %66
+  %.026 = phi ptr [ null, %66 ], [ %6, %64 ]
+  %.025 = phi i32 [ %68, %66 ], [ 1, %64 ]
+  %70 = load ptr, ptr @m_ht, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !46
   store ptr %30, ptr %1, align 8, !tbaa !30
   store ptr @mt_TEST_MT_ENTRY_id, ptr %16, align 8, !tbaa !33
-  %72 = icmp eq ptr %.026, null
-  %..i = select i1 %72, ptr null, ptr %2
-  %73 = call i32 @ossl_ht_insert(ptr noundef %71, ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef %..i) #13
-  %74 = load ptr, ptr %2, align 8, !tbaa !46
-  %.not.i = icmp eq ptr %74, null
-  br i1 %.not.i, label %ossl_ht_mt_TEST_MT_ENTRY_insert.exit, label %75
+  %71 = icmp eq ptr %.026, null
+  %..i = select i1 %71, ptr null, ptr %2
+  %72 = call i32 @ossl_ht_insert(ptr noundef %70, ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef %..i) #13
+  %73 = load ptr, ptr %2, align 8, !tbaa !46
+  %.not.i = icmp eq ptr %73, null
+  br i1 %.not.i, label %ossl_ht_mt_TEST_MT_ENTRY_insert.exit, label %74
 
-75:                                               ; preds = %70
-  %76 = load ptr, ptr %74, align 8, !tbaa !30
-  store ptr %76, ptr %.026, align 8, !tbaa !63
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %73, align 8, !tbaa !30
+  store ptr %75, ptr %.026, align 8, !tbaa !63
   br label %ossl_ht_mt_TEST_MT_ENTRY_insert.exit
 
-ossl_ht_mt_TEST_MT_ENTRY_insert.exit:             ; preds = %70, %75
+ossl_ht_mt_TEST_MT_ENTRY_insert.exit:             ; preds = %69, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %.not35 = icmp eq i32 %.025, %73
-  br i1 %.not35, label %85, label %77
+  %.not35 = icmp eq i32 %.025, %72
+  br i1 %.not35, label %84, label %76
 
-77:                                               ; preds = %ossl_ht_mt_TEST_MT_ENTRY_insert.exit
-  %78 = load i32, ptr %8, align 4, !tbaa !6
-  %79 = select i1 %66, ptr @.str.71, ptr @.str.72
-  %80 = load i32, ptr %30, align 8, !tbaa !61
-  %.not36 = icmp eq i32 %80, 0
-  %81 = select i1 %.not36, ptr @.str.74, ptr @.str.73
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 604, ptr noundef nonnull @.str.70, i32 noundef %78, i32 noundef %.025, ptr noundef nonnull %79, i32 noundef %25, ptr noundef nonnull %81) #13
-  %82 = load i32, ptr %5, align 4, !tbaa !6
-  %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds ptr, ptr @worker_exits, i64 %83
-  store ptr @.str.75, ptr %84, align 8, !tbaa !54
-  br label %85
+76:                                               ; preds = %ossl_ht_mt_TEST_MT_ENTRY_insert.exit
+  %77 = load i32, ptr %8, align 4, !tbaa !6
+  %78 = select i1 %65, ptr @.str.71, ptr @.str.72
+  %79 = load i32, ptr %30, align 8, !tbaa !61
+  %.not36 = icmp eq i32 %79, 0
+  %80 = select i1 %.not36, ptr @.str.74, ptr @.str.73
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 604, ptr noundef nonnull @.str.70, i32 noundef %77, i32 noundef %.025, ptr noundef nonnull %78, i32 noundef %25, ptr noundef nonnull %80) #13
+  %81 = load i32, ptr %5, align 4, !tbaa !6
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds ptr, ptr @worker_exits, i64 %82
+  store ptr @.str.75, ptr %83, align 8, !tbaa !54
+  br label %84
 
-85:                                               ; preds = %77, %ossl_ht_mt_TEST_MT_ENTRY_insert.exit
+84:                                               ; preds = %76, %ossl_ht_mt_TEST_MT_ENTRY_insert.exit
   %.not37 = icmp eq i32 %.025, 0
-  br i1 %.not37, label %87, label %86
+  br i1 %.not37, label %86, label %85
 
-86:                                               ; preds = %85
+85:                                               ; preds = %84
   store i32 1, ptr %30, align 8, !tbaa !61
-  br label %87
+  br label %86
 
-87:                                               ; preds = %86, %85
-  %88 = load ptr, ptr @m_ht, align 8, !tbaa !48
-  call void @ossl_ht_write_unlock(ptr noundef %88) #13
-  %89 = load i32, ptr %5, align 4, !tbaa !6
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds ptr, ptr @worker_exits, i64 %90
-  %92 = load ptr, ptr %91, align 8, !tbaa !54
-  %.not38 = icmp eq ptr %92, null
-  br i1 %.not38, label %117, label %.loopexit
+86:                                               ; preds = %85, %84
+  %87 = load ptr, ptr @m_ht, align 8, !tbaa !48
+  call void @ossl_ht_write_unlock(ptr noundef %87) #13
+  %88 = load i32, ptr %5, align 4, !tbaa !6
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds ptr, ptr @worker_exits, i64 %89
+  %91 = load ptr, ptr %90, align 8, !tbaa !54
+  %.not38 = icmp eq ptr %91, null
+  br i1 %.not38, label %115, label %.loopexit
 
-93:                                               ; preds = %39
-  %94 = load ptr, ptr @m_ht, align 8, !tbaa !48
-  call void @ossl_ht_write_lock(ptr noundef %94) #13
-  %95 = load i32, ptr %30, align 8, !tbaa !61
-  %96 = icmp eq i32 %95, 1
-  br i1 %96, label %97, label %101
+92:                                               ; preds = %39
+  call void @ossl_ht_write_lock(ptr noundef %41) #13
+  %93 = load i32, ptr %30, align 8, !tbaa !61
+  %94 = icmp eq i32 %93, 1
+  br i1 %94, label %95, label %99
 
-97:                                               ; preds = %93
+95:                                               ; preds = %92
   store i32 0, ptr %30, align 8, !tbaa !61
-  %98 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %99 = load ptr, ptr @worker_lock, align 8, !tbaa !50
-  %100 = call i32 @CRYPTO_atomic_add(ptr noundef nonnull %98, i32 noundef 1, ptr noundef nonnull %7, ptr noundef %99) #13
-  br label %101
+  %96 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %97 = load ptr, ptr @worker_lock, align 8, !tbaa !50
+  %98 = call i32 @CRYPTO_atomic_add(ptr noundef nonnull %96, i32 noundef 1, ptr noundef nonnull %7, ptr noundef %97) #13
+  br label %99
 
-101:                                              ; preds = %97, %93
-  %102 = load ptr, ptr @m_ht, align 8, !tbaa !48
-  %103 = call i32 @ossl_ht_delete(ptr noundef %102, ptr noundef nonnull %4) #13
-  %.not31 = icmp eq i32 %95, %103
-  br i1 %.not31, label %111, label %104
+99:                                               ; preds = %95, %92
+  %100 = load ptr, ptr @m_ht, align 8, !tbaa !48
+  %101 = call i32 @ossl_ht_delete(ptr noundef %100, ptr noundef nonnull %4) #13
+  %.not31 = icmp eq i32 %93, %101
+  br i1 %.not31, label %109, label %102
 
-104:                                              ; preds = %101
-  %105 = load i32, ptr %8, align 4, !tbaa !6
-  %106 = load i32, ptr %30, align 8, !tbaa !61
-  %.not32 = icmp eq i32 %106, 0
-  %107 = select i1 %.not32, ptr @.str.74, ptr @.str.73
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 631, ptr noundef nonnull @.str.76, i32 noundef %105, i32 noundef %95, i32 noundef %25, ptr noundef nonnull %107) #13
-  %108 = load i32, ptr %5, align 4, !tbaa !6
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds ptr, ptr @worker_exits, i64 %109
-  store ptr @.str.77, ptr %110, align 8, !tbaa !54
-  br label %111
+102:                                              ; preds = %99
+  %103 = load i32, ptr %8, align 4, !tbaa !6
+  %104 = load i32, ptr %30, align 8, !tbaa !61
+  %.not32 = icmp eq i32 %104, 0
+  %105 = select i1 %.not32, ptr @.str.74, ptr @.str.73
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 631, ptr noundef nonnull @.str.76, i32 noundef %103, i32 noundef %93, i32 noundef %25, ptr noundef nonnull %105) #13
+  %106 = load i32, ptr %5, align 4, !tbaa !6
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds ptr, ptr @worker_exits, i64 %107
+  store ptr @.str.77, ptr %108, align 8, !tbaa !54
+  br label %109
 
-111:                                              ; preds = %104, %101
-  %112 = load ptr, ptr @m_ht, align 8, !tbaa !48
-  call void @ossl_ht_write_unlock(ptr noundef %112) #13
-  %113 = load i32, ptr %5, align 4, !tbaa !6
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds ptr, ptr @worker_exits, i64 %114
-  %116 = load ptr, ptr %115, align 8, !tbaa !54
-  %.not33 = icmp eq ptr %116, null
-  br i1 %.not33, label %117, label %.loopexit
+109:                                              ; preds = %102, %99
+  %110 = load ptr, ptr @m_ht, align 8, !tbaa !48
+  call void @ossl_ht_write_unlock(ptr noundef %110) #13
+  %111 = load i32, ptr %5, align 4, !tbaa !6
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds ptr, ptr @worker_exits, i64 %112
+  %114 = load ptr, ptr %113, align 8, !tbaa !54
+  %.not33 = icmp eq ptr %114, null
+  br i1 %.not33, label %115, label %.loopexit
 
 default.unreachable52:                            ; preds = %39
   unreachable
 
-117:                                              ; preds = %58, %87, %111
-  %118 = add nuw nsw i64 %.046, 1
-  %exitcond.not = icmp eq i64 %118, 1000000
+115:                                              ; preds = %58, %86, %109
+  %116 = add nuw nsw i64 %.046, 1
+  %exitcond.not = icmp eq i64 %116, 1000000
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !65
 
-.loopexit:                                        ; preds = %117, %111, %87, %58, %17, %35
+.loopexit:                                        ; preds = %115, %109, %86, %58, %17, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -13478,20 +13478,18 @@ _ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4Ty
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %_ZNK4llvm16BasicTTIImplBaseINS_12RISCVTTIImplEE23getTypeLegalizationCostEPNS_4TypeE.exit
+  %.sroa.0279.0.insert.ext = zext i32 %3 to i64
+  %.sroa.0279.0.insert.insert = or disjoint i64 %.sroa.0279.0.insert.ext, 4294967296
   switch i32 %1, label %70 [
     i32 363, label %68
     i32 328, label %68
   ]
 
 68:                                               ; preds = %67, %67
-  %.sroa.0281.0.insert.ext = zext i32 %3 to i64
-  %.sroa.0281.0.insert.insert = or disjoint i64 %.sroa.0281.0.insert.ext, 4294967296
-  %69 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl26getArithmeticReductionCostEjPNS_10VectorTypeESt8optionalINS_13FastMathFlagsEENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 29, ptr noundef nonnull %2, i64 %.sroa.0281.0.insert.insert, i32 noundef %4)
+  %69 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl26getArithmeticReductionCostEjPNS_10VectorTypeESt8optionalINS_13FastMathFlagsEENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 29, ptr noundef nonnull %2, i64 %.sroa.0279.0.insert.insert, i32 noundef %4)
   br label %171
 
 70:                                               ; preds = %67
-  %.sroa.0279.0.insert.ext = zext i32 %3 to i64
-  %.sroa.0279.0.insert.insert = or disjoint i64 %.sroa.0279.0.insert.ext, 4294967296
   %71 = call { i64, i32 } @_ZN4llvm12RISCVTTIImpl26getArithmeticReductionCostEjPNS_10VectorTypeESt8optionalINS_13FastMathFlagsEENS_19TargetTransformInfo14TargetCostKindE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 28, ptr noundef nonnull %2, i64 %.sroa.0279.0.insert.insert, i32 noundef %4)
   br label %171
 
