@@ -109588,7 +109588,6 @@ define hidden void @"_ZN84_$LT$client..PendingEntitySubscription$LT$T$GT$$u20$as
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %.sroa.2.0.copyload, ptr %8, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %.sroa.034.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -109990,7 +109989,6 @@ define hidden void @"_ZN84_$LT$client..PendingEntitySubscription$LT$T$GT$$u20$as
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %.sroa.2.0.copyload, ptr %8, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %.sroa.034.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24

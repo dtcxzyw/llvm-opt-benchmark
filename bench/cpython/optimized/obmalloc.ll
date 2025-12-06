@@ -18490,7 +18490,6 @@ _mi_page_unfull.exit:                             ; preds = %91, %104, %107, %10
   %119 = phi i64 [ %106, %104 ], [ %118, %109 ], [ 1, %91 ], [ 73, %107 ]
   %120 = getelementptr inbounds nuw i8, ptr %94, i64 1040
   %121 = getelementptr %struct.mi_page_queue_s, ptr %120, i64 %119
-  store i8 %.val16.i.i, ptr %89, align 2
   tail call fastcc void @mi_page_queue_enqueue_from(ptr noundef %121, ptr noundef %95, ptr noundef nonnull %25)
   br label %.loopexit.i
 
@@ -18578,7 +18577,6 @@ mi_heap_page_queue_of.exit:                       ; preds = %4, %17, %20, %22
   %32 = phi i64 [ %19, %17 ], [ %31, %22 ], [ 1, %4 ], [ 73, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 1040
   %34 = getelementptr %struct.mi_page_queue_s, ptr %33, i64 %32
-  store i8 %.val, ptr %2, align 2
   tail call fastcc void @mi_page_queue_enqueue_from(ptr noundef %34, ptr noundef %8, ptr noundef nonnull %0)
   br label %35
 

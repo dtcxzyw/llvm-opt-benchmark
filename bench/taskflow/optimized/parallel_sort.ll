@@ -8005,7 +8005,7 @@ define linkonce_odr dso_local noundef ptr @_ZN2tf18UnboundedTaskQueueIPNS_4NodeE
   %11 = shl i64 %6, 4
   %12 = select i1 %10, i64 -1, i64 %11
   %13 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %12) #34
-          to label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5ArrayC2El.exit.i unwind label %17
+          to label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5ArrayC2El.exit.i unwind label %19
 
 _ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5ArrayC2El.exit.i: ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8016,95 +8016,95 @@ _ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5ArrayC2El.exit.i: ; preds = %4
 .lr.ph.i:                                         ; preds = %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5ArrayC2El.exit.i
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load ptr, ptr %15, align 8, !tbaa !153
-  %.pre8 = load i64, ptr %16, align 8, !tbaa !152
-  br label %19
+  %17 = load ptr, ptr %15, align 8, !tbaa !153
+  %18 = load i64, ptr %16, align 8, !tbaa !152
+  br label %21
 
-17:                                               ; preds = %4
-  %18 = landingpad { ptr, i32 }
+19:                                               ; preds = %4
+  %20 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 24) #32
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %20
 
-19:                                               ; preds = %19, %.lr.ph.i
-  %.011.i = phi i64 [ %3, %.lr.ph.i ], [ %25, %19 ]
-  %20 = and i64 %.pre8, %.011.i
-  %21 = getelementptr inbounds %"struct.std::atomic.150", ptr %.pre, i64 %20
-  %22 = load atomic i64, ptr %21 monotonic, align 8
-  %23 = and i64 %.011.i, %9
-  %24 = getelementptr inbounds %"struct.std::atomic.150", ptr %13, i64 %23
-  store atomic i64 %22, ptr %24 monotonic, align 8
-  %25 = add nsw i64 %.011.i, 1
-  %.not.i = icmp eq i64 %25, %2
-  br i1 %.not.i, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5Array6resizeEll.exit, label %19, !llvm.loop !385
+21:                                               ; preds = %21, %.lr.ph.i
+  %.011.i = phi i64 [ %3, %.lr.ph.i ], [ %27, %21 ]
+  %22 = and i64 %.011.i, %18
+  %23 = getelementptr inbounds %"struct.std::atomic.150", ptr %17, i64 %22
+  %24 = load atomic i64, ptr %23 monotonic, align 8
+  %25 = and i64 %.011.i, %9
+  %26 = getelementptr inbounds %"struct.std::atomic.150", ptr %13, i64 %25
+  store atomic i64 %24, ptr %26 monotonic, align 8
+  %27 = add nsw i64 %.011.i, 1
+  %.not.i = icmp eq i64 %27, %2
+  br i1 %.not.i, label %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5Array6resizeEll.exit, label %21, !llvm.loop !385
 
-_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5Array6resizeEll.exit: ; preds = %19, %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5ArrayC2El.exit.i
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %28 = load ptr, ptr %27, align 8, !tbaa !156
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %30 = load ptr, ptr %29, align 32, !tbaa !155
-  %.not.i2 = icmp eq ptr %28, %30
-  br i1 %.not.i2, label %33, label %31
-
-31:                                               ; preds = %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5Array6resizeEll.exit
-  store ptr %1, ptr %28, align 8, !tbaa !271
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %32, ptr %27, align 8, !tbaa !156
-  br label %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE9push_backERKS6_.exit
+_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5Array6resizeEll.exit: ; preds = %21, %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5ArrayC2El.exit.i
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %30 = load ptr, ptr %29, align 8, !tbaa !156
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %32 = load ptr, ptr %31, align 32, !tbaa !155
+  %.not.i2 = icmp eq ptr %30, %32
+  br i1 %.not.i2, label %35, label %33
 
 33:                                               ; preds = %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5Array6resizeEll.exit
-  %34 = load ptr, ptr %26, align 16, !tbaa !154
-  %35 = ptrtoint ptr %28 to i64
-  %36 = ptrtoint ptr %34 to i64
-  %37 = sub i64 %35, %36
-  %38 = icmp eq i64 %37, 9223372036854775800
-  br i1 %38, label %39, label %_ZNKSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  store ptr %1, ptr %30, align 8, !tbaa !271
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %34, ptr %29, align 8, !tbaa !156
+  br label %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE9push_backERKS6_.exit
 
-39:                                               ; preds = %33
+35:                                               ; preds = %_ZN2tf18UnboundedTaskQueueIPNS_4NodeEE5Array6resizeEll.exit
+  %36 = load ptr, ptr %28, align 16, !tbaa !154
+  %37 = ptrtoint ptr %30 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = icmp eq i64 %39, 9223372036854775800
+  br i1 %40, label %41, label %_ZNKSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+
+41:                                               ; preds = %35
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #37
   unreachable
 
-_ZNKSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %33
-  %40 = ashr exact i64 %37, 3
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %40, i64 1)
-  %41 = add nsw i64 %.sroa.speculated.i.i.i, %40
-  %42 = icmp ult i64 %41, %40
-  %43 = tail call i64 @llvm.umin.i64(i64 %41, i64 1152921504606846975)
-  %44 = select i1 %42, i64 1152921504606846975, i64 %43
-  %.not.i.i.i = icmp ne i64 %44, 0
+_ZNKSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %35
+  %42 = ashr exact i64 %39, 3
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %42, i64 1)
+  %43 = add nsw i64 %.sroa.speculated.i.i.i, %42
+  %44 = icmp ult i64 %43, %42
+  %45 = tail call i64 @llvm.umin.i64(i64 %43, i64 1152921504606846975)
+  %46 = select i1 %44, i64 1152921504606846975, i64 %45
+  %.not.i.i.i = icmp ne i64 %46, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
-  %45 = shl nuw nsw i64 %44, 3
-  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #34
-  %47 = getelementptr inbounds i8, ptr %46, i64 %37
-  store ptr %1, ptr %47, align 8, !tbaa !271
-  %48 = icmp sgt i64 %37, 0
-  br i1 %48, label %49, label %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
+  %47 = shl nuw nsw i64 %46, 3
+  %48 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #34
+  %49 = getelementptr inbounds i8, ptr %48, i64 %39
+  store ptr %1, ptr %49, align 8, !tbaa !271
+  %50 = icmp sgt i64 %39, 0
+  br i1 %50, label %51, label %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
 
-49:                                               ; preds = %_ZNKSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE12_M_check_lenEmPKc.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr align 8 %34, i64 %37, i1 false)
+51:                                               ; preds = %_ZNKSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %48, ptr align 8 %36, i64 %39, i1 false)
   br label %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
 
-_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i: ; preds = %49, %_ZNKSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE12_M_check_lenEmPKc.exit.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %.not.i17.i.i = icmp eq ptr %34, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %51
+_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i: ; preds = %51, %_ZNKSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE12_M_check_lenEmPKc.exit.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %.not.i17.i.i = icmp eq ptr %36, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %53
 
-51:                                               ; preds = %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %37) #32
+53:                                               ; preds = %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %39) #32
   br label %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %51, %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
-  store ptr %46, ptr %26, align 16, !tbaa !154
-  store ptr %50, ptr %27, align 8, !tbaa !156
-  %52 = getelementptr inbounds nuw ptr, ptr %46, i64 %44
-  store ptr %52, ptr %29, align 32, !tbaa !155
+_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %53, %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
+  store ptr %48, ptr %28, align 16, !tbaa !154
+  store ptr %52, ptr %29, align 8, !tbaa !156
+  %54 = getelementptr inbounds nuw ptr, ptr %48, i64 %46
+  store ptr %54, ptr %31, align 32, !tbaa !155
   br label %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE9push_backERKS6_.exit
 
-_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE9push_backERKS6_.exit: ; preds = %31, %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %54 = ptrtoint ptr %5 to i64
-  store atomic i64 %54, ptr %53 release, align 8
+_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE9push_backERKS6_.exit: ; preds = %33, %_ZNSt6vectorIPN2tf18UnboundedTaskQueueIPNS0_4NodeEE5ArrayESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %56 = ptrtoint ptr %5 to i64
+  store atomic i64 %56, ptr %55 release, align 8
   ret ptr %5
 }
 

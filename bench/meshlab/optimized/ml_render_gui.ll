@@ -14249,7 +14249,7 @@ define void @_ZN24MLRenderingGlobalToolbar5resetEv(ptr noundef nonnull align 8 d
   %17 = load atomic i32, ptr @_ZN9QListData11shared_nullE monotonic, align 8
   switch i32 %17, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-    i32 -1, label %_ZN5QListIP7QActionED2Ev.exit
+    i32 -1, label %.lr.ph11.preheader
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %1
@@ -14273,16 +14273,16 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   call void @__clang_call_terminate(ptr %22) #26
   unreachable
 
-_ZN5QListIP7QActionED2Ev.exit:                    ; preds = %1, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  %.pr = load i32, ptr %16, align 8
-  %23 = icmp eq i32 %.pr, 0
+_ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
+  %.pr.pr = load i32, ptr %16, align 8
+  %23 = icmp eq i32 %.pr.pr, 0
   br i1 %23, label %.critedge, label %.lr.ph11.preheader
 
-.lr.ph11.preheader:                               ; preds = %_ZN5QListIP7QActionED2Ev.exit
+.lr.ph11.preheader:                               ; preds = %1, %_ZN5QListIP7QActionED2Ev.exit
   %.pre = load ptr, ptr %5, align 8
   %.pre13 = load ptr, ptr %11, align 8
-  %.not1016 = icmp eq ptr %.pre, %.pre13
-  br i1 %.not1016, label %.critedge, label %.lr.ph
+  %.not1017 = icmp eq ptr %.pre, %.pre13
+  br i1 %.not1017, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %._crit_edge, %.lr.ph11.preheader, %_ZN5QListIP7QActionED2Ev.exit
   %24 = load ptr, ptr %2, align 8
@@ -15667,7 +15667,7 @@ define void @_ZN31MLRenderingZeroOrOneActionGroup6toggleEP7QAction(ptr noundef n
   %25 = load atomic i32, ptr @_ZN9QListData11shared_nullE monotonic, align 8
   switch i32 %25, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-    i32 -1, label %_ZN5QListIP7QActionED2Ev.exit
+    i32 -1, label %.lr.ph28
   ]
 
 _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %11
@@ -15691,17 +15691,17 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   call void @__clang_call_terminate(ptr %30) #26
   unreachable
 
-_ZN5QListIP7QActionED2Ev.exit:                    ; preds = %11, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  %.pr = load i32, ptr %24, align 8
-  %31 = icmp eq i32 %.pr, 0
+_ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
+  %.pr.pr = load i32, ptr %24, align 8
+  %31 = icmp eq i32 %.pr.pr, 0
   br i1 %31, label %.critedge, label %.lr.ph28
 
-.lr.ph28:                                         ; preds = %_ZN5QListIP7QActionED2Ev.exit
+.lr.ph28:                                         ; preds = %11, %_ZN5QListIP7QActionED2Ev.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %13, align 8
   %.pre30 = load ptr, ptr %19, align 8
-  %.not2736 = icmp eq ptr %.pre, %.pre30
-  br i1 %.not2736, label %.critedge, label %.lr.ph
+  %.not2737 = icmp eq ptr %.pre, %.pre30
+  br i1 %.not2737, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %56, %.lr.ph28, %_ZN5QListIP7QActionED2Ev.exit
   %33 = load ptr, ptr %3, align 8

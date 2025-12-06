@@ -777,7 +777,7 @@ define hidden void @"_ZN108_$LT$itertools..flatten_ok..FlattenOk$LT$I$C$T$C$E$GT
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %43
 
-43:                                               ; preds = %139, %2
+43:                                               ; preds = %.backedge, %2
   %44 = load i16, ptr %22, align 8, !range !48, !noundef !16
   %45 = icmp eq i16 %44, 39
   br i1 %45, label %49, label %46
@@ -790,7 +790,6 @@ define hidden void @"_ZN108_$LT$itertools..flatten_ok..FlattenOk$LT$I$C$T$C$E$GT
   br i1 %48, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$uv_python..discovery..PythonSource$C$std..path..PathBuf$RP$$GT$$GT$17h0ffd228ae8c15fd6E.exit", label %105
 
 49:                                               ; preds = %43, %"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15)
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %50 = load ptr, ptr %1, align 8, !alias.scope !49, !noalias !52, !align !30, !noundef !16
   store ptr null, ptr %1, align 8, !alias.scope !49, !noalias !52
@@ -953,13 +952,13 @@ define hidden void @"_ZN108_$LT$itertools..flatten_ok..FlattenOk$LT$I$C$T$C$E$GT
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17hb32769802217bf7fE.llvm.15708457484008905079"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, i64 noundef 1, i64 noundef 1), !noalias !82
   %91 = load i64, ptr %36, align 8, !range !15, !noalias !65, !noundef !16
   %92 = icmp eq i64 %91, 0
-  br i1 %92, label %140, label %93
+  br i1 %92, label %138, label %93
 
 93:                                               ; preds = %90
   %94 = load ptr, ptr %7, align 8, !noalias !65, !nonnull !16, !noundef !16
   %95 = load i64, ptr %37, align 8, !noalias !65, !noundef !16
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.15708457484008905079"(ptr noalias noundef nonnull readonly align 1 %.sroa.5.i.sroa.6.sroa.6.0..sroa.5.i.sroa.6.0..sroa_idx8.sroa_idx.i, ptr noundef nonnull %94, i64 noundef %91, i64 noundef %95), !noalias !82
-  br label %140
+  br label %138
 
 96:                                               ; preds = %87
   %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.6.8.copyload.i = load i64, ptr %.sroa.648.0..sroa_idx.i.i.i, align 8, !noalias !83
@@ -995,12 +994,12 @@ common.resume:                                    ; preds = %.body, %.body22, %.
   %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.6.0.copyload26.i = load i64, ptr %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.6.0..sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.0..sroa.9.sroa.6.sroa.6.sroa.6.0..sroa.614.0..sroa_idx.i.sroa_idx.sroa_idx.sroa_idx.i, align 8, !noalias !101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.8.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.8.0..sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.0..sroa.9.sroa.6.sroa.6.sroa.6.0..sroa.614.0..sroa_idx.i.sroa_idx.sroa_idx.sroa_idx.i, i64 40, i1 false), !noalias !101
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !54
-  br label %151
+  br label %149
 
 "_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit": ; preds = %96, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !84
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !54
-  br label %151
+  br label %149
 
 105:                                              ; preds = %46
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1053,7 +1052,7 @@ common.resume:                                    ; preds = %.body, %.body22, %.
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !123
   br label %"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit"
 
-116:                                              ; preds = %136, %105
+116:                                              ; preds = %124, %149, %125, %105
   ret void
 
 117:                                              ; preds = %"_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i"
@@ -1084,14 +1083,14 @@ common.resume:                                    ; preds = %.body, %.body22, %.
 
 124:                                              ; preds = %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit.thread"
   store i64 52, ptr %0, align 8
-  br label %136
+  br label %116
 
 125:                                              ; preds = %121
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.48.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
   store i64 51, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %136
+  br label %116
 
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$uv_python..discovery..PythonSource$C$std..path..PathBuf$RP$$GT$$GT$17h0ffd228ae8c15fd6E.exit19": ; preds = %121
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -1131,45 +1130,39 @@ common.resume:                                    ; preds = %.body, %.body22, %.
 
 "_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i21": ; preds = %133
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbdb42f6ad70a3079E.llvm.1525709606161698564"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %.noexc24 unwind label %137
+          to label %.noexc24 unwind label %136
 
 .noexc24:                                         ; preds = %"_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i21"
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !145
   br label %"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit25"
 
-136:                                              ; preds = %125, %151, %124
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15)
-  br label %116
-
-137:                                              ; preds = %"_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i21"
-  %138 = landingpad { ptr, i32 }
+136:                                              ; preds = %"_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i21"
+  %137 = landingpad { ptr, i32 }
           cleanup
   br label %.body22
 
-.body22:                                          ; preds = %131, %137
-  %eh.lpad-body23 = phi { ptr, i32 } [ %138, %137 ], [ %132, %131 ]
+.body22:                                          ; preds = %131, %136
+  %eh.lpad-body23 = phi { ptr, i32 } [ %137, %136 ], [ %132, %131 ]
   store i16 39, ptr %38, align 8
   br label %common.resume
 
 "_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit25": ; preds = %.noexc24, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$uv_python..discovery..PythonSource$C$std..path..PathBuf$RP$$GT$$GT$17h0ffd228ae8c15fd6E.exit19"
   store i16 39, ptr %38, align 8
-  br label %139
+  br label %.backedge
 
-139:                                              ; preds = %"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit25", %"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit31"
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15)
+.backedge:                                        ; preds = %"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit25", %"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit31"
   br label %43
 
-140:                                              ; preds = %90, %93
+138:                                              ; preds = %90, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !65
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.8.i, i64 40, i1 false), !noalias !49
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.8.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  %141 = load i16, ptr %22, align 8, !range !48, !alias.scope !146, !noundef !16
-  %142 = icmp eq i16 %141, 39
-  br i1 %142, label %"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit31", label %143
+  %139 = load i16, ptr %22, align 8, !range !48, !alias.scope !146, !noundef !16
+  %140 = icmp eq i16 %139, 39
+  br i1 %140, label %"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit31", label %141
 
-143:                                              ; preds = %140
+141:                                              ; preds = %138
   call void @llvm.experimental.noalias.scope.decl(metadata !149)
   call void @llvm.experimental.noalias.scope.decl(metadata !152)
   call void @llvm.experimental.noalias.scope.decl(metadata !155)
@@ -1178,35 +1171,35 @@ common.resume:                                    ; preds = %.body, %.body22, %.
   call void @llvm.experimental.noalias.scope.decl(metadata !164)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !167
   store ptr %24, ptr %3, align 8, !noalias !167
-  %144 = load ptr, ptr %25, align 8, !alias.scope !167, !nonnull !16, !noundef !16
-  %145 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd4a2d9dd9cf4624bE.llvm.1525709606161698564(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %24)
-          to label %148 unwind label %146
+  %142 = load ptr, ptr %25, align 8, !alias.scope !167, !nonnull !16, !noundef !16
+  %143 = invoke noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hd4a2d9dd9cf4624bE.llvm.1525709606161698564(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %24)
+          to label %146 unwind label %144
 
-146:                                              ; preds = %148, %143
-  %147 = landingpad { ptr, i32 }
+144:                                              ; preds = %146, %141
+  %145 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbdb42f6ad70a3079E.llvm.1525709606161698564"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %.body28 unwind label %149
+          to label %.body28 unwind label %147
 
-148:                                              ; preds = %143
-  invoke void @"_ZN4core3ptr76drop_in_place$LT$$u5b$uv_python..managed..ManagedPythonInstallation$u5d$$GT$17h64184e3539c86be2E.llvm.1525709606161698564"(ptr noalias noundef nonnull align 8 %144, i64 noundef %145)
-          to label %"_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i27" unwind label %146
+146:                                              ; preds = %141
+  invoke void @"_ZN4core3ptr76drop_in_place$LT$$u5b$uv_python..managed..ManagedPythonInstallation$u5d$$GT$17h64184e3539c86be2E.llvm.1525709606161698564"(ptr noalias noundef nonnull align 8 %142, i64 noundef %143)
+          to label %"_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i27" unwind label %144
 
-149:                                              ; preds = %146
-  %150 = landingpad { ptr, i32 }
+147:                                              ; preds = %144
+  %148 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #35
   unreachable
 
-"_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i27": ; preds = %148
+"_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i27": ; preds = %146
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbdb42f6ad70a3079E.llvm.1525709606161698564"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %.noexc30 unwind label %152
+          to label %.noexc30 unwind label %150
 
 .noexc30:                                         ; preds = %"_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i27"
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !167
   br label %"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit31"
 
-151:                                              ; preds = %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit", %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit.thread193"
+149:                                              ; preds = %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit", %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit.thread193"
   %.sroa.0.1.i217 = phi i64 [ %53, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit.thread193" ], [ %88, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit" ]
   %.sroa.6.1.i215 = phi ptr [ %.sroa.5.i.sroa.0.0.copyload5.i, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit.thread193" ], [ %.sroa.613.i.i.sroa.0.0.copyload.i, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit" ]
   %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.6.1.i213 = phi i64 [ %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.6.0.copyload26.i, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit.thread193" ], [ %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.6.8.copyload.i, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit" ]
@@ -1215,10 +1208,8 @@ common.resume:                                    ; preds = %.body, %.body22, %.
   %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.0.1.i207 = phi i64 [ %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.0.0.copyload25.i, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit.thread193" ], [ %.sroa.613.i.i.sroa.6.sroa.8.sroa.6.sroa.6.0.copyload.i, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit" ]
   %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.0.1.i205 = phi i64 [ %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.0.0.copyload21.i, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit.thread193" ], [ %.sroa.613.i.i.sroa.6.sroa.8.sroa.6.sroa.0.0.copyload.i, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit" ]
   %.sroa.9.sroa.6.sroa.6.sroa.0.1.i203 = phi i64 [ %.sroa.9.sroa.6.sroa.6.sroa.0.0.copyload18.i, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit.thread193" ], [ %.sroa.613.i.i.sroa.6.sroa.8.sroa.0.0.copyload.i, %"_ZN108_$LT$core..iter..sources..once_with..OnceWith$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fba7f145c2e8226E.exit" ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.8.i, i64 40, i1 false), !noalias !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.8.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.8.i)
-  %.sroa.1178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.1178.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.15, i64 40, i1 false)
   store i64 %.sroa.0.1.i217, ptr %0, align 8
   %.sroa.471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.1.i215, ptr %.sroa.471.0..sroa_idx, align 8
@@ -1234,15 +1225,17 @@ common.resume:                                    ; preds = %.body, %.body22, %.
   store i64 %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.0.1.i207, ptr %.sroa.976.0..sroa_idx, align 8
   %.sroa.1077.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.sroa.9.sroa.6.sroa.6.sroa.6.sroa.6.sroa.6.1.i213, ptr %.sroa.1077.0..sroa_idx, align 8
-  br label %136
+  %.sroa.1178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.1178.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.15, i64 40, i1 false)
+  br label %116
 
-152:                                              ; preds = %"_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i27"
-  %153 = landingpad { ptr, i32 }
+150:                                              ; preds = %"_ZN4core3ptr822drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h26d4bda777465d7eE.exit.i27"
+  %151 = landingpad { ptr, i32 }
           cleanup
   br label %.body28
 
-.body28:                                          ; preds = %146, %152
-  %eh.lpad-body29 = phi { ptr, i32 } [ %153, %152 ], [ %147, %146 ]
+.body28:                                          ; preds = %144, %150
+  %eh.lpad-body29 = phi { ptr, i32 } [ %151, %150 ], [ %145, %144 ]
   store ptr %50, ptr %21, align 8
   store ptr %.sroa.613.i.i.sroa.0.0.copyload.i, ptr %24, align 8
   store i64 %.sroa.613.i.i.sroa.6.sroa.0.0.copyload.i, ptr %25, align 8
@@ -1252,7 +1245,7 @@ common.resume:                                    ; preds = %.body, %.body22, %.
   store i64 %.sroa.613.i.i.sroa.6.sroa.8.sroa.6.sroa.6.0.copyload.i, ptr %.sroa.1058.0..sroa_idx59, align 8
   br label %common.resume
 
-"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit31": ; preds = %.noexc30, %140
+"_ZN4core3ptr850drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..inspect..Inspect$LT$core..iter..adapters..filter..Filter$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$uv_python..managed..ManagedPythonInstallation$GT$$C$uv_python..managed..ManagedPythonInstallations..find_matching_current_platform..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_executables_from_installed..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfdce411e6b6538a5E.exit31": ; preds = %.noexc30, %138
   store ptr %50, ptr %21, align 8
   store ptr %.sroa.613.i.i.sroa.0.0.copyload.i, ptr %24, align 8
   store i64 %.sroa.613.i.i.sroa.6.sroa.0.0.copyload.i, ptr %25, align 8
@@ -1260,7 +1253,7 @@ common.resume:                                    ; preds = %.body, %.body22, %.
   store i64 %.sroa.613.i.i.sroa.6.sroa.8.sroa.0.0.copyload.i, ptr %.sroa.852.0..sroa_idx53, align 8
   store i64 %.sroa.613.i.i.sroa.6.sroa.8.sroa.6.sroa.0.0.copyload.i, ptr %22, align 8
   store i64 %.sroa.613.i.i.sroa.6.sroa.8.sroa.6.sroa.6.0.copyload.i, ptr %.sroa.1058.0..sroa_idx59, align 8
-  br label %139
+  br label %.backedge
 }
 
 ; Function Attrs: nonlazybind uwtable

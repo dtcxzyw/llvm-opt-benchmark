@@ -574,7 +574,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %17, ptr %10 monotonic, align 8, !noalias !9
   store ptr null, ptr %12, align 8, !noalias !9
   %18 = icmp eq ptr %11, null
-  br i1 %18, label %.thread4.i, label %19
+  br i1 %18, label %.thread3.i, label %19
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 168
@@ -582,15 +582,15 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   %21 = icmp eq ptr %13, null
   br i1 %21, label %24, label %.thread.i
 
-.thread4.i:                                       ; preds = %.lr.ph
+.thread3.i:                                       ; preds = %.lr.ph
   %22 = icmp eq ptr %13, null
-  br i1 %22, label %.thread5.i, label %.thread.i
+  br i1 %22, label %.thread4.i, label %.thread.i
 
-.thread5.i:                                       ; preds = %.thread4.i
+.thread4.i:                                       ; preds = %.thread3.i
   store ptr null, ptr %3, align 8, !alias.scope !9
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h24d8c201abdb01ebE.exit"
 
-.thread.i:                                        ; preds = %.thread4.i, %19
+.thread.i:                                        ; preds = %.thread3.i, %19
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 160
   store atomic ptr %11, ptr %23 monotonic, align 8, !noalias !9
   br label %25
@@ -605,7 +605,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %9, ptr %27, align 8, !noalias !9
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h24d8c201abdb01ebE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h24d8c201abdb01ebE.exit": ; preds = %.thread5.i, %25
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h24d8c201abdb01ebE.exit": ; preds = %.thread4.i, %25
   %28 = getelementptr inbounds i8, ptr %6, i64 -16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %28, ptr %2, align 8
@@ -698,7 +698,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   store atomic ptr %16, ptr %9 monotonic, align 8, !noalias !26
   store ptr null, ptr %11, align 8, !noalias !26
   %17 = icmp eq ptr %10, null
-  br i1 %17, label %.thread4.i, label %18
+  br i1 %17, label %.thread3.i, label %18
 
 18:                                               ; preds = %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -706,15 +706,15 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   %20 = icmp eq ptr %12, null
   br i1 %20, label %23, label %.thread.i
 
-.thread4.i:                                       ; preds = %.lr.ph
+.thread3.i:                                       ; preds = %.lr.ph
   %21 = icmp eq ptr %12, null
-  br i1 %21, label %.thread5.i, label %.thread.i
+  br i1 %21, label %.thread4.i, label %.thread.i
 
-.thread5.i:                                       ; preds = %.thread4.i
+.thread4.i:                                       ; preds = %.thread3.i
   store ptr null, ptr %2, align 8, !alias.scope !26
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hb8977c9ce7b1cc11E.exit"
 
-.thread.i:                                        ; preds = %.thread4.i, %18
+.thread.i:                                        ; preds = %.thread3.i, %18
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store atomic ptr %10, ptr %22 monotonic, align 8, !noalias !26
   br label %24
@@ -729,7 +729,7 @@ define hidden void @"_ZN110_$LT$futures_util..stream..futures_unordered..Futures
   store i64 %8, ptr %26, align 8, !noalias !26
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hb8977c9ce7b1cc11E.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hb8977c9ce7b1cc11E.exit": ; preds = %.thread5.i, %24
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hb8977c9ce7b1cc11E.exit": ; preds = %.thread4.i, %24
   %27 = getelementptr inbounds i8, ptr %5, i64 -16
   tail call void @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$12release_task17h730612f18ccec234E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %27)
   %28 = load ptr, ptr %2, align 8, !noundef !4
@@ -45989,7 +45989,7 @@ define hidden void @"_ZN4core3ptr225drop_in_place$LT$futures_util..stream..futur
   store atomic ptr %16, ptr %9 monotonic, align 8, !noalias !14171
   store ptr null, ptr %11, align 8, !noalias !14171
   %17 = icmp eq ptr %10, null
-  br i1 %17, label %.thread4.i.i, label %18
+  br i1 %17, label %.thread3.i.i, label %18
 
 18:                                               ; preds = %.lr.ph.i
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -45997,15 +45997,15 @@ define hidden void @"_ZN4core3ptr225drop_in_place$LT$futures_util..stream..futur
   %20 = icmp eq ptr %12, null
   br i1 %20, label %23, label %.thread.i.i
 
-.thread4.i.i:                                     ; preds = %.lr.ph.i
+.thread3.i.i:                                     ; preds = %.lr.ph.i
   %21 = icmp eq ptr %12, null
-  br i1 %21, label %.thread5.i.i, label %.thread.i.i
+  br i1 %21, label %.thread4.i.i, label %.thread.i.i
 
-.thread5.i.i:                                     ; preds = %.thread4.i.i
+.thread4.i.i:                                     ; preds = %.thread3.i.i
   store ptr null, ptr %2, align 8, !alias.scope !14174
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hb8977c9ce7b1cc11E.exit.i"
 
-.thread.i.i:                                      ; preds = %.thread4.i.i, %18
+.thread.i.i:                                      ; preds = %.thread3.i.i, %18
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store atomic ptr %10, ptr %22 monotonic, align 8, !noalias !14171
   br label %24
@@ -46020,7 +46020,7 @@ define hidden void @"_ZN4core3ptr225drop_in_place$LT$futures_util..stream..futur
   store i64 %8, ptr %26, align 8, !noalias !14171
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hb8977c9ce7b1cc11E.exit.i"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hb8977c9ce7b1cc11E.exit.i": ; preds = %24, %.thread5.i.i
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17hb8977c9ce7b1cc11E.exit.i": ; preds = %24, %.thread4.i.i
   %27 = getelementptr inbounds i8, ptr %5, i64 -16
   invoke void @"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$12release_task17h730612f18ccec234E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %27)
           to label %.noexc unwind label %30

@@ -6630,9 +6630,9 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$12pu
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 256
   br label %16
 
-16:                                               ; preds = %.lr.ph, %53
-  %17 = phi i64 [ %9, %.lr.ph ], [ %54, %53 ]
-  %.sroa.012.049 = phi i64 [ %7, %.lr.ph ], [ %.sroa.012.1, %53 ]
+16:                                               ; preds = %.lr.ph, %52
+  %17 = phi i64 [ %9, %.lr.ph ], [ %53, %52 ]
+  %.sroa.012.049 = phi i64 [ %7, %.lr.ph ], [ %.sroa.012.1, %52 ]
   %18 = add i64 %17, -1
   %19 = and i64 %18, %.sroa.012.049
   %20 = add i64 %19, 1
@@ -6640,7 +6640,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$12pu
   %22 = icmp ult i64 %20, %21
   br i1 %22, label %28, label %23
 
-._crit_edge.loopexit:                             ; preds = %53
+._crit_edge.loopexit:                             ; preds = %52
   %.pre = load ptr, ptr %5, align 8
   br label %.loopexit33
 
@@ -6672,7 +6672,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$12pu
   %36 = getelementptr inbounds { { i64 }, ptr }, ptr %35, i64 %19
   %37 = load atomic i64, ptr %36 acquire, align 8
   %38 = icmp eq i64 %.sroa.012.049, %37
-  br i1 %38, label %57, label %39
+  br i1 %38, label %56, label %39
 
 39:                                               ; preds = %34
   %40 = load i64, ptr %12, align 128, !noundef !9
@@ -6695,64 +6695,60 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$12pu
   %48 = load i64, ptr %15, align 128, !noalias !1381, !noundef !9
   %49 = add i64 %48, %47
   %50 = icmp eq i64 %49, %.sroa.012.049
-  br i1 %50, label %.loopexit33, label %51
+  br i1 %50, label %.loopexit33, label %.sink.split
 
-51:                                               ; preds = %45
-  store ptr %46, ptr %5, align 8
-  br label %.sink.split
+.sink.split:                                      ; preds = %45, %44
+  %51 = load atomic i64, ptr %6 monotonic, align 128
+  br label %52
 
-.sink.split:                                      ; preds = %44, %51
-  %52 = load atomic i64, ptr %6 monotonic, align 128
-  br label %53
+52:                                               ; preds = %.sink.split, %56
+  %.sroa.012.1 = phi i64 [ %.sroa.08.0.i, %56 ], [ %51, %.sink.split ]
+  %53 = load i64, ptr %8, align 8, !noundef !9
+  %54 = and i64 %53, %.sroa.012.1
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %16, label %._crit_edge.loopexit
 
-53:                                               ; preds = %.sink.split, %57
-  %.sroa.012.1 = phi i64 [ %.sroa.08.0.i, %57 ], [ %52, %.sink.split ]
-  %54 = load i64, ptr %8, align 8, !noundef !9
-  %55 = and i64 %54, %.sroa.012.1
-  %56 = icmp eq i64 %55, 0
-  br i1 %56, label %16, label %._crit_edge.loopexit
+56:                                               ; preds = %34
+  %57 = cmpxchg weak ptr %6, i64 %.sroa.012.049, i64 %.sroa.09.0 seq_cst monotonic, align 8
+  %.sroa.18.0.in.i = extractvalue { i64, i1 } %57, 1
+  %.sroa.08.0.i = extractvalue { i64, i1 } %57, 0
+  br i1 %.sroa.18.0.in.i, label %58, label %52
 
-57:                                               ; preds = %34
-  %58 = cmpxchg weak ptr %6, i64 %.sroa.012.049, i64 %.sroa.09.0 seq_cst monotonic, align 8
-  %.sroa.18.0.in.i = extractvalue { i64, i1 } %58, 1
-  %.sroa.08.0.i = extractvalue { i64, i1 } %58, 0
-  br i1 %.sroa.18.0.in.i, label %59, label %53
-
-59:                                               ; preds = %57
-  %60 = load ptr, ptr %5, align 8, !nonnull !9, !noundef !9
-  %61 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %60, ptr %61, align 8
-  %62 = add i64 %.sroa.012.049, 1
-  store atomic i64 %62, ptr %36 release, align 8
+58:                                               ; preds = %56
+  %59 = load ptr, ptr %5, align 8, !nonnull !9, !noundef !9
+  %60 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %59, ptr %60, align 8
+  %61 = add i64 %.sroa.012.049, 1
+  store atomic i64 %61, ptr %36 release, align 8
   br label %.loopexit33
 
-.loopexit33:                                      ; preds = %45, %3, %._crit_edge.loopexit, %59
-  %.sroa.4.0 = phi ptr [ undef, %59 ], [ %.pre, %._crit_edge.loopexit ], [ %1, %3 ], [ %46, %45 ]
-  %.sroa.0.0 = phi i64 [ 2, %59 ], [ 1, %._crit_edge.loopexit ], [ 1, %3 ], [ 0, %45 ]
-  %63 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %64 = insertvalue { i64, ptr } %63, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %64
+.loopexit33:                                      ; preds = %45, %3, %._crit_edge.loopexit, %58
+  %.sroa.4.0 = phi ptr [ undef, %58 ], [ %.pre, %._crit_edge.loopexit ], [ %1, %3 ], [ %46, %45 ]
+  %.sroa.0.0 = phi i64 [ 2, %58 ], [ 1, %._crit_edge.loopexit ], [ 1, %3 ], [ 0, %45 ]
+  %62 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %63 = insertvalue { i64, ptr } %62, ptr %.sroa.4.0, 1
+  ret { i64, ptr } %63
 
-65:                                               ; preds = %66
+64:                                               ; preds = %65
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %44
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %66
+  br label %65
 
 .loopexit.split-lp:                               ; preds = %32
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %66
+  br label %65
 
-66:                                               ; preds = %.loopexit.split-lp, %.loopexit
+65:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN81_$LT$async_task..runnable..Runnable$LT$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6abdadead2c56c4cE.llvm.10833762189268282141"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %65 unwind label %67
+          to label %64 unwind label %66
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %65
+  %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #79
   unreachable

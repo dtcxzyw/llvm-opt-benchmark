@@ -1092,11 +1092,13 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i: ; preds = %109, %107
 define hidden void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$10into_inner17h02ada789a3175bedE"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load atomic i8, ptr %5 monotonic, align 4
   %7 = icmp ne i8 %6, 0
   call void @_ZN3std4sync6poison10map_result17h00a309cfcb4b6c3eE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i1 noundef zeroext %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1104,11 +1106,13 @@ define hidden void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$10into_inner17h02a
 define hidden void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$10into_inner17h272ea4f85e2b11beE"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load atomic i8, ptr %5 monotonic, align 4
   %7 = icmp ne i8 %6, 0
   call void @_ZN3std4sync6poison10map_result17h9c010326af465c8eE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i1 noundef zeroext %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1116,11 +1120,13 @@ define hidden void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$10into_inner17h272
 define hidden void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$10into_inner17h6b97e99b67ff7d24E"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load atomic i8, ptr %5 monotonic, align 4
   %7 = icmp ne i8 %6, 0
   call void @_ZN3std4sync6poison10map_result17h9b0d5b2cf98bbd2eE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i1 noundef zeroext %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 

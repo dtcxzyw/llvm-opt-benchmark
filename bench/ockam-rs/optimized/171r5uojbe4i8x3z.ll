@@ -684,7 +684,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !15
-  %81 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %81, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !39
@@ -1009,7 +1009,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %28, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !44
-  %94 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.78.sroa.8.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !68
@@ -1185,7 +1185,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
 138:                                              ; preds = %119
   %139 = getelementptr inbounds nuw i8, ptr %7, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !83
-  %140 = getelementptr inbounds nuw i8, ptr %32, i64 256
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %140, i64 72, i1 false)
   %141 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !83
   %142 = icmp ult i64 %141, 6
@@ -2473,7 +2473,7 @@ common.resume:                                    ; preds = %47, %75, %76, %77, 
 
 "_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_context17hf3c4c1160ea5f369E.exit": ; preds = %3, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !201
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !200
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN11tungstenite8protocol16WebSocketContext5write17h28a3c6cdc1f3a771E(ptr noalias noundef nonnull sret({ i64, [16 x i64] }) align 8 captures(none) dereferenceable(136) %12, ptr noalias noundef nonnull align 8 dereferenceable(256) %25, ptr noalias noundef nonnull align 8 dereferenceable(312) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6), !noalias !206
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !201
@@ -2699,7 +2699,7 @@ common.resume:                                    ; preds = %47, %75, %76, %77, 
 
 "_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_context17he0143b49ae4d4441E.exit": ; preds = %3, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !235
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !234
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN11tungstenite8protocol16WebSocketContext5write17hd66fa510fab43b17E(ptr noalias noundef nonnull sret({ i64, [16 x i64] }) align 8 captures(none) dereferenceable(136) %12, ptr noalias noundef nonnull align 8 dereferenceable(256) %25, ptr noalias noundef nonnull align 8 dereferenceable(312) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6), !noalias !240
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !235

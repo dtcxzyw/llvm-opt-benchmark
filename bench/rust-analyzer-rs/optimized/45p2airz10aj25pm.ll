@@ -28215,7 +28215,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit273
 _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit286: ; preds = %290, %293
   %.0.i284 = phi i8 [ %291, %290 ], [ %294, %293 ]
   %295 = icmp eq i8 %.0.i284, 0
-  br i1 %295, label %.critedge228, label %296
+  br i1 %295, label %.critedge228thread-pre-split, label %296
 
 296:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit286
   %297 = load ptr, ptr @_ZN10hir_expand11cfg_process29remove_tokens_within_cfg_attr10__CALLSITE17h9addbe4fff132626E, align 8, !nonnull !9, !align !31, !noundef !9
@@ -28223,13 +28223,17 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit286
           to label %299 unwind label %.loopexit
 
 299:                                              ; preds = %296
-  br i1 %298, label %303, label %.critedge228
+  br i1 %298, label %303, label %.critedge228thread-pre-split
 
-.critedge228:                                     ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit286, %287, %315, %299
-  %300 = load i8, ptr %20, align 1, !range !379, !noundef !9
-  %301 = load i64, ptr %18, align 8, !range !451, !noundef !9
+.critedge228thread-pre-split:                     ; preds = %299, %315, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit286
+  %.pr = load i64, ptr %18, align 8
+  br label %.critedge228
+
+.critedge228:                                     ; preds = %.critedge228thread-pre-split, %287
+  %300 = phi i64 [ %.pr, %.critedge228thread-pre-split ], [ %.ph, %287 ]
+  %301 = load i8, ptr %20, align 1, !range !379, !noundef !9
   %302 = load ptr, ptr %187, align 8, !noundef !9
-  switch i8 %300, label %default.unreachable514 [
+  switch i8 %301, label %default.unreachable514 [
     i8 0, label %316
     i8 1, label %317
     i8 2, label %319
@@ -28287,20 +28291,20 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit286
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %.critedge228
+  br label %.critedge228thread-pre-split
 
 316:                                              ; preds = %.critedge228
-  %trunc197 = trunc nuw i64 %301 to i1
+  %trunc197 = trunc nuw i64 %300 to i1
   br i1 %trunc197, label %351, label %320
 
 317:                                              ; preds = %.critedge228
-  %.not = icmp eq i64 %301, 0
+  %.not = icmp eq i64 %300, 0
   %318 = icmp ne ptr %302, null
   call void @llvm.assume(i1 %318)
   br i1 %.not, label %409, label %368
 
 319:                                              ; preds = %.critedge228
-  %trunc = trunc nuw i64 %301 to i1
+  %trunc = trunc nuw i64 %300 to i1
   br i1 %trunc, label %.invoke535, label %381
 
 320:                                              ; preds = %316

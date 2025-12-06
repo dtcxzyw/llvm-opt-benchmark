@@ -88,27 +88,25 @@ $_ZNK12hb_bit_set_t9next_manyEjPjj = comdat any
 define hidden nonnull ptr @hb_set_create() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #24
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %8, label %_ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit
+  br i1 %.not.i, label %7, label %_ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit
 
 _ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit:  ; preds = %0
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store atomic i32 1, ptr %1 monotonic, align 4
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store atomic i32 1, ptr %5 monotonic, align 4
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store atomic i64 0, ptr %6 monotonic, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store atomic i32 1, ptr %4 monotonic, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store atomic i64 0, ptr %5 monotonic, align 8
   store i8 1, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  store atomic i32 0, ptr %4 monotonic, align 8
+  store atomic i32 0, ptr %3 monotonic, align 8
   store atomic i32 1, ptr %1 monotonic, align 8
-  store atomic i32 1, ptr %5 monotonic, align 4
-  store atomic i64 0, ptr %6 monotonic, align 8
-  %7 = load atomic i32, ptr %1 monotonic, align 8
-  br label %8
+  store atomic i32 1, ptr %4 monotonic, align 4
+  store atomic i64 0, ptr %5 monotonic, align 8
+  %6 = load atomic i32, ptr %1 monotonic, align 8
+  br label %7
 
-8:                                                ; preds = %0, %_ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit
+7:                                                ; preds = %0, %_ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit
   %.0 = phi ptr [ %1, %_ZL16hb_object_createI8hb_set_tJEEPT_DpT0_.exit ], [ @_hb_NullPool, %0 ]
   ret ptr %.0
 }
@@ -308,46 +306,44 @@ define hidden nonnull ptr @hb_set_copy(ptr noundef %0) local_unnamed_addr #3 per
 
 hb_set_create.exit.thread:                        ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store atomic i32 1, ptr %2 monotonic, align 4
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store atomic i32 1, ptr %6 monotonic, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store atomic i64 0, ptr %7 monotonic, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store atomic i32 1, ptr %5 monotonic, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store atomic i64 0, ptr %6 monotonic, align 8
   store i8 1, ptr %3, align 8
-  store i32 0, ptr %4, align 4
-  store atomic i32 0, ptr %5 monotonic, align 8
+  store atomic i32 0, ptr %4 monotonic, align 8
   store atomic i32 1, ptr %2 monotonic, align 8
-  store atomic i32 1, ptr %6 monotonic, align 4
-  store atomic i64 0, ptr %7 monotonic, align 8
-  %8 = load atomic i32, ptr %2 monotonic, align 8
-  br label %10
+  store atomic i32 1, ptr %5 monotonic, align 4
+  store atomic i64 0, ptr %6 monotonic, align 8
+  %7 = load atomic i32, ptr %2 monotonic, align 8
+  br label %9
 
 hb_set_create.exit:                               ; preds = %1
   %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @_hb_NullPool, i64 16), align 16
-  %9 = trunc i8 %.pre to i1
-  br i1 %9, label %10, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3setERKS1_.exit
+  %8 = trunc i8 %.pre to i1
+  br i1 %8, label %9, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3setERKS1_.exit
 
-10:                                               ; preds = %hb_set_create.exit.thread, %hb_set_create.exit
+9:                                                ; preds = %hb_set_create.exit.thread, %hb_set_create.exit
   %.0.i7 = phi ptr [ %2, %hb_set_create.exit.thread ], [ @_hb_NullPool, %hb_set_create.exit ]
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 16
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN12hb_bit_set_t3setERKS_b(ptr noundef nonnull align 8 dereferenceable(49) %11, ptr noundef nonnull align 8 dereferenceable(49) %12, i1 noundef zeroext false)
-  %13 = load i8, ptr %11, align 8
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3setERKS1_.exit
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN12hb_bit_set_t3setERKS_b(ptr noundef nonnull align 8 dereferenceable(49) %10, ptr noundef nonnull align 8 dereferenceable(49) %11, i1 noundef zeroext false)
+  %12 = load i8, ptr %10, align 8
+  %13 = trunc i8 %12 to i1
+  br i1 %13, label %14, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3setERKS1_.exit
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = load i8, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 64
-  %19 = and i8 %17, 1
-  store i8 %19, ptr %18, align 8
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %16 = load i8, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 64
+  %18 = and i8 %16, 1
+  store i8 %18, ptr %17, align 8
   br label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3setERKS1_.exit
 
-_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3setERKS1_.exit: ; preds = %15, %10, %hb_set_create.exit
-  %.0 = phi ptr [ @_hb_NullPool, %hb_set_create.exit ], [ %.0.i7, %10 ], [ %.0.i7, %15 ]
+_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3setERKS1_.exit: ; preds = %14, %9, %hb_set_create.exit
+  %.0 = phi ptr [ @_hb_NullPool, %hb_set_create.exit ], [ %.0.i7, %9 ], [ %.0.i7, %14 ]
   ret ptr %.0
 }
 

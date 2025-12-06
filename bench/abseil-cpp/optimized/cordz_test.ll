@@ -4195,7 +4195,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl27HasValidCordzInfoOf
           to label %.noexc17 unwind label %.loopexit.split-lp
 
 .noexc17:                                         ; preds = %.noexc
-  br i1 %23, label %.lr.ph.i, label %.loopexit41
+  br i1 %23, label %.lr.ph.i, label %.loopexit46
 
 .lr.ph.i:                                         ; preds = %.noexc17, %.noexc20
   %24 = invoke noundef nonnull align 8 dereferenceable(1344) ptr @_ZNK4absl13cord_internal16CordzSampleToken8IteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -4214,9 +4214,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl27HasValidCordzInfoOf
           to label %.noexc20 unwind label %.loopexit
 
 .noexc20:                                         ; preds = %.noexc19
-  br i1 %27, label %.lr.ph.i, label %.loopexit41
+  br i1 %27, label %.lr.ph.i, label %.loopexit46
 
-.loopexit41:                                      ; preds = %.noexc20, %.noexc17
+.loopexit46:                                      ; preds = %.noexc20, %.noexc17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
@@ -4225,7 +4225,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl27HasValidCordzInfoOf
   %.not.i21 = icmp eq ptr %29, null
   br i1 %.not.i21, label %_ZN7testing19MatchResultListenerlsIA20_cEERS0_RKT_.exit, label %30
 
-30:                                               ; preds = %.loopexit41
+30:                                               ; preds = %.loopexit46
   %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.100, i64 noundef 31)
   br label %_ZN7testing19MatchResultListenerlsIA20_cEERS0_RKT_.exit
 
@@ -4336,49 +4336,59 @@ _ZNK4absl4Cord4sizeEv.exit26:                     ; preds = %55, %59
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !153
   %.not.i29 = icmp eq ptr %75, null
-  br i1 %.not.i29, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, label %_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit
+  br i1 %.not.i29, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread43, label %_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit
 
 _ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit: ; preds = %73
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.103, i64 noundef 28)
   %.pr37 = load ptr, ptr %74, align 8, !tbaa !153
   %.not.i30 = icmp eq ptr %.pr37, null
-  br i1 %.not.i30, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, label %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
+  %.pre = load i32, ptr %68, align 8, !tbaa !140
+  br i1 %.not.i30, label %_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit._ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread43_crit_edge, label %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
+
+_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit._ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread43_crit_edge: ; preds = %_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit
+  %.pre47 = zext i32 %.pre to i64
+  br label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread43
 
 _ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit
-  %77 = load i32, ptr %68, align 8, !tbaa !140
-  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %.pr37, i32 noundef %77)
+  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %.pr37, i32 noundef %.pre)
   %.pr39 = load ptr, ptr %74, align 8, !tbaa !153
   %.not.i31 = icmp eq ptr %.pr39, null
   br i1 %.not.i31, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit
 
-_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread: ; preds = %73, %_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
-  %79 = load i32, ptr %68, align 8, !tbaa !142
-  %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %67, i64 %80
-  %82 = load atomic i64, ptr %81 monotonic, align 8
+_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread: ; preds = %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
+  %78 = load i32, ptr %68, align 8, !tbaa !142
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %67, i64 %79
+  %81 = load atomic i64, ptr %80 monotonic, align 8
+  br label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28
+
+_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread43: ; preds = %_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit._ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread43_crit_edge, %73
+  %.pre-phi = phi i64 [ %.pre47, %_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit._ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread43_crit_edge ], [ %70, %73 ]
+  %82 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %67, i64 %.pre-phi
+  %83 = load atomic i64, ptr %82 monotonic, align 8
   br label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28
 
 _ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
-  %83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr39, ptr noundef nonnull @.str.104, i64 noundef 8)
-  %.pre = load ptr, ptr %74, align 8, !tbaa !153
-  %84 = load i32, ptr %68, align 8, !tbaa !142
-  %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %67, i64 %85
-  %87 = load atomic i64, ptr %86 monotonic, align 8
-  %.not.i32 = icmp eq ptr %.pre, null
-  br i1 %.not.i32, label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28, label %88
+  %84 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr39, ptr noundef nonnull @.str.104, i64 noundef 8)
+  %.pr41.pr = load ptr, ptr %74, align 8, !tbaa !153
+  %85 = load i32, ptr %68, align 8, !tbaa !142
+  %86 = zext i32 %85 to i64
+  %87 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %67, i64 %86
+  %88 = load atomic i64, ptr %87 monotonic, align 8
+  %.not.i32 = icmp eq ptr %.pr41.pr, null
+  br i1 %.not.i32, label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28, label %89
 
-88:                                               ; preds = %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit
-  %89 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pre, i64 noundef %87)
+89:                                               ; preds = %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit
+  %90 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr41.pr, i64 noundef %88)
   br label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28
 
-_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28: ; preds = %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, %88, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit, %64, %_ZNK4absl4Cord4sizeEv.exit26, %66
-  %.1 = phi i1 [ true, %66 ], [ false, %_ZNK4absl4Cord4sizeEv.exit26 ], [ false, %64 ], [ false, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit ], [ false, %88 ], [ false, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread ]
+_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28: ; preds = %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread43, %89, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, %64, %_ZNK4absl4Cord4sizeEv.exit26, %66
+  %.1 = phi i1 [ true, %66 ], [ false, %_ZNK4absl4Cord4sizeEv.exit26 ], [ false, %64 ], [ false, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread ], [ false, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit ], [ false, %89 ], [ false, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN7testing19MatchResultListenerlsIA20_cEERS0_RKT_.exit
 
-_ZN7testing19MatchResultListenerlsIA20_cEERS0_RKT_.exit: ; preds = %30, %.loopexit41, %19, %16, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28
-  %.0 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28 ], [ false, %16 ], [ false, %19 ], [ false, %.loopexit41 ], [ false, %30 ]
+_ZN7testing19MatchResultListenerlsIA20_cEERS0_RKT_.exit: ; preds = %30, %.loopexit46, %19, %16, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28
+  %.0 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28 ], [ false, %16 ], [ false, %19 ], [ false, %.loopexit46 ], [ false, %30 ]
   ret i1 %.0
 }
 
@@ -21503,26 +21513,31 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl27CordzMethodCountEqM
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !153
   %.not.i9 = icmp eq ptr %29, null
-  br i1 %.not.i9, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, label %_ZN7testing19MatchResultListenerlsIA23_cEERS0_RKT_.exit
+  br i1 %.not.i9, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread32, label %_ZN7testing19MatchResultListenerlsIA23_cEERS0_RKT_.exit
 
 _ZN7testing19MatchResultListenerlsIA23_cEERS0_RKT_.exit: ; preds = %27
   %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.147, i64 noundef 22)
   %.pr = load ptr, ptr %28, align 8, !tbaa !153
   %.not.i10 = icmp eq ptr %.pr, null
-  br i1 %.not.i10, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, label %_ZN7testing19MatchResultListenerlsIiEERS0_RKT_.exit
+  br i1 %.not.i10, label %_ZN7testing19MatchResultListenerlsIA23_cEERS0_RKT_.exit._ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread32_crit_edge, label %_ZN7testing19MatchResultListenerlsIiEERS0_RKT_.exit
+
+_ZN7testing19MatchResultListenerlsIA23_cEERS0_RKT_.exit._ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread32_crit_edge: ; preds = %_ZN7testing19MatchResultListenerlsIA23_cEERS0_RKT_.exit
+  %.pre = load i32, ptr %19, align 8, !tbaa !521
+  %.pre35 = zext i32 %.pre to i64
+  br label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread32
 
 _ZN7testing19MatchResultListenerlsIiEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIA23_cEERS0_RKT_.exit
   %31 = load i32, ptr %24, align 4, !tbaa !237
   %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %.pr, i32 noundef %31)
   %.pr16 = load ptr, ptr %28, align 8, !tbaa !153
   %.not.i11 = icmp eq ptr %.pr16, null
-  br i1 %.not.i11, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, label %_ZN7testing19MatchResultListenerlsIA6_cEERS0_RKT_.exit
+  br i1 %.not.i11, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread28, label %_ZN7testing19MatchResultListenerlsIA6_cEERS0_RKT_.exit
 
 _ZN7testing19MatchResultListenerlsIA6_cEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIiEERS0_RKT_.exit
   %33 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr16, ptr noundef nonnull @.str.148, i64 noundef 5)
   %.pr18.pr = load ptr, ptr %28, align 8, !tbaa !153
   %.not.i12 = icmp eq ptr %.pr18.pr, null
-  br i1 %.not.i12, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, label %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
+  br i1 %.not.i12, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread28, label %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
 
 _ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIA6_cEERS0_RKT_.exit
   %34 = load i32, ptr %19, align 8, !tbaa !140
@@ -21531,28 +21546,41 @@ _ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16Me
   %.not.i13 = icmp eq ptr %.pr20, null
   br i1 %.not.i13, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit
 
-_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread: ; preds = %_ZN7testing19MatchResultListenerlsIA23_cEERS0_RKT_.exit, %27, %_ZN7testing19MatchResultListenerlsIiEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA6_cEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
+_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread: ; preds = %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
   %36 = load i32, ptr %19, align 8, !tbaa !521
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %18, i64 %37
   %39 = load atomic i64, ptr %38 monotonic, align 8
   br label %_ZN7testing19MatchResultListenerlsIlEERS0_RKT_.exit
 
-_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
-  %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr20, ptr noundef nonnull @.str.104, i64 noundef 8)
-  %.pre = load ptr, ptr %28, align 8, !tbaa !153
-  %41 = load i32, ptr %19, align 8, !tbaa !521
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %18, i64 %42
-  %44 = load atomic i64, ptr %43 monotonic, align 8
-  %.not.i14 = icmp eq ptr %.pre, null
-  br i1 %.not.i14, label %_ZN7testing19MatchResultListenerlsIlEERS0_RKT_.exit, label %45
-
-45:                                               ; preds = %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pre, i64 noundef %44)
+_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread28: ; preds = %_ZN7testing19MatchResultListenerlsIiEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA6_cEERS0_RKT_.exit
+  %40 = load i32, ptr %19, align 8, !tbaa !521
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %18, i64 %41
+  %43 = load atomic i64, ptr %42 monotonic, align 8
   br label %_ZN7testing19MatchResultListenerlsIlEERS0_RKT_.exit
 
-_ZN7testing19MatchResultListenerlsIlEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, %45, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit, %16
+_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread32: ; preds = %_ZN7testing19MatchResultListenerlsIA23_cEERS0_RKT_.exit._ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread32_crit_edge, %27
+  %.pre-phi = phi i64 [ %.pre35, %_ZN7testing19MatchResultListenerlsIA23_cEERS0_RKT_.exit._ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread32_crit_edge ], [ %21, %27 ]
+  %44 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %18, i64 %.pre-phi
+  %45 = load atomic i64, ptr %44 monotonic, align 8
+  br label %_ZN7testing19MatchResultListenerlsIlEERS0_RKT_.exit
+
+_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
+  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr20, ptr noundef nonnull @.str.104, i64 noundef 8)
+  %.pr22.pr.pr = load ptr, ptr %28, align 8, !tbaa !153
+  %47 = load i32, ptr %19, align 8, !tbaa !521
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw %"class.absl::cord_internal::CordzUpdateTracker::Counter", ptr %18, i64 %48
+  %50 = load atomic i64, ptr %49 monotonic, align 8
+  %.not.i14 = icmp eq ptr %.pr22.pr.pr, null
+  br i1 %.not.i14, label %_ZN7testing19MatchResultListenerlsIlEERS0_RKT_.exit, label %51
+
+51:                                               ; preds = %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit
+  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr22.pr.pr, i64 noundef %50)
+  br label %_ZN7testing19MatchResultListenerlsIlEERS0_RKT_.exit
+
+_ZN7testing19MatchResultListenerlsIlEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread32, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread28, %51, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN7testing19MatchResultListenerlsIA20_cEERS0_RKT_.exit
 

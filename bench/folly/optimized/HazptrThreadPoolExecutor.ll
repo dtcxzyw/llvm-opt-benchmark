@@ -7673,7 +7673,6 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %43, %45
   %48 = call noundef i32 %.0.i.i.i(ptr noundef nonnull %7, ptr noundef null, ptr noundef null)
   %49 = load i32, ptr %7, align 4, !tbaa !39
   %50 = and i32 %49, 255
-  store i32 %50, ptr %7, align 4, !tbaa !39
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 %51
   %53 = load atomic i8, ptr %52 monotonic, align 1
@@ -11090,7 +11089,6 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %47, %49
   %52 = call noundef i32 %.0.i.i.i(ptr noundef nonnull %7, ptr noundef null, ptr noundef null)
   %53 = load i32, ptr %7, align 4, !tbaa !39
   %54 = and i32 %53, 255
-  store i32 %54, ptr %7, align 4, !tbaa !39
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 %55
   %57 = load atomic i8, ptr %56 monotonic, align 1

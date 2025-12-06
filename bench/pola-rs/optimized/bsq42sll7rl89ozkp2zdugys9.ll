@@ -927,7 +927,7 @@ common.resume.i:                                  ; preds = %129, %123, %46
 
 _ZN4core3ops8function5FnMut8call_mut17h13ba3f53dfd8436dE.exit: ; preds = %"_ZN136_$LT$rayon..iter..while_some..WhileSomeFolder$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$core..option..Option$LT$T$GT$$GT$$GT$12consume_iter4some28_$u7b$$u7b$closure$u7d$$u7d$17h17b9b24f24c54a40E.exit.i"
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.4.0..sroa_idx.i, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.7.i.i, i64 64, i1 false)
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744c12799971d20dE.exit.thread.sink.split19"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h744c12799971d20dE.exit.thread.sink.split19": ; preds = %125, %.thread.i, %"_ZN4core3ptr118drop_in_place$LT$$LP$polars_core..frame..DataFrame$C$alloc..vec..Vec$LT$polars_core..frame..column..Column$GT$$RP$$GT$17h5f5b3c16fe1e6305E.exit.i.i", %_ZN4core3ops8function5FnMut8call_mut17h13ba3f53dfd8436dE.exit
@@ -22296,11 +22296,13 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
 define hidden void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$10into_inner17h2409e6803e6ad366E"(ptr dead_on_unwind noalias noundef writable sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [64 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load atomic i8, ptr %5 monotonic, align 4
   %7 = icmp ne i8 %6, 0
   call void @_ZN3std4sync6poison10map_result17hbfe7fb492fe9d16fE(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, i1 noundef zeroext %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 

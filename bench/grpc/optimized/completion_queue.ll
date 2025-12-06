@@ -609,11 +609,11 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit: ; pr
 .critedge:                                        ; preds = %14
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre = load i32, ptr %4, align 4, !tbaa !79
+  %.pr = load i32, ptr %4, align 4, !tbaa !79
   br label %.critedge26
 
 .critedge26:                                      ; preds = %3, %.critedge
-  %15 = phi i32 [ %0, %3 ], [ %.pre, %.critedge ]
+  %15 = phi i32 [ %0, %3 ], [ %.pr, %.critedge ]
   %16 = icmp ult i32 %15, 3
   br i1 %16, label %switch.lookup, label %23
 

@@ -109,7 +109,6 @@ define void @_ZN8facebook4yoga5Event9subscribeEOSt8functionIFvPK6YGNodeNS1_4Type
 
 _ZN8facebook4yoga12_GLOBAL__N_14NodeC2EOSt8functionIFvPK6YGNodeNS0_5Event4TypeENS7_4DataEEE.exit: ; preds = %1, %8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %10, align 8, !tbaa !4
   %11 = ptrtoint ptr %2 to i64
   br label %.split.i
 

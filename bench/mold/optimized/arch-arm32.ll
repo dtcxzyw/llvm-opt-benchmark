@@ -6524,321 +6524,311 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
 
 131:                                              ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i8 0, ptr %4, align 8, !tbaa !555
-  %132 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 0, ptr %132, align 1, !tbaa !558
-  %133 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 1, ptr %133, align 2, !tbaa !559
-  %134 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 0, ptr %134, align 1, !tbaa !334
-  %135 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, ptr noundef nonnull readonly align 64 dereferenceable(24) %31, i64 24, i1 false), !tbaa.struct !560
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %140
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  store i8 0, ptr %132, align 1, !tbaa !334
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %133, ptr noundef nonnull readonly align 64 dereferenceable(24) %31, i64 24, i1 false), !tbaa.struct !555
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %138
 
-thread-pre-split.i.i:                             ; preds = %263
-  %.pre.i.i = load i8, ptr %96, align 4, !tbaa !484
-  br label %140
+138:                                              ; preds = %thread-pre-split.i.i, %131
+  %139 = phi i8 [ %271, %thread-pre-split.i.i ], [ 0, %131 ]
+  %140 = phi i8 [ %272, %thread-pre-split.i.i ], [ 1, %131 ]
+  %141 = phi i8 [ %273, %thread-pre-split.i.i ], [ 0, %131 ]
+  %142 = load i8, ptr %96, align 4, !tbaa !484
+  %143 = icmp ult i8 %140, 8
+  br i1 %143, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
 
-140:                                              ; preds = %thread-pre-split.i.i, %131
-  %.promoted.i.pr42.i.i = phi i8 [ %.promoted.i.pr.i.i, %thread-pre-split.i.i ], [ 1, %131 ]
-  %141 = phi i8 [ %264, %thread-pre-split.i.i ], [ 0, %131 ]
-  %142 = phi i8 [ %.promoted1.i.i.i, %thread-pre-split.i.i ], [ 0, %131 ]
-  %.promoted4.i.i.i = phi i8 [ %.promoted4.i36.i.i, %thread-pre-split.i.i ], [ 0, %131 ]
-  %143 = phi i8 [ %.pre.i.i, %thread-pre-split.i.i ], [ %97, %131 ]
-  %144 = icmp ult i8 %.promoted.i.pr42.i.i, 8
-  br i1 %144, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %140
-  %.phi.trans.insert.i.i.i = zext i8 %.promoted4.i.i.i to i64
-  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw i8, ptr %134, i64 %.phi.trans.insert.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %138
+  %.phi.trans.insert.i.i.i = zext i8 %141 to i64
+  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw i8, ptr %132, i64 %.phi.trans.insert.i.i.i
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert6.i.i.i, align 1, !tbaa !334
-  %145 = icmp ult i8 %.pre.i.i.i, %143
-  br i1 %145, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i
+  %144 = icmp ult i8 %.pre.i.i.i, %142
+  br i1 %144, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
 
-146:                                              ; preds = %159
-  %147 = icmp ult i8 %174, %143
-  br i1 %147, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i, !llvm.loop !561
+145:                                              ; preds = %158
+  %146 = icmp ult i8 %173, %142
+  br i1 %146, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i, !llvm.loop !556
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i: ; preds = %.lr.ph.i.i.i, %146
-  %148 = phi i8 [ %176, %146 ], [ %.promoted.i.pr42.i.i, %.lr.ph.i.i.i ]
-  %149 = phi i8 [ %162, %146 ], [ %.promoted4.i.i.i, %.lr.ph.i.i.i ]
-  %150 = zext i8 %149 to i64
-  %151 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %135, i64 %150
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %153 = load i64, ptr %152, align 8, !tbaa !542
-  %154 = load i64, ptr %151, align 8, !tbaa !543
-  %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  %156 = load i64, ptr %155, align 8, !tbaa !544
-  %157 = sub nsw i64 %154, %156
-  %158 = icmp ult i64 %153, %157
-  br i1 %158, label %159, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i: ; preds = %.lr.ph.i.i.i, %145
+  %147 = phi i8 [ %161, %145 ], [ %141, %.lr.ph.i.i.i ]
+  %148 = phi i8 [ %175, %145 ], [ %140, %.lr.ph.i.i.i ]
+  %149 = zext i8 %147 to i64
+  %150 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %133, i64 %149
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %152 = load i64, ptr %151, align 8, !tbaa !542
+  %153 = load i64, ptr %150, align 8, !tbaa !543
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %155 = load i64, ptr %154, align 8, !tbaa !544
+  %156 = sub nsw i64 %153, %155
+  %157 = icmp ult i64 %152, %156
+  br i1 %157, label %158, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
 
-159:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i
-  %160 = getelementptr inbounds nuw i8, ptr %134, i64 %150
-  %161 = add i8 %149, 1
-  %162 = and i8 %161, 7
-  %163 = zext nneg i8 %162 to i64
-  %164 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %135, i64 %163
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %164, ptr noundef nonnull align 8 dereferenceable(24) %151, i64 24, i1 false), !tbaa.struct !560
-  %165 = load i64, ptr %164, align 8, !tbaa !543
-  store i64 %165, ptr %151, align 8, !tbaa !543
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %167 = load i64, ptr %166, align 8, !tbaa !544
-  %168 = sub nsw i64 %165, %167
-  %169 = sdiv i64 %168, 2
-  %170 = add nsw i64 %169, %167
-  store i64 %170, ptr %164, align 8, !tbaa !543
-  store i64 %170, ptr %155, align 8, !tbaa !544
-  %171 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  %172 = load i64, ptr %171, align 8, !tbaa !542
-  store i64 %172, ptr %152, align 8, !tbaa !542
-  %173 = load i8, ptr %160, align 1, !tbaa !334
-  %174 = add i8 %173, 1
-  store i8 %174, ptr %160, align 1, !tbaa !334
-  %175 = getelementptr inbounds nuw i8, ptr %134, i64 %163
-  store i8 %174, ptr %175, align 1, !tbaa !334
-  %176 = add nuw nsw i8 %148, 1
-  %exitcond.not.i.i.i = icmp eq i8 %176, 8
-  br i1 %exitcond.not.i.i.i, label %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit_crit_edge.i.i, label %146, !llvm.loop !561
+158:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i
+  %159 = getelementptr inbounds nuw i8, ptr %132, i64 %149
+  %160 = add i8 %147, 1
+  %161 = and i8 %160, 7
+  %162 = zext nneg i8 %161 to i64
+  %163 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %133, i64 %162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %163, ptr noundef nonnull align 8 dereferenceable(24) %150, i64 24, i1 false), !tbaa.struct !555
+  %164 = load i64, ptr %163, align 8, !tbaa !543
+  store i64 %164, ptr %150, align 8, !tbaa !543
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %166 = load i64, ptr %165, align 8, !tbaa !544
+  %167 = sub nsw i64 %164, %166
+  %168 = sdiv i64 %167, 2
+  %169 = add nsw i64 %168, %166
+  store i64 %169, ptr %163, align 8, !tbaa !543
+  store i64 %169, ptr %154, align 8, !tbaa !544
+  %170 = getelementptr inbounds nuw i8, ptr %163, i64 16
+  %171 = load i64, ptr %170, align 8, !tbaa !542
+  store i64 %171, ptr %151, align 8, !tbaa !542
+  %172 = load i8, ptr %159, align 1, !tbaa !334
+  %173 = add i8 %172, 1
+  store i8 %173, ptr %159, align 1, !tbaa !334
+  %174 = getelementptr inbounds nuw i8, ptr %132, i64 %162
+  store i8 %173, ptr %174, align 1, !tbaa !334
+  %175 = add nuw nsw i8 %148, 1
+  %exitcond.not.i.i.i = icmp eq i8 %175, 8
+  br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i, label %145, !llvm.loop !556
 
-._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit_crit_edge.i.i: ; preds = %159
-  br label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i, !llvm.loop !561
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, %145, %.lr.ph.i.i.i, %138
+  %176 = phi i8 [ %140, %138 ], [ %140, %.lr.ph.i.i.i ], [ %148, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i ], [ %175, %145 ]
+  %177 = phi i8 [ %141, %138 ], [ %141, %.lr.ph.i.i.i ], [ %147, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i ], [ %161, %145 ]
+  %178 = load ptr, ptr %134, align 16, !tbaa !472
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
+  %180 = load atomic i8, ptr %179 monotonic, align 1
+  %181 = trunc i8 %180 to i1
+  br i1 %181, label %187, label %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i"
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, %146, %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit_crit_edge.i.i, %.lr.ph.i.i.i
-  %177 = phi i8 [ 8, %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit_crit_edge.i.i ], [ %.promoted.i.pr42.i.i, %.lr.ph.i.i.i ], [ %148, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i ], [ %176, %146 ]
-  %178 = phi i8 [ %162, %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit_crit_edge.i.i ], [ %.promoted4.i.i.i, %.lr.ph.i.i.i ], [ %149, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i ], [ %162, %146 ]
-  store i8 %178, ptr %4, align 8
-  store i8 %177, ptr %133, align 2
-  br label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
-
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i, %140
-  %.promoted.i.pr41.i.i = phi i8 [ %177, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i ], [ %.promoted.i.pr42.i.i, %140 ]
-  %179 = phi i8 [ %178, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i ], [ %142, %140 ]
-  %.promoted4.i37.i.i = phi i8 [ %178, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i ], [ %.promoted4.i.i.i, %140 ]
-  %180 = load ptr, ptr %136, align 16, !tbaa !472
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %182 = load atomic i8, ptr %181 monotonic, align 1
-  %183 = trunc i8 %182 to i1
-  br i1 %183, label %184, label %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i.i"
-
-"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i.i": ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
-  %.pre44.i.i = zext i8 %179 to i64
+"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i": ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
+  %.pre.i = zext i8 %177 to i64
   br label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
 
-184:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
-  %185 = add i8 %143, 1
-  store i8 %185, ptr %96, align 4, !tbaa !484
-  %186 = icmp ugt i8 %.promoted.i.pr41.i.i, 1
-  br i1 %186, label %.thread.i.i, label %214
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i: ; preds = %158
+  %182 = load ptr, ptr %134, align 16, !tbaa !472
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
+  %184 = load atomic i8, ptr %183 monotonic, align 1
+  %185 = trunc i8 %184 to i1
+  br i1 %185, label %.thread61.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
 
-.thread.i.i:                                      ; preds = %184
-  %187 = zext nneg i8 %141 to i64
-  %188 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %135, i64 %187
-  %189 = getelementptr inbounds nuw i8, ptr %134, i64 %187
-  %190 = load i8, ptr %189, align 1, !tbaa !334
+.thread61.i.i:                                    ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i
+  %186 = add i8 %142, 1
+  store i8 %186, ptr %96, align 4, !tbaa !484
+  br label %.thread.i.i
+
+187:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
+  %188 = add i8 %142, 1
+  store i8 %188, ptr %96, align 4, !tbaa !484
+  %189 = icmp ugt i8 %176, 1
+  br i1 %189, label %.thread.i.i, label %219
+
+.thread.i.i:                                      ; preds = %187, %.thread61.i.i
+  %190 = phi i8 [ 8, %.thread61.i.i ], [ %176, %187 ]
+  %191 = phi i8 [ %161, %.thread61.i.i ], [ %177, %187 ]
+  %192 = zext nneg i8 %139 to i64
+  %193 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %133, i64 %192
+  %194 = getelementptr inbounds nuw i8, ptr %132, i64 %192
+  %195 = load i8, ptr %194, align 1, !tbaa !334
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !469
-  %191 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %192, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEE", i64 16), ptr %191, align 64, !tbaa !308
-  %193 = getelementptr inbounds nuw i8, ptr %191, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %193, ptr noundef nonnull readonly align 8 dereferenceable(24) %188, i64 24, i1 false), !tbaa.struct !560
-  %194 = getelementptr inbounds nuw i8, ptr %191, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %194, ptr noundef nonnull align 8 dereferenceable(24) %137, i64 24, i1 false)
-  %195 = getelementptr inbounds nuw i8, ptr %191, i64 112
-  store ptr null, ptr %195, align 16, !tbaa !472
-  %196 = getelementptr inbounds nuw i8, ptr %191, i64 120
-  %197 = load i64, ptr %13, align 8, !tbaa !485
-  %198 = lshr i64 %197, 1
-  store i64 %198, ptr %13, align 8, !tbaa !485
-  store i64 %198, ptr %196, align 8, !tbaa !485
-  %199 = getelementptr inbounds nuw i8, ptr %191, i64 128
-  store i32 2, ptr %199, align 64, !tbaa !483
-  %200 = getelementptr inbounds nuw i8, ptr %191, i64 132
-  %201 = load i8, ptr %96, align 4, !tbaa !484
-  %202 = getelementptr inbounds nuw i8, ptr %191, i64 136
-  %203 = load i64, ptr %3, align 8, !tbaa !486
-  store i64 %203, ptr %202, align 8, !tbaa !486
-  %204 = sub i8 %201, %190
-  store i8 %204, ptr %200, align 4, !tbaa !484
-  %205 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
-  %206 = load ptr, ptr %136, align 16, !tbaa !545
-  store ptr %206, ptr %205, align 8, !tbaa !487
-  %207 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store i32 2, ptr %207, align 8, !tbaa !489
-  %208 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  %209 = load i64, ptr %3, align 8, !tbaa !486
-  store i64 %209, ptr %208, align 8, !tbaa !486
-  %210 = getelementptr inbounds nuw i8, ptr %205, i64 24
-  store i8 0, ptr %210, align 8, !tbaa !546
-  store ptr %205, ptr %136, align 16, !tbaa !472
-  store ptr %205, ptr %195, align 16, !tbaa !472
+  %196 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %197, i8 0, i64 56, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEE", i64 16), ptr %196, align 64, !tbaa !308
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %198, ptr noundef nonnull readonly align 8 dereferenceable(24) %193, i64 24, i1 false), !tbaa.struct !555
+  %199 = getelementptr inbounds nuw i8, ptr %196, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef nonnull align 8 dereferenceable(24) %135, i64 24, i1 false)
+  %200 = getelementptr inbounds nuw i8, ptr %196, i64 112
+  store ptr null, ptr %200, align 16, !tbaa !472
+  %201 = getelementptr inbounds nuw i8, ptr %196, i64 120
+  %202 = load i64, ptr %13, align 8, !tbaa !485
+  %203 = lshr i64 %202, 1
+  store i64 %203, ptr %13, align 8, !tbaa !485
+  store i64 %203, ptr %201, align 8, !tbaa !485
+  %204 = getelementptr inbounds nuw i8, ptr %196, i64 128
+  store i32 2, ptr %204, align 64, !tbaa !483
+  %205 = getelementptr inbounds nuw i8, ptr %196, i64 132
+  %206 = load i8, ptr %96, align 4, !tbaa !484
+  %207 = getelementptr inbounds nuw i8, ptr %196, i64 136
+  %208 = load i64, ptr %3, align 8, !tbaa !486
+  store i64 %208, ptr %207, align 8, !tbaa !486
+  %209 = sub i8 %206, %195
+  store i8 %209, ptr %205, align 4, !tbaa !484
+  %210 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
+  %211 = load ptr, ptr %134, align 16, !tbaa !545
+  store ptr %211, ptr %210, align 8, !tbaa !487
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  store i32 2, ptr %212, align 8, !tbaa !489
+  %213 = getelementptr inbounds nuw i8, ptr %210, i64 16
+  %214 = load i64, ptr %3, align 8, !tbaa !486
+  store i64 %214, ptr %213, align 8, !tbaa !486
+  %215 = getelementptr inbounds nuw i8, ptr %210, i64 24
+  store i8 0, ptr %215, align 8, !tbaa !546
+  store ptr %210, ptr %134, align 16, !tbaa !472
+  store ptr %210, ptr %200, align 16, !tbaa !472
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !547
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(144) %191, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i.i) #19
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(144) %196, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i.i) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %211 = add i8 %.promoted.i.pr41.i.i, -1
-  store i8 %211, ptr %133, align 2, !tbaa !559
-  %212 = add nuw nsw i8 %141, 1
-  %213 = and i8 %212, 7
-  store i8 %213, ptr %132, align 1, !tbaa !558
-  br label %263
+  %216 = add i8 %190, -1
+  %217 = add nuw nsw i8 %139, 1
+  %218 = and i8 %217, 7
+  br label %thread-pre-split.i.i
 
-214:                                              ; preds = %184
-  %215 = zext i8 %179 to i64
-  %216 = getelementptr inbounds nuw i8, ptr %134, i64 %215
-  %217 = load i8, ptr %216, align 1, !tbaa !334
-  %218 = icmp ult i8 %217, %185
-  br i1 %218, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
+219:                                              ; preds = %187
+  %220 = zext i8 %177 to i64
+  %221 = getelementptr inbounds nuw i8, ptr %132, i64 %220
+  %222 = load i8, ptr %221, align 1, !tbaa !334
+  %223 = icmp ult i8 %222, %188
+  br i1 %223, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i: ; preds = %214
-  %219 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %135, i64 %215
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  %221 = load i64, ptr %220, align 8, !tbaa !542
-  %222 = load i64, ptr %219, align 8, !tbaa !543
-  %223 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %224 = load i64, ptr %223, align 8, !tbaa !544
-  %225 = sub nsw i64 %222, %224
-  %226 = icmp ult i64 %221, %225
-  br i1 %226, label %thread-pre-split23.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i: ; preds = %219
+  %224 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %133, i64 %220
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
+  %226 = load i64, ptr %225, align 8, !tbaa !542
+  %227 = load i64, ptr %224, align 8, !tbaa !543
+  %228 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  %229 = load i64, ptr %228, align 8, !tbaa !544
+  %230 = sub nsw i64 %227, %229
+  %231 = icmp ult i64 %226, %230
+  br i1 %231, label %thread-pre-split23.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
 
-"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i": ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i, %214, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i.i"
-  %.pre-phi.i.i = phi i64 [ %.pre44.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i.i" ], [ %215, %214 ], [ %215, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
-  %227 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %135, i64 %.pre-phi.i.i
-  %.val11.i.i = load i64, ptr %227, align 8, !tbaa !543
-  %228 = getelementptr i8, ptr %227, i64 8
-  %.val12.i.i = load i64, ptr %228, align 8, !tbaa !544
-  %229 = load i64, ptr %138, align 8, !tbaa !549
-  %230 = icmp slt i64 %.val12.i.i, %.val11.i.i
-  br i1 %230, label %.lr.ph.preheader.i.i.i.i.i.i13.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit20.i.i"
+"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i": ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i, %219, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i"
+  %232 = phi i8 [ %177, %219 ], [ %177, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ], [ %177, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i" ], [ %161, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i ]
+  %233 = phi i8 [ %176, %219 ], [ %176, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ], [ %176, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i" ], [ 8, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i ]
+  %.pre-phi.i.i = phi i64 [ %220, %219 ], [ %220, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ], [ %.pre.i, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i" ], [ %162, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i ]
+  %234 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %133, i64 %.pre-phi.i.i
+  %.val11.i.i = load i64, ptr %234, align 8, !tbaa !543
+  %235 = getelementptr i8, ptr %234, i64 8
+  %.val12.i.i = load i64, ptr %235, align 8, !tbaa !544
+  %236 = load i64, ptr %136, align 8, !tbaa !549
+  %237 = icmp slt i64 %.val12.i.i, %.val11.i.i
+  br i1 %237, label %.lr.ph.preheader.i.i.i.i.i.i13.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit20.i.i"
 
 .lr.ph.preheader.i.i.i.i.i.i13.i.i:               ; preds = %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
-  %231 = load i64, ptr %139, align 32, !tbaa !550
-  %232 = mul nsw i64 %229, %.val12.i.i
-  %233 = add nsw i64 %231, %232
+  %238 = load i64, ptr %137, align 32, !tbaa !550
+  %239 = mul nsw i64 %236, %.val12.i.i
+  %240 = add nsw i64 %238, %239
   br label %.lr.ph.i.i.i.i.i.i14.i.i
 
 .lr.ph.i.i.i.i.i.i14.i.i:                         ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i18.i.i", %.lr.ph.preheader.i.i.i.i.i.i13.i.i
-  %.03.i.i.i.i.i.i15.i.i = phi i64 [ %256, %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i18.i.i" ], [ %.val12.i.i, %.lr.ph.preheader.i.i.i.i.i.i13.i.i ]
-  %storemerge2.i.i.i.i.i.i16.i.i = phi i64 [ %257, %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i18.i.i" ], [ %233, %.lr.ph.preheader.i.i.i.i.i.i13.i.i ]
-  %234 = load ptr, ptr %137, align 8, !tbaa !551
-  %235 = shl i64 %storemerge2.i.i.i.i.i.i16.i.i, 3
-  %236 = load ptr, ptr %234, align 8, !tbaa !552
-  %237 = load ptr, ptr %236, align 8, !tbaa !444
-  %238 = getelementptr inbounds %struct.Entry, ptr %237, i64 %storemerge2.i.i.i.i.i.i16.i.i
-  %239 = load i32, ptr %238, align 1
-  %240 = zext i32 %239 to i64
-  %241 = shl i64 %240, 33
-  %242 = ashr exact i64 %241, 33
-  %243 = add nsw i64 %242, %235
-  %244 = trunc i64 %243 to i32
-  store i32 %244, ptr %238, align 1
-  %245 = load ptr, ptr %234, align 8, !tbaa !552
-  %246 = load ptr, ptr %245, align 8, !tbaa !444
-  %247 = getelementptr inbounds %struct.Entry, ptr %246, i64 %storemerge2.i.i.i.i.i.i16.i.i
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 4
-  %249 = load i32, ptr %248, align 1
-  %250 = icmp ne i32 %249, 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i17.i.i = icmp sgt i32 %249, -1
-  %251 = and i1 %250, %.not.i.i.i.i.i.i.i.i.i.i.i.i17.i.i
-  br i1 %251, label %252, label %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i18.i.i"
+  %.03.i.i.i.i.i.i15.i.i = phi i64 [ %263, %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i18.i.i" ], [ %.val12.i.i, %.lr.ph.preheader.i.i.i.i.i.i13.i.i ]
+  %storemerge2.i.i.i.i.i.i16.i.i = phi i64 [ %264, %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i18.i.i" ], [ %240, %.lr.ph.preheader.i.i.i.i.i.i13.i.i ]
+  %241 = load ptr, ptr %135, align 8, !tbaa !551
+  %242 = shl i64 %storemerge2.i.i.i.i.i.i16.i.i, 3
+  %243 = load ptr, ptr %241, align 8, !tbaa !552
+  %244 = load ptr, ptr %243, align 8, !tbaa !444
+  %245 = getelementptr inbounds %struct.Entry, ptr %244, i64 %storemerge2.i.i.i.i.i.i16.i.i
+  %246 = load i32, ptr %245, align 1
+  %247 = zext i32 %246 to i64
+  %248 = shl i64 %247, 33
+  %249 = ashr exact i64 %248, 33
+  %250 = add nsw i64 %249, %242
+  %251 = trunc i64 %250 to i32
+  store i32 %251, ptr %245, align 1
+  %252 = load ptr, ptr %241, align 8, !tbaa !552
+  %253 = load ptr, ptr %252, align 8, !tbaa !444
+  %254 = getelementptr inbounds %struct.Entry, ptr %253, i64 %storemerge2.i.i.i.i.i.i16.i.i
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 4
+  %256 = load i32, ptr %255, align 1
+  %257 = icmp ne i32 %256, 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i17.i.i = icmp sgt i32 %256, -1
+  %258 = and i1 %257, %.not.i.i.i.i.i.i.i.i.i.i.i.i17.i.i
+  br i1 %258, label %259, label %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i18.i.i"
 
-252:                                              ; preds = %.lr.ph.i.i.i.i.i.i14.i.i
-  %253 = trunc i64 %235 to i32
-  %254 = add i32 %249, %253
-  %255 = and i32 %254, 2147483647
-  store i32 %255, ptr %248, align 1
+259:                                              ; preds = %.lr.ph.i.i.i.i.i.i14.i.i
+  %260 = trunc i64 %242 to i32
+  %261 = add i32 %256, %260
+  %262 = and i32 %261, 2147483647
+  store i32 %262, ptr %255, align 1
   br label %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i18.i.i"
 
-"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i18.i.i": ; preds = %252, %.lr.ph.i.i.i.i.i.i14.i.i
-  %256 = add nsw i64 %.03.i.i.i.i.i.i15.i.i, 1
-  %257 = add nsw i64 %storemerge2.i.i.i.i.i.i16.i.i, %229
-  %exitcond.not.i.i.i.i.i.i19.i.i = icmp eq i64 %256, %.val11.i.i
+"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i18.i.i": ; preds = %259, %.lr.ph.i.i.i.i.i.i14.i.i
+  %263 = add nsw i64 %.03.i.i.i.i.i.i15.i.i, 1
+  %264 = add nsw i64 %storemerge2.i.i.i.i.i.i16.i.i, %236
+  %exitcond.not.i.i.i.i.i.i19.i.i = icmp eq i64 %263, %.val11.i.i
   br i1 %exitcond.not.i.i.i.i.i.i19.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit20.i.i", label %.lr.ph.i.i.i.i.i.i14.i.i, !llvm.loop !554
 
 "_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit20.i.i": ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i18.i.i", %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
-  %258 = add i8 %.promoted.i.pr41.i.i, -1
-  store i8 %258, ptr %133, align 2, !tbaa !559
-  %259 = add i8 %179, 7
-  %260 = and i8 %259, 7
-  store i8 %260, ptr %4, align 8, !tbaa !555
+  %265 = add i8 %233, -1
+  %266 = add i8 %232, 7
+  %267 = and i8 %266, 7
   br label %thread-pre-split23.i.i
 
 thread-pre-split23.i.i:                           ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit20.i.i", %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i
-  %.promoted.i.pr40.i.i = phi i8 [ %258, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit20.i.i" ], [ %.promoted.i.pr41.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
-  %261 = phi i8 [ %260, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit20.i.i" ], [ %179, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
-  %262 = icmp eq i8 %.promoted.i.pr40.i.i, 0
-  br i1 %262, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i, label %263
+  %268 = phi i8 [ %265, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit20.i.i" ], [ %176, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
+  %269 = phi i8 [ %267, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit20.i.i" ], [ %177, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
+  %270 = icmp eq i8 %268, 0
+  br i1 %270, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i, label %thread-pre-split.i.i
 
-263:                                              ; preds = %thread-pre-split23.i.i, %.thread.i.i
-  %.promoted.i.pr.i.i = phi i8 [ %211, %.thread.i.i ], [ %.promoted.i.pr40.i.i, %thread-pre-split23.i.i ]
-  %264 = phi i8 [ %213, %.thread.i.i ], [ %141, %thread-pre-split23.i.i ]
-  %.promoted1.i.i.i = phi i8 [ %179, %.thread.i.i ], [ %261, %thread-pre-split23.i.i ]
-  %.promoted4.i36.i.i = phi i8 [ %.promoted4.i37.i.i, %.thread.i.i ], [ %261, %thread-pre-split23.i.i ]
-  %265 = load ptr, ptr %1, align 8, !tbaa !547
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 15
-  %267 = load atomic i8, ptr %266 monotonic, align 1
-  %268 = icmp eq i8 %267, -1
-  %269 = getelementptr inbounds nuw i8, ptr %265, i64 16
-  %270 = load ptr, ptr %269, align 8
-  %.0.i.i.i.i = select i1 %268, ptr %270, ptr %265
-  %271 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i) #19
-  br i1 %271, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i, label %thread-pre-split.i.i, !llvm.loop !562
+thread-pre-split.i.i:                             ; preds = %thread-pre-split23.i.i, %.thread.i.i
+  %271 = phi i8 [ %218, %.thread.i.i ], [ %139, %thread-pre-split23.i.i ]
+  %272 = phi i8 [ %216, %.thread.i.i ], [ %268, %thread-pre-split23.i.i ]
+  %273 = phi i8 [ %191, %.thread.i.i ], [ %269, %thread-pre-split23.i.i ]
+  %274 = load ptr, ptr %1, align 8, !tbaa !547
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 15
+  %276 = load atomic i8, ptr %275 monotonic, align 1
+  %277 = icmp eq i8 %276, -1
+  %278 = getelementptr inbounds nuw i8, ptr %274, i64 16
+  %279 = load ptr, ptr %278, align 8
+  %.0.i.i.i.i = select i1 %277, ptr %279, ptr %274
+  %280 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i) #19
+  br i1 %280, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i, label %138, !llvm.loop !557
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i: ; preds = %263, %thread-pre-split23.i.i
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i: ; preds = %thread-pre-split.i.i, %thread-pre-split23.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit"
 
 "_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit": ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_2JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i.i.i", %98, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %273 = load ptr, ptr %272, align 16, !tbaa !472
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %275 = load i64, ptr %274, align 8, !tbaa !486
-  %276 = load ptr, ptr %0, align 64, !tbaa !308
-  %277 = load ptr, ptr %276, align 8
-  call void %277(ptr noundef nonnull align 64 dereferenceable(144) %0) #19
-  %278 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  %279 = atomicrmw sub ptr %278, i32 1 seq_cst, align 4
-  %280 = add i32 %279, -1
-  %281 = icmp sgt i32 %280, 0
-  br i1 %281, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit", label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", %283
-  %.019.i.i = phi ptr [ %282, %283 ], [ %273, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit" ]
-  %282 = load ptr, ptr %.019.i.i, align 8, !tbaa !487
-  %.not.i.i6 = icmp eq ptr %282, null
-  br i1 %.not.i.i6, label %291, label %283
-
-283:                                              ; preds = %.lr.ph.i.i
-  %284 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
-  %285 = load i64, ptr %284, align 8, !tbaa !486
-  %286 = inttoptr i64 %285 to ptr
-  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %286, ptr noundef nonnull %.019.i.i, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %282 = load ptr, ptr %281, align 16, !tbaa !472
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %284 = load i64, ptr %283, align 8, !tbaa !486
+  %285 = load ptr, ptr %0, align 64, !tbaa !308
+  %286 = load ptr, ptr %285, align 8
+  call void %286(ptr noundef nonnull align 64 dereferenceable(144) %0) #19
   %287 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %288 = atomicrmw sub ptr %287, i32 1 seq_cst, align 4
   %289 = add i32 %288, -1
   %290 = icmp sgt i32 %289, 0
   br i1 %290, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit", label %.lr.ph.i.i
 
-291:                                              ; preds = %.lr.ph.i.i
-  %292 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 24
-  %293 = atomicrmw add ptr %292, i64 -1 seq_cst, align 8
-  %.not.i.i.i.i = icmp eq i64 %293, 1
-  br i1 %.not.i.i.i.i, label %294, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit"
+.lr.ph.i.i:                                       ; preds = %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", %292
+  %.019.i.i = phi ptr [ %291, %292 ], [ %282, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit" ]
+  %291 = load ptr, ptr %.019.i.i, align 8, !tbaa !487
+  %.not.i.i6 = icmp eq ptr %291, null
+  br i1 %.not.i.i6, label %300, label %292
 
-294:                                              ; preds = %291
-  %295 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
-  %296 = ptrtoint ptr %295 to i64
-  call void @_ZN3tbb6detail2r114notify_waitersEm(i64 noundef %296) #19
+292:                                              ; preds = %.lr.ph.i.i
+  %293 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %294 = load i64, ptr %293, align 8, !tbaa !486
+  %295 = inttoptr i64 %294 to ptr
+  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %295, ptr noundef nonnull %.019.i.i, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
+  %296 = getelementptr inbounds nuw i8, ptr %291, i64 8
+  %297 = atomicrmw sub ptr %296, i32 1 seq_cst, align 4
+  %298 = add i32 %297, -1
+  %299 = icmp sgt i32 %298, 0
+  br i1 %299, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit", label %.lr.ph.i.i
+
+300:                                              ; preds = %.lr.ph.i.i
+  %301 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 24
+  %302 = atomicrmw add ptr %301, i64 -1 seq_cst, align 8
+  %.not.i.i.i.i = icmp eq i64 %302, 1
+  br i1 %.not.i.i.i.i, label %303, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit"
+
+303:                                              ; preds = %300
+  %304 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %305 = ptrtoint ptr %304 to i64
+  call void @_ZN3tbb6detail2r114notify_waitersEm(i64 noundef %305) #19
   br label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit"
 
-"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit": ; preds = %283, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", %291, %294
-  %297 = inttoptr i64 %275 to ptr
-  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %297, ptr noundef nonnull align 64 dereferenceable(144) %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
+"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit": ; preds = %292, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_2lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", %300, %303
+  %306 = inttoptr i64 %284 to ptr
+  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %306, ptr noundef nonnull align 64 dereferenceable(144) %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
   ret ptr null
 }
 
@@ -7094,7 +7084,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i: ; preds = %_ZN3
   br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge
 
 _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; preds = %89, %83
-  br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i, !llvm.loop !563
+  br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i, !llvm.loop !558
 
 .critedge.i:                                      ; preds = %87, %86, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i, %43, %42, %"_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSC_7ContextINSC_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit"
   %.pre-phi.i = phi i64 [ %37, %42 ], [ %37, %43 ], [ %37, %"_ZN3tbb6detail2d122dynamic_grainsize_modeINS1_13adaptive_modeINS1_19auto_partition_typeEEEE18check_being_stolenINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSC_7ContextINSC_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_RKNS1_14execution_dataE.exit" ], [ %81, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i ], [ %81, %86 ], [ %81, %87 ]
@@ -7113,13 +7103,13 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
 98:                                               ; preds = %95, %.critedge.i
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %101 = load i64, ptr %100, align 8, !tbaa !564
+  %101 = load i64, ptr %100, align 8, !tbaa !559
   %102 = icmp slt i64 %91, %92
   br i1 %102, label %.lr.ph.preheader.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit"
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i:                 ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %104 = load i64, ptr %103, align 32, !tbaa !565
+  %104 = load i64, ptr %103, align 32, !tbaa !560
   %105 = mul nsw i64 %101, %91
   %106 = add nsw i64 %104, %105
   br label %.lr.ph.i.i.i.i.i.i.i.i
@@ -7127,8 +7117,8 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i.i.i", %.lr.ph.preheader.i.i.i.i.i.i.i.i
   %.03.i.i.i.i.i.i.i.i = phi i64 [ %125, %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i.i.i" ], [ %91, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
   %storemerge2.i.i.i.i.i.i.i.i = phi i64 [ %126, %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i.i.i" ], [ %106, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
-  %107 = load ptr, ptr %99, align 8, !tbaa !566
-  %108 = load ptr, ptr %107, align 8, !tbaa !567
+  %107 = load ptr, ptr %99, align 8, !tbaa !561
+  %108 = load ptr, ptr %107, align 8, !tbaa !562
   %109 = load ptr, ptr %108, align 8, !tbaa !444
   %110 = getelementptr inbounds %struct.Entry, ptr %109, i64 %storemerge2.i.i.i.i.i.i.i.i
   %111 = load i32, ptr %110, align 1
@@ -7137,7 +7127,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
   %113 = sub i32 %111, %112
   %114 = and i32 %113, 2147483647
   store i32 %114, ptr %110, align 1
-  %115 = load ptr, ptr %107, align 8, !tbaa !567
+  %115 = load ptr, ptr %107, align 8, !tbaa !562
   %116 = load ptr, ptr %115, align 8, !tbaa !444
   %117 = getelementptr inbounds %struct.Entry, ptr %116, i64 %storemerge2.i.i.i.i.i.i.i.i
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
@@ -7157,322 +7147,312 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
   %125 = add nsw i64 %.03.i.i.i.i.i.i.i.i, 1
   %126 = add nsw i64 %storemerge2.i.i.i.i.i.i.i.i, %101
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %125, %92
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !569
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !564
 
 127:                                              ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i8 0, ptr %4, align 8, !tbaa !555
-  %128 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 0, ptr %128, align 1, !tbaa !558
-  %129 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 1, ptr %129, align 2, !tbaa !559
-  %130 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 0, ptr %130, align 1, !tbaa !334
-  %131 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull readonly align 64 dereferenceable(24) %31, i64 24, i1 false), !tbaa.struct !560
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %136
+  %128 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  store i8 0, ptr %128, align 1, !tbaa !334
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull readonly align 64 dereferenceable(24) %31, i64 24, i1 false), !tbaa.struct !555
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %134
 
-thread-pre-split.i.i:                             ; preds = %255
-  %.pre.i.i = load i8, ptr %96, align 4, !tbaa !484
-  br label %136
+134:                                              ; preds = %thread-pre-split.i.i, %127
+  %135 = phi i8 [ %263, %thread-pre-split.i.i ], [ 0, %127 ]
+  %136 = phi i8 [ %264, %thread-pre-split.i.i ], [ 1, %127 ]
+  %137 = phi i8 [ %265, %thread-pre-split.i.i ], [ 0, %127 ]
+  %138 = load i8, ptr %96, align 4, !tbaa !484
+  %139 = icmp ult i8 %136, 8
+  br i1 %139, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
 
-136:                                              ; preds = %thread-pre-split.i.i, %127
-  %.promoted.i.pr43.i.i = phi i8 [ %.promoted.i.pr.i.i, %thread-pre-split.i.i ], [ 1, %127 ]
-  %137 = phi i8 [ %256, %thread-pre-split.i.i ], [ 0, %127 ]
-  %138 = phi i8 [ %.promoted1.i.i.i, %thread-pre-split.i.i ], [ 0, %127 ]
-  %.promoted4.i.i.i = phi i8 [ %.promoted4.i37.i.i, %thread-pre-split.i.i ], [ 0, %127 ]
-  %139 = phi i8 [ %.pre.i.i, %thread-pre-split.i.i ], [ %97, %127 ]
-  %140 = icmp ult i8 %.promoted.i.pr43.i.i, 8
-  br i1 %140, label %.lr.ph.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %136
-  %.phi.trans.insert.i.i.i = zext i8 %.promoted4.i.i.i to i64
-  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw i8, ptr %130, i64 %.phi.trans.insert.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %134
+  %.phi.trans.insert.i.i.i = zext i8 %137 to i64
+  %.phi.trans.insert6.i.i.i = getelementptr inbounds nuw i8, ptr %128, i64 %.phi.trans.insert.i.i.i
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert6.i.i.i, align 1, !tbaa !334
-  %141 = icmp ult i8 %.pre.i.i.i, %139
-  br i1 %141, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i
+  %140 = icmp ult i8 %.pre.i.i.i, %138
+  br i1 %140, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
 
-142:                                              ; preds = %155
-  %143 = icmp ult i8 %170, %139
-  br i1 %143, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i, !llvm.loop !561
+141:                                              ; preds = %154
+  %142 = icmp ult i8 %169, %138
+  br i1 %142, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i, !llvm.loop !556
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i: ; preds = %.lr.ph.i.i.i, %142
-  %144 = phi i8 [ %172, %142 ], [ %.promoted.i.pr43.i.i, %.lr.ph.i.i.i ]
-  %145 = phi i8 [ %158, %142 ], [ %.promoted4.i.i.i, %.lr.ph.i.i.i ]
-  %146 = zext i8 %145 to i64
-  %147 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %131, i64 %146
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %149 = load i64, ptr %148, align 8, !tbaa !542
-  %150 = load i64, ptr %147, align 8, !tbaa !543
-  %151 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %152 = load i64, ptr %151, align 8, !tbaa !544
-  %153 = sub nsw i64 %150, %152
-  %154 = icmp ult i64 %149, %153
-  br i1 %154, label %155, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i: ; preds = %.lr.ph.i.i.i, %141
+  %143 = phi i8 [ %157, %141 ], [ %137, %.lr.ph.i.i.i ]
+  %144 = phi i8 [ %171, %141 ], [ %136, %.lr.ph.i.i.i ]
+  %145 = zext i8 %143 to i64
+  %146 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %129, i64 %145
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
+  %148 = load i64, ptr %147, align 8, !tbaa !542
+  %149 = load i64, ptr %146, align 8, !tbaa !543
+  %150 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %151 = load i64, ptr %150, align 8, !tbaa !544
+  %152 = sub nsw i64 %149, %151
+  %153 = icmp ult i64 %148, %152
+  br i1 %153, label %154, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
 
-155:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i
-  %156 = getelementptr inbounds nuw i8, ptr %130, i64 %146
-  %157 = add i8 %145, 1
-  %158 = and i8 %157, 7
-  %159 = zext nneg i8 %158 to i64
-  %160 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %131, i64 %159
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %160, ptr noundef nonnull align 8 dereferenceable(24) %147, i64 24, i1 false), !tbaa.struct !560
-  %161 = load i64, ptr %160, align 8, !tbaa !543
-  store i64 %161, ptr %147, align 8, !tbaa !543
-  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %163 = load i64, ptr %162, align 8, !tbaa !544
-  %164 = sub nsw i64 %161, %163
-  %165 = sdiv i64 %164, 2
-  %166 = add nsw i64 %165, %163
-  store i64 %166, ptr %160, align 8, !tbaa !543
-  store i64 %166, ptr %151, align 8, !tbaa !544
-  %167 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  %168 = load i64, ptr %167, align 8, !tbaa !542
-  store i64 %168, ptr %148, align 8, !tbaa !542
-  %169 = load i8, ptr %156, align 1, !tbaa !334
-  %170 = add i8 %169, 1
-  store i8 %170, ptr %156, align 1, !tbaa !334
-  %171 = getelementptr inbounds nuw i8, ptr %130, i64 %159
-  store i8 %170, ptr %171, align 1, !tbaa !334
-  %172 = add nuw nsw i8 %144, 1
-  %exitcond.not.i.i.i = icmp eq i8 %172, 8
-  br i1 %exitcond.not.i.i.i, label %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit_crit_edge.i.i, label %142, !llvm.loop !561
+154:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i
+  %155 = getelementptr inbounds nuw i8, ptr %128, i64 %145
+  %156 = add i8 %143, 1
+  %157 = and i8 %156, 7
+  %158 = zext nneg i8 %157 to i64
+  %159 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %129, i64 %158
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %146, i64 24, i1 false), !tbaa.struct !555
+  %160 = load i64, ptr %159, align 8, !tbaa !543
+  store i64 %160, ptr %146, align 8, !tbaa !543
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  %162 = load i64, ptr %161, align 8, !tbaa !544
+  %163 = sub nsw i64 %160, %162
+  %164 = sdiv i64 %163, 2
+  %165 = add nsw i64 %164, %162
+  store i64 %165, ptr %159, align 8, !tbaa !543
+  store i64 %165, ptr %150, align 8, !tbaa !544
+  %166 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  %167 = load i64, ptr %166, align 8, !tbaa !542
+  store i64 %167, ptr %147, align 8, !tbaa !542
+  %168 = load i8, ptr %155, align 1, !tbaa !334
+  %169 = add i8 %168, 1
+  store i8 %169, ptr %155, align 1, !tbaa !334
+  %170 = getelementptr inbounds nuw i8, ptr %128, i64 %158
+  store i8 %169, ptr %170, align 1, !tbaa !334
+  %171 = add nuw nsw i8 %144, 1
+  %exitcond.not.i.i.i = icmp eq i8 %171, 8
+  br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i, label %141, !llvm.loop !556
 
-._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit_crit_edge.i.i: ; preds = %155
-  br label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i, !llvm.loop !561
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, %141, %.lr.ph.i.i.i, %134
+  %172 = phi i8 [ %136, %134 ], [ %136, %.lr.ph.i.i.i ], [ %144, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i ], [ %171, %141 ]
+  %173 = phi i8 [ %137, %134 ], [ %137, %.lr.ph.i.i.i ], [ %143, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i ], [ %157, %141 ]
+  %174 = load ptr, ptr %130, align 16, !tbaa !498
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
+  %176 = load atomic i8, ptr %175 monotonic, align 1
+  %177 = trunc i8 %176 to i1
+  br i1 %177, label %183, label %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i"
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i, %142, %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit_crit_edge.i.i, %.lr.ph.i.i.i
-  %173 = phi i8 [ 8, %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit_crit_edge.i.i ], [ %.promoted.i.pr43.i.i, %.lr.ph.i.i.i ], [ %144, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i ], [ %172, %142 ]
-  %174 = phi i8 [ %158, %._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit_crit_edge.i.i ], [ %.promoted4.i.i.i, %.lr.ph.i.i.i ], [ %145, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i.i ], [ %158, %142 ]
-  store i8 %174, ptr %4, align 8
-  store i8 %173, ptr %129, align 2
-  br label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
-
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i, %136
-  %.promoted.i.pr42.i.i = phi i8 [ %173, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i ], [ %.promoted.i.pr43.i.i, %136 ]
-  %175 = phi i8 [ %174, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i ], [ %138, %136 ]
-  %.promoted4.i38.i.i = phi i8 [ %174, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.loopexit.i.i ], [ %.promoted4.i.i.i, %136 ]
-  %176 = load ptr, ptr %132, align 16, !tbaa !498
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
-  %178 = load atomic i8, ptr %177 monotonic, align 1
-  %179 = trunc i8 %178 to i1
-  br i1 %179, label %180, label %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i.i"
-
-"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i.i": ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
-  %.pre45.i.i = zext i8 %175 to i64
+"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i": ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
+  %.pre.i = zext i8 %173 to i64
   br label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
 
-180:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
-  %181 = add i8 %139, 1
-  store i8 %181, ptr %96, align 4, !tbaa !484
-  %182 = icmp ugt i8 %.promoted.i.pr42.i.i, 1
-  br i1 %182, label %.thread.i.i, label %210
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i: ; preds = %154
+  %178 = load ptr, ptr %130, align 16, !tbaa !498
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
+  %180 = load atomic i8, ptr %179 monotonic, align 1
+  %181 = trunc i8 %180 to i1
+  br i1 %181, label %.thread62.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
 
-.thread.i.i:                                      ; preds = %180
-  %183 = zext nneg i8 %137 to i64
-  %184 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %131, i64 %183
-  %185 = getelementptr inbounds nuw i8, ptr %130, i64 %183
-  %186 = load i8, ptr %185, align 1, !tbaa !334
+.thread62.i.i:                                    ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i
+  %182 = add i8 %138, 1
+  store i8 %182, ptr %96, align 4, !tbaa !484
+  br label %.thread.i.i
+
+183:                                              ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i.i
+  %184 = add i8 %138, 1
+  store i8 %184, ptr %96, align 4, !tbaa !484
+  %185 = icmp ugt i8 %172, 1
+  br i1 %185, label %.thread.i.i, label %215
+
+.thread.i.i:                                      ; preds = %183, %.thread62.i.i
+  %186 = phi i8 [ 8, %.thread62.i.i ], [ %172, %183 ]
+  %187 = phi i8 [ %157, %.thread62.i.i ], [ %173, %183 ]
+  %188 = zext nneg i8 %135 to i64
+  %189 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %129, i64 %188
+  %190 = getelementptr inbounds nuw i8, ptr %128, i64 %188
+  %191 = load i8, ptr %190, align 1, !tbaa !334
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !469
-  %187 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %188, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEE", i64 16), ptr %187, align 64, !tbaa !308
-  %189 = getelementptr inbounds nuw i8, ptr %187, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %189, ptr noundef nonnull readonly align 8 dereferenceable(24) %184, i64 24, i1 false), !tbaa.struct !560
-  %190 = getelementptr inbounds nuw i8, ptr %187, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %190, ptr noundef nonnull align 8 dereferenceable(24) %133, i64 24, i1 false)
-  %191 = getelementptr inbounds nuw i8, ptr %187, i64 112
-  store ptr null, ptr %191, align 16, !tbaa !498
-  %192 = getelementptr inbounds nuw i8, ptr %187, i64 120
-  %193 = load i64, ptr %13, align 8, !tbaa !485
-  %194 = lshr i64 %193, 1
-  store i64 %194, ptr %13, align 8, !tbaa !485
-  store i64 %194, ptr %192, align 8, !tbaa !485
-  %195 = getelementptr inbounds nuw i8, ptr %187, i64 128
-  store i32 2, ptr %195, align 64, !tbaa !483
-  %196 = getelementptr inbounds nuw i8, ptr %187, i64 132
-  %197 = load i8, ptr %96, align 4, !tbaa !484
-  %198 = getelementptr inbounds nuw i8, ptr %187, i64 136
-  %199 = load i64, ptr %3, align 8, !tbaa !486
-  store i64 %199, ptr %198, align 8, !tbaa !486
-  %200 = sub i8 %197, %186
-  store i8 %200, ptr %196, align 4, !tbaa !484
-  %201 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
-  %202 = load ptr, ptr %132, align 16, !tbaa !545
-  store ptr %202, ptr %201, align 8, !tbaa !487
-  %203 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  store i32 2, ptr %203, align 8, !tbaa !489
-  %204 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  %205 = load i64, ptr %3, align 8, !tbaa !486
-  store i64 %205, ptr %204, align 8, !tbaa !486
-  %206 = getelementptr inbounds nuw i8, ptr %201, i64 24
-  store i8 0, ptr %206, align 8, !tbaa !546
-  store ptr %201, ptr %132, align 16, !tbaa !498
-  store ptr %201, ptr %191, align 16, !tbaa !498
+  %192 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %193, i8 0, i64 56, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEE", i64 16), ptr %192, align 64, !tbaa !308
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(24) %194, ptr noundef nonnull readonly align 8 dereferenceable(24) %189, i64 24, i1 false), !tbaa.struct !555
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 88
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %195, ptr noundef nonnull align 8 dereferenceable(24) %131, i64 24, i1 false)
+  %196 = getelementptr inbounds nuw i8, ptr %192, i64 112
+  store ptr null, ptr %196, align 16, !tbaa !498
+  %197 = getelementptr inbounds nuw i8, ptr %192, i64 120
+  %198 = load i64, ptr %13, align 8, !tbaa !485
+  %199 = lshr i64 %198, 1
+  store i64 %199, ptr %13, align 8, !tbaa !485
+  store i64 %199, ptr %197, align 8, !tbaa !485
+  %200 = getelementptr inbounds nuw i8, ptr %192, i64 128
+  store i32 2, ptr %200, align 64, !tbaa !483
+  %201 = getelementptr inbounds nuw i8, ptr %192, i64 132
+  %202 = load i8, ptr %96, align 4, !tbaa !484
+  %203 = getelementptr inbounds nuw i8, ptr %192, i64 136
+  %204 = load i64, ptr %3, align 8, !tbaa !486
+  store i64 %204, ptr %203, align 8, !tbaa !486
+  %205 = sub i8 %202, %191
+  store i8 %205, ptr %201, align 4, !tbaa !484
+  %206 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
+  %207 = load ptr, ptr %130, align 16, !tbaa !545
+  store ptr %207, ptr %206, align 8, !tbaa !487
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
+  store i32 2, ptr %208, align 8, !tbaa !489
+  %209 = getelementptr inbounds nuw i8, ptr %206, i64 16
+  %210 = load i64, ptr %3, align 8, !tbaa !486
+  store i64 %210, ptr %209, align 8, !tbaa !486
+  %211 = getelementptr inbounds nuw i8, ptr %206, i64 24
+  store i8 0, ptr %211, align 8, !tbaa !546
+  store ptr %206, ptr %130, align 16, !tbaa !498
+  store ptr %206, ptr %196, align 16, !tbaa !498
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !547
-  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(144) %187, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i.i) #19
+  call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(144) %192, ptr noundef nonnull align 8 dereferenceable(128) %.val.i.i.i.i) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %207 = add i8 %.promoted.i.pr42.i.i, -1
-  store i8 %207, ptr %129, align 2, !tbaa !559
-  %208 = add nuw nsw i8 %137, 1
-  %209 = and i8 %208, 7
-  store i8 %209, ptr %128, align 1, !tbaa !558
-  br label %255
+  %212 = add i8 %186, -1
+  %213 = add nuw nsw i8 %135, 1
+  %214 = and i8 %213, 7
+  br label %thread-pre-split.i.i
 
-210:                                              ; preds = %180
-  %211 = zext i8 %175 to i64
-  %212 = getelementptr inbounds nuw i8, ptr %130, i64 %211
-  %213 = load i8, ptr %212, align 1, !tbaa !334
-  %214 = icmp ult i8 %213, %181
-  br i1 %214, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
+215:                                              ; preds = %183
+  %216 = zext i8 %173 to i64
+  %217 = getelementptr inbounds nuw i8, ptr %128, i64 %216
+  %218 = load i8, ptr %217, align 1, !tbaa !334
+  %219 = icmp ult i8 %218, %184
+  br i1 %219, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i: ; preds = %210
-  %215 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %131, i64 %211
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  %217 = load i64, ptr %216, align 8, !tbaa !542
-  %218 = load i64, ptr %215, align 8, !tbaa !543
-  %219 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %220 = load i64, ptr %219, align 8, !tbaa !544
-  %221 = sub nsw i64 %218, %220
-  %222 = icmp ult i64 %217, %221
-  br i1 %222, label %thread-pre-split24.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i: ; preds = %215
+  %220 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %129, i64 %216
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
+  %222 = load i64, ptr %221, align 8, !tbaa !542
+  %223 = load i64, ptr %220, align 8, !tbaa !543
+  %224 = getelementptr inbounds nuw i8, ptr %220, i64 8
+  %225 = load i64, ptr %224, align 8, !tbaa !544
+  %226 = sub nsw i64 %223, %225
+  %227 = icmp ult i64 %222, %226
+  br i1 %227, label %thread-pre-split24.i.i, label %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
 
-"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i": ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i, %210, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i.i"
-  %.pre-phi.i.i = phi i64 [ %.pre45.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i.i" ], [ %211, %210 ], [ %211, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
-  %223 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %131, i64 %.pre-phi.i.i
-  %.val11.i.i = load i64, ptr %223, align 8, !tbaa !543
-  %224 = getelementptr i8, ptr %223, i64 8
-  %.val12.i.i = load i64, ptr %224, align 8, !tbaa !544
-  %225 = load i64, ptr %134, align 8, !tbaa !564
-  %226 = icmp slt i64 %.val12.i.i, %.val11.i.i
-  br i1 %226, label %.lr.ph.preheader.i.i.i.i.i.i13.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit21.i.i"
+"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i": ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i, %215, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i"
+  %228 = phi i8 [ %173, %215 ], [ %173, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ], [ %173, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i" ], [ %157, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i ]
+  %229 = phi i8 [ %172, %215 ], [ %172, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ], [ %172, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i" ], [ 8, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i ]
+  %.pre-phi.i.i = phi i64 [ %216, %215 ], [ %216, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ], [ %.pre.i, %"_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.i._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit_crit_edge.i_crit_edge.i" ], [ %158, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE13split_to_fillEh.exit.thread.i.i ]
+  %230 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %129, i64 %.pre-phi.i.i
+  %.val11.i.i = load i64, ptr %230, align 8, !tbaa !543
+  %231 = getelementptr i8, ptr %230, i64 8
+  %.val12.i.i = load i64, ptr %231, align 8, !tbaa !544
+  %232 = load i64, ptr %132, align 8, !tbaa !559
+  %233 = icmp slt i64 %.val12.i.i, %.val11.i.i
+  br i1 %233, label %.lr.ph.preheader.i.i.i.i.i.i13.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit21.i.i"
 
 .lr.ph.preheader.i.i.i.i.i.i13.i.i:               ; preds = %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
-  %227 = load i64, ptr %135, align 32, !tbaa !565
-  %228 = mul nsw i64 %225, %.val12.i.i
-  %229 = add nsw i64 %227, %228
+  %234 = load i64, ptr %133, align 32, !tbaa !560
+  %235 = mul nsw i64 %232, %.val12.i.i
+  %236 = add nsw i64 %234, %235
   br label %.lr.ph.i.i.i.i.i.i14.i.i
 
 .lr.ph.i.i.i.i.i.i14.i.i:                         ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i19.i.i", %.lr.ph.preheader.i.i.i.i.i.i13.i.i
-  %.03.i.i.i.i.i.i15.i.i = phi i64 [ %248, %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i19.i.i" ], [ %.val12.i.i, %.lr.ph.preheader.i.i.i.i.i.i13.i.i ]
-  %storemerge2.i.i.i.i.i.i16.i.i = phi i64 [ %249, %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i19.i.i" ], [ %229, %.lr.ph.preheader.i.i.i.i.i.i13.i.i ]
-  %230 = load ptr, ptr %133, align 8, !tbaa !566
-  %231 = load ptr, ptr %230, align 8, !tbaa !567
-  %232 = load ptr, ptr %231, align 8, !tbaa !444
-  %233 = getelementptr inbounds %struct.Entry, ptr %232, i64 %storemerge2.i.i.i.i.i.i16.i.i
-  %234 = load i32, ptr %233, align 1
-  %.tr.i.i.i.i.i.i.i.i.i.i.i17.i.i = trunc i64 %storemerge2.i.i.i.i.i.i16.i.i to i32
-  %235 = shl i32 %.tr.i.i.i.i.i.i.i.i.i.i.i17.i.i, 3
-  %236 = sub i32 %234, %235
-  %237 = and i32 %236, 2147483647
-  store i32 %237, ptr %233, align 1
-  %238 = load ptr, ptr %230, align 8, !tbaa !567
+  %.03.i.i.i.i.i.i15.i.i = phi i64 [ %255, %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i19.i.i" ], [ %.val12.i.i, %.lr.ph.preheader.i.i.i.i.i.i13.i.i ]
+  %storemerge2.i.i.i.i.i.i16.i.i = phi i64 [ %256, %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i19.i.i" ], [ %236, %.lr.ph.preheader.i.i.i.i.i.i13.i.i ]
+  %237 = load ptr, ptr %131, align 8, !tbaa !561
+  %238 = load ptr, ptr %237, align 8, !tbaa !562
   %239 = load ptr, ptr %238, align 8, !tbaa !444
   %240 = getelementptr inbounds %struct.Entry, ptr %239, i64 %storemerge2.i.i.i.i.i.i16.i.i
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
-  %242 = load i32, ptr %241, align 1
-  %243 = icmp ne i32 %242, 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i18.i.i = icmp sgt i32 %242, -1
-  %244 = and i1 %243, %.not.i.i.i.i.i.i.i.i.i.i.i.i18.i.i
-  br i1 %244, label %245, label %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i19.i.i"
+  %241 = load i32, ptr %240, align 1
+  %.tr.i.i.i.i.i.i.i.i.i.i.i17.i.i = trunc i64 %storemerge2.i.i.i.i.i.i16.i.i to i32
+  %242 = shl i32 %.tr.i.i.i.i.i.i.i.i.i.i.i17.i.i, 3
+  %243 = sub i32 %241, %242
+  %244 = and i32 %243, 2147483647
+  store i32 %244, ptr %240, align 1
+  %245 = load ptr, ptr %237, align 8, !tbaa !562
+  %246 = load ptr, ptr %245, align 8, !tbaa !444
+  %247 = getelementptr inbounds %struct.Entry, ptr %246, i64 %storemerge2.i.i.i.i.i.i16.i.i
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 4
+  %249 = load i32, ptr %248, align 1
+  %250 = icmp ne i32 %249, 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i18.i.i = icmp sgt i32 %249, -1
+  %251 = and i1 %250, %.not.i.i.i.i.i.i.i.i.i.i.i.i18.i.i
+  br i1 %251, label %252, label %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i19.i.i"
 
-245:                                              ; preds = %.lr.ph.i.i.i.i.i.i14.i.i
-  %246 = sub i32 %242, %235
-  %247 = and i32 %246, 2147483647
-  store i32 %247, ptr %241, align 1
+252:                                              ; preds = %.lr.ph.i.i.i.i.i.i14.i.i
+  %253 = sub i32 %249, %242
+  %254 = and i32 %253, 2147483647
+  store i32 %254, ptr %248, align 1
   br label %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i19.i.i"
 
-"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i19.i.i": ; preds = %245, %.lr.ph.i.i.i.i.i.i14.i.i
-  %248 = add nsw i64 %.03.i.i.i.i.i.i15.i.i, 1
-  %249 = add nsw i64 %storemerge2.i.i.i.i.i.i16.i.i, %225
-  %exitcond.not.i.i.i.i.i.i20.i.i = icmp eq i64 %248, %.val11.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i20.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit21.i.i", label %.lr.ph.i.i.i.i.i.i14.i.i, !llvm.loop !569
+"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i19.i.i": ; preds = %252, %.lr.ph.i.i.i.i.i.i14.i.i
+  %255 = add nsw i64 %.03.i.i.i.i.i.i15.i.i, 1
+  %256 = add nsw i64 %storemerge2.i.i.i.i.i.i16.i.i, %232
+  %exitcond.not.i.i.i.i.i.i20.i.i = icmp eq i64 %255, %.val11.i.i
+  br i1 %exitcond.not.i.i.i.i.i.i20.i.i, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit21.i.i", label %.lr.ph.i.i.i.i.i.i14.i.i, !llvm.loop !564
 
 "_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit21.i.i": ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i19.i.i", %"_ZN3tbb6detail2d119auto_partition_type16check_for_demandINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS8_7ContextINS8_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEEEEbRT_.exit.i.i"
-  %250 = add i8 %.promoted.i.pr42.i.i, -1
-  store i8 %250, ptr %129, align 2, !tbaa !559
-  %251 = add i8 %175, 7
-  %252 = and i8 %251, 7
-  store i8 %252, ptr %4, align 8, !tbaa !555
+  %257 = add i8 %229, -1
+  %258 = add i8 %228, 7
+  %259 = and i8 %258, 7
   br label %thread-pre-split24.i.i
 
 thread-pre-split24.i.i:                           ; preds = %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit21.i.i", %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i
-  %.promoted.i.pr41.i.i = phi i8 [ %250, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit21.i.i" ], [ %.promoted.i.pr42.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
-  %253 = phi i8 [ %252, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit21.i.i" ], [ %175, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
-  %254 = icmp eq i8 %.promoted.i.pr41.i.i, 0
-  br i1 %254, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i, label %255
+  %260 = phi i8 [ %257, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit21.i.i" ], [ %172, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
+  %261 = phi i8 [ %259, %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8run_bodyERS4_.exit21.i.i" ], [ %173, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EE12is_divisibleEh.exit.i.i ]
+  %262 = icmp eq i8 %260, 0
+  br i1 %262, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i, label %thread-pre-split.i.i
 
-255:                                              ; preds = %thread-pre-split24.i.i, %.thread.i.i
-  %.promoted.i.pr.i.i = phi i8 [ %207, %.thread.i.i ], [ %.promoted.i.pr41.i.i, %thread-pre-split24.i.i ]
-  %256 = phi i8 [ %209, %.thread.i.i ], [ %137, %thread-pre-split24.i.i ]
-  %.promoted1.i.i.i = phi i8 [ %175, %.thread.i.i ], [ %253, %thread-pre-split24.i.i ]
-  %.promoted4.i37.i.i = phi i8 [ %.promoted4.i38.i.i, %.thread.i.i ], [ %253, %thread-pre-split24.i.i ]
-  %257 = load ptr, ptr %1, align 8, !tbaa !547
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 15
-  %259 = load atomic i8, ptr %258 monotonic, align 1
-  %260 = icmp eq i8 %259, -1
-  %261 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  %262 = load ptr, ptr %261, align 8
-  %.0.i.i.i.i = select i1 %260, ptr %262, ptr %257
-  %263 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i) #19
-  br i1 %263, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i, label %thread-pre-split.i.i, !llvm.loop !570
+thread-pre-split.i.i:                             ; preds = %thread-pre-split24.i.i, %.thread.i.i
+  %263 = phi i8 [ %214, %.thread.i.i ], [ %135, %thread-pre-split24.i.i ]
+  %264 = phi i8 [ %212, %.thread.i.i ], [ %260, %thread-pre-split24.i.i ]
+  %265 = phi i8 [ %187, %.thread.i.i ], [ %261, %thread-pre-split24.i.i ]
+  %266 = load ptr, ptr %1, align 8, !tbaa !547
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 15
+  %268 = load atomic i8, ptr %267 monotonic, align 1
+  %269 = icmp eq i8 %268, -1
+  %270 = getelementptr inbounds nuw i8, ptr %266, i64 16
+  %271 = load ptr, ptr %270, align 8
+  %.0.i.i.i.i = select i1 %269, ptr %271, ptr %266
+  %272 = call noundef zeroext i1 @_ZN3tbb6detail2r128is_group_execution_cancelledERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i.i.i) #19
+  br i1 %272, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i, label %134, !llvm.loop !565
 
-_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i: ; preds = %255, %thread-pre-split24.i.i
+_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i: ; preds = %thread-pre-split.i.i, %thread-pre-split24.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit"
 
 "_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit": ; preds = %"_ZN3tbb6detail2d06invokeIRKZN4mold17Arm32ExidxSection12get_contentsERNS3_7ContextINS3_5ARM32EEEE3$_4JRlEEENSt13invoke_resultIT_JDpT0_EE4typeEOSE_DpOSF_.exit.i.i.i.i.i.i.i.i", %98, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EED2Ev.exit.i.i
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %265 = load ptr, ptr %264, align 16, !tbaa !498
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %267 = load i64, ptr %266, align 8, !tbaa !486
-  %268 = load ptr, ptr %0, align 64, !tbaa !308
-  %269 = load ptr, ptr %268, align 8
-  call void %269(ptr noundef nonnull align 64 dereferenceable(144) %0) #19
-  %270 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  %271 = atomicrmw sub ptr %270, i32 1 seq_cst, align 4
-  %272 = add i32 %271, -1
-  %273 = icmp sgt i32 %272, 0
-  br i1 %273, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit", label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", %275
-  %.019.i.i = phi ptr [ %274, %275 ], [ %265, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit" ]
-  %274 = load ptr, ptr %.019.i.i, align 8, !tbaa !487
-  %.not.i.i6 = icmp eq ptr %274, null
-  br i1 %.not.i.i6, label %283, label %275
-
-275:                                              ; preds = %.lr.ph.i.i
-  %276 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
-  %277 = load i64, ptr %276, align 8, !tbaa !486
-  %278 = inttoptr i64 %277 to ptr
-  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %278, ptr noundef nonnull %.019.i.i, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %274 = load ptr, ptr %273, align 16, !tbaa !498
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %276 = load i64, ptr %275, align 8, !tbaa !486
+  %277 = load ptr, ptr %0, align 64, !tbaa !308
+  %278 = load ptr, ptr %277, align 8
+  call void %278(ptr noundef nonnull align 64 dereferenceable(144) %0) #19
   %279 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %280 = atomicrmw sub ptr %279, i32 1 seq_cst, align 4
   %281 = add i32 %280, -1
   %282 = icmp sgt i32 %281, 0
   br i1 %282, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit", label %.lr.ph.i.i
 
-283:                                              ; preds = %.lr.ph.i.i
-  %284 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 24
-  %285 = atomicrmw add ptr %284, i64 -1 seq_cst, align 8
-  %.not.i.i.i.i = icmp eq i64 %285, 1
-  br i1 %.not.i.i.i.i, label %286, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit"
+.lr.ph.i.i:                                       ; preds = %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", %284
+  %.019.i.i = phi ptr [ %283, %284 ], [ %274, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit" ]
+  %283 = load ptr, ptr %.019.i.i, align 8, !tbaa !487
+  %.not.i.i6 = icmp eq ptr %283, null
+  br i1 %.not.i.i6, label %292, label %284
 
-286:                                              ; preds = %283
-  %287 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
-  %288 = ptrtoint ptr %287 to i64
-  call void @_ZN3tbb6detail2r114notify_waitersEm(i64 noundef %288) #19
+284:                                              ; preds = %.lr.ph.i.i
+  %285 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %286 = load i64, ptr %285, align 8, !tbaa !486
+  %287 = inttoptr i64 %286 to ptr
+  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %287, ptr noundef nonnull %.019.i.i, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
+  %288 = getelementptr inbounds nuw i8, ptr %283, i64 8
+  %289 = atomicrmw sub ptr %288, i32 1 seq_cst, align 4
+  %290 = add i32 %289, -1
+  %291 = icmp sgt i32 %290, 0
+  br i1 %291, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit", label %.lr.ph.i.i
+
+292:                                              ; preds = %.lr.ph.i.i
+  %293 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 24
+  %294 = atomicrmw add ptr %293, i64 -1 seq_cst, align 8
+  %.not.i.i.i.i = icmp eq i64 %294, 1
+  br i1 %.not.i.i.i.i, label %295, label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit"
+
+295:                                              ; preds = %292
+  %296 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %297 = ptrtoint ptr %296 to i64
+  call void @_ZN3tbb6detail2r114notify_waitersEm(i64 noundef %297) #19
   br label %"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit"
 
-"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit": ; preds = %275, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", %283, %286
-  %289 = inttoptr i64 %267 to ptr
-  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %289, ptr noundef nonnull align 64 dereferenceable(144) %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
+"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNS6_7ContextINS6_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEE8finalizeERKNS1_14execution_dataE.exit": ; preds = %284, %"_ZN3tbb6detail2d119partition_type_baseINS1_19auto_partition_typeEE7executeINS1_9start_forINS1_13blocked_rangeIlEENS1_25parallel_for_body_wrapperIZN4mold17Arm32ExidxSection12get_contentsERNSA_7ContextINSA_5ARM32EEEE3$_4lEEKNS1_16auto_partitionerEEES8_EEvRT_RT0_RNS1_14execution_dataE.exit", %292, %295
+  %298 = inttoptr i64 %276 to ptr
+  call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %298, ptr noundef nonnull align 64 dereferenceable(144) %0, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1) #19
   ret ptr null
 }
 
@@ -8148,19 +8128,14 @@ attributes #28 = { builtin nounwind allocsize(0) }
 !552 = !{!553, !448, i64 0}
 !553 = !{!"_ZTSZN4mold17Arm32ExidxSection12get_contentsERNS_7ContextINS_5ARM32EEEE3$_2", !448, i64 0, !7, i64 8}
 !554 = distinct !{!554, !364}
-!555 = !{!556, !8, i64 0}
-!556 = !{!"_ZTSN3tbb6detail2d112range_vectorINS1_13blocked_rangeIlEELh8EEE", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !557, i64 16}
-!557 = !{!"_ZTSN3tbb6detail2d013aligned_spaceINS0_2d113blocked_rangeIlEELm8EEE", !8, i64 0}
-!558 = !{!556, !8, i64 1}
-!559 = !{!556, !8, i64 2}
-!560 = !{i64 0, i64 8, !362, i64 8, i64 8, !362, i64 16, i64 8, !362}
-!561 = distinct !{!561, !364}
-!562 = distinct !{!562, !364}
-!563 = distinct !{!563, !364}
-!564 = !{!500, !26, i64 16}
-!565 = !{!500, !26, i64 8}
-!566 = !{!500, !7, i64 0}
-!567 = !{!568, !448, i64 0}
-!568 = !{!"_ZTSZN4mold17Arm32ExidxSection12get_contentsERNS_7ContextINS_5ARM32EEEE3$_4", !448, i64 0, !7, i64 8}
-!569 = distinct !{!569, !364}
-!570 = distinct !{!570, !364}
+!555 = !{i64 0, i64 8, !362, i64 8, i64 8, !362, i64 16, i64 8, !362}
+!556 = distinct !{!556, !364}
+!557 = distinct !{!557, !364}
+!558 = distinct !{!558, !364}
+!559 = !{!500, !26, i64 16}
+!560 = !{!500, !26, i64 8}
+!561 = !{!500, !7, i64 0}
+!562 = !{!563, !448, i64 0}
+!563 = !{!"_ZTSZN4mold17Arm32ExidxSection12get_contentsERNS_7ContextINS_5ARM32EEEE3$_4", !448, i64 0, !7, i64 8}
+!564 = distinct !{!564, !364}
+!565 = distinct !{!565, !364}

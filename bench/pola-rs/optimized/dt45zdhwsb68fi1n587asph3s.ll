@@ -18745,35 +18745,27 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$T$GT$10into_inner17h5d0dcddbdc9a44ffE"(ptr dead_on_unwind noalias noundef writable writeonly sret([88 x i8]) align 8 captures(none) dereferenceable(88) initializes((0, 88)) %0, ptr noalias noundef align 8 captures(none) dereferenceable(120) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = alloca [32 x i8], align 8
-  %4 = alloca [24 x i8], align 8
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %9 = load i64, ptr %8, align 8, !noundef !3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %12 = load atomic i64, ptr %11 monotonic, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %14 = load i64, ptr %13, align 8, !noundef !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %7, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %9, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %12, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %14, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %7 = load i64, ptr %6, align 8, !noundef !3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %11 = load atomic i64, ptr %10 monotonic, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %13 = load i64, ptr %12, align 8, !noundef !3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %5, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %7, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %11, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %13, ptr %17, align 8
   tail call fastcc void @"_ZN4core3ptr59drop_in_place$LT$polars_arrow..datatypes..ArrowDataType$GT$17h5f8e0d69e6d0c220E"(ptr noalias noundef align 8 dereferenceable(32) %1)
   ret void
 }

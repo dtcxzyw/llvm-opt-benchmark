@@ -2811,9 +2811,9 @@ _ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv.exit: ; preds = %37, %42
 
 _ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv.exit.thread: ; preds = %8, %_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv.exit
   %.sink.i31 = phi i64 [ %47, %_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv.exit ], [ 1, %8 ]
-  %.sroa.5.029 = phi double [ %46, %_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv.exit ], [ 1.000000e+00, %8 ]
+  %.sroa.4.029 = phi double [ %46, %_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv.exit ], [ 1.000000e+00, %8 ]
   %49 = uitofp i64 %7 to double
-  %50 = fsub double 1.000000e+00, %.sroa.5.029
+  %50 = fsub double 1.000000e+00, %.sroa.4.029
   %51 = fmul double %50, %49
   %52 = fdiv double %51, 2.000000e-01
   %53 = fptoui double %52 to i64
@@ -2918,7 +2918,7 @@ define void @_ZN9grpc_core23GrpcMemoryAllocatorImpl9ReplenishEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(1488) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 captures(none) initializes((8, 24)) %0, ptr noundef nonnull align 8 dereferenceable(1488) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca double, align 8
   %4 = alloca %class.anon.81, align 8
   %5 = alloca [3 x double], align 8
@@ -2933,91 +2933,92 @@ define void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr dead_on_unwi
   store double 1.000000e+00, ptr %0, align 8, !tbaa !140
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 1.000000e+00, ptr %12, align 8, !tbaa !142
-  br label %45
+  br label %46
 
 13:                                               ; preds = %2
   %.09 = tail call i64 @llvm.smax.i64(i64 %7, i64 0)
   %.0 = uitofp nneg i64 %.09 to double
   %14 = uitofp i64 %9 to double
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double 0.000000e+00, ptr %5, align 8, !tbaa !33
   %.ptr11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %15 = fsub double %14, %.0
-  %16 = fdiv double %15, %14
-  store double %16, ptr %.ptr11, align 8, !tbaa !33
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %18 = load atomic i64, ptr @_ZN9grpc_core12_GLOBAL__N_125container_memory_pressureE.0 monotonic, align 8
-  store i64 %18, ptr %17, align 8, !tbaa !33
+  %16 = fsub double %14, %.0
+  %17 = fdiv double %16, %14
+  store double %17, ptr %.ptr11, align 8, !tbaa !33
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %19 = load atomic i64, ptr @_ZN9grpc_core12_GLOBAL__N_125container_memory_pressureE.0 monotonic, align 8
+  store i64 %19, ptr %18, align 8, !tbaa !33
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %13
-  %19 = phi double [ %22, %.lr.ph.i.i ], [ 0.000000e+00, %13 ]
+  %20 = phi double [ %23, %.lr.ph.i.i ], [ 0.000000e+00, %13 ]
   %.idx = phi i64 [ %.add, %.lr.ph.i.i ], [ 8, %13 ]
   %.018.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %5, %13 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %20 = load double, ptr %.ptr, align 8, !tbaa !33
-  %21 = fcmp olt double %19, %20
-  %22 = select i1 %21, double %20, double %19
-  %spec.select.i.i = select i1 %21, ptr %.ptr, ptr %.018.i.i
+  %21 = load double, ptr %.ptr, align 8, !tbaa !33
+  %22 = fcmp olt double %20, %21
+  %23 = select i1 %22, double %21, double %20
+  %spec.select.i.i = select i1 %22, ptr %.ptr, ptr %.018.i.i
   %.add = add nuw nsw i64 %.idx, 8
   %.not.i.i = icmp eq i64 %.add, 24
   br i1 %.not.i.i, label %_ZSt3maxIdET_St16initializer_listIS0_E.exit, label %.lr.ph.i.i, !llvm.loop !134
 
 _ZSt3maxIdET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
-  %23 = load double, ptr %spec.select.i.i, align 8, !tbaa !33
-  store double %23, ptr %0, align 8, !tbaa !140
+  %24 = load double, ptr %spec.select.i.i, align 8, !tbaa !33
+  store double %24, ptr %0, align 8, !tbaa !140
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1376
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1376
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store double %23, ptr %3, align 8, !tbaa !33
-  %25 = load atomic i64, ptr %24 monotonic, align 8
-  %26 = bitcast i64 %25 to double
-  %27 = fcmp ogt double %23, %26
-  br i1 %27, label %28, label %_ZNSt6atomicIdE21compare_exchange_weakERddSt12memory_orderS2_.exit.i
+  store double %24, ptr %3, align 8, !tbaa !33
+  %26 = load atomic i64, ptr %25 monotonic, align 8
+  %27 = bitcast i64 %26 to double
+  %28 = fcmp ogt double %24, %27
+  br i1 %28, label %29, label %_ZNSt6atomicIdE21compare_exchange_weakERddSt12memory_orderS2_.exit.i
 
-28:                                               ; preds = %_ZSt3maxIdET_St16initializer_listIS0_E.exit
-  %29 = bitcast double %23 to i64
-  %30 = cmpxchg weak ptr %24, i64 %25, i64 %29 monotonic monotonic, align 8
+29:                                               ; preds = %_ZSt3maxIdET_St16initializer_listIS0_E.exit
+  %30 = bitcast double %24 to i64
+  %31 = cmpxchg weak ptr %25, i64 %26, i64 %30 monotonic monotonic, align 8
   br label %_ZNSt6atomicIdE21compare_exchange_weakERddSt12memory_orderS2_.exit.i
 
-_ZNSt6atomicIdE21compare_exchange_weakERddSt12memory_orderS2_.exit.i: ; preds = %28, %_ZSt3maxIdET_St16initializer_listIS0_E.exit
-  %31 = fcmp ult double %23, 0x3FEFAE147AE147AE
-  br i1 %31, label %34, label %32
+_ZNSt6atomicIdE21compare_exchange_weakERddSt12memory_orderS2_.exit.i: ; preds = %29, %_ZSt3maxIdET_St16initializer_listIS0_E.exit
+  %32 = fcmp ult double %24, 0x3FEFAE147AE147AE
+  br i1 %32, label %35, label %33
 
-32:                                               ; preds = %_ZNSt6atomicIdE21compare_exchange_weakERddSt12memory_orderS2_.exit.i
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1384
-  store atomic i64 4607182418800017408, ptr %33 monotonic, align 8
-  br label %34
+33:                                               ; preds = %_ZNSt6atomicIdE21compare_exchange_weakERddSt12memory_orderS2_.exit.i
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1384
+  store atomic i64 4607182418800017408, ptr %34 monotonic, align 8
+  br label %35
 
-34:                                               ; preds = %32, %_ZNSt6atomicIdE21compare_exchange_weakERddSt12memory_orderS2_.exit.i
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1392
+35:                                               ; preds = %33, %_ZNSt6atomicIdE21compare_exchange_weakERddSt12memory_orderS2_.exit.i
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1392
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %24, ptr %4, align 8, !tbaa !135
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %3, ptr %36, align 8, !tbaa !139
-  %37 = atomicrmw sub ptr %35, i64 1 acquire, align 8
-  %38 = icmp eq i64 %37, 1
-  br i1 %38, label %39, label %_ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit
+  store ptr %25, ptr %4, align 8, !tbaa !135
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %3, ptr %37, align 8, !tbaa !139
+  %38 = atomicrmw sub ptr %36, i64 1 acquire, align 8
+  %39 = icmp eq i64 %38, 1
+  br i1 %39, label %40, label %_ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit
 
-39:                                               ; preds = %34
-  %40 = call noundef zeroext i1 @_ZN9grpc_core14PeriodicUpdate14MaybeEndPeriodEN4absl12lts_2024072211FunctionRefIFvNS_8DurationEEEE(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr nonnull %4, ptr nonnull @"_ZN4absl12lts_2024072219functional_internal12InvokeObjectIZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEdE3$_0vJNS3_8DurationEEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE")
+40:                                               ; preds = %35
+  %41 = call noundef zeroext i1 @_ZN9grpc_core14PeriodicUpdate14MaybeEndPeriodEN4absl12lts_2024072211FunctionRefIFvNS_8DurationEEEE(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr nonnull %4, ptr nonnull @"_ZN4absl12lts_2024072219functional_internal12InvokeObjectIZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEdE3$_0vJNS3_8DurationEEEET0_NS1_7VoidPtrEDpNS1_8ForwardTIT1_E4typeE")
   br label %_ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit
 
-_ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit: ; preds = %34, %39
+_ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit: ; preds = %35, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1384
-  %42 = load atomic i64, ptr %41 monotonic, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 1384
+  %43 = load atomic i64, ptr %42 monotonic, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %42, ptr %43, align 8, !tbaa !142
-  %44 = lshr i64 %9, 4
-  br label %45
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %43, ptr %44, align 8, !tbaa !142
+  %45 = lshr i64 %9, 4
+  br label %46
 
-45:                                               ; preds = %_ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit, %11
-  %.sink = phi i64 [ %44, %_ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit ], [ 1, %11 ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %46, align 8, !tbaa !143
+46:                                               ; preds = %_ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit, %11
+  %.sink = phi i64 [ %45, %_ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit ], [ 1, %11 ]
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink, ptr %47, align 8, !tbaa !143
   ret void
 }
 

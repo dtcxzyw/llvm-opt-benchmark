@@ -6661,11 +6661,11 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi24EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %.pre = load i32, ptr %7, align 4, !tbaa !9
+  %.pr = load i32, ptr %7, align 4, !tbaa !9
   br label %.critedge71
 
 .critedge71:                                      ; preds = %84, %.critedge70
-  %93 = phi i32 [ %83, %84 ], [ %.pre, %.critedge70 ]
+  %93 = phi i32 [ %83, %84 ], [ %.pr, %.critedge70 ]
   %.not48 = icmp eq i32 %93, 0
   br i1 %.not48, label %107, label %94
 
@@ -6818,11 +6818,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %147, ptr %143, align 8, !tbaa !11
   %153 = load i64, ptr %109, align 8, !tbaa !21
   store i64 %153, ptr %146, align 8, !tbaa !21
-  %.pre110 = load i64, ptr %110, align 8, !tbaa !17
+  %.pre = load i64, ptr %110, align 8, !tbaa !17
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EE9push_backEOS4_.exit.thread
 
 _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EE9push_backEOS4_.exit.thread: ; preds = %149, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
-  %154 = phi i64 [ %.pre110, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %150, %149 ]
+  %154 = phi i64 [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ], [ %150, %149 ]
   %155 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i64 %154, ptr %155, align 8, !tbaa !17
   store ptr %109, ptr %20, align 8, !tbaa !11
@@ -6839,14 +6839,14 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRec
           to label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EE9push_backEOS4_.exit unwind label %162
 
 _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EE9push_backEOS4_.exit: ; preds = %158
-  %.pre111 = load ptr, ptr %20, align 8, !tbaa !11
-  %159 = icmp eq ptr %.pre111, %109
+  %.pre110 = load ptr, ptr %20, align 8, !tbaa !11
+  %159 = icmp eq ptr %.pre110, %109
   br i1 %159, label %_ZN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EE9push_backEOS4_.exit
   %160 = load i64, ptr %109, align 8, !tbaa !21
   %161 = add i64 %160, 1
-  call void @_ZdlPvm(ptr noundef %.pre111, i64 noundef %161) #38
+  call void @_ZdlPvm(ptr noundef %.pre110, i64 noundef %161) #38
   br label %_ZN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordD2Ev.exit
 
 _ZN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordD2Ev.exit: ; preds = %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EE9push_backEOS4_.exit, %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EE9push_backEOS4_.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -6873,12 +6873,12 @@ _ZN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordD2Ev.exi
   br label %256
 
 .loopexit:                                        ; preds = %_ZN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordD2Ev.exit, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi50EEERS2_RAT__Kc.exit
-  %.pr = load ptr, ptr %16, align 8, !tbaa !276
-  %.not53 = icmp eq ptr %.pr, null
+  %.pr136 = load ptr, ptr %16, align 8, !tbaa !276
+  %.not53 = icmp eq ptr %.pr136, null
   br i1 %.not53, label %.loopexit.thread, label %168
 
 168:                                              ; preds = %.loopexit
-  invoke void @ares_free_data(ptr noundef nonnull %.pr)
+  invoke void @ares_free_data(ptr noundef nonnull %.pr136)
           to label %.loopexit.thread unwind label %169
 
 169:                                              ; preds = %168

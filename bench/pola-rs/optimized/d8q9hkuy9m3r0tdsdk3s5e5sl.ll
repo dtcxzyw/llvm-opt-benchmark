@@ -14993,33 +14993,33 @@ define hidden void @"_ZN156_$LT$polars_pipe..executors..sinks..joins..generic_pr
   br label %.outer.i.i.i.i.i.i.i
 
 .outer.i.i.i.i.i.i.i:                             ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i", %23
-  %.sroa.4.0.i.i.i.i.i.i = phi ptr [ %28, %23 ], [ %.sroa.4.1.i.i.i.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i" ]
-  %.sroa.01.0.i.i.i.i.i.i = phi ptr [ %.val.i.i, %23 ], [ %.sroa.01.1.i.i.i.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i" ]
-  %30 = phi i16 [ %29, %23 ], [ %35, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i" ]
-  %.sroa.0.0.ph.i.i.i.i.i.i.i = phi i64 [ %.val16.i.i, %23 ], [ %47, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i" ]
+  %30 = phi i16 [ %35, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i" ], [ %29, %23 ]
+  %.lcssa1722.i.i.i.i.i.i.i = phi ptr [ %.lcssa1721.i.i.i.i.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i" ], [ %28, %23 ]
+  %.lcssa1620.i.i.i.i.i.i.i = phi ptr [ %.lcssa1619.i.i.i.i.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i" ], [ %.val.i.i, %23 ]
+  %.sroa.0.0.ph.i.i.i.i.i.i.i = phi i64 [ %47, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i" ], [ %.val16.i.i, %23 ]
   %.not13.i.i.i.i.i.i.i = icmp eq i16 %30, 0
-  br i1 %.not13.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %.outer._crit_edge.i.i.i.i.i.i.i
+  br i1 %.not13.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.outer.i.i.i.i.i.i.i
   %31 = icmp eq i64 %.sroa.0.0.ph.i.i.i.i.i.i.i, 0
   br i1 %31, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hd28012ce61cc4dc4E.exit.i.i", label %.lr.ph.split.i.i.i.i.i.i.i
 
-.outer._crit_edge.i.i.i.i.i.i.i:                  ; preds = %.lr.ph.split.i.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i
-  %.sroa.4.1.i.i.i.i.i.i = phi ptr [ %.sroa.4.0.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i ], [ %53, %.lr.ph.split.i.i.i.i.i.i.i ]
-  %.sroa.01.1.i.i.i.i.i.i = phi ptr [ %.sroa.01.0.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i ], [ %52, %.lr.ph.split.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.split.i.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i
+  %.lcssa1721.i.i.i.i.i.i.i = phi ptr [ %.lcssa1722.i.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i ], [ %53, %.lr.ph.split.i.i.i.i.i.i.i ]
+  %.lcssa1619.i.i.i.i.i.i.i = phi ptr [ %.lcssa1620.i.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i ], [ %52, %.lr.ph.split.i.i.i.i.i.i.i ]
   %.lcssa.i.i.i.i.i.i.i = phi i16 [ %30, %.outer.i.i.i.i.i.i.i ], [ %.cast.i.i.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i.i.i ]
   %32 = add i16 %.lcssa.i.i.i.i.i.i.i, -1
   %33 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i.i.i.i, i1 true)
   %34 = zext nneg i16 %33 to i64
   %35 = and i16 %32, %.lcssa.i.i.i.i.i.i.i
   %36 = sub nsw i64 0, %34
-  %37 = getelementptr inbounds { { i64, i64 }, { { ptr, i32, i32 }, {} } }, ptr %.sroa.01.1.i.i.i.i.i.i, i64 %36
+  %37 = getelementptr inbounds { { i64, i64 }, { { ptr, i32, i32 }, {} } }, ptr %.lcssa1619.i.i.i.i.i.i.i, i64 %36
   %38 = tail call noundef nonnull align 1 ptr @_ZN11polars_pipe9executors5sinks5joins12ExtraPayload11get_tracker17h51734ccd71015768E(ptr noalias noundef nonnull readonly align 1 %37), !noalias !1220
   %39 = load atomic i8, ptr %38 monotonic, align 1, !noalias !1220
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i"
 
-41:                                               ; preds = %.outer._crit_edge.i.i.i.i.i.i.i
+41:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %42 = getelementptr inbounds i8, ptr %37, i64 -16
   %43 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17he997861707a6714dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %42), !noalias !1220
   %44 = extractvalue { ptr, i64 } %43, 0
@@ -15028,20 +15028,20 @@ define hidden void @"_ZN156_$LT$polars_pipe..executors..sinks..joins..generic_pr
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h4ef7a207ca219976E"(ptr noalias noundef nonnull align 8 dereferenceable(440) %1, ptr noundef nonnull %44, ptr noundef %46, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c531fd67d455b9bcbaca05dfc51ea67.91), !noalias !1220
   br label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i"
 
-"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i": ; preds = %41, %.outer._crit_edge.i.i.i.i.i.i.i
+"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hd89f9acd29c79d57E.exit.i.i.i.i.i.i.i": ; preds = %41, %._crit_edge.i.i.i.i.i.i.i
   %47 = add i64 %.sroa.0.0.ph.i.i.i.i.i.i.i, -1
   br label %.outer.i.i.i.i.i.i.i
 
 .lr.ph.split.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i.i.i
-  %48 = phi ptr [ %53, %.lr.ph.split.i.i.i.i.i.i.i ], [ %.sroa.4.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
-  %49 = phi ptr [ %52, %.lr.ph.split.i.i.i.i.i.i.i ], [ %.sroa.01.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %48 = phi ptr [ %53, %.lr.ph.split.i.i.i.i.i.i.i ], [ %.lcssa1722.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %49 = phi ptr [ %52, %.lr.ph.split.i.i.i.i.i.i.i ], [ %.lcssa1620.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %50 = load <16 x i8>, ptr %48, align 16, !noalias !1220
   %51 = icmp sgt <16 x i8> %50, splat (i8 -1)
   %52 = getelementptr inbounds i8, ptr %49, i64 -512
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %.cast.i.i.i.i.i.i.i = bitcast <16 x i1> %51 to i16
   %.not.i.i.i.i.i.i.i = icmp eq i16 %.cast.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i.i.i, label %.outer._crit_edge.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hd28012ce61cc4dc4E.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %.preheader.i
   %54 = add nuw i64 %20, 1
@@ -15206,33 +15206,33 @@ define hidden void @"_ZN156_$LT$polars_pipe..executors..sinks..joins..generic_pr
   br label %.outer.i.i.i.i.i.i.i
 
 .outer.i.i.i.i.i.i.i:                             ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h86d4aa47742f28adE.exit.i.i.i.i.i.i.i", %23
-  %.sroa.4.0.i.i.i.i.i.i = phi ptr [ %28, %23 ], [ %.sroa.4.1.i.i.i.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h86d4aa47742f28adE.exit.i.i.i.i.i.i.i" ]
-  %.sroa.01.0.i.i.i.i.i.i = phi ptr [ %.val.i.i, %23 ], [ %.sroa.01.1.i.i.i.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h86d4aa47742f28adE.exit.i.i.i.i.i.i.i" ]
+  %.sroa.3.0.i.i.i.i.i.i = phi ptr [ %28, %23 ], [ %.sroa.3.1.i.i.i.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h86d4aa47742f28adE.exit.i.i.i.i.i.i.i" ]
   %30 = phi i16 [ %29, %23 ], [ %35, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h86d4aa47742f28adE.exit.i.i.i.i.i.i.i" ]
+  %.lcssa1620.i.i.i.i.i.i.i = phi ptr [ %.val.i.i, %23 ], [ %.lcssa1619.i.i.i.i.i.i.i, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h86d4aa47742f28adE.exit.i.i.i.i.i.i.i" ]
   %.sroa.0.0.ph.i.i.i.i.i.i.i = phi i64 [ %.val16.i.i, %23 ], [ %47, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h86d4aa47742f28adE.exit.i.i.i.i.i.i.i" ]
   %.not13.i.i.i.i.i.i.i = icmp eq i16 %30, 0
-  br i1 %.not13.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %.outer._crit_edge.i.i.i.i.i.i.i
+  br i1 %.not13.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.outer.i.i.i.i.i.i.i
   %31 = icmp eq i64 %.sroa.0.0.ph.i.i.i.i.i.i.i, 0
   br i1 %31, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0799dc16595c4d9fE.exit.i.i", label %.lr.ph.split.i.i.i.i.i.i.i
 
-.outer._crit_edge.i.i.i.i.i.i.i:                  ; preds = %.lr.ph.split.i.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i
-  %.sroa.4.1.i.i.i.i.i.i = phi ptr [ %.sroa.4.0.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i ], [ %53, %.lr.ph.split.i.i.i.i.i.i.i ]
-  %.sroa.01.1.i.i.i.i.i.i = phi ptr [ %.sroa.01.0.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i ], [ %52, %.lr.ph.split.i.i.i.i.i.i.i ]
+._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.split.i.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i
+  %.sroa.3.1.i.i.i.i.i.i = phi ptr [ %.sroa.3.0.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i ], [ %53, %.lr.ph.split.i.i.i.i.i.i.i ]
+  %.lcssa1619.i.i.i.i.i.i.i = phi ptr [ %.lcssa1620.i.i.i.i.i.i.i, %.outer.i.i.i.i.i.i.i ], [ %52, %.lr.ph.split.i.i.i.i.i.i.i ]
   %.lcssa.i.i.i.i.i.i.i = phi i16 [ %30, %.outer.i.i.i.i.i.i.i ], [ %.cast.i.i.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i.i.i ]
   %32 = add i16 %.lcssa.i.i.i.i.i.i.i, -1
   %33 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i.i.i.i.i.i, i1 true)
   %34 = zext nneg i16 %33 to i64
   %35 = and i16 %32, %.lcssa.i.i.i.i.i.i.i
   %36 = sub nsw i64 0, %34
-  %37 = getelementptr inbounds { { i64, i64 }, { { ptr, i32, i32 }, { { i8 } }, [7 x i8] } }, ptr %.sroa.01.1.i.i.i.i.i.i, i64 %36
+  %37 = getelementptr inbounds { { i64, i64 }, { { ptr, i32, i32 }, { { i8 } }, [7 x i8] } }, ptr %.lcssa1619.i.i.i.i.i.i.i, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 -8
   %39 = load atomic i8, ptr %38 monotonic, align 1, !noalias !1259
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h86d4aa47742f28adE.exit.i.i.i.i.i.i.i"
 
-41:                                               ; preds = %.outer._crit_edge.i.i.i.i.i.i.i
+41:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %42 = getelementptr inbounds i8, ptr %37, i64 -24
   %43 = tail call { ptr, i64 } @"_ZN99_$LT$polars_utils..idx_vec..UnitVec$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$$u5b$T$u5d$$GT$$GT$6as_ref17he997861707a6714dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %42), !noalias !1259
   %44 = extractvalue { ptr, i64 } %43, 0
@@ -15241,20 +15241,20 @@ define hidden void @"_ZN156_$LT$polars_pipe..executors..sinks..joins..generic_pr
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h4ef7a207ca219976E"(ptr noalias noundef nonnull align 8 dereferenceable(440) %1, ptr noundef nonnull %44, ptr noundef %46, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c531fd67d455b9bcbaca05dfc51ea67.91), !noalias !1259
   br label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h86d4aa47742f28adE.exit.i.i.i.i.i.i.i"
 
-"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h86d4aa47742f28adE.exit.i.i.i.i.i.i.i": ; preds = %41, %.outer._crit_edge.i.i.i.i.i.i.i
+"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h86d4aa47742f28adE.exit.i.i.i.i.i.i.i": ; preds = %41, %._crit_edge.i.i.i.i.i.i.i
   %47 = add i64 %.sroa.0.0.ph.i.i.i.i.i.i.i, -1
   br label %.outer.i.i.i.i.i.i.i
 
 .lr.ph.split.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i.i.i
-  %48 = phi ptr [ %53, %.lr.ph.split.i.i.i.i.i.i.i ], [ %.sroa.4.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
-  %49 = phi ptr [ %52, %.lr.ph.split.i.i.i.i.i.i.i ], [ %.sroa.01.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %48 = phi ptr [ %53, %.lr.ph.split.i.i.i.i.i.i.i ], [ %.sroa.3.0.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+  %49 = phi ptr [ %52, %.lr.ph.split.i.i.i.i.i.i.i ], [ %.lcssa1620.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %50 = load <16 x i8>, ptr %48, align 16, !noalias !1271
   %51 = icmp sgt <16 x i8> %50, splat (i8 -1)
   %52 = getelementptr inbounds i8, ptr %49, i64 -640
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %.cast.i.i.i.i.i.i.i = bitcast <16 x i1> %51 to i16
   %.not.i.i.i.i.i.i.i = icmp eq i16 %.cast.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i.i.i, label %.outer._crit_edge.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h0799dc16595c4d9fE.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %.preheader.i
   %54 = add nuw i64 %20, 1

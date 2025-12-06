@@ -336,54 +336,46 @@ define hidden noundef nonnull ptr @hb_blob_create_sub_blob(ptr noundef %0, i32 n
   %22 = atomicrmw add ptr %0, i32 1 acq_rel, align 4
   br label %hb_blob_reference.exit
 
-hb_blob_reference.exit:                           ; preds = %13, %21
-  %.not.i13 = icmp eq i32 %8, %1
-  br i1 %.not.i13, label %23, label %24
-
-23:                                               ; preds = %hb_blob_reference.exit
-  tail call void @hb_blob_destroy(ptr noundef nonnull %0)
-  br label %hb_blob_create.exit
+hb_blob_reference.exit:                           ; preds = %21, %13
+  %23 = icmp slt i32 %.sroa.speculated, 0
+  br i1 %23, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, label %24
 
 24:                                               ; preds = %hb_blob_reference.exit
-  %25 = icmp slt i32 %.sroa.speculated, 0
-  br i1 %25, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, label %26
+  %25 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #19
+  %.not.i.i14 = icmp eq ptr %25, null
+  br i1 %.not.i.i14, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, label %26
 
-26:                                               ; preds = %24
-  %27 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #19
-  %.not.i.i14 = icmp eq ptr %27, null
-  br i1 %.not.i.i14, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, label %28
-
-_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %26, %24
+_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %24, %hb_blob_reference.exit
   tail call void @hb_blob_destroy(ptr noundef nonnull %0)
   br label %hb_blob_create_or_fail.exit
 
-28:                                               ; preds = %26
+26:                                               ; preds = %24
+  store atomic i32 1, ptr %25 monotonic, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store atomic i32 1, ptr %27 monotonic, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store atomic i32 1, ptr %29 monotonic, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store atomic i64 0, ptr %30 monotonic, align 8
-  %31 = load atomic i32, ptr %27 monotonic, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %17, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i32 %.sroa.speculated, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  store i32 1, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr %0, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store ptr @_ZL16_hb_blob_destroyPv, ptr %36, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store atomic i64 0, ptr %28 monotonic, align 8
+  %29 = load atomic i32, ptr %25 monotonic, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store ptr %17, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store i32 %.sroa.speculated, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 28
+  store i32 1, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store ptr %0, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  store ptr @_ZL16_hb_blob_destroyPv, ptr %34, align 8
   br label %hb_blob_create_or_fail.exit
 
-hb_blob_create_or_fail.exit:                      ; preds = %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, %28
-  %.0.i15 = phi ptr [ null, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i ], [ %27, %28 ]
+hb_blob_create_or_fail.exit:                      ; preds = %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, %26
+  %.0.i15 = phi ptr [ null, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i ], [ %25, %26 ]
   %.not15.i = icmp eq ptr %.0.i15, null
   %spec.select.i = select i1 %.not15.i, ptr @_hb_NullPool, ptr %.0.i15
   br label %hb_blob_create.exit
 
-hb_blob_create.exit:                              ; preds = %hb_blob_create_or_fail.exit, %23, %3, %6
-  %.0 = phi ptr [ @_hb_NullPool, %6 ], [ @_hb_NullPool, %3 ], [ @_hb_NullPool, %23 ], [ %spec.select.i, %hb_blob_create_or_fail.exit ]
+hb_blob_create.exit:                              ; preds = %hb_blob_create_or_fail.exit, %3, %6
+  %.0 = phi ptr [ @_hb_NullPool, %6 ], [ @_hb_NullPool, %3 ], [ %spec.select.i, %hb_blob_create_or_fail.exit ]
   ret ptr %.0
 }
 

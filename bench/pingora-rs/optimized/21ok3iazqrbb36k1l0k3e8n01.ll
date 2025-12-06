@@ -215,7 +215,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hba296b5503dac5deE(
 88:                                               ; preds = %"_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17h0bf6ae1e19076718E.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !6
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull readonly align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !8
   %89 = call noundef nonnull ptr @_ZN3std6thread6Thread3new17h0b65aecfb64ea3b3E(i64 noundef %87, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12), !noalias !6
   store ptr %89, ptr %13, align 8, !noalias !6
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !6

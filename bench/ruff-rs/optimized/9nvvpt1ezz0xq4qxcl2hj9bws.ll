@@ -5947,7 +5947,7 @@ define hidden void @"_ZN7dashmap6mapref5entry18Entry$LT$K$C$V$GT$14or_insert_wit
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !694
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !694
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(56) %23, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store i64 0, ptr %12, align 8, !noalias !694
   invoke void @"_ZN7ruff_db5files1_38_$LT$impl$u20$ruff_db..files..File$GT$7builder17he439d1fd0c3456b0E"(ptr noalias noundef nonnull sret([80 x i8]) align 16 captures(none) dereferenceable(80) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %12)
           to label %105 unwind label %99, !noalias !694

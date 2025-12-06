@@ -11911,7 +11911,6 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %43, %45
   %48 = call noundef i32 %.0.i.i.i(ptr noundef nonnull %7, ptr noundef null, ptr noundef null)
   %49 = load i32, ptr %7, align 4, !tbaa !142
   %50 = and i32 %49, 255
-  store i32 %50, ptr %7, align 4, !tbaa !142
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 %51
   %53 = load atomic i8, ptr %52 monotonic, align 1
@@ -12857,14 +12856,10 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9nodeT
 
 46:                                               ; preds = %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9nodeToIdxERKNS0_11LifoSemNodeIS4_S3_EE.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i32 %45, label %._crit_edge [
+  switch i32 %45, label %77 [
     i32 2, label %47
     i32 0, label %53
   ], !prof !601
-
-._crit_edge:                                      ; preds = %46
-  %.pre = load ptr, ptr %5, align 8, !tbaa !599
-  br label %76
 
 47:                                               ; preds = %46
   %48 = call ptr @__cxa_allocate_exception(i64 16) #28
@@ -12894,12 +12889,12 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9nodeT
 
 _ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit.thread: ; preds = %53
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %67
+  br label %68
 
 _ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit: ; preds = %53
   %57 = call noundef zeroext i1 @_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE11tryWaitSlowINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE(ptr noundef nonnull align 4 dereferenceable(4) %54, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(9) %6) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %57, label %67, label %58
+  br i1 %57, label %68, label %58
 
 58:                                               ; preds = %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit
   %59 = load ptr, ptr %5, align 8, !tbaa !599
@@ -12907,43 +12902,43 @@ _ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212st
           to label %61 unwind label %49
 
 61:                                               ; preds = %58
-  %.pre30 = load ptr, ptr %5, align 8, !tbaa !599
-  br i1 %60, label %76, label %62
+  br i1 %60, label %77, label %62
 
 62:                                               ; preds = %61
+  %63 = load ptr, ptr %5, align 8, !tbaa !599
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 2000, ptr %7, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 9223372036854775807, ptr %4, align 8
-  %63 = load atomic i32, ptr %.pre30 acquire, align 4
-  %64 = icmp eq i32 %63, 1
-  br i1 %64, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE4waitERKNS_11WaitOptionsE.exit, label %65, !prof !143
+  %64 = load atomic i32, ptr %63 acquire, align 4
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE4waitERKNS_11WaitOptionsE.exit, label %66, !prof !143
 
-65:                                               ; preds = %62
-  %66 = call noundef zeroext i1 @_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE11tryWaitSlowINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE(ptr noundef nonnull align 4 dereferenceable(4) %.pre30, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(9) %7) #28
+66:                                               ; preds = %62
+  %67 = call noundef zeroext i1 @_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE11tryWaitSlowINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE(ptr noundef nonnull align 4 dereferenceable(4) %63, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(9) %7) #28
   br label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE4waitERKNS_11WaitOptionsE.exit
 
-_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE4waitERKNS_11WaitOptionsE.exit: ; preds = %62, %65
+_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE4waitERKNS_11WaitOptionsE.exit: ; preds = %62, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %67
+  br label %68
 
-67:                                               ; preds = %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit.thread, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE4waitERKNS_11WaitOptionsE.exit, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit
-  %68 = load ptr, ptr %5, align 8, !tbaa !599
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load atomic i32, ptr %69 monotonic, align 4
-  %71 = icmp eq i32 %70, -1
-  br i1 %71, label %72, label %.thread, !prof !151
+68:                                               ; preds = %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit.thread, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE4waitERKNS_11WaitOptionsE.exit, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit
+  %69 = load ptr, ptr %5, align 8, !tbaa !599
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = load atomic i32, ptr %70 monotonic, align 4
+  %72 = icmp eq i32 %71, -1
+  br i1 %72, label %73, label %.thread, !prof !151
 
-72:                                               ; preds = %67
-  %73 = call ptr @__cxa_allocate_exception(i64 16) #28
-  invoke void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull @.str.90)
-          to label %.invoke unwind label %74
+73:                                               ; preds = %68
+  %74 = call ptr @__cxa_allocate_exception(i64 16) #28
+  invoke void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull @.str.90)
+          to label %.invoke unwind label %75
 
-.invoke:                                          ; preds = %72, %47
-  %.sink = phi ptr [ %48, %47 ], [ %73, %72 ]
+.invoke:                                          ; preds = %73, %47
+  %.sink = phi ptr [ %48, %47 ], [ %74, %73 ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly16ShutdownSemErrorE, i64 16), ptr %.sink, align 8, !tbaa !25
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN5folly16ShutdownSemErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #44
           to label %.cont unwind label %49
@@ -12951,21 +12946,21 @@ _ZN5folly19SaturatingSemaphoreILb1ESt6atomicE4waitERKNS_11WaitOptionsE.exit: ; p
 .cont:                                            ; preds = %.invoke
   unreachable
 
-74:                                               ; preds = %72
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %73
+  %76 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %73) #28
+  call void @__cxa_free_exception(ptr nonnull %74) #28
   br label %82
 
-76:                                               ; preds = %._crit_edge, %61
-  %77 = phi ptr [ %.pre30, %61 ], [ %.pre, %._crit_edge ]
-  %.1 = phi i1 [ false, %61 ], [ true, %._crit_edge ]
-  %.not.i25 = icmp eq ptr %77, null
+77:                                               ; preds = %46, %61
+  %.1.ph = phi i1 [ true, %46 ], [ false, %61 ]
+  %.pr = load ptr, ptr %5, align 8, !tbaa !599
+  %.not.i25 = icmp eq ptr %.pr, null
   br i1 %.not.i25, label %_ZNSt10unique_ptrIN5folly6detail11LifoSemNodeINS0_19SaturatingSemaphoreILb1ESt6atomicEES4_EENS1_19LifoSemNodeRecyclerIS5_S4_EEED2Ev.exit, label %.thread
 
-.thread:                                          ; preds = %67, %76
-  %.135 = phi i1 [ %.1, %76 ], [ true, %67 ]
-  %78 = phi ptr [ %77, %76 ], [ %68, %67 ]
+.thread:                                          ; preds = %68, %77
+  %.132 = phi i1 [ %.1.ph, %77 ], [ true, %68 ]
+  %78 = phi ptr [ %.pr, %77 ], [ %69, %68 ]
   invoke void @_ZNK5folly6detail19LifoSemNodeRecyclerINS_19SaturatingSemaphoreILb1ESt6atomicEES3_EclEPNS0_11LifoSemNodeIS4_S3_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %78)
           to label %_ZNSt10unique_ptrIN5folly6detail11LifoSemNodeINS0_19SaturatingSemaphoreILb1ESt6atomicEES4_EENS1_19LifoSemNodeRecyclerIS5_S4_EEED2Ev.exit unwind label %79
 
@@ -12976,19 +12971,19 @@ _ZN5folly19SaturatingSemaphoreILb1ESt6atomicE4waitERKNS_11WaitOptionsE.exit: ; p
   call void @__clang_call_terminate(ptr %81) #41
   unreachable
 
-_ZNSt10unique_ptrIN5folly6detail11LifoSemNodeINS0_19SaturatingSemaphoreILb1ESt6atomicEES4_EENS1_19LifoSemNodeRecyclerIS5_S4_EEED2Ev.exit: ; preds = %76, %.thread
-  %.136 = phi i1 [ %.1, %76 ], [ %.135, %.thread ]
+_ZNSt10unique_ptrIN5folly6detail11LifoSemNodeINS0_19SaturatingSemaphoreILb1ESt6atomicEES4_EENS1_19LifoSemNodeRecyclerIS5_S4_EEED2Ev.exit: ; preds = %77, %.thread
+  %.133 = phi i1 [ %.1.ph, %77 ], [ %.132, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E7tryWaitEv.exit.thread
 
-82:                                               ; preds = %74, %51, %49
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %75, %74 ]
+82:                                               ; preds = %75, %51, %49
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %76, %75 ]
   call void @_ZNSt10unique_ptrIN5folly6detail11LifoSemNodeINS0_19SaturatingSemaphoreILb1ESt6atomicEES4_EENS1_19LifoSemNodeRecyclerIS5_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
 _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E7tryWaitEv.exit.thread: ; preds = %15, %_ZNSt10unique_ptrIN5folly6detail11LifoSemNodeINS0_19SaturatingSemaphoreILb1ESt6atomicEES4_EENS1_19LifoSemNodeRecyclerIS5_S4_EEED2Ev.exit
-  %.0 = phi i1 [ %.136, %_ZNSt10unique_ptrIN5folly6detail11LifoSemNodeINS0_19SaturatingSemaphoreILb1ESt6atomicEES4_EENS1_19LifoSemNodeRecyclerIS5_S4_EEED2Ev.exit ], [ true, %15 ]
+  %.0 = phi i1 [ %.133, %_ZNSt10unique_ptrIN5folly6detail11LifoSemNodeINS0_19SaturatingSemaphoreILb1ESt6atomicEES4_EENS1_19LifoSemNodeRecyclerIS5_S4_EEED2Ev.exit ], [ true, %15 ]
   ret i1 %.0
 }
 
@@ -13314,7 +13309,6 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   %7 = call noundef i32 %.0.i.i.i.i(ptr noundef nonnull %2, ptr noundef null, ptr noundef null)
   %8 = load i32, ptr %2, align 4, !tbaa !142
   %9 = and i32 %8, 255
-  store i32 %9, ptr %2, align 4, !tbaa !142
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 8192), i64 %10
   %12 = load atomic i8, ptr %11 monotonic, align 1
@@ -13706,7 +13700,6 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   %24 = call noundef i32 %.0.i.i.i.i.i(ptr noundef nonnull %3, ptr noundef null, ptr noundef null)
   %25 = load i32, ptr %3, align 4, !tbaa !142
   %26 = and i32 %25, 255
-  store i32 %26, ptr %3, align 4, !tbaa !142
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 8192), i64 %27
   %29 = load atomic i8, ptr %28 monotonic, align 1

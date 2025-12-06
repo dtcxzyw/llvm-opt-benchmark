@@ -108771,7 +108771,6 @@ _ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.exit.i.i.i: ; preds = %18
   store i64 %82, ptr %.sroa.412.0..sroa_idx.i, align 8, !alias.scope !24109, !noalias !24108
   %83 = xor i64 %76, %67
   store i64 %83, ptr %9, align 8, !alias.scope !24101, !noalias !24108
-  store i64 0, ptr %.sroa.10.0..sroa_idx.i, align 8, !alias.scope !24101, !noalias !24108
   switch i64 %67, label %_ZN6comemo10constraint4hash17h9a410d83e4687265E.exit.i [
     i64 0, label %84
     i64 5, label %_ZN4core4hash6Hasher11write_isize17hac5e4bb6f6e23f7dE.exit.i.i.i.i

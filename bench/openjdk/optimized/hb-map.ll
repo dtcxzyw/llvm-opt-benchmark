@@ -63,7 +63,7 @@ $_ZN12hb_hashmap_tIjjLb1EE6item_t9get_valueEv = comdat any
 define hidden nonnull ptr @hb_map_create() local_unnamed_addr #0 {
   %1 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #23
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %11, label %_ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit
+  br i1 %.not.i, label %6, label %_ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit
 
 _ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit:  ; preds = %0
   store atomic i32 1, ptr %1 monotonic, align 4
@@ -72,24 +72,14 @@ _ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit:  ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %3 monotonic, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 0, ptr %5, align 4
   store i32 1, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %9, align 8
   store atomic i32 1, ptr %1 monotonic, align 8
   store atomic i32 1, ptr %2 monotonic, align 4
   store atomic i64 0, ptr %3 monotonic, align 8
-  %10 = load atomic i32, ptr %1 monotonic, align 8
-  br label %11
+  %5 = load atomic i32, ptr %1 monotonic, align 8
+  br label %6
 
-11:                                               ; preds = %0, %_ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit
+6:                                                ; preds = %0, %_ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit
   %.0 = phi ptr [ %1, %_ZL16hb_object_createI8hb_map_tJEEPT_DpT0_.exit ], [ @_hb_NullPool, %0 ]
   ret ptr %.0
 }
@@ -327,36 +317,26 @@ hb_map_create.exit.thread:                        ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 0, ptr %6, align 4
   store i32 1, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr null, ptr %10, align 8
   store atomic i32 1, ptr %2 monotonic, align 8
   store atomic i32 1, ptr %3 monotonic, align 4
   store atomic i64 0, ptr %4 monotonic, align 8
-  %11 = load atomic i32, ptr %2 monotonic, align 8
-  br label %14
+  %6 = load atomic i32, ptr %2 monotonic, align 8
+  br label %9
 
 hb_map_create.exit:                               ; preds = %1
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @_hb_NullPool, i64 16), align 16
-  %12 = and i32 %.pre, 1
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %16, label %14
+  %7 = and i32 %.pre, 1
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %11, label %9
 
-14:                                               ; preds = %hb_map_create.exit.thread, %hb_map_create.exit
+9:                                                ; preds = %hb_map_create.exit.thread, %hb_map_create.exit
   %.0.i8 = phi ptr [ %2, %hb_map_create.exit.thread ], [ @_hb_NullPool, %hb_map_create.exit ]
-  %15 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN12hb_hashmap_tIjjLb1EEaSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %.0.i8, ptr noundef nonnull align 8 dereferenceable(48) %0)
-  br label %16
+  %10 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN12hb_hashmap_tIjjLb1EEaSERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %.0.i8, ptr noundef nonnull align 8 dereferenceable(48) %0)
+  br label %11
 
-16:                                               ; preds = %hb_map_create.exit, %14
-  %.0 = phi ptr [ %.0.i8, %14 ], [ @_hb_NullPool, %hb_map_create.exit ]
+11:                                               ; preds = %hb_map_create.exit, %9
+  %.0 = phi ptr [ %.0.i8, %9 ], [ @_hb_NullPool, %hb_map_create.exit ]
   ret ptr %.0
 }
 

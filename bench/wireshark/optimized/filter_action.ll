@@ -5199,13 +5199,13 @@ define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeIN12FilterAction
 
 _ZNK9QMetaType2idEi.exit:                         ; preds = %1
   %4 = call noundef i32 @_ZNK9QMetaType8idHelperEv(ptr noundef nonnull align 8 dereferenceable_or_null(8) %2)
-  %.pre = load ptr, ptr %2, align 8
-  %.not.i2 = icmp eq ptr %.pre, null
+  %.pr = load ptr, ptr %2, align 8
+  %.not.i2 = icmp eq ptr %.pr, null
   br i1 %.not.i2, label %_ZneRK10QByteArrayPKc.exit, label %_ZNK9QMetaType4nameEv.exit
 
 _ZNK9QMetaType4nameEv.exit:                       ; preds = %1, %_ZNK9QMetaType2idEi.exit
-  %.1.i13 = phi i32 [ %4, %_ZNK9QMetaType2idEi.exit ], [ %3, %1 ]
-  %5 = phi ptr [ %.pre, %_ZNK9QMetaType2idEi.exit ], [ @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction10ActionTypeEE8metaTypeE, %1 ]
+  %.1.i6 = phi i32 [ %4, %_ZNK9QMetaType2idEi.exit ], [ %3, %1 ]
+  %5 = phi ptr [ %.pr, %_ZNK9QMetaType2idEi.exit ], [ @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction10ActionTypeEE8metaTypeE, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not.i3 = icmp eq ptr %7, null
@@ -5236,11 +5236,11 @@ _ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPoi
 
 20:                                               ; preds = %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %28, label %._crit_edge
+  br i1 %.not, label %27, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20
   %.sroa.0.0.copyload.pre = load ptr, ptr %2, align 8
-  br label %27
+  br label %26
 
 21:                                               ; preds = %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i
   %22 = landingpad { ptr, i32 }
@@ -5250,23 +5250,23 @@ _ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPoi
   unreachable
 
 _ZneRK10QByteArrayPKc.exit:                       ; preds = %_ZNK9QMetaType2idEi.exit, %_ZNK9QMetaType4nameEv.exit
-  %.1.i14 = phi i32 [ %4, %_ZNK9QMetaType2idEi.exit ], [ %.1.i13, %_ZNK9QMetaType4nameEv.exit ]
-  %24 = phi ptr [ null, %_ZNK9QMetaType2idEi.exit ], [ %5, %_ZNK9QMetaType4nameEv.exit ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i64, ptr %25, align 8
-  %.not5 = icmp eq i64 %26, 0
-  br i1 %.not5, label %28, label %27
+  %.sroa.0.0.copyload16 = phi ptr [ %5, %_ZNK9QMetaType4nameEv.exit ], [ null, %_ZNK9QMetaType2idEi.exit ]
+  %.1.i711 = phi i32 [ %.1.i6, %_ZNK9QMetaType4nameEv.exit ], [ %4, %_ZNK9QMetaType2idEi.exit ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %.not14 = icmp eq i64 %25, 0
+  br i1 %.not14, label %27, label %26
 
-27:                                               ; preds = %._crit_edge, %_ZneRK10QByteArrayPKc.exit
-  %.1.i11 = phi i32 [ %.1.i13, %._crit_edge ], [ %.1.i14, %_ZneRK10QByteArrayPKc.exit ]
-  %.sroa.0.0.copyload = phi ptr [ %.sroa.0.0.copyload.pre, %._crit_edge ], [ %24, %_ZneRK10QByteArrayPKc.exit ]
+26:                                               ; preds = %._crit_edge, %_ZneRK10QByteArrayPKc.exit
+  %.sroa.0.0.copyload = phi ptr [ %.sroa.0.0.copyload.pre, %._crit_edge ], [ %.sroa.0.0.copyload16, %_ZneRK10QByteArrayPKc.exit ]
+  %.1.i71013 = phi i32 [ %.1.i6, %._crit_edge ], [ %.1.i711, %_ZneRK10QByteArrayPKc.exit ]
   call void @_ZN9QMetaType25registerNormalizedTypedefERK10QByteArrayS_(ptr noundef align 8 dereferenceable(24) %0, ptr %.sroa.0.0.copyload)
-  br label %28
+  br label %27
 
-28:                                               ; preds = %20, %27, %_ZneRK10QByteArrayPKc.exit
-  %.1.i12 = phi i32 [ %.1.i13, %20 ], [ %.1.i11, %27 ], [ %.1.i14, %_ZneRK10QByteArrayPKc.exit ]
+27:                                               ; preds = %20, %26, %_ZneRK10QByteArrayPKc.exit
+  %.1.i71012 = phi i32 [ %.1.i6, %20 ], [ %.1.i71013, %26 ], [ %.1.i711, %_ZneRK10QByteArrayPKc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.1.i12
+  ret i32 %.1.i71012
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
@@ -5488,13 +5488,13 @@ define linkonce_odr noundef i32 @_Z27qRegisterNormalizedMetaTypeIN12FilterAction
 
 _ZNK9QMetaType2idEi.exit:                         ; preds = %1
   %4 = call noundef i32 @_ZNK9QMetaType8idHelperEv(ptr noundef nonnull align 8 dereferenceable_or_null(8) %2)
-  %.pre = load ptr, ptr %2, align 8
-  %.not.i2 = icmp eq ptr %.pre, null
+  %.pr = load ptr, ptr %2, align 8
+  %.not.i2 = icmp eq ptr %.pr, null
   br i1 %.not.i2, label %_ZneRK10QByteArrayPKc.exit, label %_ZNK9QMetaType4nameEv.exit
 
 _ZNK9QMetaType4nameEv.exit:                       ; preds = %1, %_ZNK9QMetaType2idEi.exit
-  %.1.i13 = phi i32 [ %4, %_ZNK9QMetaType2idEi.exit ], [ %3, %1 ]
-  %5 = phi ptr [ %.pre, %_ZNK9QMetaType2idEi.exit ], [ @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction6ActionEE8metaTypeE, %1 ]
+  %.1.i6 = phi i32 [ %4, %_ZNK9QMetaType2idEi.exit ], [ %3, %1 ]
+  %5 = phi ptr [ %.pr, %_ZNK9QMetaType2idEi.exit ], [ @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN12FilterAction6ActionEE8metaTypeE, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not.i3 = icmp eq ptr %7, null
@@ -5525,11 +5525,11 @@ _ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPoi
 
 20:                                               ; preds = %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %28, label %._crit_edge
+  br i1 %.not, label %27, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20
   %.sroa.0.0.copyload.pre = load ptr, ptr %2, align 8
-  br label %27
+  br label %26
 
 21:                                               ; preds = %_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_.exit.i
   %22 = landingpad { ptr, i32 }
@@ -5539,23 +5539,23 @@ _ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPoi
   unreachable
 
 _ZneRK10QByteArrayPKc.exit:                       ; preds = %_ZNK9QMetaType2idEi.exit, %_ZNK9QMetaType4nameEv.exit
-  %.1.i14 = phi i32 [ %4, %_ZNK9QMetaType2idEi.exit ], [ %.1.i13, %_ZNK9QMetaType4nameEv.exit ]
-  %24 = phi ptr [ null, %_ZNK9QMetaType2idEi.exit ], [ %5, %_ZNK9QMetaType4nameEv.exit ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i64, ptr %25, align 8
-  %.not5 = icmp eq i64 %26, 0
-  br i1 %.not5, label %28, label %27
+  %.sroa.0.0.copyload16 = phi ptr [ %5, %_ZNK9QMetaType4nameEv.exit ], [ null, %_ZNK9QMetaType2idEi.exit ]
+  %.1.i711 = phi i32 [ %.1.i6, %_ZNK9QMetaType4nameEv.exit ], [ %4, %_ZNK9QMetaType2idEi.exit ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %.not14 = icmp eq i64 %25, 0
+  br i1 %.not14, label %27, label %26
 
-27:                                               ; preds = %._crit_edge, %_ZneRK10QByteArrayPKc.exit
-  %.1.i11 = phi i32 [ %.1.i13, %._crit_edge ], [ %.1.i14, %_ZneRK10QByteArrayPKc.exit ]
-  %.sroa.0.0.copyload = phi ptr [ %.sroa.0.0.copyload.pre, %._crit_edge ], [ %24, %_ZneRK10QByteArrayPKc.exit ]
+26:                                               ; preds = %._crit_edge, %_ZneRK10QByteArrayPKc.exit
+  %.sroa.0.0.copyload = phi ptr [ %.sroa.0.0.copyload.pre, %._crit_edge ], [ %.sroa.0.0.copyload16, %_ZneRK10QByteArrayPKc.exit ]
+  %.1.i71013 = phi i32 [ %.1.i6, %._crit_edge ], [ %.1.i711, %_ZneRK10QByteArrayPKc.exit ]
   call void @_ZN9QMetaType25registerNormalizedTypedefERK10QByteArrayS_(ptr noundef align 8 dereferenceable(24) %0, ptr %.sroa.0.0.copyload)
-  br label %28
+  br label %27
 
-28:                                               ; preds = %20, %27, %_ZneRK10QByteArrayPKc.exit
-  %.1.i12 = phi i32 [ %.1.i13, %20 ], [ %.1.i11, %27 ], [ %.1.i14, %_ZneRK10QByteArrayPKc.exit ]
+27:                                               ; preds = %20, %26, %_ZneRK10QByteArrayPKc.exit
+  %.1.i71012 = phi i32 [ %.1.i6, %20 ], [ %.1.i71013, %26 ], [ %.1.i711, %_ZneRK10QByteArrayPKc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.1.i12
+  ret i32 %.1.i71012
 }
 
 ; Function Attrs: null_pointer_is_valid

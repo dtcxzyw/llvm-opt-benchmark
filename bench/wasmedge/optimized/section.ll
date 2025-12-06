@@ -51808,8 +51808,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4infoIA34_cEEvRKT_(ptr noundef
   br label %_ZN6spdlog6logger3logIA34_cEEvNS_5level10level_enumERKT_.exit
 
 _ZN6spdlog6logger3logIA34_cEEvNS_5level10level_enumERKT_.exit: ; preds = %2, %11
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -51838,8 +51838,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4infoIA27_cEEvRKT_(ptr noundef
   br label %_ZN6spdlog6logger3logIA27_cEEvNS_5level10level_enumERKT_.exit
 
 _ZN6spdlog6logger3logIA27_cEEvNS_5level10level_enumERKT_.exit: ; preds = %2, %11
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -51868,8 +51868,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4infoIA29_cEEvRKT_(ptr noundef
   br label %_ZN6spdlog6logger3logIA29_cEEvNS_5level10level_enumERKT_.exit
 
 _ZN6spdlog6logger3logIA29_cEEvNS_5level10level_enumERKT_.exit: ; preds = %2, %11
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -51997,8 +51997,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4infoIA28_cEEvRKT_(ptr noundef
   br label %_ZN6spdlog6logger3logIA28_cEEvNS_5level10level_enumERKT_.exit
 
 _ZN6spdlog6logger3logIA28_cEEvNS_5level10level_enumERKT_.exit: ; preds = %2, %11
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -52027,8 +52027,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4infoIA32_cEEvRKT_(ptr noundef
   br label %_ZN6spdlog6logger3logIA32_cEEvNS_5level10level_enumERKT_.exit
 
 _ZN6spdlog6logger3logIA32_cEEvNS_5level10level_enumERKT_.exit: ; preds = %2, %11
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -52182,8 +52182,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4infoIA39_cEEvRKT_(ptr noundef
   br label %_ZN6spdlog6logger3logIA39_cEEvNS_5level10level_enumERKT_.exit
 
 _ZN6spdlog6logger3logIA39_cEEvNS_5level10level_enumERKT_.exit: ; preds = %2, %11
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -52212,8 +52212,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4infoIA54_cEEvRKT_(ptr noundef
   br label %_ZN6spdlog6logger3logIA54_cEEvNS_5level10level_enumERKT_.exit
 
 _ZN6spdlog6logger3logIA54_cEEvNS_5level10level_enumERKT_.exit: ; preds = %2, %11
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 

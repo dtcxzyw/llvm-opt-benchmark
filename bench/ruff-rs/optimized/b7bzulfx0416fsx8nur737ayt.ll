@@ -3187,11 +3187,13 @@ define internal void @"_ZN3std4sync6poison4once4Once9call_once28_$u7b$$u7b$closu
 define hidden void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$10into_inner17h1620c13e25ca176eE"(ptr dead_on_unwind noalias noundef writable sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load atomic i8, ptr %5 monotonic, align 4
   %7 = icmp ne i8 %6, 0
   call void @_ZN3std4sync6poison10map_result17h1b9718f126184971E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %0, i1 noundef zeroext %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3292,11 +3294,13 @@ _ZN3std4sync6poison4Flag5guard17h7f1fdba42f6181b6E.exit: ; preds = %6, %10
 define hidden void @"_ZN3std4sync6poison6rwlock15RwLock$LT$T$GT$10into_inner17h8e084134b533a7b2E"(ptr dead_on_unwind noalias noundef writable sret([184 x i8]) align 8 captures(none) dereferenceable(184) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(192) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [176 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(176) %4, i64 176, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load atomic i8, ptr %5 monotonic, align 8
   %7 = icmp ne i8 %6, 0
   call void @_ZN3std4sync6poison10map_result17h17bc1fdc4261c04eE(ptr noalias noundef nonnull sret([184 x i8]) align 8 captures(none) dereferenceable(184) %0, i1 noundef zeroext %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 

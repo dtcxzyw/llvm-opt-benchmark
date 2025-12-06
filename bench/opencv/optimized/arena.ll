@@ -1237,7 +1237,6 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i: ; preds = %56, %50
   br i1 %or.cond.i, label %66, label %_ZN6google8protobuf8internal15ThreadSafeArena14InitializeFromEPvm.exit
 
 66:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i
-  store i64 %33, ptr %32, align 8, !tbaa !40
   store ptr null, ptr %30, align 8, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %31, ptr %67, align 8, !tbaa !11

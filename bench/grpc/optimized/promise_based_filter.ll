@@ -5277,7 +5277,6 @@ _ZNSt22_Optional_payload_baseISt10unique_ptrIN9grpc_core7MessageENS1_5Arena13Poo
   br i1 %403, label %404, label %.noexc211
 
 404:                                              ; preds = %_ZNSt22_Optional_payload_baseISt10unique_ptrIN9grpc_core7MessageENS1_5Arena13PooledDeleterEEE10_M_destroyEv.exit.i.i.i272
-  store i8 0, ptr %401, align 8, !tbaa !347
   %405 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %406 = load ptr, ptr %405, align 8, !tbaa !301
   %.not.i.i.i.i.i275 = icmp ne ptr %406, null

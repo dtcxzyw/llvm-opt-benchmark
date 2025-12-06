@@ -925,11 +925,11 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi35EEERS2_RAT__Kc.exit: ; pr
 .critedge:                                        ; preds = %8
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre = load ptr, ptr %2, align 8, !tbaa !72
+  %.pr = load ptr, ptr %2, align 8, !tbaa !72
   br label %.critedge7
 
 .critedge7:                                       ; preds = %1, %.critedge
-  %9 = phi ptr [ %0, %1 ], [ %.pre, %.critedge ]
+  %9 = phi ptr [ %0, %1 ], [ %.pr, %.critedge ]
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZNK9grpc_core10RefCountedI17grpc_auth_contextNS_22NonPolymorphicRefCountENS_11UnrefDeleteEE5UnrefERKNS_13DebugLocationEPKc.exit, label %13
 
@@ -1492,11 +1492,11 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi37EEERS2_RAT__Kc.exit: ; pr
 .critedge:                                        ; preds = %9
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre = load ptr, ptr %2, align 8, !tbaa !105
+  %.pr = load ptr, ptr %2, align 8, !tbaa !105
   br label %.critedge17
 
 .critedge17:                                      ; preds = %1, %.critedge
-  %10 = phi ptr [ %0, %1 ], [ %.pre, %.critedge ]
+  %10 = phi ptr [ %0, %1 ], [ %.pr, %.critedge ]
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
 
@@ -1699,11 +1699,11 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit: ; pr
 .critedge:                                        ; preds = %9
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre = load ptr, ptr %3, align 8, !tbaa !72
+  %.pr = load ptr, ptr %3, align 8, !tbaa !72
   br label %.critedge7
 
 .critedge7:                                       ; preds = %2, %.critedge
-  %10 = phi ptr [ %1, %2 ], [ %.pre, %.critedge ]
+  %10 = phi ptr [ %1, %2 ], [ %.pr, %.critedge ]
   %11 = icmp eq ptr %10, null
   br i1 %11, label %15, label %14
 
@@ -1788,11 +1788,11 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi37EEERS2_RAT__Kc.exit: ; pr
 .critedge:                                        ; preds = %9
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre = load ptr, ptr %3, align 8, !tbaa !72
+  %.pr = load ptr, ptr %3, align 8, !tbaa !72
   br label %.critedge7
 
 .critedge7:                                       ; preds = %2, %.critedge
-  %10 = phi ptr [ %1, %2 ], [ %.pre, %.critedge ]
+  %10 = phi ptr [ %1, %2 ], [ %.pr, %.critedge ]
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %15
 

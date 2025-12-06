@@ -5198,14 +5198,12 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$10into_inner17hafd98b292234c1a2E"(ptr dead_on_unwind noalias noundef writable writeonly sret([224 x i8]) align 8 captures(none) dereferenceable(224) initializes((0, 224)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(224) %1) unnamed_addr #14 personality ptr @rust_eh_personality {
-  %3 = alloca [216 x i8], align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef nonnull align 8 dereferenceable(216) %4, i64 216, i1 false)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load atomic i8, ptr %5 monotonic, align 4
-  %.not = icmp ne i8 %6, 0
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 216, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load atomic i8, ptr %4 monotonic, align 4
+  %.not = icmp ne i8 %5, 0
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull align 8 dereferenceable(216) %3, i64 216, i1 false)
   %. = zext i1 %.not to i64
   store i64 %., ptr %0, align 8, !alias.scope !1669, !noalias !1672
   ret void
@@ -5213,14 +5211,12 @@ define hidden void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$10into_inner17hafd98b2922
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$10into_inner17hed09f48c32964423E"(ptr dead_on_unwind noalias noundef writable writeonly sret([56 x i8]) align 8 captures(none) dereferenceable(56) initializes((0, 56)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #14 personality ptr @rust_eh_personality {
-  %3 = alloca [48 x i8], align 8
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load atomic i8, ptr %5 monotonic, align 4
-  %.not = icmp ne i8 %6, 0
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %5 = load atomic i8, ptr %4 monotonic, align 4
+  %.not = icmp ne i8 %5, 0
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   %. = zext i1 %.not to i64
   store i64 %., ptr %0, align 8, !alias.scope !1674, !noalias !1677
   ret void
@@ -35776,7 +35772,6 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h0
   %22 = alloca [16 x i8], align 8
   %23 = alloca [8 x i8], align 8
   store i64 %1, ptr %23, align 8
-  store i64 %3, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %4, ptr %24, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11782)
@@ -36097,7 +36092,6 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2
   %24 = alloca [16 x i8], align 8
   %25 = alloca [8 x i8], align 8
   store i64 %1, ptr %25, align 8
-  store i64 %3, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %4, ptr %26, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11874)
@@ -36421,7 +36415,6 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h4
   %20 = alloca [16 x i8], align 8
   %21 = alloca [8 x i8], align 8
   store i64 %1, ptr %21, align 8
-  store i64 %3, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %4, ptr %22, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12003)
@@ -36716,7 +36709,6 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h7
   %26 = alloca [16 x i8], align 8
   %27 = alloca [8 x i8], align 8
   store i64 %1, ptr %27, align 8
-  store i64 %3, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %4, ptr %28, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12095)
@@ -37048,7 +37040,6 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hb
   %26 = alloca [16 x i8], align 8
   %27 = alloca [8 x i8], align 8
   store i64 %1, ptr %27, align 8
-  store i64 %3, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %4, ptr %28, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12216)
@@ -37485,7 +37476,6 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hb
   %26 = alloca [16 x i8], align 8
   %27 = alloca [8 x i8], align 8
   store i64 %1, ptr %27, align 8
-  store i64 %3, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %4, ptr %28, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12351)
@@ -37843,7 +37833,6 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17hc
   %24 = alloca [16 x i8], align 8
   %25 = alloca [8 x i8], align 8
   store i64 %1, ptr %25, align 8
-  store i64 %3, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %4, ptr %26, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12479)
@@ -38247,7 +38236,6 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17he
   %24 = alloca [16 x i8], align 8
   %25 = alloca [8 x i8], align 8
   store i64 %1, ptr %25, align 8
-  store i64 %3, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %4, ptr %26, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12617)
@@ -38534,7 +38522,6 @@ define hidden void @_ZN5rayon4iter8plumbing34bridge_unindexed_producer_consumer1
   %10 = alloca [32 x i8], align 8
   %11 = alloca [32 x i8], align 8
   %12 = alloca [8 x i8], align 8
-  store i64 %1, ptr %12, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12739)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12742)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12745)
@@ -38704,7 +38691,6 @@ define hidden void @_ZN5rayon4iter8plumbing34bridge_unindexed_producer_consumer1
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %12 = alloca [8 x i8], align 8
-  store i64 %1, ptr %12, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12784)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12787)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12790)

@@ -2855,7 +2855,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h43570eadb7c5daa0E(
 93:                                               ; preds = %"_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17h9ac5f94e62a2c9e9E.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !291
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !291
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !291
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !293
   %94 = invoke noundef nonnull ptr @_ZN3std6thread6Thread3new17h0b65aecfb64ea3b3E(i64 noundef %92, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
           to label %95 unwind label %91, !noalias !291
 
@@ -3416,7 +3416,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hf9fc875b6ae85086E(
 93:                                               ; preds = %"_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17h96ec657150e6e6c7E.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !388
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !388
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !388
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull readonly align 8 dereferenceable(24) %20, i64 24, i1 false), !noalias !390
   %94 = invoke noundef nonnull ptr @_ZN3std6thread6Thread3new17h0b65aecfb64ea3b3E(i64 noundef %92, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %14)
           to label %95 unwind label %91, !noalias !388
 

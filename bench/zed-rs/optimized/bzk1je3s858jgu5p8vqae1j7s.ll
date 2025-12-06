@@ -8869,7 +8869,7 @@ common.ret.sink.split.i:                          ; preds = %"_ZN4core3ptr50drop
 
 "_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17h8365b54cff8f62b9E.exit": ; preds = %.noexc80
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %15, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %234, i64 56, i1 false)
   invoke void @_ZN6remote11ssh_session15SshRemoteClient9multiplex17heae62a622dc4d081E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noundef nonnull %255, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %5, ptr noundef %245, ptr noundef %247, ptr noalias noundef nonnull align 8 dereferenceable(40) %241)
           to label %274 unwind label %272
 

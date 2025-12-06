@@ -20481,7 +20481,6 @@ _Z15_mi_page_unfullP9mi_page_s.exit:              ; preds = %97, %109, %113, %11
   %123 = phi i64 [ 73, %97 ], [ %112, %109 ], [ %122, %115 ], [ 73, %113 ]
   %124 = getelementptr inbounds nuw i8, ptr %100, i64 1280
   %125 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %124, i64 %123
-  store i8 %.val.i.i, ptr %95, align 2
   tail call fastcc void @_ZL29mi_page_queue_enqueue_from_exP15mi_page_queue_sS0_bP9mi_page_s(ptr noundef nonnull %125, ptr noundef nonnull %101, ptr noundef nonnull %27)
   br label %.loopexit.i
 
@@ -20634,7 +20633,6 @@ _ZL21mi_heap_page_queue_ofP9mi_heap_sPK9mi_page_s.exit: ; preds = %4, %16, %20, 
   %30 = phi i64 [ 73, %4 ], [ %19, %16 ], [ %29, %22 ], [ 73, %20 ]
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 1280
   %32 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %31, i64 %30
-  store i8 %.val, ptr %2, align 2
   tail call fastcc void @_ZL29mi_page_queue_enqueue_from_exP15mi_page_queue_sS0_bP9mi_page_s(ptr noundef nonnull %32, ptr noundef nonnull %8, ptr noundef nonnull %0)
   br label %33
 

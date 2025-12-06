@@ -3998,11 +3998,13 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17h23343c16cfb75217E(ptr no
 define hidden void @"_ZN3std4sync6poison6rwlock15RwLock$LT$T$GT$10into_inner17hbb8de4740abafce4E"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load atomic i8, ptr %5 monotonic, align 8
   %7 = icmp ne i8 %6, 0
   call void @_ZN3std4sync6poison10map_result17h8fbf94849c091161E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i1 noundef zeroext %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 

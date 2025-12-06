@@ -897,7 +897,6 @@ mi_heap_page_queue_of.exit:                       ; preds = %4, %16, %20, %22
   %32 = phi i64 [ 73, %4 ], [ %19, %16 ], [ %31, %22 ], [ 73, %20 ]
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 1264
   %34 = getelementptr inbounds nuw %struct.mi_page_queue_s, ptr %33, i64 %32
-  store i8 %.val, ptr %2, align 2
   tail call fastcc void @mi_page_queue_enqueue_from_ex(ptr noundef nonnull %34, ptr noundef nonnull %8, ptr noundef nonnull %0) #14
   br label %35
 

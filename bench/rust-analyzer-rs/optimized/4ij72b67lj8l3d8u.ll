@@ -38209,13 +38209,13 @@ define hidden void @_ZN7hir_def9item_tree5lower15UseTreeLowering14lower_use_tree
   %113 = add i32 %112, -1
   store i32 %113, ptr %111, align 4, !noalias !9709
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %.thread235
+  br i1 %114, label %115, label %.thread239
 
 115:                                              ; preds = %102
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %110)
-          to label %.thread235 unwind label %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..UseTreeList$GT$17h7236cd55c8282714E.exit"
+          to label %.thread239 unwind label %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..UseTreeList$GT$17h7236cd55c8282714E.exit"
 
-.thread235:                                       ; preds = %115, %102
+.thread239:                                       ; preds = %115, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h1e46fe30ef228c79E.exit"
 
@@ -38576,7 +38576,7 @@ define hidden void @_ZN7hir_def9item_tree5lower15UseTreeLowering14lower_use_tree
   %244 = invoke noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h088dc135be1c4afdE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %15)
           to label %282 unwind label %301
 
-245:                                              ; preds = %249, %247
+245:                                              ; preds = %249
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0152)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %253
@@ -38589,7 +38589,12 @@ define hidden void @_ZN7hir_def9item_tree5lower15UseTreeLowering14lower_use_tree
 247:                                              ; preds = %241
   %248 = load atomic i64, ptr @_ZN8cov_mark4__rt5LEVEL17hb6c01697fd339c13E monotonic, align 8
   %.not71 = icmp eq i64 %248, 0
-  br i1 %.not71, label %245, label %249
+  br i1 %.not71, label %.thread233, label %249
+
+.thread233:                                       ; preds = %247
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0152)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  br label %253
 
 249:                                              ; preds = %247
   invoke void @_ZN8cov_mark4__rt3hit8hit_cold17h01c28ecb730e6d15E(ptr noalias noundef nonnull readonly align 1 @anon.d0f8bd43c5d672c7cf4a1c9a6984c189.214, i64 noundef 15)
@@ -38606,8 +38611,8 @@ define hidden void @_ZN7hir_def9item_tree5lower15UseTreeLowering14lower_use_tree
   %252 = invoke noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h088dc135be1c4afdE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6)
           to label %272 unwind label %.body107
 
-253:                                              ; preds = %245, %272
-  %.057 = phi ptr [ %252, %272 ], [ null, %245 ]
+253:                                              ; preds = %245, %.thread233, %272
+  %.057 = phi ptr [ %252, %272 ], [ null, %245 ], [ null, %.thread233 ]
   %254 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.057, ptr %254, align 8
   store i8 29, ptr %16, align 8
@@ -38700,7 +38705,7 @@ define hidden void @_ZN7hir_def9item_tree5lower15UseTreeLowering14lower_use_tree
   call void @llvm.experimental.noalias.scope.decl(metadata !9853)
   %287 = load i64, ptr %1, align 8, !alias.scope !9856, !noalias !9852, !noundef !7
   %288 = icmp eq i64 %286, %287
-  br i1 %288, label %289, label %.thread237
+  br i1 %288, label %289, label %.thread241
 
 289:                                              ; preds = %282
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha2253d6137bfd2dbE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %286)
@@ -38708,7 +38713,7 @@ define hidden void @_ZN7hir_def9item_tree5lower15UseTreeLowering14lower_use_tree
 
 ._crit_edge.i.i113:                               ; preds = %289
   %.pre.i.i114 = load i64, ptr %285, align 8, !alias.scope !9856, !noalias !9852
-  br label %.thread237
+  br label %.thread241
 
 290:                                              ; preds = %289
   %291 = landingpad { ptr, i32 }
@@ -38752,7 +38757,7 @@ define hidden void @_ZN7hir_def9item_tree5lower15UseTreeLowering14lower_use_tree
   invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$hir_def..path..ImportAlias$GT$$GT$17hd6e1d0ae1ff2075dE"(ptr noalias noundef align 8 dereferenceable(24) %215) #35
           to label %"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..UseTreeList$GT$17h7236cd55c8282714E.exit.thread" unwind label %118
 
-.thread237:                                       ; preds = %282, %._crit_edge.i.i113
+.thread241:                                       ; preds = %282, %._crit_edge.i.i113
   %304 = phi i64 [ %.pre.i.i114, %._crit_edge.i.i113 ], [ %286, %282 ]
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %306 = load ptr, ptr %305, align 8, !alias.scope !9856, !noalias !9852, !nonnull !7, !noundef !7
@@ -38778,8 +38783,8 @@ define hidden void @_ZN7hir_def9item_tree5lower15UseTreeLowering14lower_use_tree
   store i8 31, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %.not244 = icmp eq i8 %236, 5
-  br i1 %.not244, label %"_ZN4core3ptr50drop_in_place$LT$hir_expand..mod_path..ModPath$GT$17ha5d2884980bf6cb7E.exit", label %312
+  %.not248 = icmp eq i8 %236, 5
+  br i1 %.not248, label %"_ZN4core3ptr50drop_in_place$LT$hir_expand..mod_path..ModPath$GT$17ha5d2884980bf6cb7E.exit", label %312
 
 312:                                              ; preds = %311
   %313 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -38844,7 +38849,7 @@ define hidden void @_ZN7hir_def9item_tree5lower15UseTreeLowering14lower_use_tree
   %329 = trunc nuw i8 %.8207222 to i1
   br i1 %329, label %330, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h1e46fe30ef228c79E.exit"
 
-"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h1e46fe30ef228c79E.exit": ; preds = %.thread237, %.thread235, %343, %337, %336, %330, %328
+"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h1e46fe30ef228c79E.exit": ; preds = %.thread241, %.thread239, %343, %337, %336, %330, %328
   ret void
 
 330:                                              ; preds = %328

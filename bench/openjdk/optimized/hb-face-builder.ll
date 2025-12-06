@@ -80,7 +80,7 @@ define hidden ptr @hb_face_builder_create() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @hb_face_get_empty()
-  br label %14
+  br label %9
 
 4:                                                ; preds = %0
   store atomic i32 1, ptr %1 monotonic, align 4
@@ -89,22 +89,12 @@ define hidden ptr @hb_face_builder_create() local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %6 monotonic, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 0, ptr %8, align 4
   store i32 1, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %12, align 8
-  %13 = tail call ptr @hb_face_create_for_tables(ptr noundef nonnull @_ZL32_hb_face_builder_reference_tableP9hb_face_tjPv, ptr noundef nonnull %1, ptr noundef nonnull @_ZL29_hb_face_builder_data_destroyPv)
-  br label %14
+  %8 = tail call ptr @hb_face_create_for_tables(ptr noundef nonnull @_ZL32_hb_face_builder_reference_tableP9hb_face_tjPv, ptr noundef nonnull %1, ptr noundef nonnull @_ZL29_hb_face_builder_data_destroyPv)
+  br label %9
 
-14:                                               ; preds = %4, %2
-  %.0 = phi ptr [ %13, %4 ], [ %3, %2 ]
+9:                                                ; preds = %4, %2
+  %.0 = phi ptr [ %8, %4 ], [ %3, %2 ]
   ret ptr %.0
 }
 

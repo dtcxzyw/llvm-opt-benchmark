@@ -64739,7 +64739,7 @@ default.unreachable41:                            ; preds = %58, %2
 
 "_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17h41c130dbd3187ae6E.exit.i": ; preds = %.noexc59.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !18685
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false), !noalias !18685
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %190, i64 56, i1 false), !noalias !18685
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 2157
   store i8 0, ptr %208, align 1, !noalias !18685
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 472

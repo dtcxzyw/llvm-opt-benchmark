@@ -40390,11 +40390,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %.
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #52
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre.i = load i64, ptr %5, align 8, !tbaa !19
+  %.pr.i = load i64, ptr %5, align 8, !tbaa !19
   br label %.critedge19.i.i
 
 .critedge19.i.i:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %2
-  %29 = phi i64 [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %6, %2 ]
+  %29 = phi i64 [ %.pr.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ %6, %2 ]
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %31, label %_ZL21start_bdp_ping_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202407226StatusE.exit.i
 
@@ -40457,11 +40457,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22.i.i: ; preds = 
 .noexc3.i:                                        ; preds = %.noexc2.i
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 3417
   store i8 1, ptr %52, align 1, !tbaa !554
-  %.pre12.i = load i64, ptr %5, align 8, !tbaa !19
+  %.pre.i = load i64, ptr %5, align 8, !tbaa !19
   br label %_ZL21start_bdp_ping_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202407226StatusE.exit.i
 
 _ZL21start_bdp_ping_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202407226StatusE.exit.i: ; preds = %.noexc3.i, %.critedge19.i.i
-  %53 = phi i64 [ %.pre12.i, %.noexc3.i ], [ %29, %.critedge19.i.i ]
+  %53 = phi i64 [ %.pre.i, %.noexc3.i ], [ %29, %.critedge19.i.i ]
   %54 = and i64 %53, 1
   %.not.i.i.i = icmp eq i64 %54, 0
   br i1 %.not.i.i.i, label %55, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i
