@@ -1529,7 +1529,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   br i1 %181, label %144, label %.loopexit.loopexit1155.i
 
 .loopexit.loopexit.i:                             ; preds = %132
-  %182 = tail call i32 @llvm.usub.sat.i32(i32 %.0777.i, i32 3)
+  %182 = tail call i32 @llvm.usub.sat.i32(i32 range(i32 -2147483645, -2147483648) %.0777.i, i32 3)
   br label %.loopexit.i
 
 .loopexit.loopexit1155.i:                         ; preds = %180
