@@ -3159,7 +3159,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   br label %9
 
 9:                                                ; preds = %9, %.lr.ph.i
-  %.026.i = phi i64 [ %1, %.lr.ph.i ], [ %27, %9 ]
+  %.026.i = phi i64 [ %1, %.lr.ph.i ], [ %28, %9 ]
   %.01925.i = phi i64 [ 0, %.lr.ph.i ], [ %.022.i, %9 ]
   %.02024.i = phi i64 [ %1, %.lr.ph.i ], [ %.021.i, %9 ]
   %10 = lshr i64 %.026.i, 1
@@ -3181,23 +3181,21 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
   %spec.store.select.i.i.i.i.i.i.i.i.i = select i1 %23, i64 %20, i64 %22
-  %.0.i.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i.i, i64 0)
   %24 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %8, i64 %19)
-  %.0.i.i.i.i.i = select i1 %24, i8 %.0.i.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i.i
-  %25 = add nsw i8 %.0.i.i.i.i.i, -1
-  %switch.i.i.i = icmp ult i8 %25, -2
-  %26 = add nuw i64 %11, 1
-  %.022.i = select i1 %switch.i.i.i, i64 %.01925.i, i64 %26
-  %.021.i = select i1 %switch.i.i.i, i64 %11, i64 %.02024.i
-  %27 = sub i64 %.021.i, %.022.i
-  %28 = icmp ult i64 %.022.i, %.021.i
-  br i1 %28, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5ebb02aca1a2ae04E.llvm.15192800734258360407.exit"
+  %25 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 1
+  %26 = icmp ule i64 %8, %19
+  %.0.i.i.i.i.i = select i1 %24, i1 %26, i1 %25
+  %27 = add nuw i64 %11, 1
+  %.022.i = select i1 %.0.i.i.i.i.i, i64 %27, i64 %.01925.i
+  %.021.i = select i1 %.0.i.i.i.i.i, i64 %.02024.i, i64 %11
+  %28 = sub i64 %.021.i, %.022.i
+  %29 = icmp ult i64 %.022.i, %.021.i
+  br i1 %29, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5ebb02aca1a2ae04E.llvm.15192800734258360407.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5ebb02aca1a2ae04E.llvm.15192800734258360407.exit": ; preds = %9, %3
   %.019.lcssa.i = phi i64 [ 0, %3 ], [ %.022.i, %9 ]
-  %29 = icmp ule i64 %.019.lcssa.i, %1
-  tail call void @llvm.assume(i1 %29)
+  %30 = icmp ule i64 %.019.lcssa.i, %1
+  tail call void @llvm.assume(i1 %30)
   ret i64 %.019.lcssa.i
 }
 
@@ -3215,7 +3213,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   br label %9
 
 9:                                                ; preds = %9, %.lr.ph.i
-  %.025.i = phi i64 [ %1, %.lr.ph.i ], [ %27, %9 ]
+  %.025.i = phi i64 [ %1, %.lr.ph.i ], [ %28, %9 ]
   %.01924.i = phi i64 [ 0, %.lr.ph.i ], [ %.022.i, %9 ]
   %.02023.i = phi i64 [ %1, %.lr.ph.i ], [ %.021.i, %9 ]
   %10 = lshr i64 %.025.i, 1
@@ -3236,23 +3234,21 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
   %spec.store.select.i.i.i.i.i.i.i.i.i = select i1 %23, i64 %20, i64 %22
-  %.0.i.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i.i, i64 0)
   %24 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %8, i64 %19)
-  %.0.i.i.i.i.i = select i1 %24, i8 %.0.i.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i.i
-  %25 = add nsw i8 %.0.i.i.i.i.i, -1
-  %switch.i.i.i = icmp ult i8 %25, -2
-  %26 = add nuw i64 %11, 1
-  %.022.i = select i1 %switch.i.i.i, i64 %.01924.i, i64 %26
-  %.021.i = select i1 %switch.i.i.i, i64 %11, i64 %.02023.i
-  %27 = sub i64 %.021.i, %.022.i
-  %28 = icmp ult i64 %.022.i, %.021.i
-  br i1 %28, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h8d152a2a152d4dd3E.llvm.15192800734258360407.exit"
+  %25 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 1
+  %26 = icmp ule i64 %8, %19
+  %.0.i.i.i.i.i = select i1 %24, i1 %26, i1 %25
+  %27 = add nuw i64 %11, 1
+  %.022.i = select i1 %.0.i.i.i.i.i, i64 %27, i64 %.01924.i
+  %.021.i = select i1 %.0.i.i.i.i.i, i64 %.02023.i, i64 %11
+  %28 = sub i64 %.021.i, %.022.i
+  %29 = icmp ult i64 %.022.i, %.021.i
+  br i1 %29, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h8d152a2a152d4dd3E.llvm.15192800734258360407.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h8d152a2a152d4dd3E.llvm.15192800734258360407.exit": ; preds = %9, %3
   %.019.lcssa.i = phi i64 [ 0, %3 ], [ %.022.i, %9 ]
-  %29 = icmp ule i64 %.019.lcssa.i, %1
-  tail call void @llvm.assume(i1 %29)
+  %30 = icmp ule i64 %.019.lcssa.i, %1
+  tail call void @llvm.assume(i1 %30)
   ret i64 %.019.lcssa.i
 }
 
@@ -3269,10 +3265,10 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %7 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   br label %8
 
-8:                                                ; preds = %.lr.ph, %28
-  %.026 = phi i64 [ %1, %.lr.ph ], [ %31, %28 ]
-  %.01925 = phi i64 [ 0, %.lr.ph ], [ %.022, %28 ]
-  %.02024 = phi i64 [ %1, %.lr.ph ], [ %.021, %28 ]
+8:                                                ; preds = %.lr.ph, %30
+  %.026 = phi i64 [ %1, %.lr.ph ], [ %32, %30 ]
+  %.01925 = phi i64 [ 0, %.lr.ph ], [ %.022, %30 ]
+  %.02024 = phi i64 [ %1, %.lr.ph ], [ %.021, %30 ]
   %9 = lshr i64 %.026, 1
   %10 = add i64 %9, %.01925
   %11 = icmp ult i64 %10, %1
@@ -3292,32 +3288,30 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %22, i64 %19, i64 %21
-  %.0.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i, i64 0)
   %23 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  br i1 %23, label %24, label %28
+  %24 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 1
+  br i1 %23, label %25, label %30
 
-24:                                               ; preds = %8
-  %25 = load i64, ptr %7, align 8, !alias.scope !776, !noalias !771, !noundef !4
-  %.0.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %25, i64 %18)
-  br label %28
+25:                                               ; preds = %8
+  %26 = load i64, ptr %7, align 8, !alias.scope !776, !noalias !771, !noundef !4
+  %27 = icmp ule i64 %26, %18
+  br label %30
 
-._crit_edge:                                      ; preds = %28, %3
-  %.019.lcssa = phi i64 [ 0, %3 ], [ %.022, %28 ]
-  %26 = icmp ule i64 %.019.lcssa, %1
-  tail call void @llvm.assume(i1 %26)
-  %27 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.019.lcssa, 1
-  ret { i64, i64 } %27
+._crit_edge:                                      ; preds = %30, %3
+  %.019.lcssa = phi i64 [ 0, %3 ], [ %.022, %30 ]
+  %28 = icmp ule i64 %.019.lcssa, %1
+  tail call void @llvm.assume(i1 %28)
+  %29 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.019.lcssa, 1
+  ret { i64, i64 } %29
 
-28:                                               ; preds = %24, %8
-  %.0.i.i.i.i = phi i8 [ %.0.i.i.i.i.i.i, %24 ], [ %.0.i.i.i.i.i.i.i.i, %8 ]
-  %29 = add nsw i8 %.0.i.i.i.i, -1
-  %switch.i.i = icmp ult i8 %29, -2
-  %30 = add nuw i64 %10, 1
-  %.022 = select i1 %switch.i.i, i64 %.01925, i64 %30
-  %.021 = select i1 %switch.i.i, i64 %10, i64 %.02024
-  %31 = sub i64 %.021, %.022
-  %32 = icmp ult i64 %.022, %.021
-  br i1 %32, label %8, label %._crit_edge
+30:                                               ; preds = %25, %8
+  %.0.i.i.i.i = phi i1 [ %27, %25 ], [ %24, %8 ]
+  %31 = add nuw i64 %10, 1
+  %.022 = select i1 %.0.i.i.i.i, i64 %31, i64 %.01925
+  %.021 = select i1 %.0.i.i.i.i, i64 %.02024, i64 %10
+  %32 = sub i64 %.021, %.022
+  %33 = icmp ult i64 %.022, %.021
+  br i1 %33, label %8, label %._crit_edge
 }
 
 ; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -3333,10 +3327,10 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %7 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   br label %8
 
-8:                                                ; preds = %.lr.ph, %28
-  %.025 = phi i64 [ %1, %.lr.ph ], [ %31, %28 ]
-  %.01924 = phi i64 [ 0, %.lr.ph ], [ %.022, %28 ]
-  %.02023 = phi i64 [ %1, %.lr.ph ], [ %.021, %28 ]
+8:                                                ; preds = %.lr.ph, %30
+  %.025 = phi i64 [ %1, %.lr.ph ], [ %32, %30 ]
+  %.01924 = phi i64 [ 0, %.lr.ph ], [ %.022, %30 ]
+  %.02023 = phi i64 [ %1, %.lr.ph ], [ %.021, %30 ]
   %9 = lshr i64 %.025, 1
   %10 = add i64 %9, %.01924
   %11 = icmp ult i64 %10, %1
@@ -3355,32 +3349,30 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %21 = sext i32 %20 to i64
   %22 = icmp eq i32 %20, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %22, i64 %19, i64 %21
-  %.0.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i, i64 0)
   %23 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  br i1 %23, label %24, label %28
+  %24 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 1
+  br i1 %23, label %25, label %30
 
-24:                                               ; preds = %8
-  %25 = load i64, ptr %7, align 8, !alias.scope !804, !noalias !799, !noundef !4
-  %.0.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %25, i64 %18)
-  br label %28
+25:                                               ; preds = %8
+  %26 = load i64, ptr %7, align 8, !alias.scope !804, !noalias !799, !noundef !4
+  %27 = icmp ule i64 %26, %18
+  br label %30
 
-._crit_edge:                                      ; preds = %28, %3
-  %.019.lcssa = phi i64 [ 0, %3 ], [ %.022, %28 ]
-  %26 = icmp ule i64 %.019.lcssa, %1
-  tail call void @llvm.assume(i1 %26)
-  %27 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.019.lcssa, 1
-  ret { i64, i64 } %27
+._crit_edge:                                      ; preds = %30, %3
+  %.019.lcssa = phi i64 [ 0, %3 ], [ %.022, %30 ]
+  %28 = icmp ule i64 %.019.lcssa, %1
+  tail call void @llvm.assume(i1 %28)
+  %29 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.019.lcssa, 1
+  ret { i64, i64 } %29
 
-28:                                               ; preds = %24, %8
-  %.0.i.i.i.i = phi i8 [ %.0.i.i.i.i.i.i, %24 ], [ %.0.i.i.i.i.i.i.i.i, %8 ]
-  %29 = add nsw i8 %.0.i.i.i.i, -1
-  %switch.i.i = icmp ult i8 %29, -2
-  %30 = add nuw i64 %10, 1
-  %.022 = select i1 %switch.i.i, i64 %.01924, i64 %30
-  %.021 = select i1 %switch.i.i, i64 %10, i64 %.02023
-  %31 = sub i64 %.021, %.022
-  %32 = icmp ult i64 %.022, %.021
-  br i1 %32, label %8, label %._crit_edge
+30:                                               ; preds = %25, %8
+  %.0.i.i.i.i = phi i1 [ %27, %25 ], [ %24, %8 ]
+  %31 = add nuw i64 %10, 1
+  %.022 = select i1 %.0.i.i.i.i, i64 %31, i64 %.01924
+  %.021 = select i1 %.0.i.i.i.i, i64 %.02023, i64 %10
+  %32 = sub i64 %.021, %.022
+  %33 = icmp ult i64 %.022, %.021
+  br i1 %33, label %8, label %._crit_edge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable

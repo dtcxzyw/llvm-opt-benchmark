@@ -41,14 +41,14 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr noundef readonly captures
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.next
   %19 = load i8, ptr %18, align 1, !tbaa !12
   %20 = icmp eq i8 %19, %12
-  br i1 %20, label %15, label %.critedge.split.loop.exit90, !llvm.loop !13
+  br i1 %20, label %15, label %.critedge.split.loop.exit86, !llvm.loop !13
 
-.critedge.split.loop.exit90:                      ; preds = %17
+.critedge.split.loop.exit86:                      ; preds = %17
   %21 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %.critedge.split.loop.exit90
-  %.028.lcssa = phi i32 [ %21, %.critedge.split.loop.exit90 ], [ %smax, %15 ]
+.critedge:                                        ; preds = %15, %.critedge.split.loop.exit86
+  %.028.lcssa = phi i32 [ %21, %.critedge.split.loop.exit86 ], [ %smax, %15 ]
   %22 = sub nsw i32 %.028.lcssa, %.03157
   %23 = icmp eq i8 %12, 0
   br i1 %23, label %24, label %46
@@ -103,7 +103,7 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr noundef readonly captures
   %43 = getelementptr inbounds nuw i8, ptr %indvars.iv.i52.pn, i64 1
   store i8 127, ptr %43, align 1, !tbaa !17
   %44 = add nsw i32 %.02331.i51, -138
-  %45 = icmp samesign ult i32 %44, 3
+  %45 = icmp samesign ult i32 %.02331.i51, 141
   br i1 %45, label %.lr.ph35.preheader.i, label %.lr.ph53
 
 46:                                               ; preds = %.critedge
@@ -166,7 +166,7 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr noundef readonly captures
   store i8 3, ptr %66, align 1, !tbaa !17
   %67 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 2
   %68 = add nsw i32 %.135.i46, -6
-  %69 = icmp samesign ult i32 %68, 3
+  %69 = icmp samesign ult i32 %.135.i46, 9
   br i1 %69, label %.lr.ph38.i, label %.lr.ph
 
 CodeRepeatedZeros.exit:                           ; preds = %56, %61, %51, %39, %33, %.lr.ph35.preheader.i, %24

@@ -862,7 +862,7 @@ define hidden void @luaK_setreturns(ptr noundef captures(none) %0, ptr noundef r
   br i1 %.not, label %luaK_reserveregs.exit, label %47
 
 47:                                               ; preds = %19
-  %48 = icmp samesign ugt i32 %43, 249
+  %48 = icmp samesign ugt i32 %42, 248
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %47
@@ -1110,7 +1110,7 @@ freeexp.exit:                                     ; preds = %2, %5, %9, %13
   br i1 %.not, label %luaK_reserveregs.exit, label %24
 
 24:                                               ; preds = %freeexp.exit
-  %25 = icmp samesign ugt i32 %19, 249
+  %25 = icmp samesign ugt i32 %18, 248
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -1540,7 +1540,7 @@ freeexp.exit.i:                                   ; preds = %28, %24, %20, %17
   br i1 %.not.i, label %luaK_exp2nextreg.exit, label %39
 
 39:                                               ; preds = %freeexp.exit.i
-  %40 = icmp samesign ugt i32 %34, 249
+  %40 = icmp samesign ugt i32 %33, 248
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %39
@@ -1857,7 +1857,7 @@ freeexp.exit:                                     ; preds = %3, %7, %11, %15
   br i1 %26, label %27, label %luaK_reserveregs.exit
 
 27:                                               ; preds = %freeexp.exit
-  %28 = icmp samesign ugt i32 %21, 249
+  %28 = icmp sgt i32 %20, 247
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
@@ -2147,7 +2147,7 @@ define internal fastcc i32 @jumponcond(ptr noundef captures(none) %0, ptr nounde
   br i1 %.not5.i, label %discharge2anyreg.exit, label %30
 
 30:                                               ; preds = %.thread.thread
-  %31 = icmp samesign ugt i32 %25, 249
+  %31 = icmp samesign ugt i32 %24, 248
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
@@ -2321,7 +2321,7 @@ invertjump.exit.i:                                ; preds = %34, %27
   br i1 %.not5.i.i, label %discharge2anyreg.exit.i, label %48
 
 48:                                               ; preds = %40
-  %49 = icmp samesign ugt i32 %43, 249
+  %49 = icmp samesign ugt i32 %42, 248
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %48
@@ -2959,7 +2959,7 @@ freeexp.exit.i:                                   ; preds = %87, %83, %79, %76
   br i1 %.not.i, label %luaK_exp2nextreg.exit, label %98
 
 98:                                               ; preds = %freeexp.exit.i
-  %99 = icmp samesign ugt i32 %93, 249
+  %99 = icmp samesign ugt i32 %92, 248
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %98
@@ -3283,7 +3283,7 @@ freeexp.exit.i:                                   ; preds = %124, %120, %116, %1
   br i1 %.not.i81, label %luaK_exp2nextreg.exit, label %135
 
 135:                                              ; preds = %freeexp.exit.i
-  %136 = icmp samesign ugt i32 %130, 249
+  %136 = icmp samesign ugt i32 %129, 248
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %135

@@ -86,57 +86,56 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr noundef readonly captur
   %.not140 = icmp eq ptr %2, null
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %12 = icmp sgt i32 %11, 6
-  br i1 %12, label %.lr.ph200, label %82
+  br i1 %12, label %.lr.ph199, label %82
 
-.lr.ph200:                                        ; preds = %.lr.ph, %.thread169
+.lr.ph199:                                        ; preds = %.lr.ph, %.thread169
   %13 = phi i32 [ %79, %.thread169 ], [ %11, %.lr.ph ]
-  %.0133183199 = phi i32 [ %.5, %.thread169 ], [ 0, %.lr.ph ]
-  %.0119184198 = phi i16 [ %.1120150, %.thread169 ], [ 0, %.lr.ph ]
-  %.0117185197 = phi i32 [ %.1118152, %.thread169 ], [ -1, %.lr.ph ]
-  %.0115186196 = phi i32 [ %.1116153, %.thread169 ], [ -1, %.lr.ph ]
-  %.0114187195 = phi i16 [ %.1, %.thread169 ], [ 0, %.lr.ph ]
-  %.0113188194 = phi i16 [ %78, %.thread169 ], [ 0, %.lr.ph ]
-  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0133183199)
-  %15 = add i32 %.0133183199, 2
+  %.0133182198 = phi i32 [ %.5, %.thread169 ], [ 0, %.lr.ph ]
+  %.0119183197 = phi i16 [ %.1120150, %.thread169 ], [ 0, %.lr.ph ]
+  %.0117184196 = phi i32 [ %.1118152, %.thread169 ], [ -1, %.lr.ph ]
+  %.0115185195 = phi i32 [ %.1116153, %.thread169 ], [ -1, %.lr.ph ]
+  %.0114186194 = phi i16 [ %.1, %.thread169 ], [ 0, %.lr.ph ]
+  %.0113187193 = phi i16 [ %78, %.thread169 ], [ 0, %.lr.ph ]
+  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0133182198)
+  %15 = add i32 %.0133182198, 2
   %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %15)
-  %17 = add i32 %.0133183199, 4
+  %17 = add i32 %.0133182198, 4
   %18 = zext i16 %16 to i32
   %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %17)
-  %20 = add i32 %.0133183199, 6
+  %20 = add i32 %.0133182198, 6
   %21 = add nsw i32 %18, -2
   %.not139 = icmp eq i32 %13, 7
   br i1 %.not139, label %.thread, label %22
 
-22:                                               ; preds = %.lr.ph200
+22:                                               ; preds = %.lr.ph199
   %23 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %20)
   %24 = add nsw i32 %18, -4
-  %25 = icmp eq i32 %.0117185197, -1
+  %25 = icmp eq i32 %.0117184196, -1
   %26 = zext i16 %23 to i32
-  %..0117 = select i1 %25, i32 %26, i32 %.0117185197
-  %.0115. = select i1 %25, i32 %.0115186196, i32 %26
-  %27 = and i32 %13, 2147483646
-  %.not176 = icmp eq i32 %27, 8
-  br i1 %.not176, label %.thread, label %28
+  %..0117 = select i1 %25, i32 %26, i32 %.0117184196
+  %.0115. = select i1 %25, i32 %.0115185195, i32 %26
+  %27 = icmp samesign ugt i32 %13, 9
+  br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %22
-  %29 = add i32 %.0133183199, 8
+  %29 = add i32 %.0133182198, 8
   %30 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %29)
   %31 = add nsw i32 %18, -6
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph200, %28, %22
-  %.1116153 = phi i32 [ %.0115., %28 ], [ %.0115., %22 ], [ %.0115186196, %.lr.ph200 ]
-  %.1118152 = phi i32 [ %..0117, %28 ], [ %..0117, %22 ], [ %.0117185197, %.lr.ph200 ]
-  %.1120150 = phi i16 [ %23, %28 ], [ %23, %22 ], [ %.0119184198, %.lr.ph200 ]
-  %.2127 = phi i32 [ %31, %28 ], [ %24, %22 ], [ %21, %.lr.ph200 ]
-  %.1 = phi i16 [ %30, %28 ], [ %.0114187195, %22 ], [ %.0114187195, %.lr.ph200 ]
+.thread:                                          ; preds = %.lr.ph199, %28, %22
+  %.1116153 = phi i32 [ %.0115., %28 ], [ %.0115., %22 ], [ %.0115185195, %.lr.ph199 ]
+  %.1118152 = phi i32 [ %..0117, %28 ], [ %..0117, %22 ], [ %.0117184196, %.lr.ph199 ]
+  %.1120150 = phi i16 [ %23, %28 ], [ %23, %22 ], [ %.0119183197, %.lr.ph199 ]
+  %.2127 = phi i32 [ %31, %28 ], [ %24, %22 ], [ %21, %.lr.ph199 ]
+  %.1 = phi i16 [ %30, %28 ], [ %.0114186194, %22 ], [ %.0114186194, %.lr.ph199 ]
   %32 = load i32, ptr @hf_ipsictl_pdu, align 4
   %33 = add nuw nsw i32 %18, 4
-  %34 = zext i16 %.0113188194 to i32
-  %35 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %32, ptr noundef %0, i32 noundef %.0133183199, i32 noundef %33, i32 noundef %34)
+  %34 = zext i16 %.0113187193 to i32
+  %35 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %32, ptr noundef %0, i32 noundef %.0133182198, i32 noundef %33, i32 noundef %34)
   %36 = load i32, ptr @ett_ipsictl_pdu, align 4
   %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36)
-  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0133183199)
+  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0133182198)
   br i1 %.not140, label %.critedge142, label %.critedge142.thread
 
 .critedge142:                                     ; preds = %.thread
@@ -147,7 +146,7 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr noundef readonly captur
 .critedge142.thread:                              ; preds = %.thread
   %41 = load i32, ptr @hf_ipsictl_magic, align 4
   %42 = zext i16 %14 to i32
-  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %41, ptr noundef %0, i32 noundef %.0133183199, i32 noundef 2, i32 noundef %42)
+  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %41, ptr noundef %0, i32 noundef %.0133182198, i32 noundef 2, i32 noundef %42)
   %44 = load i32, ptr @hf_ipsictl_length, align 4
   %45 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %44, ptr noundef %0, i32 noundef %15, i32 noundef 2, i32 noundef %18)
   %46 = add i32 %38, -4
@@ -156,19 +155,19 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr noundef readonly captur
 
 48:                                               ; preds = %.critedge142
   %49 = and i32 %38, -2
-  %.not178 = icmp eq i32 %49, 6
-  br i1 %.not178, label %.thread169, label %54
+  %.not177 = icmp eq i32 %49, 6
+  br i1 %.not177, label %.thread169, label %54
 
 .thread158:                                       ; preds = %.critedge142.thread
   %50 = load i32, ptr @hf_ipsictl_type, align 4
   %51 = zext i16 %19 to i32
   %52 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %50, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef %51)
   %53 = and i32 %38, -2
-  %.not177 = icmp eq i32 %53, 6
-  br i1 %.not177, label %.thread169, label %.thread166
+  %.not176 = icmp eq i32 %53, 6
+  br i1 %.not176, label %.thread169, label %.thread166
 
 54:                                               ; preds = %48
-  %55 = add i32 %.0133183199, 8
+  %55 = add i32 %.0133182198, 8
   %56 = add i32 %38, -8
   %57 = icmp samesign ugt i32 %56, 1
   br i1 %57, label %64, label %.thread169
@@ -177,13 +176,13 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr noundef readonly captur
   %58 = load i32, ptr @hf_ipsictl_sequence, align 4
   %59 = zext i16 %.1120150 to i32
   %60 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %58, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef %59)
-  %61 = add i32 %.0133183199, 8
+  %61 = add i32 %.0133182198, 8
   %62 = add i32 %38, -8
   %63 = icmp samesign ugt i32 %62, 1
   br i1 %63, label %.thread174, label %.thread169
 
 64:                                               ; preds = %54
-  %65 = add i32 %.0133183199, 10
+  %65 = add i32 %.0133182198, 10
   %66 = icmp samesign ugt i32 %56, 3
   br i1 %66, label %75, label %.thread169
 
@@ -191,7 +190,7 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr noundef readonly captur
   %67 = load i32, ptr @hf_ipsictl_field1, align 4
   %68 = zext i16 %.1 to i32
   %69 = tail call ptr @proto_tree_add_uint(ptr noundef %37, i32 noundef %67, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef %68)
-  %70 = add i32 %.0133183199, 10
+  %70 = add i32 %.0133182198, 10
   %71 = icmp samesign ugt i32 %62, 3
   br i1 %71, label %72, label %.thread169
 
@@ -207,32 +206,32 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr noundef readonly captur
 
 .thread169:                                       ; preds = %.critedge142.thread, %.critedge142, %.thread158, %48, %.thread166, %54, %.thread174, %75, %64
   %.5 = phi i32 [ %77, %75 ], [ %65, %64 ], [ %70, %.thread174 ], [ %61, %.thread166 ], [ %55, %54 ], [ %20, %.thread158 ], [ %20, %48 ], [ %17, %.critedge142 ], [ %17, %.critedge142.thread ]
-  %78 = add i16 %.0113188194, 1
+  %78 = add i16 %.0113187193, 1
   %79 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5)
   %80 = icmp sgt i32 %79, 6
-  br i1 %80, label %.lr.ph200, label %._crit_edge201
+  br i1 %80, label %.lr.ph199, label %._crit_edge200
 
-._crit_edge201:                                   ; preds = %.thread169
+._crit_edge200:                                   ; preds = %.thread169
   %81 = zext i16 %78 to i32
   br label %82
 
-82:                                               ; preds = %._crit_edge201, %.lr.ph
-  %.0113188.lcssa = phi i32 [ %81, %._crit_edge201 ], [ 0, %.lr.ph ]
-  %.0115186.lcssa = phi i32 [ %.1116153, %._crit_edge201 ], [ -1, %.lr.ph ]
-  %.0117185.lcssa = phi i32 [ %.1118152, %._crit_edge201 ], [ -1, %.lr.ph ]
+82:                                               ; preds = %._crit_edge200, %.lr.ph
+  %.0113187.lcssa = phi i32 [ %81, %._crit_edge200 ], [ 0, %.lr.ph ]
+  %.0115185.lcssa = phi i32 [ %.1116153, %._crit_edge200 ], [ -1, %.lr.ph ]
+  %.0117184.lcssa = phi i32 [ %.1118152, %._crit_edge200 ], [ -1, %.lr.ph ]
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8
   tail call void @col_set_str(ptr noundef %84, i32 noundef 35, ptr noundef nonnull @.str.21)
-  %85 = icmp eq i32 %.0115186.lcssa, -1
+  %85 = icmp eq i32 %.0115185.lcssa, -1
   %86 = load ptr, ptr %83, align 8
   br i1 %85, label %87, label %88
 
 87:                                               ; preds = %82
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.24, i32 noundef %.0113188.lcssa, i32 noundef %.0117185.lcssa)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.24, i32 noundef %.0113187.lcssa, i32 noundef %.0117184.lcssa)
   br label %94
 
 88:                                               ; preds = %82
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.25, i32 noundef %.0113188.lcssa, i32 noundef %.0117185.lcssa, i32 noundef %.0115186.lcssa)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.25, i32 noundef %.0113187.lcssa, i32 noundef %.0117184.lcssa, i32 noundef %.0115185.lcssa)
   br label %94
 
 ._crit_edge:                                      ; preds = %4

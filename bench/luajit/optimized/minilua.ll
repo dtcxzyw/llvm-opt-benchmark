@@ -731,7 +731,7 @@ define internal fastcc void @luaL_register(ptr noundef %0, ptr noundef %1, ptr n
   %5 = alloca %struct.lua_TValue, align 8
   %6 = alloca %struct.lua_TValue, align 8
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %64, label %7
+  br i1 %.not.i, label %65, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %2, align 8, !tbaa !60
@@ -835,57 +835,57 @@ lua_type.exit.thread.i:                           ; preds = %lua_type.exit.i, %l
 lua_remove.exit.i:                                ; preds = %.lr.ph.i37.i
   %.ptr39.i = getelementptr inbounds i8, ptr %55, i64 -16
   store ptr %.ptr39.i, ptr %13, align 8, !tbaa !62
-  %.ptr.i = getelementptr inbounds i8, ptr %55, i64 -32
-  %57 = load i64, ptr %.ptr.i, align 8, !tbaa !46
-  store i64 %57, ptr %.ptr39.i, align 8, !tbaa !46
-  %58 = getelementptr inbounds i8, ptr %55, i64 -24
-  %59 = load i32, ptr %58, align 8, !tbaa !69
-  %60 = getelementptr inbounds i8, ptr %55, i64 -8
-  store i32 %59, ptr %60, align 8, !tbaa !69
+  %57 = getelementptr i8, ptr %55, i64 -32
+  %58 = load i64, ptr %57, align 8, !tbaa !46
+  store i64 %58, ptr %.ptr39.i, align 8, !tbaa !46
+  %59 = getelementptr inbounds i8, ptr %55, i64 -24
+  %60 = load i32, ptr %59, align 8, !tbaa !69
+  %61 = getelementptr inbounds i8, ptr %55, i64 -8
+  store i32 %60, ptr %61, align 8, !tbaa !69
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !62
-  %61 = load i64, ptr %.pre.i.i, align 8, !tbaa !46
-  store i64 %61, ptr %.ptr.i, align 8, !tbaa !46
-  %62 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !69
-  store i32 %63, ptr %58, align 8, !tbaa !69
-  br label %64
+  %62 = load i64, ptr %.pre.i.i, align 8, !tbaa !46
+  store i64 %62, ptr %57, align 8, !tbaa !46
+  %63 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 8
+  %64 = load i32, ptr %63, align 8, !tbaa !69
+  store i32 %64, ptr %59, align 8, !tbaa !69
+  br label %65
 
-64:                                               ; preds = %lua_remove.exit.i, %3
-  %65 = load ptr, ptr %2, align 8, !tbaa !60
-  %.not3641.i = icmp eq ptr %65, null
+65:                                               ; preds = %lua_remove.exit.i, %3
+  %66 = load ptr, ptr %2, align 8, !tbaa !60
+  %.not3641.i = icmp eq ptr %66, null
   br i1 %.not3641.i, label %luaI_openlib.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %68
+.lr.ph.i:                                         ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  br label %69
 
-68:                                               ; preds = %68, %.lr.ph.i
-  %.03242.i = phi ptr [ %2, %.lr.ph.i ], [ %80, %68 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.03242.i, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !63
-  tail call fastcc void @lua_pushcclosure(ptr noundef %0, ptr noundef %70, i32 noundef 0)
-  %71 = load ptr, ptr %.03242.i, align 8, !tbaa !60
+69:                                               ; preds = %69, %.lr.ph.i
+  %.03242.i = phi ptr [ %2, %.lr.ph.i ], [ %81, %69 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.03242.i, i64 8
+  %71 = load ptr, ptr %70, align 8, !tbaa !63
+  tail call fastcc void @lua_pushcclosure(ptr noundef %0, ptr noundef %71, i32 noundef 0)
+  %72 = load ptr, ptr %.03242.i, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %72 = load ptr, ptr %66, align 8, !tbaa !62
-  %73 = getelementptr inbounds i8, ptr %72, i64 -32
-  %74 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %71) #36
-  %75 = tail call fastcc ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull readonly %71, i64 noundef %74)
-  store ptr %75, ptr %4, align 8, !tbaa !46
-  store i32 4, ptr %67, align 8, !tbaa !69
-  %76 = load ptr, ptr %66, align 8, !tbaa !62
-  %77 = getelementptr inbounds i8, ptr %76, i64 -16
-  call fastcc void @luaV_settable(ptr noundef %0, ptr noundef nonnull %73, ptr noundef nonnull %4, ptr noundef nonnull %77)
-  %78 = load ptr, ptr %66, align 8, !tbaa !62
-  %79 = getelementptr inbounds i8, ptr %78, i64 -16
-  store ptr %79, ptr %66, align 8, !tbaa !62
+  %73 = load ptr, ptr %67, align 8, !tbaa !62
+  %74 = getelementptr inbounds i8, ptr %73, i64 -32
+  %75 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %72) #36
+  %76 = tail call fastcc ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull readonly %72, i64 noundef %75)
+  store ptr %76, ptr %4, align 8, !tbaa !46
+  store i32 4, ptr %68, align 8, !tbaa !69
+  %77 = load ptr, ptr %67, align 8, !tbaa !62
+  %78 = getelementptr inbounds i8, ptr %77, i64 -16
+  call fastcc void @luaV_settable(ptr noundef %0, ptr noundef nonnull %74, ptr noundef nonnull %4, ptr noundef nonnull %78)
+  %79 = load ptr, ptr %67, align 8, !tbaa !62
+  %80 = getelementptr inbounds i8, ptr %79, i64 -16
+  store ptr %80, ptr %67, align 8, !tbaa !62
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %80 = getelementptr inbounds nuw i8, ptr %.03242.i, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !60
-  %.not36.i = icmp eq ptr %81, null
-  br i1 %.not36.i, label %luaI_openlib.exit, label %68, !llvm.loop !92
+  %81 = getelementptr inbounds nuw i8, ptr %.03242.i, i64 16
+  %82 = load ptr, ptr %81, align 8, !tbaa !60
+  %.not36.i = icmp eq ptr %82, null
+  br i1 %.not36.i, label %luaI_openlib.exit, label %69, !llvm.loop !92
 
-luaI_openlib.exit:                                ; preds = %68, %64
+luaI_openlib.exit:                                ; preds = %69, %65
   ret void
 }
 
@@ -21238,7 +21238,7 @@ testnext.exit136:                                 ; preds = %551
   br i1 %.not190, label %luaK_reserveregs.exit, label %584
 
 584:                                              ; preds = %testnext.exit136
-  %585 = icmp samesign ugt i32 %579, 249
+  %585 = icmp samesign ugt i32 %578, 248
   br i1 %585, label %586, label %591
 
 586:                                              ; preds = %584
@@ -21433,7 +21433,7 @@ freeexp.exit.i.i117:                              ; preds = %653, %649, %646, %6
   br i1 %.not.i.i118, label %luaK_exp2nextreg.exit.i119, label %664
 
 664:                                              ; preds = %freeexp.exit.i.i117
-  %665 = icmp samesign ugt i32 %659, 249
+  %665 = icmp samesign ugt i32 %658, 248
   br i1 %665, label %666, label %671
 
 666:                                              ; preds = %664
@@ -21472,7 +21472,7 @@ explist1.exit:                                    ; preds = %luaK_exp2nextreg.ex
   br i1 %683, label %684, label %luaK_checkstack.exit
 
 684:                                              ; preds = %explist1.exit
-  %685 = icmp samesign ugt i32 %678, 249
+  %685 = icmp sgt i32 %677, 246
   br i1 %685, label %686, label %691
 
 686:                                              ; preds = %684
@@ -22028,7 +22028,7 @@ str_checkname.exit.i22:                           ; preds = %920, %919
   br i1 %.not189, label %luaK_reserveregs.exit.i, label %929
 
 929:                                              ; preds = %str_checkname.exit.i22
-  %930 = icmp samesign ugt i32 %924, 249
+  %930 = icmp samesign ugt i32 %923, 248
   br i1 %930, label %931, label %936
 
 931:                                              ; preds = %929
@@ -22245,7 +22245,7 @@ freeexp.exit.i98:                                 ; preds = %1017, %1013, %1010,
   br i1 %.not.i99, label %luaK_exp2nextreg.exit103, label %1028
 
 1028:                                             ; preds = %freeexp.exit.i98
-  %1029 = icmp samesign ugt i32 %1023, 249
+  %1029 = icmp samesign ugt i32 %1022, 248
   br i1 %1029, label %1030, label %1035
 
 1030:                                             ; preds = %1028
@@ -22404,7 +22404,7 @@ freeexp.exit.i:                                   ; preds = %1087, %1083, %1080,
   br i1 %.not.i91, label %luaK_exp2nextreg.exit, label %1098
 
 1098:                                             ; preds = %freeexp.exit.i
-  %1099 = icmp samesign ugt i32 %1093, 249
+  %1099 = icmp samesign ugt i32 %1092, 248
   br i1 %1099, label %1100, label %1105
 
 1100:                                             ; preds = %1098
@@ -22481,7 +22481,7 @@ explist1.exit.i.thread:                           ; preds = %1067
   br i1 %.not.i24.i, label %luaK_reserveregs.exit.i.i, label %1144
 
 1144:                                             ; preds = %1127
-  %1145 = icmp samesign ugt i32 %1140, 249
+  %1145 = icmp samesign ugt i32 %1139, 248
   br i1 %1145, label %1146, label %1151
 
 1146:                                             ; preds = %1144
@@ -22565,7 +22565,7 @@ freeexp.exit.i.i:                                 ; preds = %1178, %1174, %1171,
   br i1 %.not.i25.i, label %luaK_exp2nextreg.exit.i, label %1189
 
 1189:                                             ; preds = %freeexp.exit.i.i
-  %1190 = icmp samesign ugt i32 %1184, 249
+  %1190 = icmp samesign ugt i32 %1183, 248
   br i1 %1190, label %1191, label %1196
 
 1191:                                             ; preds = %1189
@@ -26892,7 +26892,7 @@ invertjump.exit.i.i:                              ; preds = %61, %54
   br i1 %.not5.i.i.i, label %discharge2anyreg.exit.i.i, label %75
 
 75:                                               ; preds = %67
-  %76 = icmp samesign ugt i32 %70, 249
+  %76 = icmp samesign ugt i32 %69, 248
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %75
@@ -27579,7 +27579,7 @@ freeexp.exit.i.i35:                               ; preds = %369, %365, %362, %3
   br i1 %.not.i.i, label %luaK_infix.exit.thread57, label %380
 
 380:                                              ; preds = %freeexp.exit.i.i35
-  %381 = icmp samesign ugt i32 %375, 249
+  %381 = icmp samesign ugt i32 %374, 248
   br i1 %381, label %382, label %387
 
 382:                                              ; preds = %380
@@ -27868,7 +27868,7 @@ freeexp.exit.i.i40:                               ; preds = %511, %507, %504, %5
   br i1 %.not.i80.i, label %luaK_exp2nextreg.exit.i41, label %522
 
 522:                                              ; preds = %freeexp.exit.i.i40
-  %523 = icmp samesign ugt i32 %517, 249
+  %523 = icmp samesign ugt i32 %516, 248
   br i1 %523, label %524, label %529
 
 524:                                              ; preds = %522
@@ -28348,7 +28348,7 @@ freeexp.exit.i:                                   ; preds = %28, %24, %20, %17
   br i1 %.not.i, label %luaK_exp2nextreg.exit, label %39
 
 39:                                               ; preds = %freeexp.exit.i
-  %40 = icmp samesign ugt i32 %34, 249
+  %40 = icmp samesign ugt i32 %33, 248
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %39
@@ -29850,7 +29850,7 @@ freeexp.exit.i:                                   ; preds = %33, %29, %26, %2
   br i1 %.not.i, label %luaK_exp2nextreg.exit, label %44
 
 44:                                               ; preds = %freeexp.exit.i
-  %45 = icmp samesign ugt i32 %39, 249
+  %45 = icmp samesign ugt i32 %38, 248
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %44
@@ -29894,19 +29894,19 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %51
   call fastcc void @luaK_dischargevars(ptr noundef %5, ptr noundef nonnull %3)
   %67 = load i32, ptr %3, align 8, !tbaa !311
   %68 = icmp eq i32 %67, 12
-  br i1 %68, label %69, label %freeexp.exit.i.i
+  br i1 %68, label %69, label %freeexp.exit.i.ithread-pre-split
 
 69:                                               ; preds = %66
   %70 = load i32, ptr %22, align 8, !tbaa !46
   %71 = and i32 %70, 256
   %.not.i.i.i.i = icmp eq i32 %71, 0
-  br i1 %.not.i.i.i.i, label %72, label %freeexp.exit.i.i
+  br i1 %.not.i.i.i.i, label %72, label %freeexp.exit.i.ithread-pre-split
 
 72:                                               ; preds = %69
   %73 = load i8, ptr %56, align 2, !tbaa !317
   %74 = zext i8 %73 to i32
   %.not3.i.i.i.i = icmp slt i32 %70, %74
-  br i1 %.not3.i.i.i.i, label %freeexp.exit.i.i, label %75
+  br i1 %.not3.i.i.i.i, label %freeexp.exit.i.ithread-pre-split, label %75
 
 75:                                               ; preds = %72
   %76 = load i32, ptr %57, align 4, !tbaa !323
@@ -29914,8 +29914,12 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %51
   store i32 %77, ptr %57, align 4, !tbaa !323
   br label %freeexp.exit.i.i
 
-freeexp.exit.i.i:                                 ; preds = %75, %72, %69, %66
-  %78 = load i32, ptr %57, align 4, !tbaa !323
+freeexp.exit.i.ithread-pre-split:                 ; preds = %66, %69, %72
+  %.pr79 = load i32, ptr %57, align 4, !tbaa !323
+  br label %freeexp.exit.i.i
+
+freeexp.exit.i.i:                                 ; preds = %freeexp.exit.i.ithread-pre-split, %75
+  %78 = phi i32 [ %.pr79, %freeexp.exit.i.ithread-pre-split ], [ %77, %75 ]
   %79 = add nsw i32 %78, 1
   %80 = load ptr, ptr %5, align 8, !tbaa !296
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 115
@@ -29925,7 +29929,7 @@ freeexp.exit.i.i:                                 ; preds = %75, %72, %69, %66
   br i1 %.not.i.i, label %luaK_exp2nextreg.exit.i, label %84
 
 84:                                               ; preds = %freeexp.exit.i.i
-  %85 = icmp samesign ugt i32 %79, 249
+  %85 = icmp samesign ugt i32 %78, 248
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %84
@@ -30110,11 +30114,11 @@ listfield.exit32:                                 ; preds = %146
 .critedge.backedgethread-pre-split:               ; preds = %171, %178
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false)
   store i32 287, ptr %58, align 8, !tbaa !287
-  %.pr79 = load i32, ptr %53, align 8, !tbaa !301
+  %.pr80 = load i32, ptr %53, align 8, !tbaa !301
   br label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %.critedge.backedgethread-pre-split, %181, %174
-  %176 = phi i32 [ %.pr79, %.critedge.backedgethread-pre-split ], [ %182, %181 ], [ %175, %174 ]
+  %176 = phi i32 [ %.pr80, %.critedge.backedgethread-pre-split ], [ %182, %181 ], [ %175, %174 ]
   %177 = icmp eq i32 %176, 125
   br i1 %177, label %testnext.exit36.thread, label %62, !llvm.loop !366
 
@@ -30186,7 +30190,7 @@ testnext.exit36.thread:                           ; preds = %.critedge.backedge,
   br i1 %.not.i.i37, label %luaK_reserveregs.exit.i.i, label %220
 
 220:                                              ; preds = %196
-  %221 = icmp samesign ugt i32 %216, 249
+  %221 = icmp samesign ugt i32 %215, 248
   br i1 %221, label %222, label %226
 
 222:                                              ; preds = %220
@@ -30283,7 +30287,7 @@ freeexp.exit.i.i42:                               ; preds = %264, %260, %257, %2
   br i1 %.not.i16.i, label %luaK_exp2nextreg.exit.i43, label %275
 
 275:                                              ; preds = %freeexp.exit.i.i42
-  %276 = icmp samesign ugt i32 %270, 249
+  %276 = icmp samesign ugt i32 %269, 248
   br i1 %276, label %277, label %281
 
 277:                                              ; preds = %275
@@ -30607,19 +30611,19 @@ checkname.exit:                                   ; preds = %72, %73
   %76 = call fastcc i32 @luaK_exp2anyreg(ptr noundef %7, ptr noundef nonnull %1)
   %77 = load i32, ptr %1, align 8, !tbaa !311
   %78 = icmp eq i32 %77, 12
-  br i1 %78, label %79, label %freeexp.exit.i
+  br i1 %78, label %79, label %freeexp.exit.ithread-pre-split
 
 79:                                               ; preds = %checkname.exit
   %80 = load i32, ptr %24, align 8, !tbaa !46
   %81 = and i32 %80, 256
   %.not.i.i.i21 = icmp eq i32 %81, 0
-  br i1 %.not.i.i.i21, label %82, label %freeexp.exit.i
+  br i1 %.not.i.i.i21, label %82, label %freeexp.exit.ithread-pre-split
 
 82:                                               ; preds = %79
   %83 = load i8, ptr %26, align 2, !tbaa !317
   %84 = zext i8 %83 to i32
   %.not3.i.i.i = icmp slt i32 %80, %84
-  br i1 %.not3.i.i.i, label %freeexp.exit.i, label %85
+  br i1 %.not3.i.i.i, label %freeexp.exit.ithread-pre-split, label %85
 
 85:                                               ; preds = %82
   %86 = load i32, ptr %27, align 4, !tbaa !323
@@ -30627,8 +30631,12 @@ checkname.exit:                                   ; preds = %72, %73
   store i32 %87, ptr %27, align 4, !tbaa !323
   br label %freeexp.exit.i
 
-freeexp.exit.i:                                   ; preds = %85, %82, %79, %checkname.exit
-  %88 = load i32, ptr %27, align 4, !tbaa !323
+freeexp.exit.ithread-pre-split:                   ; preds = %checkname.exit, %79, %82
+  %.pr36 = load i32, ptr %27, align 4, !tbaa !323
+  br label %freeexp.exit.i
+
+freeexp.exit.i:                                   ; preds = %freeexp.exit.ithread-pre-split, %85
+  %88 = phi i32 [ %.pr36, %freeexp.exit.ithread-pre-split ], [ %87, %85 ]
   %89 = add nsw i32 %88, 2
   %90 = load ptr, ptr %7, align 8, !tbaa !296
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 115
@@ -30638,7 +30646,7 @@ freeexp.exit.i:                                   ; preds = %85, %82, %79, %chec
   br i1 %94, label %95, label %luaK_reserveregs.exit.i
 
 95:                                               ; preds = %freeexp.exit.i
-  %96 = icmp samesign ugt i32 %89, 249
+  %96 = icmp sgt i32 %88, 247
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %95
@@ -30698,7 +30706,7 @@ luaK_self.exit:                                   ; preds = %luaK_reserveregs.ex
 
 126:                                              ; preds = %39, %39, %39
   %127 = load i32, ptr %1, align 8, !tbaa !311
-  switch i32 %127, label %freeexp.exit.i22 [
+  switch i32 %127, label %freeexp.exit.i22thread-pre-split [
     i32 6, label %luaK_dischargevars.exit.thread33
     i32 7, label %128
     i32 8, label %136
@@ -30721,8 +30729,7 @@ luaK_dischargevars.exit.thread33:                 ; preds = %126
   %134 = load i32, ptr %133, align 8, !tbaa !291
   %135 = call fastcc i32 @luaK_code(ptr noundef %7, i32 noundef %131, i32 noundef %134)
   store i32 %135, ptr %24, align 8, !tbaa !46
-  store i32 11, ptr %1, align 8, !tbaa !311
-  br label %freeexp.exit.i22
+  br label %freeexp.exit.i22thread-pre-split.sink.split
 
 136:                                              ; preds = %126
   %137 = load i32, ptr %24, align 8, !tbaa !46
@@ -30733,8 +30740,7 @@ luaK_dischargevars.exit.thread33:                 ; preds = %126
   %142 = load i32, ptr %141, align 8, !tbaa !291
   %143 = call fastcc i32 @luaK_code(ptr noundef %7, i32 noundef %139, i32 noundef %142)
   store i32 %143, ptr %24, align 8, !tbaa !46
-  store i32 11, ptr %1, align 8, !tbaa !311
-  br label %freeexp.exit.i22
+  br label %freeexp.exit.i22thread-pre-split.sink.split
 
 144:                                              ; preds = %126
   %145 = load i32, ptr %25, align 4, !tbaa !46
@@ -30785,8 +30791,7 @@ freereg.exit23.i:                                 ; preds = %158, %155, %freereg
   %169 = load i32, ptr %168, align 8, !tbaa !291
   %170 = call fastcc i32 @luaK_code(ptr noundef %7, i32 noundef %166, i32 noundef %169)
   store i32 %170, ptr %24, align 8, !tbaa !46
-  store i32 11, ptr %1, align 8, !tbaa !311
-  br label %freeexp.exit.i22
+  br label %freeexp.exit.i22thread-pre-split.sink.split
 
 luaK_dischargevars.exit.thread:                   ; preds = %126
   store i32 12, ptr %1, align 8, !tbaa !311
@@ -30813,20 +30818,19 @@ luaK_dischargevars.exit.thread:                   ; preds = %126
   %188 = and i32 %187, 8388607
   %189 = or disjoint i32 %188, 16777216
   store i32 %189, ptr %186, align 4, !tbaa !150
-  store i32 11, ptr %1, align 8, !tbaa !311
-  br label %freeexp.exit.i22
+  br label %freeexp.exit.i22thread-pre-split.sink.split
 
 190:                                              ; preds = %126, %luaK_dischargevars.exit.thread, %luaK_dischargevars.exit.thread33
   %191 = load i32, ptr %24, align 8, !tbaa !46
   %192 = and i32 %191, 256
   %.not.i.i.i25 = icmp eq i32 %192, 0
-  br i1 %.not.i.i.i25, label %193, label %freeexp.exit.i22
+  br i1 %.not.i.i.i25, label %193, label %freeexp.exit.i22thread-pre-split
 
 193:                                              ; preds = %190
   %194 = load i8, ptr %26, align 2, !tbaa !317
   %195 = zext i8 %194 to i32
   %.not3.i.i.i26 = icmp slt i32 %191, %195
-  br i1 %.not3.i.i.i26, label %freeexp.exit.i22, label %196
+  br i1 %.not3.i.i.i26, label %freeexp.exit.i22thread-pre-split, label %196
 
 196:                                              ; preds = %193
   %197 = load i32, ptr %27, align 4, !tbaa !323
@@ -30834,8 +30838,16 @@ luaK_dischargevars.exit.thread:                   ; preds = %126
   store i32 %198, ptr %27, align 4, !tbaa !323
   br label %freeexp.exit.i22
 
-freeexp.exit.i22:                                 ; preds = %126, %180, %freereg.exit23.i, %136, %128, %196, %193, %190
-  %199 = load i32, ptr %27, align 4, !tbaa !323
+freeexp.exit.i22thread-pre-split.sink.split:      ; preds = %180, %freereg.exit23.i, %136, %128
+  store i32 11, ptr %1, align 8, !tbaa !311
+  br label %freeexp.exit.i22thread-pre-split
+
+freeexp.exit.i22thread-pre-split:                 ; preds = %freeexp.exit.i22thread-pre-split.sink.split, %126, %190, %193
+  %.pr37 = load i32, ptr %27, align 4, !tbaa !323
+  br label %freeexp.exit.i22
+
+freeexp.exit.i22:                                 ; preds = %freeexp.exit.i22thread-pre-split, %196
+  %199 = phi i32 [ %.pr37, %freeexp.exit.i22thread-pre-split ], [ %198, %196 ]
   %200 = add nsw i32 %199, 1
   %201 = load ptr, ptr %7, align 8, !tbaa !296
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 115
@@ -30845,7 +30857,7 @@ freeexp.exit.i22:                                 ; preds = %126, %180, %freereg
   br i1 %.not.i23, label %luaK_exp2nextreg.exit, label %205
 
 205:                                              ; preds = %freeexp.exit.i22
-  %206 = icmp samesign ugt i32 %200, 249
+  %206 = icmp samesign ugt i32 %199, 248
   br i1 %206, label %207, label %211
 
 207:                                              ; preds = %205
@@ -31698,7 +31710,7 @@ freeexp.exit.i41:                                 ; preds = %48, %44, %41, %37
   br i1 %.not.i42, label %luaK_exp2nextreg.exit46, label %59
 
 59:                                               ; preds = %freeexp.exit.i41
-  %60 = icmp samesign ugt i32 %54, 249
+  %60 = icmp samesign ugt i32 %53, 248
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %59
@@ -31773,7 +31785,7 @@ explist1.exit:                                    ; preds = %luaK_exp2nextreg.ex
   br i1 %.not.i35, label %luaK_reserveregs.exit.i, label %107
 
 107:                                              ; preds = %82
-  %108 = icmp samesign ugt i32 %103, 249
+  %108 = icmp samesign ugt i32 %102, 248
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %107
@@ -31890,7 +31902,7 @@ freeexp.exit.i:                                   ; preds = %149, %145, %141, %1
   br i1 %.not.i39, label %luaK_exp2nextreg.exit, label %160
 
 160:                                              ; preds = %freeexp.exit.i
-  %161 = icmp samesign ugt i32 %155, 249
+  %161 = icmp samesign ugt i32 %154, 248
   br i1 %161, label %162, label %167
 
 162:                                              ; preds = %160
@@ -32309,7 +32321,7 @@ define internal fastcc i32 @jumponcond(ptr noundef captures(none) %0, ptr nounde
   br i1 %.not5.i, label %discharge2anyreg.exit, label %30
 
 30:                                               ; preds = %.thread.thread
-  %31 = icmp samesign ugt i32 %25, 249
+  %31 = icmp samesign ugt i32 %24, 248
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %30
@@ -32616,7 +32628,7 @@ freeexp.exit.i:                                   ; preds = %16, %12, %8, %1
   br i1 %.not.i, label %luaK_exp2nextreg.exit, label %27
 
 27:                                               ; preds = %freeexp.exit.i
-  %28 = icmp samesign ugt i32 %22, 249
+  %28 = icmp samesign ugt i32 %21, 248
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %27
@@ -33162,7 +33174,7 @@ define internal fastcc void @adjust_assign(ptr captures(none) %.48.val, i32 noun
   br i1 %.not.i, label %luaK_reserveregs.exit.i, label %43
 
 43:                                               ; preds = %23
-  %44 = icmp samesign ugt i32 %39, 249
+  %44 = icmp samesign ugt i32 %38, 248
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %43
@@ -33256,7 +33268,7 @@ freeexp.exit.i:                                   ; preds = %81, %77, %73, %70
   br i1 %.not.i23, label %luaK_exp2nextreg.exit, label %92
 
 92:                                               ; preds = %freeexp.exit.i
-  %93 = icmp samesign ugt i32 %87, 249
+  %93 = icmp samesign ugt i32 %86, 248
   br i1 %93, label %94, label %99
 
 94:                                               ; preds = %92
@@ -33627,7 +33639,7 @@ define internal fastcc void @assignment(ptr noundef nonnull %0, ptr noundef nonn
   br i1 %.not1.i, label %luaK_reserveregs.exit.i, label %67
 
 67:                                               ; preds = %.thread9.i
-  %68 = icmp samesign ugt i32 %62, 249
+  %68 = icmp samesign ugt i32 %61, 248
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %67
@@ -33761,7 +33773,7 @@ freeexp.exit.i:                                   ; preds = %127, %123, %120, %1
   br i1 %.not.i40, label %luaK_exp2nextreg.exit, label %138
 
 138:                                              ; preds = %freeexp.exit.i
-  %139 = icmp samesign ugt i32 %133, 249
+  %139 = icmp samesign ugt i32 %132, 248
   br i1 %139, label %140, label %145
 
 140:                                              ; preds = %138

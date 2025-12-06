@@ -1838,7 +1838,7 @@ define internal fastcc void @process_mget_command(ptr noundef %0, ptr noundef no
 93:                                               ; preds = %91, %85
   %.0 = phi ptr [ %90, %85 ], [ %92, %91 ]
   %94 = add nsw i64 %2, -1
-  %95 = icmp samesign ugt i64 %94, 2
+  %95 = icmp sgt i64 %2, 3
   br i1 %95, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %93
@@ -2332,7 +2332,7 @@ define internal fastcc void @process_mget_command(ptr noundef %0, ptr noundef no
   store i16 20037, ptr %.6, align 1
   %364 = getelementptr inbounds nuw i8, ptr %.6, i64 2
   %365 = add nsw i64 %2, -1
-  %366 = icmp samesign ugt i64 %365, 2
+  %366 = icmp sgt i64 %2, 3
   br i1 %366, label %.lr.ph315, label %._crit_edge316
 
 .lr.ph315:                                        ; preds = %363, %393
@@ -2895,13 +2895,16 @@ define internal fastcc void @process_mdelete_command(ptr noundef %0, ptr noundef
   store i8 %30, ptr %27, align 4, !tbaa !39
   %31 = load ptr, ptr %14, align 8, !tbaa !66
   %32 = load i64, ptr %15, align 8, !tbaa !68
-  %33 = add nsw i64 %2, -1
-  %34 = icmp samesign ugt i64 %33, 2
-  br i1 %34, label %.lr.ph, label %._crit_edge
+  %33 = icmp sgt i64 %2, 3
+  br i1 %33, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %25, %60
-  %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 2, %25 ]
-  %.0111153 = phi ptr [ %.1112, %60 ], [ %10, %25 ]
+.lr.ph.preheader:                                 ; preds = %25
+  %34 = add nsw i64 %2, -2
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %60
+  %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 2, %.lr.ph.preheader ]
+  %.0111153 = phi ptr [ %.1112, %60 ], [ %10, %.lr.ph.preheader ]
   %35 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !66
   %37 = load i8, ptr %36, align 1, !tbaa !29
@@ -2953,7 +2956,7 @@ define internal fastcc void @process_mdelete_command(ptr noundef %0, ptr noundef
 60:                                               ; preds = %.lr.ph, %42, %55, %53
   %.1112 = phi ptr [ %.0111153, %.lr.ph ], [ %47, %42 ], [ %59, %55 ], [ %54, %53 ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %33
+  %exitcond.not = icmp eq i64 %indvars.iv, %34
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 
 ._crit_edge:                                      ; preds = %60, %25
@@ -3491,9 +3494,12 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   br label %.thread182
 
 .preheader:                                       ; preds = %.thread
-  %136 = add nsw i64 %2, -1
-  %137 = icmp samesign ugt i64 %136, 2
-  br i1 %137, label %.lr.ph224, label %.loopexit
+  %136 = icmp sgt i64 %2, 3
+  br i1 %136, label %.lr.ph224.preheader, label %.loopexit
+
+.lr.ph224.preheader:                              ; preds = %.preheader
+  %137 = add nsw i64 %2, -2
+  br label %.lr.ph224
 
 .thread182:                                       ; preds = %.thread..thread182_crit_edge, %54
   %138 = phi i16 [ %.pre, %.thread..thread182_crit_edge ], [ %52, %54 ]
@@ -3518,13 +3524,13 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
 
 147:                                              ; preds = %145, %141
   %.1144 = phi ptr [ %144, %141 ], [ %146, %145 ]
-  %148 = add nsw i64 %2, -1
-  %149 = icmp samesign ugt i64 %148, 2
-  br i1 %149, label %.lr.ph, label %._crit_edge
+  %148 = icmp sgt i64 %2, 3
+  br i1 %148, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %147
-  %150 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %151 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %151 = add nsw i64 %2, -2
   br label %152
 
 152:                                              ; preds = %.lr.ph, %214
@@ -3589,7 +3595,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   br label %214
 
 183:                                              ; preds = %152
-  %184 = load i32, ptr %151, align 4, !tbaa !89
+  %184 = load i32, ptr %150, align 4, !tbaa !89
   %185 = load ptr, ptr %6, align 8, !tbaa !113
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 28
   store i32 %184, ptr %186, align 4, !tbaa !27
@@ -3599,7 +3605,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   br i1 %.0145186, label %188, label %214
 
 188:                                              ; preds = %187
-  %189 = load i32, ptr %150, align 8, !tbaa !90
+  %189 = load i32, ptr %149, align 8, !tbaa !90
   %190 = load ptr, ptr %6, align 8, !tbaa !113
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 28
   store i32 %189, ptr %191, align 4, !tbaa !27
@@ -3648,7 +3654,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
 214:                                              ; preds = %152, %166, %183, %196, %179, %176, %188, %187, %209, %207
   %.4 = phi ptr [ %.2220, %152 ], [ %168, %166 ], [ %178, %176 ], [ %182, %179 ], [ %.2220, %183 ], [ %.2220, %188 ], [ %.2220, %187 ], [ %201, %196 ], [ %213, %209 ], [ %208, %207 ]
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %148
+  %exitcond.not = icmp eq i64 %indvars.iv, %151
   br i1 %exitcond.not, label %._crit_edge, label %152, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %214, %147
@@ -3673,9 +3679,9 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
   call void @do_item_remove(ptr noundef %221) #13
   br label %.loopexit
 
-.lr.ph224:                                        ; preds = %.preheader, %247
-  %indvars.iv227 = phi i64 [ %indvars.iv.next228, %247 ], [ 2, %.preheader ]
-  %.7222 = phi ptr [ %.8, %247 ], [ %.0143.ph, %.preheader ]
+.lr.ph224:                                        ; preds = %.lr.ph224.preheader, %247
+  %indvars.iv227 = phi i64 [ %indvars.iv.next228, %247 ], [ 2, %.lr.ph224.preheader ]
+  %.7222 = phi ptr [ %.8, %247 ], [ %.0143.ph, %.lr.ph224.preheader ]
   %222 = getelementptr inbounds nuw %struct.token_s, ptr %1, i64 %indvars.iv227
   %223 = load ptr, ptr %222, align 8, !tbaa !66
   %224 = load i8, ptr %223, align 1, !tbaa !29
@@ -3727,7 +3733,7 @@ define internal fastcc void @process_marithmetic_command(ptr noundef %0, ptr nou
 247:                                              ; preds = %.lr.ph224, %229, %242, %240
   %.8 = phi ptr [ %.7222, %.lr.ph224 ], [ %234, %229 ], [ %246, %242 ], [ %241, %240 ]
   %indvars.iv.next228 = add nuw i64 %indvars.iv227, 1
-  %exitcond230.not = icmp eq i64 %indvars.iv.next228, %136
+  %exitcond230.not = icmp eq i64 %indvars.iv227, %137
   br i1 %exitcond230.not, label %.loopexit, label %.lr.ph224, !llvm.loop !116
 
 .loopexit:                                        ; preds = %247, %.preheader, %.thread188
