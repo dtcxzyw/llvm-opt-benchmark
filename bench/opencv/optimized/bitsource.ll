@@ -300,10 +300,10 @@ _ZN5zxing12ErrorHandlerD2Ev.exit52:               ; preds = %76, %_ZNKSt7__cxx11
   br i1 %.not, label %132, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.1.lcssa75 = phi i32 [ %117, %._crit_edge ], [ %.036, %.preheader ]
-  %.244.lcssa74 = phi i32 [ %115, %._crit_edge ], [ %.042, %.preheader ]
+  %.1.lcssa76 = phi i32 [ %117, %._crit_edge ], [ %.036, %.preheader ]
+  %.244.lcssa75 = phi i32 [ %115, %._crit_edge ], [ %.042, %.preheader ]
   %119 = phi i32 [ %116, %._crit_edge ], [ %.promoted, %.preheader ]
-  %120 = sub nuw nsw i32 8, %.1.lcssa75
+  %120 = sub nuw nsw i32 8, %.1.lcssa76
   %121 = shl nsw i32 -1, %120
   %122 = and i32 %121, 254
   %123 = shl i32 %.244.lcssa74, %.1.lcssa75
@@ -318,7 +318,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit52:               ; preds = %76, %_ZNKSt7__cxx11
   store i32 %131, ptr %22, align 4, !tbaa !17
   br label %132
 
-132:                                              ; preds = %105, %._crit_edge.thread, %._crit_edge, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
+132:; preds = %105, %._crit_edge.thread, %._crit_edge, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %.0 = phi i32 [ -1, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %130, %._crit_edge.thread ], [ %115, %._crit_edge ], [ %.042, %105 ]
   ret i32 %.0
 }

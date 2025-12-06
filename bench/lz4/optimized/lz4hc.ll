@@ -4016,10 +4016,10 @@ LZ4HC_reverseCountPattern.exit:                   ; preds = %1017, %.lr.ph.i738,
   %.ptr = getelementptr inbounds nuw i8, ptr %672, i64 %.013.i741.add
   %.val.i743 = load i32, ptr %.ptr, align 1, !tbaa !15
   %.not14.i744 = icmp eq i32 %.val.i743, %.0.i740
-  br i1 %.not14.i744, label %1036, label %.thread3235, !llvm.loop !48
+  br i1 %.not14.i744, label %1036, label %.thread3237, !llvm.loop !48
 
-.thread3235:                                      ; preds = %1037
-  %.013.i741.ptr.le3236 = getelementptr inbounds nuw i8, ptr %672, i64 %.013.i741.idx
+.thread3237:                                      ; preds = %1037
+  %.013.i741.ptr.le3238 = getelementptr inbounds nuw i8, ptr %672, i64 %.013.i741.idx
   br label %.lr.ph.i749.preheader
 
 1038:                                             ; preds = %1036
@@ -4027,8 +4027,8 @@ LZ4HC_reverseCountPattern.exit:                   ; preds = %1017, %.lr.ph.i738,
   %1039 = icmp sgt i64 %.013.i741.idx, 0
   br i1 %1039, label %.lr.ph.i749.preheader, label %LZ4HC_reverseCountPattern.exit753, !prof !50
 
-.lr.ph.i749.preheader:                            ; preds = %.thread3235, %1038
-  %.116.i751.ph = phi ptr [ %.013.i741.ptr.le, %1038 ], [ %.013.i741.ptr.le3236, %.thread3235 ]
+.lr.ph.i749.preheader:                            ; preds = %.thread3237, %1038
+  %.116.i751.ph = phi ptr [ %.013.i741.ptr.le, %1038 ], [ %.013.i741.ptr.le3238, %.thread3235 ]
   br label %.lr.ph.i749
 
 1040:                                             ; preds = %.lr.ph.i749
@@ -4488,8 +4488,8 @@ LZ4HC_Insert.exit.i337:                           ; preds = %LZ4HC_Insert.exit.i
   %..i542.i474 = tail call i64 @llvm.smax.i64(i64 %gepdiff, i64 %gepdiff1464)
   %1278 = trunc i64 %..i542.i474 to i32
   %1279 = icmp slt i32 %1278, -3
-  %sext3209 = shl i64 %..i542.i474, 32
-  %1280 = ashr exact i64 %sext3209, 32
+  %sext3211 = shl i64 %..i542.i474, 32
+  %1280 = ashr exact i64 %sext3211, 32
   br i1 %1279, label %.lr.ph1868.preheader, label %.preheader1520
 
 .lr.ph1868.preheader:                             ; preds = %1277
@@ -4924,12 +4924,12 @@ LZ4_count.exit485.i549:                           ; preds = %.thread1225, %1418,
   %..i533.i526 = tail call i64 @llvm.smax.i64(i64 %gepdiff, i64 %gepdiff1466)
   %1464 = trunc i64 %..i533.i526 to i32
   %1465 = icmp slt i32 %1464, -3
-  %sext3211 = shl i64 %..i533.i526, 32
-  %1466 = ashr exact i64 %sext3211, 32
+  %sext3213 = shl i64 %..i533.i526, 32
+  %1466 = ashr exact i64 %sext3213, 32
   br i1 %1465, label %.lr.ph1893.preheader, label %.preheader1519
 
 .lr.ph1893.preheader:                             ; preds = %1463
-  %invariant.op3589 = add nsw i64 %1466, 3
+  %invariant.op3591 = add nsw i64 %1466, 3
   br label %.lr.ph1893
 
 .preheader1519.loopexit:                          ; preds = %1478
@@ -4963,7 +4963,7 @@ LZ4_count.exit485.i549:                           ; preds = %.thread1225, %1418,
 
 1478:                                             ; preds = %.lr.ph1893
   %indvars.iv.next2625 = add nsw i64 %indvars.iv2624, -4
-  %1479 = icmp sgt i64 %indvars.iv.next2625, %invariant.op3589
+  %1479 = icmp sgt i64 %indvars.iv.next2625, %invariant.op3591
   br i1 %1479, label %.lr.ph1893, label %.preheader1519.loopexit
 
 1480:                                             ; preds = %.preheader1519, %1482
@@ -5321,10 +5321,10 @@ LZ4HC_reverseCountPattern.exit831:                ; preds = %1602, %.lr.ph.i827,
   %.ptr1467 = getelementptr inbounds nuw i8, ptr %1208, i64 %.013.i834.add
   %.val.i836 = load i32, ptr %.ptr1467, align 1, !tbaa !15
   %.not14.i837 = icmp eq i32 %.val.i836, %.0.i833
-  br i1 %.not14.i837, label %1621, label %.thread3238, !llvm.loop !48
+  br i1 %.not14.i837, label %1621, label %.thread3240, !llvm.loop !48
 
-.thread3238:                                      ; preds = %1622
-  %.013.i834.ptr.le3239 = getelementptr inbounds nuw i8, ptr %1208, i64 %.013.i834.idx
+.thread3240:                                      ; preds = %1622
+  %.013.i834.ptr.le3241 = getelementptr inbounds nuw i8, ptr %1208, i64 %.013.i834.idx
   br label %.lr.ph.i842.preheader
 
 1623:                                             ; preds = %1621
@@ -5332,8 +5332,8 @@ LZ4HC_reverseCountPattern.exit831:                ; preds = %1602, %.lr.ph.i827,
   %1624 = icmp sgt i64 %.013.i834.idx, 0
   br i1 %1624, label %.lr.ph.i842.preheader, label %LZ4HC_reverseCountPattern.exit846, !prof !50
 
-.lr.ph.i842.preheader:                            ; preds = %.thread3238, %1623
-  %.116.i844.ph = phi ptr [ %.013.i834.ptr.le, %1623 ], [ %.013.i834.ptr.le3239, %.thread3238 ]
+.lr.ph.i842.preheader:                            ; preds = %.thread3240, %1623
+  %.116.i844.ph = phi ptr [ %.013.i834.ptr.le, %1623 ], [ %.013.i834.ptr.le3241, %.thread3238 ]
   br label %.lr.ph.i842
 
 1625:                                             ; preds = %.lr.ph.i842
@@ -5625,12 +5625,12 @@ LZ4_count.exit.i384:                              ; preds = %.thread1276, %1721,
   %..i.i387 = tail call i64 @llvm.smax.i64(i64 %gepdiff1469, i64 %.neg)
   %1766 = trunc i64 %..i.i387 to i32
   %1767 = icmp slt i32 %1766, -3
-  %sext3213 = shl i64 %..i.i387, 32
-  %1768 = ashr exact i64 %sext3213, 32
+  %sext3215 = shl i64 %..i.i387, 32
+  %1768 = ashr exact i64 %sext3215, 32
   br i1 %1767, label %.lr.ph1927.preheader, label %.preheader1518
 
 .lr.ph1927.preheader:                             ; preds = %1765
-  %invariant.op3592 = add nsw i64 %1768, 3
+  %invariant.op3594 = add nsw i64 %1768, 3
   br label %.lr.ph1927
 
 .preheader1518.loopexit:                          ; preds = %1780
@@ -5664,7 +5664,7 @@ LZ4_count.exit.i384:                              ; preds = %.thread1276, %1721,
 
 1780:                                             ; preds = %.lr.ph1927
   %indvars.iv.next2632 = add nsw i64 %indvars.iv2631, -4
-  %1781 = icmp sgt i64 %indvars.iv.next2632, %invariant.op3592
+  %1781 = icmp sgt i64 %indvars.iv.next2632, %invariant.op3594
   br i1 %1781, label %.lr.ph1927, label %.preheader1518.loopexit
 
 1782:                                             ; preds = %.preheader1518, %1784
@@ -5748,15 +5748,15 @@ LZ4HC_InsertAndGetWiderMatch.exit569:             ; preds = %1705, %1794, %1677,
   br i1 %1821, label %.lr.ph2064.preheader, label %._crit_edge2065
 
 .lr.ph2064.preheader:                             ; preds = %1819
-  %reass.sub3214 = sub i64 %1809, %1810
-  %1822 = add i64 %reass.sub3214, -270
+  %reass.sub3216 = sub i64 %1809, %1810
+  %1822 = add i64 %reass.sub3216, -270
   %1823 = udiv i64 %1822, 255
   %1824 = add nuw nsw i64 %1823, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1808, i8 -1, i64 %1824, i1 false), !tbaa !26
   %scevgep2679 = getelementptr i8, ptr %.1.ph, i64 2
   %scevgep2680 = getelementptr i8, ptr %scevgep2679, i64 %1823
-  %.neg3215 = mul i64 %1823, -255
-  %1825 = add i64 %.neg3215, %1822
+  %.neg3217 = mul i64 %1823, -255
+  %1825 = add i64 %.neg3217, %1822
   br label %._crit_edge2065
 
 ._crit_edge2065:                                  ; preds = %.lr.ph2064.preheader, %1819
@@ -5823,8 +5823,8 @@ LZ4_wildCopy8.exit:                               ; preds = %1831
   %scevgep2686 = getelementptr i8, ptr %scevgep2685, i64 %1854
   %1855 = getelementptr i8, ptr %scevgep2686, i64 %1852
   %scevgep2687 = getelementptr i8, ptr %1855, i64 %1809
-  %.neg3216 = mul i64 %1851, -510
-  %1856 = add i64 %.neg3216, %1850
+  %.neg3218 = mul i64 %1851, -510
+  %1856 = add i64 %.neg3218, %1850
   br label %._crit_edge2072
 
 ._crit_edge2072:                                  ; preds = %.lr.ph2071.preheader, %1845
@@ -6050,12 +6050,12 @@ LZ4HC_Insert.exit.i133:                           ; preds = %LZ4HC_Insert.exit.i
   %..i542.i = tail call i64 @llvm.smax.i64(i64 %gepdiff1471, i64 %gepdiff1472)
   %1978 = trunc i64 %..i542.i to i32
   %1979 = icmp slt i32 %1978, -3
-  %sext3218 = shl i64 %..i542.i, 32
-  %1980 = ashr exact i64 %sext3218, 32
+  %sext3220 = shl i64 %..i542.i, 32
+  %1980 = ashr exact i64 %sext3220, 32
   br i1 %1979, label %.lr.ph1957.preheader, label %.preheader1517
 
 .lr.ph1957.preheader:                             ; preds = %1977
-  %invariant.op3595 = add nsw i64 %1980, 3
+  %invariant.op3597 = add nsw i64 %1980, 3
   br label %.lr.ph1957
 
 .preheader1517.loopexit:                          ; preds = %1992
@@ -6089,7 +6089,7 @@ LZ4HC_Insert.exit.i133:                           ; preds = %LZ4HC_Insert.exit.i
 
 1992:                                             ; preds = %.lr.ph1957
   %indvars.iv.next2642 = add nsw i64 %indvars.iv2641, -4
-  %1993 = icmp sgt i64 %indvars.iv.next2642, %invariant.op3595
+  %1993 = icmp sgt i64 %indvars.iv.next2642, %invariant.op3597
   br i1 %1993, label %.lr.ph1957, label %.preheader1517.loopexit
 
 1994:                                             ; preds = %.preheader1517, %1996
@@ -6486,12 +6486,12 @@ LZ4_count.exit485.i315:                           ; preds = %.thread1311, %2118,
   %..i533.i = tail call i64 @llvm.smax.i64(i64 %gepdiff1471, i64 %gepdiff1474)
   %2164 = trunc i64 %..i533.i to i32
   %2165 = icmp slt i32 %2164, -3
-  %sext3220 = shl i64 %..i533.i, 32
-  %2166 = ashr exact i64 %sext3220, 32
+  %sext3222 = shl i64 %..i533.i, 32
+  %2166 = ashr exact i64 %sext3222, 32
   br i1 %2165, label %.lr.ph1982.preheader, label %.preheader1516
 
 .lr.ph1982.preheader:                             ; preds = %2163
-  %invariant.op3598 = add nsw i64 %2166, 3
+  %invariant.op3600 = add nsw i64 %2166, 3
   br label %.lr.ph1982
 
 .preheader1516.loopexit:                          ; preds = %2178
@@ -6525,7 +6525,7 @@ LZ4_count.exit485.i315:                           ; preds = %.thread1311, %2118,
 
 2178:                                             ; preds = %.lr.ph1982
   %indvars.iv.next2649 = add nsw i64 %indvars.iv2648, -4
-  %2179 = icmp sgt i64 %indvars.iv.next2649, %invariant.op3598
+  %2179 = icmp sgt i64 %indvars.iv.next2649, %invariant.op3600
   br i1 %2179, label %.lr.ph1982, label %.preheader1516.loopexit
 
 2180:                                             ; preds = %.preheader1516, %2182
@@ -6883,10 +6883,10 @@ LZ4HC_reverseCountPattern.exit924:                ; preds = %2302, %.lr.ph.i920,
   %.ptr1475 = getelementptr inbounds nuw i8, ptr %1908, i64 %.013.i927.add
   %.val.i929 = load i32, ptr %.ptr1475, align 1, !tbaa !15
   %.not14.i930 = icmp eq i32 %.val.i929, %.0.i926
-  br i1 %.not14.i930, label %2321, label %.thread3241, !llvm.loop !48
+  br i1 %.not14.i930, label %2321, label %.thread3243, !llvm.loop !48
 
-.thread3241:                                      ; preds = %2322
-  %.013.i927.ptr.le3242 = getelementptr inbounds nuw i8, ptr %1908, i64 %.013.i927.idx
+.thread3243:                                      ; preds = %2322
+  %.013.i927.ptr.le3244 = getelementptr inbounds nuw i8, ptr %1908, i64 %.013.i927.idx
   br label %.lr.ph.i935.preheader
 
 2323:                                             ; preds = %2321
@@ -6894,8 +6894,8 @@ LZ4HC_reverseCountPattern.exit924:                ; preds = %2302, %.lr.ph.i920,
   %2324 = icmp sgt i64 %.013.i927.idx, 0
   br i1 %2324, label %.lr.ph.i935.preheader, label %LZ4HC_reverseCountPattern.exit939, !prof !50
 
-.lr.ph.i935.preheader:                            ; preds = %.thread3241, %2323
-  %.116.i937.ph = phi ptr [ %.013.i927.ptr.le, %2323 ], [ %.013.i927.ptr.le3242, %.thread3241 ]
+.lr.ph.i935.preheader:                            ; preds = %.thread3243, %2323
+  %.116.i937.ph = phi ptr [ %.013.i927.ptr.le, %2323 ], [ %.013.i927.ptr.le3244, %.thread3241 ]
   br label %.lr.ph.i935
 
 2325:                                             ; preds = %.lr.ph.i935
@@ -7187,12 +7187,12 @@ LZ4_count.exit.i180:                              ; preds = %.thread1362, %2421,
   %..i.i = tail call i64 @llvm.smax.i64(i64 %gepdiff1477, i64 %.neg1479)
   %2466 = trunc i64 %..i.i to i32
   %2467 = icmp slt i32 %2466, -3
-  %sext3222 = shl i64 %..i.i, 32
-  %2468 = ashr exact i64 %sext3222, 32
+  %sext3224 = shl i64 %..i.i, 32
+  %2468 = ashr exact i64 %sext3224, 32
   br i1 %2467, label %.lr.ph2016.preheader, label %.preheader
 
 .lr.ph2016.preheader:                             ; preds = %2465
-  %invariant.op3601 = add nsw i64 %2468, 3
+  %invariant.op3603 = add nsw i64 %2468, 3
   br label %.lr.ph2016
 
 .preheader.loopexit:                              ; preds = %2480
@@ -7226,7 +7226,7 @@ LZ4_count.exit.i180:                              ; preds = %.thread1362, %2421,
 
 2480:                                             ; preds = %.lr.ph2016
   %indvars.iv.next2656 = add nsw i64 %indvars.iv2655, -4
-  %2481 = icmp sgt i64 %indvars.iv.next2656, %invariant.op3601
+  %2481 = icmp sgt i64 %indvars.iv.next2656, %invariant.op3603
   br i1 %2481, label %.lr.ph2016, label %.preheader.loopexit
 
 2482:                                             ; preds = %.preheader, %2484
@@ -7322,8 +7322,8 @@ LZ4HC_InsertAndGetWiderMatch.exit335:             ; preds = %2405, %2494, %2377,
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2512, i8 -1, i64 %2528, i1 false), !tbaa !26
   %scevgep2691 = getelementptr i8, ptr %.5.ph, i64 2
   %scevgep2692 = getelementptr i8, ptr %scevgep2691, i64 %2527
-  %.neg3223 = mul i64 %2527, -255
-  %2529 = add i64 %.neg3223, %2526
+  %.neg3225 = mul i64 %2527, -255
+  %2529 = add i64 %.neg3225, %2526
   br label %._crit_edge2079
 
 ._crit_edge2079:                                  ; preds = %.lr.ph2078.preheader, %2522
@@ -7389,8 +7389,8 @@ LZ4_wildCopy8.exit110:                            ; preds = %2535
   %scevgep2696 = getelementptr i8, ptr %.24, i64 4
   %scevgep2697 = getelementptr i8, ptr %scevgep2696, i64 %2557
   %scevgep2698 = getelementptr i8, ptr %scevgep2697, i64 %2514
-  %.neg3224 = mul i64 %2556, -510
-  %2559 = add i64 %.neg3224, %2555
+  %.neg3226 = mul i64 %2556, -510
+  %2559 = add i64 %.neg3226, %2555
   br label %._crit_edge2086
 
 ._crit_edge2086:                                  ; preds = %.lr.ph2085.preheader, %2550
@@ -7445,15 +7445,15 @@ LZ4_wildCopy8.exit110:                            ; preds = %2535
   br i1 %2585, label %.lr.ph2092.preheader, label %._crit_edge2093
 
 .lr.ph2092.preheader:                             ; preds = %2583
-  %reass.sub3225 = sub i64 %2509, %2574
-  %2586 = add i64 %reass.sub3225, -270
+  %reass.sub3227 = sub i64 %2509, %2574
+  %2586 = add i64 %reass.sub3227, -270
   %2587 = udiv i64 %2586, 255
   %2588 = add nuw nsw i64 %2587, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2573, i8 -1, i64 %2588, i1 false), !tbaa !26
   %scevgep2699 = getelementptr i8, ptr %.25, i64 2
   %scevgep2700 = getelementptr i8, ptr %scevgep2699, i64 %2587
-  %.neg3226 = mul i64 %2587, -255
-  %2589 = add i64 %.neg3226, %2586
+  %.neg3228 = mul i64 %2587, -255
+  %2589 = add i64 %.neg3228, %2586
   br label %._crit_edge2093
 
 ._crit_edge2093:                                  ; preds = %.lr.ph2092.preheader, %2583
@@ -7520,8 +7520,8 @@ LZ4_wildCopy8.exit113:                            ; preds = %2595
   %scevgep2702 = getelementptr i8, ptr %scevgep2701, i64 %2618
   %2619 = getelementptr i8, ptr %scevgep2702, i64 %2616
   %scevgep2703 = getelementptr i8, ptr %2619, i64 %2509
-  %.neg3227 = mul i64 %2615, -510
-  %2620 = add i64 %.neg3227, %2614
+  %.neg3229 = mul i64 %2615, -510
+  %2620 = add i64 %.neg3229, %2614
   br label %._crit_edge2100
 
 ._crit_edge2100:                                  ; preds = %.lr.ph2099.preheader, %2609
@@ -7620,8 +7620,8 @@ LZ4_wildCopy8.exit113:                            ; preds = %2595
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2647, i8 -1, i64 %2663, i1 false), !tbaa !26
   %scevgep2668 = getelementptr i8, ptr %.5.ph, i64 2
   %scevgep2669 = getelementptr i8, ptr %scevgep2668, i64 %2662
-  %.neg3230 = mul i64 %2662, -255
-  %2664 = add i64 %.neg3230, %2661
+  %.neg3232 = mul i64 %2662, -255
+  %2664 = add i64 %.neg3232, %2661
   br label %._crit_edge2051
 
 ._crit_edge2051:                                  ; preds = %.lr.ph2050.preheader, %2657
@@ -7687,8 +7687,8 @@ LZ4_wildCopy8.exit119:                            ; preds = %2670
   %2693 = add i64 %2691, %2789
   %2694 = sub i64 %2693, %2648
   %scevgep2674 = getelementptr i8, ptr %scevgep2673, i64 %2694
-  %.neg3231 = mul i64 %2690, -510
-  %2695 = add i64 %.neg3231, %2689
+  %.neg3233 = mul i64 %2690, -510
+  %2695 = add i64 %.neg3233, %2689
   br label %._crit_edge2058
 
 ._crit_edge2058:                                  ; preds = %.lr.ph2057.preheader, %2684
@@ -7802,8 +7802,8 @@ LZ4_wildCopy8.exit119:                            ; preds = %2670
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2726, i8 -1, i64 %2742, i1 false), !tbaa !26
   %scevgep = getelementptr i8, ptr %.5.ph, i64 2
   %scevgep2662 = getelementptr i8, ptr %scevgep, i64 %2741
-  %.neg3228 = mul i64 %2741, -255
-  %2743 = add i64 %.neg3228, %2740
+  %.neg3230 = mul i64 %2741, -255
+  %2743 = add i64 %.neg3230, %2740
   br label %._crit_edge2037
 
 ._crit_edge2037:                                  ; preds = %.lr.ph2036.preheader, %2736
@@ -7870,8 +7870,8 @@ LZ4_wildCopy8.exit116:                            ; preds = %2749
   %2773 = add i64 %2771, %2789
   %2774 = sub i64 %2773, %2727
   %scevgep2664 = getelementptr i8, ptr %scevgep2663, i64 %2774
-  %.neg3229 = mul i64 %2770, -510
-  %2775 = add i64 %.neg3229, %2769
+  %.neg3231 = mul i64 %2770, -510
+  %2775 = add i64 %.neg3231, %2769
   br label %._crit_edge2044
 
 ._crit_edge2044:                                  ; preds = %.lr.ph2043.preheader, %2764
@@ -7993,8 +7993,8 @@ LZ4_wildCopy8.exit116:                            ; preds = %2749
   %2829 = add nuw nsw i64 %2828, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.42157, i8 -1, i64 %2829, i1 false), !tbaa !26
   %scevgep2706 = getelementptr i8, ptr %.21402, i64 %2829
-  %.neg3234 = mul i64 %2828, -255
-  %2830 = add i64 %.neg3234, %2827
+  %.neg3236 = mul i64 %2828, -255
+  %2830 = add i64 %.neg3236, %2827
   %2831 = getelementptr i8, ptr %.21402, i64 %2828
   %scevgep2707 = getelementptr i8, ptr %2831, i64 2
   br label %._crit_edge2162
@@ -8095,8 +8095,8 @@ LZ4HC_encodeSequence.exit:                        ; preds = %2507, %LZ4_wildCopy
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2870, i8 -1, i64 %2878, i1 false), !tbaa !26
   %2879 = getelementptr i8, ptr %.0328.i, i64 %2877
   %scevgep2704 = getelementptr i8, ptr %2879, i64 2
-  %.neg3232 = mul i64 %2877, -255
-  %2880 = add i64 %.neg3232, %2876
+  %.neg3234 = mul i64 %2877, -255
+  %2880 = add i64 %.neg3234, %2876
   br label %._crit_edge2147
 
 ._crit_edge2147:                                  ; preds = %.lr.ph2146.preheader, %2872
@@ -8154,8 +8154,8 @@ LZ4_wildCopy8.exit107:                            ; preds = %2886
   %2905 = add i64 %2904, 4
   %2906 = sub i64 %2905, %2847
   %scevgep2705 = getelementptr i8, ptr %.30, i64 %2906
-  %.neg3233 = mul i64 %2901, -510
-  %2907 = add i64 %.neg3233, %2900
+  %.neg3235 = mul i64 %2901, -510
+  %2907 = add i64 %.neg3235, %2900
   br label %._crit_edge2154
 
 ._crit_edge2154:                                  ; preds = %.lr.ph2153.preheader, %2895

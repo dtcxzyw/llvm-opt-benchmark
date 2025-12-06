@@ -4807,27 +4807,27 @@ define dso_local void @ata_std_postreset(ptr noundef %0, ptr readnone captures(n
   %52 = load ptr, ptr %51, align 8
   br label %53
 
-53:                                               ; preds = %48, %42
+51:                                               ; preds = %48, %42
   %54 = phi ptr [ %52, %48 ], [ @.str.30, %42 ]
   %55 = load i32, ptr %5, align 4
   %56 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.322, i32 noundef %44, i32 noundef %46, ptr noundef %54, i32 noundef %31, i32 noundef %55) #34
   br label %88
 
-57:                                               ; preds = %38
+55:                                               ; preds = %38
   %58 = getelementptr inbounds nuw i8, ptr %34, i64 36
-  %59 = load i32, ptr %58, align 4
+  %57 = load i32, ptr %58, align 4
   %60 = add nsw i32 %33, -4
   %or.cond3 = icmp ult i32 %60, -3
   br i1 %or.cond3, label %66, label %61
 
-61:                                               ; preds = %57
+59:                                               ; preds = %57
   %62 = zext nneg i32 %33 to i64
   %63 = getelementptr ptr, ptr @sata_spd_string.spd_str, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -8
   %65 = load ptr, ptr %64, align 8
   br label %66
 
-66:                                               ; preds = %61, %57
+63:                                               ; preds = %59, %57
   %67 = phi ptr [ %65, %61 ], [ @.str.30, %57 ]
   %68 = load i32, ptr %5, align 4
   %69 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.323, i32 noundef %59, ptr noundef %67, i32 noundef %31, i32 noundef %68) #34
@@ -4849,7 +4849,7 @@ define dso_local void @ata_std_postreset(ptr noundef %0, ptr readnone captures(n
   %81 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.324, i32 noundef %76, i32 noundef %78, i32 noundef %79, i32 noundef %80) #34
   br label %88
 
-82:                                               ; preds = %70
+82:; preds = %70
   %83 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %84 = load i32, ptr %83, align 4
   %85 = load i32, ptr %4, align 4
@@ -4857,7 +4857,7 @@ define dso_local void @ata_std_postreset(ptr noundef %0, ptr readnone captures(n
   %87 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.325, i32 noundef %84, i32 noundef %85, i32 noundef %86) #34
   br label %88
 
-88:                                               ; preds = %82, %74, %66, %53, %15, %12
+88:; preds = %82, %74, %66, %53, %15, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

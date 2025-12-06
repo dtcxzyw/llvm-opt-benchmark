@@ -21171,7 +21171,7 @@ zend_parse_arg_str_ex.exit..critedge_crit_edge:   ; preds = %zend_parse_arg_str_
   %.03863 = phi ptr [ null, %.thread56 ], [ %7, %zend_parse_arg_str_ex.exit ]
   %.03962 = phi i32 [ 0, %.thread56 ], [ 4, %zend_parse_arg_str_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.03764, i32 noundef %.065, ptr noundef null, i32 noundef %.03962, ptr noundef %.03863) #29
-  br label %77
+  br label %79
 
 .critedge:                                        ; preds = %zend_parse_arg_str_ex.exit..critedge_crit_edge, %.thread66
   %14 = phi ptr [ %.pre, %zend_parse_arg_str_ex.exit..critedge_crit_edge ], [ %11, %.thread66 ]
@@ -21254,14 +21254,14 @@ zend_string_alloc.exit.i:                         ; preds = %.critedge
   %59 = icmp ult ptr %.076.i, %28
   br i1 %59, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.loopexit.i, %70
+.lr.ph.i:                                         ; preds = %.loopexit.i, %72
   %.27896.i = phi ptr [ %.379.i, %70 ], [ %.076.i, %.loopexit.i ]
   %.28295.i = phi ptr [ %.383.i, %70 ], [ %.080.i, %.loopexit.i ]
   %60 = load i8, ptr %.27896.i, align 1, !tbaa !10
   %.fr.i = freeze i8 %60
   %61 = add i8 %.fr.i, -97
   %or.cond.i = icmp ult i8 %61, 26
-  br i1 %or.cond.i, label %62, label %65
+  br i1 %or.cond.i, label %62, label %66
 
 62:                                               ; preds = %.lr.ph.i
   %.cmp.i = icmp samesign ult i8 %.fr.i, 110
@@ -21270,27 +21270,27 @@ zend_string_alloc.exit.i:                         ; preds = %.critedge
   %64 = add i8 %63, %.v102.i
   br label %70
 
-65:                                               ; preds = %.lr.ph.i
-  %66 = add i8 %.fr.i, -65
-  %or.cond90.i = icmp ult i8 %66, 26
-  br i1 %or.cond90.i, label %67, label %70
+66:                                               ; preds = %.lr.ph.i
+  %67 = add i8 %.fr.i, -65
+  %or.cond90.i = icmp ult i8 %67, 26
+  br i1 %or.cond90.i, label %68, label %72
 
-67:                                               ; preds = %65
+68:                                               ; preds = %66
   %.cmp93.i = icmp samesign ult i8 %.fr.i, 78
   %.v.i = select i1 %.cmp93.i, i8 -52, i8 -78
   %68 = add nuw i8 %.fr.i, 65
   %69 = add i8 %68, %.v.i
   br label %70
 
-70:                                               ; preds = %67, %65, %62
+72:                                               ; preds = %68, %66, %62
   %.sink.i = phi i8 [ %69, %67 ], [ %64, %62 ], [ %.fr.i, %65 ]
   store i8 %.sink.i, ptr %.28295.i, align 1, !tbaa !10
   %.379.i = getelementptr inbounds nuw i8, ptr %.27896.i, i64 1
   %.383.i = getelementptr inbounds nuw i8, ptr %.28295.i, i64 1
-  %71 = icmp ult ptr %.379.i, %28
-  br i1 %71, label %.lr.ph.i, label %._crit_edge.i
+  %73 = icmp ult ptr %.379.i, %28
+  br i1 %73, label %.lr.ph.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %70, %.loopexit.i
+._crit_edge.i:                                    ; preds = %72, %.loopexit.i
   %.282.lcssa.i = phi ptr [ %.080.i, %.loopexit.i ], [ %.383.i, %70 ]
   store i8 0, ptr %.282.lcssa.i, align 1, !tbaa !10
   br label %php_str_rot13.exit
@@ -21298,16 +21298,16 @@ zend_string_alloc.exit.i:                         ; preds = %.critedge
 php_str_rot13.exit:                               ; preds = %18, %._crit_edge.i
   %.075.i = phi ptr [ %19, %18 ], [ %22, %._crit_edge.i ]
   store ptr %.075.i, ptr %1, align 8, !tbaa !10
-  %72 = getelementptr inbounds nuw i8, ptr %.075.i, i64 4
-  %73 = load i32, ptr %72, align 4, !tbaa !10
-  %74 = and i32 %73, 64
-  %.not42 = icmp eq i32 %74, 0
-  %75 = select i1 %.not42, i32 262, i32 6
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %75, ptr %76, align 8, !tbaa !10
-  br label %77
+  %74 = getelementptr inbounds nuw i8, ptr %.075.i, i64 4
+  %75 = load i32, ptr %74, align 4, !tbaa !10
+  %76 = and i32 %75, 64
+  %.not42 = icmp eq i32 %76, 0
+  %77 = select i1 %.not42, i32 262, i32 6
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %77, ptr %78, align 8, !tbaa !10
+  br label %79
 
-77:                                               ; preds = %13, %php_str_rot13.exit
+79:                                               ; preds = %13, %php_str_rot13.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

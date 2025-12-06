@@ -1827,16 +1827,16 @@ while.body.i.prol:                                ; preds = %while.body.preheade
   br i1 %prol.iter.cmp.not, label %while.body.i.prol.loopexit.loopexit, label %while.body.i.prol, !llvm.loop !65
 
 while.body.i.prol.loopexit.loopexit:              ; preds = %while.body.i.prol
-  %15 = lshr i64 %conv17, 5
-  %16 = and i64 %15, 134217720
+  %16 = lshr i64 %conv17, 5
+  %17 = and i64 %16, 134217720
   br label %while.body.i.prol.loopexit
 
 while.body.i.prol.loopexit:                       ; preds = %while.body.i.prol.loopexit.loopexit, %while.body.preheader.i
   %add.ptr.i.lcssa.unr = phi ptr [ undef, %while.body.preheader.i ], [ %add.ptr.i.prol, %while.body.i.prol.loopexit.loopexit ]
-  %i.040.i.unr = phi i64 [ %shr.i46, %while.body.preheader.i ], [ %16, %while.body.i.prol.loopexit.loopexit ]
+  %i.040.i.unr = phi i64 [ %shr.i46, %while.body.preheader.i ], [ %17, %while.body.i.prol.loopexit.loopexit ]
   %d.039.i.unr = phi ptr [ %10, %while.body.preheader.i ], [ %add.ptr.i.prol, %while.body.i.prol.loopexit.loopexit ]
-  %17 = icmp ult i32 %mul1.i.i33, 256
-  br i1 %17, label %while.end.i, label %while.body.i
+  %18 = icmp ult i32 %mul1.i.i33, 256
+  br i1 %18, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.prol.loopexit, %while.body.i
   %i.040.i = phi i64 [ %sub.i.7, %while.body.i ], [ %i.040.i.unr, %while.body.i.prol.loopexit ]

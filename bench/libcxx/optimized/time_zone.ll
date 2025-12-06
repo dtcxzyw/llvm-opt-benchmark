@@ -5203,28 +5203,28 @@ _ZNSt3__18__format8__detail17__parse_automaticB8ne210000ITkNS_19contiguous_itera
   %51 = icmp samesign ugt i64 %50, 2147483695
   br i1 %51, label %56, label %52
 
-52:                                               ; preds = %45
+53:                                               ; preds = %45
   %.not37.i.i = icmp eq ptr %48, %1
-  br i1 %.not37.i.i, label %57, label %53
+  br i1 %.not37.i.i, label %58, label %54
 
-53:                                               ; preds = %52
-  %54 = load i8, ptr %48, align 1, !tbaa !17
-  %55 = add i8 %54, -48
-  %or.cond39.i.i = icmp ult i8 %55, 10
-  br i1 %or.cond39.i.i, label %56, label %57
+54:                                               ; preds = %53
+  %55 = load i8, ptr %48, align 1, !tbaa !17
+  %56 = add i8 %55, -48
+  %or.cond39.i.i = icmp ult i8 %56, 10
+  br i1 %or.cond39.i.i, label %57, label %58
 
-56:                                               ; preds = %53, %45
+57:                                               ; preds = %54, %45
   tail call void @_ZNSt3__120__throw_format_errorB8ne210000EPKc(ptr noundef nonnull @.str.17) #32
   unreachable
 
-57:                                               ; preds = %53, %52
-  %58 = trunc nuw i64 %50 to i32
+58:                                               ; preds = %54, %53
+  %59 = trunc nuw i64 %50 to i32
   %59 = add i32 %58, -48
   br label %_ZNSt3__18__format14__parse_numberB8ne210000ITkNS_19contiguous_iteratorEPKcEENS0_21__parse_number_resultIT_EES5_S5_.exit.i
 
-_ZNSt3__18__format14__parse_numberB8ne210000ITkNS_19contiguous_iteratorEPKcEENS0_21__parse_number_resultIT_EES5_S5_.exit.i: ; preds = %.lr.ph.i.i, %57, %42, %._crit_edge.i.i
-  %.sroa.0.0.i.i = phi ptr [ %48, %57 ], [ %.lcssa.i.i, %42 ], [ %.lcssa.i.i, %._crit_edge.i.i ], [ %34, %.lr.ph.i.i ]
-  %.sroa.3.0.i.i = phi i32 [ %59, %57 ], [ %.0.lcssa.i.i, %42 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %.045.i.i, %.lr.ph.i.i ]
+_ZNSt3__18__format14__parse_numberB8ne210000ITkNS_19contiguous_iteratorEPKcEENS0_21__parse_number_resultIT_EES5_S5_.exit.i: ; preds = %.lr.ph.i.i, %58, %42, %._crit_edge.i.i
+  %.sroa.0.0.i.i = phi ptr [ %48, %58 ], [ %.lcssa.i.i, %42 ], [ %.lcssa.i.i, %._crit_edge.i.i ], [ %34, %.lr.ph.i.i ]
+  %.sroa.3.0.i.i = phi i32 [ %59, %58 ], [ %.0.lcssa.i.i, %42 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %.045.i.i, %.lr.ph.i.i ]
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %61 = load i32, ptr %60, align 8, !tbaa !300
   switch i32 %61, label %_ZNSt3__18__format8__detail14__parse_manualB8ne210000ITkNS_19contiguous_iteratorEPKcNS_26basic_format_parse_contextIcEEEENS0_21__parse_number_resultIT_EES8_S8_RT0_.exit [
@@ -6361,28 +6361,28 @@ _ZNSt3__113__format_spec14__parse_arg_idB8ne210000ITkNS_19contiguous_iteratorEPK
   %52 = zext nneg i8 %46 to i64
   %53 = add nuw nsw i64 %50, %52
   %54 = icmp samesign ugt i64 %53, 2147483695
-  br i1 %54, label %59, label %55
+  br i1 %54, label %59, label %56
 
-55:                                               ; preds = %48
+56:                                               ; preds = %48
   %.not37.i = icmp eq ptr %51, %2
-  br i1 %.not37.i, label %60, label %56
+  br i1 %.not37.i, label %61, label %57
 
-56:                                               ; preds = %55
-  %57 = load i8, ptr %51, align 1, !tbaa !17
-  %58 = add i8 %57, -48
-  %or.cond39.i = icmp ult i8 %58, 10
-  br i1 %or.cond39.i, label %59, label %60
+57:                                               ; preds = %56
+  %58 = load i8, ptr %51, align 1, !tbaa !17
+  %59 = add i8 %58, -48
+  %or.cond39.i = icmp ult i8 %59, 10
+  br i1 %or.cond39.i, label %60, label %61
 
-59:                                               ; preds = %56, %48
+60:                                               ; preds = %57, %48
   tail call void @_ZNSt3__120__throw_format_errorB8ne210000EPKc(ptr noundef nonnull @.str.17) #32
   unreachable
 
-60:                                               ; preds = %56, %55
-  %61 = trunc nuw i64 %53 to i32
+61:                                               ; preds = %57, %56
+  %62 = trunc nuw i64 %53 to i32
   %62 = add i32 %61, -48
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph.i, %60, %45, %._crit_edge.i, %_ZNSt3__113__format_spec14__parse_arg_idB8ne210000ITkNS_19contiguous_iteratorEPKcNS_26basic_format_parse_contextIcEEEENS_8__format21__parse_number_resultIT_EES8_S8_RT0_.exit
+.sink.split:                                      ; preds = %.lr.ph.i, %61, %45, %._crit_edge.i, %_ZNSt3__113__format_spec14__parse_arg_idB8ne210000ITkNS_19contiguous_iteratorEPKcNS_26basic_format_parse_contextIcEEEENS_8__format21__parse_number_resultIT_EES8_S8_RT0_.exit
   %.sroa.3.0.i.sink = phi i32 [ %19, %_ZNSt3__113__format_spec14__parse_arg_idB8ne210000ITkNS_19contiguous_iteratorEPKcNS_26basic_format_parse_contextIcEEEENS_8__format21__parse_number_resultIT_EES8_S8_RT0_.exit ], [ %62, %60 ], [ %.0.lcssa.i, %45 ], [ %.0.lcssa.i, %._crit_edge.i ], [ %.045.i, %.lr.ph.i ]
   %.sroa.0.0.i.sink = phi ptr [ %20, %_ZNSt3__113__format_spec14__parse_arg_idB8ne210000ITkNS_19contiguous_iteratorEPKcNS_26basic_format_parse_contextIcEEEENS_8__format21__parse_number_resultIT_EES8_S8_RT0_.exit ], [ %51, %60 ], [ %.lcssa.i, %45 ], [ %.lcssa.i, %._crit_edge.i ], [ %37, %.lr.ph.i ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -6518,28 +6518,28 @@ _ZNSt3__113__format_spec14__parse_arg_idB8ne210000ITkNS_19contiguous_iteratorEPK
   %60 = zext nneg i8 %54 to i64
   %61 = add nuw nsw i64 %58, %60
   %62 = icmp samesign ugt i64 %61, 2147483695
-  br i1 %62, label %67, label %63
+  br i1 %62, label %67, label %64
 
-63:                                               ; preds = %56
+64:                                               ; preds = %56
   %.not37.i = icmp eq ptr %59, %2
-  br i1 %.not37.i, label %68, label %64
+  br i1 %.not37.i, label %69, label %65
 
-64:                                               ; preds = %63
-  %65 = load i8, ptr %59, align 1, !tbaa !17
-  %66 = add i8 %65, -48
-  %or.cond39.i = icmp ult i8 %66, 10
-  br i1 %or.cond39.i, label %67, label %68
+65:                                               ; preds = %64
+  %66 = load i8, ptr %59, align 1, !tbaa !17
+  %67 = add i8 %66, -48
+  %or.cond39.i = icmp ult i8 %67, 10
+  br i1 %or.cond39.i, label %68, label %69
 
-67:                                               ; preds = %64, %56
+68:                                               ; preds = %65, %56
   tail call void @_ZNSt3__120__throw_format_errorB8ne210000EPKc(ptr noundef nonnull @.str.17) #32
   unreachable
 
-68:                                               ; preds = %64, %63
-  %69 = trunc nuw i64 %61 to i32
+69:                                               ; preds = %65, %64
+  %70 = trunc nuw i64 %62 to i32
   %70 = add i32 %69, -48
   br label %_ZNSt3__18__format14__parse_numberB8ne210000ITkNS_19contiguous_iteratorEPKcEENS0_21__parse_number_resultIT_EES5_S5_.exit
 
-_ZNSt3__18__format14__parse_numberB8ne210000ITkNS_19contiguous_iteratorEPKcEENS0_21__parse_number_resultIT_EES5_S5_.exit: ; preds = %.lr.ph.i, %._crit_edge.i, %53, %68
+_ZNSt3__18__format14__parse_numberB8ne210000ITkNS_19contiguous_iteratorEPKcEENS0_21__parse_number_resultIT_EES5_S5_.exit: ; preds = %.lr.ph.i, %._crit_edge.i, %53, %69
   %.sroa.0.0.i = phi ptr [ %59, %68 ], [ %.lcssa.i, %53 ], [ %.lcssa.i, %._crit_edge.i ], [ %45, %.lr.ph.i ]
   %.sroa.3.0.i = phi i32 [ %70, %68 ], [ %.0.lcssa.i, %53 ], [ %.0.lcssa.i, %._crit_edge.i ], [ %.045.i, %.lr.ph.i ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8

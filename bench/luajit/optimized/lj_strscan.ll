@@ -549,53 +549,53 @@ thread-pre-split:                                 ; preds = %22, %4
   %or.cond10 = or i1 %261, %262
   br i1 %or.cond10, label %265, label %263
 
-263:                                              ; preds = %260
-  %264 = tail call fastcc i32 @strscan_oct(ptr noundef nonnull %.5191, ptr noundef %2, i32 noundef %.2221, i32 noundef %.0213, i32 noundef %.2205)
+264:                                              ; preds = %260
+  %265 = tail call fastcc i32 @strscan_oct(ptr noundef nonnull %.5191, ptr noundef %2, i32 noundef %.2221, i32 noundef %.0213, i32 noundef %.2205)
   br label %.thread270
 
-265:                                              ; preds = %260
+266:                                              ; preds = %260
   switch i32 %.0215, label %.thread277 [
-    i32 16, label %266
-    i32 2, label %268
+    i32 16, label %267
+    i32 2, label %269
   ]
 
-266:                                              ; preds = %265
-  %267 = tail call fastcc i32 @strscan_hex(ptr noundef nonnull %.5191, ptr noundef %2, i32 noundef %.2221, i32 noundef %3, i32 noundef %.2196, i32 noundef %.0213, i32 noundef %.2205)
-  br label %271
+267:                                              ; preds = %266
+  %268 = tail call fastcc i32 @strscan_hex(ptr noundef nonnull %.5191, ptr noundef %2, i32 noundef %.2221, i32 noundef %3, i32 noundef %.2196, i32 noundef %.0213, i32 noundef %.2205)
+  br label %272
 
-268:                                              ; preds = %265
-  %269 = tail call fastcc i32 @strscan_bin(ptr noundef nonnull %.5191, ptr noundef %2, i32 noundef %.2221, i32 noundef %3, i32 noundef %.2196, i32 noundef %.0213, i32 noundef %.2205)
-  br label %271
+269:                                              ; preds = %266
+  %270 = tail call fastcc i32 @strscan_bin(ptr noundef nonnull %.5191, ptr noundef %2, i32 noundef %.2221, i32 noundef %3, i32 noundef %.2196, i32 noundef %.0213, i32 noundef %.2205)
+  br label %272
 
-.thread277:                                       ; preds = %243, %241, %265
-  %270 = tail call fastcc i32 @strscan_dec(ptr noundef nonnull %.5191, ptr noundef %2, i32 noundef %.2221, i32 noundef %3, i32 noundef %.2196, i32 noundef %.0213, i32 noundef %.2205)
-  br label %271
+.thread277:                                       ; preds = %243, %241, %266
+  %271 = tail call fastcc i32 @strscan_dec(ptr noundef nonnull %.5191, ptr noundef %2, i32 noundef %.2221, i32 noundef %3, i32 noundef %.2196, i32 noundef %.0213, i32 noundef %.2205)
+  br label %272
 
-271:                                              ; preds = %268, %.thread277, %266
-  %.7226 = phi i32 [ %267, %266 ], [ %269, %268 ], [ %270, %.thread277 ]
-  %272 = icmp ne i32 %.7226, 1
-  %273 = and i32 %3, 1
-  %.not252 = icmp eq i32 %273, 0
-  %or.cond268 = or i1 %.not252, %272
-  br i1 %or.cond268, label %.thread270, label %274
+272:                                              ; preds = %269, %.thread277, %267
+  %.7226 = phi i32 [ %268, %266 ], [ %270, %268 ], [ %271, %.thread277 ]
+  %273 = icmp ne i32 %.7226, 1
+  %274 = and i32 %3, 1
+  %.not252 = icmp eq i32 %274, 0
+  %or.cond268 = or i1 %.not252, %273
+  br i1 %or.cond268, label %.thread270, label %275
 
-274:                                              ; preds = %271
-  %275 = load i64, ptr %2, align 8
-  %276 = icmp eq i64 %275, -9223372036854775808
-  br i1 %276, label %.thread270, label %277
+275:                                              ; preds = %272
+  %276 = load i64, ptr %2, align 8
+  %277 = icmp eq i64 %276, -9223372036854775808
+  br i1 %277, label %.thread270, label %278
 
-277:                                              ; preds = %274
-  %278 = bitcast i64 %275 to double
-  %279 = fptosi double %278 to i32
-  %280 = sitofp i32 %279 to double
-  %281 = fcmp une double %278, %280
-  br i1 %281, label %.thread270, label %282
+278:                                              ; preds = %275
+  %279 = bitcast i64 %276 to double
+  %280 = fptosi double %279 to i32
+  %281 = sitofp i32 %280 to double
+  %282 = fcmp une double %279, %281
+  br i1 %282, label %.thread270, label %283
 
-282:                                              ; preds = %277
-  store i32 %279, ptr %2, align 8, !tbaa !4
+283:                                              ; preds = %278
+  store i32 %280, ptr %2, align 8, !tbaa !4
   br label %.thread270
 
-.thread270:                                       ; preds = %102, %121, %175, %277, %160, %271, %274, %282, %249, %256, %257, %263, %124, %127, %.critedge, %190, %209, %222, %220, %233, %234, %82, %80
+.thread270:                                       ; preds = %102, %121, %175, %278, %160, %272, %275, %283, %249, %256, %257, %264, %124, %127, %.critedge, %190, %209, %222, %220, %233, %234, %82, %80
   %.1 = phi i32 [ 1, %82 ], [ 0, %80 ], [ 1, %249 ], [ 1, %256 ], [ 3, %257 ], [ 3, %282 ], [ %264, %263 ], [ 0, %124 ], [ 0, %127 ], [ 0, %.critedge ], [ 0, %190 ], [ 0, %209 ], [ 0, %222 ], [ 0, %220 ], [ 0, %233 ], [ 0, %234 ], [ 1, %274 ], [ %.7226, %271 ], [ 0, %160 ], [ 1, %277 ], [ 0, %175 ], [ 0, %121 ], [ 0, %102 ]
   ret i32 %.1
 }

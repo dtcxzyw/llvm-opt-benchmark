@@ -2262,9 +2262,9 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %316 = load i32, ptr @hf_omron_no_of_link_nodes, align 4
   %317 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %316, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
   %318 = icmp samesign ugt i32 %66, 16
-  br i1 %318, label %.lr.ph2657.preheader, label %.thread2535
+  br i1 %318, label %.lr.ph2657, label %.thread2535
 
-.lr.ph2657.preheader:                             ; preds = %307
+.lr.ph2657:                                       ; preds = %307
   %319 = add nsw i32 %66, -9
   br label %.lr.ph2657
 

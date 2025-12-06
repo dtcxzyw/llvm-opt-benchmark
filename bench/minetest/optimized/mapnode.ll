@@ -4928,15 +4928,15 @@ vector.scevcheck:                                 ; preds = %invoke.cont43.prehe
   br i1 %16, label %invoke.cont43.preheader3, label %vector.memcheck
 
 vector.memcheck:                                  ; preds = %vector.scevcheck
-  %17 = shl nuw nsw i64 %wide.trip.count, 1
-  %scevgep = getelementptr i8, ptr %storemerge.i, i64 %17
-  %18 = zext i32 %mul34 to i64
-  %scevgep99 = getelementptr i8, ptr %storemerge.i, i64 %18
-  %19 = getelementptr i8, ptr %storemerge.i, i64 %wide.trip.count
-  %scevgep100 = getelementptr i8, ptr %19, i64 %18
-  %20 = zext i32 %mul37 to i64
-  %scevgep101 = getelementptr i8, ptr %storemerge.i, i64 %20
-  %scevgep102 = getelementptr i8, ptr %19, i64 %20
+  %18 = shl nuw nsw i64 %wide.trip.count, 1
+  %scevgep = getelementptr i8, ptr %storemerge.i, i64 %18
+  %19 = zext i32 %mul34 to i64
+  %scevgep99 = getelementptr i8, ptr %storemerge.i, i64 %19
+  %20 = getelementptr i8, ptr %storemerge.i, i64 %wide.trip.count
+  %scevgep100 = getelementptr i8, ptr %20, i64 %19
+  %21 = zext i32 %mul37 to i64
+  %scevgep101 = getelementptr i8, ptr %storemerge.i, i64 %21
+  %scevgep102 = getelementptr i8, ptr %20, i64 %21
   %bound0 = icmp ult ptr %storemerge.i, %scevgep100
   %bound1 = icmp ult ptr %scevgep99, %scevgep
   %found.conflict = and i1 %bound1, %bound0
@@ -4952,24 +4952,24 @@ vector.memcheck:                                  ; preds = %vector.scevcheck
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.mod.vf = and i64 %wide.trip.count, 7
-  %21 = icmp eq i64 %n.mod.vf, 0
-  %22 = select i1 %21, i64 8, i64 %n.mod.vf
-  %n.vec = sub nuw nsw i64 %wide.trip.count, %22
+  %22 = icmp eq i64 %n.mod.vf, 0
+  %23 = select i1 %22, i64 8, i64 %n.mod.vf
+  %n.vec = sub nuw nsw i64 %wide.trip.count, %23
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %23 = trunc i64 %index to i32
-  %24 = shl nuw i64 %index, 1
+  %24 = trunc i64 %index to i32
+  %25 = shl nuw i64 %index, 1
   %25 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %24
-  %26 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %index
-  %27 = getelementptr i8, ptr %26, i64 4
-  %28 = getelementptr i8, ptr %26, i64 8
-  %29 = getelementptr i8, ptr %26, i64 12
-  %30 = getelementptr i8, ptr %26, i64 16
-  %31 = getelementptr i8, ptr %26, i64 20
-  %32 = getelementptr i8, ptr %26, i64 24
-  %33 = getelementptr i8, ptr %26, i64 28
+  %27 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %index
+  %28 = getelementptr i8, ptr %26, i64 4
+  %29 = getelementptr i8, ptr %26, i64 8
+  %30 = getelementptr i8, ptr %26, i64 12
+  %31 = getelementptr i8, ptr %26, i64 16
+  %32 = getelementptr i8, ptr %26, i64 20
+  %33 = getelementptr i8, ptr %26, i64 24
+  %34 = getelementptr i8, ptr %26, i64 28
   %34 = load i16, ptr %26, align 4, !tbaa !52
   %35 = load i16, ptr %27, align 4, !tbaa !52
   %36 = load i16, ptr %28, align 4, !tbaa !52
@@ -5016,7 +5016,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %76 = insertelement <8 x i8> %75, i8 %68, i64 6
   %77 = insertelement <8 x i8> %76, i8 %69, i64 7
   store <8 x i8> %77, ptr %53, align 1, !tbaa !58, !alias.scope !218, !noalias !219
-  %78 = add i32 %mul37, %23
+  %78 = add i32 %mul37, %24
   %79 = zext i32 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %26, i64 3
@@ -5045,8 +5045,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %104 = insertelement <8 x i8> %103, i8 %96, i64 7
   store <8 x i8> %104, ptr %80, align 1, !tbaa !58, !alias.scope !219
   %index.next = add nuw nsw i64 %index, 8
-  %105 = icmp eq i64 %index.next, %n.vec
-  br i1 %105, label %invoke.cont43.preheader3, label %vector.body, !llvm.loop !220
+  %107 = icmp eq i64 %index.next, %n.vec
+  br i1 %107, label %invoke.cont43.preheader3, label %vector.body, !llvm.loop !220
 
 invoke.cont43.preheader3:                         ; preds = %vector.body, %vector.memcheck, %vector.scevcheck, %invoke.cont43.preheader
   %indvars.iv.ph = phi i64 [ 0, %invoke.cont43.preheader ], [ 0, %vector.scevcheck ], [ 0, %vector.memcheck ], [ %n.vec, %vector.body ]
@@ -5054,26 +5054,26 @@ invoke.cont43.preheader3:                         ; preds = %vector.body, %vecto
 
 invoke.cont43:                                    ; preds = %invoke.cont43.preheader3, %invoke.cont43
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont43 ], [ %indvars.iv.ph, %invoke.cont43.preheader3 ]
-  %106 = trunc i64 %indvars.iv to i32
+  %108 = trunc i64 %indvars.iv to i32
   %mul39 = shl nuw i64 %indvars.iv, 1
   %idxprom.i = and i64 %mul39, 4294967294
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i
   %arrayidx = getelementptr inbounds %struct.MapNode, ptr %nodes, i64 %indvars.iv
-  %107 = load i16, ptr %arrayidx, align 4, !tbaa !52
-  %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %107)
+  %109 = load i16, ptr %arrayidx, align 4, !tbaa !52
+  %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %109)
   store i16 %rev.i.i, ptr %arrayidx.i, align 1
-  %add44 = add i32 %mul34, %106
+  %add44 = add i32 %mul34, %108
   %idxprom.i88 = zext i32 %add44 to i64
   %arrayidx.i89 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i88
   %param1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
-  %108 = load i8, ptr %param1, align 2, !tbaa !208
-  store i8 %108, ptr %arrayidx.i89, align 1, !tbaa !58
-  %add50 = add i32 %mul37, %106
+  %110 = load i8, ptr %param1, align 2, !tbaa !208
+  store i8 %110, ptr %arrayidx.i89, align 1, !tbaa !58
+  %add50 = add i32 %mul37, %108
   %idxprom.i90 = zext i32 %add50 to i64
   %arrayidx.i91 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i90
   %param2 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 3
-  %109 = load i8, ptr %param2, align 1, !tbaa !47
-  store i8 %109, ptr %arrayidx.i91, align 1, !tbaa !58
+  %111 = load i8, ptr %param2, align 1, !tbaa !47
+  store i8 %111, ptr %arrayidx.i91, align 1, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %nrvo.skipdtor, label %invoke.cont43, !llvm.loop !223

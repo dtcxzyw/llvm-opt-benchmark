@@ -706,7 +706,7 @@ pm_encoding_euc_jp_char_width.exit:               ; preds = %10
   switch i8 %3, label %pm_encoding_euc_jp_char_width.exit.thread [
     i8 -93, label %17
     i8 -90, label %19
-    i8 -89, label %20
+    i8 -89, label %21
   ]
 
 17:                                               ; preds = %pm_encoding_euc_jp_char_width.exit
@@ -721,11 +721,11 @@ pm_encoding_euc_jp_char_width.exit:               ; preds = %10
 .thread23:                                        ; preds = %19, %17
   br label %pm_encoding_euc_jp_char_width.exit.thread
 
-20:                                               ; preds = %pm_encoding_euc_jp_char_width.exit
+21:                                               ; preds = %pm_encoding_euc_jp_char_width.exit
   %spec.select = icmp slt i8 %12, -62
   br label %pm_encoding_euc_jp_char_width.exit.thread
 
-pm_encoding_euc_jp_char_width.exit.thread:        ; preds = %7, %10, %pm_encoding_euc_jp_char_width.exit, %5, %.thread23, %20, %17, %19, %14
+pm_encoding_euc_jp_char_width.exit.thread:        ; preds = %7, %10, %pm_encoding_euc_jp_char_width.exit, %5, %.thread23, %21, %17, %19, %14
   %.0 = phi i1 [ %16, %14 ], [ true, %17 ], [ true, %19 ], [ %spec.select, %20 ], [ false, %.thread23 ], [ false, %5 ], [ false, %pm_encoding_euc_jp_char_width.exit ], [ false, %10 ], [ false, %7 ]
   ret i1 %.0
 }

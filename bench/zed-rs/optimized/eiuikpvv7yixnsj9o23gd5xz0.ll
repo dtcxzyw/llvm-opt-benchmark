@@ -173076,7 +173076,7 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform5linux8platform24is_within_cl
   %8 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %7, i32 1084227584)
   %.off = add nsw i8 %8, -1
   %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %13, label %9
+  br i1 %switch, label %15, label %9
 
 9:                                                ; preds = %4
   %10 = fsub float %1, %3
@@ -173085,7 +173085,7 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform5linux8platform24is_within_cl
   %switch7 = icmp samesign ult i32 %12, 1084227585
   br label %13
 
-13:                                               ; preds = %4, %9
+15:                                               ; preds = %4, %9
   %.sroa.0.0 = phi i1 [ %switch7, %9 ], [ false, %4 ]
   ret i1 %.sroa.0.0
 }

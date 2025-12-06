@@ -3902,12 +3902,12 @@ define dso_local noundef ptr @_ZN4llvm7AArch649parseArchENS_9StringRefE(ptr %0, 
   %12 = load i8, ptr %11, align 1, !tbaa !38
   %13 = sext i8 %12 to i32
   %14 = add nsw i32 %13, -58
-  %isdigit.i = icmp ult i32 %14, -10
+  %or.cond = icmp ult i32 %14, -10
   %15 = icmp slt i8 %12, 56
   %or.cond = or i1 %15, %isdigit.i
   br i1 %or.cond, label %_ZL16checkArchVersionN4llvm9StringRefE.exit.thread, label %16
 
-16:                                               ; preds = %10
+16:; preds = %10
   %17 = tail call { ptr, i64 } @_ZN4llvm3ARM14getArchSynonymENS_9StringRefE(ptr nonnull %4, i64 %5) #26
   %.fr28 = freeze { ptr, i64 } %17
   %18 = extractvalue { ptr, i64 } %.fr28, 0
@@ -3919,20 +3919,20 @@ define dso_local noundef ptr @_ZN4llvm7AArch649parseArchENS_9StringRefE(ptr %0, 
 .split:                                           ; preds = %16, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread25
   %.023.idx26 = phi i64 [ %.023.add, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread25 ], [ 0, %16 ]
   %.023.ptr = getelementptr inbounds nuw i8, ptr @_ZN4llvm7AArch64L9ArchInfosE, i64 %.023.idx26
-  %22 = load ptr, ptr %.023.ptr, align 8, !tbaa !36
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load i64, ptr %23, align 8, !tbaa !39
-  %.not.i = icmp ult i64 %24, %19
+  %21 = load ptr, ptr %.023.ptr, align 8, !tbaa !36
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %23 = load i64, ptr %22, align 8, !tbaa !39
+  %.not.i = icmp ult i64 %23, %19
   br i1 %.not.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread25, label %_ZNK4llvm9StringRef9ends_withES0_.exit
 
 _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %.split
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !40
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
-  %28 = getelementptr inbounds i8, ptr %27, i64 %21
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %28, ptr %18, i64 %19)
-  %29 = icmp eq i32 %bcmp.i, 0
-  br i1 %29, label %_ZL16checkArchVersionN4llvm9StringRefE.exit.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread25
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %25 = load ptr, ptr %24, align 8, !tbaa !40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %23
+  %27 = getelementptr inbounds i8, ptr %26, i64 %21
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %27, ptr %18, i64 %19)
+  %28 = icmp eq i32 %bcmp.i, 0
+  br i1 %28, label %_ZL16checkArchVersionN4llvm9StringRefE.exit.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread25
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.thread25:  ; preds = %.split, %_ZNK4llvm9StringRef9ends_withES0_.exit
   %.023.add = add nuw nsw i64 %.023.idx26, 8
@@ -3940,7 +3940,7 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.thread25:  ; preds = %.split, %_ZNK4llvm9
   br i1 %.not, label %_ZL16checkArchVersionN4llvm9StringRefE.exit.thread, label %.split
 
 _ZL16checkArchVersionN4llvm9StringRefE.exit.thread: ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread25, %16, %10, %2, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %2 ], [ null, %10 ], [ @_ZN4llvm7AArch646ARMV8AE, %16 ], [ %22, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread25 ]
+  %.0 = phi ptr [ null, %7 ], [ null, %2 ], [ null, %10 ], [ @_ZN4llvm7AArch646ARMV8AE, %16 ], [ %21, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ null, %_ZNK4llvm9StringRef9ends_withES0_.exit.thread25 ]
   ret ptr %.0
 }
 

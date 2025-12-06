@@ -539,7 +539,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
   %63 = icmp ult i16 %42, 1574
   br i1 %63, label %64, label %73
 
-64:                                               ; preds = %62
+64:; preds = %62
   %65 = add nuw nsw i64 %43, 4294966360
   %66 = and i64 %65, 4294967295
   %67 = getelementptr inbounds nuw i32, ptr @_ZL19_hb_ucd_dm2_u32_map, i64 %66
@@ -551,21 +551,21 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
   %72 = or disjoint i32 %71, 768
   br label %_ZL10_hb_ucd_dmj.exit.thread.sink.split
 
-73:                                               ; preds = %62
-  %74 = add nuw nsw i64 %43, 4294965722
-  %75 = and i64 %74, 4294967295
-  %76 = getelementptr inbounds nuw i64, ptr @_ZL19_hb_ucd_dm2_u64_map, i64 %75
-  %77 = load i64, ptr %76, align 8
-  %78 = lshr i64 %77, 42
-  %79 = trunc nuw nsw i64 %78 to i32
-  store i32 %79, ptr %2, align 4
-  %80 = lshr i64 %77, 21
-  %81 = trunc i64 %80 to i32
-  %82 = and i32 %81, 2097151
+74:                                               ; preds = %62
+  %75 = add nuw nsw i64 %43, 4294965722
+  %76 = and i64 %75, 4294967295
+  %77 = getelementptr inbounds nuw i64, ptr @_ZL19_hb_ucd_dm2_u64_map, i64 %76
+  %78 = load i64, ptr %77, align 8
+  %79 = lshr i64 %78, 42
+  %80 = trunc nuw nsw i64 %79 to i32
+  store i32 %80, ptr %2, align 4
+  %81 = lshr i64 %78, 21
+  %82 = trunc i64 %81 to i32
+  %83 = and i32 %82, 2097151
   br label %_ZL10_hb_ucd_dmj.exit.thread.sink.split
 
-_ZL10_hb_ucd_dmj.exit.thread.sink.split:          ; preds = %61, %64, %73, %_ZL24_hb_ucd_decompose_hanguljPjS_.exit.thread
-  %.sink.i.sink = phi i32 [ %.sink.i, %_ZL24_hb_ucd_decompose_hanguljPjS_.exit.thread ], [ %82, %73 ], [ %72, %64 ], [ 0, %61 ]
+_ZL10_hb_ucd_dmj.exit.thread.sink.split:          ; preds = %61, %64, %74, %_ZL24_hb_ucd_decompose_hanguljPjS_.exit.thread
+  %.sink.i.sink = phi i32 [ %.sink.i, %_ZL24_hb_ucd_decompose_hanguljPjS_.exit.thread ], [ %83, %73 ], [ %72, %64 ], [ 0, %61 ]
   store i32 %.sink.i.sink, ptr %3, align 4
   br label %_ZL10_hb_ucd_dmj.exit.thread
 

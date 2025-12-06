@@ -9402,7 +9402,7 @@ _ZN5graph7graph_t16update_positionsEv.exit:       ; preds = %_ZN11hb_vector_tIN5
   br label %66
 
 66:                                               ; preds = %.lr.ph, %.thread
-  %.03771 = phi ptr [ %59, %.lr.ph ], [ %183, %.thread ]
+  %.03771 = phi ptr [ %59, %.lr.ph ], [ %184, %.thread ]
   %67 = load i32, ptr %43, align 4, !tbaa !60
   %68 = zext i32 %67 to i64
   %.not.i.i46 = icmp ult i64 %indvars.iv, %68
@@ -9464,173 +9464,173 @@ _ZN5graph14compute_offsetERKNS_7graph_tEjRKN22hb_serialize_context_t8object_t6li
   %99 = icmp ne i32 %97, 0
   %100 = icmp sgt i64 %95, -1
   %101 = or i1 %99, %100
-  br i1 %101, label %.thread, label %116, !prof !51
+  br i1 %101, label %.thread, label %117, !prof !51
 
 102:                                              ; preds = %_ZN5graph14compute_offsetERKNS_7graph_tEjRKN22hb_serialize_context_t8object_t6link_tE.exit
   %.not18.i = icmp eq i32 %97, 0
-  br i1 %.not18.i, label %110, label %103
+  br i1 %.not18.i, label %111, label %103
 
 103:                                              ; preds = %102
   %104 = icmp eq i32 %96, 4
-  br i1 %104, label %105, label %107
+  br i1 %104, label %105, label %108
 
 105:                                              ; preds = %103
   %106 = icmp slt i64 %95, 2147483648
   br i1 %106, label %.thread, label %116, !prof !51
 
-107:                                              ; preds = %103
-  %108 = add nsw i64 %95, 32768
-  %109 = icmp ult i64 %108, 65536
-  br i1 %109, label %.thread, label %116, !prof !51
+108:                                              ; preds = %103
+  %109 = add nsw i64 %95, 32768
+  %110 = icmp ult i64 %109, 65536
+  br i1 %110, label %.thread, label %117, !prof !51
 
-110:                                              ; preds = %102
+111:                                              ; preds = %102
   switch i32 %96, label %_ZN5graph15is_valid_offsetElRKN22hb_serialize_context_t8object_t6link_tE.exit [
-    i32 4, label %111
-    i32 3, label %113
+    i32 4, label %112
+    i32 3, label %114
   ]
 
-111:                                              ; preds = %110
-  %112 = icmp ult i64 %95, 4294967296
-  br i1 %112, label %.thread, label %116, !prof !51
+112:                                              ; preds = %111
+  %113 = icmp ult i64 %95, 4294967296
+  br i1 %113, label %.thread, label %117, !prof !51
 
-113:                                              ; preds = %110
-  %114 = icmp ult i64 %95, 16777216
-  br i1 %114, label %.thread, label %116, !prof !51
+114:                                              ; preds = %111
+  %115 = icmp ult i64 %95, 16777216
+  br i1 %115, label %.thread, label %117, !prof !51
 
-_ZN5graph15is_valid_offsetElRKN22hb_serialize_context_t8object_t6link_tE.exit: ; preds = %110
-  %115 = icmp ult i64 %95, 65536
-  br i1 %115, label %.thread, label %116, !prof !51
+_ZN5graph15is_valid_offsetElRKN22hb_serialize_context_t8object_t6link_tE.exit: ; preds = %111
+  %116 = icmp ult i64 %95, 65536
+  br i1 %116, label %.thread, label %117, !prof !51
 
-116:                                              ; preds = %113, %111, %107, %105, %98, %_ZN5graph15is_valid_offsetElRKN22hb_serialize_context_t8object_t6link_tE.exit
-  br i1 %.not, label %.loopexit, label %117
+117:                                              ; preds = %114, %112, %108, %105, %98, %_ZN5graph15is_valid_offsetElRKN22hb_serialize_context_t8object_t6link_tE.exit
+  br i1 %.not, label %.loopexit, label %118
 
-117:                                              ; preds = %116
+118:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %64, ptr %4, align 8, !tbaa !135
   store i32 %72, ptr %47, align 4, !tbaa !171
-  %118 = load ptr, ptr %42, align 8, !tbaa !329
-  %.not.i49 = icmp eq ptr %118, null
-  br i1 %.not.i49, label %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread, label %119
+  %119 = load ptr, ptr %42, align 8, !tbaa !329
+  %.not.i49 = icmp eq ptr %119, null
+  br i1 %.not.i49, label %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread, label %120
 
-119:                                              ; preds = %117
-  %120 = mul i32 %72, 506952113
-  %121 = add i32 %120, %65
-  %122 = and i32 %121, 1073741823
-  %123 = load i32, ptr %48, align 8, !tbaa !331
-  %124 = urem i32 %122, %123
-  %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw %"struct.hb_hashmap_t<graph::overflow_record_t *, bool>::item_t", ptr %118, i64 %125
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = load i32, ptr %127, align 8
-  %129 = and i32 %128, 2
-  %.not18.i.i = icmp eq i32 %129, 0
+120:                                              ; preds = %118
+  %121 = mul i32 %72, 506952113
+  %122 = add i32 %121, %65
+  %123 = and i32 %122, 1073741823
+  %124 = load i32, ptr %48, align 8, !tbaa !331
+  %125 = urem i32 %123, %124
+  %126 = zext nneg i32 %125 to i64
+  %127 = getelementptr inbounds nuw %"struct.hb_hashmap_t<graph::overflow_record_t *, bool>::item_t", ptr %119, i64 %126
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %129 = load i32, ptr %128, align 8
+  %130 = and i32 %129, 2
+  %.not18.i.i = icmp eq i32 %130, 0
   br i1 %.not18.i.i, label %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %119
-  %130 = load i32, ptr %49, align 4
-  br label %131
+.lr.ph.i.i:                                       ; preds = %120
+  %131 = load i32, ptr %49, align 4
+  br label %132
 
-131:                                              ; preds = %145, %.lr.ph.i.i
-  %132 = phi i32 [ %128, %.lr.ph.i.i ], [ %152, %145 ]
-  %133 = phi ptr [ %126, %.lr.ph.i.i ], [ %150, %145 ]
-  %.020.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %146, %145 ]
-  %.01219.i.i = phi i32 [ %124, %.lr.ph.i.i ], [ %148, %145 ]
-  %134 = lshr i32 %132, 2
-  %135 = icmp eq i32 %134, %122
-  br i1 %135, label %136, label %145
+132:                                              ; preds = %146, %.lr.ph.i.i
+  %133 = phi i32 [ %129, %.lr.ph.i.i ], [ %153, %145 ]
+  %134 = phi ptr [ %127, %.lr.ph.i.i ], [ %151, %145 ]
+  %.020.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %147, %145 ]
+  %.01219.i.i = phi i32 [ %125, %.lr.ph.i.i ], [ %149, %145 ]
+  %135 = lshr i32 %133, 2
+  %136 = icmp eq i32 %135, %123
+  br i1 %136, label %137, label %146
 
-136:                                              ; preds = %131
-  %137 = load ptr, ptr %133, align 8, !tbaa !332
-  %138 = load i32, ptr %137, align 4, !tbaa !135
-  %139 = zext i32 %138 to i64
-  %140 = icmp eq i64 %indvars.iv, %139
-  %141 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  %142 = load i32, ptr %141, align 4
-  %143 = icmp eq i32 %142, %72
-  %144 = select i1 %140, i1 %143, i1 false
-  br i1 %144, label %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit, label %145
+137:                                              ; preds = %132
+  %138 = load ptr, ptr %134, align 8, !tbaa !332
+  %139 = load i32, ptr %138, align 4, !tbaa !135
+  %140 = zext i32 %139 to i64
+  %141 = icmp eq i64 %indvars.iv, %140
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 4
+  %143 = load i32, ptr %142, align 4
+  %144 = icmp eq i32 %143, %72
+  %145 = select i1 %141, i1 %144, i1 false
+  br i1 %145, label %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit, label %146
 
-145:                                              ; preds = %136, %131
-  %146 = add i32 %.020.i.i, 1
-  %147 = add i32 %146, %.01219.i.i
-  %148 = and i32 %147, %130
-  %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"struct.hb_hashmap_t<graph::overflow_record_t *, bool>::item_t", ptr %118, i64 %149
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %152 = load i32, ptr %151, align 8
-  %153 = and i32 %152, 2
-  %.not.i.i50 = icmp eq i32 %153, 0
-  br i1 %.not.i.i50, label %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread, label %131, !llvm.loop !334
+146:                                              ; preds = %137, %132
+  %147 = add i32 %.020.i.i, 1
+  %148 = add i32 %147, %.01219.i.i
+  %149 = and i32 %148, %131
+  %150 = zext i32 %149 to i64
+  %151 = getelementptr inbounds nuw %"struct.hb_hashmap_t<graph::overflow_record_t *, bool>::item_t", ptr %119, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %153 = load i32, ptr %152, align 8
+  %154 = and i32 %153, 2
+  %.not.i.i50 = icmp eq i32 %154, 0
+  br i1 %.not.i.i50, label %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread, label %132, !llvm.loop !334
 
-_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit: ; preds = %136
-  %154 = and i32 %132, 1
-  %.not14.i.i.not = icmp eq i32 %154, 0
-  br i1 %.not14.i.i.not, label %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread, label %182
+_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit: ; preds = %137
+  %155 = and i32 %133, 1
+  %.not14.i.i.not = icmp eq i32 %155, 0
+  br i1 %.not14.i.i.not, label %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread, label %183
 
-_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread: ; preds = %145, %119, %117, %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit
-  %155 = load i32, ptr %50, align 4, !tbaa !132
-  %156 = load i32, ptr %1, align 8, !tbaa !184
-  %.not.i52 = icmp slt i32 %155, %156
-  br i1 %.not.i52, label %.critedge.i, label %157
+_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread: ; preds = %146, %120, %118, %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit
+  %156 = load i32, ptr %50, align 4, !tbaa !132
+  %157 = load i32, ptr %1, align 8, !tbaa !184
+  %.not.i52 = icmp slt i32 %156, %157
+  br i1 %.not.i52, label %.critedge.i, label %158
 
-157:                                              ; preds = %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread
-  %158 = add i32 %155, 1
-  %159 = icmp slt i32 %156, 0
-  br i1 %159, label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread6.i, label %160, !prof !7
+158:                                              ; preds = %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread
+  %159 = add i32 %156, 1
+  %160 = icmp slt i32 %157, 0
+  br i1 %160, label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread6.i, label %161, !prof !7
 
-160:                                              ; preds = %157
-  %.not.i.i53 = icmp ugt i32 %158, %156
+161:                                              ; preds = %158
+  %.not.i.i53 = icmp ugt i32 %159, %157
   br i1 %.not.i.i53, label %.preheader.i.i55, label %.critedge.i, !prof !7
 
-.preheader.i.i55:                                 ; preds = %160, %.preheader.i.i55
-  %.11542.i.i = phi i32 [ %163, %.preheader.i.i55 ], [ %156, %160 ]
-  %161 = lshr i32 %.11542.i.i, 1
-  %162 = add i32 %.11542.i.i, 8
-  %163 = add i32 %162, %161
-  %164 = icmp ugt i32 %158, %163
-  br i1 %164, label %.preheader.i.i55, label %.thread.i.i, !llvm.loop !335
+.preheader.i.i55:                                 ; preds = %161, %.preheader.i.i55
+  %.11542.i.i = phi i32 [ %164, %.preheader.i.i55 ], [ %157, %160 ]
+  %162 = lshr i32 %.11542.i.i, 1
+  %163 = add i32 %.11542.i.i, 8
+  %164 = add i32 %163, %162
+  %165 = icmp ugt i32 %159, %164
+  br i1 %165, label %.preheader.i.i55, label %.thread.i.i, !llvm.loop !335
 
 .thread.i.i:                                      ; preds = %.preheader.i.i55
-  %165 = icmp ugt i32 %163, 536870911
-  br i1 %165, label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i, !prof !7
+  %166 = icmp ugt i32 %164, 536870911
+  br i1 %166, label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i, !prof !7
 
 _ZN11hb_vector_tIN5graph17overflow_record_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %.thread.i.i
-  %166 = load ptr, ptr %51, align 8, !tbaa !185
-  %167 = shl nuw i32 %163, 3
-  %168 = zext i32 %167 to i64
-  %169 = call ptr @realloc(ptr noundef %166, i64 noundef %168) #20
-  %.not21.i.i56 = icmp eq ptr %169, null
-  br i1 %.not21.i.i56, label %170, label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.i57, !prof !8
+  %167 = load ptr, ptr %51, align 8, !tbaa !185
+  %168 = shl nuw i32 %164, 3
+  %169 = zext i32 %168 to i64
+  %170 = call ptr @realloc(ptr noundef %167, i64 noundef %169) #20
+  %.not21.i.i56 = icmp eq ptr %170, null
+  br i1 %.not21.i.i56, label %171, label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.i57, !prof !8
 
-170:                                              ; preds = %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
-  %171 = load i32, ptr %1, align 8, !tbaa !184
-  %.not22.i.i58 = icmp ugt i32 %163, %171
+171:                                              ; preds = %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
+  %172 = load i32, ptr %1, align 8, !tbaa !184
+  %.not22.i.i58 = icmp ugt i32 %164, %172
   br i1 %.not22.i.i58, label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread9.i, label %.critedge.i
 
-_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread9.i: ; preds = %170, %.thread.i.i
-  %.sink.i.ph.in.i59 = phi i32 [ %156, %.thread.i.i ], [ %171, %170 ]
+_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread9.i: ; preds = %171, %.thread.i.i
+  %.sink.i.ph.in.i59 = phi i32 [ %157, %.thread.i.i ], [ %172, %170 ]
   %.sink.i.ph.i60 = xor i32 %.sink.i.ph.in.i59, -1
   store i32 %.sink.i.ph.i60, ptr %1, align 8, !tbaa !184
   br label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.i57: ; preds = %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
-  store ptr %169, ptr %51, align 8, !tbaa !185
-  store i32 %163, ptr %1, align 8, !tbaa !184
+  store ptr %170, ptr %51, align 8, !tbaa !185
+  store i32 %164, ptr %1, align 8, !tbaa !184
   br label %.critedge.i
 
-_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread9.i, %157
+_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread9.i, %158
   store i64 %52, ptr @_hb_CrapPool, align 16
   br label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
 
-.critedge.i:                                      ; preds = %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.i57, %170, %160, %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread
-  %172 = load ptr, ptr %51, align 8, !tbaa !185
-  %173 = load i32, ptr %50, align 4, !tbaa !132
-  %174 = add i32 %173, 1
-  store i32 %174, ptr %50, align 4, !tbaa !132
-  %175 = zext i32 %173 to i64
-  %176 = getelementptr inbounds nuw %"struct.graph::overflow_record_t", ptr %172, i64 %175
-  %177 = load i64, ptr %4, align 8
-  store i64 %177, ptr %176, align 4
+.critedge.i:                                      ; preds = %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.i57, %171, %161, %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit.thread
+  %173 = load ptr, ptr %51, align 8, !tbaa !185
+  %174 = load i32, ptr %50, align 4, !tbaa !132
+  %175 = add i32 %174, 1
+  store i32 %175, ptr %50, align 4, !tbaa !132
+  %176 = zext i32 %174 to i64
+  %177 = getelementptr inbounds nuw %"struct.graph::overflow_record_t", ptr %173, i64 %176
+  %178 = load i64, ptr %4, align 8
+  store i64 %178, ptr %177, align 4
   br label %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
 
 _ZN11hb_vector_tIN5graph17overflow_record_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit: ; preds = %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE5allocEjb.exit.thread6.i, %.critedge.i
@@ -9640,58 +9640,58 @@ _ZN11hb_vector_tIN5graph17overflow_record_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit: ;
   store i8 1, ptr %6, align 1, !tbaa !337
   %.val.val.i62 = load i32, ptr %4, align 8, !tbaa !56
   %.val.val5.i = load i32, ptr %47, align 4, !tbaa !56
-  %178 = mul i32 %.val.val.i62, 683129967
-  %179 = mul i32 %.val.val5.i, -1640531535
-  %180 = add i32 %179, %178
-  %181 = call noundef zeroext i1 @_ZN12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE13set_with_hashIS2_bEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %180, ptr noundef nonnull align 1 dereferenceable(1) %6, i1 noundef zeroext true)
+  %179 = mul i32 %.val.val.i62, 683129967
+  %180 = mul i32 %.val.val5.i, -1640531535
+  %181 = add i32 %180, %179
+  %182 = call noundef zeroext i1 @_ZN12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE13set_with_hashIS2_bEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %181, ptr noundef nonnull align 1 dereferenceable(1) %6, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %182
+  br label %183
 
-182:                                              ; preds = %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit, %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit
+183:                                              ; preds = %_ZN11hb_vector_tIN5graph17overflow_record_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit, %_ZNK12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EE3hasIbEEbRKS2_PPT_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.thread:                                          ; preds = %113, %111, %107, %105, %98, %_ZN5graph15is_valid_offsetElRKN22hb_serialize_context_t8object_t6link_tE.exit, %182
-  %183 = getelementptr inbounds nuw i8, ptr %.03771, i64 12
-  %.not41 = icmp eq ptr %183, %63
+.thread:                                          ; preds = %114, %112, %108, %105, %98, %_ZN5graph15is_valid_offsetElRKN22hb_serialize_context_t8object_t6link_tE.exit, %183
+  %184 = getelementptr inbounds nuw i8, ptr %.03771, i64 12
+  %.not41 = icmp eq ptr %184, %63
   br i1 %.not41, label %.critedge.loopexit, label %66
 
 .critedge43:                                      ; preds = %.critedge.loopexit, %_ZN5graph7graph_t16update_positionsEv.exit
-  br i1 %.not, label %.loopexit, label %184
+  br i1 %.not, label %.loopexit, label %185
 
-184:                                              ; preds = %.critedge43
-  %185 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %186 = load i32, ptr %185, align 4, !tbaa !132
-  %187 = icmp ne i32 %186, 0
+185:                                              ; preds = %.critedge43
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %187 = load i32, ptr %186, align 4, !tbaa !132
+  %188 = icmp ne i32 %187, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %116, %.critedge43, %184
-  %.5 = phi i1 [ %187, %184 ], [ false, %.critedge43 ], [ true, %116 ]
+.loopexit:                                        ; preds = %117, %.critedge43, %185
+  %.5 = phi i1 [ %188, %184 ], [ false, %.critedge43 ], [ true, %116 ]
   store atomic i32 -57005, ptr %3 monotonic, align 8
-  %188 = load atomic i64, ptr %39 acquire, align 8
-  %.not.i.i.i = icmp eq i64 %188, 0
-  br i1 %.not.i.i.i, label %_ZL14hb_object_finiI12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EEEvPT_.exit.i.i, label %189
+  %189 = load atomic i64, ptr %39 acquire, align 8
+  %.not.i.i.i = icmp eq i64 %189, 0
+  br i1 %.not.i.i.i, label %_ZL14hb_object_finiI12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EEEvPT_.exit.i.i, label %190
 
-189:                                              ; preds = %.loopexit
-  %190 = inttoptr i64 %188 to ptr
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 40
-  call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef nonnull align 8 dereferenceable(56) %190)
-  %192 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %190) #19
-  call void @free(ptr noundef nonnull %190) #19
+190:                                              ; preds = %.loopexit
+  %191 = inttoptr i64 %189 to ptr
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 40
+  call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef nonnull align 8 dereferenceable(56) %191)
+  %193 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %191) #19
+  call void @free(ptr noundef nonnull %191) #19
   store atomic i64 0, ptr %39 monotonic, align 8
   br label %_ZL14hb_object_finiI12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EEEvPT_.exit.i.i
 
-_ZL14hb_object_finiI12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EEEvPT_.exit.i.i: ; preds = %189, %.loopexit
-  %193 = load ptr, ptr %42, align 8, !tbaa !329
-  %.not.i.i63 = icmp eq ptr %193, null
-  br i1 %.not.i.i63, label %_ZN12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EED2Ev.exit, label %194, !prof !7
+_ZL14hb_object_finiI12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EEEvPT_.exit.i.i: ; preds = %190, %.loopexit
+  %194 = load ptr, ptr %42, align 8, !tbaa !329
+  %.not.i.i63 = icmp eq ptr %194, null
+  br i1 %.not.i.i63, label %_ZN12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EED2Ev.exit, label %195, !prof !7
 
-194:                                              ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EEEvPT_.exit.i.i
-  call void @free(ptr noundef nonnull %193) #19
+195:                                              ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EEEvPT_.exit.i.i
+  call void @free(ptr noundef nonnull %194) #19
   br label %_ZN12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EED2Ev.exit
 
-_ZN12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EED2Ev.exit: ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EEEvPT_.exit.i.i, %194
+_ZN12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EED2Ev.exit: ; preds = %_ZL14hb_object_finiI12hb_hashmap_tIPN5graph17overflow_record_tEbLb0EEEvPT_.exit.i.i, %195
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.5
 }
