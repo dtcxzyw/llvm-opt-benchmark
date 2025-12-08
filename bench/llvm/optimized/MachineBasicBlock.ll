@@ -12087,61 +12087,61 @@ _ZNK4llvm11SlotIndexes19getInstructionIndexERKNS_12MachineInstrEb.exit: ; preds 
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexES2_ELb1EE9push_backES3_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexES2_ELb1EE9push_backES3_.exit: ; preds = %86, %99
-  %103 = phi i32 [ %96, %86 ], [ %.pre.i, %99 ]
-  %104 = load ptr, ptr %23, align 8, !tbaa !25
-  %105 = zext i32 %103 to i64
-  %106 = getelementptr inbounds nuw %"struct.std::pair.669", ptr %104, i64 %105
-  store i64 %91, ptr %106, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %104 = phi i32 [ %96, %86 ], [ %.pre.i, %99 ]
+  %105 = load ptr, ptr %23, align 8, !tbaa !25
+  %106 = zext i32 %104 to i64
+  %107 = getelementptr inbounds nuw %"struct.std::pair.669", ptr %105, i64 %106
+  store i64 %91, ptr %107, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i64 %28, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %107 = load i32, ptr %95, align 8, !tbaa !26
-  %108 = add i32 %107, 1
-  store i32 %108, ptr %95, align 8, !tbaa !26
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %111 = load i32, ptr %110, align 8, !tbaa !26
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %113 = load i32, ptr %112, align 4, !tbaa !27
-  %.not.i.i.not.i12 = icmp ult i32 %111, %113
-  br i1 %.not.i.i.not.i12, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELb1EE9push_backES5_.exit, label %114, !prof !33
+  %108 = load i32, ptr %95, align 8, !tbaa !26
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %95, align 8, !tbaa !26
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %112 = load i32, ptr %111, align 8, !tbaa !26
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  %114 = load i32, ptr %113, align 4, !tbaa !27
+  %.not.i.i.not.i12 = icmp ult i32 %112, %114
+  br i1 %.not.i.i.not.i12, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELb1EE9push_backES5_.exit, label %115, !prof !33
 
-114:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexES2_ELb1EE9push_backES3_.exit
-  %115 = zext i32 %111 to i64
-  %116 = add nuw nsw i64 %115, 1
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull %117, i64 noundef %116, i64 noundef 16) #33
-  %.pre.i13 = load i32, ptr %110, align 8, !tbaa !26
+115:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexES2_ELb1EE9push_backES3_.exit
+  %116 = zext i32 %112 to i64
+  %117 = add nuw nsw i64 %116, 1
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull %118, i64 noundef %117, i64 noundef 16) #33
+  %.pre.i13 = load i32, ptr %111, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELb1EE9push_backES5_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELb1EE9push_backES5_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexES2_ELb1EE9push_backES3_.exit, %114
-  %118 = phi i32 [ %111, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexES2_ELb1EE9push_backES3_.exit ], [ %.pre.i13, %114 ]
-  %119 = load ptr, ptr %109, align 8, !tbaa !25
-  %120 = zext i32 %118 to i64
-  %121 = getelementptr inbounds nuw %"struct.std::pair.724", ptr %119, i64 %120
-  store i64 %91, ptr %121, align 1
-  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %121, i64 8
+_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELb1EE9push_backES5_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexES2_ELb1EE9push_backES3_.exit, %115
+  %119 = phi i32 [ %112, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexES2_ELb1EE9push_backES3_.exit ], [ %.pre.i13, %114 ]
+  %120 = load ptr, ptr %110, align 8, !tbaa !25
+  %121 = zext i32 %119 to i64
+  %122 = getelementptr inbounds nuw %"struct.std::pair.724", ptr %120, i64 %121
+  store i64 %91, ptr %122, align 1
+  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr %1, ptr %.sroa.2.0..sroa_idx.i14, align 1
-  %122 = load i32, ptr %110, align 8, !tbaa !26
-  %123 = add i32 %122, 1
-  store i32 %123, ptr %110, align 8, !tbaa !26
+  %123 = load i32, ptr %111, align 8, !tbaa !26
+  %124 = add i32 %123, 1
+  store i32 %124, ptr %111, align 8, !tbaa !26
   tail call void @_ZN4llvm11SlotIndexes15renumberIndexesENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14IndexListEntryELb0ELb0EvLb0EvEELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr nonnull %.0.i.i.i) #33
-  %124 = load i32, ptr %110, align 8, !tbaa !26
-  %.not.i.i.i.i = icmp eq i32 %124, 0
-  br i1 %.not.i.i.i.i, label %_ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELj8EEENS_10less_firstEEEvOT_T0_.exit, label %125
+  %125 = load i32, ptr %111, align 8, !tbaa !26
+  %.not.i.i.i.i = icmp eq i32 %125, 0
+  br i1 %.not.i.i.i.i, label %_ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELj8EEENS_10less_firstEEEvOT_T0_.exit, label %126
 
-125:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELb1EE9push_backES5_.exit
-  %126 = zext i32 %124 to i64
-  %.idx.i = shl nuw nsw i64 %126, 4
-  %127 = load ptr, ptr %109, align 8, !tbaa !25
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx.i
-  %129 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %126, i1 true)
-  %130 = shl nuw nsw i64 %129, 1
-  %131 = xor i64 %130, 126
-  tail call void @_ZSt16__introsort_loopIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_T1_(ptr noundef %127, ptr noundef nonnull %128, i64 noundef %131)
-  tail call void @_ZSt22__final_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_(ptr noundef %127, ptr noundef nonnull %128)
+126:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELb1EE9push_backES5_.exit
+  %127 = zext i32 %125 to i64
+  %.idx.i = shl nuw nsw i64 %127, 4
+  %128 = load ptr, ptr %110, align 8, !tbaa !25
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %.idx.i
+  %130 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %127, i1 true)
+  %131 = shl nuw nsw i64 %130, 1
+  %132 = xor i64 %131, 126
+  tail call void @_ZSt16__introsort_loopIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_T1_(ptr noundef %128, ptr noundef nonnull %129, i64 noundef %132)
+  tail call void @_ZSt22__final_insertion_sortIPSt4pairIN4llvm9SlotIndexEPNS1_17MachineBasicBlockEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_SC_T0_(ptr noundef %128, ptr noundef nonnull %129)
   br label %_ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELj8EEENS_10less_firstEEEvOT_T0_.exit
 
-_ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELj8EEENS_10less_firstEEEvOT_T0_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELb1EE9push_backES5_.exit, %125
+_ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELj8EEENS_10less_firstEEEvOT_T0_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_9SlotIndexEPNS_17MachineBasicBlockEELb1EE9push_backES5_.exit, %126
   ret void
 }
 

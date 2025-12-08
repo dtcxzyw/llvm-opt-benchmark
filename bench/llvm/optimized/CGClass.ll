@@ -1464,7 +1464,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds
 _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit: ; preds = %161, %168
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %99, ptr %169, align 8, !tbaa !654, !alias.scope !708
-  br label %355
+  br label %356
 
 170:                                              ; preds = %_ZN5clang7CodeGen13CodeGenModule24getClassPointerAlignmentEPKNS_13CXXRecordDeclE.exit
   br i1 %6, label %171, label %216
@@ -1635,7 +1635,7 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit104: ; preds = %22
   store i64 %.sroa.7.0, ptr %.sroa.7.0.in, align 8
   store ptr %.sroa.8139.0, ptr %.sroa.8139.0.in, align 8, !tbaa !655
   store ptr %238, ptr %237, align 8, !tbaa !655
-  br i1 %6, label %240, label %354
+  br i1 %6, label %240, label %355
 
 240:                                              ; preds = %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit104
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -1866,13 +1866,13 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit126: ; preds = %_
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.8, i64 23, i1 false), !tbaa.struct !752
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
-  br label %354
-
-354:                                              ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit126, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !tbaa.struct !711
   br label %355
 
-355:                                              ; preds = %354, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit
+355:                                              ; preds = %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit126, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !tbaa.struct !711
+  br label %356
+
+356:                                              ; preds = %355, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit
   ret void
 }
 

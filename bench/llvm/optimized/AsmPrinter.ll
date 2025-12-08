@@ -1726,12 +1726,12 @@ define linkonce_odr hidden void @_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE9push_ba
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -5
   store i64 %5, ptr %0, align 8, !tbaa !140
-  br label %49
+  br label %51
 
 6:                                                ; preds = %2
   %7 = and i64 %.0.copyload.i.i.i.i, 4
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %31
+  br i1 %8, label %9, label %33
 
 9:                                                ; preds = %6
   %10 = and i64 %.0.copyload.i.i.i.i, -8
@@ -1752,7 +1752,7 @@ define linkonce_odr hidden void @_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE9push_ba
   %.not.i.i.not.i = icmp ult i32 %18, %20
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit, label %21, !prof !33
 
-21:                                               ; preds = %9
+21:  ; preds = %9
   %22 = zext i32 %18 to i64
   %23 = add nuw nsw i64 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1761,49 +1761,49 @@ define linkonce_odr hidden void @_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE9push_ba
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit: ; preds = %9, %21
-  %25 = phi i32 [ %18, %9 ], [ %.pre.i, %21 ]
-  %26 = load ptr, ptr %11, align 8, !tbaa !25
-  %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
-  store i64 %10, ptr %28, align 1
-  %29 = load i32, ptr %17, align 8, !tbaa !26
-  %30 = add i32 %29, 1
-  store i32 %30, ptr %17, align 8, !tbaa !26
+  %27 = phi i32 [ %18, %9 ], [ %.pre.i, %21 ]
+  %28 = load ptr, ptr %11, align 8, !tbaa !25
+  %29 = zext i32 %27 to i64
+  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  store i64 %10, ptr %30, align 1
+  %31 = load i32, ptr %17, align 8, !tbaa !26
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %17, align 8, !tbaa !26
   %.0.copyload.i.i.i.i.i.i5.pre = load i64, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit, %6
+33:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit, %6
   %.0.copyload.i.i.i.i.i.i5 = phi i64 [ %.0.copyload.i.i.i.i.i.i5.pre, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit ], [ %.0.copyload.i.i.i.i, %6 ]
-  %32 = and i64 %.0.copyload.i.i.i.i.i.i5, -8
-  %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !26
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  %37 = load i32, ptr %36, align 4, !tbaa !27
-  %.not.i.i.not.i6 = icmp ult i32 %35, %37
-  br i1 %.not.i.i.not.i6, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit8, label %38, !prof !33
+  %34 = and i64 %.0.copyload.i.i.i.i.i.i5, -8
+  %35 = inttoptr i64 %34 to ptr
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load i32, ptr %36, align 8, !tbaa !26
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  %39 = load i32, ptr %38, align 4, !tbaa !27
+  %.not.i.i.not.i6 = icmp ult i32 %37, %39
+  br i1 %.not.i.i.not.i6, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit8, label %40, !prof !33
 
-38:                                               ; preds = %31
-  %39 = zext i32 %35 to i64
-  %40 = add nuw nsw i64 %39, 1
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %41, i64 noundef %40, i64 noundef 8) #35
-  %.pre.i7 = load i32, ptr %34, align 8, !tbaa !26
+40:                                               ; preds = %33
+  %41 = zext i32 %37 to i64
+  %42 = add nuw nsw i64 %41, 1
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull %43, i64 noundef %42, i64 noundef 8) #35
+  %.pre.i7 = load i32, ptr %36, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit8
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit8: ; preds = %31, %38
-  %42 = phi i32 [ %35, %31 ], [ %.pre.i7, %38 ]
-  %43 = load ptr, ptr %33, align 8, !tbaa !25
-  %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
-  %46 = ptrtoint ptr %1 to i64
-  store i64 %46, ptr %45, align 1
-  %47 = load i32, ptr %34, align 8, !tbaa !26
-  %48 = add i32 %47, 1
-  store i32 %48, ptr %34, align 8, !tbaa !26
-  br label %49
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit8: ; preds = %33, %40
+  %44 = phi i32 [ %37, %31 ], [ %.pre.i7, %38 ]
+  %45 = load ptr, ptr %35, align 8, !tbaa !25
+  %46 = zext i32 %44 to i64
+  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %48 = ptrtoint ptr %1 to i64
+  store i64 %48, ptr %47, align 1
+  %49 = load i32, ptr %36, align 8, !tbaa !26
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %36, align 8, !tbaa !26
+  br label %51
 
-49:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit8, %3
+51:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit8, %3
   ret void
 }
 
@@ -30113,7 +30113,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_11AssertingVHINS_8FunctionEEESt6vectorIPN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE6insertIPS2_EES5_S5_T_S6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = icmp eq ptr %2, %3
-  br i1 %5, label %63, label %6
+  br i1 %5, label %65, label %6
 
 6:                                                ; preds = %4
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %0, align 8
@@ -30149,7 +30149,7 @@ _ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit16: ; preds = %18
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, -5
   store i64 %24, ptr %0, align 8, !tbaa !140
-  br label %63
+  br label %65
 
 25:                                               ; preds = %18
   %26 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #38
@@ -30183,7 +30183,7 @@ _ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit16: ; preds = %18
   %.not.i.i.not.i = icmp ult i32 %41, %43
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit, label %44, !prof !33
 
-44:                                               ; preds = %32
+44:; preds = %32
   %45 = zext i32 %41 to i64
   %46 = add nuw nsw i64 %45, 1
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -30191,39 +30191,39 @@ _ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit16: ; preds = %18
   %.pre.i = load i32, ptr %40, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit: ; preds = %32, %44
-  %48 = phi i32 [ %41, %32 ], [ %.pre.i, %44 ]
-  %49 = load ptr, ptr %34, align 8, !tbaa !25
-  %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
-  store i64 %33, ptr %51, align 1
-  %52 = load i32, ptr %40, align 8, !tbaa !26
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %40, align 8, !tbaa !26
+_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit: ; preds = %32, %46
+  %50 = phi i32 [ %43, %32 ], [ %.pre.i, %46 ]
+  %51 = load ptr, ptr %34, align 8, !tbaa !25
+  %52 = zext i32 %50 to i64
+  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  store i64 %33, ptr %53, align 1
+  %54 = load i32, ptr %42, align 8, !tbaa !26
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %42, align 8, !tbaa !26
   %.0.copyload.i.i.i.i.i.i18.pre = load i64, ptr %0, align 8
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit.thread, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit, %25
   %.0.copyload.i.i.i.i.i.i18 = phi i64 [ %.0.copyload.i.i.i.i.i.i18.pre, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit ], [ %31, %25 ], [ %.0.copyload.i.i.i.i.i.i.i.i, %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit.thread ]
-  %54 = phi i64 [ %11, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit ], [ %19, %25 ], [ %17, %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit.thread ]
-  %55 = and i64 %.0.copyload.i.i.i.i.i.i18, -8
-  %56 = inttoptr i64 %55 to ptr
-  %57 = and i64 %.0.copyload.i.i.i.i.i.i18, 4
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit21, label %59
+  %56 = phi i64 [ %11, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MCSymbolELb1EE9push_backES2_.exit ], [ %19, %25 ], [ %17, %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit.thread ]
+  %57 = and i64 %.0.copyload.i.i.i.i.i.i18, -8
+  %58 = inttoptr i64 %57 to ptr
+  %59 = and i64 %.0.copyload.i.i.i.i.i.i18, 4
+  %60 = icmp eq i64 %59, 0
+  br i1 %60, label %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit21, label %61
 
-59:                                               ; preds = %.thread
-  %60 = load ptr, ptr %56, align 8, !tbaa !25
+61:                                               ; preds = %.thread
+  %62 = load ptr, ptr %58, align 8, !tbaa !25
   br label %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit21
 
-_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit21: ; preds = %.thread, %59
-  %.0.i20 = phi ptr [ %60, %59 ], [ %0, %.thread ]
-  %61 = getelementptr inbounds i8, ptr %.0.i20, i64 %54
-  %62 = tail call noundef ptr @_ZN4llvm15SmallVectorImplIPNS_8MCSymbolEE6insertIPS2_vEES5_S5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef %61, ptr noundef %2, ptr noundef %3)
-  br label %63
+_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit21: ; preds = %.thread, %61
+  %.0.i20 = phi ptr [ %62, %59 ], [ %0, %.thread ]
+  %63 = getelementptr inbounds i8, ptr %.0.i20, i64 %56
+  %64 = tail call noundef ptr @_ZN4llvm15SmallVectorImplIPNS_8MCSymbolEE6insertIPS2_vEES5_S5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef %63, ptr noundef %2, ptr noundef %3)
+  br label %65
 
-63:                                               ; preds = %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit16, %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit21, %4
-  %.0 = phi ptr [ %1, %4 ], [ %0, %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit16 ], [ %62, %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit21 ]
+65:                                               ; preds = %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit16, %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit21, %4
+  %.0 = phi ptr [ %1, %4 ], [ %0, %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit16 ], [ %64, %_ZN4llvm13TinyPtrVectorIPNS_8MCSymbolEE5beginEv.exit21 ]
   ret ptr %.0
 }
 

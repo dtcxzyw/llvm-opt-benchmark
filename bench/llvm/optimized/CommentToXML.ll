@@ -6094,12 +6094,12 @@ define linkonce_odr hidden void @_ZN4llvm13TinyPtrVectorIPKN5clang8comments19Blo
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -5
   store i64 %5, ptr %0, align 8, !tbaa !105
-  br label %49
+  br label %51
 
 6:                                                ; preds = %2
   %7 = and i64 %.0.copyload.i.i.i.i, 4
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %31
+  br i1 %8, label %9, label %33
 
 9:                                                ; preds = %6
   %10 = and i64 %.0.copyload.i.i.i.i, -8
@@ -6120,7 +6120,7 @@ define linkonce_odr hidden void @_ZN4llvm13TinyPtrVectorIPKN5clang8comments19Blo
   %.not.i.i.not.i = icmp ult i32 %18, %20
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit, label %21, !prof !543
 
-21:                                               ; preds = %9
+21:  ; preds = %9
   %22 = zext i32 %18 to i64
   %23 = add nuw nsw i64 %22, 1
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -6129,49 +6129,49 @@ define linkonce_odr hidden void @_ZN4llvm13TinyPtrVectorIPKN5clang8comments19Blo
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit: ; preds = %9, %21
-  %25 = phi i32 [ %18, %9 ], [ %.pre.i, %21 ]
-  %26 = load ptr, ptr %11, align 8, !tbaa !80
-  %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
-  store i64 %10, ptr %28, align 1
-  %29 = load i32, ptr %17, align 8, !tbaa !79
-  %30 = add i32 %29, 1
-  store i32 %30, ptr %17, align 8, !tbaa !79
+  %27 = phi i32 [ %18, %9 ], [ %.pre.i, %21 ]
+  %28 = load ptr, ptr %11, align 8, !tbaa !80
+  %29 = zext i32 %27 to i64
+  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  store i64 %10, ptr %30, align 1
+  %31 = load i32, ptr %17, align 8, !tbaa !79
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %17, align 8, !tbaa !79
   %.0.copyload.i.i.i.i.i.i5.pre = load i64, ptr %0, align 8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit, %6
+33:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit, %6
   %.0.copyload.i.i.i.i.i.i5 = phi i64 [ %.0.copyload.i.i.i.i.i.i5.pre, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit ], [ %.0.copyload.i.i.i.i, %6 ]
-  %32 = and i64 %.0.copyload.i.i.i.i.i.i5, -8
-  %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !79
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  %37 = load i32, ptr %36, align 4, !tbaa !538
-  %.not.i.i.not.i6 = icmp ult i32 %35, %37
-  br i1 %.not.i.i.not.i6, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit8, label %38, !prof !543
+  %34 = and i64 %.0.copyload.i.i.i.i.i.i5, -8
+  %35 = inttoptr i64 %34 to ptr
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load i32, ptr %36, align 8, !tbaa !79
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  %39 = load i32, ptr %38, align 4, !tbaa !538
+  %.not.i.i.not.i6 = icmp ult i32 %37, %39
+  br i1 %.not.i.i.not.i6, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit8, label %40, !prof !543
 
-38:                                               ; preds = %31
-  %39 = zext i32 %35 to i64
-  %40 = add nuw nsw i64 %39, 1
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %41, i64 noundef %40, i64 noundef 8) #19
-  %.pre.i7 = load i32, ptr %34, align 8, !tbaa !79
+40:                                               ; preds = %33
+  %41 = zext i32 %37 to i64
+  %42 = add nuw nsw i64 %41, 1
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull %43, i64 noundef %42, i64 noundef 8) #19
+  %.pre.i7 = load i32, ptr %36, align 8, !tbaa !79
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit8
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit8: ; preds = %31, %38
-  %42 = phi i32 [ %35, %31 ], [ %.pre.i7, %38 ]
-  %43 = load ptr, ptr %33, align 8, !tbaa !80
-  %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
-  %46 = ptrtoint ptr %1 to i64
-  store i64 %46, ptr %45, align 1
-  %47 = load i32, ptr %34, align 8, !tbaa !79
-  %48 = add i32 %47, 1
-  store i32 %48, ptr %34, align 8, !tbaa !79
-  br label %49
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit8: ; preds = %33, %40
+  %44 = phi i32 [ %37, %31 ], [ %.pre.i7, %38 ]
+  %45 = load ptr, ptr %35, align 8, !tbaa !80
+  %46 = zext i32 %44 to i64
+  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %48 = ptrtoint ptr %1 to i64
+  store i64 %48, ptr %47, align 1
+  %49 = load i32, ptr %36, align 8, !tbaa !79
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %36, align 8, !tbaa !79
+  br label %51
 
-49:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit8, %3
+51:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments19BlockCommandCommentELb1EE9push_backES5_.exit8, %3
   ret void
 }
 

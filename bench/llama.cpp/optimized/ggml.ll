@@ -15783,19 +15783,19 @@ ggml_hash_size.exit:                              ; preds = %78, %81
   store i32 0, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 76
   store i32 0, ptr %.sroa.13.0..sroa_idx, align 4
-  %104 = lshr i64 %98, 3
-  %105 = and i64 %104, 2305843009213693948
-  tail call void @llvm.memset.p0.i64(ptr align 4 %102, i8 0, i64 %105, i1 false)
-  br i1 %2, label %106, label %109
+  %107 = lshr i64 %98, 3
+  %108 = and i64 %107, 2305843009213693948
+  tail call void @llvm.memset.p0.i64(ptr align 4 %102, i8 0, i64 %108, i1 false)
+  br i1 %2, label %109, label %112
 
-106:                                              ; preds = %ggml_hash_size.exit
-  %107 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !101
-  tail call void @llvm.memset.p0.i64(ptr align 8 %107, i8 0, i64 %92, i1 false)
-  %108 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !102
-  tail call void @llvm.memset.p0.i64(ptr align 8 %108, i8 0, i64 %92, i1 false)
-  br label %109
+109:                                              ; preds = %ggml_hash_size.exit
+  %110 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !101
+  tail call void @llvm.memset.p0.i64(ptr align 8 %110, i8 0, i64 %92, i1 false)
+  %111 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !102
+  tail call void @llvm.memset.p0.i64(ptr align 8 %111, i8 0, i64 %92, i1 false)
+  br label %112
 
-109:                                              ; preds = %106, %ggml_hash_size.exit
+112:                                              ; preds = %109, %ggml_hash_size.exit
   ret ptr %76
 }
 

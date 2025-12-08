@@ -3213,7 +3213,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen12CodeGenTypes27ConvertFunctionTy
   %49 = load ptr, ptr %48, align 8, !tbaa !436
   %50 = load ptr, ptr %49, align 8, !tbaa !437
   %51 = tail call noundef ptr @_ZN4llvm10StructType3getERNS_11LLVMContextEb(ptr noundef nonnull align 8 dereferenceable(8) %50, i1 noundef zeroext false) #16
-  br label %83
+  br label %84
 
 52:                                               ; preds = %2
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3224,17 +3224,17 @@ define dso_local noundef ptr @_ZN5clang7CodeGen12CodeGenTypes27ConvertFunctionTy
   %56 = ptrtoint ptr %5 to i64
   br i1 %.not34, label %59, label %57
 
-57:                                               ; preds = %52
-  %58 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes23arrangeFreeFunctionTypeENS_7CanQualINS_17FunctionProtoTypeEEE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %56) #16
+58:                                               ; preds = %52
+  %59 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes23arrangeFreeFunctionTypeENS_7CanQualINS_17FunctionProtoTypeEEE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %56) #16
   br label %61
 
-59:                                               ; preds = %52
+62:                                               ; preds = %52
   %60 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes23arrangeFreeFunctionTypeENS_7CanQualINS_19FunctionNoProtoTypeEEE(ptr noundef nonnull align 8 dereferenceable(232) %0, i64 %56) #16
   br label %61
 
-61:                                               ; preds = %59, %57
-  %.026 = phi ptr [ %58, %57 ], [ %60, %59 ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 120
+67:                                               ; preds = %62, %57
+  %.026 = phi ptr [ %62, %57 ], [ %60, %59 ]
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %64 = load i8, ptr %63, align 4, !tbaa !355, !range !375, !noundef !376
   %65 = trunc nuw i8 %64 to i1
@@ -3250,37 +3250,37 @@ define dso_local noundef ptr @_ZN5clang7CodeGen12CodeGenTypes27ConvertFunctionTy
   %.not.not9.i.i = icmp eq i32 %69, 0
   br i1 %.not.not9.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread, label %.lr.ph.i.i
 
-72:                                               ; preds = %.lr.ph.i.i
-  %73 = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 8
-  %.not.not.i.i = icmp eq ptr %73, %71
+73:                                               ; preds = %.lr.ph.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 8
+  %.not.not.i.i = icmp eq ptr %74, %71
   br i1 %.not.not.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread, label %.lr.ph.i.i, !llvm.loop !927
 
-.lr.ph.i.i:                                       ; preds = %66, %72
-  %.0810.i.i = phi ptr [ %73, %72 ], [ %67, %66 ]
-  %74 = load ptr, ptr %.0810.i.i, align 8, !tbaa !928
-  %75 = icmp eq ptr %74, %.026
-  br i1 %75, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread47, label %72
+.lr.ph.i.i:                                       ; preds = %66, %73
+  %.0810.i.i = phi ptr [ %74, %72 ], [ %67, %66 ]
+  %75 = load ptr, ptr %.0810.i.i, align 8, !tbaa !928
+  %76 = icmp eq ptr %75, %.026
+  br i1 %76, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread47, label %73
 
 _ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit: ; preds = %61
-  %76 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %62, ptr noundef nonnull %.026) #16
-  %.not54 = icmp eq ptr %76, null
+  %77 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %62, ptr noundef nonnull %.026) #16
+  %.not54 = icmp eq ptr %77, null
   br i1 %.not54, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread47
 
 _ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread47: ; preds = %.lr.ph.i.i, %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !436
-  %79 = load ptr, ptr %78, align 8, !tbaa !437
-  %80 = tail call noundef ptr @_ZN4llvm10StructType3getERNS_11LLVMContextEb(ptr noundef nonnull align 8 dereferenceable(8) %79, i1 noundef zeroext false) #16
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 1, ptr %81, align 8, !tbaa !356
-  br label %83
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %79 = load ptr, ptr %78, align 8, !tbaa !436
+  %80 = load ptr, ptr %79, align 8, !tbaa !437
+  %81 = tail call noundef ptr @_ZN4llvm10StructType3getERNS_11LLVMContextEb(ptr noundef nonnull align 8 dereferenceable(8) %80, i1 noundef zeroext false) #16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i8 1, ptr %82, align 8, !tbaa !356
+  br label %84
 
-_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread: ; preds = %72, %66, %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit
-  %82 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes15GetFunctionTypeERKNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(40) %.026) #16
-  br label %83
+_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread: ; preds = %73, %66, %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit
+  %83 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes15GetFunctionTypeERKNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(40) %.026) #16
+  br label %84
 
-83:                                               ; preds = %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread47, %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread, %.loopexit
-  %.024 = phi ptr [ %51, %.loopexit ], [ %80, %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread47 ], [ %82, %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread ]
+84:                                               ; preds = %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread47, %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread, %.loopexit
+  %.024 = phi ptr [ %51, %.loopexit ], [ %81, %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread47 ], [ %83, %_ZNK4llvm15SmallPtrSetImplIPKN5clang7CodeGen14CGFunctionInfoEE5countES5_.exit.thread ]
   ret ptr %.024
 }
 
